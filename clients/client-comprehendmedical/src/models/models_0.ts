@@ -6,56 +6,56 @@ import { ComprehendMedicalServiceException as __BaseException } from "./Comprehe
 /**
  * @public
  */
-export enum EntityType {
-  ANATOMY = "ANATOMY",
-  BEHAVIORAL_ENVIRONMENTAL_SOCIAL = "BEHAVIORAL_ENVIRONMENTAL_SOCIAL",
-  MEDICAL_CONDITION = "MEDICAL_CONDITION",
-  MEDICATION = "MEDICATION",
-  PROTECTED_HEALTH_INFORMATION = "PROTECTED_HEALTH_INFORMATION",
-  TEST_TREATMENT_PROCEDURE = "TEST_TREATMENT_PROCEDURE",
-  TIME_EXPRESSION = "TIME_EXPRESSION",
-}
+export const EntityType = {
+  ANATOMY: "ANATOMY",
+  BEHAVIORAL_ENVIRONMENTAL_SOCIAL: "BEHAVIORAL_ENVIRONMENTAL_SOCIAL",
+  MEDICAL_CONDITION: "MEDICAL_CONDITION",
+  MEDICATION: "MEDICATION",
+  PROTECTED_HEALTH_INFORMATION: "PROTECTED_HEALTH_INFORMATION",
+  TEST_TREATMENT_PROCEDURE: "TEST_TREATMENT_PROCEDURE",
+  TIME_EXPRESSION: "TIME_EXPRESSION",
+};
 
 /**
  * @public
  */
-export enum RelationshipType {
-  ACUITY = "ACUITY",
-  ADMINISTERED_VIA = "ADMINISTERED_VIA",
-  AMOUNT = "AMOUNT",
-  DIRECTION = "DIRECTION",
-  DOSAGE = "DOSAGE",
-  DURATION = "DURATION",
-  EVERY = "EVERY",
-  FOR = "FOR",
-  FORM = "FORM",
-  FREQUENCY = "FREQUENCY",
-  NEGATIVE = "NEGATIVE",
-  OVERLAP = "OVERLAP",
-  RATE = "RATE",
-  ROUTE_OR_MODE = "ROUTE_OR_MODE",
-  STRENGTH = "STRENGTH",
-  SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
-  TEST_UNIT = "TEST_UNIT",
-  TEST_UNITS = "TEST_UNITS",
-  TEST_VALUE = "TEST_VALUE",
-  WITH_DOSAGE = "WITH_DOSAGE",
-}
+export const RelationshipType = {
+  ACUITY: "ACUITY",
+  ADMINISTERED_VIA: "ADMINISTERED_VIA",
+  AMOUNT: "AMOUNT",
+  DIRECTION: "DIRECTION",
+  DOSAGE: "DOSAGE",
+  DURATION: "DURATION",
+  EVERY: "EVERY",
+  FOR: "FOR",
+  FORM: "FORM",
+  FREQUENCY: "FREQUENCY",
+  NEGATIVE: "NEGATIVE",
+  OVERLAP: "OVERLAP",
+  RATE: "RATE",
+  ROUTE_OR_MODE: "ROUTE_OR_MODE",
+  STRENGTH: "STRENGTH",
+  SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
+  TEST_UNIT: "TEST_UNIT",
+  TEST_UNITS: "TEST_UNITS",
+  TEST_VALUE: "TEST_VALUE",
+  WITH_DOSAGE: "WITH_DOSAGE",
+};
 
 /**
  * @public
  */
-export enum AttributeName {
-  DIAGNOSIS = "DIAGNOSIS",
-  FUTURE = "FUTURE",
-  HYPOTHETICAL = "HYPOTHETICAL",
-  LOW_CONFIDENCE = "LOW_CONFIDENCE",
-  NEGATION = "NEGATION",
-  PAST_HISTORY = "PAST_HISTORY",
-  PERTAINS_TO_FAMILY = "PERTAINS_TO_FAMILY",
-  SIGN = "SIGN",
-  SYMPTOM = "SYMPTOM",
-}
+export const AttributeName = {
+  DIAGNOSIS: "DIAGNOSIS",
+  FUTURE: "FUTURE",
+  HYPOTHETICAL: "HYPOTHETICAL",
+  LOW_CONFIDENCE: "LOW_CONFIDENCE",
+  NEGATION: "NEGATION",
+  PAST_HISTORY: "PAST_HISTORY",
+  PERTAINS_TO_FAMILY: "PERTAINS_TO_FAMILY",
+  SIGN: "SIGN",
+  SYMPTOM: "SYMPTOM",
+};
 
 /**
  * @public
@@ -65,7 +65,7 @@ export interface Trait {
   /**
    * <p> Provides a name or contextual description about the trait. </p>
    */
-  Name?: AttributeName | string;
+  Name?: keyof typeof AttributeName | string;
 
   /**
    * <p> The level of confidence that Comprehend Medical; has in the accuracy of this trait.</p>
@@ -76,53 +76,53 @@ export interface Trait {
 /**
  * @public
  */
-export enum EntitySubType {
-  ACUITY = "ACUITY",
-  ADDRESS = "ADDRESS",
-  AGE = "AGE",
-  ALCOHOL_CONSUMPTION = "ALCOHOL_CONSUMPTION",
-  ALLERGIES = "ALLERGIES",
-  AMOUNT = "AMOUNT",
-  BRAND_NAME = "BRAND_NAME",
-  CONTACT_POINT = "CONTACT_POINT",
-  DATE = "DATE",
-  DIRECTION = "DIRECTION",
-  DOSAGE = "DOSAGE",
-  DURATION = "DURATION",
-  DX_NAME = "DX_NAME",
-  EMAIL = "EMAIL",
-  FORM = "FORM",
-  FREQUENCY = "FREQUENCY",
-  GENDER = "GENDER",
-  GENERIC_NAME = "GENERIC_NAME",
-  ID = "ID",
-  IDENTIFIER = "IDENTIFIER",
-  NAME = "NAME",
-  PHONE_OR_FAX = "PHONE_OR_FAX",
-  PROCEDURE_NAME = "PROCEDURE_NAME",
-  PROFESSION = "PROFESSION",
-  QUALITY = "QUALITY",
-  QUANTITY = "QUANTITY",
-  RACE_ETHNICITY = "RACE_ETHNICITY",
-  RATE = "RATE",
-  REC_DRUG_USE = "REC_DRUG_USE",
-  ROUTE_OR_MODE = "ROUTE_OR_MODE",
-  STRENGTH = "STRENGTH",
-  SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
-  TEST_NAME = "TEST_NAME",
-  TEST_UNIT = "TEST_UNIT",
-  TEST_UNITS = "TEST_UNITS",
-  TEST_VALUE = "TEST_VALUE",
-  TIME_EXPRESSION = "TIME_EXPRESSION",
-  TIME_TO_DX_NAME = "TIME_TO_DX_NAME",
-  TIME_TO_MEDICATION_NAME = "TIME_TO_MEDICATION_NAME",
-  TIME_TO_PROCEDURE_NAME = "TIME_TO_PROCEDURE_NAME",
-  TIME_TO_TEST_NAME = "TIME_TO_TEST_NAME",
-  TIME_TO_TREATMENT_NAME = "TIME_TO_TREATMENT_NAME",
-  TOBACCO_USE = "TOBACCO_USE",
-  TREATMENT_NAME = "TREATMENT_NAME",
-  URL = "URL",
-}
+export const EntitySubType = {
+  ACUITY: "ACUITY",
+  ADDRESS: "ADDRESS",
+  AGE: "AGE",
+  ALCOHOL_CONSUMPTION: "ALCOHOL_CONSUMPTION",
+  ALLERGIES: "ALLERGIES",
+  AMOUNT: "AMOUNT",
+  BRAND_NAME: "BRAND_NAME",
+  CONTACT_POINT: "CONTACT_POINT",
+  DATE: "DATE",
+  DIRECTION: "DIRECTION",
+  DOSAGE: "DOSAGE",
+  DURATION: "DURATION",
+  DX_NAME: "DX_NAME",
+  EMAIL: "EMAIL",
+  FORM: "FORM",
+  FREQUENCY: "FREQUENCY",
+  GENDER: "GENDER",
+  GENERIC_NAME: "GENERIC_NAME",
+  ID: "ID",
+  IDENTIFIER: "IDENTIFIER",
+  NAME: "NAME",
+  PHONE_OR_FAX: "PHONE_OR_FAX",
+  PROCEDURE_NAME: "PROCEDURE_NAME",
+  PROFESSION: "PROFESSION",
+  QUALITY: "QUALITY",
+  QUANTITY: "QUANTITY",
+  RACE_ETHNICITY: "RACE_ETHNICITY",
+  RATE: "RATE",
+  REC_DRUG_USE: "REC_DRUG_USE",
+  ROUTE_OR_MODE: "ROUTE_OR_MODE",
+  STRENGTH: "STRENGTH",
+  SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
+  TEST_NAME: "TEST_NAME",
+  TEST_UNIT: "TEST_UNIT",
+  TEST_UNITS: "TEST_UNITS",
+  TEST_VALUE: "TEST_VALUE",
+  TIME_EXPRESSION: "TIME_EXPRESSION",
+  TIME_TO_DX_NAME: "TIME_TO_DX_NAME",
+  TIME_TO_MEDICATION_NAME: "TIME_TO_MEDICATION_NAME",
+  TIME_TO_PROCEDURE_NAME: "TIME_TO_PROCEDURE_NAME",
+  TIME_TO_TEST_NAME: "TIME_TO_TEST_NAME",
+  TIME_TO_TREATMENT_NAME: "TIME_TO_TREATMENT_NAME",
+  TOBACCO_USE: "TOBACCO_USE",
+  TREATMENT_NAME: "TREATMENT_NAME",
+  URL: "URL",
+};
 
 /**
  * @public
@@ -135,7 +135,7 @@ export interface Attribute {
   /**
    * <p> The type of attribute. </p>
    */
-  Type?: EntitySubType | string;
+  Type?: keyof typeof EntitySubType | string;
 
   /**
    * <p> The level of confidence that Comprehend Medical; has that the segment of text is correctly recognized
@@ -154,7 +154,7 @@ export interface Attribute {
    *         <code>OVERLAP</code>, indicating that the entity occurred at the same time as the
    *         <code>Date_Expression</code>. </p>
    */
-  RelationshipType?: RelationshipType | string;
+  RelationshipType?: keyof typeof RelationshipType | string;
 
   /**
    * <p> The numeric identifier for this attribute. This is a monotonically increasing id unique
@@ -182,7 +182,7 @@ export interface Attribute {
   /**
    * <p> The category of attribute. </p>
    */
-  Category?: EntityType | string;
+  Category?: keyof typeof EntityType | string;
 
   /**
    * <p> Contextual information for this attribute. </p>
@@ -240,22 +240,22 @@ export interface InputDataConfig {
 /**
  * @public
  */
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
-  STOPPED = "STOPPED",
-  STOP_REQUESTED = "STOP_REQUESTED",
-  SUBMITTED = "SUBMITTED",
-}
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
+  STOPPED: "STOPPED",
+  STOP_REQUESTED: "STOP_REQUESTED",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
  */
-export enum LanguageCode {
-  EN = "en",
-}
+export const LanguageCode = {
+  EN: "en",
+};
 
 /**
  * @public
@@ -297,7 +297,7 @@ export interface ComprehendMedicalAsyncJobProperties {
    * <p>The current status of the detection job. If the status is <code>FAILED</code>, the
    *         <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>A description of the status of a job.</p>
@@ -335,7 +335,7 @@ export interface ComprehendMedicalAsyncJobProperties {
   /**
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) that gives Comprehend Medical; read access to your input data.</p>
@@ -594,12 +594,12 @@ export interface Entity {
   /**
    * <p> The category of the entity.</p>
    */
-  Category?: EntityType | string;
+  Category?: keyof typeof EntityType | string;
 
   /**
    * <p> Describes the specific type of entity with category of entities.</p>
    */
-  Type?: EntitySubType | string;
+  Type?: keyof typeof EntitySubType | string;
 
   /**
    * <p>Contextual information for the entity.</p>
@@ -622,7 +622,7 @@ export interface UnmappedAttribute {
    *       "MEDICAL_CONDITION", "ANATOMY", "TEST_AND_TREATMENT_PROCEDURE" or
    *       "PROTECTED_HEALTH_INFORMATION". </p>
    */
-  Type?: EntityType | string;
+  Type?: keyof typeof EntityType | string;
 
   /**
    * <p> The specific attribute that has been extracted but not mapped to an entity. </p>
@@ -824,31 +824,31 @@ export interface InferICD10CMRequest {
 /**
  * @public
  */
-export enum ICD10CMEntityType {
-  DX_NAME = "DX_NAME",
-  TIME_EXPRESSION = "TIME_EXPRESSION",
-}
+export const ICD10CMEntityType = {
+  DX_NAME: "DX_NAME",
+  TIME_EXPRESSION: "TIME_EXPRESSION",
+};
 
 /**
  * @public
  */
-export enum ICD10CMRelationshipType {
-  OVERLAP = "OVERLAP",
-  SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
-}
+export const ICD10CMRelationshipType = {
+  OVERLAP: "OVERLAP",
+  SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
+};
 
 /**
  * @public
  */
-export enum ICD10CMTraitName {
-  DIAGNOSIS = "DIAGNOSIS",
-  HYPOTHETICAL = "HYPOTHETICAL",
-  LOW_CONFIDENCE = "LOW_CONFIDENCE",
-  NEGATION = "NEGATION",
-  PERTAINS_TO_FAMILY = "PERTAINS_TO_FAMILY",
-  SIGN = "SIGN",
-  SYMPTOM = "SYMPTOM",
-}
+export const ICD10CMTraitName = {
+  DIAGNOSIS: "DIAGNOSIS",
+  HYPOTHETICAL: "HYPOTHETICAL",
+  LOW_CONFIDENCE: "LOW_CONFIDENCE",
+  NEGATION: "NEGATION",
+  PERTAINS_TO_FAMILY: "PERTAINS_TO_FAMILY",
+  SIGN: "SIGN",
+  SYMPTOM: "SYMPTOM",
+};
 
 /**
  * @public
@@ -860,7 +860,7 @@ export interface ICD10CMTrait {
   /**
    * <p>Provides a name or contextual description about the trait.</p>
    */
-  Name?: ICD10CMTraitName | string;
+  Name?: keyof typeof ICD10CMTraitName | string;
 
   /**
    * <p>The level of confidence that Comprehend Medical; has that the segment of text is correctly recognized
@@ -872,15 +872,15 @@ export interface ICD10CMTrait {
 /**
  * @public
  */
-export enum ICD10CMAttributeType {
-  ACUITY = "ACUITY",
-  DIRECTION = "DIRECTION",
-  QUALITY = "QUALITY",
-  QUANTITY = "QUANTITY",
-  SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
-  TIME_EXPRESSION = "TIME_EXPRESSION",
-  TIME_TO_DX_NAME = "TIME_TO_DX_NAME",
-}
+export const ICD10CMAttributeType = {
+  ACUITY: "ACUITY",
+  DIRECTION: "DIRECTION",
+  QUALITY: "QUALITY",
+  QUANTITY: "QUANTITY",
+  SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
+  TIME_EXPRESSION: "TIME_EXPRESSION",
+  TIME_TO_DX_NAME: "TIME_TO_DX_NAME",
+};
 
 /**
  * @public
@@ -894,7 +894,7 @@ export interface ICD10CMAttribute {
    * <p>The type of attribute. InferICD10CM detects entities of the type <code>DX_NAME</code>.
    *     </p>
    */
-  Type?: ICD10CMAttributeType | string;
+  Type?: keyof typeof ICD10CMAttributeType | string;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has that the segment of text is
@@ -941,21 +941,21 @@ export interface ICD10CMAttribute {
   /**
    * <p>The category of attribute. Can be either of <code>DX_NAME</code> or <code>TIME_EXPRESSION</code>.</p>
    */
-  Category?: ICD10CMEntityType | string;
+  Category?: keyof typeof ICD10CMEntityType | string;
 
   /**
    * <p>The type of relationship between the entity and attribute. Type for the relationship can
    *         be either of <code>OVERLAP</code> or <code>SYSTEM_ORGAN_SITE</code>.</p>
    */
-  RelationshipType?: ICD10CMRelationshipType | string;
+  RelationshipType?: keyof typeof ICD10CMRelationshipType | string;
 }
 
 /**
  * @public
  */
-export enum ICD10CMEntityCategory {
-  MEDICAL_CONDITION = "MEDICAL_CONDITION",
-}
+export const ICD10CMEntityCategory = {
+  MEDICAL_CONDITION: "MEDICAL_CONDITION",
+};
 
 /**
  * @public
@@ -1005,13 +1005,13 @@ export interface ICD10CMEntity {
    * <p> The category of the entity. InferICD10CM detects entities in the
    *         <code>MEDICAL_CONDITION</code> category. </p>
    */
-  Category?: ICD10CMEntityCategory | string;
+  Category?: keyof typeof ICD10CMEntityCategory | string;
 
   /**
    * <p>Describes the specific type of entity with category of entities. InferICD10CM detects
    *       entities of the type <code>DX_NAME</code> and <code>TIME_EXPRESSION</code>.</p>
    */
-  Type?: ICD10CMEntityType | string;
+  Type?: keyof typeof ICD10CMEntityType | string;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the
@@ -1092,9 +1092,9 @@ export interface InferRxNormRequest {
 /**
  * @public
  */
-export enum RxNormTraitName {
-  NEGATION = "NEGATION",
-}
+export const RxNormTraitName = {
+  NEGATION: "NEGATION",
+};
 
 /**
  * @public
@@ -1106,7 +1106,7 @@ export interface RxNormTrait {
   /**
    * <p>Provides a name or contextual description about the trait.</p>
    */
-  Name?: RxNormTraitName | string;
+  Name?: keyof typeof RxNormTraitName | string;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detected
@@ -1118,15 +1118,15 @@ export interface RxNormTrait {
 /**
  * @public
  */
-export enum RxNormAttributeType {
-  DOSAGE = "DOSAGE",
-  DURATION = "DURATION",
-  FORM = "FORM",
-  FREQUENCY = "FREQUENCY",
-  RATE = "RATE",
-  ROUTE_OR_MODE = "ROUTE_OR_MODE",
-  STRENGTH = "STRENGTH",
-}
+export const RxNormAttributeType = {
+  DOSAGE: "DOSAGE",
+  DURATION: "DURATION",
+  FORM: "FORM",
+  FREQUENCY: "FREQUENCY",
+  RATE: "RATE",
+  ROUTE_OR_MODE: "ROUTE_OR_MODE",
+  STRENGTH: "STRENGTH",
+};
 
 /**
  * @public
@@ -1139,7 +1139,7 @@ export interface RxNormAttribute {
    * <p>The type of attribute. The types of attributes recognized by InferRxNorm are
    *         <code>BRAND_NAME</code> and <code>GENERIC_NAME</code>.</p>
    */
-  Type?: RxNormAttributeType | string;
+  Type?: keyof typeof RxNormAttributeType | string;
 
   /**
    * <p>The level of confidence that Comprehend Medical has that the segment of text is correctly
@@ -1187,9 +1187,9 @@ export interface RxNormAttribute {
 /**
  * @public
  */
-export enum RxNormEntityCategory {
-  MEDICATION = "MEDICATION",
-}
+export const RxNormEntityCategory = {
+  MEDICATION: "MEDICATION",
+};
 
 /**
  * @public
@@ -1217,10 +1217,10 @@ export interface RxNormConcept {
 /**
  * @public
  */
-export enum RxNormEntityType {
-  BRAND_NAME = "BRAND_NAME",
-  GENERIC_NAME = "GENERIC_NAME",
-}
+export const RxNormEntityType = {
+  BRAND_NAME: "BRAND_NAME",
+  GENERIC_NAME: "GENERIC_NAME",
+};
 
 /**
  * @public
@@ -1246,13 +1246,13 @@ export interface RxNormEntity {
    * <p>The category of the entity. The recognized categories are <code>GENERIC</code> or
    *         <code>BRAND_NAME</code>.</p>
    */
-  Category?: RxNormEntityCategory | string;
+  Category?: keyof typeof RxNormEntityCategory | string;
 
   /**
    * <p> Describes the specific type of entity. For InferRxNorm, the recognized entity type is
    *         <code>MEDICATION</code>.</p>
    */
-  Type?: RxNormEntityType | string;
+  Type?: keyof typeof RxNormEntityType | string;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detected
@@ -1332,23 +1332,23 @@ export interface InferSNOMEDCTRequest {
 /**
  * @public
  */
-export enum SNOMEDCTEntityCategory {
-  ANATOMY = "ANATOMY",
-  MEDICAL_CONDITION = "MEDICAL_CONDITION",
-  TEST_TREATMENT_PROCEDURE = "TEST_TREATMENT_PROCEDURE",
-}
+export const SNOMEDCTEntityCategory = {
+  ANATOMY: "ANATOMY",
+  MEDICAL_CONDITION: "MEDICAL_CONDITION",
+  TEST_TREATMENT_PROCEDURE: "TEST_TREATMENT_PROCEDURE",
+};
 
 /**
  * @public
  */
-export enum SNOMEDCTRelationshipType {
-  ACUITY = "ACUITY",
-  DIRECTION = "DIRECTION",
-  QUALITY = "QUALITY",
-  SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
-  TEST_UNITS = "TEST_UNITS",
-  TEST_VALUE = "TEST_VALUE",
-}
+export const SNOMEDCTRelationshipType = {
+  ACUITY: "ACUITY",
+  DIRECTION: "DIRECTION",
+  QUALITY: "QUALITY",
+  SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
+  TEST_UNITS: "TEST_UNITS",
+  TEST_VALUE: "TEST_VALUE",
+};
 
 /**
  * @public
@@ -1382,17 +1382,17 @@ export interface SNOMEDCTConcept {
 /**
  * @public
  */
-export enum SNOMEDCTTraitName {
-  DIAGNOSIS = "DIAGNOSIS",
-  FUTURE = "FUTURE",
-  HYPOTHETICAL = "HYPOTHETICAL",
-  LOW_CONFIDENCE = "LOW_CONFIDENCE",
-  NEGATION = "NEGATION",
-  PAST_HISTORY = "PAST_HISTORY",
-  PERTAINS_TO_FAMILY = "PERTAINS_TO_FAMILY",
-  SIGN = "SIGN",
-  SYMPTOM = "SYMPTOM",
-}
+export const SNOMEDCTTraitName = {
+  DIAGNOSIS: "DIAGNOSIS",
+  FUTURE: "FUTURE",
+  HYPOTHETICAL: "HYPOTHETICAL",
+  LOW_CONFIDENCE: "LOW_CONFIDENCE",
+  NEGATION: "NEGATION",
+  PAST_HISTORY: "PAST_HISTORY",
+  PERTAINS_TO_FAMILY: "PERTAINS_TO_FAMILY",
+  SIGN: "SIGN",
+  SYMPTOM: "SYMPTOM",
+};
 
 /**
  * @public
@@ -1406,7 +1406,7 @@ export interface SNOMEDCTTrait {
    *       The name or contextual description of a detected trait.
    *     </p>
    */
-  Name?: SNOMEDCTTraitName | string;
+  Name?: keyof typeof SNOMEDCTTraitName | string;
 
   /**
    * <p>
@@ -1419,14 +1419,14 @@ export interface SNOMEDCTTrait {
 /**
  * @public
  */
-export enum SNOMEDCTAttributeType {
-  ACUITY = "ACUITY",
-  DIRECTION = "DIRECTION",
-  QUALITY = "QUALITY",
-  SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
-  TEST_UNIT = "TEST_UNIT",
-  TEST_VALUE = "TEST_VALUE",
-}
+export const SNOMEDCTAttributeType = {
+  ACUITY: "ACUITY",
+  DIRECTION: "DIRECTION",
+  QUALITY: "QUALITY",
+  SYSTEM_ORGAN_SITE: "SYSTEM_ORGAN_SITE",
+  TEST_UNIT: "TEST_UNIT",
+  TEST_VALUE: "TEST_VALUE",
+};
 
 /**
  * @public
@@ -1440,14 +1440,14 @@ export interface SNOMEDCTAttribute {
    *       The category of the detected attribute. Possible categories include MEDICAL_CONDITION, ANATOMY, and TEST_TREATMENT_PROCEDURE.
    *     </p>
    */
-  Category?: SNOMEDCTEntityCategory | string;
+  Category?: keyof typeof SNOMEDCTEntityCategory | string;
 
   /**
    * <p>
    *       The type of attribute. Possible types include DX_NAME, ACUITY, DIRECTION, SYSTEM_ORGAN_SITE,TEST_NAME, TEST_VALUE, TEST_UNIT, PROCEDURE_NAME, and TREATMENT_NAME.
    *     </p>
    */
-  Type?: SNOMEDCTAttributeType | string;
+  Type?: keyof typeof SNOMEDCTAttributeType | string;
 
   /**
    * <p>
@@ -1468,7 +1468,7 @@ export interface SNOMEDCTAttribute {
    *       The type of relationship that exists between the entity and the related attribute.
    *     </p>
    */
-  RelationshipType?: SNOMEDCTRelationshipType | string;
+  RelationshipType?: keyof typeof SNOMEDCTRelationshipType | string;
 
   /**
    * <p>
@@ -1516,12 +1516,12 @@ export interface SNOMEDCTAttribute {
 /**
  * @public
  */
-export enum SNOMEDCTEntityType {
-  DX_NAME = "DX_NAME",
-  PROCEDURE_NAME = "PROCEDURE_NAME",
-  TEST_NAME = "TEST_NAME",
-  TREATMENT_NAME = "TREATMENT_NAME",
-}
+export const SNOMEDCTEntityType = {
+  DX_NAME: "DX_NAME",
+  PROCEDURE_NAME: "PROCEDURE_NAME",
+  TEST_NAME: "TEST_NAME",
+  TREATMENT_NAME: "TREATMENT_NAME",
+};
 
 /**
  * @public
@@ -1549,14 +1549,14 @@ export interface SNOMEDCTEntity {
    *       The category of the detected entity. Possible categories are MEDICAL_CONDITION, ANATOMY, or TEST_TREATMENT_PROCEDURE.
    *     </p>
    */
-  Category?: SNOMEDCTEntityCategory | string;
+  Category?: keyof typeof SNOMEDCTEntityCategory | string;
 
   /**
    * <p>
    *       Describes the specific type of entity with category of entities. Possible types include DX_NAME, ACUITY, DIRECTION, SYSTEM_ORGAN_SITE, TEST_NAME, TEST_VALUE, TEST_UNIT, PROCEDURE_NAME, or TREATMENT_NAME.
    *     </p>
    */
-  Type?: SNOMEDCTEntityType | string;
+  Type?: keyof typeof SNOMEDCTEntityType | string;
 
   /**
    * <p>
@@ -1684,7 +1684,7 @@ export interface ComprehendMedicalAsyncJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -1951,7 +1951,7 @@ export interface StartEntitiesDetectionV2JobRequest {
   /**
    * <p>The language of the input documents. All documents must be in the same language. Comprehend Medical; processes files in US English (en).</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**
@@ -2005,7 +2005,7 @@ export interface StartICD10CMInferenceJobRequest {
   /**
    * <p>The language of the input documents. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**
@@ -2059,7 +2059,7 @@ export interface StartPHIDetectionJobRequest {
   /**
    * <p>The language of the input documents. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**
@@ -2113,7 +2113,7 @@ export interface StartRxNormInferenceJobRequest {
   /**
    * <p>The language of the input documents. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**
@@ -2174,7 +2174,7 @@ export interface StartSNOMEDCTInferenceJobRequest {
    *       The language of the input documents. All documents must be in the same language.
    *     </p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**

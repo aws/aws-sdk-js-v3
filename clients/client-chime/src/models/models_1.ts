@@ -424,10 +424,10 @@ export interface GetVoiceConnectorOriginationRequest {
 /**
  * @public
  */
-export enum OriginationRouteProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const OriginationRouteProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+};
 
 /**
  * @public
@@ -452,7 +452,7 @@ export interface OriginationRoute {
   /**
    * <p>The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.</p>
    */
-  Protocol?: OriginationRouteProtocol | string;
+  Protocol?: keyof typeof OriginationRouteProtocol | string;
 
   /**
    * <p>The priority associated with the host, with 1 being the highest priority. Higher priority
@@ -558,11 +558,11 @@ export interface GetVoiceConnectorStreamingConfigurationRequest {
 /**
  * @public
  */
-export enum NotificationTarget {
-  EventBridge = "EventBridge",
-  SNS = "SNS",
-  SQS = "SQS",
-}
+export const NotificationTarget = {
+  EventBridge: "EventBridge",
+  SNS: "SNS",
+  SQS: "SQS",
+};
 
 /**
  * @public
@@ -572,7 +572,7 @@ export interface StreamingNotificationTarget {
   /**
    * <p>The streaming notification target.</p>
    */
-  NotificationTarget: NotificationTarget | string | undefined;
+  NotificationTarget: keyof typeof NotificationTarget | string | undefined;
 }
 
 /**
@@ -712,7 +712,7 @@ export interface Invite {
   /**
    * <p>The status of the invite.</p>
    */
-  Status?: InviteStatus | string;
+  Status?: keyof typeof InviteStatus | string;
 
   /**
    * <p>The email address to which the invite is sent.</p>
@@ -722,7 +722,7 @@ export interface Invite {
   /**
    * <p>The status of the invite email.</p>
    */
-  EmailStatus?: EmailStatus | string;
+  EmailStatus?: keyof typeof EmailStatus | string;
 }
 
 /**
@@ -742,7 +742,7 @@ export interface InviteUsersRequest {
   /**
    * <p>The user type.</p>
    */
-  UserType?: UserType | string;
+  UserType?: keyof typeof UserType | string;
 }
 
 /**
@@ -1060,7 +1060,7 @@ export interface ListChannelMembershipsRequest {
    *          are only returned if the type filter in <code>ListChannelMemberships</code> equals
    *             <code>HIDDEN</code>. Otherwise hidden members are not returned.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: keyof typeof ChannelMembershipType | string;
 
   /**
    * <p>The maximum number of channel memberships that you want returned.</p>
@@ -1143,10 +1143,10 @@ export interface ListChannelMembershipsForAppInstanceUserResponse {
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -1161,7 +1161,7 @@ export interface ListChannelMessagesRequest {
    * <p>The order in which you want messages sorted. Default is Descending, based on time
    *          created.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The initial or starting time stamp for your requested messages.</p>
@@ -1270,7 +1270,7 @@ export interface ListChannelsRequest {
    *             <code>PRIVATE</code> retrieves private channels. Only an <code>AppInstanceAdmin</code>
    *          can retrieve private channels. </p>
    */
-  Privacy?: ChannelPrivacy | string;
+  Privacy?: keyof typeof ChannelPrivacy | string;
 
   /**
    * <p>The maximum number of channels that you want to return.</p>
@@ -1463,17 +1463,17 @@ export interface ListPhoneNumbersRequest {
   /**
    * <p>The phone number status.</p>
    */
-  Status?: PhoneNumberStatus | string;
+  Status?: keyof typeof PhoneNumberStatus | string;
 
   /**
    * <p>The phone number product type.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: keyof typeof PhoneNumberProductType | string;
 
   /**
    * <p>The filter to use to limit the number of results.</p>
    */
-  FilterName?: PhoneNumberAssociationName | string;
+  FilterName?: keyof typeof PhoneNumberAssociationName | string;
 
   /**
    * <p>The value to use for the filter.</p>
@@ -1518,7 +1518,7 @@ export interface ListProxySessionsRequest {
   /**
    * <p>The proxy session status.</p>
    */
-  Status?: ProxySessionStatus | string;
+  Status?: keyof typeof ProxySessionStatus | string;
 
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -1698,7 +1698,7 @@ export interface ListSupportedPhoneNumberCountriesRequest {
   /**
    * <p>The phone number product type.</p>
    */
-  ProductType: PhoneNumberProductType | string | undefined;
+  ProductType: keyof typeof PhoneNumberProductType | string | undefined;
 }
 
 /**
@@ -1714,7 +1714,7 @@ export interface PhoneNumberCountry {
   /**
    * <p>The supported phone number types. </p>
    */
-  SupportedPhoneNumberTypes?: (PhoneNumberType | string)[];
+  SupportedPhoneNumberTypes?: (keyof typeof PhoneNumberType | string)[];
 }
 
 /**
@@ -1764,7 +1764,7 @@ export interface ListUsersRequest {
   /**
    * <p>The user type.</p>
    */
-  UserType?: UserType | string;
+  UserType?: keyof typeof UserType | string;
 
   /**
    * <p>The maximum number of results to return in a single call. Defaults to 100.</p>
@@ -2404,7 +2404,7 @@ export interface SearchAvailablePhoneNumbersRequest {
   /**
    * <p>The phone number type used to filter results. Required for non-US numbers.</p>
    */
-  PhoneNumberType?: PhoneNumberType | string;
+  PhoneNumberType?: keyof typeof PhoneNumberType | string;
 
   /**
    * <p>The maximum number of results to return in a single call.</p>
@@ -2449,12 +2449,12 @@ export interface SendChannelMessageRequest {
   /**
    * <p>The type of message, <code>STANDARD</code> or <code>CONTROL</code>.</p>
    */
-  Type: ChannelMessageType | string | undefined;
+  Type: keyof typeof ChannelMessageType | string | undefined;
 
   /**
    * <p>Boolean that controls whether the message is persisted on the back end. Required.</p>
    */
-  Persistence: ChannelMessagePersistenceType | string | undefined;
+  Persistence: keyof typeof ChannelMessagePersistenceType | string | undefined;
 
   /**
    * <p>The optional metadata for each message.</p>
@@ -2655,7 +2655,7 @@ export interface UpdateAccountRequest {
   /**
    * <p>The default license applied when you add users to an Amazon Chime account.</p>
    */
-  DefaultLicense?: License | string;
+  DefaultLicense?: keyof typeof License | string;
 }
 
 /**
@@ -2795,7 +2795,7 @@ export interface UpdateChannelRequest {
   /**
    * <p>The mode of the update request.</p>
    */
-  Mode: ChannelMode | string | undefined;
+  Mode: keyof typeof ChannelMode | string | undefined;
 
   /**
    * <p>The metadata for the update request.</p>
@@ -2915,7 +2915,7 @@ export interface UpdatePhoneNumberRequest {
   /**
    * <p>The product type.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: keyof typeof PhoneNumberProductType | string;
 
   /**
    * <p>The outbound calling name associated with the phone number.</p>
@@ -2960,7 +2960,7 @@ export interface UpdateProxySessionRequest {
   /**
    * <p>The proxy session capabilities.</p>
    */
-  Capabilities: (Capability | string)[] | undefined;
+  Capabilities: (keyof typeof Capability | string)[] | undefined;
 
   /**
    * <p>The number of minutes allowed for the proxy session.</p>
@@ -3030,7 +3030,7 @@ export interface UpdateRoomMembershipRequest {
   /**
    * <p>The role of the member.</p>
    */
-  Role?: RoomMembershipRole | string;
+  Role?: keyof typeof RoomMembershipRole | string;
 }
 
 /**
@@ -3156,12 +3156,12 @@ export interface UpdateUserRequest {
    * <p>The user license type to update. This must be a supported license type for the Amazon Chime
    *             account that the user belongs to.</p>
    */
-  LicenseType?: License | string;
+  LicenseType?: keyof typeof License | string;
 
   /**
    * <p>The user type.</p>
    */
-  UserType?: UserType | string;
+  UserType?: keyof typeof UserType | string;
 
   /**
    * <p>The Alexa for Business metadata.</p>

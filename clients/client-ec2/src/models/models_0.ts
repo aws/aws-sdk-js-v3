@@ -44,27 +44,27 @@ export interface AcceleratorCountRequest {
 /**
  * @public
  */
-export enum AcceleratorManufacturer {
-  AMAZON_WEB_SERVICES = "amazon-web-services",
-  AMD = "amd",
-  NVIDIA = "nvidia",
-  XILINX = "xilinx",
-}
+export const AcceleratorManufacturer = {
+  AMAZON_WEB_SERVICES: "amazon-web-services",
+  AMD: "amd",
+  NVIDIA: "nvidia",
+  XILINX: "xilinx",
+};
 
 /**
  * @public
  */
-export enum AcceleratorName {
-  A100 = "a100",
-  INFERENTIA = "inferentia",
-  K520 = "k520",
-  K80 = "k80",
-  M60 = "m60",
-  RADEON_PRO_V520 = "radeon-pro-v520",
-  T4 = "t4",
-  V100 = "v100",
-  VU9P = "vu9p",
-}
+export const AcceleratorName = {
+  A100: "a100",
+  INFERENTIA: "inferentia",
+  K520: "k520",
+  K80: "k80",
+  M60: "m60",
+  RADEON_PRO_V520: "radeon-pro-v520",
+  T4: "t4",
+  V100: "v100",
+  VU9P: "vu9p",
+};
 
 /**
  * @public
@@ -105,102 +105,103 @@ export interface AcceleratorTotalMemoryMiBRequest {
 /**
  * @public
  */
-export enum AcceleratorType {
-  FPGA = "fpga",
-  GPU = "gpu",
-  INFERENCE = "inference",
-}
+export const AcceleratorType = {
+  FPGA: "fpga",
+  GPU: "gpu",
+  INFERENCE: "inference",
+};
 
 /**
  * @public
  */
-export enum ResourceType {
-  capacity_reservation = "capacity-reservation",
-  capacity_reservation_fleet = "capacity-reservation-fleet",
-  carrier_gateway = "carrier-gateway",
-  client_vpn_endpoint = "client-vpn-endpoint",
-  coip_pool = "coip-pool",
-  customer_gateway = "customer-gateway",
-  dedicated_host = "dedicated-host",
-  dhcp_options = "dhcp-options",
-  egress_only_internet_gateway = "egress-only-internet-gateway",
-  elastic_gpu = "elastic-gpu",
-  elastic_ip = "elastic-ip",
-  export_image_task = "export-image-task",
-  export_instance_task = "export-instance-task",
-  fleet = "fleet",
-  fpga_image = "fpga-image",
-  host_reservation = "host-reservation",
-  image = "image",
-  import_image_task = "import-image-task",
-  import_snapshot_task = "import-snapshot-task",
-  instance = "instance",
-  instance_event_window = "instance-event-window",
-  internet_gateway = "internet-gateway",
-  ipam = "ipam",
-  ipam_pool = "ipam-pool",
-  ipam_resource_discovery = "ipam-resource-discovery",
-  ipam_resource_discovery_association = "ipam-resource-discovery-association",
-  ipam_scope = "ipam-scope",
-  ipv4pool_ec2 = "ipv4pool-ec2",
-  ipv6pool_ec2 = "ipv6pool-ec2",
-  key_pair = "key-pair",
-  launch_template = "launch-template",
-  local_gateway = "local-gateway",
-  local_gateway_route_table = "local-gateway-route-table",
-  local_gateway_route_table_virtual_interface_group_association = "local-gateway-route-table-virtual-interface-group-association",
-  local_gateway_route_table_vpc_association = "local-gateway-route-table-vpc-association",
-  local_gateway_virtual_interface = "local-gateway-virtual-interface",
-  local_gateway_virtual_interface_group = "local-gateway-virtual-interface-group",
-  natgateway = "natgateway",
-  network_acl = "network-acl",
-  network_insights_access_scope = "network-insights-access-scope",
-  network_insights_access_scope_analysis = "network-insights-access-scope-analysis",
-  network_insights_analysis = "network-insights-analysis",
-  network_insights_path = "network-insights-path",
-  network_interface = "network-interface",
-  placement_group = "placement-group",
-  prefix_list = "prefix-list",
-  replace_root_volume_task = "replace-root-volume-task",
-  reserved_instances = "reserved-instances",
-  route_table = "route-table",
-  security_group = "security-group",
-  security_group_rule = "security-group-rule",
-  snapshot = "snapshot",
-  spot_fleet_request = "spot-fleet-request",
-  spot_instances_request = "spot-instances-request",
-  subnet = "subnet",
-  subnet_cidr_reservation = "subnet-cidr-reservation",
-  traffic_mirror_filter = "traffic-mirror-filter",
-  traffic_mirror_filter_rule = "traffic-mirror-filter-rule",
-  traffic_mirror_session = "traffic-mirror-session",
-  traffic_mirror_target = "traffic-mirror-target",
-  transit_gateway = "transit-gateway",
-  transit_gateway_attachment = "transit-gateway-attachment",
-  transit_gateway_connect_peer = "transit-gateway-connect-peer",
-  transit_gateway_multicast_domain = "transit-gateway-multicast-domain",
-  transit_gateway_policy_table = "transit-gateway-policy-table",
-  transit_gateway_route_table = "transit-gateway-route-table",
-  transit_gateway_route_table_announcement = "transit-gateway-route-table-announcement",
-  verified_access_endpoint = "verified-access-endpoint",
-  verified_access_group = "verified-access-group",
-  verified_access_instance = "verified-access-instance",
-  verified_access_policy = "verified-access-policy",
-  verified_access_trust_provider = "verified-access-trust-provider",
-  volume = "volume",
-  vpc = "vpc",
-  vpc_block_public_access_exclusion = "vpc-block-public-access-exclusion",
-  vpc_endpoint = "vpc-endpoint",
-  vpc_endpoint_connection = "vpc-endpoint-connection",
-  vpc_endpoint_connection_device_type = "vpc-endpoint-connection-device-type",
-  vpc_endpoint_service = "vpc-endpoint-service",
-  vpc_endpoint_service_permission = "vpc-endpoint-service-permission",
-  vpc_flow_log = "vpc-flow-log",
-  vpc_peering_connection = "vpc-peering-connection",
-  vpn_connection = "vpn-connection",
-  vpn_connection_device_type = "vpn-connection-device-type",
-  vpn_gateway = "vpn-gateway",
-}
+export const ResourceType = {
+  capacity_reservation: "capacity-reservation",
+  capacity_reservation_fleet: "capacity-reservation-fleet",
+  carrier_gateway: "carrier-gateway",
+  client_vpn_endpoint: "client-vpn-endpoint",
+  coip_pool: "coip-pool",
+  customer_gateway: "customer-gateway",
+  dedicated_host: "dedicated-host",
+  dhcp_options: "dhcp-options",
+  egress_only_internet_gateway: "egress-only-internet-gateway",
+  elastic_gpu: "elastic-gpu",
+  elastic_ip: "elastic-ip",
+  export_image_task: "export-image-task",
+  export_instance_task: "export-instance-task",
+  fleet: "fleet",
+  fpga_image: "fpga-image",
+  host_reservation: "host-reservation",
+  image: "image",
+  import_image_task: "import-image-task",
+  import_snapshot_task: "import-snapshot-task",
+  instance: "instance",
+  instance_event_window: "instance-event-window",
+  internet_gateway: "internet-gateway",
+  ipam: "ipam",
+  ipam_pool: "ipam-pool",
+  ipam_resource_discovery: "ipam-resource-discovery",
+  ipam_resource_discovery_association: "ipam-resource-discovery-association",
+  ipam_scope: "ipam-scope",
+  ipv4pool_ec2: "ipv4pool-ec2",
+  ipv6pool_ec2: "ipv6pool-ec2",
+  key_pair: "key-pair",
+  launch_template: "launch-template",
+  local_gateway: "local-gateway",
+  local_gateway_route_table: "local-gateway-route-table",
+  local_gateway_route_table_virtual_interface_group_association:
+    "local-gateway-route-table-virtual-interface-group-association",
+  local_gateway_route_table_vpc_association: "local-gateway-route-table-vpc-association",
+  local_gateway_virtual_interface: "local-gateway-virtual-interface",
+  local_gateway_virtual_interface_group: "local-gateway-virtual-interface-group",
+  natgateway: "natgateway",
+  network_acl: "network-acl",
+  network_insights_access_scope: "network-insights-access-scope",
+  network_insights_access_scope_analysis: "network-insights-access-scope-analysis",
+  network_insights_analysis: "network-insights-analysis",
+  network_insights_path: "network-insights-path",
+  network_interface: "network-interface",
+  placement_group: "placement-group",
+  prefix_list: "prefix-list",
+  replace_root_volume_task: "replace-root-volume-task",
+  reserved_instances: "reserved-instances",
+  route_table: "route-table",
+  security_group: "security-group",
+  security_group_rule: "security-group-rule",
+  snapshot: "snapshot",
+  spot_fleet_request: "spot-fleet-request",
+  spot_instances_request: "spot-instances-request",
+  subnet: "subnet",
+  subnet_cidr_reservation: "subnet-cidr-reservation",
+  traffic_mirror_filter: "traffic-mirror-filter",
+  traffic_mirror_filter_rule: "traffic-mirror-filter-rule",
+  traffic_mirror_session: "traffic-mirror-session",
+  traffic_mirror_target: "traffic-mirror-target",
+  transit_gateway: "transit-gateway",
+  transit_gateway_attachment: "transit-gateway-attachment",
+  transit_gateway_connect_peer: "transit-gateway-connect-peer",
+  transit_gateway_multicast_domain: "transit-gateway-multicast-domain",
+  transit_gateway_policy_table: "transit-gateway-policy-table",
+  transit_gateway_route_table: "transit-gateway-route-table",
+  transit_gateway_route_table_announcement: "transit-gateway-route-table-announcement",
+  verified_access_endpoint: "verified-access-endpoint",
+  verified_access_group: "verified-access-group",
+  verified_access_instance: "verified-access-instance",
+  verified_access_policy: "verified-access-policy",
+  verified_access_trust_provider: "verified-access-trust-provider",
+  volume: "volume",
+  vpc: "vpc",
+  vpc_block_public_access_exclusion: "vpc-block-public-access-exclusion",
+  vpc_endpoint: "vpc-endpoint",
+  vpc_endpoint_connection: "vpc-endpoint-connection",
+  vpc_endpoint_connection_device_type: "vpc-endpoint-connection-device-type",
+  vpc_endpoint_service: "vpc-endpoint-service",
+  vpc_endpoint_service_permission: "vpc-endpoint-service-permission",
+  vpc_flow_log: "vpc-flow-log",
+  vpc_peering_connection: "vpc-peering-connection",
+  vpn_connection: "vpn-connection",
+  vpn_connection_device_type: "vpn-connection-device-type",
+  vpn_gateway: "vpn-gateway",
+};
 
 /**
  * @public
@@ -236,7 +237,7 @@ export interface TagSpecification {
   /**
    * <p>The type of resource to tag on creation.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tags to apply to the resource.</p>
@@ -271,11 +272,11 @@ export interface AcceptAddressTransferRequest {
 /**
  * @public
  */
-export enum AddressTransferStatus {
-  accepted = "accepted",
-  disabled = "disabled",
-  pending = "pending",
-}
+export const AddressTransferStatus = {
+  accepted: "accepted",
+  disabled: "disabled",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -312,7 +313,7 @@ export interface AddressTransfer {
   /**
    * <p>The Elastic IP address transfer status.</p>
    */
-  AddressTransferStatus?: AddressTransferStatus | string;
+  AddressTransferStatus?: keyof typeof AddressTransferStatus | string;
 }
 
 /**
@@ -408,27 +409,27 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsRequest {
 /**
  * @public
  */
-export enum TransitGatewayAttachmentResourceType {
-  connect = "connect",
-  direct_connect_gateway = "direct-connect-gateway",
-  peering = "peering",
-  tgw_peering = "tgw-peering",
-  vpc = "vpc",
-  vpn = "vpn",
-}
+export const TransitGatewayAttachmentResourceType = {
+  connect: "connect",
+  direct_connect_gateway: "direct-connect-gateway",
+  peering: "peering",
+  tgw_peering: "tgw-peering",
+  vpc: "vpc",
+  vpn: "vpn",
+};
 
 /**
  * @public
  */
-export enum TransitGatewayMulitcastDomainAssociationState {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-  failed = "failed",
-  pendingAcceptance = "pendingAcceptance",
-  rejected = "rejected",
-}
+export const TransitGatewayMulitcastDomainAssociationState = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+  failed: "failed",
+  pendingAcceptance: "pendingAcceptance",
+  rejected: "rejected",
+};
 
 /**
  * @public
@@ -443,7 +444,7 @@ export interface SubnetAssociation {
   /**
    * <p>The state of the subnet association.</p>
    */
-  State?: TransitGatewayMulitcastDomainAssociationState | string;
+  State?: keyof typeof TransitGatewayMulitcastDomainAssociationState | string;
 }
 
 /**
@@ -469,7 +470,7 @@ export interface TransitGatewayMulticastDomainAssociations {
   /**
    * <p>The type of resource, for example a VPC attachment.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: keyof typeof TransitGatewayAttachmentResourceType | string;
 
   /**
    * <p> The ID of the Amazon Web Services account that owns the resource.</p>
@@ -538,10 +539,10 @@ export interface PeeringTgwInfo {
 /**
  * @public
  */
-export enum DynamicRoutingValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const DynamicRoutingValue = {
+  disable: "disable",
+  enable: "enable",
+};
 
 /**
  * @public
@@ -551,27 +552,27 @@ export interface TransitGatewayPeeringAttachmentOptions {
   /**
    * <p>Describes whether dynamic routing is enabled or disabled for the transit gateway peering attachment.</p>
    */
-  DynamicRouting?: DynamicRoutingValue | string;
+  DynamicRouting?: keyof typeof DynamicRoutingValue | string;
 }
 
 /**
  * @public
  */
-export enum TransitGatewayAttachmentState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  failed = "failed",
-  failing = "failing",
-  initiating = "initiating",
-  initiatingRequest = "initiatingRequest",
-  modifying = "modifying",
-  pending = "pending",
-  pendingAcceptance = "pendingAcceptance",
-  rejected = "rejected",
-  rejecting = "rejecting",
-  rollingBack = "rollingBack",
-}
+export const TransitGatewayAttachmentState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  failed: "failed",
+  failing: "failing",
+  initiating: "initiating",
+  initiatingRequest: "initiatingRequest",
+  modifying: "modifying",
+  pending: "pending",
+  pendingAcceptance: "pendingAcceptance",
+  rejected: "rejected",
+  rejecting: "rejecting",
+  rollingBack: "rollingBack",
+};
 
 /**
  * @public
@@ -627,7 +628,7 @@ export interface TransitGatewayPeeringAttachment {
   /**
    * <p>The state of the transit gateway peering attachment. Note that the <code>initiating</code> state has been deprecated.</p>
    */
-  State?: TransitGatewayAttachmentState | string;
+  State?: keyof typeof TransitGatewayAttachmentState | string;
 
   /**
    * <p>The time the transit gateway peering attachment was created.</p>
@@ -670,26 +671,26 @@ export interface AcceptTransitGatewayVpcAttachmentRequest {
 /**
  * @public
  */
-export enum ApplianceModeSupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const ApplianceModeSupportValue = {
+  disable: "disable",
+  enable: "enable",
+};
 
 /**
  * @public
  */
-export enum DnsSupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const DnsSupportValue = {
+  disable: "disable",
+  enable: "enable",
+};
 
 /**
  * @public
  */
-export enum Ipv6SupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const Ipv6SupportValue = {
+  disable: "disable",
+  enable: "enable",
+};
 
 /**
  * @public
@@ -699,17 +700,17 @@ export interface TransitGatewayVpcAttachmentOptions {
   /**
    * <p>Indicates whether DNS support is enabled.</p>
    */
-  DnsSupport?: DnsSupportValue | string;
+  DnsSupport?: keyof typeof DnsSupportValue | string;
 
   /**
    * <p>Indicates whether IPv6 support is disabled.</p>
    */
-  Ipv6Support?: Ipv6SupportValue | string;
+  Ipv6Support?: keyof typeof Ipv6SupportValue | string;
 
   /**
    * <p>Indicates whether appliance mode support is enabled.</p>
    */
-  ApplianceModeSupport?: ApplianceModeSupportValue | string;
+  ApplianceModeSupport?: keyof typeof ApplianceModeSupportValue | string;
 }
 
 /**
@@ -740,7 +741,7 @@ export interface TransitGatewayVpcAttachment {
   /**
    * <p>The state of the VPC attachment. Note that the <code>initiating</code> state has been deprecated.</p>
    */
-  State?: TransitGatewayAttachmentState | string;
+  State?: keyof typeof TransitGatewayAttachmentState | string;
 
   /**
    * <p>The IDs of the subnets.</p>
@@ -946,17 +947,17 @@ export interface VpcPeeringConnectionVpcInfo {
 /**
  * @public
  */
-export enum VpcPeeringConnectionStateReasonCode {
-  active = "active",
-  deleted = "deleted",
-  deleting = "deleting",
-  expired = "expired",
-  failed = "failed",
-  initiating_request = "initiating-request",
-  pending_acceptance = "pending-acceptance",
-  provisioning = "provisioning",
-  rejected = "rejected",
-}
+export const VpcPeeringConnectionStateReasonCode = {
+  active: "active",
+  deleted: "deleted",
+  deleting: "deleting",
+  expired: "expired",
+  failed: "failed",
+  initiating_request: "initiating-request",
+  pending_acceptance: "pending-acceptance",
+  provisioning: "provisioning",
+  rejected: "rejected",
+};
 
 /**
  * @public
@@ -966,7 +967,7 @@ export interface VpcPeeringConnectionStateReason {
   /**
    * <p>The status of the VPC peering connection.</p>
    */
-  Code?: VpcPeeringConnectionStateReasonCode | string;
+  Code?: keyof typeof VpcPeeringConnectionStateReasonCode | string;
 
   /**
    * <p>A message that provides more information about the status, if applicable.</p>
@@ -1957,10 +1958,10 @@ export interface AccessScopeAnalysisFinding {
 /**
  * @public
  */
-export enum Protocol {
-  tcp = "tcp",
-  udp = "udp",
-}
+export const Protocol = {
+  tcp: "tcp",
+  udp: "udp",
+};
 
 /**
  * @public
@@ -2000,7 +2001,7 @@ export interface PacketHeaderStatement {
   /**
    * <p>The protocols.</p>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: (keyof typeof Protocol | string)[];
 }
 
 /**
@@ -2105,7 +2106,7 @@ export interface PacketHeaderStatementRequest {
   /**
    * <p>The protocols.</p>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: (keyof typeof Protocol | string)[];
 }
 
 /**
@@ -2202,18 +2203,18 @@ export interface AccountAttribute {
 /**
  * @public
  */
-export enum AccountAttributeName {
-  default_vpc = "default-vpc",
-  supported_platforms = "supported-platforms",
-}
+export const AccountAttributeName = {
+  default_vpc: "default-vpc",
+  supported_platforms: "supported-platforms",
+};
 
 /**
  * @public
  */
-export enum InstanceHealthStatus {
-  HEALTHY_STATUS = "healthy",
-  UNHEALTHY_STATUS = "unhealthy",
-}
+export const InstanceHealthStatus = {
+  HEALTHY_STATUS: "healthy",
+  UNHEALTHY_STATUS: "unhealthy",
+};
 
 /**
  * @public
@@ -2240,30 +2241,30 @@ export interface ActiveInstance {
    *             or the system status check is <code>impaired</code>, the health status of the instance
    *             is <code>unhealthy</code>. Otherwise, the health status is <code>healthy</code>.</p>
    */
-  InstanceHealth?: InstanceHealthStatus | string;
+  InstanceHealth?: keyof typeof InstanceHealthStatus | string;
 }
 
 /**
  * @public
  */
-export enum ActivityStatus {
-  ERROR = "error",
-  FULFILLED = "fulfilled",
-  PENDING_FULFILLMENT = "pending_fulfillment",
-  PENDING_TERMINATION = "pending_termination",
-}
+export const ActivityStatus = {
+  ERROR: "error",
+  FULFILLED: "fulfilled",
+  PENDING_FULFILLMENT: "pending_fulfillment",
+  PENDING_TERMINATION: "pending_termination",
+};
 
 /**
  * @public
  */
-export enum PrincipalType {
-  Account = "Account",
-  All = "All",
-  OrganizationUnit = "OrganizationUnit",
-  Role = "Role",
-  Service = "Service",
-  User = "User",
-}
+export const PrincipalType = {
+  Account: "Account",
+  All: "All",
+  OrganizationUnit: "OrganizationUnit",
+  Role: "Role",
+  Service: "Service",
+  User: "User",
+};
 
 /**
  * @public
@@ -2273,7 +2274,7 @@ export interface AddedPrincipal {
   /**
    * <p>The type of principal.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: keyof typeof PrincipalType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the principal.</p>
@@ -2324,10 +2325,10 @@ export interface AddPrefixListEntry {
 /**
  * @public
  */
-export enum DomainType {
-  standard = "standard",
-  vpc = "vpc",
-}
+export const DomainType = {
+  standard: "standard",
+  vpc: "vpc",
+};
 
 /**
  * @public
@@ -2358,7 +2359,7 @@ export interface Address {
    * <p>Indicates whether this Elastic IP address is for use with instances
    * 				in EC2-Classic (<code>standard</code>) or instances in a VPC (<code>vpc</code>).</p>
    */
-  Domain?: DomainType | string;
+  Domain?: keyof typeof DomainType | string;
 
   /**
    * <p>The ID of the network interface.</p>
@@ -2458,17 +2459,17 @@ export interface AddressAttribute {
 /**
  * @public
  */
-export enum AddressAttributeName {
-  domain_name = "domain-name",
-}
+export const AddressAttributeName = {
+  domain_name: "domain-name",
+};
 
 /**
  * @public
  */
-export enum AddressFamily {
-  ipv4 = "ipv4",
-  ipv6 = "ipv6",
-}
+export const AddressFamily = {
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+};
 
 /**
  * @public
@@ -2491,16 +2492,16 @@ export interface AdvertiseByoipCidrRequest {
 /**
  * @public
  */
-export enum ByoipCidrState {
-  advertised = "advertised",
-  deprovisioned = "deprovisioned",
-  failed_deprovision = "failed-deprovision",
-  failed_provision = "failed-provision",
-  pending_deprovision = "pending-deprovision",
-  pending_provision = "pending-provision",
-  provisioned = "provisioned",
-  provisioned_not_publicly_advertisable = "provisioned-not-publicly-advertisable",
-}
+export const ByoipCidrState = {
+  advertised: "advertised",
+  deprovisioned: "deprovisioned",
+  failed_deprovision: "failed-deprovision",
+  failed_provision: "failed-provision",
+  pending_deprovision: "pending-deprovision",
+  pending_provision: "pending-provision",
+  provisioned: "provisioned",
+  provisioned_not_publicly_advertisable: "provisioned-not-publicly-advertisable",
+};
 
 /**
  * @public
@@ -2526,7 +2527,7 @@ export interface ByoipCidr {
   /**
    * <p>The state of the address pool.</p>
    */
-  State?: ByoipCidrState | string;
+  State?: keyof typeof ByoipCidrState | string;
 }
 
 /**
@@ -2542,10 +2543,10 @@ export interface AdvertiseByoipCidrResult {
 /**
  * @public
  */
-export enum Affinity {
-  default = "default",
-  host = "host",
-}
+export const Affinity = {
+  default: "default",
+  host: "host",
+};
 
 /**
  * @public
@@ -2556,7 +2557,7 @@ export interface AllocateAddressRequest {
    *          <p>Default: If the Region supports EC2-Classic, the default is <code>standard</code>. Otherwise, the default
    *          is <code>vpc</code>.</p>
    */
-  Domain?: DomainType | string;
+  Domain?: keyof typeof DomainType | string;
 
   /**
    * <p>[EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.</p>
@@ -2628,7 +2629,7 @@ export interface AllocateAddressResult {
    * <p>Indicates whether the Elastic IP address is for use with instances in a VPC (<code>vpc</code>) or
    * 				instances in EC2-Classic (<code>standard</code>).</p>
    */
-  Domain?: DomainType | string;
+  Domain?: keyof typeof DomainType | string;
 
   /**
    * <p>The customer-owned IP address.</p>
@@ -2650,26 +2651,26 @@ export interface AllocateAddressResult {
 /**
  * @public
  */
-export enum AutoPlacement {
-  off = "off",
-  on = "on",
-}
+export const AutoPlacement = {
+  off: "off",
+  on: "on",
+};
 
 /**
  * @public
  */
-export enum HostMaintenance {
-  off = "off",
-  on = "on",
-}
+export const HostMaintenance = {
+  off: "off",
+  on: "on",
+};
 
 /**
  * @public
  */
-export enum HostRecovery {
-  off = "off",
-  on = "on",
-}
+export const HostRecovery = {
+  off: "off",
+  on: "on",
+};
 
 /**
  * @public
@@ -2683,7 +2684,7 @@ export interface AllocateHostsRequest {
    *          <p>Default: <code>on</code>
    *          </p>
    */
-  AutoPlacement?: AutoPlacement | string;
+  AutoPlacement?: keyof typeof AutoPlacement | string;
 
   /**
    * <p>The Availability Zone in which to allocate the Dedicated Host.</p>
@@ -2733,7 +2734,7 @@ export interface AllocateHostsRequest {
    *          <p>Default: <code>off</code>
    *          </p>
    */
-  HostRecovery?: HostRecovery | string;
+  HostRecovery?: keyof typeof HostRecovery | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate
@@ -2746,7 +2747,7 @@ export interface AllocateHostsRequest {
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html">Host
    *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  HostMaintenance?: HostMaintenance | string;
+  HostMaintenance?: keyof typeof HostMaintenance | string;
 }
 
 /**
@@ -2829,12 +2830,12 @@ export interface AllocateIpamPoolCidrRequest {
 /**
  * @public
  */
-export enum IpamPoolAllocationResourceType {
-  custom = "custom",
-  ec2_public_ipv4_pool = "ec2-public-ipv4-pool",
-  ipam_pool = "ipam-pool",
-  vpc = "vpc",
-}
+export const IpamPoolAllocationResourceType = {
+  custom: "custom",
+  ec2_public_ipv4_pool: "ec2-public-ipv4-pool",
+  ipam_pool: "ipam-pool",
+  vpc: "vpc",
+};
 
 /**
  * @public
@@ -2865,7 +2866,7 @@ export interface IpamPoolAllocation {
   /**
    * <p>The type of the resource.</p>
    */
-  ResourceType?: IpamPoolAllocationResourceType | string;
+  ResourceType?: keyof typeof IpamPoolAllocationResourceType | string;
 
   /**
    * <p>The Amazon Web Services Region of the resource.</p>
@@ -2891,32 +2892,32 @@ export interface AllocateIpamPoolCidrResult {
 /**
  * @public
  */
-export enum AllocationState {
-  available = "available",
-  pending = "pending",
-  permanent_failure = "permanent-failure",
-  released = "released",
-  released_permanent_failure = "released-permanent-failure",
-  under_assessment = "under-assessment",
-}
+export const AllocationState = {
+  available: "available",
+  pending: "pending",
+  permanent_failure: "permanent-failure",
+  released: "released",
+  released_permanent_failure: "released-permanent-failure",
+  under_assessment: "under-assessment",
+};
 
 /**
  * @public
  */
-export enum AllocationStrategy {
-  CAPACITY_OPTIMIZED = "capacityOptimized",
-  CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized",
-  DIVERSIFIED = "diversified",
-  LOWEST_PRICE = "lowestPrice",
-  PRICE_CAPACITY_OPTIMIZED = "priceCapacityOptimized",
-}
+export const AllocationStrategy = {
+  CAPACITY_OPTIMIZED: "capacityOptimized",
+  CAPACITY_OPTIMIZED_PRIORITIZED: "capacityOptimizedPrioritized",
+  DIVERSIFIED: "diversified",
+  LOWEST_PRICE: "lowestPrice",
+  PRICE_CAPACITY_OPTIMIZED: "priceCapacityOptimized",
+};
 
 /**
  * @public
  */
-export enum AllocationType {
-  used = "used",
-}
+export const AllocationType = {
+  used: "used",
+};
 
 /**
  * @public
@@ -2926,7 +2927,7 @@ export interface AllowedPrincipal {
   /**
    * <p>The type of principal.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: keyof typeof PrincipalType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the principal.</p>
@@ -2952,10 +2953,10 @@ export interface AllowedPrincipal {
 /**
  * @public
  */
-export enum AllowsMultipleInstanceTypes {
-  off = "off",
-  on = "on",
-}
+export const AllowsMultipleInstanceTypes = {
+  off: "off",
+  on: "on",
+};
 
 /**
  * @public
@@ -3177,14 +3178,14 @@ export interface AssignPrivateNatGatewayAddressRequest {
 /**
  * @public
  */
-export enum NatGatewayAddressStatus {
-  ASSIGNING = "assigning",
-  ASSOCIATING = "associating",
-  DISASSOCIATING = "disassociating",
-  FAILED = "failed",
-  SUCCEEDED = "succeeded",
-  UNASSIGNING = "unassigning",
-}
+export const NatGatewayAddressStatus = {
+  ASSIGNING: "assigning",
+  ASSOCIATING: "associating",
+  DISASSOCIATING: "disassociating",
+  FAILED: "failed",
+  SUCCEEDED: "succeeded",
+  UNASSIGNING: "unassigning",
+};
 
 /**
  * @public
@@ -3229,7 +3230,7 @@ export interface NatGatewayAddress {
   /**
    * <p>The address status.</p>
    */
-  Status?: NatGatewayAddressStatus | string;
+  Status?: keyof typeof NatGatewayAddressStatus | string;
 }
 
 /**
@@ -3332,13 +3333,13 @@ export interface AssociateClientVpnTargetNetworkRequest {
 /**
  * @public
  */
-export enum AssociationStatusCode {
-  associated = "associated",
-  associating = "associating",
-  association_failed = "association-failed",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-}
+export const AssociationStatusCode = {
+  associated: "associated",
+  associating: "associating",
+  association_failed: "association-failed",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+};
 
 /**
  * @public
@@ -3348,7 +3349,7 @@ export interface AssociationStatus {
   /**
    * <p>The state of the target network association.</p>
    */
-  Code?: AssociationStatusCode | string;
+  Code?: keyof typeof AssociationStatusCode | string;
 
   /**
    * <p>A message about the status of the target network association, if applicable.</p>
@@ -3486,12 +3487,12 @@ export interface IamInstanceProfile {
 /**
  * @public
  */
-export enum IamInstanceProfileAssociationState {
-  ASSOCIATED = "associated",
-  ASSOCIATING = "associating",
-  DISASSOCIATED = "disassociated",
-  DISASSOCIATING = "disassociating",
-}
+export const IamInstanceProfileAssociationState = {
+  ASSOCIATED: "associated",
+  ASSOCIATING: "associating",
+  DISASSOCIATED: "disassociated",
+  DISASSOCIATING: "disassociating",
+};
 
 /**
  * @public
@@ -3516,7 +3517,7 @@ export interface IamInstanceProfileAssociation {
   /**
    * <p>The state of the association.</p>
    */
-  State?: IamInstanceProfileAssociationState | string;
+  State?: keyof typeof IamInstanceProfileAssociationState | string;
 
   /**
    * <p>The time the IAM instance profile was associated with the instance.</p>
@@ -3607,25 +3608,25 @@ export interface InstanceEventWindowAssociationTarget {
 /**
  * @public
  */
-export enum InstanceEventWindowState {
-  active = "active",
-  creating = "creating",
-  deleted = "deleted",
-  deleting = "deleting",
-}
+export const InstanceEventWindowState = {
+  active: "active",
+  creating: "creating",
+  deleted: "deleted",
+  deleting: "deleting",
+};
 
 /**
  * @public
  */
-export enum WeekDay {
-  friday = "friday",
-  monday = "monday",
-  saturday = "saturday",
-  sunday = "sunday",
-  thursday = "thursday",
-  tuesday = "tuesday",
-  wednesday = "wednesday",
-}
+export const WeekDay = {
+  friday: "friday",
+  monday: "monday",
+  saturday: "saturday",
+  sunday: "sunday",
+  thursday: "thursday",
+  tuesday: "tuesday",
+  wednesday: "wednesday",
+};
 
 /**
  * @public
@@ -3635,7 +3636,7 @@ export interface InstanceEventWindowTimeRange {
   /**
    * <p>The day on which the time range begins.</p>
    */
-  StartWeekDay?: WeekDay | string;
+  StartWeekDay?: keyof typeof WeekDay | string;
 
   /**
    * <p>The hour when the time range begins.</p>
@@ -3645,7 +3646,7 @@ export interface InstanceEventWindowTimeRange {
   /**
    * <p>The day on which the time range ends.</p>
    */
-  EndWeekDay?: WeekDay | string;
+  EndWeekDay?: keyof typeof WeekDay | string;
 
   /**
    * <p>The hour when the time range ends.</p>
@@ -3686,7 +3687,7 @@ export interface InstanceEventWindow {
   /**
    * <p>The current state of the event window.</p>
    */
-  State?: InstanceEventWindowState | string;
+  State?: keyof typeof InstanceEventWindowState | string;
 
   /**
    * <p>The instance tags associated with the event window.</p>
@@ -3739,25 +3740,25 @@ export interface AssociateIpamResourceDiscoveryRequest {
 /**
  * @public
  */
-export enum IpamAssociatedResourceDiscoveryStatus {
-  ACTIVE = "active",
-  NOT_FOUND = "not-found",
-}
+export const IpamAssociatedResourceDiscoveryStatus = {
+  ACTIVE: "active",
+  NOT_FOUND: "not-found",
+};
 
 /**
  * @public
  */
-export enum IpamResourceDiscoveryAssociationState {
-  ASSOCIATE_COMPLETE = "associate-complete",
-  ASSOCIATE_FAILED = "associate-failed",
-  ASSOCIATE_IN_PROGRESS = "associate-in-progress",
-  DISASSOCIATE_COMPLETE = "disassociate-complete",
-  DISASSOCIATE_FAILED = "disassociate-failed",
-  DISASSOCIATE_IN_PROGRESS = "disassociate-in-progress",
-  ISOLATE_COMPLETE = "isolate-complete",
-  ISOLATE_IN_PROGRESS = "isolate-in-progress",
-  RESTORE_IN_PROGRESS = "restore-in-progress",
-}
+export const IpamResourceDiscoveryAssociationState = {
+  ASSOCIATE_COMPLETE: "associate-complete",
+  ASSOCIATE_FAILED: "associate-failed",
+  ASSOCIATE_IN_PROGRESS: "associate-in-progress",
+  DISASSOCIATE_COMPLETE: "disassociate-complete",
+  DISASSOCIATE_FAILED: "disassociate-failed",
+  DISASSOCIATE_IN_PROGRESS: "disassociate-in-progress",
+  ISOLATE_COMPLETE: "isolate-complete",
+  ISOLATE_IN_PROGRESS: "isolate-in-progress",
+  RESTORE_IN_PROGRESS: "restore-in-progress",
+};
 
 /**
  * @public
@@ -3819,7 +3820,7 @@ export interface IpamResourceDiscoveryAssociation {
    *             </li>
    *          </ul>
    */
-  ResourceDiscoveryStatus?: IpamAssociatedResourceDiscoveryStatus | string;
+  ResourceDiscoveryStatus?: keyof typeof IpamAssociatedResourceDiscoveryStatus | string;
 
   /**
    * <p>The lifecycle state of the association when you associate or disassociate a resource discovery.</p>
@@ -3862,7 +3863,7 @@ export interface IpamResourceDiscoveryAssociation {
    *             </li>
    *          </ul>
    */
-  State?: IpamResourceDiscoveryAssociationState | string;
+  State?: keyof typeof IpamResourceDiscoveryAssociationState | string;
 
   /**
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
@@ -3952,13 +3953,13 @@ export interface AssociateRouteTableRequest {
 /**
  * @public
  */
-export enum RouteTableAssociationStateCode {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-  failed = "failed",
-}
+export const RouteTableAssociationStateCode = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+  failed: "failed",
+};
 
 /**
  * @public
@@ -3968,7 +3969,7 @@ export interface RouteTableAssociationState {
   /**
    * <p>The state of the association.</p>
    */
-  State?: RouteTableAssociationStateCode | string;
+  State?: keyof typeof RouteTableAssociationStateCode | string;
 
   /**
    * <p>The status message, if applicable.</p>
@@ -4011,14 +4012,14 @@ export interface AssociateSubnetCidrBlockRequest {
 /**
  * @public
  */
-export enum SubnetCidrBlockStateCode {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-  failed = "failed",
-  failing = "failing",
-}
+export const SubnetCidrBlockStateCode = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+  failed: "failed",
+  failing: "failing",
+};
 
 /**
  * @public
@@ -4028,7 +4029,7 @@ export interface SubnetCidrBlockState {
   /**
    * <p>The state of a CIDR block.</p>
    */
-  State?: SubnetCidrBlockStateCode | string;
+  State?: keyof typeof SubnetCidrBlockStateCode | string;
 
   /**
    * <p>A message about the status of the CIDR block, if applicable.</p>
@@ -4134,12 +4135,12 @@ export interface AssociateTransitGatewayPolicyTableRequest {
 /**
  * @public
  */
-export enum TransitGatewayAssociationState {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-}
+export const TransitGatewayAssociationState = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+};
 
 /**
  * @public
@@ -4164,12 +4165,12 @@ export interface TransitGatewayPolicyTableAssociation {
   /**
    * <p>The resource type for the transit gateway policy table association.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: keyof typeof TransitGatewayAttachmentResourceType | string;
 
   /**
    * <p>The state of the transit gateway policy table association.</p>
    */
-  State?: TransitGatewayAssociationState | string;
+  State?: keyof typeof TransitGatewayAssociationState | string;
 }
 
 /**
@@ -4227,12 +4228,12 @@ export interface TransitGatewayAssociation {
   /**
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: keyof typeof TransitGatewayAttachmentResourceType | string;
 
   /**
    * <p>The state of the association.</p>
    */
-  State?: TransitGatewayAssociationState | string;
+  State?: keyof typeof TransitGatewayAssociationState | string;
 }
 
 /**
@@ -4287,10 +4288,10 @@ export interface AssociateTrunkInterfaceRequest {
 /**
  * @public
  */
-export enum InterfaceProtocolType {
-  GRE = "GRE",
-  VLAN = "VLAN",
-}
+export const InterfaceProtocolType = {
+  GRE: "GRE",
+  VLAN: "VLAN",
+};
 
 /**
  * @public
@@ -4319,7 +4320,7 @@ export interface TrunkInterfaceAssociation {
   /**
    * <p>The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p>
    */
-  InterfaceProtocol?: InterfaceProtocolType | string;
+  InterfaceProtocol?: keyof typeof InterfaceProtocolType | string;
 
   /**
    * <p>The ID of the VLAN when you use the VLAN protocol.</p>
@@ -4417,14 +4418,14 @@ export interface AssociateVpcCidrBlockRequest {
 /**
  * @public
  */
-export enum VpcCidrBlockStateCode {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-  failed = "failed",
-  failing = "failing",
-}
+export const VpcCidrBlockStateCode = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+  failed: "failed",
+  failing: "failing",
+};
 
 /**
  * @public
@@ -4434,7 +4435,7 @@ export interface VpcCidrBlockState {
   /**
    * <p>The state of the CIDR block.</p>
    */
-  State?: VpcCidrBlockStateCode | string;
+  State?: keyof typeof VpcCidrBlockStateCode | string;
 
   /**
    * <p>A message about the status of the CIDR block, if applicable.</p>
@@ -4699,26 +4700,26 @@ export interface AttachVerifiedAccessTrustProviderRequest {
 /**
  * @public
  */
-export enum DeviceTrustProviderType {
-  crowdstrike = "crowdstrike",
-  jamf = "jamf",
-}
+export const DeviceTrustProviderType = {
+  crowdstrike: "crowdstrike",
+  jamf: "jamf",
+};
 
 /**
  * @public
  */
-export enum TrustProviderType {
-  device = "device",
-  user = "user",
-}
+export const TrustProviderType = {
+  device: "device",
+  user: "user",
+};
 
 /**
  * @public
  */
-export enum UserTrustProviderType {
-  iam_identity_center = "iam-identity-center",
-  oidc = "oidc",
-}
+export const UserTrustProviderType = {
+  iam_identity_center: "iam-identity-center",
+  oidc: "oidc",
+};
 
 /**
  * @public
@@ -4738,17 +4739,17 @@ export interface VerifiedAccessTrustProviderCondensed {
   /**
    * <p>The type of trust provider (user- or device-based).</p>
    */
-  TrustProviderType?: TrustProviderType | string;
+  TrustProviderType?: keyof typeof TrustProviderType | string;
 
   /**
    * <p>The type of user-based trust provider.</p>
    */
-  UserTrustProviderType?: UserTrustProviderType | string;
+  UserTrustProviderType?: keyof typeof UserTrustProviderType | string;
 
   /**
    * <p>The type of device-based trust provider.</p>
    */
-  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+  DeviceTrustProviderType?: keyof typeof DeviceTrustProviderType | string;
 }
 
 /**
@@ -4857,17 +4858,17 @@ export interface VerifiedAccessTrustProvider {
   /**
    * <p>The type of Verified Access trust provider.</p>
    */
-  TrustProviderType?: TrustProviderType | string;
+  TrustProviderType?: keyof typeof TrustProviderType | string;
 
   /**
    * <p>The type of user-based trust provider.</p>
    */
-  UserTrustProviderType?: UserTrustProviderType | string;
+  UserTrustProviderType?: keyof typeof UserTrustProviderType | string;
 
   /**
    * <p>The type of device-based trust provider.</p>
    */
-  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+  DeviceTrustProviderType?: keyof typeof DeviceTrustProviderType | string;
 
   /**
    * <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
@@ -4946,13 +4947,13 @@ export interface AttachVolumeRequest {
 /**
  * @public
  */
-export enum VolumeAttachmentState {
-  attached = "attached",
-  attaching = "attaching",
-  busy = "busy",
-  detached = "detached",
-  detaching = "detaching",
-}
+export const VolumeAttachmentState = {
+  attached: "attached",
+  attaching: "attaching",
+  busy: "busy",
+  detached: "detached",
+  detaching: "detaching",
+};
 
 /**
  * @public
@@ -4977,7 +4978,7 @@ export interface VolumeAttachment {
   /**
    * <p>The attachment state of the volume.</p>
    */
-  State?: VolumeAttachmentState | string;
+  State?: keyof typeof VolumeAttachmentState | string;
 
   /**
    * <p>The ID of the volume.</p>
@@ -5017,12 +5018,12 @@ export interface AttachVpnGatewayRequest {
 /**
  * @public
  */
-export enum AttachmentStatus {
-  attached = "attached",
-  attaching = "attaching",
-  detached = "detached",
-  detaching = "detaching",
-}
+export const AttachmentStatus = {
+  attached: "attached",
+  attaching: "attaching",
+  detached: "detached",
+  detaching: "detaching",
+};
 
 /**
  * @public
@@ -5032,7 +5033,7 @@ export interface VpcAttachment {
   /**
    * <p>The current state of the attachment.</p>
    */
-  State?: AttachmentStatus | string;
+  State?: keyof typeof AttachmentStatus | string;
 
   /**
    * <p>The ID of the VPC.</p>
@@ -5096,12 +5097,12 @@ export interface AuthorizeClientVpnIngressRequest {
 /**
  * @public
  */
-export enum ClientVpnAuthorizationRuleStatusCode {
-  active = "active",
-  authorizing = "authorizing",
-  failed = "failed",
-  revoking = "revoking",
-}
+export const ClientVpnAuthorizationRuleStatusCode = {
+  active: "active",
+  authorizing: "authorizing",
+  failed: "failed",
+  revoking: "revoking",
+};
 
 /**
  * @public
@@ -5111,7 +5112,7 @@ export interface ClientVpnAuthorizationRuleStatus {
   /**
    * <p>The state of the authorization rule.</p>
    */
-  Code?: ClientVpnAuthorizationRuleStatusCode | string;
+  Code?: keyof typeof ClientVpnAuthorizationRuleStatusCode | string;
 
   /**
    * <p>A message about the status of the authorization rule, if applicable.</p>
@@ -5669,15 +5670,15 @@ export interface BundleTaskError {
 /**
  * @public
  */
-export enum BundleTaskState {
-  bundling = "bundling",
-  cancelling = "cancelling",
-  complete = "complete",
-  failed = "failed",
-  pending = "pending",
-  storing = "storing",
-  waiting_for_shutdown = "waiting-for-shutdown",
-}
+export const BundleTaskState = {
+  bundling: "bundling",
+  cancelling: "cancelling",
+  complete: "complete",
+  failed: "failed",
+  pending: "pending",
+  storing: "storing",
+  waiting_for_shutdown: "waiting-for-shutdown",
+};
 
 /**
  * @public
@@ -5712,7 +5713,7 @@ export interface BundleTask {
   /**
    * <p>The state of the task.</p>
    */
-  State?: BundleTaskState | string;
+  State?: keyof typeof BundleTaskState | string;
 
   /**
    * <p>The Amazon S3 storage locations.</p>
@@ -5840,17 +5841,17 @@ export interface FailedCapacityReservationFleetCancellationResult {
 /**
  * @public
  */
-export enum CapacityReservationFleetState {
-  ACTIVE = "active",
-  CANCELLED = "cancelled",
-  CANCELLING = "cancelling",
-  EXPIRED = "expired",
-  EXPIRING = "expiring",
-  FAILED = "failed",
-  MODIFYING = "modifying",
-  PARTIALLY_FULFILLED = "partially_fulfilled",
-  SUBMITTED = "submitted",
-}
+export const CapacityReservationFleetState = {
+  ACTIVE: "active",
+  CANCELLED: "cancelled",
+  CANCELLING: "cancelling",
+  EXPIRED: "expired",
+  EXPIRING: "expiring",
+  FAILED: "failed",
+  MODIFYING: "modifying",
+  PARTIALLY_FULFILLED: "partially_fulfilled",
+  SUBMITTED: "submitted",
+};
 
 /**
  * @public
@@ -5860,12 +5861,12 @@ export interface CapacityReservationFleetCancellationState {
   /**
    * <p>The current state of the Capacity Reservation Fleet.</p>
    */
-  CurrentFleetState?: CapacityReservationFleetState | string;
+  CurrentFleetState?: keyof typeof CapacityReservationFleetState | string;
 
   /**
    * <p>The previous state of the Capacity Reservation Fleet.</p>
    */
-  PreviousFleetState?: CapacityReservationFleetState | string;
+  PreviousFleetState?: keyof typeof CapacityReservationFleetState | string;
 
   /**
    * <p>The ID of the Capacity Reservation Fleet that was successfully cancelled.</p>
@@ -6003,12 +6004,12 @@ export interface CancelReservedInstancesListingRequest {
 /**
  * @public
  */
-export enum ListingState {
-  available = "available",
-  cancelled = "cancelled",
-  pending = "pending",
-  sold = "sold",
-}
+export const ListingState = {
+  available: "available",
+  cancelled: "cancelled",
+  pending: "pending",
+  sold: "sold",
+};
 
 /**
  * @public
@@ -6023,15 +6024,15 @@ export interface InstanceCount {
   /**
    * <p>The states of the listed Reserved Instances.</p>
    */
-  State?: ListingState | string;
+  State?: keyof typeof ListingState | string;
 }
 
 /**
  * @public
  */
-export enum CurrencyCodeValues {
-  USD = "USD",
-}
+export const CurrencyCodeValues = {
+  USD: "USD",
+};
 
 /**
  * @public
@@ -6048,7 +6049,7 @@ export interface PriceSchedule {
    * <p>The currency for transacting the Reserved Instance resale.
    * 				At this time, the only supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: keyof typeof CurrencyCodeValues | string;
 
   /**
    * <p>The fixed price for the term.</p>
@@ -6064,12 +6065,12 @@ export interface PriceSchedule {
 /**
  * @public
  */
-export enum ListingStatus {
-  active = "active",
-  cancelled = "cancelled",
-  closed = "closed",
-  pending = "pending",
-}
+export const ListingStatus = {
+  active: "active",
+  cancelled: "cancelled",
+  closed: "closed",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -6110,7 +6111,7 @@ export interface ReservedInstancesListing {
   /**
    * <p>The status of the Reserved Instance listing.</p>
    */
-  Status?: ListingStatus | string;
+  Status?: keyof typeof ListingStatus | string;
 
   /**
    * <p>The reason for the current status of the Reserved Instance listing. The response can be blank.</p>
@@ -6168,15 +6169,15 @@ export interface CancelSpotFleetRequestsRequest {
 /**
  * @public
  */
-export enum BatchState {
-  ACTIVE = "active",
-  CANCELLED = "cancelled",
-  CANCELLED_RUNNING = "cancelled_running",
-  CANCELLED_TERMINATING_INSTANCES = "cancelled_terminating",
-  FAILED = "failed",
-  MODIFYING = "modifying",
-  SUBMITTED = "submitted",
-}
+export const BatchState = {
+  ACTIVE: "active",
+  CANCELLED: "cancelled",
+  CANCELLED_RUNNING: "cancelled_running",
+  CANCELLED_TERMINATING_INSTANCES: "cancelled_terminating",
+  FAILED: "failed",
+  MODIFYING: "modifying",
+  SUBMITTED: "submitted",
+};
 
 /**
  * @public
@@ -6186,12 +6187,12 @@ export interface CancelSpotFleetRequestsSuccessItem {
   /**
    * <p>The current state of the Spot Fleet request.</p>
    */
-  CurrentSpotFleetRequestState?: BatchState | string;
+  CurrentSpotFleetRequestState?: keyof typeof BatchState | string;
 
   /**
    * <p>The previous state of the Spot Fleet request.</p>
    */
-  PreviousSpotFleetRequestState?: BatchState | string;
+  PreviousSpotFleetRequestState?: keyof typeof BatchState | string;
 
   /**
    * <p>The ID of the Spot Fleet request.</p>
@@ -6202,12 +6203,12 @@ export interface CancelSpotFleetRequestsSuccessItem {
 /**
  * @public
  */
-export enum CancelBatchErrorCode {
-  FLEET_REQUEST_ID_DOES_NOT_EXIST = "fleetRequestIdDoesNotExist",
-  FLEET_REQUEST_ID_MALFORMED = "fleetRequestIdMalformed",
-  FLEET_REQUEST_NOT_IN_CANCELLABLE_STATE = "fleetRequestNotInCancellableState",
-  UNEXPECTED_ERROR = "unexpectedError",
-}
+export const CancelBatchErrorCode = {
+  FLEET_REQUEST_ID_DOES_NOT_EXIST: "fleetRequestIdDoesNotExist",
+  FLEET_REQUEST_ID_MALFORMED: "fleetRequestIdMalformed",
+  FLEET_REQUEST_NOT_IN_CANCELLABLE_STATE: "fleetRequestNotInCancellableState",
+  UNEXPECTED_ERROR: "unexpectedError",
+};
 
 /**
  * @public
@@ -6217,7 +6218,7 @@ export interface CancelSpotFleetRequestsError {
   /**
    * <p>The error code.</p>
    */
-  Code?: CancelBatchErrorCode | string;
+  Code?: keyof typeof CancelBatchErrorCode | string;
 
   /**
    * <p>The description for the error code.</p>
@@ -6279,13 +6280,13 @@ export interface CancelSpotInstanceRequestsRequest {
 /**
  * @public
  */
-export enum CancelSpotInstanceRequestState {
-  active = "active",
-  cancelled = "cancelled",
-  closed = "closed",
-  completed = "completed",
-  open = "open",
-}
+export const CancelSpotInstanceRequestState = {
+  active: "active",
+  cancelled: "cancelled",
+  closed: "closed",
+  completed: "completed",
+  open: "open",
+};
 
 /**
  * @public
@@ -6300,7 +6301,7 @@ export interface CancelledSpotInstanceRequest {
   /**
    * <p>The state of the Spot Instance request.</p>
    */
-  State?: CancelSpotInstanceRequestState | string;
+  State?: keyof typeof CancelSpotInstanceRequestState | string;
 }
 
 /**
@@ -6637,49 +6638,49 @@ export interface CopySnapshotResult {
 /**
  * @public
  */
-export enum EndDateType {
-  limited = "limited",
-  unlimited = "unlimited",
-}
+export const EndDateType = {
+  limited: "limited",
+  unlimited: "unlimited",
+};
 
 /**
  * @public
  */
-export enum InstanceMatchCriteria {
-  open = "open",
-  targeted = "targeted",
-}
+export const InstanceMatchCriteria = {
+  open: "open",
+  targeted: "targeted",
+};
 
 /**
  * @public
  */
-export enum CapacityReservationInstancePlatform {
-  LINUX_UNIX = "Linux/UNIX",
-  LINUX_WITH_SQL_SERVER_ENTERPRISE = "Linux with SQL Server Enterprise",
-  LINUX_WITH_SQL_SERVER_STANDARD = "Linux with SQL Server Standard",
-  LINUX_WITH_SQL_SERVER_WEB = "Linux with SQL Server Web",
-  RED_HAT_ENTERPRISE_LINUX = "Red Hat Enterprise Linux",
-  RHEL_WITH_HA = "RHEL with HA",
-  RHEL_WITH_HA_AND_SQL_SERVER_ENTERPRISE = "RHEL with HA and SQL Server Enterprise",
-  RHEL_WITH_HA_AND_SQL_SERVER_STANDARD = "RHEL with HA and SQL Server Standard",
-  RHEL_WITH_SQL_SERVER_ENTERPRISE = "RHEL with SQL Server Enterprise",
-  RHEL_WITH_SQL_SERVER_STANDARD = "RHEL with SQL Server Standard",
-  RHEL_WITH_SQL_SERVER_WEB = "RHEL with SQL Server Web",
-  SUSE_LINUX = "SUSE Linux",
-  WINDOWS = "Windows",
-  WINDOWS_WITH_SQL_SERVER = "Windows with SQL Server",
-  WINDOWS_WITH_SQL_SERVER_ENTERPRISE = "Windows with SQL Server Enterprise",
-  WINDOWS_WITH_SQL_SERVER_STANDARD = "Windows with SQL Server Standard",
-  WINDOWS_WITH_SQL_SERVER_WEB = "Windows with SQL Server Web",
-}
+export const CapacityReservationInstancePlatform = {
+  LINUX_UNIX: "Linux/UNIX",
+  LINUX_WITH_SQL_SERVER_ENTERPRISE: "Linux with SQL Server Enterprise",
+  LINUX_WITH_SQL_SERVER_STANDARD: "Linux with SQL Server Standard",
+  LINUX_WITH_SQL_SERVER_WEB: "Linux with SQL Server Web",
+  RED_HAT_ENTERPRISE_LINUX: "Red Hat Enterprise Linux",
+  RHEL_WITH_HA: "RHEL with HA",
+  RHEL_WITH_HA_AND_SQL_SERVER_ENTERPRISE: "RHEL with HA and SQL Server Enterprise",
+  RHEL_WITH_HA_AND_SQL_SERVER_STANDARD: "RHEL with HA and SQL Server Standard",
+  RHEL_WITH_SQL_SERVER_ENTERPRISE: "RHEL with SQL Server Enterprise",
+  RHEL_WITH_SQL_SERVER_STANDARD: "RHEL with SQL Server Standard",
+  RHEL_WITH_SQL_SERVER_WEB: "RHEL with SQL Server Web",
+  SUSE_LINUX: "SUSE Linux",
+  WINDOWS: "Windows",
+  WINDOWS_WITH_SQL_SERVER: "Windows with SQL Server",
+  WINDOWS_WITH_SQL_SERVER_ENTERPRISE: "Windows with SQL Server Enterprise",
+  WINDOWS_WITH_SQL_SERVER_STANDARD: "Windows with SQL Server Standard",
+  WINDOWS_WITH_SQL_SERVER_WEB: "Windows with SQL Server Web",
+};
 
 /**
  * @public
  */
-export enum CapacityReservationTenancy {
-  dedicated = "dedicated",
-  default = "default",
-}
+export const CapacityReservationTenancy = {
+  dedicated: "dedicated",
+  default: "default",
+};
 
 /**
  * @public
@@ -6698,7 +6699,7 @@ export interface CreateCapacityReservationRequest {
   /**
    * <p>The type of operating system for which to reserve capacity.</p>
    */
-  InstancePlatform: CapacityReservationInstancePlatform | string | undefined;
+  InstancePlatform: keyof typeof CapacityReservationInstancePlatform | string | undefined;
 
   /**
    * <p>The Availability Zone in which to create the Capacity Reservation.</p>
@@ -6723,7 +6724,7 @@ export interface CreateCapacityReservationRequest {
    *             </li>
    *          </ul>
    */
-  Tenancy?: CapacityReservationTenancy | string;
+  Tenancy?: keyof typeof CapacityReservationTenancy | string;
 
   /**
    * <p>The number of instances for which to reserve capacity.</p>
@@ -6776,7 +6777,7 @@ export interface CreateCapacityReservationRequest {
    *             </li>
    *          </ul>
    */
-  EndDateType?: EndDateType | string;
+  EndDateType?: keyof typeof EndDateType | string;
 
   /**
    * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options
@@ -6798,7 +6799,7 @@ export interface CreateCapacityReservationRequest {
    *          <p>Default: <code>open</code>
    *          </p>
    */
-  InstanceMatchCriteria?: InstanceMatchCriteria | string;
+  InstanceMatchCriteria?: keyof typeof InstanceMatchCriteria | string;
 
   /**
    * <p>The tags to apply to the Capacity Reservation during launch.</p>
@@ -6834,7 +6835,7 @@ export interface CapacityAllocation {
    * <p>The usage type. <code>used</code> indicates that the instance capacity is
    * 			in use by instances that are running in the Capacity Reservation.</p>
    */
-  AllocationType?: AllocationType | string;
+  AllocationType?: keyof typeof AllocationType | string;
 
   /**
    * <p>The amount of instance capacity associated with the usage. For example a value of
@@ -6846,13 +6847,13 @@ export interface CapacityAllocation {
 /**
  * @public
  */
-export enum CapacityReservationState {
-  active = "active",
-  cancelled = "cancelled",
-  expired = "expired",
-  failed = "failed",
-  pending = "pending",
-}
+export const CapacityReservationState = {
+  active: "active",
+  cancelled: "cancelled",
+  expired: "expired",
+  failed: "failed",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -6887,7 +6888,7 @@ export interface CapacityReservation {
   /**
    * <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
    */
-  InstancePlatform?: CapacityReservationInstancePlatform | string;
+  InstancePlatform?: keyof typeof CapacityReservationInstancePlatform | string;
 
   /**
    * <p>The Availability Zone in which the capacity is reserved.</p>
@@ -6907,7 +6908,7 @@ export interface CapacityReservation {
    *             </li>
    *          </ul>
    */
-  Tenancy?: CapacityReservationTenancy | string;
+  Tenancy?: keyof typeof CapacityReservationTenancy | string;
 
   /**
    * <p>The total number of instances for which the Capacity Reservation reserves capacity.</p>
@@ -6964,7 +6965,7 @@ export interface CapacityReservation {
    *             </li>
    *          </ul>
    */
-  State?: CapacityReservationState | string;
+  State?: keyof typeof CapacityReservationState | string;
 
   /**
    * <p>The date and time at which the Capacity Reservation was started.</p>
@@ -6992,7 +6993,7 @@ export interface CapacityReservation {
    *             </li>
    *          </ul>
    */
-  EndDateType?: EndDateType | string;
+  EndDateType?: keyof typeof EndDateType | string;
 
   /**
    * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options
@@ -7012,7 +7013,7 @@ export interface CapacityReservation {
    *             </li>
    *          </ul>
    */
-  InstanceMatchCriteria?: InstanceMatchCriteria | string;
+  InstanceMatchCriteria?: keyof typeof InstanceMatchCriteria | string;
 
   /**
    * <p>The date and time at which the Capacity Reservation was created.</p>
@@ -7064,653 +7065,653 @@ export interface CreateCapacityReservationResult {
 /**
  * @public
  */
-export enum FleetInstanceMatchCriteria {
-  open = "open",
-}
+export const FleetInstanceMatchCriteria = {
+  open: "open",
+};
 
 /**
  * @public
  */
-export enum _InstanceType {
-  a1_2xlarge = "a1.2xlarge",
-  a1_4xlarge = "a1.4xlarge",
-  a1_large = "a1.large",
-  a1_medium = "a1.medium",
-  a1_metal = "a1.metal",
-  a1_xlarge = "a1.xlarge",
-  c1_medium = "c1.medium",
-  c1_xlarge = "c1.xlarge",
-  c3_2xlarge = "c3.2xlarge",
-  c3_4xlarge = "c3.4xlarge",
-  c3_8xlarge = "c3.8xlarge",
-  c3_large = "c3.large",
-  c3_xlarge = "c3.xlarge",
-  c4_2xlarge = "c4.2xlarge",
-  c4_4xlarge = "c4.4xlarge",
-  c4_8xlarge = "c4.8xlarge",
-  c4_large = "c4.large",
-  c4_xlarge = "c4.xlarge",
-  c5_12xlarge = "c5.12xlarge",
-  c5_18xlarge = "c5.18xlarge",
-  c5_24xlarge = "c5.24xlarge",
-  c5_2xlarge = "c5.2xlarge",
-  c5_4xlarge = "c5.4xlarge",
-  c5_9xlarge = "c5.9xlarge",
-  c5_large = "c5.large",
-  c5_metal = "c5.metal",
-  c5_xlarge = "c5.xlarge",
-  c5a_12xlarge = "c5a.12xlarge",
-  c5a_16xlarge = "c5a.16xlarge",
-  c5a_24xlarge = "c5a.24xlarge",
-  c5a_2xlarge = "c5a.2xlarge",
-  c5a_4xlarge = "c5a.4xlarge",
-  c5a_8xlarge = "c5a.8xlarge",
-  c5a_large = "c5a.large",
-  c5a_xlarge = "c5a.xlarge",
-  c5ad_12xlarge = "c5ad.12xlarge",
-  c5ad_16xlarge = "c5ad.16xlarge",
-  c5ad_24xlarge = "c5ad.24xlarge",
-  c5ad_2xlarge = "c5ad.2xlarge",
-  c5ad_4xlarge = "c5ad.4xlarge",
-  c5ad_8xlarge = "c5ad.8xlarge",
-  c5ad_large = "c5ad.large",
-  c5ad_xlarge = "c5ad.xlarge",
-  c5d_12xlarge = "c5d.12xlarge",
-  c5d_18xlarge = "c5d.18xlarge",
-  c5d_24xlarge = "c5d.24xlarge",
-  c5d_2xlarge = "c5d.2xlarge",
-  c5d_4xlarge = "c5d.4xlarge",
-  c5d_9xlarge = "c5d.9xlarge",
-  c5d_large = "c5d.large",
-  c5d_metal = "c5d.metal",
-  c5d_xlarge = "c5d.xlarge",
-  c5n_18xlarge = "c5n.18xlarge",
-  c5n_2xlarge = "c5n.2xlarge",
-  c5n_4xlarge = "c5n.4xlarge",
-  c5n_9xlarge = "c5n.9xlarge",
-  c5n_large = "c5n.large",
-  c5n_metal = "c5n.metal",
-  c5n_xlarge = "c5n.xlarge",
-  c6a_12xlarge = "c6a.12xlarge",
-  c6a_16xlarge = "c6a.16xlarge",
-  c6a_24xlarge = "c6a.24xlarge",
-  c6a_2xlarge = "c6a.2xlarge",
-  c6a_32xlarge = "c6a.32xlarge",
-  c6a_48xlarge = "c6a.48xlarge",
-  c6a_4xlarge = "c6a.4xlarge",
-  c6a_8xlarge = "c6a.8xlarge",
-  c6a_large = "c6a.large",
-  c6a_metal = "c6a.metal",
-  c6a_xlarge = "c6a.xlarge",
-  c6g_12xlarge = "c6g.12xlarge",
-  c6g_16xlarge = "c6g.16xlarge",
-  c6g_2xlarge = "c6g.2xlarge",
-  c6g_4xlarge = "c6g.4xlarge",
-  c6g_8xlarge = "c6g.8xlarge",
-  c6g_large = "c6g.large",
-  c6g_medium = "c6g.medium",
-  c6g_metal = "c6g.metal",
-  c6g_xlarge = "c6g.xlarge",
-  c6gd_12xlarge = "c6gd.12xlarge",
-  c6gd_16xlarge = "c6gd.16xlarge",
-  c6gd_2xlarge = "c6gd.2xlarge",
-  c6gd_4xlarge = "c6gd.4xlarge",
-  c6gd_8xlarge = "c6gd.8xlarge",
-  c6gd_large = "c6gd.large",
-  c6gd_medium = "c6gd.medium",
-  c6gd_metal = "c6gd.metal",
-  c6gd_xlarge = "c6gd.xlarge",
-  c6gn_12xlarge = "c6gn.12xlarge",
-  c6gn_16xlarge = "c6gn.16xlarge",
-  c6gn_2xlarge = "c6gn.2xlarge",
-  c6gn_4xlarge = "c6gn.4xlarge",
-  c6gn_8xlarge = "c6gn.8xlarge",
-  c6gn_large = "c6gn.large",
-  c6gn_medium = "c6gn.medium",
-  c6gn_xlarge = "c6gn.xlarge",
-  c6i_12xlarge = "c6i.12xlarge",
-  c6i_16xlarge = "c6i.16xlarge",
-  c6i_24xlarge = "c6i.24xlarge",
-  c6i_2xlarge = "c6i.2xlarge",
-  c6i_32xlarge = "c6i.32xlarge",
-  c6i_4xlarge = "c6i.4xlarge",
-  c6i_8xlarge = "c6i.8xlarge",
-  c6i_large = "c6i.large",
-  c6i_metal = "c6i.metal",
-  c6i_xlarge = "c6i.xlarge",
-  c6id_12xlarge = "c6id.12xlarge",
-  c6id_16xlarge = "c6id.16xlarge",
-  c6id_24xlarge = "c6id.24xlarge",
-  c6id_2xlarge = "c6id.2xlarge",
-  c6id_32xlarge = "c6id.32xlarge",
-  c6id_4xlarge = "c6id.4xlarge",
-  c6id_8xlarge = "c6id.8xlarge",
-  c6id_large = "c6id.large",
-  c6id_metal = "c6id.metal",
-  c6id_xlarge = "c6id.xlarge",
-  c6in_12xlarge = "c6in.12xlarge",
-  c6in_16xlarge = "c6in.16xlarge",
-  c6in_24xlarge = "c6in.24xlarge",
-  c6in_2xlarge = "c6in.2xlarge",
-  c6in_32xlarge = "c6in.32xlarge",
-  c6in_4xlarge = "c6in.4xlarge",
-  c6in_8xlarge = "c6in.8xlarge",
-  c6in_large = "c6in.large",
-  c6in_xlarge = "c6in.xlarge",
-  c7g_12xlarge = "c7g.12xlarge",
-  c7g_16xlarge = "c7g.16xlarge",
-  c7g_2xlarge = "c7g.2xlarge",
-  c7g_4xlarge = "c7g.4xlarge",
-  c7g_8xlarge = "c7g.8xlarge",
-  c7g_large = "c7g.large",
-  c7g_medium = "c7g.medium",
-  c7g_metal = "c7g.metal",
-  c7g_xlarge = "c7g.xlarge",
-  cc1_4xlarge = "cc1.4xlarge",
-  cc2_8xlarge = "cc2.8xlarge",
-  cg1_4xlarge = "cg1.4xlarge",
-  cr1_8xlarge = "cr1.8xlarge",
-  d2_2xlarge = "d2.2xlarge",
-  d2_4xlarge = "d2.4xlarge",
-  d2_8xlarge = "d2.8xlarge",
-  d2_xlarge = "d2.xlarge",
-  d3_2xlarge = "d3.2xlarge",
-  d3_4xlarge = "d3.4xlarge",
-  d3_8xlarge = "d3.8xlarge",
-  d3_xlarge = "d3.xlarge",
-  d3en_12xlarge = "d3en.12xlarge",
-  d3en_2xlarge = "d3en.2xlarge",
-  d3en_4xlarge = "d3en.4xlarge",
-  d3en_6xlarge = "d3en.6xlarge",
-  d3en_8xlarge = "d3en.8xlarge",
-  d3en_xlarge = "d3en.xlarge",
-  dl1_24xlarge = "dl1.24xlarge",
-  f1_16xlarge = "f1.16xlarge",
-  f1_2xlarge = "f1.2xlarge",
-  f1_4xlarge = "f1.4xlarge",
-  g2_2xlarge = "g2.2xlarge",
-  g2_8xlarge = "g2.8xlarge",
-  g3_16xlarge = "g3.16xlarge",
-  g3_4xlarge = "g3.4xlarge",
-  g3_8xlarge = "g3.8xlarge",
-  g3s_xlarge = "g3s.xlarge",
-  g4ad_16xlarge = "g4ad.16xlarge",
-  g4ad_2xlarge = "g4ad.2xlarge",
-  g4ad_4xlarge = "g4ad.4xlarge",
-  g4ad_8xlarge = "g4ad.8xlarge",
-  g4ad_xlarge = "g4ad.xlarge",
-  g4dn_12xlarge = "g4dn.12xlarge",
-  g4dn_16xlarge = "g4dn.16xlarge",
-  g4dn_2xlarge = "g4dn.2xlarge",
-  g4dn_4xlarge = "g4dn.4xlarge",
-  g4dn_8xlarge = "g4dn.8xlarge",
-  g4dn_metal = "g4dn.metal",
-  g4dn_xlarge = "g4dn.xlarge",
-  g5_12xlarge = "g5.12xlarge",
-  g5_16xlarge = "g5.16xlarge",
-  g5_24xlarge = "g5.24xlarge",
-  g5_2xlarge = "g5.2xlarge",
-  g5_48xlarge = "g5.48xlarge",
-  g5_4xlarge = "g5.4xlarge",
-  g5_8xlarge = "g5.8xlarge",
-  g5_xlarge = "g5.xlarge",
-  g5g_16xlarge = "g5g.16xlarge",
-  g5g_2xlarge = "g5g.2xlarge",
-  g5g_4xlarge = "g5g.4xlarge",
-  g5g_8xlarge = "g5g.8xlarge",
-  g5g_metal = "g5g.metal",
-  g5g_xlarge = "g5g.xlarge",
-  h1_16xlarge = "h1.16xlarge",
-  h1_2xlarge = "h1.2xlarge",
-  h1_4xlarge = "h1.4xlarge",
-  h1_8xlarge = "h1.8xlarge",
-  hi1_4xlarge = "hi1.4xlarge",
-  hpc6a_48xlarge = "hpc6a.48xlarge",
-  hpc6id_32xlarge = "hpc6id.32xlarge",
-  hs1_8xlarge = "hs1.8xlarge",
-  i2_2xlarge = "i2.2xlarge",
-  i2_4xlarge = "i2.4xlarge",
-  i2_8xlarge = "i2.8xlarge",
-  i2_xlarge = "i2.xlarge",
-  i3_16xlarge = "i3.16xlarge",
-  i3_2xlarge = "i3.2xlarge",
-  i3_4xlarge = "i3.4xlarge",
-  i3_8xlarge = "i3.8xlarge",
-  i3_large = "i3.large",
-  i3_metal = "i3.metal",
-  i3_xlarge = "i3.xlarge",
-  i3en_12xlarge = "i3en.12xlarge",
-  i3en_24xlarge = "i3en.24xlarge",
-  i3en_2xlarge = "i3en.2xlarge",
-  i3en_3xlarge = "i3en.3xlarge",
-  i3en_6xlarge = "i3en.6xlarge",
-  i3en_large = "i3en.large",
-  i3en_metal = "i3en.metal",
-  i3en_xlarge = "i3en.xlarge",
-  i4i_16xlarge = "i4i.16xlarge",
-  i4i_2xlarge = "i4i.2xlarge",
-  i4i_32xlarge = "i4i.32xlarge",
-  i4i_4xlarge = "i4i.4xlarge",
-  i4i_8xlarge = "i4i.8xlarge",
-  i4i_large = "i4i.large",
-  i4i_metal = "i4i.metal",
-  i4i_xlarge = "i4i.xlarge",
-  im4gn_16xlarge = "im4gn.16xlarge",
-  im4gn_2xlarge = "im4gn.2xlarge",
-  im4gn_4xlarge = "im4gn.4xlarge",
-  im4gn_8xlarge = "im4gn.8xlarge",
-  im4gn_large = "im4gn.large",
-  im4gn_xlarge = "im4gn.xlarge",
-  inf1_24xlarge = "inf1.24xlarge",
-  inf1_2xlarge = "inf1.2xlarge",
-  inf1_6xlarge = "inf1.6xlarge",
-  inf1_xlarge = "inf1.xlarge",
-  is4gen_2xlarge = "is4gen.2xlarge",
-  is4gen_4xlarge = "is4gen.4xlarge",
-  is4gen_8xlarge = "is4gen.8xlarge",
-  is4gen_large = "is4gen.large",
-  is4gen_medium = "is4gen.medium",
-  is4gen_xlarge = "is4gen.xlarge",
-  m1_large = "m1.large",
-  m1_medium = "m1.medium",
-  m1_small = "m1.small",
-  m1_xlarge = "m1.xlarge",
-  m2_2xlarge = "m2.2xlarge",
-  m2_4xlarge = "m2.4xlarge",
-  m2_xlarge = "m2.xlarge",
-  m3_2xlarge = "m3.2xlarge",
-  m3_large = "m3.large",
-  m3_medium = "m3.medium",
-  m3_xlarge = "m3.xlarge",
-  m4_10xlarge = "m4.10xlarge",
-  m4_16xlarge = "m4.16xlarge",
-  m4_2xlarge = "m4.2xlarge",
-  m4_4xlarge = "m4.4xlarge",
-  m4_large = "m4.large",
-  m4_xlarge = "m4.xlarge",
-  m5_12xlarge = "m5.12xlarge",
-  m5_16xlarge = "m5.16xlarge",
-  m5_24xlarge = "m5.24xlarge",
-  m5_2xlarge = "m5.2xlarge",
-  m5_4xlarge = "m5.4xlarge",
-  m5_8xlarge = "m5.8xlarge",
-  m5_large = "m5.large",
-  m5_metal = "m5.metal",
-  m5_xlarge = "m5.xlarge",
-  m5a_12xlarge = "m5a.12xlarge",
-  m5a_16xlarge = "m5a.16xlarge",
-  m5a_24xlarge = "m5a.24xlarge",
-  m5a_2xlarge = "m5a.2xlarge",
-  m5a_4xlarge = "m5a.4xlarge",
-  m5a_8xlarge = "m5a.8xlarge",
-  m5a_large = "m5a.large",
-  m5a_xlarge = "m5a.xlarge",
-  m5ad_12xlarge = "m5ad.12xlarge",
-  m5ad_16xlarge = "m5ad.16xlarge",
-  m5ad_24xlarge = "m5ad.24xlarge",
-  m5ad_2xlarge = "m5ad.2xlarge",
-  m5ad_4xlarge = "m5ad.4xlarge",
-  m5ad_8xlarge = "m5ad.8xlarge",
-  m5ad_large = "m5ad.large",
-  m5ad_xlarge = "m5ad.xlarge",
-  m5d_12xlarge = "m5d.12xlarge",
-  m5d_16xlarge = "m5d.16xlarge",
-  m5d_24xlarge = "m5d.24xlarge",
-  m5d_2xlarge = "m5d.2xlarge",
-  m5d_4xlarge = "m5d.4xlarge",
-  m5d_8xlarge = "m5d.8xlarge",
-  m5d_large = "m5d.large",
-  m5d_metal = "m5d.metal",
-  m5d_xlarge = "m5d.xlarge",
-  m5dn_12xlarge = "m5dn.12xlarge",
-  m5dn_16xlarge = "m5dn.16xlarge",
-  m5dn_24xlarge = "m5dn.24xlarge",
-  m5dn_2xlarge = "m5dn.2xlarge",
-  m5dn_4xlarge = "m5dn.4xlarge",
-  m5dn_8xlarge = "m5dn.8xlarge",
-  m5dn_large = "m5dn.large",
-  m5dn_metal = "m5dn.metal",
-  m5dn_xlarge = "m5dn.xlarge",
-  m5n_12xlarge = "m5n.12xlarge",
-  m5n_16xlarge = "m5n.16xlarge",
-  m5n_24xlarge = "m5n.24xlarge",
-  m5n_2xlarge = "m5n.2xlarge",
-  m5n_4xlarge = "m5n.4xlarge",
-  m5n_8xlarge = "m5n.8xlarge",
-  m5n_large = "m5n.large",
-  m5n_metal = "m5n.metal",
-  m5n_xlarge = "m5n.xlarge",
-  m5zn_12xlarge = "m5zn.12xlarge",
-  m5zn_2xlarge = "m5zn.2xlarge",
-  m5zn_3xlarge = "m5zn.3xlarge",
-  m5zn_6xlarge = "m5zn.6xlarge",
-  m5zn_large = "m5zn.large",
-  m5zn_metal = "m5zn.metal",
-  m5zn_xlarge = "m5zn.xlarge",
-  m6a_12xlarge = "m6a.12xlarge",
-  m6a_16xlarge = "m6a.16xlarge",
-  m6a_24xlarge = "m6a.24xlarge",
-  m6a_2xlarge = "m6a.2xlarge",
-  m6a_32xlarge = "m6a.32xlarge",
-  m6a_48xlarge = "m6a.48xlarge",
-  m6a_4xlarge = "m6a.4xlarge",
-  m6a_8xlarge = "m6a.8xlarge",
-  m6a_large = "m6a.large",
-  m6a_metal = "m6a.metal",
-  m6a_xlarge = "m6a.xlarge",
-  m6g_12xlarge = "m6g.12xlarge",
-  m6g_16xlarge = "m6g.16xlarge",
-  m6g_2xlarge = "m6g.2xlarge",
-  m6g_4xlarge = "m6g.4xlarge",
-  m6g_8xlarge = "m6g.8xlarge",
-  m6g_large = "m6g.large",
-  m6g_medium = "m6g.medium",
-  m6g_metal = "m6g.metal",
-  m6g_xlarge = "m6g.xlarge",
-  m6gd_12xlarge = "m6gd.12xlarge",
-  m6gd_16xlarge = "m6gd.16xlarge",
-  m6gd_2xlarge = "m6gd.2xlarge",
-  m6gd_4xlarge = "m6gd.4xlarge",
-  m6gd_8xlarge = "m6gd.8xlarge",
-  m6gd_large = "m6gd.large",
-  m6gd_medium = "m6gd.medium",
-  m6gd_metal = "m6gd.metal",
-  m6gd_xlarge = "m6gd.xlarge",
-  m6i_12xlarge = "m6i.12xlarge",
-  m6i_16xlarge = "m6i.16xlarge",
-  m6i_24xlarge = "m6i.24xlarge",
-  m6i_2xlarge = "m6i.2xlarge",
-  m6i_32xlarge = "m6i.32xlarge",
-  m6i_4xlarge = "m6i.4xlarge",
-  m6i_8xlarge = "m6i.8xlarge",
-  m6i_large = "m6i.large",
-  m6i_metal = "m6i.metal",
-  m6i_xlarge = "m6i.xlarge",
-  m6id_12xlarge = "m6id.12xlarge",
-  m6id_16xlarge = "m6id.16xlarge",
-  m6id_24xlarge = "m6id.24xlarge",
-  m6id_2xlarge = "m6id.2xlarge",
-  m6id_32xlarge = "m6id.32xlarge",
-  m6id_4xlarge = "m6id.4xlarge",
-  m6id_8xlarge = "m6id.8xlarge",
-  m6id_large = "m6id.large",
-  m6id_metal = "m6id.metal",
-  m6id_xlarge = "m6id.xlarge",
-  m6idn_12xlarge = "m6idn.12xlarge",
-  m6idn_16xlarge = "m6idn.16xlarge",
-  m6idn_24xlarge = "m6idn.24xlarge",
-  m6idn_2xlarge = "m6idn.2xlarge",
-  m6idn_32xlarge = "m6idn.32xlarge",
-  m6idn_4xlarge = "m6idn.4xlarge",
-  m6idn_8xlarge = "m6idn.8xlarge",
-  m6idn_large = "m6idn.large",
-  m6idn_xlarge = "m6idn.xlarge",
-  m6in_12xlarge = "m6in.12xlarge",
-  m6in_16xlarge = "m6in.16xlarge",
-  m6in_24xlarge = "m6in.24xlarge",
-  m6in_2xlarge = "m6in.2xlarge",
-  m6in_32xlarge = "m6in.32xlarge",
-  m6in_4xlarge = "m6in.4xlarge",
-  m6in_8xlarge = "m6in.8xlarge",
-  m6in_large = "m6in.large",
-  m6in_xlarge = "m6in.xlarge",
-  m7g_12xlarge = "m7g.12xlarge",
-  m7g_16xlarge = "m7g.16xlarge",
-  m7g_2xlarge = "m7g.2xlarge",
-  m7g_4xlarge = "m7g.4xlarge",
-  m7g_8xlarge = "m7g.8xlarge",
-  m7g_large = "m7g.large",
-  m7g_medium = "m7g.medium",
-  m7g_metal = "m7g.metal",
-  m7g_xlarge = "m7g.xlarge",
-  mac1_metal = "mac1.metal",
-  mac2_metal = "mac2.metal",
-  p2_16xlarge = "p2.16xlarge",
-  p2_8xlarge = "p2.8xlarge",
-  p2_xlarge = "p2.xlarge",
-  p3_16xlarge = "p3.16xlarge",
-  p3_2xlarge = "p3.2xlarge",
-  p3_8xlarge = "p3.8xlarge",
-  p3dn_24xlarge = "p3dn.24xlarge",
-  p4d_24xlarge = "p4d.24xlarge",
-  p4de_24xlarge = "p4de.24xlarge",
-  r3_2xlarge = "r3.2xlarge",
-  r3_4xlarge = "r3.4xlarge",
-  r3_8xlarge = "r3.8xlarge",
-  r3_large = "r3.large",
-  r3_xlarge = "r3.xlarge",
-  r4_16xlarge = "r4.16xlarge",
-  r4_2xlarge = "r4.2xlarge",
-  r4_4xlarge = "r4.4xlarge",
-  r4_8xlarge = "r4.8xlarge",
-  r4_large = "r4.large",
-  r4_xlarge = "r4.xlarge",
-  r5_12xlarge = "r5.12xlarge",
-  r5_16xlarge = "r5.16xlarge",
-  r5_24xlarge = "r5.24xlarge",
-  r5_2xlarge = "r5.2xlarge",
-  r5_4xlarge = "r5.4xlarge",
-  r5_8xlarge = "r5.8xlarge",
-  r5_large = "r5.large",
-  r5_metal = "r5.metal",
-  r5_xlarge = "r5.xlarge",
-  r5a_12xlarge = "r5a.12xlarge",
-  r5a_16xlarge = "r5a.16xlarge",
-  r5a_24xlarge = "r5a.24xlarge",
-  r5a_2xlarge = "r5a.2xlarge",
-  r5a_4xlarge = "r5a.4xlarge",
-  r5a_8xlarge = "r5a.8xlarge",
-  r5a_large = "r5a.large",
-  r5a_xlarge = "r5a.xlarge",
-  r5ad_12xlarge = "r5ad.12xlarge",
-  r5ad_16xlarge = "r5ad.16xlarge",
-  r5ad_24xlarge = "r5ad.24xlarge",
-  r5ad_2xlarge = "r5ad.2xlarge",
-  r5ad_4xlarge = "r5ad.4xlarge",
-  r5ad_8xlarge = "r5ad.8xlarge",
-  r5ad_large = "r5ad.large",
-  r5ad_xlarge = "r5ad.xlarge",
-  r5b_12xlarge = "r5b.12xlarge",
-  r5b_16xlarge = "r5b.16xlarge",
-  r5b_24xlarge = "r5b.24xlarge",
-  r5b_2xlarge = "r5b.2xlarge",
-  r5b_4xlarge = "r5b.4xlarge",
-  r5b_8xlarge = "r5b.8xlarge",
-  r5b_large = "r5b.large",
-  r5b_metal = "r5b.metal",
-  r5b_xlarge = "r5b.xlarge",
-  r5d_12xlarge = "r5d.12xlarge",
-  r5d_16xlarge = "r5d.16xlarge",
-  r5d_24xlarge = "r5d.24xlarge",
-  r5d_2xlarge = "r5d.2xlarge",
-  r5d_4xlarge = "r5d.4xlarge",
-  r5d_8xlarge = "r5d.8xlarge",
-  r5d_large = "r5d.large",
-  r5d_metal = "r5d.metal",
-  r5d_xlarge = "r5d.xlarge",
-  r5dn_12xlarge = "r5dn.12xlarge",
-  r5dn_16xlarge = "r5dn.16xlarge",
-  r5dn_24xlarge = "r5dn.24xlarge",
-  r5dn_2xlarge = "r5dn.2xlarge",
-  r5dn_4xlarge = "r5dn.4xlarge",
-  r5dn_8xlarge = "r5dn.8xlarge",
-  r5dn_large = "r5dn.large",
-  r5dn_metal = "r5dn.metal",
-  r5dn_xlarge = "r5dn.xlarge",
-  r5n_12xlarge = "r5n.12xlarge",
-  r5n_16xlarge = "r5n.16xlarge",
-  r5n_24xlarge = "r5n.24xlarge",
-  r5n_2xlarge = "r5n.2xlarge",
-  r5n_4xlarge = "r5n.4xlarge",
-  r5n_8xlarge = "r5n.8xlarge",
-  r5n_large = "r5n.large",
-  r5n_metal = "r5n.metal",
-  r5n_xlarge = "r5n.xlarge",
-  r6a_12xlarge = "r6a.12xlarge",
-  r6a_16xlarge = "r6a.16xlarge",
-  r6a_24xlarge = "r6a.24xlarge",
-  r6a_2xlarge = "r6a.2xlarge",
-  r6a_32xlarge = "r6a.32xlarge",
-  r6a_48xlarge = "r6a.48xlarge",
-  r6a_4xlarge = "r6a.4xlarge",
-  r6a_8xlarge = "r6a.8xlarge",
-  r6a_large = "r6a.large",
-  r6a_metal = "r6a.metal",
-  r6a_xlarge = "r6a.xlarge",
-  r6g_12xlarge = "r6g.12xlarge",
-  r6g_16xlarge = "r6g.16xlarge",
-  r6g_2xlarge = "r6g.2xlarge",
-  r6g_4xlarge = "r6g.4xlarge",
-  r6g_8xlarge = "r6g.8xlarge",
-  r6g_large = "r6g.large",
-  r6g_medium = "r6g.medium",
-  r6g_metal = "r6g.metal",
-  r6g_xlarge = "r6g.xlarge",
-  r6gd_12xlarge = "r6gd.12xlarge",
-  r6gd_16xlarge = "r6gd.16xlarge",
-  r6gd_2xlarge = "r6gd.2xlarge",
-  r6gd_4xlarge = "r6gd.4xlarge",
-  r6gd_8xlarge = "r6gd.8xlarge",
-  r6gd_large = "r6gd.large",
-  r6gd_medium = "r6gd.medium",
-  r6gd_metal = "r6gd.metal",
-  r6gd_xlarge = "r6gd.xlarge",
-  r6i_12xlarge = "r6i.12xlarge",
-  r6i_16xlarge = "r6i.16xlarge",
-  r6i_24xlarge = "r6i.24xlarge",
-  r6i_2xlarge = "r6i.2xlarge",
-  r6i_32xlarge = "r6i.32xlarge",
-  r6i_4xlarge = "r6i.4xlarge",
-  r6i_8xlarge = "r6i.8xlarge",
-  r6i_large = "r6i.large",
-  r6i_metal = "r6i.metal",
-  r6i_xlarge = "r6i.xlarge",
-  r6id_12xlarge = "r6id.12xlarge",
-  r6id_16xlarge = "r6id.16xlarge",
-  r6id_24xlarge = "r6id.24xlarge",
-  r6id_2xlarge = "r6id.2xlarge",
-  r6id_32xlarge = "r6id.32xlarge",
-  r6id_4xlarge = "r6id.4xlarge",
-  r6id_8xlarge = "r6id.8xlarge",
-  r6id_large = "r6id.large",
-  r6id_metal = "r6id.metal",
-  r6id_xlarge = "r6id.xlarge",
-  r6idn_12xlarge = "r6idn.12xlarge",
-  r6idn_16xlarge = "r6idn.16xlarge",
-  r6idn_24xlarge = "r6idn.24xlarge",
-  r6idn_2xlarge = "r6idn.2xlarge",
-  r6idn_32xlarge = "r6idn.32xlarge",
-  r6idn_4xlarge = "r6idn.4xlarge",
-  r6idn_8xlarge = "r6idn.8xlarge",
-  r6idn_large = "r6idn.large",
-  r6idn_xlarge = "r6idn.xlarge",
-  r6in_12xlarge = "r6in.12xlarge",
-  r6in_16xlarge = "r6in.16xlarge",
-  r6in_24xlarge = "r6in.24xlarge",
-  r6in_2xlarge = "r6in.2xlarge",
-  r6in_32xlarge = "r6in.32xlarge",
-  r6in_4xlarge = "r6in.4xlarge",
-  r6in_8xlarge = "r6in.8xlarge",
-  r6in_large = "r6in.large",
-  r6in_xlarge = "r6in.xlarge",
-  r7g_12xlarge = "r7g.12xlarge",
-  r7g_16xlarge = "r7g.16xlarge",
-  r7g_2xlarge = "r7g.2xlarge",
-  r7g_4xlarge = "r7g.4xlarge",
-  r7g_8xlarge = "r7g.8xlarge",
-  r7g_large = "r7g.large",
-  r7g_medium = "r7g.medium",
-  r7g_metal = "r7g.metal",
-  r7g_xlarge = "r7g.xlarge",
-  t1_micro = "t1.micro",
-  t2_2xlarge = "t2.2xlarge",
-  t2_large = "t2.large",
-  t2_medium = "t2.medium",
-  t2_micro = "t2.micro",
-  t2_nano = "t2.nano",
-  t2_small = "t2.small",
-  t2_xlarge = "t2.xlarge",
-  t3_2xlarge = "t3.2xlarge",
-  t3_large = "t3.large",
-  t3_medium = "t3.medium",
-  t3_micro = "t3.micro",
-  t3_nano = "t3.nano",
-  t3_small = "t3.small",
-  t3_xlarge = "t3.xlarge",
-  t3a_2xlarge = "t3a.2xlarge",
-  t3a_large = "t3a.large",
-  t3a_medium = "t3a.medium",
-  t3a_micro = "t3a.micro",
-  t3a_nano = "t3a.nano",
-  t3a_small = "t3a.small",
-  t3a_xlarge = "t3a.xlarge",
-  t4g_2xlarge = "t4g.2xlarge",
-  t4g_large = "t4g.large",
-  t4g_medium = "t4g.medium",
-  t4g_micro = "t4g.micro",
-  t4g_nano = "t4g.nano",
-  t4g_small = "t4g.small",
-  t4g_xlarge = "t4g.xlarge",
-  trn1_2xlarge = "trn1.2xlarge",
-  trn1_32xlarge = "trn1.32xlarge",
-  u_12tb1_112xlarge = "u-12tb1.112xlarge",
-  u_12tb1_metal = "u-12tb1.metal",
-  u_18tb1_112xlarge = "u-18tb1.112xlarge",
-  u_18tb1_metal = "u-18tb1.metal",
-  u_24tb1_112xlarge = "u-24tb1.112xlarge",
-  u_24tb1_metal = "u-24tb1.metal",
-  u_3tb1_56xlarge = "u-3tb1.56xlarge",
-  u_6tb1_112xlarge = "u-6tb1.112xlarge",
-  u_6tb1_56xlarge = "u-6tb1.56xlarge",
-  u_6tb1_metal = "u-6tb1.metal",
-  u_9tb1_112xlarge = "u-9tb1.112xlarge",
-  u_9tb1_metal = "u-9tb1.metal",
-  vt1_24xlarge = "vt1.24xlarge",
-  vt1_3xlarge = "vt1.3xlarge",
-  vt1_6xlarge = "vt1.6xlarge",
-  x1_16xlarge = "x1.16xlarge",
-  x1_32xlarge = "x1.32xlarge",
-  x1e_16xlarge = "x1e.16xlarge",
-  x1e_2xlarge = "x1e.2xlarge",
-  x1e_32xlarge = "x1e.32xlarge",
-  x1e_4xlarge = "x1e.4xlarge",
-  x1e_8xlarge = "x1e.8xlarge",
-  x1e_xlarge = "x1e.xlarge",
-  x2gd_12xlarge = "x2gd.12xlarge",
-  x2gd_16xlarge = "x2gd.16xlarge",
-  x2gd_2xlarge = "x2gd.2xlarge",
-  x2gd_4xlarge = "x2gd.4xlarge",
-  x2gd_8xlarge = "x2gd.8xlarge",
-  x2gd_large = "x2gd.large",
-  x2gd_medium = "x2gd.medium",
-  x2gd_metal = "x2gd.metal",
-  x2gd_xlarge = "x2gd.xlarge",
-  x2idn_16xlarge = "x2idn.16xlarge",
-  x2idn_24xlarge = "x2idn.24xlarge",
-  x2idn_32xlarge = "x2idn.32xlarge",
-  x2idn_metal = "x2idn.metal",
-  x2iedn_16xlarge = "x2iedn.16xlarge",
-  x2iedn_24xlarge = "x2iedn.24xlarge",
-  x2iedn_2xlarge = "x2iedn.2xlarge",
-  x2iedn_32xlarge = "x2iedn.32xlarge",
-  x2iedn_4xlarge = "x2iedn.4xlarge",
-  x2iedn_8xlarge = "x2iedn.8xlarge",
-  x2iedn_metal = "x2iedn.metal",
-  x2iedn_xlarge = "x2iedn.xlarge",
-  x2iezn_12xlarge = "x2iezn.12xlarge",
-  x2iezn_2xlarge = "x2iezn.2xlarge",
-  x2iezn_4xlarge = "x2iezn.4xlarge",
-  x2iezn_6xlarge = "x2iezn.6xlarge",
-  x2iezn_8xlarge = "x2iezn.8xlarge",
-  x2iezn_metal = "x2iezn.metal",
-  z1d_12xlarge = "z1d.12xlarge",
-  z1d_2xlarge = "z1d.2xlarge",
-  z1d_3xlarge = "z1d.3xlarge",
-  z1d_6xlarge = "z1d.6xlarge",
-  z1d_large = "z1d.large",
-  z1d_metal = "z1d.metal",
-  z1d_xlarge = "z1d.xlarge",
-}
+export const _InstanceType = {
+  a1_2xlarge: "a1.2xlarge",
+  a1_4xlarge: "a1.4xlarge",
+  a1_large: "a1.large",
+  a1_medium: "a1.medium",
+  a1_metal: "a1.metal",
+  a1_xlarge: "a1.xlarge",
+  c1_medium: "c1.medium",
+  c1_xlarge: "c1.xlarge",
+  c3_2xlarge: "c3.2xlarge",
+  c3_4xlarge: "c3.4xlarge",
+  c3_8xlarge: "c3.8xlarge",
+  c3_large: "c3.large",
+  c3_xlarge: "c3.xlarge",
+  c4_2xlarge: "c4.2xlarge",
+  c4_4xlarge: "c4.4xlarge",
+  c4_8xlarge: "c4.8xlarge",
+  c4_large: "c4.large",
+  c4_xlarge: "c4.xlarge",
+  c5_12xlarge: "c5.12xlarge",
+  c5_18xlarge: "c5.18xlarge",
+  c5_24xlarge: "c5.24xlarge",
+  c5_2xlarge: "c5.2xlarge",
+  c5_4xlarge: "c5.4xlarge",
+  c5_9xlarge: "c5.9xlarge",
+  c5_large: "c5.large",
+  c5_metal: "c5.metal",
+  c5_xlarge: "c5.xlarge",
+  c5a_12xlarge: "c5a.12xlarge",
+  c5a_16xlarge: "c5a.16xlarge",
+  c5a_24xlarge: "c5a.24xlarge",
+  c5a_2xlarge: "c5a.2xlarge",
+  c5a_4xlarge: "c5a.4xlarge",
+  c5a_8xlarge: "c5a.8xlarge",
+  c5a_large: "c5a.large",
+  c5a_xlarge: "c5a.xlarge",
+  c5ad_12xlarge: "c5ad.12xlarge",
+  c5ad_16xlarge: "c5ad.16xlarge",
+  c5ad_24xlarge: "c5ad.24xlarge",
+  c5ad_2xlarge: "c5ad.2xlarge",
+  c5ad_4xlarge: "c5ad.4xlarge",
+  c5ad_8xlarge: "c5ad.8xlarge",
+  c5ad_large: "c5ad.large",
+  c5ad_xlarge: "c5ad.xlarge",
+  c5d_12xlarge: "c5d.12xlarge",
+  c5d_18xlarge: "c5d.18xlarge",
+  c5d_24xlarge: "c5d.24xlarge",
+  c5d_2xlarge: "c5d.2xlarge",
+  c5d_4xlarge: "c5d.4xlarge",
+  c5d_9xlarge: "c5d.9xlarge",
+  c5d_large: "c5d.large",
+  c5d_metal: "c5d.metal",
+  c5d_xlarge: "c5d.xlarge",
+  c5n_18xlarge: "c5n.18xlarge",
+  c5n_2xlarge: "c5n.2xlarge",
+  c5n_4xlarge: "c5n.4xlarge",
+  c5n_9xlarge: "c5n.9xlarge",
+  c5n_large: "c5n.large",
+  c5n_metal: "c5n.metal",
+  c5n_xlarge: "c5n.xlarge",
+  c6a_12xlarge: "c6a.12xlarge",
+  c6a_16xlarge: "c6a.16xlarge",
+  c6a_24xlarge: "c6a.24xlarge",
+  c6a_2xlarge: "c6a.2xlarge",
+  c6a_32xlarge: "c6a.32xlarge",
+  c6a_48xlarge: "c6a.48xlarge",
+  c6a_4xlarge: "c6a.4xlarge",
+  c6a_8xlarge: "c6a.8xlarge",
+  c6a_large: "c6a.large",
+  c6a_metal: "c6a.metal",
+  c6a_xlarge: "c6a.xlarge",
+  c6g_12xlarge: "c6g.12xlarge",
+  c6g_16xlarge: "c6g.16xlarge",
+  c6g_2xlarge: "c6g.2xlarge",
+  c6g_4xlarge: "c6g.4xlarge",
+  c6g_8xlarge: "c6g.8xlarge",
+  c6g_large: "c6g.large",
+  c6g_medium: "c6g.medium",
+  c6g_metal: "c6g.metal",
+  c6g_xlarge: "c6g.xlarge",
+  c6gd_12xlarge: "c6gd.12xlarge",
+  c6gd_16xlarge: "c6gd.16xlarge",
+  c6gd_2xlarge: "c6gd.2xlarge",
+  c6gd_4xlarge: "c6gd.4xlarge",
+  c6gd_8xlarge: "c6gd.8xlarge",
+  c6gd_large: "c6gd.large",
+  c6gd_medium: "c6gd.medium",
+  c6gd_metal: "c6gd.metal",
+  c6gd_xlarge: "c6gd.xlarge",
+  c6gn_12xlarge: "c6gn.12xlarge",
+  c6gn_16xlarge: "c6gn.16xlarge",
+  c6gn_2xlarge: "c6gn.2xlarge",
+  c6gn_4xlarge: "c6gn.4xlarge",
+  c6gn_8xlarge: "c6gn.8xlarge",
+  c6gn_large: "c6gn.large",
+  c6gn_medium: "c6gn.medium",
+  c6gn_xlarge: "c6gn.xlarge",
+  c6i_12xlarge: "c6i.12xlarge",
+  c6i_16xlarge: "c6i.16xlarge",
+  c6i_24xlarge: "c6i.24xlarge",
+  c6i_2xlarge: "c6i.2xlarge",
+  c6i_32xlarge: "c6i.32xlarge",
+  c6i_4xlarge: "c6i.4xlarge",
+  c6i_8xlarge: "c6i.8xlarge",
+  c6i_large: "c6i.large",
+  c6i_metal: "c6i.metal",
+  c6i_xlarge: "c6i.xlarge",
+  c6id_12xlarge: "c6id.12xlarge",
+  c6id_16xlarge: "c6id.16xlarge",
+  c6id_24xlarge: "c6id.24xlarge",
+  c6id_2xlarge: "c6id.2xlarge",
+  c6id_32xlarge: "c6id.32xlarge",
+  c6id_4xlarge: "c6id.4xlarge",
+  c6id_8xlarge: "c6id.8xlarge",
+  c6id_large: "c6id.large",
+  c6id_metal: "c6id.metal",
+  c6id_xlarge: "c6id.xlarge",
+  c6in_12xlarge: "c6in.12xlarge",
+  c6in_16xlarge: "c6in.16xlarge",
+  c6in_24xlarge: "c6in.24xlarge",
+  c6in_2xlarge: "c6in.2xlarge",
+  c6in_32xlarge: "c6in.32xlarge",
+  c6in_4xlarge: "c6in.4xlarge",
+  c6in_8xlarge: "c6in.8xlarge",
+  c6in_large: "c6in.large",
+  c6in_xlarge: "c6in.xlarge",
+  c7g_12xlarge: "c7g.12xlarge",
+  c7g_16xlarge: "c7g.16xlarge",
+  c7g_2xlarge: "c7g.2xlarge",
+  c7g_4xlarge: "c7g.4xlarge",
+  c7g_8xlarge: "c7g.8xlarge",
+  c7g_large: "c7g.large",
+  c7g_medium: "c7g.medium",
+  c7g_metal: "c7g.metal",
+  c7g_xlarge: "c7g.xlarge",
+  cc1_4xlarge: "cc1.4xlarge",
+  cc2_8xlarge: "cc2.8xlarge",
+  cg1_4xlarge: "cg1.4xlarge",
+  cr1_8xlarge: "cr1.8xlarge",
+  d2_2xlarge: "d2.2xlarge",
+  d2_4xlarge: "d2.4xlarge",
+  d2_8xlarge: "d2.8xlarge",
+  d2_xlarge: "d2.xlarge",
+  d3_2xlarge: "d3.2xlarge",
+  d3_4xlarge: "d3.4xlarge",
+  d3_8xlarge: "d3.8xlarge",
+  d3_xlarge: "d3.xlarge",
+  d3en_12xlarge: "d3en.12xlarge",
+  d3en_2xlarge: "d3en.2xlarge",
+  d3en_4xlarge: "d3en.4xlarge",
+  d3en_6xlarge: "d3en.6xlarge",
+  d3en_8xlarge: "d3en.8xlarge",
+  d3en_xlarge: "d3en.xlarge",
+  dl1_24xlarge: "dl1.24xlarge",
+  f1_16xlarge: "f1.16xlarge",
+  f1_2xlarge: "f1.2xlarge",
+  f1_4xlarge: "f1.4xlarge",
+  g2_2xlarge: "g2.2xlarge",
+  g2_8xlarge: "g2.8xlarge",
+  g3_16xlarge: "g3.16xlarge",
+  g3_4xlarge: "g3.4xlarge",
+  g3_8xlarge: "g3.8xlarge",
+  g3s_xlarge: "g3s.xlarge",
+  g4ad_16xlarge: "g4ad.16xlarge",
+  g4ad_2xlarge: "g4ad.2xlarge",
+  g4ad_4xlarge: "g4ad.4xlarge",
+  g4ad_8xlarge: "g4ad.8xlarge",
+  g4ad_xlarge: "g4ad.xlarge",
+  g4dn_12xlarge: "g4dn.12xlarge",
+  g4dn_16xlarge: "g4dn.16xlarge",
+  g4dn_2xlarge: "g4dn.2xlarge",
+  g4dn_4xlarge: "g4dn.4xlarge",
+  g4dn_8xlarge: "g4dn.8xlarge",
+  g4dn_metal: "g4dn.metal",
+  g4dn_xlarge: "g4dn.xlarge",
+  g5_12xlarge: "g5.12xlarge",
+  g5_16xlarge: "g5.16xlarge",
+  g5_24xlarge: "g5.24xlarge",
+  g5_2xlarge: "g5.2xlarge",
+  g5_48xlarge: "g5.48xlarge",
+  g5_4xlarge: "g5.4xlarge",
+  g5_8xlarge: "g5.8xlarge",
+  g5_xlarge: "g5.xlarge",
+  g5g_16xlarge: "g5g.16xlarge",
+  g5g_2xlarge: "g5g.2xlarge",
+  g5g_4xlarge: "g5g.4xlarge",
+  g5g_8xlarge: "g5g.8xlarge",
+  g5g_metal: "g5g.metal",
+  g5g_xlarge: "g5g.xlarge",
+  h1_16xlarge: "h1.16xlarge",
+  h1_2xlarge: "h1.2xlarge",
+  h1_4xlarge: "h1.4xlarge",
+  h1_8xlarge: "h1.8xlarge",
+  hi1_4xlarge: "hi1.4xlarge",
+  hpc6a_48xlarge: "hpc6a.48xlarge",
+  hpc6id_32xlarge: "hpc6id.32xlarge",
+  hs1_8xlarge: "hs1.8xlarge",
+  i2_2xlarge: "i2.2xlarge",
+  i2_4xlarge: "i2.4xlarge",
+  i2_8xlarge: "i2.8xlarge",
+  i2_xlarge: "i2.xlarge",
+  i3_16xlarge: "i3.16xlarge",
+  i3_2xlarge: "i3.2xlarge",
+  i3_4xlarge: "i3.4xlarge",
+  i3_8xlarge: "i3.8xlarge",
+  i3_large: "i3.large",
+  i3_metal: "i3.metal",
+  i3_xlarge: "i3.xlarge",
+  i3en_12xlarge: "i3en.12xlarge",
+  i3en_24xlarge: "i3en.24xlarge",
+  i3en_2xlarge: "i3en.2xlarge",
+  i3en_3xlarge: "i3en.3xlarge",
+  i3en_6xlarge: "i3en.6xlarge",
+  i3en_large: "i3en.large",
+  i3en_metal: "i3en.metal",
+  i3en_xlarge: "i3en.xlarge",
+  i4i_16xlarge: "i4i.16xlarge",
+  i4i_2xlarge: "i4i.2xlarge",
+  i4i_32xlarge: "i4i.32xlarge",
+  i4i_4xlarge: "i4i.4xlarge",
+  i4i_8xlarge: "i4i.8xlarge",
+  i4i_large: "i4i.large",
+  i4i_metal: "i4i.metal",
+  i4i_xlarge: "i4i.xlarge",
+  im4gn_16xlarge: "im4gn.16xlarge",
+  im4gn_2xlarge: "im4gn.2xlarge",
+  im4gn_4xlarge: "im4gn.4xlarge",
+  im4gn_8xlarge: "im4gn.8xlarge",
+  im4gn_large: "im4gn.large",
+  im4gn_xlarge: "im4gn.xlarge",
+  inf1_24xlarge: "inf1.24xlarge",
+  inf1_2xlarge: "inf1.2xlarge",
+  inf1_6xlarge: "inf1.6xlarge",
+  inf1_xlarge: "inf1.xlarge",
+  is4gen_2xlarge: "is4gen.2xlarge",
+  is4gen_4xlarge: "is4gen.4xlarge",
+  is4gen_8xlarge: "is4gen.8xlarge",
+  is4gen_large: "is4gen.large",
+  is4gen_medium: "is4gen.medium",
+  is4gen_xlarge: "is4gen.xlarge",
+  m1_large: "m1.large",
+  m1_medium: "m1.medium",
+  m1_small: "m1.small",
+  m1_xlarge: "m1.xlarge",
+  m2_2xlarge: "m2.2xlarge",
+  m2_4xlarge: "m2.4xlarge",
+  m2_xlarge: "m2.xlarge",
+  m3_2xlarge: "m3.2xlarge",
+  m3_large: "m3.large",
+  m3_medium: "m3.medium",
+  m3_xlarge: "m3.xlarge",
+  m4_10xlarge: "m4.10xlarge",
+  m4_16xlarge: "m4.16xlarge",
+  m4_2xlarge: "m4.2xlarge",
+  m4_4xlarge: "m4.4xlarge",
+  m4_large: "m4.large",
+  m4_xlarge: "m4.xlarge",
+  m5_12xlarge: "m5.12xlarge",
+  m5_16xlarge: "m5.16xlarge",
+  m5_24xlarge: "m5.24xlarge",
+  m5_2xlarge: "m5.2xlarge",
+  m5_4xlarge: "m5.4xlarge",
+  m5_8xlarge: "m5.8xlarge",
+  m5_large: "m5.large",
+  m5_metal: "m5.metal",
+  m5_xlarge: "m5.xlarge",
+  m5a_12xlarge: "m5a.12xlarge",
+  m5a_16xlarge: "m5a.16xlarge",
+  m5a_24xlarge: "m5a.24xlarge",
+  m5a_2xlarge: "m5a.2xlarge",
+  m5a_4xlarge: "m5a.4xlarge",
+  m5a_8xlarge: "m5a.8xlarge",
+  m5a_large: "m5a.large",
+  m5a_xlarge: "m5a.xlarge",
+  m5ad_12xlarge: "m5ad.12xlarge",
+  m5ad_16xlarge: "m5ad.16xlarge",
+  m5ad_24xlarge: "m5ad.24xlarge",
+  m5ad_2xlarge: "m5ad.2xlarge",
+  m5ad_4xlarge: "m5ad.4xlarge",
+  m5ad_8xlarge: "m5ad.8xlarge",
+  m5ad_large: "m5ad.large",
+  m5ad_xlarge: "m5ad.xlarge",
+  m5d_12xlarge: "m5d.12xlarge",
+  m5d_16xlarge: "m5d.16xlarge",
+  m5d_24xlarge: "m5d.24xlarge",
+  m5d_2xlarge: "m5d.2xlarge",
+  m5d_4xlarge: "m5d.4xlarge",
+  m5d_8xlarge: "m5d.8xlarge",
+  m5d_large: "m5d.large",
+  m5d_metal: "m5d.metal",
+  m5d_xlarge: "m5d.xlarge",
+  m5dn_12xlarge: "m5dn.12xlarge",
+  m5dn_16xlarge: "m5dn.16xlarge",
+  m5dn_24xlarge: "m5dn.24xlarge",
+  m5dn_2xlarge: "m5dn.2xlarge",
+  m5dn_4xlarge: "m5dn.4xlarge",
+  m5dn_8xlarge: "m5dn.8xlarge",
+  m5dn_large: "m5dn.large",
+  m5dn_metal: "m5dn.metal",
+  m5dn_xlarge: "m5dn.xlarge",
+  m5n_12xlarge: "m5n.12xlarge",
+  m5n_16xlarge: "m5n.16xlarge",
+  m5n_24xlarge: "m5n.24xlarge",
+  m5n_2xlarge: "m5n.2xlarge",
+  m5n_4xlarge: "m5n.4xlarge",
+  m5n_8xlarge: "m5n.8xlarge",
+  m5n_large: "m5n.large",
+  m5n_metal: "m5n.metal",
+  m5n_xlarge: "m5n.xlarge",
+  m5zn_12xlarge: "m5zn.12xlarge",
+  m5zn_2xlarge: "m5zn.2xlarge",
+  m5zn_3xlarge: "m5zn.3xlarge",
+  m5zn_6xlarge: "m5zn.6xlarge",
+  m5zn_large: "m5zn.large",
+  m5zn_metal: "m5zn.metal",
+  m5zn_xlarge: "m5zn.xlarge",
+  m6a_12xlarge: "m6a.12xlarge",
+  m6a_16xlarge: "m6a.16xlarge",
+  m6a_24xlarge: "m6a.24xlarge",
+  m6a_2xlarge: "m6a.2xlarge",
+  m6a_32xlarge: "m6a.32xlarge",
+  m6a_48xlarge: "m6a.48xlarge",
+  m6a_4xlarge: "m6a.4xlarge",
+  m6a_8xlarge: "m6a.8xlarge",
+  m6a_large: "m6a.large",
+  m6a_metal: "m6a.metal",
+  m6a_xlarge: "m6a.xlarge",
+  m6g_12xlarge: "m6g.12xlarge",
+  m6g_16xlarge: "m6g.16xlarge",
+  m6g_2xlarge: "m6g.2xlarge",
+  m6g_4xlarge: "m6g.4xlarge",
+  m6g_8xlarge: "m6g.8xlarge",
+  m6g_large: "m6g.large",
+  m6g_medium: "m6g.medium",
+  m6g_metal: "m6g.metal",
+  m6g_xlarge: "m6g.xlarge",
+  m6gd_12xlarge: "m6gd.12xlarge",
+  m6gd_16xlarge: "m6gd.16xlarge",
+  m6gd_2xlarge: "m6gd.2xlarge",
+  m6gd_4xlarge: "m6gd.4xlarge",
+  m6gd_8xlarge: "m6gd.8xlarge",
+  m6gd_large: "m6gd.large",
+  m6gd_medium: "m6gd.medium",
+  m6gd_metal: "m6gd.metal",
+  m6gd_xlarge: "m6gd.xlarge",
+  m6i_12xlarge: "m6i.12xlarge",
+  m6i_16xlarge: "m6i.16xlarge",
+  m6i_24xlarge: "m6i.24xlarge",
+  m6i_2xlarge: "m6i.2xlarge",
+  m6i_32xlarge: "m6i.32xlarge",
+  m6i_4xlarge: "m6i.4xlarge",
+  m6i_8xlarge: "m6i.8xlarge",
+  m6i_large: "m6i.large",
+  m6i_metal: "m6i.metal",
+  m6i_xlarge: "m6i.xlarge",
+  m6id_12xlarge: "m6id.12xlarge",
+  m6id_16xlarge: "m6id.16xlarge",
+  m6id_24xlarge: "m6id.24xlarge",
+  m6id_2xlarge: "m6id.2xlarge",
+  m6id_32xlarge: "m6id.32xlarge",
+  m6id_4xlarge: "m6id.4xlarge",
+  m6id_8xlarge: "m6id.8xlarge",
+  m6id_large: "m6id.large",
+  m6id_metal: "m6id.metal",
+  m6id_xlarge: "m6id.xlarge",
+  m6idn_12xlarge: "m6idn.12xlarge",
+  m6idn_16xlarge: "m6idn.16xlarge",
+  m6idn_24xlarge: "m6idn.24xlarge",
+  m6idn_2xlarge: "m6idn.2xlarge",
+  m6idn_32xlarge: "m6idn.32xlarge",
+  m6idn_4xlarge: "m6idn.4xlarge",
+  m6idn_8xlarge: "m6idn.8xlarge",
+  m6idn_large: "m6idn.large",
+  m6idn_xlarge: "m6idn.xlarge",
+  m6in_12xlarge: "m6in.12xlarge",
+  m6in_16xlarge: "m6in.16xlarge",
+  m6in_24xlarge: "m6in.24xlarge",
+  m6in_2xlarge: "m6in.2xlarge",
+  m6in_32xlarge: "m6in.32xlarge",
+  m6in_4xlarge: "m6in.4xlarge",
+  m6in_8xlarge: "m6in.8xlarge",
+  m6in_large: "m6in.large",
+  m6in_xlarge: "m6in.xlarge",
+  m7g_12xlarge: "m7g.12xlarge",
+  m7g_16xlarge: "m7g.16xlarge",
+  m7g_2xlarge: "m7g.2xlarge",
+  m7g_4xlarge: "m7g.4xlarge",
+  m7g_8xlarge: "m7g.8xlarge",
+  m7g_large: "m7g.large",
+  m7g_medium: "m7g.medium",
+  m7g_metal: "m7g.metal",
+  m7g_xlarge: "m7g.xlarge",
+  mac1_metal: "mac1.metal",
+  mac2_metal: "mac2.metal",
+  p2_16xlarge: "p2.16xlarge",
+  p2_8xlarge: "p2.8xlarge",
+  p2_xlarge: "p2.xlarge",
+  p3_16xlarge: "p3.16xlarge",
+  p3_2xlarge: "p3.2xlarge",
+  p3_8xlarge: "p3.8xlarge",
+  p3dn_24xlarge: "p3dn.24xlarge",
+  p4d_24xlarge: "p4d.24xlarge",
+  p4de_24xlarge: "p4de.24xlarge",
+  r3_2xlarge: "r3.2xlarge",
+  r3_4xlarge: "r3.4xlarge",
+  r3_8xlarge: "r3.8xlarge",
+  r3_large: "r3.large",
+  r3_xlarge: "r3.xlarge",
+  r4_16xlarge: "r4.16xlarge",
+  r4_2xlarge: "r4.2xlarge",
+  r4_4xlarge: "r4.4xlarge",
+  r4_8xlarge: "r4.8xlarge",
+  r4_large: "r4.large",
+  r4_xlarge: "r4.xlarge",
+  r5_12xlarge: "r5.12xlarge",
+  r5_16xlarge: "r5.16xlarge",
+  r5_24xlarge: "r5.24xlarge",
+  r5_2xlarge: "r5.2xlarge",
+  r5_4xlarge: "r5.4xlarge",
+  r5_8xlarge: "r5.8xlarge",
+  r5_large: "r5.large",
+  r5_metal: "r5.metal",
+  r5_xlarge: "r5.xlarge",
+  r5a_12xlarge: "r5a.12xlarge",
+  r5a_16xlarge: "r5a.16xlarge",
+  r5a_24xlarge: "r5a.24xlarge",
+  r5a_2xlarge: "r5a.2xlarge",
+  r5a_4xlarge: "r5a.4xlarge",
+  r5a_8xlarge: "r5a.8xlarge",
+  r5a_large: "r5a.large",
+  r5a_xlarge: "r5a.xlarge",
+  r5ad_12xlarge: "r5ad.12xlarge",
+  r5ad_16xlarge: "r5ad.16xlarge",
+  r5ad_24xlarge: "r5ad.24xlarge",
+  r5ad_2xlarge: "r5ad.2xlarge",
+  r5ad_4xlarge: "r5ad.4xlarge",
+  r5ad_8xlarge: "r5ad.8xlarge",
+  r5ad_large: "r5ad.large",
+  r5ad_xlarge: "r5ad.xlarge",
+  r5b_12xlarge: "r5b.12xlarge",
+  r5b_16xlarge: "r5b.16xlarge",
+  r5b_24xlarge: "r5b.24xlarge",
+  r5b_2xlarge: "r5b.2xlarge",
+  r5b_4xlarge: "r5b.4xlarge",
+  r5b_8xlarge: "r5b.8xlarge",
+  r5b_large: "r5b.large",
+  r5b_metal: "r5b.metal",
+  r5b_xlarge: "r5b.xlarge",
+  r5d_12xlarge: "r5d.12xlarge",
+  r5d_16xlarge: "r5d.16xlarge",
+  r5d_24xlarge: "r5d.24xlarge",
+  r5d_2xlarge: "r5d.2xlarge",
+  r5d_4xlarge: "r5d.4xlarge",
+  r5d_8xlarge: "r5d.8xlarge",
+  r5d_large: "r5d.large",
+  r5d_metal: "r5d.metal",
+  r5d_xlarge: "r5d.xlarge",
+  r5dn_12xlarge: "r5dn.12xlarge",
+  r5dn_16xlarge: "r5dn.16xlarge",
+  r5dn_24xlarge: "r5dn.24xlarge",
+  r5dn_2xlarge: "r5dn.2xlarge",
+  r5dn_4xlarge: "r5dn.4xlarge",
+  r5dn_8xlarge: "r5dn.8xlarge",
+  r5dn_large: "r5dn.large",
+  r5dn_metal: "r5dn.metal",
+  r5dn_xlarge: "r5dn.xlarge",
+  r5n_12xlarge: "r5n.12xlarge",
+  r5n_16xlarge: "r5n.16xlarge",
+  r5n_24xlarge: "r5n.24xlarge",
+  r5n_2xlarge: "r5n.2xlarge",
+  r5n_4xlarge: "r5n.4xlarge",
+  r5n_8xlarge: "r5n.8xlarge",
+  r5n_large: "r5n.large",
+  r5n_metal: "r5n.metal",
+  r5n_xlarge: "r5n.xlarge",
+  r6a_12xlarge: "r6a.12xlarge",
+  r6a_16xlarge: "r6a.16xlarge",
+  r6a_24xlarge: "r6a.24xlarge",
+  r6a_2xlarge: "r6a.2xlarge",
+  r6a_32xlarge: "r6a.32xlarge",
+  r6a_48xlarge: "r6a.48xlarge",
+  r6a_4xlarge: "r6a.4xlarge",
+  r6a_8xlarge: "r6a.8xlarge",
+  r6a_large: "r6a.large",
+  r6a_metal: "r6a.metal",
+  r6a_xlarge: "r6a.xlarge",
+  r6g_12xlarge: "r6g.12xlarge",
+  r6g_16xlarge: "r6g.16xlarge",
+  r6g_2xlarge: "r6g.2xlarge",
+  r6g_4xlarge: "r6g.4xlarge",
+  r6g_8xlarge: "r6g.8xlarge",
+  r6g_large: "r6g.large",
+  r6g_medium: "r6g.medium",
+  r6g_metal: "r6g.metal",
+  r6g_xlarge: "r6g.xlarge",
+  r6gd_12xlarge: "r6gd.12xlarge",
+  r6gd_16xlarge: "r6gd.16xlarge",
+  r6gd_2xlarge: "r6gd.2xlarge",
+  r6gd_4xlarge: "r6gd.4xlarge",
+  r6gd_8xlarge: "r6gd.8xlarge",
+  r6gd_large: "r6gd.large",
+  r6gd_medium: "r6gd.medium",
+  r6gd_metal: "r6gd.metal",
+  r6gd_xlarge: "r6gd.xlarge",
+  r6i_12xlarge: "r6i.12xlarge",
+  r6i_16xlarge: "r6i.16xlarge",
+  r6i_24xlarge: "r6i.24xlarge",
+  r6i_2xlarge: "r6i.2xlarge",
+  r6i_32xlarge: "r6i.32xlarge",
+  r6i_4xlarge: "r6i.4xlarge",
+  r6i_8xlarge: "r6i.8xlarge",
+  r6i_large: "r6i.large",
+  r6i_metal: "r6i.metal",
+  r6i_xlarge: "r6i.xlarge",
+  r6id_12xlarge: "r6id.12xlarge",
+  r6id_16xlarge: "r6id.16xlarge",
+  r6id_24xlarge: "r6id.24xlarge",
+  r6id_2xlarge: "r6id.2xlarge",
+  r6id_32xlarge: "r6id.32xlarge",
+  r6id_4xlarge: "r6id.4xlarge",
+  r6id_8xlarge: "r6id.8xlarge",
+  r6id_large: "r6id.large",
+  r6id_metal: "r6id.metal",
+  r6id_xlarge: "r6id.xlarge",
+  r6idn_12xlarge: "r6idn.12xlarge",
+  r6idn_16xlarge: "r6idn.16xlarge",
+  r6idn_24xlarge: "r6idn.24xlarge",
+  r6idn_2xlarge: "r6idn.2xlarge",
+  r6idn_32xlarge: "r6idn.32xlarge",
+  r6idn_4xlarge: "r6idn.4xlarge",
+  r6idn_8xlarge: "r6idn.8xlarge",
+  r6idn_large: "r6idn.large",
+  r6idn_xlarge: "r6idn.xlarge",
+  r6in_12xlarge: "r6in.12xlarge",
+  r6in_16xlarge: "r6in.16xlarge",
+  r6in_24xlarge: "r6in.24xlarge",
+  r6in_2xlarge: "r6in.2xlarge",
+  r6in_32xlarge: "r6in.32xlarge",
+  r6in_4xlarge: "r6in.4xlarge",
+  r6in_8xlarge: "r6in.8xlarge",
+  r6in_large: "r6in.large",
+  r6in_xlarge: "r6in.xlarge",
+  r7g_12xlarge: "r7g.12xlarge",
+  r7g_16xlarge: "r7g.16xlarge",
+  r7g_2xlarge: "r7g.2xlarge",
+  r7g_4xlarge: "r7g.4xlarge",
+  r7g_8xlarge: "r7g.8xlarge",
+  r7g_large: "r7g.large",
+  r7g_medium: "r7g.medium",
+  r7g_metal: "r7g.metal",
+  r7g_xlarge: "r7g.xlarge",
+  t1_micro: "t1.micro",
+  t2_2xlarge: "t2.2xlarge",
+  t2_large: "t2.large",
+  t2_medium: "t2.medium",
+  t2_micro: "t2.micro",
+  t2_nano: "t2.nano",
+  t2_small: "t2.small",
+  t2_xlarge: "t2.xlarge",
+  t3_2xlarge: "t3.2xlarge",
+  t3_large: "t3.large",
+  t3_medium: "t3.medium",
+  t3_micro: "t3.micro",
+  t3_nano: "t3.nano",
+  t3_small: "t3.small",
+  t3_xlarge: "t3.xlarge",
+  t3a_2xlarge: "t3a.2xlarge",
+  t3a_large: "t3a.large",
+  t3a_medium: "t3a.medium",
+  t3a_micro: "t3a.micro",
+  t3a_nano: "t3a.nano",
+  t3a_small: "t3a.small",
+  t3a_xlarge: "t3a.xlarge",
+  t4g_2xlarge: "t4g.2xlarge",
+  t4g_large: "t4g.large",
+  t4g_medium: "t4g.medium",
+  t4g_micro: "t4g.micro",
+  t4g_nano: "t4g.nano",
+  t4g_small: "t4g.small",
+  t4g_xlarge: "t4g.xlarge",
+  trn1_2xlarge: "trn1.2xlarge",
+  trn1_32xlarge: "trn1.32xlarge",
+  u_12tb1_112xlarge: "u-12tb1.112xlarge",
+  u_12tb1_metal: "u-12tb1.metal",
+  u_18tb1_112xlarge: "u-18tb1.112xlarge",
+  u_18tb1_metal: "u-18tb1.metal",
+  u_24tb1_112xlarge: "u-24tb1.112xlarge",
+  u_24tb1_metal: "u-24tb1.metal",
+  u_3tb1_56xlarge: "u-3tb1.56xlarge",
+  u_6tb1_112xlarge: "u-6tb1.112xlarge",
+  u_6tb1_56xlarge: "u-6tb1.56xlarge",
+  u_6tb1_metal: "u-6tb1.metal",
+  u_9tb1_112xlarge: "u-9tb1.112xlarge",
+  u_9tb1_metal: "u-9tb1.metal",
+  vt1_24xlarge: "vt1.24xlarge",
+  vt1_3xlarge: "vt1.3xlarge",
+  vt1_6xlarge: "vt1.6xlarge",
+  x1_16xlarge: "x1.16xlarge",
+  x1_32xlarge: "x1.32xlarge",
+  x1e_16xlarge: "x1e.16xlarge",
+  x1e_2xlarge: "x1e.2xlarge",
+  x1e_32xlarge: "x1e.32xlarge",
+  x1e_4xlarge: "x1e.4xlarge",
+  x1e_8xlarge: "x1e.8xlarge",
+  x1e_xlarge: "x1e.xlarge",
+  x2gd_12xlarge: "x2gd.12xlarge",
+  x2gd_16xlarge: "x2gd.16xlarge",
+  x2gd_2xlarge: "x2gd.2xlarge",
+  x2gd_4xlarge: "x2gd.4xlarge",
+  x2gd_8xlarge: "x2gd.8xlarge",
+  x2gd_large: "x2gd.large",
+  x2gd_medium: "x2gd.medium",
+  x2gd_metal: "x2gd.metal",
+  x2gd_xlarge: "x2gd.xlarge",
+  x2idn_16xlarge: "x2idn.16xlarge",
+  x2idn_24xlarge: "x2idn.24xlarge",
+  x2idn_32xlarge: "x2idn.32xlarge",
+  x2idn_metal: "x2idn.metal",
+  x2iedn_16xlarge: "x2iedn.16xlarge",
+  x2iedn_24xlarge: "x2iedn.24xlarge",
+  x2iedn_2xlarge: "x2iedn.2xlarge",
+  x2iedn_32xlarge: "x2iedn.32xlarge",
+  x2iedn_4xlarge: "x2iedn.4xlarge",
+  x2iedn_8xlarge: "x2iedn.8xlarge",
+  x2iedn_metal: "x2iedn.metal",
+  x2iedn_xlarge: "x2iedn.xlarge",
+  x2iezn_12xlarge: "x2iezn.12xlarge",
+  x2iezn_2xlarge: "x2iezn.2xlarge",
+  x2iezn_4xlarge: "x2iezn.4xlarge",
+  x2iezn_6xlarge: "x2iezn.6xlarge",
+  x2iezn_8xlarge: "x2iezn.8xlarge",
+  x2iezn_metal: "x2iezn.metal",
+  z1d_12xlarge: "z1d.12xlarge",
+  z1d_2xlarge: "z1d.2xlarge",
+  z1d_3xlarge: "z1d.3xlarge",
+  z1d_6xlarge: "z1d.6xlarge",
+  z1d_large: "z1d.large",
+  z1d_metal: "z1d.metal",
+  z1d_xlarge: "z1d.xlarge",
+};
 
 /**
  * @public
@@ -7720,12 +7721,12 @@ export interface ReservationFleetInstanceSpecification {
   /**
    * <p>The instance type for which the Capacity Reservation Fleet reserves capacity.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The type of operating system for which the Capacity Reservation Fleet reserves capacity.</p>
    */
-  InstancePlatform?: CapacityReservationInstancePlatform | string;
+  InstancePlatform?: keyof typeof CapacityReservationInstancePlatform | string;
 
   /**
    * <p>The number of capacity units provided by the specified instance type. This value, together with the
@@ -7770,9 +7771,9 @@ export interface ReservationFleetInstanceSpecification {
 /**
  * @public
  */
-export enum FleetCapacityReservationTenancy {
-  default = "default",
-}
+export const FleetCapacityReservationTenancy = {
+  default: "default",
+};
 
 /**
  * @public
@@ -7815,7 +7816,7 @@ export interface CreateCapacityReservationFleetRequest {
    *             </li>
    *          </ul>
    */
-  Tenancy?: FleetCapacityReservationTenancy | string;
+  Tenancy?: keyof typeof FleetCapacityReservationTenancy | string;
 
   /**
    * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet. This
@@ -7846,7 +7847,7 @@ export interface CreateCapacityReservationFleetRequest {
    * 			Availability Zone) run in the Capacity Reservations automatically. Instances do not need to
    * 			explicitly target a Capacity Reservation Fleet to use its reserved capacity.</p>
    */
-  InstanceMatchCriteria?: FleetInstanceMatchCriteria | string;
+  InstanceMatchCriteria?: keyof typeof FleetInstanceMatchCriteria | string;
 
   /**
    * <p>The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned
@@ -7878,12 +7879,12 @@ export interface FleetCapacityReservation {
   /**
    * <p>The instance type for which the Capacity Reservation reserves capacity.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
    */
-  InstancePlatform?: CapacityReservationInstancePlatform | string;
+  InstancePlatform?: keyof typeof CapacityReservationInstancePlatform | string;
 
   /**
    * <p>The Availability Zone in which the Capacity Reservation reserves capacity.</p>
@@ -7939,7 +7940,7 @@ export interface CreateCapacityReservationFleetResult {
   /**
    * <p>The status of the Capacity Reservation Fleet.</p>
    */
-  State?: CapacityReservationFleetState | string;
+  State?: keyof typeof CapacityReservationFleetState | string;
 
   /**
    * <p>The total number of capacity units for which the Capacity Reservation Fleet reserves capacity.</p>
@@ -7954,7 +7955,7 @@ export interface CreateCapacityReservationFleetResult {
   /**
    * <p>The instance matching criteria for the Capacity Reservation Fleet.</p>
    */
-  InstanceMatchCriteria?: FleetInstanceMatchCriteria | string;
+  InstanceMatchCriteria?: keyof typeof FleetInstanceMatchCriteria | string;
 
   /**
    * <p>The allocation strategy used by the Capacity Reservation Fleet.</p>
@@ -7974,7 +7975,7 @@ export interface CreateCapacityReservationFleetResult {
   /**
    * <p>Indicates the tenancy of Capacity Reservation Fleet.</p>
    */
-  Tenancy?: FleetCapacityReservationTenancy | string;
+  Tenancy?: keyof typeof FleetCapacityReservationTenancy | string;
 
   /**
    * <p>Information about the individual Capacity Reservations in the Capacity Reservation Fleet.</p>
@@ -8019,12 +8020,12 @@ export interface CreateCarrierGatewayRequest {
 /**
  * @public
  */
-export enum CarrierGatewayState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const CarrierGatewayState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -8044,7 +8045,7 @@ export interface CarrierGateway {
   /**
    * <p>The state of the carrier gateway.</p>
    */
-  State?: CarrierGatewayState | string;
+  State?: keyof typeof CarrierGatewayState | string;
 
   /**
    * <p>The Amazon Web Services account ID of the owner of the carrier gateway.</p>

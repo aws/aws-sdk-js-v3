@@ -98,20 +98,20 @@ export interface Document {
 /**
  * @public
  */
-export enum FeatureType {
-  FORMS = "FORMS",
-  QUERIES = "QUERIES",
-  SIGNATURES = "SIGNATURES",
-  TABLES = "TABLES",
-}
+export const FeatureType = {
+  FORMS: "FORMS",
+  QUERIES: "QUERIES",
+  SIGNATURES: "SIGNATURES",
+  TABLES: "TABLES",
+};
 
 /**
  * @public
  */
-export enum ContentClassifier {
-  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
-}
+export const ContentClassifier = {
+  FREE_OF_ADULT_CONTENT: "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: "FreeOfPersonallyIdentifiableInformation",
+};
 
 /**
  * @public
@@ -123,7 +123,7 @@ export interface HumanLoopDataAttributes {
    * <p>Sets whether the input image is free of personally identifiable information or adult
    *          content.</p>
    */
-  ContentClassifiers?: (ContentClassifier | string)[];
+  ContentClassifiers?: (keyof typeof ContentClassifier | string)[];
 }
 
 /**
@@ -223,7 +223,7 @@ export interface AnalyzeDocumentRequest {
    *          All lines and words detected in the document are included in the response (including text
    *          that isn't related to the value of <code>FeatureTypes</code>). </p>
    */
-  FeatureTypes: (FeatureType | string)[] | undefined;
+  FeatureTypes: (keyof typeof FeatureType | string)[] | undefined;
 
   /**
    * <p>Sets the configuration for the human in the loop workflow for analyzing
@@ -240,37 +240,37 @@ export interface AnalyzeDocumentRequest {
 /**
  * @public
  */
-export enum BlockType {
-  CELL = "CELL",
-  KEY_VALUE_SET = "KEY_VALUE_SET",
-  LINE = "LINE",
-  MERGED_CELL = "MERGED_CELL",
-  PAGE = "PAGE",
-  QUERY = "QUERY",
-  QUERY_RESULT = "QUERY_RESULT",
-  SELECTION_ELEMENT = "SELECTION_ELEMENT",
-  SIGNATURE = "SIGNATURE",
-  TABLE = "TABLE",
-  TABLE_FOOTER = "TABLE_FOOTER",
-  TABLE_TITLE = "TABLE_TITLE",
-  TITLE = "TITLE",
-  WORD = "WORD",
-}
+export const BlockType = {
+  CELL: "CELL",
+  KEY_VALUE_SET: "KEY_VALUE_SET",
+  LINE: "LINE",
+  MERGED_CELL: "MERGED_CELL",
+  PAGE: "PAGE",
+  QUERY: "QUERY",
+  QUERY_RESULT: "QUERY_RESULT",
+  SELECTION_ELEMENT: "SELECTION_ELEMENT",
+  SIGNATURE: "SIGNATURE",
+  TABLE: "TABLE",
+  TABLE_FOOTER: "TABLE_FOOTER",
+  TABLE_TITLE: "TABLE_TITLE",
+  TITLE: "TITLE",
+  WORD: "WORD",
+};
 
 /**
  * @public
  */
-export enum EntityType {
-  COLUMN_HEADER = "COLUMN_HEADER",
-  KEY = "KEY",
-  SEMI_STRUCTURED_TABLE = "SEMI_STRUCTURED_TABLE",
-  STRUCTURED_TABLE = "STRUCTURED_TABLE",
-  TABLE_FOOTER = "TABLE_FOOTER",
-  TABLE_SECTION_TITLE = "TABLE_SECTION_TITLE",
-  TABLE_SUMMARY = "TABLE_SUMMARY",
-  TABLE_TITLE = "TABLE_TITLE",
-  VALUE = "VALUE",
-}
+export const EntityType = {
+  COLUMN_HEADER: "COLUMN_HEADER",
+  KEY: "KEY",
+  SEMI_STRUCTURED_TABLE: "SEMI_STRUCTURED_TABLE",
+  STRUCTURED_TABLE: "STRUCTURED_TABLE",
+  TABLE_FOOTER: "TABLE_FOOTER",
+  TABLE_SECTION_TITLE: "TABLE_SECTION_TITLE",
+  TABLE_SUMMARY: "TABLE_SUMMARY",
+  TABLE_TITLE: "TABLE_TITLE",
+  VALUE: "VALUE",
+};
 
 /**
  * @public
@@ -357,17 +357,17 @@ export interface Geometry {
 /**
  * @public
  */
-export enum RelationshipType {
-  ANSWER = "ANSWER",
-  CHILD = "CHILD",
-  COMPLEX_FEATURES = "COMPLEX_FEATURES",
-  MERGED_CELL = "MERGED_CELL",
-  TABLE = "TABLE",
-  TABLE_FOOTER = "TABLE_FOOTER",
-  TABLE_TITLE = "TABLE_TITLE",
-  TITLE = "TITLE",
-  VALUE = "VALUE",
-}
+export const RelationshipType = {
+  ANSWER: "ANSWER",
+  CHILD: "CHILD",
+  COMPLEX_FEATURES: "COMPLEX_FEATURES",
+  MERGED_CELL: "MERGED_CELL",
+  TABLE: "TABLE",
+  TABLE_FOOTER: "TABLE_FOOTER",
+  TABLE_TITLE: "TABLE_TITLE",
+  TITLE: "TITLE",
+  VALUE: "VALUE",
+};
 
 /**
  * @public
@@ -420,7 +420,7 @@ export interface Relationship {
    *             </li>
    *          </ul>
    */
-  Type?: RelationshipType | string;
+  Type?: keyof typeof RelationshipType | string;
 
   /**
    * <p>An
@@ -433,18 +433,18 @@ export interface Relationship {
 /**
  * @public
  */
-export enum SelectionStatus {
-  NOT_SELECTED = "NOT_SELECTED",
-  SELECTED = "SELECTED",
-}
+export const SelectionStatus = {
+  NOT_SELECTED: "NOT_SELECTED",
+  SELECTED: "SELECTED",
+};
 
 /**
  * @public
  */
-export enum TextType {
-  HANDWRITING = "HANDWRITING",
-  PRINTED = "PRINTED",
-}
+export const TextType = {
+  HANDWRITING: "HANDWRITING",
+  PRINTED: "PRINTED",
+};
 
 /**
  * @public
@@ -559,7 +559,7 @@ export interface Block {
    *             </li>
    *          </ul>
    */
-  BlockType?: BlockType | string;
+  BlockType?: keyof typeof BlockType | string;
 
   /**
    * <p>The confidence score that Amazon Textract has in the accuracy of the recognized text and
@@ -576,7 +576,7 @@ export interface Block {
    * <p>The kind of text that Amazon Textract has detected. Can check for handwritten text and
    *          printed text.</p>
    */
-  TextType?: TextType | string;
+  TextType?: keyof typeof TextType | string;
 
   /**
    * <p>The row in which a table cell is located. The first row position is 1.
@@ -679,13 +679,13 @@ export interface Block {
    *             <code>EntityTypes</code> isn't returned by <code>DetectDocumentText</code> and
    *             <code>GetDocumentTextDetection</code>.</p>
    */
-  EntityTypes?: (EntityType | string)[];
+  EntityTypes?: (keyof typeof EntityType | string)[];
 
   /**
    * <p>The selection status of a selection element, such as an option button or check box.
    *       </p>
    */
-  SelectionStatus?: SelectionStatus | string;
+  SelectionStatus?: keyof typeof SelectionStatus | string;
 
   /**
    * <p>The page on which a block was detected. <code>Page</code> is returned by synchronous and
@@ -1266,9 +1266,9 @@ export interface AnalyzeIDRequest {
 /**
  * @public
  */
-export enum ValueType {
-  DATE = "DATE",
-}
+export const ValueType = {
+  DATE: "DATE",
+};
 
 /**
  * @public
@@ -1284,7 +1284,7 @@ export interface NormalizedValue {
   /**
    * <p>The normalized type of the value detected. In this case, DATE.</p>
    */
-  ValueType?: ValueType | string;
+  ValueType?: keyof typeof ValueType | string;
 }
 
 /**
@@ -1497,7 +1497,7 @@ export interface LendingDetection {
   /**
    * <p>The selection status of a selection element, such as an option button or check box.</p>
    */
-  SelectionStatus?: SelectionStatus | string;
+  SelectionStatus?: keyof typeof SelectionStatus | string;
 
   /**
    * <p>Information about where the following items are located on a document page: detected
@@ -1615,12 +1615,12 @@ export interface GetDocumentAnalysisRequest {
 /**
  * @public
  */
-export enum JobStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const JobStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1652,7 +1652,7 @@ export interface GetDocumentAnalysisResponse {
   /**
    * <p>The current status of the text detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>If the response is truncated, Amazon Textract returns this token. You can use this token
@@ -1768,7 +1768,7 @@ export interface GetDocumentTextDetectionResponse {
   /**
    * <p>The current status of the text detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>If the response is truncated, Amazon Textract returns this token. You can use this token in
@@ -1835,7 +1835,7 @@ export interface GetExpenseAnalysisResponse {
   /**
    * <p>The current status of the text detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>If the response is truncated, Amazon Textract returns this token. You can use this token in
@@ -1960,7 +1960,7 @@ export interface GetLendingAnalysisResponse {
   /**
    * <p> The current status of the lending analysis job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>If the response is truncated, Amazon Textract returns this token.
@@ -2030,7 +2030,7 @@ export interface GetLendingAnalysisSummaryResponse {
   /**
    * <p> The current status of the lending analysis job. </p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p> Contains summary information for documents grouped by type.</p>
@@ -2175,7 +2175,7 @@ export interface StartDocumentAnalysisRequest {
    *          included in the response (including text that isn't related to the value of
    *             <code>FeatureTypes</code>). </p>
    */
-  FeatureTypes: (FeatureType | string)[] | undefined;
+  FeatureTypes: (keyof typeof FeatureType | string)[] | undefined;
 
   /**
    * <p>The idempotent token that you use to identify the start request. If you use the same

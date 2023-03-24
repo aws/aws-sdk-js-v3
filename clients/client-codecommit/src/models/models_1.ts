@@ -21,18 +21,18 @@ import {
 /**
  * @public
  */
-export enum OrderEnum {
-  ASCENDING = "ascending",
-  DESCENDING = "descending",
-}
+export const OrderEnum = {
+  ASCENDING: "ascending",
+  DESCENDING: "descending",
+};
 
 /**
  * @public
  */
-export enum SortByEnum {
-  MODIFIED_DATE = "lastModifiedDate",
-  REPOSITORY_NAME = "repositoryName",
-}
+export const SortByEnum = {
+  MODIFIED_DATE: "lastModifiedDate",
+  REPOSITORY_NAME: "repositoryName",
+};
 
 /**
  * @public
@@ -49,12 +49,12 @@ export interface ListRepositoriesInput {
   /**
    * <p>The criteria used to sort the results of a list repositories operation.</p>
    */
-  sortBy?: SortByEnum | string;
+  sortBy?: keyof typeof SortByEnum | string;
 
   /**
    * <p>The order in which to sort the results of a list repositories operation.</p>
    */
-  order?: OrderEnum | string;
+  order?: keyof typeof OrderEnum | string;
 }
 
 /**
@@ -297,14 +297,14 @@ export interface MergeBranchesBySquashInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: keyof typeof ConflictDetailLevelTypeEnum | string;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: keyof typeof ConflictResolutionStrategyTypeEnum | string;
 
   /**
    * <p>The name of the author who created the commit. This information is used as both the
@@ -384,14 +384,14 @@ export interface MergeBranchesByThreeWayInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: keyof typeof ConflictDetailLevelTypeEnum | string;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: keyof typeof ConflictResolutionStrategyTypeEnum | string;
 
   /**
    * <p>The name of the author who created the commit. This information is used as both the
@@ -537,14 +537,14 @@ export interface MergePullRequestBySquashInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: keyof typeof ConflictDetailLevelTypeEnum | string;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: keyof typeof ConflictResolutionStrategyTypeEnum | string;
 
   /**
    * <p>The commit message to include in the commit information for the merge.</p>
@@ -613,14 +613,14 @@ export interface MergePullRequestByThreeWayInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: keyof typeof ConflictDetailLevelTypeEnum | string;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: keyof typeof ConflictResolutionStrategyTypeEnum | string;
 
   /**
    * <p>The commit message to include in the commit information for the merge.</p>
@@ -724,7 +724,7 @@ export interface OverridePullRequestApprovalRulesInput {
    * <p>Whether you want to set aside approval rule requirements for the pull request (OVERRIDE) or revoke a previous override and apply
    *         approval rule requirements (REVOKE). REVOKE status is not stored.</p>
    */
-  overrideStatus: OverrideStatus | string | undefined;
+  overrideStatus: keyof typeof OverrideStatus | string | undefined;
 }
 
 /**
@@ -1184,7 +1184,7 @@ export interface PutFileInput {
    * <p>The file mode permissions of the blob. Valid file mode permissions are listed
    *             here.</p>
    */
-  fileMode?: FileModeTypeEnum | string;
+  fileMode?: keyof typeof FileModeTypeEnum | string;
 
   /**
    * <p>The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository,
@@ -2005,7 +2005,7 @@ export interface UpdatePullRequestApprovalStateInput {
   /**
    * <p>The approval state to associate with the user on the pull request.</p>
    */
-  approvalState: ApprovalState | string | undefined;
+  approvalState: keyof typeof ApprovalState | string | undefined;
 }
 
 /**
@@ -2088,7 +2088,7 @@ export interface UpdatePullRequestStatusInput {
    *             from <code>OPEN</code> to <code>OPEN</code>, <code>OPEN</code> to <code>CLOSED</code> or
    *             from <code>CLOSED</code> to <code>CLOSED</code>.</p>
    */
-  pullRequestStatus: PullRequestStatusEnum | string | undefined;
+  pullRequestStatus: keyof typeof PullRequestStatusEnum | string | undefined;
 }
 
 /**

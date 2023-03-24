@@ -5805,7 +5805,10 @@ const serializeAws_json1_1EntityConfiguration = (input: EntityConfiguration, con
   };
 };
 
-const serializeAws_json1_1EntityFilter = (input: (AlfrescoEntity | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1EntityFilter = (
+  input: (keyof typeof AlfrescoEntity | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6166,7 +6169,10 @@ const serializeAws_json1_1InlineCustomDocumentEnrichmentConfigurationList = (
     });
 };
 
-const serializeAws_json1_1IssueSubEntityFilter = (input: (IssueSubEntity | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1IssueSubEntityFilter = (
+  input: (keyof typeof IssueSubEntity | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6687,7 +6693,7 @@ const serializeAws_json1_1SalesforceChatterFeedConfiguration = (
 };
 
 const serializeAws_json1_1SalesforceChatterFeedIncludeFilterTypes = (
-  input: (SalesforceChatterFeedIncludeFilterType | string)[],
+  input: (keyof typeof SalesforceChatterFeedIncludeFilterType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -6792,7 +6798,7 @@ const serializeAws_json1_1SalesforceKnowledgeArticleConfiguration = (
 };
 
 const serializeAws_json1_1SalesforceKnowledgeArticleStateList = (
-  input: (SalesforceKnowledgeArticleState | string)[],
+  input: (keyof typeof SalesforceKnowledgeArticleState | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -7053,7 +7059,10 @@ const serializeAws_json1_1SlackConfiguration = (input: SlackConfiguration, conte
   };
 };
 
-const serializeAws_json1_1SlackEntityList = (input: (SlackEntity | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1SlackEntityList = (
+  input: (keyof typeof SlackEntity | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8858,7 +8867,10 @@ const deserializeAws_json1_1EntityDisplayData = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1EntityFilter = (output: any, context: __SerdeContext): (AlfrescoEntity | string)[] => {
+const deserializeAws_json1_1EntityFilter = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof AlfrescoEntity | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -9481,7 +9493,7 @@ const deserializeAws_json1_1InvalidRequestException = (
 const deserializeAws_json1_1IssueSubEntityFilter = (
   output: any,
   context: __SerdeContext
-): (IssueSubEntity | string)[] => {
+): (keyof typeof IssueSubEntity | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -10133,7 +10145,7 @@ const deserializeAws_json1_1SalesforceChatterFeedConfiguration = (
 const deserializeAws_json1_1SalesforceChatterFeedIncludeFilterTypes = (
   output: any,
   context: __SerdeContext
-): (SalesforceChatterFeedIncludeFilterType | string)[] => {
+): (keyof typeof SalesforceChatterFeedIncludeFilterType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -10242,7 +10254,7 @@ const deserializeAws_json1_1SalesforceKnowledgeArticleConfiguration = (
 const deserializeAws_json1_1SalesforceKnowledgeArticleStateList = (
   output: any,
   context: __SerdeContext
-): (SalesforceKnowledgeArticleState | string)[] => {
+): (keyof typeof SalesforceKnowledgeArticleState | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -10552,7 +10564,10 @@ const deserializeAws_json1_1SlackConfiguration = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1SlackEntityList = (output: any, context: __SerdeContext): (SlackEntity | string)[] => {
+const deserializeAws_json1_1SlackEntityList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof SlackEntity | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

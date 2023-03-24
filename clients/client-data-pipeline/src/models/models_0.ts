@@ -735,13 +735,13 @@ export interface PutPipelineDefinitionOutput {
 /**
  * @public
  */
-export enum OperatorType {
-  Between = "BETWEEN",
-  Equal = "EQ",
-  GreaterThanOrEqual = "GE",
-  LessThanOrEqual = "LE",
-  ReferenceEqual = "REF_EQ",
-}
+export const OperatorType = {
+  Between: "BETWEEN",
+  Equal: "EQ",
+  GreaterThanOrEqual: "GE",
+  LessThanOrEqual: "LE",
+  ReferenceEqual: "REF_EQ",
+};
 
 /**
  * @public
@@ -779,7 +779,7 @@ export interface Operator {
    *         </ul>
    *         <p>Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string "my".</p>
    */
-  type?: OperatorType | string;
+  type?: keyof typeof OperatorType | string;
 
   /**
    * <p>The value that the actual field value will be compared with.</p>
@@ -982,11 +982,11 @@ export interface SetStatusInput {
 /**
  * @public
  */
-export enum TaskStatus {
-  FAILED = "FAILED",
-  FALSE = "FALSE",
-  FINISHED = "FINISHED",
-}
+export const TaskStatus = {
+  FAILED: "FAILED",
+  FALSE: "FALSE",
+  FINISHED: "FINISHED",
+};
 
 /**
  * @public
@@ -1001,7 +1001,7 @@ export interface SetTaskStatusInput {
   /**
    * <p>If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>, the task ended unsuccessfully. Preconditions use false.</p>
    */
-  taskStatus: TaskStatus | string | undefined;
+  taskStatus: keyof typeof TaskStatus | string | undefined;
 
   /**
    * <p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object.

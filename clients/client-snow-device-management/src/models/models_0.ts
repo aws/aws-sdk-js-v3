@@ -26,12 +26,12 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AttachmentStatus {
-  ATTACHED = "ATTACHED",
-  ATTACHING = "ATTACHING",
-  DETACHED = "DETACHED",
-  DETACHING = "DETACHING",
-}
+export const AttachmentStatus = {
+  ATTACHED: "ATTACHED",
+  ATTACHING: "ATTACHING",
+  DETACHED: "DETACHED",
+  DETACHING: "DETACHING",
+};
 
 /**
  * @public
@@ -323,30 +323,30 @@ export interface DescribeDeviceInput {
 /**
  * @public
  */
-export enum UnlockState {
-  LOCKED = "LOCKED",
-  UNLOCKED = "UNLOCKED",
-  UNLOCKING = "UNLOCKING",
-}
+export const UnlockState = {
+  LOCKED: "LOCKED",
+  UNLOCKED: "UNLOCKED",
+  UNLOCKING: "UNLOCKING",
+};
 
 /**
  * @public
  */
-export enum IpAddressAssignment {
-  DHCP = "DHCP",
-  STATIC = "STATIC",
-}
+export const IpAddressAssignment = {
+  DHCP: "DHCP",
+  STATIC: "STATIC",
+};
 
 /**
  * @public
  */
-export enum PhysicalConnectorType {
-  QSFP = "QSFP",
-  RJ45 = "RJ45",
-  RJ45_2 = "RJ45_2",
-  SFP_PLUS = "SFP_PLUS",
-  WIFI = "WIFI",
-}
+export const PhysicalConnectorType = {
+  QSFP: "QSFP",
+  RJ45: "RJ45",
+  RJ45_2: "RJ45_2",
+  SFP_PLUS: "SFP_PLUS",
+  WIFI: "WIFI",
+};
 
 /**
  * @public
@@ -363,12 +363,12 @@ export interface PhysicalNetworkInterface {
    *       physical
    *       connector type.</p>
    */
-  physicalConnectorType?: PhysicalConnectorType | string;
+  physicalConnectorType?: keyof typeof PhysicalConnectorType | string;
 
   /**
    * <p>A value that describes whether the IP address is dynamic or persistent.</p>
    */
-  ipAddressAssignment?: IpAddressAssignment | string;
+  ipAddressAssignment?: keyof typeof IpAddressAssignment | string;
 
   /**
    * <p>The IP address of the device.</p>
@@ -458,7 +458,7 @@ export interface DescribeDeviceOutput {
   /**
    * <p>The current state of the device.</p>
    */
-  deviceState?: UnlockState | string;
+  deviceState?: keyof typeof UnlockState | string;
 
   /**
    * <p>The network interfaces available on the device.</p>
@@ -510,7 +510,7 @@ export interface EbsInstanceBlockDevice {
   /**
    * <p>The attachment state.</p>
    */
-  status?: AttachmentStatus | string;
+  status?: keyof typeof AttachmentStatus | string;
 
   /**
    * <p>The ID of the Amazon EBS volume.</p>
@@ -554,14 +554,14 @@ export interface SecurityGroupIdentifier {
 /**
  * @public
  */
-export enum InstanceStateName {
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SHUTTING_DOWN = "SHUTTING_DOWN",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  TERMINATED = "TERMINATED",
-}
+export const InstanceStateName = {
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SHUTTING_DOWN: "SHUTTING_DOWN",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  TERMINATED: "TERMINATED",
+};
 
 /**
  * @public
@@ -619,7 +619,7 @@ export interface InstanceState {
    *       state
    *       of the instance.</p>
    */
-  name?: InstanceStateName | string;
+  name?: keyof typeof InstanceStateName | string;
 }
 
 /**
@@ -740,15 +740,15 @@ export interface DescribeExecutionInput {
 /**
  * @public
  */
-export enum ExecutionState {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  REJECTED = "REJECTED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const ExecutionState = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+  REJECTED: "REJECTED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -772,7 +772,7 @@ export interface DescribeExecutionOutput {
   /**
    * <p>The current state of the execution.</p>
    */
-  state?: ExecutionState | string;
+  state?: keyof typeof ExecutionState | string;
 
   /**
    * <p>When the execution began.</p>
@@ -798,11 +798,11 @@ export interface DescribeTaskInput {
 /**
  * @public
  */
-export enum TaskState {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const TaskState = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -826,7 +826,7 @@ export interface DescribeTaskOutput {
   /**
    * <p>The current state of the task.</p>
    */
-  state?: TaskState | string;
+  state?: keyof typeof TaskState | string;
 
   /**
    * <p>When the <code>CreateTask</code> operation was called.</p>
@@ -894,7 +894,7 @@ export interface ListExecutionsInput {
   /**
    * <p>A structure used to filter the tasks by their current state.</p>
    */
-  state?: ExecutionState | string;
+  state?: keyof typeof ExecutionState | string;
 
   /**
    * <p>The maximum number of tasks to list per page.</p>
@@ -930,7 +930,7 @@ export interface ExecutionSummary {
   /**
    * <p>The state of the execution.</p>
    */
-  state?: ExecutionState | string;
+  state?: keyof typeof ExecutionState | string;
 }
 
 /**
@@ -1072,7 +1072,7 @@ export interface ListTasksInput {
   /**
    * <p>A structure used to filter the list of tasks.</p>
    */
-  state?: TaskState | string;
+  state?: keyof typeof TaskState | string;
 
   /**
    * <p>The maximum number of tasks per page.</p>
@@ -1103,7 +1103,7 @@ export interface TaskSummary {
   /**
    * <p>The state of the task assigned to one or many devices.</p>
    */
-  state?: TaskState | string;
+  state?: keyof typeof TaskState | string;
 
   /**
    * <p>Optional metadata that you assign to a resource. You can use tags to categorize a resource

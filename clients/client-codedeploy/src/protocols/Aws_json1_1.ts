@@ -5271,7 +5271,7 @@ const serializeAws_json1_1AutoRollbackConfiguration = (
 };
 
 const serializeAws_json1_1AutoRollbackEventsList = (
-  input: (AutoRollbackEvent | string)[],
+  input: (keyof typeof AutoRollbackEvent | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -5578,7 +5578,7 @@ const serializeAws_json1_1DeploymentsList = (input: string[], context: __SerdeCo
 };
 
 const serializeAws_json1_1DeploymentStatusList = (
-  input: (DeploymentStatus | string)[],
+  input: (keyof typeof DeploymentStatus | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -5772,7 +5772,10 @@ const serializeAws_json1_1InstancesList = (input: string[], context: __SerdeCont
     });
 };
 
-const serializeAws_json1_1InstanceStatusList = (input: (InstanceStatus | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1InstanceStatusList = (
+  input: (keyof typeof InstanceStatus | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5780,7 +5783,10 @@ const serializeAws_json1_1InstanceStatusList = (input: (InstanceStatus | string)
     });
 };
 
-const serializeAws_json1_1InstanceTypeList = (input: (_InstanceType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1InstanceTypeList = (
+  input: (keyof typeof _InstanceType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6094,13 +6100,16 @@ const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: 
 };
 
 const serializeAws_json1_1TargetFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [TargetFilterName | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof TargetFilterName | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = serializeAws_json1_1FilterValueList(value, context);
       return acc;
-    }
-    acc[key] = serializeAws_json1_1FilterValueList(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_json1_1TargetGroupInfo = (input: TargetGroupInfo, context: __SerdeContext): any => {
@@ -6217,7 +6226,7 @@ const serializeAws_json1_1TriggerConfigList = (input: TriggerConfig[], context: 
 };
 
 const serializeAws_json1_1TriggerEventTypeList = (
-  input: (TriggerEventType | string)[],
+  input: (keyof typeof TriggerEventType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -6429,7 +6438,7 @@ const deserializeAws_json1_1AutoRollbackConfiguration = (
 const deserializeAws_json1_1AutoRollbackEventsList = (
   output: any,
   context: __SerdeContext
-): (AutoRollbackEvent | string)[] => {
+): (keyof typeof AutoRollbackEvent | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8703,7 +8712,7 @@ const deserializeAws_json1_1TriggerConfigList = (output: any, context: __SerdeCo
 const deserializeAws_json1_1TriggerEventTypeList = (
   output: any,
   context: __SerdeContext
-): (TriggerEventType | string)[] => {
+): (keyof typeof TriggerEventType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

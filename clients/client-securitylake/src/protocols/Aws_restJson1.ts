@@ -2876,7 +2876,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AccessTypeList = (input: (AccessType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1AccessTypeList = (
+  input: (keyof typeof AccessType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2919,7 +2922,7 @@ const serializeAws_restJson1AutoEnableNewRegionConfigurationList = (
 };
 
 const serializeAws_restJson1AwsSourceTypeList = (
-  input: (AwsLogSourceType | string)[],
+  input: (keyof typeof AwsLogSourceType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2929,7 +2932,10 @@ const serializeAws_restJson1AwsSourceTypeList = (
     });
 };
 
-const serializeAws_restJson1DimensionSet = (input: (Dimension | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1DimensionSet = (
+  input: (keyof typeof Dimension | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2966,7 +2972,7 @@ const serializeAws_restJson1LakeConfigurationRequestMap = (
   input: Record<string, LakeConfigurationRequest>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [Region | string, any]) => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [keyof typeof Region | string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -2975,7 +2981,7 @@ const serializeAws_restJson1LakeConfigurationRequestMap = (
   }, {});
 };
 
-const serializeAws_restJson1RegionSet = (input: (Region | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1RegionSet = (input: (keyof typeof Region | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3042,7 +3048,10 @@ const serializeAws_restJson1ValueSet = (input: string[], context: __SerdeContext
     });
 };
 
-const deserializeAws_restJson1AccessTypeList = (output: any, context: __SerdeContext): (AccessType | string)[] => {
+const deserializeAws_restJson1AccessTypeList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof AccessType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3129,7 +3138,7 @@ const deserializeAws_restJson1AutoEnableNewRegionConfigurationList = (
 const deserializeAws_restJson1AwsSourceTypeList = (
   output: any,
   context: __SerdeContext
-): (AwsLogSourceType | string)[] => {
+): (keyof typeof AwsLogSourceType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3209,7 +3218,7 @@ const deserializeAws_restJson1LakeConfigurationResponseMap = (
   context: __SerdeContext
 ): Record<string, LakeConfigurationResponse> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, LakeConfigurationResponse>, [key, value]: [Region | string, any]) => {
+    (acc: Record<string, LakeConfigurationResponse>, [key, value]: [keyof typeof Region | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -3256,7 +3265,7 @@ const deserializeAws_restJson1ProtocolAndNotificationEndpoint = (
   } as any;
 };
 
-const deserializeAws_restJson1RegionSet = (output: any, context: __SerdeContext): (Region | string)[] => {
+const deserializeAws_restJson1RegionSet = (output: any, context: __SerdeContext): (keyof typeof Region | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

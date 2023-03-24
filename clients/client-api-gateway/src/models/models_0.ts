@@ -157,17 +157,17 @@ export interface ApiKeys {
 /**
  * @public
  */
-export enum ApiKeysFormat {
-  csv = "csv",
-}
+export const ApiKeysFormat = {
+  csv: "csv",
+};
 
 /**
  * @public
  */
-export enum ApiKeySourceType {
-  AUTHORIZER = "AUTHORIZER",
-  HEADER = "HEADER",
-}
+export const ApiKeySourceType = {
+  AUTHORIZER: "AUTHORIZER",
+  HEADER: "HEADER",
+};
 
 /**
  * @public
@@ -193,11 +193,11 @@ export interface ApiStage {
 /**
  * @public
  */
-export enum AuthorizerType {
-  COGNITO_USER_POOLS = "COGNITO_USER_POOLS",
-  REQUEST = "REQUEST",
-  TOKEN = "TOKEN",
-}
+export const AuthorizerType = {
+  COGNITO_USER_POOLS: "COGNITO_USER_POOLS",
+  REQUEST: "REQUEST",
+  TOKEN: "TOKEN",
+};
 
 /**
  * @public
@@ -217,7 +217,7 @@ export interface Authorizer {
   /**
    * <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
    */
-  type?: AuthorizerType | string;
+  type?: keyof typeof AuthorizerType | string;
 
   /**
    * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:\{region\}:\{account_id\}:userpool/\{user_pool_id\}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
@@ -489,7 +489,7 @@ export interface CreateAuthorizerRequest {
   /**
    * <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
    */
-  type: AuthorizerType | string | undefined;
+  type: keyof typeof AuthorizerType | string | undefined;
 
   /**
    * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:\{region\}:\{account_id\}:userpool/\{user_pool_id\}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
@@ -593,16 +593,16 @@ export interface CreateBasePathMappingRequest {
 /**
  * @public
  */
-export enum CacheClusterSize {
-  SIZE_0_POINT_5_GB = "0.5",
-  SIZE_118_GB = "118",
-  SIZE_13_POINT_5_GB = "13.5",
-  SIZE_1_POINT_6_GB = "1.6",
-  SIZE_237_GB = "237",
-  SIZE_28_POINT_4_GB = "28.4",
-  SIZE_58_POINT_2_GB = "58.2",
-  SIZE_6_POINT_1_GB = "6.1",
-}
+export const CacheClusterSize = {
+  SIZE_0_POINT_5_GB: "0.5",
+  SIZE_118_GB: "118",
+  SIZE_13_POINT_5_GB: "13.5",
+  SIZE_1_POINT_6_GB: "1.6",
+  SIZE_237_GB: "237",
+  SIZE_28_POINT_4_GB: "28.4",
+  SIZE_58_POINT_2_GB: "58.2",
+  SIZE_6_POINT_1_GB: "6.1",
+};
 
 /**
  * @public
@@ -658,7 +658,7 @@ export interface CreateDeploymentRequest {
   /**
    * <p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">Enabling API caching to enhance responsiveness</a>.</p>
    */
-  cacheClusterSize?: CacheClusterSize | string;
+  cacheClusterSize?: keyof typeof CacheClusterSize | string;
 
   /**
    * <p>A map that defines the stage variables for the Stage resource that is associated
@@ -745,20 +745,20 @@ export class ServiceUnavailableException extends __BaseException {
 /**
  * @public
  */
-export enum DocumentationPartType {
-  API = "API",
-  AUTHORIZER = "AUTHORIZER",
-  METHOD = "METHOD",
-  MODEL = "MODEL",
-  PATH_PARAMETER = "PATH_PARAMETER",
-  QUERY_PARAMETER = "QUERY_PARAMETER",
-  REQUEST_BODY = "REQUEST_BODY",
-  REQUEST_HEADER = "REQUEST_HEADER",
-  RESOURCE = "RESOURCE",
-  RESPONSE = "RESPONSE",
-  RESPONSE_BODY = "RESPONSE_BODY",
-  RESPONSE_HEADER = "RESPONSE_HEADER",
-}
+export const DocumentationPartType = {
+  API: "API",
+  AUTHORIZER: "AUTHORIZER",
+  METHOD: "METHOD",
+  MODEL: "MODEL",
+  PATH_PARAMETER: "PATH_PARAMETER",
+  QUERY_PARAMETER: "QUERY_PARAMETER",
+  REQUEST_BODY: "REQUEST_BODY",
+  REQUEST_HEADER: "REQUEST_HEADER",
+  RESOURCE: "RESOURCE",
+  RESPONSE: "RESPONSE",
+  RESPONSE_BODY: "RESPONSE_BODY",
+  RESPONSE_HEADER: "RESPONSE_HEADER",
+};
 
 /**
  * @public
@@ -768,7 +768,7 @@ export interface DocumentationPartLocation {
   /**
    * <p>The type of API entity to which the documentation content applies. Valid values are <code>API</code>, <code>AUTHORIZER</code>, <code>MODEL</code>, <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>,  <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. Content inheritance does not apply to any entity of the <code>API</code>, <code>AUTHORIZER</code>, <code>METHOD</code>,  <code>MODEL</code>, <code>REQUEST_BODY</code>, or <code>RESOURCE</code> type.</p>
    */
-  type: DocumentationPartType | string | undefined;
+  type: keyof typeof DocumentationPartType | string | undefined;
 
   /**
    * <p>The URL path of the target. It is a valid field for the API entity types of <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. The default value is <code>/</code> for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other <code>location</code> attributes,  the child entity's <code>path</code> attribute must match that of the parent entity as a prefix.</p>
@@ -883,11 +883,11 @@ export interface DocumentationVersion {
 /**
  * @public
  */
-export enum EndpointType {
-  EDGE = "EDGE",
-  PRIVATE = "PRIVATE",
-  REGIONAL = "REGIONAL",
-}
+export const EndpointType = {
+  EDGE: "EDGE",
+  PRIVATE: "PRIVATE",
+  REGIONAL: "REGIONAL",
+};
 
 /**
  * @public
@@ -897,7 +897,7 @@ export interface EndpointConfiguration {
   /**
    * <p>A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is <code>"EDGE"</code>. For a regional API and its custom domain name, the endpoint type is <code>REGIONAL</code>. For a private API, the endpoint type is <code>PRIVATE</code>.</p>
    */
-  types?: (EndpointType | string)[];
+  types?: (keyof typeof EndpointType | string)[];
 
   /**
    * <p>A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for <code>PRIVATE</code> endpoint type.</p>
@@ -930,10 +930,10 @@ export interface MutualTlsAuthenticationInput {
 /**
  * @public
  */
-export enum SecurityPolicy {
-  TLS_1_0 = "TLS_1_0",
-  TLS_1_2 = "TLS_1_2",
-}
+export const SecurityPolicy = {
+  TLS_1_0: "TLS_1_0",
+  TLS_1_2: "TLS_1_2",
+};
 
 /**
  * @public
@@ -993,7 +993,7 @@ export interface CreateDomainNameRequest {
   /**
    * <p>The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
    */
-  securityPolicy?: SecurityPolicy | string;
+  securityPolicy?: keyof typeof SecurityPolicy | string;
 
   /**
    * <p>The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway
@@ -1013,13 +1013,13 @@ export interface CreateDomainNameRequest {
 /**
  * @public
  */
-export enum DomainNameStatus {
-  AVAILABLE = "AVAILABLE",
-  PENDING = "PENDING",
-  PENDING_CERTIFICATE_REIMPORT = "PENDING_CERTIFICATE_REIMPORT",
-  PENDING_OWNERSHIP_VERIFICATION = "PENDING_OWNERSHIP_VERIFICATION",
-  UPDATING = "UPDATING",
-}
+export const DomainNameStatus = {
+  AVAILABLE: "AVAILABLE",
+  PENDING: "PENDING",
+  PENDING_CERTIFICATE_REIMPORT: "PENDING_CERTIFICATE_REIMPORT",
+  PENDING_OWNERSHIP_VERIFICATION: "PENDING_OWNERSHIP_VERIFICATION",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1114,7 +1114,7 @@ export interface DomainName {
   /**
    * <p>The status of the DomainName migration. The valid values are <code>AVAILABLE</code> and <code>UPDATING</code>. If the status is <code>UPDATING</code>, the domain cannot be modified further until the existing operation is complete. If it is <code>AVAILABLE</code>, the domain can be updated.</p>
    */
-  domainNameStatus?: DomainNameStatus | string;
+  domainNameStatus?: keyof typeof DomainNameStatus | string;
 
   /**
    * <p>An optional text message containing detailed information about status of the DomainName migration.</p>
@@ -1124,7 +1124,7 @@ export interface DomainName {
   /**
    * <p>The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
    */
-  securityPolicy?: SecurityPolicy | string;
+  securityPolicy?: keyof typeof SecurityPolicy | string;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
@@ -1284,18 +1284,18 @@ export interface CreateResourceRequest {
 /**
  * @public
  */
-export enum ConnectionType {
-  INTERNET = "INTERNET",
-  VPC_LINK = "VPC_LINK",
-}
+export const ConnectionType = {
+  INTERNET: "INTERNET",
+  VPC_LINK: "VPC_LINK",
+};
 
 /**
  * @public
  */
-export enum ContentHandlingStrategy {
-  CONVERT_TO_BINARY = "CONVERT_TO_BINARY",
-  CONVERT_TO_TEXT = "CONVERT_TO_TEXT",
-}
+export const ContentHandlingStrategy = {
+  CONVERT_TO_BINARY: "CONVERT_TO_BINARY",
+  CONVERT_TO_TEXT: "CONVERT_TO_TEXT",
+};
 
 /**
  * @public
@@ -1327,7 +1327,7 @@ export interface IntegrationResponse {
    * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
    *          <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
    */
-  contentHandling?: ContentHandlingStrategy | string;
+  contentHandling?: keyof typeof ContentHandlingStrategy | string;
 }
 
 /**
@@ -1354,13 +1354,13 @@ export interface TlsConfig {
 /**
  * @public
  */
-export enum IntegrationType {
-  AWS = "AWS",
-  AWS_PROXY = "AWS_PROXY",
-  HTTP = "HTTP",
-  HTTP_PROXY = "HTTP_PROXY",
-  MOCK = "MOCK",
-}
+export const IntegrationType = {
+  AWS: "AWS",
+  AWS_PROXY: "AWS_PROXY",
+  HTTP: "HTTP",
+  HTTP_PROXY: "HTTP_PROXY",
+  MOCK: "MOCK",
+};
 
 /**
  * @public
@@ -1371,7 +1371,7 @@ export interface Integration {
    * <p>Specifies an API method integration type. The valid value is one of the following:</p>
    *          <p>For the HTTP and HTTP proxy integrations, each integration can specify a protocol (<code>http/https</code>), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a <code>connectionType</code> of <code>VPC_LINK</code> is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.</p>
    */
-  type?: IntegrationType | string;
+  type?: keyof typeof IntegrationType | string;
 
   /**
    * <p>Specifies the integration's HTTP method type.</p>
@@ -1402,7 +1402,7 @@ export interface Integration {
   /**
    * <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
    */
-  connectionType?: ConnectionType | string;
+  connectionType?: keyof typeof ConnectionType | string;
 
   /**
    * <p>The ID of the VpcLink used for the integration when <code>connectionType=VPC_LINK</code> and undefined, otherwise.</p>
@@ -1447,7 +1447,7 @@ export interface Integration {
    * <p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
    *          <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehavior</code> is configured to support payload pass-through.</p>
    */
-  contentHandling?: ContentHandlingStrategy | string;
+  contentHandling?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
@@ -1636,7 +1636,7 @@ export interface CreateRestApiRequest {
    *       request. <code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code>
    *       from a custom authorizer.</p>
    */
-  apiKeySource?: ApiKeySourceType | string;
+  apiKeySource?: keyof typeof ApiKeySourceType | string;
 
   /**
    * <p>The endpoint configuration of this RestApi showing the endpoint types of the API. </p>
@@ -1713,7 +1713,7 @@ export interface RestApi {
    *       request. <code>AUTHORIZER</code> to read the API key from the <code>UsageIdentifierKey</code>
    *       from a custom authorizer.</p>
    */
-  apiKeySource?: ApiKeySourceType | string;
+  apiKeySource?: keyof typeof ApiKeySourceType | string;
 
   /**
    * <p>The endpoint configuration of this RestApi showing the endpoint types of the API. </p>
@@ -1798,7 +1798,7 @@ export interface CreateStageRequest {
   /**
    * <p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">Enabling API caching to enhance responsiveness</a>.</p>
    */
-  cacheClusterSize?: CacheClusterSize | string;
+  cacheClusterSize?: keyof typeof CacheClusterSize | string;
 
   /**
    * <p>A map that defines the stage variables for the new Stage resource. Variable names
@@ -1831,22 +1831,22 @@ export interface CreateStageRequest {
 /**
  * @public
  */
-export enum CacheClusterStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  FLUSH_IN_PROGRESS = "FLUSH_IN_PROGRESS",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-}
+export const CacheClusterStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  FLUSH_IN_PROGRESS: "FLUSH_IN_PROGRESS",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+};
 
 /**
  * @public
  */
-export enum UnauthorizedCacheControlHeaderStrategy {
-  FAIL_WITH_403 = "FAIL_WITH_403",
-  SUCCEED_WITHOUT_RESPONSE_HEADER = "SUCCEED_WITHOUT_RESPONSE_HEADER",
-  SUCCEED_WITH_RESPONSE_HEADER = "SUCCEED_WITH_RESPONSE_HEADER",
-}
+export const UnauthorizedCacheControlHeaderStrategy = {
+  FAIL_WITH_403: "FAIL_WITH_403",
+  SUCCEED_WITHOUT_RESPONSE_HEADER: "SUCCEED_WITHOUT_RESPONSE_HEADER",
+  SUCCEED_WITH_RESPONSE_HEADER: "SUCCEED_WITH_RESPONSE_HEADER",
+};
 
 /**
  * @public
@@ -1901,7 +1901,7 @@ export interface MethodSetting {
   /**
    * <p>Specifies how to handle unauthorized requests for cache invalidation. The PATCH path for this setting is <code>/\{method_setting_key\}/caching/unauthorizedCacheControlHeaderStrategy</code>, and the available values are <code>FAIL_WITH_403</code>, <code>SUCCEED_WITH_RESPONSE_HEADER</code>, <code>SUCCEED_WITHOUT_RESPONSE_HEADER</code>.</p>
    */
-  unauthorizedCacheControlHeaderStrategy?: UnauthorizedCacheControlHeaderStrategy | string;
+  unauthorizedCacheControlHeaderStrategy?: keyof typeof UnauthorizedCacheControlHeaderStrategy | string;
 }
 
 /**
@@ -1937,12 +1937,12 @@ export interface Stage {
   /**
    * <p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">Enabling API caching to enhance responsiveness</a>.</p>
    */
-  cacheClusterSize?: CacheClusterSize | string;
+  cacheClusterSize?: keyof typeof CacheClusterSize | string;
 
   /**
    * <p>The status of the cache cluster for the stage, if enabled.</p>
    */
-  cacheClusterStatus?: CacheClusterStatus | string;
+  cacheClusterStatus?: keyof typeof CacheClusterStatus | string;
 
   /**
    * <p>A map that defines the method settings for a Stage resource. Keys (designated as <code>/\{method_setting_key</code> below) are method paths defined as <code>\{resource_path\}/\{http_method\}</code> for an individual method override, or <code>/\*\/\*</code> for overriding all methods in the stage.  </p>
@@ -1999,11 +1999,11 @@ export interface Stage {
 /**
  * @public
  */
-export enum QuotaPeriodType {
-  DAY = "DAY",
-  MONTH = "MONTH",
-  WEEK = "WEEK",
-}
+export const QuotaPeriodType = {
+  DAY: "DAY",
+  MONTH: "MONTH",
+  WEEK: "WEEK",
+};
 
 /**
  * @public
@@ -2023,7 +2023,7 @@ export interface QuotaSettings {
   /**
    * <p>The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".</p>
    */
-  period?: QuotaPeriodType | string;
+  period?: keyof typeof QuotaPeriodType | string;
 }
 
 /**
@@ -2187,12 +2187,12 @@ export interface CreateVpcLinkRequest {
 /**
  * @public
  */
-export enum VpcLinkStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
+export const VpcLinkStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -2222,7 +2222,7 @@ export interface VpcLink {
   /**
    * <p>The status of the VPC link. The valid values are <code>AVAILABLE</code>, <code>PENDING</code>, <code>DELETING</code>, or <code>FAILED</code>. Deploying an API will wait if the status is <code>PENDING</code> and will fail if the status is <code>DELETING</code>.  </p>
    */
-  status?: VpcLinkStatus | string;
+  status?: keyof typeof VpcLinkStatus | string;
 
   /**
    * <p>A description about the VPC link status.</p>
@@ -2352,29 +2352,29 @@ export interface DeleteDomainNameRequest {
 /**
  * @public
  */
-export enum GatewayResponseType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  API_CONFIGURATION_ERROR = "API_CONFIGURATION_ERROR",
-  AUTHORIZER_CONFIGURATION_ERROR = "AUTHORIZER_CONFIGURATION_ERROR",
-  AUTHORIZER_FAILURE = "AUTHORIZER_FAILURE",
-  BAD_REQUEST_BODY = "BAD_REQUEST_BODY",
-  BAD_REQUEST_PARAMETERS = "BAD_REQUEST_PARAMETERS",
-  DEFAULT_4XX = "DEFAULT_4XX",
-  DEFAULT_5XX = "DEFAULT_5XX",
-  EXPIRED_TOKEN = "EXPIRED_TOKEN",
-  INTEGRATION_FAILURE = "INTEGRATION_FAILURE",
-  INTEGRATION_TIMEOUT = "INTEGRATION_TIMEOUT",
-  INVALID_API_KEY = "INVALID_API_KEY",
-  INVALID_SIGNATURE = "INVALID_SIGNATURE",
-  MISSING_AUTHENTICATION_TOKEN = "MISSING_AUTHENTICATION_TOKEN",
-  QUOTA_EXCEEDED = "QUOTA_EXCEEDED",
-  REQUEST_TOO_LARGE = "REQUEST_TOO_LARGE",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  THROTTLED = "THROTTLED",
-  UNAUTHORIZED = "UNAUTHORIZED",
-  UNSUPPORTED_MEDIA_TYPE = "UNSUPPORTED_MEDIA_TYPE",
-  WAF_FILTERED = "WAF_FILTERED",
-}
+export const GatewayResponseType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  API_CONFIGURATION_ERROR: "API_CONFIGURATION_ERROR",
+  AUTHORIZER_CONFIGURATION_ERROR: "AUTHORIZER_CONFIGURATION_ERROR",
+  AUTHORIZER_FAILURE: "AUTHORIZER_FAILURE",
+  BAD_REQUEST_BODY: "BAD_REQUEST_BODY",
+  BAD_REQUEST_PARAMETERS: "BAD_REQUEST_PARAMETERS",
+  DEFAULT_4XX: "DEFAULT_4XX",
+  DEFAULT_5XX: "DEFAULT_5XX",
+  EXPIRED_TOKEN: "EXPIRED_TOKEN",
+  INTEGRATION_FAILURE: "INTEGRATION_FAILURE",
+  INTEGRATION_TIMEOUT: "INTEGRATION_TIMEOUT",
+  INVALID_API_KEY: "INVALID_API_KEY",
+  INVALID_SIGNATURE: "INVALID_SIGNATURE",
+  MISSING_AUTHENTICATION_TOKEN: "MISSING_AUTHENTICATION_TOKEN",
+  QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
+  REQUEST_TOO_LARGE: "REQUEST_TOO_LARGE",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  THROTTLED: "THROTTLED",
+  UNAUTHORIZED: "UNAUTHORIZED",
+  UNSUPPORTED_MEDIA_TYPE: "UNSUPPORTED_MEDIA_TYPE",
+  WAF_FILTERED: "WAF_FILTERED",
+};
 
 /**
  * @public
@@ -2389,7 +2389,7 @@ export interface DeleteGatewayResponseRequest {
   /**
    * <p>The response type of the associated GatewayResponse.</p>
    */
-  responseType: GatewayResponseType | string | undefined;
+  responseType: keyof typeof GatewayResponseType | string | undefined;
 }
 
 /**
@@ -2962,10 +2962,10 @@ export interface DocumentationParts {
 /**
  * @public
  */
-export enum LocationStatusType {
-  DOCUMENTED = "DOCUMENTED",
-  UNDOCUMENTED = "UNDOCUMENTED",
-}
+export const LocationStatusType = {
+  DOCUMENTED: "DOCUMENTED",
+  UNDOCUMENTED: "UNDOCUMENTED",
+};
 
 /**
  * @public
@@ -2980,7 +2980,7 @@ export interface GetDocumentationPartsRequest {
   /**
    * <p>The type of API entities of the to-be-retrieved documentation parts. </p>
    */
-  type?: DocumentationPartType | string;
+  type?: keyof typeof DocumentationPartType | string;
 
   /**
    * <p>The name of API entities of the to-be-retrieved documentation parts.</p>
@@ -3005,7 +3005,7 @@ export interface GetDocumentationPartsRequest {
   /**
    * <p>The status of the API documentation parts to retrieve. Valid values are <code>DOCUMENTED</code> for retrieving DocumentationPart resources with content and <code>UNDOCUMENTED</code> for DocumentationPart resources without content.</p>
    */
-  locationStatus?: LocationStatusType | string;
+  locationStatus?: keyof typeof LocationStatusType | string;
 }
 
 /**
@@ -3165,7 +3165,7 @@ export interface GatewayResponse {
   /**
    * <p>The response type of the associated GatewayResponse.</p>
    */
-  responseType?: GatewayResponseType | string;
+  responseType?: keyof typeof GatewayResponseType | string;
 
   /**
    * <p>The HTTP status code for this GatewayResponse.</p>
@@ -3202,7 +3202,7 @@ export interface GetGatewayResponseRequest {
   /**
    * <p>The response type of the associated GatewayResponse.</p>
    */
-  responseType: GatewayResponseType | string | undefined;
+  responseType: keyof typeof GatewayResponseType | string | undefined;
 }
 
 /**
@@ -4026,7 +4026,7 @@ export interface ImportApiKeysRequest {
   /**
    * <p>A query parameter to specify the input format to imported API keys. Currently, only the <code>csv</code> format is supported.</p>
    */
-  format: ApiKeysFormat | string | undefined;
+  format: keyof typeof ApiKeysFormat | string | undefined;
 
   /**
    * <p>A query parameter to indicate whether to rollback ApiKey importation (<code>true</code>) or not (<code>false</code>) when error is encountered.</p>
@@ -4053,10 +4053,10 @@ export interface DocumentationPartIds {
 /**
  * @public
  */
-export enum PutMode {
-  Merge = "merge",
-  Overwrite = "overwrite",
-}
+export const PutMode = {
+  Merge: "merge",
+  Overwrite: "overwrite",
+};
 
 /**
  * @public
@@ -4071,7 +4071,7 @@ export interface ImportDocumentationPartsRequest {
   /**
    * <p>A query parameter to indicate whether to overwrite (<code>OVERWRITE</code>) any existing DocumentationParts definition or to merge (<code>MERGE</code>) the new definition into the existing one. The default value is <code>MERGE</code>.</p>
    */
-  mode?: PutMode | string;
+  mode?: keyof typeof PutMode | string;
 
   /**
    * <p>A query parameter to specify whether to rollback the documentation importation (<code>true</code>) or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</p>
@@ -4124,7 +4124,7 @@ export interface PutGatewayResponseRequest {
   /**
    * <p>The response type of the associated GatewayResponse</p>
    */
-  responseType: GatewayResponseType | string | undefined;
+  responseType: keyof typeof GatewayResponseType | string | undefined;
 
   /**
    * <p>The HTTP status code of the GatewayResponse.</p>
@@ -4165,7 +4165,7 @@ export interface PutIntegrationRequest {
   /**
    * <p>Specifies a put integration input's type.</p>
    */
-  type: IntegrationType | string | undefined;
+  type: keyof typeof IntegrationType | string | undefined;
 
   /**
    * <p>The HTTP method for the integration.</p>
@@ -4195,7 +4195,7 @@ export interface PutIntegrationRequest {
   /**
    * <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
    */
-  connectionType?: ConnectionType | string;
+  connectionType?: keyof typeof ConnectionType | string;
 
   /**
    * <p>The ID of the VpcLink used for the integration. Specify this value only if you specify <code>VPC_LINK</code> as the connection type.</p>
@@ -4237,7 +4237,7 @@ export interface PutIntegrationRequest {
    * <p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
    *          <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehavior</code> is configured to support payload pass-through.</p>
    */
-  contentHandling?: ContentHandlingStrategy | string;
+  contentHandling?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
@@ -4295,7 +4295,7 @@ export interface PutIntegrationResponseRequest {
    * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
    *          <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
    */
-  contentHandling?: ContentHandlingStrategy | string;
+  contentHandling?: keyof typeof ContentHandlingStrategy | string;
 }
 
 /**
@@ -4409,7 +4409,7 @@ export interface PutRestApiRequest {
    * <p>The <code>mode</code> query parameter to specify the update mode. Valid values are "merge" and "overwrite". By default,
    *         the update mode is "merge".</p>
    */
-  mode?: PutMode | string;
+  mode?: keyof typeof PutMode | string;
 
   /**
    * <p>A query parameter to indicate whether to rollback the API update (<code>true</code>) or not (<code>false</code>)
@@ -4637,14 +4637,14 @@ export interface UntagResourceRequest {
 /**
  * @public
  */
-export enum Op {
-  add = "add",
-  copy = "copy",
-  move = "move",
-  remove = "remove",
-  replace = "replace",
-  test = "test",
-}
+export const Op = {
+  add: "add",
+  copy: "copy",
+  move: "move",
+  remove: "remove",
+  replace: "replace",
+  test: "test",
+};
 
 /**
  * @public
@@ -4657,7 +4657,7 @@ export interface PatchOperation {
    *             resource. Support of the operations depends on specific operational contexts. Attempts
    *             to apply an unsupported operation on a resource will return an error message..</p>
    */
-  op?: Op | string;
+  op?: keyof typeof Op | string;
 
   /**
    * <p>The op operation's target, as identified by a JSON Pointer value that references a
@@ -4865,7 +4865,7 @@ export interface UpdateGatewayResponseRequest {
   /**
    * <p>The response type of the associated GatewayResponse.</p>
    */
-  responseType: GatewayResponseType | string | undefined;
+  responseType: keyof typeof GatewayResponseType | string | undefined;
 
   /**
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>

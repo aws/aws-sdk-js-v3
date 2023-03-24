@@ -1267,7 +1267,7 @@ const serializeAws_json1_1CertificateOptions = (input: CertificateOptions, conte
 };
 
 const serializeAws_json1_1CertificateStatuses = (
-  input: (CertificateStatus | string)[],
+  input: (keyof typeof CertificateStatus | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1341,7 +1341,7 @@ const serializeAws_json1_1ExportCertificateRequest = (
 };
 
 const serializeAws_json1_1ExtendedKeyUsageFilterList = (
-  input: (ExtendedKeyUsageName | string)[],
+  input: (keyof typeof ExtendedKeyUsageName | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1380,7 +1380,10 @@ const serializeAws_json1_1ImportCertificateRequest = (
   };
 };
 
-const serializeAws_json1_1KeyAlgorithmList = (input: (KeyAlgorithm | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1KeyAlgorithmList = (
+  input: (keyof typeof KeyAlgorithm | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1388,7 +1391,10 @@ const serializeAws_json1_1KeyAlgorithmList = (input: (KeyAlgorithm | string)[], 
     });
 };
 
-const serializeAws_json1_1KeyUsageFilterList = (input: (KeyUsageName | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1KeyUsageFilterList = (
+  input: (keyof typeof KeyUsageName | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1706,7 +1712,7 @@ const deserializeAws_json1_1ExtendedKeyUsageList = (output: any, context: __Serd
 const deserializeAws_json1_1ExtendedKeyUsageNames = (
   output: any,
   context: __SerdeContext
-): (ExtendedKeyUsageName | string)[] => {
+): (keyof typeof ExtendedKeyUsageName | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1818,7 +1824,10 @@ const deserializeAws_json1_1KeyUsageList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_json1_1KeyUsageNames = (output: any, context: __SerdeContext): (KeyUsageName | string)[] => {
+const deserializeAws_json1_1KeyUsageNames = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof KeyUsageName | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

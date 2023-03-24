@@ -3640,7 +3640,10 @@ const serializeAws_restJson1GlueTableReference = (input: GlueTableReference, con
   };
 };
 
-const serializeAws_restJson1MemberAbilities = (input: (MemberAbility | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1MemberAbilities = (
+  input: (keyof typeof MemberAbility | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3708,7 +3711,7 @@ const serializeAws_restJson1ProtectedQuerySQLParameters = (
 };
 
 const serializeAws_restJson1ScalarFunctionsList = (
-  input: (ScalarFunctions | string)[],
+  input: (keyof typeof ScalarFunctions | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3908,7 +3911,7 @@ const deserializeAws_restJson1AnalysisRulePolicyV1 = (output: any, context: __Se
 const deserializeAws_restJson1AnalysisRuleTypeList = (
   output: any,
   context: __SerdeContext
-): (AnalysisRuleType | string)[] => {
+): (keyof typeof AnalysisRuleType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4094,7 +4097,7 @@ const deserializeAws_restJson1ConfiguredTableAnalysisRulePolicyV1 = (
 const deserializeAws_restJson1ConfiguredTableAnalysisRuleTypeList = (
   output: any,
   context: __SerdeContext
-): (ConfiguredTableAnalysisRuleType | string)[] => {
+): (keyof typeof ConfiguredTableAnalysisRuleType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4214,7 +4217,10 @@ const deserializeAws_restJson1GlueTableReference = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_restJson1MemberAbilities = (output: any, context: __SerdeContext): (MemberAbility | string)[] => {
+const deserializeAws_restJson1MemberAbilities = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof MemberAbility | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4450,7 +4456,7 @@ const deserializeAws_restJson1ProtectedQuerySummaryList = (
 const deserializeAws_restJson1ScalarFunctionsList = (
   output: any,
   context: __SerdeContext
-): (ScalarFunctions | string)[] => {
+): (keyof typeof ScalarFunctions | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

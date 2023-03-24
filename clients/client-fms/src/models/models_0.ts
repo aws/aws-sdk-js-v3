@@ -6,13 +6,13 @@ import { FMSServiceException as __BaseException } from "./FMSServiceException";
 /**
  * @public
  */
-export enum AccountRoleStatus {
-  Creating = "CREATING",
-  Deleted = "DELETED",
-  Deleting = "DELETING",
-  PendingDeletion = "PENDING_DELETION",
-  Ready = "READY",
-}
+export const AccountRoleStatus = {
+  Creating: "CREATING",
+  Deleted: "DELETED",
+  Deleting: "DELETING",
+  PendingDeletion: "PENDING_DELETION",
+  Ready: "READY",
+};
 
 /**
  * @public
@@ -254,10 +254,10 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum ThirdPartyFirewall {
-  FORTIGATE_CLOUD_NATIVE_FIREWALL = "FORTIGATE_CLOUD_NATIVE_FIREWALL",
-  PALO_ALTO_NETWORKS_CLOUD_NGFW = "PALO_ALTO_NETWORKS_CLOUD_NGFW",
-}
+export const ThirdPartyFirewall = {
+  FORTIGATE_CLOUD_NATIVE_FIREWALL: "FORTIGATE_CLOUD_NATIVE_FIREWALL",
+  PALO_ALTO_NETWORKS_CLOUD_NGFW: "PALO_ALTO_NETWORKS_CLOUD_NGFW",
+};
 
 /**
  * @public
@@ -266,19 +266,19 @@ export interface AssociateThirdPartyFirewallRequest {
   /**
    * <p>The name of the third-party firewall vendor.</p>
    */
-  ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
+  ThirdPartyFirewall: keyof typeof ThirdPartyFirewall | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ThirdPartyFirewallAssociationStatus {
-  NOT_EXIST = "NOT_EXIST",
-  OFFBOARDING = "OFFBOARDING",
-  OFFBOARD_COMPLETE = "OFFBOARD_COMPLETE",
-  ONBOARDING = "ONBOARDING",
-  ONBOARD_COMPLETE = "ONBOARD_COMPLETE",
-}
+export const ThirdPartyFirewallAssociationStatus = {
+  NOT_EXIST: "NOT_EXIST",
+  OFFBOARDING: "OFFBOARDING",
+  OFFBOARD_COMPLETE: "OFFBOARD_COMPLETE",
+  ONBOARDING: "ONBOARDING",
+  ONBOARD_COMPLETE: "ONBOARD_COMPLETE",
+};
 
 /**
  * @public
@@ -309,7 +309,7 @@ export interface AssociateThirdPartyFirewallResponse {
    *            </li>
    *          </ul>
    */
-  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus | string;
+  ThirdPartyFirewallStatus?: keyof typeof ThirdPartyFirewallAssociationStatus | string;
 }
 
 /**
@@ -362,14 +362,14 @@ export interface BatchAssociateResourceRequest {
 /**
  * @public
  */
-export enum FailedItemReason {
-  NotValidAccountId = "NOT_VALID_ACCOUNT_ID",
-  NotValidArn = "NOT_VALID_ARN",
-  NotValidPartition = "NOT_VALID_PARTITION",
-  NotValidRegion = "NOT_VALID_REGION",
-  NotValidResourceType = "NOT_VALID_RESOURCE_TYPE",
-  NotValidService = "NOT_VALID_SERVICE",
-}
+export const FailedItemReason = {
+  NotValidAccountId: "NOT_VALID_ACCOUNT_ID",
+  NotValidArn: "NOT_VALID_ARN",
+  NotValidPartition: "NOT_VALID_PARTITION",
+  NotValidRegion: "NOT_VALID_REGION",
+  NotValidResourceType: "NOT_VALID_RESOURCE_TYPE",
+  NotValidService: "NOT_VALID_SERVICE",
+};
 
 /**
  * @public
@@ -384,7 +384,7 @@ export interface FailedItem {
   /**
    * <p>The reason the resource's association could not be updated.</p>
    */
-  Reason?: FailedItemReason | string;
+  Reason?: keyof typeof FailedItemReason | string;
 }
 
 /**
@@ -526,7 +526,7 @@ export interface DisassociateThirdPartyFirewallRequest {
   /**
    * <p>The name of the third-party firewall vendor.</p>
    */
-  ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
+  ThirdPartyFirewall: keyof typeof ThirdPartyFirewall | string | undefined;
 }
 
 /**
@@ -536,7 +536,7 @@ export interface DisassociateThirdPartyFirewallResponse {
   /**
    * <p>The current status for the disassociation of a Firewall Manager administrators account with a third-party firewall.</p>
    */
-  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus | string;
+  ThirdPartyFirewallStatus?: keyof typeof ThirdPartyFirewallAssociationStatus | string;
 }
 
 /**
@@ -557,7 +557,7 @@ export interface GetAdminAccountResponse {
    * <p>The status of the Amazon Web Services account that you set as the Firewall Manager
    *       administrator.</p>
    */
-  RoleStatus?: AccountRoleStatus | string;
+  RoleStatus?: keyof typeof AccountRoleStatus | string;
 }
 
 /**
@@ -609,46 +609,46 @@ export interface GetComplianceDetailRequest {
 /**
  * @public
  */
-export enum DependentServiceName {
-  AWSConfig = "AWSCONFIG",
-  AWSShieldAdvanced = "AWSSHIELD_ADVANCED",
-  AWSVirtualPrivateCloud = "AWSVPC",
-  AWSWAF = "AWSWAF",
-}
+export const DependentServiceName = {
+  AWSConfig: "AWSCONFIG",
+  AWSShieldAdvanced: "AWSSHIELD_ADVANCED",
+  AWSVirtualPrivateCloud: "AWSVPC",
+  AWSWAF: "AWSWAF",
+};
 
 /**
  * @public
  */
-export enum ViolationReason {
-  BlackHoleRouteDetected = "BLACK_HOLE_ROUTE_DETECTED",
-  BlackHoleRouteDetectedInFirewallSubnet = "BLACK_HOLE_ROUTE_DETECTED_IN_FIREWALL_SUBNET",
-  FMSCreatedSecurityGroupEdited = "FMS_CREATED_SECURITY_GROUP_EDITED",
-  FirewallSubnetIsOutOfScope = "FIREWALL_SUBNET_IS_OUT_OF_SCOPE",
-  FirewallSubnetMissingExpectedRoute = "FIREWALL_SUBNET_MISSING_EXPECTED_ROUTE",
-  FirewallSubnetMissingVPCEndpoint = "FIREWALL_SUBNET_MISSING_VPCE_ENDPOINT",
-  InternetGatewayMissingExpectedRoute = "INTERNET_GATEWAY_MISSING_EXPECTED_ROUTE",
-  InternetTrafficNotInspected = "INTERNET_TRAFFIC_NOT_INSPECTED",
-  InvalidRouteConfiguration = "INVALID_ROUTE_CONFIGURATION",
-  MissingExpectedRouteTable = "MISSING_EXPECTED_ROUTE_TABLE",
-  MissingFirewall = "MISSING_FIREWALL",
-  MissingFirewallSubnetInAZ = "MISSING_FIREWALL_SUBNET_IN_AZ",
-  MissingTargetGateway = "MISSING_TARGET_GATEWAY",
-  NetworkFirewallPolicyModified = "NETWORK_FIREWALL_POLICY_MODIFIED",
-  ResourceIncorrectWebAcl = "RESOURCE_INCORRECT_WEB_ACL",
-  ResourceMissingDnsFirewall = "RESOURCE_MISSING_DNS_FIREWALL",
-  ResourceMissingSecurityGroup = "RESOURCE_MISSING_SECURITY_GROUP",
-  ResourceMissingShieldProtection = "RESOURCE_MISSING_SHIELD_PROTECTION",
-  ResourceMissingWebAcl = "RESOURCE_MISSING_WEB_ACL",
-  ResourceMissingWebaclOrShieldProtection = "RESOURCE_MISSING_WEB_ACL_OR_SHIELD_PROTECTION",
-  ResourceViolatesAuditSecurityGroup = "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP",
-  RouteHasOutOfScopeEndpoint = "ROUTE_HAS_OUT_OF_SCOPE_ENDPOINT",
-  SecurityGroupRedundant = "SECURITY_GROUP_REDUNDANT",
-  SecurityGroupUnused = "SECURITY_GROUP_UNUSED",
-  TrafficInspectionCrossesAZBoundary = "TRAFFIC_INSPECTION_CROSSES_AZ_BOUNDARY",
-  UnexpectedFirewallRoutes = "UNEXPECTED_FIREWALL_ROUTES",
-  UnexpectedTargetGatewayRoutes = "UNEXPECTED_TARGET_GATEWAY_ROUTES",
-  WebAclMissingRuleGroup = "WEB_ACL_MISSING_RULE_GROUP",
-}
+export const ViolationReason = {
+  BlackHoleRouteDetected: "BLACK_HOLE_ROUTE_DETECTED",
+  BlackHoleRouteDetectedInFirewallSubnet: "BLACK_HOLE_ROUTE_DETECTED_IN_FIREWALL_SUBNET",
+  FMSCreatedSecurityGroupEdited: "FMS_CREATED_SECURITY_GROUP_EDITED",
+  FirewallSubnetIsOutOfScope: "FIREWALL_SUBNET_IS_OUT_OF_SCOPE",
+  FirewallSubnetMissingExpectedRoute: "FIREWALL_SUBNET_MISSING_EXPECTED_ROUTE",
+  FirewallSubnetMissingVPCEndpoint: "FIREWALL_SUBNET_MISSING_VPCE_ENDPOINT",
+  InternetGatewayMissingExpectedRoute: "INTERNET_GATEWAY_MISSING_EXPECTED_ROUTE",
+  InternetTrafficNotInspected: "INTERNET_TRAFFIC_NOT_INSPECTED",
+  InvalidRouteConfiguration: "INVALID_ROUTE_CONFIGURATION",
+  MissingExpectedRouteTable: "MISSING_EXPECTED_ROUTE_TABLE",
+  MissingFirewall: "MISSING_FIREWALL",
+  MissingFirewallSubnetInAZ: "MISSING_FIREWALL_SUBNET_IN_AZ",
+  MissingTargetGateway: "MISSING_TARGET_GATEWAY",
+  NetworkFirewallPolicyModified: "NETWORK_FIREWALL_POLICY_MODIFIED",
+  ResourceIncorrectWebAcl: "RESOURCE_INCORRECT_WEB_ACL",
+  ResourceMissingDnsFirewall: "RESOURCE_MISSING_DNS_FIREWALL",
+  ResourceMissingSecurityGroup: "RESOURCE_MISSING_SECURITY_GROUP",
+  ResourceMissingShieldProtection: "RESOURCE_MISSING_SHIELD_PROTECTION",
+  ResourceMissingWebAcl: "RESOURCE_MISSING_WEB_ACL",
+  ResourceMissingWebaclOrShieldProtection: "RESOURCE_MISSING_WEB_ACL_OR_SHIELD_PROTECTION",
+  ResourceViolatesAuditSecurityGroup: "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP",
+  RouteHasOutOfScopeEndpoint: "ROUTE_HAS_OUT_OF_SCOPE_ENDPOINT",
+  SecurityGroupRedundant: "SECURITY_GROUP_REDUNDANT",
+  SecurityGroupUnused: "SECURITY_GROUP_UNUSED",
+  TrafficInspectionCrossesAZBoundary: "TRAFFIC_INSPECTION_CROSSES_AZ_BOUNDARY",
+  UnexpectedFirewallRoutes: "UNEXPECTED_FIREWALL_ROUTES",
+  UnexpectedTargetGatewayRoutes: "UNEXPECTED_TARGET_GATEWAY_ROUTES",
+  WebAclMissingRuleGroup: "WEB_ACL_MISSING_RULE_GROUP",
+};
 
 /**
  * @public
@@ -663,7 +663,7 @@ export interface ComplianceViolator {
   /**
    * <p>The reason that the resource is not protected by the policy.</p>
    */
-  ViolationReason?: ViolationReason | string;
+  ViolationReason?: keyof typeof ViolationReason | string;
 
   /**
    * <p>The resource type. This is in the format shown in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a>. For example:
@@ -770,10 +770,10 @@ export interface GetPolicyRequest {
 /**
  * @public
  */
-export enum CustomerPolicyScopeIdType {
-  ACCOUNT = "ACCOUNT",
-  ORG_UNIT = "ORG_UNIT",
-}
+export const CustomerPolicyScopeIdType = {
+  ACCOUNT: "ACCOUNT",
+  ORG_UNIT: "ORG_UNIT",
+};
 
 /**
  * @public
@@ -800,10 +800,10 @@ export interface ResourceTag {
 /**
  * @public
  */
-export enum FirewallDeploymentModel {
-  CENTRALIZED = "CENTRALIZED",
-  DISTRIBUTED = "DISTRIBUTED",
-}
+export const FirewallDeploymentModel = {
+  CENTRALIZED: "CENTRALIZED",
+  DISTRIBUTED: "DISTRIBUTED",
+};
 
 /**
  * @public
@@ -817,7 +817,7 @@ export interface NetworkFirewallPolicy {
    * <p>Defines the deployment model to use for the firewall policy. To use a distributed model,
    *          set <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_PolicyOption.html">PolicyOption</a> to <code>NULL</code>.</p>
    */
-  FirewallDeploymentModel?: FirewallDeploymentModel | string;
+  FirewallDeploymentModel?: keyof typeof FirewallDeploymentModel | string;
 }
 
 /**
@@ -828,7 +828,7 @@ export interface ThirdPartyFirewallPolicy {
   /**
    * <p>Defines the deployment model to use for the third-party firewall policy.</p>
    */
-  FirewallDeploymentModel?: FirewallDeploymentModel | string;
+  FirewallDeploymentModel?: keyof typeof FirewallDeploymentModel | string;
 }
 
 /**
@@ -850,18 +850,18 @@ export interface PolicyOption {
 /**
  * @public
  */
-export enum SecurityServiceType {
-  DNS_FIREWALL = "DNS_FIREWALL",
-  IMPORT_NETWORK_FIREWALL = "IMPORT_NETWORK_FIREWALL",
-  NETWORK_FIREWALL = "NETWORK_FIREWALL",
-  SECURITY_GROUPS_COMMON = "SECURITY_GROUPS_COMMON",
-  SECURITY_GROUPS_CONTENT_AUDIT = "SECURITY_GROUPS_CONTENT_AUDIT",
-  SECURITY_GROUPS_USAGE_AUDIT = "SECURITY_GROUPS_USAGE_AUDIT",
-  SHIELD_ADVANCED = "SHIELD_ADVANCED",
-  THIRD_PARTY_FIREWALL = "THIRD_PARTY_FIREWALL",
-  WAF = "WAF",
-  WAFV2 = "WAFV2",
-}
+export const SecurityServiceType = {
+  DNS_FIREWALL: "DNS_FIREWALL",
+  IMPORT_NETWORK_FIREWALL: "IMPORT_NETWORK_FIREWALL",
+  NETWORK_FIREWALL: "NETWORK_FIREWALL",
+  SECURITY_GROUPS_COMMON: "SECURITY_GROUPS_COMMON",
+  SECURITY_GROUPS_CONTENT_AUDIT: "SECURITY_GROUPS_CONTENT_AUDIT",
+  SECURITY_GROUPS_USAGE_AUDIT: "SECURITY_GROUPS_USAGE_AUDIT",
+  SHIELD_ADVANCED: "SHIELD_ADVANCED",
+  THIRD_PARTY_FIREWALL: "THIRD_PARTY_FIREWALL",
+  WAF: "WAF",
+  WAFV2: "WAFV2",
+};
 
 /**
  * @public
@@ -875,7 +875,7 @@ export interface SecurityServicePolicyData {
    *       each common policy and for each content audit policy. This is an adjustable limit that you can
    *       increase by contacting Amazon Web Services Support.</p>
    */
-  Type: SecurityServiceType | string | undefined;
+  Type: keyof typeof SecurityServiceType | string | undefined;
 
   /**
    * <p>Details about the service that are specific to the service type, in JSON format. </p>
@@ -1322,7 +1322,7 @@ export interface GetProtectionStatusResponse {
    * <p>The service type that is protected by the policy. Currently, this is always
    *             <code>SHIELD_ADVANCED</code>.</p>
    */
-  ServiceType?: SecurityServiceType | string;
+  ServiceType?: keyof typeof SecurityServiceType | string;
 
   /**
    * <p>Details about the attack, including the following:</p>
@@ -1506,17 +1506,17 @@ export interface GetThirdPartyFirewallAssociationStatusRequest {
   /**
    * <p>The name of the third-party firewall vendor.</p>
    */
-  ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
+  ThirdPartyFirewall: keyof typeof ThirdPartyFirewall | string | undefined;
 }
 
 /**
  * @public
  */
-export enum MarketplaceSubscriptionOnboardingStatus {
-  COMPLETE = "COMPLETE",
-  NOT_COMPLETE = "NOT_COMPLETE",
-  NO_SUBSCRIPTION = "NO_SUBSCRIPTION",
-}
+export const MarketplaceSubscriptionOnboardingStatus = {
+  COMPLETE: "COMPLETE",
+  NOT_COMPLETE: "NOT_COMPLETE",
+  NO_SUBSCRIPTION: "NO_SUBSCRIPTION",
+};
 
 /**
  * @public
@@ -1547,7 +1547,7 @@ export interface GetThirdPartyFirewallAssociationStatusResponse {
    *             </li>
    *          </ul>
    */
-  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus | string;
+  ThirdPartyFirewallStatus?: keyof typeof ThirdPartyFirewallAssociationStatus | string;
 
   /**
    * <p>The status for subscribing to the third-party firewall vendor in the Amazon Web Services Marketplace.</p>
@@ -1566,7 +1566,7 @@ export interface GetThirdPartyFirewallAssociationStatusResponse {
    *            </li>
    *          </ul>
    */
-  MarketplaceOnboardingStatus?: MarketplaceSubscriptionOnboardingStatus | string;
+  MarketplaceOnboardingStatus?: keyof typeof MarketplaceSubscriptionOnboardingStatus | string;
 }
 
 /**
@@ -1636,10 +1636,10 @@ export interface PartialMatch {
 /**
  * @public
  */
-export enum RemediationActionType {
-  Modify = "MODIFY",
-  Remove = "REMOVE",
-}
+export const RemediationActionType = {
+  Modify: "MODIFY",
+  Remove: "REMOVE",
+};
 
 /**
  * @public
@@ -1685,7 +1685,7 @@ export interface SecurityGroupRemediationAction {
   /**
    * <p>The remediation action that will be performed.</p>
    */
-  RemediationActionType?: RemediationActionType | string;
+  RemediationActionType?: keyof typeof RemediationActionType | string;
 
   /**
    * <p>Brief description of the action that will be performed.</p>
@@ -1861,27 +1861,27 @@ export interface FirewallSubnetMissingVPCEndpointViolation {
 /**
  * @public
  */
-export enum DestinationType {
-  IPV4 = "IPV4",
-  IPV6 = "IPV6",
-  PrefixList = "PREFIX_LIST",
-}
+export const DestinationType = {
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+  PrefixList: "PREFIX_LIST",
+};
 
 /**
  * @public
  */
-export enum TargetType {
-  CarrierGateway = "CARRIER_GATEWAY",
-  EgressOnlyInternetGateway = "EGRESS_ONLY_INTERNET_GATEWAY",
-  Gateway = "GATEWAY",
-  Instance = "INSTANCE",
-  LocalGateway = "LOCAL_GATEWAY",
-  NatGateway = "NAT_GATEWAY",
-  NetworkInterface = "NETWORK_INTERFACE",
-  TransitGateway = "TRANSIT_GATEWAY",
-  VPCEndpoint = "VPC_ENDPOINT",
-  VPCPeeringConnection = "VPC_PEERING_CONNECTION",
-}
+export const TargetType = {
+  CarrierGateway: "CARRIER_GATEWAY",
+  EgressOnlyInternetGateway: "EGRESS_ONLY_INTERNET_GATEWAY",
+  Gateway: "GATEWAY",
+  Instance: "INSTANCE",
+  LocalGateway: "LOCAL_GATEWAY",
+  NatGateway: "NAT_GATEWAY",
+  NetworkInterface: "NETWORK_INTERFACE",
+  TransitGateway: "TRANSIT_GATEWAY",
+  VPCEndpoint: "VPC_ENDPOINT",
+  VPCPeeringConnection: "VPC_PEERING_CONNECTION",
+};
 
 /**
  * @public
@@ -1891,12 +1891,12 @@ export interface Route {
   /**
    * <p>The type of destination for the route.</p>
    */
-  DestinationType?: DestinationType | string;
+  DestinationType?: keyof typeof DestinationType | string;
 
   /**
    * <p>The type of target for the route.</p>
    */
-  TargetType?: TargetType | string;
+  TargetType?: keyof typeof TargetType | string;
 
   /**
    * <p>The destination of the route.</p>
@@ -2249,10 +2249,10 @@ export interface NetworkFirewallMissingSubnetViolation {
 /**
  * @public
  */
-export enum RuleOrder {
-  DEFAULT_ACTION_ORDER = "DEFAULT_ACTION_ORDER",
-  STRICT_ORDER = "STRICT_ORDER",
-}
+export const RuleOrder = {
+  DEFAULT_ACTION_ORDER: "DEFAULT_ACTION_ORDER",
+  STRICT_ORDER: "STRICT_ORDER",
+};
 
 /**
  * @public
@@ -2265,15 +2265,15 @@ export interface StatefulEngineOptions {
    * as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more
    * information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.</p>
    */
-  RuleOrder?: RuleOrder | string;
+  RuleOrder?: keyof typeof RuleOrder | string;
 }
 
 /**
  * @public
  */
-export enum NetworkFirewallOverrideAction {
-  DROP_TO_ALERT = "DROP_TO_ALERT",
-}
+export const NetworkFirewallOverrideAction = {
+  DROP_TO_ALERT: "DROP_TO_ALERT",
+};
 
 /**
  * @public
@@ -2283,7 +2283,7 @@ export interface NetworkFirewallStatefulRuleGroupOverride {
   /**
    * <p>The action that changes the rule group from <code>DROP</code> to <code>ALERT</code>. This only applies to managed rule groups.</p>
    */
-  Action?: NetworkFirewallOverrideAction | string;
+  Action?: keyof typeof NetworkFirewallOverrideAction | string;
 }
 
 /**
@@ -3202,10 +3202,10 @@ export interface ListComplianceStatusRequest {
 /**
  * @public
  */
-export enum PolicyComplianceStatusType {
-  Compliant = "COMPLIANT",
-  NonCompliant = "NON_COMPLIANT",
-}
+export const PolicyComplianceStatusType = {
+  Compliant: "COMPLIANT",
+  NonCompliant: "NON_COMPLIANT",
+};
 
 /**
  * @public
@@ -3217,7 +3217,7 @@ export interface EvaluationResult {
   /**
    * <p>Describes an Amazon Web Services account's compliance with the Firewall Manager policy.</p>
    */
-  ComplianceStatus?: PolicyComplianceStatusType | string;
+  ComplianceStatus?: keyof typeof PolicyComplianceStatusType | string;
 
   /**
    * <p>The number of resources that are noncompliant with the specified policy. For WAF and
@@ -3476,7 +3476,7 @@ export interface PolicySummary {
    *       policy that is created, either an WAF policy, a Shield Advanced policy, or a security
    *       group policy.</p>
    */
-  SecurityServiceType?: SecurityServiceType | string;
+  SecurityServiceType?: keyof typeof SecurityServiceType | string;
 
   /**
    * <p>Indicates if the policy should be automatically applied to new resources.</p>
@@ -3725,7 +3725,7 @@ export interface ListThirdPartyFirewallFirewallPoliciesRequest {
   /**
    * <p>The name of the third-party firewall vendor.</p>
    */
-  ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
+  ThirdPartyFirewall: keyof typeof ThirdPartyFirewall | string | undefined;
 
   /**
    * <p>If the previous response included a <code>NextToken</code> element, the specified third-party firewall vendor is associated with more

@@ -6,22 +6,22 @@ import { CodeGuruProfilerServiceException as __BaseException } from "./CodeGuruP
 /**
  * @public
  */
-export enum ActionGroup {
+export const ActionGroup = {
   /**
    * Permission group type for Agent APIs - ConfigureAgent, PostAgentProfile
    */
-  AGENT_PERMISSIONS = "agentPermissions",
-}
+  AGENT_PERMISSIONS: "agentPermissions",
+};
 
 /**
  * @public
  */
-export enum EventPublisher {
+export const EventPublisher = {
   /**
    * Notifications for Anomaly Detection
    */
-  ANOMALY_DETECTION = "AnomalyDetection",
-}
+  ANOMALY_DETECTION: "AnomalyDetection",
+};
 
 /**
  * @public
@@ -41,7 +41,7 @@ export interface Channel {
   /**
    * <p>List of publishers for different type of events that may be detected in an application from the profile. Anomaly detection is the only event publisher in Profiler.</p>
    */
-  eventPublishers: (EventPublisher | string)[] | undefined;
+  eventPublishers: (keyof typeof EventPublisher | string)[] | undefined;
 }
 
 /**
@@ -216,28 +216,28 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum AgentParameterField {
+export const AgentParameterField = {
   /**
    * Maximum stack depth to be captured by the CodeGuru Profiler.
    */
-  MAX_STACK_DEPTH = "MaxStackDepth",
+  MAX_STACK_DEPTH: "MaxStackDepth",
   /**
    * Percentage of memory to be used by CodeGuru profiler. Minimum of 30MB is required for the agent.
    */
-  MEMORY_USAGE_LIMIT_PERCENT = "MemoryUsageLimitPercent",
+  MEMORY_USAGE_LIMIT_PERCENT: "MemoryUsageLimitPercent",
   /**
    * Minimum time in milliseconds between sending reports.
    */
-  MINIMUM_TIME_FOR_REPORTING_IN_MILLISECONDS = "MinimumTimeForReportingInMilliseconds",
+  MINIMUM_TIME_FOR_REPORTING_IN_MILLISECONDS: "MinimumTimeForReportingInMilliseconds",
   /**
    * Reporting interval in milliseconds used to report profiles.
    */
-  REPORTING_INTERVAL_IN_MILLISECONDS = "ReportingIntervalInMilliseconds",
+  REPORTING_INTERVAL_IN_MILLISECONDS: "ReportingIntervalInMilliseconds",
   /**
    * Sampling interval in milliseconds used to sample profiles.
    */
-  SAMPLING_INTERVAL_IN_MILLISECONDS = "SamplingIntervalInMilliseconds",
-}
+  SAMPLING_INTERVAL_IN_MILLISECONDS: "SamplingIntervalInMilliseconds",
+};
 
 /**
  * @public
@@ -336,20 +336,20 @@ export interface AgentOrchestrationConfig {
 /**
  * @public
  */
-export enum AggregationPeriod {
+export const AggregationPeriod = {
   /**
    * Period of one day.
    */
-  P1D = "P1D",
+  P1D: "P1D",
   /**
    * Period of one hour.
    */
-  PT1H = "PT1H",
+  PT1H: "PT1H",
   /**
    * Period of five minutes.
    */
-  PT5M = "PT5M",
-}
+  PT5M: "PT5M",
+};
 
 /**
  * @public
@@ -399,22 +399,22 @@ export interface AggregatedProfileTime {
    *             </li>
    *          </ul>
    */
-  period?: AggregationPeriod | string;
+  period?: keyof typeof AggregationPeriod | string;
 }
 
 /**
  * @public
  */
-export enum FeedbackType {
+export const FeedbackType = {
   /**
    * Profiler recommendation flagged as not useful.
    */
-  Negative = "Negative",
+  Negative: "Negative",
   /**
    * Profiler recommendation flagged as useful.
    */
-  Positive = "Positive",
-}
+  Positive: "Positive",
+};
 
 /**
  * @public
@@ -426,7 +426,7 @@ export interface UserFeedback {
    * <p>Optional <code>Positive</code> or <code>Negative</code> feedback submitted by
    *             the user about whether the recommendation is useful or not.</p>
    */
-  type: FeedbackType | string | undefined;
+  type: keyof typeof FeedbackType | string | undefined;
 }
 
 /**
@@ -470,12 +470,12 @@ export interface AnomalyInstance {
 /**
  * @public
  */
-export enum MetricType {
+export const MetricType = {
   /**
    * Metric value aggregated for all instances of a frame name in a profile relative to the root frame.
    */
-  AggregatedRelativeTotalTime = "AggregatedRelativeTotalTime",
-}
+  AggregatedRelativeTotalTime: "AggregatedRelativeTotalTime",
+};
 
 /**
  * @public
@@ -501,7 +501,7 @@ export interface Metric {
    *             aggregation of the metric value for one frame that is calculated across the
    *             occurences of all frames in a profile.</p>
    */
-  type: MetricType | string | undefined;
+  type: keyof typeof MetricType | string | undefined;
 
   /**
    * <p>
@@ -560,7 +560,7 @@ export interface FrameMetric {
    *          supported value <code>AggregatedRelativeTotalTime</code> is an aggregation of the metric
    *          value for one frame that is calculated across the occurrences of all frames in a profile. </p>
    */
-  type: MetricType | string | undefined;
+  type: keyof typeof MetricType | string | undefined;
 
   /**
    * <p>List of application runtime thread states used to get the counts for a frame a derive a metric value.</p>
@@ -634,7 +634,7 @@ export interface BatchGetFrameMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  targetResolution?: AggregationPeriod | string;
+  targetResolution?: keyof typeof AggregationPeriod | string;
 
   /**
    * <p>
@@ -733,7 +733,7 @@ export interface BatchGetFrameMetricDataResponse {
    *             </li>
    *          </ul>
    */
-  resolution: AggregationPeriod | string | undefined;
+  resolution: keyof typeof AggregationPeriod | string | undefined;
 
   /**
    * <p>
@@ -885,44 +885,44 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
-export enum MetadataField {
+export const MetadataField = {
   /**
    * Unique identifier for the agent instance.
    */
-  AGENT_ID = "AgentId",
+  AGENT_ID: "AgentId",
   /**
    * AWS requestId of the Lambda invocation.
    */
-  AWS_REQUEST_ID = "AwsRequestId",
+  AWS_REQUEST_ID: "AwsRequestId",
   /**
    * Compute platform on which agent is running.
    */
-  COMPUTE_PLATFORM = "ComputePlatform",
+  COMPUTE_PLATFORM: "ComputePlatform",
   /**
    * Execution environment on which Lambda function is running.
    */
-  EXECUTION_ENVIRONMENT = "ExecutionEnvironment",
+  EXECUTION_ENVIRONMENT: "ExecutionEnvironment",
   /**
    * Function ARN that's used to invoke the Lambda function.
    */
-  LAMBDA_FUNCTION_ARN = "LambdaFunctionArn",
+  LAMBDA_FUNCTION_ARN: "LambdaFunctionArn",
   /**
    * Memory allocated for the Lambda function.
    */
-  LAMBDA_MEMORY_LIMIT_IN_MB = "LambdaMemoryLimitInMB",
+  LAMBDA_MEMORY_LIMIT_IN_MB: "LambdaMemoryLimitInMB",
   /**
    * Time in milliseconds for the previous Lambda invocation.
    */
-  LAMBDA_PREVIOUS_EXECUTION_TIME_IN_MILLISECONDS = "LambdaPreviousExecutionTimeInMilliseconds",
+  LAMBDA_PREVIOUS_EXECUTION_TIME_IN_MILLISECONDS: "LambdaPreviousExecutionTimeInMilliseconds",
   /**
    * Time in milliseconds left before the execution times out.
    */
-  LAMBDA_REMAINING_TIME_IN_MILLISECONDS = "LambdaRemainingTimeInMilliseconds",
+  LAMBDA_REMAINING_TIME_IN_MILLISECONDS: "LambdaRemainingTimeInMilliseconds",
   /**
    * Time in milliseconds between two invocations of the Lambda function.
    */
-  LAMBDA_TIME_GAP_BETWEEN_INVOKES_IN_MILLISECONDS = "LambdaTimeGapBetweenInvokesInMilliseconds",
-}
+  LAMBDA_TIME_GAP_BETWEEN_INVOKES_IN_MILLISECONDS: "LambdaTimeGapBetweenInvokesInMilliseconds",
+};
 
 /**
  * @public
@@ -1016,16 +1016,16 @@ export interface ConfigureAgentResponse {
 /**
  * @public
  */
-export enum ComputePlatform {
+export const ComputePlatform = {
   /**
    * Compute platform meant to used for AWS Lambda.
    */
-  AWSLAMBDA = "AWSLambda",
+  AWSLAMBDA: "AWSLambda",
   /**
    * Compute platform meant to used for all usecases (like EC2, Fargate, physical servers etc.) but AWS Lambda.
    */
-  DEFAULT = "Default",
-}
+  DEFAULT: "Default",
+};
 
 /**
  * @public
@@ -1045,7 +1045,7 @@ export interface CreateProfilingGroupRequest {
    *          If not specified, <code>Default</code> is used.
    *       </p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: keyof typeof ComputePlatform | string;
 
   /**
    * <p> Amazon CodeGuru Profiler uses this universally unique identifier (UUID) to prevent the
@@ -1166,7 +1166,7 @@ export interface ProfilingGroupDescription {
    *          an on-premises server, or a different platform. The default is <code>Default</code>.
    *       </p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: keyof typeof ComputePlatform | string;
 
   /**
    * <p>
@@ -1732,16 +1732,16 @@ export interface ListFindingsReportsResponse {
 /**
  * @public
  */
-export enum OrderBy {
+export const OrderBy = {
   /**
    * Order by timestamp in ascending order.
    */
-  TIMESTAMP_ASCENDING = "TimestampAscending",
+  TIMESTAMP_ASCENDING: "TimestampAscending",
   /**
    * Order by timestamp in descending order.
    */
-  TIMESTAMP_DESCENDING = "TimestampDescending",
-}
+  TIMESTAMP_DESCENDING: "TimestampDescending",
+};
 
 /**
  * @public
@@ -1786,14 +1786,14 @@ export interface ListProfileTimesRequest {
    *             </li>
    *          </ul>
    */
-  period: AggregationPeriod | string | undefined;
+  period: keyof typeof AggregationPeriod | string | undefined;
 
   /**
    * <p>The order (ascending or descending by start time of the profile) to
    *         use when listing profiles. Defaults to <code>TIMESTAMP_DESCENDING</code>.
    *       </p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: keyof typeof OrderBy | string;
 
   /**
    * <p>The maximum number of profile time results returned by <code>ListProfileTimes</code>
@@ -2013,7 +2013,7 @@ export interface PutPermissionRequest {
    *             and <code>PostAgentProfile</code> permissions.
    *         </p>
    */
-  actionGroup: ActionGroup | string | undefined;
+  actionGroup: keyof typeof ActionGroup | string | undefined;
 
   /**
    * <p>
@@ -2101,7 +2101,7 @@ export interface RemovePermissionRequest {
    *             grants <code>ConfigureAgent</code> and <code>PostAgentProfile</code> permissions.
    *         </p>
    */
-  actionGroup: ActionGroup | string | undefined;
+  actionGroup: keyof typeof ActionGroup | string | undefined;
 
   /**
    * <p>
@@ -2157,7 +2157,7 @@ export interface SubmitFeedbackRequest {
    *             The feedback tpye. Thee are two valid values, <code>Positive</code> and <code>Negative</code>.
    *         </p>
    */
-  type: FeedbackType | string | undefined;
+  type: keyof typeof FeedbackType | string | undefined;
 
   /**
    * <p>Optional feedback about this anomaly.</p>

@@ -6,16 +6,16 @@ import { CloudFrontServiceException as __BaseException } from "./CloudFrontServi
 /**
  * @public
  */
-export enum ResponseHeadersPolicyAccessControlAllowMethodsValues {
-  ALL = "ALL",
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  OPTIONS = "OPTIONS",
-  PATCH = "PATCH",
-  POST = "POST",
-  PUT = "PUT",
-}
+export const ResponseHeadersPolicyAccessControlAllowMethodsValues = {
+  ALL: "ALL",
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  OPTIONS: "OPTIONS",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+};
 
 /**
  * @public
@@ -164,11 +164,11 @@ export interface Aliases {
 /**
  * @public
  */
-export enum ICPRecordalStatus {
-  APPROVED = "APPROVED",
-  PENDING = "PENDING",
-  SUSPENDED = "SUSPENDED",
-}
+export const ICPRecordalStatus = {
+  APPROVED: "APPROVED",
+  PENDING: "PENDING",
+  SUSPENDED: "SUSPENDED",
+};
 
 /**
  * @public
@@ -214,21 +214,21 @@ export interface AliasICPRecordal {
    *             </li>
    *          </ul>
    */
-  ICPRecordalStatus?: ICPRecordalStatus | string;
+  ICPRecordalStatus?: keyof typeof ICPRecordalStatus | string;
 }
 
 /**
  * @public
  */
-export enum Method {
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  OPTIONS = "OPTIONS",
-  PATCH = "PATCH",
-  POST = "POST",
-  PUT = "PUT",
-}
+export const Method = {
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  OPTIONS: "OPTIONS",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+};
 
 /**
  * @public
@@ -261,7 +261,7 @@ export interface CachedMethods {
    * <p>A complex type that contains the HTTP methods that you want CloudFront to cache responses
    * 			to.</p>
    */
-  Items: (Method | string)[] | undefined;
+  Items: (keyof typeof Method | string)[] | undefined;
 }
 
 /**
@@ -299,7 +299,7 @@ export interface AllowedMethods {
    * <p>A complex type that contains the HTTP methods that you want CloudFront to process and
    * 			forward to your origin.</p>
    */
-  Items: (Method | string)[] | undefined;
+  Items: (keyof typeof Method | string)[] | undefined;
 
   /**
    * <p>A complex type that controls whether CloudFront caches the response to requests using the
@@ -449,11 +449,11 @@ export class BatchTooLarge extends __BaseException {
 /**
  * @public
  */
-export enum ItemSelection {
-  all = "all",
-  none = "none",
-  whitelist = "whitelist",
-}
+export const ItemSelection = {
+  all: "all",
+  none: "none",
+  whitelist: "whitelist",
+};
 
 /**
  * @public
@@ -500,7 +500,7 @@ export interface CookiePreference {
    *          <p>Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an
    * 			Amazon S3 origin, specify none for the <code>Forward</code> element.</p>
    */
-  Forward: ItemSelection | string | undefined;
+  Forward: keyof typeof ItemSelection | string | undefined;
 
   /**
    * <p>This field is deprecated. We recommend that you use a cache policy or an origin
@@ -661,12 +661,12 @@ export interface ForwardedValues {
 /**
  * @public
  */
-export enum EventType {
-  origin_request = "origin-request",
-  origin_response = "origin-response",
-  viewer_request = "viewer-request",
-  viewer_response = "viewer-response",
-}
+export const EventType = {
+  origin_request: "origin-request",
+  origin_response: "origin-response",
+  viewer_request: "viewer-request",
+  viewer_response: "viewer-response",
+};
 
 /**
  * @public
@@ -685,7 +685,7 @@ export interface FunctionAssociation {
    * 				(<code>origin-request</code> and <code>origin-response</code>) with a CloudFront
    * 			function.</p>
    */
-  EventType: EventType | string | undefined;
+  EventType: keyof typeof EventType | string | undefined;
 }
 
 /**
@@ -751,7 +751,7 @@ export interface LambdaFunctionAssociation {
    *             </li>
    *          </ul>
    */
-  EventType: EventType | string | undefined;
+  EventType: keyof typeof EventType | string | undefined;
 
   /**
    * <p>A flag that allows a Lambda@Edge function to have read access to the body content. For
@@ -841,11 +841,11 @@ export interface TrustedSigners {
 /**
  * @public
  */
-export enum ViewerProtocolPolicy {
-  allow_all = "allow-all",
-  https_only = "https-only",
-  redirect_to_https = "redirect-to-https",
-}
+export const ViewerProtocolPolicy = {
+  allow_all: "allow-all",
+  https_only: "https-only",
+  redirect_to_https: "redirect-to-https",
+};
 
 /**
  * @public
@@ -955,7 +955,7 @@ export interface CacheBehavior {
    * 					Expiration</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    *          </note>
    */
-  ViewerProtocolPolicy: ViewerProtocolPolicy | string | undefined;
+  ViewerProtocolPolicy: keyof typeof ViewerProtocolPolicy | string | undefined;
 
   /**
    * <p>A complex type that controls which HTTP methods CloudFront processes and forwards to your
@@ -1134,12 +1134,12 @@ export interface CacheBehaviors {
 /**
  * @public
  */
-export enum CachePolicyCookieBehavior {
-  all = "all",
-  allExcept = "allExcept",
-  none = "none",
-  whitelist = "whitelist",
-}
+export const CachePolicyCookieBehavior = {
+  all: "all",
+  allExcept: "allExcept",
+  none: "none",
+  whitelist: "whitelist",
+};
 
 /**
  * @public
@@ -1181,7 +1181,7 @@ export interface CachePolicyCookiesConfig {
    *             </li>
    *          </ul>
    */
-  CookieBehavior: CachePolicyCookieBehavior | string | undefined;
+  CookieBehavior: keyof typeof CachePolicyCookieBehavior | string | undefined;
 
   /**
    * <p>Contains a list of cookie names.</p>
@@ -1192,10 +1192,10 @@ export interface CachePolicyCookiesConfig {
 /**
  * @public
  */
-export enum CachePolicyHeaderBehavior {
-  none = "none",
-  whitelist = "whitelist",
-}
+export const CachePolicyHeaderBehavior = {
+  none: "none",
+  whitelist: "whitelist",
+};
 
 /**
  * @public
@@ -1222,7 +1222,7 @@ export interface CachePolicyHeadersConfig {
    *             </li>
    *          </ul>
    */
-  HeaderBehavior: CachePolicyHeaderBehavior | string | undefined;
+  HeaderBehavior: keyof typeof CachePolicyHeaderBehavior | string | undefined;
 
   /**
    * <p>Contains a list of HTTP header names.</p>
@@ -1233,12 +1233,12 @@ export interface CachePolicyHeadersConfig {
 /**
  * @public
  */
-export enum CachePolicyQueryStringBehavior {
-  all = "all",
-  allExcept = "allExcept",
-  none = "none",
-  whitelist = "whitelist",
-}
+export const CachePolicyQueryStringBehavior = {
+  all: "all",
+  allExcept: "allExcept",
+  none: "none",
+  whitelist: "whitelist",
+};
 
 /**
  * @public
@@ -1297,7 +1297,7 @@ export interface CachePolicyQueryStringsConfig {
    *             </li>
    *          </ul>
    */
-  QueryStringBehavior: CachePolicyQueryStringBehavior | string | undefined;
+  QueryStringBehavior: keyof typeof CachePolicyQueryStringBehavior | string | undefined;
 
   /**
    * <p>Contains the specific query strings in viewer requests that either <i>
@@ -1584,10 +1584,10 @@ export class CachePolicyInUse extends __BaseException {
 /**
  * @public
  */
-export enum CachePolicyType {
-  custom = "custom",
-  managed = "managed",
-}
+export const CachePolicyType = {
+  custom: "custom",
+  managed: "managed",
+};
 
 /**
  * @public
@@ -1598,7 +1598,7 @@ export interface CachePolicySummary {
    * <p>The type of cache policy, either <code>managed</code> (created by Amazon Web Services) or
    * 				<code>custom</code> (created in this Amazon Web Services account).</p>
    */
-  Type: CachePolicyType | string | undefined;
+  Type: keyof typeof CachePolicyType | string | undefined;
 
   /**
    * <p>The cache policy.</p>
@@ -1659,11 +1659,11 @@ export class CannotChangeImmutablePublicKeyFields extends __BaseException {
 /**
  * @public
  */
-export enum CertificateSource {
-  acm = "acm",
-  cloudfront = "cloudfront",
-  iam = "iam",
-}
+export const CertificateSource = {
+  acm: "acm",
+  cloudfront: "cloudfront",
+  iam: "iam",
+};
 
 /**
  * @public
@@ -1916,7 +1916,7 @@ export interface DefaultCacheBehavior {
    * 					Expiration</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    *          </note>
    */
-  ViewerProtocolPolicy: ViewerProtocolPolicy | string | undefined;
+  ViewerProtocolPolicy: keyof typeof ViewerProtocolPolicy | string | undefined;
 
   /**
    * <p>A complex type that controls which HTTP methods CloudFront processes and forwards to your
@@ -2080,12 +2080,12 @@ export interface DefaultCacheBehavior {
 /**
  * @public
  */
-export enum HttpVersion {
-  http1_1 = "http1.1",
-  http2 = "http2",
-  http2and3 = "http2and3",
-  http3 = "http3",
-}
+export const HttpVersion = {
+  http1_1: "http1.1",
+  http2: "http2",
+  http2and3: "http2and3",
+  http3: "http3",
+};
 
 /**
  * @public
@@ -2273,21 +2273,21 @@ export interface CustomHeaders {
 /**
  * @public
  */
-export enum OriginProtocolPolicy {
-  http_only = "http-only",
-  https_only = "https-only",
-  match_viewer = "match-viewer",
-}
+export const OriginProtocolPolicy = {
+  http_only: "http-only",
+  https_only: "https-only",
+  match_viewer: "match-viewer",
+};
 
 /**
  * @public
  */
-export enum SslProtocol {
-  SSLv3 = "SSLv3",
-  TLSv1 = "TLSv1",
-  TLSv1_1 = "TLSv1.1",
-  TLSv1_2 = "TLSv1.2",
-}
+export const SslProtocol = {
+  SSLv3: "SSLv3",
+  TLSv1: "TLSv1",
+  TLSv1_1: "TLSv1.1",
+  TLSv1_2: "TLSv1.2",
+};
 
 /**
  * @public
@@ -2304,7 +2304,7 @@ export interface OriginSslProtocols {
   /**
    * <p>A list that contains allowed SSL/TLS protocols for this distribution.</p>
    */
-  Items: (SslProtocol | string)[] | undefined;
+  Items: (keyof typeof SslProtocol | string)[] | undefined;
 }
 
 /**
@@ -2348,7 +2348,7 @@ export interface CustomOriginConfig {
    *             </li>
    *          </ul>
    */
-  OriginProtocolPolicy: OriginProtocolPolicy | string | undefined;
+  OriginProtocolPolicy: keyof typeof OriginProtocolPolicy | string | undefined;
 
   /**
    * <p>Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin
@@ -2578,20 +2578,20 @@ export interface Origins {
 /**
  * @public
  */
-export enum PriceClass {
-  PriceClass_100 = "PriceClass_100",
-  PriceClass_200 = "PriceClass_200",
-  PriceClass_All = "PriceClass_All",
-}
+export const PriceClass = {
+  PriceClass_100: "PriceClass_100",
+  PriceClass_200: "PriceClass_200",
+  PriceClass_All: "PriceClass_All",
+};
 
 /**
  * @public
  */
-export enum GeoRestrictionType {
-  blacklist = "blacklist",
-  none = "none",
-  whitelist = "whitelist",
-}
+export const GeoRestrictionType = {
+  blacklist: "blacklist",
+  none: "none",
+  whitelist: "whitelist",
+};
 
 /**
  * @public
@@ -2621,7 +2621,7 @@ export interface GeoRestriction {
    *             </li>
    *          </ul>
    */
-  RestrictionType: GeoRestrictionType | string | undefined;
+  RestrictionType: keyof typeof GeoRestrictionType | string | undefined;
 
   /**
    * <p>When geo restriction is <code>enabled</code>, this is the number of countries in your
@@ -2663,24 +2663,24 @@ export interface Restrictions {
 /**
  * @public
  */
-export enum MinimumProtocolVersion {
-  SSLv3 = "SSLv3",
-  TLSv1 = "TLSv1",
-  TLSv1_1_2016 = "TLSv1.1_2016",
-  TLSv1_2016 = "TLSv1_2016",
-  TLSv1_2_2018 = "TLSv1.2_2018",
-  TLSv1_2_2019 = "TLSv1.2_2019",
-  TLSv1_2_2021 = "TLSv1.2_2021",
-}
+export const MinimumProtocolVersion = {
+  SSLv3: "SSLv3",
+  TLSv1: "TLSv1",
+  TLSv1_1_2016: "TLSv1.1_2016",
+  TLSv1_2016: "TLSv1_2016",
+  TLSv1_2_2018: "TLSv1.2_2018",
+  TLSv1_2_2019: "TLSv1.2_2019",
+  TLSv1_2_2021: "TLSv1.2_2021",
+};
 
 /**
  * @public
  */
-export enum SSLSupportMethod {
-  sni_only = "sni-only",
-  static_ip = "static-ip",
-  vip = "vip",
-}
+export const SSLSupportMethod = {
+  sni_only: "sni-only",
+  static_ip: "static-ip",
+  vip: "vip",
+};
 
 /**
  * @public
@@ -2817,7 +2817,7 @@ export interface ViewerCertificate {
    *          <p>If the distribution uses the CloudFront domain name such as
    * 				<code>d111111abcdef8.cloudfront.net</code>, don't set a value for this field.</p>
    */
-  SSLSupportMethod?: SSLSupportMethod | string;
+  SSLSupportMethod?: keyof typeof SSLSupportMethod | string;
 
   /**
    * <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs),
@@ -2847,7 +2847,7 @@ export interface ViewerCertificate {
    * 			sets the security policy to <code>TLSv1</code> regardless of the value that you set
    * 			here.</p>
    */
-  MinimumProtocolVersion?: MinimumProtocolVersion | string;
+  MinimumProtocolVersion?: keyof typeof MinimumProtocolVersion | string;
 
   /**
    * @deprecated
@@ -2895,7 +2895,7 @@ export interface ViewerCertificate {
    *             </li>
    *          </ul>
    */
-  CertificateSource?: CertificateSource | string;
+  CertificateSource?: keyof typeof CertificateSource | string;
 }
 
 /**
@@ -3008,7 +3008,7 @@ export interface DistributionConfig {
    * 			100) map to CloudFront regions, see <a href="http://aws.amazon.com/cloudfront/pricing/">Amazon CloudFront
    * 				Pricing</a>.</p>
    */
-  PriceClass?: PriceClass | string;
+  PriceClass?: keyof typeof PriceClass | string;
 
   /**
    * <p>From this field, you can enable or disable the selected distribution.</p>
@@ -3057,7 +3057,7 @@ export interface DistributionConfig {
    * 			migration, see <a href="https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration">Connection Migration</a> at RFC 9000. For more information about supported
    * 			TLSv1.3 ciphers, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported protocols and ciphers between viewers and CloudFront</a>.</p>
    */
-  HttpVersion?: HttpVersion | string;
+  HttpVersion?: keyof typeof HttpVersion | string;
 
   /**
    * <p>If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your
@@ -4889,10 +4889,10 @@ export interface ContinuousDeploymentSingleWeightConfig {
 /**
  * @public
  */
-export enum ContinuousDeploymentPolicyType {
-  SingleHeader = "SingleHeader",
-  SingleWeight = "SingleWeight",
-}
+export const ContinuousDeploymentPolicyType = {
+  SingleHeader: "SingleHeader",
+  SingleWeight: "SingleWeight",
+};
 
 /**
  * @public
@@ -4912,7 +4912,7 @@ export interface TrafficConfig {
   /**
    * <p>The type of traffic configuration.</p>
    */
-  Type: ContinuousDeploymentPolicyType | string | undefined;
+  Type: keyof typeof ContinuousDeploymentPolicyType | string | undefined;
 }
 
 /**
@@ -5294,9 +5294,9 @@ export class InvalidTagging extends __BaseException {
 /**
  * @public
  */
-export enum Format {
-  URLEncoded = "URLEncoded",
-}
+export const Format = {
+  URLEncoded: "URLEncoded",
+};
 
 /**
  * @public
@@ -5306,7 +5306,7 @@ export interface ContentTypeProfile {
   /**
    * <p>The format for a field-level encryption content type-profile mapping.</p>
    */
-  Format: Format | string | undefined;
+  Format: keyof typeof Format | string | undefined;
 
   /**
    * <p>The profile ID for a field-level encryption content type-profile mapping.</p>
@@ -5912,9 +5912,9 @@ export class TooManyFieldLevelEncryptionProfiles extends __BaseException {
 /**
  * @public
  */
-export enum FunctionRuntime {
-  cloudfront_js_1_0 = "cloudfront-js-1.0",
-}
+export const FunctionRuntime = {
+  cloudfront_js_1_0: "cloudfront-js-1.0",
+};
 
 /**
  * @public
@@ -5930,7 +5930,7 @@ export interface FunctionConfig {
    * <p>The function's runtime environment. The only valid value is
    * 				<code>cloudfront-js-1.0</code>.</p>
    */
-  Runtime: FunctionRuntime | string | undefined;
+  Runtime: keyof typeof FunctionRuntime | string | undefined;
 }
 
 /**
@@ -5959,10 +5959,10 @@ export interface CreateFunctionRequest {
 /**
  * @public
  */
-export enum FunctionStage {
-  DEVELOPMENT = "DEVELOPMENT",
-  LIVE = "LIVE",
-}
+export const FunctionStage = {
+  DEVELOPMENT: "DEVELOPMENT",
+  LIVE: "LIVE",
+};
 
 /**
  * @public
@@ -5983,7 +5983,7 @@ export interface FunctionMetadata {
    *          <p>When a function is in the <code>LIVE</code> stage, you can attach the function to a
    * 			distribution's cache behavior, using the function's ARN.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: keyof typeof FunctionStage | string;
 
   /**
    * <p>The date and time when the function was created.</p>
@@ -6419,10 +6419,10 @@ export class TooManyPublicKeysInKeyGroup extends __BaseException {
 /**
  * @public
  */
-export enum RealtimeMetricsSubscriptionStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const RealtimeMetricsSubscriptionStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -6433,7 +6433,7 @@ export interface RealtimeMetricsSubscriptionConfig {
    * <p>A flag that indicates whether additional CloudWatch metrics are enabled for a given
    * 			CloudFront distribution.</p>
    */
-  RealtimeMetricsSubscriptionStatus: RealtimeMetricsSubscriptionStatus | string | undefined;
+  RealtimeMetricsSubscriptionStatus: keyof typeof RealtimeMetricsSubscriptionStatus | string | undefined;
 }
 
 /**
@@ -6500,26 +6500,26 @@ export class MonitoringSubscriptionAlreadyExists extends __BaseException {
 /**
  * @public
  */
-export enum OriginAccessControlOriginTypes {
-  mediastore = "mediastore",
-  s3 = "s3",
-}
+export const OriginAccessControlOriginTypes = {
+  mediastore: "mediastore",
+  s3: "s3",
+};
 
 /**
  * @public
  */
-export enum OriginAccessControlSigningBehaviors {
-  always = "always",
-  never = "never",
-  no_override = "no-override",
-}
+export const OriginAccessControlSigningBehaviors = {
+  always: "always",
+  never: "never",
+  no_override: "no-override",
+};
 
 /**
  * @public
  */
-export enum OriginAccessControlSigningProtocols {
-  sigv4 = "sigv4",
-}
+export const OriginAccessControlSigningProtocols = {
+  sigv4: "sigv4",
+};
 
 /**
  * @public
@@ -6540,7 +6540,7 @@ export interface OriginAccessControlConfig {
    * <p>The signing protocol of the origin access control, which determines how CloudFront signs
    * 			(authenticates) requests. The only valid value is <code>sigv4</code>.</p>
    */
-  SigningProtocol: OriginAccessControlSigningProtocols | string | undefined;
+  SigningProtocol: keyof typeof OriginAccessControlSigningProtocols | string | undefined;
 
   /**
    * <p>Specifies which requests CloudFront signs (adds authentication information to). Specify
@@ -6574,12 +6574,12 @@ export interface OriginAccessControlConfig {
    *             </li>
    *          </ul>
    */
-  SigningBehavior: OriginAccessControlSigningBehaviors | string | undefined;
+  SigningBehavior: keyof typeof OriginAccessControlSigningBehaviors | string | undefined;
 
   /**
    * <p>The type of origin that this origin access control is for.</p>
    */
-  OriginAccessControlOriginType: OriginAccessControlOriginTypes | string | undefined;
+  OriginAccessControlOriginType: keyof typeof OriginAccessControlOriginTypes | string | undefined;
 }
 
 /**
@@ -6678,12 +6678,12 @@ export class TooManyOriginAccessControls extends __BaseException {
 /**
  * @public
  */
-export enum OriginRequestPolicyCookieBehavior {
-  all = "all",
-  allExcept = "allExcept",
-  none = "none",
-  whitelist = "whitelist",
-}
+export const OriginRequestPolicyCookieBehavior = {
+  all: "all",
+  allExcept: "allExcept",
+  none: "none",
+  whitelist: "whitelist",
+};
 
 /**
  * @public
@@ -6724,7 +6724,7 @@ export interface OriginRequestPolicyCookiesConfig {
    *             </li>
    *          </ul>
    */
-  CookieBehavior: OriginRequestPolicyCookieBehavior | string | undefined;
+  CookieBehavior: keyof typeof OriginRequestPolicyCookieBehavior | string | undefined;
 
   /**
    * <p>Contains a list of cookie names.</p>
@@ -6735,13 +6735,13 @@ export interface OriginRequestPolicyCookiesConfig {
 /**
  * @public
  */
-export enum OriginRequestPolicyHeaderBehavior {
-  allExcept = "allExcept",
-  allViewer = "allViewer",
-  allViewerAndWhitelistCloudFront = "allViewerAndWhitelistCloudFront",
-  none = "none",
-  whitelist = "whitelist",
-}
+export const OriginRequestPolicyHeaderBehavior = {
+  allExcept: "allExcept",
+  allViewer: "allViewer",
+  allViewerAndWhitelistCloudFront: "allViewerAndWhitelistCloudFront",
+  none: "none",
+  whitelist: "whitelist",
+};
 
 /**
  * @public
@@ -6788,7 +6788,7 @@ export interface OriginRequestPolicyHeadersConfig {
    *             </li>
    *          </ul>
    */
-  HeaderBehavior: OriginRequestPolicyHeaderBehavior | string | undefined;
+  HeaderBehavior: keyof typeof OriginRequestPolicyHeaderBehavior | string | undefined;
 
   /**
    * <p>Contains a list of HTTP header names.</p>
@@ -6799,12 +6799,12 @@ export interface OriginRequestPolicyHeadersConfig {
 /**
  * @public
  */
-export enum OriginRequestPolicyQueryStringBehavior {
-  all = "all",
-  allExcept = "allExcept",
-  none = "none",
-  whitelist = "whitelist",
-}
+export const OriginRequestPolicyQueryStringBehavior = {
+  all: "all",
+  allExcept: "allExcept",
+  none: "none",
+  whitelist: "whitelist",
+};
 
 /**
  * @public
@@ -6845,7 +6845,7 @@ export interface OriginRequestPolicyQueryStringsConfig {
    *             </li>
    *          </ul>
    */
-  QueryStringBehavior: OriginRequestPolicyQueryStringBehavior | string | undefined;
+  QueryStringBehavior: keyof typeof OriginRequestPolicyQueryStringBehavior | string | undefined;
 
   /**
    * <p>Contains the specific query strings in viewer requests that either <i>
@@ -7487,7 +7487,7 @@ export interface ResponseHeadersPolicyAccessControlAllowMethods {
    *             <code>ALL</code> is a special value that includes all of the listed HTTP
    * 			methods.</p>
    */
-  Items: (ResponseHeadersPolicyAccessControlAllowMethodsValues | string)[] | undefined;
+  Items: (keyof typeof ResponseHeadersPolicyAccessControlAllowMethodsValues | string)[] | undefined;
 }
 
 /**
@@ -7706,10 +7706,10 @@ export interface ResponseHeadersPolicyContentTypeOptions {
 /**
  * @public
  */
-export enum FrameOptionsList {
-  DENY = "DENY",
-  SAMEORIGIN = "SAMEORIGIN",
-}
+export const FrameOptionsList = {
+  DENY: "DENY",
+  SAMEORIGIN: "SAMEORIGIN",
+};
 
 /**
  * @public
@@ -7731,22 +7731,22 @@ export interface ResponseHeadersPolicyFrameOptions {
    * 				<code>DENY</code> and <code>SAMEORIGIN</code>.</p>
    *          <p>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
    */
-  FrameOption: FrameOptionsList | string | undefined;
+  FrameOption: keyof typeof FrameOptionsList | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ReferrerPolicyList {
-  no_referrer = "no-referrer",
-  no_referrer_when_downgrade = "no-referrer-when-downgrade",
-  origin = "origin",
-  origin_when_cross_origin = "origin-when-cross-origin",
-  same_origin = "same-origin",
-  strict_origin = "strict-origin",
-  strict_origin_when_cross_origin = "strict-origin-when-cross-origin",
-  unsafe_url = "unsafe-url",
-}
+export const ReferrerPolicyList = {
+  no_referrer: "no-referrer",
+  no_referrer_when_downgrade: "no-referrer-when-downgrade",
+  origin: "origin",
+  origin_when_cross_origin: "origin-when-cross-origin",
+  same_origin: "same-origin",
+  strict_origin: "strict-origin",
+  strict_origin_when_cross_origin: "strict-origin-when-cross-origin",
+  unsafe_url: "unsafe-url",
+};
 
 /**
  * @public
@@ -7810,7 +7810,7 @@ export interface ResponseHeadersPolicyReferrerPolicy {
    *          </ul>
    *          <p>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> in the MDN Web Docs.</p>
    */
-  ReferrerPolicy: ReferrerPolicyList | string | undefined;
+  ReferrerPolicy: keyof typeof ReferrerPolicyList | string | undefined;
 }
 
 /**

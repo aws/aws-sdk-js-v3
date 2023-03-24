@@ -2572,7 +2572,10 @@ const serializeAws_restJson1InsightsConfiguration = (input: InsightsConfiguratio
   };
 };
 
-const serializeAws_restJson1InsightStateList = (input: (InsightState | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1InsightStateList = (
+  input: (keyof typeof InsightState | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3130,7 +3133,7 @@ const deserializeAws_restJson1Insight = (output: any, context: __SerdeContext): 
 const deserializeAws_restJson1InsightCategoryList = (
   output: any,
   context: __SerdeContext
-): (InsightCategory | string)[] => {
+): (keyof typeof InsightCategory | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

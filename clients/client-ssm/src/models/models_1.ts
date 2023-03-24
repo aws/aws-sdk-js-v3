@@ -59,7 +59,7 @@ export interface OpsItemFilter {
   /**
    * <p>The name of the filter.</p>
    */
-  Key: OpsItemFilterKey | string | undefined;
+  Key: keyof typeof OpsItemFilterKey | string | undefined;
 
   /**
    * <p>The filter value.</p>
@@ -69,7 +69,7 @@ export interface OpsItemFilter {
   /**
    * <p>The operator used by the filter call.</p>
    */
-  Operator: OpsItemFilterOperator | string | undefined;
+  Operator: keyof typeof OpsItemFilterOperator | string | undefined;
 }
 
 /**
@@ -155,27 +155,27 @@ export interface DescribeOpsItemsRequest {
 /**
  * @public
  */
-export enum OpsItemStatus {
-  APPROVED = "Approved",
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  CHANGE_CALENDAR_OVERRIDE_APPROVED = "ChangeCalendarOverrideApproved",
-  CHANGE_CALENDAR_OVERRIDE_REJECTED = "ChangeCalendarOverrideRejected",
-  CLOSED = "Closed",
-  COMPLETED_WITH_FAILURE = "CompletedWithFailure",
-  COMPLETED_WITH_SUCCESS = "CompletedWithSuccess",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  OPEN = "Open",
-  PENDING = "Pending",
-  PENDING_APPROVAL = "PendingApproval",
-  PENDING_CHANGE_CALENDAR_OVERRIDE = "PendingChangeCalendarOverride",
-  REJECTED = "Rejected",
-  RESOLVED = "Resolved",
-  RUNBOOK_IN_PROGRESS = "RunbookInProgress",
-  SCHEDULED = "Scheduled",
-  TIMED_OUT = "TimedOut",
-}
+export const OpsItemStatus = {
+  APPROVED: "Approved",
+  CANCELLED: "Cancelled",
+  CANCELLING: "Cancelling",
+  CHANGE_CALENDAR_OVERRIDE_APPROVED: "ChangeCalendarOverrideApproved",
+  CHANGE_CALENDAR_OVERRIDE_REJECTED: "ChangeCalendarOverrideRejected",
+  CLOSED: "Closed",
+  COMPLETED_WITH_FAILURE: "CompletedWithFailure",
+  COMPLETED_WITH_SUCCESS: "CompletedWithSuccess",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  OPEN: "Open",
+  PENDING: "Pending",
+  PENDING_APPROVAL: "PendingApproval",
+  PENDING_CHANGE_CALENDAR_OVERRIDE: "PendingChangeCalendarOverride",
+  REJECTED: "Rejected",
+  RESOLVED: "Resolved",
+  RUNBOOK_IN_PROGRESS: "RunbookInProgress",
+  SCHEDULED: "Scheduled",
+  TIMED_OUT: "TimedOut",
+};
 
 /**
  * @public
@@ -218,7 +218,7 @@ export interface OpsItemSummary {
    * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
    *     <code>Resolved</code>.</p>
    */
-  Status?: OpsItemStatus | string;
+  Status?: keyof typeof OpsItemStatus | string;
 
   /**
    * <p>The ID of the OpsItem.</p>
@@ -317,11 +317,11 @@ export interface DescribeOpsItemsResponse {
 /**
  * @public
  */
-export enum ParametersFilterKey {
-  KEY_ID = "KeyId",
-  NAME = "Name",
-  TYPE = "Type",
-}
+export const ParametersFilterKey = {
+  KEY_ID: "KeyId",
+  NAME: "Name",
+  TYPE: "Type",
+};
 
 /**
  * @public
@@ -331,7 +331,7 @@ export interface ParametersFilter {
   /**
    * <p>The name of the filter.</p>
    */
-  Key: ParametersFilterKey | string | undefined;
+  Key: keyof typeof ParametersFilterKey | string | undefined;
 
   /**
    * <p>The filter values.</p>
@@ -431,20 +431,20 @@ export interface ParameterInlinePolicy {
 /**
  * @public
  */
-export enum ParameterTier {
-  ADVANCED = "Advanced",
-  INTELLIGENT_TIERING = "Intelligent-Tiering",
-  STANDARD = "Standard",
-}
+export const ParameterTier = {
+  ADVANCED: "Advanced",
+  INTELLIGENT_TIERING: "Intelligent-Tiering",
+  STANDARD: "Standard",
+};
 
 /**
  * @public
  */
-export enum ParameterType {
-  SECURE_STRING = "SecureString",
-  STRING = "String",
-  STRING_LIST = "StringList",
-}
+export const ParameterType = {
+  SECURE_STRING: "SecureString",
+  STRING: "String",
+  STRING_LIST: "StringList",
+};
 
 /**
  * @public
@@ -461,7 +461,7 @@ export interface ParameterMetadata {
    * <p>The type of parameter. Valid parameter types include the following: <code>String</code>,
    *     <code>StringList</code>, and <code>SecureString</code>.</p>
    */
-  Type?: ParameterType | string;
+  Type?: keyof typeof ParameterType | string;
 
   /**
    * <p>The ID of the query key used for this parameter.</p>
@@ -497,7 +497,7 @@ export interface ParameterMetadata {
   /**
    * <p>The parameter tier.</p>
    */
-  Tier?: ParameterTier | string;
+  Tier?: keyof typeof ParameterTier | string;
 
   /**
    * <p>A list of policies associated with a parameter.</p>
@@ -617,7 +617,7 @@ export interface PatchBaselineIdentity {
    * <p>Defines the operating system the patch baseline applies to. The default value is
    *     <code>WINDOWS</code>. </p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 
   /**
    * <p>The description of the patch baseline.</p>
@@ -831,22 +831,22 @@ export interface DescribePatchGroupStateResult {
 /**
  * @public
  */
-export enum PatchSet {
-  Application = "APPLICATION",
-  Os = "OS",
-}
+export const PatchSet = {
+  Application: "APPLICATION",
+  Os: "OS",
+};
 
 /**
  * @public
  */
-export enum PatchProperty {
-  PatchClassification = "CLASSIFICATION",
-  PatchMsrcSeverity = "MSRC_SEVERITY",
-  PatchPriority = "PRIORITY",
-  PatchProductFamily = "PRODUCT_FAMILY",
-  PatchSeverity = "SEVERITY",
-  Product = "PRODUCT",
-}
+export const PatchProperty = {
+  PatchClassification: "CLASSIFICATION",
+  PatchMsrcSeverity: "MSRC_SEVERITY",
+  PatchPriority: "PRIORITY",
+  PatchProductFamily: "PRODUCT_FAMILY",
+  PatchSeverity: "SEVERITY",
+  Product: "PRODUCT",
+};
 
 /**
  * @public
@@ -855,18 +855,18 @@ export interface DescribePatchPropertiesRequest {
   /**
    * <p>The operating system type for which to list patches.</p>
    */
-  OperatingSystem: OperatingSystem | string | undefined;
+  OperatingSystem: keyof typeof OperatingSystem | string | undefined;
 
   /**
    * <p>The patch property for which you want to view patch details. </p>
    */
-  Property: PatchProperty | string | undefined;
+  Property: keyof typeof PatchProperty | string | undefined;
 
   /**
    * <p>Indicates whether to list patches for the Windows operating system or for applications
    *    released by Microsoft. Not applicable for the Linux or macOS operating systems.</p>
    */
-  PatchSet?: PatchSet | string;
+  PatchSet?: keyof typeof PatchSet | string;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -899,14 +899,14 @@ export interface DescribePatchPropertiesResult {
 /**
  * @public
  */
-export enum SessionFilterKey {
-  INVOKED_AFTER = "InvokedAfter",
-  INVOKED_BEFORE = "InvokedBefore",
-  OWNER = "Owner",
-  SESSION_ID = "SessionId",
-  STATUS = "Status",
-  TARGET_ID = "Target",
-}
+export const SessionFilterKey = {
+  INVOKED_AFTER: "InvokedAfter",
+  INVOKED_BEFORE: "InvokedBefore",
+  OWNER: "Owner",
+  SESSION_ID: "SessionId",
+  STATUS: "Status",
+  TARGET_ID: "Target",
+};
 
 /**
  * @public
@@ -916,7 +916,7 @@ export interface SessionFilter {
   /**
    * <p>The name of the filter.</p>
    */
-  key: SessionFilterKey | string | undefined;
+  key: keyof typeof SessionFilterKey | string | undefined;
 
   /**
    * <p>The filter value. Valid values for each filter key are as follows:</p>
@@ -970,10 +970,10 @@ export interface SessionFilter {
 /**
  * @public
  */
-export enum SessionState {
-  ACTIVE = "Active",
-  HISTORY = "History",
-}
+export const SessionState = {
+  ACTIVE: "Active",
+  HISTORY: "History",
+};
 
 /**
  * @public
@@ -982,7 +982,7 @@ export interface DescribeSessionsRequest {
   /**
    * <p>The session status to retrieve a list of sessions for. For example, "Active".</p>
    */
-  State: SessionState | string | undefined;
+  State: keyof typeof SessionState | string | undefined;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -1021,14 +1021,14 @@ export interface SessionManagerOutputUrl {
 /**
  * @public
  */
-export enum SessionStatus {
-  CONNECTED = "Connected",
-  CONNECTING = "Connecting",
-  DISCONNECTED = "Disconnected",
-  FAILED = "Failed",
-  TERMINATED = "Terminated",
-  TERMINATING = "Terminating",
-}
+export const SessionStatus = {
+  CONNECTED: "Connected",
+  CONNECTING: "Connecting",
+  DISCONNECTED: "Disconnected",
+  FAILED: "Failed",
+  TERMINATED: "Terminated",
+  TERMINATING: "Terminating",
+};
 
 /**
  * @public
@@ -1048,7 +1048,7 @@ export interface Session {
   /**
    * <p>The status of the session. For example, "Connected" or "Terminated".</p>
    */
-  Status?: SessionStatus | string;
+  Status?: keyof typeof SessionStatus | string;
 
   /**
    * <p>The date and time, in ISO-8601 Extended format, when the session began.</p>
@@ -1235,7 +1235,7 @@ export interface AutomationExecution {
   /**
    * <p>The execution status of the Automation.</p>
    */
-  AutomationExecutionStatus?: AutomationExecutionStatus | string;
+  AutomationExecutionStatus?: keyof typeof AutomationExecutionStatus | string;
 
   /**
    * <p>A list of details about the current state of all steps that comprise an execution. An
@@ -1268,7 +1268,7 @@ export interface AutomationExecution {
   /**
    * <p>The automation execution mode.</p>
    */
-  Mode?: ExecutionMode | string;
+  Mode?: keyof typeof ExecutionMode | string;
 
   /**
    * <p>The AutomationExecutionId of the parent automation.</p>
@@ -1352,7 +1352,7 @@ export interface AutomationExecution {
    * <p>The subtype of the Automation operation. Currently, the only supported value is
    *     <code>ChangeRequest</code>.</p>
    */
-  AutomationSubtype?: AutomationSubtype | string;
+  AutomationSubtype?: keyof typeof AutomationSubtype | string;
 
   /**
    * <p>The date and time the Automation operation is scheduled to start.</p>
@@ -1414,10 +1414,10 @@ export interface GetCalendarStateRequest {
 /**
  * @public
  */
-export enum CalendarState {
-  CLOSED = "CLOSED",
-  OPEN = "OPEN",
-}
+export const CalendarState = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+};
 
 /**
  * @public
@@ -1428,7 +1428,7 @@ export interface GetCalendarStateResponse {
    *    to proceed, and a <code>CLOSED</code> calendar indicates that actions aren't allowed to
    *    proceed.</p>
    */
-  State?: CalendarState | string;
+  State?: keyof typeof CalendarState | string;
 
   /**
    * <p>The time, as an <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> string,
@@ -1547,16 +1547,16 @@ export interface CloudWatchOutputConfig {
 /**
  * @public
  */
-export enum CommandInvocationStatus {
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  DELAYED = "Delayed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-  TIMED_OUT = "TimedOut",
-}
+export const CommandInvocationStatus = {
+  CANCELLED: "Cancelled",
+  CANCELLING: "Cancelling",
+  DELAYED: "Delayed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+  TIMED_OUT: "TimedOut",
+};
 
 /**
  * @public
@@ -1633,7 +1633,7 @@ export interface GetCommandInvocationResult {
    * <p>The status of this invocation plugin. This status can be different than
    *     <code>StatusDetails</code>.</p>
    */
-  Status?: CommandInvocationStatus | string;
+  Status?: keyof typeof CommandInvocationStatus | string;
 
   /**
    * <p>A detailed status of the command execution for an invocation. <code>StatusDetails</code>
@@ -1778,10 +1778,10 @@ export interface GetConnectionStatusRequest {
 /**
  * @public
  */
-export enum ConnectionStatus {
-  CONNECTED = "Connected",
-  NOT_CONNECTED = "NotConnected",
-}
+export const ConnectionStatus = {
+  CONNECTED: "Connected",
+  NOT_CONNECTED: "NotConnected",
+};
 
 /**
  * @public
@@ -1796,7 +1796,7 @@ export interface GetConnectionStatusResponse {
    * <p>The status of the connection to the managed node. For example, 'Connected' or 'Not
    *    Connected'.</p>
    */
-  Status?: ConnectionStatus | string;
+  Status?: keyof typeof ConnectionStatus | string;
 }
 
 /**
@@ -1806,7 +1806,7 @@ export interface GetDefaultPatchBaselineRequest {
   /**
    * <p>Returns the default patch baseline for the specified operating system.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 }
 
 /**
@@ -1821,7 +1821,7 @@ export interface GetDefaultPatchBaselineResult {
   /**
    * <p>The operating system for the returned patch baseline. </p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 }
 
 /**
@@ -1832,7 +1832,7 @@ export interface BaselineOverride {
   /**
    * <p>The operating system rule used by the patch baseline override.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 
   /**
    * <p>A set of patch filters, typically used for approval rules.</p>
@@ -1856,7 +1856,7 @@ export interface BaselineOverride {
    * <p>Defines the compliance level for approved patches. When an approved patch is reported as
    *    missing, this value describes the severity of the compliance violation.</p>
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesComplianceLevel?: keyof typeof PatchComplianceLevel | string;
 
   /**
    * <p>A list of explicitly rejected patches for the baseline.</p>
@@ -1871,7 +1871,7 @@ export interface BaselineOverride {
    *     <code>RejectedPackages</code> list. A patch can be allowed only if it is a dependency of another
    *    package, or blocked entirely along with packages that include it as a dependency.</p>
    */
-  RejectedPatchesAction?: PatchAction | string;
+  RejectedPatchesAction?: keyof typeof PatchAction | string;
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
@@ -1985,15 +1985,15 @@ export interface GetDocumentRequest {
    * <p>Returns the document in the specified format. The document format can be either JSON or
    *    YAML. JSON is the default format.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: keyof typeof DocumentFormat | string;
 }
 
 /**
  * @public
  */
-export enum AttachmentHashType {
-  SHA256 = "Sha256",
-}
+export const AttachmentHashType = {
+  SHA256: "Sha256",
+};
 
 /**
  * @public
@@ -2018,7 +2018,7 @@ export interface AttachmentContent {
   /**
    * <p>The hash algorithm used to calculate the hash value.</p>
    */
-  HashType?: AttachmentHashType | string;
+  HashType?: keyof typeof AttachmentHashType | string;
 
   /**
    * <p>The URL location of the attachment content.</p>
@@ -2061,7 +2061,7 @@ export interface GetDocumentResult {
    * <p>The status of the SSM document, such as <code>Creating</code>, <code>Active</code>,
    *     <code>Updating</code>, <code>Failed</code>, and <code>Deleting</code>.</p>
    */
-  Status?: DocumentStatus | string;
+  Status?: keyof typeof DocumentStatus | string;
 
   /**
    * <p>A message returned by Amazon Web Services Systems Manager that explains the <code>Status</code> value. For example, a
@@ -2078,12 +2078,12 @@ export interface GetDocumentResult {
   /**
    * <p>The document type.</p>
    */
-  DocumentType?: DocumentType | string;
+  DocumentType?: keyof typeof DocumentType | string;
 
   /**
    * <p>The document format, either JSON or YAML.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: keyof typeof DocumentFormat | string;
 
   /**
    * <p>A list of SSM documents required by a document. For example, an
@@ -2105,20 +2105,20 @@ export interface GetDocumentResult {
    *    version is approved, the status of the previous version changes to REJECTED.</p>
    *          <p>Only one version of an SSM document can be in review, or PENDING, at a time.</p>
    */
-  ReviewStatus?: ReviewStatus | string;
+  ReviewStatus?: keyof typeof ReviewStatus | string;
 }
 
 /**
  * @public
  */
-export enum InventoryQueryOperatorType {
-  BEGIN_WITH = "BeginWith",
-  EQUAL = "Equal",
-  EXISTS = "Exists",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
-  NOT_EQUAL = "NotEqual",
-}
+export const InventoryQueryOperatorType = {
+  BEGIN_WITH: "BeginWith",
+  EQUAL: "Equal",
+  EXISTS: "Exists",
+  GREATER_THAN: "GreaterThan",
+  LESS_THAN: "LessThan",
+  NOT_EQUAL: "NotEqual",
+};
 
 /**
  * @public
@@ -2145,7 +2145,7 @@ export interface InventoryFilter {
    *      data</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          </note>
    */
-  Type?: InventoryQueryOperatorType | string;
+  Type?: keyof typeof InventoryQueryOperatorType | string;
 }
 
 /**
@@ -2352,10 +2352,10 @@ export interface GetInventorySchemaRequest {
 /**
  * @public
  */
-export enum InventoryAttributeDataType {
-  NUMBER = "number",
-  STRING = "string",
-}
+export const InventoryAttributeDataType = {
+  NUMBER: "number",
+  STRING: "string",
+};
 
 /**
  * @public
@@ -2371,7 +2371,7 @@ export interface InventoryItemAttribute {
   /**
    * <p>The data type of the inventory item attribute. </p>
    */
-  DataType: InventoryAttributeDataType | string | undefined;
+  DataType: keyof typeof InventoryAttributeDataType | string | undefined;
 }
 
 /**
@@ -2547,7 +2547,7 @@ export interface GetMaintenanceWindowExecutionResult {
   /**
    * <p>The status of the maintenance window execution.</p>
    */
-  Status?: MaintenanceWindowExecutionStatus | string;
+  Status?: keyof typeof MaintenanceWindowExecutionStatus | string;
 
   /**
    * <p>The details explaining the status. Not available for all status values.</p>
@@ -2609,7 +2609,7 @@ export interface GetMaintenanceWindowExecutionTaskResult {
   /**
    * <p>The type of task that was run.</p>
    */
-  Type?: MaintenanceWindowTaskType | string;
+  Type?: keyof typeof MaintenanceWindowTaskType | string;
 
   /**
    * <p>The parameters passed to the task when it was run.</p>
@@ -2653,7 +2653,7 @@ export interface GetMaintenanceWindowExecutionTaskResult {
   /**
    * <p>The status of the task.</p>
    */
-  Status?: MaintenanceWindowExecutionStatus | string;
+  Status?: keyof typeof MaintenanceWindowExecutionStatus | string;
 
   /**
    * <p>The details explaining the status. Not available for all status values.</p>
@@ -2729,7 +2729,7 @@ export interface GetMaintenanceWindowExecutionTaskInvocationResult {
   /**
    * <p>Retrieves the task type for a maintenance window.</p>
    */
-  TaskType?: MaintenanceWindowTaskType | string;
+  TaskType?: keyof typeof MaintenanceWindowTaskType | string;
 
   /**
    * <p>The parameters used at the time that the task ran.</p>
@@ -2739,7 +2739,7 @@ export interface GetMaintenanceWindowExecutionTaskInvocationResult {
   /**
    * <p>The task status for an invocation.</p>
    */
-  Status?: MaintenanceWindowExecutionStatus | string;
+  Status?: keyof typeof MaintenanceWindowExecutionStatus | string;
 
   /**
    * <p>The details explaining the status. Details are only available for certain status
@@ -2859,22 +2859,22 @@ export interface MaintenanceWindowLambdaParameters {
 /**
  * @public
  */
-export enum NotificationEvent {
-  ALL = "All",
-  CANCELLED = "Cancelled",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  SUCCESS = "Success",
-  TIMED_OUT = "TimedOut",
-}
+export const NotificationEvent = {
+  ALL: "All",
+  CANCELLED: "Cancelled",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  SUCCESS: "Success",
+  TIMED_OUT: "TimedOut",
+};
 
 /**
  * @public
  */
-export enum NotificationType {
-  Command = "Command",
-  Invocation = "Invocation",
-}
+export const NotificationType = {
+  Command: "Command",
+  Invocation: "Invocation",
+};
 
 /**
  * @public
@@ -2893,7 +2893,7 @@ export interface NotificationConfig {
    *     changes using Amazon SNS notifications</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  NotificationEvents?: (NotificationEvent | string)[];
+  NotificationEvents?: (keyof typeof NotificationEvent | string)[];
 
   /**
    * <p>The type of notification.</p>
@@ -2909,7 +2909,7 @@ export interface NotificationConfig {
    *             </li>
    *          </ul>
    */
-  NotificationType?: NotificationType | string;
+  NotificationType?: keyof typeof NotificationType | string;
 }
 
 /**
@@ -2952,7 +2952,7 @@ export interface MaintenanceWindowRunCommandParameters {
   /**
    * <p>SHA-256 or SHA-1. SHA-1 hashes have been deprecated.</p>
    */
-  DocumentHashType?: DocumentHashType | string;
+  DocumentHashType?: keyof typeof DocumentHashType | string;
 
   /**
    * <p>The Amazon Web Services Systems Manager document (SSM document) version to use in the request. You can specify
@@ -3098,7 +3098,7 @@ export interface GetMaintenanceWindowTaskResult {
   /**
    * <p>The type of task to run.</p>
    */
-  TaskType?: MaintenanceWindowTaskType | string;
+  TaskType?: keyof typeof MaintenanceWindowTaskType | string;
 
   /**
    * <p>The parameters to pass to the task when it runs.</p>
@@ -3175,7 +3175,7 @@ export interface GetMaintenanceWindowTaskResult {
    *    tasks, <code>CANCEL_TASK</code> means the system attempts to stop the task by sending a
    *     <code>CancelCommand</code> operation.</p>
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  CutoffBehavior?: keyof typeof MaintenanceWindowTaskCutoffBehavior | string;
 
   /**
    * <p>The details for the CloudWatch alarm you applied to your maintenance window
@@ -3290,7 +3290,7 @@ export interface OpsItem {
    * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
    *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  Status?: OpsItemStatus | string;
+  Status?: keyof typeof OpsItemStatus | string;
 
   /**
    * <p>The ID of the OpsItem.</p>
@@ -3432,14 +3432,14 @@ export interface GetOpsMetadataResult {
 /**
  * @public
  */
-export enum OpsFilterOperatorType {
-  BEGIN_WITH = "BeginWith",
-  EQUAL = "Equal",
-  EXISTS = "Exists",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
-  NOT_EQUAL = "NotEqual",
-}
+export const OpsFilterOperatorType = {
+  BEGIN_WITH: "BeginWith",
+  EQUAL: "Equal",
+  EXISTS: "Exists",
+  GREATER_THAN: "GreaterThan",
+  LESS_THAN: "LessThan",
+  NOT_EQUAL: "NotEqual",
+};
 
 /**
  * @public
@@ -3459,7 +3459,7 @@ export interface OpsFilter {
   /**
    * <p>The type of filter.</p>
    */
-  Type?: OpsFilterOperatorType | string;
+  Type?: keyof typeof OpsFilterOperatorType | string;
 }
 
 /**
@@ -3559,7 +3559,7 @@ export interface Parameter {
    *     spaces between commas in the <code>Value</code> field.</p>
    *          </note>
    */
-  Type?: ParameterType | string;
+  Type?: keyof typeof ParameterType | string;
 
   /**
    * <p>The parameter value.</p>
@@ -3698,7 +3698,7 @@ export interface ParameterHistory {
   /**
    * <p>The type of parameter used.</p>
    */
-  Type?: ParameterType | string;
+  Type?: keyof typeof ParameterType | string;
 
   /**
    * <p>The ID of the query key used for this parameter.</p>
@@ -3744,7 +3744,7 @@ export interface ParameterHistory {
   /**
    * <p>The parameter tier.</p>
    */
-  Tier?: ParameterTier | string;
+  Tier?: keyof typeof ParameterTier | string;
 
   /**
    * <p>Information about the policies assigned to a parameter.</p>
@@ -3916,7 +3916,7 @@ export interface GetPatchBaselineResult {
   /**
    * <p>Returns the operating system specified for the patch baseline.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 
   /**
    * <p>A set of global filters used to exclude patches from the baseline.</p>
@@ -3937,7 +3937,7 @@ export interface GetPatchBaselineResult {
    * <p>Returns the specified compliance severity level for approved patches in the patch
    *    baseline.</p>
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesComplianceLevel?: keyof typeof PatchComplianceLevel | string;
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
@@ -3956,7 +3956,7 @@ export interface GetPatchBaselineResult {
    *    patch can be allowed only if it is a dependency of another package, or blocked entirely along
    *    with packages that include it as a dependency.</p>
    */
-  RejectedPatchesAction?: PatchAction | string;
+  RejectedPatchesAction?: keyof typeof PatchAction | string;
 
   /**
    * <p>Patch groups included in the patch baseline.</p>
@@ -3998,7 +3998,7 @@ export interface GetPatchBaselineForPatchGroupRequest {
    * <p>Returns the operating system rule specified for patch groups using the patch
    *    baseline.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 }
 
 /**
@@ -4018,7 +4018,7 @@ export interface GetPatchBaselineForPatchGroupResult {
   /**
    * <p>The operating system rule specified for patch groups using the patch baseline.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 }
 
 /**
@@ -4301,16 +4301,16 @@ export class ParameterVersionLabelLimitExceeded extends __BaseException {
 /**
  * @public
  */
-export enum AssociationFilterKey {
-  AssociationId = "AssociationId",
-  AssociationName = "AssociationName",
-  InstanceId = "InstanceId",
-  LastExecutedAfter = "LastExecutedAfter",
-  LastExecutedBefore = "LastExecutedBefore",
-  Name = "Name",
-  ResourceGroupName = "ResourceGroupName",
-  Status = "AssociationStatusName",
-}
+export const AssociationFilterKey = {
+  AssociationId: "AssociationId",
+  AssociationName: "AssociationName",
+  InstanceId: "InstanceId",
+  LastExecutedAfter: "LastExecutedAfter",
+  LastExecutedBefore: "LastExecutedBefore",
+  Name: "Name",
+  ResourceGroupName: "ResourceGroupName",
+  Status: "AssociationStatusName",
+};
 
 /**
  * @public
@@ -4324,7 +4324,7 @@ export interface AssociationFilter {
    *                <code>InstanceId</code> has been deprecated.</p>
    *          </note>
    */
-  key: AssociationFilterKey | string | undefined;
+  key: keyof typeof AssociationFilterKey | string | undefined;
 
   /**
    * <p>The filter value.</p>
@@ -4565,7 +4565,7 @@ export interface AssociationVersionInfo {
   /**
    * <p>The severity level that is assigned to the association.</p>
    */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
+  ComplianceSeverity?: keyof typeof AssociationComplianceSeverity | string;
 
   /**
    * <p>The mode for generating association compliance. You can specify <code>AUTO</code> or
@@ -4579,7 +4579,7 @@ export interface AssociationVersionInfo {
    *     <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    */
-  SyncCompliance?: AssociationSyncCompliance | string;
+  SyncCompliance?: keyof typeof AssociationSyncCompliance | string;
 
   /**
    * <p>By default, when you create a new associations, the system runs it immediately after it is
@@ -4634,13 +4634,13 @@ export interface ListAssociationVersionsResult {
 /**
  * @public
  */
-export enum CommandFilterKey {
-  DOCUMENT_NAME = "DocumentName",
-  EXECUTION_STAGE = "ExecutionStage",
-  INVOKED_AFTER = "InvokedAfter",
-  INVOKED_BEFORE = "InvokedBefore",
-  STATUS = "Status",
-}
+export const CommandFilterKey = {
+  DOCUMENT_NAME: "DocumentName",
+  EXECUTION_STAGE: "ExecutionStage",
+  INVOKED_AFTER: "InvokedAfter",
+  INVOKED_BEFORE: "InvokedBefore",
+  STATUS: "Status",
+};
 
 /**
  * @public
@@ -4658,7 +4658,7 @@ export interface CommandFilter {
    *      <code>ListCommandInvocations</code> operation, only with <code>ListCommands</code>.</p>
    *          </note>
    */
-  key: CommandFilterKey | string | undefined;
+  key: keyof typeof CommandFilterKey | string | undefined;
 
   /**
    * <p>The filter value. Valid values for each filter key are as follows:</p>
@@ -4880,14 +4880,14 @@ export interface ListCommandInvocationsRequest {
 /**
  * @public
  */
-export enum CommandPluginStatus {
-  CANCELLED = "Cancelled",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-  TIMED_OUT = "TimedOut",
-}
+export const CommandPluginStatus = {
+  CANCELLED: "Cancelled",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+  TIMED_OUT: "TimedOut",
+};
 
 /**
  * @public
@@ -4905,7 +4905,7 @@ export interface CommandPlugin {
   /**
    * <p>The status of this plugin. You can run a document with multiple plugins.</p>
    */
-  Status?: CommandPluginStatus | string;
+  Status?: keyof typeof CommandPluginStatus | string;
 
   /**
    * <p>A detailed status of the plugin execution. <code>StatusDetails</code> includes more
@@ -5084,7 +5084,7 @@ export interface CommandInvocation {
   /**
    * <p>Whether or not the invocation succeeded, failed, or is pending.</p>
    */
-  Status?: CommandInvocationStatus | string;
+  Status?: keyof typeof CommandInvocationStatus | string;
 
   /**
    * <p>A detailed status of the command execution for each invocation (each managed node targeted
@@ -5247,15 +5247,15 @@ export interface ListCommandsRequest {
 /**
  * @public
  */
-export enum CommandStatus {
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-  TIMED_OUT = "TimedOut",
-}
+export const CommandStatus = {
+  CANCELLED: "Cancelled",
+  CANCELLING: "Cancelling",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+  TIMED_OUT: "TimedOut",
+};
 
 /**
  * @public
@@ -5317,7 +5317,7 @@ export interface Command {
   /**
    * <p>The status of the command.</p>
    */
-  Status?: CommandStatus | string;
+  Status?: keyof typeof CommandStatus | string;
 
   /**
    * <p>A detailed status of the command execution. <code>StatusDetails</code> includes more
@@ -5482,13 +5482,13 @@ export interface ListCommandsResult {
 /**
  * @public
  */
-export enum ComplianceQueryOperatorType {
-  BeginWith = "BEGIN_WITH",
-  Equal = "EQUAL",
-  GreaterThan = "GREATER_THAN",
-  LessThan = "LESS_THAN",
-  NotEqual = "NOT_EQUAL",
-}
+export const ComplianceQueryOperatorType = {
+  BeginWith: "BEGIN_WITH",
+  Equal: "EQUAL",
+  GreaterThan: "GREATER_THAN",
+  LessThan: "LESS_THAN",
+  NotEqual: "NOT_EQUAL",
+};
 
 /**
  * @public
@@ -5509,7 +5509,7 @@ export interface ComplianceStringFilter {
    * <p>The type of comparison that should be performed for the value: Equal, NotEqual, BeginWith,
    *    LessThan, or GreaterThan.</p>
    */
-  Type?: ComplianceQueryOperatorType | string;
+  Type?: keyof typeof ComplianceQueryOperatorType | string;
 }
 
 /**
@@ -5574,22 +5574,22 @@ export interface ComplianceExecutionSummary {
 /**
  * @public
  */
-export enum ComplianceSeverity {
-  Critical = "CRITICAL",
-  High = "HIGH",
-  Informational = "INFORMATIONAL",
-  Low = "LOW",
-  Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED",
-}
+export const ComplianceSeverity = {
+  Critical: "CRITICAL",
+  High: "HIGH",
+  Informational: "INFORMATIONAL",
+  Low: "LOW",
+  Medium: "MEDIUM",
+  Unspecified: "UNSPECIFIED",
+};
 
 /**
  * @public
  */
-export enum ComplianceStatus {
-  Compliant = "COMPLIANT",
-  NonCompliant = "NON_COMPLIANT",
-}
+export const ComplianceStatus = {
+  Compliant: "COMPLIANT",
+  NonCompliant: "NON_COMPLIANT",
+};
 
 /**
  * @public
@@ -5632,13 +5632,13 @@ export interface ComplianceItem {
    * <p>The status of the compliance item. An item is either COMPLIANT, NON_COMPLIANT, or an empty
    *    string (for Windows patches that aren't applicable).</p>
    */
-  Status?: ComplianceStatus | string;
+  Status?: keyof typeof ComplianceStatus | string;
 
   /**
    * <p>The severity of the compliance status. Severity can be one of the following: Critical, High,
    *    Medium, Low, Informational, Unspecified.</p>
    */
-  Severity?: ComplianceSeverity | string;
+  Severity?: keyof typeof ComplianceSeverity | string;
 
   /**
    * <p>A summary for the compliance item. The summary includes an execution ID, the execution type
@@ -5814,9 +5814,9 @@ export interface ListComplianceSummariesResult {
 /**
  * @public
  */
-export enum DocumentMetadataEnum {
-  DocumentReviews = "DocumentReviews",
-}
+export const DocumentMetadataEnum = {
+  DocumentReviews: "DocumentReviews",
+};
 
 /**
  * @public
@@ -5836,7 +5836,7 @@ export interface ListDocumentMetadataHistoryRequest {
    * <p>The type of data for which details are being requested. Currently, the only supported value
    *    is <code>DocumentReviews</code>.</p>
    */
-  Metadata: DocumentMetadataEnum | string | undefined;
+  Metadata: keyof typeof DocumentMetadataEnum | string | undefined;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous
@@ -5854,9 +5854,9 @@ export interface ListDocumentMetadataHistoryRequest {
 /**
  * @public
  */
-export enum DocumentReviewCommentType {
-  Comment = "Comment",
-}
+export const DocumentReviewCommentType = {
+  Comment: "Comment",
+};
 
 /**
  * @public
@@ -5867,7 +5867,7 @@ export interface DocumentReviewCommentSource {
    * <p>The type of information added to a review request. Currently, only the value
    *     <code>Comment</code> is supported.</p>
    */
-  Type?: DocumentReviewCommentType | string;
+  Type?: keyof typeof DocumentReviewCommentType | string;
 
   /**
    * <p>The content of a comment entered by a user who requests a review of a new document version,
@@ -5899,7 +5899,7 @@ export interface DocumentReviewerResponseSource {
    *    approved, the status of the previous version changes to REJECTED.</p>
    *          <p>Only one version of a document can be in review, or PENDING, at a time.</p>
    */
-  ReviewStatus?: ReviewStatus | string;
+  ReviewStatus?: keyof typeof ReviewStatus | string;
 
   /**
    * <p>The comment entered by a reviewer as part of their document review response.</p>
@@ -5958,12 +5958,12 @@ export interface ListDocumentMetadataHistoryResponse {
 /**
  * @public
  */
-export enum DocumentFilterKey {
-  DocumentType = "DocumentType",
-  Name = "Name",
-  Owner = "Owner",
-  PlatformTypes = "PlatformTypes",
-}
+export const DocumentFilterKey = {
+  DocumentType: "DocumentType",
+  Name: "Name",
+  Owner: "Owner",
+  PlatformTypes: "PlatformTypes",
+};
 
 /**
  * @public
@@ -5973,7 +5973,7 @@ export interface DocumentFilter {
   /**
    * <p>The name of the filter.</p>
    */
-  key: DocumentFilterKey | string | undefined;
+  key: keyof typeof DocumentFilterKey | string | undefined;
 
   /**
    * <p>The value of the filter.</p>
@@ -6188,7 +6188,7 @@ export interface DocumentIdentifier {
   /**
    * <p>The operating system platform. </p>
    */
-  PlatformTypes?: (PlatformType | string)[];
+  PlatformTypes?: (keyof typeof PlatformType | string)[];
 
   /**
    * <p>The document version.</p>
@@ -6198,7 +6198,7 @@ export interface DocumentIdentifier {
   /**
    * <p>The document type.</p>
    */
-  DocumentType?: DocumentType | string;
+  DocumentType?: keyof typeof DocumentType | string;
 
   /**
    * <p>The schema version.</p>
@@ -6208,7 +6208,7 @@ export interface DocumentIdentifier {
   /**
    * <p>The document format, either JSON or YAML.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: keyof typeof DocumentFormat | string;
 
   /**
    * <p>The target type which defines the kinds of resources the document can run on. For example,
@@ -6232,7 +6232,7 @@ export interface DocumentIdentifier {
   /**
    * <p>The current status of a document review.</p>
    */
-  ReviewStatus?: ReviewStatus | string;
+  ReviewStatus?: keyof typeof ReviewStatus | string;
 
   /**
    * <p>The user in your organization who created the document.</p>
@@ -6318,13 +6318,13 @@ export interface DocumentVersionInfo {
   /**
    * <p>The document format, either JSON or YAML.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: keyof typeof DocumentFormat | string;
 
   /**
    * <p>The status of the SSM document, such as <code>Creating</code>, <code>Active</code>,
    *     <code>Failed</code>, and <code>Deleting</code>.</p>
    */
-  Status?: DocumentStatus | string;
+  Status?: keyof typeof DocumentStatus | string;
 
   /**
    * <p>A message returned by Amazon Web Services Systems Manager that explains the <code>Status</code> value. For example, a
@@ -6336,7 +6336,7 @@ export interface DocumentVersionInfo {
   /**
    * <p>The current status of the approval review for the latest version of the document.</p>
    */
-  ReviewStatus?: ReviewStatus | string;
+  ReviewStatus?: keyof typeof ReviewStatus | string;
 }
 
 /**
@@ -6426,16 +6426,16 @@ export interface ListInventoryEntriesResult {
 /**
  * @public
  */
-export enum OpsItemEventFilterKey {
-  OPSITEM_ID = "OpsItemId",
-}
+export const OpsItemEventFilterKey = {
+  OPSITEM_ID: "OpsItemId",
+};
 
 /**
  * @public
  */
-export enum OpsItemEventFilterOperator {
-  EQUAL = "Equal",
-}
+export const OpsItemEventFilterOperator = {
+  EQUAL: "Equal",
+};
 
 /**
  * @public
@@ -6447,7 +6447,7 @@ export interface OpsItemEventFilter {
    * <p>The name of the filter key. Currently, the only supported value is
    *    <code>OpsItemId</code>.</p>
    */
-  Key: OpsItemEventFilterKey | string | undefined;
+  Key: keyof typeof OpsItemEventFilterKey | string | undefined;
 
   /**
    * <p>The values for the filter, consisting of one or more OpsItem IDs.</p>
@@ -6458,7 +6458,7 @@ export interface OpsItemEventFilter {
    * <p>The operator used by the filter call. Currently, the only supported value is
    *     <code>Equal</code>.</p>
    */
-  Operator: OpsItemEventFilterOperator | string | undefined;
+  Operator: keyof typeof OpsItemEventFilterOperator | string | undefined;
 }
 
 /**
@@ -6555,18 +6555,18 @@ export interface ListOpsItemEventsResponse {
 /**
  * @public
  */
-export enum OpsItemRelatedItemsFilterKey {
-  ASSOCIATION_ID = "AssociationId",
-  RESOURCE_TYPE = "ResourceType",
-  RESOURCE_URI = "ResourceUri",
-}
+export const OpsItemRelatedItemsFilterKey = {
+  ASSOCIATION_ID: "AssociationId",
+  RESOURCE_TYPE: "ResourceType",
+  RESOURCE_URI: "ResourceUri",
+};
 
 /**
  * @public
  */
-export enum OpsItemRelatedItemsFilterOperator {
-  EQUAL = "Equal",
-}
+export const OpsItemRelatedItemsFilterOperator = {
+  EQUAL: "Equal",
+};
 
 /**
  * @public
@@ -6577,7 +6577,7 @@ export interface OpsItemRelatedItemsFilter {
    * <p>The name of the filter key. Supported values include <code>ResourceUri</code>,
    *     <code>ResourceType</code>, or <code>AssociationId</code>.</p>
    */
-  Key: OpsItemRelatedItemsFilterKey | string | undefined;
+  Key: keyof typeof OpsItemRelatedItemsFilterKey | string | undefined;
 
   /**
    * <p>The values for the filter.</p>
@@ -6588,7 +6588,7 @@ export interface OpsItemRelatedItemsFilter {
    * <p>The operator used by the filter call. The only supported operator is
    *    <code>EQUAL</code>.</p>
    */
-  Operator: OpsItemRelatedItemsFilterOperator | string | undefined;
+  Operator: keyof typeof OpsItemRelatedItemsFilterOperator | string | undefined;
 }
 
 /**
@@ -6813,13 +6813,13 @@ export interface ResourceComplianceSummaryItem {
   /**
    * <p>The compliance status for the resource.</p>
    */
-  Status?: ComplianceStatus | string;
+  Status?: keyof typeof ComplianceStatus | string;
 
   /**
    * <p>The highest severity item found for the resource. The resource is compliant for this
    *    item.</p>
    */
-  OverallSeverity?: ComplianceSeverity | string;
+  OverallSeverity?: keyof typeof ComplianceSeverity | string;
 
   /**
    * <p>Information about the execution.</p>
@@ -6881,11 +6881,11 @@ export interface ListResourceDataSyncRequest {
 /**
  * @public
  */
-export enum LastResourceDataSyncStatus {
-  FAILED = "Failed",
-  INPROGRESS = "InProgress",
-  SUCCESSFUL = "Successful",
-}
+export const LastResourceDataSyncStatus = {
+  FAILED: "Failed",
+  INPROGRESS: "InProgress",
+  SUCCESSFUL: "Successful",
+};
 
 /**
  * @public
@@ -7001,7 +7001,7 @@ export interface ResourceDataSyncItem {
   /**
    * <p>The status reported by the last sync.</p>
    */
-  LastStatus?: LastResourceDataSyncStatus | string;
+  LastStatus?: keyof typeof LastResourceDataSyncStatus | string;
 
   /**
    * <p>The date and time the configuration was created (UTC).</p>
@@ -7037,7 +7037,7 @@ export interface ListTagsForResourceRequest {
   /**
    * <p>Returns a list of tags for a specific resource type.</p>
    */
-  ResourceType: ResourceTypeForTagging | string | undefined;
+  ResourceType: keyof typeof ResourceTypeForTagging | string | undefined;
 
   /**
    * <p>The resource ID for which you want to see a list of tags.</p>
@@ -7095,7 +7095,7 @@ export interface ModifyDocumentPermissionRequest {
    * <p>The permission type for the document. The permission type can be
    *    <i>Share</i>.</p>
    */
-  PermissionType: DocumentPermissionType | string | undefined;
+  PermissionType: keyof typeof DocumentPermissionType | string | undefined;
 
   /**
    * <p>The Amazon Web Services users that should have access to the document. The account IDs can either be a
@@ -7216,12 +7216,12 @@ export interface ComplianceItemEntry {
    * <p>The severity of the compliance status. Severity can be one of the following: Critical, High,
    *    Medium, Low, Informational, Unspecified.</p>
    */
-  Severity: ComplianceSeverity | string | undefined;
+  Severity: keyof typeof ComplianceSeverity | string | undefined;
 
   /**
    * <p>The status of the compliance item. An item is either COMPLIANT or NON_COMPLIANT.</p>
    */
-  Status: ComplianceStatus | string | undefined;
+  Status: keyof typeof ComplianceStatus | string | undefined;
 
   /**
    * <p>A "Key": "Value" tag combination for the compliance item.</p>
@@ -7232,10 +7232,10 @@ export interface ComplianceItemEntry {
 /**
  * @public
  */
-export enum ComplianceUploadType {
-  Complete = "COMPLETE",
-  Partial = "PARTIAL",
-}
+export const ComplianceUploadType = {
+  Complete: "COMPLETE",
+  Partial: "PARTIAL",
+};
 
 /**
  * @public
@@ -7291,7 +7291,7 @@ export interface PutComplianceItemsRequest {
    *             <p>This attribute is only valid for association compliance.</p>
    *          </note>
    */
-  UploadType?: ComplianceUploadType | string;
+  UploadType?: keyof typeof ComplianceUploadType | string;
 }
 
 /**
@@ -7854,7 +7854,7 @@ export interface PutParameterRequest {
    *     parameter type when creating a parameter.</p>
    *          </important>
    */
-  Type?: ParameterType | string;
+  Type?: keyof typeof ParameterType | string;
 
   /**
    * <p>The Key Management Service (KMS) ID that you want to use to encrypt a
@@ -7971,7 +7971,7 @@ export interface PutParameterRequest {
    *          <p>For more information about configuring the default tier option, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-default-tier.html">Specifying a
    *     default parameter tier</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  Tier?: ParameterTier | string;
+  Tier?: keyof typeof ParameterTier | string;
 
   /**
    * <p>One or more policies to apply to a parameter. This operation takes a JSON array. Parameter
@@ -8053,7 +8053,7 @@ export interface PutParameterResult {
   /**
    * <p>The tier assigned to the parameter.</p>
    */
-  Tier?: ParameterTier | string;
+  Tier?: keyof typeof ParameterTier | string;
 }
 
 /**
@@ -8209,7 +8209,7 @@ export interface RegisterTargetWithMaintenanceWindowRequest {
   /**
    * <p>The type of target being registered with the maintenance window.</p>
    */
-  ResourceType: MaintenanceWindowResourceType | string | undefined;
+  ResourceType: keyof typeof MaintenanceWindowResourceType | string | undefined;
 
   /**
    * <p>The targets to register with the maintenance window. In other words, the managed nodes to
@@ -8377,7 +8377,7 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
   /**
    * <p>The type of task being registered.</p>
    */
-  TaskType: MaintenanceWindowTaskType | string | undefined;
+  TaskType: keyof typeof MaintenanceWindowTaskType | string | undefined;
 
   /**
    * <p>The parameters that should be passed to the task when it is run.</p>
@@ -8486,7 +8486,7 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    *             </li>
    *          </ul>
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  CutoffBehavior?: keyof typeof MaintenanceWindowTaskCutoffBehavior | string;
 
   /**
    * <p>The CloudWatch alarm you want to apply to your maintenance window task.</p>
@@ -8518,7 +8518,7 @@ export interface RemoveTagsFromResourceRequest {
    *     <code>mi-1a2b3c4d5e6f</code>.</p>
    *          </note>
    */
-  ResourceType: ResourceTypeForTagging | string | undefined;
+  ResourceType: keyof typeof ResourceTypeForTagging | string | undefined;
 
   /**
    * <p>The ID of the resource from which you want to remove tags. For example:</p>
@@ -8708,13 +8708,13 @@ export class InvalidAutomationSignalException extends __BaseException {
 /**
  * @public
  */
-export enum SignalType {
-  APPROVE = "Approve",
-  REJECT = "Reject",
-  RESUME = "Resume",
-  START_STEP = "StartStep",
-  STOP_STEP = "StopStep",
-}
+export const SignalType = {
+  APPROVE: "Approve",
+  REJECT: "Reject",
+  RESUME: "Resume",
+  START_STEP: "StartStep",
+  STOP_STEP: "StopStep",
+};
 
 /**
  * @public
@@ -8729,7 +8729,7 @@ export interface SendAutomationSignalRequest {
   /**
    * <p>The type of signal to send to an Automation execution. </p>
    */
-  SignalType: SignalType | string | undefined;
+  SignalType: keyof typeof SignalType | string | undefined;
 
   /**
    * <p>The data sent with the signal. The data schema depends on the type of signal used in the
@@ -8893,7 +8893,7 @@ export interface SendCommandRequest {
    *             <p>Sha1 hashes have been deprecated.</p>
    *          </note>
    */
-  DocumentHashType?: DocumentHashType | string;
+  DocumentHashType?: keyof typeof DocumentHashType | string;
 
   /**
    * <p>If this time is reached and the command hasn't already started running, it won't run.</p>
@@ -9142,7 +9142,7 @@ export interface StartAutomationExecutionRequest {
    * <p>The execution mode of the automation. Valid modes include the following: Auto and
    *    Interactive. The default mode is Auto.</p>
    */
-  Mode?: ExecutionMode | string;
+  Mode?: keyof typeof ExecutionMode | string;
 
   /**
    * <p>The name of the parameter used as the target resource for the rate-controlled execution.
@@ -9479,10 +9479,10 @@ export class InvalidAutomationStatusUpdateException extends __BaseException {
 /**
  * @public
  */
-export enum StopType {
-  CANCEL = "Cancel",
-  COMPLETE = "Complete",
-}
+export const StopType = {
+  CANCEL: "Cancel",
+  COMPLETE: "Complete",
+};
 
 /**
  * @public
@@ -9497,7 +9497,7 @@ export interface StopAutomationExecutionRequest {
    * <p>The stop request type. Valid types include the following: Cancel and Complete. The default
    *    type is Cancel.</p>
    */
-  Type?: StopType | string;
+  Type?: keyof typeof StopType | string;
 }
 
 /**

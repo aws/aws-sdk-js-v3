@@ -115,9 +115,9 @@ export class ThrottlingException extends __BaseException {
 /**
  * @public
  */
-export enum DefinitionLanguage {
-  GRAPHQL = "GRAPHQL",
-}
+export const DefinitionLanguage = {
+  GRAPHQL: "GRAPHQL",
+};
 
 /**
  * @public
@@ -127,7 +127,7 @@ export interface DefinitionDocument {
   /**
    * <p>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</p>
    */
-  language: DefinitionLanguage | string | undefined;
+  language: keyof typeof DefinitionLanguage | string | undefined;
 
   /**
    * <p>The GraphQL text that defines the entity.</p>
@@ -262,10 +262,10 @@ export interface Tag {
 /**
  * @public
  */
-export enum DeploymentTarget {
-  CLOUD = "CLOUD",
-  GREENGRASS = "GREENGRASS",
-}
+export const DeploymentTarget = {
+  CLOUD: "CLOUD",
+  GREENGRASS: "GREENGRASS",
+};
 
 /**
  * @public
@@ -284,7 +284,7 @@ export interface CreateSystemInstanceRequest {
   /**
    * <p>The target type of the deployment. Valid values are <code>GREENGRASS</code> and <code>CLOUD</code>.</p>
    */
-  target: DeploymentTarget | string | undefined;
+  target: keyof typeof DeploymentTarget | string | undefined;
 
   /**
    * <p>The name of the Greengrass group where the system instance will be deployed. This value is required if
@@ -314,16 +314,16 @@ export interface CreateSystemInstanceRequest {
 /**
  * @public
  */
-export enum SystemInstanceDeploymentStatus {
-  BOOTSTRAP = "BOOTSTRAP",
-  DELETED_IN_TARGET = "DELETED_IN_TARGET",
-  DEPLOYED_IN_TARGET = "DEPLOYED_IN_TARGET",
-  DEPLOY_IN_PROGRESS = "DEPLOY_IN_PROGRESS",
-  FAILED = "FAILED",
-  NOT_DEPLOYED = "NOT_DEPLOYED",
-  PENDING_DELETE = "PENDING_DELETE",
-  UNDEPLOY_IN_PROGRESS = "UNDEPLOY_IN_PROGRESS",
-}
+export const SystemInstanceDeploymentStatus = {
+  BOOTSTRAP: "BOOTSTRAP",
+  DELETED_IN_TARGET: "DELETED_IN_TARGET",
+  DEPLOYED_IN_TARGET: "DEPLOYED_IN_TARGET",
+  DEPLOY_IN_PROGRESS: "DEPLOY_IN_PROGRESS",
+  FAILED: "FAILED",
+  NOT_DEPLOYED: "NOT_DEPLOYED",
+  PENDING_DELETE: "PENDING_DELETE",
+  UNDEPLOY_IN_PROGRESS: "UNDEPLOY_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -343,12 +343,12 @@ export interface SystemInstanceSummary {
   /**
    * <p>The status of the system instance.</p>
    */
-  status?: SystemInstanceDeploymentStatus | string;
+  status?: keyof typeof SystemInstanceDeploymentStatus | string;
 
   /**
    * <p>The target of the system instance.</p>
    */
-  target?: DeploymentTarget | string;
+  target?: keyof typeof DeploymentTarget | string;
 
   /**
    * <p>The ID of the Greengrass group where the system instance is deployed.</p>
@@ -659,18 +659,18 @@ export interface DescribeNamespaceResponse {
 /**
  * @public
  */
-export enum EntityType {
-  ACTION = "ACTION",
-  CAPABILITY = "CAPABILITY",
-  DEVICE = "DEVICE",
-  DEVICE_MODEL = "DEVICE_MODEL",
-  ENUM = "ENUM",
-  EVENT = "EVENT",
-  MAPPING = "MAPPING",
-  PROPERTY = "PROPERTY",
-  SERVICE = "SERVICE",
-  STATE = "STATE",
-}
+export const EntityType = {
+  ACTION: "ACTION",
+  CAPABILITY: "CAPABILITY",
+  DEVICE: "DEVICE",
+  DEVICE_MODEL: "DEVICE_MODEL",
+  ENUM: "ENUM",
+  EVENT: "EVENT",
+  MAPPING: "MAPPING",
+  PROPERTY: "PROPERTY",
+  SERVICE: "SERVICE",
+  STATE: "STATE",
+};
 
 /**
  * @public
@@ -684,7 +684,7 @@ export interface DissociateEntityFromThingRequest {
   /**
    * <p>The entity type from which to disassociate the thing.</p>
    */
-  entityType: EntityType | string | undefined;
+  entityType: keyof typeof EntityType | string | undefined;
 }
 
 /**
@@ -710,7 +710,7 @@ export interface EntityDescription {
   /**
    * <p>The entity type.</p>
    */
-  type?: EntityType | string;
+  type?: keyof typeof EntityType | string;
 
   /**
    * <p>The time at which the entity was created.</p>
@@ -726,12 +726,12 @@ export interface EntityDescription {
 /**
  * @public
  */
-export enum EntityFilterName {
-  NAME = "NAME",
-  NAMESPACE = "NAMESPACE",
-  REFERENCED_ENTITY_ID = "REFERENCED_ENTITY_ID",
-  SEMANTIC_TYPE_PATH = "SEMANTIC_TYPE_PATH",
-}
+export const EntityFilterName = {
+  NAME: "NAME",
+  NAMESPACE: "NAMESPACE",
+  REFERENCED_ENTITY_ID: "REFERENCED_ENTITY_ID",
+  SEMANTIC_TYPE_PATH: "SEMANTIC_TYPE_PATH",
+};
 
 /**
  * @public
@@ -744,7 +744,7 @@ export interface EntityFilter {
    * <p>The name of the entity search filter field. <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example,
    *          you can filter on the ID of a property that is used in a state.</p>
    */
-  name?: EntityFilterName | string;
+  name?: keyof typeof EntityFilterName | string;
 
   /**
    * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
@@ -755,25 +755,25 @@ export interface EntityFilter {
 /**
  * @public
  */
-export enum FlowExecutionEventType {
-  ACKNOWLEDGE_TASK_MESSAGE = "ACKNOWLEDGE_TASK_MESSAGE",
-  ACTIVITY_FAILED = "ACTIVITY_FAILED",
-  ACTIVITY_SCHEDULED = "ACTIVITY_SCHEDULED",
-  ACTIVITY_STARTED = "ACTIVITY_STARTED",
-  ACTIVITY_SUCCEEDED = "ACTIVITY_SUCCEEDED",
-  EXECUTION_ABORTED = "EXECUTION_ABORTED",
-  EXECUTION_FAILED = "EXECUTION_FAILED",
-  EXECUTION_STARTED = "EXECUTION_STARTED",
-  EXECUTION_SUCCEEDED = "EXECUTION_SUCCEEDED",
-  SCHEDULE_NEXT_READY_STEPS_TASK = "SCHEDULE_NEXT_READY_STEPS_TASK",
-  START_FLOW_EXECUTION_TASK = "START_FLOW_EXECUTION_TASK",
-  STEP_FAILED = "STEP_FAILED",
-  STEP_STARTED = "STEP_STARTED",
-  STEP_SUCCEEDED = "STEP_SUCCEEDED",
-  THING_ACTION_TASK = "THING_ACTION_TASK",
-  THING_ACTION_TASK_FAILED = "THING_ACTION_TASK_FAILED",
-  THING_ACTION_TASK_SUCCEEDED = "THING_ACTION_TASK_SUCCEEDED",
-}
+export const FlowExecutionEventType = {
+  ACKNOWLEDGE_TASK_MESSAGE: "ACKNOWLEDGE_TASK_MESSAGE",
+  ACTIVITY_FAILED: "ACTIVITY_FAILED",
+  ACTIVITY_SCHEDULED: "ACTIVITY_SCHEDULED",
+  ACTIVITY_STARTED: "ACTIVITY_STARTED",
+  ACTIVITY_SUCCEEDED: "ACTIVITY_SUCCEEDED",
+  EXECUTION_ABORTED: "EXECUTION_ABORTED",
+  EXECUTION_FAILED: "EXECUTION_FAILED",
+  EXECUTION_STARTED: "EXECUTION_STARTED",
+  EXECUTION_SUCCEEDED: "EXECUTION_SUCCEEDED",
+  SCHEDULE_NEXT_READY_STEPS_TASK: "SCHEDULE_NEXT_READY_STEPS_TASK",
+  START_FLOW_EXECUTION_TASK: "START_FLOW_EXECUTION_TASK",
+  STEP_FAILED: "STEP_FAILED",
+  STEP_STARTED: "STEP_STARTED",
+  STEP_SUCCEEDED: "STEP_SUCCEEDED",
+  THING_ACTION_TASK: "THING_ACTION_TASK",
+  THING_ACTION_TASK_FAILED: "THING_ACTION_TASK_FAILED",
+  THING_ACTION_TASK_SUCCEEDED: "THING_ACTION_TASK_SUCCEEDED",
+};
 
 /**
  * @public
@@ -788,7 +788,7 @@ export interface FlowExecutionMessage {
   /**
    * <p>The type of flow event .</p>
    */
-  eventType?: FlowExecutionEventType | string;
+  eventType?: keyof typeof FlowExecutionEventType | string;
 
   /**
    * <p>The date and time when the message was last updated.</p>
@@ -804,12 +804,12 @@ export interface FlowExecutionMessage {
 /**
  * @public
  */
-export enum FlowExecutionStatus {
-  ABORTED = "ABORTED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const FlowExecutionStatus = {
+  ABORTED: "ABORTED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -824,7 +824,7 @@ export interface FlowExecutionSummary {
   /**
    * <p>The current status of the flow execution.</p>
    */
-  status?: FlowExecutionStatus | string;
+  status?: keyof typeof FlowExecutionStatus | string;
 
   /**
    * <p>The ID of the system instance that contains the flow.</p>
@@ -871,9 +871,9 @@ export interface FlowTemplateDescription {
 /**
  * @public
  */
-export enum FlowTemplateFilterName {
-  DEVICE_MODEL_ID = "DEVICE_MODEL_ID",
-}
+export const FlowTemplateFilterName = {
+  DEVICE_MODEL_ID: "DEVICE_MODEL_ID",
+};
 
 /**
  * @public
@@ -883,7 +883,7 @@ export interface FlowTemplateFilter {
   /**
    * <p>The name of the search filter field.</p>
    */
-  name: FlowTemplateFilterName | string | undefined;
+  name: keyof typeof FlowTemplateFilterName | string | undefined;
 
   /**
    * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
@@ -996,18 +996,18 @@ export interface GetNamespaceDeletionStatusRequest {}
 /**
  * @public
  */
-export enum NamespaceDeletionStatusErrorCodes {
-  VALIDATION_FAILED = "VALIDATION_FAILED",
-}
+export const NamespaceDeletionStatusErrorCodes = {
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+};
 
 /**
  * @public
  */
-export enum NamespaceDeletionStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const NamespaceDeletionStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1026,12 +1026,12 @@ export interface GetNamespaceDeletionStatusResponse {
   /**
    * <p>The status of the deletion request.</p>
    */
-  status?: NamespaceDeletionStatus | string;
+  status?: keyof typeof NamespaceDeletionStatus | string;
 
   /**
    * <p>An error code returned by the namespace deletion task.</p>
    */
-  errorCode?: NamespaceDeletionStatusErrorCodes | string;
+  errorCode?: keyof typeof NamespaceDeletionStatusErrorCodes | string;
 
   /**
    * <p>An error code returned by the namespace deletion task.</p>
@@ -1208,11 +1208,11 @@ export interface GetUploadStatusRequest {
 /**
  * @public
  */
-export enum UploadStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const UploadStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1226,7 +1226,7 @@ export interface GetUploadStatusResponse {
   /**
    * <p>The status of the upload. The initial status is <code>IN_PROGRESS</code>. The response show all validation failures if the upload fails.</p>
    */
-  uploadStatus: UploadStatus | string | undefined;
+  uploadStatus: keyof typeof UploadStatus | string | undefined;
 
   /**
    * <p>The ARN of the upload.</p>
@@ -1331,7 +1331,7 @@ export interface SearchEntitiesRequest {
   /**
    * <p>The entity types for which to search.</p>
    */
-  entityTypes: (EntityType | string)[] | undefined;
+  entityTypes: (keyof typeof EntityType | string)[] | undefined;
 
   /**
    * <p>Optional filter to apply to the search. Valid filters are <code>NAME</code>
@@ -1461,11 +1461,11 @@ export interface SearchFlowTemplatesResponse {
 /**
  * @public
  */
-export enum SystemInstanceFilterName {
-  GREENGRASS_GROUP_NAME = "GREENGRASS_GROUP_NAME",
-  STATUS = "STATUS",
-  SYSTEM_TEMPLATE_ID = "SYSTEM_TEMPLATE_ID",
-}
+export const SystemInstanceFilterName = {
+  GREENGRASS_GROUP_NAME: "GREENGRASS_GROUP_NAME",
+  STATUS: "STATUS",
+  SYSTEM_TEMPLATE_ID: "SYSTEM_TEMPLATE_ID",
+};
 
 /**
  * @public
@@ -1477,7 +1477,7 @@ export interface SystemInstanceFilter {
   /**
    * <p>The name of the search filter field.</p>
    */
-  name?: SystemInstanceFilterName | string;
+  name?: keyof typeof SystemInstanceFilterName | string;
 
   /**
    * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search. </p>
@@ -1525,9 +1525,9 @@ export interface SearchSystemInstancesResponse {
 /**
  * @public
  */
-export enum SystemTemplateFilterName {
-  FLOW_TEMPLATE_ID = "FLOW_TEMPLATE_ID",
-}
+export const SystemTemplateFilterName = {
+  FLOW_TEMPLATE_ID: "FLOW_TEMPLATE_ID",
+};
 
 /**
  * @public
@@ -1537,7 +1537,7 @@ export interface SystemTemplateFilter {
   /**
    * <p>The name of the system search filter field.</p>
    */
-  name: SystemTemplateFilterName | string | undefined;
+  name: keyof typeof SystemTemplateFilterName | string | undefined;
 
   /**
    * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>

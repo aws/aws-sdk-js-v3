@@ -5043,7 +5043,7 @@ const serializeAws_json1_1CreateAccountRequest = (input: CreateAccountRequest, c
 };
 
 const serializeAws_json1_1CreateAccountStates = (
-  input: (CreateAccountState | string)[],
+  input: (keyof typeof CreateAccountState | string)[],
   context: __SerdeContext
 ): any => {
   return input

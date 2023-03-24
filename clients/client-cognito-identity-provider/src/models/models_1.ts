@@ -275,7 +275,7 @@ export interface UpdateAuthEventFeedbackRequest {
   /**
    * <p>The authentication event feedback value.</p>
    */
-  FeedbackValue: FeedbackValueType | string | undefined;
+  FeedbackValue: keyof typeof FeedbackValueType | string | undefined;
 }
 
 /**
@@ -302,7 +302,7 @@ export interface UpdateDeviceStatusRequest {
   /**
    * <p>The status of whether a device is remembered.</p>
    */
-  DeviceRememberedStatus?: DeviceRememberedStatusType | string;
+  DeviceRememberedStatus?: keyof typeof DeviceRememberedStatusType | string;
 }
 
 /**
@@ -528,7 +528,7 @@ export interface UpdateUserPoolRequest {
    *         send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
    *         <code>UpdateUserPool</code> API request.</p>
    */
-  DeletionProtection?: DeletionProtectionType | string;
+  DeletionProtection?: keyof typeof DeletionProtectionType | string;
 
   /**
    * <p>The Lambda configuration information from the request to update the user pool.</p>
@@ -539,7 +539,7 @@ export interface UpdateUserPoolRequest {
    * <p>The attributes that are automatically verified when Amazon Cognito requests to update user
    *             pools.</p>
    */
-  AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
+  AutoVerifiedAttributes?: (keyof typeof VerifiedAttributeType | string)[];
 
   /**
    * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
@@ -596,7 +596,7 @@ export interface UpdateUserPoolRequest {
    *             </li>
    *          </ul>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: keyof typeof UserPoolMfaType | string;
 
   /**
    * <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p>
@@ -783,7 +783,7 @@ export interface UpdateUserPoolClientRequest {
    * You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>,
    * like <code>ALLOW_USER_SRP_AUTH</code>.</p>
    */
-  ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
+  ExplicitAuthFlows?: (keyof typeof ExplicitAuthFlowsType | string)[];
 
   /**
    * <p>A list of provider names for the IdPs that this client supports. The following are
@@ -863,7 +863,7 @@ export interface UpdateUserPoolClientRequest {
    *                 </dd>
    *          </dl>
    */
-  AllowedOAuthFlows?: (OAuthFlowType | string)[];
+  AllowedOAuthFlows?: (keyof typeof OAuthFlowType | string)[];
 
   /**
    * <p>The allowed OAuth scopes. Possible values provided by OAuth are <code>phone</code>,
@@ -912,7 +912,7 @@ export interface UpdateUserPoolClientRequest {
    *             </li>
    *          </ul>
    */
-  PreventUserExistenceErrors?: PreventUserExistenceErrorTypes | string;
+  PreventUserExistenceErrors?: keyof typeof PreventUserExistenceErrorTypes | string;
 
   /**
    * <p>Activates or deactivates token revocation. For more information about revoking tokens,
@@ -1040,10 +1040,10 @@ export interface VerifySoftwareTokenRequest {
 /**
  * @public
  */
-export enum VerifySoftwareTokenResponseType {
-  ERROR = "ERROR",
-  SUCCESS = "SUCCESS",
-}
+export const VerifySoftwareTokenResponseType = {
+  ERROR: "ERROR",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -1052,7 +1052,7 @@ export interface VerifySoftwareTokenResponse {
   /**
    * <p>The status of the verify software token.</p>
    */
-  Status?: VerifySoftwareTokenResponseType | string;
+  Status?: keyof typeof VerifySoftwareTokenResponseType | string;
 
   /**
    * <p>The session that should be passed both ways in challenge-response calls to the

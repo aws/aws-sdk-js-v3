@@ -119,7 +119,7 @@ export interface UpdateBotRequest {
   /**
    * <p>The type of the bot to be updated.</p>
    */
-  botType?: BotType | string;
+  botType?: keyof typeof BotType | string;
 
   /**
    * <p>The list of bot members in the network associated
@@ -170,7 +170,7 @@ export interface UpdateBotResponse {
    *          changes to the <code>Available</code> status. After the bot is created,
    *          you can use the <code>DRAFT</code> version of the bot.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: keyof typeof BotStatus | string;
 
   /**
    * <p>A timestamp of the date and time that the bot was created.</p>
@@ -186,7 +186,7 @@ export interface UpdateBotResponse {
   /**
    * <p>The type of the bot that was updated.</p>
    */
-  botType?: BotType | string;
+  botType?: keyof typeof BotType | string;
 
   /**
    * <p>The list of bot members in the network that was updated.</p>
@@ -288,7 +288,7 @@ export interface UpdateBotAliasResponse {
    * <p>The current status of the bot alias. When the status is
    *             <code>Available</code> the alias is ready for use.</p>
    */
-  botAliasStatus?: BotAliasStatus | string;
+  botAliasStatus?: keyof typeof BotAliasStatus | string;
 
   /**
    * <p>The identifier of the bot with the updated alias.</p>
@@ -395,7 +395,7 @@ export interface UpdateBotLocaleResponse {
    * <p>The current status of the locale. When the bot status is
    *             <code>Built</code> the locale is ready for use.</p>
    */
-  botLocaleStatus?: BotLocaleStatus | string;
+  botLocaleStatus?: keyof typeof BotLocaleStatus | string;
 
   /**
    * <p>If the <code>botLocaleStatus</code> is <code>Failed</code>, the
@@ -489,7 +489,7 @@ export interface UpdateBotRecommendationResponse {
    *          <p>If the status is Failed, then the reasons for the failure are listed
    *          in the failureReasons field. </p>
    */
-  botRecommendationStatus?: BotRecommendationStatus | string;
+  botRecommendationStatus?: keyof typeof BotRecommendationStatus | string;
 
   /**
    * <p>The unique identifier of the bot recommendation to be
@@ -558,13 +558,13 @@ export interface UpdateExportResponse {
    *             <code>TSV</code> format is required to export a custom vocabulary
    *          only; otherwise use <code>LexJson</code> format.</p>
    */
-  fileFormat?: ImportExportFileFormat | string;
+  fileFormat?: keyof typeof ImportExportFileFormat | string;
 
   /**
    * <p>The status of the export. When the status is <code>Completed</code>
    *          the export archive is available for download.</p>
    */
-  exportStatus?: ExportStatus | string;
+  exportStatus?: keyof typeof ExportStatus | string;
 
   /**
    * <p>The date and time that the export was created.</p>
@@ -782,7 +782,7 @@ export interface SlotValueOverride {
    *          value is <code>Scalar</code>, it indicates that the <code>value</code>
    *          field contains a single value.</p>
    */
-  shape?: SlotShape | string;
+  shape?: keyof typeof SlotShape | string;
 
   /**
    * <p>The current value of the slot.</p>
@@ -1248,7 +1248,7 @@ export interface SlotValueElicitationSetting {
   /**
    * <p>Specifies whether the slot is required or optional.</p>
    */
-  slotConstraint: SlotConstraint | string | undefined;
+  slotConstraint: keyof typeof SlotConstraint | string | undefined;
 
   /**
    * <p>The prompt that Amazon Lex uses to elicit the slot value from the

@@ -33,7 +33,7 @@ export interface UpdateQuerySuggestionsConfigRequest {
    *             queries to keep suggestions up to date for when you are ready to
    *             switch to ENABLED mode again.</p>
    */
-  Mode?: Mode | string;
+  Mode?: keyof typeof Mode | string;
 
   /**
    * <p>How recent your queries are in your query log time window.</p>
@@ -199,7 +199,7 @@ export interface FacetResult {
    * <p>The data type of the facet value. This is the same as the type
    *          defined for the index field when it was created.</p>
    */
-  DocumentAttributeValueType?: DocumentAttributeValueType | string;
+  DocumentAttributeValueType?: keyof typeof DocumentAttributeValueType | string;
 
   /**
    * <p>An array of key/value pairs, where the key is the value of the
@@ -391,7 +391,7 @@ export interface QueryRequest {
   /**
    * <p>Sets the type of query. Only results for the specified query type are returned.</p>
    */
-  QueryResultTypeFilter?: QueryResultType | string;
+  QueryResultTypeFilter?: keyof typeof QueryResultType | string;
 
   /**
    * <p>Overrides relevance tuning configurations of fields or attributes set at the index

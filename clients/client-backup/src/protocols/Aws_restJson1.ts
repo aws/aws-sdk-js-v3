@@ -6815,7 +6815,7 @@ const serializeAws_restJson1BackupSelection = (input: BackupSelection, context: 
 };
 
 const serializeAws_restJson1BackupVaultEvents = (
-  input: (BackupVaultEvent | string)[],
+  input: (keyof typeof BackupVaultEvent | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -7179,13 +7179,16 @@ const deserializeAws_restJson1BackupJobChildJobsInState = (
   output: any,
   context: __SerdeContext
 ): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [BackupJobState | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, number>, [key, value]: [keyof typeof BackupJobState | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectLong(value) as any;
       return acc;
-    }
-    acc[key] = __expectLong(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1BackupJobsList = (output: any, context: __SerdeContext): BackupJob[] => {
@@ -7375,7 +7378,7 @@ const deserializeAws_restJson1BackupSelectionsListMember = (
 const deserializeAws_restJson1BackupVaultEvents = (
   output: any,
   context: __SerdeContext
-): (BackupVaultEvent | string)[] => {
+): (keyof typeof BackupVaultEvent | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7582,13 +7585,16 @@ const deserializeAws_restJson1CopyJobChildJobsInState = (
   output: any,
   context: __SerdeContext
 ): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [CopyJobState | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, number>, [key, value]: [keyof typeof CopyJobState | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectLong(value) as any;
       return acc;
-    }
-    acc[key] = __expectLong(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1CopyJobsList = (output: any, context: __SerdeContext): CopyJob[] => {

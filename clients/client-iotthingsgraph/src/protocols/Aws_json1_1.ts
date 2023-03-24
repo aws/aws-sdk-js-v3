@@ -2654,7 +2654,7 @@ const serializeAws_json1_1EntityFilterValues = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_json1_1EntityTypes = (input: (EntityType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1EntityTypes = (input: (keyof typeof EntityType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

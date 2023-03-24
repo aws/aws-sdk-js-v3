@@ -26,10 +26,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum ThroughputMode {
-  PAY_PER_REQUEST = "PAY_PER_REQUEST",
-  PROVISIONED = "PROVISIONED",
-}
+export const ThroughputMode = {
+  PAY_PER_REQUEST: "PAY_PER_REQUEST",
+  PROVISIONED: "PROVISIONED",
+};
 
 /**
  * @public
@@ -65,7 +65,7 @@ export interface CapacitySpecification {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write capacity modes</a> in the <i>Amazon Keyspaces Developer
    *             Guide</i>.</p>
    */
-  throughputMode: ThroughputMode | string | undefined;
+  throughputMode: keyof typeof ThroughputMode | string | undefined;
 
   /**
    * <p>The throughput capacity specified for <code>read</code> operations defined in <code>read capacity units</code>
@@ -114,7 +114,7 @@ export interface CapacitySpecificationSummary {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write capacity modes</a> in the <i>Amazon Keyspaces Developer
    *             Guide</i>.</p>
    */
-  throughputMode: ThroughputMode | string | undefined;
+  throughputMode: keyof typeof ThroughputMode | string | undefined;
 
   /**
    * <p>The throughput capacity specified for <code>read</code> operations defined in <code>read capacity units</code>
@@ -137,9 +137,9 @@ export interface CapacitySpecificationSummary {
 /**
  * @public
  */
-export enum ClientSideTimestampsStatus {
-  ENABLED = "ENABLED",
-}
+export const ClientSideTimestampsStatus = {
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -151,16 +151,16 @@ export interface ClientSideTimestamps {
   /**
    * <p>Shows how to enable client-side timestamps settings for the specified table.</p>
    */
-  status: ClientSideTimestampsStatus | string | undefined;
+  status: keyof typeof ClientSideTimestampsStatus | string | undefined;
 }
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+};
 
 /**
  * @public
@@ -175,7 +175,7 @@ export interface ClusteringKey {
   /**
    * <p>Sets the ascendant (<code>ASC</code>) or descendant (<code>DESC</code>) order modifier.</p>
    */
-  orderBy: SortOrder | string | undefined;
+  orderBy: keyof typeof SortOrder | string | undefined;
 }
 
 /**
@@ -341,10 +341,10 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum EncryptionType {
-  AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY",
-  CUSTOMER_MANAGED_KMS_KEY = "CUSTOMER_MANAGED_KMS_KEY",
-}
+export const EncryptionType = {
+  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
+  CUSTOMER_MANAGED_KMS_KEY: "CUSTOMER_MANAGED_KMS_KEY",
+};
 
 /**
  * @public
@@ -382,7 +382,7 @@ export interface EncryptionSpecification {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption at rest</a> in the <i>Amazon Keyspaces Developer
    *             Guide</i>.</p>
    */
-  type: EncryptionType | string | undefined;
+  type: keyof typeof EncryptionType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the customer managed KMS key, for example <code>kms_key_identifier:ARN</code>.</p>
@@ -393,10 +393,10 @@ export interface EncryptionSpecification {
 /**
  * @public
  */
-export enum PointInTimeRecoveryStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const PointInTimeRecoveryStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -420,7 +420,7 @@ export interface PointInTimeRecovery {
    *             </li>
    *          </ul>
    */
-  status: PointInTimeRecoveryStatus | string | undefined;
+  status: keyof typeof PointInTimeRecoveryStatus | string | undefined;
 }
 
 /**
@@ -476,9 +476,9 @@ export interface SchemaDefinition {
 /**
  * @public
  */
-export enum TimeToLiveStatus {
-  ENABLED = "ENABLED",
-}
+export const TimeToLiveStatus = {
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -490,7 +490,7 @@ export interface TimeToLive {
   /**
    * <p>Shows how to enable custom Time to Live (TTL) settings for the specified table.</p>
    */
-  status: TimeToLiveStatus | string | undefined;
+  status: keyof typeof TimeToLiveStatus | string | undefined;
 }
 
 /**
@@ -811,7 +811,7 @@ export interface PointInTimeRecoverySummary {
   /**
    * <p>Shows if point-in-time recovery is enabled or disabled for the specified table.</p>
    */
-  status: PointInTimeRecoveryStatus | string | undefined;
+  status: keyof typeof PointInTimeRecoveryStatus | string | undefined;
 
   /**
    * <p>Specifies the earliest possible restore point of the table in ISO 8601 format.</p>
@@ -822,15 +822,15 @@ export interface PointInTimeRecoverySummary {
 /**
  * @public
  */
-export enum TableStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  RESTORING = "RESTORING",
-  UPDATING = "UPDATING",
-}
+export const TableStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  RESTORING: "RESTORING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -859,7 +859,7 @@ export interface GetTableResponse {
   /**
    * <p>The current status of the specified table.</p>
    */
-  status?: TableStatus | string;
+  status?: keyof typeof TableStatus | string;
 
   /**
    * <p>The schema definition of the specified table.</p>

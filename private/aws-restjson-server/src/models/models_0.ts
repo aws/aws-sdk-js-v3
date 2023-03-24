@@ -55,13 +55,13 @@ export namespace GreetingStruct {
 /**
  * @public
  */
-export enum FooEnum {
-  BAR = "Bar",
-  BAZ = "Baz",
-  FOO = "Foo",
-  ONE = "1",
-  ZERO = "0",
-}
+export const FooEnum = {
+  BAR: "Bar",
+  BAZ: "Baz",
+  FOO: "Foo",
+  ONE: "1",
+  ZERO: "0",
+};
 
 export enum IntegerEnum {
   A = 1,
@@ -89,8 +89,8 @@ export interface AllQueryStringTypesInput {
   queryBooleanList?: boolean[];
   queryTimestamp?: Date;
   queryTimestampList?: Date[];
-  queryEnum?: FooEnum | string;
-  queryEnumList?: (FooEnum | string)[];
+  queryEnum?: keyof typeof FooEnum | string;
+  queryEnumList?: (keyof typeof FooEnum | string)[];
   queryIntegerEnum?: IntegerEnum | number;
   queryIntegerEnumList?: (IntegerEnum | number)[];
   queryParamsMapOfStringList?: Record<string, string[]>;
@@ -599,15 +599,15 @@ export namespace HostLabelInput {
 /**
  * @public
  */
-export enum StringEnum {
-  V = "enumvalue",
-}
+export const StringEnum = {
+  V: "enumvalue",
+};
 
 /**
  * @public
  */
 export interface EnumPayloadInput {
-  payload?: StringEnum | string;
+  payload?: keyof typeof StringEnum | string;
 }
 
 export namespace EnumPayloadInput {
@@ -1481,8 +1481,8 @@ export interface InputAndOutputWithHeadersIO {
   headerIntegerList?: number[];
   headerBooleanList?: boolean[];
   headerTimestampList?: Date[];
-  headerEnum?: FooEnum | string;
-  headerEnumList?: (FooEnum | string)[];
+  headerEnum?: keyof typeof FooEnum | string;
+  headerEnumList?: (keyof typeof FooEnum | string)[];
   headerIntegerEnum?: IntegerEnum | number;
   headerIntegerEnumList?: (IntegerEnum | number)[];
 }
@@ -1682,12 +1682,12 @@ export namespace JsonBlobsInputOutput {
  * @public
  */
 export interface JsonEnumsInputOutput {
-  fooEnum1?: FooEnum | string;
-  fooEnum2?: FooEnum | string;
-  fooEnum3?: FooEnum | string;
-  fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: Record<string, FooEnum | string>;
+  fooEnum1?: keyof typeof FooEnum | string;
+  fooEnum2?: keyof typeof FooEnum | string;
+  fooEnum3?: keyof typeof FooEnum | string;
+  fooEnumList?: (keyof typeof FooEnum | string)[];
+  fooEnumSet?: (keyof typeof FooEnum | string)[];
+  fooEnumMap?: Record<string, keyof typeof FooEnum | string>;
 }
 
 export namespace JsonEnumsInputOutput {
@@ -1697,7 +1697,7 @@ export namespace JsonEnumsInputOutput {
     fooEnum3?: __MultiConstraintValidator<string>;
     fooEnumList?: __MultiConstraintValidator<Iterable<string>>;
     fooEnumSet?: __MultiConstraintValidator<Iterable<string>>;
-    fooEnumMap?: __MultiConstraintValidator<Record<string, FooEnum | string>>;
+    fooEnumMap?: __MultiConstraintValidator<Record<string, keyof typeof FooEnum | string>>;
   } = {};
   /**
    * @internal
@@ -1737,7 +1737,7 @@ export namespace JsonEnumsInputOutput {
           }
           case "fooEnumSet": {
             memberValidators["fooEnumSet"] = new __CompositeCollectionValidator<string>(
-              new __CompositeValidator<(FooEnum | string)[]>([new __UniqueItemsValidator()]),
+              new __CompositeValidator<(keyof typeof FooEnum | string)[]>([new __UniqueItemsValidator()]),
               new __CompositeValidator<string>([
                 new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
               ])
@@ -1745,7 +1745,7 @@ export namespace JsonEnumsInputOutput {
             break;
           }
           case "fooEnumMap": {
-            memberValidators["fooEnumMap"] = new __CompositeMapValidator<FooEnum | string>(
+            memberValidators["fooEnumMap"] = new __CompositeMapValidator<keyof typeof FooEnum | string>(
               new __NoOpValidator(),
               new __NoOpValidator(),
               new __CompositeValidator<string>([
@@ -1905,7 +1905,7 @@ export interface JsonListsInputOutput {
   integerList?: number[];
   booleanList?: boolean[];
   timestampList?: Date[];
-  enumList?: (FooEnum | string)[];
+  enumList?: (keyof typeof FooEnum | string)[];
   intEnumList?: (IntegerEnum | number)[];
   /**
    * A list of lists of strings.
@@ -2379,7 +2379,7 @@ export namespace MyUnion {
     numberValue?: never;
     blobValue?: never;
     timestampValue?: never;
-    enumValue: FooEnum | string;
+    enumValue: keyof typeof FooEnum | string;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -2463,7 +2463,7 @@ export namespace MyUnion {
     numberValue: (value: number) => T;
     blobValue: (value: Uint8Array) => T;
     timestampValue: (value: Date) => T;
-    enumValue: (value: FooEnum | string) => T;
+    enumValue: (value: keyof typeof FooEnum | string) => T;
     listValue: (value: string[]) => T;
     mapValue: (value: Record<string, string>) => T;
     structureValue: (value: GreetingStruct) => T;
@@ -3990,7 +3990,7 @@ export interface OmitsSerializingEmptyListsInput {
   queryDoubleList?: number[];
   queryBooleanList?: boolean[];
   queryTimestampList?: Date[];
-  queryEnumList?: (FooEnum | string)[];
+  queryEnumList?: (keyof typeof FooEnum | string)[];
   queryIntegerEnumList?: (IntegerEnum | number)[];
 }
 

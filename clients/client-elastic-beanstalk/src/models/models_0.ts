@@ -45,30 +45,30 @@ export class InsufficientPrivilegesException extends __BaseException {
 /**
  * @public
  */
-export enum ActionHistoryStatus {
-  Completed = "Completed",
-  Failed = "Failed",
-  Unknown = "Unknown",
-}
+export const ActionHistoryStatus = {
+  Completed: "Completed",
+  Failed: "Failed",
+  Unknown: "Unknown",
+};
 
 /**
  * @public
  */
-export enum ActionStatus {
-  Pending = "Pending",
-  Running = "Running",
-  Scheduled = "Scheduled",
-  Unknown = "Unknown",
-}
+export const ActionStatus = {
+  Pending: "Pending",
+  Running: "Running",
+  Scheduled: "Scheduled",
+  Unknown: "Unknown",
+};
 
 /**
  * @public
  */
-export enum ActionType {
-  InstanceRefresh = "InstanceRefresh",
-  PlatformUpdate = "PlatformUpdate",
-  Unknown = "Unknown",
-}
+export const ActionType = {
+  InstanceRefresh: "InstanceRefresh",
+  PlatformUpdate: "PlatformUpdate",
+  Unknown: "Unknown",
+};
 
 /**
  * @public
@@ -372,18 +372,18 @@ export interface ApplicationResourceLifecycleDescriptionMessage {
 /**
  * @public
  */
-export enum SourceRepository {
-  CodeCommit = "CodeCommit",
-  S3 = "S3",
-}
+export const SourceRepository = {
+  CodeCommit: "CodeCommit",
+  S3: "S3",
+};
 
 /**
  * @public
  */
-export enum SourceType {
-  Git = "Git",
-  Zip = "Zip",
-}
+export const SourceType = {
+  Git: "Git",
+  Zip: "Zip",
+};
 
 /**
  * @public
@@ -405,7 +405,7 @@ export interface SourceBuildInformation {
    *             </li>
    *          </ul>
    */
-  SourceType: SourceType | string | undefined;
+  SourceType: keyof typeof SourceType | string | undefined;
 
   /**
    * <p>Location where the repository is stored.</p>
@@ -422,7 +422,7 @@ export interface SourceBuildInformation {
    *             </li>
    *          </ul>
    */
-  SourceRepository: SourceRepository | string | undefined;
+  SourceRepository: keyof typeof SourceRepository | string | undefined;
 
   /**
    * <p>The location of the source code, as a formatted string, depending on the value of <code>SourceRepository</code>
@@ -464,13 +464,13 @@ export interface S3Location {
 /**
  * @public
  */
-export enum ApplicationVersionStatus {
-  Building = "Building",
-  Failed = "Failed",
-  Processed = "Processed",
-  Processing = "Processing",
-  Unprocessed = "Unprocessed",
-}
+export const ApplicationVersionStatus = {
+  Building: "Building",
+  Failed: "Failed",
+  Processed: "Processed",
+  Processing: "Processing",
+  Unprocessed: "Unprocessed",
+};
 
 /**
  * @public
@@ -555,7 +555,7 @@ export interface ApplicationVersionDescription {
    *             </li>
    *          </ul>
    */
-  Status?: ApplicationVersionStatus | string;
+  Status?: keyof typeof ApplicationVersionStatus | string;
 }
 
 /**
@@ -627,7 +627,7 @@ export interface ApplyEnvironmentManagedActionResult {
   /**
    * <p>The type of managed action.</p>
    */
-  ActionType?: ActionType | string;
+  ActionType?: keyof typeof ActionType | string;
 
   /**
    * <p>The status of the managed action.</p>
@@ -806,27 +806,27 @@ export interface EnvironmentLink {
 /**
  * @public
  */
-export enum EnvironmentHealth {
-  Green = "Green",
-  Grey = "Grey",
-  Red = "Red",
-  Yellow = "Yellow",
-}
+export const EnvironmentHealth = {
+  Green: "Green",
+  Grey: "Grey",
+  Red: "Red",
+  Yellow: "Yellow",
+};
 
 /**
  * @public
  */
-export enum EnvironmentHealthStatus {
-  Degraded = "Degraded",
-  Info = "Info",
-  NoData = "NoData",
-  Ok = "Ok",
-  Pending = "Pending",
-  Severe = "Severe",
-  Suspended = "Suspended",
-  Unknown = "Unknown",
-  Warning = "Warning",
-}
+export const EnvironmentHealthStatus = {
+  Degraded: "Degraded",
+  Info: "Info",
+  NoData: "NoData",
+  Ok: "Ok",
+  Pending: "Pending",
+  Severe: "Severe",
+  Suspended: "Suspended",
+  Unknown: "Unknown",
+  Warning: "Warning",
+};
 
 /**
  * @public
@@ -880,16 +880,16 @@ export interface EnvironmentResourcesDescription {
 /**
  * @public
  */
-export enum EnvironmentStatus {
-  Aborting = "Aborting",
-  Launching = "Launching",
-  LinkingFrom = "LinkingFrom",
-  LinkingTo = "LinkingTo",
-  Ready = "Ready",
-  Terminated = "Terminated",
-  Terminating = "Terminating",
-  Updating = "Updating",
-}
+export const EnvironmentStatus = {
+  Aborting: "Aborting",
+  Launching: "Launching",
+  LinkingFrom: "LinkingFrom",
+  LinkingTo: "LinkingTo",
+  Ready: "Ready",
+  Terminated: "Terminated",
+  Terminating: "Terminating",
+  Updating: "Updating",
+};
 
 /**
  * @public
@@ -1033,7 +1033,7 @@ export interface EnvironmentDescription {
    *             </li>
    *          </ul>
    */
-  Status?: EnvironmentStatus | string;
+  Status?: keyof typeof EnvironmentStatus | string;
 
   /**
    * <p>Indicates if there is an in-progress environment configuration update or application
@@ -1073,14 +1073,14 @@ export interface EnvironmentDescription {
    *          <p> Default: <code>Grey</code>
    *          </p>
    */
-  Health?: EnvironmentHealth | string;
+  Health?: keyof typeof EnvironmentHealth | string;
 
   /**
    * <p>Returns the health status of the application running in your environment. For more
    *       information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">Health Colors and
    *         Statuses</a>.</p>
    */
-  HealthStatus?: EnvironmentHealthStatus | string;
+  HealthStatus?: keyof typeof EnvironmentHealthStatus | string;
 
   /**
    * <p>The description of the AWS resources used by this environment.</p>
@@ -1234,11 +1234,11 @@ export class CodeBuildNotInServiceRegionException extends __BaseException {
 /**
  * @public
  */
-export enum ComputeType {
-  BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE",
-  BUILD_GENERAL1_MEDIUM = "BUILD_GENERAL1_MEDIUM",
-  BUILD_GENERAL1_SMALL = "BUILD_GENERAL1_SMALL",
-}
+export const ComputeType = {
+  BUILD_GENERAL1_LARGE: "BUILD_GENERAL1_LARGE",
+  BUILD_GENERAL1_MEDIUM: "BUILD_GENERAL1_MEDIUM",
+  BUILD_GENERAL1_SMALL: "BUILD_GENERAL1_SMALL",
+};
 
 /**
  * @public
@@ -1280,7 +1280,7 @@ export interface BuildConfiguration {
    *             </li>
    *          </ul>
    */
-  ComputeType?: ComputeType | string;
+  ComputeType?: keyof typeof ComputeType | string;
 
   /**
    * <p>The ID of the Docker image to use for this build project.</p>
@@ -1428,11 +1428,11 @@ export class TooManyApplicationVersionsException extends __BaseException {
 /**
  * @public
  */
-export enum ConfigurationDeploymentStatus {
-  deployed = "deployed",
-  failed = "failed",
-  pending = "pending",
-}
+export const ConfigurationDeploymentStatus = {
+  deployed: "deployed",
+  failed: "failed",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -1526,7 +1526,7 @@ export interface ConfigurationSettingsDescription {
    *             </li>
    *          </ul>
    */
-  DeploymentStatus?: ConfigurationDeploymentStatus | string;
+  DeploymentStatus?: keyof typeof ConfigurationDeploymentStatus | string;
 
   /**
    * <p>The date (in UTC time) when this configuration set was created.</p>
@@ -1874,13 +1874,13 @@ export interface Builder {
 /**
  * @public
  */
-export enum PlatformStatus {
-  Creating = "Creating",
-  Deleted = "Deleted",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Ready = "Ready",
-}
+export const PlatformStatus = {
+  Creating: "Creating",
+  Deleted: "Deleted",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Ready: "Ready",
+};
 
 /**
  * @public
@@ -1901,7 +1901,7 @@ export interface PlatformSummary {
    * <p>The status of the platform version. You can create an environment from the platform
    *       version once it is ready.</p>
    */
-  PlatformStatus?: PlatformStatus | string;
+  PlatformStatus?: keyof typeof PlatformStatus | string;
 
   /**
    * <p>The category of platform version.</p>
@@ -2295,10 +2295,10 @@ export interface OptionRestrictionRegex {
 /**
  * @public
  */
-export enum ConfigurationOptionValueType {
-  List = "List",
-  Scalar = "Scalar",
-}
+export const ConfigurationOptionValueType = {
+  List: "List",
+  Scalar: "Scalar",
+};
 
 /**
  * @public
@@ -2392,7 +2392,7 @@ export interface ConfigurationOptionDescription {
    *             </li>
    *          </ul>
    */
-  ValueType?: ConfigurationOptionValueType | string;
+  ValueType?: keyof typeof ConfigurationOptionValueType | string;
 
   /**
    * <p>If specified, values for the configuration option are selected from this
@@ -2531,16 +2531,16 @@ export interface DescribeConfigurationSettingsMessage {
 /**
  * @public
  */
-export enum EnvironmentHealthAttribute {
-  All = "All",
-  ApplicationMetrics = "ApplicationMetrics",
-  Causes = "Causes",
-  Color = "Color",
-  HealthStatus = "HealthStatus",
-  InstancesHealth = "InstancesHealth",
-  RefreshedAt = "RefreshedAt",
-  Status = "Status",
-}
+export const EnvironmentHealthAttribute = {
+  All: "All",
+  ApplicationMetrics: "ApplicationMetrics",
+  Causes: "Causes",
+  Color: "Color",
+  HealthStatus: "HealthStatus",
+  InstancesHealth: "InstancesHealth",
+  RefreshedAt: "RefreshedAt",
+  Status: "Status",
+};
 
 /**
  * @public
@@ -2564,7 +2564,7 @@ export interface DescribeEnvironmentHealthRequest {
    *         <code>All</code>. If no attribute names are specified, returns the name of the
    *       environment.</p>
    */
-  AttributeNames?: (EnvironmentHealthAttribute | string)[];
+  AttributeNames?: (keyof typeof EnvironmentHealthAttribute | string)[];
 }
 
 /**
@@ -2649,7 +2649,7 @@ export interface DescribeEnvironmentHealthResult {
    * <p>The environment's operational status. <code>Ready</code>, <code>Launching</code>,
    *         <code>Updating</code>, <code>Terminating</code>, or <code>Terminated</code>.</p>
    */
-  Status?: EnvironmentHealth | string;
+  Status?: keyof typeof EnvironmentHealth | string;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">health color</a> of the
@@ -2729,15 +2729,15 @@ export interface DescribeEnvironmentManagedActionHistoryRequest {
 /**
  * @public
  */
-export enum FailureType {
-  CancellationFailed = "CancellationFailed",
-  InternalFailure = "InternalFailure",
-  InvalidEnvironmentState = "InvalidEnvironmentState",
-  PermissionsError = "PermissionsError",
-  RollbackFailed = "RollbackFailed",
-  RollbackSuccessful = "RollbackSuccessful",
-  UpdateCancelled = "UpdateCancelled",
-}
+export const FailureType = {
+  CancellationFailed: "CancellationFailed",
+  InternalFailure: "InternalFailure",
+  InvalidEnvironmentState: "InvalidEnvironmentState",
+  PermissionsError: "PermissionsError",
+  RollbackFailed: "RollbackFailed",
+  RollbackSuccessful: "RollbackSuccessful",
+  UpdateCancelled: "UpdateCancelled",
+};
 
 /**
  * @public
@@ -2752,7 +2752,7 @@ export interface ManagedActionHistoryItem {
   /**
    * <p>The type of the managed action.</p>
    */
-  ActionType?: ActionType | string;
+  ActionType?: keyof typeof ActionType | string;
 
   /**
    * <p>A description of the managed action.</p>
@@ -2762,12 +2762,12 @@ export interface ManagedActionHistoryItem {
   /**
    * <p>If the action failed, the type of failure.</p>
    */
-  FailureType?: FailureType | string;
+  FailureType?: keyof typeof FailureType | string;
 
   /**
    * <p>The status of the action.</p>
    */
-  Status?: ActionHistoryStatus | string;
+  Status?: keyof typeof ActionHistoryStatus | string;
 
   /**
    * <p>If the action failed, a description of the failure.</p>
@@ -2820,7 +2820,7 @@ export interface DescribeEnvironmentManagedActionsRequest {
   /**
    * <p>To show only actions with a particular status, specify a status.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: keyof typeof ActionStatus | string;
 }
 
 /**
@@ -2841,13 +2841,13 @@ export interface ManagedAction {
   /**
    * <p>The type of managed action.</p>
    */
-  ActionType?: ActionType | string;
+  ActionType?: keyof typeof ActionType | string;
 
   /**
    * <p>The status of the managed action. If the action is <code>Scheduled</code>, you can
    *       apply it immediately with <a>ApplyEnvironmentManagedAction</a>.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: keyof typeof ActionStatus | string;
 
   /**
    * <p>The start time of the maintenance window in which the managed action will
@@ -3081,14 +3081,14 @@ export interface DescribeEnvironmentsMessage {
 /**
  * @public
  */
-export enum EventSeverity {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  FATAL = "FATAL",
-  INFO = "INFO",
-  TRACE = "TRACE",
-  WARN = "WARN",
-}
+export const EventSeverity = {
+  DEBUG: "DEBUG",
+  ERROR: "ERROR",
+  FATAL: "FATAL",
+  INFO: "INFO",
+  TRACE: "TRACE",
+  WARN: "WARN",
+};
 
 /**
  * @public
@@ -3141,7 +3141,7 @@ export interface DescribeEventsMessage {
    * <p>If specified, limits the events returned from this call to include only those with the
    *       specified severity or higher.</p>
    */
-  Severity?: EventSeverity | string;
+  Severity?: keyof typeof EventSeverity | string;
 
   /**
    * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that
@@ -3215,7 +3215,7 @@ export interface EventDescription {
   /**
    * <p>The severity level of this event.</p>
    */
-  Severity?: EventSeverity | string;
+  Severity?: keyof typeof EventSeverity | string;
 }
 
 /**
@@ -3238,19 +3238,19 @@ export interface EventDescriptionsMessage {
 /**
  * @public
  */
-export enum InstancesHealthAttribute {
-  All = "All",
-  ApplicationMetrics = "ApplicationMetrics",
-  AvailabilityZone = "AvailabilityZone",
-  Causes = "Causes",
-  Color = "Color",
-  Deployment = "Deployment",
-  HealthStatus = "HealthStatus",
-  InstanceType = "InstanceType",
-  LaunchedAt = "LaunchedAt",
-  RefreshedAt = "RefreshedAt",
-  System = "System",
-}
+export const InstancesHealthAttribute = {
+  All: "All",
+  ApplicationMetrics: "ApplicationMetrics",
+  AvailabilityZone: "AvailabilityZone",
+  Causes: "Causes",
+  Color: "Color",
+  Deployment: "Deployment",
+  HealthStatus: "HealthStatus",
+  InstanceType: "InstanceType",
+  LaunchedAt: "LaunchedAt",
+  RefreshedAt: "RefreshedAt",
+  System: "System",
+};
 
 /**
  * @public
@@ -3272,7 +3272,7 @@ export interface DescribeInstancesHealthRequest {
    *         <code>All</code>. If no attribute names are specified, returns a list of
    *       instances.</p>
    */
-  AttributeNames?: (InstancesHealthAttribute | string)[];
+  AttributeNames?: (keyof typeof InstancesHealthAttribute | string)[];
 
   /**
    * <p>Specify the pagination token returned by a previous call.</p>
@@ -3576,7 +3576,7 @@ export interface PlatformDescription {
   /**
    * <p>The status of the platform version.</p>
    */
-  PlatformStatus?: PlatformStatus | string;
+  PlatformStatus?: keyof typeof PlatformStatus | string;
 
   /**
    * <p>The date when the platform version was created.</p>
@@ -4077,10 +4077,10 @@ export interface RebuildEnvironmentMessage {
 /**
  * @public
  */
-export enum EnvironmentInfoType {
-  bundle = "bundle",
-  tail = "tail",
-}
+export const EnvironmentInfoType = {
+  bundle: "bundle",
+  tail: "tail",
+};
 
 /**
  * @public
@@ -4111,7 +4111,7 @@ export interface RequestEnvironmentInfoMessage {
   /**
    * <p>The type of information to request.</p>
    */
-  InfoType: EnvironmentInfoType | string | undefined;
+  InfoType: keyof typeof EnvironmentInfoType | string | undefined;
 }
 
 /**
@@ -4163,7 +4163,7 @@ export interface RetrieveEnvironmentInfoMessage {
   /**
    * <p>The type of information to retrieve.</p>
    */
-  InfoType: EnvironmentInfoType | string | undefined;
+  InfoType: keyof typeof EnvironmentInfoType | string | undefined;
 }
 
 /**
@@ -4174,7 +4174,7 @@ export interface EnvironmentInfoDescription {
   /**
    * <p>The type of information retrieved.</p>
    */
-  InfoType?: EnvironmentInfoType | string;
+  InfoType?: keyof typeof EnvironmentInfoType | string;
 
   /**
    * <p>The Amazon EC2 Instance ID for this information.</p>
@@ -4540,10 +4540,10 @@ export interface UpdateTagsForResourceMessage {
 /**
  * @public
  */
-export enum ValidationSeverity {
-  error = "error",
-  warning = "warning",
-}
+export const ValidationSeverity = {
+  error: "error",
+  warning: "warning",
+};
 
 /**
  * @public
@@ -4570,7 +4570,7 @@ export interface ValidationMessage {
    *             </li>
    *          </ul>
    */
-  Severity?: ValidationSeverity | string;
+  Severity?: keyof typeof ValidationSeverity | string;
 
   /**
    * <p>The namespace to which the option belongs.</p>

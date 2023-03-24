@@ -4527,7 +4527,7 @@ const serializeAws_json1_1AccessEndpointList = (input: AccessEndpoint[], context
 };
 
 const serializeAws_json1_1ApplicationAttributes = (
-  input: (ApplicationAttribute | string)[],
+  input: (keyof typeof ApplicationAttribute | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -5203,7 +5203,10 @@ const serializeAws_json1_1ExpireSessionRequest = (input: ExpireSessionRequest, c
   };
 };
 
-const serializeAws_json1_1FleetAttributes = (input: (FleetAttribute | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1FleetAttributes = (
+  input: (keyof typeof FleetAttribute | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5270,7 +5273,7 @@ const serializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
     });
 };
 
-const serializeAws_json1_1Platforms = (input: (PlatformType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1Platforms = (input: (keyof typeof PlatformType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5314,7 +5317,10 @@ const serializeAws_json1_1ServiceAccountCredentials = (
   };
 };
 
-const serializeAws_json1_1StackAttributes = (input: (StackAttribute | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1StackAttributes = (
+  input: (keyof typeof StackAttribute | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6679,7 +6685,10 @@ const deserializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
   return retVal;
 };
 
-const deserializeAws_json1_1Platforms = (output: any, context: __SerdeContext): (PlatformType | string)[] => {
+const deserializeAws_json1_1Platforms = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof PlatformType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

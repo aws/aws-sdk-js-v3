@@ -41,10 +41,10 @@ export interface RecurringCharge {
 /**
  * @public
  */
-export enum ReservedNodeOfferingType {
-  Regular = "Regular",
-  Upgradable = "Upgradable",
-}
+export const ReservedNodeOfferingType = {
+  Regular: "Regular",
+  Upgradable: "Upgradable",
+};
 
 /**
  * @public
@@ -138,7 +138,7 @@ export interface ReservedNode {
   /**
    * <p></p>
    */
-  ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
+  ReservedNodeOfferingType?: keyof typeof ReservedNodeOfferingType | string;
 }
 
 /**
@@ -391,11 +391,11 @@ export interface AccountWithRestoreAccess {
 /**
  * @public
  */
-export enum ActionType {
-  RECOMMEND_NODE_CONFIG = "recommend-node-config",
-  RESIZE_CLUSTER = "resize-cluster",
-  RESTORE_CLUSTER = "restore-cluster",
-}
+export const ActionType = {
+  RECOMMEND_NODE_CONFIG: "recommend-node-config",
+  RESIZE_CLUSTER: "resize-cluster",
+  RESTORE_CLUSTER: "restore-cluster",
+};
 
 /**
  * @public
@@ -501,20 +501,20 @@ export class UnauthorizedPartnerIntegrationFault extends __BaseException {
 /**
  * @public
  */
-export enum AquaConfigurationStatus {
-  AUTO = "auto",
-  DISABLED = "disabled",
-  ENABLED = "enabled",
-}
+export const AquaConfigurationStatus = {
+  AUTO: "auto",
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+};
 
 /**
  * @public
  */
-export enum AquaStatus {
-  APPLYING = "applying",
-  DISABLED = "disabled",
-  ENABLED = "enabled",
-}
+export const AquaStatus = {
+  APPLYING: "applying",
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+};
 
 /**
  * @public
@@ -524,12 +524,12 @@ export interface AquaConfiguration {
   /**
    * <p>This field is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
-  AquaStatus?: AquaStatus | string;
+  AquaStatus?: keyof typeof AquaStatus | string;
 
   /**
    * <p>This field is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
-  AquaConfigurationStatus?: AquaConfigurationStatus | string;
+  AquaConfigurationStatus?: keyof typeof AquaConfigurationStatus | string;
 }
 
 /**
@@ -561,14 +561,14 @@ export interface AssociateDataShareConsumerMessage {
 /**
  * @public
  */
-export enum DataShareStatus {
-  ACTIVE = "ACTIVE",
-  AUTHORIZED = "AUTHORIZED",
-  AVAILABLE = "AVAILABLE",
-  DEAUTHORIZED = "DEAUTHORIZED",
-  PENDING_AUTHORIZATION = "PENDING_AUTHORIZATION",
-  REJECTED = "REJECTED",
-}
+export const DataShareStatus = {
+  ACTIVE: "ACTIVE",
+  AUTHORIZED: "AUTHORIZED",
+  AVAILABLE: "AVAILABLE",
+  DEAUTHORIZED: "DEAUTHORIZED",
+  PENDING_AUTHORIZATION: "PENDING_AUTHORIZATION",
+  REJECTED: "REJECTED",
+};
 
 /**
  * @public
@@ -585,7 +585,7 @@ export interface DataShareAssociation {
   /**
    * <p>The status of the datashare that is associated.</p>
    */
-  Status?: DataShareStatus | string;
+  Status?: keyof typeof DataShareStatus | string;
 
   /**
    * <p>The Amazon Web Services Region of the consumer accounts that have an association with a producer datashare.</p>
@@ -677,11 +677,11 @@ export class InvalidNamespaceFault extends __BaseException {
 /**
  * @public
  */
-export enum ScheduleState {
-  ACTIVE = "ACTIVE",
-  FAILED = "FAILED",
-  MODIFYING = "MODIFYING",
-}
+export const ScheduleState = {
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  MODIFYING: "MODIFYING",
+};
 
 /**
  * @public
@@ -696,7 +696,7 @@ export interface ClusterAssociatedToSchedule {
   /**
    * <p></p>
    */
-  ScheduleAssociationState?: ScheduleState | string;
+  ScheduleAssociationState?: keyof typeof ScheduleState | string;
 }
 
 /**
@@ -842,10 +842,10 @@ export class AuthorizationQuotaExceededFault extends __BaseException {
 /**
  * @public
  */
-export enum AuthorizationStatus {
-  AUTHORIZED = "Authorized",
-  REVOKING = "Revoking",
-}
+export const AuthorizationStatus = {
+  AUTHORIZED: "Authorized",
+  REVOKING: "Revoking",
+};
 
 /**
  * @public
@@ -1095,7 +1095,7 @@ export interface EndpointAuthorization {
   /**
    * <p>The status of the authorization action.</p>
    */
-  Status?: AuthorizationStatus | string;
+  Status?: keyof typeof AuthorizationStatus | string;
 
   /**
    * <p>Indicates whether all VPCs in the grantee account are allowed access to the cluster.</p>
@@ -2330,14 +2330,14 @@ export interface PendingModifiedValues {
 /**
  * @public
  */
-export enum ReservedNodeExchangeStatusType {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  REQUESTED = "REQUESTED",
-  RETRYING = "RETRYING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ReservedNodeExchangeStatusType = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  REQUESTED: "REQUESTED",
+  RETRYING: "RETRYING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2354,7 +2354,7 @@ export interface ReservedNodeExchangeStatus {
   /**
    * <p>The status of the reserved-node exchange request. Statuses include in-progress and requested.</p>
    */
-  Status?: ReservedNodeExchangeStatusType | string;
+  Status?: keyof typeof ReservedNodeExchangeStatusType | string;
 
   /**
    * <p>A date and time that indicate when the reserved-node exchange was requested.</p>
@@ -2837,7 +2837,7 @@ export interface Cluster {
   /**
    * <p>The current state of the cluster snapshot schedule.</p>
    */
-  SnapshotScheduleState?: ScheduleState | string;
+  SnapshotScheduleState?: keyof typeof ScheduleState | string;
 
   /**
    * <p>The date and time when the next snapshot is expected to be taken for clusters with a valid snapshot schedule and backups enabled. </p>
@@ -3118,10 +3118,10 @@ export class ClusterParameterGroupAlreadyExistsFault extends __BaseException {
 /**
  * @public
  */
-export enum ParameterApplyType {
-  dynamic = "dynamic",
-  static = "static",
-}
+export const ParameterApplyType = {
+  dynamic: "dynamic",
+  static: "static",
+};
 
 /**
  * @public
@@ -3167,7 +3167,7 @@ export interface Parameter {
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    */
-  ApplyType?: ParameterApplyType | string;
+  ApplyType?: keyof typeof ParameterApplyType | string;
 
   /**
    * <p>If <code>true</code>, the parameter can be modified. Some parameters have security
@@ -4160,7 +4160,7 @@ export interface CreateClusterMessage {
   /**
    * <p>This parameter is retired. It does not set the AQUA configuration status. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
-  AquaConfigurationStatus?: AquaConfigurationStatus | string;
+  AquaConfigurationStatus?: keyof typeof AquaConfigurationStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created. </p>
@@ -5611,10 +5611,10 @@ export class InvalidScheduleFault extends __BaseException {
 /**
  * @public
  */
-export enum ScheduledActionState {
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-}
+export const ScheduledActionState = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+};
 
 /**
  * @public
@@ -5664,7 +5664,7 @@ export interface ScheduledAction {
   /**
    * <p>The state of the scheduled action. For example, <code>DISABLED</code>. </p>
    */
-  State?: ScheduledActionState | string;
+  State?: keyof typeof ScheduledActionState | string;
 
   /**
    * <p>List of times when the scheduled action will run. </p>
@@ -6055,37 +6055,37 @@ export class ResourceNotFoundFault extends __BaseException {
 /**
  * @public
  */
-export enum UsageLimitBreachAction {
-  DISABLE = "disable",
-  EMIT_METRIC = "emit-metric",
-  LOG = "log",
-}
+export const UsageLimitBreachAction = {
+  DISABLE: "disable",
+  EMIT_METRIC: "emit-metric",
+  LOG: "log",
+};
 
 /**
  * @public
  */
-export enum UsageLimitFeatureType {
-  CONCURRENCY_SCALING = "concurrency-scaling",
-  CROSS_REGION_DATASHARING = "cross-region-datasharing",
-  SPECTRUM = "spectrum",
-}
+export const UsageLimitFeatureType = {
+  CONCURRENCY_SCALING: "concurrency-scaling",
+  CROSS_REGION_DATASHARING: "cross-region-datasharing",
+  SPECTRUM: "spectrum",
+};
 
 /**
  * @public
  */
-export enum UsageLimitLimitType {
-  DATA_SCANNED = "data-scanned",
-  TIME = "time",
-}
+export const UsageLimitLimitType = {
+  DATA_SCANNED: "data-scanned",
+  TIME: "time",
+};
 
 /**
  * @public
  */
-export enum UsageLimitPeriod {
-  DAILY = "daily",
-  MONTHLY = "monthly",
-  WEEKLY = "weekly",
-}
+export const UsageLimitPeriod = {
+  DAILY: "daily",
+  MONTHLY: "monthly",
+  WEEKLY: "weekly",
+};
 
 /**
  * @public
@@ -6099,7 +6099,7 @@ export interface CreateUsageLimitMessage {
   /**
    * <p>The Amazon Redshift feature that you want to limit.</p>
    */
-  FeatureType: UsageLimitFeatureType | string | undefined;
+  FeatureType: keyof typeof UsageLimitFeatureType | string | undefined;
 
   /**
    * <p>The type of limit. Depending on the feature type, this can be based on a time duration or data size.
@@ -6108,7 +6108,7 @@ export interface CreateUsageLimitMessage {
    *             If <code>FeatureType</code> is <code>cross-region-datasharing</code>, then <code>LimitType</code> must be <code>data-scanned</code>.
    *            </p>
    */
-  LimitType: UsageLimitLimitType | string | undefined;
+  LimitType: keyof typeof UsageLimitLimitType | string | undefined;
 
   /**
    * <p>The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB).
@@ -6121,13 +6121,13 @@ export interface CreateUsageLimitMessage {
    * <p>The time period that the amount applies to. A <code>weekly</code> period begins on Sunday. The default is <code>monthly</code>.
    *             </p>
    */
-  Period?: UsageLimitPeriod | string;
+  Period?: keyof typeof UsageLimitPeriod | string;
 
   /**
    * <p>The action that Amazon Redshift takes when the limit is reached. The default is log.
    *             For more information about this parameter, see <a>UsageLimit</a>.</p>
    */
-  BreachAction?: UsageLimitBreachAction | string;
+  BreachAction?: keyof typeof UsageLimitBreachAction | string;
 
   /**
    * <p>A list of tag instances.</p>
@@ -6173,12 +6173,12 @@ export interface UsageLimit {
   /**
    * <p>The Amazon Redshift feature to which the limit applies.</p>
    */
-  FeatureType?: UsageLimitFeatureType | string;
+  FeatureType?: keyof typeof UsageLimitFeatureType | string;
 
   /**
    * <p>The type of limit. Depending on the feature type, this can be based on a time duration or data size.</p>
    */
-  LimitType?: UsageLimitLimitType | string;
+  LimitType?: keyof typeof UsageLimitLimitType | string;
 
   /**
    * <p>The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB).</p>
@@ -6188,7 +6188,7 @@ export interface UsageLimit {
   /**
    * <p>The time period that the amount applies to. A <code>weekly</code> period begins on Sunday. The default is <code>monthly</code>. </p>
    */
-  Period?: UsageLimitPeriod | string;
+  Period?: keyof typeof UsageLimitPeriod | string;
 
   /**
    * <p>The action that Amazon Redshift takes when the limit is reached. Possible values are: </p>
@@ -6207,7 +6207,7 @@ export interface UsageLimit {
    *             </li>
    *          </ul>
    */
-  BreachAction?: UsageLimitBreachAction | string;
+  BreachAction?: keyof typeof UsageLimitBreachAction | string;
 
   /**
    * <p>A list of tag instances.</p>
@@ -6253,21 +6253,21 @@ export interface CustomerStorageMessage {
 /**
  * @public
  */
-export enum DataShareStatusForConsumer {
-  ACTIVE = "ACTIVE",
-  AVAILABLE = "AVAILABLE",
-}
+export const DataShareStatusForConsumer = {
+  ACTIVE: "ACTIVE",
+  AVAILABLE: "AVAILABLE",
+};
 
 /**
  * @public
  */
-export enum DataShareStatusForProducer {
-  ACTIVE = "ACTIVE",
-  AUTHORIZED = "AUTHORIZED",
-  DEAUTHORIZED = "DEAUTHORIZED",
-  PENDING_AUTHORIZATION = "PENDING_AUTHORIZATION",
-  REJECTED = "REJECTED",
-}
+export const DataShareStatusForProducer = {
+  ACTIVE: "ACTIVE",
+  AUTHORIZED: "AUTHORIZED",
+  DEAUTHORIZED: "DEAUTHORIZED",
+  PENDING_AUTHORIZATION: "PENDING_AUTHORIZATION",
+  REJECTED: "REJECTED",
+};
 
 /**
  * @public
@@ -7104,19 +7104,19 @@ export interface DescribeClusterSecurityGroupsMessage {
 /**
  * @public
  */
-export enum SnapshotAttributeToSortBy {
-  CREATE_TIME = "CREATE_TIME",
-  SOURCE_TYPE = "SOURCE_TYPE",
-  TOTAL_SIZE = "TOTAL_SIZE",
-}
+export const SnapshotAttributeToSortBy = {
+  CREATE_TIME: "CREATE_TIME",
+  SOURCE_TYPE: "SOURCE_TYPE",
+  TOTAL_SIZE: "TOTAL_SIZE",
+};
 
 /**
  * @public
  */
-export enum SortByOrder {
-  ASCENDING = "ASC",
-  DESCENDING = "DESC",
-}
+export const SortByOrder = {
+  ASCENDING: "ASC",
+  DESCENDING: "DESC",
+};
 
 /**
  * @public
@@ -7126,12 +7126,12 @@ export interface SnapshotSortingEntity {
   /**
    * <p>The category for sorting the snapshots.</p>
    */
-  Attribute: SnapshotAttributeToSortBy | string | undefined;
+  Attribute: keyof typeof SnapshotAttributeToSortBy | string | undefined;
 
   /**
    * <p>The order for listing the attributes.</p>
    */
-  SortOrder?: SortByOrder | string;
+  SortOrder?: keyof typeof SortByOrder | string;
 }
 
 /**
@@ -7545,7 +7545,7 @@ export interface DescribeDataSharesForConsumerMessage {
    * <p>An identifier giving the status of a datashare in the consumer cluster. If this field is specified, Amazon
    *             Redshift returns the list of datashares that have the specified status.</p>
    */
-  Status?: DataShareStatusForConsumer | string;
+  Status?: keyof typeof DataShareStatusForConsumer | string;
 
   /**
    * <p>The maximum number of response records to return in each call. If the number of
@@ -7599,7 +7599,7 @@ export interface DescribeDataSharesForProducerMessage {
    * <p>An identifier giving the status of a datashare in the producer. If this field is specified, Amazon
    *             Redshift returns the list of datashares that have the specified status.</p>
    */
-  Status?: DataShareStatusForProducer | string;
+  Status?: keyof typeof DataShareStatusForProducer | string;
 
   /**
    * <p>The maximum number of response records to return in each call. If the number of
@@ -7867,13 +7867,13 @@ export interface EventCategoriesMessage {
 /**
  * @public
  */
-export enum SourceType {
-  cluster = "cluster",
-  cluster_parameter_group = "cluster-parameter-group",
-  cluster_security_group = "cluster-security-group",
-  cluster_snapshot = "cluster-snapshot",
-  scheduled_action = "scheduled-action",
-}
+export const SourceType = {
+  cluster: "cluster",
+  cluster_parameter_group: "cluster-parameter-group",
+  cluster_security_group: "cluster-security-group",
+  cluster_snapshot: "cluster-snapshot",
+  scheduled_action: "scheduled-action",
+};
 
 /**
  * @public
@@ -7935,7 +7935,7 @@ export interface DescribeEventsMessage {
    *             </li>
    *          </ul>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 
   /**
    * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601
@@ -7999,7 +7999,7 @@ export interface Event {
   /**
    * <p>The source type for this event.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 
   /**
    * <p>The text of this event.</p>

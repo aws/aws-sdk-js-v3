@@ -41,9 +41,9 @@ export interface UpdateFleetPortSettingsOutput {
 /**
  * @public
  */
-export enum GameServerHealthCheck {
-  HEALTHY = "HEALTHY",
-}
+export const GameServerHealthCheck = {
+  HEALTHY: "HEALTHY",
+};
 
 /**
  * @public
@@ -69,13 +69,13 @@ export interface UpdateGameServerInput {
    * <p>Indicates whether the game server is available or is currently hosting
    *             gameplay.</p>
    */
-  UtilizationStatus?: GameServerUtilizationStatus | string;
+  UtilizationStatus?: keyof typeof GameServerUtilizationStatus | string;
 
   /**
    * <p>Indicates health status of the game server. A request that includes this parameter
    *             updates the game server's <i>LastHealthCheckTime</i> timestamp. </p>
    */
-  HealthCheck?: GameServerHealthCheck | string;
+  HealthCheck?: keyof typeof GameServerHealthCheck | string;
 }
 
 /**
@@ -124,7 +124,7 @@ export interface UpdateGameServerGroupInput {
    *             in the event of a forced game server group deletion (see ). An exception to this is with Spot
    *             Instances, which can be terminated by Amazon Web Services regardless of protection status. This property is set to <code>NO_PROTECTION</code> by default.</p>
    */
-  GameServerProtectionPolicy?: GameServerProtectionPolicy | string;
+  GameServerProtectionPolicy?: keyof typeof GameServerProtectionPolicy | string;
 
   /**
    * <p>Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the
@@ -154,7 +154,7 @@ export interface UpdateGameServerGroupInput {
    *             </li>
    *          </ul>
    */
-  BalancingStrategy?: BalancingStrategy | string;
+  BalancingStrategy?: keyof typeof BalancingStrategy | string;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface UpdateGameSessionInput {
   /**
    * <p>A policy that determines whether the game session is accepting new players.</p>
    */
-  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy | string;
+  PlayerSessionCreationPolicy?: keyof typeof PlayerSessionCreationPolicy | string;
 
   /**
    * <p>Game session protection policy to apply to this game session only.</p>
@@ -208,7 +208,7 @@ export interface UpdateGameSessionInput {
    *             </li>
    *          </ul>
    */
-  ProtectionPolicy?: ProtectionPolicy | string;
+  ProtectionPolicy?: keyof typeof ProtectionPolicy | string;
 }
 
 /**
@@ -379,7 +379,7 @@ export interface UpdateMatchmakingConfigurationInput {
    *                 with FlexMatch</a>. Automatic backfill is not available when
    *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
-  BackfillMode?: BackfillMode | string;
+  BackfillMode?: keyof typeof BackfillMode | string;
 
   /**
    * <p>Indicates whether this matchmaking configuration is being used with GameLift hosting or
@@ -397,7 +397,7 @@ export interface UpdateMatchmakingConfigurationInput {
    *             </li>
    *          </ul>
    */
-  FlexMatchMode?: FlexMatchMode | string;
+  FlexMatchMode?: keyof typeof FlexMatchMode | string;
 }
 
 /**

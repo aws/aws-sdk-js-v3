@@ -234,19 +234,19 @@ export interface GetControlOperationInput {
 /**
  * @public
  */
-export enum ControlOperationType {
-  DISABLE_CONTROL = "DISABLE_CONTROL",
-  ENABLE_CONTROL = "ENABLE_CONTROL",
-}
+export const ControlOperationType = {
+  DISABLE_CONTROL: "DISABLE_CONTROL",
+  ENABLE_CONTROL: "ENABLE_CONTROL",
+};
 
 /**
  * @public
  */
-export enum ControlOperationStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ControlOperationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -256,7 +256,7 @@ export interface ControlOperation {
   /**
    * <p>One of <code>ENABLE_CONTROL</code> or <code>DISABLE_CONTROL</code>.</p>
    */
-  operationType?: ControlOperationType | string;
+  operationType?: keyof typeof ControlOperationType | string;
 
   /**
    * <p>The time that the operation began.</p>
@@ -271,7 +271,7 @@ export interface ControlOperation {
   /**
    * <p>One of <code>IN_PROGRESS</code>, <code>SUCEEDED</code>, or <code>FAILED</code>.</p>
    */
-  status?: ControlOperationStatus | string;
+  status?: keyof typeof ControlOperationStatus | string;
 
   /**
    * <p>If the operation result is <code>FAILED</code>, this string contains a message explaining why the operation failed.</p>

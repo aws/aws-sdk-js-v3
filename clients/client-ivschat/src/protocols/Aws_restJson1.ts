@@ -1736,7 +1736,7 @@ const serializeAws_restJson1ChatTokenAttributes = (input: Record<string, string>
 };
 
 const serializeAws_restJson1ChatTokenCapabilities = (
-  input: (ChatTokenCapability | string)[],
+  input: (keyof typeof ChatTokenCapability | string)[],
   context: __SerdeContext
 ): any => {
   return input

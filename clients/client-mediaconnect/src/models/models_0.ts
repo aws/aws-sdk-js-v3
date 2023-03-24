@@ -6,48 +6,48 @@ import { MediaConnectServiceException as __BaseException } from "./MediaConnectS
 /**
  * @public
  */
-export enum Colorimetry {
-  BT2020 = "BT2020",
-  BT2100 = "BT2100",
-  BT601 = "BT601",
-  BT709 = "BT709",
-  ST2065_1 = "ST2065-1",
-  ST2065_3 = "ST2065-3",
-  XYZ = "XYZ",
-}
+export const Colorimetry = {
+  BT2020: "BT2020",
+  BT2100: "BT2100",
+  BT601: "BT601",
+  BT709: "BT709",
+  ST2065_1: "ST2065-1",
+  ST2065_3: "ST2065-3",
+  XYZ: "XYZ",
+};
 
 /**
  * @public
  */
-export enum Range {
-  FULL = "FULL",
-  FULLPROTECT = "FULLPROTECT",
-  NARROW = "NARROW",
-}
+export const Range = {
+  FULL: "FULL",
+  FULLPROTECT: "FULLPROTECT",
+  NARROW: "NARROW",
+};
 
 /**
  * @public
  */
-export enum ScanMode {
-  interlace = "interlace",
-  progressive = "progressive",
-  progressive_segmented_frame = "progressive-segmented-frame",
-}
+export const ScanMode = {
+  interlace: "interlace",
+  progressive: "progressive",
+  progressive_segmented_frame: "progressive-segmented-frame",
+};
 
 /**
  * @public
  */
-export enum Tcs {
-  BT2100LINHLG = "BT2100LINHLG",
-  BT2100LINPQ = "BT2100LINPQ",
-  DENSITY = "DENSITY",
-  HLG = "HLG",
-  LINEAR = "LINEAR",
-  PQ = "PQ",
-  SDR = "SDR",
-  ST2065_1 = "ST2065-1",
-  ST428_1 = "ST428-1",
-}
+export const Tcs = {
+  BT2100LINHLG: "BT2100LINHLG",
+  BT2100LINPQ: "BT2100LINPQ",
+  DENSITY: "DENSITY",
+  HLG: "HLG",
+  LINEAR: "LINEAR",
+  PQ: "PQ",
+  SDR: "SDR",
+  ST2065_1: "ST2065-1",
+  ST428_1: "ST428-1",
+};
 
 /**
  * @public
@@ -62,7 +62,7 @@ export interface FmtpRequest {
   /**
    * The format that is used for the representation of color.
    */
-  Colorimetry?: Colorimetry | string;
+  Colorimetry?: keyof typeof Colorimetry | string;
 
   /**
    * The frame rate for the video stream, in frames/second. For example: 60000/1001. If you specify a whole number, MediaConnect uses a ratio of N/1. For example, if you specify 60, MediaConnect uses 60/1 as the exactFramerate.
@@ -77,17 +77,17 @@ export interface FmtpRequest {
   /**
    * The encoding range of the video.
    */
-  Range?: Range | string;
+  Range?: keyof typeof Range | string;
 
   /**
    * The type of compression that was used to smooth the video’s appearance.
    */
-  ScanMode?: ScanMode | string;
+  ScanMode?: keyof typeof ScanMode | string;
 
   /**
    * The transfer characteristic system (TCS) that is used in the video.
    */
-  Tcs?: Tcs | string;
+  Tcs?: keyof typeof Tcs | string;
 }
 
 /**
@@ -109,11 +109,11 @@ export interface MediaStreamAttributesRequest {
 /**
  * @public
  */
-export enum MediaStreamType {
-  ancillary_data = "ancillary-data",
-  audio = "audio",
-  video = "video",
-}
+export const MediaStreamType = {
+  ancillary_data: "ancillary-data",
+  audio: "audio",
+  video: "video",
+};
 
 /**
  * @public
@@ -148,7 +148,7 @@ export interface AddMediaStreamRequest {
   /**
    * The type of media stream.
    */
-  MediaStreamType: MediaStreamType | string | undefined;
+  MediaStreamType: keyof typeof MediaStreamType | string | undefined;
 
   /**
    * The resolution of the video.
@@ -159,20 +159,20 @@ export interface AddMediaStreamRequest {
 /**
  * @public
  */
-export enum Algorithm {
-  aes128 = "aes128",
-  aes192 = "aes192",
-  aes256 = "aes256",
-}
+export const Algorithm = {
+  aes128: "aes128",
+  aes192: "aes192",
+  aes256: "aes256",
+};
 
 /**
  * @public
  */
-export enum KeyType {
-  speke = "speke",
-  srt_password = "srt-password",
-  static_key = "static-key",
-}
+export const KeyType = {
+  speke: "speke",
+  srt_password: "srt-password",
+  static_key: "static-key",
+};
 
 /**
  * @public
@@ -182,7 +182,7 @@ export interface Encryption {
   /**
    * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
    */
-  Algorithm?: Algorithm | string;
+  Algorithm?: keyof typeof Algorithm | string;
 
   /**
    * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -197,7 +197,7 @@ export interface Encryption {
   /**
    * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
    */
-  KeyType?: KeyType | string;
+  KeyType?: keyof typeof KeyType | string;
 
   /**
    * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -260,20 +260,20 @@ export interface DestinationConfigurationRequest {
 /**
  * @public
  */
-export enum EncodingName {
-  jxsv = "jxsv",
-  pcm = "pcm",
-  raw = "raw",
-  smpte291 = "smpte291",
-}
+export const EncodingName = {
+  jxsv: "jxsv",
+  pcm: "pcm",
+  raw: "raw",
+  smpte291: "smpte291",
+};
 
 /**
  * @public
  */
-export enum EncoderProfile {
-  high = "high",
-  main = "main",
-}
+export const EncoderProfile = {
+  high: "high",
+  main: "main",
+};
 
 /**
  * @public
@@ -288,7 +288,7 @@ export interface EncodingParametersRequest {
   /**
    * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, if at least one source on the flow uses the CDI protocol.
    */
-  EncoderProfile: EncoderProfile | string | undefined;
+  EncoderProfile: keyof typeof EncoderProfile | string | undefined;
 }
 
 /**
@@ -304,7 +304,7 @@ export interface MediaStreamOutputConfigurationRequest {
   /**
    * The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
    */
-  EncodingName: EncodingName | string | undefined;
+  EncodingName: keyof typeof EncodingName | string | undefined;
 
   /**
    * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
@@ -320,18 +320,18 @@ export interface MediaStreamOutputConfigurationRequest {
 /**
  * @public
  */
-export enum Protocol {
-  cdi = "cdi",
-  fujitsu_qos = "fujitsu-qos",
-  rist = "rist",
-  rtp = "rtp",
-  rtp_fec = "rtp-fec",
-  srt_caller = "srt-caller",
-  srt_listener = "srt-listener",
-  st2110_jpegxs = "st2110-jpegxs",
-  zixi_pull = "zixi-pull",
-  zixi_push = "zixi-push",
-}
+export const Protocol = {
+  cdi: "cdi",
+  fujitsu_qos: "fujitsu-qos",
+  rist: "rist",
+  rtp: "rtp",
+  rtp_fec: "rtp-fec",
+  srt_caller: "srt-caller",
+  srt_listener: "srt-listener",
+  st2110_jpegxs: "st2110-jpegxs",
+  zixi_pull: "zixi-pull",
+  zixi_push: "zixi-push",
+};
 
 /**
  * @public
@@ -397,7 +397,7 @@ export interface AddOutputRequest {
   /**
    * The protocol to use for the output.
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: keyof typeof Protocol | string | undefined;
 
   /**
    * The remote ID for the Zixi-pull output stream.
@@ -465,10 +465,10 @@ export interface DestinationConfiguration {
 /**
  * @public
  */
-export enum EntitlementStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const EntitlementStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -498,7 +498,7 @@ export interface Entitlement {
   /**
    * An indication of whether the entitlement is enabled.
    */
-  EntitlementStatus?: EntitlementStatus | string;
+  EntitlementStatus?: keyof typeof EntitlementStatus | string;
 
   /**
    * The name of the entitlement.
@@ -534,7 +534,7 @@ export interface GrantEntitlementRequest {
   /**
    * An indication of whether the new entitlement should be enabled or disabled as soon as it is created. If you don’t specify the entitlementStatus field in your request, MediaConnect sets it to ENABLED.
    */
-  EntitlementStatus?: EntitlementStatus | string;
+  EntitlementStatus?: keyof typeof EntitlementStatus | string;
 
   /**
    * The name of the entitlement. This value must be unique within the current flow.
@@ -608,15 +608,15 @@ export interface ListedEntitlement {
 /**
  * @public
  */
-export enum MaintenanceDay {
-  Friday = "Friday",
-  Monday = "Monday",
-  Saturday = "Saturday",
-  Sunday = "Sunday",
-  Thursday = "Thursday",
-  Tuesday = "Tuesday",
-  Wednesday = "Wednesday",
-}
+export const MaintenanceDay = {
+  Friday: "Friday",
+  Monday: "Monday",
+  Saturday: "Saturday",
+  Sunday: "Sunday",
+  Thursday: "Thursday",
+  Tuesday: "Tuesday",
+  Wednesday: "Wednesday",
+};
 
 /**
  * @public
@@ -626,7 +626,7 @@ export interface Maintenance {
   /**
    * A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
    */
-  MaintenanceDay?: MaintenanceDay | string;
+  MaintenanceDay?: keyof typeof MaintenanceDay | string;
 
   /**
    * The Maintenance has to be performed before this deadline in ISO UTC format. Example: 2021-01-30T08:30:00Z.
@@ -647,23 +647,23 @@ export interface Maintenance {
 /**
  * @public
  */
-export enum SourceType {
-  ENTITLED = "ENTITLED",
-  OWNED = "OWNED",
-}
+export const SourceType = {
+  ENTITLED: "ENTITLED",
+  OWNED: "OWNED",
+};
 
 /**
  * @public
  */
-export enum Status {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  STANDBY = "STANDBY",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
-}
+export const Status = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  STANDBY: "STANDBY",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -693,12 +693,12 @@ export interface ListedFlow {
   /**
    * The type of source. This value is either owned (originated somewhere other than an AWS Elemental MediaConnect flow owned by another AWS account) or entitled (originated at an AWS Elemental MediaConnect flow owned by another AWS account).
    */
-  SourceType: SourceType | string | undefined;
+  SourceType: keyof typeof SourceType | string | undefined;
 
   /**
    * The current status of the flow.
    */
-  Status: Status | string | undefined;
+  Status: keyof typeof Status | string | undefined;
 
   /**
    * The maintenance setting of a flow
@@ -719,7 +719,7 @@ export interface Fmtp {
   /**
    * The format that is used for the representation of color.
    */
-  Colorimetry?: Colorimetry | string;
+  Colorimetry?: keyof typeof Colorimetry | string;
 
   /**
    * The frame rate for the video stream, in frames/second. For example: 60000/1001. If you specify a whole number, MediaConnect uses a ratio of N/1. For example, if you specify 60, MediaConnect uses 60/1 as the exactFramerate.
@@ -734,17 +734,17 @@ export interface Fmtp {
   /**
    * The encoding range of the video.
    */
-  Range?: Range | string;
+  Range?: keyof typeof Range | string;
 
   /**
    * The type of compression that was used to smooth the video’s appearance
    */
-  ScanMode?: ScanMode | string;
+  ScanMode?: keyof typeof ScanMode | string;
 
   /**
    * The transfer characteristic system (TCS) that is used in the video.
    */
-  Tcs?: Tcs | string;
+  Tcs?: keyof typeof Tcs | string;
 }
 
 /**
@@ -801,7 +801,7 @@ export interface MediaStream {
   /**
    * The type of media stream.
    */
-  MediaStreamType: MediaStreamType | string | undefined;
+  MediaStreamType: keyof typeof MediaStreamType | string | undefined;
 
   /**
    * The resolution of the video.
@@ -822,7 +822,7 @@ export interface EncodingParameters {
   /**
    * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
    */
-  EncoderProfile: EncoderProfile | string | undefined;
+  EncoderProfile: keyof typeof EncoderProfile | string | undefined;
 }
 
 /**
@@ -838,7 +838,7 @@ export interface MediaStreamOutputConfiguration {
   /**
    * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
    */
-  EncodingName: EncodingName | string | undefined;
+  EncodingName: keyof typeof EncodingName | string | undefined;
 
   /**
    * Encoding parameters
@@ -859,7 +859,7 @@ export interface MediaStreamSourceConfiguration {
   /**
    * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
    */
-  EncodingName: EncodingName | string | undefined;
+  EncodingName: keyof typeof EncodingName | string | undefined;
 
   /**
    * The transport parameters that are associated with an incoming media stream.
@@ -880,7 +880,7 @@ export interface MediaStreamSourceConfigurationRequest {
   /**
    * The format you want to use to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
    */
-  EncodingName: EncodingName | string | undefined;
+  EncodingName: keyof typeof EncodingName | string | undefined;
 
   /**
    * The transport parameters that you want to associate with the media stream.
@@ -896,23 +896,23 @@ export interface MediaStreamSourceConfigurationRequest {
 /**
  * @public
  */
-export enum DurationUnits {
-  MONTHS = "MONTHS",
-}
+export const DurationUnits = {
+  MONTHS: "MONTHS",
+};
 
 /**
  * @public
  */
-export enum PriceUnits {
-  HOURLY = "HOURLY",
-}
+export const PriceUnits = {
+  HOURLY: "HOURLY",
+};
 
 /**
  * @public
  */
-export enum ResourceType {
-  Mbps_Outbound_Bandwidth = "Mbps_Outbound_Bandwidth",
-}
+export const ResourceType = {
+  Mbps_Outbound_Bandwidth: "Mbps_Outbound_Bandwidth",
+};
 
 /**
  * @public
@@ -927,7 +927,7 @@ export interface ResourceSpecification {
   /**
    * The type of resource and the unit that is being billed for.
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: keyof typeof ResourceType | string | undefined;
 }
 
 /**
@@ -948,7 +948,7 @@ export interface Offering {
   /**
    * The unit of measurement for the duration of the offering.
    */
-  DurationUnits: DurationUnits | string | undefined;
+  DurationUnits: keyof typeof DurationUnits | string | undefined;
 
   /**
    * The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.
@@ -968,7 +968,7 @@ export interface Offering {
   /**
    * The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate.
    */
-  PriceUnits: PriceUnits | string | undefined;
+  PriceUnits: keyof typeof PriceUnits | string | undefined;
 
   /**
    * A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering.
@@ -1009,7 +1009,7 @@ export interface Transport {
   /**
    * The protocol that is used by the source or output.
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: keyof typeof Protocol | string | undefined;
 
   /**
    * The remote ID for the Zixi-pull stream.
@@ -1121,12 +1121,12 @@ export interface Output {
 /**
  * @public
  */
-export enum ReservationState {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  EXPIRED = "EXPIRED",
-  PROCESSING = "PROCESSING",
-}
+export const ReservationState = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  EXPIRED: "EXPIRED",
+  PROCESSING: "PROCESSING",
+};
 
 /**
  * @public
@@ -1146,7 +1146,7 @@ export interface Reservation {
   /**
    * The unit of measurement for the duration of the reservation. MediaConnect defines this value in the offering.
    */
-  DurationUnits: DurationUnits | string | undefined;
+  DurationUnits: keyof typeof DurationUnits | string | undefined;
 
   /**
    * The day and time that this reservation expires. This value is calculated based on the start date and time that you set and the offering's duration.
@@ -1171,7 +1171,7 @@ export interface Reservation {
   /**
    * The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate. MediaConnect defines this value in the offering.
    */
-  PriceUnits: PriceUnits | string | undefined;
+  PriceUnits: keyof typeof PriceUnits | string | undefined;
 
   /**
    * The Amazon Resource Name (ARN) that MediaConnect assigns to the reservation when you purchase an offering.
@@ -1186,7 +1186,7 @@ export interface Reservation {
   /**
    * The status of your reservation.
    */
-  ReservationState: ReservationState | string | undefined;
+  ReservationState: keyof typeof ReservationState | string | undefined;
 
   /**
    * A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering. MediaConnect defines the values that make up the resourceSpecification in the offering.
@@ -1257,7 +1257,7 @@ export interface SetSourceRequest {
   /**
    * The protocol that is used by the source.
    */
-  Protocol?: Protocol | string;
+  Protocol?: keyof typeof Protocol | string;
 
   /**
    * The port that the flow uses to send outbound requests to initiate connection with the sender.
@@ -1374,10 +1374,10 @@ export interface Source {
 /**
  * @public
  */
-export enum NetworkInterfaceType {
-  efa = "efa",
-  ena = "ena",
-}
+export const NetworkInterfaceType = {
+  efa: "efa",
+  ena: "ena",
+};
 
 /**
  * @public
@@ -1397,7 +1397,7 @@ export interface VpcInterface {
   /**
    * The type of network interface.
    */
-  NetworkInterfaceType: NetworkInterfaceType | string | undefined;
+  NetworkInterfaceType: keyof typeof NetworkInterfaceType | string | undefined;
 
   /**
    * Role Arn MediaConnect can assumes to create ENIs in customer's account
@@ -1428,7 +1428,7 @@ export interface VpcInterfaceRequest {
   /**
    * The type of network interface. If this value is not included in the request, MediaConnect uses ENA as the networkInterfaceType.
    */
-  NetworkInterfaceType?: NetworkInterfaceType | string;
+  NetworkInterfaceType?: keyof typeof NetworkInterfaceType | string;
 
   /**
    * Role Arn MediaConnect can assumes to create ENIs in customer's account
@@ -1753,7 +1753,7 @@ export interface AddMaintenance {
   /**
    * A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
    */
-  MaintenanceDay: MaintenanceDay | string | undefined;
+  MaintenanceDay: keyof typeof MaintenanceDay | string | undefined;
 
   /**
    * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
@@ -1789,10 +1789,10 @@ export class CreateFlow420Exception extends __BaseException {
 /**
  * @public
  */
-export enum FailoverMode {
-  FAILOVER = "FAILOVER",
-  MERGE = "MERGE",
-}
+export const FailoverMode = {
+  FAILOVER: "FAILOVER",
+  MERGE: "MERGE",
+};
 
 /**
  * @public
@@ -1808,10 +1808,10 @@ export interface SourcePriority {
 /**
  * @public
  */
-export enum State {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const State = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1821,7 +1821,7 @@ export interface FailoverConfig {
   /**
    * The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
    */
-  FailoverMode?: FailoverMode | string;
+  FailoverMode?: keyof typeof FailoverMode | string;
 
   /**
    * Search window time to look for dash-7 packets
@@ -1833,7 +1833,7 @@ export interface FailoverConfig {
    */
   SourcePriority?: SourcePriority;
 
-  State?: State | string;
+  State?: keyof typeof State | string;
 }
 
 /**
@@ -1947,7 +1947,7 @@ export interface Flow {
   /**
    * The current status of the flow.
    */
-  Status: Status | string | undefined;
+  Status: keyof typeof Status | string | undefined;
 
   /**
    * The VPC Interfaces for this flow.
@@ -1992,7 +1992,7 @@ export interface DeleteFlowResponse {
   /**
    * The status of the flow when the DeleteFlow process begins.
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -2475,7 +2475,7 @@ export interface StartFlowResponse {
   /**
    * The status of the flow when the StartFlow process begins.
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -2500,7 +2500,7 @@ export interface StopFlowResponse {
   /**
    * The status of the flow when the StopFlow process begins.
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -2542,7 +2542,7 @@ export interface UpdateMaintenance {
   /**
    * A day of a week when the maintenance will happen. use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
    */
-  MaintenanceDay?: MaintenanceDay | string;
+  MaintenanceDay?: keyof typeof MaintenanceDay | string;
 
   /**
    * A scheduled date in ISO UTC format when the maintenance will happen. Use YYYY-MM-DD format. Example: 2021-01-30.
@@ -2563,7 +2563,7 @@ export interface UpdateFailoverConfig {
   /**
    * The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
    */
-  FailoverMode?: FailoverMode | string;
+  FailoverMode?: keyof typeof FailoverMode | string;
 
   /**
    * Recovery window time to look for dash-7 packets
@@ -2575,7 +2575,7 @@ export interface UpdateFailoverConfig {
    */
   SourcePriority?: SourcePriority;
 
-  State?: State | string;
+  State?: keyof typeof State | string;
 }
 
 /**
@@ -2617,7 +2617,7 @@ export interface UpdateEncryption {
   /**
    * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
    */
-  Algorithm?: Algorithm | string;
+  Algorithm?: keyof typeof Algorithm | string;
 
   /**
    * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -2632,7 +2632,7 @@ export interface UpdateEncryption {
   /**
    * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
    */
-  KeyType?: KeyType | string;
+  KeyType?: keyof typeof KeyType | string;
 
   /**
    * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -2683,7 +2683,7 @@ export interface UpdateFlowEntitlementRequest {
   /**
    * An indication of whether you want to enable the entitlement to allow access, or disable it to stop streaming content to the subscriber’s flow temporarily. If you don’t specify the entitlementStatus field in your request, MediaConnect leaves the value unchanged.
    */
-  EntitlementStatus?: EntitlementStatus | string;
+  EntitlementStatus?: keyof typeof EntitlementStatus | string;
 
   /**
    * The flow that is associated with the entitlement that you want to update.
@@ -2744,7 +2744,7 @@ export interface UpdateFlowMediaStreamRequest {
   /**
    * The type of media stream.
    */
-  MediaStreamType?: MediaStreamType | string;
+  MediaStreamType?: keyof typeof MediaStreamType | string;
 
   /**
    * The resolution of the video.
@@ -2825,7 +2825,7 @@ export interface UpdateFlowOutputRequest {
   /**
    * The protocol to use for the output.
    */
-  Protocol?: Protocol | string;
+  Protocol?: keyof typeof Protocol | string;
 
   /**
    * The remote ID for the Zixi-pull stream.
@@ -2931,7 +2931,7 @@ export interface UpdateFlowSourceRequest {
   /**
    * The protocol that is used by the source.
    */
-  Protocol?: Protocol | string;
+  Protocol?: keyof typeof Protocol | string;
 
   /**
    * The port that the flow uses to send outbound requests to initiate connection with the sender.

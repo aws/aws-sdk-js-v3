@@ -251,7 +251,7 @@ export interface StorageGatewayError {
   /**
    * <p>Additional information about the error.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>Human-readable text that provides detail about the error that occurred.</p>
@@ -1263,7 +1263,7 @@ export interface CreateNFSFileShareInput {
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
    *          that a S3 File Gateway puts objects into. The default value is <code>private</code>.</p>
    */
-  ObjectACL?: ObjectACL | string;
+  ObjectACL?: keyof typeof ObjectACL | string;
 
   /**
    * <p>The list of clients that are allowed to access the S3 File Gateway. The list must
@@ -1506,7 +1506,7 @@ export interface CreateSMBFileShareInput {
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
    *          that a S3 File Gateway puts objects into. The default value is <code>private</code>.</p>
    */
-  ObjectACL?: ObjectACL | string;
+  ObjectACL?: keyof typeof ObjectACL | string;
 
   /**
    * <p>A value that sets the write status of a file share. Set this value to <code>true</code>
@@ -1618,7 +1618,7 @@ export interface CreateSMBFileShareInput {
    *             <code>CaseSensitive</code>, the gateway determines the case sensitivity. The default
    *          value is <code>ClientSpecified</code>.</p>
    */
-  CaseSensitivity?: CaseSensitivity | string;
+  CaseSensitivity?: keyof typeof CaseSensitivity | string;
 
   /**
    * <p>A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a
@@ -2026,7 +2026,7 @@ export interface CreateTapePoolInput {
    *          application to eject the tape, the tape is archived directly into the storage class (S3
    *          Glacier or S3 Glacier Deep Archive) that corresponds to the pool.</p>
    */
-  StorageClass: TapeStorageClass | string | undefined;
+  StorageClass: keyof typeof TapeStorageClass | string | undefined;
 
   /**
    * <p>Tape retention lock can be configured in two modes. When configured in governance mode,
@@ -2034,7 +2034,7 @@ export interface CreateTapePoolInput {
    *          tape retention lock from archived virtual tapes. When configured in compliance mode, the
    *          tape retention lock cannot be removed by any user, including the root Amazon Web Services account.</p>
    */
-  RetentionLockType?: RetentionLockType | string;
+  RetentionLockType?: keyof typeof RetentionLockType | string;
 
   /**
    * <p>Tape retention lock time is set in days. Tape retention lock can be enabled for up to
@@ -2586,7 +2586,7 @@ export interface DescribeAvailabilityMonitorTestOutput {
    * <p>The status of the high availability monitoring test. If a test hasn't been
    *          performed, the value of this field is null.</p>
    */
-  Status?: AvailabilityMonitorTestStatus | string;
+  Status?: keyof typeof AvailabilityMonitorTestStatus | string;
 
   /**
    * <p>The time the high availability monitoring test was started. If a test hasn't been
@@ -2908,11 +2908,11 @@ export interface DescribeGatewayInformationInput {
 /**
  * @public
  */
-export enum GatewayCapacity {
-  Large = "Large",
-  Medium = "Medium",
-  Small = "Small",
-}
+export const GatewayCapacity = {
+  Large: "Large",
+  Medium: "Medium",
+  Small: "Small",
+};
 
 /**
  * @public
@@ -3037,7 +3037,7 @@ export interface DescribeGatewayInformationOutput {
   /**
    * <p>The type of hardware or software platform on which the gateway is running.</p>
    */
-  HostEnvironment?: HostEnvironment | string;
+  HostEnvironment?: keyof typeof HostEnvironment | string;
 
   /**
    * <p>The type of endpoint for your gateway.</p>
@@ -3061,13 +3061,13 @@ export interface DescribeGatewayInformationOutput {
   /**
    * <p>Specifies the size of the gateway's metadata cache.</p>
    */
-  GatewayCapacity?: GatewayCapacity | string;
+  GatewayCapacity?: keyof typeof GatewayCapacity | string;
 
   /**
    * <p>A list of the metadata cache sizes that the gateway can support based on its current
    *          hardware specifications.</p>
    */
-  SupportedGatewayCapacities?: (GatewayCapacity | string)[];
+  SupportedGatewayCapacities?: (keyof typeof GatewayCapacity | string)[];
 
   /**
    * <p>A unique identifier for the specific instance of the host platform running the gateway.
@@ -3287,7 +3287,7 @@ export interface NFSFileShareInfo {
    *          that an S3 File Gateway puts objects into. The default value is
    *          <code>private</code>.</p>
    */
-  ObjectACL?: ObjectACL | string;
+  ObjectACL?: keyof typeof ObjectACL | string;
 
   /**
    * <p>The list of clients that are allowed to access the S3 File Gateway. The list must
@@ -3556,7 +3556,7 @@ export interface SMBFileShareInfo {
    *          that an S3 File Gateway puts objects into. The default value is
    *          <code>private</code>.</p>
    */
-  ObjectACL?: ObjectACL | string;
+  ObjectACL?: keyof typeof ObjectACL | string;
 
   /**
    * <p>A value that sets the write status of a file share. Set this value to <code>true</code>
@@ -3660,7 +3660,7 @@ export interface SMBFileShareInfo {
    *             <code>CaseSensitive</code>, the gateway determines the case sensitivity. The default
    *          value is <code>ClientSpecified</code>.</p>
    */
-  CaseSensitivity?: CaseSensitivity | string;
+  CaseSensitivity?: keyof typeof CaseSensitivity | string;
 
   /**
    * <p>A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key
@@ -3845,7 +3845,7 @@ export interface DescribeSMBSettingsOutput {
    *             </li>
    *          </ul>
    */
-  ActiveDirectoryStatus?: ActiveDirectoryStatus | string;
+  ActiveDirectoryStatus?: keyof typeof ActiveDirectoryStatus | string;
 
   /**
    * <p>This value is <code>true</code> if a password for the guest user <code>smbguest</code>
@@ -3882,7 +3882,7 @@ export interface DescribeSMBSettingsOutput {
    *             </li>
    *          </ul>
    */
-  SMBSecurityStrategy?: SMBSecurityStrategy | string;
+  SMBSecurityStrategy?: keyof typeof SMBSecurityStrategy | string;
 
   /**
    * <p>The shares on this gateway appear when listing shares. Only supported for S3 File
@@ -4871,7 +4871,7 @@ export interface FileShareInfo {
   /**
    * <p>The type of the file share.</p>
    */
-  FileShareType?: FileShareType | string;
+  FileShareType?: keyof typeof FileShareType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the file share.</p>
@@ -4979,7 +4979,7 @@ export interface GatewayInfo {
   /**
    * <p>The type of hardware or software platform on which the gateway is running.</p>
    */
-  HostEnvironment?: HostEnvironment | string;
+  HostEnvironment?: keyof typeof HostEnvironment | string;
 
   /**
    * <p>A unique identifier for the specific instance of the host platform running the gateway.
@@ -5090,7 +5090,7 @@ export interface JoinDomainOutput {
    *             </li>
    *          </ul>
    */
-  ActiveDirectoryStatus?: ActiveDirectoryStatus | string;
+  ActiveDirectoryStatus?: keyof typeof ActiveDirectoryStatus | string;
 }
 
 /**
@@ -5390,7 +5390,7 @@ export interface PoolInfo {
    *          application to eject the tape, the tape is archived directly into the storage class (S3
    *          Glacier or S3 Glacier Deep Archive) that corresponds to the pool.</p>
    */
-  StorageClass?: TapeStorageClass | string;
+  StorageClass?: keyof typeof TapeStorageClass | string;
 
   /**
    * <p>Tape retention lock type, which can be configured in two modes. When configured in
@@ -5399,7 +5399,7 @@ export interface PoolInfo {
    *          compliance mode, the tape retention lock cannot be removed by any user, including the root
    *             Amazon Web Services account.</p>
    */
-  RetentionLockType?: RetentionLockType | string;
+  RetentionLockType?: keyof typeof RetentionLockType | string;
 
   /**
    * <p>Tape retention lock time is set in days. Tape retention lock can be enabled for up to
@@ -5411,7 +5411,7 @@ export interface PoolInfo {
    * <p>Status of the custom tape pool. Pool can be <code>ACTIVE</code> or
    *          <code>DELETED</code>.</p>
    */
-  PoolStatus?: PoolStatus | string;
+  PoolStatus?: keyof typeof PoolStatus | string;
 }
 
 /**
@@ -6351,7 +6351,7 @@ export interface UpdateGatewayInformationInput {
   /**
    * <p>Specifies the size of the gateway's metadata cache.</p>
    */
-  GatewayCapacity?: GatewayCapacity | string;
+  GatewayCapacity?: keyof typeof GatewayCapacity | string;
 }
 
 /**
@@ -6517,7 +6517,7 @@ export interface UpdateNFSFileShareInput {
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
    *          that a S3 File Gateway puts objects into. The default value is <code>private</code>.</p>
    */
-  ObjectACL?: ObjectACL | string;
+  ObjectACL?: keyof typeof ObjectACL | string;
 
   /**
    * <p>The list of clients that are allowed to access the S3 File Gateway. The list must
@@ -6685,7 +6685,7 @@ export interface UpdateSMBFileShareInput {
    * <p>A value that sets the access control list (ACL) permission for objects in the S3 bucket
    *          that a S3 File Gateway puts objects into. The default value is <code>private</code>.</p>
    */
-  ObjectACL?: ObjectACL | string;
+  ObjectACL?: keyof typeof ObjectACL | string;
 
   /**
    * <p>A value that sets the write status of a file share. Set this value to <code>true</code>
@@ -6784,7 +6784,7 @@ export interface UpdateSMBFileShareInput {
    *             <code>CaseSensitive</code>, the gateway determines the case sensitivity. The default
    *          value is <code>ClientSpecified</code>.</p>
    */
-  CaseSensitivity?: CaseSensitivity | string;
+  CaseSensitivity?: keyof typeof CaseSensitivity | string;
 
   /**
    * <p>The name of the file share. Optional.</p>
@@ -6935,7 +6935,7 @@ export interface UpdateSMBSecurityStrategyInput {
    *          environments that handle sensitive data. This option works with SMB clients on Microsoft
    *          Windows 8, Windows Server 2012 or newer.</p>
    */
-  SMBSecurityStrategy: SMBSecurityStrategy | string | undefined;
+  SMBSecurityStrategy: keyof typeof SMBSecurityStrategy | string | undefined;
 }
 
 /**

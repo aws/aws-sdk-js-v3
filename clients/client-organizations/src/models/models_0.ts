@@ -18,21 +18,21 @@ export interface AcceptHandshakeRequest {
 /**
  * @public
  */
-export enum ActionType {
-  ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE = "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
-  APPROVE_ALL_FEATURES = "APPROVE_ALL_FEATURES",
-  ENABLE_ALL_FEATURES = "ENABLE_ALL_FEATURES",
-  INVITE_ACCOUNT_TO_ORGANIZATION = "INVITE",
-}
+export const ActionType = {
+  ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE: "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
+  APPROVE_ALL_FEATURES: "APPROVE_ALL_FEATURES",
+  ENABLE_ALL_FEATURES: "ENABLE_ALL_FEATURES",
+  INVITE_ACCOUNT_TO_ORGANIZATION: "INVITE",
+};
 
 /**
  * @public
  */
-export enum HandshakePartyType {
-  ACCOUNT = "ACCOUNT",
-  EMAIL = "EMAIL",
-  ORGANIZATION = "ORGANIZATION",
-}
+export const HandshakePartyType = {
+  ACCOUNT: "ACCOUNT",
+  EMAIL: "EMAIL",
+  ORGANIZATION: "ORGANIZATION",
+};
 
 /**
  * @public
@@ -49,34 +49,34 @@ export interface HandshakeParty {
   /**
    * <p>The type of party.</p>
    */
-  Type: HandshakePartyType | string | undefined;
+  Type: keyof typeof HandshakePartyType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum HandshakeResourceType {
-  ACCOUNT = "ACCOUNT",
-  EMAIL = "EMAIL",
-  MASTER_EMAIL = "MASTER_EMAIL",
-  MASTER_NAME = "MASTER_NAME",
-  NOTES = "NOTES",
-  ORGANIZATION = "ORGANIZATION",
-  ORGANIZATION_FEATURE_SET = "ORGANIZATION_FEATURE_SET",
-  PARENT_HANDSHAKE = "PARENT_HANDSHAKE",
-}
+export const HandshakeResourceType = {
+  ACCOUNT: "ACCOUNT",
+  EMAIL: "EMAIL",
+  MASTER_EMAIL: "MASTER_EMAIL",
+  MASTER_NAME: "MASTER_NAME",
+  NOTES: "NOTES",
+  ORGANIZATION: "ORGANIZATION",
+  ORGANIZATION_FEATURE_SET: "ORGANIZATION_FEATURE_SET",
+  PARENT_HANDSHAKE: "PARENT_HANDSHAKE",
+};
 
 /**
  * @public
  */
-export enum HandshakeState {
-  ACCEPTED = "ACCEPTED",
-  CANCELED = "CANCELED",
-  DECLINED = "DECLINED",
-  EXPIRED = "EXPIRED",
-  OPEN = "OPEN",
-  REQUESTED = "REQUESTED",
-}
+export const HandshakeState = {
+  ACCEPTED: "ACCEPTED",
+  CANCELED: "CANCELED",
+  DECLINED: "DECLINED",
+  EXPIRED: "EXPIRED",
+  OPEN: "OPEN",
+  REQUESTED: "REQUESTED",
+};
 
 /**
  * @public
@@ -107,9 +107,9 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AccessDeniedForDependencyExceptionReason {
-  ACCESS_DENIED_DURING_CREATE_SERVICE_LINKED_ROLE = "ACCESS_DENIED_DURING_CREATE_SERVICE_LINKED_ROLE",
-}
+export const AccessDeniedForDependencyExceptionReason = {
+  ACCESS_DENIED_DURING_CREATE_SERVICE_LINKED_ROLE: "ACCESS_DENIED_DURING_CREATE_SERVICE_LINKED_ROLE",
+};
 
 /**
  * @public
@@ -122,7 +122,7 @@ export class AccessDeniedForDependencyException extends __BaseException {
   readonly name: "AccessDeniedForDependencyException" = "AccessDeniedForDependencyException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: AccessDeniedForDependencyExceptionReason | string;
+  Reason?: keyof typeof AccessDeniedForDependencyExceptionReason | string;
   /**
    * @internal
    */
@@ -210,18 +210,18 @@ export class HandshakeAlreadyInStateException extends __BaseException {
 /**
  * @public
  */
-export enum HandshakeConstraintViolationExceptionReason {
-  ACCOUNT_NUMBER_LIMIT_EXCEEDED = "ACCOUNT_NUMBER_LIMIT_EXCEEDED",
-  ALREADY_IN_AN_ORGANIZATION = "ALREADY_IN_AN_ORGANIZATION",
-  HANDSHAKE_RATE_LIMIT_EXCEEDED = "HANDSHAKE_RATE_LIMIT_EXCEEDED",
-  INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES = "INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES",
-  MANAGEMENT_ACCOUNT_EMAIL_NOT_VERIFIED = "MANAGEMENT_ACCOUNT_EMAIL_NOT_VERIFIED",
-  ORGANIZATION_ALREADY_HAS_ALL_FEATURES = "ORGANIZATION_ALREADY_HAS_ALL_FEATURES",
-  ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD = "ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD",
-  ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION = "ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION",
-  ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED = "ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED",
-  PAYMENT_INSTRUMENT_REQUIRED = "PAYMENT_INSTRUMENT_REQUIRED",
-}
+export const HandshakeConstraintViolationExceptionReason = {
+  ACCOUNT_NUMBER_LIMIT_EXCEEDED: "ACCOUNT_NUMBER_LIMIT_EXCEEDED",
+  ALREADY_IN_AN_ORGANIZATION: "ALREADY_IN_AN_ORGANIZATION",
+  HANDSHAKE_RATE_LIMIT_EXCEEDED: "HANDSHAKE_RATE_LIMIT_EXCEEDED",
+  INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES: "INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES",
+  MANAGEMENT_ACCOUNT_EMAIL_NOT_VERIFIED: "MANAGEMENT_ACCOUNT_EMAIL_NOT_VERIFIED",
+  ORGANIZATION_ALREADY_HAS_ALL_FEATURES: "ORGANIZATION_ALREADY_HAS_ALL_FEATURES",
+  ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: "ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD",
+  ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION: "ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION",
+  ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED: "ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED",
+  PAYMENT_INSTRUMENT_REQUIRED: "PAYMENT_INSTRUMENT_REQUIRED",
+};
 
 /**
  * @public
@@ -287,7 +287,7 @@ export class HandshakeConstraintViolationException extends __BaseException {
   readonly name: "HandshakeConstraintViolationException" = "HandshakeConstraintViolationException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: HandshakeConstraintViolationExceptionReason | string;
+  Reason?: keyof typeof HandshakeConstraintViolationExceptionReason | string;
   /**
    * @internal
    */
@@ -352,36 +352,36 @@ export class InvalidHandshakeTransitionException extends __BaseException {
 /**
  * @public
  */
-export enum InvalidInputExceptionReason {
-  DUPLICATE_TAG_KEY = "DUPLICATE_TAG_KEY",
-  IMMUTABLE_POLICY = "IMMUTABLE_POLICY",
-  INPUT_REQUIRED = "INPUT_REQUIRED",
-  INVALID_EMAIL_ADDRESS_TARGET = "INVALID_EMAIL_ADDRESS_TARGET",
-  INVALID_ENUM = "INVALID_ENUM",
-  INVALID_ENUM_POLICY_TYPE = "INVALID_ENUM_POLICY_TYPE",
-  INVALID_FULL_NAME_TARGET = "INVALID_FULL_NAME_TARGET",
-  INVALID_LIST_MEMBER = "INVALID_LIST_MEMBER",
-  INVALID_PAGINATION_TOKEN = "INVALID_NEXT_TOKEN",
-  INVALID_PARTY_TYPE_TARGET = "INVALID_PARTY_TYPE_TARGET",
-  INVALID_PATTERN = "INVALID_PATTERN",
-  INVALID_PATTERN_TARGET_ID = "INVALID_PATTERN_TARGET_ID",
-  INVALID_RESOURCE_POLICY_JSON = "INVALID_RESOURCE_POLICY_JSON",
-  INVALID_ROLE_NAME = "INVALID_ROLE_NAME",
-  INVALID_SYNTAX_ORGANIZATION = "INVALID_SYNTAX_ORGANIZATION_ARN",
-  INVALID_SYNTAX_POLICY = "INVALID_SYNTAX_POLICY_ID",
-  INVALID_SYSTEM_TAGS_PARAMETER = "INVALID_SYSTEM_TAGS_PARAMETER",
-  MAX_FILTER_LIMIT_EXCEEDED = "MAX_LIMIT_EXCEEDED_FILTER",
-  MAX_LENGTH_EXCEEDED = "MAX_LENGTH_EXCEEDED",
-  MAX_VALUE_EXCEEDED = "MAX_VALUE_EXCEEDED",
-  MIN_LENGTH_EXCEEDED = "MIN_LENGTH_EXCEEDED",
-  MIN_VALUE_EXCEEDED = "MIN_VALUE_EXCEEDED",
-  MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS = "MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS",
-  TARGET_NOT_SUPPORTED = "TARGET_NOT_SUPPORTED",
-  UNRECOGNIZED_SERVICE_PRINCIPAL = "UNRECOGNIZED_SERVICE_PRINCIPAL",
-  UNSUPPORTED_ACTION_IN_RESOURCE_POLICY = "UNSUPPORTED_ACTION_IN_RESOURCE_POLICY",
-  UNSUPPORTED_POLICY_TYPE_IN_RESOURCE_POLICY = "UNSUPPORTED_POLICY_TYPE_IN_RESOURCE_POLICY",
-  UNSUPPORTED_RESOURCE_IN_RESOURCE_POLICY = "UNSUPPORTED_RESOURCE_IN_RESOURCE_POLICY",
-}
+export const InvalidInputExceptionReason = {
+  DUPLICATE_TAG_KEY: "DUPLICATE_TAG_KEY",
+  IMMUTABLE_POLICY: "IMMUTABLE_POLICY",
+  INPUT_REQUIRED: "INPUT_REQUIRED",
+  INVALID_EMAIL_ADDRESS_TARGET: "INVALID_EMAIL_ADDRESS_TARGET",
+  INVALID_ENUM: "INVALID_ENUM",
+  INVALID_ENUM_POLICY_TYPE: "INVALID_ENUM_POLICY_TYPE",
+  INVALID_FULL_NAME_TARGET: "INVALID_FULL_NAME_TARGET",
+  INVALID_LIST_MEMBER: "INVALID_LIST_MEMBER",
+  INVALID_PAGINATION_TOKEN: "INVALID_NEXT_TOKEN",
+  INVALID_PARTY_TYPE_TARGET: "INVALID_PARTY_TYPE_TARGET",
+  INVALID_PATTERN: "INVALID_PATTERN",
+  INVALID_PATTERN_TARGET_ID: "INVALID_PATTERN_TARGET_ID",
+  INVALID_RESOURCE_POLICY_JSON: "INVALID_RESOURCE_POLICY_JSON",
+  INVALID_ROLE_NAME: "INVALID_ROLE_NAME",
+  INVALID_SYNTAX_ORGANIZATION: "INVALID_SYNTAX_ORGANIZATION_ARN",
+  INVALID_SYNTAX_POLICY: "INVALID_SYNTAX_POLICY_ID",
+  INVALID_SYSTEM_TAGS_PARAMETER: "INVALID_SYSTEM_TAGS_PARAMETER",
+  MAX_FILTER_LIMIT_EXCEEDED: "MAX_LIMIT_EXCEEDED_FILTER",
+  MAX_LENGTH_EXCEEDED: "MAX_LENGTH_EXCEEDED",
+  MAX_VALUE_EXCEEDED: "MAX_VALUE_EXCEEDED",
+  MIN_LENGTH_EXCEEDED: "MIN_LENGTH_EXCEEDED",
+  MIN_VALUE_EXCEEDED: "MIN_VALUE_EXCEEDED",
+  MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS: "MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS",
+  TARGET_NOT_SUPPORTED: "TARGET_NOT_SUPPORTED",
+  UNRECOGNIZED_SERVICE_PRINCIPAL: "UNRECOGNIZED_SERVICE_PRINCIPAL",
+  UNSUPPORTED_ACTION_IN_RESOURCE_POLICY: "UNSUPPORTED_ACTION_IN_RESOURCE_POLICY",
+  UNSUPPORTED_POLICY_TYPE_IN_RESOURCE_POLICY: "UNSUPPORTED_POLICY_TYPE_IN_RESOURCE_POLICY",
+  UNSUPPORTED_RESOURCE_IN_RESOURCE_POLICY: "UNSUPPORTED_RESOURCE_IN_RESOURCE_POLICY",
+};
 
 /**
  * @public
@@ -492,7 +492,7 @@ export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: InvalidInputExceptionReason | string;
+  Reason?: keyof typeof InvalidInputExceptionReason | string;
   /**
    * @internal
    */
@@ -562,19 +562,19 @@ export class TooManyRequestsException extends __BaseException {
 /**
  * @public
  */
-export enum AccountJoinedMethod {
-  CREATED = "CREATED",
-  INVITED = "INVITED",
-}
+export const AccountJoinedMethod = {
+  CREATED: "CREATED",
+  INVITED: "INVITED",
+};
 
 /**
  * @public
  */
-export enum AccountStatus {
-  ACTIVE = "ACTIVE",
-  PENDING_CLOSURE = "PENDING_CLOSURE",
-  SUSPENDED = "SUSPENDED",
-}
+export const AccountStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING_CLOSURE: "PENDING_CLOSURE",
+  SUSPENDED: "SUSPENDED",
+};
 
 /**
  * @public
@@ -614,12 +614,12 @@ export interface Account {
   /**
    * <p>The status of the account in the organization.</p>
    */
-  Status?: AccountStatus | string;
+  Status?: keyof typeof AccountStatus | string;
 
   /**
    * <p>The method by which the account joined the organization.</p>
    */
-  JoinedMethod?: AccountJoinedMethod | string;
+  JoinedMethod?: keyof typeof AccountJoinedMethod | string;
 
   /**
    * <p>The date the account became a part of the organization.</p>
@@ -810,42 +810,42 @@ export interface AttachPolicyRequest {
 /**
  * @public
  */
-export enum ConstraintViolationExceptionReason {
-  ACCOUNT_CANNOT_LEAVE_ORGANIZATION = "ACCOUNT_CANNOT_LEAVE_ORGANIZATION",
-  ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA = "ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA",
-  ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION = "ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION",
-  ACCOUNT_CREATION_NOT_COMPLETE = "ACCOUNT_CREATION_NOT_COMPLETE",
-  ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED = "ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED",
-  ACCOUNT_NUMBER_LIMIT_EXCEEDED = "ACCOUNT_NUMBER_LIMIT_EXCEEDED",
-  CANNOT_CLOSE_MANAGEMENT_ACCOUNT = "CANNOT_CLOSE_MANAGEMENT_ACCOUNT",
-  CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR = "CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR",
-  CANNOT_REMOVE_DELEGATED_ADMINISTRATOR_FROM_ORG = "CANNOT_REMOVE_DELEGATED_ADMINISTRATOR_FROM_ORG",
-  CLOSE_ACCOUNT_QUOTA_EXCEEDED = "CLOSE_ACCOUNT_QUOTA_EXCEEDED",
-  CLOSE_ACCOUNT_REQUESTS_LIMIT_EXCEEDED = "CLOSE_ACCOUNT_REQUESTS_LIMIT_EXCEEDED",
-  CREATE_ORGANIZATION_IN_BILLING_MODE_UNSUPPORTED_REGION = "CREATE_ORGANIZATION_IN_BILLING_MODE_UNSUPPORTED_REGION",
-  DELEGATED_ADMINISTRATOR_EXISTS_FOR_THIS_SERVICE = "DELEGATED_ADMINISTRATOR_EXISTS_FOR_THIS_SERVICE",
-  EMAIL_VERIFICATION_CODE_EXPIRED = "EMAIL_VERIFICATION_CODE_EXPIRED",
-  HANDSHAKE_RATE_LIMIT_EXCEEDED = "HANDSHAKE_RATE_LIMIT_EXCEEDED",
-  INVALID_PAYMENT_INSTRUMENT = "INVALID_PAYMENT_INSTRUMENT",
-  MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE = "MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE",
-  MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE = "MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE",
-  MASTER_ACCOUNT_MISSING_CONTACT_INFO = "MASTER_ACCOUNT_MISSING_CONTACT_INFO",
-  MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED = "MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED",
-  MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED = "MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED",
-  MAX_DELEGATED_ADMINISTRATORS_FOR_SERVICE_LIMIT_EXCEEDED = "MAX_DELEGATED_ADMINISTRATORS_FOR_SERVICE_LIMIT_EXCEEDED",
-  MAX_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED = "MAX_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED",
-  MAX_TAG_LIMIT_EXCEEDED = "MAX_TAG_LIMIT_EXCEEDED",
-  MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED = "MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED",
-  MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED = "MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED",
-  ORGANIZATION_NOT_IN_ALL_FEATURES_MODE = "ORGANIZATION_NOT_IN_ALL_FEATURES_MODE",
-  OU_DEPTH_LIMIT_EXCEEDED = "OU_DEPTH_LIMIT_EXCEEDED",
-  OU_NUMBER_LIMIT_EXCEEDED = "OU_NUMBER_LIMIT_EXCEEDED",
-  POLICY_CONTENT_LIMIT_EXCEEDED = "POLICY_CONTENT_LIMIT_EXCEEDED",
-  POLICY_NUMBER_LIMIT_EXCEEDED = "POLICY_NUMBER_LIMIT_EXCEEDED",
-  SERVICE_ACCESS_NOT_ENABLED = "SERVICE_ACCESS_NOT_ENABLED",
-  TAG_POLICY_VIOLATION = "TAG_POLICY_VIOLATION",
-  WAIT_PERIOD_ACTIVE = "WAIT_PERIOD_ACTIVE",
-}
+export const ConstraintViolationExceptionReason = {
+  ACCOUNT_CANNOT_LEAVE_ORGANIZATION: "ACCOUNT_CANNOT_LEAVE_ORGANIZATION",
+  ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: "ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA",
+  ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: "ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION",
+  ACCOUNT_CREATION_NOT_COMPLETE: "ACCOUNT_CREATION_NOT_COMPLETE",
+  ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED: "ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED",
+  ACCOUNT_NUMBER_LIMIT_EXCEEDED: "ACCOUNT_NUMBER_LIMIT_EXCEEDED",
+  CANNOT_CLOSE_MANAGEMENT_ACCOUNT: "CANNOT_CLOSE_MANAGEMENT_ACCOUNT",
+  CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: "CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR",
+  CANNOT_REMOVE_DELEGATED_ADMINISTRATOR_FROM_ORG: "CANNOT_REMOVE_DELEGATED_ADMINISTRATOR_FROM_ORG",
+  CLOSE_ACCOUNT_QUOTA_EXCEEDED: "CLOSE_ACCOUNT_QUOTA_EXCEEDED",
+  CLOSE_ACCOUNT_REQUESTS_LIMIT_EXCEEDED: "CLOSE_ACCOUNT_REQUESTS_LIMIT_EXCEEDED",
+  CREATE_ORGANIZATION_IN_BILLING_MODE_UNSUPPORTED_REGION: "CREATE_ORGANIZATION_IN_BILLING_MODE_UNSUPPORTED_REGION",
+  DELEGATED_ADMINISTRATOR_EXISTS_FOR_THIS_SERVICE: "DELEGATED_ADMINISTRATOR_EXISTS_FOR_THIS_SERVICE",
+  EMAIL_VERIFICATION_CODE_EXPIRED: "EMAIL_VERIFICATION_CODE_EXPIRED",
+  HANDSHAKE_RATE_LIMIT_EXCEEDED: "HANDSHAKE_RATE_LIMIT_EXCEEDED",
+  INVALID_PAYMENT_INSTRUMENT: "INVALID_PAYMENT_INSTRUMENT",
+  MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: "MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE",
+  MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: "MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE",
+  MASTER_ACCOUNT_MISSING_CONTACT_INFO: "MASTER_ACCOUNT_MISSING_CONTACT_INFO",
+  MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: "MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED",
+  MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: "MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED",
+  MAX_DELEGATED_ADMINISTRATORS_FOR_SERVICE_LIMIT_EXCEEDED: "MAX_DELEGATED_ADMINISTRATORS_FOR_SERVICE_LIMIT_EXCEEDED",
+  MAX_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED: "MAX_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED",
+  MAX_TAG_LIMIT_EXCEEDED: "MAX_TAG_LIMIT_EXCEEDED",
+  MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: "MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED",
+  MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED: "MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED",
+  ORGANIZATION_NOT_IN_ALL_FEATURES_MODE: "ORGANIZATION_NOT_IN_ALL_FEATURES_MODE",
+  OU_DEPTH_LIMIT_EXCEEDED: "OU_DEPTH_LIMIT_EXCEEDED",
+  OU_NUMBER_LIMIT_EXCEEDED: "OU_NUMBER_LIMIT_EXCEEDED",
+  POLICY_CONTENT_LIMIT_EXCEEDED: "POLICY_CONTENT_LIMIT_EXCEEDED",
+  POLICY_NUMBER_LIMIT_EXCEEDED: "POLICY_NUMBER_LIMIT_EXCEEDED",
+  SERVICE_ACCESS_NOT_ENABLED: "SERVICE_ACCESS_NOT_ENABLED",
+  TAG_POLICY_VIOLATION: "TAG_POLICY_VIOLATION",
+  WAIT_PERIOD_ACTIVE: "WAIT_PERIOD_ACTIVE",
+};
 
 /**
  * @public
@@ -1049,7 +1049,7 @@ export class ConstraintViolationException extends __BaseException {
   readonly name: "ConstraintViolationException" = "ConstraintViolationException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: ConstraintViolationExceptionReason | string;
+  Reason?: keyof typeof ConstraintViolationExceptionReason | string;
   /**
    * @internal
    */
@@ -1253,10 +1253,10 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum IAMUserAccessToBilling {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const IAMUserAccessToBilling = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+};
 
 /**
  * @public
@@ -1378,7 +1378,7 @@ export interface CreateAccountRequest {
    *             IAM users and roles with the required permissions can access billing information for
    *             the new account.</p>
    */
-  IamUserAccessToBilling?: IAMUserAccessToBilling | string;
+  IamUserAccessToBilling?: keyof typeof IAMUserAccessToBilling | string;
 
   /**
    * <p>A list of tags that you want to attach to the newly created account. For each tag in
@@ -1398,32 +1398,32 @@ export interface CreateAccountRequest {
 /**
  * @public
  */
-export enum CreateAccountFailureReason {
-  ACCOUNT_LIMIT_EXCEEDED = "ACCOUNT_LIMIT_EXCEEDED",
-  CONCURRENT_ACCOUNT_MODIFICATION = "CONCURRENT_ACCOUNT_MODIFICATION",
-  EMAIL_ALREADY_EXISTS = "EMAIL_ALREADY_EXISTS",
-  FAILED_BUSINESS_VALIDATION = "FAILED_BUSINESS_VALIDATION",
-  GOVCLOUD_ACCOUNT_ALREADY_EXISTS = "GOVCLOUD_ACCOUNT_ALREADY_EXISTS",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  INVALID_ADDRESS = "INVALID_ADDRESS",
-  INVALID_EMAIL = "INVALID_EMAIL",
-  INVALID_IDENTITY_FOR_BUSINESS_VALIDATION = "INVALID_IDENTITY_FOR_BUSINESS_VALIDATION",
-  INVALID_PAYMENT_INSTRUMENT = "INVALID_PAYMENT_INSTRUMENT",
-  MISSING_BUSINESS_VALIDATION = "MISSING_BUSINESS_VALIDATION",
-  MISSING_PAYMENT_INSTRUMENT = "MISSING_PAYMENT_INSTRUMENT",
-  PENDING_BUSINESS_VALIDATIONv = "PENDING_BUSINESS_VALIDATION",
-  UNKNOWN_BUSINESS_VALIDATION = "UNKNOWN_BUSINESS_VALIDATION",
-  UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED = "UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED",
-}
+export const CreateAccountFailureReason = {
+  ACCOUNT_LIMIT_EXCEEDED: "ACCOUNT_LIMIT_EXCEEDED",
+  CONCURRENT_ACCOUNT_MODIFICATION: "CONCURRENT_ACCOUNT_MODIFICATION",
+  EMAIL_ALREADY_EXISTS: "EMAIL_ALREADY_EXISTS",
+  FAILED_BUSINESS_VALIDATION: "FAILED_BUSINESS_VALIDATION",
+  GOVCLOUD_ACCOUNT_ALREADY_EXISTS: "GOVCLOUD_ACCOUNT_ALREADY_EXISTS",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  INVALID_ADDRESS: "INVALID_ADDRESS",
+  INVALID_EMAIL: "INVALID_EMAIL",
+  INVALID_IDENTITY_FOR_BUSINESS_VALIDATION: "INVALID_IDENTITY_FOR_BUSINESS_VALIDATION",
+  INVALID_PAYMENT_INSTRUMENT: "INVALID_PAYMENT_INSTRUMENT",
+  MISSING_BUSINESS_VALIDATION: "MISSING_BUSINESS_VALIDATION",
+  MISSING_PAYMENT_INSTRUMENT: "MISSING_PAYMENT_INSTRUMENT",
+  PENDING_BUSINESS_VALIDATIONv: "PENDING_BUSINESS_VALIDATION",
+  UNKNOWN_BUSINESS_VALIDATION: "UNKNOWN_BUSINESS_VALIDATION",
+  UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED: "UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED",
+};
 
 /**
  * @public
  */
-export enum CreateAccountState {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const CreateAccountState = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1448,7 +1448,7 @@ export interface CreateAccountStatus {
   /**
    * <p>The status of the asynchronous request to create an Amazon Web Services account.</p>
    */
-  State?: CreateAccountState | string;
+  State?: keyof typeof CreateAccountState | string;
 
   /**
    * <p>The date and time that the request was made for the account creation.</p>
@@ -1541,7 +1541,7 @@ export interface CreateAccountStatus {
    *             </li>
    *          </ul>
    */
-  FailureReason?: CreateAccountFailureReason | string;
+  FailureReason?: keyof typeof CreateAccountFailureReason | string;
 }
 
 /**
@@ -1670,7 +1670,7 @@ export interface CreateGovCloudAccountRequest {
    *             IAM users and roles with the required permissions can access billing information for
    *             the new account.</p>
    */
-  IamUserAccessToBilling?: IAMUserAccessToBilling | string;
+  IamUserAccessToBilling?: keyof typeof IAMUserAccessToBilling | string;
 
   /**
    * <p>A list of tags that you want to attach to the newly created account. These tags are
@@ -1704,10 +1704,10 @@ export interface CreateGovCloudAccountResponse {
 /**
  * @public
  */
-export enum OrganizationFeatureSet {
-  ALL = "ALL",
-  CONSOLIDATED_BILLING = "CONSOLIDATED_BILLING",
-}
+export const OrganizationFeatureSet = {
+  ALL: "ALL",
+  CONSOLIDATED_BILLING: "CONSOLIDATED_BILLING",
+};
 
 /**
  * @public
@@ -1738,27 +1738,27 @@ export interface CreateOrganizationRequest {
    *             </li>
    *          </ul>
    */
-  FeatureSet?: OrganizationFeatureSet | string;
+  FeatureSet?: keyof typeof OrganizationFeatureSet | string;
 }
 
 /**
  * @public
  */
-export enum PolicyTypeStatus {
-  ENABLED = "ENABLED",
-  PENDING_DISABLE = "PENDING_DISABLE",
-  PENDING_ENABLE = "PENDING_ENABLE",
-}
+export const PolicyTypeStatus = {
+  ENABLED: "ENABLED",
+  PENDING_DISABLE: "PENDING_DISABLE",
+  PENDING_ENABLE: "PENDING_ENABLE",
+};
 
 /**
  * @public
  */
-export enum PolicyType {
-  AISERVICES_OPT_OUT_POLICY = "AISERVICES_OPT_OUT_POLICY",
-  BACKUP_POLICY = "BACKUP_POLICY",
-  SERVICE_CONTROL_POLICY = "SERVICE_CONTROL_POLICY",
-  TAG_POLICY = "TAG_POLICY",
-}
+export const PolicyType = {
+  AISERVICES_OPT_OUT_POLICY: "AISERVICES_OPT_OUT_POLICY",
+  BACKUP_POLICY: "BACKUP_POLICY",
+  SERVICE_CONTROL_POLICY: "SERVICE_CONTROL_POLICY",
+  TAG_POLICY: "TAG_POLICY",
+};
 
 /**
  * @public
@@ -1768,14 +1768,14 @@ export interface PolicyTypeSummary {
   /**
    * <p>The name of the policy type.</p>
    */
-  Type?: PolicyType | string;
+  Type?: keyof typeof PolicyType | string;
 
   /**
    * <p>The status of the policy type as it relates to the associated root. To attach a policy
    *             of the specified type to a root or to an OU or account in that root, it must be
    *             available in the organization and enabled for that root.</p>
    */
-  Status?: PolicyTypeStatus | string;
+  Status?: keyof typeof PolicyTypeStatus | string;
 }
 
 /**
@@ -1806,7 +1806,7 @@ export interface Organization {
    *             functionality is available. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling All Features
    *                 in Your Organization</a> in the <i>Organizations User Guide</i>.</p>
    */
-  FeatureSet?: OrganizationFeatureSet | string;
+  FeatureSet?: keyof typeof OrganizationFeatureSet | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the account that is designated as the management
@@ -2028,7 +2028,7 @@ export interface CreatePolicyRequest {
    *             </li>
    *          </ul>
    */
-  Type: PolicyType | string | undefined;
+  Type: keyof typeof PolicyType | string | undefined;
 
   /**
    * <p>A list of tags that you want to attach to the newly created policy. For each tag in
@@ -2080,7 +2080,7 @@ export interface PolicySummary {
   /**
    * <p>The type of policy.</p>
    */
-  Type?: PolicyType | string;
+  Type?: keyof typeof PolicyType | string;
 
   /**
    * <p>A boolean value that indicates whether the specified policy is an Amazon Web Services managed
@@ -2442,11 +2442,11 @@ export interface DescribeCreateAccountStatusResponse {
 /**
  * @public
  */
-export enum EffectivePolicyType {
-  AISERVICES_OPT_OUT_POLICY = "AISERVICES_OPT_OUT_POLICY",
-  BACKUP_POLICY = "BACKUP_POLICY",
-  TAG_POLICY = "TAG_POLICY",
-}
+export const EffectivePolicyType = {
+  AISERVICES_OPT_OUT_POLICY: "AISERVICES_OPT_OUT_POLICY",
+  BACKUP_POLICY: "BACKUP_POLICY",
+  TAG_POLICY: "TAG_POLICY",
+};
 
 /**
  * @public
@@ -2473,7 +2473,7 @@ export interface DescribeEffectivePolicyRequest {
    *             </li>
    *          </ul>
    */
-  PolicyType: EffectivePolicyType | string | undefined;
+  PolicyType: keyof typeof EffectivePolicyType | string | undefined;
 
   /**
    * <p>When you're signed in as the management account, specify the ID of the account that
@@ -2508,7 +2508,7 @@ export interface EffectivePolicy {
   /**
    * <p>The policy type.</p>
    */
-  PolicyType?: EffectivePolicyType | string;
+  PolicyType?: keyof typeof EffectivePolicyType | string;
 }
 
 /**
@@ -2783,7 +2783,7 @@ export interface DisablePolicyTypeRequest {
    *             </li>
    *          </ul>
    */
-  PolicyType: PolicyType | string | undefined;
+  PolicyType: keyof typeof PolicyType | string | undefined;
 }
 
 /**
@@ -2916,7 +2916,7 @@ export interface EnablePolicyTypeRequest {
    *             </li>
    *          </ul>
    */
-  PolicyType: PolicyType | string | undefined;
+  PolicyType: keyof typeof PolicyType | string | undefined;
 }
 
 /**
@@ -3221,10 +3221,10 @@ export interface ListAWSServiceAccessForOrganizationResponse {
 /**
  * @public
  */
-export enum ChildType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
-}
+export const ChildType = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+};
 
 /**
  * @public
@@ -3254,7 +3254,7 @@ export interface ListChildrenRequest {
   /**
    * <p>Filters the output to include only the specified child type.</p>
    */
-  ChildType: ChildType | string | undefined;
+  ChildType: keyof typeof ChildType | string | undefined;
 
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -3306,7 +3306,7 @@ export interface Child {
   /**
    * <p>The type of this child entity.</p>
    */
-  Type?: ChildType | string;
+  Type?: keyof typeof ChildType | string;
 }
 
 /**
@@ -3335,7 +3335,7 @@ export interface ListCreateAccountStatusRequest {
    * <p>A list of one or more states that you want included in the response. If this parameter
    *             isn't present, all requests are included in the response.</p>
    */
-  States?: (CreateAccountState | string)[];
+  States?: (keyof typeof CreateAccountState | string)[];
 
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -3442,13 +3442,13 @@ export interface DelegatedAdministrator {
   /**
    * <p>The status of the delegated administrator's account in the organization.</p>
    */
-  Status?: AccountStatus | string;
+  Status?: keyof typeof AccountStatus | string;
 
   /**
    * <p>The method by which the delegated administrator's account joined the
    *             organization.</p>
    */
-  JoinedMethod?: AccountJoinedMethod | string;
+  JoinedMethod?: keyof typeof AccountJoinedMethod | string;
 
   /**
    * <p>The date when the delegated administrator's account became a part of the
@@ -3560,7 +3560,7 @@ export interface HandshakeFilter {
    *          <p>If you specify <code>ActionType</code>, you cannot also specify
    *                 <code>ParentHandshakeId</code>.</p>
    */
-  ActionType?: ActionType | string;
+  ActionType?: keyof typeof ActionType | string;
 
   /**
    * <p>Specifies the parent handshake. Only used for handshake types that are a child of
@@ -3784,10 +3784,10 @@ export interface ListParentsRequest {
 /**
  * @public
  */
-export enum ParentType {
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
-  ROOT = "ROOT",
-}
+export const ParentType = {
+  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+  ROOT: "ROOT",
+};
 
 /**
  * @public
@@ -3818,7 +3818,7 @@ export interface Parent {
   /**
    * <p>The type of the parent entity.</p>
    */
-  Type?: ParentType | string;
+  Type?: keyof typeof ParentType | string;
 }
 
 /**
@@ -3869,7 +3869,7 @@ export interface ListPoliciesRequest {
    *             </li>
    *          </ul>
    */
-  Filter: PolicyType | string | undefined;
+  Filter: keyof typeof PolicyType | string | undefined;
 
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -3967,7 +3967,7 @@ export interface ListPoliciesForTargetRequest {
    *             </li>
    *          </ul>
    */
-  Filter: PolicyType | string | undefined;
+  Filter: keyof typeof PolicyType | string | undefined;
 
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -4150,11 +4150,11 @@ export interface ListTargetsForPolicyRequest {
 /**
  * @public
  */
-export enum TargetType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
-  ROOT = "ROOT",
-}
+export const TargetType = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+  ROOT: "ROOT",
+};
 
 /**
  * @public
@@ -4203,7 +4203,7 @@ export interface PolicyTargetSummary {
   /**
    * <p>The type of the policy target.</p>
    */
-  Type?: TargetType | string;
+  Type?: keyof typeof TargetType | string;
 }
 
 /**
@@ -4623,7 +4623,7 @@ export interface HandshakeResource {
    *             </li>
    *          </ul>
    */
-  Type?: HandshakeResourceType | string;
+  Type?: keyof typeof HandshakeResourceType | string;
 
   /**
    * <p>When needed, contains an additional array of <code>HandshakeResource</code>
@@ -4706,7 +4706,7 @@ export interface Handshake {
    *             </li>
    *          </ul>
    */
-  State?: HandshakeState | string;
+  State?: keyof typeof HandshakeState | string;
 
   /**
    * <p>The date and time that the handshake request was made.</p>
@@ -4749,7 +4749,7 @@ export interface Handshake {
    *             </li>
    *          </ul>
    */
-  Action?: ActionType | string;
+  Action?: keyof typeof ActionType | string;
 
   /**
    * <p>Additional information that is needed to process the handshake.</p>

@@ -6,10 +6,10 @@ import { PinpointSMSVoiceV2ServiceException as __BaseException } from "./Pinpoin
 /**
  * @public
  */
-export enum AccessDeniedExceptionReason {
-  ACCOUNT_DISABLED = "ACCOUNT_DISABLED",
-  INSUFFICIENT_ACCOUNT_REPUTATION = "INSUFFICIENT_ACCOUNT_REPUTATION",
-}
+export const AccessDeniedExceptionReason = {
+  ACCOUNT_DISABLED: "ACCOUNT_DISABLED",
+  INSUFFICIENT_ACCOUNT_REPUTATION: "INSUFFICIENT_ACCOUNT_REPUTATION",
+};
 
 /**
  * @public
@@ -23,7 +23,7 @@ export class AccessDeniedException extends __BaseException {
   /**
    * <p>The reason for the exception.</p>
    */
-  Reason?: AccessDeniedExceptionReason | string;
+  Reason?: keyof typeof AccessDeniedExceptionReason | string;
   /**
    * @internal
    */
@@ -42,9 +42,9 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AccountAttributeName {
-  ACCOUNT_TIER = "ACCOUNT_TIER",
-}
+export const AccountAttributeName = {
+  ACCOUNT_TIER: "ACCOUNT_TIER",
+};
 
 /**
  * @public
@@ -54,7 +54,7 @@ export interface AccountAttribute {
   /**
    * <p>The name of the account attribute.</p>
    */
-  Name: AccountAttributeName | string | undefined;
+  Name: keyof typeof AccountAttributeName | string | undefined;
 
   /**
    * <p>The value associated with the account attribute name.</p>
@@ -65,12 +65,12 @@ export interface AccountAttribute {
 /**
  * @public
  */
-export enum AccountLimitName {
-  CONFIGURATION_SETS = "CONFIGURATION_SETS",
-  OPT_OUT_LISTS = "OPT_OUT_LISTS",
-  PHONE_NUMBERS = "PHONE_NUMBERS",
-  POOLS = "POOLS",
-}
+export const AccountLimitName = {
+  CONFIGURATION_SETS: "CONFIGURATION_SETS",
+  OPT_OUT_LISTS: "OPT_OUT_LISTS",
+  PHONE_NUMBERS: "PHONE_NUMBERS",
+  POOLS: "POOLS",
+};
 
 /**
  * @public
@@ -80,7 +80,7 @@ export interface AccountLimit {
   /**
    * <p>The name of the attribute to apply the account limit to.</p>
    */
-  Name: AccountLimitName | string | undefined;
+  Name: keyof typeof AccountLimitName | string | undefined;
 
   /**
    * <p>The current amount that has been spent, in US dollars.</p>
@@ -160,43 +160,43 @@ export interface AssociateOriginationIdentityResult {
 /**
  * @public
  */
-export enum ConflictExceptionReason {
-  DELETION_PROTECTION_ENABLED = "DELETION_PROTECTION_ENABLED",
-  DESTINATION_PHONE_NUMBER_NOT_VERIFIED = "DESTINATION_PHONE_NUMBER_NOT_VERIFIED",
-  DESTINATION_PHONE_NUMBER_OPTED_OUT = "DESTINATION_PHONE_NUMBER_OPTED_OUT",
-  EVENT_DESTINATION_MISMATCH = "EVENT_DESTINATION_MISMATCH",
-  KEYWORD_MISMATCH = "KEYWORD_MISMATCH",
-  LAST_PHONE_NUMBER = "LAST_PHONE_NUMBER",
-  MESSAGE_TYPE_MISMATCH = "MESSAGE_TYPE_MISMATCH",
-  NO_ORIGINATION_IDENTITIES_FOUND = "NO_ORIGINATION_IDENTITIES_FOUND",
-  OPT_OUT_LIST_MISMATCH = "OPT_OUT_LIST_MISMATCH",
-  PHONE_NUMBER_ASSOCIATED_TO_POOL = "PHONE_NUMBER_ASSOCIATED_TO_POOL",
-  PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL = "PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL",
-  PHONE_NUMBER_NOT_IN_REGISTRATION_REGION = "PHONE_NUMBER_NOT_IN_REGISTRATION_REGION",
-  RESOURCE_ALREADY_EXISTS = "RESOURCE_ALREADY_EXISTS",
-  RESOURCE_DELETION_NOT_ALLOWED = "RESOURCE_DELETION_NOT_ALLOWED",
-  RESOURCE_MODIFICATION_NOT_ALLOWED = "RESOURCE_MODIFICATION_NOT_ALLOWED",
-  RESOURCE_NOT_ACTIVE = "RESOURCE_NOT_ACTIVE",
-  RESOURCE_NOT_EMPTY = "RESOURCE_NOT_EMPTY",
-  SELF_MANAGED_OPT_OUTS_MISMATCH = "SELF_MANAGED_OPT_OUTS_MISMATCH",
-  TWO_WAY_CONFIG_MISMATCH = "TWO_WAY_CONFIG_MISMATCH",
-}
+export const ConflictExceptionReason = {
+  DELETION_PROTECTION_ENABLED: "DELETION_PROTECTION_ENABLED",
+  DESTINATION_PHONE_NUMBER_NOT_VERIFIED: "DESTINATION_PHONE_NUMBER_NOT_VERIFIED",
+  DESTINATION_PHONE_NUMBER_OPTED_OUT: "DESTINATION_PHONE_NUMBER_OPTED_OUT",
+  EVENT_DESTINATION_MISMATCH: "EVENT_DESTINATION_MISMATCH",
+  KEYWORD_MISMATCH: "KEYWORD_MISMATCH",
+  LAST_PHONE_NUMBER: "LAST_PHONE_NUMBER",
+  MESSAGE_TYPE_MISMATCH: "MESSAGE_TYPE_MISMATCH",
+  NO_ORIGINATION_IDENTITIES_FOUND: "NO_ORIGINATION_IDENTITIES_FOUND",
+  OPT_OUT_LIST_MISMATCH: "OPT_OUT_LIST_MISMATCH",
+  PHONE_NUMBER_ASSOCIATED_TO_POOL: "PHONE_NUMBER_ASSOCIATED_TO_POOL",
+  PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL: "PHONE_NUMBER_NOT_ASSOCIATED_TO_POOL",
+  PHONE_NUMBER_NOT_IN_REGISTRATION_REGION: "PHONE_NUMBER_NOT_IN_REGISTRATION_REGION",
+  RESOURCE_ALREADY_EXISTS: "RESOURCE_ALREADY_EXISTS",
+  RESOURCE_DELETION_NOT_ALLOWED: "RESOURCE_DELETION_NOT_ALLOWED",
+  RESOURCE_MODIFICATION_NOT_ALLOWED: "RESOURCE_MODIFICATION_NOT_ALLOWED",
+  RESOURCE_NOT_ACTIVE: "RESOURCE_NOT_ACTIVE",
+  RESOURCE_NOT_EMPTY: "RESOURCE_NOT_EMPTY",
+  SELF_MANAGED_OPT_OUTS_MISMATCH: "SELF_MANAGED_OPT_OUTS_MISMATCH",
+  TWO_WAY_CONFIG_MISMATCH: "TWO_WAY_CONFIG_MISMATCH",
+};
 
 /**
  * @public
  */
-export enum ResourceType {
-  ACCOUNT = "account",
-  CONFIGURATION_SET = "configuration-set",
-  EVENT_DESTINATION = "event-destination",
-  KEYWORD = "keyword",
-  OPTED_OUT_NUMBER = "opted-out-number",
-  OPT_OUT_LIST = "opt-out-list",
-  PHONE_NUMBER = "phone-number",
-  POOL = "pool",
-  REGISTRATION = "registration",
-  SENDER_ID = "sender-id",
-}
+export const ResourceType = {
+  ACCOUNT: "account",
+  CONFIGURATION_SET: "configuration-set",
+  EVENT_DESTINATION: "event-destination",
+  KEYWORD: "keyword",
+  OPTED_OUT_NUMBER: "opted-out-number",
+  OPT_OUT_LIST: "opt-out-list",
+  PHONE_NUMBER: "phone-number",
+  POOL: "pool",
+  REGISTRATION: "registration",
+  SENDER_ID: "sender-id",
+};
 
 /**
  * @public
@@ -212,12 +212,12 @@ export class ConflictException extends __BaseException {
   /**
    * <p>The reason for the exception.</p>
    */
-  Reason?: ConflictExceptionReason | string;
+  Reason?: keyof typeof ConflictExceptionReason | string;
 
   /**
    * <p>The type of resource that caused the exception.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The unique identifier of the request.</p>
@@ -280,7 +280,7 @@ export class ResourceNotFoundException extends __BaseException {
   /**
    * <p>The type of resource that caused the exception.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The unique identifier of the resource.</p>
@@ -305,21 +305,21 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum ServiceQuotaExceededExceptionReason {
-  CONFIGURATION_SETS_PER_ACCOUNT = "CONFIGURATION_SETS_PER_ACCOUNT",
-  DAILY_DESTINATION_CALL_LIMIT = "DAILY_DESTINATION_CALL_LIMIT",
-  EVENT_DESTINATIONS_PER_CONFIGURATION_SET = "EVENT_DESTINATIONS_PER_CONFIGURATION_SET",
-  KEYWORDS_PER_PHONE_NUMBER = "KEYWORDS_PER_PHONE_NUMBER",
-  KEYWORDS_PER_POOL = "KEYWORDS_PER_POOL",
-  MONTHLY_SPEND_LIMIT_REACHED_FOR_TEXT = "MONTHLY_SPEND_LIMIT_REACHED_FOR_TEXT",
-  MONTHLY_SPEND_LIMIT_REACHED_FOR_VOICE = "MONTHLY_SPEND_LIMIT_REACHED_FOR_VOICE",
-  OPT_OUT_LISTS_PER_ACCOUNT = "OPT_OUT_LISTS_PER_ACCOUNT",
-  ORIGINATION_IDENTITIES_PER_POOL = "ORIGINATION_IDENTITIES_PER_POOL",
-  PHONE_NUMBERS_PER_ACCOUNT = "PHONE_NUMBERS_PER_ACCOUNT",
-  PHONE_NUMBERS_PER_REGISTRATION = "PHONE_NUMBERS_PER_REGISTRATION",
-  POOLS_PER_ACCOUNT = "POOLS_PER_ACCOUNT",
-  TAGS_PER_RESOURCE = "TAGS_PER_RESOURCE",
-}
+export const ServiceQuotaExceededExceptionReason = {
+  CONFIGURATION_SETS_PER_ACCOUNT: "CONFIGURATION_SETS_PER_ACCOUNT",
+  DAILY_DESTINATION_CALL_LIMIT: "DAILY_DESTINATION_CALL_LIMIT",
+  EVENT_DESTINATIONS_PER_CONFIGURATION_SET: "EVENT_DESTINATIONS_PER_CONFIGURATION_SET",
+  KEYWORDS_PER_PHONE_NUMBER: "KEYWORDS_PER_PHONE_NUMBER",
+  KEYWORDS_PER_POOL: "KEYWORDS_PER_POOL",
+  MONTHLY_SPEND_LIMIT_REACHED_FOR_TEXT: "MONTHLY_SPEND_LIMIT_REACHED_FOR_TEXT",
+  MONTHLY_SPEND_LIMIT_REACHED_FOR_VOICE: "MONTHLY_SPEND_LIMIT_REACHED_FOR_VOICE",
+  OPT_OUT_LISTS_PER_ACCOUNT: "OPT_OUT_LISTS_PER_ACCOUNT",
+  ORIGINATION_IDENTITIES_PER_POOL: "ORIGINATION_IDENTITIES_PER_POOL",
+  PHONE_NUMBERS_PER_ACCOUNT: "PHONE_NUMBERS_PER_ACCOUNT",
+  PHONE_NUMBERS_PER_REGISTRATION: "PHONE_NUMBERS_PER_REGISTRATION",
+  POOLS_PER_ACCOUNT: "POOLS_PER_ACCOUNT",
+  TAGS_PER_RESOURCE: "TAGS_PER_RESOURCE",
+};
 
 /**
  * @public
@@ -332,7 +332,7 @@ export class ServiceQuotaExceededException extends __BaseException {
   /**
    * <p>The reason for the exception.</p>
    */
-  Reason?: ServiceQuotaExceededExceptionReason | string;
+  Reason?: keyof typeof ServiceQuotaExceededExceptionReason | string;
   /**
    * @internal
    */
@@ -394,32 +394,32 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_ADD_OPTED_OUT_NUMBER = "CANNOT_ADD_OPTED_OUT_NUMBER",
-  CANNOT_PARSE = "CANNOT_PARSE",
-  COUNTRY_CODE_MISMATCH = "COUNTRY_CODE_MISMATCH",
-  DESTINATION_COUNTRY_BLOCKED = "DESTINATION_COUNTRY_BLOCKED",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  INVALID_ARN = "INVALID_ARN",
-  INVALID_FILTER_VALUES = "INVALID_FILTER_VALUES",
-  INVALID_IDENTITY_FOR_DESTINATION_COUNTRY = "INVALID_IDENTITY_FOR_DESTINATION_COUNTRY",
-  INVALID_NEXT_TOKEN = "INVALID_NEXT_TOKEN",
-  INVALID_PARAMETER = "INVALID_PARAMETER",
-  MISSING_PARAMETER = "MISSING_PARAMETER",
-  OTHER = "OTHER",
-  PARAMETERS_CANNOT_BE_USED_TOGETHER = "PARAMETERS_CANNOT_BE_USED_TOGETHER",
-  PHONE_NUMBER_CANNOT_BE_OPTED_IN = "PHONE_NUMBER_CANNOT_BE_OPTED_IN",
-  PHONE_NUMBER_CANNOT_BE_RELEASED = "PHONE_NUMBER_CANNOT_BE_RELEASED",
-  PRICE_OVER_THRESHOLD = "PRICE_OVER_THRESHOLD",
-  REQUESTED_SPEND_LIMIT_HIGHER_THAN_SERVICE_LIMIT = "REQUESTED_SPEND_LIMIT_HIGHER_THAN_SERVICE_LIMIT",
-  SENDER_ID_NOT_REGISTERED = "SENDER_ID_NOT_REGISTERED",
-  SENDER_ID_NOT_SUPPORTED = "SENDER_ID_NOT_SUPPORTED",
-  TWO_WAY_NOT_ENABLED = "TWO_WAY_NOT_ENABLED",
-  TWO_WAY_NOT_SUPPORTED_IN_COUNTRY = "TWO_WAY_NOT_SUPPORTED_IN_COUNTRY",
-  TWO_WAY_NOT_SUPPORTED_IN_REGION = "TWO_WAY_NOT_SUPPORTED_IN_REGION",
-  TWO_WAY_TOPIC_NOT_PRESENT = "TWO_WAY_TOPIC_NOT_PRESENT",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_ADD_OPTED_OUT_NUMBER: "CANNOT_ADD_OPTED_OUT_NUMBER",
+  CANNOT_PARSE: "CANNOT_PARSE",
+  COUNTRY_CODE_MISMATCH: "COUNTRY_CODE_MISMATCH",
+  DESTINATION_COUNTRY_BLOCKED: "DESTINATION_COUNTRY_BLOCKED",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  INVALID_ARN: "INVALID_ARN",
+  INVALID_FILTER_VALUES: "INVALID_FILTER_VALUES",
+  INVALID_IDENTITY_FOR_DESTINATION_COUNTRY: "INVALID_IDENTITY_FOR_DESTINATION_COUNTRY",
+  INVALID_NEXT_TOKEN: "INVALID_NEXT_TOKEN",
+  INVALID_PARAMETER: "INVALID_PARAMETER",
+  MISSING_PARAMETER: "MISSING_PARAMETER",
+  OTHER: "OTHER",
+  PARAMETERS_CANNOT_BE_USED_TOGETHER: "PARAMETERS_CANNOT_BE_USED_TOGETHER",
+  PHONE_NUMBER_CANNOT_BE_OPTED_IN: "PHONE_NUMBER_CANNOT_BE_OPTED_IN",
+  PHONE_NUMBER_CANNOT_BE_RELEASED: "PHONE_NUMBER_CANNOT_BE_RELEASED",
+  PRICE_OVER_THRESHOLD: "PRICE_OVER_THRESHOLD",
+  REQUESTED_SPEND_LIMIT_HIGHER_THAN_SERVICE_LIMIT: "REQUESTED_SPEND_LIMIT_HIGHER_THAN_SERVICE_LIMIT",
+  SENDER_ID_NOT_REGISTERED: "SENDER_ID_NOT_REGISTERED",
+  SENDER_ID_NOT_SUPPORTED: "SENDER_ID_NOT_SUPPORTED",
+  TWO_WAY_NOT_ENABLED: "TWO_WAY_NOT_ENABLED",
+  TWO_WAY_NOT_SUPPORTED_IN_COUNTRY: "TWO_WAY_NOT_SUPPORTED_IN_COUNTRY",
+  TWO_WAY_NOT_SUPPORTED_IN_REGION: "TWO_WAY_NOT_SUPPORTED_IN_REGION",
+  TWO_WAY_TOPIC_NOT_PRESENT: "TWO_WAY_TOPIC_NOT_PRESENT",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+};
 
 /**
  * @public
@@ -432,7 +432,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason for the exception.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>The field that failed validation.</p>
@@ -475,12 +475,12 @@ export interface CloudWatchLogsDestination {
 /**
  * @public
  */
-export enum ConfigurationSetFilterName {
-  DEFAULT_MESSAGE_TYPE = "default-message-type",
-  DEFAULT_SENDER_ID = "default-sender-id",
-  EVENT_DESTINATION_NAME = "event-destination-name",
-  MATCHING_EVENT_TYPES = "matching-event-types",
-}
+export const ConfigurationSetFilterName = {
+  DEFAULT_MESSAGE_TYPE: "default-message-type",
+  DEFAULT_SENDER_ID: "default-sender-id",
+  EVENT_DESTINATION_NAME: "event-destination-name",
+  MATCHING_EVENT_TYPES: "matching-event-types",
+};
 
 /**
  * @public
@@ -490,7 +490,7 @@ export interface ConfigurationSetFilter {
   /**
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: ConfigurationSetFilterName | string | undefined;
+  Name: keyof typeof ConfigurationSetFilterName | string | undefined;
 
   /**
    * <p>An array values to filter for.</p>
@@ -501,10 +501,10 @@ export interface ConfigurationSetFilter {
 /**
  * @public
  */
-export enum MessageType {
-  PROMOTIONAL = "PROMOTIONAL",
-  TRANSACTIONAL = "TRANSACTIONAL",
-}
+export const MessageType = {
+  PROMOTIONAL: "PROMOTIONAL",
+  TRANSACTIONAL: "TRANSACTIONAL",
+};
 
 /**
  * @public
@@ -529,33 +529,33 @@ export interface KinesisFirehoseDestination {
 /**
  * @public
  */
-export enum EventType {
-  ALL = "ALL",
-  TEXT_ALL = "TEXT_ALL",
-  TEXT_BLOCKED = "TEXT_BLOCKED",
-  TEXT_CARRIER_BLOCKED = "TEXT_CARRIER_BLOCKED",
-  TEXT_CARRIER_UNREACHABLE = "TEXT_CARRIER_UNREACHABLE",
-  TEXT_DELIVERED = "TEXT_DELIVERED",
-  TEXT_INVALID = "TEXT_INVALID",
-  TEXT_INVALID_MESSAGE = "TEXT_INVALID_MESSAGE",
-  TEXT_PENDING = "TEXT_PENDING",
-  TEXT_QUEUED = "TEXT_QUEUED",
-  TEXT_SENT = "TEXT_SENT",
-  TEXT_SPAM = "TEXT_SPAM",
-  TEXT_SUCCESSFUL = "TEXT_SUCCESSFUL",
-  TEXT_TTL_EXPIRED = "TEXT_TTL_EXPIRED",
-  TEXT_UNKNOWN = "TEXT_UNKNOWN",
-  TEXT_UNREACHABLE = "TEXT_UNREACHABLE",
-  VOICE_ALL = "VOICE_ALL",
-  VOICE_ANSWERED = "VOICE_ANSWERED",
-  VOICE_BUSY = "VOICE_BUSY",
-  VOICE_COMPLETED = "VOICE_COMPLETED",
-  VOICE_FAILED = "VOICE_FAILED",
-  VOICE_INITIATED = "VOICE_INITIATED",
-  VOICE_NO_ANSWER = "VOICE_NO_ANSWER",
-  VOICE_RINGING = "VOICE_RINGING",
-  VOICE_TTL_EXPIRED = "VOICE_TTL_EXPIRED",
-}
+export const EventType = {
+  ALL: "ALL",
+  TEXT_ALL: "TEXT_ALL",
+  TEXT_BLOCKED: "TEXT_BLOCKED",
+  TEXT_CARRIER_BLOCKED: "TEXT_CARRIER_BLOCKED",
+  TEXT_CARRIER_UNREACHABLE: "TEXT_CARRIER_UNREACHABLE",
+  TEXT_DELIVERED: "TEXT_DELIVERED",
+  TEXT_INVALID: "TEXT_INVALID",
+  TEXT_INVALID_MESSAGE: "TEXT_INVALID_MESSAGE",
+  TEXT_PENDING: "TEXT_PENDING",
+  TEXT_QUEUED: "TEXT_QUEUED",
+  TEXT_SENT: "TEXT_SENT",
+  TEXT_SPAM: "TEXT_SPAM",
+  TEXT_SUCCESSFUL: "TEXT_SUCCESSFUL",
+  TEXT_TTL_EXPIRED: "TEXT_TTL_EXPIRED",
+  TEXT_UNKNOWN: "TEXT_UNKNOWN",
+  TEXT_UNREACHABLE: "TEXT_UNREACHABLE",
+  VOICE_ALL: "VOICE_ALL",
+  VOICE_ANSWERED: "VOICE_ANSWERED",
+  VOICE_BUSY: "VOICE_BUSY",
+  VOICE_COMPLETED: "VOICE_COMPLETED",
+  VOICE_FAILED: "VOICE_FAILED",
+  VOICE_INITIATED: "VOICE_INITIATED",
+  VOICE_NO_ANSWER: "VOICE_NO_ANSWER",
+  VOICE_RINGING: "VOICE_RINGING",
+  VOICE_TTL_EXPIRED: "VOICE_TTL_EXPIRED",
+};
 
 /**
  * @public
@@ -592,7 +592,7 @@ export interface EventDestination {
   /**
    * <p>An array of event types that determine which events to log.</p>
    */
-  MatchingEventTypes: (EventType | string)[] | undefined;
+  MatchingEventTypes: (keyof typeof EventType | string)[] | undefined;
 
   /**
    * <p>An object that contains information about an event destination that sends logging
@@ -640,7 +640,7 @@ export interface ConfigurationSetInformation {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  DefaultMessageType?: MessageType | string;
+  DefaultMessageType?: keyof typeof MessageType | string;
 
   /**
    * <p>The default sender ID used by the ConfigurationSet.</p>
@@ -736,7 +736,7 @@ export interface CreateEventDestinationRequest {
    * <p>An array of event types that determine which events to log. If "ALL" is used, then
    *                 Amazon Pinpoint logs every event type.</p>
    */
-  MatchingEventTypes: (EventType | string)[] | undefined;
+  MatchingEventTypes: (keyof typeof EventType | string)[] | undefined;
 
   /**
    * <p>An object that contains information about an event destination for logging to Amazon
@@ -853,7 +853,7 @@ export interface CreatePoolRequest {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType: MessageType | string | undefined;
+  MessageType: keyof typeof MessageType | string | undefined;
 
   /**
    * <p>By default this is set to false. When set to true the pool can't be deleted. You can
@@ -877,11 +877,11 @@ export interface CreatePoolRequest {
 /**
  * @public
  */
-export enum PoolStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const PoolStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -912,12 +912,12 @@ export interface CreatePoolResult {
    *             </li>
    *          </ul>
    */
-  Status?: PoolStatus | string;
+  Status?: keyof typeof PoolStatus | string;
 
   /**
    * <p>The type of message for the pool to use.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: keyof typeof MessageType | string;
 
   /**
    * <p>By default this is set to false. When set to true you can receive incoming text
@@ -1000,7 +1000,7 @@ export interface DeleteConfigurationSetResult {
   /**
    * <p>The default message type of the configuration set that was deleted.</p>
    */
-  DefaultMessageType?: MessageType | string;
+  DefaultMessageType?: keyof typeof MessageType | string;
 
   /**
    * <p>The default Sender ID of the configuration set that was deleted.</p>
@@ -1043,7 +1043,7 @@ export interface DeleteDefaultMessageTypeResult {
   /**
    * <p>The current message type for the configuration set.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: keyof typeof MessageType | string;
 }
 
 /**
@@ -1137,11 +1137,11 @@ export interface DeleteKeywordRequest {
 /**
  * @public
  */
-export enum KeywordAction {
-  AUTOMATIC_RESPONSE = "AUTOMATIC_RESPONSE",
-  OPT_IN = "OPT_IN",
-  OPT_OUT = "OPT_OUT",
-}
+export const KeywordAction = {
+  AUTOMATIC_RESPONSE: "AUTOMATIC_RESPONSE",
+  OPT_IN: "OPT_IN",
+  OPT_OUT: "OPT_OUT",
+};
 
 /**
  * @public
@@ -1170,7 +1170,7 @@ export interface DeleteKeywordResult {
   /**
    * <p>The action that was associated with the deleted keyword.</p>
    */
-  KeywordAction?: KeywordAction | string;
+  KeywordAction?: keyof typeof KeywordAction | string;
 }
 
 /**
@@ -1289,12 +1289,12 @@ export interface DeletePoolResult {
    *             </li>
    *          </ul>
    */
-  Status?: PoolStatus | string;
+  Status?: keyof typeof PoolStatus | string;
 
   /**
    * <p>The message type that was associated with the deleted pool.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: keyof typeof MessageType | string;
 
   /**
    * <p>By default this is set to false. When set to true you can receive incoming text
@@ -1472,9 +1472,9 @@ export interface DescribeConfigurationSetsResult {
 /**
  * @public
  */
-export enum KeywordFilterName {
-  KEYWORD_ACTION = "keyword-action",
-}
+export const KeywordFilterName = {
+  KEYWORD_ACTION: "keyword-action",
+};
 
 /**
  * @public
@@ -1484,7 +1484,7 @@ export interface KeywordFilter {
   /**
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: KeywordFilterName | string | undefined;
+  Name: keyof typeof KeywordFilterName | string | undefined;
 
   /**
    * <p>An array values to filter for.</p>
@@ -1544,7 +1544,7 @@ export interface KeywordInformation {
   /**
    * <p>The action to perform for the keyword.</p>
    */
-  KeywordAction: KeywordAction | string | undefined;
+  KeywordAction: keyof typeof KeywordAction | string | undefined;
 }
 
 /**
@@ -1576,9 +1576,9 @@ export interface DescribeKeywordsResult {
 /**
  * @public
  */
-export enum OptedOutFilterName {
-  END_USER_OPTED_OUT = "end-user-opted-out",
-}
+export const OptedOutFilterName = {
+  END_USER_OPTED_OUT: "end-user-opted-out",
+};
 
 /**
  * @public
@@ -1588,7 +1588,7 @@ export interface OptedOutFilter {
   /**
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: OptedOutFilterName | string | undefined;
+  Name: keyof typeof OptedOutFilterName | string | undefined;
 
   /**
    * <p>An array of values to filter for.</p>
@@ -1739,17 +1739,17 @@ export interface DescribeOptOutListsResult {
 /**
  * @public
  */
-export enum PhoneNumberFilterName {
-  DELETION_PROTECTION_ENABLED = "deletion-protection-enabled",
-  ISO_COUNTRY_CODE = "iso-country-code",
-  MESSAGE_TYPE = "message-type",
-  NUMBER_CAPABILITY = "number-capability",
-  NUMBER_TYPE = "number-type",
-  OPT_OUT_LIST_NAME = "opt-out-list-name",
-  SELF_MANAGED_OPT_OUTS_ENABLED = "self-managed-opt-outs-enabled",
-  STATUS = "status",
-  TWO_WAY_ENABLED = "two-way-enabled",
-}
+export const PhoneNumberFilterName = {
+  DELETION_PROTECTION_ENABLED: "deletion-protection-enabled",
+  ISO_COUNTRY_CODE: "iso-country-code",
+  MESSAGE_TYPE: "message-type",
+  NUMBER_CAPABILITY: "number-capability",
+  NUMBER_TYPE: "number-type",
+  OPT_OUT_LIST_NAME: "opt-out-list-name",
+  SELF_MANAGED_OPT_OUTS_ENABLED: "self-managed-opt-outs-enabled",
+  STATUS: "status",
+  TWO_WAY_ENABLED: "two-way-enabled",
+};
 
 /**
  * @public
@@ -1759,7 +1759,7 @@ export interface PhoneNumberFilter {
   /**
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: PhoneNumberFilterName | string | undefined;
+  Name: keyof typeof PhoneNumberFilterName | string | undefined;
 
   /**
    * <p>An array values to filter for.</p>
@@ -1797,31 +1797,31 @@ export interface DescribePhoneNumbersRequest {
 /**
  * @public
  */
-export enum NumberCapability {
-  SMS = "SMS",
-  VOICE = "VOICE",
-}
+export const NumberCapability = {
+  SMS: "SMS",
+  VOICE: "VOICE",
+};
 
 /**
  * @public
  */
-export enum NumberType {
-  LONG_CODE = "LONG_CODE",
-  SHORT_CODE = "SHORT_CODE",
-  TEN_DLC = "TEN_DLC",
-  TOLL_FREE = "TOLL_FREE",
-}
+export const NumberType = {
+  LONG_CODE: "LONG_CODE",
+  SHORT_CODE: "SHORT_CODE",
+  TEN_DLC: "TEN_DLC",
+  TOLL_FREE: "TOLL_FREE",
+};
 
 /**
  * @public
  */
-export enum NumberStatus {
-  ACTIVE = "ACTIVE",
-  ASSOCIATING = "ASSOCIATING",
-  DELETED = "DELETED",
-  DISASSOCIATING = "DISASSOCIATING",
-  PENDING = "PENDING",
-}
+export const NumberStatus = {
+  ACTIVE: "ACTIVE",
+  ASSOCIATING: "ASSOCIATING",
+  DELETED: "DELETED",
+  DISASSOCIATING: "DISASSOCIATING",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -1846,7 +1846,7 @@ export interface PhoneNumberInformation {
   /**
    * <p>The current status of the phone number.</p>
    */
-  Status: NumberStatus | string | undefined;
+  Status: keyof typeof NumberStatus | string | undefined;
 
   /**
    * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
@@ -1859,18 +1859,18 @@ export interface PhoneNumberInformation {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType: MessageType | string | undefined;
+  MessageType: keyof typeof MessageType | string | undefined;
 
   /**
    * <p>Describes if the origination identity can be used for text messages, voice calls or
    *             both.</p>
    */
-  NumberCapabilities: (NumberCapability | string)[] | undefined;
+  NumberCapabilities: (keyof typeof NumberCapability | string)[] | undefined;
 
   /**
    * <p>The type of phone number.</p>
    */
-  NumberType: NumberType | string | undefined;
+  NumberType: keyof typeof NumberType | string | undefined;
 
   /**
    * <p>The price, in US dollars, to lease the phone number.</p>
@@ -1939,15 +1939,15 @@ export interface DescribePhoneNumbersResult {
 /**
  * @public
  */
-export enum PoolFilterName {
-  DELETION_PROTECTION_ENABLED = "deletion-protection-enabled",
-  MESSAGE_TYPE = "message-type",
-  OPT_OUT_LIST_NAME = "opt-out-list-name",
-  SELF_MANAGED_OPT_OUTS_ENABLED = "self-managed-opt-outs-enabled",
-  SHARED_ROUTES_ENABLED = "shared-routes-enabled",
-  STATUS = "status",
-  TWO_WAY_ENABLED = "two-way-enabled",
-}
+export const PoolFilterName = {
+  DELETION_PROTECTION_ENABLED: "deletion-protection-enabled",
+  MESSAGE_TYPE: "message-type",
+  OPT_OUT_LIST_NAME: "opt-out-list-name",
+  SELF_MANAGED_OPT_OUTS_ENABLED: "self-managed-opt-outs-enabled",
+  SHARED_ROUTES_ENABLED: "shared-routes-enabled",
+  STATUS: "status",
+  TWO_WAY_ENABLED: "two-way-enabled",
+};
 
 /**
  * @public
@@ -1957,7 +1957,7 @@ export interface PoolFilter {
   /**
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: PoolFilterName | string | undefined;
+  Name: keyof typeof PoolFilterName | string | undefined;
 
   /**
    * <p>An array values to filter for.</p>
@@ -2010,14 +2010,14 @@ export interface PoolInformation {
   /**
    * <p>The current status of the pool.</p>
    */
-  Status: PoolStatus | string | undefined;
+  Status: keyof typeof PoolStatus | string | undefined;
 
   /**
    * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType: MessageType | string | undefined;
+  MessageType: keyof typeof MessageType | string | undefined;
 
   /**
    * <p>When set to true you can receive incoming text messages from your end recipients using
@@ -2085,11 +2085,11 @@ export interface DescribePoolsResult {
 /**
  * @public
  */
-export enum SenderIdFilterName {
-  ISO_COUNTRY_CODE = "iso-country-code",
-  MESSAGE_TYPE = "message-type",
-  SENDER_ID = "sender-id",
-}
+export const SenderIdFilterName = {
+  ISO_COUNTRY_CODE: "iso-country-code",
+  MESSAGE_TYPE: "message-type",
+  SENDER_ID: "sender-id",
+};
 
 /**
  * @public
@@ -2099,7 +2099,7 @@ export interface SenderIdFilter {
   /**
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: SenderIdFilterName | string | undefined;
+  Name: keyof typeof SenderIdFilterName | string | undefined;
 
   /**
    * <p>An array of values to filter for.</p>
@@ -2179,7 +2179,7 @@ export interface SenderIdInformation {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageTypes: (MessageType | string)[] | undefined;
+  MessageTypes: (keyof typeof MessageType | string)[] | undefined;
 
   /**
    * <p>The monthly leasing price, in US dollars.</p>
@@ -2223,10 +2223,10 @@ export interface DescribeSpendLimitsRequest {
 /**
  * @public
  */
-export enum SpendLimitName {
-  TEXT_MESSAGE_MONTHLY_SPEND_LIMIT = "TEXT_MESSAGE_MONTHLY_SPEND_LIMIT",
-  VOICE_MESSAGE_MONTHLY_SPEND_LIMIT = "VOICE_MESSAGE_MONTHLY_SPEND_LIMIT",
-}
+export const SpendLimitName = {
+  TEXT_MESSAGE_MONTHLY_SPEND_LIMIT: "TEXT_MESSAGE_MONTHLY_SPEND_LIMIT",
+  VOICE_MESSAGE_MONTHLY_SPEND_LIMIT: "VOICE_MESSAGE_MONTHLY_SPEND_LIMIT",
+};
 
 /**
  * @public
@@ -2239,7 +2239,7 @@ export interface SpendLimit {
   /**
    * <p>The name for the SpendLimit.</p>
    */
-  Name: SpendLimitName | string | undefined;
+  Name: keyof typeof SpendLimitName | string | undefined;
 
   /**
    * <p>The maximum amount of money, in US dollars, that you want to be able to spend sending
@@ -2283,10 +2283,10 @@ export interface DescribeSpendLimitsResult {
 /**
  * @public
  */
-export enum DestinationCountryParameterKey {
-  IN_ENTITY_ID = "IN_ENTITY_ID",
-  IN_TEMPLATE_ID = "IN_TEMPLATE_ID",
-}
+export const DestinationCountryParameterKey = {
+  IN_ENTITY_ID: "IN_ENTITY_ID",
+  IN_TEMPLATE_ID: "IN_TEMPLATE_ID",
+};
 
 /**
  * @public
@@ -2354,10 +2354,10 @@ export interface DisassociateOriginationIdentityResult {
 /**
  * @public
  */
-export enum PoolOriginationIdentitiesFilterName {
-  ISO_COUNTRY_CODE = "iso-country-code",
-  NUMBER_CAPABILITY = "number-capability",
-}
+export const PoolOriginationIdentitiesFilterName = {
+  ISO_COUNTRY_CODE: "iso-country-code",
+  NUMBER_CAPABILITY: "number-capability",
+};
 
 /**
  * @public
@@ -2368,7 +2368,7 @@ export interface PoolOriginationIdentitiesFilter {
   /**
    * <p>The name of the attribute to filter on.</p>
    */
-  Name: PoolOriginationIdentitiesFilterName | string | undefined;
+  Name: keyof typeof PoolOriginationIdentitiesFilterName | string | undefined;
 
   /**
    * <p>An array values to filter for.</p>
@@ -2428,7 +2428,7 @@ export interface OriginationIdentityMetadata {
    * <p>Describes if the origination identity can be used for text messages, voice calls or
    *             both.</p>
    */
-  NumberCapabilities: (NumberCapability | string)[] | undefined;
+  NumberCapabilities: (keyof typeof NumberCapability | string)[] | undefined;
 }
 
 /**
@@ -2518,7 +2518,7 @@ export interface PutKeywordRequest {
   /**
    * <p>The action to perform for the new keyword when it is received.</p>
    */
-  KeywordAction?: KeywordAction | string;
+  KeywordAction?: keyof typeof KeywordAction | string;
 }
 
 /**
@@ -2548,7 +2548,7 @@ export interface PutKeywordResult {
   /**
    * <p>The action to perform when the keyword is used.</p>
    */
-  KeywordAction?: KeywordAction | string;
+  KeywordAction?: keyof typeof KeywordAction | string;
 }
 
 /**
@@ -2630,7 +2630,7 @@ export interface ReleasePhoneNumberResult {
   /**
    * <p>The current status of the request.</p>
    */
-  Status?: NumberStatus | string;
+  Status?: keyof typeof NumberStatus | string;
 
   /**
    * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or
@@ -2641,17 +2641,17 @@ export interface ReleasePhoneNumberResult {
   /**
    * <p>The message type that was associated with the phone number.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: keyof typeof MessageType | string;
 
   /**
    * <p>Specifies if the number could be used for text messages, voice, or both.</p>
    */
-  NumberCapabilities?: (NumberCapability | string)[];
+  NumberCapabilities?: (keyof typeof NumberCapability | string)[];
 
   /**
    * <p>The type of number that was released.</p>
    */
-  NumberType?: NumberType | string;
+  NumberType?: keyof typeof NumberType | string;
 
   /**
    * <p>The monthly price of the phone number, in US dollars.</p>
@@ -2692,11 +2692,11 @@ export interface ReleasePhoneNumberResult {
 /**
  * @public
  */
-export enum RequestableNumberType {
-  LONG_CODE = "LONG_CODE",
-  TEN_DLC = "TEN_DLC",
-  TOLL_FREE = "TOLL_FREE",
-}
+export const RequestableNumberType = {
+  LONG_CODE: "LONG_CODE",
+  TEN_DLC: "TEN_DLC",
+  TOLL_FREE: "TOLL_FREE",
+};
 
 /**
  * @public
@@ -2713,17 +2713,17 @@ export interface RequestPhoneNumberRequest {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType: MessageType | string | undefined;
+  MessageType: keyof typeof MessageType | string | undefined;
 
   /**
    * <p>Indicates if the phone number will be used for text messages, voice messages, or both. </p>
    */
-  NumberCapabilities: (NumberCapability | string)[] | undefined;
+  NumberCapabilities: (keyof typeof NumberCapability | string)[] | undefined;
 
   /**
    * <p>The type of phone number to request.</p>
    */
-  NumberType: RequestableNumberType | string | undefined;
+  NumberType: keyof typeof RequestableNumberType | string | undefined;
 
   /**
    * <p>The name of the OptOutList to associate with the phone number. You can use the
@@ -2784,7 +2784,7 @@ export interface RequestPhoneNumberResult {
   /**
    * <p>The current status of the request.</p>
    */
-  Status?: NumberStatus | string;
+  Status?: keyof typeof NumberStatus | string;
 
   /**
    * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
@@ -2797,18 +2797,18 @@ export interface RequestPhoneNumberResult {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: keyof typeof MessageType | string;
 
   /**
    * <p>Indicates if the phone number will be used for text messages, voice messages or both.
    *         </p>
    */
-  NumberCapabilities?: (NumberCapability | string)[];
+  NumberCapabilities?: (keyof typeof NumberCapability | string)[];
 
   /**
    * <p>The type of number that was released.</p>
    */
-  NumberType?: RequestableNumberType | string;
+  NumberType?: keyof typeof RequestableNumberType | string;
 
   /**
    * <p>The monthly price, in US dollars, to lease the phone number.</p>
@@ -2888,7 +2888,7 @@ export interface SendTextMessageRequest {
    *             for messages that are critical or time-sensitive and PROMOTIONAL for messages that
    *             aren't critical or time-sensitive.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: keyof typeof MessageType | string;
 
   /**
    * <p>When you register a short code in the US, you must specify a program name. If you
@@ -2947,75 +2947,75 @@ export interface SendTextMessageResult {
 /**
  * @public
  */
-export enum VoiceMessageBodyTextType {
-  SSML = "SSML",
-  TEXT = "TEXT",
-}
+export const VoiceMessageBodyTextType = {
+  SSML: "SSML",
+  TEXT: "TEXT",
+};
 
 /**
  * @public
  */
-export enum VoiceId {
-  AMY = "AMY",
-  ASTRID = "ASTRID",
-  BIANCA = "BIANCA",
-  BRIAN = "BRIAN",
-  CAMILA = "CAMILA",
-  CARLA = "CARLA",
-  CARMEN = "CARMEN",
-  CELINE = "CELINE",
-  CHANTAL = "CHANTAL",
-  CONCHITA = "CONCHITA",
-  CRISTIANO = "CRISTIANO",
-  DORA = "DORA",
-  EMMA = "EMMA",
-  ENRIQUE = "ENRIQUE",
-  EWA = "EWA",
-  FILIZ = "FILIZ",
-  GERAINT = "GERAINT",
-  GIORGIO = "GIORGIO",
-  GWYNETH = "GWYNETH",
-  HANS = "HANS",
-  INES = "INES",
-  IVY = "IVY",
-  JACEK = "JACEK",
-  JAN = "JAN",
-  JOANNA = "JOANNA",
-  JOEY = "JOEY",
-  JUSTIN = "JUSTIN",
-  KARL = "KARL",
-  KENDRA = "KENDRA",
-  KIMBERLY = "KIMBERLY",
-  LEA = "LEA",
-  LIV = "LIV",
-  LOTTE = "LOTTE",
-  LUCIA = "LUCIA",
-  LUPE = "LUPE",
-  MADS = "MADS",
-  MAJA = "MAJA",
-  MARLENE = "MARLENE",
-  MATHIEU = "MATHIEU",
-  MATTHEW = "MATTHEW",
-  MAXIM = "MAXIM",
-  MIA = "MIA",
-  MIGUEL = "MIGUEL",
-  MIZUKI = "MIZUKI",
-  NAJA = "NAJA",
-  NICOLE = "NICOLE",
-  PENELOPE = "PENELOPE",
-  RAVEENA = "RAVEENA",
-  RICARDO = "RICARDO",
-  RUBEN = "RUBEN",
-  RUSSELL = "RUSSELL",
-  SALLI = "SALLI",
-  SEOYEON = "SEOYEON",
-  TAKUMI = "TAKUMI",
-  TATYANA = "TATYANA",
-  VICKI = "VICKI",
-  VITORIA = "VITORIA",
-  ZEINA = "ZEINA",
-  ZHIYU = "ZHIYU",
-}
+export const VoiceId = {
+  AMY: "AMY",
+  ASTRID: "ASTRID",
+  BIANCA: "BIANCA",
+  BRIAN: "BRIAN",
+  CAMILA: "CAMILA",
+  CARLA: "CARLA",
+  CARMEN: "CARMEN",
+  CELINE: "CELINE",
+  CHANTAL: "CHANTAL",
+  CONCHITA: "CONCHITA",
+  CRISTIANO: "CRISTIANO",
+  DORA: "DORA",
+  EMMA: "EMMA",
+  ENRIQUE: "ENRIQUE",
+  EWA: "EWA",
+  FILIZ: "FILIZ",
+  GERAINT: "GERAINT",
+  GIORGIO: "GIORGIO",
+  GWYNETH: "GWYNETH",
+  HANS: "HANS",
+  INES: "INES",
+  IVY: "IVY",
+  JACEK: "JACEK",
+  JAN: "JAN",
+  JOANNA: "JOANNA",
+  JOEY: "JOEY",
+  JUSTIN: "JUSTIN",
+  KARL: "KARL",
+  KENDRA: "KENDRA",
+  KIMBERLY: "KIMBERLY",
+  LEA: "LEA",
+  LIV: "LIV",
+  LOTTE: "LOTTE",
+  LUCIA: "LUCIA",
+  LUPE: "LUPE",
+  MADS: "MADS",
+  MAJA: "MAJA",
+  MARLENE: "MARLENE",
+  MATHIEU: "MATHIEU",
+  MATTHEW: "MATTHEW",
+  MAXIM: "MAXIM",
+  MIA: "MIA",
+  MIGUEL: "MIGUEL",
+  MIZUKI: "MIZUKI",
+  NAJA: "NAJA",
+  NICOLE: "NICOLE",
+  PENELOPE: "PENELOPE",
+  RAVEENA: "RAVEENA",
+  RICARDO: "RICARDO",
+  RUBEN: "RUBEN",
+  RUSSELL: "RUSSELL",
+  SALLI: "SALLI",
+  SEOYEON: "SEOYEON",
+  TAKUMI: "TAKUMI",
+  TATYANA: "TATYANA",
+  VICKI: "VICKI",
+  VITORIA: "VITORIA",
+  ZEINA: "ZEINA",
+  ZHIYU: "ZHIYU",
+};
 
 /**
  * @public
@@ -3051,13 +3051,13 @@ export interface SendVoiceMessageRequest {
    *             </li>
    *          </ul>
    */
-  MessageBodyTextType?: VoiceMessageBodyTextType | string;
+  MessageBodyTextType?: keyof typeof VoiceMessageBodyTextType | string;
 
   /**
    * <p>The voice for the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly</a>
    *             service to use. By default this is set to "MATTHEW".</p>
    */
-  VoiceId?: VoiceId | string;
+  VoiceId?: keyof typeof VoiceId | string;
 
   /**
    * <p>The name of the configuration set to use. This can be either the ConfigurationSetName
@@ -3113,7 +3113,7 @@ export interface SetDefaultMessageTypeRequest {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType: MessageType | string | undefined;
+  MessageType: keyof typeof MessageType | string | undefined;
 }
 
 /**
@@ -3133,7 +3133,7 @@ export interface SetDefaultMessageTypeResult {
   /**
    * <p>The new default message type of the configuration set.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: keyof typeof MessageType | string;
 }
 
 /**
@@ -3279,7 +3279,7 @@ export interface UpdateEventDestinationRequest {
   /**
    * <p>An array of event types that determine which events to log.</p>
    */
-  MatchingEventTypes?: (EventType | string)[];
+  MatchingEventTypes?: (keyof typeof EventType | string)[];
 
   /**
    * <p>An object that contains information about an event destination that sends data to
@@ -3385,7 +3385,7 @@ export interface UpdatePhoneNumberResult {
   /**
    * <p>The current status of the request.</p>
    */
-  Status?: NumberStatus | string;
+  Status?: keyof typeof NumberStatus | string;
 
   /**
    * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
@@ -3398,17 +3398,17 @@ export interface UpdatePhoneNumberResult {
    *             time-sensitive and PROMOTIONAL for messages that aren't critical or
    *             time-sensitive.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: keyof typeof MessageType | string;
 
   /**
    * <p>Specifies if the number could be used for text messages, voice or both.</p>
    */
-  NumberCapabilities?: (NumberCapability | string)[];
+  NumberCapabilities?: (keyof typeof NumberCapability | string)[];
 
   /**
    * <p>The type of number that was requested.</p>
    */
-  NumberType?: NumberType | string;
+  NumberType?: keyof typeof NumberType | string;
 
   /**
    * <p>The monthly leasing price of the phone number, in US dollars.</p>
@@ -3511,12 +3511,12 @@ export interface UpdatePoolResult {
   /**
    * <p>The current status of the pool update request.</p>
    */
-  Status?: PoolStatus | string;
+  Status?: keyof typeof PoolStatus | string;
 
   /**
    * <p>The type of message for the pool to use.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: keyof typeof MessageType | string;
 
   /**
    * <p>By default this is set to false. When set to true you can receive incoming text

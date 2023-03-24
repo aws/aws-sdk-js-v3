@@ -28,10 +28,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum ApiGatewayEndpointType {
-  PRIVATE = "PRIVATE",
-  REGIONAL = "REGIONAL",
-}
+export const ApiGatewayEndpointType = {
+  PRIVATE: "PRIVATE",
+  REGIONAL: "REGIONAL",
+};
 
 /**
  * @public
@@ -67,7 +67,7 @@ export interface ApiGatewayProxyConfig {
   /**
    * <p>The type of API Gateway endpoint created. </p>
    */
-  EndpointType?: ApiGatewayEndpointType | string;
+  EndpointType?: keyof typeof ApiGatewayEndpointType | string;
 
   /**
    * <p>The name of the API Gateway stage. The name defaults to <code>prod</code>. </p>
@@ -88,7 +88,7 @@ export interface ApiGatewayProxyInput {
    *       by using Amazon Virtual Private Cloud (Amazon VPC) endpoints for Amazon API Gateway that
    *       have been granted access. </p>
    */
-  EndpointType?: ApiGatewayEndpointType | string;
+  EndpointType?: keyof typeof ApiGatewayEndpointType | string;
 
   /**
    * <p>The name of the API Gateway stage. The name defaults to <code>prod</code>. </p>
@@ -130,7 +130,7 @@ export interface ApiGatewayProxySummary {
   /**
    * <p>The type of API Gateway endpoint created. </p>
    */
-  EndpointType?: ApiGatewayEndpointType | string;
+  EndpointType?: keyof typeof ApiGatewayEndpointType | string;
 
   /**
    * <p>The name of the API Gateway stage. The name defaults to <code>prod</code>. </p>
@@ -141,56 +141,56 @@ export interface ApiGatewayProxySummary {
 /**
  * @public
  */
-export enum ApplicationState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const ApplicationState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum ErrorCode {
-  INVALID_RESOURCE_STATE = "INVALID_RESOURCE_STATE",
-  NOT_AUTHORIZED = "NOT_AUTHORIZED",
-  REQUEST_LIMIT_EXCEEDED = "REQUEST_LIMIT_EXCEEDED",
-  RESOURCE_CREATION_FAILURE = "RESOURCE_CREATION_FAILURE",
-  RESOURCE_DELETION_FAILURE = "RESOURCE_DELETION_FAILURE",
-  RESOURCE_IN_USE = "RESOURCE_IN_USE",
-  RESOURCE_LIMIT_EXCEEDED = "RESOURCE_LIMIT_EXCEEDED",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  RESOURCE_RETRIEVAL_FAILURE = "RESOURCE_RETRIEVAL_FAILURE",
-  RESOURCE_UPDATE_FAILURE = "RESOURCE_UPDATE_FAILURE",
-  SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE = "SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE",
-  STATE_TRANSITION_FAILURE = "STATE_TRANSITION_FAILURE",
-}
+export const ErrorCode = {
+  INVALID_RESOURCE_STATE: "INVALID_RESOURCE_STATE",
+  NOT_AUTHORIZED: "NOT_AUTHORIZED",
+  REQUEST_LIMIT_EXCEEDED: "REQUEST_LIMIT_EXCEEDED",
+  RESOURCE_CREATION_FAILURE: "RESOURCE_CREATION_FAILURE",
+  RESOURCE_DELETION_FAILURE: "RESOURCE_DELETION_FAILURE",
+  RESOURCE_IN_USE: "RESOURCE_IN_USE",
+  RESOURCE_LIMIT_EXCEEDED: "RESOURCE_LIMIT_EXCEEDED",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  RESOURCE_RETRIEVAL_FAILURE: "RESOURCE_RETRIEVAL_FAILURE",
+  RESOURCE_UPDATE_FAILURE: "RESOURCE_UPDATE_FAILURE",
+  SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE: "SERVICE_ENDPOINT_HEALTH_CHECK_FAILURE",
+  STATE_TRANSITION_FAILURE: "STATE_TRANSITION_FAILURE",
+};
 
 /**
  * @public
  */
-export enum ErrorResourceType {
-  API_GATEWAY = "API_GATEWAY",
-  APPLICATION = "APPLICATION",
-  ENVIRONMENT = "ENVIRONMENT",
-  IAM_ROLE = "IAM_ROLE",
-  LAMBDA = "LAMBDA",
-  LOAD_BALANCER_LISTENER = "LOAD_BALANCER_LISTENER",
-  NLB = "NLB",
-  RESOURCE_SHARE = "RESOURCE_SHARE",
-  ROUTE = "ROUTE",
-  ROUTE_TABLE = "ROUTE_TABLE",
-  SECURITY_GROUP = "SECURITY_GROUP",
-  SERVICE = "SERVICE",
-  SUBNET = "SUBNET",
-  TARGET_GROUP = "TARGET_GROUP",
-  TRANSIT_GATEWAY = "TRANSIT_GATEWAY",
-  TRANSIT_GATEWAY_ATTACHMENT = "TRANSIT_GATEWAY_ATTACHMENT",
-  VPC = "VPC",
-  VPC_ENDPOINT_SERVICE_CONFIGURATION = "VPC_ENDPOINT_SERVICE_CONFIGURATION",
-  VPC_LINK = "VPC_LINK",
-}
+export const ErrorResourceType = {
+  API_GATEWAY: "API_GATEWAY",
+  APPLICATION: "APPLICATION",
+  ENVIRONMENT: "ENVIRONMENT",
+  IAM_ROLE: "IAM_ROLE",
+  LAMBDA: "LAMBDA",
+  LOAD_BALANCER_LISTENER: "LOAD_BALANCER_LISTENER",
+  NLB: "NLB",
+  RESOURCE_SHARE: "RESOURCE_SHARE",
+  ROUTE: "ROUTE",
+  ROUTE_TABLE: "ROUTE_TABLE",
+  SECURITY_GROUP: "SECURITY_GROUP",
+  SERVICE: "SERVICE",
+  SUBNET: "SUBNET",
+  TARGET_GROUP: "TARGET_GROUP",
+  TRANSIT_GATEWAY: "TRANSIT_GATEWAY",
+  TRANSIT_GATEWAY_ATTACHMENT: "TRANSIT_GATEWAY_ATTACHMENT",
+  VPC: "VPC",
+  VPC_ENDPOINT_SERVICE_CONFIGURATION: "VPC_ENDPOINT_SERVICE_CONFIGURATION",
+  VPC_LINK: "VPC_LINK",
+};
 
 /**
  * @public
@@ -200,7 +200,7 @@ export interface ErrorResponse {
   /**
    * <p>The error code associated with the error. </p>
    */
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
 
   /**
    * <p>The message associated with the error. </p>
@@ -220,7 +220,7 @@ export interface ErrorResponse {
   /**
    * <p>The type of resource. </p>
    */
-  ResourceType?: ErrorResourceType | string;
+  ResourceType?: keyof typeof ErrorResourceType | string;
 
   /**
    * <p>Additional details about the error. </p>
@@ -231,9 +231,9 @@ export interface ErrorResponse {
 /**
  * @public
  */
-export enum ProxyType {
-  API_GATEWAY = "API_GATEWAY",
-}
+export const ProxyType = {
+  API_GATEWAY: "API_GATEWAY",
+};
 
 /**
  * @public
@@ -279,7 +279,7 @@ export interface ApplicationSummary {
   /**
    * <p>The proxy type of the proxy created within the application. </p>
    */
-  ProxyType?: ProxyType | string;
+  ProxyType?: keyof typeof ProxyType | string;
 
   /**
    * <p>The endpoint URL of the Amazon API Gateway proxy. </p>
@@ -289,7 +289,7 @@ export interface ApplicationSummary {
   /**
    * <p>The current state of the application. </p>
    */
-  State?: ApplicationState | string;
+  State?: keyof typeof ApplicationState | string;
 
   /**
    * <p>The tags assigned to the application. </p>
@@ -367,7 +367,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>The proxy type of the proxy created within the application. </p>
    */
-  ProxyType: ProxyType | string | undefined;
+  ProxyType: keyof typeof ProxyType | string | undefined;
 
   /**
    * <p>A wrapper object holding the API Gateway endpoint type and stage name for the
@@ -435,7 +435,7 @@ export interface CreateApplicationResponse {
   /**
    * <p>The proxy type of the proxy created within the application. </p>
    */
-  ProxyType?: ProxyType | string;
+  ProxyType?: keyof typeof ProxyType | string;
 
   /**
    * <p>A wrapper object holding the API Gateway endpoint type and stage name for the
@@ -446,7 +446,7 @@ export interface CreateApplicationResponse {
   /**
    * <p>The current state of the application. </p>
    */
-  State?: ApplicationState | string;
+  State?: keyof typeof ApplicationState | string;
 
   /**
    * <p>The tags assigned to the application. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
@@ -633,10 +633,10 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum NetworkFabricType {
-  NONE = "NONE",
-  TRANSIT_GATEWAY = "TRANSIT_GATEWAY",
-}
+export const NetworkFabricType = {
+  NONE: "NONE",
+  TRANSIT_GATEWAY: "TRANSIT_GATEWAY",
+};
 
 /**
  * @public
@@ -655,7 +655,7 @@ export interface CreateEnvironmentRequest {
   /**
    * <p>The network fabric type of the environment.</p>
    */
-  NetworkFabricType: NetworkFabricType | string | undefined;
+  NetworkFabricType: keyof typeof NetworkFabricType | string | undefined;
 
   /**
    * <p>The tags to assign to the environment. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.</p>
@@ -672,12 +672,12 @@ export interface CreateEnvironmentRequest {
 /**
  * @public
  */
-export enum EnvironmentState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-}
+export const EnvironmentState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
@@ -706,7 +706,7 @@ export interface CreateEnvironmentResponse {
   /**
    * <p>The network fabric type of the environment.</p>
    */
-  NetworkFabricType?: NetworkFabricType | string;
+  NetworkFabricType?: keyof typeof NetworkFabricType | string;
 
   /**
    * <p>The Amazon Web Services account ID of environment owner.</p>
@@ -716,7 +716,7 @@ export interface CreateEnvironmentResponse {
   /**
    * <p>The current state of the environment. </p>
    */
-  State?: EnvironmentState | string;
+  State?: keyof typeof EnvironmentState | string;
 
   /**
    * <p>The tags assigned to the created environment. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair..</p>
@@ -737,10 +737,10 @@ export interface CreateEnvironmentResponse {
 /**
  * @public
  */
-export enum RouteActivationState {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const RouteActivationState = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -751,29 +751,29 @@ export interface DefaultRouteInput {
    * <p>If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after the
    *       route is created. </p>
    */
-  ActivationState?: RouteActivationState | string;
+  ActivationState?: keyof typeof RouteActivationState | string;
 }
 
 /**
  * @public
  */
-export enum RouteType {
-  DEFAULT = "DEFAULT",
-  URI_PATH = "URI_PATH",
-}
+export const RouteType = {
+  DEFAULT: "DEFAULT",
+  URI_PATH: "URI_PATH",
+};
 
 /**
  * @public
  */
-export enum HttpMethod {
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  OPTIONS = "OPTIONS",
-  PATCH = "PATCH",
-  POST = "POST",
-  PUT = "PUT",
-}
+export const HttpMethod = {
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  OPTIONS: "OPTIONS",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+};
 
 /**
  * @public
@@ -790,13 +790,13 @@ export interface UriPathRouteInput {
    * <p>If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after the
    *       route is created. </p>
    */
-  ActivationState: RouteActivationState | string | undefined;
+  ActivationState: keyof typeof RouteActivationState | string | undefined;
 
   /**
    * <p>A list of HTTP methods to match. An empty list matches all values. If a method is present,
    *       only HTTP requests using that method are forwarded to this route’s service. </p>
    */
-  Methods?: (HttpMethod | string)[];
+  Methods?: (keyof typeof HttpMethod | string)[];
 
   /**
    * <p>Indicates whether to match all subpaths of the given source path. If this value is
@@ -832,7 +832,7 @@ export interface CreateRouteRequest {
    *       before any other routes can be created. <code>URI_PATH</code> indicates a route that is based
    *       on a URI path.</p>
    */
-  RouteType: RouteType | string | undefined;
+  RouteType: keyof typeof RouteType | string | undefined;
 
   /**
    * <p> Configuration for the default route type. </p>
@@ -859,14 +859,14 @@ export interface CreateRouteRequest {
 /**
  * @public
  */
-export enum RouteState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  UPDATING = "UPDATING",
-}
+export const RouteState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -900,7 +900,7 @@ export interface CreateRouteResponse {
   /**
    * <p>The route type of the route.</p>
    */
-  RouteType?: RouteType | string;
+  RouteType?: keyof typeof RouteType | string;
 
   /**
    * <p>The ID of service in which the route is created. Traffic that matches this route is
@@ -923,7 +923,7 @@ export interface CreateRouteResponse {
    *         <code>INACTIVE</code> as user inputs. <code>FAILED</code> is a route state that is system
    *       generated.</p>
    */
-  State?: RouteState | string;
+  State?: keyof typeof RouteState | string;
 
   /**
    * <p>The tags assigned to the created route. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
@@ -944,10 +944,10 @@ export interface CreateRouteResponse {
 /**
  * @public
  */
-export enum ServiceEndpointType {
-  LAMBDA = "LAMBDA",
-  URL = "URL",
-}
+export const ServiceEndpointType = {
+  LAMBDA: "LAMBDA",
+  URL: "URL",
+};
 
 /**
  * @public
@@ -1013,7 +1013,7 @@ export interface CreateServiceRequest {
   /**
    * <p>The type of endpoint to use for the service. The type can be a URL in a VPC or an Lambda function.</p>
    */
-  EndpointType: ServiceEndpointType | string | undefined;
+  EndpointType: keyof typeof ServiceEndpointType | string | undefined;
 
   /**
    * <p>The configuration for the URL endpoint type. When creating a route to a service, Refactor Spaces
@@ -1043,12 +1043,12 @@ export interface CreateServiceRequest {
 /**
  * @public
  */
-export enum ServiceState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-}
+export const ServiceState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
@@ -1102,7 +1102,7 @@ export interface CreateServiceResponse {
   /**
    * <p>The endpoint type of the service.</p>
    */
-  EndpointType?: ServiceEndpointType | string;
+  EndpointType?: keyof typeof ServiceEndpointType | string;
 
   /**
    * <p>The configuration for the URL endpoint type. </p>
@@ -1117,7 +1117,7 @@ export interface CreateServiceResponse {
   /**
    * <p>The current state of the service. </p>
    */
-  State?: ServiceState | string;
+  State?: keyof typeof ServiceState | string;
 
   /**
    * <p>The tags assigned to the created service. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.. </p>
@@ -1177,7 +1177,7 @@ export interface DeleteApplicationResponse {
   /**
    * <p>The current state of the application. </p>
    */
-  State?: ApplicationState | string;
+  State?: keyof typeof ApplicationState | string;
 
   /**
    * <p>A timestamp that indicates when the environment was last updated. </p>
@@ -1217,7 +1217,7 @@ export interface DeleteEnvironmentResponse {
   /**
    * <p>The current state of the environment. </p>
    */
-  State?: EnvironmentState | string;
+  State?: keyof typeof EnvironmentState | string;
 
   /**
    * <p>A timestamp that indicates when the environment was last updated. </p>
@@ -1287,7 +1287,7 @@ export interface DeleteRouteResponse {
   /**
    * <p>The current state of the route. </p>
    */
-  State?: RouteState | string;
+  State?: keyof typeof RouteState | string;
 
   /**
    * <p>A timestamp that indicates when the route was last updated. </p>
@@ -1352,7 +1352,7 @@ export interface DeleteServiceResponse {
   /**
    * <p>The current state of the service. </p>
    */
-  State?: ServiceState | string;
+  State?: keyof typeof ServiceState | string;
 
   /**
    * <p>A timestamp that indicates when the service was last updated. </p>
@@ -1389,7 +1389,7 @@ export interface EnvironmentSummary {
   /**
    * <p>The network fabric type of the environment. </p>
    */
-  NetworkFabricType?: NetworkFabricType | string;
+  NetworkFabricType?: keyof typeof NetworkFabricType | string;
 
   /**
    * <p>The Amazon Web Services account ID of the environment owner.</p>
@@ -1404,7 +1404,7 @@ export interface EnvironmentSummary {
   /**
    * <p>The current state of the environment. </p>
    */
-  State?: EnvironmentState | string;
+  State?: keyof typeof EnvironmentState | string;
 
   /**
    * <p>The tags assigned to the environment. </p>
@@ -1527,7 +1527,7 @@ export interface GetApplicationResponse {
   /**
    * <p>The proxy type of the proxy created within the application. </p>
    */
-  ProxyType?: ProxyType | string;
+  ProxyType?: keyof typeof ProxyType | string;
 
   /**
    * <p>The endpoint URL of the API Gateway proxy. </p>
@@ -1537,7 +1537,7 @@ export interface GetApplicationResponse {
   /**
    * <p>The current state of the application. </p>
    */
-  State?: ApplicationState | string;
+  State?: keyof typeof ApplicationState | string;
 
   /**
    * <p>The tags assigned to the application. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
@@ -1597,7 +1597,7 @@ export interface GetEnvironmentResponse {
   /**
    * <p>The network fabric type of the environment. </p>
    */
-  NetworkFabricType?: NetworkFabricType | string;
+  NetworkFabricType?: keyof typeof NetworkFabricType | string;
 
   /**
    * <p>The Amazon Web Services account ID of the environment owner.</p>
@@ -1612,7 +1612,7 @@ export interface GetEnvironmentResponse {
   /**
    * <p>The current state of the environment. </p>
    */
-  State?: EnvironmentState | string;
+  State?: keyof typeof EnvironmentState | string;
 
   /**
    * <p>The tags to assign to the environment. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
@@ -1708,7 +1708,7 @@ export interface GetRouteResponse {
   /**
    * <p>The type of route.</p>
    */
-  RouteType?: RouteType | string;
+  RouteType?: keyof typeof RouteType | string;
 
   /**
    * <p>The unique identifier of the service.</p>
@@ -1735,7 +1735,7 @@ export interface GetRouteResponse {
    * <p>A list of HTTP methods to match. An empty list matches all values. If a method is present,
    *       only HTTP requests using that method are forwarded to this route’s service. </p>
    */
-  Methods?: (HttpMethod | string)[];
+  Methods?: (keyof typeof HttpMethod | string)[];
 
   /**
    * <p>Indicates whether to match all subpaths of the given source path. If this value is
@@ -1752,7 +1752,7 @@ export interface GetRouteResponse {
   /**
    * <p>The current state of the route. </p>
    */
-  State?: RouteState | string;
+  State?: keyof typeof RouteState | string;
 
   /**
    * <p>The tags assigned to the route. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
@@ -1874,7 +1874,7 @@ export interface GetServiceResponse {
   /**
    * <p>The endpoint type of the service.</p>
    */
-  EndpointType?: ServiceEndpointType | string;
+  EndpointType?: keyof typeof ServiceEndpointType | string;
 
   /**
    * <p>The configuration for the URL endpoint type.</p>
@@ -1893,7 +1893,7 @@ export interface GetServiceResponse {
   /**
    * <p>The current state of the service. </p>
    */
-  State?: ServiceState | string;
+  State?: keyof typeof ServiceState | string;
 
   /**
    * <p>The tags assigned to the service. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
@@ -2106,7 +2106,7 @@ export interface RouteSummary {
   /**
    * <p>The route type of the route. </p>
    */
-  RouteType?: RouteType | string;
+  RouteType?: keyof typeof RouteType | string;
 
   /**
    * <p>The unique identifier of the service. </p>
@@ -2133,7 +2133,7 @@ export interface RouteSummary {
    * <p>A list of HTTP methods to match. An empty list matches all values. If a method is present,
    *       only HTTP requests using that method are forwarded to this route’s service. </p>
    */
-  Methods?: (HttpMethod | string)[];
+  Methods?: (keyof typeof HttpMethod | string)[];
 
   /**
    * <p>Indicates whether to match all subpaths of the given source path. If this value is
@@ -2150,7 +2150,7 @@ export interface RouteSummary {
   /**
    * <p>The current state of the route. </p>
    */
-  State?: RouteState | string;
+  State?: keyof typeof RouteState | string;
 
   /**
    * <p>The tags assigned to the route. </p>
@@ -2288,7 +2288,7 @@ export interface ServiceSummary {
   /**
    * <p>The endpoint type of the service. </p>
    */
-  EndpointType?: ServiceEndpointType | string;
+  EndpointType?: keyof typeof ServiceEndpointType | string;
 
   /**
    * <p>The summary of the configuration for the URL endpoint type. </p>
@@ -2303,7 +2303,7 @@ export interface ServiceSummary {
   /**
    * <p>The current state of the service. </p>
    */
-  State?: ServiceState | string;
+  State?: keyof typeof ServiceState | string;
 
   /**
    * <p>The tags assigned to the service. </p>
@@ -2445,7 +2445,7 @@ export interface UpdateRouteRequest {
    * <p> If set to <code>ACTIVE</code>, traffic is forwarded to this route’s service after the
    *       route is updated. </p>
    */
-  ActivationState: RouteActivationState | string | undefined;
+  ActivationState: keyof typeof RouteActivationState | string | undefined;
 }
 
 /**
@@ -2481,7 +2481,7 @@ export interface UpdateRouteResponse {
   /**
    * <p> The current state of the route. </p>
    */
-  State?: RouteState | string;
+  State?: keyof typeof RouteState | string;
 
   /**
    * <p> A timestamp that indicates when the route was last updated. </p>

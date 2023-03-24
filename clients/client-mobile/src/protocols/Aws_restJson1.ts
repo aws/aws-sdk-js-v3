@@ -949,7 +949,10 @@ const deserializeAws_restJson1BundleList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1Platforms = (output: any, context: __SerdeContext): (Platform | string)[] => {
+const deserializeAws_restJson1Platforms = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Platform | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

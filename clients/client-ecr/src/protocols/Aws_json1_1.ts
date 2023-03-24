@@ -4413,13 +4413,16 @@ const deserializeAws_json1_1EnhancedImageScanFindingList = (
 };
 
 const deserializeAws_json1_1FindingSeverityCounts = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [FindingSeverity | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, number>, [key, value]: [keyof typeof FindingSeverity | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectInt32(value) as any;
       return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_json1_1GetAuthorizationTokenResponse = (

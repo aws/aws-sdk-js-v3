@@ -13,13 +13,13 @@ export interface GreetingStruct {
 /**
  * @public
  */
-export enum FooEnum {
-  BAR = "Bar",
-  BAZ = "Baz",
-  FOO = "Foo",
-  ONE = "1",
-  ZERO = "0",
-}
+export const FooEnum = {
+  BAR: "Bar",
+  BAZ: "Baz",
+  FOO: "Foo",
+  ONE: "1",
+  ZERO: "0",
+};
 
 export enum IntegerEnum {
   A = 1,
@@ -229,7 +229,7 @@ export namespace MyUnion {
     numberValue?: never;
     blobValue?: never;
     timestampValue?: never;
-    enumValue: FooEnum | string;
+    enumValue: keyof typeof FooEnum | string;
     intEnumValue?: never;
     listValue?: never;
     mapValue?: never;
@@ -313,7 +313,7 @@ export namespace MyUnion {
     numberValue: (value: number) => T;
     blobValue: (value: Uint8Array) => T;
     timestampValue: (value: Date) => T;
-    enumValue: (value: FooEnum | string) => T;
+    enumValue: (value: keyof typeof FooEnum | string) => T;
     intEnumValue: (value: IntegerEnum | number) => T;
     listValue: (value: string[]) => T;
     mapValue: (value: Record<string, string>) => T;

@@ -50,7 +50,7 @@ export interface Source {
   /**
    * <p>The repository type.</p>
    */
-  Type?: SourceType | string;
+  Type?: keyof typeof SourceType | string;
 
   /**
    * <p>The source URL. The following is an example of an Amazon S3 source URL:  <code>https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz</code>.</p>
@@ -216,7 +216,7 @@ export interface App {
   /**
    * <p>The app type.</p>
    */
-  Type?: AppType | string;
+  Type?: keyof typeof AppType | string;
 
   /**
    * <p>A <code>Source</code> object that describes the app repository.</p>
@@ -458,7 +458,7 @@ export interface EbsBlockDevice {
    *           The maximum ratio of provisioned IOPS to requested volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB)
    *           specified in the AMI attributes to set IOPS to 50 x (volume size).</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: keyof typeof VolumeType | string;
 
   /**
    * <p>Whether the volume is deleted on instance termination.</p>
@@ -800,7 +800,7 @@ export interface CloneStackRequest {
    * <p>The default root device type. This value is used by default for all instances in the cloned
    *       stack, but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  DefaultRootDeviceType?: RootDeviceType | string;
+  DefaultRootDeviceType?: keyof typeof RootDeviceType | string;
 
   /**
    * <p>The default AWS OpsWorks Stacks agent version. You have the following options:</p>
@@ -965,7 +965,7 @@ export interface CloudWatchLogsLogStream {
   /**
    * <p>Specifies the time zone of log event time stamps.</p>
    */
-  TimeZone?: CloudWatchLogsTimeZone | string;
+  TimeZone?: keyof typeof CloudWatchLogsTimeZone | string;
 
   /**
    * <p>Specifies log files that you want to push to CloudWatch Logs.</p>
@@ -996,13 +996,13 @@ export interface CloudWatchLogsLogStream {
    * <p>Specifies where to start to read data (start_of_file or end_of_file). The default is start_of_file.
    *             This setting is only used if there is no state persisted for that log stream.</p>
    */
-  InitialPosition?: CloudWatchLogsInitialPosition | string;
+  InitialPosition?: keyof typeof CloudWatchLogsInitialPosition | string;
 
   /**
    * <p>Specifies the encoding of the log file so that the file can be read correctly.
    *             The default is <code>utf_8</code>. Encodings supported by Python <code>codecs.decode()</code> can be used here.</p>
    */
-  Encoding?: CloudWatchLogsEncoding | string;
+  Encoding?: keyof typeof CloudWatchLogsEncoding | string;
 
   /**
    * <p>Specifies the time duration for the batching of log events. The minimum value is 5000ms and default value is 5000ms.</p>
@@ -1205,7 +1205,7 @@ export interface CreateAppRequest {
    *       that are members of the corresponding layer. If your app isn't one of the standard types, or
    *       you prefer to implement your own Deploy recipes, specify <code>other</code>.</p>
    */
-  Type: AppType | string | undefined;
+  Type: keyof typeof AppType | string | undefined;
 
   /**
    * <p>A <code>Source</code> object that specifies the app repository.</p>
@@ -1338,7 +1338,7 @@ export interface DeploymentCommand {
    *             </li>
    *          </ul>
    */
-  Name: DeploymentCommandName | string | undefined;
+  Name: keyof typeof DeploymentCommandName | string | undefined;
 
   /**
    * <p>The arguments of those commands that take arguments. It should be set to a JSON object with the following format:</p>
@@ -1454,7 +1454,7 @@ export interface CreateInstanceRequest {
   /**
    * <p>For load-based or time-based instances, the type. Windows stacks can use only time-based instances.</p>
    */
-  AutoScalingType?: AutoScalingType | string;
+  AutoScalingType?: keyof typeof AutoScalingType | string;
 
   /**
    * <p>The instance host name.</p>
@@ -1536,12 +1536,12 @@ export interface CreateInstanceRequest {
    *       the different instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Families and
    *         Types</a>.</p>
    */
-  Architecture?: Architecture | string;
+  Architecture?: keyof typeof Architecture | string;
 
   /**
    * <p>The instance root device type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  RootDeviceType?: RootDeviceType | string;
+  RootDeviceType?: keyof typeof RootDeviceType | string;
 
   /**
    * <p>An array of <code>BlockDeviceMapping</code> objects that specify the instance's block
@@ -1800,7 +1800,7 @@ export interface CreateLayerRequest {
   /**
    * <p>The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.</p>
    */
-  Type: LayerType | string | undefined;
+  Type: keyof typeof LayerType | string | undefined;
 
   /**
    * <p>The layer name, which is used by the console.</p>
@@ -2194,7 +2194,7 @@ export interface CreateStackRequest {
    *       but you can override it when you create an instance. The default option is
    *         <code>instance-store</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  DefaultRootDeviceType?: RootDeviceType | string;
+  DefaultRootDeviceType?: keyof typeof RootDeviceType | string;
 
   /**
    * <p>The default AWS OpsWorks Stacks agent version. You have the following options:</p>
@@ -2883,7 +2883,7 @@ export interface Instance {
   /**
    * <p>The instance architecture: "i386" or "x86_64".</p>
    */
-  Architecture?: Architecture | string;
+  Architecture?: keyof typeof Architecture | string;
 
   /**
    * <p>The instance's Amazon Resource Number (ARN).</p>
@@ -2893,7 +2893,7 @@ export interface Instance {
   /**
    * <p>For load-based or time-based instances, the type.</p>
    */
-  AutoScalingType?: AutoScalingType | string;
+  AutoScalingType?: keyof typeof AutoScalingType | string;
 
   /**
    * <p>The instance Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and Endpoints</a>.</p>
@@ -3036,7 +3036,7 @@ export interface Instance {
   /**
    * <p>The instance's root device type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  RootDeviceType?: RootDeviceType | string;
+  RootDeviceType?: keyof typeof RootDeviceType | string;
 
   /**
    * <p>The root device volume ID.</p>
@@ -3163,7 +3163,7 @@ export interface Instance {
   /**
    * <p>The instance's virtualization type: <code>paravirtual</code> or <code>hvm</code>.</p>
    */
-  VirtualizationType?: VirtualizationType | string;
+  VirtualizationType?: keyof typeof VirtualizationType | string;
 }
 
 /**
@@ -3216,7 +3216,7 @@ export interface Layer {
   /**
    * <p>The layer type.</p>
    */
-  Type?: LayerType | string;
+  Type?: keyof typeof LayerType | string;
 
   /**
    * <p>The layer name.</p>
@@ -4021,7 +4021,7 @@ export interface Stack {
    * <p>The default root device type. This value is used by default for all instances in the stack,
    *       but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  DefaultRootDeviceType?: RootDeviceType | string;
+  DefaultRootDeviceType?: keyof typeof RootDeviceType | string;
 
   /**
    * <p>The agent version. This parameter is set to <code>LATEST</code> for auto-update.
@@ -5062,7 +5062,7 @@ export interface UpdateAppRequest {
   /**
    * <p>The app type.</p>
    */
-  Type?: AppType | string;
+  Type?: keyof typeof AppType | string;
 
   /**
    * <p>A <code>Source</code> object that specifies the app repository.</p>
@@ -5144,7 +5144,7 @@ export interface UpdateInstanceRequest {
   /**
    * <p>For load-based or time-based instances, the type. Windows stacks can use only time-based instances.</p>
    */
-  AutoScalingType?: AutoScalingType | string;
+  AutoScalingType?: keyof typeof AutoScalingType | string;
 
   /**
    * <p>The instance host name.</p>
@@ -5206,7 +5206,7 @@ export interface UpdateInstanceRequest {
    *       a list of the architectures that are supported by the different instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
    *         Families and Types</a>.</p>
    */
-  Architecture?: Architecture | string;
+  Architecture?: keyof typeof Architecture | string;
 
   /**
    * <p>Whether to install operating system and package updates when the instance boots. The default
@@ -5593,7 +5593,7 @@ export interface UpdateStackRequest {
    * <p>The default root device type. This value is used by default for all instances in the stack,
    *       but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  DefaultRootDeviceType?: RootDeviceType | string;
+  DefaultRootDeviceType?: keyof typeof RootDeviceType | string;
 
   /**
    * <p>Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.</p>

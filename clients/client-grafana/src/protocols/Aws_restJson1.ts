@@ -1756,7 +1756,7 @@ const serializeAws_restJson1AssertionAttributes = (input: AssertionAttributes, c
 };
 
 const serializeAws_restJson1AuthenticationProviders = (
-  input: (AuthenticationProviderTypes | string)[],
+  input: (keyof typeof AuthenticationProviderTypes | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1767,7 +1767,7 @@ const serializeAws_restJson1AuthenticationProviders = (
 };
 
 const serializeAws_restJson1DataSourceTypesList = (
-  input: (DataSourceType | string)[],
+  input: (keyof typeof DataSourceType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1798,7 +1798,7 @@ const serializeAws_restJson1NetworkAccessConfiguration = (
 };
 
 const serializeAws_restJson1NotificationDestinationsList = (
-  input: (NotificationDestinationType | string)[],
+  input: (keyof typeof NotificationDestinationType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1965,7 +1965,7 @@ const deserializeAws_restJson1AuthenticationDescription = (
 const deserializeAws_restJson1AuthenticationProviders = (
   output: any,
   context: __SerdeContext
-): (AuthenticationProviderTypes | string)[] => {
+): (keyof typeof AuthenticationProviderTypes | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1994,7 +1994,7 @@ const deserializeAws_restJson1AwsSsoAuthentication = (output: any, context: __Se
 const deserializeAws_restJson1DataSourceTypesList = (
   output: any,
   context: __SerdeContext
-): (DataSourceType | string)[] => {
+): (keyof typeof DataSourceType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2030,7 +2030,7 @@ const deserializeAws_restJson1NetworkAccessConfiguration = (
 const deserializeAws_restJson1NotificationDestinationsList = (
   output: any,
   context: __SerdeContext
-): (NotificationDestinationType | string)[] => {
+): (keyof typeof NotificationDestinationType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

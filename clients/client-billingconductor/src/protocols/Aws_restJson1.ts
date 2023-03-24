@@ -3067,7 +3067,7 @@ const serializeAws_restJson1BillingGroupArnList = (input: string[], context: __S
 };
 
 const serializeAws_restJson1BillingGroupStatusList = (
-  input: (BillingGroupStatus | string)[],
+  input: (keyof typeof BillingGroupStatus | string)[],
   context: __SerdeContext
 ): any => {
   return input

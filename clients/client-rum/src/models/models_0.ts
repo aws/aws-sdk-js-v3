@@ -29,20 +29,20 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum Telemetry {
+export const Telemetry = {
   /**
    * Includes JS error event plugin
    */
-  ERRORS = "errors",
+  ERRORS: "errors",
   /**
    * Includes X-Ray Xhr and X-Ray Fetch plugin
    */
-  HTTP = "http",
+  HTTP: "http",
   /**
    * Includes navigation, paint, resource and web vital event plugins
    */
-  PERFORMANCE = "performance",
-}
+  PERFORMANCE: "performance",
+};
 
 /**
  * @public
@@ -115,7 +115,7 @@ export interface AppMonitorConfiguration {
    *             </li>
    *          </ul>
    */
-  Telemetries?: (Telemetry | string)[];
+  Telemetries?: (keyof typeof Telemetry | string)[];
 
   /**
    * <p>If you set this to <code>true</code>, RUM enables X-Ray tracing for
@@ -131,10 +131,10 @@ export interface AppMonitorConfiguration {
 /**
  * @public
  */
-export enum CustomEventsStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const CustomEventsStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -145,7 +145,7 @@ export interface CustomEvents {
    * <p>Specifies whether this app monitor allows the web client to define and send
    *          custom events. The default is for custom events to be <code>DISABLED</code>.</p>
    */
-  Status?: CustomEventsStatus | string;
+  Status?: keyof typeof CustomEventsStatus | string;
 }
 
 /**
@@ -182,11 +182,11 @@ export interface DataStorage {
 /**
  * @public
  */
-export enum StateEnum {
-  ACTIVE = "ACTIVE",
-  CREATED = "CREATED",
-  DELETING = "DELETING",
-}
+export const StateEnum = {
+  ACTIVE: "ACTIVE",
+  CREATED: "CREATED",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -228,7 +228,7 @@ export interface AppMonitor {
   /**
    * <p>The current state of the app monitor.</p>
    */
-  State?: StateEnum | string;
+  State?: keyof typeof StateEnum | string;
 
   /**
    * <p>A structure that contains much of the configuration data for the app monitor.</p>
@@ -274,10 +274,10 @@ export interface AppMonitorDetails {
 /**
  * @public
  */
-export enum MetricDestination {
-  CloudWatch = "CloudWatch",
-  Evidently = "Evidently",
-}
+export const MetricDestination = {
+  CloudWatch: "CloudWatch",
+  Evidently: "Evidently",
+};
 
 /**
  * @public
@@ -702,7 +702,7 @@ export interface BatchCreateRumMetricDefinitionsRequest {
    *          that will receive
    *          the metrics and an IAM role that has permission to write to the experiment.</p>
    */
-  Destination: MetricDestination | string | undefined;
+  Destination: keyof typeof MetricDestination | string | undefined;
 
   /**
    * <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is
@@ -995,7 +995,7 @@ export interface BatchDeleteRumMetricDefinitionsRequest {
    *          you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to
    *          be the destination and an IAM role that has permission to write to the experiment.</p>
    */
-  Destination: MetricDestination | string | undefined;
+  Destination: keyof typeof MetricDestination | string | undefined;
 
   /**
    * <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is
@@ -1062,7 +1062,7 @@ export interface BatchGetRumMetricDefinitionsRequest {
    * <p>The type of destination that you want to view metrics for. Valid values are <code>CloudWatch</code>
    *          and <code>Evidently</code>.</p>
    */
-  Destination: MetricDestination | string | undefined;
+  Destination: keyof typeof MetricDestination | string | undefined;
 
   /**
    * <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is
@@ -1194,7 +1194,7 @@ export interface DeleteRumMetricsDestinationRequest {
   /**
    * <p>The type of destination to delete. Valid values are <code>CloudWatch</code> and <code>Evidently</code>.</p>
    */
-  Destination: MetricDestination | string | undefined;
+  Destination: keyof typeof MetricDestination | string | undefined;
 
   /**
    * <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is
@@ -1368,7 +1368,7 @@ export interface AppMonitorSummary {
   /**
    * <p>The current state of this app monitor.</p>
    */
-  State?: StateEnum | string;
+  State?: keyof typeof StateEnum | string;
 }
 
 /**
@@ -1419,7 +1419,7 @@ export interface MetricDestinationSummary {
   /**
    * <p>Specifies whether the destination is <code>CloudWatch</code> or <code>Evidently</code>.</p>
    */
-  Destination?: MetricDestination | string;
+  Destination?: keyof typeof MetricDestination | string;
 
   /**
    * <p>If the destination is <code>Evidently</code>, this specifies the ARN of the Evidently experiment that receives
@@ -1466,7 +1466,7 @@ export interface PutRumMetricsDestinationRequest {
    *          you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to
    *          be the destination and an IAM role that has permission to write to the experiment.</p>
    */
-  Destination: MetricDestination | string | undefined;
+  Destination: keyof typeof MetricDestination | string | undefined;
 
   /**
    * <p>Use this parameter only if <code>Destination</code> is <code>Evidently</code>. This parameter specifies
@@ -1550,7 +1550,7 @@ export interface UpdateRumMetricDefinitionRequest {
    *          that will receive
    *          the metrics and an IAM role that has permission to write to the experiment.</p>
    */
-  Destination: MetricDestination | string | undefined;
+  Destination: keyof typeof MetricDestination | string | undefined;
 
   /**
    * <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is

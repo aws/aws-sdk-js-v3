@@ -2535,7 +2535,10 @@ const serializeAws_restJson1ConnectorProvisioningConfig = (
   };
 };
 
-const serializeAws_restJson1ConnectorTypeList = (input: (ConnectorType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1ConnectorTypeList = (
+  input: (keyof typeof ConnectorType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3051,7 +3054,10 @@ const serializeAws_restJson1PardotSourceProperties = (input: PardotSourcePropert
   };
 };
 
-const serializeAws_restJson1PathPrefixHierarchy = (input: (PathPrefix | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1PathPrefixHierarchy = (
+  input: (keyof typeof PathPrefix | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3529,7 +3535,7 @@ const serializeAws_restJson1Task = (input: Task, context: __SerdeContext): any =
 
 const serializeAws_restJson1TaskPropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [OperatorPropertiesKeys | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [keyof typeof OperatorPropertiesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -3865,7 +3871,7 @@ const deserializeAws_restJson1ConnectorConfigurationsMap = (
   context: __SerdeContext
 ): Record<string, ConnectorConfiguration> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, ConnectorConfiguration>, [key, value]: [ConnectorType | string, any]) => {
+    (acc: Record<string, ConnectorConfiguration>, [key, value]: [keyof typeof ConnectorType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -4254,7 +4260,7 @@ const deserializeAws_restJson1ConnectorSuppliedValueOptionList = (output: any, c
 const deserializeAws_restJson1ConnectorTypeList = (
   output: any,
   context: __SerdeContext
-): (ConnectorType | string)[] => {
+): (keyof typeof ConnectorType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4610,7 +4616,10 @@ const deserializeAws_restJson1FieldTypeDetails = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_restJson1FilterOperatorList = (output: any, context: __SerdeContext): (Operator | string)[] => {
+const deserializeAws_restJson1FilterOperatorList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Operator | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4915,7 +4924,7 @@ const deserializeAws_restJson1OAuth2Defaults = (output: any, context: __SerdeCon
 const deserializeAws_restJson1OAuth2GrantTypeSupportedList = (
   output: any,
   context: __SerdeContext
-): (OAuth2GrantType | string)[] => {
+): (keyof typeof OAuth2GrantType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4983,7 +4992,10 @@ const deserializeAws_restJson1PardotSourceProperties = (
   } as any;
 };
 
-const deserializeAws_restJson1PathPrefixHierarchy = (output: any, context: __SerdeContext): (PathPrefix | string)[] => {
+const deserializeAws_restJson1PathPrefixHierarchy = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof PathPrefix | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5152,7 +5164,7 @@ const deserializeAws_restJson1SalesforceConnectorProfileProperties = (
 const deserializeAws_restJson1SalesforceDataTransferApiList = (
   output: any,
   context: __SerdeContext
-): (SalesforceDataTransferApi | string)[] => {
+): (keyof typeof SalesforceDataTransferApi | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5283,7 +5295,7 @@ const deserializeAws_restJson1ScheduledTriggerProperties = (
 const deserializeAws_restJson1SchedulingFrequencyTypeList = (
   output: any,
   context: __SerdeContext
-): (ScheduleFrequencyType | string)[] => {
+): (keyof typeof ScheduleFrequencyType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5522,7 +5534,7 @@ const deserializeAws_restJson1SupportedFieldTypeDetails = (
 const deserializeAws_restJson1SupportedOperatorList = (
   output: any,
   context: __SerdeContext
-): (Operators | string)[] => {
+): (keyof typeof Operators | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5549,7 +5561,7 @@ const deserializeAws_restJson1SupportedValueList = (output: any, context: __Serd
 const deserializeAws_restJson1SupportedWriteOperationList = (
   output: any,
   context: __SerdeContext
-): (WriteOperationType | string)[] => {
+): (keyof typeof WriteOperationType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5590,7 +5602,7 @@ const deserializeAws_restJson1Task = (output: any, context: __SerdeContext): Tas
 
 const deserializeAws_restJson1TaskPropertiesMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [OperatorPropertiesKeys | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [keyof typeof OperatorPropertiesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -5677,7 +5689,10 @@ const deserializeAws_restJson1TriggerProperties = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_restJson1TriggerTypeList = (output: any, context: __SerdeContext): (TriggerType | string)[] => {
+const deserializeAws_restJson1TriggerTypeList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof TriggerType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

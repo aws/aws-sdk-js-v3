@@ -28,9 +28,9 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum TargetType {
-  ACCOUNT = "ACCOUNT",
-}
+export const TargetType = {
+  ACCOUNT: "ACCOUNT",
+};
 
 /**
  * @public
@@ -42,7 +42,7 @@ export interface Target {
   /**
    * <p>The target type is always an <code>ACCOUNT</code>.</p>
    */
-  Type: TargetType | string | undefined;
+  Type: keyof typeof TargetType | string | undefined;
 
   /**
    * <p>The <code>TargetID</code> is a 12-character identifier of the <code>ACCOUNT</code> for

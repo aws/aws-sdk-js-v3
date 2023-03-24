@@ -26,35 +26,35 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum NodeDataType {
-  BOOLEAN = "BOOLEAN",
-  BOOLEAN_ARRAY = "BOOLEAN_ARRAY",
-  DOUBLE = "DOUBLE",
-  DOUBLE_ARRAY = "DOUBLE_ARRAY",
-  FLOAT = "FLOAT",
-  FLOAT_ARRAY = "FLOAT_ARRAY",
-  INT16 = "INT16",
-  INT16_ARRAY = "INT16_ARRAY",
-  INT32 = "INT32",
-  INT32_ARRAY = "INT32_ARRAY",
-  INT64 = "INT64",
-  INT64_ARRAY = "INT64_ARRAY",
-  INT8 = "INT8",
-  INT8_ARRAY = "INT8_ARRAY",
-  STRING = "STRING",
-  STRING_ARRAY = "STRING_ARRAY",
-  UINT16 = "UINT16",
-  UINT16_ARRAY = "UINT16_ARRAY",
-  UINT32 = "UINT32",
-  UINT32_ARRAY = "UINT32_ARRAY",
-  UINT64 = "UINT64",
-  UINT64_ARRAY = "UINT64_ARRAY",
-  UINT8 = "UINT8",
-  UINT8_ARRAY = "UINT8_ARRAY",
-  UNIX_TIMESTAMP = "UNIX_TIMESTAMP",
-  UNIX_TIMESTAMP_ARRAY = "UNIX_TIMESTAMP_ARRAY",
-  UNKNOWN = "UNKNOWN",
-}
+export const NodeDataType = {
+  BOOLEAN: "BOOLEAN",
+  BOOLEAN_ARRAY: "BOOLEAN_ARRAY",
+  DOUBLE: "DOUBLE",
+  DOUBLE_ARRAY: "DOUBLE_ARRAY",
+  FLOAT: "FLOAT",
+  FLOAT_ARRAY: "FLOAT_ARRAY",
+  INT16: "INT16",
+  INT16_ARRAY: "INT16_ARRAY",
+  INT32: "INT32",
+  INT32_ARRAY: "INT32_ARRAY",
+  INT64: "INT64",
+  INT64_ARRAY: "INT64_ARRAY",
+  INT8: "INT8",
+  INT8_ARRAY: "INT8_ARRAY",
+  STRING: "STRING",
+  STRING_ARRAY: "STRING_ARRAY",
+  UINT16: "UINT16",
+  UINT16_ARRAY: "UINT16_ARRAY",
+  UINT32: "UINT32",
+  UINT32_ARRAY: "UINT32_ARRAY",
+  UINT64: "UINT64",
+  UINT64_ARRAY: "UINT64_ARRAY",
+  UINT8: "UINT8",
+  UINT8_ARRAY: "UINT8_ARRAY",
+  UNIX_TIMESTAMP: "UNIX_TIMESTAMP",
+  UNIX_TIMESTAMP_ARRAY: "UNIX_TIMESTAMP_ARRAY",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -75,7 +75,7 @@ export interface Actuator {
   /**
    * <p>The specified data type of the actuator. </p>
    */
-  dataType: NodeDataType | string | undefined;
+  dataType: keyof typeof NodeDataType | string | undefined;
 
   /**
    * <p>A brief description of the actuator.</p>
@@ -246,12 +246,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+};
 
 /**
  * @public
@@ -263,7 +263,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason the input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>The list of fields that fail to satisfy the constraints specified by an Amazon Web Services service.</p>
@@ -300,7 +300,7 @@ export interface Attribute {
   /**
    * <p>The specified data type of the attribute. </p>
    */
-  dataType: NodeDataType | string | undefined;
+  dataType: keyof typeof NodeDataType | string | undefined;
 
   /**
    * <p>A brief description of the attribute.</p>
@@ -343,10 +343,10 @@ export interface Attribute {
 /**
  * @public
  */
-export enum VehicleAssociationBehavior {
-  CREATE_IOT_THING = "CreateIotThing",
-  VALIDATE_IOT_THING_EXISTS = "ValidateIotThingExists",
-}
+export const VehicleAssociationBehavior = {
+  CREATE_IOT_THING: "CreateIotThing",
+  VALIDATE_IOT_THING_EXISTS: "ValidateIotThingExists",
+};
 
 /**
  * @public
@@ -396,7 +396,7 @@ export interface CreateVehicleRequestItem {
    * <p>An option to create a new Amazon Web Services IoT thing when creating a vehicle, or to validate an
    *             existing thing as a vehicle.</p>
    */
-  associationBehavior?: VehicleAssociationBehavior | string;
+  associationBehavior?: keyof typeof VehicleAssociationBehavior | string;
 
   /**
    * <p>Metadata which can be used to manage the vehicle.</p>
@@ -509,10 +509,10 @@ export class LimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum UpdateMode {
-  MERGE = "Merge",
-  OVERWRITE = "Overwrite",
-}
+export const UpdateMode = {
+  MERGE: "Merge",
+  OVERWRITE: "Overwrite",
+};
 
 /**
  * @public
@@ -548,7 +548,7 @@ export interface UpdateVehicleRequestItem {
    *             attributes. Or use <code>Merge</code> to combine all attributes.</p>
    *         <p>This is required if attributes are present in the input.</p>
    */
-  attributeUpdateMode?: UpdateMode | string;
+  attributeUpdateMode?: keyof typeof UpdateMode | string;
 }
 
 /**
@@ -671,10 +671,10 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum TriggerMode {
-  ALWAYS = "ALWAYS",
-  RISING_EDGE = "RISING_EDGE",
-}
+export const TriggerMode = {
+  ALWAYS: "ALWAYS",
+  RISING_EDGE: "RISING_EDGE",
+};
 
 /**
  * @public
@@ -704,7 +704,7 @@ export interface ConditionBasedCollectionScheme {
    *             triggering when the airbag is already exploded; they only care about the change from not
    *             deployed =&gt; deployed.</p>
    */
-  triggerMode?: TriggerMode | string;
+  triggerMode?: keyof typeof TriggerMode | string;
 
   /**
    * <p>Specifies the version of the conditional expression language.</p>
@@ -783,18 +783,18 @@ export namespace CollectionScheme {
 /**
  * @public
  */
-export enum Compression {
-  OFF = "OFF",
-  SNAPPY = "SNAPPY",
-}
+export const Compression = {
+  OFF: "OFF",
+  SNAPPY: "SNAPPY",
+};
 
 /**
  * @public
  */
-export enum DiagnosticsMode {
-  OFF = "OFF",
-  SEND_ACTIVE_DTCS = "SEND_ACTIVE_DTCS",
-}
+export const DiagnosticsMode = {
+  OFF: "OFF",
+  SEND_ACTIVE_DTCS: "SEND_ACTIVE_DTCS",
+};
 
 /**
  * @public
@@ -824,10 +824,10 @@ export interface SignalInformation {
 /**
  * @public
  */
-export enum SpoolingMode {
-  OFF = "OFF",
-  TO_DISK = "TO_DISK",
-}
+export const SpoolingMode = {
+  OFF: "OFF",
+  TO_DISK: "TO_DISK",
+};
 
 /**
  * @public
@@ -884,7 +884,7 @@ export interface CreateCampaignRequest {
    *         <p>Default: <code>OFF</code>
    *          </p>
    */
-  diagnosticsMode?: DiagnosticsMode | string;
+  diagnosticsMode?: keyof typeof DiagnosticsMode | string;
 
   /**
    * <p>(Optional) Whether to store collected data after a vehicle lost a connection with the
@@ -894,7 +894,7 @@ export interface CreateCampaignRequest {
    *         <p>Default: <code>OFF</code>
    *          </p>
    */
-  spoolingMode?: SpoolingMode | string;
+  spoolingMode?: keyof typeof SpoolingMode | string;
 
   /**
    * <p> (Optional) Whether to compress signals before transmitting data to Amazon Web Services IoT FleetWise. If you
@@ -903,7 +903,7 @@ export interface CreateCampaignRequest {
    *         <p>Default: <code>SNAPPY</code>
    *          </p>
    */
-  compression?: Compression | string;
+  compression?: keyof typeof Compression | string;
 
   /**
    * <p>(Optional) A number indicating the priority of one campaign over another campaign for
@@ -994,12 +994,12 @@ export interface GetCampaignRequest {
 /**
  * @public
  */
-export enum CampaignStatus {
-  CREATING = "CREATING",
-  RUNNING = "RUNNING",
-  SUSPENDED = "SUSPENDED",
-  WAITING_FOR_APPROVAL = "WAITING_FOR_APPROVAL",
-}
+export const CampaignStatus = {
+  CREATING: "CREATING",
+  RUNNING: "RUNNING",
+  SUSPENDED: "SUSPENDED",
+  WAITING_FOR_APPROVAL: "WAITING_FOR_APPROVAL",
+};
 
 /**
  * @public
@@ -1035,7 +1035,7 @@ export interface GetCampaignResponse {
    *                 <code>WAITING_FOR_APPROVAL</code>, <code>RUNNING</code>, and <code>SUSPENDED</code>.
    *         </p>
    */
-  status?: CampaignStatus | string;
+  status?: keyof typeof CampaignStatus | string;
 
   /**
    * <p> The time, in milliseconds, to deliver a campaign after it was approved.</p>
@@ -1057,21 +1057,21 @@ export interface GetCampaignResponse {
   /**
    * <p> Option for a vehicle to send diagnostic trouble codes to Amazon Web Services IoT FleetWise. </p>
    */
-  diagnosticsMode?: DiagnosticsMode | string;
+  diagnosticsMode?: keyof typeof DiagnosticsMode | string;
 
   /**
    * <p> Whether to store collected data after a vehicle lost a connection with the cloud.
    *             After a connection is re-established, the data is automatically forwarded to Amazon Web Services IoT FleetWise.
    *         </p>
    */
-  spoolingMode?: SpoolingMode | string;
+  spoolingMode?: keyof typeof SpoolingMode | string;
 
   /**
    * <p> Whether to compress signals before transmitting data to Amazon Web Services IoT FleetWise. If
    *                 <code>OFF</code> is specified, the signals aren't compressed. If it's not specified,
    *                 <code>SNAPPY</code> is used. </p>
    */
-  compression?: Compression | string;
+  compression?: keyof typeof Compression | string;
 
   /**
    * <p> A number indicating the priority of one campaign over another campaign for a certain
@@ -1189,7 +1189,7 @@ export interface CampaignSummary {
    *             </li>
    *          </ul>
    */
-  status?: CampaignStatus | string;
+  status?: keyof typeof CampaignStatus | string;
 
   /**
    * <p>The time the campaign was created.</p>
@@ -1220,12 +1220,12 @@ export interface ListCampaignsResponse {
 /**
  * @public
  */
-export enum UpdateCampaignAction {
-  APPROVE = "APPROVE",
-  RESUME = "RESUME",
-  SUSPEND = "SUSPEND",
-  UPDATE = "UPDATE",
-}
+export const UpdateCampaignAction = {
+  APPROVE: "APPROVE",
+  RESUME: "RESUME",
+  SUSPEND: "SUSPEND",
+  UPDATE: "UPDATE",
+};
 
 /**
  * @public
@@ -1269,7 +1269,7 @@ export interface UpdateCampaignRequest {
    *             </li>
    *          </ul>
    */
-  action: UpdateCampaignAction | string | undefined;
+  action: keyof typeof UpdateCampaignAction | string | undefined;
 }
 
 /**
@@ -1312,7 +1312,7 @@ export interface UpdateCampaignResponse {
    *             </li>
    *          </ul>
    */
-  status?: CampaignStatus | string;
+  status?: keyof typeof CampaignStatus | string;
 }
 
 /**
@@ -1408,10 +1408,10 @@ export interface CanSignal {
 /**
  * @public
  */
-export enum LogType {
-  ERROR = "ERROR",
-  OFF = "OFF",
-}
+export const LogType = {
+  ERROR: "ERROR",
+  OFF: "OFF",
+};
 
 /**
  * @public
@@ -1421,7 +1421,7 @@ export interface CloudWatchLogDeliveryOptions {
   /**
    * <p>The type of log to send data to Amazon CloudWatch Logs.</p>
    */
-  logType: LogType | string | undefined;
+  logType: keyof typeof LogType | string | undefined;
 
   /**
    * <p>The Amazon CloudWatch Logs group the operation sends data to.</p>
@@ -1473,10 +1473,10 @@ export interface ObdInterface {
 /**
  * @public
  */
-export enum NetworkInterfaceType {
-  CAN_INTERFACE = "CAN_INTERFACE",
-  OBD_INTERFACE = "OBD_INTERFACE",
-}
+export const NetworkInterfaceType = {
+  CAN_INTERFACE: "CAN_INTERFACE",
+  OBD_INTERFACE: "OBD_INTERFACE",
+};
 
 /**
  * @public
@@ -1498,7 +1498,7 @@ export interface NetworkInterface {
    *             (ECUs). <code>OBD_SIGNAL</code> specifies a protocol that defines how self-diagnostic
    *             data is communicated between ECUs.</p>
    */
-  type: NetworkInterfaceType | string | undefined;
+  type: keyof typeof NetworkInterfaceType | string | undefined;
 
   /**
    * <p>Information about a network interface specified by the Controller Area Network (CAN)
@@ -1568,10 +1568,10 @@ export interface ObdSignal {
 /**
  * @public
  */
-export enum SignalDecoderType {
-  CAN_SIGNAL = "CAN_SIGNAL",
-  OBD_SIGNAL = "OBD_SIGNAL",
-}
+export const SignalDecoderType = {
+  CAN_SIGNAL: "CAN_SIGNAL",
+  OBD_SIGNAL: "OBD_SIGNAL",
+};
 
 /**
  * @public
@@ -1589,7 +1589,7 @@ export interface SignalDecoder {
    *             (ECUs). <code>OBD_SIGNAL</code> specifies a protocol that defines how self-diagnostic
    *             data is communicated between ECUs.</p>
    */
-  type: SignalDecoderType | string | undefined;
+  type: keyof typeof SignalDecoderType | string | undefined;
 
   /**
    * <p>The ID of a network interface that specifies what network protocol a vehicle follows.</p>
@@ -1660,14 +1660,14 @@ export interface CreateDecoderManifestResponse {
 /**
  * @public
  */
-export enum NetworkInterfaceFailureReason {
-  CAN_NETWORK_INTERFACE_INFO_IS_NULL = "CAN_NETWORK_INTERFACE_INFO_IS_NULL",
-  CONFLICTING_NETWORK_INTERFACE = "CONFLICTING_NETWORK_INTERFACE",
-  DUPLICATE_INTERFACE = "DUPLICATE_NETWORK_INTERFACE",
-  NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS = "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS",
-  NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS = "NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS",
-  OBD_NETWORK_INTERFACE_INFO_IS_NULL = "OBD_NETWORK_INTERFACE_INFO_IS_NULL",
-}
+export const NetworkInterfaceFailureReason = {
+  CAN_NETWORK_INTERFACE_INFO_IS_NULL: "CAN_NETWORK_INTERFACE_INFO_IS_NULL",
+  CONFLICTING_NETWORK_INTERFACE: "CONFLICTING_NETWORK_INTERFACE",
+  DUPLICATE_INTERFACE: "DUPLICATE_NETWORK_INTERFACE",
+  NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS: "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS",
+  NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS: "NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS",
+  OBD_NETWORK_INTERFACE_INFO_IS_NULL: "OBD_NETWORK_INTERFACE_INFO_IS_NULL",
+};
 
 /**
  * @public
@@ -1682,23 +1682,24 @@ export interface InvalidNetworkInterface {
   /**
    * <p>A message about why the interface isn't valid. </p>
    */
-  reason?: NetworkInterfaceFailureReason | string;
+  reason?: keyof typeof NetworkInterfaceFailureReason | string;
 }
 
 /**
  * @public
  */
-export enum SignalDecoderFailureReason {
-  CAN_SIGNAL_INFO_IS_NULL = "CAN_SIGNAL_INFO_IS_NULL",
-  CONFLICTING_SIGNAL = "CONFLICTING_SIGNAL",
-  DUPLICATE_SIGNAL = "DUPLICATE_SIGNAL",
-  NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE = "NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE",
-  NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL = "NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL",
-  OBD_SIGNAL_INFO_IS_NULL = "OBD_SIGNAL_INFO_IS_NULL",
-  SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE = "SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE",
-  SIGNAL_NOT_IN_MODEL = "SIGNAL_NOT_IN_MODEL",
-  SIGNAL_TO_ADD_ALREADY_EXISTS = "SIGNAL_TO_ADD_ALREADY_EXISTS",
-}
+export const SignalDecoderFailureReason = {
+  CAN_SIGNAL_INFO_IS_NULL: "CAN_SIGNAL_INFO_IS_NULL",
+  CONFLICTING_SIGNAL: "CONFLICTING_SIGNAL",
+  DUPLICATE_SIGNAL: "DUPLICATE_SIGNAL",
+  NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE:
+    "NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE",
+  NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL: "NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL",
+  OBD_SIGNAL_INFO_IS_NULL: "OBD_SIGNAL_INFO_IS_NULL",
+  SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE: "SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE",
+  SIGNAL_NOT_IN_MODEL: "SIGNAL_NOT_IN_MODEL",
+  SIGNAL_TO_ADD_ALREADY_EXISTS: "SIGNAL_TO_ADD_ALREADY_EXISTS",
+};
 
 /**
  * @public
@@ -1713,7 +1714,7 @@ export interface InvalidSignalDecoder {
   /**
    * <p>A message about why the signal decoder isn't valid.</p>
    */
-  reason?: SignalDecoderFailureReason | string;
+  reason?: keyof typeof SignalDecoderFailureReason | string;
 }
 
 /**
@@ -1893,7 +1894,7 @@ export interface Sensor {
   /**
    * <p>The specified data type of the sensor. </p>
    */
-  dataType: NodeDataType | string | undefined;
+  dataType: keyof typeof NodeDataType | string | undefined;
 
   /**
    * <p>A brief description of a sensor.</p>
@@ -2125,7 +2126,7 @@ export interface CreateVehicleRequest {
    *         <p>Default: <code/>
    *          </p>
    */
-  associationBehavior?: VehicleAssociationBehavior | string;
+  associationBehavior?: keyof typeof VehicleAssociationBehavior | string;
 
   /**
    * <p>Metadata that can be used to manage the vehicle.</p>
@@ -2191,10 +2192,10 @@ export interface GetDecoderManifestRequest {
 /**
  * @public
  */
-export enum ManifestStatus {
-  ACTIVE = "ACTIVE",
-  DRAFT = "DRAFT",
-}
+export const ManifestStatus = {
+  ACTIVE: "ACTIVE",
+  DRAFT: "DRAFT",
+};
 
 /**
  * @public
@@ -2226,7 +2227,7 @@ export interface GetDecoderManifestResponse {
    *             manifest can't be edited. If the status is marked <code>DRAFT</code>, you can edit the
    *             decoder manifest.</p>
    */
-  status?: ManifestStatus | string;
+  status?: keyof typeof ManifestStatus | string;
 
   /**
    * <p> The time the decoder manifest was created in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
@@ -2395,7 +2396,7 @@ export interface DecoderManifestSummary {
    *             manifest can't be edited. If the status is marked <code>DRAFT</code>, you can edit the
    *             decoder manifest.</p>
    */
-  status?: ManifestStatus | string;
+  status?: keyof typeof ManifestStatus | string;
 
   /**
    * <p>The time the decoder manifest was created in seconds since epoch (January 1, 1970 at
@@ -2514,7 +2515,7 @@ export interface UpdateDecoderManifestRequest {
    *             manifest can't be edited. If the status is <code>DRAFT</code>, you can edit the decoder
    *             manifest. </p>
    */
-  status?: ManifestStatus | string;
+  status?: keyof typeof ManifestStatus | string;
 }
 
 /**
@@ -2962,7 +2963,7 @@ export interface GetModelManifestResponse {
    *             model can't be edited. You can edit the vehicle model if the status is marked
    *                 <code>DRAFT</code>.</p>
    */
-  status?: ManifestStatus | string;
+  status?: keyof typeof ManifestStatus | string;
 
   /**
    * <p>The time the vehicle model was created, in seconds since epoch (January 1, 1970 at
@@ -2984,11 +2985,11 @@ export interface GetRegisterAccountStatusRequest {}
 /**
  * @public
  */
-export enum RegistrationStatus {
-  REGISTRATION_FAILURE = "REGISTRATION_FAILURE",
-  REGISTRATION_PENDING = "REGISTRATION_PENDING",
-  REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS",
-}
+export const RegistrationStatus = {
+  REGISTRATION_FAILURE: "REGISTRATION_FAILURE",
+  REGISTRATION_PENDING: "REGISTRATION_PENDING",
+  REGISTRATION_SUCCESS: "REGISTRATION_SUCCESS",
+};
 
 /**
  * @public
@@ -3006,7 +3007,7 @@ export interface IamRegistrationResponse {
    *                 <code>REGISTRATION_SUCCESS</code>, <code>REGISTRATION_PENDING</code>,
    *                 <code>REGISTRATION_FAILURE</code>.</p>
    */
-  registrationStatus: RegistrationStatus | string | undefined;
+  registrationStatus: keyof typeof RegistrationStatus | string | undefined;
 
   /**
    * <p>A message associated with a registration error.</p>
@@ -3044,7 +3045,7 @@ export interface TimestreamRegistrationResponse {
    *                 <code>REGISTRATION_SUCCESS</code>, <code>REGISTRATION_PENDING</code>,
    *                 <code>REGISTRATION_FAILURE</code>.</p>
    */
-  registrationStatus: RegistrationStatus | string | undefined;
+  registrationStatus: keyof typeof RegistrationStatus | string | undefined;
 
   /**
    * <p>A message associated with a registration error.</p>
@@ -3082,7 +3083,7 @@ export interface GetRegisterAccountStatusResponse {
    *             </li>
    *          </ul>
    */
-  accountStatus: RegistrationStatus | string | undefined;
+  accountStatus: keyof typeof RegistrationStatus | string | undefined;
 
   /**
    * <p> Information about the registered Amazon Timestream resources or errors, if any.</p>
@@ -3260,13 +3261,13 @@ export interface GetVehicleStatusRequest {
 /**
  * @public
  */
-export enum VehicleState {
-  CREATED = "CREATED",
-  DELETING = "DELETING",
-  HEALTHY = "HEALTHY",
-  READY = "READY",
-  SUSPENDED = "SUSPENDED",
-}
+export const VehicleState = {
+  CREATED: "CREATED",
+  DELETING: "DELETING",
+  HEALTHY: "HEALTHY",
+  READY: "READY",
+  SUSPENDED: "SUSPENDED",
+};
 
 /**
  * @public
@@ -3313,7 +3314,7 @@ export interface VehicleStatus {
    *             </li>
    *          </ul>
    */
-  status?: VehicleState | string;
+  status?: keyof typeof VehicleState | string;
 }
 
 /**
@@ -3497,7 +3498,7 @@ export interface ModelManifestSummary {
    *             model can't be edited. If the status is <code>DRAFT</code>, you can edit the vehicle
    *             model.</p>
    */
-  status?: ManifestStatus | string;
+  status?: keyof typeof ManifestStatus | string;
 
   /**
    * <p>The time the vehicle model was created, in seconds since epoch (January 1, 1970 at
@@ -3558,7 +3559,7 @@ export interface UpdateModelManifestRequest {
    *             model can't be edited. If the status is <code>DRAFT</code>, you can edit the vehicle
    *             model. </p>
    */
-  status?: ManifestStatus | string;
+  status?: keyof typeof ManifestStatus | string;
 }
 
 /**
@@ -3634,7 +3635,7 @@ export interface RegisterAccountResponse {
    * <p> The status of registering your Amazon Web Services account, IAM role, and Timestream resources.
    *         </p>
    */
-  registerAccountStatus: RegistrationStatus | string | undefined;
+  registerAccountStatus: keyof typeof RegistrationStatus | string | undefined;
 
   /**
    * <p>The registered Amazon Timestream resources that Amazon Web Services IoT FleetWise edge agent software can transfer
@@ -3947,7 +3948,7 @@ export interface UpdateVehicleRequest {
    *             attributes. Or use <code>Merge</code> to combine all attributes.</p>
    *         <p>This is required if attributes are present in the input.</p>
    */
-  attributeUpdateMode?: UpdateMode | string;
+  attributeUpdateMode?: keyof typeof UpdateMode | string;
 }
 
 /**

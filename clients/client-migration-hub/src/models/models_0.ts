@@ -28,11 +28,11 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum ApplicationStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ApplicationStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+};
 
 /**
  * @public
@@ -49,7 +49,7 @@ export interface ApplicationState {
   /**
    * <p>The current status of an application.</p>
    */
-  ApplicationStatus?: ApplicationStatus | string;
+  ApplicationStatus?: keyof typeof ApplicationStatus | string;
 
   /**
    * <p>The timestamp when the application status was last updated.</p>
@@ -440,7 +440,7 @@ export interface DescribeApplicationStateResult {
   /**
    * <p>Status of the application - Not Started, In-Progress, Complete.</p>
    */
-  ApplicationStatus?: ApplicationStatus | string;
+  ApplicationStatus?: keyof typeof ApplicationStatus | string;
 
   /**
    * <p>The timestamp when the application status was last updated.</p>
@@ -468,18 +468,18 @@ export interface DescribeMigrationTaskRequest {
 /**
  * @public
  */
-export enum ResourceAttributeType {
-  BIOS_ID = "BIOS_ID",
-  FQDN = "FQDN",
-  IPV4_ADDRESS = "IPV4_ADDRESS",
-  IPV6_ADDRESS = "IPV6_ADDRESS",
-  MAC_ADDRESS = "MAC_ADDRESS",
-  MOTHERBOARD_SERIAL_NUMBER = "MOTHERBOARD_SERIAL_NUMBER",
-  VM_MANAGED_OBJECT_REFERENCE = "VM_MANAGED_OBJECT_REFERENCE",
-  VM_MANAGER_ID = "VM_MANAGER_ID",
-  VM_NAME = "VM_NAME",
-  VM_PATH = "VM_PATH",
-}
+export const ResourceAttributeType = {
+  BIOS_ID: "BIOS_ID",
+  FQDN: "FQDN",
+  IPV4_ADDRESS: "IPV4_ADDRESS",
+  IPV6_ADDRESS: "IPV6_ADDRESS",
+  MAC_ADDRESS: "MAC_ADDRESS",
+  MOTHERBOARD_SERIAL_NUMBER: "MOTHERBOARD_SERIAL_NUMBER",
+  VM_MANAGED_OBJECT_REFERENCE: "VM_MANAGED_OBJECT_REFERENCE",
+  VM_MANAGER_ID: "VM_MANAGER_ID",
+  VM_NAME: "VM_NAME",
+  VM_PATH: "VM_PATH",
+};
 
 /**
  * @public
@@ -525,7 +525,7 @@ export interface ResourceAttribute {
   /**
    * <p>Type of resource.</p>
    */
-  Type: ResourceAttributeType | string | undefined;
+  Type: keyof typeof ResourceAttributeType | string | undefined;
 
   /**
    * <p>Value of the resource type.</p>
@@ -536,12 +536,12 @@ export interface ResourceAttribute {
 /**
  * @public
  */
-export enum Status {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const Status = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+};
 
 /**
  * @public
@@ -551,7 +551,7 @@ export interface Task {
   /**
    * <p>Status of the task - Not Started, In-Progress, Complete.</p>
    */
-  Status: Status | string | undefined;
+  Status: keyof typeof Status | string | undefined;
 
   /**
    * <p>Details of task status as notified by a migration tool. A tool might use this field to
@@ -882,7 +882,7 @@ export interface MigrationTaskSummary {
   /**
    * <p>Status of the task.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>Indication of the percentage completion of the task.</p>
@@ -979,7 +979,7 @@ export interface NotifyApplicationStateRequest {
   /**
    * <p>Status of the application - Not Started, In-Progress, Complete.</p>
    */
-  Status: ApplicationStatus | string | undefined;
+  Status: keyof typeof ApplicationStatus | string | undefined;
 
   /**
    * <p>The timestamp when the application state changed.</p>

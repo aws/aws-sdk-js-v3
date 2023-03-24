@@ -42,10 +42,10 @@ export interface DeviceUnderTest {
 /**
  * @public
  */
-export enum Protocol {
-  MqttV3_1_1 = "MqttV3_1_1",
-  MqttV5 = "MqttV5",
-}
+export const Protocol = {
+  MqttV3_1_1: "MqttV3_1_1",
+  MqttV5: "MqttV5",
+};
 
 /**
  * @public
@@ -85,7 +85,7 @@ export interface SuiteDefinitionConfiguration {
   /**
    * <p>Sets the MQTT protocol that is configured in the suite definition.</p>
    */
-  protocol?: Protocol | string;
+  protocol?: keyof typeof Protocol | string;
 }
 
 /**
@@ -306,17 +306,17 @@ export interface GetSuiteRunRequest {
 /**
  * @public
  */
-export enum SuiteRunStatus {
-  CANCELED = "CANCELED",
-  ERROR = "ERROR",
-  FAIL = "FAIL",
-  PASS = "PASS",
-  PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const SuiteRunStatus = {
+  CANCELED: "CANCELED",
+  ERROR: "ERROR",
+  FAIL: "FAIL",
+  PASS: "PASS",
+  PASS_WITH_WARNINGS: "PASS_WITH_WARNINGS",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
@@ -343,40 +343,40 @@ export interface SuiteRunConfiguration {
 /**
  * @public
  */
-export enum Status {
-  CANCELED = "CANCELED",
-  ERROR = "ERROR",
-  FAIL = "FAIL",
-  PASS = "PASS",
-  PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const Status = {
+  CANCELED: "CANCELED",
+  ERROR: "ERROR",
+  FAIL: "FAIL",
+  PASS: "PASS",
+  PASS_WITH_WARNINGS: "PASS_WITH_WARNINGS",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
  */
-export enum TestCaseScenarioStatus {
-  CANCELED = "CANCELED",
-  ERROR = "ERROR",
-  FAIL = "FAIL",
-  PASS = "PASS",
-  PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const TestCaseScenarioStatus = {
+  CANCELED: "CANCELED",
+  ERROR: "ERROR",
+  FAIL: "FAIL",
+  PASS: "PASS",
+  PASS_WITH_WARNINGS: "PASS_WITH_WARNINGS",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
  */
-export enum TestCaseScenarioType {
-  Advanced = "Advanced",
-  Basic = "Basic",
-}
+export const TestCaseScenarioType = {
+  Advanced: "Advanced",
+  Basic: "Basic",
+};
 
 /**
  * @public
@@ -399,7 +399,7 @@ export interface TestCaseScenario {
    *             </li>
    *          </ul>
    */
-  testCaseScenarioType?: TestCaseScenarioType | string;
+  testCaseScenarioType?: keyof typeof TestCaseScenarioType | string;
 
   /**
    * <p>Provides the test case scenario status. Status is one of the following:</p>
@@ -441,7 +441,7 @@ export interface TestCaseScenario {
    *             </li>
    *          </ul>
    */
-  status?: TestCaseScenarioStatus | string;
+  status?: keyof typeof TestCaseScenarioStatus | string;
 
   /**
    * <p>Provides test case scenario failure result.</p>
@@ -515,7 +515,7 @@ export interface TestCaseRun {
    *             </li>
    *          </ul>
    */
-  status?: Status | string;
+  status?: keyof typeof Status | string;
 
   /**
    * <p>Provides test case run start time.</p>
@@ -627,7 +627,7 @@ export interface GetSuiteRunResponse {
   /**
    * <p>Status for the test suite run.</p>
    */
-  status?: SuiteRunStatus | string;
+  status?: keyof typeof SuiteRunStatus | string;
 
   /**
    * <p>Error reason for any test suite run failure.</p>
@@ -713,7 +713,7 @@ export interface SuiteDefinitionInformation {
   /**
    * <p>Gets the MQTT protocol that is configured in the suite definition.</p>
    */
-  protocol?: Protocol | string;
+  protocol?: keyof typeof Protocol | string;
 
   /**
    * <p>Date (in Unix epoch time) when the test suite was created.</p>
@@ -808,7 +808,7 @@ export interface SuiteRunInformation {
   /**
    * <p>Status of the suite run.</p>
    */
-  status?: SuiteRunStatus | string;
+  status?: keyof typeof SuiteRunStatus | string;
 
   /**
    * <p>Number of test cases that passed in the suite run.</p>

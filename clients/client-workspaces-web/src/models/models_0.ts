@@ -200,12 +200,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+};
 
 /**
  * @public
@@ -217,7 +217,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>Reason the request failed validation</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>The field that caused the error.</p>
@@ -362,10 +362,10 @@ export interface AssociateUserSettingsResponse {
 /**
  * @public
  */
-export enum AuthenticationType {
-  IAM_IDENTITY_CENTER = "IAM_Identity_Center",
-  STANDARD = "Standard",
-}
+export const AuthenticationType = {
+  IAM_IDENTITY_CENTER: "IAM_Identity_Center",
+  STANDARD: "Standard",
+};
 
 /**
  * @public
@@ -475,14 +475,14 @@ export class ServiceQuotaExceededException extends __BaseException {
 /**
  * @public
  */
-export enum IdentityProviderType {
-  Facebook = "Facebook",
-  Google = "Google",
-  LoginWithAmazon = "LoginWithAmazon",
-  OIDC = "OIDC",
-  SAML = "SAML",
-  SignInWithApple = "SignInWithApple",
-}
+export const IdentityProviderType = {
+  Facebook: "Facebook",
+  Google: "Google",
+  LoginWithAmazon: "LoginWithAmazon",
+  OIDC: "OIDC",
+  SAML: "SAML",
+  SignInWithApple: "SignInWithApple",
+};
 
 /**
  * @public
@@ -501,7 +501,7 @@ export interface CreateIdentityProviderRequest {
   /**
    * <p>The identity provider type.</p>
    */
-  identityProviderType: IdentityProviderType | string | undefined;
+  identityProviderType: keyof typeof IdentityProviderType | string | undefined;
 
   /**
    * <p>The identity provider details. The following list describes the provider detail keys for
@@ -775,7 +775,7 @@ export interface CreatePortalRequest {
    *          integration), plus user and group access to your web portal, can be configured in the IAM
    *          Identity Center.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: keyof typeof AuthenticationType | string;
 }
 
 /**
@@ -866,10 +866,10 @@ export interface CreateUserAccessLoggingSettingsResponse {
 /**
  * @public
  */
-export enum EnabledType {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const EnabledType = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+};
 
 /**
  * @public
@@ -879,30 +879,30 @@ export interface CreateUserSettingsRequest {
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
-  copyAllowed: EnabledType | string | undefined;
+  copyAllowed: keyof typeof EnabledType | string | undefined;
 
   /**
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
-  pasteAllowed: EnabledType | string | undefined;
+  pasteAllowed: keyof typeof EnabledType | string | undefined;
 
   /**
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
-  downloadAllowed: EnabledType | string | undefined;
+  downloadAllowed: keyof typeof EnabledType | string | undefined;
 
   /**
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
-  uploadAllowed: EnabledType | string | undefined;
+  uploadAllowed: keyof typeof EnabledType | string | undefined;
 
   /**
    * <p>Specifies whether the user can print to the local device.</p>
    */
-  printAllowed: EnabledType | string | undefined;
+  printAllowed: keyof typeof EnabledType | string | undefined;
 
   /**
    * <p>The tags to add to the user settings resource. A tag is a key-value pair.</p>
@@ -1192,7 +1192,7 @@ export interface IdentityProvider {
   /**
    * <p>The identity provider type.</p>
    */
-  identityProviderType?: IdentityProviderType | string;
+  identityProviderType?: keyof typeof IdentityProviderType | string;
 
   /**
    * <p>The identity provider details. The following list describes the provider detail keys for
@@ -1428,25 +1428,25 @@ export interface GetPortalRequest {
 /**
  * @public
  */
-export enum BrowserType {
-  CHROME = "Chrome",
-}
+export const BrowserType = {
+  CHROME: "Chrome",
+};
 
 /**
  * @public
  */
-export enum PortalStatus {
-  ACTIVE = "Active",
-  INCOMPLETE = "Incomplete",
-  PENDING = "Pending",
-}
+export const PortalStatus = {
+  ACTIVE: "Active",
+  INCOMPLETE: "Incomplete",
+  PENDING: "Pending",
+};
 
 /**
  * @public
  */
-export enum RendererType {
-  APPSTREAM = "AppStream",
-}
+export const RendererType = {
+  APPSTREAM: "AppStream",
+};
 
 /**
  * @public
@@ -1461,17 +1461,17 @@ export interface Portal {
   /**
    * <p>The renderer that is used in streaming sessions.</p>
    */
-  rendererType?: RendererType | string;
+  rendererType?: keyof typeof RendererType | string;
 
   /**
    * <p>The browser that users see when using a streaming session.</p>
    */
-  browserType?: BrowserType | string;
+  browserType?: keyof typeof BrowserType | string;
 
   /**
    * <p>The status of the web portal.</p>
    */
-  portalStatus?: PortalStatus | string;
+  portalStatus?: keyof typeof PortalStatus | string;
 
   /**
    * <p>The endpoint URL of the web portal that users access in order to start streaming
@@ -1534,7 +1534,7 @@ export interface Portal {
    *          integration), plus user and group access to your web portal, can be configured in the IAM
    *          Identity Center.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: keyof typeof AuthenticationType | string;
 }
 
 /**
@@ -1750,30 +1750,30 @@ export interface UserSettings {
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
-  copyAllowed?: EnabledType | string;
+  copyAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
-  pasteAllowed?: EnabledType | string;
+  pasteAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
-  downloadAllowed?: EnabledType | string;
+  downloadAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
-  uploadAllowed?: EnabledType | string;
+  uploadAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>Specifies whether the user can print to the local device.</p>
    */
-  printAllowed?: EnabledType | string;
+  printAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>The amount of time that a streaming session remains active after users disconnect.</p>
@@ -1875,7 +1875,7 @@ export interface IdentityProviderSummary {
   /**
    * <p>The identity provider type.</p>
    */
-  identityProviderType?: IdentityProviderType | string;
+  identityProviderType?: keyof typeof IdentityProviderType | string;
 }
 
 /**
@@ -1967,17 +1967,17 @@ export interface PortalSummary {
   /**
    * <p>The renderer that is used in streaming sessions.</p>
    */
-  rendererType?: RendererType | string;
+  rendererType?: keyof typeof RendererType | string;
 
   /**
    * <p>The browser type of the web portal.</p>
    */
-  browserType?: BrowserType | string;
+  browserType?: keyof typeof BrowserType | string;
 
   /**
    * <p>The status of the web portal.</p>
    */
-  portalStatus?: PortalStatus | string;
+  portalStatus?: keyof typeof PortalStatus | string;
 
   /**
    * <p>The endpoint URL of the web portal that users access in order to start streaming
@@ -2035,7 +2035,7 @@ export interface PortalSummary {
    *          integration), plus user and group access to your web portal, can be configured in the IAM
    *          Identity Center.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: keyof typeof AuthenticationType | string;
 }
 
 /**
@@ -2260,30 +2260,30 @@ export interface UserSettingsSummary {
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
-  copyAllowed?: EnabledType | string;
+  copyAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
-  pasteAllowed?: EnabledType | string;
+  pasteAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
-  downloadAllowed?: EnabledType | string;
+  downloadAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
-  uploadAllowed?: EnabledType | string;
+  uploadAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>Specifies whether the user can print to the local device.</p>
    */
-  printAllowed?: EnabledType | string;
+  printAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>The amount of time that a streaming session remains active after users disconnect.</p>
@@ -2440,7 +2440,7 @@ export interface UpdateIdentityProviderRequest {
   /**
    * <p>The type of the identity provider.</p>
    */
-  identityProviderType?: IdentityProviderType | string;
+  identityProviderType?: keyof typeof IdentityProviderType | string;
 
   /**
    * <p>The details of the identity provider. The following list describes the provider detail keys for
@@ -2694,7 +2694,7 @@ export interface UpdatePortalRequest {
    *          integration), plus user and group access to your web portal, can be configured in the IAM
    *          Identity Center.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: keyof typeof AuthenticationType | string;
 }
 
 /**
@@ -2795,30 +2795,30 @@ export interface UpdateUserSettingsRequest {
    * <p>Specifies whether the user can copy text from the streaming session to the local
    *          device.</p>
    */
-  copyAllowed?: EnabledType | string;
+  copyAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>Specifies whether the user can paste text from the local device to the streaming
    *          session.</p>
    */
-  pasteAllowed?: EnabledType | string;
+  pasteAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>Specifies whether the user can download files from the streaming session to the local
    *          device.</p>
    */
-  downloadAllowed?: EnabledType | string;
+  downloadAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>Specifies whether the user can upload files from the local device to the streaming
    *          session.</p>
    */
-  uploadAllowed?: EnabledType | string;
+  uploadAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>Specifies whether the user can print to the local device.</p>
    */
-  printAllowed?: EnabledType | string;
+  printAllowed?: keyof typeof EnabledType | string;
 
   /**
    * <p>The amount of time that a streaming session remains active after users disconnect.</p>

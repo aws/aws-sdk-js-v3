@@ -6,10 +6,10 @@ import { GameLiftServiceException as __BaseException } from "./GameLiftServiceEx
 /**
  * @public
  */
-export enum AcceptanceType {
-  ACCEPT = "ACCEPT",
-  REJECT = "REJECT",
-}
+export const AcceptanceType = {
+  ACCEPT: "ACCEPT",
+  REJECT: "REJECT",
+};
 
 /**
  * @public
@@ -30,7 +30,7 @@ export interface AcceptMatchInput {
   /**
    * <p>Player response to the proposed match.</p>
    */
-  AcceptanceType: AcceptanceType | string | undefined;
+  AcceptanceType: keyof typeof AcceptanceType | string | undefined;
 }
 
 /**
@@ -131,10 +131,10 @@ export class UnsupportedRegionException extends __BaseException {
 /**
  * @public
  */
-export enum RoutingStrategyType {
-  SIMPLE = "SIMPLE",
-  TERMINAL = "TERMINAL",
-}
+export const RoutingStrategyType = {
+  SIMPLE: "SIMPLE",
+  TERMINAL: "TERMINAL",
+};
 
 /**
  * @public
@@ -164,7 +164,7 @@ export interface RoutingStrategy {
    *             </li>
    *          </ul>
    */
-  Type?: RoutingStrategyType | string;
+  Type?: keyof typeof RoutingStrategyType | string;
 
   /**
    * <p>A unique identifier for the fleet that the alias points to. This value is the fleet ID, not the fleet ARN.</p>
@@ -297,37 +297,37 @@ export interface AwsCredentials {
 /**
  * @public
  */
-export enum BackfillMode {
-  AUTOMATIC = "AUTOMATIC",
-  MANUAL = "MANUAL",
-}
+export const BackfillMode = {
+  AUTOMATIC: "AUTOMATIC",
+  MANUAL: "MANUAL",
+};
 
 /**
  * @public
  */
-export enum BalancingStrategy {
-  ON_DEMAND_ONLY = "ON_DEMAND_ONLY",
-  SPOT_ONLY = "SPOT_ONLY",
-  SPOT_PREFERRED = "SPOT_PREFERRED",
-}
+export const BalancingStrategy = {
+  ON_DEMAND_ONLY: "ON_DEMAND_ONLY",
+  SPOT_ONLY: "SPOT_ONLY",
+  SPOT_PREFERRED: "SPOT_PREFERRED",
+};
 
 /**
  * @public
  */
-export enum OperatingSystem {
-  AMAZON_LINUX = "AMAZON_LINUX",
-  AMAZON_LINUX_2 = "AMAZON_LINUX_2",
-  WINDOWS_2012 = "WINDOWS_2012",
-}
+export const OperatingSystem = {
+  AMAZON_LINUX: "AMAZON_LINUX",
+  AMAZON_LINUX_2: "AMAZON_LINUX_2",
+  WINDOWS_2012: "WINDOWS_2012",
+};
 
 /**
  * @public
  */
-export enum BuildStatus {
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  READY = "READY",
-}
+export const BuildStatus = {
+  FAILED: "FAILED",
+  INITIALIZED: "INITIALIZED",
+  READY: "READY",
+};
 
 /**
  * @public
@@ -382,7 +382,7 @@ export interface Build {
    *             </li>
    *          </ul>
    */
-  Status?: BuildStatus | string;
+  Status?: keyof typeof BuildStatus | string;
 
   /**
    * <p>File size of the uploaded game build, expressed in bytes. When the build status is
@@ -395,7 +395,7 @@ export interface Build {
    * <p>Operating system that the game server binaries are built to run on. This value
    *             determines the type of fleet resources that you can use for this build.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 
   /**
    * <p>A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example <code>"1469498468.057"</code>).</p>
@@ -411,10 +411,10 @@ export interface Build {
 /**
  * @public
  */
-export enum CertificateType {
-  Disabled = "DISABLED",
-  Generated = "GENERATED",
-}
+export const CertificateType = {
+  Disabled: "DISABLED",
+  Generated: "GENERATED",
+};
 
 /**
  * @public
@@ -440,7 +440,7 @@ export interface CertificateConfiguration {
    *             </li>
    *          </ul>
    */
-  CertificateType: CertificateType | string | undefined;
+  CertificateType: keyof typeof CertificateType | string | undefined;
 }
 
 /**
@@ -469,17 +469,17 @@ export interface ClaimGameServerInput {
 /**
  * @public
  */
-export enum GameServerClaimStatus {
-  CLAIMED = "CLAIMED",
-}
+export const GameServerClaimStatus = {
+  CLAIMED: "CLAIMED",
+};
 
 /**
  * @public
  */
-export enum GameServerUtilizationStatus {
-  AVAILABLE = "AVAILABLE",
-  UTILIZED = "UTILIZED",
-}
+export const GameServerUtilizationStatus = {
+  AVAILABLE: "AVAILABLE",
+  UTILIZED: "UTILIZED",
+};
 
 /**
  * @public
@@ -536,7 +536,7 @@ export interface GameServer {
    *             update its utilization status. After one minute, the game server claim status reverts to
    *             null.</p>
    */
-  ClaimStatus?: GameServerClaimStatus | string;
+  ClaimStatus?: keyof typeof GameServerClaimStatus | string;
 
   /**
    * <p>Indicates whether the game server is currently available for new games or is busy.
@@ -555,7 +555,7 @@ export interface GameServer {
    *             </li>
    *          </ul>
    */
-  UtilizationStatus?: GameServerUtilizationStatus | string;
+  UtilizationStatus?: keyof typeof GameServerUtilizationStatus | string;
 
   /**
    * <p>Timestamp that indicates when the game server registered. The format is a number expressed in Unix
@@ -664,141 +664,141 @@ export class UnauthorizedException extends __BaseException {
 /**
  * @public
  */
-export enum ComparisonOperatorType {
-  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
-  GreaterThanThreshold = "GreaterThanThreshold",
-  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
-  LessThanThreshold = "LessThanThreshold",
-}
+export const ComparisonOperatorType = {
+  GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold: "GreaterThanThreshold",
+  LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
+  LessThanThreshold: "LessThanThreshold",
+};
 
 /**
  * @public
  */
-export enum ComputeStatus {
-  ACTIVE = "ACTIVE",
-  PENDING = "PENDING",
-  TERMINATING = "TERMINATING",
-}
+export const ComputeStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+  TERMINATING: "TERMINATING",
+};
 
 /**
  * @public
  */
-export enum EC2InstanceType {
-  c3_2xlarge = "c3.2xlarge",
-  c3_4xlarge = "c3.4xlarge",
-  c3_8xlarge = "c3.8xlarge",
-  c3_large = "c3.large",
-  c3_xlarge = "c3.xlarge",
-  c4_2xlarge = "c4.2xlarge",
-  c4_4xlarge = "c4.4xlarge",
-  c4_8xlarge = "c4.8xlarge",
-  c4_large = "c4.large",
-  c4_xlarge = "c4.xlarge",
-  c5_12xlarge = "c5.12xlarge",
-  c5_18xlarge = "c5.18xlarge",
-  c5_24xlarge = "c5.24xlarge",
-  c5_2xlarge = "c5.2xlarge",
-  c5_4xlarge = "c5.4xlarge",
-  c5_9xlarge = "c5.9xlarge",
-  c5_large = "c5.large",
-  c5_xlarge = "c5.xlarge",
-  c5a_12xlarge = "c5a.12xlarge",
-  c5a_16xlarge = "c5a.16xlarge",
-  c5a_24xlarge = "c5a.24xlarge",
-  c5a_2xlarge = "c5a.2xlarge",
-  c5a_4xlarge = "c5a.4xlarge",
-  c5a_8xlarge = "c5a.8xlarge",
-  c5a_large = "c5a.large",
-  c5a_xlarge = "c5a.xlarge",
-  c5d_12xlarge = "c5d.12xlarge",
-  c5d_18xlarge = "c5d.18xlarge",
-  c5d_24xlarge = "c5d.24xlarge",
-  c5d_2xlarge = "c5d.2xlarge",
-  c5d_4xlarge = "c5d.4xlarge",
-  c5d_9xlarge = "c5d.9xlarge",
-  c5d_large = "c5d.large",
-  c5d_xlarge = "c5d.xlarge",
-  c6a_12xlarge = "c6a.12xlarge",
-  c6a_16xlarge = "c6a.16xlarge",
-  c6a_24xlarge = "c6a.24xlarge",
-  c6a_2xlarge = "c6a.2xlarge",
-  c6a_4xlarge = "c6a.4xlarge",
-  c6a_8xlarge = "c6a.8xlarge",
-  c6a_large = "c6a.large",
-  c6a_xlarge = "c6a.xlarge",
-  c6i_12xlarge = "c6i.12xlarge",
-  c6i_16xlarge = "c6i.16xlarge",
-  c6i_24xlarge = "c6i.24xlarge",
-  c6i_2xlarge = "c6i.2xlarge",
-  c6i_4xlarge = "c6i.4xlarge",
-  c6i_8xlarge = "c6i.8xlarge",
-  c6i_large = "c6i.large",
-  c6i_xlarge = "c6i.xlarge",
-  m3_2xlarge = "m3.2xlarge",
-  m3_large = "m3.large",
-  m3_medium = "m3.medium",
-  m3_xlarge = "m3.xlarge",
-  m4_10xlarge = "m4.10xlarge",
-  m4_2xlarge = "m4.2xlarge",
-  m4_4xlarge = "m4.4xlarge",
-  m4_large = "m4.large",
-  m4_xlarge = "m4.xlarge",
-  m5_12xlarge = "m5.12xlarge",
-  m5_16xlarge = "m5.16xlarge",
-  m5_24xlarge = "m5.24xlarge",
-  m5_2xlarge = "m5.2xlarge",
-  m5_4xlarge = "m5.4xlarge",
-  m5_8xlarge = "m5.8xlarge",
-  m5_large = "m5.large",
-  m5_xlarge = "m5.xlarge",
-  m5a_12xlarge = "m5a.12xlarge",
-  m5a_16xlarge = "m5a.16xlarge",
-  m5a_24xlarge = "m5a.24xlarge",
-  m5a_2xlarge = "m5a.2xlarge",
-  m5a_4xlarge = "m5a.4xlarge",
-  m5a_8xlarge = "m5a.8xlarge",
-  m5a_large = "m5a.large",
-  m5a_xlarge = "m5a.xlarge",
-  r3_2xlarge = "r3.2xlarge",
-  r3_4xlarge = "r3.4xlarge",
-  r3_8xlarge = "r3.8xlarge",
-  r3_large = "r3.large",
-  r3_xlarge = "r3.xlarge",
-  r4_16xlarge = "r4.16xlarge",
-  r4_2xlarge = "r4.2xlarge",
-  r4_4xlarge = "r4.4xlarge",
-  r4_8xlarge = "r4.8xlarge",
-  r4_large = "r4.large",
-  r4_xlarge = "r4.xlarge",
-  r5_12xlarge = "r5.12xlarge",
-  r5_16xlarge = "r5.16xlarge",
-  r5_24xlarge = "r5.24xlarge",
-  r5_2xlarge = "r5.2xlarge",
-  r5_4xlarge = "r5.4xlarge",
-  r5_8xlarge = "r5.8xlarge",
-  r5_large = "r5.large",
-  r5_xlarge = "r5.xlarge",
-  r5a_12xlarge = "r5a.12xlarge",
-  r5a_16xlarge = "r5a.16xlarge",
-  r5a_24xlarge = "r5a.24xlarge",
-  r5a_2xlarge = "r5a.2xlarge",
-  r5a_4xlarge = "r5a.4xlarge",
-  r5a_8xlarge = "r5a.8xlarge",
-  r5a_large = "r5a.large",
-  r5a_xlarge = "r5a.xlarge",
-  r5d_12xlarge = "r5d.12xlarge",
-  r5d_16xlarge = "r5d.16xlarge",
-  r5d_24xlarge = "r5d.24xlarge",
-  r5d_2xlarge = "r5d.2xlarge",
-  r5d_4xlarge = "r5d.4xlarge",
-  r5d_8xlarge = "r5d.8xlarge",
-  r5d_large = "r5d.large",
-  r5d_xlarge = "r5d.xlarge",
-  t2_large = "t2.large",
-  t2_medium = "t2.medium",
-  t2_micro = "t2.micro",
-  t2_small = "t2.small",
-}
+export const EC2InstanceType = {
+  c3_2xlarge: "c3.2xlarge",
+  c3_4xlarge: "c3.4xlarge",
+  c3_8xlarge: "c3.8xlarge",
+  c3_large: "c3.large",
+  c3_xlarge: "c3.xlarge",
+  c4_2xlarge: "c4.2xlarge",
+  c4_4xlarge: "c4.4xlarge",
+  c4_8xlarge: "c4.8xlarge",
+  c4_large: "c4.large",
+  c4_xlarge: "c4.xlarge",
+  c5_12xlarge: "c5.12xlarge",
+  c5_18xlarge: "c5.18xlarge",
+  c5_24xlarge: "c5.24xlarge",
+  c5_2xlarge: "c5.2xlarge",
+  c5_4xlarge: "c5.4xlarge",
+  c5_9xlarge: "c5.9xlarge",
+  c5_large: "c5.large",
+  c5_xlarge: "c5.xlarge",
+  c5a_12xlarge: "c5a.12xlarge",
+  c5a_16xlarge: "c5a.16xlarge",
+  c5a_24xlarge: "c5a.24xlarge",
+  c5a_2xlarge: "c5a.2xlarge",
+  c5a_4xlarge: "c5a.4xlarge",
+  c5a_8xlarge: "c5a.8xlarge",
+  c5a_large: "c5a.large",
+  c5a_xlarge: "c5a.xlarge",
+  c5d_12xlarge: "c5d.12xlarge",
+  c5d_18xlarge: "c5d.18xlarge",
+  c5d_24xlarge: "c5d.24xlarge",
+  c5d_2xlarge: "c5d.2xlarge",
+  c5d_4xlarge: "c5d.4xlarge",
+  c5d_9xlarge: "c5d.9xlarge",
+  c5d_large: "c5d.large",
+  c5d_xlarge: "c5d.xlarge",
+  c6a_12xlarge: "c6a.12xlarge",
+  c6a_16xlarge: "c6a.16xlarge",
+  c6a_24xlarge: "c6a.24xlarge",
+  c6a_2xlarge: "c6a.2xlarge",
+  c6a_4xlarge: "c6a.4xlarge",
+  c6a_8xlarge: "c6a.8xlarge",
+  c6a_large: "c6a.large",
+  c6a_xlarge: "c6a.xlarge",
+  c6i_12xlarge: "c6i.12xlarge",
+  c6i_16xlarge: "c6i.16xlarge",
+  c6i_24xlarge: "c6i.24xlarge",
+  c6i_2xlarge: "c6i.2xlarge",
+  c6i_4xlarge: "c6i.4xlarge",
+  c6i_8xlarge: "c6i.8xlarge",
+  c6i_large: "c6i.large",
+  c6i_xlarge: "c6i.xlarge",
+  m3_2xlarge: "m3.2xlarge",
+  m3_large: "m3.large",
+  m3_medium: "m3.medium",
+  m3_xlarge: "m3.xlarge",
+  m4_10xlarge: "m4.10xlarge",
+  m4_2xlarge: "m4.2xlarge",
+  m4_4xlarge: "m4.4xlarge",
+  m4_large: "m4.large",
+  m4_xlarge: "m4.xlarge",
+  m5_12xlarge: "m5.12xlarge",
+  m5_16xlarge: "m5.16xlarge",
+  m5_24xlarge: "m5.24xlarge",
+  m5_2xlarge: "m5.2xlarge",
+  m5_4xlarge: "m5.4xlarge",
+  m5_8xlarge: "m5.8xlarge",
+  m5_large: "m5.large",
+  m5_xlarge: "m5.xlarge",
+  m5a_12xlarge: "m5a.12xlarge",
+  m5a_16xlarge: "m5a.16xlarge",
+  m5a_24xlarge: "m5a.24xlarge",
+  m5a_2xlarge: "m5a.2xlarge",
+  m5a_4xlarge: "m5a.4xlarge",
+  m5a_8xlarge: "m5a.8xlarge",
+  m5a_large: "m5a.large",
+  m5a_xlarge: "m5a.xlarge",
+  r3_2xlarge: "r3.2xlarge",
+  r3_4xlarge: "r3.4xlarge",
+  r3_8xlarge: "r3.8xlarge",
+  r3_large: "r3.large",
+  r3_xlarge: "r3.xlarge",
+  r4_16xlarge: "r4.16xlarge",
+  r4_2xlarge: "r4.2xlarge",
+  r4_4xlarge: "r4.4xlarge",
+  r4_8xlarge: "r4.8xlarge",
+  r4_large: "r4.large",
+  r4_xlarge: "r4.xlarge",
+  r5_12xlarge: "r5.12xlarge",
+  r5_16xlarge: "r5.16xlarge",
+  r5_24xlarge: "r5.24xlarge",
+  r5_2xlarge: "r5.2xlarge",
+  r5_4xlarge: "r5.4xlarge",
+  r5_8xlarge: "r5.8xlarge",
+  r5_large: "r5.large",
+  r5_xlarge: "r5.xlarge",
+  r5a_12xlarge: "r5a.12xlarge",
+  r5a_16xlarge: "r5a.16xlarge",
+  r5a_24xlarge: "r5a.24xlarge",
+  r5a_2xlarge: "r5a.2xlarge",
+  r5a_4xlarge: "r5a.4xlarge",
+  r5a_8xlarge: "r5a.8xlarge",
+  r5a_large: "r5a.large",
+  r5a_xlarge: "r5a.xlarge",
+  r5d_12xlarge: "r5d.12xlarge",
+  r5d_16xlarge: "r5d.16xlarge",
+  r5d_24xlarge: "r5d.24xlarge",
+  r5d_2xlarge: "r5d.2xlarge",
+  r5d_4xlarge: "r5d.4xlarge",
+  r5d_8xlarge: "r5d.8xlarge",
+  r5d_large: "r5d.large",
+  r5d_xlarge: "r5d.xlarge",
+  t2_large: "t2.large",
+  t2_medium: "t2.medium",
+  t2_micro: "t2.micro",
+  t2_small: "t2.small",
+};
 
 /**
  * @public
@@ -842,7 +842,7 @@ export interface Compute {
   /**
    * <p>Current status of the compute. A compute must have an <code>ACTIVE</code> status to host game sessions.</p>
    */
-  ComputeStatus?: ComputeStatus | string;
+  ComputeStatus?: keyof typeof ComputeStatus | string;
 
   /**
    * <p>The name of the custom location you added to the fleet that this compute resource
@@ -858,13 +858,13 @@ export interface Compute {
   /**
    * <p>The type of operating system on your compute resource.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 
   /**
    * <p>Which compute type that the fleet uses. A fleet can use Anywhere compute resources
    *             owned by you or managed Amazon EC2 instances.</p>
    */
-  Type?: EC2InstanceType | string;
+  Type?: keyof typeof EC2InstanceType | string;
 
   /**
    * <p>The endpoint connection details of the GameLift SDK endpoint that your game server
@@ -876,10 +876,10 @@ export interface Compute {
 /**
  * @public
  */
-export enum ComputeType {
-  ANYWHERE = "ANYWHERE",
-  EC2 = "EC2",
-}
+export const ComputeType = {
+  ANYWHERE: "ANYWHERE",
+  EC2: "EC2",
+};
 
 /**
  * @public
@@ -1068,7 +1068,7 @@ export interface CreateBuildInput {
    *             an operating system is not specified when creating a build, GameLift uses the
    *             default value (WINDOWS_2012). This value cannot be changed later.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 
   /**
    * <p>A list of labels to assign to the new build resource. Tags are developer defined
@@ -1115,10 +1115,10 @@ export interface CreateBuildOutput {
 /**
  * @public
  */
-export enum IpProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const IpProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+};
 
 /**
  * @public
@@ -1152,16 +1152,16 @@ export interface IpPermission {
   /**
    * <p>The network communication protocol used by the fleet.</p>
    */
-  Protocol: IpProtocol | string | undefined;
+  Protocol: keyof typeof IpProtocol | string | undefined;
 }
 
 /**
  * @public
  */
-export enum FleetType {
-  OnDemand = "ON_DEMAND",
-  Spot = "SPOT",
-}
+export const FleetType = {
+  OnDemand: "ON_DEMAND",
+  Spot: "SPOT",
+};
 
 /**
  * @public
@@ -1178,10 +1178,10 @@ export interface LocationConfiguration {
 /**
  * @public
  */
-export enum ProtectionPolicy {
-  FullProtection = "FullProtection",
-  NoProtection = "NoProtection",
-}
+export const ProtectionPolicy = {
+  FullProtection: "FullProtection",
+  NoProtection: "NoProtection",
+};
 
 /**
  * @public
@@ -1346,7 +1346,7 @@ export interface CreateFleetInput {
    *             including CPU, memory, storage, and networking capacity. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance Types</a> for detailed descriptions
    *             of Amazon EC2 instance types.</p>
    */
-  EC2InstanceType?: EC2InstanceType | string;
+  EC2InstanceType?: keyof typeof EC2InstanceType | string;
 
   /**
    * <p>The allowed IP address ranges and port settings that allow inbound traffic to access
@@ -1374,7 +1374,7 @@ export interface CreateFleetInput {
    *             </li>
    *          </ul>
    */
-  NewGameSessionProtectionPolicy?: ProtectionPolicy | string;
+  NewGameSessionProtectionPolicy?: keyof typeof ProtectionPolicy | string;
 
   /**
    * <p>Instructions for how to launch and maintain server processes on instances in the
@@ -1424,7 +1424,7 @@ export interface CreateFleetInput {
    *             property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This property cannot be changed after the
    *             fleet is created.</p>
    */
-  FleetType?: FleetType | string;
+  FleetType?: keyof typeof FleetType | string;
 
   /**
    * <p>A unique identifier for an IAM role that manages access to your Amazon Web Services services.
@@ -1478,7 +1478,7 @@ export interface CreateFleetInput {
    *             compute resources with GameLift Anywhere or use Amazon EC2 instances with managed
    *             GameLift.</p>
    */
-  ComputeType?: ComputeType | string;
+  ComputeType?: keyof typeof ComputeType | string;
 
   /**
    * <p>GameLift Anywhere configuration options.</p>
@@ -1489,25 +1489,25 @@ export interface CreateFleetInput {
 /**
  * @public
  */
-export enum FleetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  BUILDING = "BUILDING",
-  DELETING = "DELETING",
-  DOWNLOADING = "DOWNLOADING",
-  ERROR = "ERROR",
-  NEW = "NEW",
-  NOT_FOUND = "NOT_FOUND",
-  TERMINATED = "TERMINATED",
-  VALIDATING = "VALIDATING",
-}
+export const FleetStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  BUILDING: "BUILDING",
+  DELETING: "DELETING",
+  DOWNLOADING: "DOWNLOADING",
+  ERROR: "ERROR",
+  NEW: "NEW",
+  NOT_FOUND: "NOT_FOUND",
+  TERMINATED: "TERMINATED",
+  VALIDATING: "VALIDATING",
+};
 
 /**
  * @public
  */
-export enum FleetAction {
-  AutoScaling = "AUTO_SCALING",
-}
+export const FleetAction = {
+  AutoScaling: "AUTO_SCALING",
+};
 
 /**
  * @public
@@ -1533,7 +1533,7 @@ export interface FleetAttributes {
    *             property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This property cannot be changed after the
    *             fleet is created.</p>
    */
-  FleetType?: FleetType | string;
+  FleetType?: keyof typeof FleetType | string;
 
   /**
    * <p>The Amazon EC2 instance type that determines the computing resources of each instance in
@@ -1541,7 +1541,7 @@ export interface FleetAttributes {
    *                 <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance Types</a>
    *             for detailed descriptions.</p>
    */
-  InstanceType?: EC2InstanceType | string;
+  InstanceType?: keyof typeof EC2InstanceType | string;
 
   /**
    * <p>A human-readable description of the fleet.</p>
@@ -1599,7 +1599,7 @@ export interface FleetAttributes {
    *             </li>
    *          </ul>
    */
-  Status?: FleetStatus | string;
+  Status?: keyof typeof FleetStatus | string;
 
   /**
    * <p>A unique identifier for the build resource that is deployed on instances in this fleet.</p>
@@ -1667,13 +1667,13 @@ export interface FleetAttributes {
    *             </li>
    *          </ul>
    */
-  NewGameSessionProtectionPolicy?: ProtectionPolicy | string;
+  NewGameSessionProtectionPolicy?: keyof typeof ProtectionPolicy | string;
 
   /**
    * <p>The operating system of the fleet's computing resources. A fleet's operating system is
    *             determined by the OS of the build or script that is deployed on this fleet.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 
   /**
    * <p>A policy that puts limits on the number of game sessions that a player can create
@@ -1696,7 +1696,7 @@ export interface FleetAttributes {
   /**
    * <p>A list of fleet activity that has been suspended using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a> . This includes fleet auto-scaling.</p>
    */
-  StoppedActions?: (FleetAction | string)[];
+  StoppedActions?: (keyof typeof FleetAction | string)[];
 
   /**
    * <p>A unique identifier for an IAM role that manages access to your Amazon Web Services services.
@@ -1722,7 +1722,7 @@ export interface FleetAttributes {
    *             compute resources with GameLift Anywhere or use Amazon EC2 instances with managed
    *             GameLift.</p>
    */
-  ComputeType?: ComputeType | string;
+  ComputeType?: keyof typeof ComputeType | string;
 
   /**
    * <p>GameLift Anywhere configuration options for your Anywhere fleets.</p>
@@ -1785,7 +1785,7 @@ export interface LocationState {
   /**
    * <p>The life-cycle status of a fleet location. </p>
    */
-  Status?: FleetStatus | string;
+  Status?: keyof typeof FleetStatus | string;
 }
 
 /**
@@ -1926,104 +1926,104 @@ export interface GameServerGroupAutoScalingPolicy {
 /**
  * @public
  */
-export enum GameServerProtectionPolicy {
-  FULL_PROTECTION = "FULL_PROTECTION",
-  NO_PROTECTION = "NO_PROTECTION",
-}
+export const GameServerProtectionPolicy = {
+  FULL_PROTECTION: "FULL_PROTECTION",
+  NO_PROTECTION: "NO_PROTECTION",
+};
 
 /**
  * @public
  */
-export enum GameServerGroupInstanceType {
-  c4_2xlarge = "c4.2xlarge",
-  c4_4xlarge = "c4.4xlarge",
-  c4_8xlarge = "c4.8xlarge",
-  c4_large = "c4.large",
-  c4_xlarge = "c4.xlarge",
-  c5_12xlarge = "c5.12xlarge",
-  c5_18xlarge = "c5.18xlarge",
-  c5_24xlarge = "c5.24xlarge",
-  c5_2xlarge = "c5.2xlarge",
-  c5_4xlarge = "c5.4xlarge",
-  c5_9xlarge = "c5.9xlarge",
-  c5_large = "c5.large",
-  c5_xlarge = "c5.xlarge",
-  c5a_12xlarge = "c5a.12xlarge",
-  c5a_16xlarge = "c5a.16xlarge",
-  c5a_24xlarge = "c5a.24xlarge",
-  c5a_2xlarge = "c5a.2xlarge",
-  c5a_4xlarge = "c5a.4xlarge",
-  c5a_8xlarge = "c5a.8xlarge",
-  c5a_large = "c5a.large",
-  c5a_xlarge = "c5a.xlarge",
-  c6g_12xlarge = "c6g.12xlarge",
-  c6g_16xlarge = "c6g.16xlarge",
-  c6g_2xlarge = "c6g.2xlarge",
-  c6g_4xlarge = "c6g.4xlarge",
-  c6g_8xlarge = "c6g.8xlarge",
-  c6g_large = "c6g.large",
-  c6g_medium = "c6g.medium",
-  c6g_xlarge = "c6g.xlarge",
-  m4_10xlarge = "m4.10xlarge",
-  m4_2xlarge = "m4.2xlarge",
-  m4_4xlarge = "m4.4xlarge",
-  m4_large = "m4.large",
-  m4_xlarge = "m4.xlarge",
-  m5_12xlarge = "m5.12xlarge",
-  m5_16xlarge = "m5.16xlarge",
-  m5_24xlarge = "m5.24xlarge",
-  m5_2xlarge = "m5.2xlarge",
-  m5_4xlarge = "m5.4xlarge",
-  m5_8xlarge = "m5.8xlarge",
-  m5_large = "m5.large",
-  m5_xlarge = "m5.xlarge",
-  m5a_12xlarge = "m5a.12xlarge",
-  m5a_16xlarge = "m5a.16xlarge",
-  m5a_24xlarge = "m5a.24xlarge",
-  m5a_2xlarge = "m5a.2xlarge",
-  m5a_4xlarge = "m5a.4xlarge",
-  m5a_8xlarge = "m5a.8xlarge",
-  m5a_large = "m5a.large",
-  m5a_xlarge = "m5a.xlarge",
-  m6g_12xlarge = "m6g.12xlarge",
-  m6g_16xlarge = "m6g.16xlarge",
-  m6g_2xlarge = "m6g.2xlarge",
-  m6g_4xlarge = "m6g.4xlarge",
-  m6g_8xlarge = "m6g.8xlarge",
-  m6g_large = "m6g.large",
-  m6g_medium = "m6g.medium",
-  m6g_xlarge = "m6g.xlarge",
-  r4_16xlarge = "r4.16xlarge",
-  r4_2xlarge = "r4.2xlarge",
-  r4_4xlarge = "r4.4xlarge",
-  r4_8xlarge = "r4.8xlarge",
-  r4_large = "r4.large",
-  r4_xlarge = "r4.xlarge",
-  r5_12xlarge = "r5.12xlarge",
-  r5_16xlarge = "r5.16xlarge",
-  r5_24xlarge = "r5.24xlarge",
-  r5_2xlarge = "r5.2xlarge",
-  r5_4xlarge = "r5.4xlarge",
-  r5_8xlarge = "r5.8xlarge",
-  r5_large = "r5.large",
-  r5_xlarge = "r5.xlarge",
-  r5a_12xlarge = "r5a.12xlarge",
-  r5a_16xlarge = "r5a.16xlarge",
-  r5a_24xlarge = "r5a.24xlarge",
-  r5a_2xlarge = "r5a.2xlarge",
-  r5a_4xlarge = "r5a.4xlarge",
-  r5a_8xlarge = "r5a.8xlarge",
-  r5a_large = "r5a.large",
-  r5a_xlarge = "r5a.xlarge",
-  r6g_12xlarge = "r6g.12xlarge",
-  r6g_16xlarge = "r6g.16xlarge",
-  r6g_2xlarge = "r6g.2xlarge",
-  r6g_4xlarge = "r6g.4xlarge",
-  r6g_8xlarge = "r6g.8xlarge",
-  r6g_large = "r6g.large",
-  r6g_medium = "r6g.medium",
-  r6g_xlarge = "r6g.xlarge",
-}
+export const GameServerGroupInstanceType = {
+  c4_2xlarge: "c4.2xlarge",
+  c4_4xlarge: "c4.4xlarge",
+  c4_8xlarge: "c4.8xlarge",
+  c4_large: "c4.large",
+  c4_xlarge: "c4.xlarge",
+  c5_12xlarge: "c5.12xlarge",
+  c5_18xlarge: "c5.18xlarge",
+  c5_24xlarge: "c5.24xlarge",
+  c5_2xlarge: "c5.2xlarge",
+  c5_4xlarge: "c5.4xlarge",
+  c5_9xlarge: "c5.9xlarge",
+  c5_large: "c5.large",
+  c5_xlarge: "c5.xlarge",
+  c5a_12xlarge: "c5a.12xlarge",
+  c5a_16xlarge: "c5a.16xlarge",
+  c5a_24xlarge: "c5a.24xlarge",
+  c5a_2xlarge: "c5a.2xlarge",
+  c5a_4xlarge: "c5a.4xlarge",
+  c5a_8xlarge: "c5a.8xlarge",
+  c5a_large: "c5a.large",
+  c5a_xlarge: "c5a.xlarge",
+  c6g_12xlarge: "c6g.12xlarge",
+  c6g_16xlarge: "c6g.16xlarge",
+  c6g_2xlarge: "c6g.2xlarge",
+  c6g_4xlarge: "c6g.4xlarge",
+  c6g_8xlarge: "c6g.8xlarge",
+  c6g_large: "c6g.large",
+  c6g_medium: "c6g.medium",
+  c6g_xlarge: "c6g.xlarge",
+  m4_10xlarge: "m4.10xlarge",
+  m4_2xlarge: "m4.2xlarge",
+  m4_4xlarge: "m4.4xlarge",
+  m4_large: "m4.large",
+  m4_xlarge: "m4.xlarge",
+  m5_12xlarge: "m5.12xlarge",
+  m5_16xlarge: "m5.16xlarge",
+  m5_24xlarge: "m5.24xlarge",
+  m5_2xlarge: "m5.2xlarge",
+  m5_4xlarge: "m5.4xlarge",
+  m5_8xlarge: "m5.8xlarge",
+  m5_large: "m5.large",
+  m5_xlarge: "m5.xlarge",
+  m5a_12xlarge: "m5a.12xlarge",
+  m5a_16xlarge: "m5a.16xlarge",
+  m5a_24xlarge: "m5a.24xlarge",
+  m5a_2xlarge: "m5a.2xlarge",
+  m5a_4xlarge: "m5a.4xlarge",
+  m5a_8xlarge: "m5a.8xlarge",
+  m5a_large: "m5a.large",
+  m5a_xlarge: "m5a.xlarge",
+  m6g_12xlarge: "m6g.12xlarge",
+  m6g_16xlarge: "m6g.16xlarge",
+  m6g_2xlarge: "m6g.2xlarge",
+  m6g_4xlarge: "m6g.4xlarge",
+  m6g_8xlarge: "m6g.8xlarge",
+  m6g_large: "m6g.large",
+  m6g_medium: "m6g.medium",
+  m6g_xlarge: "m6g.xlarge",
+  r4_16xlarge: "r4.16xlarge",
+  r4_2xlarge: "r4.2xlarge",
+  r4_4xlarge: "r4.4xlarge",
+  r4_8xlarge: "r4.8xlarge",
+  r4_large: "r4.large",
+  r4_xlarge: "r4.xlarge",
+  r5_12xlarge: "r5.12xlarge",
+  r5_16xlarge: "r5.16xlarge",
+  r5_24xlarge: "r5.24xlarge",
+  r5_2xlarge: "r5.2xlarge",
+  r5_4xlarge: "r5.4xlarge",
+  r5_8xlarge: "r5.8xlarge",
+  r5_large: "r5.large",
+  r5_xlarge: "r5.xlarge",
+  r5a_12xlarge: "r5a.12xlarge",
+  r5a_16xlarge: "r5a.16xlarge",
+  r5a_24xlarge: "r5a.24xlarge",
+  r5a_2xlarge: "r5a.2xlarge",
+  r5a_4xlarge: "r5a.4xlarge",
+  r5a_8xlarge: "r5a.8xlarge",
+  r5a_large: "r5a.large",
+  r5a_xlarge: "r5a.xlarge",
+  r6g_12xlarge: "r6g.12xlarge",
+  r6g_16xlarge: "r6g.16xlarge",
+  r6g_2xlarge: "r6g.2xlarge",
+  r6g_4xlarge: "r6g.4xlarge",
+  r6g_8xlarge: "r6g.8xlarge",
+  r6g_large: "r6g.large",
+  r6g_medium: "r6g.medium",
+  r6g_xlarge: "r6g.xlarge",
+};
 
 /**
  * @public
@@ -2039,7 +2039,7 @@ export interface InstanceDefinition {
   /**
    * <p>An Amazon EC2 instance type designation.</p>
    */
-  InstanceType: GameServerGroupInstanceType | string | undefined;
+  InstanceType: keyof typeof GameServerGroupInstanceType | string | undefined;
 
   /**
    * <p>Instance weighting that indicates how much this instance type contributes to the total
@@ -2182,7 +2182,7 @@ export interface CreateGameServerGroupInput {
    *             </li>
    *          </ul>
    */
-  BalancingStrategy?: BalancingStrategy | string;
+  BalancingStrategy?: keyof typeof BalancingStrategy | string;
 
   /**
    * <p>A flag that indicates whether instances in the game server group are protected
@@ -2192,7 +2192,7 @@ export interface CreateGameServerGroupInput {
    *             in the event of a forced game server group deletion (see ). An exception to this is with Spot
    *             Instances, which can be terminated by Amazon Web Services regardless of protection status. This property is set to <code>NO_PROTECTION</code> by default.</p>
    */
-  GameServerProtectionPolicy?: GameServerProtectionPolicy | string;
+  GameServerProtectionPolicy?: keyof typeof GameServerProtectionPolicy | string;
 
   /**
    * <p>A list of virtual private cloud (VPC) subnets to use with instances in the game server
@@ -2216,22 +2216,22 @@ export interface CreateGameServerGroupInput {
 /**
  * @public
  */
-export enum GameServerGroupStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETE_SCHEDULED = "DELETE_SCHEDULED",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  NEW = "NEW",
-}
+export const GameServerGroupStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETE_SCHEDULED: "DELETE_SCHEDULED",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  NEW: "NEW",
+};
 
 /**
  * @public
  */
-export enum GameServerGroupAction {
-  REPLACE_INSTANCE_TYPES = "REPLACE_INSTANCE_TYPES",
-}
+export const GameServerGroupAction = {
+  REPLACE_INSTANCE_TYPES: "REPLACE_INSTANCE_TYPES",
+};
 
 /**
  * @public
@@ -2299,7 +2299,7 @@ export interface GameServerGroup {
    *             </li>
    *          </ul>
    */
-  BalancingStrategy?: BalancingStrategy | string;
+  BalancingStrategy?: keyof typeof BalancingStrategy | string;
 
   /**
    * <p>A flag that indicates whether instances in the game server group are protected
@@ -2309,7 +2309,7 @@ export interface GameServerGroup {
    *             in the event of a forced game server group deletion (see ). An exception to this is with Spot
    *             Instances, which can be terminated by Amazon Web Services regardless of protection status. </p>
    */
-  GameServerProtectionPolicy?: GameServerProtectionPolicy | string;
+  GameServerProtectionPolicy?: keyof typeof GameServerProtectionPolicy | string;
 
   /**
    * <p>A generated unique ID for the Amazon EC2 Auto Scaling group that is associated with this
@@ -2359,7 +2359,7 @@ export interface GameServerGroup {
    *             </li>
    *          </ul>
    */
-  Status?: GameServerGroupStatus | string;
+  Status?: keyof typeof GameServerGroupStatus | string;
 
   /**
    * <p>Additional information about the current game server group status. This information
@@ -2371,7 +2371,7 @@ export interface GameServerGroup {
    * <p>A list of activities that are currently suspended for this game server group. If this
    *             property is empty, all activities are occurring.</p>
    */
-  SuspendedActions?: (GameServerGroupAction | string)[];
+  SuspendedActions?: (keyof typeof GameServerGroupAction | string)[];
 
   /**
    * <p>A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example <code>"1469498468.057"</code>).</p>
@@ -2497,28 +2497,28 @@ export interface CreateGameSessionInput {
 /**
  * @public
  */
-export enum PlayerSessionCreationPolicy {
-  ACCEPT_ALL = "ACCEPT_ALL",
-  DENY_ALL = "DENY_ALL",
-}
+export const PlayerSessionCreationPolicy = {
+  ACCEPT_ALL: "ACCEPT_ALL",
+  DENY_ALL: "DENY_ALL",
+};
 
 /**
  * @public
  */
-export enum GameSessionStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
+export const GameSessionStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+};
 
 /**
  * @public
  */
-export enum GameSessionStatusReason {
-  INTERRUPTED = "INTERRUPTED",
-}
+export const GameSessionStatusReason = {
+  INTERRUPTED: "INTERRUPTED",
+};
 
 /**
  * @public
@@ -2579,14 +2579,14 @@ export interface GameSession {
    * <p>Current status of the game session. A game session must have an <code>ACTIVE</code>
    *             status to have player sessions.</p>
    */
-  Status?: GameSessionStatus | string;
+  Status?: keyof typeof GameSessionStatus | string;
 
   /**
    * <p>Provides additional information about game session status. <code>INTERRUPTED</code>
    *             indicates that the game session was hosted on a spot instance that was reclaimed,
    *             causing the active game session to be terminated.</p>
    */
-  StatusReason?: GameSessionStatusReason | string;
+  StatusReason?: keyof typeof GameSessionStatusReason | string;
 
   /**
    * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
@@ -2622,7 +2622,7 @@ export interface GameSession {
   /**
    * <p>Indicates whether or not the game session is accepting new players.</p>
    */
-  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy | string;
+  PlayerSessionCreationPolicy?: keyof typeof PlayerSessionCreationPolicy | string;
 
   /**
    * <p>A unique identifier for a player. This ID is used to enforce a resource protection policy (if one exists),
@@ -2790,12 +2790,12 @@ export interface PlayerLatencyPolicy {
 /**
  * @public
  */
-export enum PriorityType {
-  COST = "COST",
-  DESTINATION = "DESTINATION",
-  LATENCY = "LATENCY",
-  LOCATION = "LOCATION",
-}
+export const PriorityType = {
+  COST: "COST",
+  DESTINATION: "DESTINATION",
+  LATENCY: "LATENCY",
+  LOCATION: "LOCATION",
+};
 
 /**
  * @public
@@ -2850,7 +2850,7 @@ export interface PriorityConfiguration {
    *             </li>
    *          </ul>
    */
-  PriorityOrder?: (PriorityType | string)[];
+  PriorityOrder?: (keyof typeof PriorityType | string)[];
 
   /**
    * <p>The prioritization order to use for fleet locations, when the
@@ -3049,10 +3049,10 @@ export interface CreateLocationOutput {
 /**
  * @public
  */
-export enum FlexMatchMode {
-  STANDALONE = "STANDALONE",
-  WITH_QUEUE = "WITH_QUEUE",
-}
+export const FlexMatchMode = {
+  STANDALONE: "STANDALONE",
+  WITH_QUEUE: "WITH_QUEUE",
+};
 
 /**
  * @public
@@ -3148,7 +3148,7 @@ export interface CreateMatchmakingConfigurationInput {
    *                 with FlexMatch</a>. Automatic backfill is not available when
    *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
-  BackfillMode?: BackfillMode | string;
+  BackfillMode?: keyof typeof BackfillMode | string;
 
   /**
    * <p>Indicates whether this matchmaking configuration is being used with GameLift hosting or
@@ -3166,7 +3166,7 @@ export interface CreateMatchmakingConfigurationInput {
    *             </li>
    *          </ul>
    */
-  FlexMatchMode?: FlexMatchMode | string;
+  FlexMatchMode?: keyof typeof FlexMatchMode | string;
 
   /**
    * <p>A list of labels to assign to the new matchmaking configuration resource. Tags are
@@ -3286,7 +3286,7 @@ export interface MatchmakingConfiguration {
    *             in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">Backfill existing games with FlexMatch</a>. Automatic backfill is not available
    *             when <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
-  BackfillMode?: BackfillMode | string;
+  BackfillMode?: keyof typeof BackfillMode | string;
 
   /**
    * <p>Indicates whether this matchmaking configuration is being used with GameLift hosting or
@@ -3304,7 +3304,7 @@ export interface MatchmakingConfiguration {
    *             </li>
    *          </ul>
    */
-  FlexMatchMode?: FlexMatchMode | string;
+  FlexMatchMode?: keyof typeof FlexMatchMode | string;
 }
 
 /**
@@ -3440,12 +3440,12 @@ export interface CreatePlayerSessionInput {
 /**
  * @public
  */
-export enum PlayerSessionStatus {
-  ACTIVE = "ACTIVE",
-  COMPLETED = "COMPLETED",
-  RESERVED = "RESERVED",
-  TIMEDOUT = "TIMEDOUT",
-}
+export const PlayerSessionStatus = {
+  ACTIVE: "ACTIVE",
+  COMPLETED: "COMPLETED",
+  RESERVED: "RESERVED",
+  TIMEDOUT: "TIMEDOUT",
+};
 
 /**
  * @public
@@ -3529,7 +3529,7 @@ export interface PlayerSession {
    *             </li>
    *          </ul>
    */
-  Status?: PlayerSessionStatus | string;
+  Status?: keyof typeof PlayerSessionStatus | string;
 
   /**
    * <p>The IP address of the game session. To connect to a GameLift game server, an app needs both the IP address and port number.</p>
@@ -3950,11 +3950,11 @@ export interface DeleteFleetLocationsOutput {
 /**
  * @public
  */
-export enum GameServerGroupDeleteOption {
-  FORCE_DELETE = "FORCE_DELETE",
-  RETAIN = "RETAIN",
-  SAFE_DELETE = "SAFE_DELETE",
-}
+export const GameServerGroupDeleteOption = {
+  FORCE_DELETE: "FORCE_DELETE",
+  RETAIN: "RETAIN",
+  SAFE_DELETE: "SAFE_DELETE",
+};
 
 /**
  * @public
@@ -3987,7 +3987,7 @@ export interface DeleteGameServerGroupInput {
    *             </li>
    *          </ul>
    */
-  DeleteOption?: GameServerGroupDeleteOption | string;
+  DeleteOption?: keyof typeof GameServerGroupDeleteOption | string;
 }
 
 /**
@@ -4244,7 +4244,7 @@ export interface DescribeEC2InstanceLimitsInput {
    *             storage, and networking capacity. Do not specify a value for this parameter to retrieve
    *             limits for all instance types.</p>
    */
-  EC2InstanceType?: EC2InstanceType | string;
+  EC2InstanceType?: keyof typeof EC2InstanceType | string;
 
   /**
    * <p>The name of a remote location to request instance limits for, in the form of an Amazon Web Services
@@ -4266,7 +4266,7 @@ export interface EC2InstanceLimit {
    * <p>The name of an Amazon EC2 instance type. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance Types</a> for detailed
    *             descriptions. </p>
    */
-  EC2InstanceType?: EC2InstanceType | string;
+  EC2InstanceType?: keyof typeof EC2InstanceType | string;
 
   /**
    * <p>The number of instances for the specified type and location that are currently being
@@ -4433,7 +4433,7 @@ export interface FleetCapacity {
    *             networking capacity. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud
    *                 Instance Types</a> for detailed descriptions.</p>
    */
-  InstanceType?: EC2InstanceType | string;
+  InstanceType?: keyof typeof EC2InstanceType | string;
 
   /**
    * <p>Resource capacity settings. Fleet capacity is measured in Amazon EC2 instances. Pending and
@@ -4502,42 +4502,42 @@ export interface DescribeFleetEventsInput {
 /**
  * @public
  */
-export enum EventCode {
-  FLEET_ACTIVATION_FAILED = "FLEET_ACTIVATION_FAILED",
-  FLEET_ACTIVATION_FAILED_NO_INSTANCES = "FLEET_ACTIVATION_FAILED_NO_INSTANCES",
-  FLEET_BINARY_DOWNLOAD_FAILED = "FLEET_BINARY_DOWNLOAD_FAILED",
-  FLEET_CREATED = "FLEET_CREATED",
-  FLEET_CREATION_EXTRACTING_BUILD = "FLEET_CREATION_EXTRACTING_BUILD",
-  FLEET_CREATION_RUNNING_INSTALLER = "FLEET_CREATION_RUNNING_INSTALLER",
-  FLEET_CREATION_VALIDATING_RUNTIME_CONFIG = "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG",
-  FLEET_DELETED = "FLEET_DELETED",
-  FLEET_INITIALIZATION_FAILED = "FLEET_INITIALIZATION_FAILED",
-  FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED = "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED",
-  FLEET_SCALING_EVENT = "FLEET_SCALING_EVENT",
-  FLEET_STATE_ACTIVATING = "FLEET_STATE_ACTIVATING",
-  FLEET_STATE_ACTIVE = "FLEET_STATE_ACTIVE",
-  FLEET_STATE_BUILDING = "FLEET_STATE_BUILDING",
-  FLEET_STATE_DOWNLOADING = "FLEET_STATE_DOWNLOADING",
-  FLEET_STATE_ERROR = "FLEET_STATE_ERROR",
-  FLEET_STATE_VALIDATING = "FLEET_STATE_VALIDATING",
-  FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE = "FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE",
-  FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND = "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND",
-  FLEET_VALIDATION_TIMED_OUT = "FLEET_VALIDATION_TIMED_OUT",
-  FLEET_VPC_PEERING_DELETED = "FLEET_VPC_PEERING_DELETED",
-  FLEET_VPC_PEERING_FAILED = "FLEET_VPC_PEERING_FAILED",
-  FLEET_VPC_PEERING_SUCCEEDED = "FLEET_VPC_PEERING_SUCCEEDED",
-  GAME_SESSION_ACTIVATION_TIMEOUT = "GAME_SESSION_ACTIVATION_TIMEOUT",
-  GENERIC_EVENT = "GENERIC_EVENT",
-  INSTANCE_INTERRUPTED = "INSTANCE_INTERRUPTED",
-  INSTANCE_RECYCLED = "INSTANCE_RECYCLED",
-  SERVER_PROCESS_CRASHED = "SERVER_PROCESS_CRASHED",
-  SERVER_PROCESS_FORCE_TERMINATED = "SERVER_PROCESS_FORCE_TERMINATED",
-  SERVER_PROCESS_INVALID_PATH = "SERVER_PROCESS_INVALID_PATH",
-  SERVER_PROCESS_PROCESS_EXIT_TIMEOUT = "SERVER_PROCESS_PROCESS_EXIT_TIMEOUT",
-  SERVER_PROCESS_PROCESS_READY_TIMEOUT = "SERVER_PROCESS_PROCESS_READY_TIMEOUT",
-  SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT = "SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT",
-  SERVER_PROCESS_TERMINATED_UNHEALTHY = "SERVER_PROCESS_TERMINATED_UNHEALTHY",
-}
+export const EventCode = {
+  FLEET_ACTIVATION_FAILED: "FLEET_ACTIVATION_FAILED",
+  FLEET_ACTIVATION_FAILED_NO_INSTANCES: "FLEET_ACTIVATION_FAILED_NO_INSTANCES",
+  FLEET_BINARY_DOWNLOAD_FAILED: "FLEET_BINARY_DOWNLOAD_FAILED",
+  FLEET_CREATED: "FLEET_CREATED",
+  FLEET_CREATION_EXTRACTING_BUILD: "FLEET_CREATION_EXTRACTING_BUILD",
+  FLEET_CREATION_RUNNING_INSTALLER: "FLEET_CREATION_RUNNING_INSTALLER",
+  FLEET_CREATION_VALIDATING_RUNTIME_CONFIG: "FLEET_CREATION_VALIDATING_RUNTIME_CONFIG",
+  FLEET_DELETED: "FLEET_DELETED",
+  FLEET_INITIALIZATION_FAILED: "FLEET_INITIALIZATION_FAILED",
+  FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED: "FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED",
+  FLEET_SCALING_EVENT: "FLEET_SCALING_EVENT",
+  FLEET_STATE_ACTIVATING: "FLEET_STATE_ACTIVATING",
+  FLEET_STATE_ACTIVE: "FLEET_STATE_ACTIVE",
+  FLEET_STATE_BUILDING: "FLEET_STATE_BUILDING",
+  FLEET_STATE_DOWNLOADING: "FLEET_STATE_DOWNLOADING",
+  FLEET_STATE_ERROR: "FLEET_STATE_ERROR",
+  FLEET_STATE_VALIDATING: "FLEET_STATE_VALIDATING",
+  FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE: "FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE",
+  FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND: "FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND",
+  FLEET_VALIDATION_TIMED_OUT: "FLEET_VALIDATION_TIMED_OUT",
+  FLEET_VPC_PEERING_DELETED: "FLEET_VPC_PEERING_DELETED",
+  FLEET_VPC_PEERING_FAILED: "FLEET_VPC_PEERING_FAILED",
+  FLEET_VPC_PEERING_SUCCEEDED: "FLEET_VPC_PEERING_SUCCEEDED",
+  GAME_SESSION_ACTIVATION_TIMEOUT: "GAME_SESSION_ACTIVATION_TIMEOUT",
+  GENERIC_EVENT: "GENERIC_EVENT",
+  INSTANCE_INTERRUPTED: "INSTANCE_INTERRUPTED",
+  INSTANCE_RECYCLED: "INSTANCE_RECYCLED",
+  SERVER_PROCESS_CRASHED: "SERVER_PROCESS_CRASHED",
+  SERVER_PROCESS_FORCE_TERMINATED: "SERVER_PROCESS_FORCE_TERMINATED",
+  SERVER_PROCESS_INVALID_PATH: "SERVER_PROCESS_INVALID_PATH",
+  SERVER_PROCESS_PROCESS_EXIT_TIMEOUT: "SERVER_PROCESS_PROCESS_EXIT_TIMEOUT",
+  SERVER_PROCESS_PROCESS_READY_TIMEOUT: "SERVER_PROCESS_PROCESS_READY_TIMEOUT",
+  SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT: "SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT",
+  SERVER_PROCESS_TERMINATED_UNHEALTHY: "SERVER_PROCESS_TERMINATED_UNHEALTHY",
+};
 
 /**
  * @public
@@ -4780,7 +4780,7 @@ export interface Event {
    *             </li>
    *          </ul>
    */
-  EventCode?: EventCode | string;
+  EventCode?: keyof typeof EventCode | string;
 
   /**
    * <p>Additional information related to the event.</p>
@@ -4845,9 +4845,9 @@ export interface DescribeFleetLocationAttributesInput {
 /**
  * @public
  */
-export enum LocationUpdateStatus {
-  PENDING_UPDATE = "PENDING_UPDATE",
-}
+export const LocationUpdateStatus = {
+  PENDING_UPDATE: "PENDING_UPDATE",
+};
 
 /**
  * @public
@@ -4862,7 +4862,7 @@ export interface LocationAttributes {
   /**
    * <p>A list of fleet actions that have been suspended in the fleet location.</p>
    */
-  StoppedActions?: (FleetAction | string)[];
+  StoppedActions?: (keyof typeof FleetAction | string)[];
 
   /**
    * <p>The status of fleet activity updates to the location. The status
@@ -4870,7 +4870,7 @@ export interface LocationAttributes {
    *                 <code>StartFleetActions</code> has been requested but the update has not yet been
    *             completed for the location.</p>
    */
-  UpdateStatus?: LocationUpdateStatus | string;
+  UpdateStatus?: keyof typeof LocationUpdateStatus | string;
 }
 
 /**
@@ -5045,7 +5045,7 @@ export interface DescribeFleetPortSettingsOutput {
    *             location. A status of <code>PENDING_UPDATE</code> indicates that an update was requested
    *             for the fleet but has not yet been completed for the location.</p>
    */
-  UpdateStatus?: LocationUpdateStatus | string;
+  UpdateStatus?: keyof typeof LocationUpdateStatus | string;
 
   /**
    * <p>The requested fleet location, expressed as an Amazon Web Services Region code, such as
@@ -5169,11 +5169,11 @@ export interface DescribeGameServerInstancesInput {
 /**
  * @public
  */
-export enum GameServerInstanceStatus {
-  ACTIVE = "ACTIVE",
-  DRAINING = "DRAINING",
-  SPOT_TERMINATING = "SPOT_TERMINATING",
-}
+export const GameServerInstanceStatus = {
+  ACTIVE: "ACTIVE",
+  DRAINING: "DRAINING",
+  SPOT_TERMINATING: "SPOT_TERMINATING",
+};
 
 /**
  * @public
@@ -5211,7 +5211,7 @@ export interface GameServerInstance {
   /**
    * <p>Current status of the game server instance</p>
    */
-  InstanceStatus?: GameServerInstanceStatus | string;
+  InstanceStatus?: keyof typeof GameServerInstanceStatus | string;
 }
 
 /**
@@ -5301,7 +5301,7 @@ export interface GameSessionDetail {
    *             </li>
    *          </ul>
    */
-  ProtectionPolicy?: ProtectionPolicy | string;
+  ProtectionPolicy?: keyof typeof ProtectionPolicy | string;
 }
 
 /**
@@ -5375,13 +5375,13 @@ export interface PlayerLatency {
 /**
  * @public
  */
-export enum GameSessionPlacementState {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  FULFILLED = "FULFILLED",
-  PENDING = "PENDING",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const GameSessionPlacementState = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  FULFILLED: "FULFILLED",
+  PENDING: "PENDING",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -5434,7 +5434,7 @@ export interface GameSessionPlacement {
    *             </li>
    *          </ul>
    */
-  Status?: GameSessionPlacementState | string;
+  Status?: keyof typeof GameSessionPlacementState | string;
 
   /**
    * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
@@ -5684,11 +5684,11 @@ export interface DescribeInstancesInput {
 /**
  * @public
  */
-export enum InstanceStatus {
-  ACTIVE = "ACTIVE",
-  PENDING = "PENDING",
-  TERMINATING = "TERMINATING",
-}
+export const InstanceStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+  TERMINATING: "TERMINATING",
+};
 
 /**
  * @public
@@ -5738,12 +5738,12 @@ export interface Instance {
   /**
    * <p>Operating system that is running on this instance. </p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 
   /**
    * <p>Amazon EC2 instance type that defines the computing resources of this instance. </p>
    */
-  Type?: EC2InstanceType | string;
+  Type?: keyof typeof EC2InstanceType | string;
 
   /**
    * <p>Current status of the instance. Possible statuses include the following:</p>
@@ -5769,7 +5769,7 @@ export interface Instance {
    *             </li>
    *          </ul>
    */
-  Status?: InstanceStatus | string;
+  Status?: keyof typeof InstanceStatus | string;
 
   /**
    * <p>A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example <code>"1469498468.057"</code>).</p>
@@ -5915,16 +5915,16 @@ export interface Player {
 /**
  * @public
  */
-export enum MatchmakingConfigurationStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PLACING = "PLACING",
-  QUEUED = "QUEUED",
-  REQUIRES_ACCEPTANCE = "REQUIRES_ACCEPTANCE",
-  SEARCHING = "SEARCHING",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const MatchmakingConfigurationStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PLACING: "PLACING",
+  QUEUED: "QUEUED",
+  REQUIRES_ACCEPTANCE: "REQUIRES_ACCEPTANCE",
+  SEARCHING: "SEARCHING",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -6006,7 +6006,7 @@ export interface MatchmakingTicket {
    *                 CANCELLED, TIMED_OUT) can be resubmitted as new requests with new ticket IDs.</p>
    *         </note>
    */
-  Status?: MatchmakingConfigurationStatus | string;
+  Status?: keyof typeof MatchmakingConfigurationStatus | string;
 
   /**
    * <p>Code to explain the current status. For example, a status reason may indicate when a
@@ -6245,15 +6245,15 @@ export interface DescribeRuntimeConfigurationOutput {
 /**
  * @public
  */
-export enum ScalingStatusType {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETE_REQUESTED = "DELETE_REQUESTED",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  UPDATE_REQUESTED = "UPDATE_REQUESTED",
-  UPDATING = "UPDATING",
-}
+export const ScalingStatusType = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETE_REQUESTED: "DELETE_REQUESTED",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  UPDATE_REQUESTED: "UPDATE_REQUESTED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -6306,7 +6306,7 @@ export interface DescribeScalingPoliciesInput {
    *             </li>
    *          </ul>
    */
-  StatusFilter?: ScalingStatusType | string;
+  StatusFilter?: keyof typeof ScalingStatusType | string;
 
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
@@ -6328,37 +6328,37 @@ export interface DescribeScalingPoliciesInput {
 /**
  * @public
  */
-export enum MetricName {
-  ActivatingGameSessions = "ActivatingGameSessions",
-  ActiveGameSessions = "ActiveGameSessions",
-  ActiveInstances = "ActiveInstances",
-  AvailableGameSessions = "AvailableGameSessions",
-  AvailablePlayerSessions = "AvailablePlayerSessions",
-  ConcurrentActivatableGameSessions = "ConcurrentActivatableGameSessions",
-  CurrentPlayerSessions = "CurrentPlayerSessions",
-  IdleInstances = "IdleInstances",
-  PercentAvailableGameSessions = "PercentAvailableGameSessions",
-  PercentIdleInstances = "PercentIdleInstances",
-  QueueDepth = "QueueDepth",
-  WaitTime = "WaitTime",
-}
+export const MetricName = {
+  ActivatingGameSessions: "ActivatingGameSessions",
+  ActiveGameSessions: "ActiveGameSessions",
+  ActiveInstances: "ActiveInstances",
+  AvailableGameSessions: "AvailableGameSessions",
+  AvailablePlayerSessions: "AvailablePlayerSessions",
+  ConcurrentActivatableGameSessions: "ConcurrentActivatableGameSessions",
+  CurrentPlayerSessions: "CurrentPlayerSessions",
+  IdleInstances: "IdleInstances",
+  PercentAvailableGameSessions: "PercentAvailableGameSessions",
+  PercentIdleInstances: "PercentIdleInstances",
+  QueueDepth: "QueueDepth",
+  WaitTime: "WaitTime",
+};
 
 /**
  * @public
  */
-export enum PolicyType {
-  RuleBased = "RuleBased",
-  TargetBased = "TargetBased",
-}
+export const PolicyType = {
+  RuleBased: "RuleBased",
+  TargetBased: "TargetBased",
+};
 
 /**
  * @public
  */
-export enum ScalingAdjustmentType {
-  ChangeInCapacity = "ChangeInCapacity",
-  ExactCapacity = "ExactCapacity",
-  PercentChangeInCapacity = "PercentChangeInCapacity",
-}
+export const ScalingAdjustmentType = {
+  ChangeInCapacity: "ChangeInCapacity",
+  ExactCapacity: "ExactCapacity",
+  PercentChangeInCapacity: "PercentChangeInCapacity",
+};
 
 /**
  * @public
@@ -6442,7 +6442,7 @@ export interface ScalingPolicy {
    *             </li>
    *          </ul>
    */
-  Status?: ScalingStatusType | string;
+  Status?: keyof typeof ScalingStatusType | string;
 
   /**
    * <p>Amount of adjustment to make, based on the scaling adjustment type.</p>
@@ -6471,12 +6471,12 @@ export interface ScalingPolicy {
    *             </li>
    *          </ul>
    */
-  ScalingAdjustmentType?: ScalingAdjustmentType | string;
+  ScalingAdjustmentType?: keyof typeof ScalingAdjustmentType | string;
 
   /**
    * <p>Comparison operator to use when measuring a metric against the threshold value.</p>
    */
-  ComparisonOperator?: ComparisonOperatorType | string;
+  ComparisonOperator?: keyof typeof ComparisonOperatorType | string;
 
   /**
    * <p>Metric value used to trigger a scaling event.</p>
@@ -6558,7 +6558,7 @@ export interface ScalingPolicy {
    *             </li>
    *          </ul>
    */
-  MetricName?: MetricName | string;
+  MetricName?: keyof typeof MetricName | string;
 
   /**
    * <p>The type of scaling policy to create. For a target-based policy, set the parameter
@@ -6569,7 +6569,7 @@ export interface ScalingPolicy {
    *                 <i>ScalingAdjustmentType</i>, and
    *                 <i>ScalingAdjustment</i>.</p>
    */
-  PolicyType?: PolicyType | string;
+  PolicyType?: keyof typeof PolicyType | string;
 
   /**
    * <p>An object that contains settings for a target-based scaling policy.</p>
@@ -6581,7 +6581,7 @@ export interface ScalingPolicy {
    *             status <code>PENDING_UPDATE</code> indicates that an update was requested for the fleet
    *             but has not yet been completed for the location.</p>
    */
-  UpdateStatus?: LocationUpdateStatus | string;
+  UpdateStatus?: keyof typeof LocationUpdateStatus | string;
 
   /**
    * <p> The fleet location. </p>
@@ -6937,7 +6937,7 @@ export interface InstanceAccess {
   /**
    * <p>Operating system that is running on the instance.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 
   /**
    * <p>Credentials required to access the instance.</p>
@@ -6978,7 +6978,7 @@ export interface ListAliasesInput {
    *             </li>
    *          </ul>
    */
-  RoutingStrategyType?: RoutingStrategyType | string;
+  RoutingStrategyType?: keyof typeof RoutingStrategyType | string;
 
   /**
    * <p>A descriptive label that is associated with an alias. Alias names do not need to be unique.</p>
@@ -7039,7 +7039,7 @@ export interface ListBuildsInput {
    *             </li>
    *          </ul>
    */
-  Status?: BuildStatus | string;
+  Status?: keyof typeof BuildStatus | string;
 
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
@@ -7184,10 +7184,10 @@ export interface ListGameServerGroupsOutput {
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -7205,7 +7205,7 @@ export interface ListGameServersInput {
    *                 <code>DESCENDING</code> to retrieve newest game servers first. If this parameter is
    *             left empty, game servers are returned in no particular order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
@@ -7236,10 +7236,10 @@ export interface ListGameServersOutput {
 /**
  * @public
  */
-export enum LocationFilter {
-  AWS = "AWS",
-  CUSTOM = "CUSTOM",
-}
+export const LocationFilter = {
+  AWS: "AWS",
+  CUSTOM: "CUSTOM",
+};
 
 /**
  * @public
@@ -7248,7 +7248,7 @@ export interface ListLocationsInput {
   /**
    * <p>Filters the list for <code>AWS</code> or <code>CUSTOM</code> locations.</p>
    */
-  Filters?: (LocationFilter | string)[];
+  Filters?: (keyof typeof LocationFilter | string)[];
 
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
@@ -7372,7 +7372,7 @@ export interface PutScalingPolicyInput {
    *             </li>
    *          </ul>
    */
-  ScalingAdjustmentType?: ScalingAdjustmentType | string;
+  ScalingAdjustmentType?: keyof typeof ScalingAdjustmentType | string;
 
   /**
    * <p>Metric value used to trigger a scaling event.</p>
@@ -7383,7 +7383,7 @@ export interface PutScalingPolicyInput {
    * <p>Comparison operator to use when measuring the metric against the threshold
    *             value.</p>
    */
-  ComparisonOperator?: ComparisonOperatorType | string;
+  ComparisonOperator?: keyof typeof ComparisonOperatorType | string;
 
   /**
    * <p>Length of time (in minutes) the metric must be at or beyond the threshold before a
@@ -7460,7 +7460,7 @@ export interface PutScalingPolicyInput {
    *             </li>
    *          </ul>
    */
-  MetricName: MetricName | string | undefined;
+  MetricName: keyof typeof MetricName | string | undefined;
 
   /**
    * <p>The type of scaling policy to create. For a target-based policy, set the parameter
@@ -7471,7 +7471,7 @@ export interface PutScalingPolicyInput {
    *                 <i>ScalingAdjustmentType</i>, and
    *                 <i>ScalingAdjustment</i>.</p>
    */
-  PolicyType?: PolicyType | string;
+  PolicyType?: keyof typeof PolicyType | string;
 
   /**
    * <p>An object that contains settings for a target-based scaling policy.</p>
@@ -7650,7 +7650,7 @@ export interface ResumeGameServerGroupInput {
   /**
    * <p>The activity to resume for this game server group.</p>
    */
-  ResumeActions: (GameServerGroupAction | string)[] | undefined;
+  ResumeActions: (keyof typeof GameServerGroupAction | string)[] | undefined;
 }
 
 /**
@@ -7818,7 +7818,7 @@ export interface StartFleetActionsInput {
   /**
    * <p>List of actions to restart on the fleet.</p>
    */
-  Actions: (FleetAction | string)[] | undefined;
+  Actions: (keyof typeof FleetAction | string)[] | undefined;
 
   /**
    * <p>The fleet location to restart fleet actions for. Specify a location in the form of an
@@ -8020,7 +8020,7 @@ export interface StopFleetActionsInput {
   /**
    * <p>List of actions to suspend on the fleet. </p>
    */
-  Actions: (FleetAction | string)[] | undefined;
+  Actions: (keyof typeof FleetAction | string)[] | undefined;
 
   /**
    * <p>The fleet location to stop fleet actions for. Specify a location in the form of an
@@ -8092,7 +8092,7 @@ export interface SuspendGameServerGroupInput {
   /**
    * <p>The activity to suspend for this game server group.</p>
    */
-  SuspendActions: (GameServerGroupAction | string)[] | undefined;
+  SuspendActions: (keyof typeof GameServerGroupAction | string)[] | undefined;
 }
 
 /**
@@ -8263,7 +8263,7 @@ export interface UpdateFleetAttributesInput {
    *             </li>
    *          </ul>
    */
-  NewGameSessionProtectionPolicy?: ProtectionPolicy | string;
+  NewGameSessionProtectionPolicy?: keyof typeof ProtectionPolicy | string;
 
   /**
    * <p>Policy settings that limit the number of game sessions an individual player can create

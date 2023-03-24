@@ -12281,7 +12281,7 @@ const serializeAws_json1_1CacheSettings = (input: CacheSettings, context: __Serd
 };
 
 const serializeAws_json1_1CertificateStatusList = (
-  input: (CertificateStatus | string)[],
+  input: (keyof typeof CertificateStatus | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -12302,7 +12302,7 @@ const serializeAws_json1_1CloseInstancePublicPortsRequest = (
 };
 
 const serializeAws_json1_1ContactProtocolsList = (
-  input: (ContactProtocol | string)[],
+  input: (keyof typeof ContactProtocol | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -13604,7 +13604,10 @@ const serializeAws_json1_1GetStaticIpsRequest = (input: GetStaticIpsRequest, con
   };
 };
 
-const serializeAws_json1_1HeaderForwardList = (input: (HeaderEnum | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1HeaderForwardList = (
+  input: (keyof typeof HeaderEnum | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -13658,7 +13661,10 @@ const serializeAws_json1_1IsVpcPeeredRequest = (input: IsVpcPeeredRequest, conte
   return {};
 };
 
-const serializeAws_json1_1MetricStatisticList = (input: (MetricStatistic | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1MetricStatisticList = (
+  input: (keyof typeof MetricStatistic | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -13666,7 +13672,10 @@ const serializeAws_json1_1MetricStatisticList = (input: (MetricStatistic | strin
     });
 };
 
-const serializeAws_json1_1NotificationTriggerList = (input: (AlarmState | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1NotificationTriggerList = (
+  input: (keyof typeof AlarmState | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -13718,7 +13727,7 @@ const serializeAws_json1_1PortInfoList = (input: PortInfo[], context: __SerdeCon
 };
 
 const serializeAws_json1_1PortMap = (
-  input: Record<string, ContainerServiceProtocol | string>,
+  input: Record<string, keyof typeof ContainerServiceProtocol | string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -14307,7 +14316,10 @@ const deserializeAws_json1_1AllocateStaticIpResult = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_1AppCategoryList = (output: any, context: __SerdeContext): (AppCategory | string)[] => {
+const deserializeAws_json1_1AppCategoryList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof AppCategory | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -14781,7 +14793,7 @@ const deserializeAws_json1_1ContactMethodsList = (output: any, context: __SerdeC
 const deserializeAws_json1_1ContactProtocolsList = (
   output: any,
   context: __SerdeContext
-): (ContactProtocol | string)[] => {
+): (keyof typeof ContactProtocol | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -16515,7 +16527,10 @@ const deserializeAws_json1_1GetStaticIpsResult = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1HeaderForwardList = (output: any, context: __SerdeContext): (HeaderEnum | string)[] => {
+const deserializeAws_json1_1HeaderForwardList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof HeaderEnum | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -16695,7 +16710,7 @@ const deserializeAws_json1_1InstanceNetworking = (output: any, context: __SerdeC
 const deserializeAws_json1_1InstancePlatformList = (
   output: any,
   context: __SerdeContext
-): (InstancePlatform | string)[] => {
+): (keyof typeof InstancePlatform | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -16941,7 +16956,7 @@ const deserializeAws_json1_1LoadBalancerConfigurationOptions = (
   context: __SerdeContext
 ): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [LoadBalancerAttributeName | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [keyof typeof LoadBalancerAttributeName | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -17240,7 +17255,7 @@ const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeCo
 const deserializeAws_json1_1NotificationTriggerList = (
   output: any,
   context: __SerdeContext
-): (AlarmState | string)[] => {
+): (keyof typeof AlarmState | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -17395,9 +17410,9 @@ const deserializeAws_json1_1PortList = (output: any, context: __SerdeContext): n
 const deserializeAws_json1_1PortMap = (
   output: any,
   context: __SerdeContext
-): Record<string, ContainerServiceProtocol | string> => {
+): Record<string, keyof typeof ContainerServiceProtocol | string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, ContainerServiceProtocol | string>, [key, value]: [string, any]) => {
+    (acc: Record<string, keyof typeof ContainerServiceProtocol | string>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }

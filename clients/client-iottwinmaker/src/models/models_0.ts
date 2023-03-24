@@ -198,10 +198,10 @@ export interface DataConnector {
 /**
  * @public
  */
-export enum Scope {
-  ENTITY = "ENTITY",
-  WORKSPACE = "WORKSPACE",
-}
+export const Scope = {
+  ENTITY: "ENTITY",
+  WORKSPACE: "WORKSPACE",
+};
 
 /**
  * @public
@@ -216,7 +216,7 @@ export interface FunctionRequest {
   /**
    * <p>The scope of the function.</p>
    */
-  scope?: Scope | string;
+  scope?: keyof typeof Scope | string;
 
   /**
    * <p>The data connector.</p>
@@ -243,23 +243,23 @@ export interface Relationship {
 /**
  * @public
  */
-export enum Type {
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  INTEGER = "INTEGER",
-  LIST = "LIST",
-  LONG = "LONG",
-  MAP = "MAP",
-  RELATIONSHIP = "RELATIONSHIP",
-  STRING = "STRING",
-}
+export const Type = {
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  INTEGER: "INTEGER",
+  LIST: "LIST",
+  LONG: "LONG",
+  MAP: "MAP",
+  RELATIONSHIP: "RELATIONSHIP",
+  STRING: "STRING",
+};
 
 /**
  * @public
  */
-export enum GroupType {
-  TABULAR = "TABULAR",
-}
+export const GroupType = {
+  TABULAR: "TABULAR",
+};
 
 /**
  * @public
@@ -269,7 +269,7 @@ export interface PropertyGroupRequest {
   /**
    * <p>The group type.</p>
    */
-  groupType?: GroupType | string;
+  groupType?: keyof typeof GroupType | string;
 
   /**
    * <p>The names of properties.</p>
@@ -280,13 +280,13 @@ export interface PropertyGroupRequest {
 /**
  * @public
  */
-export enum State {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  UPDATING = "UPDATING",
-}
+export const State = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -305,7 +305,7 @@ export interface CreateComponentTypeResponse {
   /**
    * <p>The current state of the component type.</p>
    */
-  state: State | string | undefined;
+  state: keyof typeof State | string | undefined;
 }
 
 /**
@@ -331,20 +331,20 @@ export class ServiceQuotaExceededException extends __BaseException {
 /**
  * @public
  */
-export enum PropertyUpdateType {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+export const PropertyUpdateType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+};
 
 /**
  * @public
  */
-export enum PropertyGroupUpdateType {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+export const PropertyGroupUpdateType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+};
 
 /**
  * @public
@@ -354,7 +354,7 @@ export interface ComponentPropertyGroupRequest {
   /**
    * <p>The group type.</p>
    */
-  groupType?: GroupType | string;
+  groupType?: keyof typeof GroupType | string;
 
   /**
    * <p>The property names.</p>
@@ -364,7 +364,7 @@ export interface ComponentPropertyGroupRequest {
   /**
    * <p>The update type.</p>
    */
-  updateType?: PropertyGroupUpdateType | string;
+  updateType?: keyof typeof PropertyGroupUpdateType | string;
 }
 
 /**
@@ -389,7 +389,7 @@ export interface CreateEntityResponse {
   /**
    * <p>The current state of the entity.</p>
    */
-  state: State | string | undefined;
+  state: keyof typeof State | string | undefined;
 }
 
 /**
@@ -479,13 +479,13 @@ export interface CreateSyncJobRequest {
 /**
  * @public
  */
-export enum SyncJobState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  INITIALIZING = "INITIALIZING",
-}
+export const SyncJobState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  INITIALIZING: "INITIALIZING",
+};
 
 /**
  * @public
@@ -504,7 +504,7 @@ export interface CreateSyncJobResponse {
   /**
    * <p>The SyncJob response state.</p>
    */
-  state: SyncJobState | string | undefined;
+  state: keyof typeof SyncJobState | string | undefined;
 }
 
 /**
@@ -575,7 +575,7 @@ export interface DeleteComponentTypeResponse {
   /**
    * <p>The current state of the component type to be deleted.</p>
    */
-  state: State | string | undefined;
+  state: keyof typeof State | string | undefined;
 }
 
 /**
@@ -605,7 +605,7 @@ export interface DeleteEntityResponse {
   /**
    * <p>The current state of the deleted entity.</p>
    */
-  state: State | string | undefined;
+  state: keyof typeof State | string | undefined;
 }
 
 /**
@@ -653,7 +653,7 @@ export interface DeleteSyncJobResponse {
   /**
    * <p>The SyncJob response state.</p>
    */
-  state: SyncJobState | string | undefined;
+  state: keyof typeof SyncJobState | string | undefined;
 }
 
 /**
@@ -700,11 +700,11 @@ export interface ExecuteQueryRequest {
 /**
  * @public
  */
-export enum ColumnType {
-  EDGE = "EDGE",
-  NODE = "NODE",
-  VALUE = "VALUE",
-}
+export const ColumnType = {
+  EDGE: "EDGE",
+  NODE: "NODE",
+  VALUE: "VALUE",
+};
 
 /**
  * @public
@@ -719,7 +719,7 @@ export interface ColumnDescription {
   /**
    * <p>The type of the column description.</p>
    */
-  type?: ColumnType | string;
+  type?: keyof typeof ColumnType | string;
 }
 
 /**
@@ -802,7 +802,7 @@ export interface FunctionResponse {
   /**
    * <p>The scope of the function.</p>
    */
-  scope?: Scope | string;
+  scope?: keyof typeof Scope | string;
 
   /**
    * <p>The data connector.</p>
@@ -823,7 +823,7 @@ export interface PropertyGroupResponse {
   /**
    * <p>The group types.</p>
    */
-  groupType: GroupType | string | undefined;
+  groupType: keyof typeof GroupType | string | undefined;
 
   /**
    * <p>The names of properties.</p>
@@ -840,13 +840,13 @@ export interface PropertyGroupResponse {
 /**
  * @public
  */
-export enum ErrorCode {
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  SYNC_CREATING_ERROR = "SYNC_CREATING_ERROR",
-  SYNC_INITIALIZING_ERROR = "SYNC_INITIALIZING_ERROR",
-  SYNC_PROCESSING_ERROR = "SYNC_PROCESSING_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const ErrorCode = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  SYNC_CREATING_ERROR: "SYNC_CREATING_ERROR",
+  SYNC_INITIALIZING_ERROR: "SYNC_INITIALIZING_ERROR",
+  SYNC_PROCESSING_ERROR: "SYNC_PROCESSING_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+};
 
 /**
  * @public
@@ -856,7 +856,7 @@ export interface ErrorDetails {
   /**
    * <p>The error code.</p>
    */
-  code?: ErrorCode | string;
+  code?: keyof typeof ErrorCode | string;
 
   /**
    * <p>The error message.</p>
@@ -873,7 +873,7 @@ export interface Status {
   /**
    * <p>The current state of the entity, component, component type, or workspace.</p>
    */
-  state?: State | string;
+  state?: keyof typeof State | string;
 
   /**
    * <p>The error message.</p>
@@ -904,7 +904,7 @@ export interface ComponentPropertyGroupResponse {
   /**
    * <p>The group type.</p>
    */
-  groupType: GroupType | string | undefined;
+  groupType: keyof typeof GroupType | string | undefined;
 
   /**
    * <p>The names of properties</p>
@@ -926,12 +926,12 @@ export interface GetPricingPlanRequest {}
 /**
  * @public
  */
-export enum PricingTier {
-  TIER_1 = "TIER_1",
-  TIER_2 = "TIER_2",
-  TIER_3 = "TIER_3",
-  TIER_4 = "TIER_4",
-}
+export const PricingTier = {
+  TIER_1: "TIER_1",
+  TIER_2: "TIER_2",
+  TIER_3: "TIER_3",
+  TIER_4: "TIER_4",
+};
 
 /**
  * @public
@@ -946,28 +946,28 @@ export interface BundleInformation {
   /**
    * <p>The pricing tier.</p>
    */
-  pricingTier?: PricingTier | string;
+  pricingTier?: keyof typeof PricingTier | string;
 }
 
 /**
  * @public
  */
-export enum PricingMode {
-  BASIC = "BASIC",
-  STANDARD = "STANDARD",
-  TIERED_BUNDLE = "TIERED_BUNDLE",
-}
+export const PricingMode = {
+  BASIC: "BASIC",
+  STANDARD: "STANDARD",
+  TIERED_BUNDLE: "TIERED_BUNDLE",
+};
 
 /**
  * @public
  */
-export enum UpdateReason {
-  DEFAULT = "DEFAULT",
-  ENTITY_COUNT_UPDATE = "ENTITY_COUNT_UPDATE",
-  OVERWRITTEN = "OVERWRITTEN",
-  PRICING_MODE_UPDATE = "PRICING_MODE_UPDATE",
-  PRICING_TIER_UPDATE = "PRICING_TIER_UPDATE",
-}
+export const UpdateReason = {
+  DEFAULT: "DEFAULT",
+  ENTITY_COUNT_UPDATE: "ENTITY_COUNT_UPDATE",
+  OVERWRITTEN: "OVERWRITTEN",
+  PRICING_MODE_UPDATE: "PRICING_MODE_UPDATE",
+  PRICING_TIER_UPDATE: "PRICING_TIER_UPDATE",
+};
 
 /**
  * @public
@@ -992,7 +992,7 @@ export interface PricingPlan {
   /**
    * <p>The pricing mode.</p>
    */
-  pricingMode: PricingMode | string | undefined;
+  pricingMode: keyof typeof PricingMode | string | undefined;
 
   /**
    * <p>The set date and time for updating a pricing plan.</p>
@@ -1002,7 +1002,7 @@ export interface PricingPlan {
   /**
    * <p>The update reason for changing a pricing plan.</p>
    */
-  updateReason: UpdateReason | string | undefined;
+  updateReason: keyof typeof UpdateReason | string | undefined;
 }
 
 /**
@@ -1063,10 +1063,10 @@ export class ConnectorTimeoutException extends __BaseException {
 /**
  * @public
  */
-export enum Order {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const Order = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -1077,7 +1077,7 @@ export interface OrderBy {
   /**
    * <p>The set order that filters results.</p>
    */
-  order?: Order | string;
+  order?: keyof typeof Order | string;
 
   /**
    * <p>The property name.</p>
@@ -1088,9 +1088,9 @@ export interface OrderBy {
 /**
  * @public
  */
-export enum InterpolationType {
-  LINEAR = "LINEAR",
-}
+export const InterpolationType = {
+  LINEAR: "LINEAR",
+};
 
 /**
  * @public
@@ -1100,7 +1100,7 @@ export interface InterpolationParameters {
   /**
    * <p>The interpolation type.</p>
    */
-  interpolationType?: InterpolationType | string;
+  interpolationType?: keyof typeof InterpolationType | string;
 
   /**
    * <p>The interpolation time interval in seconds.</p>
@@ -1111,10 +1111,10 @@ export interface InterpolationParameters {
 /**
  * @public
  */
-export enum OrderByTime {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const OrderByTime = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -1212,7 +1212,7 @@ export interface SyncJobStatus {
   /**
    * <p>The SyncJob status state.</p>
    */
-  state?: SyncJobState | string;
+  state?: keyof typeof SyncJobState | string;
 
   /**
    * <p>The SyncJob error.</p>
@@ -1784,21 +1784,21 @@ export interface ListSyncJobsResponse {
 /**
  * @public
  */
-export enum SyncResourceType {
-  COMPONENT_TYPE = "COMPONENT_TYPE",
-  ENTITY = "ENTITY",
-}
+export const SyncResourceType = {
+  COMPONENT_TYPE: "COMPONENT_TYPE",
+  ENTITY: "ENTITY",
+};
 
 /**
  * @public
  */
-export enum SyncResourceState {
-  DELETED = "DELETED",
-  ERROR = "ERROR",
-  INITIALIZING = "INITIALIZING",
-  IN_SYNC = "IN_SYNC",
-  PROCESSING = "PROCESSING",
-}
+export const SyncResourceState = {
+  DELETED: "DELETED",
+  ERROR: "ERROR",
+  INITIALIZING: "INITIALIZING",
+  IN_SYNC: "IN_SYNC",
+  PROCESSING: "PROCESSING",
+};
 
 /**
  * @public
@@ -1819,7 +1819,7 @@ export namespace SyncResourceFilter {
    * <p>The sync resource filter's state.</p>
    */
   export interface StateMember {
-    state: SyncResourceState | string;
+    state: keyof typeof SyncResourceState | string;
     resourceType?: never;
     resourceId?: never;
     externalId?: never;
@@ -1831,7 +1831,7 @@ export namespace SyncResourceFilter {
    */
   export interface ResourceTypeMember {
     state?: never;
-    resourceType: SyncResourceType | string;
+    resourceType: keyof typeof SyncResourceType | string;
     resourceId?: never;
     externalId?: never;
     $unknown?: never;
@@ -1868,8 +1868,8 @@ export namespace SyncResourceFilter {
   }
 
   export interface Visitor<T> {
-    state: (value: SyncResourceState | string) => T;
-    resourceType: (value: SyncResourceType | string) => T;
+    state: (value: keyof typeof SyncResourceState | string) => T;
+    resourceType: (value: keyof typeof SyncResourceType | string) => T;
     resourceId: (value: string) => T;
     externalId: (value: string) => T;
     _: (name: string, value: any) => T;
@@ -1938,7 +1938,7 @@ export interface SyncResourceStatus {
   /**
    * <p>The sync resource status state.</p>
    */
-  state?: SyncResourceState | string;
+  state?: keyof typeof SyncResourceState | string;
 
   /**
    * <p>The status error.</p>
@@ -1954,7 +1954,7 @@ export interface SyncResourceSummary {
   /**
    * <p>The resource type.</p>
    */
-  resourceType?: SyncResourceType | string;
+  resourceType?: keyof typeof SyncResourceType | string;
 
   /**
    * <p>The external ID.</p>
@@ -2173,25 +2173,25 @@ export interface UpdateComponentTypeResponse {
   /**
    * <p>The current state of the component type.</p>
    */
-  state: State | string | undefined;
+  state: keyof typeof State | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ComponentUpdateType {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+export const ComponentUpdateType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+};
 
 /**
  * @public
  */
-export enum ParentEntityUpdateType {
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+export const ParentEntityUpdateType = {
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+};
 
 /**
  * @public
@@ -2201,7 +2201,7 @@ export interface ParentEntityUpdateRequest {
   /**
    * <p>The type of the update.</p>
    */
-  updateType: ParentEntityUpdateType | string | undefined;
+  updateType: keyof typeof ParentEntityUpdateType | string | undefined;
 
   /**
    * <p>The ID of the parent entity.</p>
@@ -2221,7 +2221,7 @@ export interface UpdateEntityResponse {
   /**
    * <p>The current state of the entity update.</p>
    */
-  state: State | string | undefined;
+  state: keyof typeof State | string | undefined;
 }
 
 /**
@@ -2231,7 +2231,7 @@ export interface UpdatePricingPlanRequest {
   /**
    * <p>The pricing mode.</p>
    */
-  pricingMode: PricingMode | string | undefined;
+  pricingMode: keyof typeof PricingMode | string | undefined;
 
   /**
    * <p>The bundle names.</p>
@@ -2491,7 +2491,7 @@ export interface DataType {
   /**
    * <p>The underlying type of the data type.</p>
    */
-  type: Type | string | undefined;
+  type: keyof typeof Type | string | undefined;
 
   /**
    * <p>The nested type in the data type.</p>
@@ -2582,7 +2582,7 @@ export interface GetPropertyValueHistoryRequest {
   /**
    * <p>The time direction to use in the result order.</p>
    */
-  orderByTime?: OrderByTime | string;
+  orderByTime?: keyof typeof OrderByTime | string;
 
   /**
    * <p>The ISO8601 DateTime of the earliest property value to return.</p>
@@ -3132,7 +3132,7 @@ export interface PropertyRequest {
   /**
    * <p>The update type of the update property request.</p>
    */
-  updateType?: PropertyUpdateType | string;
+  updateType?: keyof typeof PropertyUpdateType | string;
 }
 
 /**
@@ -3234,7 +3234,7 @@ export interface ComponentUpdateRequest {
   /**
    * <p>The update type of the component update request.</p>
    */
-  updateType?: ComponentUpdateType | string;
+  updateType?: keyof typeof ComponentUpdateType | string;
 
   /**
    * <p>The description of the component type.</p>

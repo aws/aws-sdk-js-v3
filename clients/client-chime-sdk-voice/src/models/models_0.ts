@@ -6,24 +6,24 @@ import { ChimeSDKVoiceServiceException as __BaseException } from "./ChimeSDKVoic
 /**
  * @public
  */
-export enum ErrorCode {
-  AccessDenied = "AccessDenied",
-  BadRequest = "BadRequest",
-  Conflict = "Conflict",
-  Forbidden = "Forbidden",
-  Gone = "Gone",
-  NotFound = "NotFound",
-  PhoneNumberAssociationsExist = "PhoneNumberAssociationsExist",
-  PreconditionFailed = "PreconditionFailed",
-  ResourceLimitExceeded = "ResourceLimitExceeded",
-  ServiceFailure = "ServiceFailure",
-  ServiceUnavailable = "ServiceUnavailable",
-  Throttled = "Throttled",
-  Throttling = "Throttling",
-  Unauthorized = "Unauthorized",
-  Unprocessable = "Unprocessable",
-  VoiceConnectorGroupAssociationsExist = "VoiceConnectorGroupAssociationsExist",
-}
+export const ErrorCode = {
+  AccessDenied: "AccessDenied",
+  BadRequest: "BadRequest",
+  Conflict: "Conflict",
+  Forbidden: "Forbidden",
+  Gone: "Gone",
+  NotFound: "NotFound",
+  PhoneNumberAssociationsExist: "PhoneNumberAssociationsExist",
+  PreconditionFailed: "PreconditionFailed",
+  ResourceLimitExceeded: "ResourceLimitExceeded",
+  ServiceFailure: "ServiceFailure",
+  ServiceUnavailable: "ServiceUnavailable",
+  Throttled: "Throttled",
+  Throttling: "Throttling",
+  Unauthorized: "Unauthorized",
+  Unprocessable: "Unprocessable",
+  VoiceConnectorGroupAssociationsExist: "VoiceConnectorGroupAssociationsExist",
+};
 
 /**
  * @public
@@ -31,7 +31,7 @@ export enum ErrorCode {
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -67,10 +67,10 @@ export interface Address {
 /**
  * @public
  */
-export enum AlexaSkillStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const AlexaSkillStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -86,7 +86,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
  */
 export interface PhoneNumberError {
   PhoneNumberId?: string;
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
   ErrorMessage?: string;
 }
 
@@ -103,7 +103,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorResponse {
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -126,7 +126,7 @@ export class BadRequestException extends __BaseException {
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -149,7 +149,7 @@ export class ForbiddenException extends __BaseException {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -172,7 +172,7 @@ export class NotFoundException extends __BaseException {
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -195,7 +195,7 @@ export class ServiceFailureException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -218,7 +218,7 @@ export class ServiceUnavailableException extends __BaseException {
 export class ThrottledClientException extends __BaseException {
   readonly name: "ThrottledClientException" = "ThrottledClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -241,7 +241,7 @@ export class ThrottledClientException extends __BaseException {
 export class UnauthorizedClientException extends __BaseException {
   readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -291,17 +291,17 @@ export interface BatchDeletePhoneNumberResponse {
 /**
  * @public
  */
-export enum PhoneNumberProductType {
-  SipMediaApplicationDialIn = "SipMediaApplicationDialIn",
-  VoiceConnector = "VoiceConnector",
-}
+export const PhoneNumberProductType = {
+  SipMediaApplicationDialIn: "SipMediaApplicationDialIn",
+  VoiceConnector: "VoiceConnector",
+};
 
 /**
  * @public
  */
 export interface UpdatePhoneNumberRequestItem {
   PhoneNumberId: string | undefined;
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: keyof typeof PhoneNumberProductType | string;
   CallingName?: string;
 }
 
@@ -331,12 +331,12 @@ export interface CallDetails {
 /**
  * @public
  */
-export enum CallingNameStatus {
-  Unassigned = "Unassigned",
-  UpdateFailed = "UpdateFailed",
-  UpdateInProgress = "UpdateInProgress",
-  UpdateSucceeded = "UpdateSucceeded",
-}
+export const CallingNameStatus = {
+  Unassigned: "Unassigned",
+  UpdateFailed: "UpdateFailed",
+  UpdateInProgress: "UpdateInProgress",
+  UpdateSucceeded: "UpdateSucceeded",
+};
 
 /**
  * @public
@@ -354,69 +354,69 @@ export interface CandidateAddress {
 /**
  * @public
  */
-export enum Capability {
-  SMS = "SMS",
-  Voice = "Voice",
-}
+export const Capability = {
+  SMS: "SMS",
+  Voice: "Voice",
+};
 
 /**
  * @public
  */
 export interface CreatePhoneNumberOrderRequest {
-  ProductType: PhoneNumberProductType | string | undefined;
+  ProductType: keyof typeof PhoneNumberProductType | string | undefined;
   E164PhoneNumbers: string[] | undefined;
 }
 
 /**
  * @public
  */
-export enum OrderedPhoneNumberStatus {
-  Acquired = "Acquired",
-  Failed = "Failed",
-  Processing = "Processing",
-}
+export const OrderedPhoneNumberStatus = {
+  Acquired: "Acquired",
+  Failed: "Failed",
+  Processing: "Processing",
+};
 
 /**
  * @public
  */
 export interface OrderedPhoneNumber {
   E164PhoneNumber?: string;
-  Status?: OrderedPhoneNumberStatus | string;
+  Status?: keyof typeof OrderedPhoneNumberStatus | string;
 }
 
 /**
  * @public
  */
-export enum PhoneNumberOrderType {
-  New = "New",
-  Porting = "Porting",
-}
+export const PhoneNumberOrderType = {
+  New: "New",
+  Porting: "Porting",
+};
 
 /**
  * @public
  */
-export enum PhoneNumberOrderStatus {
-  CancelRequested = "CancelRequested",
-  Cancelled = "Cancelled",
-  ChangeRequested = "ChangeRequested",
-  Exception = "Exception",
-  FOC = "FOC",
-  Failed = "Failed",
-  Partial = "Partial",
-  PendingDocuments = "PendingDocuments",
-  Processing = "Processing",
-  Submitted = "Submitted",
-  Successful = "Successful",
-}
+export const PhoneNumberOrderStatus = {
+  CancelRequested: "CancelRequested",
+  Cancelled: "Cancelled",
+  ChangeRequested: "ChangeRequested",
+  Exception: "Exception",
+  FOC: "FOC",
+  Failed: "Failed",
+  Partial: "Partial",
+  PendingDocuments: "PendingDocuments",
+  Processing: "Processing",
+  Submitted: "Submitted",
+  Successful: "Successful",
+};
 
 /**
  * @public
  */
 export interface PhoneNumberOrder {
   PhoneNumberOrderId?: string;
-  ProductType?: PhoneNumberProductType | string;
-  Status?: PhoneNumberOrderStatus | string;
-  OrderType?: PhoneNumberOrderType | string;
+  ProductType?: keyof typeof PhoneNumberProductType | string;
+  Status?: keyof typeof PhoneNumberOrderStatus | string;
+  OrderType?: keyof typeof PhoneNumberOrderType | string;
   OrderedPhoneNumbers?: OrderedPhoneNumber[];
   CreatedTimestamp?: Date;
   UpdatedTimestamp?: Date;
@@ -435,7 +435,7 @@ export interface CreatePhoneNumberOrderResponse {
 export class ResourceLimitExceededException extends __BaseException {
   readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -455,10 +455,10 @@ export class ResourceLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum GeoMatchLevel {
-  AreaCode = "AreaCode",
-  Country = "Country",
-}
+export const GeoMatchLevel = {
+  AreaCode: "AreaCode",
+  Country: "Country",
+};
 
 /**
  * @public
@@ -471,10 +471,10 @@ export interface GeoMatchParams {
 /**
  * @public
  */
-export enum NumberSelectionBehavior {
-  AvoidSticky = "AvoidSticky",
-  PreferSticky = "PreferSticky",
-}
+export const NumberSelectionBehavior = {
+  AvoidSticky: "AvoidSticky",
+  PreferSticky: "PreferSticky",
+};
 
 /**
  * @public
@@ -484,9 +484,9 @@ export interface CreateProxySessionRequest {
   ParticipantPhoneNumbers: string[] | undefined;
   Name?: string;
   ExpiryMinutes?: number;
-  Capabilities: (Capability | string)[] | undefined;
-  NumberSelectionBehavior?: NumberSelectionBehavior | string;
-  GeoMatchLevel?: GeoMatchLevel | string;
+  Capabilities: (keyof typeof Capability | string)[] | undefined;
+  NumberSelectionBehavior?: keyof typeof NumberSelectionBehavior | string;
+  GeoMatchLevel?: keyof typeof GeoMatchLevel | string;
   GeoMatchParams?: GeoMatchParams;
 }
 
@@ -501,11 +501,11 @@ export interface Participant {
 /**
  * @public
  */
-export enum ProxySessionStatus {
-  Closed = "Closed",
-  InProgress = "InProgress",
-  Open = "Open",
-}
+export const ProxySessionStatus = {
+  Closed: "Closed",
+  InProgress: "InProgress",
+  Open: "Open",
+};
 
 /**
  * @public
@@ -514,15 +514,15 @@ export interface ProxySession {
   VoiceConnectorId?: string;
   ProxySessionId?: string;
   Name?: string;
-  Status?: ProxySessionStatus | string;
+  Status?: keyof typeof ProxySessionStatus | string;
   ExpiryMinutes?: number;
-  Capabilities?: (Capability | string)[];
+  Capabilities?: (keyof typeof Capability | string)[];
   CreatedTimestamp?: Date;
   UpdatedTimestamp?: Date;
   EndedTimestamp?: Date;
   Participants?: Participant[];
-  NumberSelectionBehavior?: NumberSelectionBehavior | string;
-  GeoMatchLevel?: GeoMatchLevel | string;
+  NumberSelectionBehavior?: keyof typeof NumberSelectionBehavior | string;
+  GeoMatchLevel?: keyof typeof GeoMatchLevel | string;
   GeoMatchParams?: GeoMatchParams;
 }
 
@@ -539,7 +539,7 @@ export interface CreateProxySessionResponse {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -628,17 +628,17 @@ export interface SipRuleTargetApplication {
 /**
  * @public
  */
-export enum SipRuleTriggerType {
-  RequestUriHostname = "RequestUriHostname",
-  ToPhoneNumber = "ToPhoneNumber",
-}
+export const SipRuleTriggerType = {
+  RequestUriHostname: "RequestUriHostname",
+  ToPhoneNumber: "ToPhoneNumber",
+};
 
 /**
  * @public
  */
 export interface CreateSipRuleRequest {
   Name: string | undefined;
-  TriggerType: SipRuleTriggerType | string | undefined;
+  TriggerType: keyof typeof SipRuleTriggerType | string | undefined;
   TriggerValue: string | undefined;
   Disabled?: boolean;
   TargetApplications?: SipRuleTargetApplication[];
@@ -651,7 +651,7 @@ export interface SipRule {
   SipRuleId?: string;
   Name?: string;
   Disabled?: boolean;
-  TriggerType?: SipRuleTriggerType | string;
+  TriggerType?: keyof typeof SipRuleTriggerType | string;
   TriggerValue?: string;
   TargetApplications?: SipRuleTargetApplication[];
   CreatedTimestamp?: Date;
@@ -668,25 +668,25 @@ export interface CreateSipRuleResponse {
 /**
  * @public
  */
-export enum VoiceConnectorAwsRegion {
-  AP_NORTHEAST_1 = "ap-northeast-1",
-  AP_NORTHEAST_2 = "ap-northeast-2",
-  AP_SOUTHEAST_1 = "ap-southeast-1",
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  CA_CENTRAL_1 = "ca-central-1",
-  EU_CENTRAL_1 = "eu-central-1",
-  EU_WEST_1 = "eu-west-1",
-  EU_WEST_2 = "eu-west-2",
-  US_EAST_1 = "us-east-1",
-  US_WEST_2 = "us-west-2",
-}
+export const VoiceConnectorAwsRegion = {
+  AP_NORTHEAST_1: "ap-northeast-1",
+  AP_NORTHEAST_2: "ap-northeast-2",
+  AP_SOUTHEAST_1: "ap-southeast-1",
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  CA_CENTRAL_1: "ca-central-1",
+  EU_CENTRAL_1: "eu-central-1",
+  EU_WEST_1: "eu-west-1",
+  EU_WEST_2: "eu-west-2",
+  US_EAST_1: "us-east-1",
+  US_WEST_2: "us-west-2",
+};
 
 /**
  * @public
  */
 export interface CreateVoiceConnectorRequest {
   Name: string | undefined;
-  AwsRegion?: VoiceConnectorAwsRegion | string;
+  AwsRegion?: keyof typeof VoiceConnectorAwsRegion | string;
   RequireEncryption: boolean | undefined;
 }
 
@@ -695,7 +695,7 @@ export interface CreateVoiceConnectorRequest {
  */
 export interface VoiceConnector {
   VoiceConnectorId?: string;
-  AwsRegion?: VoiceConnectorAwsRegion | string;
+  AwsRegion?: keyof typeof VoiceConnectorAwsRegion | string;
   Name?: string;
   OutboundHostName?: string;
   RequireEncryption?: boolean;
@@ -778,7 +778,7 @@ export interface CreateVoiceProfileResponse {
 export class GoneException extends __BaseException {
   readonly name: "GoneException" = "GoneException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -995,18 +995,18 @@ export interface GetPhoneNumberRequest {
 /**
  * @public
  */
-export enum PhoneNumberAssociationName {
-  SipRuleId = "SipRuleId",
-  VoiceConnectorGroupId = "VoiceConnectorGroupId",
-  VoiceConnectorId = "VoiceConnectorId",
-}
+export const PhoneNumberAssociationName = {
+  SipRuleId: "SipRuleId",
+  VoiceConnectorGroupId: "VoiceConnectorGroupId",
+  VoiceConnectorId: "VoiceConnectorId",
+};
 
 /**
  * @public
  */
 export interface PhoneNumberAssociation {
   Value?: string;
-  Name?: PhoneNumberAssociationName | string;
+  Name?: keyof typeof PhoneNumberAssociationName | string;
   AssociatedTimestamp?: Date;
 }
 
@@ -1025,27 +1025,27 @@ export interface PhoneNumberCapabilities {
 /**
  * @public
  */
-export enum PhoneNumberStatus {
-  AcquireFailed = "AcquireFailed",
-  AcquireInProgress = "AcquireInProgress",
-  Assigned = "Assigned",
-  Cancelled = "Cancelled",
-  DeleteFailed = "DeleteFailed",
-  DeleteInProgress = "DeleteInProgress",
-  PortinCancelRequested = "PortinCancelRequested",
-  PortinInProgress = "PortinInProgress",
-  ReleaseFailed = "ReleaseFailed",
-  ReleaseInProgress = "ReleaseInProgress",
-  Unassigned = "Unassigned",
-}
+export const PhoneNumberStatus = {
+  AcquireFailed: "AcquireFailed",
+  AcquireInProgress: "AcquireInProgress",
+  Assigned: "Assigned",
+  Cancelled: "Cancelled",
+  DeleteFailed: "DeleteFailed",
+  DeleteInProgress: "DeleteInProgress",
+  PortinCancelRequested: "PortinCancelRequested",
+  PortinInProgress: "PortinInProgress",
+  ReleaseFailed: "ReleaseFailed",
+  ReleaseInProgress: "ReleaseInProgress",
+  Unassigned: "Unassigned",
+};
 
 /**
  * @public
  */
-export enum PhoneNumberType {
-  Local = "Local",
-  TollFree = "TollFree",
-}
+export const PhoneNumberType = {
+  Local: "Local",
+  TollFree: "TollFree",
+};
 
 /**
  * @public
@@ -1054,13 +1054,13 @@ export interface PhoneNumber {
   PhoneNumberId?: string;
   E164PhoneNumber?: string;
   Country?: string;
-  Type?: PhoneNumberType | string;
-  ProductType?: PhoneNumberProductType | string;
-  Status?: PhoneNumberStatus | string;
+  Type?: keyof typeof PhoneNumberType | string;
+  ProductType?: keyof typeof PhoneNumberProductType | string;
+  Status?: keyof typeof PhoneNumberStatus | string;
   Capabilities?: PhoneNumberCapabilities;
   Associations?: PhoneNumberAssociation[];
   CallingName?: string;
-  CallingNameStatus?: CallingNameStatus | string;
+  CallingNameStatus?: keyof typeof CallingNameStatus | string;
   CreatedTimestamp?: Date;
   UpdatedTimestamp?: Date;
   DeletionTimestamp?: Date;
@@ -1136,7 +1136,7 @@ export interface GetSipMediaApplicationAlexaSkillConfigurationRequest {
  * @public
  */
 export interface SipMediaApplicationAlexaSkillConfiguration {
-  AlexaSkillStatus: AlexaSkillStatus | string | undefined;
+  AlexaSkillStatus: keyof typeof AlexaSkillStatus | string | undefined;
   AlexaSkillIds: string[] | undefined;
 }
 
@@ -1317,10 +1317,10 @@ export interface GetVoiceConnectorOriginationRequest {
 /**
  * @public
  */
-export enum OriginationRouteProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const OriginationRouteProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+};
 
 /**
  * @public
@@ -1328,7 +1328,7 @@ export enum OriginationRouteProtocol {
 export interface OriginationRoute {
   Host?: string;
   Port?: number;
-  Protocol?: OriginationRouteProtocol | string;
+  Protocol?: keyof typeof OriginationRouteProtocol | string;
   Priority?: number;
   Weight?: number;
 }
@@ -1390,17 +1390,17 @@ export interface MediaInsightsConfiguration {
 /**
  * @public
  */
-export enum NotificationTarget {
-  EventBridge = "EventBridge",
-  SNS = "SNS",
-  SQS = "SQS",
-}
+export const NotificationTarget = {
+  EventBridge: "EventBridge",
+  SNS: "SNS",
+  SQS: "SQS",
+};
 
 /**
  * @public
  */
 export interface StreamingNotificationTarget {
-  NotificationTarget?: NotificationTarget | string;
+  NotificationTarget?: keyof typeof NotificationTarget | string;
 }
 
 /**
@@ -1528,7 +1528,7 @@ export interface GetVoiceToneAnalysisTaskResponse {
  * @public
  */
 export interface ListAvailableVoiceConnectorRegionsResponse {
-  VoiceConnectorRegions?: (VoiceConnectorAwsRegion | string)[];
+  VoiceConnectorRegions?: (keyof typeof VoiceConnectorAwsRegion | string)[];
 }
 
 /**
@@ -1552,8 +1552,8 @@ export interface ListPhoneNumberOrdersResponse {
  */
 export interface ListPhoneNumbersRequest {
   Status?: string;
-  ProductType?: PhoneNumberProductType | string;
-  FilterName?: PhoneNumberAssociationName | string;
+  ProductType?: keyof typeof PhoneNumberProductType | string;
+  FilterName?: keyof typeof PhoneNumberAssociationName | string;
   FilterValue?: string;
   MaxResults?: number;
   NextToken?: string;
@@ -1572,7 +1572,7 @@ export interface ListPhoneNumbersResponse {
  */
 export interface ListProxySessionsRequest {
   VoiceConnectorId: string | undefined;
-  Status?: ProxySessionStatus | string;
+  Status?: keyof typeof ProxySessionStatus | string;
   NextToken?: string;
   MaxResults?: number;
 }
@@ -1622,7 +1622,7 @@ export interface ListSipRulesResponse {
  * @public
  */
 export interface ListSupportedPhoneNumberCountriesRequest {
-  ProductType: PhoneNumberProductType | string | undefined;
+  ProductType: keyof typeof PhoneNumberProductType | string | undefined;
 }
 
 /**
@@ -1630,7 +1630,7 @@ export interface ListSupportedPhoneNumberCountriesRequest {
  */
 export interface PhoneNumberCountry {
   CountryCode?: string;
-  SupportedPhoneNumberTypes?: (PhoneNumberType | string)[];
+  SupportedPhoneNumberTypes?: (keyof typeof PhoneNumberType | string)[];
 }
 
 /**
@@ -1919,7 +1919,7 @@ export interface SearchAvailablePhoneNumbersRequest {
   Country?: string;
   State?: string;
   TollFreePrefix?: string;
-  PhoneNumberType?: PhoneNumberType | string;
+  PhoneNumberType?: keyof typeof PhoneNumberType | string;
   MaxResults?: number;
   NextToken?: string;
 }
@@ -1955,7 +1955,7 @@ export interface StartSpeakerSearchTaskResponse {
 export class UnprocessableEntityException extends __BaseException {
   readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -1975,9 +1975,9 @@ export class UnprocessableEntityException extends __BaseException {
 /**
  * @public
  */
-export enum LanguageCode {
-  EN_US = "en-US",
-}
+export const LanguageCode = {
+  EN_US: "en-US",
+};
 
 /**
  * @public
@@ -1985,7 +1985,7 @@ export enum LanguageCode {
 export interface StartVoiceToneAnalysisTaskRequest {
   VoiceConnectorId: string | undefined;
   TransactionId: string | undefined;
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
   ClientRequestToken?: string;
 }
 
@@ -2040,7 +2040,7 @@ export interface UpdateGlobalSettingsRequest {
  */
 export interface UpdatePhoneNumberRequest {
   PhoneNumberId: string | undefined;
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: keyof typeof PhoneNumberProductType | string;
   CallingName?: string;
 }
 
@@ -2064,7 +2064,7 @@ export interface UpdatePhoneNumberSettingsRequest {
 export interface UpdateProxySessionRequest {
   VoiceConnectorId: string | undefined;
   ProxySessionId: string | undefined;
-  Capabilities: (Capability | string)[] | undefined;
+  Capabilities: (keyof typeof Capability | string)[] | undefined;
   ExpiryMinutes?: number;
 }
 

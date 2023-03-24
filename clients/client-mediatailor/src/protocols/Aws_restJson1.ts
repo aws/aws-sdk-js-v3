@@ -3828,7 +3828,7 @@ const serializeAws_restJson1LivePreRollConfiguration = (
   };
 };
 
-const serializeAws_restJson1LogTypes = (input: (LogType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1LogTypes = (input: (keyof typeof LogType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4411,7 +4411,7 @@ const deserializeAws_restJson1LogConfigurationForChannel = (
   } as any;
 };
 
-const deserializeAws_restJson1LogTypes = (output: any, context: __SerdeContext): (LogType | string)[] => {
+const deserializeAws_restJson1LogTypes = (output: any, context: __SerdeContext): (keyof typeof LogType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

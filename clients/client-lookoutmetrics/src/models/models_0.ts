@@ -44,11 +44,11 @@ export interface LambdaConfiguration {
 /**
  * @public
  */
-export enum SnsFormat {
-  JSON = "JSON",
-  LONG_TEXT = "LONG_TEXT",
-  SHORT_TEXT = "SHORT_TEXT",
-}
+export const SnsFormat = {
+  JSON: "JSON",
+  LONG_TEXT: "LONG_TEXT",
+  SHORT_TEXT: "SHORT_TEXT",
+};
 
 /**
  * @public
@@ -83,7 +83,7 @@ export interface SNSConfiguration {
    *             </li>
    *          </ul>
    */
-  SnsFormat?: SnsFormat | string;
+  SnsFormat?: keyof typeof SnsFormat | string;
 }
 
 /**
@@ -246,12 +246,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+};
 
 /**
  * @public
@@ -265,7 +265,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason that validation failed.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>Fields that failed validation.</p>
@@ -290,10 +290,10 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum AggregationFunction {
-  AVG = "AVG",
-  SUM = "SUM",
-}
+export const AggregationFunction = {
+  AVG: "AVG",
+  SUM: "SUM",
+};
 
 /**
  * @public
@@ -330,18 +330,18 @@ export interface AlertFilters {
 /**
  * @public
  */
-export enum AlertStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const AlertStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
  */
-export enum AlertType {
-  LAMBDA = "LAMBDA",
-  SNS = "SNS",
-}
+export const AlertType = {
+  LAMBDA: "LAMBDA",
+  SNS: "SNS",
+};
 
 /**
  * @public
@@ -381,12 +381,12 @@ export interface Alert {
   /**
    * <p>The type of the alert.</p>
    */
-  AlertType?: AlertType | string;
+  AlertType?: keyof typeof AlertType | string;
 
   /**
    * <p>The status of the alert.</p>
    */
-  AlertStatus?: AlertStatus | string;
+  AlertStatus?: keyof typeof AlertStatus | string;
 
   /**
    * <p>The time at which the alert was last modified.</p>
@@ -432,12 +432,12 @@ export interface AlertSummary {
   /**
    * <p>The type of the alert.</p>
    */
-  AlertType?: AlertType | string;
+  AlertType?: keyof typeof AlertType | string;
 
   /**
    * <p>The status of the alert.</p>
    */
-  AlertStatus?: AlertStatus | string;
+  AlertStatus?: keyof typeof AlertStatus | string;
 
   /**
    * <p>The time at which the alert was last modified.</p>
@@ -458,23 +458,23 @@ export interface AlertSummary {
 /**
  * @public
  */
-export enum AnomalyDetectionTaskStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  FAILED_TO_SCHEDULE = "FAILED_TO_SCHEDULE",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-}
+export const AnomalyDetectionTaskStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  FAILED_TO_SCHEDULE: "FAILED_TO_SCHEDULE",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
  */
-export enum Frequency {
-  P1D = "P1D",
-  PT10M = "PT10M",
-  PT1H = "PT1H",
-  PT5M = "PT5M",
-}
+export const Frequency = {
+  P1D: "P1D",
+  PT10M: "PT10M",
+  PT1H: "PT1H",
+  PT5M: "PT5M",
+};
 
 /**
  * @public
@@ -484,7 +484,7 @@ export interface AnomalyDetectorConfig {
   /**
    * <p>The frequency at which the detector analyzes its source data.</p>
    */
-  AnomalyDetectorFrequency?: Frequency | string;
+  AnomalyDetectorFrequency?: keyof typeof Frequency | string;
 }
 
 /**
@@ -495,24 +495,24 @@ export interface AnomalyDetectorConfigSummary {
   /**
    * <p>The interval at which the detector analyzes its source data.</p>
    */
-  AnomalyDetectorFrequency?: Frequency | string;
+  AnomalyDetectorFrequency?: keyof typeof Frequency | string;
 }
 
 /**
  * @public
  */
-export enum DataQualityMetricType {
-  BACKTEST_INFERENCE_DATA_END_TIME_STAMP = "BACKTEST_INFERENCE_DATA_END_TIME_STAMP",
-  BACKTEST_INFERENCE_DATA_START_TIME_STAMP = "BACKTEST_INFERENCE_DATA_START_TIME_STAMP",
-  BACKTEST_TRAINING_DATA_END_TIME_STAMP = "BACKTEST_TRAINING_DATA_END_TIME_STAMP",
-  BACKTEST_TRAINING_DATA_START_TIME_STAMP = "BACKTEST_TRAINING_DATA_START_TIME_STAMP",
-  COLUMN_COMPLETENESS = "COLUMN_COMPLETENESS",
-  DIMENSION_UNIQUENESS = "DIMENSION_UNIQUENESS",
-  INVALID_ROWS_COMPLIANCE = "INVALID_ROWS_COMPLIANCE",
-  ROWS_PARTIAL_COMPLIANCE = "ROWS_PARTIAL_COMPLIANCE",
-  ROWS_PROCESSED = "ROWS_PROCESSED",
-  TIME_SERIES_COUNT = "TIME_SERIES_COUNT",
-}
+export const DataQualityMetricType = {
+  BACKTEST_INFERENCE_DATA_END_TIME_STAMP: "BACKTEST_INFERENCE_DATA_END_TIME_STAMP",
+  BACKTEST_INFERENCE_DATA_START_TIME_STAMP: "BACKTEST_INFERENCE_DATA_START_TIME_STAMP",
+  BACKTEST_TRAINING_DATA_END_TIME_STAMP: "BACKTEST_TRAINING_DATA_END_TIME_STAMP",
+  BACKTEST_TRAINING_DATA_START_TIME_STAMP: "BACKTEST_TRAINING_DATA_START_TIME_STAMP",
+  COLUMN_COMPLETENESS: "COLUMN_COMPLETENESS",
+  DIMENSION_UNIQUENESS: "DIMENSION_UNIQUENESS",
+  INVALID_ROWS_COMPLIANCE: "INVALID_ROWS_COMPLIANCE",
+  ROWS_PARTIAL_COMPLIANCE: "ROWS_PARTIAL_COMPLIANCE",
+  ROWS_PROCESSED: "ROWS_PROCESSED",
+  TIME_SERIES_COUNT: "TIME_SERIES_COUNT",
+};
 
 /**
  * @public
@@ -522,7 +522,7 @@ export interface DataQualityMetric {
   /**
    * <p>The name of the data quality metric.</p>
    */
-  MetricType?: DataQualityMetricType | string;
+  MetricType?: keyof typeof DataQualityMetricType | string;
 
   /**
    * <p>A description of the data quality metric.</p>
@@ -575,29 +575,29 @@ export interface AnomalyDetectorDataQualityMetric {
 /**
  * @public
  */
-export enum AnomalyDetectorFailureType {
-  ACTIVATION_FAILURE = "ACTIVATION_FAILURE",
-  BACK_TEST_ACTIVATION_FAILURE = "BACK_TEST_ACTIVATION_FAILURE",
-  DEACTIVATION_FAILURE = "DEACTIVATION_FAILURE",
-  DELETION_FAILURE = "DELETION_FAILURE",
-}
+export const AnomalyDetectorFailureType = {
+  ACTIVATION_FAILURE: "ACTIVATION_FAILURE",
+  BACK_TEST_ACTIVATION_FAILURE: "BACK_TEST_ACTIVATION_FAILURE",
+  DEACTIVATION_FAILURE: "DEACTIVATION_FAILURE",
+  DELETION_FAILURE: "DELETION_FAILURE",
+};
 
 /**
  * @public
  */
-export enum AnomalyDetectorStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  BACK_TEST_ACTIVATING = "BACK_TEST_ACTIVATING",
-  BACK_TEST_ACTIVE = "BACK_TEST_ACTIVE",
-  BACK_TEST_COMPLETE = "BACK_TEST_COMPLETE",
-  DEACTIVATED = "DEACTIVATED",
-  DEACTIVATING = "DEACTIVATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  LEARNING = "LEARNING",
-}
+export const AnomalyDetectorStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  BACK_TEST_ACTIVATING: "BACK_TEST_ACTIVATING",
+  BACK_TEST_ACTIVE: "BACK_TEST_ACTIVE",
+  BACK_TEST_COMPLETE: "BACK_TEST_COMPLETE",
+  DEACTIVATED: "DEACTIVATED",
+  DEACTIVATING: "DEACTIVATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  LEARNING: "LEARNING",
+};
 
 /**
  * @public
@@ -632,7 +632,7 @@ export interface AnomalyDetectorSummary {
   /**
    * <p>The status of detector.</p>
    */
-  Status?: AnomalyDetectorStatus | string;
+  Status?: keyof typeof AnomalyDetectorStatus | string;
 
   /**
    * <p>The detector's <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a>.</p>
@@ -1010,11 +1010,11 @@ export interface CloudWatchConfig {
 /**
  * @public
  */
-export enum Confidence {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  NONE = "NONE",
-}
+export const Confidence = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -1154,9 +1154,9 @@ export interface CreateAnomalyDetectorResponse {
 /**
  * @public
  */
-export enum FilterOperation {
-  EQUALS = "EQUALS",
-}
+export const FilterOperation = {
+  EQUALS: "EQUALS",
+};
 
 /**
  * @public
@@ -1171,7 +1171,7 @@ export interface Filter {
   /**
    * <p>The condition to apply.</p>
    */
-  FilterOperation?: FilterOperation | string;
+  FilterOperation?: keyof typeof FilterOperation | string;
 }
 
 /**
@@ -1203,7 +1203,7 @@ export interface Metric {
   /**
    * <p>The function with which the metric is calculated.</p>
    */
-  AggregationFunction: AggregationFunction | string | undefined;
+  AggregationFunction: keyof typeof AggregationFunction | string | undefined;
 
   /**
    * <p>The namespace for the metric.</p>
@@ -1322,10 +1322,10 @@ export interface RedshiftSourceConfig {
 /**
  * @public
  */
-export enum CSVFileCompression {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
+export const CSVFileCompression = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -1335,7 +1335,7 @@ export interface CsvFormatDescriptor {
   /**
    * <p>The level of compression of the source CSV file.</p>
    */
-  FileCompression?: CSVFileCompression | string;
+  FileCompression?: keyof typeof CSVFileCompression | string;
 
   /**
    * <p>The character set in which the source CSV file is written.</p>
@@ -1366,10 +1366,10 @@ export interface CsvFormatDescriptor {
 /**
  * @public
  */
-export enum JsonFileCompression {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
+export const JsonFileCompression = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -1379,7 +1379,7 @@ export interface JsonFormatDescriptor {
   /**
    * <p>The level of compression of the source CSV file.</p>
    */
-  FileCompression?: JsonFileCompression | string;
+  FileCompression?: keyof typeof JsonFileCompression | string;
 
   /**
    * <p>The character set in which the source JSON file is written.</p>
@@ -1523,7 +1523,7 @@ export interface CreateMetricSetRequest {
   /**
    * <p>The frequency with which the source data will be analyzed for anomalies.</p>
    */
-  MetricSetFrequency?: Frequency | string;
+  MetricSetFrequency?: keyof typeof Frequency | string;
 
   /**
    * <p>Contains information about how the source data should be interpreted.</p>
@@ -1659,7 +1659,7 @@ export interface ExecutionStatus {
   /**
    * <p>The run's status.</p>
    */
-  Status?: AnomalyDetectionTaskStatus | string;
+  Status?: keyof typeof AnomalyDetectionTaskStatus | string;
 
   /**
    * <p>The reason that the run failed, if applicable.</p>
@@ -1729,7 +1729,7 @@ export interface DescribeAnomalyDetectorResponse {
   /**
    * <p>The status of the detector.</p>
    */
-  Status?: AnomalyDetectorStatus | string;
+  Status?: keyof typeof AnomalyDetectorStatus | string;
 
   /**
    * <p>The reason that the detector failed.</p>
@@ -1744,7 +1744,7 @@ export interface DescribeAnomalyDetectorResponse {
   /**
    * <p>The process that caused the detector to fail.</p>
    */
-  FailureType?: AnomalyDetectorFailureType | string;
+  FailureType?: keyof typeof AnomalyDetectorFailureType | string;
 }
 
 /**
@@ -1814,7 +1814,7 @@ export interface DescribeMetricSetResponse {
   /**
    * <p>The interval at which the data will be analyzed for anomalies.</p>
    */
-  MetricSetFrequency?: Frequency | string;
+  MetricSetFrequency?: keyof typeof Frequency | string;
 
   /**
    * <p>The time zone in which the dataset's data was recorded.</p>
@@ -1845,7 +1845,7 @@ export interface DetectedField {
   /**
    * <p>The field's confidence.</p>
    */
-  Confidence?: Confidence | string;
+  Confidence?: keyof typeof Confidence | string;
 
   /**
    * <p>The field's message.</p>
@@ -2165,10 +2165,10 @@ export interface GetSampleDataResponse {
 /**
  * @public
  */
-export enum RelationshipType {
-  CAUSE_OF_INPUT_ANOMALY_GROUP = "CAUSE_OF_INPUT_ANOMALY_GROUP",
-  EFFECT_OF_INPUT_ANOMALY_GROUP = "EFFECT_OF_INPUT_ANOMALY_GROUP",
-}
+export const RelationshipType = {
+  CAUSE_OF_INPUT_ANOMALY_GROUP: "CAUSE_OF_INPUT_ANOMALY_GROUP",
+  EFFECT_OF_INPUT_ANOMALY_GROUP: "EFFECT_OF_INPUT_ANOMALY_GROUP",
+};
 
 /**
  * @public
@@ -2192,7 +2192,7 @@ export interface InterMetricImpactDetails {
    *             (<code>CAUSE_OF_INPUT_ANOMALY_GROUP</code>), or whether the measure is impacted by the
    *             anomaly group (<code>EFFECT_OF_INPUT_ANOMALY_GROUP</code>).</p>
    */
-  RelationshipType?: RelationshipType | string;
+  RelationshipType?: keyof typeof RelationshipType | string;
 
   /**
    * <p>For potential causes (<code>CAUSE_OF_INPUT_ANOMALY_GROUP</code>), the percentage
@@ -2288,7 +2288,7 @@ export interface ListAnomalyGroupRelatedMetricsRequest {
    * <p>Filter for potential causes (<code>CAUSE_OF_INPUT_ANOMALY_GROUP</code>) or
    *             downstream effects (<code>EFFECT_OF_INPUT_ANOMALY_GROUP</code>) of the anomaly group.</p>
    */
-  RelationshipTypeFilter?: RelationshipType | string;
+  RelationshipTypeFilter?: keyof typeof RelationshipType | string;
 
   /**
    * <p>The maximum number of results to return.</p>
@@ -2718,7 +2718,7 @@ export interface UpdateMetricSetRequest {
   /**
    * <p>The dataset's interval.</p>
    */
-  MetricSetFrequency?: Frequency | string;
+  MetricSetFrequency?: keyof typeof Frequency | string;
 
   /**
    * <p>Contains information about source data used to generate metrics.</p>

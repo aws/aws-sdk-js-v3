@@ -6,11 +6,11 @@ import { CodeStarConnectionsServiceException as __BaseException } from "./CodeSt
 /**
  * @public
  */
-export enum ProviderType {
-  BITBUCKET = "Bitbucket",
-  GITHUB = "GitHub",
-  GITHUB_ENTERPRISE_SERVER = "GitHubEnterpriseServer",
-}
+export const ProviderType = {
+  BITBUCKET: "Bitbucket",
+  GITHUB: "GitHub",
+  GITHUB_ENTERPRISE_SERVER: "GitHubEnterpriseServer",
+};
 
 /**
  * @public
@@ -37,7 +37,7 @@ export interface CreateConnectionInput {
    * <p>The name of the external provider where your third-party code repository is
    *       configured.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: keyof typeof ProviderType | string;
 
   /**
    * <p>The name of the connection to be created. The name must be unique in the calling AWS
@@ -185,7 +185,7 @@ export interface CreateHostInput {
    *       resource represents the infrastructure where your provider type is installed. The valid
    *       provider type is GitHub Enterprise Server.</p>
    */
-  ProviderType: ProviderType | string | undefined;
+  ProviderType: keyof typeof ProviderType | string | undefined;
 
   /**
    * <p>The endpoint of the infrastructure to be represented by the host after it is
@@ -260,11 +260,11 @@ export interface GetConnectionInput {
 /**
  * @public
  */
-export enum ConnectionStatus {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PENDING = "PENDING",
-}
+export const ConnectionStatus = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -291,7 +291,7 @@ export interface Connection {
    * <p>The name of the external provider where your third-party code repository is
    *       configured.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: keyof typeof ProviderType | string;
 
   /**
    * <p>The identifier of the external provider where your third-party code repository is configured.
@@ -302,7 +302,7 @@ export interface Connection {
   /**
    * <p>The current status of the connection. </p>
    */
-  ConnectionStatus?: ConnectionStatus | string;
+  ConnectionStatus?: keyof typeof ConnectionStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the host associated with the connection.</p>
@@ -347,7 +347,7 @@ export interface GetHostOutput {
   /**
    * <p>The provider type of the requested host, such as GitHub Enterprise Server.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: keyof typeof ProviderType | string;
 
   /**
    * <p>The endpoint of the infrastructure represented by the requested host.</p>
@@ -368,7 +368,7 @@ export interface ListConnectionsInput {
    * <p>Filters the list of connections to those associated with a specified provider, such as
    *       Bitbucket.</p>
    */
-  ProviderTypeFilter?: ProviderType | string;
+  ProviderTypeFilter?: keyof typeof ProviderType | string;
 
   /**
    * <p>Filters the list of connections to those associated with a specified host.</p>
@@ -449,7 +449,7 @@ export interface Host {
    *       resource represents the infrastructure where your provider type is installed. The valid
    *       provider type is GitHub Enterprise Server.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: keyof typeof ProviderType | string;
 
   /**
    * <p>The endpoint of the infrastructure where your provider type is installed.</p>

@@ -3000,7 +3000,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 };
 
 const serializeAws_json1_1ProtectedResourceTypeFilters = (
-  input: (ProtectedResourceType | string)[],
+  input: (keyof typeof ProtectedResourceType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3011,7 +3011,7 @@ const serializeAws_json1_1ProtectedResourceTypeFilters = (
 };
 
 const serializeAws_json1_1ProtectionGroupAggregationFilters = (
-  input: (ProtectionGroupAggregation | string)[],
+  input: (keyof typeof ProtectionGroupAggregation | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3038,7 +3038,7 @@ const serializeAws_json1_1ProtectionGroupMembers = (input: string[], context: __
 };
 
 const serializeAws_json1_1ProtectionGroupPatternFilters = (
-  input: (ProtectionGroupPattern | string)[],
+  input: (keyof typeof ProtectionGroupPattern | string)[],
   context: __SerdeContext
 ): any => {
   return input

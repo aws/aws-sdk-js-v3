@@ -28,10 +28,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum CmkType {
-  AO_CMK = "AWS_OWNED_KMS_KEY",
-  CM_CMK = "CUSTOMER_MANAGED_KMS_KEY",
-}
+export const CmkType = {
+  AO_CMK: "AWS_OWNED_KMS_KEY",
+  CM_CMK: "CUSTOMER_MANAGED_KMS_KEY",
+};
 
 /**
  * @public
@@ -58,16 +58,16 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum FHIRVersion {
-  R4 = "R4",
-}
+export const FHIRVersion = {
+  R4: "R4",
+};
 
 /**
  * @public
  */
-export enum PreloadDataType {
-  SYNTHEA = "SYNTHEA",
-}
+export const PreloadDataType = {
+  SYNTHEA: "SYNTHEA",
+};
 
 /**
  * @public
@@ -77,7 +77,7 @@ export interface PreloadDataConfig {
   /**
    * <p>The type of preloaded data. Only Synthea preloaded data is supported.</p>
    */
-  PreloadDataType: PreloadDataType | string | undefined;
+  PreloadDataType: keyof typeof PreloadDataType | string | undefined;
 }
 
 /**
@@ -92,7 +92,7 @@ export interface KmsEncryptionConfig {
    *             The type of customer-managed-key(CMK) used for encyrption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
    *          </p>
    */
-  CmkType: CmkType | string | undefined;
+  CmkType: keyof typeof CmkType | string | undefined;
 
   /**
    * <p>
@@ -151,7 +151,7 @@ export interface CreateFHIRDatastoreRequest {
   /**
    * <p>The FHIR version of the Data Store. The only supported version is R4.</p>
    */
-  DatastoreTypeVersion: FHIRVersion | string | undefined;
+  DatastoreTypeVersion: keyof typeof FHIRVersion | string | undefined;
 
   /**
    * <p>
@@ -182,12 +182,12 @@ export interface CreateFHIRDatastoreRequest {
 /**
  * @public
  */
-export enum DatastoreStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+export const DatastoreStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -209,7 +209,7 @@ export interface CreateFHIRDatastoreResponse {
    * <p>The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’,
    *          ‘DELETED’.</p>
    */
-  DatastoreStatus: DatastoreStatus | string | undefined;
+  DatastoreStatus: keyof typeof DatastoreStatus | string | undefined;
 
   /**
    * <p>The AWS endpoint for the created Data Store. For preview, only US-east-1 endpoints are
@@ -297,7 +297,7 @@ export interface DatastoreFilter {
   /**
    * <p>Allows the user to filter Data Store results by status.</p>
    */
-  DatastoreStatus?: DatastoreStatus | string;
+  DatastoreStatus?: keyof typeof DatastoreStatus | string;
 
   /**
    * <p>A filter that allows the user to set cutoff dates for records. All Data Stores created
@@ -335,7 +335,7 @@ export interface DatastoreProperties {
   /**
    * <p>The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.</p>
    */
-  DatastoreStatus: DatastoreStatus | string | undefined;
+  DatastoreStatus: keyof typeof DatastoreStatus | string | undefined;
 
   /**
    * <p>The time that a Data Store was created. </p>
@@ -345,7 +345,7 @@ export interface DatastoreProperties {
   /**
    * <p>The FHIR version. Only R4 version data is supported.</p>
    */
-  DatastoreTypeVersion: FHIRVersion | string | undefined;
+  DatastoreTypeVersion: keyof typeof FHIRVersion | string | undefined;
 
   /**
    * <p>The AWS endpoint for the Data Store. Each Data Store will have it's own endpoint with Data Store ID in the endpoint URL.</p>
@@ -393,7 +393,7 @@ export interface DeleteFHIRDatastoreResponse {
    * <p>The status of the Data Store that the user has requested to be deleted.
    *       </p>
    */
-  DatastoreStatus: DatastoreStatus | string | undefined;
+  DatastoreStatus: keyof typeof DatastoreStatus | string | undefined;
 
   /**
    * <p>The AWS endpoint for the Data Store the user has requested to be deleted.</p>
@@ -463,13 +463,13 @@ export interface DescribeFHIRExportJobRequest {
 /**
  * @public
  */
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
@@ -547,7 +547,7 @@ export interface ExportJobProperties {
   /**
    * <p>The status of a FHIR export job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED, or FAILED.</p>
    */
-  JobStatus: JobStatus | string | undefined;
+  JobStatus: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p>The time an export job was initiated.</p>
@@ -657,7 +657,7 @@ export interface ImportJobProperties {
   /**
    * <p>The job status for an Import job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED, FAILED.</p>
    */
-  JobStatus: JobStatus | string | undefined;
+  JobStatus: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p>The time that the Import job was submitted for processing.</p>
@@ -778,7 +778,7 @@ export interface ListFHIRExportJobsRequest {
    *             This parameter limits the response to the export jobs with the specified job status.
    *          </p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>
@@ -851,7 +851,7 @@ export interface ListFHIRImportJobsRequest {
    *             This parameter limits the response to the import job with the specified job status.
    *          </p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>
@@ -953,7 +953,7 @@ export interface StartFHIRExportJobResponse {
   /**
    * <p>The status of a FHIR export job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED, or FAILED.</p>
    */
-  JobStatus: JobStatus | string | undefined;
+  JobStatus: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p>The AWS generated ID for the Data Store from which files are being exported for an export job.</p>
@@ -1008,7 +1008,7 @@ export interface StartFHIRImportJobResponse {
   /**
    * <p>The status of an import job.</p>
    */
-  JobStatus: JobStatus | string | undefined;
+  JobStatus: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p>The AWS-generated Data Store ID.</p>

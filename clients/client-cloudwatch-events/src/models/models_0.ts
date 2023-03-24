@@ -116,23 +116,23 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum ApiDestinationState {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const ApiDestinationState = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
  */
-export enum ApiDestinationHttpMethod {
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  OPTIONS = "OPTIONS",
-  PATCH = "PATCH",
-  POST = "POST",
-  PUT = "PUT",
-}
+export const ApiDestinationHttpMethod = {
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  OPTIONS: "OPTIONS",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+};
 
 /**
  * @public
@@ -152,7 +152,7 @@ export interface ApiDestination {
   /**
    * <p>The state of the API destination.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: keyof typeof ApiDestinationState | string;
 
   /**
    * <p>The ARN of the connection specified for the API destination.</p>
@@ -167,7 +167,7 @@ export interface ApiDestination {
   /**
    * <p>The method to use to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ApiDestinationHttpMethod | string;
+  HttpMethod?: keyof typeof ApiDestinationHttpMethod | string;
 
   /**
    * <p>The maximum number of invocations per second to send to the HTTP endpoint.</p>
@@ -188,14 +188,14 @@ export interface ApiDestination {
 /**
  * @public
  */
-export enum ArchiveState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const ArchiveState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -216,7 +216,7 @@ export interface Archive {
   /**
    * <p>The current state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: keyof typeof ArchiveState | string;
 
   /**
    * <p>A description for the reason that the archive is in the current state.</p>
@@ -247,10 +247,10 @@ export interface Archive {
 /**
  * @public
  */
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AssignPublicIp = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -265,14 +265,14 @@ export interface CancelReplayRequest {
 /**
  * @public
  */
-export enum ReplayState {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-}
+export const ReplayState = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+};
 
 /**
  * @public
@@ -286,7 +286,7 @@ export interface CancelReplayResponse {
   /**
    * <p>The current state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: keyof typeof ReplayState | string;
 
   /**
    * <p>The reason that the replay is in the current state.</p>
@@ -343,7 +343,7 @@ export interface CreateApiDestinationRequest {
   /**
    * <p>The method to use for the request to the HTTP invocation endpoint.</p>
    */
-  HttpMethod: ApiDestinationHttpMethod | string | undefined;
+  HttpMethod: keyof typeof ApiDestinationHttpMethod | string | undefined;
 
   /**
    * <p>The maximum number of requests per second to send to the HTTP invocation endpoint.</p>
@@ -363,7 +363,7 @@ export interface CreateApiDestinationResponse {
   /**
    * <p>The state of the API destination that was created by the request.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: keyof typeof ApiDestinationState | string;
 
   /**
    * <p>A time stamp indicating the time that the API destination was created.</p>
@@ -460,7 +460,7 @@ export interface CreateArchiveResponse {
   /**
    * <p>The state of the archive that was created.</p>
    */
-  State?: ArchiveState | string;
+  State?: keyof typeof ArchiveState | string;
 
   /**
    * <p>The reason that the archive is in the state.</p>
@@ -496,11 +496,11 @@ export class InvalidEventPatternException extends __BaseException {
 /**
  * @public
  */
-export enum ConnectionAuthorizationType {
-  API_KEY = "API_KEY",
-  BASIC = "BASIC",
-  OAUTH_CLIENT_CREDENTIALS = "OAUTH_CLIENT_CREDENTIALS",
-}
+export const ConnectionAuthorizationType = {
+  API_KEY: "API_KEY",
+  BASIC: "BASIC",
+  OAUTH_CLIENT_CREDENTIALS: "OAUTH_CLIENT_CREDENTIALS",
+};
 
 /**
  * @public
@@ -642,11 +642,11 @@ export interface CreateConnectionOAuthClientRequestParameters {
 /**
  * @public
  */
-export enum ConnectionOAuthHttpMethod {
-  GET = "GET",
-  POST = "POST",
-  PUT = "PUT",
-}
+export const ConnectionOAuthHttpMethod = {
+  GET: "GET",
+  POST: "POST",
+  PUT: "PUT",
+};
 
 /**
  * @public
@@ -668,7 +668,7 @@ export interface CreateConnectionOAuthRequestParameters {
   /**
    * <p>The method to use for the authorization request.</p>
    */
-  HttpMethod: ConnectionOAuthHttpMethod | string | undefined;
+  HttpMethod: keyof typeof ConnectionOAuthHttpMethod | string | undefined;
 
   /**
    * <p>A <code>ConnectionHttpParameters</code> object that contains details about the additional
@@ -726,7 +726,7 @@ export interface CreateConnectionRequest {
   /**
    * <p>The type of authorization to use for the connection.</p>
    */
-  AuthorizationType: ConnectionAuthorizationType | string | undefined;
+  AuthorizationType: keyof typeof ConnectionAuthorizationType | string | undefined;
 
   /**
    * <p>A <code>CreateConnectionAuthRequestParameters</code> object that contains the
@@ -738,15 +738,15 @@ export interface CreateConnectionRequest {
 /**
  * @public
  */
-export enum ConnectionState {
-  AUTHORIZED = "AUTHORIZED",
-  AUTHORIZING = "AUTHORIZING",
-  CREATING = "CREATING",
-  DEAUTHORIZED = "DEAUTHORIZED",
-  DEAUTHORIZING = "DEAUTHORIZING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const ConnectionState = {
+  AUTHORIZED: "AUTHORIZED",
+  AUTHORIZING: "AUTHORIZING",
+  CREATING: "CREATING",
+  DEAUTHORIZED: "DEAUTHORIZED",
+  DEAUTHORIZING: "DEAUTHORIZING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -760,7 +760,7 @@ export interface CreateConnectionResponse {
   /**
    * <p>The state of the connection that was created by the request.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: keyof typeof ConnectionState | string;
 
   /**
    * <p>A time stamp for the time that the connection was created.</p>
@@ -890,7 +890,7 @@ export interface DeauthorizeConnectionResponse {
   /**
    * <p>The state of the connection.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: keyof typeof ConnectionState | string;
 
   /**
    * <p>A time stamp for the time that the connection was created.</p>
@@ -960,7 +960,7 @@ export interface DeleteConnectionResponse {
   /**
    * <p>The state of the connection before it was deleted.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: keyof typeof ConnectionState | string;
 
   /**
    * <p>A time stamp for the time that the connection was created.</p>
@@ -1087,7 +1087,7 @@ export interface DescribeApiDestinationResponse {
   /**
    * <p>The state of the API destination retrieved.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: keyof typeof ApiDestinationState | string;
 
   /**
    * <p>The ARN of the connection specified for the API destination retrieved.</p>
@@ -1102,7 +1102,7 @@ export interface DescribeApiDestinationResponse {
   /**
    * <p>The method to use to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ApiDestinationHttpMethod | string;
+  HttpMethod?: keyof typeof ApiDestinationHttpMethod | string;
 
   /**
    * <p>The maximum number of invocations per second to specified for the API destination. Note
@@ -1167,7 +1167,7 @@ export interface DescribeArchiveResponse {
   /**
    * <p>The state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: keyof typeof ArchiveState | string;
 
   /**
    * <p>The reason that the archive is in the state.</p>
@@ -1261,7 +1261,7 @@ export interface ConnectionOAuthResponseParameters {
   /**
    * <p>The method used to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ConnectionOAuthHttpMethod | string;
+  HttpMethod?: keyof typeof ConnectionOAuthHttpMethod | string;
 
   /**
    * <p>The additional HTTP parameters used for the OAuth authorization request.</p>
@@ -1318,7 +1318,7 @@ export interface DescribeConnectionResponse {
   /**
    * <p>The state of the connection retrieved.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: keyof typeof ConnectionState | string;
 
   /**
    * <p>The reason that the connection is in the current connection state.</p>
@@ -1328,7 +1328,7 @@ export interface DescribeConnectionResponse {
   /**
    * <p>The type of authorization specified for the connection.</p>
    */
-  AuthorizationType?: ConnectionAuthorizationType | string;
+  AuthorizationType?: keyof typeof ConnectionAuthorizationType | string;
 
   /**
    * <p>The ARN of the secret created from the authorization parameters specified for the
@@ -1402,11 +1402,11 @@ export interface DescribeEventSourceRequest {
 /**
  * @public
  */
-export enum EventSourceState {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  PENDING = "PENDING",
-}
+export const EventSourceState = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -1444,7 +1444,7 @@ export interface DescribeEventSourceResponse {
    *       yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have
    *       created a matching event bus, but the event source has since been deleted.</p>
    */
-  State?: EventSourceState | string;
+  State?: keyof typeof EventSourceState | string;
 }
 
 /**
@@ -1521,7 +1521,7 @@ export interface DescribeReplayResponse {
   /**
    * <p>The current state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: keyof typeof ReplayState | string;
 
   /**
    * <p>The reason that the replay is in the current state.</p>
@@ -1583,10 +1583,10 @@ export interface DescribeRuleRequest {
 /**
  * @public
  */
-export enum RuleState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const RuleState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1616,7 +1616,7 @@ export interface DescribeRuleResponse {
   /**
    * <p>Specifies whether the rule is enabled or disabled.</p>
    */
-  State?: RuleState | string;
+  State?: keyof typeof RuleState | string;
 
   /**
    * <p>The description of the rule.</p>
@@ -1741,7 +1741,7 @@ export interface ListArchivesRequest {
   /**
    * <p>The state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: keyof typeof ArchiveState | string;
 
   /**
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
@@ -1782,7 +1782,7 @@ export interface ListConnectionsRequest {
   /**
    * <p>The state of the connection.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: keyof typeof ConnectionState | string;
 
   /**
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
@@ -1813,7 +1813,7 @@ export interface Connection {
   /**
    * <p>The state of the connection.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: keyof typeof ConnectionState | string;
 
   /**
    * <p>The reason that the connection is in the connection state.</p>
@@ -1823,7 +1823,7 @@ export interface Connection {
   /**
    * <p>The authorization type specified for the connection.</p>
    */
-  AuthorizationType?: ConnectionAuthorizationType | string;
+  AuthorizationType?: keyof typeof ConnectionAuthorizationType | string;
 
   /**
    * <p>A time stamp for the time that the connection was created.</p>
@@ -1982,7 +1982,7 @@ export interface EventSource {
    *       yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have
    *       created a matching event bus, but the event source has since been deleted.</p>
    */
-  State?: EventSourceState | string;
+  State?: keyof typeof EventSourceState | string;
 }
 
 /**
@@ -2050,7 +2050,7 @@ export interface PartnerEventSourceAccount {
    *       yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have
    *       created a matching event bus, but the event source has since been deleted.</p>
    */
-  State?: EventSourceState | string;
+  State?: keyof typeof EventSourceState | string;
 }
 
 /**
@@ -2138,7 +2138,7 @@ export interface ListReplaysRequest {
   /**
    * <p>The state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: keyof typeof ReplayState | string;
 
   /**
    * <p>The ARN of the archive from which the events are replayed.</p>
@@ -2174,7 +2174,7 @@ export interface Replay {
   /**
    * <p>The current state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: keyof typeof ReplayState | string;
 
   /**
    * <p>A description of why the replay is in the current state.</p>
@@ -2316,7 +2316,7 @@ export interface Rule {
   /**
    * <p>The state of the rule.</p>
    */
-  State?: RuleState | string;
+  State?: keyof typeof RuleState | string;
 
   /**
    * <p>The description of the rule.</p>
@@ -2511,11 +2511,11 @@ export interface CapacityProviderStrategyItem {
 /**
  * @public
  */
-export enum LaunchType {
-  EC2 = "EC2",
-  EXTERNAL = "EXTERNAL",
-  FARGATE = "FARGATE",
-}
+export const LaunchType = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+};
 
 /**
  * @public
@@ -2542,7 +2542,7 @@ export interface AwsVpcConfiguration {
    *       can specify <code>ENABLED</code> only when <code>LaunchType</code> in
    *         <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
    */
-  AssignPublicIp?: AssignPublicIp | string;
+  AssignPublicIp?: keyof typeof AssignPublicIp | string;
 }
 
 /**
@@ -2561,10 +2561,10 @@ export interface NetworkConfiguration {
 /**
  * @public
  */
-export enum PlacementConstraintType {
-  DISTINCT_INSTANCE = "distinctInstance",
-  MEMBER_OF = "memberOf",
-}
+export const PlacementConstraintType = {
+  DISTINCT_INSTANCE: "distinctInstance",
+  MEMBER_OF: "memberOf",
+};
 
 /**
  * @public
@@ -2577,7 +2577,7 @@ export interface PlacementConstraint {
    *       group is running on a different container instance. Use memberOf to restrict the selection to
    *       a group of valid candidates. </p>
    */
-  type?: PlacementConstraintType | string;
+  type?: keyof typeof PlacementConstraintType | string;
 
   /**
    * <p>A cluster query language expression to apply to the constraint. You cannot specify an
@@ -2590,11 +2590,11 @@ export interface PlacementConstraint {
 /**
  * @public
  */
-export enum PlacementStrategyType {
-  BINPACK = "binpack",
-  RANDOM = "random",
-  SPREAD = "spread",
-}
+export const PlacementStrategyType = {
+  BINPACK: "binpack",
+  RANDOM: "random",
+  SPREAD: "spread",
+};
 
 /**
  * @public
@@ -2610,7 +2610,7 @@ export interface PlacementStrategy {
    *       field parameter. For example, if you binpack on memory, a task is placed on the instance with
    *       the least amount of remaining memory (but still enough to run the task). </p>
    */
-  type?: PlacementStrategyType | string;
+  type?: keyof typeof PlacementStrategyType | string;
 
   /**
    * <p>The field to apply the placement strategy against. For the spread placement strategy,
@@ -2625,9 +2625,9 @@ export interface PlacementStrategy {
 /**
  * @public
  */
-export enum PropagateTags {
-  TASK_DEFINITION = "TASK_DEFINITION",
-}
+export const PropagateTags = {
+  TASK_DEFINITION: "TASK_DEFINITION",
+};
 
 /**
  * @public
@@ -2652,7 +2652,7 @@ export interface EcsParameters {
    *      is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">Fargate on Amazon ECS</a> in
    *       the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  LaunchType?: LaunchType | string;
+  LaunchType?: keyof typeof LaunchType | string;
 
   /**
    * <p>Use this structure if the Amazon ECS task uses the <code>awsvpc</code> network mode. This
@@ -2720,7 +2720,7 @@ export interface EcsParameters {
    *       is specified, the tags are not propagated. Tags can only be propagated to the task during task
    *       creation. To add tags to a task after task creation, use the TagResource API action. </p>
    */
-  PropagateTags?: PropagateTags | string;
+  PropagateTags?: keyof typeof PropagateTags | string;
 
   /**
    * <p>The reference ID to use for the task.</p>
@@ -3453,7 +3453,7 @@ export interface PutRuleRequest {
   /**
    * <p>Indicates whether the rule is enabled or disabled.</p>
    */
-  State?: RuleState | string;
+  State?: keyof typeof RuleState | string;
 
   /**
    * <p>A description of the rule.</p>
@@ -3690,7 +3690,7 @@ export interface StartReplayResponse {
   /**
    * <p>The state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: keyof typeof ReplayState | string;
 
   /**
    * <p>The reason that the replay is in the state.</p>
@@ -3835,7 +3835,7 @@ export interface UpdateApiDestinationRequest {
   /**
    * <p>The method to use for the API destination.</p>
    */
-  HttpMethod?: ApiDestinationHttpMethod | string;
+  HttpMethod?: keyof typeof ApiDestinationHttpMethod | string;
 
   /**
    * <p>The maximum number of invocations per second to send to the API destination.</p>
@@ -3855,7 +3855,7 @@ export interface UpdateApiDestinationResponse {
   /**
    * <p>The state of the API destination that was updated.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: keyof typeof ApiDestinationState | string;
 
   /**
    * <p>A time stamp for the time that the API destination was created.</p>
@@ -3905,7 +3905,7 @@ export interface UpdateArchiveResponse {
   /**
    * <p>The state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: keyof typeof ArchiveState | string;
 
   /**
    * <p>The reason that the archive is in the current state.</p>
@@ -3987,7 +3987,7 @@ export interface UpdateConnectionOAuthRequestParameters {
   /**
    * <p>The method used to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ConnectionOAuthHttpMethod | string;
+  HttpMethod?: keyof typeof ConnectionOAuthHttpMethod | string;
 
   /**
    * <p>The additional HTTP parameters used for the OAuth authorization request.</p>
@@ -4042,7 +4042,7 @@ export interface UpdateConnectionRequest {
   /**
    * <p>The type of authorization to use for the connection.</p>
    */
-  AuthorizationType?: ConnectionAuthorizationType | string;
+  AuthorizationType?: keyof typeof ConnectionAuthorizationType | string;
 
   /**
    * <p>The authorization parameters to use for the connection.</p>
@@ -4062,7 +4062,7 @@ export interface UpdateConnectionResponse {
   /**
    * <p>The state of the connection that was updated.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: keyof typeof ConnectionState | string;
 
   /**
    * <p>A time stamp for the time that the connection was created.</p>

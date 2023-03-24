@@ -5371,7 +5371,7 @@ const serializeAws_json1_1Assets = (input: Asset[], context: __SerdeContext): an
     });
 };
 
-const serializeAws_json1_1Attributes = (input: (Attribute | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1Attributes = (input: (keyof typeof Attribute | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5432,7 +5432,7 @@ const serializeAws_json1_1ConnectedHomeSettingsForUpdate = (
 };
 
 const serializeAws_json1_1ContentClassifiers = (
-  input: (ContentClassifier | string)[],
+  input: (keyof typeof ContentClassifier | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -5671,7 +5671,7 @@ const serializeAws_json1_1DetectionFilter = (input: DetectionFilter, context: __
 };
 
 const serializeAws_json1_1DetectLabelsFeatureList = (
-  input: (DetectLabelsFeatureName | string)[],
+  input: (keyof typeof DetectLabelsFeatureName | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -5987,7 +5987,7 @@ const serializeAws_json1_1KinesisVideoStreamStartSelector = (
 };
 
 const serializeAws_json1_1LabelDetectionFeatureList = (
-  input: (LabelDetectionFeatureName | string)[],
+  input: (keyof typeof LabelDetectionFeatureName | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -6128,7 +6128,7 @@ const serializeAws_json1_1ProtectiveEquipmentSummarizationAttributes = (
 };
 
 const serializeAws_json1_1ProtectiveEquipmentTypes = (
-  input: (ProtectiveEquipmentType | string)[],
+  input: (keyof typeof ProtectiveEquipmentType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -6208,7 +6208,10 @@ const serializeAws_json1_1SearchFacesRequest = (input: SearchFacesRequest, conte
   };
 };
 
-const serializeAws_json1_1SegmentTypes = (input: (SegmentType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1SegmentTypes = (
+  input: (keyof typeof SegmentType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6485,7 +6488,7 @@ const serializeAws_json1_1StreamProcessorOutput = (input: StreamProcessorOutput,
 };
 
 const serializeAws_json1_1StreamProcessorParametersToDelete = (
-  input: (StreamProcessorParameterToDelete | string)[],
+  input: (keyof typeof StreamProcessorParameterToDelete | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -8455,7 +8458,7 @@ const deserializeAws_json1_1PutProjectPolicyResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Reasons = (output: any, context: __SerdeContext): (Reason | string)[] => {
+const deserializeAws_json1_1Reasons = (output: any, context: __SerdeContext): (keyof typeof Reason | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -551,7 +551,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1ContentClassifiers = (
-  input: (ContentClassifier | string)[],
+  input: (keyof typeof ContentClassifier | string)[],
   context: __SerdeContext
 ): any => {
   return input

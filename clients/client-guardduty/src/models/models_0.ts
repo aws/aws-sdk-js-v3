@@ -247,15 +247,15 @@ export interface DataSourcesFreeTrial {
 /**
  * @public
  */
-export enum FreeTrialFeatureResult {
-  CLOUD_TRAIL = "CLOUD_TRAIL",
-  DNS_LOGS = "DNS_LOGS",
-  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
-  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
-  FLOW_LOGS = "FLOW_LOGS",
-  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
-  S3_DATA_EVENTS = "S3_DATA_EVENTS",
-}
+export const FreeTrialFeatureResult = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  DNS_LOGS: "DNS_LOGS",
+  EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
+  FLOW_LOGS: "FLOW_LOGS",
+  RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS: "S3_DATA_EVENTS",
+};
 
 /**
  * @public
@@ -265,7 +265,7 @@ export interface FreeTrialFeatureConfigurationResult {
   /**
    * <p>The name of the feature for which the free trial is configured.</p>
    */
-  Name?: FreeTrialFeatureResult | string;
+  Name?: keyof typeof FreeTrialFeatureResult | string;
 
   /**
    * <p>The number of the remaining free trial days for the feature.</p>
@@ -786,10 +786,10 @@ export interface Action {
 /**
  * @public
  */
-export enum AdminStatus {
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-}
+export const AdminStatus = {
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -805,7 +805,7 @@ export interface AdminAccount {
   /**
    * <p>Indicates whether the account is enabled as the delegated administrator.</p>
    */
-  AdminStatus?: AdminStatus | string;
+  AdminStatus?: keyof typeof AdminStatus | string;
 }
 
 /**
@@ -858,11 +858,11 @@ export interface ArchiveFindingsResponse {}
 /**
  * @public
  */
-export enum AutoEnableMembers {
-  ALL = "ALL",
-  NEW = "NEW",
-  NONE = "NONE",
-}
+export const AutoEnableMembers = {
+  ALL: "ALL",
+  NEW: "NEW",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -907,10 +907,10 @@ export interface BucketLevelPermissions {
 /**
  * @public
  */
-export enum DataSourceStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DataSourceStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -920,7 +920,7 @@ export interface CloudTrailConfigurationResult {
   /**
    * <p>Describes whether CloudTrail is enabled as a data source for the detector.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: keyof typeof DataSourceStatus | string | undefined;
 }
 
 /**
@@ -1162,20 +1162,20 @@ export interface DataSourceConfigurations {
 /**
  * @public
  */
-export enum DetectorFeature {
-  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
-  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
-  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
-  S3_DATA_EVENTS = "S3_DATA_EVENTS",
-}
+export const DetectorFeature = {
+  EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
+  RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS: "S3_DATA_EVENTS",
+};
 
 /**
  * @public
  */
-export enum FeatureStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const FeatureStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1185,22 +1185,22 @@ export interface DetectorFeatureConfiguration {
   /**
    * <p>The name of the feature.</p>
    */
-  Name?: DetectorFeature | string;
+  Name?: keyof typeof DetectorFeature | string;
 
   /**
    * <p>The status of the feature.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: keyof typeof FeatureStatus | string;
 }
 
 /**
  * @public
  */
-export enum FindingPublishingFrequency {
-  FIFTEEN_MINUTES = "FIFTEEN_MINUTES",
-  ONE_HOUR = "ONE_HOUR",
-  SIX_HOURS = "SIX_HOURS",
-}
+export const FindingPublishingFrequency = {
+  FIFTEEN_MINUTES: "FIFTEEN_MINUTES",
+  ONE_HOUR: "ONE_HOUR",
+  SIX_HOURS: "SIX_HOURS",
+};
 
 /**
  * @public
@@ -1219,7 +1219,7 @@ export interface CreateDetectorRequest {
   /**
    * <p>A value that specifies how frequently updated findings are exported.</p>
    */
-  FindingPublishingFrequency?: FindingPublishingFrequency | string;
+  FindingPublishingFrequency?: keyof typeof FindingPublishingFrequency | string;
 
   /**
    * @deprecated
@@ -1250,7 +1250,7 @@ export interface EbsVolumesResult {
   /**
    * <p>Describes whether scanning EBS volumes is enabled as a data source.</p>
    */
-  Status?: DataSourceStatus | string;
+  Status?: keyof typeof DataSourceStatus | string;
 
   /**
    * <p>Specifies the reason why scanning EBS volumes (Malware Protection) was not enabled as a data source.</p>
@@ -1315,10 +1315,10 @@ export interface CreateDetectorResponse {
 /**
  * @public
  */
-export enum FilterAction {
-  ARCHIVE = "ARCHIVE",
-  NOOP = "NOOP",
-}
+export const FilterAction = {
+  ARCHIVE: "ARCHIVE",
+  NOOP: "NOOP",
+};
 
 /**
  * @public
@@ -1358,7 +1358,7 @@ export interface CreateFilterRequest {
   /**
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
-  Action?: FilterAction | string;
+  Action?: keyof typeof FilterAction | string;
 
   /**
    * <p>Specifies the position of the filter in the list of current filters. Also specifies the
@@ -1565,14 +1565,14 @@ export interface CreateFilterResponse {
 /**
  * @public
  */
-export enum IpSetFormat {
-  ALIEN_VAULT = "ALIEN_VAULT",
-  FIRE_EYE = "FIRE_EYE",
-  OTX_CSV = "OTX_CSV",
-  PROOF_POINT = "PROOF_POINT",
-  STIX = "STIX",
-  TXT = "TXT",
-}
+export const IpSetFormat = {
+  ALIEN_VAULT: "ALIEN_VAULT",
+  FIRE_EYE: "FIRE_EYE",
+  OTX_CSV: "OTX_CSV",
+  PROOF_POINT: "PROOF_POINT",
+  STIX: "STIX",
+  TXT: "TXT",
+};
 
 /**
  * @public
@@ -1593,7 +1593,7 @@ export interface CreateIPSetRequest {
   /**
    * <p>The format of the file that contains the IPSet.</p>
    */
-  Format: IpSetFormat | string | undefined;
+  Format: keyof typeof IpSetFormat | string | undefined;
 
   /**
    * <p>The URI of the file that contains the IPSet. </p>
@@ -1694,9 +1694,9 @@ export interface DestinationProperties {
 /**
  * @public
  */
-export enum DestinationType {
-  S3 = "S3",
-}
+export const DestinationType = {
+  S3: "S3",
+};
 
 /**
  * @public
@@ -1711,7 +1711,7 @@ export interface CreatePublishingDestinationRequest {
    * <p>The type of resource for the publishing destination. Currently only Amazon S3 buckets are
    *       supported.</p>
    */
-  DestinationType: DestinationType | string | undefined;
+  DestinationType: keyof typeof DestinationType | string | undefined;
 
   /**
    * <p>The properties of the publishing destination, including the ARNs for the destination and
@@ -1758,14 +1758,14 @@ export interface CreateSampleFindingsResponse {}
 /**
  * @public
  */
-export enum ThreatIntelSetFormat {
-  ALIEN_VAULT = "ALIEN_VAULT",
-  FIRE_EYE = "FIRE_EYE",
-  OTX_CSV = "OTX_CSV",
-  PROOF_POINT = "PROOF_POINT",
-  STIX = "STIX",
-  TXT = "TXT",
-}
+export const ThreatIntelSetFormat = {
+  ALIEN_VAULT: "ALIEN_VAULT",
+  FIRE_EYE: "FIRE_EYE",
+  OTX_CSV: "OTX_CSV",
+  PROOF_POINT: "PROOF_POINT",
+  STIX: "STIX",
+  TXT: "TXT",
+};
 
 /**
  * @public
@@ -1786,7 +1786,7 @@ export interface CreateThreatIntelSetRequest {
   /**
    * <p>The format of the file that contains the ThreatIntelSet.</p>
    */
-  Format: ThreatIntelSetFormat | string | undefined;
+  Format: keyof typeof ThreatIntelSetFormat | string | undefined;
 
   /**
    * <p>The URI of the file that contains the ThreatIntelSet. </p>
@@ -1823,26 +1823,26 @@ export interface CreateThreatIntelSetResponse {
 /**
  * @public
  */
-export enum CriterionKey {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  EC2_INSTANCE_ARN = "EC2_INSTANCE_ARN",
-  GUARDDUTY_FINDING_ID = "GUARDDUTY_FINDING_ID",
-  SCAN_ID = "SCAN_ID",
-  SCAN_START_TIME = "SCAN_START_TIME",
-  SCAN_STATUS = "SCAN_STATUS",
-}
+export const CriterionKey = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  EC2_INSTANCE_ARN: "EC2_INSTANCE_ARN",
+  GUARDDUTY_FINDING_ID: "GUARDDUTY_FINDING_ID",
+  SCAN_ID: "SCAN_ID",
+  SCAN_START_TIME: "SCAN_START_TIME",
+  SCAN_STATUS: "SCAN_STATUS",
+};
 
 /**
  * @public
  */
-export enum DataSource {
-  CLOUD_TRAIL = "CLOUD_TRAIL",
-  DNS_LOGS = "DNS_LOGS",
-  EC2_MALWARE_SCAN = "EC2_MALWARE_SCAN",
-  FLOW_LOGS = "FLOW_LOGS",
-  KUBERNETES_AUDIT_LOGS = "KUBERNETES_AUDIT_LOGS",
-  S3_LOGS = "S3_LOGS",
-}
+export const DataSource = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  DNS_LOGS: "DNS_LOGS",
+  EC2_MALWARE_SCAN: "EC2_MALWARE_SCAN",
+  FLOW_LOGS: "FLOW_LOGS",
+  KUBERNETES_AUDIT_LOGS: "KUBERNETES_AUDIT_LOGS",
+  S3_LOGS: "S3_LOGS",
+};
 
 /**
  * @public
@@ -1852,7 +1852,7 @@ export interface DNSLogsConfigurationResult {
   /**
    * <p>Denotes whether DNS logs is enabled as a data source.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: keyof typeof DataSourceStatus | string | undefined;
 }
 
 /**
@@ -1863,7 +1863,7 @@ export interface FlowLogsConfigurationResult {
   /**
    * <p>Denotes whether VPC flow logs is enabled as a data source.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: keyof typeof DataSourceStatus | string | undefined;
 }
 
 /**
@@ -1874,7 +1874,7 @@ export interface KubernetesAuditLogsConfigurationResult {
   /**
    * <p>A value that describes whether Kubernetes audit logs are enabled as a data source.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: keyof typeof DataSourceStatus | string | undefined;
 }
 
 /**
@@ -1897,7 +1897,7 @@ export interface S3LogsConfigurationResult {
    * <p>A value that describes whether S3 data event logs are automatically enabled for new
    *       members of the organization.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: keyof typeof DataSourceStatus | string | undefined;
 }
 
 /**
@@ -2158,7 +2158,7 @@ export interface FilterCriterion {
   /**
    * <p>An enum value representing possible scan properties to match with given scan entries.</p>
    */
-  CriterionKey?: CriterionKey | string;
+  CriterionKey?: keyof typeof CriterionKey | string;
 
   /**
    * <p>Contains information about the condition.</p>
@@ -2180,10 +2180,10 @@ export interface FilterCriteria {
 /**
  * @public
  */
-export enum OrderBy {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const OrderBy = {
+  ASC: "ASC",
+  DESC: "DESC",
+};
 
 /**
  * @public
@@ -2199,7 +2199,7 @@ export interface SortCriteria {
   /**
    * <p>The order by which the sorted findings are to be displayed.</p>
    */
-  OrderBy?: OrderBy | string;
+  OrderBy?: keyof typeof OrderBy | string;
 }
 
 /**
@@ -2293,10 +2293,10 @@ export interface ResourceDetails {
 /**
  * @public
  */
-export enum ScanResult {
-  CLEAN = "CLEAN",
-  INFECTED = "INFECTED",
-}
+export const ScanResult = {
+  CLEAN: "CLEAN",
+  INFECTED: "INFECTED",
+};
 
 /**
  * @public
@@ -2306,17 +2306,17 @@ export interface ScanResultDetails {
   /**
    * <p>An enum value representing possible scan results.</p>
    */
-  ScanResult?: ScanResult | string;
+  ScanResult?: keyof typeof ScanResult | string;
 }
 
 /**
  * @public
  */
-export enum ScanStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-}
+export const ScanStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -2358,7 +2358,7 @@ export interface Scan {
   /**
    * <p>An enum value representing possible scan statuses.</p>
    */
-  ScanStatus?: ScanStatus | string;
+  ScanStatus?: keyof typeof ScanStatus | string;
 
   /**
    * <p>Represents the reason for FAILED scan status.</p>
@@ -2544,20 +2544,20 @@ export interface OrganizationDataSourceConfigurationsResult {
 /**
  * @public
  */
-export enum OrgFeatureStatus {
-  NEW = "NEW",
-  NONE = "NONE",
-}
+export const OrgFeatureStatus = {
+  NEW: "NEW",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum OrgFeature {
-  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
-  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
-  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
-  S3_DATA_EVENTS = "S3_DATA_EVENTS",
-}
+export const OrgFeature = {
+  EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
+  RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS: "S3_DATA_EVENTS",
+};
 
 /**
  * @public
@@ -2568,7 +2568,7 @@ export interface OrganizationFeatureConfigurationResult {
    * <p>The name of the feature that is configured for the member accounts within the
    *       organization.</p>
    */
-  Name?: OrgFeature | string;
+  Name?: keyof typeof OrgFeature | string;
 
   /**
    * <p>Describes how The status of the feature that are configured for the member accounts within the
@@ -2578,7 +2578,7 @@ export interface OrganizationFeatureConfigurationResult {
    *          <p>If you set <code>AutoEnable</code> to <code>NONE</code>, no feature will be configured for
    *       the accounts when they join the organization.</p>
    */
-  AutoEnable?: OrgFeatureStatus | string;
+  AutoEnable?: keyof typeof OrgFeatureStatus | string;
 }
 
 /**
@@ -2635,7 +2635,7 @@ export interface DescribeOrganizationConfigurationResponse {
    *             </li>
    *          </ul>
    */
-  AutoEnableOrganizationMembers?: AutoEnableMembers | string;
+  AutoEnableOrganizationMembers?: keyof typeof AutoEnableMembers | string;
 }
 
 /**
@@ -2657,12 +2657,12 @@ export interface DescribePublishingDestinationRequest {
 /**
  * @public
  */
-export enum PublishingStatus {
-  PENDING_VERIFICATION = "PENDING_VERIFICATION",
-  PUBLISHING = "PUBLISHING",
-  STOPPED = "STOPPED",
-  UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY = "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY",
-}
+export const PublishingStatus = {
+  PENDING_VERIFICATION: "PENDING_VERIFICATION",
+  PUBLISHING: "PUBLISHING",
+  STOPPED: "STOPPED",
+  UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY: "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY",
+};
 
 /**
  * @public
@@ -2677,12 +2677,12 @@ export interface DescribePublishingDestinationResponse {
    * <p>The type of publishing destination. Currently, only Amazon S3 buckets are
    *       supported.</p>
    */
-  DestinationType: DestinationType | string | undefined;
+  DestinationType: keyof typeof DestinationType | string | undefined;
 
   /**
    * <p>The status of the publishing destination.</p>
    */
-  Status: PublishingStatus | string | undefined;
+  Status: keyof typeof PublishingStatus | string | undefined;
 
   /**
    * <p>The time, in epoch millisecond format, at which GuardDuty was first unable to publish
@@ -2712,26 +2712,26 @@ export interface Destination {
    * <p>The type of resource used for the publishing destination. Currently, only Amazon S3
    *       buckets are supported.</p>
    */
-  DestinationType: DestinationType | string | undefined;
+  DestinationType: keyof typeof DestinationType | string | undefined;
 
   /**
    * <p>The status of the publishing destination.</p>
    */
-  Status: PublishingStatus | string | undefined;
+  Status: keyof typeof PublishingStatus | string | undefined;
 }
 
 /**
  * @public
  */
-export enum DetectorFeatureResult {
-  CLOUD_TRAIL = "CLOUD_TRAIL",
-  DNS_LOGS = "DNS_LOGS",
-  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
-  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
-  FLOW_LOGS = "FLOW_LOGS",
-  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
-  S3_DATA_EVENTS = "S3_DATA_EVENTS",
-}
+export const DetectorFeatureResult = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  DNS_LOGS: "DNS_LOGS",
+  EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
+  FLOW_LOGS: "FLOW_LOGS",
+  RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS: "S3_DATA_EVENTS",
+};
 
 /**
  * @public
@@ -2741,12 +2741,12 @@ export interface DetectorFeatureConfigurationResult {
   /**
    * <p>Indicates the name of the feature that can be enabled for the detector.</p>
    */
-  Name?: DetectorFeatureResult | string;
+  Name?: keyof typeof DetectorFeatureResult | string;
 
   /**
    * <p>Indicates the status of the feature that is enabled for the detector.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: keyof typeof FeatureStatus | string;
 
   /**
    * <p>The timestamp at which the feature object was updated.</p>
@@ -2757,10 +2757,10 @@ export interface DetectorFeatureConfigurationResult {
 /**
  * @public
  */
-export enum DetectorStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DetectorStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -2839,10 +2839,10 @@ export interface DisassociateMembersResponse {
 /**
  * @public
  */
-export enum EbsSnapshotPreservation {
-  NO_RETENTION = "NO_RETENTION",
-  RETENTION_WITH_FINDING = "RETENTION_WITH_FINDING",
-}
+export const EbsSnapshotPreservation = {
+  NO_RETENTION: "NO_RETENTION",
+  RETENTION_WITH_FINDING: "RETENTION_WITH_FINDING",
+};
 
 /**
  * @public
@@ -3282,10 +3282,10 @@ export interface Evidence {
 /**
  * @public
  */
-export enum Feedback {
-  NOT_USEFUL = "NOT_USEFUL",
-  USEFUL = "USEFUL",
-}
+export const Feedback = {
+  NOT_USEFUL: "NOT_USEFUL",
+  USEFUL: "USEFUL",
+};
 
 /**
  * @public
@@ -3970,9 +3970,9 @@ export interface FindingStatistics {
 /**
  * @public
  */
-export enum FindingStatisticType {
-  COUNT_BY_SEVERITY = "COUNT_BY_SEVERITY",
-}
+export const FindingStatisticType = {
+  COUNT_BY_SEVERITY: "COUNT_BY_SEVERITY",
+};
 
 /**
  * @public
@@ -4016,7 +4016,7 @@ export interface GetDetectorResponse {
   /**
    * <p>The publishing frequency of the finding.</p>
    */
-  FindingPublishingFrequency?: FindingPublishingFrequency | string;
+  FindingPublishingFrequency?: keyof typeof FindingPublishingFrequency | string;
 
   /**
    * <p>The GuardDuty service role.</p>
@@ -4026,7 +4026,7 @@ export interface GetDetectorResponse {
   /**
    * <p>The detector status.</p>
    */
-  Status: DetectorStatus | string | undefined;
+  Status: keyof typeof DetectorStatus | string | undefined;
 
   /**
    * <p>The last-updated timestamp for the detector.</p>
@@ -4083,7 +4083,7 @@ export interface GetFilterResponse {
   /**
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
-  Action: FilterAction | string | undefined;
+  Action: keyof typeof FilterAction | string | undefined;
 
   /**
    * <p>Specifies the position of the filter in the list of current filters. Also specifies the
@@ -4146,7 +4146,7 @@ export interface GetFindingsStatisticsRequest {
   /**
    * <p>The types of finding statistics to retrieve.</p>
    */
-  FindingStatisticTypes: (FindingStatisticType | string)[] | undefined;
+  FindingStatisticTypes: (keyof typeof FindingStatisticType | string)[] | undefined;
 
   /**
    * <p>Represents the criteria that is used for querying findings.</p>
@@ -4197,15 +4197,15 @@ export interface GetIPSetRequest {
 /**
  * @public
  */
-export enum IpSetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DEACTIVATING = "DEACTIVATING",
-  DELETED = "DELETED",
-  DELETE_PENDING = "DELETE_PENDING",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE",
-}
+export const IpSetStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  DEACTIVATING: "DEACTIVATING",
+  DELETED: "DELETED",
+  DELETE_PENDING: "DELETE_PENDING",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -4219,7 +4219,7 @@ export interface GetIPSetResponse {
   /**
    * <p>The format of the file that contains the IPSet.</p>
    */
-  Format: IpSetFormat | string | undefined;
+  Format: keyof typeof IpSetFormat | string | undefined;
 
   /**
    * <p>The URI of the file that contains the IPSet.</p>
@@ -4229,7 +4229,7 @@ export interface GetIPSetResponse {
   /**
    * <p>The status of IPSet file that was uploaded.</p>
    */
-  Status: IpSetStatus | string | undefined;
+  Status: keyof typeof IpSetStatus | string | undefined;
 
   /**
    * <p>The tags of the IPSet resource.</p>
@@ -4250,9 +4250,9 @@ export interface GetMalwareScanSettingsRequest {
 /**
  * @public
  */
-export enum ScanCriterionKey {
-  EC2_INSTANCE_TAG = "EC2_INSTANCE_TAG",
-}
+export const ScanCriterionKey = {
+  EC2_INSTANCE_TAG: "EC2_INSTANCE_TAG",
+};
 
 /**
  * @public
@@ -4314,7 +4314,7 @@ export interface GetMalwareScanSettingsResponse {
   /**
    * <p>An enum value representing possible snapshot preservation settings.</p>
    */
-  EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
+  EbsSnapshotPreservation?: keyof typeof EbsSnapshotPreservation | string;
 }
 
 /**
@@ -4386,12 +4386,12 @@ export interface MemberFeaturesConfigurationResult {
   /**
    * <p>Indicates the name of the feature that is enabled for the detector.</p>
    */
-  Name?: OrgFeature | string;
+  Name?: keyof typeof OrgFeature | string;
 
   /**
    * <p>Indicates the status of the feature that is enabled for the detector.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: keyof typeof FeatureStatus | string;
 
   /**
    * <p>The timestamp at which the feature object was updated.</p>
@@ -4564,15 +4564,15 @@ export interface GetThreatIntelSetRequest {
 /**
  * @public
  */
-export enum ThreatIntelSetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DEACTIVATING = "DEACTIVATING",
-  DELETED = "DELETED",
-  DELETE_PENDING = "DELETE_PENDING",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE",
-}
+export const ThreatIntelSetStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  DEACTIVATING: "DEACTIVATING",
+  DELETED: "DELETED",
+  DELETE_PENDING: "DELETE_PENDING",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -4587,7 +4587,7 @@ export interface GetThreatIntelSetResponse {
   /**
    * <p>The format of the threatIntelSet.</p>
    */
-  Format: ThreatIntelSetFormat | string | undefined;
+  Format: keyof typeof ThreatIntelSetFormat | string | undefined;
 
   /**
    * <p>The URI of the file that contains the ThreatIntelSet. </p>
@@ -4597,7 +4597,7 @@ export interface GetThreatIntelSetResponse {
   /**
    * <p>The status of threatIntelSet file uploaded.</p>
    */
-  Status: ThreatIntelSetStatus | string | undefined;
+  Status: keyof typeof ThreatIntelSetStatus | string | undefined;
 
   /**
    * <p>The tags of the threat list resource.</p>
@@ -4608,17 +4608,17 @@ export interface GetThreatIntelSetResponse {
 /**
  * @public
  */
-export enum UsageFeature {
-  CLOUD_TRAIL = "CLOUD_TRAIL",
-  DNS_LOGS = "DNS_LOGS",
-  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
-  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
-  EKS_RUNTIME_MONITORING = "EKS_RUNTIME_MONITORING",
-  FLOW_LOGS = "FLOW_LOGS",
-  LAMBDA_NETWORK_LOGS = "LAMBDA_NETWORK_LOGS",
-  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
-  S3_DATA_EVENTS = "S3_DATA_EVENTS",
-}
+export const UsageFeature = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  DNS_LOGS: "DNS_LOGS",
+  EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
+  EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
+  FLOW_LOGS: "FLOW_LOGS",
+  LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
+  RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS: "S3_DATA_EVENTS",
+};
 
 /**
  * @public
@@ -4635,7 +4635,7 @@ export interface UsageCriteria {
    *
    * <p>The data sources to aggregate usage statistics from.</p>
    */
-  DataSources?: (DataSource | string)[];
+  DataSources?: (keyof typeof DataSource | string)[];
 
   /**
    * <p>The resources to aggregate usage statistics from. Only accepts exact resource
@@ -4646,19 +4646,19 @@ export interface UsageCriteria {
   /**
    * <p>The features to aggregate usage statistics from.</p>
    */
-  Features?: (UsageFeature | string)[];
+  Features?: (keyof typeof UsageFeature | string)[];
 }
 
 /**
  * @public
  */
-export enum UsageStatisticType {
-  SUM_BY_ACCOUNT = "SUM_BY_ACCOUNT",
-  SUM_BY_DATA_SOURCE = "SUM_BY_DATA_SOURCE",
-  SUM_BY_FEATURES = "SUM_BY_FEATURES",
-  SUM_BY_RESOURCE = "SUM_BY_RESOURCE",
-  TOP_RESOURCES = "TOP_RESOURCES",
-}
+export const UsageStatisticType = {
+  SUM_BY_ACCOUNT: "SUM_BY_ACCOUNT",
+  SUM_BY_DATA_SOURCE: "SUM_BY_DATA_SOURCE",
+  SUM_BY_FEATURES: "SUM_BY_FEATURES",
+  SUM_BY_RESOURCE: "SUM_BY_RESOURCE",
+  TOP_RESOURCES: "TOP_RESOURCES",
+};
 
 /**
  * @public
@@ -4673,7 +4673,7 @@ export interface GetUsageStatisticsRequest {
   /**
    * <p>The type of usage statistics to retrieve.</p>
    */
-  UsageStatisticType: UsageStatisticType | string | undefined;
+  UsageStatisticType: keyof typeof UsageStatisticType | string | undefined;
 
   /**
    * <p>Represents the criteria used for querying usage.</p>
@@ -4740,7 +4740,7 @@ export interface UsageDataSourceResult {
   /**
    * <p>The data source type that generated usage.</p>
    */
-  DataSource?: DataSource | string;
+  DataSource?: keyof typeof DataSource | string;
 
   /**
    * <p>Represents the total of usage for the specified data source.</p>
@@ -4756,7 +4756,7 @@ export interface UsageFeatureResult {
   /**
    * <p>The feature that generated the usage cost.</p>
    */
-  Feature?: UsageFeature | string;
+  Feature?: keyof typeof UsageFeature | string;
 
   /**
    * <p>Contains the total usage with the corresponding currency unit for that value.</p>
@@ -5567,7 +5567,7 @@ export interface UpdateDetectorRequest {
    * <p>An enum value that specifies how frequently findings are exported, such as to CloudWatch
    *       Events.</p>
    */
-  FindingPublishingFrequency?: FindingPublishingFrequency | string;
+  FindingPublishingFrequency?: keyof typeof FindingPublishingFrequency | string;
 
   /**
    * @deprecated
@@ -5615,7 +5615,7 @@ export interface UpdateFilterRequest {
   /**
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
-  Action?: FilterAction | string;
+  Action?: keyof typeof FilterAction | string;
 
   /**
    * <p>Specifies the position of the filter in the list of current filters. Also specifies the
@@ -5656,7 +5656,7 @@ export interface UpdateFindingsFeedbackRequest {
   /**
    * <p>The feedback for the finding.</p>
    */
-  Feedback: Feedback | string | undefined;
+  Feedback: keyof typeof Feedback | string | undefined;
 
   /**
    * <p>Additional feedback about the GuardDuty findings.</p>
@@ -5722,7 +5722,7 @@ export interface UpdateMalwareScanSettingsRequest {
   /**
    * <p>An enum value representing possible snapshot preservation settings.</p>
    */
-  EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
+  EbsSnapshotPreservation?: keyof typeof EbsSnapshotPreservation | string;
 }
 
 /**
@@ -5738,12 +5738,12 @@ export interface MemberFeaturesConfiguration {
   /**
    * <p>The name of the feature.</p>
    */
-  Name?: OrgFeature | string;
+  Name?: keyof typeof OrgFeature | string;
 
   /**
    * <p>The status of the feature.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: keyof typeof FeatureStatus | string;
 }
 
 /**
@@ -5884,12 +5884,12 @@ export interface OrganizationFeatureConfiguration {
   /**
    * <p>The name of the feature that will be configured for the organization.</p>
    */
-  Name?: OrgFeature | string;
+  Name?: keyof typeof OrgFeature | string;
 
   /**
    * <p>The status of the feature that will be configured for the organization.</p>
    */
-  AutoEnable?: OrgFeatureStatus | string;
+  AutoEnable?: keyof typeof OrgFeatureStatus | string;
 }
 
 /**
@@ -5938,7 +5938,7 @@ export interface UpdateOrganizationConfigurationRequest {
    *             </li>
    *          </ul>
    */
-  AutoEnableOrganizationMembers?: AutoEnableMembers | string;
+  AutoEnableOrganizationMembers?: keyof typeof AutoEnableMembers | string;
 }
 
 /**

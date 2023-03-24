@@ -21,9 +21,9 @@ export interface GetDeploymentsRequest {
 /**
  * @public
  */
-export enum ChecksumType {
-  Sha1 = "SHA1",
-}
+export const ChecksumType = {
+  Sha1: "SHA1",
+};
 
 /**
  * @public
@@ -33,7 +33,7 @@ export interface Checksum {
   /**
    * <p>The type of the checksum.</p>
    */
-  Type?: ChecksumType | string;
+  Type?: keyof typeof ChecksumType | string;
 
   /**
    * <p>The checksum of the model.</p>
@@ -44,10 +44,10 @@ export interface Checksum {
 /**
  * @public
  */
-export enum ModelState {
-  Deploy = "DEPLOY",
-  Undeploy = "UNDEPLOY",
-}
+export const ModelState = {
+  Deploy: "DEPLOY",
+  Undeploy: "UNDEPLOY",
+};
 
 /**
  * @public
@@ -72,23 +72,23 @@ export interface Definition {
   /**
    * <p>The desired state of the model.</p>
    */
-  State?: ModelState | string;
+  State?: keyof typeof ModelState | string;
 }
 
 /**
  * @public
  */
-export enum FailureHandlingPolicy {
-  DoNothing = "DO_NOTHING",
-  RollbackOnFailure = "ROLLBACK_ON_FAILURE",
-}
+export const FailureHandlingPolicy = {
+  DoNothing: "DO_NOTHING",
+  RollbackOnFailure: "ROLLBACK_ON_FAILURE",
+};
 
 /**
  * @public
  */
-export enum DeploymentType {
-  Model = "Model",
-}
+export const DeploymentType = {
+  Model: "Model",
+};
 
 /**
  * @public
@@ -103,12 +103,12 @@ export interface EdgeDeployment {
   /**
    * <p>The type of the deployment.</p>
    */
-  Type?: DeploymentType | string;
+  Type?: keyof typeof DeploymentType | string;
 
   /**
    * <p>Determines whether to rollback to previous configuration if deployment fails.</p>
    */
-  FailureHandlingPolicy?: FailureHandlingPolicy | string;
+  FailureHandlingPolicy?: keyof typeof FailureHandlingPolicy | string;
 
   /**
    * <p>Returns a list of Definition objects.</p>
@@ -208,10 +208,10 @@ export interface EdgeMetric {
 /**
  * @public
  */
-export enum DeploymentStatus {
-  Fail = "FAIL",
-  Success = "SUCCESS",
-}
+export const DeploymentStatus = {
+  Fail: "FAIL",
+  Success: "SUCCESS",
+};
 
 /**
  * @public
@@ -236,17 +236,17 @@ export interface DeploymentModel {
   /**
    * <p>The desired state of the model.</p>
    */
-  DesiredState?: ModelState | string;
+  DesiredState?: keyof typeof ModelState | string;
 
   /**
    * <p>Returns the current state of the model.</p>
    */
-  State?: ModelState | string;
+  State?: keyof typeof ModelState | string;
 
   /**
    * <p>Returns the deployment status of the model.</p>
    */
-  Status?: DeploymentStatus | string;
+  Status?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>Returns the error message for the deployment status result.</p>

@@ -288,10 +288,10 @@ export interface MappingParameters {
 /**
  * @public
  */
-export enum RecordFormatType {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+export const RecordFormatType = {
+  CSV: "CSV",
+  JSON: "JSON",
+};
 
 /**
  * @public
@@ -304,7 +304,7 @@ export interface RecordFormat {
   /**
    * <p>The type of record format.</p>
    */
-  RecordFormatType: RecordFormatType | string | undefined;
+  RecordFormatType: keyof typeof RecordFormatType | string | undefined;
 
   /**
    * <p>When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.</p>
@@ -519,7 +519,7 @@ export interface DestinationSchema {
   /**
    * <p>Specifies the format of the records on the output stream.</p>
    */
-  RecordFormatType: RecordFormatType | string | undefined;
+  RecordFormatType: keyof typeof RecordFormatType | string | undefined;
 }
 
 /**
@@ -738,14 +738,14 @@ export interface AddApplicationReferenceDataSourceResponse {}
 /**
  * @public
  */
-export enum ApplicationStatus {
-  DELETING = "DELETING",
-  READY = "READY",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
-}
+export const ApplicationStatus = {
+  DELETING: "DELETING",
+  READY: "READY",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -801,11 +801,11 @@ export interface InputProcessingConfigurationDescription {
 /**
  * @public
  */
-export enum InputStartingPosition {
-  LAST_STOPPED_POINT = "LAST_STOPPED_POINT",
-  NOW = "NOW",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const InputStartingPosition = {
+  LAST_STOPPED_POINT: "LAST_STOPPED_POINT",
+  NOW: "NOW",
+  TRIM_HORIZON: "TRIM_HORIZON",
+};
 
 /**
  * @public
@@ -835,7 +835,7 @@ export interface InputStartingPositionConfiguration {
    *             </li>
    *          </ul>
    */
-  InputStartingPosition?: InputStartingPosition | string;
+  InputStartingPosition?: keyof typeof InputStartingPosition | string;
 }
 
 /**
@@ -1112,7 +1112,7 @@ export interface ApplicationDetail {
   /**
    * <p>Status of the application.</p>
    */
-  ApplicationStatus: ApplicationStatus | string | undefined;
+  ApplicationStatus: keyof typeof ApplicationStatus | string | undefined;
 
   /**
    * <p>Time stamp when the application version was created.</p>
@@ -1192,7 +1192,7 @@ export interface ApplicationSummary {
   /**
    * <p>Status of the application.</p>
    */
-  ApplicationStatus: ApplicationStatus | string | undefined;
+  ApplicationStatus: keyof typeof ApplicationStatus | string | undefined;
 }
 
 /**

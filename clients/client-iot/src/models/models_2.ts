@@ -350,10 +350,10 @@ export interface ListThingPrincipalsResponse {
 /**
  * @public
  */
-export enum ReportType {
-  ERRORS = "ERRORS",
-  RESULTS = "RESULTS",
-}
+export const ReportType = {
+  ERRORS: "ERRORS",
+  RESULTS: "RESULTS",
+};
 
 /**
  * @public
@@ -367,7 +367,7 @@ export interface ListThingRegistrationTaskReportsRequest {
   /**
    * <p>The type of task report.</p>
    */
-  reportType: ReportType | string | undefined;
+  reportType: keyof typeof ReportType | string | undefined;
 
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
@@ -394,7 +394,7 @@ export interface ListThingRegistrationTaskReportsResponse {
   /**
    * <p>The type of task report.</p>
    */
-  reportType?: ReportType | string;
+  reportType?: keyof typeof ReportType | string;
 
   /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -421,7 +421,7 @@ export interface ListThingRegistrationTasksRequest {
   /**
    * <p>The status of the bulk thing provisioning task.</p>
    */
-  status?: Status | string;
+  status?: keyof typeof Status | string;
 }
 
 /**
@@ -775,7 +775,7 @@ export interface TopicRuleDestinationSummary {
    *             </dd>
    *          </dl>
    */
-  status?: TopicRuleDestinationStatus | string;
+  status?: keyof typeof TopicRuleDestinationStatus | string;
 
   /**
    * <p>The date and time when the topic rule destination was created.</p>
@@ -901,7 +901,7 @@ export interface ListV2LoggingLevelsRequest {
    * <p>The type of resource for which you are configuring logging. Must be
    *             <code>THING_Group</code>.</p>
    */
-  targetType?: LogTargetType | string;
+  targetType?: keyof typeof LogTargetType | string;
 
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
@@ -924,7 +924,7 @@ export interface LogTarget {
   /**
    * <p>The target type.</p>
    */
-  targetType: LogTargetType | string | undefined;
+  targetType: keyof typeof LogTargetType | string | undefined;
 
   /**
    * <p>The target name.</p>
@@ -945,7 +945,7 @@ export interface LogTargetConfiguration {
   /**
    * <p>The logging level.</p>
    */
-  logLevel?: LogLevel | string;
+  logLevel?: keyof typeof LogLevel | string;
 }
 
 /**
@@ -992,7 +992,7 @@ export interface ListViolationEventsRequest {
    *       The criteria for a behavior.
    *     </p>
    */
-  behaviorCriteriaType?: BehaviorCriteriaType | string;
+  behaviorCriteriaType?: keyof typeof BehaviorCriteriaType | string;
 
   /**
    * <p>
@@ -1004,7 +1004,7 @@ export interface ListViolationEventsRequest {
   /**
    * <p>The verification state of the violation (detect alarm).</p>
    */
-  verificationState?: VerificationState | string;
+  verificationState?: keyof typeof VerificationState | string;
 
   /**
    * <p>The token for the next set of results.</p>
@@ -1020,11 +1020,11 @@ export interface ListViolationEventsRequest {
 /**
  * @public
  */
-export enum ViolationEventType {
-  ALARM_CLEARED = "alarm-cleared",
-  ALARM_INVALIDATED = "alarm-invalidated",
-  IN_ALARM = "in-alarm",
-}
+export const ViolationEventType = {
+  ALARM_CLEARED: "alarm-cleared",
+  ALARM_INVALIDATED: "alarm-invalidated",
+  IN_ALARM: "in-alarm",
+};
 
 /**
  * @public
@@ -1066,12 +1066,12 @@ export interface ViolationEvent {
   /**
    * <p>The type of violation event.</p>
    */
-  violationEventType?: ViolationEventType | string;
+  violationEventType?: keyof typeof ViolationEventType | string;
 
   /**
    * <p>The verification state of the violation (detect alarm).</p>
    */
-  verificationState?: VerificationState | string;
+  verificationState?: keyof typeof VerificationState | string;
 
   /**
    * <p>The description of the verification state of the violation.</p>
@@ -1113,7 +1113,7 @@ export interface PutVerificationStateOnViolationRequest {
   /**
    * <p>The verification state of the violation.</p>
    */
-  verificationState: VerificationState | string | undefined;
+  verificationState: keyof typeof VerificationState | string | undefined;
 
   /**
    * <p>The description of the verification state of the violation (detect alarm).</p>
@@ -1185,7 +1185,7 @@ export interface RegisterCACertificateRequest {
    *             certificate mode</a>.
    *       </p>
    */
-  certificateMode?: CertificateMode | string;
+  certificateMode?: keyof typeof CertificateMode | string;
 }
 
 /**
@@ -1274,7 +1274,7 @@ export interface RegisterCertificateRequest {
    * <p>The status of the register certificate request. Valid values that you can use include
    *          <code>ACTIVE</code>, <code>INACTIVE</code>, and <code>REVOKED</code>.</p>
    */
-  status?: CertificateStatus | string;
+  status?: keyof typeof CertificateStatus | string;
 }
 
 /**
@@ -1305,7 +1305,7 @@ export interface RegisterCertificateWithoutCARequest {
   /**
    * <p>The status of the register certificate request.</p>
    */
-  status?: CertificateStatus | string;
+  status?: keyof typeof CertificateStatus | string;
 }
 
 /**
@@ -1677,7 +1677,7 @@ export interface LoggingOptionsPayload {
   /**
    * <p>The log level.</p>
    */
-  logLevel?: LogLevel | string;
+  logLevel?: keyof typeof LogLevel | string;
 }
 
 /**
@@ -1703,7 +1703,7 @@ export interface SetV2LoggingLevelRequest {
   /**
    * <p>The log level.</p>
    */
-  logLevel: LogLevel | string | undefined;
+  logLevel: keyof typeof LogLevel | string | undefined;
 }
 
 /**
@@ -1718,7 +1718,7 @@ export interface SetV2LoggingOptionsRequest {
   /**
    * <p>The default logging level.</p>
    */
-  defaultLogLevel?: LogLevel | string;
+  defaultLogLevel?: keyof typeof LogLevel | string;
 
   /**
    * <p>If true all logs are disabled. The default is false.</p>
@@ -2318,7 +2318,7 @@ export interface UpdateAuthorizerRequest {
   /**
    * <p>The status of the update authorizer request.</p>
    */
-  status?: AuthorizerStatus | string;
+  status?: keyof typeof AuthorizerStatus | string;
 
   /**
    * <p>When <code>true</code>, the result from the authorizer’s Lambda function is
@@ -2392,13 +2392,13 @@ export interface UpdateCACertificateRequest {
    *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
    *          should not be used.</p>
    */
-  newStatus?: CACertificateStatus | string;
+  newStatus?: keyof typeof CACertificateStatus | string;
 
   /**
    * <p>The new value for the auto registration status. Valid values are: "ENABLE" or
    *          "DISABLE".</p>
    */
-  newAutoRegistrationStatus?: AutoRegistrationStatus | string;
+  newAutoRegistrationStatus?: keyof typeof AutoRegistrationStatus | string;
 
   /**
    * <p>Information about the registration configuration.</p>
@@ -2432,7 +2432,7 @@ export interface UpdateCertificateRequest {
    *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
    *          should not be used.</p>
    */
-  newStatus: CertificateStatus | string | undefined;
+  newStatus: keyof typeof CertificateStatus | string | undefined;
 }
 
 /**
@@ -2482,7 +2482,7 @@ export interface UpdateCustomMetricResponse {
    *             <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p>
    *          </important>
    */
-  metricType?: CustomMetricType | string;
+  metricType?: keyof typeof CustomMetricType | string;
 
   /**
    * <p>
@@ -2540,7 +2540,7 @@ export interface UpdateDimensionResponse {
   /**
    * <p>The type of the dimension.</p>
    */
-  type?: DimensionType | string;
+  type?: keyof typeof DimensionType | string;
 
   /**
    * <p>The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.</p>
@@ -2575,7 +2575,7 @@ export interface UpdateDomainConfigurationRequest {
   /**
    * <p>The status to which the domain configuration should be updated.</p>
    */
-  domainConfigurationStatus?: DomainConfigurationStatus | string;
+  domainConfigurationStatus?: keyof typeof DomainConfigurationStatus | string;
 
   /**
    * <p>Removes the authorization configuration from a domain.</p>
@@ -2713,7 +2713,7 @@ export interface UpdateFleetMetricRequest {
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
    *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
    */
-  unit?: FleetMetricUnit | string;
+  unit?: keyof typeof FleetMetricUnit | string;
 
   /**
    * <p>The expected version of the fleet metric record in the registry.</p>
@@ -2929,7 +2929,7 @@ export interface UpdateScheduledAuditRequest {
    *       <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the
    *       system.</p>
    */
-  frequency?: AuditFrequency | string;
+  frequency?: keyof typeof AuditFrequency | string;
 
   /**
    * <p>The day of the month on which the scheduled audit takes place.
@@ -2948,7 +2948,7 @@ export interface UpdateScheduledAuditRequest {
    *       be one of <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>. This field is required if the
    *             "frequency" parameter is set to <code>WEEKLY</code> or <code>BIWEEKLY</code>.</p>
    */
-  dayOfWeek?: DayOfWeek | string;
+  dayOfWeek?: keyof typeof DayOfWeek | string;
 
   /**
    * <p>Which checks are performed during the scheduled audit. Checks must be enabled
@@ -3317,7 +3317,7 @@ export interface UpdateTopicRuleDestinationRequest {
    *             </dd>
    *          </dl>
    */
-  status: TopicRuleDestinationStatus | string | undefined;
+  status: keyof typeof TopicRuleDestinationStatus | string | undefined;
 }
 
 /**

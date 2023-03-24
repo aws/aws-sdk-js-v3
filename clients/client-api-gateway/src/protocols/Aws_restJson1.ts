@@ -11657,7 +11657,10 @@ const serializeAws_restJson1ListOfARNs = (input: string[], context: __SerdeConte
     });
 };
 
-const serializeAws_restJson1ListOfEndpointType = (input: (EndpointType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1ListOfEndpointType = (
+  input: (keyof typeof EndpointType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -12148,7 +12151,7 @@ const deserializeAws_restJson1ListOfDomainName = (output: any, context: __SerdeC
 const deserializeAws_restJson1ListOfEndpointType = (
   output: any,
   context: __SerdeContext
-): (EndpointType | string)[] => {
+): (keyof typeof EndpointType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -6,11 +6,11 @@ import { ServiceCatalogServiceException as __BaseException } from "./ServiceCata
 /**
  * @public
  */
-export enum PortfolioShareType {
-  AWS_ORGANIZATIONS = "AWS_ORGANIZATIONS",
-  AWS_SERVICECATALOG = "AWS_SERVICECATALOG",
-  IMPORTED = "IMPORTED",
-}
+export const PortfolioShareType = {
+  AWS_ORGANIZATIONS: "AWS_ORGANIZATIONS",
+  AWS_SERVICECATALOG: "AWS_SERVICECATALOG",
+  IMPORTED: "IMPORTED",
+};
 
 /**
  * @public
@@ -60,7 +60,7 @@ export interface AcceptPortfolioShareInput {
    *          <p>For example, <code>aws servicecatalog accept-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS</code>
    *          </p>
    */
-  PortfolioShareType?: PortfolioShareType | string;
+  PortfolioShareType?: keyof typeof PortfolioShareType | string;
 }
 
 /**
@@ -138,11 +138,11 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum AccessLevelFilterKey {
-  ACCOUNT = "Account",
-  ROLE = "Role",
-  USER = "User",
-}
+export const AccessLevelFilterKey = {
+  ACCOUNT: "Account",
+  ROLE: "Role",
+  USER: "User",
+};
 
 /**
  * @public
@@ -166,7 +166,7 @@ export interface AccessLevelFilter {
    *             </li>
    *          </ul>
    */
-  Key?: AccessLevelFilterKey | string;
+  Key?: keyof typeof AccessLevelFilterKey | string;
 
   /**
    * <p>The user to which the access level applies. The only supported value is <code>Self</code>.</p>
@@ -177,11 +177,11 @@ export interface AccessLevelFilter {
 /**
  * @public
  */
-export enum AccessStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  UNDER_CHANGE = "UNDER_CHANGE",
-}
+export const AccessStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  UNDER_CHANGE: "UNDER_CHANGE",
+};
 
 /**
  * @public
@@ -245,10 +245,10 @@ export class DuplicateResourceException extends __BaseException {
 /**
  * @public
  */
-export enum PrincipalType {
-  IAM = "IAM",
-  IAM_PATTERN = "IAM_PATTERN",
-}
+export const PrincipalType = {
+  IAM: "IAM",
+  IAM_PATTERN: "IAM_PATTERN",
+};
 
 /**
  * @public
@@ -291,7 +291,7 @@ export interface AssociatePrincipalWithPortfolioInput {
    * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN,
    *          or <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>. </p>
    */
-  PrincipalType: PrincipalType | string | undefined;
+  PrincipalType: keyof typeof PrincipalType | string | undefined;
 }
 
 /**
@@ -507,13 +507,13 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
 /**
  * @public
  */
-export enum ServiceActionAssociationErrorCode {
-  DuplicateResourceException = "DUPLICATE_RESOURCE",
-  InternalFailure = "INTERNAL_FAILURE",
-  LimitExceededException = "LIMIT_EXCEEDED",
-  ResourceNotFoundException = "RESOURCE_NOT_FOUND",
-  ThrottlingException = "THROTTLING",
-}
+export const ServiceActionAssociationErrorCode = {
+  DuplicateResourceException: "DUPLICATE_RESOURCE",
+  InternalFailure: "INTERNAL_FAILURE",
+  LimitExceededException: "LIMIT_EXCEEDED",
+  ResourceNotFoundException: "RESOURCE_NOT_FOUND",
+  ThrottlingException: "THROTTLING",
+};
 
 /**
  * @public
@@ -538,7 +538,7 @@ export interface FailedServiceActionAssociation {
   /**
    * <p>The error code. Valid values are listed below.</p>
    */
-  ErrorCode?: ServiceActionAssociationErrorCode | string;
+  ErrorCode?: keyof typeof ServiceActionAssociationErrorCode | string;
 
   /**
    * <p>A text description of the error.</p>
@@ -598,16 +598,16 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
 /**
  * @public
  */
-export enum CopyOption {
-  CopyTags = "CopyTags",
-}
+export const CopyOption = {
+  CopyTags: "CopyTags",
+};
 
 /**
  * @public
  */
-export enum ProvisioningArtifactPropertyName {
-  Id = "Id",
-}
+export const ProvisioningArtifactPropertyName = {
+  Id: "Id",
+};
 
 /**
  * @public
@@ -657,7 +657,7 @@ export interface CopyProductInput {
    * <p>The copy options. If the value is <code>CopyTags</code>, the tags from the source
    *          product are copied to the target product.</p>
    */
-  CopyOptions?: (CopyOption | string)[];
+  CopyOptions?: (keyof typeof CopyOption | string)[];
 
   /**
    * <p> A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
@@ -868,11 +868,11 @@ export interface ConstraintDetail {
 /**
  * @public
  */
-export enum Status {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-}
+export const Status = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
@@ -891,7 +891,7 @@ export interface CreateConstraintOutput {
   /**
    * <p>The status of the current request.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -998,11 +998,11 @@ export interface CreatePortfolioOutput {
 /**
  * @public
  */
-export enum OrganizationNodeType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATION = "ORGANIZATION",
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
-}
+export const OrganizationNodeType = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATION: "ORGANIZATION",
+  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+};
 
 /**
  * @public
@@ -1012,7 +1012,7 @@ export interface OrganizationNode {
   /**
    * <p>The organization node type.</p>
    */
-  Type?: OrganizationNodeType | string;
+  Type?: keyof typeof OrganizationNodeType | string;
 
   /**
    * <p>The identifier of the organization node.</p>
@@ -1113,19 +1113,19 @@ export class OperationNotSupportedException extends __BaseException {
 /**
  * @public
  */
-export enum ProductType {
-  CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
-  MARKETPLACE = "MARKETPLACE",
-}
+export const ProductType = {
+  CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  MARKETPLACE: "MARKETPLACE",
+};
 
 /**
  * @public
  */
-export enum ProvisioningArtifactType {
-  CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
-  MARKETPLACE_AMI = "MARKETPLACE_AMI",
-  MARKETPLACE_CAR = "MARKETPLACE_CAR",
-}
+export const ProvisioningArtifactType = {
+  CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  MARKETPLACE_AMI: "MARKETPLACE_AMI",
+  MARKETPLACE_CAR: "MARKETPLACE_CAR",
+};
 
 /**
  * @public
@@ -1175,7 +1175,7 @@ export interface ProvisioningArtifactProperties {
    *             </li>
    *          </ul>
    */
-  Type?: ProvisioningArtifactType | string;
+  Type?: keyof typeof ProvisioningArtifactType | string;
 
   /**
    * <p>If set to true, Service Catalog stops validating the specified provisioning artifact even if it is invalid.</p>
@@ -1225,9 +1225,9 @@ export interface SourceConnectionParameters {
 /**
  * @public
  */
-export enum SourceType {
-  CODESTAR = "CODESTAR",
-}
+export const SourceType = {
+  CODESTAR: "CODESTAR",
+};
 
 /**
  * @public
@@ -1241,7 +1241,7 @@ export interface SourceConnection {
   /**
    * <p>The only supported <code>SourceConnection</code> type is Codestar. </p>
    */
-  Type?: SourceType | string;
+  Type?: keyof typeof SourceType | string;
 
   /**
    * <p>The connection details based on the connection <code>Type</code>. </p>
@@ -1312,7 +1312,7 @@ export interface CreateProductInput {
   /**
    * <p>The type of product.</p>
    */
-  ProductType: ProductType | string | undefined;
+  ProductType: keyof typeof ProductType | string | undefined;
 
   /**
    * <p>One or more tags.</p>
@@ -1385,7 +1385,7 @@ export interface ProductViewSummary {
    * <p>The product type. Contact the product administrator for the significance of this
    *          value. If this value is <code>MARKETPLACE</code>, the product was created by Amazon Web Services Marketplace.</p>
    */
-  Type?: ProductType | string;
+  Type?: keyof typeof ProductType | string;
 
   /**
    * <p>The distributor of the product. Contact the product administrator for the
@@ -1421,10 +1421,10 @@ export interface ProductViewSummary {
 /**
  * @public
  */
-export enum LastSyncStatus {
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const LastSyncStatus = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1466,7 +1466,7 @@ export interface LastSync {
   /**
    * <p>The current status of the sync. Responses include <code>SUCCEEDED</code> or <code>FAILED</code>. </p>
    */
-  LastSyncStatus?: LastSyncStatus | string;
+  LastSyncStatus?: keyof typeof LastSyncStatus | string;
 
   /**
    * <p>The sync's status message. </p>
@@ -1492,7 +1492,7 @@ export interface SourceConnectionDetail {
   /**
    * <p>The only supported <code>SourceConnection</code> type is Codestar.</p>
    */
-  Type?: SourceType | string;
+  Type?: keyof typeof SourceType | string;
 
   /**
    * <p>The connection details based on the connection <code>Type</code>.</p>
@@ -1559,7 +1559,7 @@ export interface ProductViewDetail {
    *             </li>
    *          </ul>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>The ARN of the product.</p>
@@ -1584,10 +1584,10 @@ export interface ProductViewDetail {
 /**
  * @public
  */
-export enum ProvisioningArtifactGuidance {
-  DEFAULT = "DEFAULT",
-  DEPRECATED = "DEPRECATED",
-}
+export const ProvisioningArtifactGuidance = {
+  DEFAULT: "DEFAULT",
+  DEPRECATED: "DEPRECATED",
+};
 
 /**
  * @public
@@ -1626,7 +1626,7 @@ export interface ProvisioningArtifactDetail {
    *             </li>
    *          </ul>
    */
-  Type?: ProvisioningArtifactType | string;
+  Type?: keyof typeof ProvisioningArtifactType | string;
 
   /**
    * <p>The UTC time stamp of the creation time.</p>
@@ -1641,7 +1641,7 @@ export interface ProvisioningArtifactDetail {
   /**
    * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
    */
-  Guidance?: ProvisioningArtifactGuidance | string;
+  Guidance?: keyof typeof ProvisioningArtifactGuidance | string;
 
   /**
    * <p>Specifies the revision of the external artifact that was used to automatically sync the Service Catalog product
@@ -1678,9 +1678,9 @@ export interface CreateProductOutput {
 /**
  * @public
  */
-export enum ProvisionedProductPlanType {
-  CLOUDFORMATION = "CLOUDFORMATION",
-}
+export const ProvisionedProductPlanType = {
+  CLOUDFORMATION: "CLOUDFORMATION",
+};
 
 /**
  * @public
@@ -1734,7 +1734,7 @@ export interface CreateProvisionedProductPlanInput {
   /**
    * <p>The plan type.</p>
    */
-  PlanType: ProvisionedProductPlanType | string | undefined;
+  PlanType: keyof typeof ProvisionedProductPlanType | string | undefined;
 
   /**
    * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
@@ -1881,25 +1881,25 @@ export interface CreateProvisioningArtifactOutput {
   /**
    * <p>The status of the current request.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
  * @public
  */
-export enum ServiceActionDefinitionKey {
-  AssumeRole = "AssumeRole",
-  Name = "Name",
-  Parameters = "Parameters",
-  Version = "Version",
-}
+export const ServiceActionDefinitionKey = {
+  AssumeRole: "AssumeRole",
+  Name: "Name",
+  Parameters: "Parameters",
+  Version: "Version",
+};
 
 /**
  * @public
  */
-export enum ServiceActionDefinitionType {
-  SsmAutomation = "SSM_AUTOMATION",
-}
+export const ServiceActionDefinitionType = {
+  SsmAutomation: "SSM_AUTOMATION",
+};
 
 /**
  * @public
@@ -1913,7 +1913,7 @@ export interface CreateServiceActionInput {
   /**
    * <p>The service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
    */
-  DefinitionType: ServiceActionDefinitionType | string | undefined;
+  DefinitionType: keyof typeof ServiceActionDefinitionType | string | undefined;
 
   /**
    * <p>The self-service action definition. Can be one of the following:</p>
@@ -1996,7 +1996,7 @@ export interface ServiceActionSummary {
   /**
    * <p>The self-service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
    */
-  DefinitionType?: ServiceActionDefinitionType | string;
+  DefinitionType?: keyof typeof ServiceActionDefinitionType | string;
 }
 
 /**
@@ -2428,7 +2428,7 @@ export interface DescribeConstraintOutput {
   /**
    * <p>The status of the current request.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -2463,11 +2463,11 @@ export interface DescribeCopyProductStatusInput {
 /**
  * @public
  */
-export enum CopyProductStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const CopyProductStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2476,7 +2476,7 @@ export interface DescribeCopyProductStatusOutput {
   /**
    * <p>The status of the copy product operation.</p>
    */
-  CopyProductStatus?: CopyProductStatus | string;
+  CopyProductStatus?: keyof typeof CopyProductStatus | string;
 
   /**
    * <p>The identifier of the copied product.</p>
@@ -2557,12 +2557,12 @@ export interface DescribePortfolioOutput {
 /**
  * @public
  */
-export enum DescribePortfolioShareType {
-  ACCOUNT = "ACCOUNT",
-  ORGANIZATION = "ORGANIZATION",
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
-  ORGANIZATION_MEMBER_ACCOUNT = "ORGANIZATION_MEMBER_ACCOUNT",
-}
+export const DescribePortfolioShareType = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATION: "ORGANIZATION",
+  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+  ORGANIZATION_MEMBER_ACCOUNT: "ORGANIZATION_MEMBER_ACCOUNT",
+};
 
 /**
  * @public
@@ -2580,7 +2580,7 @@ export interface DescribePortfolioSharesInput {
    *          <p>3. <code>ORGANIZATIONAL_UNIT</code> - Represents a share to an organizational unit.</p>
    *          <p>4. <code>ORGANIZATION_MEMBER_ACCOUNT</code> - Represents a share to an account in the organization.</p>
    */
-  Type: DescribePortfolioShareType | string | undefined;
+  Type: keyof typeof DescribePortfolioShareType | string | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
@@ -2611,7 +2611,7 @@ export interface PortfolioShareDetail {
   /**
    * <p>The type of the portfolio share.</p>
    */
-  Type?: DescribePortfolioShareType | string;
+  Type?: keyof typeof DescribePortfolioShareType | string;
 
   /**
    * <p>Indicates whether the shared portfolio is imported by the recipient account. If the recipient is in an organization node, the share is automatically imported, and the field is always set to true.</p>
@@ -2694,13 +2694,13 @@ export interface ShareDetails {
 /**
  * @public
  */
-export enum ShareStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ShareStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+};
 
 /**
  * @public
@@ -2724,7 +2724,7 @@ export interface DescribePortfolioShareStatusOutput {
   /**
    * <p>Status of the portfolio share operation.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: keyof typeof ShareStatus | string;
 
   /**
    * <p>Information about the portfolio share operation.</p>
@@ -2810,7 +2810,7 @@ export interface ProvisioningArtifact {
   /**
    * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
    */
-  Guidance?: ProvisioningArtifactGuidance | string;
+  Guidance?: keyof typeof ProvisioningArtifactGuidance | string;
 }
 
 /**
@@ -3047,13 +3047,13 @@ export interface CloudWatchDashboard {
 /**
  * @public
  */
-export enum ProvisionedProductStatus {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PLAN_IN_PROGRESS = "PLAN_IN_PROGRESS",
-  TAINTED = "TAINTED",
-  UNDER_CHANGE = "UNDER_CHANGE",
-}
+export const ProvisionedProductStatus = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  PLAN_IN_PROGRESS: "PLAN_IN_PROGRESS",
+  TAINTED: "TAINTED",
+  UNDER_CHANGE: "UNDER_CHANGE",
+};
 
 /**
  * @public
@@ -3111,7 +3111,7 @@ export interface ProvisionedProductDetail {
    *             </li>
    *          </ul>
    */
-  Status?: ProvisionedProductStatus | string;
+  Status?: keyof typeof ProvisionedProductStatus | string;
 
   /**
    * <p>The current status message of the provisioned product.</p>
@@ -3261,14 +3261,14 @@ export interface DescribeProvisionedProductPlanInput {
 /**
  * @public
  */
-export enum ProvisionedProductPlanStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_SUCCESS = "CREATE_SUCCESS",
-  EXECUTE_FAILED = "EXECUTE_FAILED",
-  EXECUTE_IN_PROGRESS = "EXECUTE_IN_PROGRESS",
-  EXECUTE_SUCCESS = "EXECUTE_SUCCESS",
-}
+export const ProvisionedProductPlanStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_SUCCESS: "CREATE_SUCCESS",
+  EXECUTE_FAILED: "EXECUTE_FAILED",
+  EXECUTE_IN_PROGRESS: "EXECUTE_IN_PROGRESS",
+  EXECUTE_SUCCESS: "EXECUTE_SUCCESS",
+};
 
 /**
  * @public
@@ -3315,7 +3315,7 @@ export interface ProvisionedProductPlanDetails {
   /**
    * <p>The plan type.</p>
    */
-  PlanType?: ProvisionedProductPlanType | string;
+  PlanType?: keyof typeof ProvisionedProductPlanType | string;
 
   /**
    * <p>The identifier of the provisioning artifact.</p>
@@ -3325,7 +3325,7 @@ export interface ProvisionedProductPlanDetails {
   /**
    * <p>The status.</p>
    */
-  Status?: ProvisionedProductPlanStatus | string;
+  Status?: keyof typeof ProvisionedProductPlanStatus | string;
 
   /**
    * <p>The UTC time stamp when the plan was last updated.</p>
@@ -3358,40 +3358,40 @@ export interface ProvisionedProductPlanDetails {
 /**
  * @public
  */
-export enum ChangeAction {
-  ADD = "ADD",
-  MODIFY = "MODIFY",
-  REMOVE = "REMOVE",
-}
+export const ChangeAction = {
+  ADD: "ADD",
+  MODIFY: "MODIFY",
+  REMOVE: "REMOVE",
+};
 
 /**
  * @public
  */
-export enum EvaluationType {
-  DYNAMIC = "DYNAMIC",
-  STATIC = "STATIC",
-}
+export const EvaluationType = {
+  DYNAMIC: "DYNAMIC",
+  STATIC: "STATIC",
+};
 
 /**
  * @public
  */
-export enum ResourceAttribute {
-  CREATIONPOLICY = "CREATIONPOLICY",
-  DELETIONPOLICY = "DELETIONPOLICY",
-  METADATA = "METADATA",
-  PROPERTIES = "PROPERTIES",
-  TAGS = "TAGS",
-  UPDATEPOLICY = "UPDATEPOLICY",
-}
+export const ResourceAttribute = {
+  CREATIONPOLICY: "CREATIONPOLICY",
+  DELETIONPOLICY: "DELETIONPOLICY",
+  METADATA: "METADATA",
+  PROPERTIES: "PROPERTIES",
+  TAGS: "TAGS",
+  UPDATEPOLICY: "UPDATEPOLICY",
+};
 
 /**
  * @public
  */
-export enum RequiresRecreation {
-  ALWAYS = "ALWAYS",
-  CONDITIONALLY = "CONDITIONALLY",
-  NEVER = "NEVER",
-}
+export const RequiresRecreation = {
+  ALWAYS: "ALWAYS",
+  CONDITIONALLY: "CONDITIONALLY",
+  NEVER: "NEVER",
+};
 
 /**
  * @public
@@ -3401,7 +3401,7 @@ export interface ResourceTargetDefinition {
   /**
    * <p>The attribute to be changed.</p>
    */
-  Attribute?: ResourceAttribute | string;
+  Attribute?: keyof typeof ResourceAttribute | string;
 
   /**
    * <p>If the attribute is <code>Properties</code>, the value is the name of the property.
@@ -3413,7 +3413,7 @@ export interface ResourceTargetDefinition {
    * <p>If the attribute is <code>Properties</code>, indicates whether a change to this property
    *          causes the resource to be re-created.</p>
    */
-  RequiresRecreation?: RequiresRecreation | string;
+  RequiresRecreation?: keyof typeof RequiresRecreation | string;
 }
 
 /**
@@ -3430,7 +3430,7 @@ export interface ResourceChangeDetail {
    * <p>For static evaluations, the value of the resource attribute will change and the new value is known.
    *          For dynamic evaluations, the value might change, and any new value will be determined when the plan is updated.</p>
    */
-  Evaluation?: EvaluationType | string;
+  Evaluation?: keyof typeof EvaluationType | string;
 
   /**
    * <p>The ID of the entity that caused the change.</p>
@@ -3441,11 +3441,11 @@ export interface ResourceChangeDetail {
 /**
  * @public
  */
-export enum Replacement {
-  CONDITIONAL = "CONDITIONAL",
-  FALSE = "FALSE",
-  TRUE = "TRUE",
-}
+export const Replacement = {
+  CONDITIONAL: "CONDITIONAL",
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+};
 
 /**
  * @public
@@ -3455,7 +3455,7 @@ export interface ResourceChange {
   /**
    * <p>The change action.</p>
    */
-  Action?: ChangeAction | string;
+  Action?: keyof typeof ChangeAction | string;
 
   /**
    * <p>The ID of the resource, as defined in the CloudFormation template.</p>
@@ -3476,12 +3476,12 @@ export interface ResourceChange {
    * <p>If the change type is <code>Modify</code>, indicates whether the existing resource
    *          is deleted and replaced with a new one.</p>
    */
-  Replacement?: Replacement | string;
+  Replacement?: keyof typeof Replacement | string;
 
   /**
    * <p>The change scope.</p>
    */
-  Scope?: (ResourceAttribute | string)[];
+  Scope?: (keyof typeof ResourceAttribute | string)[];
 
   /**
    * <p>Information about the resource changes.</p>
@@ -3575,7 +3575,7 @@ export interface DescribeProvisioningArtifactOutput {
   /**
    * <p>The status of the current request.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -3940,13 +3940,13 @@ export interface RecordTag {
 /**
  * @public
  */
-export enum RecordStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  IN_PROGRESS_IN_ERROR = "IN_PROGRESS_IN_ERROR",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const RecordStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  IN_PROGRESS_IN_ERROR: "IN_PROGRESS_IN_ERROR",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -3990,7 +3990,7 @@ export interface RecordDetail {
    *             </li>
    *          </ul>
    */
-  Status?: RecordStatus | string;
+  Status?: keyof typeof RecordStatus | string;
 
   /**
    * <p>The UTC time stamp of the creation time.</p>
@@ -4300,7 +4300,7 @@ export interface DisassociatePrincipalFromPortfolioInput {
    * <p>The supported value is <code>IAM</code> if you use a fully defined ARN, or <code>IAM_PATTERN</code>
    *          if you use no <code>accountID</code>. </p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: keyof typeof PrincipalType | string;
 }
 
 /**
@@ -4534,7 +4534,7 @@ export interface GetAWSOrganizationsAccessStatusOutput {
   /**
    * <p>The status of the portfolio share feature.</p>
    */
-  AccessStatus?: AccessStatus | string;
+  AccessStatus?: keyof typeof AccessStatus | string;
 }
 
 /**
@@ -4714,7 +4714,7 @@ export interface ListAcceptedPortfolioSharesInput {
    *             </li>
    *          </ul>
    */
-  PortfolioShareType?: PortfolioShareType | string;
+  PortfolioShareType?: keyof typeof PortfolioShareType | string;
 }
 
 /**
@@ -4970,7 +4970,7 @@ export interface ListOrganizationPortfolioAccessInput {
    *             </li>
    *          </ul>
    */
-  OrganizationNodeType: OrganizationNodeType | string | undefined;
+  OrganizationNodeType: keyof typeof OrganizationNodeType | string | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
@@ -5214,7 +5214,7 @@ export interface Principal {
    * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN, or
    *       <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>. </p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: keyof typeof PrincipalType | string;
 }
 
 /**
@@ -5304,7 +5304,7 @@ export interface ProvisionedProductPlanSummary {
   /**
    * <p>The plan type.</p>
    */
-  PlanType?: ProvisionedProductPlanType | string;
+  PlanType?: keyof typeof ProvisionedProductPlanType | string;
 
   /**
    * <p>The identifier of the provisioning artifact.</p>
@@ -5759,11 +5759,11 @@ export interface ListStackInstancesForProvisionedProductInput {
 /**
  * @public
  */
-export enum StackInstanceStatus {
-  CURRENT = "CURRENT",
-  INOPERABLE = "INOPERABLE",
-  OUTDATED = "OUTDATED",
-}
+export const StackInstanceStatus = {
+  CURRENT: "CURRENT",
+  INOPERABLE: "INOPERABLE",
+  OUTDATED: "OUTDATED",
+};
 
 /**
  * @public
@@ -5799,7 +5799,7 @@ export interface StackInstance {
    *             </li>
    *          </ul>
    */
-  StackInstanceStatus?: StackInstanceStatus | string;
+  StackInstanceStatus?: keyof typeof StackInstanceStatus | string;
 }
 
 /**
@@ -6100,7 +6100,7 @@ export interface RejectPortfolioShareInput {
    *          <p>For example, <code>aws servicecatalog reject-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS</code>
    *          </p>
    */
-  PortfolioShareType?: PortfolioShareType | string;
+  PortfolioShareType?: keyof typeof PortfolioShareType | string;
 }
 
 /**
@@ -6165,29 +6165,29 @@ export interface ScanProvisionedProductsOutput {
 /**
  * @public
  */
-export enum ProductViewFilterBy {
-  FullTextSearch = "FullTextSearch",
-  Owner = "Owner",
-  ProductType = "ProductType",
-  SourceProductId = "SourceProductId",
-}
+export const ProductViewFilterBy = {
+  FullTextSearch: "FullTextSearch",
+  Owner: "Owner",
+  ProductType: "ProductType",
+  SourceProductId: "SourceProductId",
+};
 
 /**
  * @public
  */
-export enum ProductViewSortBy {
-  CreationDate = "CreationDate",
-  Title = "Title",
-  VersionCount = "VersionCount",
-}
+export const ProductViewSortBy = {
+  CreationDate: "CreationDate",
+  Title: "Title",
+  VersionCount: "VersionCount",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -6226,12 +6226,12 @@ export interface SearchProductsInput {
   /**
    * <p>The sort field. If no value is specified, the results are not sorted.</p>
    */
-  SortBy?: ProductViewSortBy | string;
+  SortBy?: keyof typeof ProductViewSortBy | string;
 
   /**
    * <p>The sort order. If no value is specified, the results are not sorted.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
@@ -6279,9 +6279,9 @@ export interface SearchProductsOutput {
 /**
  * @public
  */
-export enum ProductSource {
-  ACCOUNT = "ACCOUNT",
-}
+export const ProductSource = {
+  ACCOUNT: "ACCOUNT",
+};
 
 /**
  * @public
@@ -6320,12 +6320,12 @@ export interface SearchProductsAsAdminInput {
   /**
    * <p>The sort field. If no value is specified, the results are not sorted.</p>
    */
-  SortBy?: ProductViewSortBy | string;
+  SortBy?: keyof typeof ProductViewSortBy | string;
 
   /**
    * <p>The sort order. If no value is specified, the results are not sorted.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
@@ -6340,7 +6340,7 @@ export interface SearchProductsAsAdminInput {
   /**
    * <p>Access level of the source of the product.</p>
    */
-  ProductSource?: ProductSource | string;
+  ProductSource?: keyof typeof ProductSource | string;
 }
 
 /**
@@ -6361,9 +6361,9 @@ export interface SearchProductsAsAdminOutput {
 /**
  * @public
  */
-export enum ProvisionedProductViewFilterBy {
-  SearchQuery = "SearchQuery",
-}
+export const ProvisionedProductViewFilterBy = {
+  SearchQuery: "SearchQuery",
+};
 
 /**
  * @public
@@ -6415,7 +6415,7 @@ export interface SearchProvisionedProductsInput {
   /**
    * <p>The sort order. If no value is specified, the results are not sorted.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
@@ -6484,7 +6484,7 @@ export interface ProvisionedProductAttribute {
    *             </li>
    *          </ul>
    */
-  Status?: ProvisionedProductStatus | string;
+  Status?: keyof typeof ProvisionedProductStatus | string;
 
   /**
    * <p>The current status message of the provisioned product.</p>
@@ -6797,7 +6797,7 @@ export interface UpdateConstraintOutput {
   /**
    * <p>The status of the current request.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -6934,7 +6934,7 @@ export interface UpdatePortfolioShareOutput {
    *          You can also obtain the operation status using <code>DescribePortfolioShareStatus</code> API.
    *       </p>
    */
-  Status?: ShareStatus | string;
+  Status?: keyof typeof ShareStatus | string;
 }
 
 /**
@@ -7048,11 +7048,11 @@ export interface UpdateProductOutput {
 /**
  * @public
  */
-export enum StackSetOperationType {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+export const StackSetOperationType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+};
 
 /**
  * @public
@@ -7126,7 +7126,7 @@ export interface UpdateProvisioningPreferences {
    *             </dd>
    *          </dl>
    */
-  StackSetOperationType?: StackSetOperationType | string;
+  StackSetOperationType?: keyof typeof StackSetOperationType | string;
 }
 
 /**
@@ -7228,10 +7228,10 @@ export interface UpdateProvisionedProductOutput {
 /**
  * @public
  */
-export enum PropertyKey {
-  LaunchRole = "LAUNCH_ROLE",
-  Owner = "OWNER",
-}
+export const PropertyKey = {
+  LaunchRole: "LAUNCH_ROLE",
+  Owner: "OWNER",
+};
 
 /**
  * @public
@@ -7313,7 +7313,7 @@ export interface UpdateProvisionedProductPropertiesOutput {
   /**
    * <p>The status of the request.</p>
    */
-  Status?: RecordStatus | string;
+  Status?: keyof typeof RecordStatus | string;
 }
 
 /**
@@ -7372,7 +7372,7 @@ export interface UpdateProvisioningArtifactInput {
    *           users that the product version is deprecated. Users are able to make updates to a provisioned product
    *           of a deprecated version but cannot launch new provisioned products using a deprecated version.</p>
    */
-  Guidance?: ProvisioningArtifactGuidance | string;
+  Guidance?: keyof typeof ProvisioningArtifactGuidance | string;
 }
 
 /**
@@ -7392,7 +7392,7 @@ export interface UpdateProvisioningArtifactOutput {
   /**
    * <p>The status of the current request.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**

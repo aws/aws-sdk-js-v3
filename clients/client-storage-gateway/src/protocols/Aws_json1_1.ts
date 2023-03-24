@@ -8199,7 +8199,7 @@ const deserializeAws_json1_1StorediSCSIVolumes = (output: any, context: __SerdeC
 const deserializeAws_json1_1SupportedGatewayCapacities = (
   output: any,
   context: __SerdeContext
-): (GatewayCapacity | string)[] => {
+): (keyof typeof GatewayCapacity | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

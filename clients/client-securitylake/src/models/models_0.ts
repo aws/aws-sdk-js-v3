@@ -35,10 +35,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AccessType {
-  LAKEFORMATION = "LAKEFORMATION",
-  S3 = "S3",
-}
+export const AccessType = {
+  LAKEFORMATION: "LAKEFORMATION",
+  S3: "S3",
+};
 
 /**
  * @public
@@ -65,50 +65,50 @@ export class AccountNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum OcsfEventClass {
-  ACCESS_ACTIVITY = "ACCESS_ACTIVITY",
-  ACCOUNT_CHANGE = "ACCOUNT_CHANGE",
-  AUTHENTICATION = "AUTHENTICATION",
-  AUTHORIZATION = "AUTHORIZATION",
-  CLOUD_API = "CLOUD_API",
-  CLOUD_STORAGE = "CLOUD_STORAGE",
-  CONFIG_STATE = "CONFIG_STATE",
-  CONTAINER_LIFECYCLE = "CONTAINER_LIFECYCLE",
-  DATABASE_LIFECYCLE = "DATABASE_LIFECYCLE",
-  DHCP_ACTIVITY = "DHCP_ACTIVITY",
-  DNS_ACTIVITY = "DNS_ACTIVITY",
-  ENTITY_MANAGEMENT_AUDIT = "ENTITY_MANAGEMENT_AUDIT",
-  FILE_ACTIVITY = "FILE_ACTIVITY",
-  FTP_ACTIVITY = "FTP_ACTIVITY",
-  HTTP_ACTIVITY = "HTTP_ACTIVITY",
-  INVENTORY_INFO = "INVENTORY_INFO",
-  KERNEL_ACTIVITY = "KERNEL_ACTIVITY",
-  KERNEL_EXTENSION = "KERNEL_EXTENSION",
-  MEMORY_ACTIVITY = "MEMORY_ACTIVITY",
-  MODULE_ACTIVITY = "MODULE_ACTIVITY",
-  NETWORK_ACTIVITY = "NETWORK_ACTIVITY",
-  PROCESS_ACTIVITY = "PROCESS_ACTIVITY",
-  RDP_ACTIVITY = "RDP_ACTIVITY",
-  REGISTRY_KEY_ACTIVITY = "REGISTRY_KEY_ACTIVITY",
-  REGISTRY_VALUE_ACTIVITY = "REGISTRY_VALUE_ACTIVITY",
-  RESOURCE_ACTIVITY = "RESOURCE_ACTIVITY",
-  RFB_ACTIVITY = "RFB_ACTIVITY",
-  SCHEDULED_JOB_ACTIVITY = "SCHEDULED_JOB_ACTIVITY",
-  SECURITY_FINDING = "SECURITY_FINDING",
-  SMB_ACTIVITY = "SMB_ACTIVITY",
-  SMTP_ACTIVITY = "SMTP_ACTIVITY",
-  SSH_ACTIVITY = "SSH_ACTIVITY",
-  VIRTUAL_MACHINE_ACTIVITY = "VIRTUAL_MACHINE_ACTIVITY",
-}
+export const OcsfEventClass = {
+  ACCESS_ACTIVITY: "ACCESS_ACTIVITY",
+  ACCOUNT_CHANGE: "ACCOUNT_CHANGE",
+  AUTHENTICATION: "AUTHENTICATION",
+  AUTHORIZATION: "AUTHORIZATION",
+  CLOUD_API: "CLOUD_API",
+  CLOUD_STORAGE: "CLOUD_STORAGE",
+  CONFIG_STATE: "CONFIG_STATE",
+  CONTAINER_LIFECYCLE: "CONTAINER_LIFECYCLE",
+  DATABASE_LIFECYCLE: "DATABASE_LIFECYCLE",
+  DHCP_ACTIVITY: "DHCP_ACTIVITY",
+  DNS_ACTIVITY: "DNS_ACTIVITY",
+  ENTITY_MANAGEMENT_AUDIT: "ENTITY_MANAGEMENT_AUDIT",
+  FILE_ACTIVITY: "FILE_ACTIVITY",
+  FTP_ACTIVITY: "FTP_ACTIVITY",
+  HTTP_ACTIVITY: "HTTP_ACTIVITY",
+  INVENTORY_INFO: "INVENTORY_INFO",
+  KERNEL_ACTIVITY: "KERNEL_ACTIVITY",
+  KERNEL_EXTENSION: "KERNEL_EXTENSION",
+  MEMORY_ACTIVITY: "MEMORY_ACTIVITY",
+  MODULE_ACTIVITY: "MODULE_ACTIVITY",
+  NETWORK_ACTIVITY: "NETWORK_ACTIVITY",
+  PROCESS_ACTIVITY: "PROCESS_ACTIVITY",
+  RDP_ACTIVITY: "RDP_ACTIVITY",
+  REGISTRY_KEY_ACTIVITY: "REGISTRY_KEY_ACTIVITY",
+  REGISTRY_VALUE_ACTIVITY: "REGISTRY_VALUE_ACTIVITY",
+  RESOURCE_ACTIVITY: "RESOURCE_ACTIVITY",
+  RFB_ACTIVITY: "RFB_ACTIVITY",
+  SCHEDULED_JOB_ACTIVITY: "SCHEDULED_JOB_ACTIVITY",
+  SECURITY_FINDING: "SECURITY_FINDING",
+  SMB_ACTIVITY: "SMB_ACTIVITY",
+  SMTP_ACTIVITY: "SMTP_ACTIVITY",
+  SSH_ACTIVITY: "SSH_ACTIVITY",
+  VIRTUAL_MACHINE_ACTIVITY: "VIRTUAL_MACHINE_ACTIVITY",
+};
 
 /**
  * @public
  */
-export enum SourceStatus {
-  ACTIVE = "ACTIVE",
-  DEACTIVATED = "DEACTIVATED",
-  PENDING = "PENDING",
-}
+export const SourceStatus = {
+  ACTIVE: "ACTIVE",
+  DEACTIVATED: "DEACTIVATED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -124,7 +124,7 @@ export interface LogsStatus {
   /**
    * <p>The health status of services, including error codes and patterns.</p>
    */
-  healthStatus: SourceStatus | string | undefined;
+  healthStatus: keyof typeof SourceStatus | string | undefined;
 }
 
 /**
@@ -152,31 +152,31 @@ export interface AccountSources {
   /**
    * <p>Initializes a new instance of the Event class.</p>
    */
-  eventClass?: OcsfEventClass | string;
+  eventClass?: keyof typeof OcsfEventClass | string;
 }
 
 /**
  * @public
  */
-export enum Region {
-  AP_NORTHEAST_1 = "ap-northeast-1",
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  EU_CENTRAL_1 = "eu-central-1",
-  EU_WEST_1 = "eu-west-1",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_WEST_2 = "us-west-2",
-}
+export const Region = {
+  AP_NORTHEAST_1: "ap-northeast-1",
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  EU_CENTRAL_1: "eu-central-1",
+  EU_WEST_1: "eu-west-1",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_WEST_2: "us-west-2",
+};
 
 /**
  * @public
  */
-export enum AwsLogSourceType {
-  CLOUD_TRAIL = "CLOUD_TRAIL",
-  ROUTE53 = "ROUTE53",
-  SH_FINDINGS = "SH_FINDINGS",
-  VPC_FLOW = "VPC_FLOW",
-}
+export const AwsLogSourceType = {
+  CLOUD_TRAIL: "CLOUD_TRAIL",
+  ROUTE53: "ROUTE53",
+  SH_FINDINGS: "SH_FINDINGS",
+  VPC_FLOW: "VPC_FLOW",
+};
 
 /**
  * @public
@@ -187,12 +187,12 @@ export interface AutoEnableNewRegionConfiguration {
   /**
    * <p>The Amazon Web Services Regions where Security Lake is automatically enabled.</p>
    */
-  region: Region | string | undefined;
+  region: keyof typeof Region | string | undefined;
 
   /**
    * <p>The Amazon Web Services sources that are automatically enabled in Security Lake.</p>
    */
-  sources: (AwsLogSourceType | string)[] | undefined;
+  sources: (keyof typeof AwsLogSourceType | string)[] | undefined;
 }
 
 /**
@@ -315,11 +315,11 @@ export class ConflictSubscriptionException extends __BaseException {
 /**
  * @public
  */
-export enum Dimension {
-  MEMBER = "MEMBER",
-  REGION = "REGION",
-  SOURCE_TYPE = "SOURCE_TYPE",
-}
+export const Dimension = {
+  MEMBER: "MEMBER",
+  REGION: "REGION",
+  SOURCE_TYPE: "SOURCE_TYPE",
+};
 
 /**
  * @public
@@ -329,7 +329,7 @@ export interface CreateAwsLogSourceRequest {
    * <p>Specifies the input order to enable dimensions in Security Lake, namely Region, source type,
    *          and member account.</p>
    */
-  inputOrder: (Dimension | string)[] | undefined;
+  inputOrder: (keyof typeof Dimension | string)[] | undefined;
 
   /**
    * <p>Enables data collection from specific Amazon Web Services sources in all specific
@@ -469,12 +469,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+};
 
 /**
  * @public
@@ -486,7 +486,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason for the validation exception. </p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: keyof typeof ValidationExceptionReason | string | undefined;
 
   /**
    * <p>The list of parameters that failed to validate. </p>
@@ -521,7 +521,7 @@ export interface CreateCustomLogSourceRequest {
    * <p>The Open Cybersecurity Schema Framework (OCSF) event class which describes the type of
    *          data that the custom source will send to Security Lake.</p>
    */
-  eventClass: OcsfEventClass | string | undefined;
+  eventClass: keyof typeof OcsfEventClass | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role
@@ -584,15 +584,15 @@ export interface CreateCustomLogSourceResponse {
 /**
  * @public
  */
-export enum StorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  EXPIRE = "EXPIRE",
-  GLACIER = "GLACIER",
-  GLACIER_IR = "GLACIER_IR",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  STANDARD_IA = "STANDARD_IA",
-}
+export const StorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  EXPIRE: "EXPIRE",
+  GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  STANDARD_IA: "STANDARD_IA",
+};
 
 /**
  * @public
@@ -603,7 +603,7 @@ export interface RetentionSetting {
    * <p>The range of storage classes that you can choose from based on the data access,
    *          resiliency, and cost requirements of your workloads.</p>
    */
-  storageClass?: StorageClass | string;
+  storageClass?: keyof typeof StorageClass | string;
 
   /**
    * <p>The retention period specifies a fixed period of time during which the Security Lake object
@@ -644,7 +644,7 @@ export interface LakeConfigurationRequest {
    *          <p>Set up one or more rollup Regions by providing the Region or Regions that should
    *          contribute to the central rollup Region. </p>
    */
-  replicationDestinationRegions?: (Region | string)[];
+  replicationDestinationRegions?: (keyof typeof Region | string)[];
 
   /**
    * <p>Replication settings for the Amazon S3 buckets. This parameter uses the Identity and Access Management (IAM) role you created that is managed by Security Lake, to
@@ -662,7 +662,7 @@ export interface CreateDatalakeRequest {
    *          list of Region codes, see <a href="https://docs.aws.amazon.com/general/latest/gr/securitylake.html">Amazon Security Lake endpoints</a> in the
    *             Amazon Web Services General Reference.</p>
    */
-  regions?: (Region | string)[];
+  regions?: (keyof typeof Region | string)[];
 
   /**
    * <p>Specify the Region or Regions that will contribute data to the rollup region.</p>
@@ -806,17 +806,17 @@ export interface CreateDatalakeDelegatedAdminResponse {}
 /**
  * @public
  */
-export enum SubscriptionProtocolType {
-  APP = "APP",
-  EMAIL = "EMAIL",
-  EMAIL_JSON = "EMAIL_JSON",
-  FIREHOSE = "FIREHOSE",
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  LAMBDA = "LAMBDA",
-  SMS = "SMS",
-  SQS = "SQS",
-}
+export const SubscriptionProtocolType = {
+  APP: "APP",
+  EMAIL: "EMAIL",
+  EMAIL_JSON: "EMAIL_JSON",
+  FIREHOSE: "FIREHOSE",
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  LAMBDA: "LAMBDA",
+  SMS: "SMS",
+  SQS: "SQS",
+};
 
 /**
  * @public
@@ -825,7 +825,7 @@ export interface CreateDatalakeExceptionsSubscriptionRequest {
   /**
    * <p>The subscription protocol to which exception notifications are posted. </p>
    */
-  subscriptionProtocol: SubscriptionProtocolType | string | undefined;
+  subscriptionProtocol: keyof typeof SubscriptionProtocolType | string | undefined;
 
   /**
    * <p>The Amazon Web Services account where you want to receive exception notifications.</p>
@@ -853,7 +853,7 @@ export namespace SourceType {
    * <p>Amazon Security Lake supports log and event collection for natively supported Amazon Web Services. </p>
    */
   export interface AwsSourceTypeMember {
-    awsSourceType: AwsLogSourceType | string;
+    awsSourceType: keyof typeof AwsLogSourceType | string;
     customSourceType?: never;
     $unknown?: never;
   }
@@ -875,7 +875,7 @@ export namespace SourceType {
   }
 
   export interface Visitor<T> {
-    awsSourceType: (value: AwsLogSourceType | string) => T;
+    awsSourceType: (value: keyof typeof AwsLogSourceType | string) => T;
     customSourceType: (value: string) => T;
     _: (name: string, value: any) => T;
   }
@@ -912,7 +912,7 @@ export interface CreateSubscriberRequest {
   /**
    * <p>The Amazon S3 or Lake Formation access type.</p>
    */
-  accessTypes?: (AccessType | string)[];
+  accessTypes?: (keyof typeof AccessType | string)[];
 
   /**
    * <p>The name of your Security Lake subscriber account.</p>
@@ -987,10 +987,10 @@ export class InvalidInputException extends __BaseException {
 /**
  * @public
  */
-export enum HttpsMethod {
-  POST = "POST",
-  PUT = "PUT",
-}
+export const HttpsMethod = {
+  POST: "POST",
+  PUT: "PUT",
+};
 
 /**
  * @public
@@ -1020,7 +1020,7 @@ export interface CreateSubscriptionNotificationConfigurationRequest {
   /**
    * <p>The HTTPS method used for the notification subscription. </p>
    */
-  httpsMethod?: HttpsMethod | string;
+  httpsMethod?: keyof typeof HttpsMethod | string;
 
   /**
    * <p>Create an Amazon Simple Queue Service queue.</p>
@@ -1054,7 +1054,7 @@ export interface DeleteAwsLogSourceRequest {
    *          namely Region (Amazon Web Services Region code, source type, and member (account ID of a
    *          specific Amazon Web Services account). </p>
    */
-  inputOrder: (Dimension | string)[] | undefined;
+  inputOrder: (keyof typeof Dimension | string)[] | undefined;
 
   /**
    * <p>Removes the specific Amazon Web Services sources from specific accounts and specific
@@ -1197,10 +1197,10 @@ export interface DeleteSubscriptionNotificationConfigurationResponse {}
 /**
  * @public
  */
-export enum EndpointProtocol {
-  HTTPS = "HTTPS",
-  SQS = "SQS",
-}
+export const EndpointProtocol = {
+  HTTPS: "HTTPS",
+  SQS: "SQS",
+};
 
 /**
  * @public
@@ -1268,12 +1268,12 @@ export interface GetDatalakeRequest {}
 /**
  * @public
  */
-export enum SettingsStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  PENDING = "PENDING",
-}
+export const SettingsStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INITIALIZED: "INITIALIZED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -1311,7 +1311,7 @@ export interface UpdateStatus {
    * <p>The status of the last <code>UpdateDatalake</code> or <code>DeleteDatalake</code> API
    *          request that was requested.</p>
    */
-  lastUpdateStatus?: SettingsStatus | string;
+  lastUpdateStatus?: keyof typeof SettingsStatus | string;
 
   /**
    * <p>The details of the last <code>UpdateDatalake</code>or <code>DeleteDatalake</code> API
@@ -1351,7 +1351,7 @@ export interface LakeConfigurationResponse {
    *          <p>Set up one or more rollup Regions by providing the Region or Regions that should
    *          contribute to the central rollup Region. </p>
    */
-  replicationDestinationRegions?: (Region | string)[];
+  replicationDestinationRegions?: (keyof typeof Region | string)[];
 
   /**
    * <p>Replication settings for the Amazon S3 buckets. This parameter uses the IAM role you created that is managed by Security Lake, to ensure the replication
@@ -1368,7 +1368,7 @@ export interface LakeConfigurationResponse {
   /**
    * <p>Retrieves the status of the configuration operation for an account in Amazon Security Lake. </p>
    */
-  status?: SettingsStatus | string;
+  status?: keyof typeof SettingsStatus | string;
 
   /**
    * <p>The status of the last <code>UpdateDatalake </code>or <code>DeleteDatalake</code> API
@@ -1507,12 +1507,12 @@ export interface GetSubscriberRequest {
 /**
  * @public
  */
-export enum SubscriptionStatus {
-  ACTIVE = "ACTIVE",
-  DEACTIVATED = "DEACTIVATED",
-  PENDING = "PENDING",
-  READY = "READY",
-}
+export const SubscriptionStatus = {
+  ACTIVE: "ACTIVE",
+  DEACTIVATED: "DEACTIVATED",
+  PENDING: "PENDING",
+  READY: "READY",
+};
 
 /**
  * @public
@@ -1552,7 +1552,7 @@ export interface SubscriberResource {
   /**
    * <p>The subscription status of the Amazon Security Lake subscriber account.</p>
    */
-  subscriptionStatus?: SubscriptionStatus | string;
+  subscriptionStatus?: keyof typeof SubscriptionStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) specifying the role of the subscriber.</p>
@@ -1577,7 +1577,7 @@ export interface SubscriberResource {
    *             Amazon S3 bucket through services like Amazon Athena. This subscription
    *          type is defined as <code>LAKEFORMATION</code>. </p>
    */
-  accessTypes?: (AccessType | string)[];
+  accessTypes?: (keyof typeof AccessType | string)[];
 
   /**
    * <p>The subscription endpoint to which exception messages are posted. </p>
@@ -1587,7 +1587,7 @@ export interface SubscriberResource {
   /**
    * <p>The subscription protocol to which exception messages are posted. </p>
    */
-  subscriptionProtocol?: EndpointProtocol | string;
+  subscriptionProtocol?: keyof typeof EndpointProtocol | string;
 
   /**
    * <p>The external ID of the subscriber. The external ID lets the user that is assuming the
@@ -1637,7 +1637,7 @@ export interface ListDatalakeExceptionsRequest {
   /**
    * <p>List the Amazon Web Services Regions from which exceptions are retrieved.</p>
    */
-  regionSet?: (Region | string)[];
+  regionSet?: (keyof typeof Region | string)[];
 
   /**
    * <p>List the maximum number of failures in Security Lake.</p>
@@ -1681,7 +1681,7 @@ export interface ListLogSourcesRequest {
    * <p>Lists the log sources in input order, namely Region, source
    *          type, and member account.</p>
    */
-  inputOrder?: (Dimension | string)[];
+  inputOrder?: (keyof typeof Dimension | string)[];
 
   /**
    * <p>List the view of log sources for enabled Amazon Security Lake accounts for specific Amazon Web Services sources from specific accounts and specific Regions.</p>
@@ -1796,7 +1796,7 @@ export interface UpdateDatalakeExceptionsSubscriptionRequest {
   /**
    * <p>The subscription protocol to which exception messages are posted. </p>
    */
-  subscriptionProtocol: SubscriptionProtocolType | string | undefined;
+  subscriptionProtocol: keyof typeof SubscriptionProtocolType | string | undefined;
 
   /**
    * <p>The account that is subscribed to receive exception notifications.</p>
@@ -1877,7 +1877,7 @@ export interface UpdateSubscriptionNotificationConfigurationRequest {
   /**
    * <p>The HTTPS method used for the subscription notification. </p>
    */
-  httpsMethod?: HttpsMethod | string;
+  httpsMethod?: keyof typeof HttpsMethod | string;
 
   /**
    * <p>Create a new subscription notification for the specified subscription ID in

@@ -3330,7 +3330,10 @@ const serializeAws_json1_1ProjectCache = (input: ProjectCache, context: __SerdeC
   };
 };
 
-const serializeAws_json1_1ProjectCacheModes = (input: (CacheMode | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1ProjectCacheModes = (
+  input: (keyof typeof CacheMode | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4866,7 +4869,10 @@ const deserializeAws_json1_1ProjectCache = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1ProjectCacheModes = (output: any, context: __SerdeContext): (CacheMode | string)[] => {
+const deserializeAws_json1_1ProjectCacheModes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof CacheMode | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

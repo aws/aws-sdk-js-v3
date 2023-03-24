@@ -6,10 +6,10 @@ import { SchedulerServiceException as __BaseException } from "./SchedulerService
 /**
  * @public
  */
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AssignPublicIp = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -160,10 +160,10 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum FlexibleTimeWindowMode {
-  FLEXIBLE = "FLEXIBLE",
-  OFF = "OFF",
-}
+export const FlexibleTimeWindowMode = {
+  FLEXIBLE: "FLEXIBLE",
+  OFF: "OFF",
+};
 
 /**
  * @public
@@ -173,7 +173,7 @@ export interface FlexibleTimeWindow {
   /**
    * <p>Determines whether the schedule is invoked within a flexible time window.</p>
    */
-  Mode: FlexibleTimeWindowMode | string | undefined;
+  Mode: keyof typeof FlexibleTimeWindowMode | string | undefined;
 
   /**
    * <p>The maximum time window during which a schedule can be invoked.</p>
@@ -184,10 +184,10 @@ export interface FlexibleTimeWindow {
 /**
  * @public
  */
-export enum ScheduleState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ScheduleState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -226,11 +226,11 @@ export interface CapacityProviderStrategyItem {
 /**
  * @public
  */
-export enum LaunchType {
-  EC2 = "EC2",
-  EXTERNAL = "EXTERNAL",
-  FARGATE = "FARGATE",
-}
+export const LaunchType = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+};
 
 /**
  * @public
@@ -251,7 +251,7 @@ export interface AwsVpcConfiguration {
   /**
    * <p>Specifies whether the task's elastic network interface receives a public IP address. You can specify <code>ENABLED</code> only when <code>LaunchType</code> in <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
    */
-  AssignPublicIp?: AssignPublicIp | string;
+  AssignPublicIp?: keyof typeof AssignPublicIp | string;
 }
 
 /**
@@ -268,10 +268,10 @@ export interface NetworkConfiguration {
 /**
  * @public
  */
-export enum PlacementConstraintType {
-  DISTINCT_INSTANCE = "distinctInstance",
-  MEMBER_OF = "memberOf",
-}
+export const PlacementConstraintType = {
+  DISTINCT_INSTANCE: "distinctInstance",
+  MEMBER_OF: "memberOf",
+};
 
 /**
  * @public
@@ -281,7 +281,7 @@ export interface PlacementConstraint {
   /**
    * <p>The type of constraint. Use <code>distinctInstance</code> to ensure that each task in a particular group is running on a different container instance. Use <code>memberOf</code> to restrict the selection to a group of valid candidates.</p>
    */
-  type?: PlacementConstraintType | string;
+  type?: keyof typeof PlacementConstraintType | string;
 
   /**
    * <p>A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is <code>distinctInstance</code>.
@@ -293,11 +293,11 @@ export interface PlacementConstraint {
 /**
  * @public
  */
-export enum PlacementStrategyType {
-  BINPACK = "binpack",
-  RANDOM = "random",
-  SPREAD = "spread",
-}
+export const PlacementStrategyType = {
+  BINPACK: "binpack",
+  RANDOM: "random",
+  SPREAD: "spread",
+};
 
 /**
  * @public
@@ -309,7 +309,7 @@ export interface PlacementStrategy {
    *          evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter.
    *          For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).</p>
    */
-  type?: PlacementStrategyType | string;
+  type?: keyof typeof PlacementStrategyType | string;
 
   /**
    * <p>The field to apply the placement strategy against. For the spread placement strategy, valid values are <code>instanceId</code> (or <code>instanceId</code>, which has the same effect),
@@ -322,9 +322,9 @@ export interface PlacementStrategy {
 /**
  * @public
  */
-export enum PropagateTags {
-  TASK_DEFINITION = "TASK_DEFINITION",
-}
+export const PropagateTags = {
+  TASK_DEFINITION: "TASK_DEFINITION",
+};
 
 /**
  * @public
@@ -348,7 +348,7 @@ export interface EcsParameters {
    *          The <code>FARGATE</code> value is supported only in the Regions where Fargate with Amazon ECS is supported.
    *          For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html">AWS Fargate on Amazon ECS</a> in the <i>Amazon ECS Developer Guide</i>.</p>
    */
-  LaunchType?: LaunchType | string;
+  LaunchType?: keyof typeof LaunchType | string;
 
   /**
    * <p>This structure specifies the network configuration for an ECS task.</p>
@@ -399,7 +399,7 @@ export interface EcsParameters {
    *          API action.
    *       </p>
    */
-  PropagateTags?: PropagateTags | string;
+  PropagateTags?: keyof typeof PropagateTags | string;
 
   /**
    * <p>The reference ID to use for the task.</p>
@@ -661,7 +661,7 @@ export interface CreateScheduleInput {
   /**
    * <p>Specifies whether the schedule is enabled or disabled.</p>
    */
-  State?: ScheduleState | string;
+  State?: keyof typeof ScheduleState | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.</p>
@@ -846,7 +846,7 @@ export interface GetScheduleOutput {
   /**
    * <p>Specifies whether the schedule is enabled or disabled.</p>
    */
-  State?: ScheduleState | string;
+  State?: keyof typeof ScheduleState | string;
 
   /**
    * <p>The time at which the schedule was created.</p>
@@ -891,7 +891,7 @@ export interface ListSchedulesInput {
   /**
    * <p>If specified, only lists the schedules whose current state matches the given filter.</p>
    */
-  State?: ScheduleState | string;
+  State?: keyof typeof ScheduleState | string;
 
   /**
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
@@ -938,7 +938,7 @@ export interface ScheduleSummary {
   /**
    * <p>Specifies whether the schedule is enabled or disabled.</p>
    */
-  State?: ScheduleState | string;
+  State?: keyof typeof ScheduleState | string;
 
   /**
    * <p>The time at which the schedule was created.</p>
@@ -1051,7 +1051,7 @@ export interface UpdateScheduleInput {
   /**
    * <p>Specifies whether the schedule is enabled or disabled.</p>
    */
-  State?: ScheduleState | string;
+  State?: keyof typeof ScheduleState | string;
 
   /**
    * <p>The ARN for the customer managed KMS key that that you want EventBridge Scheduler to use to encrypt and decrypt your data.</p>
@@ -1156,10 +1156,10 @@ export interface GetScheduleGroupInput {
 /**
  * @public
  */
-export enum ScheduleGroupState {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-}
+export const ScheduleGroupState = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -1178,7 +1178,7 @@ export interface GetScheduleGroupOutput {
   /**
    * <p>Specifies the state of the schedule group.</p>
    */
-  State?: ScheduleGroupState | string;
+  State?: keyof typeof ScheduleGroupState | string;
 
   /**
    * <p>The time at which the schedule group was created.</p>
@@ -1229,7 +1229,7 @@ export interface ScheduleGroupSummary {
   /**
    * <p>Specifies the state of the schedule group.</p>
    */
-  State?: ScheduleGroupState | string;
+  State?: keyof typeof ScheduleGroupState | string;
 
   /**
    * <p>The time at which the schedule group was created.</p>

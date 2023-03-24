@@ -48,14 +48,14 @@ export interface AgentNetworkInfo {
 /**
  * @public
  */
-export enum AgentStatus {
-  BLACKLISTED = "BLACKLISTED",
-  HEALTHY = "HEALTHY",
-  RUNNING = "RUNNING",
-  SHUTDOWN = "SHUTDOWN",
-  UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
-}
+export const AgentStatus = {
+  BLACKLISTED: "BLACKLISTED",
+  HEALTHY: "HEALTHY",
+  RUNNING: "RUNNING",
+  SHUTDOWN: "SHUTDOWN",
+  UNHEALTHY: "UNHEALTHY",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -94,7 +94,7 @@ export interface AgentInfo {
   /**
    * <p>The health of the agent or connector.</p>
    */
-  health?: AgentStatus | string;
+  health?: keyof typeof AgentStatus | string;
 
   /**
    * <p>Time since agent or connector health was reported.</p>
@@ -252,11 +252,11 @@ export interface BatchDeleteImportDataRequest {
 /**
  * @public
  */
-export enum BatchDeleteImportDataErrorCode {
-  INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
-  NOT_FOUND = "NOT_FOUND",
-  OVER_LIMIT = "OVER_LIMIT",
-}
+export const BatchDeleteImportDataErrorCode = {
+  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+  NOT_FOUND: "NOT_FOUND",
+  OVER_LIMIT: "OVER_LIMIT",
+};
 
 /**
  * @public
@@ -272,7 +272,7 @@ export interface BatchDeleteImportDataError {
   /**
    * <p>The type of error that occurred for a specific import task.</p>
    */
-  errorCode?: BatchDeleteImportDataErrorCode | string;
+  errorCode?: keyof typeof BatchDeleteImportDataErrorCode | string;
 
   /**
    * <p>The description of the error that occurred for a specific import task.</p>
@@ -552,22 +552,22 @@ export interface DescribeContinuousExportsRequest {
 /**
  * @public
  */
-export enum DataSource {
-  AGENT = "AGENT",
-}
+export const DataSource = {
+  AGENT: "AGENT",
+};
 
 /**
  * @public
  */
-export enum ContinuousExportStatus {
-  ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE",
-  START_FAILED = "START_FAILED",
-  START_IN_PROGRESS = "START_IN_PROGRESS",
-  STOP_FAILED = "STOP_FAILED",
-  STOP_IN_PROGRESS = "STOP_IN_PROGRESS",
-}
+export const ContinuousExportStatus = {
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+  START_FAILED: "START_FAILED",
+  START_IN_PROGRESS: "START_IN_PROGRESS",
+  STOP_FAILED: "STOP_FAILED",
+  STOP_IN_PROGRESS: "STOP_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -609,7 +609,7 @@ export interface ContinuousExportDescription {
    *             </li>
    *          </ul>
    */
-  status?: ContinuousExportStatus | string;
+  status?: keyof typeof ContinuousExportStatus | string;
 
   /**
    * <p>Contains information about any errors that have occurred. This data type can have the
@@ -712,7 +712,7 @@ export interface ContinuousExportDescription {
    * <p>The type of data collector used to gather this data (currently only offered for
    *       AGENT).</p>
    */
-  dataSource?: DataSource | string;
+  dataSource?: keyof typeof DataSource | string;
 
   /**
    * <p>An object which describes how the data is stored.</p>
@@ -786,11 +786,11 @@ export interface DescribeExportConfigurationsRequest {
 /**
  * @public
  */
-export enum ExportStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ExportStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -806,7 +806,7 @@ export interface ExportInfo {
   /**
    * <p>The status of the data export job.</p>
    */
-  exportStatus: ExportStatus | string | undefined;
+  exportStatus: keyof typeof ExportStatus | string | undefined;
 
   /**
    * <p>A status message provided for API callers.</p>
@@ -950,11 +950,11 @@ export interface DescribeExportTasksResponse {
 /**
  * @public
  */
-export enum ImportTaskFilterName {
-  IMPORT_TASK_ID = "IMPORT_TASK_ID",
-  NAME = "NAME",
-  STATUS = "STATUS",
-}
+export const ImportTaskFilterName = {
+  IMPORT_TASK_ID: "IMPORT_TASK_ID",
+  NAME: "NAME",
+  STATUS: "STATUS",
+};
 
 /**
  * @public
@@ -968,7 +968,7 @@ export interface ImportTaskFilter {
   /**
    * <p>The name, status, or import task ID for a specific import task.</p>
    */
-  name?: ImportTaskFilterName | string;
+  name?: keyof typeof ImportTaskFilterName | string;
 
   /**
    * <p>An array of strings that you can provide to match against a specific name, status, or
@@ -1002,19 +1002,19 @@ export interface DescribeImportTasksRequest {
 /**
  * @public
  */
-export enum ImportStatus {
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_FAILED_LIMIT_EXCEEDED = "DELETE_FAILED_LIMIT_EXCEEDED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  IMPORT_COMPLETE = "IMPORT_COMPLETE",
-  IMPORT_COMPLETE_WITH_ERRORS = "IMPORT_COMPLETE_WITH_ERRORS",
-  IMPORT_FAILED = "IMPORT_FAILED",
-  IMPORT_FAILED_RECORD_LIMIT_EXCEEDED = "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED",
-  IMPORT_FAILED_SERVER_LIMIT_EXCEEDED = "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED",
-  IMPORT_IN_PROGRESS = "IMPORT_IN_PROGRESS",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-}
+export const ImportStatus = {
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_FAILED_LIMIT_EXCEEDED: "DELETE_FAILED_LIMIT_EXCEEDED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  IMPORT_COMPLETE: "IMPORT_COMPLETE",
+  IMPORT_COMPLETE_WITH_ERRORS: "IMPORT_COMPLETE_WITH_ERRORS",
+  IMPORT_FAILED: "IMPORT_FAILED",
+  IMPORT_FAILED_RECORD_LIMIT_EXCEEDED: "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED",
+  IMPORT_FAILED_SERVER_LIMIT_EXCEEDED: "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED",
+  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+};
 
 /**
  * @public
@@ -1054,7 +1054,7 @@ export interface ImportTask {
    *         <code>errorsAndFailedEntriesZip</code> field, or in the Migration Hub management
    *       console.</p>
    */
-  status?: ImportStatus | string;
+  status?: keyof typeof ImportStatus | string;
 
   /**
    * <p>The time that the import task request was made, presented in the Unix time stamp
@@ -1170,12 +1170,12 @@ export interface DescribeTagsRequest {
 /**
  * @public
  */
-export enum ConfigurationItemType {
-  APPLICATION = "APPLICATION",
-  CONNECTIONS = "CONNECTION",
-  PROCESS = "PROCESS",
-  SERVER = "SERVER",
-}
+export const ConfigurationItemType = {
+  APPLICATION: "APPLICATION",
+  CONNECTIONS: "CONNECTION",
+  PROCESS: "PROCESS",
+  SERVER: "SERVER",
+};
 
 /**
  * @public
@@ -1186,7 +1186,7 @@ export interface ConfigurationTag {
   /**
    * <p>A type of IT asset to tag.</p>
    */
-  configurationType?: ConfigurationItemType | string;
+  configurationType?: keyof typeof ConfigurationItemType | string;
 
   /**
    * <p>The configuration ID for the item to tag. You can specify a list of keys and
@@ -1463,10 +1463,10 @@ export interface GetDiscoverySummaryResponse {
 /**
  * @public
  */
-export enum OrderString {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const OrderString = {
+  ASC: "ASC",
+  DESC: "DESC",
+};
 
 /**
  * @public
@@ -1481,7 +1481,7 @@ export interface OrderByElement {
   /**
    * <p>Ordering direction.</p>
    */
-  sortOrder?: OrderString | string;
+  sortOrder?: keyof typeof OrderString | string;
 }
 
 /**
@@ -1491,7 +1491,7 @@ export interface ListConfigurationsRequest {
   /**
    * <p>A valid configuration identified by Application Discovery Service. </p>
    */
-  configurationType: ConfigurationItemType | string | undefined;
+  configurationType: keyof typeof ConfigurationItemType | string | undefined;
 
   /**
    * <p>You can filter the request using various logical operators and a
@@ -1707,7 +1707,7 @@ export interface StartContinuousExportResponse {
    * <p>The type of data collector used to gather this data (currently only offered for
    *       AGENT).</p>
    */
-  dataSource?: DataSource | string;
+  dataSource?: keyof typeof DataSource | string;
 
   /**
    * <p>A dictionary which describes how the data is stored.</p>
@@ -1753,10 +1753,10 @@ export interface StartDataCollectionByAgentIdsResponse {
 /**
  * @public
  */
-export enum ExportDataFormat {
-  CSV = "CSV",
-  GRAPHML = "GRAPHML",
-}
+export const ExportDataFormat = {
+  CSV: "CSV",
+  GRAPHML: "GRAPHML",
+};
 
 /**
  * @public
@@ -1770,7 +1770,7 @@ export interface StartExportTaskRequest {
    *             <i>option has been deprecated.</i>
    *          </p>
    */
-  exportDataFormat?: (ExportDataFormat | string)[];
+  exportDataFormat?: (keyof typeof ExportDataFormat | string)[];
 
   /**
    * <p>If a filter is present, it selects the single <code>agentId</code> of the Application

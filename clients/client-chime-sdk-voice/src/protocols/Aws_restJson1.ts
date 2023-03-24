@@ -9190,7 +9190,10 @@ const serializeAws_restJson1CallingRegionList = (input: string[], context: __Ser
     });
 };
 
-const serializeAws_restJson1CapabilityList = (input: (Capability | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1CapabilityList = (
+  input: (keyof typeof Capability | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9643,7 +9646,10 @@ const deserializeAws_restJson1CandidateAddressList = (output: any, context: __Se
   return retVal;
 };
 
-const deserializeAws_restJson1CapabilityList = (output: any, context: __SerdeContext): (Capability | string)[] => {
+const deserializeAws_restJson1CapabilityList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Capability | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -9966,7 +9972,7 @@ const deserializeAws_restJson1PhoneNumberOrderList = (output: any, context: __Se
 const deserializeAws_restJson1PhoneNumberTypeList = (
   output: any,
   context: __SerdeContext
-): (PhoneNumberType | string)[] => {
+): (keyof typeof PhoneNumberType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -10378,7 +10384,7 @@ const deserializeAws_restJson1VoiceConnector = (output: any, context: __SerdeCon
 const deserializeAws_restJson1VoiceConnectorAwsRegionList = (
   output: any,
   context: __SerdeContext
-): (VoiceConnectorAwsRegion | string)[] => {
+): (keyof typeof VoiceConnectorAwsRegion | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

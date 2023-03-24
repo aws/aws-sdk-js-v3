@@ -87,10 +87,10 @@ export class ConcurrentModificationException extends __BaseException {
 /**
  * @public
  */
-export enum TlsPolicy {
-  OPTIONAL = "OPTIONAL",
-  REQUIRE = "REQUIRE",
-}
+export const TlsPolicy = {
+  OPTIONAL: "OPTIONAL",
+  REQUIRE: "REQUIRE",
+};
 
 /**
  * @public
@@ -103,7 +103,7 @@ export interface DeliveryOptions {
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
-  TlsPolicy?: TlsPolicy | string;
+  TlsPolicy?: keyof typeof TlsPolicy | string;
 
   /**
    * <p>The name of the dedicated IP pool that you want to associate with the configuration
@@ -326,11 +326,11 @@ export class TooManyRequestsException extends __BaseException {
 /**
  * @public
  */
-export enum DimensionValueSource {
-  EMAIL_HEADER = "EMAIL_HEADER",
-  LINK_TAG = "LINK_TAG",
-  MESSAGE_TAG = "MESSAGE_TAG",
-}
+export const DimensionValueSource = {
+  EMAIL_HEADER: "EMAIL_HEADER",
+  LINK_TAG: "LINK_TAG",
+  MESSAGE_TAG: "MESSAGE_TAG",
+};
 
 /**
  * @public
@@ -360,7 +360,7 @@ export interface CloudWatchDimensionConfiguration {
    *             want Amazon Pinpoint to use your own email headers, choose <code>emailHeader</code>. If you want
    *             Amazon Pinpoint to use link tags, choose <code>linkTags</code>.</p>
    */
-  DimensionValueSource: DimensionValueSource | string | undefined;
+  DimensionValueSource: keyof typeof DimensionValueSource | string | undefined;
 
   /**
    * <p>The default value of the dimension that is published to Amazon CloudWatch if you don't provide the
@@ -414,16 +414,16 @@ export interface KinesisFirehoseDestination {
 /**
  * @public
  */
-export enum EventType {
-  BOUNCE = "BOUNCE",
-  CLICK = "CLICK",
-  COMPLAINT = "COMPLAINT",
-  DELIVERY = "DELIVERY",
-  OPEN = "OPEN",
-  REJECT = "REJECT",
-  RENDERING_FAILURE = "RENDERING_FAILURE",
-  SEND = "SEND",
-}
+export const EventType = {
+  BOUNCE: "BOUNCE",
+  CLICK: "CLICK",
+  COMPLAINT: "COMPLAINT",
+  DELIVERY: "DELIVERY",
+  OPEN: "OPEN",
+  REJECT: "REJECT",
+  RENDERING_FAILURE: "RENDERING_FAILURE",
+  SEND: "SEND",
+};
 
 /**
  * @public
@@ -474,7 +474,7 @@ export interface EventDestinationDefinition {
    * <p>An array that specifies which events Amazon Pinpoint should send to the destinations in this
    *                 <code>EventDestinationDefinition</code>.</p>
    */
-  MatchingEventTypes?: (EventType | string)[];
+  MatchingEventTypes?: (keyof typeof EventType | string)[];
 
   /**
    * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
@@ -758,10 +758,10 @@ export interface CreateDeliverabilityTestReportRequest {
 /**
  * @public
  */
-export enum DeliverabilityTestStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const DeliverabilityTestStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -779,7 +779,7 @@ export interface CreateDeliverabilityTestReportResponse {
    *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
    *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
    */
-  DeliverabilityTestStatus: DeliverabilityTestStatus | string | undefined;
+  DeliverabilityTestStatus: keyof typeof DeliverabilityTestStatus | string | undefined;
 }
 
 /**
@@ -864,13 +864,13 @@ export interface CreateEmailIdentityRequest {
 /**
  * @public
  */
-export enum DkimStatus {
-  FAILED = "FAILED",
-  NOT_STARTED = "NOT_STARTED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
-}
+export const DkimStatus = {
+  FAILED: "FAILED",
+  NOT_STARTED: "NOT_STARTED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
+};
 
 /**
  * @public
@@ -918,7 +918,7 @@ export interface DkimAttributes {
    *             </li>
    *          </ul>
    */
-  Status?: DkimStatus | string;
+  Status?: keyof typeof DkimStatus | string;
 
   /**
    * <p>A set of unique strings that you use to create a set of CNAME records that you add to
@@ -933,11 +933,11 @@ export interface DkimAttributes {
 /**
  * @public
  */
-export enum IdentityType {
-  DOMAIN = "DOMAIN",
-  EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  MANAGED_DOMAIN = "MANAGED_DOMAIN",
-}
+export const IdentityType = {
+  DOMAIN: "DOMAIN",
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  MANAGED_DOMAIN: "MANAGED_DOMAIN",
+};
 
 /**
  * @public
@@ -950,7 +950,7 @@ export interface CreateEmailIdentityResponse {
   /**
    * <p>The email identity type.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: keyof typeof IdentityType | string;
 
   /**
    * <p>Specifies whether or not the identity is verified. In Amazon Pinpoint, you can only send email
@@ -1287,7 +1287,7 @@ export interface EventDestination {
   /**
    * <p>The types of events that Amazon Pinpoint sends to the specified event destinations.</p>
    */
-  MatchingEventTypes: (EventType | string)[] | undefined;
+  MatchingEventTypes: (keyof typeof EventType | string)[] | undefined;
 
   /**
    * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
@@ -1342,10 +1342,10 @@ export interface GetDedicatedIpRequest {
 /**
  * @public
  */
-export enum WarmupStatus {
-  DONE = "DONE",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const WarmupStatus = {
+  DONE: "DONE",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -1375,7 +1375,7 @@ export interface DedicatedIp {
    *             </li>
    *          </ul>
    */
-  WarmupStatus: WarmupStatus | string | undefined;
+  WarmupStatus: keyof typeof WarmupStatus | string | undefined;
 
   /**
    * <p>Indicates how complete the dedicated IP warm-up process is. When this value equals 1,
@@ -1460,11 +1460,11 @@ export interface GetDeliverabilityDashboardOptionsRequest {}
 /**
  * @public
  */
-export enum DeliverabilityDashboardAccountStatus {
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-  PENDING_EXPIRATION = "PENDING_EXPIRATION",
-}
+export const DeliverabilityDashboardAccountStatus = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+  PENDING_EXPIRATION: "PENDING_EXPIRATION",
+};
 
 /**
  * @public
@@ -1537,7 +1537,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
    *                 <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end
    *             of the current calendar month.</p>
    */
-  AccountStatus?: DeliverabilityDashboardAccountStatus | string;
+  AccountStatus?: keyof typeof DeliverabilityDashboardAccountStatus | string;
 
   /**
    * <p>An array of objects, one for each verified domain that you use to send email and
@@ -1601,7 +1601,7 @@ export interface DeliverabilityTestReport {
    *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
    *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
    */
-  DeliverabilityTestStatus?: DeliverabilityTestStatus | string;
+  DeliverabilityTestStatus?: keyof typeof DeliverabilityTestStatus | string;
 }
 
 /**
@@ -1991,20 +1991,20 @@ export interface GetEmailIdentityRequest {
 /**
  * @public
  */
-export enum BehaviorOnMxFailure {
-  REJECT_MESSAGE = "REJECT_MESSAGE",
-  USE_DEFAULT_VALUE = "USE_DEFAULT_VALUE",
-}
+export const BehaviorOnMxFailure = {
+  REJECT_MESSAGE: "REJECT_MESSAGE",
+  USE_DEFAULT_VALUE: "USE_DEFAULT_VALUE",
+};
 
 /**
  * @public
  */
-export enum MailFromDomainStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
-}
+export const MailFromDomainStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
+};
 
 /**
  * @public
@@ -2041,7 +2041,7 @@ export interface MailFromAttributes {
    *             </li>
    *          </ul>
    */
-  MailFromDomainStatus: MailFromDomainStatus | string | undefined;
+  MailFromDomainStatus: keyof typeof MailFromDomainStatus | string | undefined;
 
   /**
    * <p>The action that Amazon Pinpoint to takes if it can't read the required MX record for a custom
@@ -2053,7 +2053,7 @@ export interface MailFromAttributes {
    *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
    *             states.</p>
    */
-  BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
+  BehaviorOnMxFailure: keyof typeof BehaviorOnMxFailure | string | undefined;
 }
 
 /**
@@ -2064,7 +2064,7 @@ export interface GetEmailIdentityResponse {
   /**
    * <p>The email identity type.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: keyof typeof IdentityType | string;
 
   /**
    * <p>The feedback forwarding configuration for the identity.</p>
@@ -2338,7 +2338,7 @@ export interface IdentityInfo {
    *             </li>
    *          </ul>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: keyof typeof IdentityType | string;
 
   /**
    * <p>The address or domain of the identity.</p>
@@ -2459,7 +2459,7 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
-  TlsPolicy?: TlsPolicy | string;
+  TlsPolicy?: keyof typeof TlsPolicy | string;
 
   /**
    * <p>The name of the dedicated IP pool that you want to associate with the configuration
@@ -2733,7 +2733,7 @@ export interface PutEmailIdentityMailFromAttributesRequest {
    *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
    *             states.</p>
    */
-  BehaviorOnMxFailure?: BehaviorOnMxFailure | string;
+  BehaviorOnMxFailure?: keyof typeof BehaviorOnMxFailure | string;
 }
 
 /**

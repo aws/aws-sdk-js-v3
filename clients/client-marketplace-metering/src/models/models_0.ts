@@ -105,11 +105,11 @@ export interface BatchMeterUsageRequest {
 /**
  * @public
  */
-export enum UsageRecordResultStatus {
-  CUSTOMER_NOT_SUBSCRIBED = "CustomerNotSubscribed",
-  DUPLICATE_RECORD = "DuplicateRecord",
-  SUCCESS = "Success",
-}
+export const UsageRecordResultStatus = {
+  CUSTOMER_NOT_SUBSCRIBED: "CustomerNotSubscribed",
+  DUPLICATE_RECORD: "DuplicateRecord",
+  SUCCESS: "Success",
+};
 
 /**
  * @public
@@ -168,7 +168,7 @@ export interface UsageRecordResult {
    *             </li>
    *          </ul>
    */
-  Status?: UsageRecordResultStatus | string;
+  Status?: keyof typeof UsageRecordResultStatus | string;
 }
 
 /**

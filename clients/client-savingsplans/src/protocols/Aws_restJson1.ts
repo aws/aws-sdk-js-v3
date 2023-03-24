@@ -851,7 +851,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1CurrencyList = (input: (CurrencyCode | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1CurrencyList = (
+  input: (keyof typeof CurrencyCode | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -973,7 +976,7 @@ const serializeAws_restJson1SavingsPlanOperationList = (input: string[], context
 };
 
 const serializeAws_restJson1SavingsPlanPaymentOptionList = (
-  input: (SavingsPlanPaymentOption | string)[],
+  input: (keyof typeof SavingsPlanPaymentOption | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -984,7 +987,7 @@ const serializeAws_restJson1SavingsPlanPaymentOptionList = (
 };
 
 const serializeAws_restJson1SavingsPlanProductTypeList = (
-  input: (SavingsPlanProductType | string)[],
+  input: (keyof typeof SavingsPlanProductType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1021,7 +1024,7 @@ const serializeAws_restJson1SavingsPlanRateOperationList = (input: string[], con
 };
 
 const serializeAws_restJson1SavingsPlanRateServiceCodeList = (
-  input: (SavingsPlanRateServiceCode | string)[],
+  input: (keyof typeof SavingsPlanRateServiceCode | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1048,7 +1051,7 @@ const serializeAws_restJson1SavingsPlanServiceCodeList = (input: string[], conte
 };
 
 const serializeAws_restJson1SavingsPlanStateList = (
-  input: (SavingsPlanState | string)[],
+  input: (keyof typeof SavingsPlanState | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1059,7 +1062,7 @@ const serializeAws_restJson1SavingsPlanStateList = (
 };
 
 const serializeAws_restJson1SavingsPlanTypeList = (
-  input: (SavingsPlanType | string)[],
+  input: (keyof typeof SavingsPlanType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1282,7 +1285,7 @@ const deserializeAws_restJson1SavingsPlanOfferingsList = (
 const deserializeAws_restJson1SavingsPlanProductTypeList = (
   output: any,
   context: __SerdeContext
-): (SavingsPlanProductType | string)[] => {
+): (keyof typeof SavingsPlanProductType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

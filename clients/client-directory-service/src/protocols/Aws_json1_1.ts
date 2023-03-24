@@ -6803,9 +6803,9 @@ const deserializeAws_json1_1DirectoryAlreadySharedException = (
 const deserializeAws_json1_1DirectoryConfigurationSettingRequestDetailedStatus = (
   output: any,
   context: __SerdeContext
-): Record<string, DirectoryConfigurationStatus | string> => {
+): Record<string, keyof typeof DirectoryConfigurationStatus | string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, DirectoryConfigurationStatus | string>, [key, value]: [string, any]) => {
+    (acc: Record<string, keyof typeof DirectoryConfigurationStatus | string>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }

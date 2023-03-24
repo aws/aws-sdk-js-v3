@@ -6,10 +6,10 @@ import { WorkMailServiceException as __BaseException } from "./WorkMailServiceEx
 /**
  * @public
  */
-export enum AccessControlRuleEffect {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const AccessControlRuleEffect = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+};
 
 /**
  * @public
@@ -24,7 +24,7 @@ export interface AccessControlRule {
   /**
    * <p>The rule effect.</p>
    */
-  Effect?: AccessControlRuleEffect | string;
+  Effect?: keyof typeof AccessControlRuleEffect | string;
 
   /**
    * <p>The rule description.</p>
@@ -89,10 +89,10 @@ export interface AccessControlRule {
 /**
  * @public
  */
-export enum AccessEffect {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const AccessEffect = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+};
 
 /**
  * @public
@@ -407,10 +407,10 @@ export interface LambdaAvailabilityProvider {
 /**
  * @public
  */
-export enum AvailabilityProviderType {
-  EWS = "EWS",
-  LAMBDA = "LAMBDA",
-}
+export const AvailabilityProviderType = {
+  EWS: "EWS",
+  LAMBDA: "LAMBDA",
+};
 
 /**
  * @public
@@ -426,7 +426,7 @@ export interface AvailabilityConfiguration {
   /**
    * <p>Displays the provider type that applies to this domain.</p>
    */
-  ProviderType?: AvailabilityProviderType | string;
+  ProviderType?: keyof typeof AvailabilityProviderType | string;
 
   /**
    * <p>If <code>ProviderType</code> is <code>EWS</code>, then this field contains
@@ -763,7 +763,7 @@ export interface ImpersonationRule {
    * <p>The effect of the rule when it matches the input. Allowed effect values are
    *             <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect: AccessEffect | string | undefined;
+  Effect: keyof typeof AccessEffect | string | undefined;
 
   /**
    * <p>A list of user IDs that match the rule.</p>
@@ -779,10 +779,10 @@ export interface ImpersonationRule {
 /**
  * @public
  */
-export enum ImpersonationRoleType {
-  FULL_ACCESS = "FULL_ACCESS",
-  READ_ONLY = "READ_ONLY",
-}
+export const ImpersonationRoleType = {
+  FULL_ACCESS: "FULL_ACCESS",
+  READ_ONLY: "READ_ONLY",
+};
 
 /**
  * @public
@@ -807,7 +807,7 @@ export interface CreateImpersonationRoleRequest {
    * <p>The impersonation role's type. The available impersonation role types are
    *             <code>READ_ONLY</code> or <code>FULL_ACCESS</code>.</p>
    */
-  Type: ImpersonationRoleType | string | undefined;
+  Type: keyof typeof ImpersonationRoleType | string | undefined;
 
   /**
    * <p>The description of the new impersonation role.</p>
@@ -833,10 +833,10 @@ export interface CreateImpersonationRoleResponse {
 /**
  * @public
  */
-export enum MobileDeviceAccessRuleEffect {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const MobileDeviceAccessRuleEffect = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+};
 
 /**
  * @public
@@ -865,7 +865,7 @@ export interface CreateMobileDeviceAccessRuleRequest {
   /**
    * <p>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect: MobileDeviceAccessRuleEffect | string | undefined;
+  Effect: keyof typeof MobileDeviceAccessRuleEffect | string | undefined;
 
   /**
    * <p>Device types that the rule will match.</p>
@@ -1007,10 +1007,10 @@ export class DirectoryInUseException extends __BaseException {
 /**
  * @public
  */
-export enum ResourceType {
-  EQUIPMENT = "EQUIPMENT",
-  ROOM = "ROOM",
-}
+export const ResourceType = {
+  EQUIPMENT: "EQUIPMENT",
+  ROOM: "ROOM",
+};
 
 /**
  * @public
@@ -1031,7 +1031,7 @@ export interface CreateResourceRequest {
    * <p>The type of the new resource. The available types are <code>equipment</code> and
    *             <code>room</code>.</p>
    */
-  Type: ResourceType | string | undefined;
+  Type: keyof typeof ResourceType | string | undefined;
 }
 
 /**
@@ -1105,10 +1105,10 @@ export class InvalidPasswordException extends __BaseException {
 /**
  * @public
  */
-export enum MemberType {
-  GROUP = "GROUP",
-  USER = "USER",
-}
+export const MemberType = {
+  GROUP: "GROUP",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -1124,7 +1124,7 @@ export interface Delegate {
   /**
    * <p>The type of the delegate: user or group.</p>
    */
-  Type: MemberType | string | undefined;
+  Type: keyof typeof MemberType | string | undefined;
 }
 
 /**
@@ -1559,11 +1559,11 @@ export interface DescribeGroupRequest {
 /**
  * @public
  */
-export enum EntityState {
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const EntityState = {
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1588,7 +1588,7 @@ export interface DescribeGroupResponse {
    * <p>The state of the user: enabled (registered to WorkMail) or disabled (deregistered or
    *          never registered to WorkMail).</p>
    */
-  State?: EntityState | string;
+  State?: keyof typeof EntityState | string;
 
   /**
    * <p>The date and time when a user was registered to WorkMail, in UNIX epoch time
@@ -1641,12 +1641,12 @@ export interface DescribeMailboxExportJobRequest {
 /**
  * @public
  */
-export enum MailboxExportJobState {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-}
+export const MailboxExportJobState = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -1698,7 +1698,7 @@ export interface DescribeMailboxExportJobResponse {
   /**
    * <p>The state of the mailbox export job.</p>
    */
-  State?: MailboxExportJobState | string;
+  State?: keyof typeof MailboxExportJobState | string;
 
   /**
    * <p>Error information for failed mailbox export jobs.</p>
@@ -1816,7 +1816,7 @@ export interface DescribeResourceResponse {
   /**
    * <p>The type of the described resource.</p>
    */
-  Type?: ResourceType | string;
+  Type?: keyof typeof ResourceType | string;
 
   /**
    * <p>The booking options for the described resource.</p>
@@ -1827,7 +1827,7 @@ export interface DescribeResourceResponse {
    * <p>The state of the resource: enabled (registered to WorkMail), disabled (deregistered
    *          or never registered to WorkMail), or deleted.</p>
    */
-  State?: EntityState | string;
+  State?: keyof typeof EntityState | string;
 
   /**
    * <p>The date and time when a resource was enabled for WorkMail, in UNIX epoch time
@@ -1860,11 +1860,11 @@ export interface DescribeUserRequest {
 /**
  * @public
  */
-export enum UserRole {
-  RESOURCE = "RESOURCE",
-  SYSTEM_USER = "SYSTEM_USER",
-  USER = "USER",
-}
+export const UserRole = {
+  RESOURCE: "RESOURCE",
+  SYSTEM_USER: "SYSTEM_USER",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -1894,7 +1894,7 @@ export interface DescribeUserResponse {
    * <p>The state of a user: enabled (registered to WorkMail) or disabled (deregistered or
    *          never registered to WorkMail).</p>
    */
-  State?: EntityState | string;
+  State?: keyof typeof EntityState | string;
 
   /**
    * <p>In certain cases, other entities are modeled as users. If interoperability is
@@ -1903,7 +1903,7 @@ export interface DescribeUserResponse {
    *          unregistered user (account is disabled and has a user role) and the directory
    *          administrators. The values are USER, RESOURCE, and SYSTEM_USER.</p>
    */
-  UserRole?: UserRole | string;
+  UserRole?: keyof typeof UserRole | string;
 
   /**
    * <p>The date and time at which the user was enabled for WorkMailusage, in UNIX epoch
@@ -1994,11 +1994,11 @@ export interface DnsRecord {
 /**
  * @public
  */
-export enum DnsRecordVerificationStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  VERIFIED = "VERIFIED",
-}
+export const DnsRecordVerificationStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  VERIFIED: "VERIFIED",
+};
 
 /**
  * @public
@@ -2026,22 +2026,22 @@ export class EntityAlreadyRegisteredException extends __BaseException {
 /**
  * @public
  */
-export enum RetentionAction {
-  DELETE = "DELETE",
-  NONE = "NONE",
-  PERMANENTLY_DELETE = "PERMANENTLY_DELETE",
-}
+export const RetentionAction = {
+  DELETE: "DELETE",
+  NONE: "NONE",
+  PERMANENTLY_DELETE: "PERMANENTLY_DELETE",
+};
 
 /**
  * @public
  */
-export enum FolderName {
-  DELETED_ITEMS = "DELETED_ITEMS",
-  DRAFTS = "DRAFTS",
-  INBOX = "INBOX",
-  JUNK_EMAIL = "JUNK_EMAIL",
-  SENT_ITEMS = "SENT_ITEMS",
-}
+export const FolderName = {
+  DELETED_ITEMS: "DELETED_ITEMS",
+  DRAFTS: "DRAFTS",
+  INBOX: "INBOX",
+  JUNK_EMAIL: "JUNK_EMAIL",
+  SENT_ITEMS: "SENT_ITEMS",
+};
 
 /**
  * @public
@@ -2052,13 +2052,13 @@ export interface FolderConfiguration {
   /**
    * <p>The folder name.</p>
    */
-  Name: FolderName | string | undefined;
+  Name: keyof typeof FolderName | string | undefined;
 
   /**
    * <p>The action to take on the folder contents at the end of the folder configuration
    *          period.</p>
    */
-  Action: RetentionAction | string | undefined;
+  Action: keyof typeof RetentionAction | string | undefined;
 
   /**
    * <p>The number of days for which the folder-configuration action applies.</p>
@@ -2105,7 +2105,7 @@ export interface GetAccessControlEffectResponse {
   /**
    * <p>The rule effect.</p>
    */
-  Effect?: AccessControlRuleEffect | string;
+  Effect?: keyof typeof AccessControlRuleEffect | string;
 
   /**
    * <p>The rules that match the given parameters, resulting in an effect.</p>
@@ -2180,7 +2180,7 @@ export interface GetImpersonationRoleResponse {
   /**
    * <p>The impersonation role type.</p>
    */
-  Type?: ImpersonationRoleType | string;
+  Type?: keyof typeof ImpersonationRoleType | string;
 
   /**
    * <p>The impersonation role description.</p>
@@ -2261,14 +2261,14 @@ export interface GetImpersonationRoleEffectResponse {
   /**
    * <p>The impersonation role type.</p>
    */
-  Type?: ImpersonationRoleType | string;
+  Type?: keyof typeof ImpersonationRoleType | string;
 
   /**
    * <p>
    *             <code></code>Effect of the impersonation role on the target user based on its rules. Available
    *          effects are <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect?: AccessEffect | string;
+  Effect?: keyof typeof AccessEffect | string;
 
   /**
    * <p>A list of the rules that match the input and produce the configured effect.</p>
@@ -2345,12 +2345,12 @@ export interface GetMailDomainResponse {
   /**
    * <p> Indicates the status of the domain ownership verification.</p>
    */
-  OwnershipVerificationStatus?: DnsRecordVerificationStatus | string;
+  OwnershipVerificationStatus?: keyof typeof DnsRecordVerificationStatus | string;
 
   /**
    * <p>Indicates the status of a DKIM verification.</p>
    */
-  DkimVerificationStatus?: DnsRecordVerificationStatus | string;
+  DkimVerificationStatus?: keyof typeof DnsRecordVerificationStatus | string;
 }
 
 /**
@@ -2407,7 +2407,7 @@ export interface GetMobileDeviceAccessEffectResponse {
    * <p>The effect of the simulated access, <code>ALLOW</code> or <code>DENY</code>, after evaluating mobile device access rules in the WorkMail organization for the simulated
    *          user parameters.</p>
    */
-  Effect?: MobileDeviceAccessRuleEffect | string;
+  Effect?: keyof typeof MobileDeviceAccessRuleEffect | string;
 
   /**
    * <p>A list of the rules which matched the simulated user input and produced the effect.</p>
@@ -2466,7 +2466,7 @@ export interface GetMobileDeviceAccessOverrideResponse {
   /**
    * <p>The effect of the override, <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect?: MobileDeviceAccessRuleEffect | string;
+  Effect?: keyof typeof MobileDeviceAccessRuleEffect | string;
 
   /**
    * <p>A description of the override.</p>
@@ -2507,7 +2507,7 @@ export interface Group {
   /**
    * <p>The state of the group, which can be ENABLED, DISABLED, or DELETED.</p>
    */
-  State?: EntityState | string;
+  State?: keyof typeof EntityState | string;
 
   /**
    * <p>The date indicating when the group was enabled for WorkMail use.</p>
@@ -2538,7 +2538,7 @@ export interface ImpersonationRole {
   /**
    * <p>The impersonation role type.</p>
    */
-  Type?: ImpersonationRoleType | string;
+  Type?: keyof typeof ImpersonationRoleType | string;
 
   /**
    * <p>The date when the impersonation role was created.</p>
@@ -2614,7 +2614,7 @@ export interface MailboxExportJob {
   /**
    * <p>The state of the mailbox export job.</p>
    */
-  State?: MailboxExportJobState | string;
+  State?: keyof typeof MailboxExportJobState | string;
 
   /**
    * <p>The mailbox export job start timestamp.</p>
@@ -2770,12 +2770,12 @@ export interface Member {
   /**
    * <p>A member can be a user or group.</p>
    */
-  Type?: MemberType | string;
+  Type?: keyof typeof MemberType | string;
 
   /**
    * <p>The state of the member, which can be ENABLED, DISABLED, or DELETED.</p>
    */
-  State?: EntityState | string;
+  State?: keyof typeof EntityState | string;
 
   /**
    * <p>The date indicating when the member was enabled for WorkMail use.</p>
@@ -2944,11 +2944,11 @@ export interface ListMailboxPermissionsRequest {
 /**
  * @public
  */
-export enum PermissionType {
-  FULL_ACCESS = "FULL_ACCESS",
-  SEND_AS = "SEND_AS",
-  SEND_ON_BEHALF = "SEND_ON_BEHALF",
-}
+export const PermissionType = {
+  FULL_ACCESS: "FULL_ACCESS",
+  SEND_AS: "SEND_AS",
+  SEND_ON_BEHALF: "SEND_ON_BEHALF",
+};
 
 /**
  * @public
@@ -2965,7 +2965,7 @@ export interface Permission {
   /**
    * <p>The type of user, group, or resource referred to in GranteeId.</p>
    */
-  GranteeType: MemberType | string | undefined;
+  GranteeType: keyof typeof MemberType | string | undefined;
 
   /**
    * <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as
@@ -2975,7 +2975,7 @@ export interface Permission {
    *          access to the mailbox, irrespective of other folder-level permissions set on the
    *          mailbox.</p>
    */
-  PermissionValues: (PermissionType | string)[] | undefined;
+  PermissionValues: (keyof typeof PermissionType | string)[] | undefined;
 }
 
 /**
@@ -3107,7 +3107,7 @@ export interface MobileDeviceAccessOverride {
   /**
    * <p>The effect of the override, <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect?: MobileDeviceAccessRuleEffect | string;
+  Effect?: keyof typeof MobileDeviceAccessRuleEffect | string;
 
   /**
    * <p>A description of the override.</p>
@@ -3173,7 +3173,7 @@ export interface MobileDeviceAccessRule {
   /**
    * <p>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect?: MobileDeviceAccessRuleEffect | string;
+  Effect?: keyof typeof MobileDeviceAccessRuleEffect | string;
 
   /**
    * <p>Device types that a rule will match.</p>
@@ -3390,12 +3390,12 @@ export interface Resource {
   /**
    * <p>The type of the resource: equipment or room.</p>
    */
-  Type?: ResourceType | string;
+  Type?: keyof typeof ResourceType | string;
 
   /**
    * <p>The state of the resource, which can be ENABLED, DISABLED, or DELETED.</p>
    */
-  State?: EntityState | string;
+  State?: keyof typeof EntityState | string;
 
   /**
    * <p>The date indicating when the resource was enabled for WorkMail use.</p>
@@ -3510,12 +3510,12 @@ export interface User {
   /**
    * <p>The state of the user, which can be ENABLED, DISABLED, or DELETED.</p>
    */
-  State?: EntityState | string;
+  State?: keyof typeof EntityState | string;
 
   /**
    * <p>The role of the user.</p>
    */
-  UserRole?: UserRole | string;
+  UserRole?: keyof typeof UserRole | string;
 
   /**
    * <p>The date indicating when the user was enabled for WorkMail use.</p>
@@ -3556,7 +3556,7 @@ export interface PutAccessControlRuleRequest {
   /**
    * <p>The rule effect.</p>
    */
-  Effect: AccessControlRuleEffect | string | undefined;
+  Effect: keyof typeof AccessControlRuleEffect | string | undefined;
 
   /**
    * <p>The rule description.</p>
@@ -3693,7 +3693,7 @@ export interface PutMailboxPermissionsRequest {
    *          access to the mailbox, irrespective of other folder-level permissions set on the
    *          mailbox.</p>
    */
-  PermissionValues: (PermissionType | string)[] | undefined;
+  PermissionValues: (keyof typeof PermissionType | string)[] | undefined;
 }
 
 /**
@@ -3737,7 +3737,7 @@ export interface PutMobileDeviceAccessOverrideRequest {
   /**
    * <p>The effect of the override, <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect: MobileDeviceAccessRuleEffect | string | undefined;
+  Effect: keyof typeof MobileDeviceAccessRuleEffect | string | undefined;
 
   /**
    * <p>A description of the override.</p>
@@ -4098,7 +4098,7 @@ export interface UpdateImpersonationRoleRequest {
   /**
    * <p>The updated impersonation role type.</p>
    */
-  Type: ImpersonationRoleType | string | undefined;
+  Type: keyof typeof ImpersonationRoleType | string | undefined;
 
   /**
    * <p>The updated impersonation role description.</p>
@@ -4169,7 +4169,7 @@ export interface UpdateMobileDeviceAccessRuleRequest {
   /**
    * <p>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</p>
    */
-  Effect: MobileDeviceAccessRuleEffect | string | undefined;
+  Effect: keyof typeof MobileDeviceAccessRuleEffect | string | undefined;
 
   /**
    * <p>Device types that the updated rule will match.</p>

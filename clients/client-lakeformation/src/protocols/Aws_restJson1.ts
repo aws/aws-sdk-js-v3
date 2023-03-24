@@ -4574,7 +4574,10 @@ const serializeAws_restJson1PartitionValuesList = (input: string[], context: __S
     });
 };
 
-const serializeAws_restJson1PermissionList = (input: (Permission | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1PermissionList = (
+  input: (keyof typeof Permission | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4582,7 +4585,10 @@ const serializeAws_restJson1PermissionList = (input: (Permission | string)[], co
     });
 };
 
-const serializeAws_restJson1PermissionTypeList = (input: (PermissionType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1PermissionTypeList = (
+  input: (keyof typeof PermissionType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4674,13 +4680,16 @@ const serializeAws_restJson1StorageOptimizerConfigMap = (
   input: Record<string, Record<string, string>>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [OptimizerType | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof OptimizerType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = serializeAws_restJson1StorageOptimizerConfig(value, context);
       return acc;
-    }
-    acc[key] = serializeAws_restJson1StorageOptimizerConfig(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1StringValueList = (input: string[], context: __SerdeContext): any => {
@@ -5145,7 +5154,10 @@ const deserializeAws_restJson1PartitionValuesList = (output: any, context: __Ser
   return retVal;
 };
 
-const deserializeAws_restJson1PermissionList = (output: any, context: __SerdeContext): (Permission | string)[] => {
+const deserializeAws_restJson1PermissionList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Permission | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

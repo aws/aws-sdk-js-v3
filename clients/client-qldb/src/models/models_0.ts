@@ -125,10 +125,10 @@ export class ResourcePreconditionNotMetException extends __BaseException {
 /**
  * @public
  */
-export enum PermissionsMode {
-  ALLOW_ALL = "ALLOW_ALL",
-  STANDARD = "STANDARD",
-}
+export const PermissionsMode = {
+  ALLOW_ALL: "ALLOW_ALL",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -180,7 +180,7 @@ export interface CreateLedgerRequest {
    *             the security of your ledger data.</p>
    *          </note>
    */
-  PermissionsMode: PermissionsMode | string | undefined;
+  PermissionsMode: keyof typeof PermissionsMode | string | undefined;
 
   /**
    * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
@@ -248,12 +248,12 @@ export interface CreateLedgerRequest {
 /**
  * @public
  */
-export enum LedgerState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+export const LedgerState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -272,7 +272,7 @@ export interface CreateLedgerResponse {
   /**
    * <p>The current status of the ledger.</p>
    */
-  State?: LedgerState | string;
+  State?: keyof typeof LedgerState | string;
 
   /**
    * <p>The date and time, in epoch time format, when the ledger was created. (Epoch time format
@@ -283,7 +283,7 @@ export interface CreateLedgerResponse {
   /**
    * <p>The permissions mode of the ledger that you created.</p>
    */
-  PermissionsMode?: PermissionsMode | string;
+  PermissionsMode?: keyof typeof PermissionsMode | string;
 
   /**
    * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
@@ -422,10 +422,10 @@ export interface DescribeJournalKinesisStreamRequest {
 /**
  * @public
  */
-export enum ErrorCause {
-  IAM_PERMISSION_REVOKED = "IAM_PERMISSION_REVOKED",
-  KINESIS_STREAM_NOT_FOUND = "KINESIS_STREAM_NOT_FOUND",
-}
+export const ErrorCause = {
+  IAM_PERMISSION_REVOKED: "IAM_PERMISSION_REVOKED",
+  KINESIS_STREAM_NOT_FOUND: "KINESIS_STREAM_NOT_FOUND",
+};
 
 /**
  * @public
@@ -453,13 +453,13 @@ export interface KinesisConfiguration {
 /**
  * @public
  */
-export enum StreamStatus {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IMPAIRED = "IMPAIRED",
-}
+export const StreamStatus = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IMPAIRED: "IMPAIRED",
+};
 
 /**
  * @public
@@ -510,7 +510,7 @@ export interface JournalKinesisStreamDescription {
   /**
    * <p>The current state of the QLDB journal stream.</p>
    */
-  Status: StreamStatus | string | undefined;
+  Status: keyof typeof StreamStatus | string | undefined;
 
   /**
    * <p>The configuration settings of the Amazon Kinesis Data Streams destination for a QLDB journal
@@ -523,7 +523,7 @@ export interface JournalKinesisStreamDescription {
    *             <code>IMPAIRED</code> or <code>FAILED</code>. This is not applicable to streams that
    *          have other status values.</p>
    */
-  ErrorCause?: ErrorCause | string;
+  ErrorCause?: keyof typeof ErrorCause | string;
 
   /**
    * <p>The user-defined name of the QLDB journal stream.</p>
@@ -561,20 +561,20 @@ export interface DescribeJournalS3ExportRequest {
 /**
  * @public
  */
-export enum OutputFormat {
-  ION_BINARY = "ION_BINARY",
-  ION_TEXT = "ION_TEXT",
-  JSON = "JSON",
-}
+export const OutputFormat = {
+  ION_BINARY: "ION_BINARY",
+  ION_TEXT: "ION_TEXT",
+  JSON: "JSON",
+};
 
 /**
  * @public
  */
-export enum S3ObjectEncryptionType {
-  NO_ENCRYPTION = "NO_ENCRYPTION",
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3",
-}
+export const S3ObjectEncryptionType = {
+  NO_ENCRYPTION: "NO_ENCRYPTION",
+  SSE_KMS: "SSE_KMS",
+  SSE_S3: "SSE_S3",
+};
 
 /**
  * @public
@@ -588,7 +588,7 @@ export interface S3EncryptionConfiguration {
    *             Using Server-Side Encryption</a> in the <i>Amazon S3 Developer
    *          Guide</i>.</p>
    */
-  ObjectEncryptionType: S3ObjectEncryptionType | string | undefined;
+  ObjectEncryptionType: keyof typeof S3ObjectEncryptionType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a symmetric key in Key Management Service (KMS). Amazon S3 does not
@@ -653,11 +653,11 @@ export interface S3ExportConfiguration {
 /**
  * @public
  */
-export enum ExportStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ExportStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -684,7 +684,7 @@ export interface JournalS3ExportDescription {
   /**
    * <p>The current state of the journal export job.</p>
    */
-  Status: ExportStatus | string | undefined;
+  Status: keyof typeof ExportStatus | string | undefined;
 
   /**
    * <p>The inclusive start date and time for the range of journal contents that was specified
@@ -722,7 +722,7 @@ export interface JournalS3ExportDescription {
   /**
    * <p>The output format of the exported journal data.</p>
    */
-  OutputFormat?: OutputFormat | string;
+  OutputFormat?: keyof typeof OutputFormat | string;
 }
 
 /**
@@ -749,11 +749,11 @@ export interface DescribeLedgerRequest {
 /**
  * @public
  */
-export enum EncryptionStatus {
-  ENABLED = "ENABLED",
-  KMS_KEY_INACCESSIBLE = "KMS_KEY_INACCESSIBLE",
-  UPDATING = "UPDATING",
-}
+export const EncryptionStatus = {
+  ENABLED: "ENABLED",
+  KMS_KEY_INACCESSIBLE: "KMS_KEY_INACCESSIBLE",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -801,7 +801,7 @@ export interface LedgerEncryptionDescription {
    *             </li>
    *          </ul>
    */
-  EncryptionStatus: EncryptionStatus | string | undefined;
+  EncryptionStatus: keyof typeof EncryptionStatus | string | undefined;
 
   /**
    * <p>The date and time, in epoch time format, when the KMS key first became inaccessible,
@@ -829,7 +829,7 @@ export interface DescribeLedgerResponse {
   /**
    * <p>The current status of the ledger.</p>
    */
-  State?: LedgerState | string;
+  State?: keyof typeof LedgerState | string;
 
   /**
    * <p>The date and time, in epoch time format, when the ledger was created. (Epoch time format
@@ -840,7 +840,7 @@ export interface DescribeLedgerResponse {
   /**
    * <p>The permissions mode of the ledger.</p>
    */
-  PermissionsMode?: PermissionsMode | string;
+  PermissionsMode?: keyof typeof PermissionsMode | string;
 
   /**
    * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
@@ -917,7 +917,7 @@ export interface ExportJournalToS3Request {
    * <p>The output format of your exported journal data. If this parameter is not specified, the
    *          exported data defaults to <code>ION_TEXT</code> format.</p>
    */
-  OutputFormat?: OutputFormat | string;
+  OutputFormat?: keyof typeof OutputFormat | string;
 }
 
 /**
@@ -1242,7 +1242,7 @@ export interface LedgerSummary {
   /**
    * <p>The current status of the ledger.</p>
    */
-  State?: LedgerState | string;
+  State?: keyof typeof LedgerState | string;
 
   /**
    * <p>The date and time, in epoch time format, when the ledger was created. (Epoch time format
@@ -1510,7 +1510,7 @@ export interface UpdateLedgerResponse {
   /**
    * <p>The current status of the ledger.</p>
    */
-  State?: LedgerState | string;
+  State?: keyof typeof LedgerState | string;
 
   /**
    * <p>The date and time, in epoch time format, when the ledger was created. (Epoch time format
@@ -1575,7 +1575,7 @@ export interface UpdateLedgerPermissionsModeRequest {
    *             the security of your ledger data.</p>
    *          </note>
    */
-  PermissionsMode: PermissionsMode | string | undefined;
+  PermissionsMode: keyof typeof PermissionsMode | string | undefined;
 }
 
 /**
@@ -1595,7 +1595,7 @@ export interface UpdateLedgerPermissionsModeResponse {
   /**
    * <p>The current permissions mode of the ledger.</p>
    */
-  PermissionsMode?: PermissionsMode | string;
+  PermissionsMode?: keyof typeof PermissionsMode | string;
 }
 
 /**

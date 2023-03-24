@@ -67,7 +67,7 @@ export interface PriceScheduleSpecification {
    * <p>The currency for transacting the Reserved Instance resale.
    * 				At this time, the only supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: keyof typeof CurrencyCodeValues | string;
 
   /**
    * <p>The fixed price for the term.</p>
@@ -345,19 +345,19 @@ export interface PropagatingVgw {
 /**
  * @public
  */
-export enum RouteOrigin {
-  CreateRoute = "CreateRoute",
-  CreateRouteTable = "CreateRouteTable",
-  EnableVgwRoutePropagation = "EnableVgwRoutePropagation",
-}
+export const RouteOrigin = {
+  CreateRoute: "CreateRoute",
+  CreateRouteTable: "CreateRouteTable",
+  EnableVgwRoutePropagation: "EnableVgwRoutePropagation",
+};
 
 /**
  * @public
  */
-export enum RouteState {
-  active = "active",
-  blackhole = "blackhole",
-}
+export const RouteState = {
+  active: "active",
+  blackhole: "blackhole",
+};
 
 /**
  * @public
@@ -441,14 +441,14 @@ export interface Route {
    *             </li>
    *          </ul>
    */
-  Origin?: RouteOrigin | string;
+  Origin?: keyof typeof RouteOrigin | string;
 
   /**
    * <p>The state of the route. The <code>blackhole</code> state indicates that the
    * 				route's target isn't available (for example, the specified gateway isn't attached to the
    * 				VPC, or the specified NAT instance has been terminated).</p>
    */
-  State?: RouteState | string;
+  State?: keyof typeof RouteState | string;
 
   /**
    * <p>The ID of a VPC peering connection.</p>
@@ -619,21 +619,21 @@ export interface CreateSnapshotRequest {
 /**
  * @public
  */
-export enum SnapshotState {
-  completed = "completed",
-  error = "error",
-  pending = "pending",
-  recoverable = "recoverable",
-  recovering = "recovering",
-}
+export const SnapshotState = {
+  completed: "completed",
+  error: "error",
+  pending: "pending",
+  recoverable: "recoverable",
+  recovering: "recovering",
+};
 
 /**
  * @public
  */
-export enum StorageTier {
-  archive = "archive",
-  standard = "standard",
-}
+export const StorageTier = {
+  archive: "archive",
+  standard: "standard",
+};
 
 /**
  * @public
@@ -689,7 +689,7 @@ export interface Snapshot {
   /**
    * <p>The snapshot state.</p>
    */
-  State?: SnapshotState | string;
+  State?: keyof typeof SnapshotState | string;
 
   /**
    * <p>Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot copy operation fails
@@ -733,7 +733,7 @@ export interface Snapshot {
    *       for use. <code>archive</code> indicates that the snapshot is currently archived and that
    *       it must be restored before it can be used.</p>
    */
-  StorageTier?: StorageTier | string;
+  StorageTier?: keyof typeof StorageTier | string;
 
   /**
    * <p>Only for archived snapshots that are temporarily restored. Indicates the date and
@@ -745,9 +745,9 @@ export interface Snapshot {
 /**
  * @public
  */
-export enum CopyTagsFromSource {
-  volume = "volume",
-}
+export const CopyTagsFromSource = {
+  volume: "volume",
+};
 
 /**
  * @public
@@ -827,7 +827,7 @@ export interface CreateSnapshotsRequest {
   /**
    * <p>Copies the tags from the specified volume to corresponding snapshot.</p>
    */
-  CopyTagsFromSource?: CopyTagsFromSource | string;
+  CopyTagsFromSource?: keyof typeof CopyTagsFromSource | string;
 }
 
 /**
@@ -859,7 +859,7 @@ export interface SnapshotInfo {
   /**
    * <p>Current state of the snapshot.</p>
    */
-  State?: SnapshotState | string;
+  State?: keyof typeof SnapshotState | string;
 
   /**
    * <p>Size of the volume from which this snapshot was created.</p>
@@ -949,10 +949,10 @@ export interface SpotInstanceStateFault {
 /**
  * @public
  */
-export enum DatafeedSubscriptionState {
-  Active = "Active",
-  Inactive = "Inactive",
-}
+export const DatafeedSubscriptionState = {
+  Active: "Active",
+  Inactive: "Inactive",
+};
 
 /**
  * @public
@@ -982,7 +982,7 @@ export interface SpotDatafeedSubscription {
   /**
    * <p>The state of the Spot Instance data feed subscription.</p>
    */
-  State?: DatafeedSubscriptionState | string;
+  State?: keyof typeof DatafeedSubscriptionState | string;
 }
 
 /**
@@ -1135,10 +1135,10 @@ export interface CreateSubnetResult {
 /**
  * @public
  */
-export enum SubnetCidrReservationType {
-  explicit = "explicit",
-  prefix = "prefix",
-}
+export const SubnetCidrReservationType = {
+  explicit: "explicit",
+  prefix: "prefix",
+};
 
 /**
  * @public
@@ -1176,7 +1176,7 @@ export interface CreateSubnetCidrReservationRequest {
    *             </li>
    *          </ul>
    */
-  ReservationType: SubnetCidrReservationType | string | undefined;
+  ReservationType: keyof typeof SubnetCidrReservationType | string | undefined;
 
   /**
    * <p>The
@@ -1221,7 +1221,7 @@ export interface SubnetCidrReservation {
   /**
    * <p>The type of reservation. </p>
    */
-  ReservationType?: SubnetCidrReservationType | string;
+  ReservationType?: keyof typeof SubnetCidrReservationType | string;
 
   /**
    * <p>The ID of the account that owns the subnet CIDR reservation. </p>
@@ -1322,18 +1322,18 @@ export interface TrafficMirrorPortRange {
 /**
  * @public
  */
-export enum TrafficMirrorRuleAction {
-  accept = "accept",
-  reject = "reject",
-}
+export const TrafficMirrorRuleAction = {
+  accept: "accept",
+  reject: "reject",
+};
 
 /**
  * @public
  */
-export enum TrafficDirection {
-  egress = "egress",
-  ingress = "ingress",
-}
+export const TrafficDirection = {
+  egress: "egress",
+  ingress: "ingress",
+};
 
 /**
  * @public
@@ -1353,7 +1353,7 @@ export interface TrafficMirrorFilterRule {
   /**
    * <p>The traffic direction assigned to the Traffic Mirror rule.</p>
    */
-  TrafficDirection?: TrafficDirection | string;
+  TrafficDirection?: keyof typeof TrafficDirection | string;
 
   /**
    * <p>The rule number of the Traffic Mirror rule.</p>
@@ -1363,7 +1363,7 @@ export interface TrafficMirrorFilterRule {
   /**
    * <p>The action assigned to the Traffic Mirror rule.</p>
    */
-  RuleAction?: TrafficMirrorRuleAction | string;
+  RuleAction?: keyof typeof TrafficMirrorRuleAction | string;
 
   /**
    * <p>The protocol assigned to the Traffic Mirror rule.</p>
@@ -1399,9 +1399,9 @@ export interface TrafficMirrorFilterRule {
 /**
  * @public
  */
-export enum TrafficMirrorNetworkService {
-  amazon_dns = "amazon-dns",
-}
+export const TrafficMirrorNetworkService = {
+  amazon_dns: "amazon-dns",
+};
 
 /**
  * @public
@@ -1426,7 +1426,7 @@ export interface TrafficMirrorFilter {
   /**
    * <p>The network service traffic that is associated with the Traffic Mirror filter.</p>
    */
-  NetworkServices?: (TrafficMirrorNetworkService | string)[];
+  NetworkServices?: (keyof typeof TrafficMirrorNetworkService | string)[];
 
   /**
    * <p>The description of the Traffic Mirror filter.</p>
@@ -1482,7 +1482,7 @@ export interface CreateTrafficMirrorFilterRuleRequest {
   /**
    * <p>The type of traffic.</p>
    */
-  TrafficDirection: TrafficDirection | string | undefined;
+  TrafficDirection: keyof typeof TrafficDirection | string | undefined;
 
   /**
    * <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given
@@ -1493,7 +1493,7 @@ export interface CreateTrafficMirrorFilterRuleRequest {
   /**
    * <p>The action to take on the filtered traffic.</p>
    */
-  RuleAction: TrafficMirrorRuleAction | string | undefined;
+  RuleAction: keyof typeof TrafficMirrorRuleAction | string | undefined;
 
   /**
    * <p>The destination port range.</p>
@@ -1737,11 +1737,11 @@ export interface CreateTrafficMirrorTargetRequest {
 /**
  * @public
  */
-export enum TrafficMirrorTargetType {
-  gateway_load_balancer_endpoint = "gateway-load-balancer-endpoint",
-  network_interface = "network-interface",
-  network_load_balancer = "network-load-balancer",
-}
+export const TrafficMirrorTargetType = {
+  gateway_load_balancer_endpoint: "gateway-load-balancer-endpoint",
+  network_interface: "network-interface",
+  network_load_balancer: "network-load-balancer",
+};
 
 /**
  * @public
@@ -1766,7 +1766,7 @@ export interface TrafficMirrorTarget {
   /**
    * <p>The type of Traffic Mirror target.</p>
    */
-  Type?: TrafficMirrorTargetType | string;
+  Type?: keyof typeof TrafficMirrorTargetType | string;
 
   /**
    * <p>Information about the Traffic Mirror target.</p>
@@ -1807,42 +1807,42 @@ export interface CreateTrafficMirrorTargetResult {
 /**
  * @public
  */
-export enum AutoAcceptSharedAttachmentsValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const AutoAcceptSharedAttachmentsValue = {
+  disable: "disable",
+  enable: "enable",
+};
 
 /**
  * @public
  */
-export enum DefaultRouteTableAssociationValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const DefaultRouteTableAssociationValue = {
+  disable: "disable",
+  enable: "enable",
+};
 
 /**
  * @public
  */
-export enum DefaultRouteTablePropagationValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const DefaultRouteTablePropagationValue = {
+  disable: "disable",
+  enable: "enable",
+};
 
 /**
  * @public
  */
-export enum MulticastSupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const MulticastSupportValue = {
+  disable: "disable",
+  enable: "enable",
+};
 
 /**
  * @public
  */
-export enum VpnEcmpSupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const VpnEcmpSupportValue = {
+  disable: "disable",
+  enable: "enable",
+};
 
 /**
  * @public
@@ -1858,32 +1858,32 @@ export interface TransitGatewayRequestOptions {
   /**
    * <p>Enable or disable automatic acceptance of attachment requests. Disabled by default.</p>
    */
-  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | string;
+  AutoAcceptSharedAttachments?: keyof typeof AutoAcceptSharedAttachmentsValue | string;
 
   /**
    * <p>Enable or disable automatic association with the default association route table. Enabled by default.</p>
    */
-  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | string;
+  DefaultRouteTableAssociation?: keyof typeof DefaultRouteTableAssociationValue | string;
 
   /**
    * <p>Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.</p>
    */
-  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | string;
+  DefaultRouteTablePropagation?: keyof typeof DefaultRouteTablePropagationValue | string;
 
   /**
    * <p>Enable or disable Equal Cost Multipath Protocol support. Enabled by default.</p>
    */
-  VpnEcmpSupport?: VpnEcmpSupportValue | string;
+  VpnEcmpSupport?: keyof typeof VpnEcmpSupportValue | string;
 
   /**
    * <p>Enable or disable DNS support. Enabled by default.</p>
    */
-  DnsSupport?: DnsSupportValue | string;
+  DnsSupport?: keyof typeof DnsSupportValue | string;
 
   /**
    * <p>Indicates whether multicast is enabled on the transit gateway</p>
    */
-  MulticastSupport?: MulticastSupportValue | string;
+  MulticastSupport?: keyof typeof MulticastSupportValue | string;
 
   /**
    * <p>One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
@@ -1937,12 +1937,12 @@ export interface TransitGatewayOptions {
   /**
    * <p>Indicates whether attachment requests are automatically accepted.</p>
    */
-  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | string;
+  AutoAcceptSharedAttachments?: keyof typeof AutoAcceptSharedAttachmentsValue | string;
 
   /**
    * <p>Indicates whether resource attachments are automatically associated with the default association route table.</p>
    */
-  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | string;
+  DefaultRouteTableAssociation?: keyof typeof DefaultRouteTableAssociationValue | string;
 
   /**
    * <p>The ID of the default association route table.</p>
@@ -1952,7 +1952,7 @@ export interface TransitGatewayOptions {
   /**
    * <p>Indicates whether resource attachments automatically propagate routes to the default propagation route table.</p>
    */
-  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | string;
+  DefaultRouteTablePropagation?: keyof typeof DefaultRouteTablePropagationValue | string;
 
   /**
    * <p>The ID of the default propagation route table.</p>
@@ -1962,29 +1962,29 @@ export interface TransitGatewayOptions {
   /**
    * <p>Indicates whether Equal Cost Multipath Protocol support is enabled.</p>
    */
-  VpnEcmpSupport?: VpnEcmpSupportValue | string;
+  VpnEcmpSupport?: keyof typeof VpnEcmpSupportValue | string;
 
   /**
    * <p>Indicates whether DNS support is enabled.</p>
    */
-  DnsSupport?: DnsSupportValue | string;
+  DnsSupport?: keyof typeof DnsSupportValue | string;
 
   /**
    * <p>Indicates whether multicast is enabled on the transit gateway</p>
    */
-  MulticastSupport?: MulticastSupportValue | string;
+  MulticastSupport?: keyof typeof MulticastSupportValue | string;
 }
 
 /**
  * @public
  */
-export enum TransitGatewayState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  modifying = "modifying",
-  pending = "pending",
-}
+export const TransitGatewayState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  modifying: "modifying",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -2004,7 +2004,7 @@ export interface TransitGateway {
   /**
    * <p>The state of the transit gateway.</p>
    */
-  State?: TransitGatewayState | string;
+  State?: keyof typeof TransitGatewayState | string;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
@@ -2045,9 +2045,9 @@ export interface CreateTransitGatewayResult {
 /**
  * @public
  */
-export enum ProtocolValue {
-  gre = "gre",
-}
+export const ProtocolValue = {
+  gre: "gre",
+};
 
 /**
  * @public
@@ -2057,7 +2057,7 @@ export interface CreateTransitGatewayConnectRequestOptions {
   /**
    * <p>The tunnel protocol.</p>
    */
-  Protocol: ProtocolValue | string | undefined;
+  Protocol: keyof typeof ProtocolValue | string | undefined;
 }
 
 /**
@@ -2095,7 +2095,7 @@ export interface TransitGatewayConnectOptions {
   /**
    * <p>The tunnel protocol.</p>
    */
-  Protocol?: ProtocolValue | string;
+  Protocol?: keyof typeof ProtocolValue | string;
 }
 
 /**
@@ -2121,7 +2121,7 @@ export interface TransitGatewayConnect {
   /**
    * <p>The state of the attachment.</p>
    */
-  State?: TransitGatewayAttachmentState | string;
+  State?: keyof typeof TransitGatewayAttachmentState | string;
 
   /**
    * <p>The creation time.</p>
@@ -2211,10 +2211,10 @@ export interface CreateTransitGatewayConnectPeerRequest {
 /**
  * @public
  */
-export enum BgpStatus {
-  down = "down",
-  up = "up",
-}
+export const BgpStatus = {
+  down: "down",
+  up: "up",
+};
 
 /**
  * @public
@@ -2244,7 +2244,7 @@ export interface TransitGatewayAttachmentBgpConfiguration {
   /**
    * <p>The BGP status.</p>
    */
-  BgpStatus?: BgpStatus | string;
+  BgpStatus?: keyof typeof BgpStatus | string;
 }
 
 /**
@@ -2270,7 +2270,7 @@ export interface TransitGatewayConnectPeerConfiguration {
   /**
    * <p>The tunnel protocol.</p>
    */
-  Protocol?: ProtocolValue | string;
+  Protocol?: keyof typeof ProtocolValue | string;
 
   /**
    * <p>The BGP configuration details.</p>
@@ -2281,12 +2281,12 @@ export interface TransitGatewayConnectPeerConfiguration {
 /**
  * @public
  */
-export enum TransitGatewayConnectPeerState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const TransitGatewayConnectPeerState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -2306,7 +2306,7 @@ export interface TransitGatewayConnectPeer {
   /**
    * <p>The state of the Connect peer.</p>
    */
-  State?: TransitGatewayConnectPeerState | string;
+  State?: keyof typeof TransitGatewayConnectPeerState | string;
 
   /**
    * <p>The creation time.</p>
@@ -2337,26 +2337,26 @@ export interface CreateTransitGatewayConnectPeerResult {
 /**
  * @public
  */
-export enum AutoAcceptSharedAssociationsValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const AutoAcceptSharedAssociationsValue = {
+  disable: "disable",
+  enable: "enable",
+};
 
 /**
  * @public
  */
-export enum Igmpv2SupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const Igmpv2SupportValue = {
+  disable: "disable",
+  enable: "enable",
+};
 
 /**
  * @public
  */
-export enum StaticSourcesSupportValue {
-  disable = "disable",
-  enable = "enable",
-}
+export const StaticSourcesSupportValue = {
+  disable: "disable",
+  enable: "enable",
+};
 
 /**
  * @public
@@ -2366,17 +2366,17 @@ export interface CreateTransitGatewayMulticastDomainRequestOptions {
   /**
    * <p>Specify whether to enable Internet Group Management Protocol (IGMP) version 2 for the transit gateway multicast domain.</p>
    */
-  Igmpv2Support?: Igmpv2SupportValue | string;
+  Igmpv2Support?: keyof typeof Igmpv2SupportValue | string;
 
   /**
    * <p>Specify whether to enable support for statically configuring multicast group sources for a domain.</p>
    */
-  StaticSourcesSupport?: StaticSourcesSupportValue | string;
+  StaticSourcesSupport?: keyof typeof StaticSourcesSupportValue | string;
 
   /**
    * <p>Indicates whether to automatically accept cross-account subnet associations that are associated with the transit gateway multicast domain.</p>
    */
-  AutoAcceptSharedAssociations?: AutoAcceptSharedAssociationsValue | string;
+  AutoAcceptSharedAssociations?: keyof typeof AutoAcceptSharedAssociationsValue | string;
 }
 
 /**
@@ -2414,28 +2414,28 @@ export interface TransitGatewayMulticastDomainOptions {
   /**
    * <p>Indicates whether Internet Group Management Protocol (IGMP) version 2 is turned on for the transit gateway multicast domain.</p>
    */
-  Igmpv2Support?: Igmpv2SupportValue | string;
+  Igmpv2Support?: keyof typeof Igmpv2SupportValue | string;
 
   /**
    * <p>Indicates whether support for statically configuring transit gateway multicast group sources is turned on.</p>
    */
-  StaticSourcesSupport?: StaticSourcesSupportValue | string;
+  StaticSourcesSupport?: keyof typeof StaticSourcesSupportValue | string;
 
   /**
    * <p>Indicates whether to automatically cross-account subnet associations that are associated with the transit gateway multicast domain.</p>
    */
-  AutoAcceptSharedAssociations?: AutoAcceptSharedAssociationsValue | string;
+  AutoAcceptSharedAssociations?: keyof typeof AutoAcceptSharedAssociationsValue | string;
 }
 
 /**
  * @public
  */
-export enum TransitGatewayMulticastDomainState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const TransitGatewayMulticastDomainState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -2470,7 +2470,7 @@ export interface TransitGatewayMulticastDomain {
   /**
    * <p>The state of the transit gateway multicast domain.</p>
    */
-  State?: TransitGatewayMulticastDomainState | string;
+  State?: keyof typeof TransitGatewayMulticastDomainState | string;
 
   /**
    * <p>The time the transit gateway multicast domain was created.</p>
@@ -2501,7 +2501,7 @@ export interface CreateTransitGatewayPeeringAttachmentRequestOptions {
   /**
    * <p>Indicates whether dynamic routing is enabled or disabled.</p>
    */
-  DynamicRouting?: DynamicRoutingValue | string;
+  DynamicRouting?: keyof typeof DynamicRoutingValue | string;
 }
 
 /**
@@ -2581,12 +2581,12 @@ export interface CreateTransitGatewayPolicyTableRequest {
 /**
  * @public
  */
-export enum TransitGatewayPolicyTableState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const TransitGatewayPolicyTableState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -2606,7 +2606,7 @@ export interface TransitGatewayPolicyTable {
   /**
    * <p>The state of the transit gateway policy table</p>
    */
-  State?: TransitGatewayPolicyTableState | string;
+  State?: keyof typeof TransitGatewayPolicyTableState | string;
 
   /**
    * <p>The timestamp when the transit gateway policy table was created.</p>
@@ -2664,12 +2664,12 @@ export interface CreateTransitGatewayPrefixListReferenceRequest {
 /**
  * @public
  */
-export enum TransitGatewayPrefixListReferenceState {
-  available = "available",
-  deleting = "deleting",
-  modifying = "modifying",
-  pending = "pending",
-}
+export const TransitGatewayPrefixListReferenceState = {
+  available: "available",
+  deleting: "deleting",
+  modifying: "modifying",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -2684,7 +2684,7 @@ export interface TransitGatewayPrefixListAttachment {
   /**
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: keyof typeof TransitGatewayAttachmentResourceType | string;
 
   /**
    * <p>The ID of the resource.</p>
@@ -2715,7 +2715,7 @@ export interface TransitGatewayPrefixListReference {
   /**
    * <p>The state of the prefix list reference.</p>
    */
-  State?: TransitGatewayPrefixListReferenceState | string;
+  State?: keyof typeof TransitGatewayPrefixListReferenceState | string;
 
   /**
    * <p>Indicates whether traffic that matches this route is dropped.</p>
@@ -2774,13 +2774,13 @@ export interface CreateTransitGatewayRouteRequest {
 /**
  * @public
  */
-export enum TransitGatewayRouteState {
-  active = "active",
-  blackhole = "blackhole",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const TransitGatewayRouteState = {
+  active: "active",
+  blackhole: "blackhole",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -2800,16 +2800,16 @@ export interface TransitGatewayRouteAttachment {
   /**
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated. </p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: keyof typeof TransitGatewayAttachmentResourceType | string;
 }
 
 /**
  * @public
  */
-export enum TransitGatewayRouteType {
-  propagated = "propagated",
-  static = "static",
-}
+export const TransitGatewayRouteType = {
+  propagated: "propagated",
+  static: "static",
+};
 
 /**
  * @public
@@ -2839,12 +2839,12 @@ export interface TransitGatewayRoute {
   /**
    * <p>The route type.</p>
    */
-  Type?: TransitGatewayRouteType | string;
+  Type?: keyof typeof TransitGatewayRouteType | string;
 
   /**
    * <p>The state of the route.</p>
    */
-  State?: TransitGatewayRouteState | string;
+  State?: keyof typeof TransitGatewayRouteState | string;
 }
 
 /**
@@ -2882,12 +2882,12 @@ export interface CreateTransitGatewayRouteTableRequest {
 /**
  * @public
  */
-export enum TransitGatewayRouteTableState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const TransitGatewayRouteTableState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -2907,7 +2907,7 @@ export interface TransitGatewayRouteTable {
   /**
    * <p>The state of the transit gateway route table.</p>
    */
-  State?: TransitGatewayRouteTableState | string;
+  State?: keyof typeof TransitGatewayRouteTableState | string;
 
   /**
    * <p>Indicates whether this is the default association route table for the transit gateway.</p>
@@ -2970,22 +2970,22 @@ export interface CreateTransitGatewayRouteTableAnnouncementRequest {
 /**
  * @public
  */
-export enum TransitGatewayRouteTableAnnouncementDirection {
-  incoming = "incoming",
-  outgoing = "outgoing",
-}
+export const TransitGatewayRouteTableAnnouncementDirection = {
+  incoming: "incoming",
+  outgoing: "outgoing",
+};
 
 /**
  * @public
  */
-export enum TransitGatewayRouteTableAnnouncementState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  failed = "failed",
-  failing = "failing",
-  pending = "pending",
-}
+export const TransitGatewayRouteTableAnnouncementState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  failed: "failed",
+  failing: "failing",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -3025,7 +3025,7 @@ export interface TransitGatewayRouteTableAnnouncement {
   /**
    * <p>The direction for the route table announcement.</p>
    */
-  AnnouncementDirection?: TransitGatewayRouteTableAnnouncementDirection | string;
+  AnnouncementDirection?: keyof typeof TransitGatewayRouteTableAnnouncementDirection | string;
 
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -3035,7 +3035,7 @@ export interface TransitGatewayRouteTableAnnouncement {
   /**
    * <p>The state of the transit gateway announcement.</p>
    */
-  State?: TransitGatewayRouteTableAnnouncementState | string;
+  State?: keyof typeof TransitGatewayRouteTableAnnouncementState | string;
 
   /**
    * <p>The timestamp when the transit gateway route table announcement was created.</p>
@@ -3066,17 +3066,17 @@ export interface CreateTransitGatewayVpcAttachmentRequestOptions {
   /**
    * <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
    */
-  DnsSupport?: DnsSupportValue | string;
+  DnsSupport?: keyof typeof DnsSupportValue | string;
 
   /**
    * <p>Enable or disable IPv6 support.  The default is <code>disable</code>.</p>
    */
-  Ipv6Support?: Ipv6SupportValue | string;
+  Ipv6Support?: keyof typeof Ipv6SupportValue | string;
 
   /**
    * <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
    */
-  ApplianceModeSupport?: ApplianceModeSupportValue | string;
+  ApplianceModeSupport?: keyof typeof ApplianceModeSupportValue | string;
 }
 
 /**
@@ -3131,25 +3131,25 @@ export interface CreateTransitGatewayVpcAttachmentResult {
 /**
  * @public
  */
-export enum VerifiedAccessEndpointAttachmentType {
-  vpc = "vpc",
-}
+export const VerifiedAccessEndpointAttachmentType = {
+  vpc: "vpc",
+};
 
 /**
  * @public
  */
-export enum VerifiedAccessEndpointType {
-  load_balancer = "load-balancer",
-  network_interface = "network-interface",
-}
+export const VerifiedAccessEndpointType = {
+  load_balancer: "load-balancer",
+  network_interface: "network-interface",
+};
 
 /**
  * @public
  */
-export enum VerifiedAccessEndpointProtocol {
-  http = "http",
-  https = "https",
-}
+export const VerifiedAccessEndpointProtocol = {
+  http: "http",
+  https: "https",
+};
 
 /**
  * @public
@@ -3160,7 +3160,7 @@ export interface CreateVerifiedAccessEndpointLoadBalancerOptions {
   /**
    * <p>The IP protocol.</p>
    */
-  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Protocol?: keyof typeof VerifiedAccessEndpointProtocol | string;
 
   /**
    * <p>The IP port number.</p>
@@ -3191,7 +3191,7 @@ export interface CreateVerifiedAccessEndpointEniOptions {
   /**
    * <p>The IP protocol.</p>
    */
-  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Protocol?: keyof typeof VerifiedAccessEndpointProtocol | string;
 
   /**
    * <p>The IP port number.</p>
@@ -3211,12 +3211,12 @@ export interface CreateVerifiedAccessEndpointRequest {
   /**
    * <p>The type of Amazon Web Services Verified Access endpoint to create.</p>
    */
-  EndpointType: VerifiedAccessEndpointType | string | undefined;
+  EndpointType: keyof typeof VerifiedAccessEndpointType | string | undefined;
 
   /**
    * <p>The Amazon Web Services network component Verified Access attaches to.</p>
    */
-  AttachmentType: VerifiedAccessEndpointAttachmentType | string | undefined;
+  AttachmentType: keyof typeof VerifiedAccessEndpointAttachmentType | string | undefined;
 
   /**
    * <p>The ARN of the public TLS/SSL certificate in Amazon Web Services Certificate Manager to associate with the endpoint.
@@ -3290,7 +3290,7 @@ export interface VerifiedAccessEndpointLoadBalancerOptions {
   /**
    * <p>The IP protocol.</p>
    */
-  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Protocol?: keyof typeof VerifiedAccessEndpointProtocol | string;
 
   /**
    * <p>The IP port number.</p>
@@ -3321,7 +3321,7 @@ export interface VerifiedAccessEndpointEniOptions {
   /**
    * <p>The IP protocol.</p>
    */
-  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Protocol?: keyof typeof VerifiedAccessEndpointProtocol | string;
 
   /**
    * <p>The IP port number.</p>
@@ -3332,13 +3332,13 @@ export interface VerifiedAccessEndpointEniOptions {
 /**
  * @public
  */
-export enum VerifiedAccessEndpointStatusCode {
-  active = "active",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-  updating = "updating",
-}
+export const VerifiedAccessEndpointStatusCode = {
+  active: "active",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+  updating: "updating",
+};
 
 /**
  * @public
@@ -3348,7 +3348,7 @@ export interface VerifiedAccessEndpointStatus {
   /**
    * <p>The status code of the Verified Access endpoint.</p>
    */
-  Code?: VerifiedAccessEndpointStatusCode | string;
+  Code?: keyof typeof VerifiedAccessEndpointStatusCode | string;
 
   /**
    * <p>The status message of the Verified Access endpoint.</p>
@@ -3388,13 +3388,13 @@ export interface VerifiedAccessEndpoint {
    *          address, load balancer or a network interface depending on the endpoint type
    *          specified.</p>
    */
-  EndpointType?: VerifiedAccessEndpointType | string;
+  EndpointType?: keyof typeof VerifiedAccessEndpointType | string;
 
   /**
    * <p>The type of attachment used to provide connectivity between the Amazon Web Services Verified Access endpoint and the
    *          application.</p>
    */
-  AttachmentType?: VerifiedAccessEndpointAttachmentType | string;
+  AttachmentType?: keyof typeof VerifiedAccessEndpointAttachmentType | string;
 
   /**
    * <p>The ARN of a public TLS/SSL certificate imported into or created with ACM.</p>
@@ -3664,17 +3664,17 @@ export interface CreateVerifiedAccessTrustProviderRequest {
   /**
    * <p>The type of trust provider can be either user or device-based.</p>
    */
-  TrustProviderType: TrustProviderType | string | undefined;
+  TrustProviderType: keyof typeof TrustProviderType | string | undefined;
 
   /**
    * <p>The type of user-based trust provider.</p>
    */
-  UserTrustProviderType?: UserTrustProviderType | string;
+  UserTrustProviderType?: keyof typeof UserTrustProviderType | string;
 
   /**
    * <p>The type of device-based trust provider.</p>
    */
-  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+  DeviceTrustProviderType?: keyof typeof DeviceTrustProviderType | string;
 
   /**
    * <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
@@ -3867,7 +3867,7 @@ export interface CreateVolumeRequest {
    *          <p>Default: <code>gp2</code>
    *          </p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: keyof typeof VolumeType | string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3908,14 +3908,14 @@ export interface CreateVolumeRequest {
 /**
  * @public
  */
-export enum VolumeState {
-  available = "available",
-  creating = "creating",
-  deleted = "deleted",
-  deleting = "deleting",
-  error = "error",
-  in_use = "in-use",
-}
+export const VolumeState = {
+  available: "available",
+  creating: "creating",
+  deleted: "deleted",
+  deleting: "deleting",
+  error: "error",
+  in_use: "in-use",
+};
 
 /**
  * @public
@@ -3966,7 +3966,7 @@ export interface Volume {
   /**
    * <p>The volume state.</p>
    */
-  State?: VolumeState | string;
+  State?: keyof typeof VolumeState | string;
 
   /**
    * <p>The ID of the volume.</p>
@@ -3988,7 +3988,7 @@ export interface Volume {
   /**
    * <p>The volume type.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: keyof typeof VolumeType | string;
 
   /**
    * <p>Indicates whether the volume was created using fast snapshot restore.</p>
@@ -4073,7 +4073,7 @@ export interface CreateVpcRequest {
    *          <p>Default: <code>default</code>
    *          </p>
    */
-  InstanceTenancy?: Tenancy | string;
+  InstanceTenancy?: keyof typeof Tenancy | string;
 
   /**
    * <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the address to this location.</p>
@@ -4100,12 +4100,12 @@ export interface CreateVpcResult {
 /**
  * @public
  */
-export enum DnsRecordIpType {
-  dualstack = "dualstack",
-  ipv4 = "ipv4",
-  ipv6 = "ipv6",
-  service_defined = "service-defined",
-}
+export const DnsRecordIpType = {
+  dualstack: "dualstack",
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+  service_defined: "service-defined",
+};
 
 /**
  * @public
@@ -4115,7 +4115,7 @@ export interface DnsOptionsSpecification {
   /**
    * <p>The DNS records created for the endpoint.</p>
    */
-  DnsRecordIpType?: DnsRecordIpType | string;
+  DnsRecordIpType?: keyof typeof DnsRecordIpType | string;
 
   /**
    * <p>Indicates whether to enable private DNS only for inbound endpoints. This option is
@@ -4129,20 +4129,20 @@ export interface DnsOptionsSpecification {
 /**
  * @public
  */
-export enum IpAddressType {
-  dualstack = "dualstack",
-  ipv4 = "ipv4",
-  ipv6 = "ipv6",
-}
+export const IpAddressType = {
+  dualstack: "dualstack",
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+};
 
 /**
  * @public
  */
-export enum VpcEndpointType {
-  Gateway = "Gateway",
-  GatewayLoadBalancer = "GatewayLoadBalancer",
-  Interface = "Interface",
-}
+export const VpcEndpointType = {
+  Gateway: "Gateway",
+  GatewayLoadBalancer: "GatewayLoadBalancer",
+  Interface: "Interface",
+};
 
 /**
  * @public
@@ -4159,7 +4159,7 @@ export interface CreateVpcEndpointRequest {
    * <p>The type of endpoint.</p>
    *          <p>Default: Gateway</p>
    */
-  VpcEndpointType?: VpcEndpointType | string;
+  VpcEndpointType?: keyof typeof VpcEndpointType | string;
 
   /**
    * <p>The ID of the VPC for the endpoint.</p>
@@ -4199,7 +4199,7 @@ export interface CreateVpcEndpointRequest {
   /**
    * <p>The IP address type for the endpoint.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>The DNS options for the endpoint.</p>
@@ -4260,7 +4260,7 @@ export interface DnsOptions {
   /**
    * <p>The DNS records created for the endpoint.</p>
    */
-  DnsRecordIpType?: DnsRecordIpType | string;
+  DnsRecordIpType?: keyof typeof DnsRecordIpType | string;
 
   /**
    * <p>Indicates whether to enable private DNS only for inbound endpoints.</p>
@@ -4303,16 +4303,16 @@ export interface LastError {
 /**
  * @public
  */
-export enum State {
-  Available = "Available",
-  Deleted = "Deleted",
-  Deleting = "Deleting",
-  Expired = "Expired",
-  Failed = "Failed",
-  Pending = "Pending",
-  PendingAcceptance = "PendingAcceptance",
-  Rejected = "Rejected",
-}
+export const State = {
+  Available: "Available",
+  Deleted: "Deleted",
+  Deleting: "Deleting",
+  Expired: "Expired",
+  Failed: "Failed",
+  Pending: "Pending",
+  PendingAcceptance: "PendingAcceptance",
+  Rejected: "Rejected",
+};
 
 /**
  * @public
@@ -4327,7 +4327,7 @@ export interface VpcEndpoint {
   /**
    * <p>The type of endpoint.</p>
    */
-  VpcEndpointType?: VpcEndpointType | string;
+  VpcEndpointType?: keyof typeof VpcEndpointType | string;
 
   /**
    * <p>The ID of the VPC to which the endpoint is associated.</p>
@@ -4342,7 +4342,7 @@ export interface VpcEndpoint {
   /**
    * <p>The state of the endpoint.</p>
    */
-  State?: State | string;
+  State?: keyof typeof State | string;
 
   /**
    * <p>The policy document associated with the endpoint, if applicable.</p>
@@ -4368,7 +4368,7 @@ export interface VpcEndpoint {
   /**
    * <p>The IP address type for the endpoint.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>The DNS options for the endpoint.</p>
@@ -4476,17 +4476,17 @@ export interface CreateVpcEndpointConnectionNotificationRequest {
 /**
  * @public
  */
-export enum ConnectionNotificationState {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ConnectionNotificationState = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
  */
-export enum ConnectionNotificationType {
-  Topic = "Topic",
-}
+export const ConnectionNotificationType = {
+  Topic: "Topic",
+};
 
 /**
  * @public
@@ -4512,7 +4512,7 @@ export interface ConnectionNotification {
   /**
    * <p>The type of notification.</p>
    */
-  ConnectionNotificationType?: ConnectionNotificationType | string;
+  ConnectionNotificationType?: keyof typeof ConnectionNotificationType | string;
 
   /**
    * <p>The ARN of the SNS topic for the notification.</p>
@@ -4528,7 +4528,7 @@ export interface ConnectionNotification {
   /**
    * <p>The state of the notification.</p>
    */
-  ConnectionNotificationState?: ConnectionNotificationState | string;
+  ConnectionNotificationState?: keyof typeof ConnectionNotificationState | string;
 }
 
 /**
@@ -4600,18 +4600,18 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
 /**
  * @public
  */
-export enum PayerResponsibility {
-  ServiceOwner = "ServiceOwner",
-}
+export const PayerResponsibility = {
+  ServiceOwner: "ServiceOwner",
+};
 
 /**
  * @public
  */
-export enum DnsNameState {
-  Failed = "failed",
-  PendingVerification = "pendingVerification",
-  Verified = "verified",
-}
+export const DnsNameState = {
+  Failed: "failed",
+  PendingVerification: "pendingVerification",
+  Verified: "verified",
+};
 
 /**
  * @public
@@ -4624,7 +4624,7 @@ export interface PrivateDnsNameConfiguration {
    *             of the endpoint service can use the private name only when the state is
    *                 <code>verified</code>.</p>
    */
-  State?: DnsNameState | string;
+  State?: keyof typeof DnsNameState | string;
 
   /**
    * <p>The endpoint service verification type, for example TXT.</p>
@@ -4645,22 +4645,22 @@ export interface PrivateDnsNameConfiguration {
 /**
  * @public
  */
-export enum ServiceState {
-  Available = "Available",
-  Deleted = "Deleted",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Pending = "Pending",
-}
+export const ServiceState = {
+  Available: "Available",
+  Deleted: "Deleted",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Pending: "Pending",
+};
 
 /**
  * @public
  */
-export enum ServiceType {
-  Gateway = "Gateway",
-  GatewayLoadBalancer = "GatewayLoadBalancer",
-  Interface = "Interface",
-}
+export const ServiceType = {
+  Gateway: "Gateway",
+  GatewayLoadBalancer: "GatewayLoadBalancer",
+  Interface: "Interface",
+};
 
 /**
  * @public
@@ -4670,16 +4670,16 @@ export interface ServiceTypeDetail {
   /**
    * <p>The type of service.</p>
    */
-  ServiceType?: ServiceType | string;
+  ServiceType?: keyof typeof ServiceType | string;
 }
 
 /**
  * @public
  */
-export enum ServiceConnectivityType {
-  ipv4 = "ipv4",
-  ipv6 = "ipv6",
-}
+export const ServiceConnectivityType = {
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+};
 
 /**
  * @public
@@ -4704,7 +4704,7 @@ export interface ServiceConfiguration {
   /**
    * <p>The service state.</p>
    */
-  ServiceState?: ServiceState | string;
+  ServiceState?: keyof typeof ServiceState | string;
 
   /**
    * <p>The Availability Zones in which the service is available.</p>
@@ -4735,7 +4735,7 @@ export interface ServiceConfiguration {
   /**
    * <p>The supported IP address types.</p>
    */
-  SupportedIpAddressTypes?: (ServiceConnectivityType | string)[];
+  SupportedIpAddressTypes?: (keyof typeof ServiceConnectivityType | string)[];
 
   /**
    * <p>The DNS names for the service.</p>
@@ -4755,7 +4755,7 @@ export interface ServiceConfiguration {
   /**
    * <p>The payer responsibility.</p>
    */
-  PayerResponsibility?: PayerResponsibility | string;
+  PayerResponsibility?: keyof typeof PayerResponsibility | string;
 
   /**
    * <p>The tags assigned to the service.</p>
@@ -4834,10 +4834,10 @@ export interface CreateVpcPeeringConnectionResult {
 /**
  * @public
  */
-export enum TunnelInsideIpVersion {
-  ipv4 = "ipv4",
-  ipv6 = "ipv6",
-}
+export const TunnelInsideIpVersion = {
+  ipv4: "ipv4",
+  ipv6: "ipv6",
+};
 
 /**
  * @public
@@ -5195,7 +5195,7 @@ export interface VpnConnectionOptionsSpecification {
    *          <p>Default: <code>ipv4</code>
    *          </p>
    */
-  TunnelInsideIpVersion?: TunnelInsideIpVersion | string;
+  TunnelInsideIpVersion?: keyof typeof TunnelInsideIpVersion | string;
 
   /**
    * <p>The tunnel options for the VPN connection.</p>
@@ -5295,12 +5295,12 @@ export interface CreateVpnConnectionRequest {
 /**
  * @public
  */
-export enum GatewayAssociationState {
-  associated = "associated",
-  associating = "associating",
-  disassociating = "disassociating",
-  not_associated = "not-associated",
-}
+export const GatewayAssociationState = {
+  associated: "associated",
+  associating: "associating",
+  disassociating: "disassociating",
+  not_associated: "not-associated",
+};
 
 /**
  * @public
@@ -5583,7 +5583,7 @@ export interface VpnConnectionOptions {
   /**
    * <p>Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
    */
-  TunnelInsideIpVersion?: TunnelInsideIpVersion | string;
+  TunnelInsideIpVersion?: keyof typeof TunnelInsideIpVersion | string;
 
   /**
    * <p>Indicates the VPN tunnel options.</p>
@@ -5594,19 +5594,19 @@ export interface VpnConnectionOptions {
 /**
  * @public
  */
-export enum VpnStaticRouteSource {
-  Static = "Static",
-}
+export const VpnStaticRouteSource = {
+  Static: "Static",
+};
 
 /**
  * @public
  */
-export enum VpnState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const VpnState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -5621,21 +5621,21 @@ export interface VpnStaticRoute {
   /**
    * <p>Indicates how the routes were provided.</p>
    */
-  Source?: VpnStaticRouteSource | string;
+  Source?: keyof typeof VpnStaticRouteSource | string;
 
   /**
    * <p>The current state of the static route.</p>
    */
-  State?: VpnState | string;
+  State?: keyof typeof VpnState | string;
 }
 
 /**
  * @public
  */
-export enum TelemetryStatus {
-  DOWN = "DOWN",
-  UP = "UP",
-}
+export const TelemetryStatus = {
+  DOWN: "DOWN",
+  UP: "UP",
+};
 
 /**
  * @public
@@ -5661,7 +5661,7 @@ export interface VgwTelemetry {
   /**
    * <p>The status of the VPN tunnel.</p>
    */
-  Status?: TelemetryStatus | string;
+  Status?: keyof typeof TelemetryStatus | string;
 
   /**
    * <p>If an error occurs, a description of the error.</p>
@@ -5701,12 +5701,12 @@ export interface VpnConnection {
   /**
    * <p>The current state of the VPN connection.</p>
    */
-  State?: VpnState | string;
+  State?: keyof typeof VpnState | string;
 
   /**
    * <p>The type of VPN connection.</p>
    */
-  Type?: GatewayType | string;
+  Type?: keyof typeof GatewayType | string;
 
   /**
    * <p>The ID of the VPN connection.</p>
@@ -5737,7 +5737,7 @@ export interface VpnConnection {
   /**
    * <p>The current state of the gateway association.</p>
    */
-  GatewayAssociationState?: GatewayAssociationState | string;
+  GatewayAssociationState?: keyof typeof GatewayAssociationState | string;
 
   /**
    * <p>The VPN connection options.</p>
@@ -5800,7 +5800,7 @@ export interface CreateVpnGatewayRequest {
   /**
    * <p>The type of VPN connection this virtual private gateway supports.</p>
    */
-  Type: GatewayType | string | undefined;
+  Type: keyof typeof GatewayType | string | undefined;
 
   /**
    * <p>The tags to apply to the virtual private gateway.</p>
@@ -5838,12 +5838,12 @@ export interface VpnGateway {
   /**
    * <p>The current state of the virtual private gateway.</p>
    */
-  State?: VpnState | string;
+  State?: keyof typeof VpnState | string;
 
   /**
    * <p>The type of VPN connection the virtual private gateway supports.</p>
    */
-  Type?: GatewayType | string;
+  Type?: keyof typeof GatewayType | string;
 
   /**
    * <p>Any VPCs attached to the virtual private gateway.</p>
@@ -6122,15 +6122,15 @@ export interface DeleteFleetsRequest {
 /**
  * @public
  */
-export enum FleetStateCode {
-  ACTIVE = "active",
-  DELETED = "deleted",
-  DELETED_RUNNING = "deleted_running",
-  DELETED_TERMINATING_INSTANCES = "deleted_terminating",
-  FAILED = "failed",
-  MODIFYING = "modifying",
-  SUBMITTED = "submitted",
-}
+export const FleetStateCode = {
+  ACTIVE: "active",
+  DELETED: "deleted",
+  DELETED_RUNNING: "deleted_running",
+  DELETED_TERMINATING_INSTANCES: "deleted_terminating",
+  FAILED: "failed",
+  MODIFYING: "modifying",
+  SUBMITTED: "submitted",
+};
 
 /**
  * @public
@@ -6140,12 +6140,12 @@ export interface DeleteFleetSuccessItem {
   /**
    * <p>The current state of the EC2 Fleet.</p>
    */
-  CurrentFleetState?: FleetStateCode | string;
+  CurrentFleetState?: keyof typeof FleetStateCode | string;
 
   /**
    * <p>The previous state of the EC2 Fleet.</p>
    */
-  PreviousFleetState?: FleetStateCode | string;
+  PreviousFleetState?: keyof typeof FleetStateCode | string;
 
   /**
    * <p>The ID of the EC2 Fleet.</p>
@@ -6156,12 +6156,12 @@ export interface DeleteFleetSuccessItem {
 /**
  * @public
  */
-export enum DeleteFleetErrorCode {
-  FLEET_ID_DOES_NOT_EXIST = "fleetIdDoesNotExist",
-  FLEET_ID_MALFORMED = "fleetIdMalformed",
-  FLEET_NOT_IN_DELETABLE_STATE = "fleetNotInDeletableState",
-  UNEXPECTED_ERROR = "unexpectedError",
-}
+export const DeleteFleetErrorCode = {
+  FLEET_ID_DOES_NOT_EXIST: "fleetIdDoesNotExist",
+  FLEET_ID_MALFORMED: "fleetIdMalformed",
+  FLEET_NOT_IN_DELETABLE_STATE: "fleetNotInDeletableState",
+  UNEXPECTED_ERROR: "unexpectedError",
+};
 
 /**
  * @public
@@ -6171,7 +6171,7 @@ export interface DeleteFleetError {
   /**
    * <p>The error code.</p>
    */
-  Code?: DeleteFleetErrorCode | string;
+  Code?: keyof typeof DeleteFleetErrorCode | string;
 
   /**
    * <p>The description for the error code.</p>
@@ -6301,7 +6301,7 @@ export interface InstanceEventWindowStateChange {
   /**
    * <p>The current state of the event window.</p>
    */
-  State?: InstanceEventWindowState | string;
+  State?: keyof typeof InstanceEventWindowState | string;
 }
 
 /**
@@ -6580,14 +6580,14 @@ export interface DeleteLaunchTemplateVersionsResponseSuccessItem {
 /**
  * @public
  */
-export enum LaunchTemplateErrorCode {
-  LAUNCH_TEMPLATE_ID_DOES_NOT_EXIST = "launchTemplateIdDoesNotExist",
-  LAUNCH_TEMPLATE_ID_MALFORMED = "launchTemplateIdMalformed",
-  LAUNCH_TEMPLATE_NAME_DOES_NOT_EXIST = "launchTemplateNameDoesNotExist",
-  LAUNCH_TEMPLATE_NAME_MALFORMED = "launchTemplateNameMalformed",
-  LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST = "launchTemplateVersionDoesNotExist",
-  UNEXPECTED_ERROR = "unexpectedError",
-}
+export const LaunchTemplateErrorCode = {
+  LAUNCH_TEMPLATE_ID_DOES_NOT_EXIST: "launchTemplateIdDoesNotExist",
+  LAUNCH_TEMPLATE_ID_MALFORMED: "launchTemplateIdMalformed",
+  LAUNCH_TEMPLATE_NAME_DOES_NOT_EXIST: "launchTemplateNameDoesNotExist",
+  LAUNCH_TEMPLATE_NAME_MALFORMED: "launchTemplateNameMalformed",
+  LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST: "launchTemplateVersionDoesNotExist",
+  UNEXPECTED_ERROR: "unexpectedError",
+};
 
 /**
  * @public
@@ -6598,7 +6598,7 @@ export interface ResponseError {
   /**
    * <p>The error code.</p>
    */
-  Code?: LaunchTemplateErrorCode | string;
+  Code?: keyof typeof LaunchTemplateErrorCode | string;
 
   /**
    * <p>The error message, if applicable.</p>
@@ -7095,11 +7095,11 @@ export interface DeleteQueuedReservedInstancesRequest {
 /**
  * @public
  */
-export enum DeleteQueuedReservedInstancesErrorCode {
-  RESERVED_INSTANCES_ID_INVALID = "reserved-instances-id-invalid",
-  RESERVED_INSTANCES_NOT_IN_QUEUED_STATE = "reserved-instances-not-in-queued-state",
-  UNEXPECTED_ERROR = "unexpected-error",
-}
+export const DeleteQueuedReservedInstancesErrorCode = {
+  RESERVED_INSTANCES_ID_INVALID: "reserved-instances-id-invalid",
+  RESERVED_INSTANCES_NOT_IN_QUEUED_STATE: "reserved-instances-not-in-queued-state",
+  UNEXPECTED_ERROR: "unexpected-error",
+};
 
 /**
  * @public
@@ -7109,7 +7109,7 @@ export interface DeleteQueuedReservedInstancesError {
   /**
    * <p>The error code.</p>
    */
-  Code?: DeleteQueuedReservedInstancesErrorCode | string;
+  Code?: keyof typeof DeleteQueuedReservedInstancesErrorCode | string;
 
   /**
    * <p>The error message.</p>

@@ -6,28 +6,28 @@ import { SESv2ServiceException as __BaseException } from "./SESv2ServiceExceptio
 /**
  * @public
  */
-export enum ContactLanguage {
-  EN = "EN",
-  JA = "JA",
-}
+export const ContactLanguage = {
+  EN: "EN",
+  JA: "JA",
+};
 
 /**
  * @public
  */
-export enum MailType {
-  MARKETING = "MARKETING",
-  TRANSACTIONAL = "TRANSACTIONAL",
-}
+export const MailType = {
+  MARKETING: "MARKETING",
+  TRANSACTIONAL: "TRANSACTIONAL",
+};
 
 /**
  * @public
  */
-export enum ReviewStatus {
-  DENIED = "DENIED",
-  FAILED = "FAILED",
-  GRANTED = "GRANTED",
-  PENDING = "PENDING",
-}
+export const ReviewStatus = {
+  DENIED: "DENIED",
+  FAILED: "FAILED",
+  GRANTED: "GRANTED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -60,7 +60,7 @@ export interface ReviewDetails {
    *             </li>
    *          </ul>
    */
-  Status?: ReviewStatus | string;
+  Status?: keyof typeof ReviewStatus | string;
 
   /**
    * <p>The associated support center case ID (if any).</p>
@@ -89,7 +89,7 @@ export interface AccountDetails {
    *             </li>
    *          </ul>
    */
-  MailType?: MailType | string;
+  MailType?: keyof typeof MailType | string;
 
   /**
    * <p>The URL of your website. This information helps us better understand the type of
@@ -101,7 +101,7 @@ export interface AccountDetails {
    * <p>The language you would prefer for the case. The contact language can be one of
    *                 <code>ENGLISH</code> or <code>JAPANESE</code>.</p>
    */
-  ContactLanguage?: ContactLanguage | string;
+  ContactLanguage?: keyof typeof ContactLanguage | string;
 
   /**
    * <p>A description of the types of email that you plan to send.</p>
@@ -184,34 +184,34 @@ export class BadRequestException extends __BaseException {
 /**
  * @public
  */
-export enum MetricDimensionName {
-  CONFIGURATION_SET = "CONFIGURATION_SET",
-  EMAIL_IDENTITY = "EMAIL_IDENTITY",
-  ISP = "ISP",
-}
+export const MetricDimensionName = {
+  CONFIGURATION_SET: "CONFIGURATION_SET",
+  EMAIL_IDENTITY: "EMAIL_IDENTITY",
+  ISP: "ISP",
+};
 
 /**
  * @public
  */
-export enum Metric {
-  CLICK = "CLICK",
-  COMPLAINT = "COMPLAINT",
-  DELIVERY = "DELIVERY",
-  DELIVERY_CLICK = "DELIVERY_CLICK",
-  DELIVERY_COMPLAINT = "DELIVERY_COMPLAINT",
-  DELIVERY_OPEN = "DELIVERY_OPEN",
-  OPEN = "OPEN",
-  PERMANENT_BOUNCE = "PERMANENT_BOUNCE",
-  SEND = "SEND",
-  TRANSIENT_BOUNCE = "TRANSIENT_BOUNCE",
-}
+export const Metric = {
+  CLICK: "CLICK",
+  COMPLAINT: "COMPLAINT",
+  DELIVERY: "DELIVERY",
+  DELIVERY_CLICK: "DELIVERY_CLICK",
+  DELIVERY_COMPLAINT: "DELIVERY_COMPLAINT",
+  DELIVERY_OPEN: "DELIVERY_OPEN",
+  OPEN: "OPEN",
+  PERMANENT_BOUNCE: "PERMANENT_BOUNCE",
+  SEND: "SEND",
+  TRANSIENT_BOUNCE: "TRANSIENT_BOUNCE",
+};
 
 /**
  * @public
  */
-export enum MetricNamespace {
-  VDM = "VDM",
-}
+export const MetricNamespace = {
+  VDM: "VDM",
+};
 
 /**
  * @public
@@ -227,7 +227,7 @@ export interface BatchGetMetricDataQuery {
    * <p>The query namespace - e.g. <code>VDM</code>
    *          </p>
    */
-  Namespace: MetricNamespace | string | undefined;
+  Namespace: keyof typeof MetricNamespace | string | undefined;
 
   /**
    * <p>The queried metric. This can be one of the following:</p>
@@ -295,7 +295,7 @@ export interface BatchGetMetricDataQuery {
    *             </li>
    *          </ul>
    */
-  Metric: Metric | string | undefined;
+  Metric: keyof typeof Metric | string | undefined;
 
   /**
    * <p>An object that contains mapping between <code>MetricDimensionName</code>
@@ -328,10 +328,10 @@ export interface BatchGetMetricDataRequest {
 /**
  * @public
  */
-export enum QueryErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-}
+export const QueryErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+};
 
 /**
  * @public
@@ -357,7 +357,7 @@ export interface MetricDataError {
    *             </li>
    *          </ul>
    */
-  Code?: QueryErrorCode | string;
+  Code?: keyof typeof QueryErrorCode | string;
 
   /**
    * <p>The error message associated with the current query error.</p>
@@ -465,10 +465,10 @@ export class TooManyRequestsException extends __BaseException {
 /**
  * @public
  */
-export enum BehaviorOnMxFailure {
-  REJECT_MESSAGE = "REJECT_MESSAGE",
-  USE_DEFAULT_VALUE = "USE_DEFAULT_VALUE",
-}
+export const BehaviorOnMxFailure = {
+  REJECT_MESSAGE: "REJECT_MESSAGE",
+  USE_DEFAULT_VALUE: "USE_DEFAULT_VALUE",
+};
 
 /**
  * @public
@@ -707,22 +707,22 @@ export interface BulkEmailEntry {
 /**
  * @public
  */
-export enum BulkEmailStatus {
-  ACCOUNT_DAILY_QUOTA_EXCEEDED = "ACCOUNT_DAILY_QUOTA_EXCEEDED",
-  ACCOUNT_SENDING_PAUSED = "ACCOUNT_SENDING_PAUSED",
-  ACCOUNT_SUSPENDED = "ACCOUNT_SUSPENDED",
-  ACCOUNT_THROTTLED = "ACCOUNT_THROTTLED",
-  CONFIGURATION_SET_NOT_FOUND = "CONFIGURATION_SET_NOT_FOUND",
-  CONFIGURATION_SET_SENDING_PAUSED = "CONFIGURATION_SET_SENDING_PAUSED",
-  FAILED = "FAILED",
-  INVALID_PARAMETER = "INVALID_PARAMETER",
-  INVALID_SENDING_POOL_NAME = "INVALID_SENDING_POOL_NAME",
-  MAIL_FROM_DOMAIN_NOT_VERIFIED = "MAIL_FROM_DOMAIN_NOT_VERIFIED",
-  MESSAGE_REJECTED = "MESSAGE_REJECTED",
-  SUCCESS = "SUCCESS",
-  TEMPLATE_NOT_FOUND = "TEMPLATE_NOT_FOUND",
-  TRANSIENT_FAILURE = "TRANSIENT_FAILURE",
-}
+export const BulkEmailStatus = {
+  ACCOUNT_DAILY_QUOTA_EXCEEDED: "ACCOUNT_DAILY_QUOTA_EXCEEDED",
+  ACCOUNT_SENDING_PAUSED: "ACCOUNT_SENDING_PAUSED",
+  ACCOUNT_SUSPENDED: "ACCOUNT_SUSPENDED",
+  ACCOUNT_THROTTLED: "ACCOUNT_THROTTLED",
+  CONFIGURATION_SET_NOT_FOUND: "CONFIGURATION_SET_NOT_FOUND",
+  CONFIGURATION_SET_SENDING_PAUSED: "CONFIGURATION_SET_SENDING_PAUSED",
+  FAILED: "FAILED",
+  INVALID_PARAMETER: "INVALID_PARAMETER",
+  INVALID_SENDING_POOL_NAME: "INVALID_SENDING_POOL_NAME",
+  MAIL_FROM_DOMAIN_NOT_VERIFIED: "MAIL_FROM_DOMAIN_NOT_VERIFIED",
+  MESSAGE_REJECTED: "MESSAGE_REJECTED",
+  SUCCESS: "SUCCESS",
+  TEMPLATE_NOT_FOUND: "TEMPLATE_NOT_FOUND",
+  TRANSIENT_FAILURE: "TRANSIENT_FAILURE",
+};
 
 /**
  * @public
@@ -793,7 +793,7 @@ export interface BulkEmailEntryResult {
    *             </li>
    *          </ul>
    */
-  Status?: BulkEmailStatus | string;
+  Status?: keyof typeof BulkEmailStatus | string;
 
   /**
    * <p>A description of an error that prevented a message being sent using the
@@ -811,11 +811,11 @@ export interface BulkEmailEntryResult {
 /**
  * @public
  */
-export enum DimensionValueSource {
-  EMAIL_HEADER = "EMAIL_HEADER",
-  LINK_TAG = "LINK_TAG",
-  MESSAGE_TAG = "MESSAGE_TAG",
-}
+export const DimensionValueSource = {
+  EMAIL_HEADER: "EMAIL_HEADER",
+  LINK_TAG: "LINK_TAG",
+  MESSAGE_TAG: "MESSAGE_TAG",
+};
 
 /**
  * @public
@@ -845,7 +845,7 @@ export interface CloudWatchDimensionConfiguration {
    *                 <code>messageTag</code>. To use your own email headers, choose
    *                 <code>emailHeader</code>. To use link tags, choose <code>linkTags</code>.</p>
    */
-  DimensionValueSource: DimensionValueSource | string | undefined;
+  DimensionValueSource: keyof typeof DimensionValueSource | string | undefined;
 
   /**
    * <p>The default value of the dimension that is published to Amazon CloudWatch if you don't provide the
@@ -920,10 +920,10 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum SubscriptionStatus {
-  OPT_IN = "OPT_IN",
-  OPT_OUT = "OPT_OUT",
-}
+export const SubscriptionStatus = {
+  OPT_IN: "OPT_IN",
+  OPT_OUT: "OPT_OUT",
+};
 
 /**
  * @public
@@ -939,7 +939,7 @@ export interface TopicPreference {
    * <p>The contact's subscription status to a topic which is either <code>OPT_IN</code> or
    *                 <code>OPT_OUT</code>.</p>
    */
-  SubscriptionStatus: SubscriptionStatus | string | undefined;
+  SubscriptionStatus: keyof typeof SubscriptionStatus | string | undefined;
 }
 
 /**
@@ -994,10 +994,10 @@ export interface ContactList {
 /**
  * @public
  */
-export enum ContactListImportAction {
-  DELETE = "DELETE",
-  PUT = "PUT",
-}
+export const ContactListImportAction = {
+  DELETE: "DELETE",
+  PUT: "PUT",
+};
 
 /**
  * @public
@@ -1022,16 +1022,16 @@ export interface ContactListDestination {
    *             </li>
    *          </ul>
    */
-  ContactListImportAction: ContactListImportAction | string | undefined;
+  ContactListImportAction: keyof typeof ContactListImportAction | string | undefined;
 }
 
 /**
  * @public
  */
-export enum TlsPolicy {
-  OPTIONAL = "OPTIONAL",
-  REQUIRE = "REQUIRE",
-}
+export const TlsPolicy = {
+  OPTIONAL: "OPTIONAL",
+  REQUIRE: "REQUIRE",
+};
 
 /**
  * @public
@@ -1044,7 +1044,7 @@ export interface DeliveryOptions {
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
-  TlsPolicy?: TlsPolicy | string;
+  TlsPolicy?: keyof typeof TlsPolicy | string;
 
   /**
    * <p>The name of the dedicated IP pool to associate with the configuration set.</p>
@@ -1089,10 +1089,10 @@ export interface SendingOptions {
 /**
  * @public
  */
-export enum SuppressionListReason {
-  BOUNCE = "BOUNCE",
-  COMPLAINT = "COMPLAINT",
-}
+export const SuppressionListReason = {
+  BOUNCE: "BOUNCE",
+  COMPLAINT: "COMPLAINT",
+};
 
 /**
  * @public
@@ -1119,7 +1119,7 @@ export interface SuppressionOptions {
    *             </li>
    *          </ul>
    */
-  SuppressedReasons?: (SuppressionListReason | string)[];
+  SuppressedReasons?: (keyof typeof SuppressionListReason | string)[];
 }
 
 /**
@@ -1194,10 +1194,10 @@ export interface TrackingOptions {
 /**
  * @public
  */
-export enum FeatureStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const FeatureStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1221,7 +1221,7 @@ export interface DashboardOptions {
    *             </li>
    *          </ul>
    */
-  EngagementMetrics?: FeatureStatus | string;
+  EngagementMetrics?: keyof typeof FeatureStatus | string;
 }
 
 /**
@@ -1246,7 +1246,7 @@ export interface GuardianOptions {
    *             </li>
    *          </ul>
    */
-  OptimizedSharedDelivery?: FeatureStatus | string;
+  OptimizedSharedDelivery?: keyof typeof FeatureStatus | string;
 }
 
 /**
@@ -1371,18 +1371,18 @@ export interface KinesisFirehoseDestination {
 /**
  * @public
  */
-export enum EventType {
-  BOUNCE = "BOUNCE",
-  CLICK = "CLICK",
-  COMPLAINT = "COMPLAINT",
-  DELIVERY = "DELIVERY",
-  DELIVERY_DELAY = "DELIVERY_DELAY",
-  OPEN = "OPEN",
-  REJECT = "REJECT",
-  RENDERING_FAILURE = "RENDERING_FAILURE",
-  SEND = "SEND",
-  SUBSCRIPTION = "SUBSCRIPTION",
-}
+export const EventType = {
+  BOUNCE: "BOUNCE",
+  CLICK: "CLICK",
+  COMPLAINT: "COMPLAINT",
+  DELIVERY: "DELIVERY",
+  DELIVERY_DELAY: "DELIVERY_DELAY",
+  OPEN: "OPEN",
+  REJECT: "REJECT",
+  RENDERING_FAILURE: "RENDERING_FAILURE",
+  SEND: "SEND",
+  SUBSCRIPTION: "SUBSCRIPTION",
+};
 
 /**
  * @public
@@ -1432,7 +1432,7 @@ export interface EventDestinationDefinition {
    * <p>An array that specifies which events the Amazon SES API v2 should send to the destinations in
    *             this <code>EventDestinationDefinition</code>.</p>
    */
-  MatchingEventTypes?: (EventType | string)[];
+  MatchingEventTypes?: (keyof typeof EventType | string)[];
 
   /**
    * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
@@ -1550,7 +1550,7 @@ export interface Topic {
    * <p>The default subscription status to be applied to a contact if the contact has not
    *             noted their preference for subscribing to a topic.</p>
    */
-  DefaultSubscriptionStatus: SubscriptionStatus | string | undefined;
+  DefaultSubscriptionStatus: keyof typeof SubscriptionStatus | string | undefined;
 }
 
 /**
@@ -1635,10 +1635,10 @@ export interface CreateCustomVerificationEmailTemplateResponse {}
 /**
  * @public
  */
-export enum ScalingMode {
-  MANAGED = "MANAGED",
-  STANDARD = "STANDARD",
-}
+export const ScalingMode = {
+  MANAGED: "MANAGED",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -1659,7 +1659,7 @@ export interface CreateDedicatedIpPoolRequest {
   /**
    * <p>The type of scaling mode.</p>
    */
-  ScalingMode?: ScalingMode | string;
+  ScalingMode?: keyof typeof ScalingMode | string;
 }
 
 /**
@@ -1818,10 +1818,10 @@ export interface CreateDeliverabilityTestReportRequest {
 /**
  * @public
  */
-export enum DeliverabilityTestStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const DeliverabilityTestStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -1839,7 +1839,7 @@ export interface CreateDeliverabilityTestReportResponse {
    *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
    *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
    */
-  DeliverabilityTestStatus: DeliverabilityTestStatus | string | undefined;
+  DeliverabilityTestStatus: keyof typeof DeliverabilityTestStatus | string | undefined;
 }
 
 /**
@@ -1906,10 +1906,10 @@ export class SendingPausedException extends __BaseException {
 /**
  * @public
  */
-export enum DkimSigningKeyLength {
-  RSA_1024_BIT = "RSA_1024_BIT",
-  RSA_2048_BIT = "RSA_2048_BIT",
-}
+export const DkimSigningKeyLength = {
+  RSA_1024_BIT: "RSA_1024_BIT",
+  RSA_2048_BIT: "RSA_2048_BIT",
+};
 
 /**
  * @public
@@ -1932,7 +1932,7 @@ export interface DkimSigningAttributes {
   /**
    * <p>[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.</p>
    */
-  NextSigningKeyLength?: DkimSigningKeyLength | string;
+  NextSigningKeyLength?: keyof typeof DkimSigningKeyLength | string;
 }
 
 /**
@@ -1972,21 +1972,21 @@ export interface CreateEmailIdentityRequest {
 /**
  * @public
  */
-export enum DkimSigningAttributesOrigin {
-  AWS_SES = "AWS_SES",
-  EXTERNAL = "EXTERNAL",
-}
+export const DkimSigningAttributesOrigin = {
+  AWS_SES: "AWS_SES",
+  EXTERNAL: "EXTERNAL",
+};
 
 /**
  * @public
  */
-export enum DkimStatus {
-  FAILED = "FAILED",
-  NOT_STARTED = "NOT_STARTED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
-}
+export const DkimStatus = {
+  FAILED: "FAILED",
+  NOT_STARTED: "NOT_STARTED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
+};
 
 /**
  * @public
@@ -2041,7 +2041,7 @@ export interface DkimAttributes {
    *             </li>
    *          </ul>
    */
-  Status?: DkimStatus | string;
+  Status?: keyof typeof DkimStatus | string;
 
   /**
    * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
@@ -2072,17 +2072,17 @@ export interface DkimAttributes {
    *             </li>
    *          </ul>
    */
-  SigningAttributesOrigin?: DkimSigningAttributesOrigin | string;
+  SigningAttributesOrigin?: keyof typeof DkimSigningAttributesOrigin | string;
 
   /**
    * <p>[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.</p>
    */
-  NextSigningKeyLength?: DkimSigningKeyLength | string;
+  NextSigningKeyLength?: keyof typeof DkimSigningKeyLength | string;
 
   /**
    * <p>[Easy DKIM] The key length of the DKIM key pair in use.</p>
    */
-  CurrentSigningKeyLength?: DkimSigningKeyLength | string;
+  CurrentSigningKeyLength?: keyof typeof DkimSigningKeyLength | string;
 
   /**
    * <p>[Easy DKIM] The last time a key pair was generated for this identity.</p>
@@ -2093,11 +2093,11 @@ export interface DkimAttributes {
 /**
  * @public
  */
-export enum IdentityType {
-  DOMAIN = "DOMAIN",
-  EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  MANAGED_DOMAIN = "MANAGED_DOMAIN",
-}
+export const IdentityType = {
+  DOMAIN: "DOMAIN",
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  MANAGED_DOMAIN: "MANAGED_DOMAIN",
+};
 
 /**
  * @public
@@ -2110,7 +2110,7 @@ export interface CreateEmailIdentityResponse {
    * <p>The email identity type. Note: the <code>MANAGED_DOMAIN</code> identity type is not
    *             supported.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: keyof typeof IdentityType | string;
 
   /**
    * <p>Specifies whether or not the identity is verified. You can only send email from
@@ -2210,10 +2210,10 @@ export interface CreateEmailTemplateResponse {}
 /**
  * @public
  */
-export enum DataFormat {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+export const DataFormat = {
+  CSV: "CSV",
+  JSON: "JSON",
+};
 
 /**
  * @public
@@ -2229,16 +2229,16 @@ export interface ImportDataSource {
   /**
    * <p>The data format of the import job's data source.</p>
    */
-  DataFormat: DataFormat | string | undefined;
+  DataFormat: keyof typeof DataFormat | string | undefined;
 }
 
 /**
  * @public
  */
-export enum SuppressionListImportAction {
-  DELETE = "DELETE",
-  PUT = "PUT",
-}
+export const SuppressionListImportAction = {
+  DELETE: "DELETE",
+  PUT: "PUT",
+};
 
 /**
  * @public
@@ -2257,7 +2257,7 @@ export interface SuppressionListDestination {
    *             </li>
    *          </ul>
    */
-  SuppressionListImportAction: SuppressionListImportAction | string | undefined;
+  SuppressionListImportAction: keyof typeof SuppressionListImportAction | string | undefined;
 }
 
 /**
@@ -2447,16 +2447,16 @@ export interface DashboardAttributes {
    *             </li>
    *          </ul>
    */
-  EngagementMetrics?: FeatureStatus | string;
+  EngagementMetrics?: keyof typeof FeatureStatus | string;
 }
 
 /**
  * @public
  */
-export enum WarmupStatus {
-  DONE = "DONE",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const WarmupStatus = {
+  DONE: "DONE",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -2488,7 +2488,7 @@ export interface DedicatedIp {
    *             </li>
    *          </ul>
    */
-  WarmupStatus: WarmupStatus | string | undefined;
+  WarmupStatus: keyof typeof WarmupStatus | string | undefined;
 
   /**
    * <p>Indicates how complete the dedicated IP warm-up process is. When this value equals 1,
@@ -2525,7 +2525,7 @@ export interface DedicatedIpPool {
    *             </li>
    *          </ul>
    */
-  ScalingMode: ScalingMode | string | undefined;
+  ScalingMode: keyof typeof ScalingMode | string | undefined;
 }
 
 /**
@@ -2729,11 +2729,11 @@ export interface DeleteSuppressedDestinationResponse {}
 /**
  * @public
  */
-export enum DeliverabilityDashboardAccountStatus {
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-  PENDING_EXPIRATION = "PENDING_EXPIRATION",
-}
+export const DeliverabilityDashboardAccountStatus = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+  PENDING_EXPIRATION: "PENDING_EXPIRATION",
+};
 
 /**
  * @public
@@ -2771,7 +2771,7 @@ export interface DeliverabilityTestReport {
    *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
    *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
    */
-  DeliverabilityTestStatus?: DeliverabilityTestStatus | string;
+  DeliverabilityTestStatus?: keyof typeof DeliverabilityTestStatus | string;
 }
 
 /**
@@ -3021,7 +3021,7 @@ export interface EventDestination {
    *             </li>
    *          </ul>
    */
-  MatchingEventTypes: (EventType | string)[] | undefined;
+  MatchingEventTypes: (keyof typeof EventType | string)[] | undefined;
 
   /**
    * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
@@ -3126,7 +3126,7 @@ export interface SuppressionAttributes {
    *             </li>
    *          </ul>
    */
-  SuppressedReasons?: (SuppressionListReason | string)[];
+  SuppressedReasons?: (keyof typeof SuppressionListReason | string)[];
 }
 
 /**
@@ -3147,7 +3147,7 @@ export interface GuardianAttributes {
    *             </li>
    *          </ul>
    */
-  OptimizedSharedDelivery?: FeatureStatus | string;
+  OptimizedSharedDelivery?: keyof typeof FeatureStatus | string;
 }
 
 /**
@@ -3168,7 +3168,7 @@ export interface VdmAttributes {
    *             </li>
    *          </ul>
    */
-  VdmEnabled: FeatureStatus | string | undefined;
+  VdmEnabled: keyof typeof FeatureStatus | string | undefined;
 
   /**
    * <p>Specifies additional settings for your VDM configuration as applicable to the Dashboard.</p>
@@ -3657,7 +3657,7 @@ export interface GetDeliverabilityDashboardOptionsResponse {
    *                 <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end
    *             of the current calendar month.</p>
    */
-  AccountStatus?: DeliverabilityDashboardAccountStatus | string;
+  AccountStatus?: keyof typeof DeliverabilityDashboardAccountStatus | string;
 
   /**
    * <p>An array of objects, one for each verified domain that you use to send email and
@@ -3885,12 +3885,12 @@ export interface GetEmailIdentityRequest {
 /**
  * @public
  */
-export enum MailFromDomainStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
-}
+export const MailFromDomainStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
+};
 
 /**
  * @public
@@ -3927,7 +3927,7 @@ export interface MailFromAttributes {
    *             </li>
    *          </ul>
    */
-  MailFromDomainStatus: MailFromDomainStatus | string | undefined;
+  MailFromDomainStatus: keyof typeof MailFromDomainStatus | string | undefined;
 
   /**
    * <p>The action to take if the required MX record can't be found when you send an email.
@@ -3940,19 +3940,19 @@ export interface MailFromAttributes {
    *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
    *             states.</p>
    */
-  BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
+  BehaviorOnMxFailure: keyof typeof BehaviorOnMxFailure | string | undefined;
 }
 
 /**
  * @public
  */
-export enum VerificationStatus {
-  FAILED = "FAILED",
-  NOT_STARTED = "NOT_STARTED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
-}
+export const VerificationStatus = {
+  FAILED: "FAILED",
+  NOT_STARTED: "NOT_STARTED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+  TEMPORARY_FAILURE: "TEMPORARY_FAILURE",
+};
 
 /**
  * @public
@@ -3963,7 +3963,7 @@ export interface GetEmailIdentityResponse {
    * <p>The email identity type. Note: the <code>MANAGED_DOMAIN</code> identity type is not
    *             supported.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: keyof typeof IdentityType | string;
 
   /**
    * <p>The feedback forwarding configuration for the identity.</p>
@@ -4040,7 +4040,7 @@ export interface GetEmailIdentityResponse {
    *             </li>
    *          </ul>
    */
-  VerificationStatus?: VerificationStatus | string;
+  VerificationStatus?: keyof typeof VerificationStatus | string;
 }
 
 /**
@@ -4109,12 +4109,12 @@ export interface GetImportJobRequest {
 /**
  * @public
  */
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  PROCESSING = "PROCESSING",
-}
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+};
 
 /**
  * @public
@@ -4145,7 +4145,7 @@ export interface GetImportJobResponse {
   /**
    * <p>The status of the import job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>The time stamp of when the import job was created.</p>
@@ -4214,7 +4214,7 @@ export interface SuppressedDestination {
   /**
    * <p>The reason that the address was added to the suppression list for your account.</p>
    */
-  Reason: SuppressionListReason | string | undefined;
+  Reason: keyof typeof SuppressionListReason | string | undefined;
 
   /**
    * <p>The date and time when the suppressed destination was last updated, shown in Unix time
@@ -4249,7 +4249,7 @@ export interface IdentityInfo {
    * <p>The email identity type. Note: the <code>MANAGED_DOMAIN</code> type is not supported
    *             for email identity types.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: keyof typeof IdentityType | string;
 
   /**
    * <p>The address or domain of the identity.</p>
@@ -4293,16 +4293,16 @@ export interface IdentityInfo {
    *             </li>
    *          </ul>
    */
-  VerificationStatus?: VerificationStatus | string;
+  VerificationStatus?: keyof typeof VerificationStatus | string;
 }
 
 /**
  * @public
  */
-export enum ImportDestinationType {
-  CONTACT_LIST = "CONTACT_LIST",
-  SUPPRESSION_LIST = "SUPPRESSION_LIST",
-}
+export const ImportDestinationType = {
+  CONTACT_LIST: "CONTACT_LIST",
+  SUPPRESSION_LIST: "SUPPRESSION_LIST",
+};
 
 /**
  * @public
@@ -4323,7 +4323,7 @@ export interface ImportJobSummary {
   /**
    * <p>The status of the import job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>The date and time when the import job was created.</p>
@@ -4468,7 +4468,7 @@ export interface ListContactsFilter {
    * <p>The status by which you are filtering: <code>OPT_IN</code> or
    *             <code>OPT_OUT</code>.</p>
    */
-  FilteredStatus?: SubscriptionStatus | string;
+  FilteredStatus?: keyof typeof SubscriptionStatus | string;
 
   /**
    * <p>Used for filtering by a specific topic preference.</p>
@@ -4806,7 +4806,7 @@ export interface ListImportJobsRequest {
    * <p>The destination of the import job, which can be used to list import jobs that have a
    *             certain <code>ImportDestinationType</code>.</p>
    */
-  ImportDestinationType?: ImportDestinationType | string;
+  ImportDestinationType?: keyof typeof ImportDestinationType | string;
 
   /**
    * <p>A string token indicating that there might be additional import jobs available to be
@@ -4864,12 +4864,12 @@ export interface ListManagementOptions {
 /**
  * @public
  */
-export enum ListRecommendationsFilterKey {
-  IMPACT = "IMPACT",
-  RESOURCE_ARN = "RESOURCE_ARN",
-  STATUS = "STATUS",
-  TYPE = "TYPE",
-}
+export const ListRecommendationsFilterKey = {
+  IMPACT: "IMPACT",
+  RESOURCE_ARN: "RESOURCE_ARN",
+  STATUS: "STATUS",
+  TYPE: "TYPE",
+};
 
 /**
  * @public
@@ -4904,28 +4904,28 @@ export interface ListRecommendationsRequest {
 /**
  * @public
  */
-export enum RecommendationImpact {
-  HIGH = "HIGH",
-  LOW = "LOW",
-}
+export const RecommendationImpact = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+};
 
 /**
  * @public
  */
-export enum RecommendationStatus {
-  FIXED = "FIXED",
-  OPEN = "OPEN",
-}
+export const RecommendationStatus = {
+  FIXED: "FIXED",
+  OPEN: "OPEN",
+};
 
 /**
  * @public
  */
-export enum RecommendationType {
-  BIMI = "BIMI",
-  DKIM = "DKIM",
-  DMARC = "DMARC",
-  SPF = "SPF",
-}
+export const RecommendationType = {
+  BIMI: "BIMI",
+  DKIM: "DKIM",
+  DMARC: "DMARC",
+  SPF: "SPF",
+};
 
 /**
  * @public
@@ -4942,7 +4942,7 @@ export interface Recommendation {
    * <p>The recommendation type, with values like <code>DKIM</code>,
    *             <code>SPF</code>, <code>DMARC</code> or <code>BIMI</code>.</p>
    */
-  Type?: RecommendationType | string;
+  Type?: keyof typeof RecommendationType | string;
 
   /**
    * <p>The recommendation description / disambiguator - e.g. <code>DKIM1</code> and <code>DKIM2</code>
@@ -4954,7 +4954,7 @@ export interface Recommendation {
    * <p>The recommendation status, with values like
    *             <code>OPEN</code> or <code>FIXED</code>.</p>
    */
-  Status?: RecommendationStatus | string;
+  Status?: keyof typeof RecommendationStatus | string;
 
   /**
    * <p>The first time this issue was encountered and the recommendation was generated.</p>
@@ -4970,7 +4970,7 @@ export interface Recommendation {
    * <p>The recommendation impact, with values like
    *             <code>HIGH</code> or <code>LOW</code>.</p>
    */
-  Impact?: RecommendationImpact | string;
+  Impact?: keyof typeof RecommendationImpact | string;
 }
 
 /**
@@ -5001,7 +5001,7 @@ export interface ListSuppressedDestinationsRequest {
   /**
    * <p>The factors that caused the email address to be added to .</p>
    */
-  Reasons?: (SuppressionListReason | string)[];
+  Reasons?: (keyof typeof SuppressionListReason | string)[];
 
   /**
    * <p>Used to filter the list of suppressed email destinations so that it only includes
@@ -5044,7 +5044,7 @@ export interface SuppressedDestinationSummary {
   /**
    * <p>The reason that the address was added to the suppression list for your account.</p>
    */
-  Reason: SuppressionListReason | string | undefined;
+  Reason: keyof typeof SuppressionListReason | string | undefined;
 
   /**
    * <p>The date and time when the suppressed destination was last updated, shown in Unix time
@@ -5125,7 +5125,7 @@ export interface PutAccountDetailsRequest {
   /**
    * <p>The type of email your account will send.</p>
    */
-  MailType: MailType | string | undefined;
+  MailType: keyof typeof MailType | string | undefined;
 
   /**
    * <p>The URL of your website. This information helps us better understand the type of
@@ -5136,7 +5136,7 @@ export interface PutAccountDetailsRequest {
   /**
    * <p>The language you would prefer to be contacted with.</p>
    */
-  ContactLanguage?: ContactLanguage | string;
+  ContactLanguage?: keyof typeof ContactLanguage | string;
 
   /**
    * <p>A description of the types of email that you plan to send.</p>
@@ -5218,7 +5218,7 @@ export interface PutAccountSuppressionAttributesRequest {
    *             </li>
    *          </ul>
    */
-  SuppressedReasons?: (SuppressionListReason | string)[];
+  SuppressedReasons?: (keyof typeof SuppressionListReason | string)[];
 }
 
 /**
@@ -5260,7 +5260,7 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
-  TlsPolicy?: TlsPolicy | string;
+  TlsPolicy?: keyof typeof TlsPolicy | string;
 
   /**
    * <p>The name of the dedicated IP pool to associate with the configuration set.</p>
@@ -5357,7 +5357,7 @@ export interface PutConfigurationSetSuppressionOptionsRequest {
    *             </li>
    *          </ul>
    */
-  SuppressedReasons?: (SuppressionListReason | string)[];
+  SuppressedReasons?: (keyof typeof SuppressionListReason | string)[];
 }
 
 /**
@@ -5569,7 +5569,7 @@ export interface PutEmailIdentityDkimSigningAttributesRequest {
    *             </li>
    *          </ul>
    */
-  SigningAttributesOrigin: DkimSigningAttributesOrigin | string | undefined;
+  SigningAttributesOrigin: keyof typeof DkimSigningAttributesOrigin | string | undefined;
 
   /**
    * <p>An object that contains information about the private key and selector that you want
@@ -5626,7 +5626,7 @@ export interface PutEmailIdentityDkimSigningAttributesResponse {
    *             </li>
    *          </ul>
    */
-  DkimStatus?: DkimStatus | string;
+  DkimStatus?: keyof typeof DkimStatus | string;
 
   /**
    * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
@@ -5712,7 +5712,7 @@ export interface PutEmailIdentityMailFromAttributesRequest {
    *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
    *             states.</p>
    */
-  BehaviorOnMxFailure?: BehaviorOnMxFailure | string;
+  BehaviorOnMxFailure?: keyof typeof BehaviorOnMxFailure | string;
 }
 
 /**
@@ -5737,7 +5737,7 @@ export interface PutSuppressedDestinationRequest {
    * <p>The factors that should cause the email address to be added to the suppression list
    *             for your account.</p>
    */
-  Reason: SuppressionListReason | string | undefined;
+  Reason: keyof typeof SuppressionListReason | string | undefined;
 }
 
 /**

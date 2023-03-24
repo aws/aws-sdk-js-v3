@@ -6,14 +6,14 @@ import { WAFV2ServiceException as __BaseException } from "./WAFV2ServiceExceptio
 /**
  * @public
  */
-export enum ActionValue {
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-  CAPTCHA = "CAPTCHA",
-  CHALLENGE = "CHALLENGE",
-  COUNT = "COUNT",
-  EXCLUDED_AS_COUNT = "EXCLUDED_AS_COUNT",
-}
+export const ActionValue = {
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+  CAPTCHA: "CAPTCHA",
+  CHALLENGE: "CHALLENGE",
+  COUNT: "COUNT",
+  EXCLUDED_AS_COUNT: "EXCLUDED_AS_COUNT",
+};
 
 /**
  * @public
@@ -26,7 +26,7 @@ export interface ActionCondition {
    *        The value <code>EXCLUDED_AS_COUNT</code> matches on
    *        excluded rules and also on rules that have a rule action override of Count. </p>
    */
-  Action: ActionValue | string | undefined;
+  Action: keyof typeof ActionValue | string | undefined;
 }
 
 /**
@@ -103,11 +103,11 @@ export interface AllQueryArguments {}
 /**
  * @public
  */
-export enum OversizeHandling {
-  CONTINUE = "CONTINUE",
-  MATCH = "MATCH",
-  NO_MATCH = "NO_MATCH",
-}
+export const OversizeHandling = {
+  CONTINUE: "CONTINUE",
+  MATCH: "MATCH",
+  NO_MATCH: "NO_MATCH",
+};
 
 /**
  * @public
@@ -143,7 +143,7 @@ export interface Body {
    *          <p>Default: <code>CONTINUE</code>
    *          </p>
    */
-  OversizeHandling?: OversizeHandling | string;
+  OversizeHandling?: keyof typeof OversizeHandling | string;
 }
 
 /**
@@ -175,11 +175,11 @@ export interface CookieMatchPattern {
 /**
  * @public
  */
-export enum MapMatchScope {
-  ALL = "ALL",
-  KEY = "KEY",
-  VALUE = "VALUE",
-}
+export const MapMatchScope = {
+  ALL: "ALL",
+  KEY: "KEY",
+  VALUE: "VALUE",
+};
 
 /**
  * @public
@@ -204,7 +204,7 @@ export interface Cookies {
    * <p>The parts of the cookies to inspect with the rule inspection criteria. If you specify
    *             <code>All</code>, WAF inspects both keys and values. </p>
    */
-  MatchScope: MapMatchScope | string | undefined;
+  MatchScope: keyof typeof MapMatchScope | string | undefined;
 
   /**
    * <p>What WAF should do if the cookies of the request are larger than WAF can inspect.
@@ -229,7 +229,7 @@ export interface Cookies {
    *             </li>
    *          </ul>
    */
-  OversizeHandling: OversizeHandling | string | undefined;
+  OversizeHandling: keyof typeof OversizeHandling | string | undefined;
 }
 
 /**
@@ -284,7 +284,7 @@ export interface Headers {
    * <p>The parts of the headers to match with the rule inspection criteria. If you specify
    *             <code>All</code>, WAF inspects both keys and values. </p>
    */
-  MatchScope: MapMatchScope | string | undefined;
+  MatchScope: keyof typeof MapMatchScope | string | undefined;
 
   /**
    * <p>What WAF should do if the headers of the request are larger than WAF can inspect.
@@ -309,17 +309,17 @@ export interface Headers {
    *             </li>
    *          </ul>
    */
-  OversizeHandling: OversizeHandling | string | undefined;
+  OversizeHandling: keyof typeof OversizeHandling | string | undefined;
 }
 
 /**
  * @public
  */
-export enum BodyParsingFallbackBehavior {
-  EVALUATE_AS_STRING = "EVALUATE_AS_STRING",
-  MATCH = "MATCH",
-  NO_MATCH = "NO_MATCH",
-}
+export const BodyParsingFallbackBehavior = {
+  EVALUATE_AS_STRING: "EVALUATE_AS_STRING",
+  MATCH: "MATCH",
+  NO_MATCH: "NO_MATCH",
+};
 
 /**
  * @public
@@ -357,11 +357,11 @@ export interface JsonMatchPattern {
 /**
  * @public
  */
-export enum JsonMatchScope {
-  ALL = "ALL",
-  KEY = "KEY",
-  VALUE = "VALUE",
-}
+export const JsonMatchScope = {
+  ALL: "ALL",
+  KEY: "KEY",
+  VALUE: "VALUE",
+};
 
 /**
  * @public
@@ -387,7 +387,7 @@ export interface JsonBody {
    * <p>The parts of the JSON to match against using the <code>MatchPattern</code>. If you
    *          specify <code>All</code>, WAF matches against keys and values. </p>
    */
-  MatchScope: JsonMatchScope | string | undefined;
+  MatchScope: keyof typeof JsonMatchScope | string | undefined;
 
   /**
    * <p>What WAF should do if it fails to completely parse the JSON body. The options are
@@ -431,7 +431,7 @@ export interface JsonBody {
    *             </li>
    *          </ul>
    */
-  InvalidFallbackBehavior?: BodyParsingFallbackBehavior | string;
+  InvalidFallbackBehavior?: keyof typeof BodyParsingFallbackBehavior | string;
 
   /**
    * <p>What WAF should do if the body is larger than WAF can inspect.
@@ -460,7 +460,7 @@ export interface JsonBody {
    *          <p>Default: <code>CONTINUE</code>
    *          </p>
    */
-  OversizeHandling?: OversizeHandling | string;
+  OversizeHandling?: keyof typeof OversizeHandling | string;
 }
 
 /**
@@ -635,40 +635,40 @@ export interface FieldToMatch {
 /**
  * @public
  */
-export enum PositionalConstraint {
-  CONTAINS = "CONTAINS",
-  CONTAINS_WORD = "CONTAINS_WORD",
-  ENDS_WITH = "ENDS_WITH",
-  EXACTLY = "EXACTLY",
-  STARTS_WITH = "STARTS_WITH",
-}
+export const PositionalConstraint = {
+  CONTAINS: "CONTAINS",
+  CONTAINS_WORD: "CONTAINS_WORD",
+  ENDS_WITH: "ENDS_WITH",
+  EXACTLY: "EXACTLY",
+  STARTS_WITH: "STARTS_WITH",
+};
 
 /**
  * @public
  */
-export enum TextTransformationType {
-  BASE64_DECODE = "BASE64_DECODE",
-  BASE64_DECODE_EXT = "BASE64_DECODE_EXT",
-  CMD_LINE = "CMD_LINE",
-  COMPRESS_WHITE_SPACE = "COMPRESS_WHITE_SPACE",
-  CSS_DECODE = "CSS_DECODE",
-  ESCAPE_SEQ_DECODE = "ESCAPE_SEQ_DECODE",
-  HEX_DECODE = "HEX_DECODE",
-  HTML_ENTITY_DECODE = "HTML_ENTITY_DECODE",
-  JS_DECODE = "JS_DECODE",
-  LOWERCASE = "LOWERCASE",
-  MD5 = "MD5",
-  NONE = "NONE",
-  NORMALIZE_PATH = "NORMALIZE_PATH",
-  NORMALIZE_PATH_WIN = "NORMALIZE_PATH_WIN",
-  REMOVE_NULLS = "REMOVE_NULLS",
-  REPLACE_COMMENTS = "REPLACE_COMMENTS",
-  REPLACE_NULLS = "REPLACE_NULLS",
-  SQL_HEX_DECODE = "SQL_HEX_DECODE",
-  URL_DECODE = "URL_DECODE",
-  URL_DECODE_UNI = "URL_DECODE_UNI",
-  UTF8_TO_UNICODE = "UTF8_TO_UNICODE",
-}
+export const TextTransformationType = {
+  BASE64_DECODE: "BASE64_DECODE",
+  BASE64_DECODE_EXT: "BASE64_DECODE_EXT",
+  CMD_LINE: "CMD_LINE",
+  COMPRESS_WHITE_SPACE: "COMPRESS_WHITE_SPACE",
+  CSS_DECODE: "CSS_DECODE",
+  ESCAPE_SEQ_DECODE: "ESCAPE_SEQ_DECODE",
+  HEX_DECODE: "HEX_DECODE",
+  HTML_ENTITY_DECODE: "HTML_ENTITY_DECODE",
+  JS_DECODE: "JS_DECODE",
+  LOWERCASE: "LOWERCASE",
+  MD5: "MD5",
+  NONE: "NONE",
+  NORMALIZE_PATH: "NORMALIZE_PATH",
+  NORMALIZE_PATH_WIN: "NORMALIZE_PATH_WIN",
+  REMOVE_NULLS: "REMOVE_NULLS",
+  REPLACE_COMMENTS: "REPLACE_COMMENTS",
+  REPLACE_NULLS: "REPLACE_NULLS",
+  SQL_HEX_DECODE: "SQL_HEX_DECODE",
+  URL_DECODE: "URL_DECODE",
+  URL_DECODE_UNI: "URL_DECODE_UNI",
+  UTF8_TO_UNICODE: "UTF8_TO_UNICODE",
+};
 
 /**
  * @public
@@ -844,7 +844,7 @@ export interface TextTransformation {
    *          sequences to Unicode. This helps input normalization, and minimizing false-positives and
    *          false-negatives for non-English languages.</p>
    */
-  Type: TextTransformationType | string | undefined;
+  Type: keyof typeof TextTransformationType | string | undefined;
 }
 
 /**
@@ -948,272 +948,272 @@ export interface ByteMatchStatement {
    *          <p>The value of <code>SearchString</code> must appear at the end of the specified part of
    *          the web request.</p>
    */
-  PositionalConstraint: PositionalConstraint | string | undefined;
+  PositionalConstraint: keyof typeof PositionalConstraint | string | undefined;
 }
 
 /**
  * @public
  */
-export enum CountryCode {
-  AD = "AD",
-  AE = "AE",
-  AF = "AF",
-  AG = "AG",
-  AI = "AI",
-  AL = "AL",
-  AM = "AM",
-  AO = "AO",
-  AQ = "AQ",
-  AR = "AR",
-  AS = "AS",
-  AT = "AT",
-  AU = "AU",
-  AW = "AW",
-  AX = "AX",
-  AZ = "AZ",
-  BA = "BA",
-  BB = "BB",
-  BD = "BD",
-  BE = "BE",
-  BF = "BF",
-  BG = "BG",
-  BH = "BH",
-  BI = "BI",
-  BJ = "BJ",
-  BL = "BL",
-  BM = "BM",
-  BN = "BN",
-  BO = "BO",
-  BQ = "BQ",
-  BR = "BR",
-  BS = "BS",
-  BT = "BT",
-  BV = "BV",
-  BW = "BW",
-  BY = "BY",
-  BZ = "BZ",
-  CA = "CA",
-  CC = "CC",
-  CD = "CD",
-  CF = "CF",
-  CG = "CG",
-  CH = "CH",
-  CI = "CI",
-  CK = "CK",
-  CL = "CL",
-  CM = "CM",
-  CN = "CN",
-  CO = "CO",
-  CR = "CR",
-  CU = "CU",
-  CV = "CV",
-  CW = "CW",
-  CX = "CX",
-  CY = "CY",
-  CZ = "CZ",
-  DE = "DE",
-  DJ = "DJ",
-  DK = "DK",
-  DM = "DM",
-  DO = "DO",
-  DZ = "DZ",
-  EC = "EC",
-  EE = "EE",
-  EG = "EG",
-  EH = "EH",
-  ER = "ER",
-  ES = "ES",
-  ET = "ET",
-  FI = "FI",
-  FJ = "FJ",
-  FK = "FK",
-  FM = "FM",
-  FO = "FO",
-  FR = "FR",
-  GA = "GA",
-  GB = "GB",
-  GD = "GD",
-  GE = "GE",
-  GF = "GF",
-  GG = "GG",
-  GH = "GH",
-  GI = "GI",
-  GL = "GL",
-  GM = "GM",
-  GN = "GN",
-  GP = "GP",
-  GQ = "GQ",
-  GR = "GR",
-  GS = "GS",
-  GT = "GT",
-  GU = "GU",
-  GW = "GW",
-  GY = "GY",
-  HK = "HK",
-  HM = "HM",
-  HN = "HN",
-  HR = "HR",
-  HT = "HT",
-  HU = "HU",
-  ID = "ID",
-  IE = "IE",
-  IL = "IL",
-  IM = "IM",
-  IN = "IN",
-  IO = "IO",
-  IQ = "IQ",
-  IR = "IR",
-  IS = "IS",
-  IT = "IT",
-  JE = "JE",
-  JM = "JM",
-  JO = "JO",
-  JP = "JP",
-  KE = "KE",
-  KG = "KG",
-  KH = "KH",
-  KI = "KI",
-  KM = "KM",
-  KN = "KN",
-  KP = "KP",
-  KR = "KR",
-  KW = "KW",
-  KY = "KY",
-  KZ = "KZ",
-  LA = "LA",
-  LB = "LB",
-  LC = "LC",
-  LI = "LI",
-  LK = "LK",
-  LR = "LR",
-  LS = "LS",
-  LT = "LT",
-  LU = "LU",
-  LV = "LV",
-  LY = "LY",
-  MA = "MA",
-  MC = "MC",
-  MD = "MD",
-  ME = "ME",
-  MF = "MF",
-  MG = "MG",
-  MH = "MH",
-  MK = "MK",
-  ML = "ML",
-  MM = "MM",
-  MN = "MN",
-  MO = "MO",
-  MP = "MP",
-  MQ = "MQ",
-  MR = "MR",
-  MS = "MS",
-  MT = "MT",
-  MU = "MU",
-  MV = "MV",
-  MW = "MW",
-  MX = "MX",
-  MY = "MY",
-  MZ = "MZ",
-  NA = "NA",
-  NC = "NC",
-  NE = "NE",
-  NF = "NF",
-  NG = "NG",
-  NI = "NI",
-  NL = "NL",
-  NO = "NO",
-  NP = "NP",
-  NR = "NR",
-  NU = "NU",
-  NZ = "NZ",
-  OM = "OM",
-  PA = "PA",
-  PE = "PE",
-  PF = "PF",
-  PG = "PG",
-  PH = "PH",
-  PK = "PK",
-  PL = "PL",
-  PM = "PM",
-  PN = "PN",
-  PR = "PR",
-  PS = "PS",
-  PT = "PT",
-  PW = "PW",
-  PY = "PY",
-  QA = "QA",
-  RE = "RE",
-  RO = "RO",
-  RS = "RS",
-  RU = "RU",
-  RW = "RW",
-  SA = "SA",
-  SB = "SB",
-  SC = "SC",
-  SD = "SD",
-  SE = "SE",
-  SG = "SG",
-  SH = "SH",
-  SI = "SI",
-  SJ = "SJ",
-  SK = "SK",
-  SL = "SL",
-  SM = "SM",
-  SN = "SN",
-  SO = "SO",
-  SR = "SR",
-  SS = "SS",
-  ST = "ST",
-  SV = "SV",
-  SX = "SX",
-  SY = "SY",
-  SZ = "SZ",
-  TC = "TC",
-  TD = "TD",
-  TF = "TF",
-  TG = "TG",
-  TH = "TH",
-  TJ = "TJ",
-  TK = "TK",
-  TL = "TL",
-  TM = "TM",
-  TN = "TN",
-  TO = "TO",
-  TR = "TR",
-  TT = "TT",
-  TV = "TV",
-  TW = "TW",
-  TZ = "TZ",
-  UA = "UA",
-  UG = "UG",
-  UM = "UM",
-  US = "US",
-  UY = "UY",
-  UZ = "UZ",
-  VA = "VA",
-  VC = "VC",
-  VE = "VE",
-  VG = "VG",
-  VI = "VI",
-  VN = "VN",
-  VU = "VU",
-  WF = "WF",
-  WS = "WS",
-  XK = "XK",
-  YE = "YE",
-  YT = "YT",
-  ZA = "ZA",
-  ZM = "ZM",
-  ZW = "ZW",
-}
+export const CountryCode = {
+  AD: "AD",
+  AE: "AE",
+  AF: "AF",
+  AG: "AG",
+  AI: "AI",
+  AL: "AL",
+  AM: "AM",
+  AO: "AO",
+  AQ: "AQ",
+  AR: "AR",
+  AS: "AS",
+  AT: "AT",
+  AU: "AU",
+  AW: "AW",
+  AX: "AX",
+  AZ: "AZ",
+  BA: "BA",
+  BB: "BB",
+  BD: "BD",
+  BE: "BE",
+  BF: "BF",
+  BG: "BG",
+  BH: "BH",
+  BI: "BI",
+  BJ: "BJ",
+  BL: "BL",
+  BM: "BM",
+  BN: "BN",
+  BO: "BO",
+  BQ: "BQ",
+  BR: "BR",
+  BS: "BS",
+  BT: "BT",
+  BV: "BV",
+  BW: "BW",
+  BY: "BY",
+  BZ: "BZ",
+  CA: "CA",
+  CC: "CC",
+  CD: "CD",
+  CF: "CF",
+  CG: "CG",
+  CH: "CH",
+  CI: "CI",
+  CK: "CK",
+  CL: "CL",
+  CM: "CM",
+  CN: "CN",
+  CO: "CO",
+  CR: "CR",
+  CU: "CU",
+  CV: "CV",
+  CW: "CW",
+  CX: "CX",
+  CY: "CY",
+  CZ: "CZ",
+  DE: "DE",
+  DJ: "DJ",
+  DK: "DK",
+  DM: "DM",
+  DO: "DO",
+  DZ: "DZ",
+  EC: "EC",
+  EE: "EE",
+  EG: "EG",
+  EH: "EH",
+  ER: "ER",
+  ES: "ES",
+  ET: "ET",
+  FI: "FI",
+  FJ: "FJ",
+  FK: "FK",
+  FM: "FM",
+  FO: "FO",
+  FR: "FR",
+  GA: "GA",
+  GB: "GB",
+  GD: "GD",
+  GE: "GE",
+  GF: "GF",
+  GG: "GG",
+  GH: "GH",
+  GI: "GI",
+  GL: "GL",
+  GM: "GM",
+  GN: "GN",
+  GP: "GP",
+  GQ: "GQ",
+  GR: "GR",
+  GS: "GS",
+  GT: "GT",
+  GU: "GU",
+  GW: "GW",
+  GY: "GY",
+  HK: "HK",
+  HM: "HM",
+  HN: "HN",
+  HR: "HR",
+  HT: "HT",
+  HU: "HU",
+  ID: "ID",
+  IE: "IE",
+  IL: "IL",
+  IM: "IM",
+  IN: "IN",
+  IO: "IO",
+  IQ: "IQ",
+  IR: "IR",
+  IS: "IS",
+  IT: "IT",
+  JE: "JE",
+  JM: "JM",
+  JO: "JO",
+  JP: "JP",
+  KE: "KE",
+  KG: "KG",
+  KH: "KH",
+  KI: "KI",
+  KM: "KM",
+  KN: "KN",
+  KP: "KP",
+  KR: "KR",
+  KW: "KW",
+  KY: "KY",
+  KZ: "KZ",
+  LA: "LA",
+  LB: "LB",
+  LC: "LC",
+  LI: "LI",
+  LK: "LK",
+  LR: "LR",
+  LS: "LS",
+  LT: "LT",
+  LU: "LU",
+  LV: "LV",
+  LY: "LY",
+  MA: "MA",
+  MC: "MC",
+  MD: "MD",
+  ME: "ME",
+  MF: "MF",
+  MG: "MG",
+  MH: "MH",
+  MK: "MK",
+  ML: "ML",
+  MM: "MM",
+  MN: "MN",
+  MO: "MO",
+  MP: "MP",
+  MQ: "MQ",
+  MR: "MR",
+  MS: "MS",
+  MT: "MT",
+  MU: "MU",
+  MV: "MV",
+  MW: "MW",
+  MX: "MX",
+  MY: "MY",
+  MZ: "MZ",
+  NA: "NA",
+  NC: "NC",
+  NE: "NE",
+  NF: "NF",
+  NG: "NG",
+  NI: "NI",
+  NL: "NL",
+  NO: "NO",
+  NP: "NP",
+  NR: "NR",
+  NU: "NU",
+  NZ: "NZ",
+  OM: "OM",
+  PA: "PA",
+  PE: "PE",
+  PF: "PF",
+  PG: "PG",
+  PH: "PH",
+  PK: "PK",
+  PL: "PL",
+  PM: "PM",
+  PN: "PN",
+  PR: "PR",
+  PS: "PS",
+  PT: "PT",
+  PW: "PW",
+  PY: "PY",
+  QA: "QA",
+  RE: "RE",
+  RO: "RO",
+  RS: "RS",
+  RU: "RU",
+  RW: "RW",
+  SA: "SA",
+  SB: "SB",
+  SC: "SC",
+  SD: "SD",
+  SE: "SE",
+  SG: "SG",
+  SH: "SH",
+  SI: "SI",
+  SJ: "SJ",
+  SK: "SK",
+  SL: "SL",
+  SM: "SM",
+  SN: "SN",
+  SO: "SO",
+  SR: "SR",
+  SS: "SS",
+  ST: "ST",
+  SV: "SV",
+  SX: "SX",
+  SY: "SY",
+  SZ: "SZ",
+  TC: "TC",
+  TD: "TD",
+  TF: "TF",
+  TG: "TG",
+  TH: "TH",
+  TJ: "TJ",
+  TK: "TK",
+  TL: "TL",
+  TM: "TM",
+  TN: "TN",
+  TO: "TO",
+  TR: "TR",
+  TT: "TT",
+  TV: "TV",
+  TW: "TW",
+  TZ: "TZ",
+  UA: "UA",
+  UG: "UG",
+  UM: "UM",
+  US: "US",
+  UY: "UY",
+  UZ: "UZ",
+  VA: "VA",
+  VC: "VC",
+  VE: "VE",
+  VG: "VG",
+  VI: "VI",
+  VN: "VN",
+  VU: "VU",
+  WF: "WF",
+  WS: "WS",
+  XK: "XK",
+  YE: "YE",
+  YT: "YT",
+  ZA: "ZA",
+  ZM: "ZM",
+  ZW: "ZW",
+};
 
 /**
  * @public
  */
-export enum FallbackBehavior {
-  MATCH = "MATCH",
-  NO_MATCH = "NO_MATCH",
-}
+export const FallbackBehavior = {
+  MATCH: "MATCH",
+  NO_MATCH: "NO_MATCH",
+};
 
 /**
  * @public
@@ -1251,7 +1251,7 @@ export interface ForwardedIPConfig {
    *             </li>
    *          </ul>
    */
-  FallbackBehavior: FallbackBehavior | string | undefined;
+  FallbackBehavior: keyof typeof FallbackBehavior | string | undefined;
 }
 
 /**
@@ -1276,7 +1276,7 @@ export interface GeoMatchStatement {
    *          the alpha-2 country ISO codes of the ISO 3166 international standard. </p>
    *          <p>When you use a geo match statement just for the region and country labels that it adds to requests, you still have to supply a country code for the rule to evaluate. In this case, you configure the rule to only count matching requests, but it will still generate logging and count metrics for any matches. You can reduce the logging and metrics that the rule produces by specifying a country that's unlikely to be a source of traffic to your site.</p>
    */
-  CountryCodes?: (CountryCode | string)[];
+  CountryCodes?: (keyof typeof CountryCode | string)[];
 
   /**
    * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
@@ -1290,11 +1290,11 @@ export interface GeoMatchStatement {
 /**
  * @public
  */
-export enum ForwardedIPPosition {
-  ANY = "ANY",
-  FIRST = "FIRST",
-  LAST = "LAST",
-}
+export const ForwardedIPPosition = {
+  ANY: "ANY",
+  FIRST: "FIRST",
+  LAST: "LAST",
+};
 
 /**
  * @public
@@ -1330,7 +1330,7 @@ export interface IPSetForwardedIPConfig {
    *             </li>
    *          </ul>
    */
-  FallbackBehavior: FallbackBehavior | string | undefined;
+  FallbackBehavior: keyof typeof FallbackBehavior | string | undefined;
 
   /**
    * <p>The position in the header to search for the IP address. The header can contain IP
@@ -1353,7 +1353,7 @@ export interface IPSetForwardedIPConfig {
    *             </li>
    *          </ul>
    */
-  Position: ForwardedIPPosition | string | undefined;
+  Position: keyof typeof ForwardedIPPosition | string | undefined;
 }
 
 /**
@@ -1380,10 +1380,10 @@ export interface IPSetReferenceStatement {
 /**
  * @public
  */
-export enum LabelMatchScope {
-  LABEL = "LABEL",
-  NAMESPACE = "NAMESPACE",
-}
+export const LabelMatchScope = {
+  LABEL: "LABEL",
+  NAMESPACE: "NAMESPACE",
+};
 
 /**
  * @public
@@ -1394,7 +1394,7 @@ export interface LabelMatchStatement {
   /**
    * <p>Specify whether you want to match using the label name or just the namespace. </p>
    */
-  Scope: LabelMatchScope | string | undefined;
+  Scope: keyof typeof LabelMatchScope | string | undefined;
 
   /**
    * <p>The string to match against. The setting you provide for this depends on the match
@@ -1448,10 +1448,10 @@ export interface PasswordField {
 /**
  * @public
  */
-export enum PayloadType {
-  FORM_ENCODED = "FORM_ENCODED",
-  JSON = "JSON",
-}
+export const PayloadType = {
+  FORM_ENCODED: "FORM_ENCODED",
+  JSON: "JSON",
+};
 
 /**
  * @public
@@ -1478,7 +1478,7 @@ export interface RequestInspection {
   /**
    * <p>The payload type for your login endpoint, either JSON or form encoded.</p>
    */
-  PayloadType: PayloadType | string | undefined;
+  PayloadType: keyof typeof PayloadType | string | undefined;
 
   /**
    * <p>Details about your login page username field. </p>
@@ -1706,10 +1706,10 @@ export interface AWSManagedRulesATPRuleSet {
 /**
  * @public
  */
-export enum InspectionLevel {
-  COMMON = "COMMON",
-  TARGETED = "TARGETED",
-}
+export const InspectionLevel = {
+  COMMON: "COMMON",
+  TARGETED: "TARGETED",
+};
 
 /**
  * @public
@@ -1721,7 +1721,7 @@ export interface AWSManagedRulesBotControlRuleSet {
    *            targeted level includes all common level rules and adds rules with more advanced inspection criteria. For
    *    details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html">WAF Bot Control rule group</a>.</p>
    */
-  InspectionLevel: InspectionLevel | string | undefined;
+  InspectionLevel: keyof typeof InspectionLevel | string | undefined;
 }
 
 /**
@@ -1750,7 +1750,7 @@ export interface ManagedRuleGroupConfig {
    *                <code>RequestInspection</code>. </p>
    *          </note>
    */
-  PayloadType?: PayloadType | string;
+  PayloadType?: keyof typeof PayloadType | string;
 
   /**
    * @deprecated
@@ -1993,10 +1993,10 @@ export interface RuleActionOverride {
 /**
  * @public
  */
-export enum RateBasedStatementAggregateKeyType {
-  FORWARDED_IP = "FORWARDED_IP",
-  IP = "IP",
-}
+export const RateBasedStatementAggregateKeyType = {
+  FORWARDED_IP: "FORWARDED_IP",
+  IP: "IP",
+};
 
 /**
  * @public
@@ -2076,14 +2076,14 @@ export interface RuleGroupReferenceStatement {
 /**
  * @public
  */
-export enum ComparisonOperator {
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-}
+export const ComparisonOperator = {
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  LE: "LE",
+  LT: "LT",
+  NE: "NE",
+};
 
 /**
  * @public
@@ -2100,7 +2100,7 @@ export interface SizeConstraintStatement {
   /**
    * <p>The operator to use to compare the request part to the size setting. </p>
    */
-  ComparisonOperator: ComparisonOperator | string | undefined;
+  ComparisonOperator: keyof typeof ComparisonOperator | string | undefined;
 
   /**
    * <p>The size, in byte, to compare to the request part, after any transformations.</p>
@@ -2118,10 +2118,10 @@ export interface SizeConstraintStatement {
 /**
  * @public
  */
-export enum SensitivityLevel {
-  HIGH = "HIGH",
-  LOW = "LOW",
-}
+export const SensitivityLevel = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+};
 
 /**
  * @public
@@ -2154,7 +2154,7 @@ export interface SqliMatchStatement {
    *          <p>Default: <code>LOW</code>
    *          </p>
    */
-  SensitivityLevel?: SensitivityLevel | string;
+  SensitivityLevel?: keyof typeof SensitivityLevel | string;
 }
 
 /**
@@ -2273,74 +2273,74 @@ export class WAFInvalidOperationException extends __BaseException {
 /**
  * @public
  */
-export enum ParameterExceptionField {
-  AND_STATEMENT = "AND_STATEMENT",
-  ASSOCIABLE_RESOURCE = "ASSOCIABLE_RESOURCE",
-  ATP_RULE_SET_RESPONSE_INSPECTION = "ATP_RULE_SET_RESPONSE_INSPECTION",
-  BODY_PARSING_FALLBACK_BEHAVIOR = "BODY_PARSING_FALLBACK_BEHAVIOR",
-  BYTE_MATCH_STATEMENT = "BYTE_MATCH_STATEMENT",
-  CHALLENGE_CONFIG = "CHALLENGE_CONFIG",
-  CHANGE_PROPAGATION_STATUS = "CHANGE_PROPAGATION_STATUS",
-  COOKIE_MATCH_PATTERN = "COOKIE_MATCH_PATTERN",
-  CUSTOM_REQUEST_HANDLING = "CUSTOM_REQUEST_HANDLING",
-  CUSTOM_RESPONSE = "CUSTOM_RESPONSE",
-  CUSTOM_RESPONSE_BODY = "CUSTOM_RESPONSE_BODY",
-  DEFAULT_ACTION = "DEFAULT_ACTION",
-  ENTITY_LIMIT = "ENTITY_LIMIT",
-  EXCLUDED_RULE = "EXCLUDED_RULE",
-  EXPIRE_TIMESTAMP = "EXPIRE_TIMESTAMP",
-  FALLBACK_BEHAVIOR = "FALLBACK_BEHAVIOR",
-  FIELD_TO_MATCH = "FIELD_TO_MATCH",
-  FILTER_CONDITION = "FILTER_CONDITION",
-  FIREWALL_MANAGER_STATEMENT = "FIREWALL_MANAGER_STATEMENT",
-  FORWARDED_IP_CONFIG = "FORWARDED_IP_CONFIG",
-  GEO_MATCH_STATEMENT = "GEO_MATCH_STATEMENT",
-  HEADER_MATCH_PATTERN = "HEADER_MATCH_PATTERN",
-  HEADER_NAME = "HEADER_NAME",
-  IP_ADDRESS = "IP_ADDRESS",
-  IP_ADDRESS_VERSION = "IP_ADDRESS_VERSION",
-  IP_SET = "IP_SET",
-  IP_SET_FORWARDED_IP_CONFIG = "IP_SET_FORWARDED_IP_CONFIG",
-  IP_SET_REFERENCE_STATEMENT = "IP_SET_REFERENCE_STATEMENT",
-  JSON_MATCH_PATTERN = "JSON_MATCH_PATTERN",
-  JSON_MATCH_SCOPE = "JSON_MATCH_SCOPE",
-  LABEL_MATCH_STATEMENT = "LABEL_MATCH_STATEMENT",
-  LOGGING_FILTER = "LOGGING_FILTER",
-  LOG_DESTINATION = "LOG_DESTINATION",
-  MANAGED_RULE_GROUP_CONFIG = "MANAGED_RULE_GROUP_CONFIG",
-  MANAGED_RULE_SET = "MANAGED_RULE_SET",
-  MANAGED_RULE_SET_STATEMENT = "MANAGED_RULE_SET_STATEMENT",
-  MAP_MATCH_SCOPE = "MAP_MATCH_SCOPE",
-  METRIC_NAME = "METRIC_NAME",
-  NOT_STATEMENT = "NOT_STATEMENT",
-  OR_STATEMENT = "OR_STATEMENT",
-  OVERRIDE_ACTION = "OVERRIDE_ACTION",
-  OVERSIZE_HANDLING = "OVERSIZE_HANDLING",
-  PAYLOAD_TYPE = "PAYLOAD_TYPE",
-  POSITION = "POSITION",
-  RATE_BASED_STATEMENT = "RATE_BASED_STATEMENT",
-  REGEX_PATTERN_REFERENCE_STATEMENT = "REGEX_PATTERN_REFERENCE_STATEMENT",
-  REGEX_PATTERN_SET = "REGEX_PATTERN_SET",
-  RESOURCE_ARN = "RESOURCE_ARN",
-  RESOURCE_TYPE = "RESOURCE_TYPE",
-  RESPONSE_CONTENT_TYPE = "RESPONSE_CONTENT_TYPE",
-  RULE = "RULE",
-  RULE_ACTION = "RULE_ACTION",
-  RULE_GROUP = "RULE_GROUP",
-  RULE_GROUP_REFERENCE_STATEMENT = "RULE_GROUP_REFERENCE_STATEMENT",
-  SCOPE_VALUE = "SCOPE_VALUE",
-  SINGLE_HEADER = "SINGLE_HEADER",
-  SINGLE_QUERY_ARGUMENT = "SINGLE_QUERY_ARGUMENT",
-  SIZE_CONSTRAINT_STATEMENT = "SIZE_CONSTRAINT_STATEMENT",
-  SQLI_MATCH_STATEMENT = "SQLI_MATCH_STATEMENT",
-  STATEMENT = "STATEMENT",
-  TAGS = "TAGS",
-  TAG_KEYS = "TAG_KEYS",
-  TEXT_TRANSFORMATION = "TEXT_TRANSFORMATION",
-  TOKEN_DOMAIN = "TOKEN_DOMAIN",
-  WEB_ACL = "WEB_ACL",
-  XSS_MATCH_STATEMENT = "XSS_MATCH_STATEMENT",
-}
+export const ParameterExceptionField = {
+  AND_STATEMENT: "AND_STATEMENT",
+  ASSOCIABLE_RESOURCE: "ASSOCIABLE_RESOURCE",
+  ATP_RULE_SET_RESPONSE_INSPECTION: "ATP_RULE_SET_RESPONSE_INSPECTION",
+  BODY_PARSING_FALLBACK_BEHAVIOR: "BODY_PARSING_FALLBACK_BEHAVIOR",
+  BYTE_MATCH_STATEMENT: "BYTE_MATCH_STATEMENT",
+  CHALLENGE_CONFIG: "CHALLENGE_CONFIG",
+  CHANGE_PROPAGATION_STATUS: "CHANGE_PROPAGATION_STATUS",
+  COOKIE_MATCH_PATTERN: "COOKIE_MATCH_PATTERN",
+  CUSTOM_REQUEST_HANDLING: "CUSTOM_REQUEST_HANDLING",
+  CUSTOM_RESPONSE: "CUSTOM_RESPONSE",
+  CUSTOM_RESPONSE_BODY: "CUSTOM_RESPONSE_BODY",
+  DEFAULT_ACTION: "DEFAULT_ACTION",
+  ENTITY_LIMIT: "ENTITY_LIMIT",
+  EXCLUDED_RULE: "EXCLUDED_RULE",
+  EXPIRE_TIMESTAMP: "EXPIRE_TIMESTAMP",
+  FALLBACK_BEHAVIOR: "FALLBACK_BEHAVIOR",
+  FIELD_TO_MATCH: "FIELD_TO_MATCH",
+  FILTER_CONDITION: "FILTER_CONDITION",
+  FIREWALL_MANAGER_STATEMENT: "FIREWALL_MANAGER_STATEMENT",
+  FORWARDED_IP_CONFIG: "FORWARDED_IP_CONFIG",
+  GEO_MATCH_STATEMENT: "GEO_MATCH_STATEMENT",
+  HEADER_MATCH_PATTERN: "HEADER_MATCH_PATTERN",
+  HEADER_NAME: "HEADER_NAME",
+  IP_ADDRESS: "IP_ADDRESS",
+  IP_ADDRESS_VERSION: "IP_ADDRESS_VERSION",
+  IP_SET: "IP_SET",
+  IP_SET_FORWARDED_IP_CONFIG: "IP_SET_FORWARDED_IP_CONFIG",
+  IP_SET_REFERENCE_STATEMENT: "IP_SET_REFERENCE_STATEMENT",
+  JSON_MATCH_PATTERN: "JSON_MATCH_PATTERN",
+  JSON_MATCH_SCOPE: "JSON_MATCH_SCOPE",
+  LABEL_MATCH_STATEMENT: "LABEL_MATCH_STATEMENT",
+  LOGGING_FILTER: "LOGGING_FILTER",
+  LOG_DESTINATION: "LOG_DESTINATION",
+  MANAGED_RULE_GROUP_CONFIG: "MANAGED_RULE_GROUP_CONFIG",
+  MANAGED_RULE_SET: "MANAGED_RULE_SET",
+  MANAGED_RULE_SET_STATEMENT: "MANAGED_RULE_SET_STATEMENT",
+  MAP_MATCH_SCOPE: "MAP_MATCH_SCOPE",
+  METRIC_NAME: "METRIC_NAME",
+  NOT_STATEMENT: "NOT_STATEMENT",
+  OR_STATEMENT: "OR_STATEMENT",
+  OVERRIDE_ACTION: "OVERRIDE_ACTION",
+  OVERSIZE_HANDLING: "OVERSIZE_HANDLING",
+  PAYLOAD_TYPE: "PAYLOAD_TYPE",
+  POSITION: "POSITION",
+  RATE_BASED_STATEMENT: "RATE_BASED_STATEMENT",
+  REGEX_PATTERN_REFERENCE_STATEMENT: "REGEX_PATTERN_REFERENCE_STATEMENT",
+  REGEX_PATTERN_SET: "REGEX_PATTERN_SET",
+  RESOURCE_ARN: "RESOURCE_ARN",
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+  RESPONSE_CONTENT_TYPE: "RESPONSE_CONTENT_TYPE",
+  RULE: "RULE",
+  RULE_ACTION: "RULE_ACTION",
+  RULE_GROUP: "RULE_GROUP",
+  RULE_GROUP_REFERENCE_STATEMENT: "RULE_GROUP_REFERENCE_STATEMENT",
+  SCOPE_VALUE: "SCOPE_VALUE",
+  SINGLE_HEADER: "SINGLE_HEADER",
+  SINGLE_QUERY_ARGUMENT: "SINGLE_QUERY_ARGUMENT",
+  SIZE_CONSTRAINT_STATEMENT: "SIZE_CONSTRAINT_STATEMENT",
+  SQLI_MATCH_STATEMENT: "SQLI_MATCH_STATEMENT",
+  STATEMENT: "STATEMENT",
+  TAGS: "TAGS",
+  TAG_KEYS: "TAG_KEYS",
+  TEXT_TRANSFORMATION: "TEXT_TRANSFORMATION",
+  TOKEN_DOMAIN: "TOKEN_DOMAIN",
+  WEB_ACL: "WEB_ACL",
+  XSS_MATCH_STATEMENT: "XSS_MATCH_STATEMENT",
+};
 
 /**
  * @public
@@ -2370,7 +2370,7 @@ export class WAFInvalidParameterException extends __BaseException {
   /**
    * <p>The settings where the invalid parameter was found. </p>
    */
-  Field?: ParameterExceptionField | string;
+  Field?: keyof typeof ParameterExceptionField | string;
 
   /**
    * <p>The invalid parameter that resulted in the exception. </p>
@@ -2568,10 +2568,10 @@ export interface VisibilityConfig {
 /**
  * @public
  */
-export enum Scope {
-  CLOUDFRONT = "CLOUDFRONT",
-  REGIONAL = "REGIONAL",
-}
+export const Scope = {
+  CLOUDFRONT: "CLOUDFRONT",
+  REGIONAL: "REGIONAL",
+};
 
 /**
  * @public
@@ -2681,10 +2681,10 @@ export class WAFSubscriptionNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum IPAddressVersion {
-  IPV4 = "IPV4",
-  IPV6 = "IPV6",
-}
+export const IPAddressVersion = {
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+};
 
 /**
  * @public
@@ -2735,7 +2735,7 @@ export interface CreateIPSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>A description of the IP set that helps with identification. </p>
@@ -2745,7 +2745,7 @@ export interface CreateIPSetRequest {
   /**
    * <p>The version of the IP addresses, either <code>IPV4</code> or <code>IPV6</code>. </p>
    */
-  IPAddressVersion: IPAddressVersion | string | undefined;
+  IPAddressVersion: keyof typeof IPAddressVersion | string | undefined;
 
   /**
    * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p>
@@ -2958,7 +2958,7 @@ export interface CreateRegexPatternSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>A description of the set that helps with identification. </p>
@@ -3020,11 +3020,11 @@ export interface CreateRegexPatternSetResponse {
 /**
  * @public
  */
-export enum ResponseContentType {
-  APPLICATION_JSON = "APPLICATION_JSON",
-  TEXT_HTML = "TEXT_HTML",
-  TEXT_PLAIN = "TEXT_PLAIN",
-}
+export const ResponseContentType = {
+  APPLICATION_JSON: "APPLICATION_JSON",
+  TEXT_HTML: "TEXT_HTML",
+  TEXT_PLAIN: "TEXT_PLAIN",
+};
 
 /**
  * @public
@@ -3037,7 +3037,7 @@ export interface CustomResponseBody {
    * <p>The type of content in the payload that you are defining in the <code>Content</code>
    *          string.</p>
    */
-  ContentType: ResponseContentType | string | undefined;
+  ContentType: keyof typeof ResponseContentType | string | undefined;
 
   /**
    * <p>The payload of the custom response. </p>
@@ -3227,7 +3227,7 @@ export interface DeleteIPSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
@@ -3321,7 +3321,7 @@ export interface DeleteRegexPatternSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
@@ -3360,7 +3360,7 @@ export interface DeleteRuleGroupRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
@@ -3399,7 +3399,7 @@ export interface DeleteWebACLRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>The unique identifier for the web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
@@ -3443,7 +3443,7 @@ export interface DescribeManagedRuleGroupRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>The version of the rule group. You can only use a version that is not scheduled for
@@ -3600,10 +3600,10 @@ export interface DisassociateWebACLResponse {}
 /**
  * @public
  */
-export enum Platform {
-  ANDROID = "ANDROID",
-  IOS = "IOS",
-}
+export const Platform = {
+  ANDROID: "ANDROID",
+  IOS: "IOS",
+};
 
 /**
  * @public
@@ -3612,7 +3612,7 @@ export interface GenerateMobileSdkReleaseUrlRequest {
   /**
    * <p>The device platform.</p>
    */
-  Platform: Platform | string | undefined;
+  Platform: keyof typeof Platform | string | undefined;
 
   /**
    * <p>The release version. For the latest available version, specify
@@ -3652,7 +3652,7 @@ export interface GetIPSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
@@ -3693,7 +3693,7 @@ export interface IPSet {
   /**
    * <p>The version of the IP addresses, either <code>IPV4</code> or <code>IPV6</code>. </p>
    */
-  IPAddressVersion: IPAddressVersion | string | undefined;
+  IPAddressVersion: keyof typeof IPAddressVersion | string | undefined;
 
   /**
    * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>. </p>
@@ -3764,10 +3764,10 @@ export interface GetLoggingConfigurationRequest {
 /**
  * @public
  */
-export enum FilterBehavior {
-  DROP = "DROP",
-  KEEP = "KEEP",
-}
+export const FilterBehavior = {
+  DROP: "DROP",
+  KEEP: "KEEP",
+};
 
 /**
  * @public
@@ -3802,10 +3802,10 @@ export interface Condition {
 /**
  * @public
  */
-export enum FilterRequirement {
-  MEETS_ALL = "MEETS_ALL",
-  MEETS_ANY = "MEETS_ANY",
-}
+export const FilterRequirement = {
+  MEETS_ALL: "MEETS_ALL",
+  MEETS_ANY: "MEETS_ANY",
+};
 
 /**
  * @public
@@ -3815,13 +3815,13 @@ export interface Filter {
   /**
    * <p>How to handle logs that satisfy the filter's conditions and requirement. </p>
    */
-  Behavior: FilterBehavior | string | undefined;
+  Behavior: keyof typeof FilterBehavior | string | undefined;
 
   /**
    * <p>Logic to apply to the filtering conditions. You can specify that, in order to satisfy
    *          the filter, a log must match all conditions or must match at least one condition.</p>
    */
-  Requirement: FilterRequirement | string | undefined;
+  Requirement: keyof typeof FilterRequirement | string | undefined;
 
   /**
    * <p>Match conditions for the filter.</p>
@@ -3846,7 +3846,7 @@ export interface LoggingFilter {
    * <p>Default handling for logs that don't match any of the specified filtering conditions.
    *       </p>
    */
-  DefaultBehavior: FilterBehavior | string | undefined;
+  DefaultBehavior: keyof typeof FilterBehavior | string | undefined;
 }
 
 /**
@@ -3956,7 +3956,7 @@ export interface GetManagedRuleSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>A unique identifier for the managed rule set. The ID is returned in the responses to commands like <code>list</code>. You provide it to operations like <code>get</code> and <code>update</code>.</p>
@@ -4099,7 +4099,7 @@ export interface GetMobileSdkReleaseRequest {
   /**
    * <p>The device platform.</p>
    */
-  Platform: Platform | string | undefined;
+  Platform: keyof typeof Platform | string | undefined;
 
   /**
    * <p>The release version. For the latest available version, specify
@@ -4183,7 +4183,7 @@ export interface GetRateBasedStatementManagedKeysRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>The name of the web ACL. You cannot change the name of a web ACL after you create it.</p>
@@ -4217,7 +4217,7 @@ export interface RateBasedStatementManagedKeysIPSet {
   /**
    * <p>The version of the IP addresses, either <code>IPV4</code> or <code>IPV6</code>. </p>
    */
-  IPAddressVersion?: IPAddressVersion | string;
+  IPAddressVersion?: keyof typeof IPAddressVersion | string;
 
   /**
    * <p>The IP addresses that are currently blocked.</p>
@@ -4261,7 +4261,7 @@ export interface GetRegexPatternSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
@@ -4338,7 +4338,7 @@ export interface GetRuleGroupRequest {
    *             </li>
    *          </ul>
    */
-  Scope?: Scope | string;
+  Scope?: keyof typeof Scope | string;
 
   /**
    * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
@@ -4416,7 +4416,7 @@ export interface GetSampledRequestsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>The start date and time and the end date and time of the range for which you want
@@ -4440,12 +4440,12 @@ export interface GetSampledRequestsRequest {
 /**
  * @public
  */
-export enum FailureReason {
-  TOKEN_DOMAIN_MISMATCH = "TOKEN_DOMAIN_MISMATCH",
-  TOKEN_EXPIRED = "TOKEN_EXPIRED",
-  TOKEN_INVALID = "TOKEN_INVALID",
-  TOKEN_MISSING = "TOKEN_MISSING",
-}
+export const FailureReason = {
+  TOKEN_DOMAIN_MISMATCH: "TOKEN_DOMAIN_MISMATCH",
+  TOKEN_EXPIRED: "TOKEN_EXPIRED",
+  TOKEN_INVALID: "TOKEN_INVALID",
+  TOKEN_MISSING: "TOKEN_MISSING",
+};
 
 /**
  * @public
@@ -4467,7 +4467,7 @@ export interface CaptchaResponse {
   /**
    * <p>The reason for failure, populated when the evaluation of the token fails.</p>
    */
-  FailureReason?: FailureReason | string;
+  FailureReason?: keyof typeof FailureReason | string;
 }
 
 /**
@@ -4489,7 +4489,7 @@ export interface ChallengeResponse {
   /**
    * <p>The reason for failure, populated when the evaluation of the token fails.</p>
    */
-  FailureReason?: FailureReason | string;
+  FailureReason?: keyof typeof FailureReason | string;
 }
 
 /**
@@ -4695,7 +4695,7 @@ export interface GetWebACLRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>The unique identifier for the web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
@@ -4757,7 +4757,7 @@ export interface ListAvailableManagedRuleGroupsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -4844,7 +4844,7 @@ export interface ListAvailableManagedRuleGroupVersionsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -4916,7 +4916,7 @@ export interface ListIPSetsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -4967,7 +4967,7 @@ export interface ListLoggingConfigurationsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5017,7 +5017,7 @@ export interface ListManagedRuleSetsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5112,7 +5112,7 @@ export interface ListMobileSdkReleasesRequest {
   /**
    * <p>The device platform to retrieve the list for.</p>
    */
-  Platform: Platform | string | undefined;
+  Platform: keyof typeof Platform | string | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5178,7 +5178,7 @@ export interface ListRegexPatternSetsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5215,13 +5215,13 @@ export interface ListRegexPatternSetsResponse {
 /**
  * @public
  */
-export enum ResourceType {
-  API_GATEWAY = "API_GATEWAY",
-  APPLICATION_LOAD_BALANCER = "APPLICATION_LOAD_BALANCER",
-  APPSYNC = "APPSYNC",
-  APP_RUNNER_SERVICE = "APP_RUNNER_SERVICE",
-  COGNITIO_USER_POOL = "COGNITO_USER_POOL",
-}
+export const ResourceType = {
+  API_GATEWAY: "API_GATEWAY",
+  APPLICATION_LOAD_BALANCER: "APPLICATION_LOAD_BALANCER",
+  APPSYNC: "APPSYNC",
+  APP_RUNNER_SERVICE: "APP_RUNNER_SERVICE",
+  COGNITIO_USER_POOL: "COGNITO_USER_POOL",
+};
 
 /**
  * @public
@@ -5241,7 +5241,7 @@ export interface ListResourcesForWebACLRequest {
    *          <p>Default: <code>APPLICATION_LOAD_BALANCER</code>
    *          </p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 }
 
 /**
@@ -5270,7 +5270,7 @@ export interface ListRuleGroupsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5386,7 +5386,7 @@ export interface ListWebACLsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5536,7 +5536,7 @@ export interface PutManagedRuleSetVersionsRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>A unique identifier for the managed rule set. The ID is returned in the responses to commands like <code>list</code>. You provide it to operations like <code>get</code> and <code>update</code>.</p>
@@ -5721,7 +5721,7 @@ export interface UpdateIPSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
@@ -5811,7 +5811,7 @@ export interface UpdateManagedRuleSetVersionExpiryDateRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>A unique identifier for the managed rule set. The ID is returned in the responses to commands like <code>list</code>. You provide it to operations like <code>get</code> and <code>update</code>.</p>
@@ -5878,7 +5878,7 @@ export interface UpdateRegexPatternSetRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>A unique identifier for the set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
@@ -6161,7 +6161,7 @@ export interface RateBasedStatement {
    *             </li>
    *          </ul>
    */
-  AggregateKeyType: RateBasedStatementAggregateKeyType | string | undefined;
+  AggregateKeyType: keyof typeof RateBasedStatementAggregateKeyType | string | undefined;
 
   /**
    * <p>An optional nested statement that narrows the scope of the web requests that are
@@ -6380,7 +6380,7 @@ export interface CheckCapacityRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>An array of <a>Rule</a> that you're configuring to use in a rule group or web
@@ -6410,7 +6410,7 @@ export interface CreateRuleGroupRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>The web ACL capacity units (WCUs) required for this rule group.</p>
@@ -6482,7 +6482,7 @@ export interface CreateWebACLRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>The action to perform if none of the <code>Rules</code> contained in the <code>WebACL</code> match. </p>
@@ -6655,7 +6655,7 @@ export interface UpdateRuleGroupRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>A unique identifier for the rule group. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
@@ -6716,7 +6716,7 @@ export interface UpdateWebACLRequest {
    *             </li>
    *          </ul>
    */
-  Scope: Scope | string | undefined;
+  Scope: keyof typeof Scope | string | undefined;
 
   /**
    * <p>The unique identifier for the web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>

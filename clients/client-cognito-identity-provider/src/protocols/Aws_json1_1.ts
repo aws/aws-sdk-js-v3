@@ -9062,7 +9062,7 @@ const serializeAws_json1_1AdminUserGlobalSignOutRequest = (
 };
 
 const serializeAws_json1_1AliasAttributesListType = (
-  input: (AliasAttributeType | string)[],
+  input: (keyof typeof AliasAttributeType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -9128,7 +9128,7 @@ const serializeAws_json1_1AttributeNameListType = (input: string[], context: __S
 };
 
 const serializeAws_json1_1AttributesRequireVerificationBeforeUpdateType = (
-  input: (VerifiedAttributeType | string)[],
+  input: (keyof typeof VerifiedAttributeType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -9582,7 +9582,7 @@ const serializeAws_json1_1DeleteUserRequest = (input: DeleteUserRequest, context
 };
 
 const serializeAws_json1_1DeliveryMediumListType = (
-  input: (DeliveryMediumType | string)[],
+  input: (keyof typeof DeliveryMediumType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -9688,7 +9688,10 @@ const serializeAws_json1_1EmailConfigurationType = (input: EmailConfigurationTyp
   };
 };
 
-const serializeAws_json1_1EventFiltersType = (input: (EventFilterType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1EventFiltersType = (
+  input: (keyof typeof EventFilterType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9697,7 +9700,7 @@ const serializeAws_json1_1EventFiltersType = (input: (EventFilterType | string)[
 };
 
 const serializeAws_json1_1ExplicitAuthFlowsListType = (
-  input: (ExplicitAuthFlowsType | string)[],
+  input: (keyof typeof ExplicitAuthFlowsType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -10039,7 +10042,10 @@ const serializeAws_json1_1NumberAttributeConstraintsType = (
   };
 };
 
-const serializeAws_json1_1OAuthFlowsType = (input: (OAuthFlowType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1OAuthFlowsType = (
+  input: (keyof typeof OAuthFlowType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -10666,7 +10672,7 @@ const serializeAws_json1_1UserContextDataType = (input: UserContextDataType, con
 };
 
 const serializeAws_json1_1UsernameAttributesListType = (
-  input: (UsernameAttributeType | string)[],
+  input: (keyof typeof UsernameAttributeType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -10732,7 +10738,7 @@ const serializeAws_json1_1VerificationMessageTemplateType = (
 };
 
 const serializeAws_json1_1VerifiedAttributesListType = (
-  input: (VerifiedAttributeType | string)[],
+  input: (keyof typeof VerifiedAttributeType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -11050,7 +11056,7 @@ const deserializeAws_json1_1AdminUserGlobalSignOutResponse = (
 const deserializeAws_json1_1AliasAttributesListType = (
   output: any,
   context: __SerdeContext
-): (AliasAttributeType | string)[] => {
+): (keyof typeof AliasAttributeType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11116,7 +11122,7 @@ const deserializeAws_json1_1AttributeMappingType = (output: any, context: __Serd
 const deserializeAws_json1_1AttributesRequireVerificationBeforeUpdateType = (
   output: any,
   context: __SerdeContext
-): (VerifiedAttributeType | string)[] => {
+): (keyof typeof VerifiedAttributeType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11647,7 +11653,10 @@ const deserializeAws_json1_1EventFeedbackType = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1EventFiltersType = (output: any, context: __SerdeContext): (EventFilterType | string)[] => {
+const deserializeAws_json1_1EventFiltersType = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof EventFilterType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11676,7 +11685,7 @@ const deserializeAws_json1_1ExpiredCodeException = (output: any, context: __Serd
 const deserializeAws_json1_1ExplicitAuthFlowsListType = (
   output: any,
   context: __SerdeContext
-): (ExplicitAuthFlowsType | string)[] => {
+): (keyof typeof ExplicitAuthFlowsType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -12209,7 +12218,10 @@ const deserializeAws_json1_1NumberAttributeConstraintsType = (
   } as any;
 };
 
-const deserializeAws_json1_1OAuthFlowsType = (output: any, context: __SerdeContext): (OAuthFlowType | string)[] => {
+const deserializeAws_json1_1OAuthFlowsType = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof OAuthFlowType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -12917,7 +12929,7 @@ const deserializeAws_json1_1UserMFASettingListType = (output: any, context: __Se
 const deserializeAws_json1_1UsernameAttributesListType = (
   output: any,
   context: __SerdeContext
-): (UsernameAttributeType | string)[] => {
+): (keyof typeof UsernameAttributeType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -13262,7 +13274,7 @@ const deserializeAws_json1_1VerificationMessageTemplateType = (
 const deserializeAws_json1_1VerifiedAttributesListType = (
   output: any,
   context: __SerdeContext
-): (VerifiedAttributeType | string)[] => {
+): (keyof typeof VerifiedAttributeType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

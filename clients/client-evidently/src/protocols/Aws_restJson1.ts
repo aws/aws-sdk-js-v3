@@ -3374,7 +3374,7 @@ const serializeAws_restJson1EventList = (input: Event[], context: __SerdeContext
 };
 
 const serializeAws_restJson1ExperimentReportNameList = (
-  input: (ExperimentReportName | string)[],
+  input: (keyof typeof ExperimentReportName | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3385,7 +3385,7 @@ const serializeAws_restJson1ExperimentReportNameList = (
 };
 
 const serializeAws_restJson1ExperimentResultRequestTypeList = (
-  input: (ExperimentResultRequestType | string)[],
+  input: (keyof typeof ExperimentResultRequestType | string)[],
   context: __SerdeContext
 ): any => {
   return input

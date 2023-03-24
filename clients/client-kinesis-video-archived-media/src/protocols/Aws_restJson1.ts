@@ -773,13 +773,16 @@ const serializeAws_restJson1DASHTimestampRange = (input: DASHTimestampRange, con
 };
 
 const serializeAws_restJson1FormatConfig = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [FormatConfigKey | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof FormatConfigKey | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = value;
       return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1FragmentNumberList = (input: string[], context: __SerdeContext): any => {

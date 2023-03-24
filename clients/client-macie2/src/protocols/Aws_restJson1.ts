@@ -7290,7 +7290,10 @@ const serializeAws_restJson1__listOfCriteriaForJob = (input: CriteriaForJob[], c
     });
 };
 
-const serializeAws_restJson1__listOfFindingType = (input: (FindingType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1__listOfFindingType = (
+  input: (keyof typeof FindingType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8243,7 +8246,7 @@ const deserializeAws_restJson1__listOfTagValuePair = (output: any, context: __Se
 const deserializeAws_restJson1__listOfUnavailabilityReasonCode = (
   output: any,
   context: __SerdeContext
-): (UnavailabilityReasonCode | string)[] => {
+): (keyof typeof UnavailabilityReasonCode | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -323,9 +323,9 @@ export interface PutBandwidthRateLimitScheduleOutput {
 /**
  * @public
  */
-export enum GatewayType {
-  BACKUP_VM = "BACKUP_VM",
-}
+export const GatewayType = {
+  BACKUP_VM: "BACKUP_VM",
+};
 
 /**
  * @public
@@ -362,7 +362,7 @@ export interface CreateGatewayInput {
   /**
    * <p>The type of created gateway.</p>
    */
-  GatewayType: GatewayType | string | undefined;
+  GatewayType: keyof typeof GatewayType | string | undefined;
 
   /**
    * <p>A list of up to 50 tags to assign to the gateway. Each tag is a key-value pair.</p>
@@ -482,7 +482,7 @@ export interface GatewayDetails {
   /**
    * <p>The type of the gateway type.</p>
    */
-  GatewayType?: GatewayType | string;
+  GatewayType?: keyof typeof GatewayType | string;
 
   /**
    * <p>The hypervisor ID of the gateway.</p>
@@ -563,7 +563,7 @@ export interface Gateway {
   /**
    * <p>The type of the gateway.</p>
    */
-  GatewayType?: GatewayType | string;
+  GatewayType?: keyof typeof GatewayType | string;
 
   /**
    * <p>The hypervisor ID of the gateway.</p>
@@ -749,23 +749,23 @@ export interface GetHypervisorInput {
 /**
  * @public
  */
-export enum SyncMetadataStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  PARTIALLY_FAILED = "PARTIALLY_FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const SyncMetadataStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  PARTIALLY_FAILED: "PARTIALLY_FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
  */
-export enum HypervisorState {
-  ERROR = "ERROR",
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-  PENDING = "PENDING",
-}
+export const HypervisorState = {
+  ERROR: "ERROR",
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -807,7 +807,7 @@ export interface HypervisorDetails {
    *          <p>The possible states are <code>PENDING</code>, <code>ONLINE</code>,
    *       <code>OFFLINE</code>, or <code>ERROR</code>.</p>
    */
-  State?: HypervisorState | string;
+  State?: keyof typeof HypervisorState | string;
 
   /**
    * <p>This is the time when the most recent successful sync
@@ -823,7 +823,7 @@ export interface HypervisorDetails {
   /**
    * <p>This is the most recent status for the indicated metadata sync.</p>
    */
-  LatestMetadataSyncStatus?: SyncMetadataStatus | string;
+  LatestMetadataSyncStatus?: keyof typeof SyncMetadataStatus | string;
 }
 
 /**
@@ -1021,7 +1021,7 @@ export interface Hypervisor {
   /**
    * <p>The state of the hypervisor.</p>
    */
-  State?: HypervisorState | string;
+  State?: keyof typeof HypervisorState | string;
 }
 
 /**

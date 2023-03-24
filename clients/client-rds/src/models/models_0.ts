@@ -148,30 +148,30 @@ export interface AccountAttributesMessage {
 /**
  * @public
  */
-export enum ActivityStreamMode {
-  async = "async",
-  sync = "sync",
-}
+export const ActivityStreamMode = {
+  async: "async",
+  sync: "sync",
+};
 
 /**
  * @public
  */
-export enum ActivityStreamPolicyStatus {
-  locked = "locked",
-  locking_policy = "locking-policy",
-  unlocked = "unlocked",
-  unlocking_policy = "unlocking-policy",
-}
+export const ActivityStreamPolicyStatus = {
+  locked: "locked",
+  locking_policy: "locking-policy",
+  unlocked: "unlocked",
+  unlocking_policy: "unlocking-policy",
+};
 
 /**
  * @public
  */
-export enum ActivityStreamStatus {
-  started = "started",
-  starting = "starting",
-  stopped = "stopped",
-  stopping = "stopping",
-}
+export const ActivityStreamStatus = {
+  started: "started",
+  starting: "starting",
+  stopped: "stopped",
+  stopping: "stopping",
+};
 
 /**
  * @public
@@ -1156,10 +1156,10 @@ export interface CancelExportTaskMessage {
 /**
  * @public
  */
-export enum ExportSourceType {
-  CLUSTER = "CLUSTER",
-  SNAPSHOT = "SNAPSHOT",
-}
+export const ExportSourceType = {
+  CLUSTER: "CLUSTER",
+  SNAPSHOT: "SNAPSHOT",
+};
 
 /**
  * @public
@@ -1304,7 +1304,7 @@ export interface ExportTask {
   /**
    * <p>The type of source for the export.</p>
    */
-  SourceType?: ExportSourceType | string;
+  SourceType?: keyof typeof ExportSourceType | string;
 }
 
 /**
@@ -4616,13 +4616,13 @@ export interface DomainMembership {
 /**
  * @public
  */
-export enum WriteForwardingStatus {
-  DISABLED = "disabled",
-  DISABLING = "disabling",
-  ENABLED = "enabled",
-  ENABLING = "enabling",
-  UNKNOWN = "unknown",
-}
+export const WriteForwardingStatus = {
+  DISABLED: "disabled",
+  DISABLING: "disabling",
+  ENABLED: "enabled",
+  ENABLING: "enabling",
+  UNKNOWN: "unknown",
+};
 
 /**
  * @public
@@ -5104,12 +5104,12 @@ export interface DBCluster {
    *            Database events such as a change or access generate an activity stream event.
    *            The database session can handle these events either synchronously or asynchronously.</p>
    */
-  ActivityStreamMode?: ActivityStreamMode | string;
+  ActivityStreamMode?: keyof typeof ActivityStreamMode | string;
 
   /**
    * <p>The status of the database activity stream.</p>
    */
-  ActivityStreamStatus?: ActivityStreamStatus | string;
+  ActivityStreamStatus?: keyof typeof ActivityStreamStatus | string;
 
   /**
    * <p>The Amazon Web Services KMS key identifier used for encrypting messages in the database activity stream.</p>
@@ -5148,7 +5148,7 @@ export interface DBCluster {
    * <p>Specifies whether a secondary cluster in an Aurora global database has
    *         write forwarding enabled, not enabled, or is in the process of enabling it.</p>
    */
-  GlobalWriteForwardingStatus?: WriteForwardingStatus | string;
+  GlobalWriteForwardingStatus?: keyof typeof WriteForwardingStatus | string;
 
   /**
    * <p>Specifies whether you have requested to enable write forwarding for a secondary cluster
@@ -7182,10 +7182,10 @@ export interface DBInstanceRole {
 /**
  * @public
  */
-export enum AutomationMode {
-  ALL_PAUSED = "all-paused",
-  FULL = "full",
-}
+export const AutomationMode = {
+  ALL_PAUSED: "all-paused",
+  FULL: "full",
+};
 
 /**
  * @public
@@ -7554,7 +7554,7 @@ export interface PendingModifiedValues {
    *             <code>all-paused</code>, the instance pauses automation for the duration set by
    *             <code>--resume-full-automation-mode-minutes</code>.</p>
    */
-  AutomationMode?: AutomationMode | string;
+  AutomationMode?: keyof typeof AutomationMode | string;
 
   /**
    * <p>The number of minutes to pause the automation. When the time period ends, RDS Custom resumes full automation.
@@ -7571,10 +7571,10 @@ export interface PendingModifiedValues {
 /**
  * @public
  */
-export enum ReplicaMode {
-  MOUNTED = "mounted",
-  OPEN_READ_ONLY = "open-read-only",
-}
+export const ReplicaMode = {
+  MOUNTED: "mounted",
+  OPEN_READ_ONLY: "open-read-only",
+};
 
 /**
  * @public
@@ -7780,7 +7780,7 @@ export interface DBInstance {
    *             <p>This attribute is only supported in RDS for Oracle.</p>
    *          </note>
    */
-  ReplicaMode?: ReplicaMode | string;
+  ReplicaMode?: keyof typeof ReplicaMode | string;
 
   /**
    * <p>License model information for this DB instance. This setting doesn't apply to RDS Custom.</p>
@@ -8063,7 +8063,7 @@ export interface DBInstance {
   /**
    * <p>The status of the database activity stream.</p>
    */
-  ActivityStreamStatus?: ActivityStreamStatus | string;
+  ActivityStreamStatus?: keyof typeof ActivityStreamStatus | string;
 
   /**
    * <p>The Amazon Web Services KMS key identifier used for encrypting messages in the database activity stream.
@@ -8080,7 +8080,7 @@ export interface DBInstance {
    * <p>The mode of the database activity stream. Database events such as a change or access generate
    *             an activity stream event. RDS for Oracle always handles these events asynchronously.</p>
    */
-  ActivityStreamMode?: ActivityStreamMode | string;
+  ActivityStreamMode?: keyof typeof ActivityStreamMode | string;
 
   /**
    * <p>Indicates whether engine-native audit fields are included in the database activity stream.</p>
@@ -8093,7 +8093,7 @@ export interface DBInstance {
    *             <code>all paused</code>, the instance pauses automation for the duration set by
    *             <code>--resume-full-automation-mode-minutes</code>.</p>
    */
-  AutomationMode?: AutomationMode | string;
+  AutomationMode?: keyof typeof AutomationMode | string;
 
   /**
    * <p>The number of minutes to pause the automation. When the time period ends, RDS Custom resumes full automation.
@@ -8157,7 +8157,7 @@ export interface DBInstance {
   /**
    * <p>The status of the policy state of the activity stream.</p>
    */
-  ActivityStreamPolicyStatus?: ActivityStreamPolicyStatus | string;
+  ActivityStreamPolicyStatus?: keyof typeof ActivityStreamPolicyStatus | string;
 
   /**
    * <p>Specifies the storage throughput for the DB instance.</p>
@@ -8743,7 +8743,7 @@ export interface CreateDBInstanceReadReplicaMessage {
    *          <p>For RDS Custom, you must specify this parameter and set it to <code>mounted</code>. The value won't be set by default.
    *             After replica creation, you can manage the open mode manually.</p>
    */
-  ReplicaMode?: ReplicaMode | string;
+  ReplicaMode?: keyof typeof ReplicaMode | string;
 
   /**
    * <p>The upper limit in gibibytes (GiB) to which Amazon RDS can automatically scale the storage of the DB instance.</p>
@@ -9025,28 +9025,28 @@ export interface CreateDBParameterGroupResult {
 /**
  * @public
  */
-export enum AuthScheme {
-  SECRETS = "SECRETS",
-}
+export const AuthScheme = {
+  SECRETS: "SECRETS",
+};
 
 /**
  * @public
  */
-export enum ClientPasswordAuthType {
-  MYSQL_NATIVE_PASSWORD = "MYSQL_NATIVE_PASSWORD",
-  POSTGRES_MD5 = "POSTGRES_MD5",
-  POSTGRES_SCRAM_SHA_256 = "POSTGRES_SCRAM_SHA_256",
-  SQL_SERVER_AUTHENTICATION = "SQL_SERVER_AUTHENTICATION",
-}
+export const ClientPasswordAuthType = {
+  MYSQL_NATIVE_PASSWORD: "MYSQL_NATIVE_PASSWORD",
+  POSTGRES_MD5: "POSTGRES_MD5",
+  POSTGRES_SCRAM_SHA_256: "POSTGRES_SCRAM_SHA_256",
+  SQL_SERVER_AUTHENTICATION: "SQL_SERVER_AUTHENTICATION",
+};
 
 /**
  * @public
  */
-export enum IAMAuthMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  REQUIRED = "REQUIRED",
-}
+export const IAMAuthMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  REQUIRED: "REQUIRED",
+};
 
 /**
  * @public
@@ -9066,7 +9066,7 @@ export interface UserAuthConfig {
   /**
    * <p>The type of authentication that the proxy uses for connections from the proxy to the underlying database.</p>
    */
-  AuthScheme?: AuthScheme | string;
+  AuthScheme?: keyof typeof AuthScheme | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate
@@ -9078,22 +9078,22 @@ export interface UserAuthConfig {
    * <p>Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy.
    *         The <code>ENABLED</code> value is valid only for proxies with RDS for Microsoft SQL Server.</p>
    */
-  IAMAuth?: IAMAuthMode | string;
+  IAMAuth?: keyof typeof IAMAuthMode | string;
 
   /**
    * <p>The type of authentication the proxy uses for connections from clients.</p>
    */
-  ClientPasswordAuthType?: ClientPasswordAuthType | string;
+  ClientPasswordAuthType?: keyof typeof ClientPasswordAuthType | string;
 }
 
 /**
  * @public
  */
-export enum EngineFamily {
-  MYSQL = "MYSQL",
-  POSTGRESQL = "POSTGRESQL",
-  SQLSERVER = "SQLSERVER",
-}
+export const EngineFamily = {
+  MYSQL: "MYSQL",
+  POSTGRESQL: "POSTGRESQL",
+  SQLSERVER: "SQLSERVER",
+};
 
 /**
  * @public
@@ -9111,7 +9111,7 @@ export interface CreateDBProxyRequest {
    *         For Aurora PostgreSQL and RDS for PostgreSQL databases, specify <code>POSTGRESQL</code>. For RDS for Microsoft SQL Server, specify
    *         <code>SQLSERVER</code>.</p>
    */
-  EngineFamily: EngineFamily | string | undefined;
+  EngineFamily: keyof typeof EngineFamily | string | undefined;
 
   /**
    * <p>The authorization mechanism that the proxy uses.</p>
@@ -9179,7 +9179,7 @@ export interface UserAuthConfigInfo {
   /**
    * <p>The type of authentication that the proxy uses for connections from the proxy to the underlying database.</p>
    */
-  AuthScheme?: AuthScheme | string;
+  AuthScheme?: keyof typeof AuthScheme | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate
@@ -9191,28 +9191,28 @@ export interface UserAuthConfigInfo {
    * <p>Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy.
    *         The <code>ENABLED</code> value is valid only for proxies with RDS for Microsoft SQL Server.</p>
    */
-  IAMAuth?: IAMAuthMode | string;
+  IAMAuth?: keyof typeof IAMAuthMode | string;
 
   /**
    * <p>The type of authentication the proxy uses for connections from clients.</p>
    */
-  ClientPasswordAuthType?: ClientPasswordAuthType | string;
+  ClientPasswordAuthType?: keyof typeof ClientPasswordAuthType | string;
 }
 
 /**
  * @public
  */
-export enum DBProxyStatus {
-  AVAILABLE = "available",
-  CREATING = "creating",
-  DELETING = "deleting",
-  INCOMPATIBLE_NETWORK = "incompatible-network",
-  INSUFFICIENT_RESOURCE_LIMITS = "insufficient-resource-limits",
-  MODIFYING = "modifying",
-  REACTIVATING = "reactivating",
-  SUSPENDED = "suspended",
-  SUSPENDING = "suspending",
-}
+export const DBProxyStatus = {
+  AVAILABLE: "available",
+  CREATING: "creating",
+  DELETING: "deleting",
+  INCOMPATIBLE_NETWORK: "incompatible-network",
+  INSUFFICIENT_RESOURCE_LIMITS: "insufficient-resource-limits",
+  MODIFYING: "modifying",
+  REACTIVATING: "reactivating",
+  SUSPENDED: "suspended",
+  SUSPENDING: "suspending",
+};
 
 /**
  * @public
@@ -9235,7 +9235,7 @@ export interface DBProxy {
    *         proxy is ready to handle requests. Other values indicate that you must wait for
    *         the proxy to be ready, or take some action to resolve an issue.</p>
    */
-  Status?: DBProxyStatus | string;
+  Status?: keyof typeof DBProxyStatus | string;
 
   /**
    * <p>The kinds of databases that the proxy can connect to. This value determines which database network protocol
@@ -9365,10 +9365,10 @@ export class DBProxyQuotaExceededFault extends __BaseException {
 /**
  * @public
  */
-export enum DBProxyEndpointTargetRole {
-  READ_ONLY = "READ_ONLY",
-  READ_WRITE = "READ_WRITE",
-}
+export const DBProxyEndpointTargetRole = {
+  READ_ONLY: "READ_ONLY",
+  READ_WRITE: "READ_WRITE",
+};
 
 /**
  * @public
@@ -9402,7 +9402,7 @@ export interface CreateDBProxyEndpointRequest {
    *         or read-only operations. The default is <code>READ_WRITE</code>. The only role that proxies for RDS for Microsoft SQL Server
    *         support is <code>READ_WRITE</code>.</p>
    */
-  TargetRole?: DBProxyEndpointTargetRole | string;
+  TargetRole?: keyof typeof DBProxyEndpointTargetRole | string;
 
   /**
    * <p>A list of tags.
@@ -9415,14 +9415,14 @@ export interface CreateDBProxyEndpointRequest {
 /**
  * @public
  */
-export enum DBProxyEndpointStatus {
-  AVAILABLE = "available",
-  CREATING = "creating",
-  DELETING = "deleting",
-  INCOMPATIBLE_NETWORK = "incompatible-network",
-  INSUFFICIENT_RESOURCE_LIMITS = "insufficient-resource-limits",
-  MODIFYING = "modifying",
-}
+export const DBProxyEndpointStatus = {
+  AVAILABLE: "available",
+  CREATING: "creating",
+  DELETING: "deleting",
+  INCOMPATIBLE_NETWORK: "incompatible-network",
+  INSUFFICIENT_RESOURCE_LIMITS: "insufficient-resource-limits",
+  MODIFYING: "modifying",
+};
 
 /**
  * @public
@@ -9455,7 +9455,7 @@ export interface DBProxyEndpoint {
    *         endpoint is ready to handle requests. Other values indicate that you must wait for
    *         the endpoint to be ready, or take some action to resolve an issue.</p>
    */
-  Status?: DBProxyEndpointStatus | string;
+  Status?: keyof typeof DBProxyEndpointStatus | string;
 
   /**
    * <p>Provides the VPC ID of the DB proxy endpoint.</p>
@@ -9486,7 +9486,7 @@ export interface DBProxyEndpoint {
   /**
    * <p>A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.</p>
    */
-  TargetRole?: DBProxyEndpointTargetRole | string;
+  TargetRole?: keyof typeof DBProxyEndpointTargetRole | string;
 
   /**
    * <p>A value that indicates whether this endpoint is the default endpoint for the associated DB proxy.
@@ -10114,11 +10114,11 @@ export interface CreateGlobalClusterMessage {
 /**
  * @public
  */
-export enum FailoverStatus {
-  CANCELLING = "cancelling",
-  FAILING_OVER = "failing-over",
-  PENDING = "pending",
-}
+export const FailoverStatus = {
+  CANCELLING: "cancelling",
+  FAILING_OVER: "failing-over",
+  PENDING: "pending",
+};
 
 /**
  * @public
@@ -10145,7 +10145,7 @@ export interface FailoverState {
    *             </li>
    *          </ul>
    */
-  Status?: FailoverStatus | string;
+  Status?: keyof typeof FailoverStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Aurora DB cluster that is currently being demoted, and which is associated with this
@@ -10188,7 +10188,7 @@ export interface GlobalClusterMember {
    * <p>Specifies whether a secondary cluster in an Aurora global database has
    *         write forwarding enabled, not enabled, or is in the process of enabling it.</p>
    */
-  GlobalWriteForwardingStatus?: WriteForwardingStatus | string;
+  GlobalWriteForwardingStatus?: keyof typeof WriteForwardingStatus | string;
 }
 
 /**
@@ -11945,10 +11945,10 @@ export interface DescribeDBClusterParameterGroupsMessage {
 /**
  * @public
  */
-export enum ApplyMethod {
-  immediate = "immediate",
-  pending_reboot = "pending-reboot",
-}
+export const ApplyMethod = {
+  immediate: "immediate",
+  pending_reboot: "pending-reboot",
+};
 
 /**
  * @public
@@ -12008,7 +12008,7 @@ export interface Parameter {
   /**
    * <p>Indicates when to apply parameter updates.</p>
    */
-  ApplyMethod?: ApplyMethod | string;
+  ApplyMethod?: keyof typeof ApplyMethod | string;
 
   /**
    * <p>The valid DB engine modes.</p>

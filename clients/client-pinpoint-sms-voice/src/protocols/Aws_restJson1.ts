@@ -855,7 +855,7 @@ const serializeAws_restJson1EventDestinationDefinition = (
   };
 };
 
-const serializeAws_restJson1EventTypes = (input: (EventType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1EventTypes = (input: (keyof typeof EventType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -969,7 +969,10 @@ const deserializeAws_restJson1EventDestinations = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_restJson1EventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
+const deserializeAws_restJson1EventTypes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof EventType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

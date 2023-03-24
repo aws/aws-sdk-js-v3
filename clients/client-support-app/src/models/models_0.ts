@@ -26,10 +26,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AccountType {
-  MANAGEMENT = "management",
-  MEMBER = "member",
-}
+export const AccountType = {
+  MANAGEMENT: "management",
+  MEMBER: "member",
+};
 
 /**
  * @public
@@ -80,11 +80,11 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum NotificationSeverityLevel {
-  ALL = "all",
-  HIGH = "high",
-  NONE = "none",
-}
+export const NotificationSeverityLevel = {
+  ALL: "all",
+  HIGH: "high",
+  NONE: "none",
+};
 
 /**
  * @public
@@ -166,7 +166,7 @@ export interface CreateSlackChannelConfigurationRequest {
    *           <code>false</code>.</p>
    *          </note>
    */
-  notifyOnCaseSeverity: NotificationSeverityLevel | string | undefined;
+  notifyOnCaseSeverity: keyof typeof NotificationSeverityLevel | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that you want to
@@ -378,7 +378,7 @@ export interface SlackChannelConfiguration {
   /**
    * <p>The case severity for a support case that you want to receive notifications.</p>
    */
-  notifyOnCaseSeverity?: NotificationSeverityLevel | string;
+  notifyOnCaseSeverity?: keyof typeof NotificationSeverityLevel | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that you want to
@@ -500,7 +500,7 @@ export interface RegisterSlackWorkspaceForOrganizationResult {
    * <p>Whether the Amazon Web Services account is a management or member account that's part of an organization
    *       in Organizations.</p>
    */
-  accountType?: AccountType | string;
+  accountType?: keyof typeof AccountType | string;
 }
 
 /**
@@ -583,7 +583,7 @@ export interface UpdateSlackChannelConfigurationRequest {
    *         values by default.</p>
    *          </note>
    */
-  notifyOnCaseSeverity?: NotificationSeverityLevel | string;
+  notifyOnCaseSeverity?: keyof typeof NotificationSeverityLevel | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that you want to
@@ -631,7 +631,7 @@ export interface UpdateSlackChannelConfigurationResult {
   /**
    * <p>The case severity for a support case that you want to receive notifications.</p>
    */
-  notifyOnCaseSeverity?: NotificationSeverityLevel | string;
+  notifyOnCaseSeverity?: keyof typeof NotificationSeverityLevel | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that you want to

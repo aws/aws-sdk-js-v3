@@ -140,12 +140,12 @@ export interface CreateMonitorInput {
 /**
  * @public
  */
-export enum MonitorConfigState {
-  ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE",
-  PENDING = "PENDING",
-}
+export const MonitorConfigState = {
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -159,7 +159,7 @@ export interface CreateMonitorOutput {
   /**
    * <p>The status of a monitor.</p>
    */
-  Status: MonitorConfigState | string | undefined;
+  Status: keyof typeof MonitorConfigState | string | undefined;
 }
 
 /**
@@ -296,10 +296,10 @@ export interface Network {
 /**
  * @public
  */
-export enum TriangulationEventType {
-  AWS = "AWS",
-  INTERNET = "Internet",
-}
+export const TriangulationEventType = {
+  AWS: "AWS",
+  INTERNET: "Internet",
+};
 
 /**
  * @public
@@ -319,7 +319,7 @@ export interface NetworkImpairment {
   /**
    * <p>Type of network impairment.</p>
    */
-  NetworkEventType: TriangulationEventType | string | undefined;
+  NetworkEventType: keyof typeof TriangulationEventType | string | undefined;
 }
 
 /**
@@ -419,10 +419,10 @@ export interface InternetHealth {
 /**
  * @public
  */
-export enum HealthEventStatus {
-  ACTIVE = "ACTIVE",
-  RESOLVED = "RESOLVED",
-}
+export const HealthEventStatus = {
+  ACTIVE: "ACTIVE",
+  RESOLVED: "RESOLVED",
+};
 
 /**
  * @public
@@ -497,7 +497,7 @@ export interface ImpactedLocation {
   /**
    * <p>The status of the health event at an impacted location.</p>
    */
-  Status: HealthEventStatus | string | undefined;
+  Status: keyof typeof HealthEventStatus | string | undefined;
 
   /**
    * <p>The cause of the impairment. There are two types of network impairments: Amazon Web Services network issues
@@ -514,10 +514,10 @@ export interface ImpactedLocation {
 /**
  * @public
  */
-export enum HealthEventImpactType {
-  AVAILABILITY = "AVAILABILITY",
-  PERFORMANCE = "PERFORMANCE",
-}
+export const HealthEventImpactType = {
+  AVAILABILITY: "AVAILABILITY",
+  PERFORMANCE: "PERFORMANCE",
+};
 
 /**
  * @public
@@ -561,7 +561,7 @@ export interface GetHealthEventOutput {
   /**
    * <p>The status of a health event.</p>
    */
-  Status: HealthEventStatus | string | undefined;
+  Status: keyof typeof HealthEventStatus | string | undefined;
 
   /**
    * <p>The impact on total traffic that a health event has.</p>
@@ -571,7 +571,7 @@ export interface GetHealthEventOutput {
   /**
    * <p>The type of impairment of a specific health event.</p>
    */
-  ImpactType: HealthEventImpactType | string | undefined;
+  ImpactType: keyof typeof HealthEventImpactType | string | undefined;
 }
 
 /**
@@ -587,14 +587,14 @@ export interface GetMonitorInput {
 /**
  * @public
  */
-export enum MonitorProcessingStatusCode {
-  COLLECTING_DATA = "COLLECTING_DATA",
-  FAULT_ACCESS_CLOUDWATCH = "FAULT_ACCESS_CLOUDWATCH",
-  FAULT_SERVICE = "FAULT_SERVICE",
-  INACTIVE = "INACTIVE",
-  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
-  OK = "OK",
-}
+export const MonitorProcessingStatusCode = {
+  COLLECTING_DATA: "COLLECTING_DATA",
+  FAULT_ACCESS_CLOUDWATCH: "FAULT_ACCESS_CLOUDWATCH",
+  FAULT_SERVICE: "FAULT_SERVICE",
+  INACTIVE: "INACTIVE",
+  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
+  OK: "OK",
+};
 
 /**
  * @public
@@ -618,7 +618,7 @@ export interface GetMonitorOutput {
   /**
    * <p>The status of the monitor.</p>
    */
-  Status: MonitorConfigState | string | undefined;
+  Status: keyof typeof MonitorConfigState | string | undefined;
 
   /**
    * <p>The time when the monitor was created.</p>
@@ -633,7 +633,7 @@ export interface GetMonitorOutput {
   /**
    * <p>The health of the data processing for the monitor.</p>
    */
-  ProcessingStatus?: MonitorProcessingStatusCode | string;
+  ProcessingStatus?: keyof typeof MonitorProcessingStatusCode | string;
 
   /**
    * <p>Additional information about the health of the data processing for the monitor.</p>
@@ -695,7 +695,7 @@ export interface HealthEvent {
   /**
    * <p>Health event list member.</p>
    */
-  Status: HealthEventStatus | string | undefined;
+  Status: keyof typeof HealthEventStatus | string | undefined;
 
   /**
    * <p>The impact on global traffic monitored by this monitor for this health event.</p>
@@ -705,7 +705,7 @@ export interface HealthEvent {
   /**
    * <p>The type of impairment for a health event.</p>
    */
-  ImpactType: HealthEventImpactType | string | undefined;
+  ImpactType: keyof typeof HealthEventImpactType | string | undefined;
 }
 
 /**
@@ -740,7 +740,7 @@ export interface ListHealthEventsInput {
   /**
    * <p>The status of a health event.</p>
    */
-  EventStatus?: HealthEventStatus | string;
+  EventStatus?: keyof typeof HealthEventStatus | string;
 }
 
 /**
@@ -882,12 +882,12 @@ export interface Monitor {
   /**
    * <p>The status of a monitor.</p>
    */
-  Status: MonitorConfigState | string | undefined;
+  Status: keyof typeof MonitorConfigState | string | undefined;
 
   /**
    * <p>The health of data processing for the monitor.</p>
    */
-  ProcessingStatus?: MonitorProcessingStatusCode | string;
+  ProcessingStatus?: keyof typeof MonitorProcessingStatusCode | string;
 }
 
 /**
@@ -954,7 +954,7 @@ export interface UpdateMonitorInput {
    * <p>The status for a monitor. The accepted values for <code>Status</code> with the <code>UpdateMonitor</code> API call are the following: <code>ACTIVE</code> and
    * 			<code>INACTIVE</code>. The following values are <i>not</i> accepted: <code>PENDING</code>, and <code>ERROR</code>.</p>
    */
-  Status?: MonitorConfigState | string;
+  Status?: keyof typeof MonitorConfigState | string;
 
   /**
    * <p>A unique, case-sensitive string of up to 64 ASCII characters that you specify to make an idempotent API request. You should not reuse the same client
@@ -981,7 +981,7 @@ export interface UpdateMonitorOutput {
   /**
    * <p>The status of a monitor.</p>
    */
-  Status: MonitorConfigState | string | undefined;
+  Status: keyof typeof MonitorConfigState | string | undefined;
 }
 
 /**

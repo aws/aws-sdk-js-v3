@@ -28,15 +28,15 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum ReadSetActivationJobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const ReadSetActivationJobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
@@ -46,7 +46,7 @@ export interface ActivateReadSetFilter {
   /**
    * <p>The filter's status.</p>
    */
-  status?: ReadSetActivationJobStatus | string;
+  status?: keyof typeof ReadSetActivationJobStatus | string;
 
   /**
    * <p>The filter's start date.</p>
@@ -77,7 +77,7 @@ export interface ActivateReadSetJobItem {
   /**
    * <p>The job's status.</p>
    */
-  status: ReadSetActivationJobStatus | string | undefined;
+  status: keyof typeof ReadSetActivationJobStatus | string | undefined;
 
   /**
    * <p>When the job was created.</p>
@@ -93,12 +93,12 @@ export interface ActivateReadSetJobItem {
 /**
  * @public
  */
-export enum ReadSetActivationJobItemStatus {
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ReadSetActivationJobItemStatus = {
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+};
 
 /**
  * @public
@@ -113,7 +113,7 @@ export interface ActivateReadSetSourceItem {
   /**
    * <p>The source's status.</p>
    */
-  status: ReadSetActivationJobItemStatus | string | undefined;
+  status: keyof typeof ReadSetActivationJobItemStatus | string | undefined;
 
   /**
    * <p>The source's status message.</p>
@@ -124,32 +124,32 @@ export interface ActivateReadSetSourceItem {
 /**
  * @public
  */
-export enum JobStatus {
+export const JobStatus = {
   /**
    * The Job was cancelled
    */
-  CANCELLED = "CANCELLED",
+  CANCELLED: "CANCELLED",
   /**
    * The Job has completed
    */
-  COMPLETED = "COMPLETED",
+  COMPLETED: "COMPLETED",
   /**
    * The Job completed with failed runs
    */
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
   /**
    * The Job failed
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * The Job is executing
    */
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS: "IN_PROGRESS",
   /**
    * The Job has been submitted to run
    */
-  SUBMITTED = "SUBMITTED",
-}
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
@@ -164,7 +164,7 @@ export interface AnnotationImportItemDetail {
   /**
    * <p>The item's job status.</p>
    */
-  jobStatus: JobStatus | string | undefined;
+  jobStatus: keyof typeof JobStatus | string | undefined;
 }
 
 /**
@@ -437,7 +437,7 @@ export interface GetAnnotationImportResponse {
   /**
    * <p>The job's status.</p>
    */
-  status: JobStatus | string | undefined;
+  status: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p>The job's status message.</p>
@@ -483,7 +483,7 @@ export interface ListAnnotationImportJobsFilter {
   /**
    * <p>A status to filter on.</p>
    */
-  status?: JobStatus | string;
+  status?: keyof typeof JobStatus | string;
 
   /**
    * <p>A store name to filter on.</p>
@@ -539,7 +539,7 @@ export interface AnnotationImportJobItem {
   /**
    * <p>The job's status.</p>
    */
-  status: JobStatus | string | undefined;
+  status: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p>When the job was created.</p>
@@ -694,12 +694,12 @@ export namespace ReferenceItem {
 /**
  * @public
  */
-export enum EncryptionType {
+export const EncryptionType = {
   /**
    * KMS
    */
-  KMS = "KMS",
-}
+  KMS: "KMS",
+};
 
 /**
  * @public
@@ -709,7 +709,7 @@ export interface SseConfig {
   /**
    * <p>The encryption type.</p>
    */
-  type: EncryptionType | string | undefined;
+  type: keyof typeof EncryptionType | string | undefined;
 
   /**
    * <p>An encryption key ARN.</p>
@@ -720,96 +720,96 @@ export interface SseConfig {
 /**
  * @public
  */
-export enum StoreFormat {
+export const StoreFormat = {
   /**
    * GFF3 Format
    */
-  GFF = "GFF",
+  GFF: "GFF",
   /**
    * TSV Format
    */
-  TSV = "TSV",
+  TSV: "TSV",
   /**
    * VCF Format
    */
-  VCF = "VCF",
-}
+  VCF: "VCF",
+};
 
 /**
  * @public
  */
-export enum AnnotationType {
+export const AnnotationType = {
   /**
    * Contains contig and 1-base position
    */
-  CHR_POS = "CHR_POS",
+  CHR_POS: "CHR_POS",
   /**
    * Contains contig, 1-base position, ref and alt allele information
    */
-  CHR_POS_REF_ALT = "CHR_POS_REF_ALT",
+  CHR_POS_REF_ALT: "CHR_POS_REF_ALT",
   /**
    * Contains contig, start, and end positions. Coordinates are 1-based
    */
-  CHR_START_END_ONE_BASE = "CHR_START_END_ONE_BASE",
+  CHR_START_END_ONE_BASE: "CHR_START_END_ONE_BASE",
   /**
    * Contains contig, start, end, ref and alt allele information. Coordinates are 1-based
    */
-  CHR_START_END_REF_ALT_ONE_BASE = "CHR_START_END_REF_ALT_ONE_BASE",
+  CHR_START_END_REF_ALT_ONE_BASE: "CHR_START_END_REF_ALT_ONE_BASE",
   /**
    * Contains contig, start, end, ref and alt allele information. Coordinates are 0-based
    */
-  CHR_START_END_REF_ALT_ZERO_BASE = "CHR_START_END_REF_ALT_ZERO_BASE",
+  CHR_START_END_REF_ALT_ZERO_BASE: "CHR_START_END_REF_ALT_ZERO_BASE",
   /**
    * Contains contig, start, and end positions. Coordinates are 0-based
    */
-  CHR_START_END_ZERO_BASE = "CHR_START_END_ZERO_BASE",
+  CHR_START_END_ZERO_BASE: "CHR_START_END_ZERO_BASE",
   /**
    * Generic text file. No genomic information
    */
-  GENERIC = "GENERIC",
-}
+  GENERIC: "GENERIC",
+};
 
 /**
  * @public
  */
-export enum FormatToHeaderKey {
-  ALT = "ALT",
-  CHR = "CHR",
-  END = "END",
-  POS = "POS",
-  REF = "REF",
-  START = "START",
-}
+export const FormatToHeaderKey = {
+  ALT: "ALT",
+  CHR: "CHR",
+  END: "END",
+  POS: "POS",
+  REF: "REF",
+  START: "START",
+};
 
 /**
  * @public
  */
-export enum SchemaValueType {
+export const SchemaValueType = {
   /**
    * BOOLEAN type
    */
-  BOOLEAN = "BOOLEAN",
+  BOOLEAN: "BOOLEAN",
   /**
    * DOUBLE type
    */
-  DOUBLE = "DOUBLE",
+  DOUBLE: "DOUBLE",
   /**
    * FLOAT type
    */
-  FLOAT = "FLOAT",
+  FLOAT: "FLOAT",
   /**
    * INT type
    */
-  INT = "INT",
+  INT: "INT",
   /**
    * LONG type
    */
-  LONG = "LONG",
+  LONG: "LONG",
   /**
    * STRING type
    */
-  STRING = "STRING",
-}
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -819,7 +819,7 @@ export interface TsvStoreOptions {
   /**
    * <p>The store's annotation type.</p>
    */
-  annotationType?: AnnotationType | string;
+  annotationType?: keyof typeof AnnotationType | string;
 
   /**
    * <p>The store's header key to column name mapping.</p>
@@ -829,7 +829,7 @@ export interface TsvStoreOptions {
   /**
    * <p>The store's schema.</p>
    */
-  schema?: Record<string, SchemaValueType | string>[];
+  schema?: Record<string, keyof typeof SchemaValueType | string>[];
 }
 
 /**
@@ -898,7 +898,7 @@ export interface CreateAnnotationStoreRequest {
   /**
    * <p>The annotation file format of the store.</p>
    */
-  storeFormat: StoreFormat | string | undefined;
+  storeFormat: keyof typeof StoreFormat | string | undefined;
 
   /**
    * <p>File parsing options for the annotation store.</p>
@@ -909,28 +909,28 @@ export interface CreateAnnotationStoreRequest {
 /**
  * @public
  */
-export enum StoreStatus {
+export const StoreStatus = {
   /**
    * The Store is active
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * The Store is being created
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * The Store is deleting
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * The Store creation failed
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * The Store is updating
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -949,7 +949,7 @@ export interface CreateAnnotationStoreResponse {
   /**
    * <p>The annotation file format of the store.</p>
    */
-  storeFormat?: StoreFormat | string;
+  storeFormat?: keyof typeof StoreFormat | string;
 
   /**
    * <p>The store's file parsing options.</p>
@@ -959,7 +959,7 @@ export interface CreateAnnotationStoreResponse {
   /**
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: keyof typeof StoreStatus | string | undefined;
 
   /**
    * <p>The store's name.</p>
@@ -994,7 +994,7 @@ export interface DeleteAnnotationStoreResponse {
   /**
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: keyof typeof StoreStatus | string | undefined;
 }
 
 /**
@@ -1024,7 +1024,7 @@ export interface GetAnnotationStoreResponse {
   /**
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: keyof typeof StoreStatus | string | undefined;
 
   /**
    * <p>The store's ARN.</p>
@@ -1069,7 +1069,7 @@ export interface GetAnnotationStoreResponse {
   /**
    * <p>The store's annotation file format.</p>
    */
-  storeFormat?: StoreFormat | string;
+  storeFormat?: keyof typeof StoreFormat | string;
 
   /**
    * <p>A status message.</p>
@@ -1090,7 +1090,7 @@ export interface ListAnnotationStoresFilter {
   /**
    * <p>A status to filter on.</p>
    */
-  status?: StoreStatus | string;
+  status?: keyof typeof StoreStatus | string;
 }
 
 /**
@@ -1136,7 +1136,7 @@ export interface AnnotationStoreItem {
   /**
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: keyof typeof StoreStatus | string | undefined;
 
   /**
    * <p>The store's ARN.</p>
@@ -1151,7 +1151,7 @@ export interface AnnotationStoreItem {
   /**
    * <p>The store's file format.</p>
    */
-  storeFormat: StoreFormat | string | undefined;
+  storeFormat: keyof typeof StoreFormat | string | undefined;
 
   /**
    * <p>The store's description.</p>
@@ -1231,7 +1231,7 @@ export interface UpdateAnnotationStoreResponse {
   /**
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: keyof typeof StoreStatus | string | undefined;
 
   /**
    * <p>The store's name.</p>
@@ -1261,7 +1261,7 @@ export interface UpdateAnnotationStoreResponse {
   /**
    * <p>The annotation file format of the store.</p>
    */
-  storeFormat?: StoreFormat | string;
+  storeFormat?: keyof typeof StoreFormat | string;
 }
 
 /**
@@ -1587,7 +1587,7 @@ export interface CreateVariantStoreResponse {
   /**
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: keyof typeof StoreStatus | string | undefined;
 
   /**
    * <p>The store's name.</p>
@@ -1603,10 +1603,10 @@ export interface CreateVariantStoreResponse {
 /**
  * @public
  */
-export enum WorkflowEngine {
-  NEXTFLOW = "NEXTFLOW",
-  WDL = "WDL",
-}
+export const WorkflowEngine = {
+  NEXTFLOW: "NEXTFLOW",
+  WDL: "WDL",
+};
 
 /**
  * @public
@@ -1641,7 +1641,7 @@ export interface CreateWorkflowRequest {
   /**
    * <p>An engine for the workflow.</p>
    */
-  engine?: WorkflowEngine | string;
+  engine?: keyof typeof WorkflowEngine | string;
 
   /**
    * <p>A ZIP archive for the workflow.</p>
@@ -1682,14 +1682,14 @@ export interface CreateWorkflowRequest {
 /**
  * @public
  */
-export enum WorkflowStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  UPDATING = "UPDATING",
-}
+export const WorkflowStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1708,7 +1708,7 @@ export interface CreateWorkflowResponse {
   /**
    * <p>The workflow's status.</p>
    */
-  status?: WorkflowStatus | string;
+  status?: keyof typeof WorkflowStatus | string;
 
   /**
    * <p>The workflow's tags.</p>
@@ -1808,7 +1808,7 @@ export interface DeleteVariantStoreResponse {
   /**
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: keyof typeof StoreStatus | string | undefined;
 }
 
 /**
@@ -1835,12 +1835,12 @@ export interface ExportReadSet {
 /**
  * @public
  */
-export enum ReadSetExportJobItemStatus {
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ReadSetExportJobItemStatus = {
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+};
 
 /**
  * @public
@@ -1855,7 +1855,7 @@ export interface ExportReadSetDetail {
   /**
    * <p>The set's status.</p>
    */
-  status: ReadSetExportJobItemStatus | string | undefined;
+  status: keyof typeof ReadSetExportJobItemStatus | string | undefined;
 
   /**
    * <p>The set's status message.</p>
@@ -1866,15 +1866,15 @@ export interface ExportReadSetDetail {
 /**
  * @public
  */
-export enum ReadSetExportJobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const ReadSetExportJobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
@@ -1884,7 +1884,7 @@ export interface ExportReadSetFilter {
   /**
    * <p>A status to filter on.</p>
    */
-  status?: ReadSetExportJobStatus | string;
+  status?: keyof typeof ReadSetExportJobStatus | string;
 
   /**
    * <p>The filter's start date.</p>
@@ -1920,7 +1920,7 @@ export interface ExportReadSetJobDetail {
   /**
    * <p>The job's status.</p>
    */
-  status: ReadSetExportJobStatus | string | undefined;
+  status: keyof typeof ReadSetExportJobStatus | string | undefined;
 
   /**
    * <p>When the job was created.</p>
@@ -1957,20 +1957,20 @@ export interface FileInformation {
 /**
  * @public
  */
-export enum FileType {
-  BAM = "BAM",
-  CRAM = "CRAM",
-  FASTQ = "FASTQ",
-}
+export const FileType = {
+  BAM: "BAM",
+  CRAM: "CRAM",
+  FASTQ: "FASTQ",
+};
 
 /**
  * @public
  */
-export enum ReadSetFile {
-  INDEX = "INDEX",
-  SOURCE1 = "SOURCE1",
-  SOURCE2 = "SOURCE2",
-}
+export const ReadSetFile = {
+  INDEX: "INDEX",
+  SOURCE1: "SOURCE1",
+  SOURCE2: "SOURCE2",
+};
 
 /**
  * @public
@@ -1989,7 +1989,7 @@ export interface GetReadSetRequest {
   /**
    * <p>The file to retrieve.</p>
    */
-  file?: ReadSetFile | string;
+  file?: keyof typeof ReadSetFile | string;
 
   /**
    * <p>The part number to retrieve.</p>
@@ -2060,7 +2060,7 @@ export interface GetReadSetActivationJobResponse {
   /**
    * <p>The job's status.</p>
    */
-  status: ReadSetActivationJobStatus | string | undefined;
+  status: keyof typeof ReadSetActivationJobStatus | string | undefined;
 
   /**
    * <p>The job's status message.</p>
@@ -2120,7 +2120,7 @@ export interface GetReadSetExportJobResponse {
   /**
    * <p>The job's status.</p>
    */
-  status: ReadSetExportJobStatus | string | undefined;
+  status: keyof typeof ReadSetExportJobStatus | string | undefined;
 
   /**
    * <p>The job's status message.</p>
@@ -2177,12 +2177,12 @@ export interface SourceFiles {
 /**
  * @public
  */
-export enum ReadSetImportJobItemStatus {
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ReadSetImportJobItemStatus = {
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+};
 
 /**
  * @public
@@ -2197,12 +2197,12 @@ export interface ImportReadSetSourceItem {
   /**
    * <p>The source's file type.</p>
    */
-  sourceFileType: FileType | string | undefined;
+  sourceFileType: keyof typeof FileType | string | undefined;
 
   /**
    * <p>The source's status.</p>
    */
-  status: ReadSetImportJobItemStatus | string | undefined;
+  status: keyof typeof ReadSetImportJobItemStatus | string | undefined;
 
   /**
    * <p>The source's status message.</p>
@@ -2248,15 +2248,15 @@ export interface ImportReadSetSourceItem {
 /**
  * @public
  */
-export enum ReadSetImportJobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const ReadSetImportJobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
@@ -2280,7 +2280,7 @@ export interface GetReadSetImportJobResponse {
   /**
    * <p>The job's status.</p>
    */
-  status: ReadSetImportJobStatus | string | undefined;
+  status: keyof typeof ReadSetImportJobStatus | string | undefined;
 
   /**
    * <p>The job's status message.</p>
@@ -2368,13 +2368,13 @@ export interface SequenceInformation {
 /**
  * @public
  */
-export enum ReadSetStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+export const ReadSetStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -2408,7 +2408,7 @@ export interface GetReadSetMetadataResponse {
   /**
    * <p>The read set's status.</p>
    */
-  status: ReadSetStatus | string | undefined;
+  status: keyof typeof ReadSetStatus | string | undefined;
 
   /**
    * <p>The read set's name.</p>
@@ -2423,7 +2423,7 @@ export interface GetReadSetMetadataResponse {
   /**
    * <p>The read set's file type.</p>
    */
-  fileType: FileType | string | undefined;
+  fileType: keyof typeof FileType | string | undefined;
 
   /**
    * <p>When the read set was created.</p>
@@ -2449,10 +2449,10 @@ export interface GetReadSetMetadataResponse {
 /**
  * @public
  */
-export enum ReferenceFile {
-  INDEX = "INDEX",
-  SOURCE = "SOURCE",
-}
+export const ReferenceFile = {
+  INDEX: "INDEX",
+  SOURCE: "SOURCE",
+};
 
 /**
  * @public
@@ -2481,7 +2481,7 @@ export interface GetReferenceRequest {
   /**
    * <p>The file to retrieve.</p>
    */
-  file?: ReferenceFile | string;
+  file?: keyof typeof ReferenceFile | string;
 }
 
 /**
@@ -2512,12 +2512,12 @@ export interface GetReferenceImportJobRequest {
 /**
  * @public
  */
-export enum ReferenceImportJobItemStatus {
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ReferenceImportJobItemStatus = {
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+};
 
 /**
  * @public
@@ -2532,7 +2532,7 @@ export interface ImportReferenceSourceItem {
   /**
    * <p>The source's status.</p>
    */
-  status: ReferenceImportJobItemStatus | string | undefined;
+  status: keyof typeof ReferenceImportJobItemStatus | string | undefined;
 
   /**
    * <p>The source's status message.</p>
@@ -2558,15 +2558,15 @@ export interface ImportReferenceSourceItem {
 /**
  * @public
  */
-export enum ReferenceImportJobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const ReferenceImportJobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
@@ -2590,7 +2590,7 @@ export interface GetReferenceImportJobResponse {
   /**
    * <p>The job's status.</p>
    */
-  status: ReferenceImportJobStatus | string | undefined;
+  status: keyof typeof ReferenceImportJobStatus | string | undefined;
 
   /**
    * <p>The job's status message.</p>
@@ -2647,11 +2647,11 @@ export interface ReferenceFiles {
 /**
  * @public
  */
-export enum ReferenceStatus {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+export const ReferenceStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -2680,7 +2680,7 @@ export interface GetReferenceMetadataResponse {
   /**
    * <p>The reference's status.</p>
    */
-  status?: ReferenceStatus | string;
+  status?: keyof typeof ReferenceStatus | string;
 
   /**
    * <p>The reference's name.</p>
@@ -2756,9 +2756,9 @@ export interface GetReferenceStoreResponse {
 /**
  * @public
  */
-export enum RunExport {
-  DEFINITION = "DEFINITION",
-}
+export const RunExport = {
+  DEFINITION: "DEFINITION",
+};
 
 /**
  * @public
@@ -2772,40 +2772,40 @@ export interface GetRunRequest {
   /**
    * <p>The run's export format.</p>
    */
-  export?: (RunExport | string)[];
+  export?: (keyof typeof RunExport | string)[];
 }
 
 /**
  * @public
  */
-export enum RunLogLevel {
-  ALL = "ALL",
-  ERROR = "ERROR",
-  FATAL = "FATAL",
-  OFF = "OFF",
-}
+export const RunLogLevel = {
+  ALL: "ALL",
+  ERROR: "ERROR",
+  FATAL: "FATAL",
+  OFF: "OFF",
+};
 
 /**
  * @public
  */
-export enum RunStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-}
+export const RunStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
  */
-export enum WorkflowType {
-  PRIVATE = "PRIVATE",
-  SERVICE = "SERVICE",
-}
+export const WorkflowType = {
+  PRIVATE: "PRIVATE",
+  SERVICE: "SERVICE",
+};
 
 /**
  * @public
@@ -2824,7 +2824,7 @@ export interface GetRunResponse {
   /**
    * <p>The run's status.</p>
    */
-  status?: RunStatus | string;
+  status?: keyof typeof RunStatus | string;
 
   /**
    * <p>The run's workflow ID.</p>
@@ -2834,7 +2834,7 @@ export interface GetRunResponse {
   /**
    * <p>The run's workflow type.</p>
    */
-  workflowType?: WorkflowType | string;
+  workflowType?: keyof typeof WorkflowType | string;
 
   /**
    * <p>The run's ID.</p>
@@ -2889,7 +2889,7 @@ export interface GetRunResponse {
   /**
    * <p>The run's log level.</p>
    */
-  logLevel?: RunLogLevel | string;
+  logLevel?: keyof typeof RunLogLevel | string;
 
   /**
    * <p>The run's resource digests.</p>
@@ -3000,15 +3000,15 @@ export interface GetRunTaskRequest {
 /**
  * @public
  */
-export enum TaskStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-}
+export const TaskStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
@@ -3022,7 +3022,7 @@ export interface GetRunTaskResponse {
   /**
    * <p>The task's status.</p>
    */
-  status?: TaskStatus | string;
+  status?: keyof typeof TaskStatus | string;
 
   /**
    * <p>The task's name.</p>
@@ -3133,7 +3133,7 @@ export interface VariantImportItemDetail {
   /**
    * <p>The item's job status.</p>
    */
-  jobStatus: JobStatus | string | undefined;
+  jobStatus: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p> A message that provides additional context about a job </p>
@@ -3163,7 +3163,7 @@ export interface GetVariantImportResponse {
   /**
    * <p>The job's status.</p>
    */
-  status: JobStatus | string | undefined;
+  status: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p>The job's status message.</p>
@@ -3223,7 +3223,7 @@ export interface GetVariantStoreResponse {
   /**
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: keyof typeof StoreStatus | string | undefined;
 
   /**
    * <p>The store's ARN.</p>
@@ -3274,9 +3274,9 @@ export interface GetVariantStoreResponse {
 /**
  * @public
  */
-export enum WorkflowExport {
-  DEFINITION = "DEFINITION",
-}
+export const WorkflowExport = {
+  DEFINITION: "DEFINITION",
+};
 
 /**
  * @public
@@ -3290,12 +3290,12 @@ export interface GetWorkflowRequest {
   /**
    * <p>The workflow's type.</p>
    */
-  type?: WorkflowType | string;
+  type?: keyof typeof WorkflowType | string;
 
   /**
    * <p>The export format for the workflow.</p>
    */
-  export?: (WorkflowExport | string)[];
+  export?: (keyof typeof WorkflowExport | string)[];
 }
 
 /**
@@ -3315,12 +3315,12 @@ export interface GetWorkflowResponse {
   /**
    * <p>The workflow's status.</p>
    */
-  status?: WorkflowStatus | string;
+  status?: keyof typeof WorkflowStatus | string;
 
   /**
    * <p>The workflow's type.</p>
    */
-  type?: WorkflowType | string;
+  type?: keyof typeof WorkflowType | string;
 
   /**
    * <p>The workflow's name.</p>
@@ -3335,7 +3335,7 @@ export interface GetWorkflowResponse {
   /**
    * <p>The workflow's engine.</p>
    */
-  engine?: WorkflowEngine | string;
+  engine?: keyof typeof WorkflowEngine | string;
 
   /**
    * <p>The workflow's definition.</p>
@@ -3386,7 +3386,7 @@ export interface ImportReadSetFilter {
   /**
    * <p>A status to filter on.</p>
    */
-  status?: ReadSetImportJobStatus | string;
+  status?: keyof typeof ReadSetImportJobStatus | string;
 
   /**
    * <p>The filter's start date.</p>
@@ -3422,7 +3422,7 @@ export interface ImportReadSetJobItem {
   /**
    * <p>The job's status.</p>
    */
-  status: ReadSetImportJobStatus | string | undefined;
+  status: keyof typeof ReadSetImportJobStatus | string | undefined;
 
   /**
    * <p>When the job was created.</p>
@@ -3443,7 +3443,7 @@ export interface ImportReferenceFilter {
   /**
    * <p>A status to filter on.</p>
    */
-  status?: ReferenceImportJobStatus | string;
+  status?: keyof typeof ReferenceImportJobStatus | string;
 
   /**
    * <p>The filter's start date.</p>
@@ -3479,7 +3479,7 @@ export interface ImportReferenceJobItem {
   /**
    * <p>The job's status.</p>
    */
-  status: ReferenceImportJobStatus | string | undefined;
+  status: keyof typeof ReferenceImportJobStatus | string | undefined;
 
   /**
    * <p>When the job was created.</p>
@@ -3625,7 +3625,7 @@ export interface ReadSetFilter {
   /**
    * <p>A status to filter on.</p>
    */
-  status?: ReadSetStatus | string;
+  status?: keyof typeof ReadSetStatus | string;
 
   /**
    * <p>A genome reference ARN to filter on.</p>
@@ -3701,7 +3701,7 @@ export interface ReadSetListItem {
   /**
    * <p>The read set's status.</p>
    */
-  status: ReadSetStatus | string | undefined;
+  status: keyof typeof ReadSetStatus | string | undefined;
 
   /**
    * <p>The read set's name.</p>
@@ -3721,7 +3721,7 @@ export interface ReadSetListItem {
   /**
    * <p>The read set's file type.</p>
    */
-  fileType: FileType | string | undefined;
+  fileType: keyof typeof FileType | string | undefined;
 
   /**
    * <p>Details about a sequence.</p>
@@ -3868,7 +3868,7 @@ export interface ReferenceListItem {
   /**
    * <p>The reference's status.</p>
    */
-  status?: ReferenceStatus | string;
+  status?: keyof typeof ReferenceStatus | string;
 
   /**
    * <p>The reference's name.</p>
@@ -4117,7 +4117,7 @@ export interface RunListItem {
   /**
    * <p>The run's status.</p>
    */
-  status?: RunStatus | string;
+  status?: keyof typeof RunStatus | string;
 
   /**
    * <p>The run's workflow ID.</p>
@@ -4182,7 +4182,7 @@ export interface ListRunTasksRequest {
   /**
    * <p>Filter the list by status.</p>
    */
-  status?: TaskStatus | string;
+  status?: keyof typeof TaskStatus | string;
 
   /**
    * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
@@ -4208,7 +4208,7 @@ export interface TaskListItem {
   /**
    * <p>The task's status.</p>
    */
-  status?: TaskStatus | string;
+  status?: keyof typeof TaskStatus | string;
 
   /**
    * <p>The task's name.</p>
@@ -4376,7 +4376,7 @@ export interface ListVariantImportJobsFilter {
   /**
    * <p>A status to filter on.</p>
    */
-  status?: JobStatus | string;
+  status?: keyof typeof JobStatus | string;
 
   /**
    * <p>A store name to filter on.</p>
@@ -4432,7 +4432,7 @@ export interface VariantImportJobItem {
   /**
    * <p>The job's status.</p>
    */
-  status: JobStatus | string | undefined;
+  status: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p>When the job was created.</p>
@@ -4478,7 +4478,7 @@ export interface ListVariantStoresFilter {
   /**
    * <p>A status to filter on.</p>
    */
-  status?: StoreStatus | string;
+  status?: keyof typeof StoreStatus | string;
 }
 
 /**
@@ -4524,7 +4524,7 @@ export interface VariantStoreItem {
   /**
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: keyof typeof StoreStatus | string | undefined;
 
   /**
    * <p>The store's ARN.</p>
@@ -4589,7 +4589,7 @@ export interface ListWorkflowsRequest {
   /**
    * <p>The workflows' type.</p>
    */
-  type?: WorkflowType | string;
+  type?: keyof typeof WorkflowType | string;
 
   /**
    * <p>The workflows' name.</p>
@@ -4630,12 +4630,12 @@ export interface WorkflowListItem {
   /**
    * <p>The workflow's status.</p>
    */
-  status?: WorkflowStatus | string;
+  status?: keyof typeof WorkflowStatus | string;
 
   /**
    * <p>The workflow's type.</p>
    */
-  type?: WorkflowType | string;
+  type?: keyof typeof WorkflowType | string;
 
   /**
    * <p>The workflow's digest.</p>
@@ -4736,7 +4736,7 @@ export interface StartReferenceImportJobResponse {
   /**
    * <p>The job's status.</p>
    */
-  status: ReferenceImportJobStatus | string | undefined;
+  status: keyof typeof ReferenceImportJobStatus | string | undefined;
 
   /**
    * <p>When the job was created.</p>
@@ -4786,7 +4786,7 @@ export interface StartRunRequest {
   /**
    * <p>The run's workflows type.</p>
    */
-  workflowType?: WorkflowType | string;
+  workflowType?: keyof typeof WorkflowType | string;
 
   /**
    * <p>The run's ID.</p>
@@ -4831,7 +4831,7 @@ export interface StartRunRequest {
   /**
    * <p>A log level for the run.</p>
    */
-  logLevel?: RunLogLevel | string;
+  logLevel?: keyof typeof RunLogLevel | string;
 
   /**
    * <p>Tags for the run.</p>
@@ -4861,7 +4861,7 @@ export interface StartRunResponse {
   /**
    * <p>The run's status.</p>
    */
-  status?: RunStatus | string;
+  status?: keyof typeof RunStatus | string;
 
   /**
    * <p>The run's tags.</p>
@@ -4917,7 +4917,7 @@ export interface StartReadSetActivationJobResponse {
   /**
    * <p>The job's status.</p>
    */
-  status: ReadSetActivationJobStatus | string | undefined;
+  status: keyof typeof ReadSetActivationJobStatus | string | undefined;
 
   /**
    * <p>When the job was created.</p>
@@ -4977,7 +4977,7 @@ export interface StartReadSetExportJobResponse {
   /**
    * <p>The job's status.</p>
    */
-  status: ReadSetExportJobStatus | string | undefined;
+  status: keyof typeof ReadSetExportJobStatus | string | undefined;
 
   /**
    * <p>When the job was created.</p>
@@ -4998,7 +4998,7 @@ export interface StartReadSetImportJobSourceItem {
   /**
    * <p>The source's file type.</p>
    */
-  sourceFileType: FileType | string | undefined;
+  sourceFileType: keyof typeof FileType | string | undefined;
 
   /**
    * <p>The source's subject ID.</p>
@@ -5083,7 +5083,7 @@ export interface StartReadSetImportJobResponse {
   /**
    * <p>The job's status.</p>
    */
-  status: ReadSetImportJobStatus | string | undefined;
+  status: keyof typeof ReadSetImportJobStatus | string | undefined;
 
   /**
    * <p>When the job was created.</p>
@@ -5209,7 +5209,7 @@ export interface UpdateVariantStoreResponse {
   /**
    * <p>The store's status.</p>
    */
-  status: StoreStatus | string | undefined;
+  status: keyof typeof StoreStatus | string | undefined;
 
   /**
    * <p>The store's name.</p>

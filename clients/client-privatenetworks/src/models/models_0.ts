@@ -36,11 +36,11 @@ export interface AcknowledgeOrderReceiptRequest {
 /**
  * @public
  */
-export enum AcknowledgmentStatus {
-  ACKNOWLEDGED = "ACKNOWLEDGED",
-  ACKNOWLEDGING = "ACKNOWLEDGING",
-  UNACKNOWLEDGED = "UNACKNOWLEDGED",
-}
+export const AcknowledgmentStatus = {
+  ACKNOWLEDGED: "ACKNOWLEDGED",
+  ACKNOWLEDGING: "ACKNOWLEDGING",
+  UNACKNOWLEDGED: "UNACKNOWLEDGED",
+};
 
 /**
  * @public
@@ -142,7 +142,7 @@ export interface Order {
   /**
    * <p>The acknowledgement status of the order.</p>
    */
-  acknowledgmentStatus?: AcknowledgmentStatus | string;
+  acknowledgmentStatus?: keyof typeof AcknowledgmentStatus | string;
 
   /**
    * <p>The creation time of the order.</p>
@@ -238,13 +238,13 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_ASSUME_ROLE = "CANNOT_ASSUME_ROLE",
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_ASSUME_ROLE: "CANNOT_ASSUME_ROLE",
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+};
 
 /**
  * @public
@@ -256,7 +256,7 @@ export class ValidationException extends __BaseException {
   /**
    * Reason the request failed validation.
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: keyof typeof ValidationExceptionReason | string | undefined;
 
   /**
    * The list of fields that caused the error, if applicable.
@@ -298,10 +298,10 @@ export interface ActivateDeviceIdentifierRequest {
 /**
  * @public
  */
-export enum DeviceIdentifierStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const DeviceIdentifierStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -341,7 +341,7 @@ export interface DeviceIdentifier {
   /**
    * <p>The status of the device identifier.</p>
    */
-  status?: DeviceIdentifierStatus | string;
+  status?: keyof typeof DeviceIdentifierStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the order used to purchase the device identifier.</p>
@@ -412,10 +412,10 @@ export interface NameValuePair {
 /**
  * @public
  */
-export enum NetworkResourceDefinitionType {
-  DEVICE_IDENTIFIER = "DEVICE_IDENTIFIER",
-  RADIO_UNIT = "RADIO_UNIT",
-}
+export const NetworkResourceDefinitionType = {
+  DEVICE_IDENTIFIER: "DEVICE_IDENTIFIER",
+  RADIO_UNIT: "RADIO_UNIT",
+};
 
 /**
  * @public
@@ -425,7 +425,7 @@ export interface NetworkResourceDefinition {
   /**
    * <p>The type in the network resource definition.</p>
    */
-  type: NetworkResourceDefinitionType | string | undefined;
+  type: keyof typeof NetworkResourceDefinitionType | string | undefined;
 
   /**
    * <p>The options in the network resource definition.</p>
@@ -457,13 +457,13 @@ export interface SitePlan {
 /**
  * @public
  */
-export enum NetworkSiteStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATED = "CREATED",
-  DELETED = "DELETED",
-  DEPROVISIONING = "DEPROVISIONING",
-  PROVISIONING = "PROVISIONING",
-}
+export const NetworkSiteStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATED: "CREATED",
+  DELETED: "DELETED",
+  DEPROVISIONING: "DEPROVISIONING",
+  PROVISIONING: "PROVISIONING",
+};
 
 /**
  * @public
@@ -488,7 +488,7 @@ export interface NetworkSite {
   /**
    * <p>The status of the network site.</p>
    */
-  status: NetworkSiteStatus | string | undefined;
+  status: keyof typeof NetworkSiteStatus | string | undefined;
 
   /**
    * <p>The status reason of the network site.</p>
@@ -543,20 +543,20 @@ export interface ActivateNetworkSiteResponse {
 /**
  * @public
  */
-export enum ElevationReference {
-  AGL = "AGL",
-  AMSL = "AMSL",
-}
+export const ElevationReference = {
+  AGL: "AGL",
+  AMSL: "AMSL",
+};
 
 /**
  * @public
  */
-export enum ElevationUnit {
+export const ElevationUnit = {
   /**
    * Feet.
    */
-  FEET = "FEET",
-}
+  FEET: "FEET",
+};
 
 /**
  * @public
@@ -581,12 +581,12 @@ export interface Position {
   /**
    * <p>The units used to measure the elevation of the position.</p>
    */
-  elevationUnit?: ElevationUnit | string;
+  elevationUnit?: keyof typeof ElevationUnit | string;
 
   /**
    * <p>The reference point from which elevation is reported.</p>
    */
-  elevationReference?: ElevationReference | string;
+  elevationReference?: keyof typeof ElevationReference | string;
 }
 
 /**
@@ -630,11 +630,11 @@ export interface ConfigureAccessPointRequest {
 /**
  * @public
  */
-export enum HealthStatus {
-  HEALTHY = "HEALTHY",
-  INITIAL = "INITIAL",
-  UNHEALTHY = "UNHEALTHY",
-}
+export const HealthStatus = {
+  HEALTHY: "HEALTHY",
+  INITIAL: "INITIAL",
+  UNHEALTHY: "UNHEALTHY",
+};
 
 /**
  * @public
@@ -668,24 +668,24 @@ export interface ReturnInformation {
 /**
  * @public
  */
-export enum NetworkResourceStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING_SHIPPING_LABEL = "CREATING_SHIPPING_LABEL",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  PENDING = "PENDING",
-  PENDING_RETURN = "PENDING_RETURN",
-  PROVISIONED = "PROVISIONED",
-  PROVISIONING = "PROVISIONING",
-  SHIPPED = "SHIPPED",
-}
+export const NetworkResourceStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING_SHIPPING_LABEL: "CREATING_SHIPPING_LABEL",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  PENDING: "PENDING",
+  PENDING_RETURN: "PENDING_RETURN",
+  PROVISIONED: "PROVISIONED",
+  PROVISIONING: "PROVISIONING",
+  SHIPPED: "SHIPPED",
+};
 
 /**
  * @public
  */
-export enum NetworkResourceType {
-  RADIO_UNIT = "RADIO_UNIT",
-}
+export const NetworkResourceType = {
+  RADIO_UNIT: "RADIO_UNIT",
+};
 
 /**
  * @public
@@ -705,12 +705,12 @@ export interface NetworkResource {
   /**
    * <p>The type of the network resource.</p>
    */
-  type?: NetworkResourceType | string;
+  type?: keyof typeof NetworkResourceType | string;
 
   /**
    * <p>The status of the network resource.</p>
    */
-  status?: NetworkResourceStatus | string;
+  status?: keyof typeof NetworkResourceStatus | string;
 
   /**
    * <p>The status reason of the network resource.</p>
@@ -735,7 +735,7 @@ export interface NetworkResource {
   /**
    * <p>The health of the network resource.</p>
    */
-  health?: HealthStatus | string;
+  health?: keyof typeof HealthStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the network on which this network resource appears.</p>
@@ -816,13 +816,13 @@ export interface CreateNetworkRequest {
 /**
  * @public
  */
-export enum NetworkStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATED = "CREATED",
-  DELETED = "DELETED",
-  DEPROVISIONING = "DEPROVISIONING",
-  PROVISIONING = "PROVISIONING",
-}
+export const NetworkStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATED: "CREATED",
+  DELETED: "DELETED",
+  DEPROVISIONING: "DEPROVISIONING",
+  PROVISIONING: "PROVISIONING",
+};
 
 /**
  * @public
@@ -847,7 +847,7 @@ export interface Network {
   /**
    * <p>The status of the network.</p>
    */
-  status: NetworkStatus | string | undefined;
+  status: keyof typeof NetworkStatus | string | undefined;
 
   /**
    * <p>The status reason of the network.</p>
@@ -1049,11 +1049,11 @@ export interface DeleteNetworkSiteResponse {
 /**
  * @public
  */
-export enum DeviceIdentifierFilterKeys {
-  ORDER = "ORDER",
-  STATUS = "STATUS",
-  TRAFFIC_GROUP = "TRAFFIC_GROUP",
-}
+export const DeviceIdentifierFilterKeys = {
+  ORDER: "ORDER",
+  STATUS: "STATUS",
+  TRAFFIC_GROUP: "TRAFFIC_GROUP",
+};
 
 /**
  * @public
@@ -1250,10 +1250,10 @@ export interface ListDeviceIdentifiersResponse {
 /**
  * @public
  */
-export enum NetworkResourceFilterKeys {
-  ORDER = "ORDER",
-  STATUS = "STATUS",
-}
+export const NetworkResourceFilterKeys = {
+  ORDER: "ORDER",
+  STATUS: "STATUS",
+};
 
 /**
  * @public
@@ -1313,9 +1313,9 @@ export interface ListNetworkResourcesResponse {
 /**
  * @public
  */
-export enum NetworkFilterKeys {
-  STATUS = "STATUS",
-}
+export const NetworkFilterKeys = {
+  STATUS: "STATUS",
+};
 
 /**
  * @public
@@ -1365,9 +1365,9 @@ export interface ListNetworksResponse {
 /**
  * @public
  */
-export enum NetworkSiteFilterKeys {
-  STATUS = "STATUS",
-}
+export const NetworkSiteFilterKeys = {
+  STATUS: "STATUS",
+};
 
 /**
  * @public
@@ -1423,10 +1423,10 @@ export interface ListNetworkSitesResponse {
 /**
  * @public
  */
-export enum OrderFilterKeys {
-  NETWORK_SITE = "NETWORK_SITE",
-  STATUS = "STATUS",
-}
+export const OrderFilterKeys = {
+  NETWORK_SITE: "NETWORK_SITE",
+  STATUS: "STATUS",
+};
 
 /**
  * @public
@@ -1540,10 +1540,10 @@ export interface PingResponse {
 /**
  * @public
  */
-export enum UpdateType {
-  REPLACE = "REPLACE",
-  RETURN = "RETURN",
-}
+export const UpdateType = {
+  REPLACE: "REPLACE",
+  RETURN: "RETURN",
+};
 
 /**
  * @public
@@ -1571,7 +1571,7 @@ export interface StartNetworkResourceUpdateRequest {
    *             </li>
    *          </ul>
    */
-  updateType: UpdateType | string | undefined;
+  updateType: keyof typeof UpdateType | string | undefined;
 
   /**
    * <p>The shipping address. If you don't provide a shipping address when replacing or

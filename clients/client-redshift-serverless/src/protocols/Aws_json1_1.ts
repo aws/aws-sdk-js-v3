@@ -3145,7 +3145,10 @@ const serializeAws_json1_1ListWorkgroupsRequest = (input: ListWorkgroupsRequest,
   };
 };
 
-const serializeAws_json1_1LogExportList = (input: (LogExport | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1LogExportList = (
+  input: (keyof typeof LogExport | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3706,7 +3709,10 @@ const deserializeAws_json1_1ListWorkgroupsResponse = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_json1_1LogExportList = (output: any, context: __SerdeContext): (LogExport | string)[] => {
+const deserializeAws_json1_1LogExportList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof LogExport | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

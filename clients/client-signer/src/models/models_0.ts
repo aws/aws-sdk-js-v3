@@ -272,13 +272,13 @@ export interface SigningConfigurationOverrides {
    * <p>A specified override of the default encryption algorithm that is used in a code signing
    * 			job.</p>
    */
-  encryptionAlgorithm?: EncryptionAlgorithm | string;
+  encryptionAlgorithm?: keyof typeof EncryptionAlgorithm | string;
 
   /**
    * <p>A specified override of the default hash algorithm that is used in a code signing
    * 			job.</p>
    */
-  hashAlgorithm?: HashAlgorithm | string;
+  hashAlgorithm?: keyof typeof HashAlgorithm | string;
 }
 
 /**
@@ -306,7 +306,7 @@ export interface SigningPlatformOverrides {
    * 			signing image has the payload embedded in it. With <code>JSONDetached</code>, the
    * 			payload is not be embedded in the signing image.</p>
    */
-  signingImageFormat?: ImageFormat | string;
+  signingImageFormat?: keyof typeof ImageFormat | string;
 }
 
 /**
@@ -482,7 +482,7 @@ export interface DescribeSigningJobResponse {
   /**
    * <p>Status of the signing job.</p>
    */
-  status?: SigningStatus | string;
+  status?: keyof typeof SigningStatus | string;
 
   /**
    * <p>String value that contains the status reason.</p>
@@ -548,12 +548,12 @@ export interface EncryptionAlgorithmOptions {
   /**
    * <p>The set of accepted encryption algorithms that are allowed in a code signing job.</p>
    */
-  allowedValues: (EncryptionAlgorithm | string)[] | undefined;
+  allowedValues: (keyof typeof EncryptionAlgorithm | string)[] | undefined;
 
   /**
    * <p>The default encryption algorithm that is used by a code signing job.</p>
    */
-  defaultValue: EncryptionAlgorithm | string | undefined;
+  defaultValue: keyof typeof EncryptionAlgorithm | string | undefined;
 }
 
 /**
@@ -574,12 +574,12 @@ export interface HashAlgorithmOptions {
   /**
    * <p>The set of accepted hash algorithms allowed in a code signing job.</p>
    */
-  allowedValues: (HashAlgorithm | string)[] | undefined;
+  allowedValues: (keyof typeof HashAlgorithm | string)[] | undefined;
 
   /**
    * <p>The default hash algorithm that is used in a code signing job.</p>
    */
-  defaultValue: HashAlgorithm | string | undefined;
+  defaultValue: keyof typeof HashAlgorithm | string | undefined;
 }
 
 /**
@@ -606,12 +606,12 @@ export interface SigningImageFormat {
   /**
    * <p>The supported formats of a code signing image.</p>
    */
-  supportedFormats: (ImageFormat | string)[] | undefined;
+  supportedFormats: (keyof typeof ImageFormat | string)[] | undefined;
 
   /**
    * <p>The default format of a code signing image.</p>
    */
-  defaultFormat: ImageFormat | string | undefined;
+  defaultFormat: keyof typeof ImageFormat | string | undefined;
 }
 
 /**
@@ -641,7 +641,7 @@ export interface GetSigningPlatformResponse {
   /**
    * <p>The category type of the target signing platform.</p>
    */
-  category?: Category | string;
+  category?: keyof typeof Category | string;
 
   /**
    * <p>A list of configurations applied to the target platform at signing.</p>
@@ -721,7 +721,7 @@ export interface SignatureValidityPeriod {
    * <p>The time unit for signature
    * 			validity.</p>
    */
-  type?: ValidityType | string;
+  type?: keyof typeof ValidityType | string;
 }
 
 /**
@@ -789,7 +789,7 @@ export interface GetSigningProfileResponse {
   /**
    * <p>The status of the target signing profile.</p>
    */
-  status?: SigningProfileStatus | string;
+  status?: keyof typeof SigningProfileStatus | string;
 
   /**
    * <p>Reason for the status of the target signing profile.</p>
@@ -880,7 +880,7 @@ export interface ListSigningJobsRequest {
   /**
    * <p>A status value with which to filter your results.</p>
    */
-  status?: SigningStatus | string;
+  status?: keyof typeof SigningStatus | string;
 
   /**
    * <p>The ID of microcontroller platform that you specified for the distribution of your
@@ -969,7 +969,7 @@ export interface SigningJob {
   /**
    * <p>The status of the signing job.</p>
    */
-  status?: SigningStatus | string;
+  status?: keyof typeof SigningStatus | string;
 
   /**
    * <p>Indicates whether the signing job is revoked.</p>
@@ -1088,7 +1088,7 @@ export interface SigningPlatform {
   /**
    * <p>The category of a code signing platform.</p>
    */
-  category?: Category | string;
+  category?: keyof typeof Category | string;
 
   /**
    * <p>The configuration of a code signing platform. This includes the designated hash algorithm
@@ -1159,7 +1159,7 @@ export interface ListSigningProfilesRequest {
    * <p>Filters results to return only signing jobs with statuses in the specified
    * 			list.</p>
    */
-  statuses?: (SigningProfileStatus | string)[];
+  statuses?: (keyof typeof SigningProfileStatus | string)[];
 }
 
 /**
@@ -1211,7 +1211,7 @@ export interface SigningProfile {
   /**
    * <p>The status of a code signing profile.</p>
    */
-  status?: SigningProfileStatus | string;
+  status?: keyof typeof SigningProfileStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the signing profile.</p>

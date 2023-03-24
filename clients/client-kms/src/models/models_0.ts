@@ -6,11 +6,11 @@ import { KMSServiceException as __BaseException } from "./KMSServiceException";
 /**
  * @public
  */
-export enum AlgorithmSpec {
-  RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
-  RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256",
-  RSAES_PKCS1_V1_5 = "RSAES_PKCS1_V1_5",
-}
+export const AlgorithmSpec = {
+  RSAES_OAEP_SHA_1: "RSAES_OAEP_SHA_1",
+  RSAES_OAEP_SHA_256: "RSAES_OAEP_SHA_256",
+  RSAES_PKCS1_V1_5: "RSAES_PKCS1_V1_5",
+};
 
 /**
  * @public
@@ -458,37 +458,37 @@ export class CustomKeyStoreNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum ConnectionErrorCodeType {
-  CLUSTER_NOT_FOUND = "CLUSTER_NOT_FOUND",
-  INSUFFICIENT_CLOUDHSM_HSMS = "INSUFFICIENT_CLOUDHSM_HSMS",
-  INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET = "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_CREDENTIALS = "INVALID_CREDENTIALS",
-  NETWORK_ERRORS = "NETWORK_ERRORS",
-  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND",
-  USER_LOCKED_OUT = "USER_LOCKED_OUT",
-  USER_LOGGED_IN = "USER_LOGGED_IN",
-  USER_NOT_FOUND = "USER_NOT_FOUND",
-  XKS_PROXY_ACCESS_DENIED = "XKS_PROXY_ACCESS_DENIED",
-  XKS_PROXY_INVALID_CONFIGURATION = "XKS_PROXY_INVALID_CONFIGURATION",
-  XKS_PROXY_INVALID_RESPONSE = "XKS_PROXY_INVALID_RESPONSE",
-  XKS_PROXY_INVALID_TLS_CONFIGURATION = "XKS_PROXY_INVALID_TLS_CONFIGURATION",
-  XKS_PROXY_NOT_REACHABLE = "XKS_PROXY_NOT_REACHABLE",
-  XKS_PROXY_TIMED_OUT = "XKS_PROXY_TIMED_OUT",
-  XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION = "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION",
-  XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND = "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND",
-}
+export const ConnectionErrorCodeType = {
+  CLUSTER_NOT_FOUND: "CLUSTER_NOT_FOUND",
+  INSUFFICIENT_CLOUDHSM_HSMS: "INSUFFICIENT_CLOUDHSM_HSMS",
+  INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET: "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_CREDENTIALS: "INVALID_CREDENTIALS",
+  NETWORK_ERRORS: "NETWORK_ERRORS",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+  USER_LOCKED_OUT: "USER_LOCKED_OUT",
+  USER_LOGGED_IN: "USER_LOGGED_IN",
+  USER_NOT_FOUND: "USER_NOT_FOUND",
+  XKS_PROXY_ACCESS_DENIED: "XKS_PROXY_ACCESS_DENIED",
+  XKS_PROXY_INVALID_CONFIGURATION: "XKS_PROXY_INVALID_CONFIGURATION",
+  XKS_PROXY_INVALID_RESPONSE: "XKS_PROXY_INVALID_RESPONSE",
+  XKS_PROXY_INVALID_TLS_CONFIGURATION: "XKS_PROXY_INVALID_TLS_CONFIGURATION",
+  XKS_PROXY_NOT_REACHABLE: "XKS_PROXY_NOT_REACHABLE",
+  XKS_PROXY_TIMED_OUT: "XKS_PROXY_TIMED_OUT",
+  XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION: "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION",
+  XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND: "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND",
+};
 
 /**
  * @public
  */
-export enum ConnectionStateType {
-  CONNECTED = "CONNECTED",
-  CONNECTING = "CONNECTING",
-  DISCONNECTED = "DISCONNECTED",
-  DISCONNECTING = "DISCONNECTING",
-  FAILED = "FAILED",
-}
+export const ConnectionStateType = {
+  CONNECTED: "CONNECTED",
+  CONNECTING: "CONNECTING",
+  DISCONNECTED: "DISCONNECTED",
+  DISCONNECTING: "DISCONNECTING",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
@@ -575,10 +575,10 @@ export class LimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum CustomKeyStoreType {
-  AWS_CLOUDHSM = "AWS_CLOUDHSM",
-  EXTERNAL_KEY_STORE = "EXTERNAL_KEY_STORE",
-}
+export const CustomKeyStoreType = {
+  AWS_CLOUDHSM: "AWS_CLOUDHSM",
+  EXTERNAL_KEY_STORE: "EXTERNAL_KEY_STORE",
+};
 
 /**
  * @public
@@ -603,10 +603,10 @@ export interface XksProxyAuthenticationCredentialType {
 /**
  * @public
  */
-export enum XksProxyConnectivityType {
-  PUBLIC_ENDPOINT = "PUBLIC_ENDPOINT",
-  VPC_ENDPOINT_SERVICE = "VPC_ENDPOINT_SERVICE",
-}
+export const XksProxyConnectivityType = {
+  PUBLIC_ENDPOINT: "PUBLIC_ENDPOINT",
+  VPC_ENDPOINT_SERVICE: "VPC_ENDPOINT_SERVICE",
+};
 
 /**
  * @public
@@ -657,7 +657,7 @@ export interface CreateCustomKeyStoreRequest {
    *       of Amazon Web Services, enter <code>EXTERNAL_KEY_STORE</code>. You cannot change this property after the key
    *       store is created.</p>
    */
-  CustomKeyStoreType?: CustomKeyStoreType | string;
+  CustomKeyStoreType?: keyof typeof CustomKeyStoreType | string;
 
   /**
    * <p>Specifies the endpoint that KMS uses to send requests to the external key store proxy
@@ -773,7 +773,7 @@ export interface CreateCustomKeyStoreRequest {
    *       VPC endpoint service, the proxy can be hosted within the VPC or outside of Amazon Web Services such as in
    *       your corporate data center.</p>
    */
-  XksProxyConnectivity?: XksProxyConnectivityType | string;
+  XksProxyConnectivity?: keyof typeof XksProxyConnectivityType | string;
 }
 
 /**
@@ -1081,24 +1081,24 @@ export interface GrantConstraints {
 /**
  * @public
  */
-export enum GrantOperation {
-  CreateGrant = "CreateGrant",
-  Decrypt = "Decrypt",
-  DescribeKey = "DescribeKey",
-  Encrypt = "Encrypt",
-  GenerateDataKey = "GenerateDataKey",
-  GenerateDataKeyPair = "GenerateDataKeyPair",
-  GenerateDataKeyPairWithoutPlaintext = "GenerateDataKeyPairWithoutPlaintext",
-  GenerateDataKeyWithoutPlaintext = "GenerateDataKeyWithoutPlaintext",
-  GenerateMac = "GenerateMac",
-  GetPublicKey = "GetPublicKey",
-  ReEncryptFrom = "ReEncryptFrom",
-  ReEncryptTo = "ReEncryptTo",
-  RetireGrant = "RetireGrant",
-  Sign = "Sign",
-  Verify = "Verify",
-  VerifyMac = "VerifyMac",
-}
+export const GrantOperation = {
+  CreateGrant: "CreateGrant",
+  Decrypt: "Decrypt",
+  DescribeKey: "DescribeKey",
+  Encrypt: "Encrypt",
+  GenerateDataKey: "GenerateDataKey",
+  GenerateDataKeyPair: "GenerateDataKeyPair",
+  GenerateDataKeyPairWithoutPlaintext: "GenerateDataKeyPairWithoutPlaintext",
+  GenerateDataKeyWithoutPlaintext: "GenerateDataKeyWithoutPlaintext",
+  GenerateMac: "GenerateMac",
+  GetPublicKey: "GetPublicKey",
+  ReEncryptFrom: "ReEncryptFrom",
+  ReEncryptTo: "ReEncryptTo",
+  RetireGrant: "RetireGrant",
+  Sign: "Sign",
+  Verify: "Verify",
+  VerifyMac: "VerifyMac",
+};
 
 /**
  * @public
@@ -1160,7 +1160,7 @@ export interface CreateGrantRequest {
    *       KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant
    *         operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  Operations: (GrantOperation | string)[] | undefined;
+  Operations: (keyof typeof GrantOperation | string)[] | undefined;
 
   /**
    * <p>Specifies a grant constraint. </p>
@@ -1271,59 +1271,59 @@ export class InvalidGrantTokenException extends __BaseException {
 /**
  * @public
  */
-export enum CustomerMasterKeySpec {
-  ECC_NIST_P256 = "ECC_NIST_P256",
-  ECC_NIST_P384 = "ECC_NIST_P384",
-  ECC_NIST_P521 = "ECC_NIST_P521",
-  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
-  HMAC_224 = "HMAC_224",
-  HMAC_256 = "HMAC_256",
-  HMAC_384 = "HMAC_384",
-  HMAC_512 = "HMAC_512",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096",
-  SM2 = "SM2",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT",
-}
+export const CustomerMasterKeySpec = {
+  ECC_NIST_P256: "ECC_NIST_P256",
+  ECC_NIST_P384: "ECC_NIST_P384",
+  ECC_NIST_P521: "ECC_NIST_P521",
+  ECC_SECG_P256K1: "ECC_SECG_P256K1",
+  HMAC_224: "HMAC_224",
+  HMAC_256: "HMAC_256",
+  HMAC_384: "HMAC_384",
+  HMAC_512: "HMAC_512",
+  RSA_2048: "RSA_2048",
+  RSA_3072: "RSA_3072",
+  RSA_4096: "RSA_4096",
+  SM2: "SM2",
+  SYMMETRIC_DEFAULT: "SYMMETRIC_DEFAULT",
+};
 
 /**
  * @public
  */
-export enum KeySpec {
-  ECC_NIST_P256 = "ECC_NIST_P256",
-  ECC_NIST_P384 = "ECC_NIST_P384",
-  ECC_NIST_P521 = "ECC_NIST_P521",
-  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
-  HMAC_224 = "HMAC_224",
-  HMAC_256 = "HMAC_256",
-  HMAC_384 = "HMAC_384",
-  HMAC_512 = "HMAC_512",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096",
-  SM2 = "SM2",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT",
-}
+export const KeySpec = {
+  ECC_NIST_P256: "ECC_NIST_P256",
+  ECC_NIST_P384: "ECC_NIST_P384",
+  ECC_NIST_P521: "ECC_NIST_P521",
+  ECC_SECG_P256K1: "ECC_SECG_P256K1",
+  HMAC_224: "HMAC_224",
+  HMAC_256: "HMAC_256",
+  HMAC_384: "HMAC_384",
+  HMAC_512: "HMAC_512",
+  RSA_2048: "RSA_2048",
+  RSA_3072: "RSA_3072",
+  RSA_4096: "RSA_4096",
+  SM2: "SM2",
+  SYMMETRIC_DEFAULT: "SYMMETRIC_DEFAULT",
+};
 
 /**
  * @public
  */
-export enum KeyUsageType {
-  ENCRYPT_DECRYPT = "ENCRYPT_DECRYPT",
-  GENERATE_VERIFY_MAC = "GENERATE_VERIFY_MAC",
-  SIGN_VERIFY = "SIGN_VERIFY",
-}
+export const KeyUsageType = {
+  ENCRYPT_DECRYPT: "ENCRYPT_DECRYPT",
+  GENERATE_VERIFY_MAC: "GENERATE_VERIFY_MAC",
+  SIGN_VERIFY: "SIGN_VERIFY",
+};
 
 /**
  * @public
  */
-export enum OriginType {
-  AWS_CLOUDHSM = "AWS_CLOUDHSM",
-  AWS_KMS = "AWS_KMS",
-  EXTERNAL = "EXTERNAL",
-  EXTERNAL_KEY_STORE = "EXTERNAL_KEY_STORE",
-}
+export const OriginType = {
+  AWS_CLOUDHSM: "AWS_CLOUDHSM",
+  AWS_KMS: "AWS_KMS",
+  EXTERNAL: "EXTERNAL",
+  EXTERNAL_KEY_STORE: "EXTERNAL_KEY_STORE",
+};
 
 /**
  * @public
@@ -1413,7 +1413,7 @@ export interface CreateKeyRequest {
    *             </li>
    *          </ul>
    */
-  KeyUsage?: KeyUsageType | string;
+  KeyUsage?: keyof typeof KeyUsageType | string;
 
   /**
    * @deprecated
@@ -1423,7 +1423,7 @@ export interface CreateKeyRequest {
    *       way. Only the names differ. We recommend that you use <code>KeySpec</code> parameter in your
    *       code. However, to avoid breaking changes, KMS supports both parameters.</p>
    */
-  CustomerMasterKeySpec?: CustomerMasterKeySpec | string;
+  CustomerMasterKeySpec?: keyof typeof CustomerMasterKeySpec | string;
 
   /**
    * <p>Specifies the type of KMS key to create. The default value,
@@ -1540,7 +1540,7 @@ export interface CreateKeyRequest {
    *             </li>
    *          </ul>
    */
-  KeySpec?: KeySpec | string;
+  KeySpec?: keyof typeof KeySpec | string;
 
   /**
    * <p>The source of the key material for the KMS key. You cannot change the origin after you
@@ -1562,7 +1562,7 @@ export interface CreateKeyRequest {
    *       the <code>XksKeyId</code> parameter to identify the associated external key. The
    *         <code>KeySpec</code> value must be <code>SYMMETRIC_DEFAULT</code>.</p>
    */
-  Origin?: OriginType | string;
+  Origin?: keyof typeof OriginType | string;
 
   /**
    * <p>Creates the KMS key in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. The <code>ConnectionState</code> of
@@ -1652,60 +1652,60 @@ export interface CreateKeyRequest {
 /**
  * @public
  */
-export enum EncryptionAlgorithmSpec {
-  RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
-  RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256",
-  SM2PKE = "SM2PKE",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT",
-}
+export const EncryptionAlgorithmSpec = {
+  RSAES_OAEP_SHA_1: "RSAES_OAEP_SHA_1",
+  RSAES_OAEP_SHA_256: "RSAES_OAEP_SHA_256",
+  SM2PKE: "SM2PKE",
+  SYMMETRIC_DEFAULT: "SYMMETRIC_DEFAULT",
+};
 
 /**
  * @public
  */
-export enum ExpirationModelType {
-  KEY_MATERIAL_DOES_NOT_EXPIRE = "KEY_MATERIAL_DOES_NOT_EXPIRE",
-  KEY_MATERIAL_EXPIRES = "KEY_MATERIAL_EXPIRES",
-}
+export const ExpirationModelType = {
+  KEY_MATERIAL_DOES_NOT_EXPIRE: "KEY_MATERIAL_DOES_NOT_EXPIRE",
+  KEY_MATERIAL_EXPIRES: "KEY_MATERIAL_EXPIRES",
+};
 
 /**
  * @public
  */
-export enum KeyManagerType {
-  AWS = "AWS",
-  CUSTOMER = "CUSTOMER",
-}
+export const KeyManagerType = {
+  AWS: "AWS",
+  CUSTOMER: "CUSTOMER",
+};
 
 /**
  * @public
  */
-export enum KeyState {
-  Creating = "Creating",
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-  PendingDeletion = "PendingDeletion",
-  PendingImport = "PendingImport",
-  PendingReplicaDeletion = "PendingReplicaDeletion",
-  Unavailable = "Unavailable",
-  Updating = "Updating",
-}
+export const KeyState = {
+  Creating: "Creating",
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+  PendingDeletion: "PendingDeletion",
+  PendingImport: "PendingImport",
+  PendingReplicaDeletion: "PendingReplicaDeletion",
+  Unavailable: "Unavailable",
+  Updating: "Updating",
+};
 
 /**
  * @public
  */
-export enum MacAlgorithmSpec {
-  HMAC_SHA_224 = "HMAC_SHA_224",
-  HMAC_SHA_256 = "HMAC_SHA_256",
-  HMAC_SHA_384 = "HMAC_SHA_384",
-  HMAC_SHA_512 = "HMAC_SHA_512",
-}
+export const MacAlgorithmSpec = {
+  HMAC_SHA_224: "HMAC_SHA_224",
+  HMAC_SHA_256: "HMAC_SHA_256",
+  HMAC_SHA_384: "HMAC_SHA_384",
+  HMAC_SHA_512: "HMAC_SHA_512",
+};
 
 /**
  * @public
  */
-export enum MultiRegionKeyType {
-  PRIMARY = "PRIMARY",
-  REPLICA = "REPLICA",
-}
+export const MultiRegionKeyType = {
+  PRIMARY: "PRIMARY",
+  REPLICA: "REPLICA",
+};
 
 /**
  * @public
@@ -1735,7 +1735,7 @@ export interface MultiRegionConfiguration {
    * <p>Indicates whether the KMS key is a <code>PRIMARY</code> or <code>REPLICA</code>
    *       key.</p>
    */
-  MultiRegionKeyType?: MultiRegionKeyType | string;
+  MultiRegionKeyType?: keyof typeof MultiRegionKeyType | string;
 
   /**
    * <p>Displays the key ARN and Region of the primary key. This field includes the current KMS
@@ -1753,18 +1753,18 @@ export interface MultiRegionConfiguration {
 /**
  * @public
  */
-export enum SigningAlgorithmSpec {
-  ECDSA_SHA_256 = "ECDSA_SHA_256",
-  ECDSA_SHA_384 = "ECDSA_SHA_384",
-  ECDSA_SHA_512 = "ECDSA_SHA_512",
-  RSASSA_PKCS1_V1_5_SHA_256 = "RSASSA_PKCS1_V1_5_SHA_256",
-  RSASSA_PKCS1_V1_5_SHA_384 = "RSASSA_PKCS1_V1_5_SHA_384",
-  RSASSA_PKCS1_V1_5_SHA_512 = "RSASSA_PKCS1_V1_5_SHA_512",
-  RSASSA_PSS_SHA_256 = "RSASSA_PSS_SHA_256",
-  RSASSA_PSS_SHA_384 = "RSASSA_PSS_SHA_384",
-  RSASSA_PSS_SHA_512 = "RSASSA_PSS_SHA_512",
-  SM2DSA = "SM2DSA",
-}
+export const SigningAlgorithmSpec = {
+  ECDSA_SHA_256: "ECDSA_SHA_256",
+  ECDSA_SHA_384: "ECDSA_SHA_384",
+  ECDSA_SHA_512: "ECDSA_SHA_512",
+  RSASSA_PKCS1_V1_5_SHA_256: "RSASSA_PKCS1_V1_5_SHA_256",
+  RSASSA_PKCS1_V1_5_SHA_384: "RSASSA_PKCS1_V1_5_SHA_384",
+  RSASSA_PKCS1_V1_5_SHA_512: "RSASSA_PKCS1_V1_5_SHA_512",
+  RSASSA_PSS_SHA_256: "RSASSA_PSS_SHA_256",
+  RSASSA_PSS_SHA_384: "RSASSA_PSS_SHA_384",
+  RSASSA_PSS_SHA_512: "RSASSA_PSS_SHA_512",
+  SM2DSA: "SM2DSA",
+};
 
 /**
  * @public
@@ -1825,14 +1825,14 @@ export interface KeyMetadata {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key.</p>
    */
-  KeyUsage?: KeyUsageType | string;
+  KeyUsage?: keyof typeof KeyUsageType | string;
 
   /**
    * <p>The current status of the KMS key.</p>
    *          <p>For more information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in
    *       the <i>Key Management Service Developer Guide</i>.</p>
    */
-  KeyState?: KeyState | string;
+  KeyState?: keyof typeof KeyState | string;
 
   /**
    * <p>The date and time after which KMS deletes this KMS key. This value is present only when
@@ -1859,7 +1859,7 @@ export interface KeyMetadata {
    *         <code>AWS_CLOUDHSM</code>, the key material was created in the CloudHSM cluster associated with
    *       a custom key store.</p>
    */
-  Origin?: OriginType | string;
+  Origin?: keyof typeof OriginType | string;
 
   /**
    * <p>A unique identifier for the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> that contains the KMS key. This field is
@@ -1879,13 +1879,13 @@ export interface KeyMetadata {
    * <p>Specifies whether the KMS key's key material expires. This value is present only when
    *         <code>Origin</code> is <code>EXTERNAL</code>, otherwise this value is omitted.</p>
    */
-  ExpirationModel?: ExpirationModelType | string;
+  ExpirationModel?: keyof typeof ExpirationModelType | string;
 
   /**
    * <p>The manager of the KMS key. KMS keys in your Amazon Web Services account are either customer managed or
    *       Amazon Web Services managed. For more information about the difference, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys">KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  KeyManager?: KeyManagerType | string;
+  KeyManager?: keyof typeof KeyManagerType | string;
 
   /**
    * @deprecated
@@ -1895,12 +1895,12 @@ export interface KeyMetadata {
    *       value. We recommend that you use the <code>KeySpec</code> field in your code. However, to
    *       avoid breaking changes, KMS supports both fields.</p>
    */
-  CustomerMasterKeySpec?: CustomerMasterKeySpec | string;
+  CustomerMasterKeySpec?: keyof typeof CustomerMasterKeySpec | string;
 
   /**
    * <p>Describes the type of key material in the KMS key.</p>
    */
-  KeySpec?: KeySpec | string;
+  KeySpec?: keyof typeof KeySpec | string;
 
   /**
    * <p>The encryption algorithms that the KMS key supports. You cannot use the KMS key with other
@@ -1908,7 +1908,7 @@ export interface KeyMetadata {
    *          <p>This value is present only when the <code>KeyUsage</code> of the KMS key is
    *         <code>ENCRYPT_DECRYPT</code>.</p>
    */
-  EncryptionAlgorithms?: (EncryptionAlgorithmSpec | string)[];
+  EncryptionAlgorithms?: (keyof typeof EncryptionAlgorithmSpec | string)[];
 
   /**
    * <p>The signing algorithms that the KMS key supports. You cannot use the KMS key with other
@@ -1916,7 +1916,7 @@ export interface KeyMetadata {
    *          <p>This field appears only when the <code>KeyUsage</code> of the KMS key is
    *         <code>SIGN_VERIFY</code>.</p>
    */
-  SigningAlgorithms?: (SigningAlgorithmSpec | string)[];
+  SigningAlgorithms?: (keyof typeof SigningAlgorithmSpec | string)[];
 
   /**
    * <p>Indicates whether the KMS key is a multi-Region (<code>True</code>) or regional
@@ -1972,7 +1972,7 @@ export interface KeyMetadata {
    *          <p>This value is present only when the <code>KeyUsage</code> of the KMS key is
    *         <code>GENERATE_VERIFY_MAC</code>.</p>
    */
-  MacAlgorithms?: (MacAlgorithmSpec | string)[];
+  MacAlgorithms?: (keyof typeof MacAlgorithmSpec | string)[];
 
   /**
    * <p>Information about the external key that is associated with a KMS key in an
@@ -2161,7 +2161,7 @@ export interface XksProxyConfigurationType {
    * <p>Indicates whether the external key store proxy uses a public endpoint or an Amazon VPC endpoint
    *       service to communicate with KMS.</p>
    */
-  Connectivity?: XksProxyConnectivityType | string;
+  Connectivity?: keyof typeof XksProxyConnectivityType | string;
 
   /**
    * <p>The part of the external key store <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateCustomKeyStore.html#KMS-CreateCustomKeyStore-request-XksProxyAuthenticationCredential">proxy authentication credential</a>
@@ -2242,7 +2242,7 @@ export interface CustomKeyStoresListEntry {
    *       For help resolving a connection failure, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting a custom key store</a> in the
    *       <i>Key Management Service Developer Guide</i>.</p>
    */
-  ConnectionState?: ConnectionStateType | string;
+  ConnectionState?: keyof typeof ConnectionStateType | string;
 
   /**
    * <p>Describes the connection error. This field appears in the response only when the
@@ -2430,7 +2430,7 @@ export interface CustomKeyStoresListEntry {
    *             </li>
    *          </ul>
    */
-  ConnectionErrorCode?: ConnectionErrorCodeType | string;
+  ConnectionErrorCode?: keyof typeof ConnectionErrorCodeType | string;
 
   /**
    * <p>The date and time when the custom key store was created.</p>
@@ -2442,7 +2442,7 @@ export interface CustomKeyStoresListEntry {
    *       key store backed by an CloudHSM cluster. <code>EXTERNAL_KEY_STORE</code> indicates a custom key
    *       store backed by an external key store proxy and external key manager outside of Amazon Web Services.</p>
    */
-  CustomKeyStoreType?: CustomKeyStoreType | string;
+  CustomKeyStoreType?: keyof typeof CustomKeyStoreType | string;
 
   /**
    * <p>Configuration settings for the external key store proxy (XKS proxy). The external key
@@ -2458,24 +2458,24 @@ export interface CustomKeyStoresListEntry {
 /**
  * @public
  */
-export enum DataKeyPairSpec {
-  ECC_NIST_P256 = "ECC_NIST_P256",
-  ECC_NIST_P384 = "ECC_NIST_P384",
-  ECC_NIST_P521 = "ECC_NIST_P521",
-  ECC_SECG_P256K1 = "ECC_SECG_P256K1",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096",
-  SM2 = "SM2",
-}
+export const DataKeyPairSpec = {
+  ECC_NIST_P256: "ECC_NIST_P256",
+  ECC_NIST_P384: "ECC_NIST_P384",
+  ECC_NIST_P521: "ECC_NIST_P521",
+  ECC_SECG_P256K1: "ECC_SECG_P256K1",
+  RSA_2048: "RSA_2048",
+  RSA_3072: "RSA_3072",
+  RSA_4096: "RSA_4096",
+  SM2: "SM2",
+};
 
 /**
  * @public
  */
-export enum DataKeySpec {
-  AES_128 = "AES_128",
-  AES_256 = "AES_256",
-}
+export const DataKeySpec = {
+  AES_128: "AES_128",
+  AES_256: "AES_256",
+};
 
 /**
  * @public
@@ -2545,7 +2545,7 @@ export interface DecryptRequest {
    *       key. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the only supported
    *       algorithm that is valid for symmetric encryption KMS keys.</p>
    */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  EncryptionAlgorithm?: keyof typeof EncryptionAlgorithmSpec | string;
 }
 
 /**
@@ -2565,7 +2565,7 @@ export interface DecryptResponse {
   /**
    * <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
    */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  EncryptionAlgorithm?: keyof typeof EncryptionAlgorithmSpec | string;
 }
 
 /**
@@ -3032,7 +3032,7 @@ export interface EncryptRequest {
    *       using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
    *          <p>The SM2PKE algorithm is only available in China Regions.</p>
    */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  EncryptionAlgorithm?: keyof typeof EncryptionAlgorithmSpec | string;
 }
 
 /**
@@ -3052,7 +3052,7 @@ export interface EncryptResponse {
   /**
    * <p>The encryption algorithm that was used to encrypt the plaintext.</p>
    */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  EncryptionAlgorithm?: keyof typeof EncryptionAlgorithmSpec | string;
 }
 
 /**
@@ -3133,7 +3133,7 @@ export interface GenerateDataKeyRequest {
    *          <p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code>
    *       parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
    */
-  KeySpec?: DataKeySpec | string;
+  KeySpec?: keyof typeof DataKeySpec | string;
 
   /**
    * <p>A list of grant tokens.</p>
@@ -3211,7 +3211,7 @@ export interface GenerateDataKeyPairRequest {
    * <p>Determines the type of data key pair that is generated. </p>
    *          <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC KMS keys only to sign and verify, are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
    */
-  KeyPairSpec: DataKeyPairSpec | string | undefined;
+  KeyPairSpec: keyof typeof DataKeyPairSpec | string | undefined;
 
   /**
    * <p>A list of grant tokens.</p>
@@ -3248,7 +3248,7 @@ export interface GenerateDataKeyPairResponse {
   /**
    * <p>The type of data key pair that was generated.</p>
    */
-  KeyPairSpec?: DataKeyPairSpec | string;
+  KeyPairSpec?: keyof typeof DataKeyPairSpec | string;
 }
 
 /**
@@ -3298,7 +3298,7 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
    * <p>Determines the type of data key pair that is generated.</p>
    *          <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC KMS keys only to sign and verify, are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
    */
-  KeyPairSpec: DataKeyPairSpec | string | undefined;
+  KeyPairSpec: keyof typeof DataKeyPairSpec | string | undefined;
 
   /**
    * <p>A list of grant tokens.</p>
@@ -3330,7 +3330,7 @@ export interface GenerateDataKeyPairWithoutPlaintextResponse {
   /**
    * <p>The type of data key pair that was generated.</p>
    */
-  KeyPairSpec?: DataKeyPairSpec | string;
+  KeyPairSpec?: keyof typeof DataKeyPairSpec | string;
 }
 
 /**
@@ -3379,7 +3379,7 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
    * <p>The length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key,
    *       or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
    */
-  KeySpec?: DataKeySpec | string;
+  KeySpec?: keyof typeof DataKeySpec | string;
 
   /**
    * <p>The length of the data key in bytes. For example, use the value 64 to generate a 512-bit
@@ -3438,7 +3438,7 @@ export interface GenerateMacRequest {
    *       algorithms that your HMAC KMS key supports, use the <a>DescribeKey</a> operation
    *       and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</p>
    */
-  MacAlgorithm: MacAlgorithmSpec | string | undefined;
+  MacAlgorithm: keyof typeof MacAlgorithmSpec | string | undefined;
 
   /**
    * <p>A list of grant tokens.</p>
@@ -3462,7 +3462,7 @@ export interface GenerateMacResponse {
   /**
    * <p>The MAC algorithm that was used to generate the HMAC.</p>
    */
-  MacAlgorithm?: MacAlgorithmSpec | string;
+  MacAlgorithm?: keyof typeof MacAlgorithmSpec | string;
 
   /**
    * <p>The HMAC KMS key used in the operation.</p>
@@ -3575,9 +3575,9 @@ export interface GetKeyRotationStatusResponse {
 /**
  * @public
  */
-export enum WrappingKeySpec {
-  RSA_2048 = "RSA_2048",
-}
+export const WrappingKeySpec = {
+  RSA_2048: "RSA_2048",
+};
 
 /**
  * @public
@@ -3612,13 +3612,13 @@ export interface GetParametersForImportRequest {
    *         and Technology (NIST).</p>
    *          </important>
    */
-  WrappingAlgorithm: AlgorithmSpec | string | undefined;
+  WrappingAlgorithm: keyof typeof AlgorithmSpec | string | undefined;
 
   /**
    * <p>The type of wrapping key (public key) to return in the response. Only 2048-bit RSA public
    *       keys are supported.</p>
    */
-  WrappingKeySpec: WrappingKeySpec | string | undefined;
+  WrappingKeySpec: keyof typeof WrappingKeySpec | string | undefined;
 }
 
 /**
@@ -3715,12 +3715,12 @@ export interface GetPublicKeyResponse {
    *       value. We recommend that you use the <code>KeySpec</code> field in your code. However, to
    *       avoid breaking changes, KMS supports both fields.</p>
    */
-  CustomerMasterKeySpec?: CustomerMasterKeySpec | string;
+  CustomerMasterKeySpec?: keyof typeof CustomerMasterKeySpec | string;
 
   /**
    * <p>The type of the of the public key that was downloaded.</p>
    */
-  KeySpec?: KeySpec | string;
+  KeySpec?: keyof typeof KeySpec | string;
 
   /**
    * <p>The permitted use of the public key. Valid values are <code>ENCRYPT_DECRYPT</code> or
@@ -3728,7 +3728,7 @@ export interface GetPublicKeyResponse {
    *          <p>This information is critical. If a public key with <code>SIGN_VERIFY</code> key usage
    *       encrypts data outside of KMS, the ciphertext cannot be decrypted. </p>
    */
-  KeyUsage?: KeyUsageType | string;
+  KeyUsage?: keyof typeof KeyUsageType | string;
 
   /**
    * <p>The encryption algorithms that KMS supports for this key. </p>
@@ -3737,14 +3737,14 @@ export interface GetPublicKeyResponse {
    *          <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
    *       is <code>ENCRYPT_DECRYPT</code>.</p>
    */
-  EncryptionAlgorithms?: (EncryptionAlgorithmSpec | string)[];
+  EncryptionAlgorithms?: (keyof typeof EncryptionAlgorithmSpec | string)[];
 
   /**
    * <p>The signing algorithms that KMS supports for this key.</p>
    *          <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
    *       is <code>SIGN_VERIFY</code>.</p>
    */
-  SigningAlgorithms?: (SigningAlgorithmSpec | string)[];
+  SigningAlgorithms?: (keyof typeof SigningAlgorithmSpec | string)[];
 }
 
 /**
@@ -3795,7 +3795,7 @@ export interface GrantListEntry {
   /**
    * <p>The list of operations permitted by the grant.</p>
    */
-  Operations?: (GrantOperation | string)[];
+  Operations?: (keyof typeof GrantOperation | string)[];
 
   /**
    * <p>A list of key-value pairs that must be present in the encryption context of certain
@@ -3868,7 +3868,7 @@ export interface ImportKeyMaterialRequest {
    *          <p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the
    *       current import after the request completes. To change either value, you must delete (<a>DeleteImportedKeyMaterial</a>) and reimport the key material.</p>
    */
-  ExpirationModel?: ExpirationModelType | string;
+  ExpirationModel?: keyof typeof ExpirationModelType | string;
 }
 
 /**
@@ -4354,10 +4354,10 @@ export interface ListRetirableGrantsRequest {
 /**
  * @public
  */
-export enum MessageType {
-  DIGEST = "DIGEST",
-  RAW = "RAW",
-}
+export const MessageType = {
+  DIGEST: "DIGEST",
+  RAW: "RAW",
+};
 
 /**
  * @public
@@ -4542,7 +4542,7 @@ export interface ReEncryptRequest {
    *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
    *       key.</p>
    */
-  SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  SourceEncryptionAlgorithm?: keyof typeof EncryptionAlgorithmSpec | string;
 
   /**
    * <p>Specifies the encryption algorithm that KMS will use to reecrypt the data after it has
@@ -4551,7 +4551,7 @@ export interface ReEncryptRequest {
    *          <p>This parameter is required only when the destination KMS key is an asymmetric KMS
    *       key.</p>
    */
-  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  DestinationEncryptionAlgorithm?: keyof typeof EncryptionAlgorithmSpec | string;
 
   /**
    * <p>A list of grant tokens.</p>
@@ -4584,12 +4584,12 @@ export interface ReEncryptResponse {
    * <p>The encryption algorithm that was used to decrypt the ciphertext before it was
    *       reencrypted.</p>
    */
-  SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  SourceEncryptionAlgorithm?: keyof typeof EncryptionAlgorithmSpec | string;
 
   /**
    * <p>The encryption algorithm that was used to reencrypt the data.</p>
    */
-  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  DestinationEncryptionAlgorithm?: keyof typeof EncryptionAlgorithmSpec | string;
 }
 
 /**
@@ -4867,7 +4867,7 @@ export interface ScheduleKeyDeletionResponse {
    *          <p>For more information about how key state affects the use of a KMS key, see
    *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
-  KeyState?: KeyState | string;
+  KeyState?: keyof typeof KeyState | string;
 
   /**
    * <p>The waiting period before the KMS key is deleted. </p>
@@ -4951,7 +4951,7 @@ export interface SignRequest {
    *             </li>
    *          </ul>
    */
-  MessageType?: MessageType | string;
+  MessageType?: keyof typeof MessageType | string;
 
   /**
    * <p>A list of grant tokens.</p>
@@ -4966,7 +4966,7 @@ export interface SignRequest {
    *       KMS key.  When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include
    *       RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</p>
    */
-  SigningAlgorithm: SigningAlgorithmSpec | string | undefined;
+  SigningAlgorithm: keyof typeof SigningAlgorithmSpec | string | undefined;
 }
 
 /**
@@ -5001,7 +5001,7 @@ export interface SignResponse {
   /**
    * <p>The signing algorithm that was used to sign the message.</p>
    */
-  SigningAlgorithm?: SigningAlgorithmSpec | string;
+  SigningAlgorithm?: keyof typeof SigningAlgorithmSpec | string;
 }
 
 /**
@@ -5208,7 +5208,7 @@ export interface UpdateCustomKeyStoreRequest {
    *       the <code>XksProxyVpcEndpointServiceName</code> value.</p>
    *          <p>To change this value, the external key store must be disconnected.</p>
    */
-  XksProxyConnectivity?: XksProxyConnectivityType | string;
+  XksProxyConnectivity?: keyof typeof XksProxyConnectivityType | string;
 }
 
 /**
@@ -5352,7 +5352,7 @@ export interface VerifyRequest {
    *             </li>
    *          </ul>
    */
-  MessageType?: MessageType | string;
+  MessageType?: keyof typeof MessageType | string;
 
   /**
    * <p>The signature that the <code>Sign</code> operation generated.</p>
@@ -5363,7 +5363,7 @@ export interface VerifyRequest {
    * <p>The signing algorithm that was used to sign the message. If you submit a different
    *       algorithm, the signature verification fails.</p>
    */
-  SigningAlgorithm: SigningAlgorithmSpec | string | undefined;
+  SigningAlgorithm: keyof typeof SigningAlgorithmSpec | string | undefined;
 
   /**
    * <p>A list of grant tokens.</p>
@@ -5394,7 +5394,7 @@ export interface VerifyResponse {
   /**
    * <p>The signing algorithm that was used to verify the signature.</p>
    */
-  SigningAlgorithm?: SigningAlgorithmSpec | string;
+  SigningAlgorithm?: keyof typeof SigningAlgorithmSpec | string;
 }
 
 /**
@@ -5423,7 +5423,7 @@ export interface VerifyMacRequest {
    *       was used to compute the HMAC. This algorithm must be supported by the HMAC KMS key identified
    *       by the <code>KeyId</code> parameter.</p>
    */
-  MacAlgorithm: MacAlgorithmSpec | string | undefined;
+  MacAlgorithm: keyof typeof MacAlgorithmSpec | string | undefined;
 
   /**
    * <p>The HMAC to verify. Enter the HMAC that was generated by the <a>GenerateMac</a>
@@ -5463,7 +5463,7 @@ export interface VerifyMacResponse {
   /**
    * <p>The MAC algorithm used in the verification.</p>
    */
-  MacAlgorithm?: MacAlgorithmSpec | string;
+  MacAlgorithm?: keyof typeof MacAlgorithmSpec | string;
 }
 
 /**

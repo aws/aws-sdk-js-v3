@@ -15485,7 +15485,7 @@ const serializeAws_json1_1ConnectionPasswordEncryption = (
 
 const serializeAws_json1_1ConnectionProperties = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [ConnectionPropertyKey | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [keyof typeof ConnectionPropertyKey | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -16584,7 +16584,7 @@ const serializeAws_json1_1DynamoDBTargetList = (input: DynamoDBTarget[], context
 };
 
 const serializeAws_json1_1EnableAdditionalMetadata = (
-  input: (JdbcMetadataEntry | string)[],
+  input: (keyof typeof JdbcMetadataEntry | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -17515,16 +17515,19 @@ const serializeAws_json1_1JDBCConnectorTarget = (input: JDBCConnectorTarget, con
 };
 
 const serializeAws_json1_1JDBCDataTypeMapping = (
-  input: Record<string, GlueRecordType | string>,
+  input: Record<string, keyof typeof GlueRecordType | string>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [JDBCDataType | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof JDBCDataType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = value;
       return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_json1_1JdbcTarget = (input: JdbcTarget, context: __SerdeContext): any => {
@@ -18252,7 +18255,10 @@ const serializeAws_json1_1PathList = (input: string[], context: __SerdeContext):
     });
 };
 
-const serializeAws_json1_1PermissionList = (input: (Permission | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1PermissionList = (
+  input: (keyof typeof Permission | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -18260,7 +18266,10 @@ const serializeAws_json1_1PermissionList = (input: (Permission | string)[], cont
     });
 };
 
-const serializeAws_json1_1PermissionTypeList = (input: (PermissionType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1PermissionTypeList = (
+  input: (keyof typeof PermissionType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -21217,7 +21226,7 @@ const deserializeAws_json1_1ConnectionPasswordEncryption = (
 
 const deserializeAws_json1_1ConnectionProperties = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [ConnectionPropertyKey | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [keyof typeof ConnectionPropertyKey | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -22542,7 +22551,7 @@ const deserializeAws_json1_1EdgeList = (output: any, context: __SerdeContext): E
 const deserializeAws_json1_1EnableAdditionalMetadata = (
   output: any,
   context: __SerdeContext
-): (JdbcMetadataEntry | string)[] => {
+): (keyof typeof JdbcMetadataEntry | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -23834,9 +23843,12 @@ const deserializeAws_json1_1JDBCConnectorTarget = (output: any, context: __Serde
 const deserializeAws_json1_1JDBCDataTypeMapping = (
   output: any,
   context: __SerdeContext
-): Record<string, GlueRecordType | string> => {
+): Record<string, keyof typeof GlueRecordType | string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, GlueRecordType | string>, [key, value]: [JDBCDataType | string, any]) => {
+    (
+      acc: Record<string, keyof typeof GlueRecordType | string>,
+      [key, value]: [keyof typeof JDBCDataType | string, any]
+    ) => {
       if (value === null) {
         return acc;
       }
@@ -24969,7 +24981,10 @@ const deserializeAws_json1_1PathList = (output: any, context: __SerdeContext): s
   return retVal;
 };
 
-const deserializeAws_json1_1PermissionList = (output: any, context: __SerdeContext): (Permission | string)[] => {
+const deserializeAws_json1_1PermissionList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Permission | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

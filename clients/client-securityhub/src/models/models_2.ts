@@ -173,7 +173,7 @@ export interface DescribeHubResponse {
    *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 9,
    *          2023.</p>
    */
-  ControlFindingGenerator?: ControlFindingGenerator | string;
+  ControlFindingGenerator?: keyof typeof ControlFindingGenerator | string;
 }
 
 /**
@@ -206,7 +206,7 @@ export interface DescribeOrganizationConfigurationResponse {
    *          accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
    *          accounts.</p>
    */
-  AutoEnableStandards?: AutoEnableStandards | string;
+  AutoEnableStandards?: keyof typeof AutoEnableStandards | string;
 }
 
 /**
@@ -236,11 +236,11 @@ export interface DescribeProductsRequest {
 /**
  * @public
  */
-export enum IntegrationType {
-  RECEIVE_FINDINGS_FROM_SECURITY_HUB = "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
-  SEND_FINDINGS_TO_SECURITY_HUB = "SEND_FINDINGS_TO_SECURITY_HUB",
-  UPDATE_FINDINGS_IN_SECURITY_HUB = "UPDATE_FINDINGS_IN_SECURITY_HUB",
-}
+export const IntegrationType = {
+  RECEIVE_FINDINGS_FROM_SECURITY_HUB: "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
+  SEND_FINDINGS_TO_SECURITY_HUB: "SEND_FINDINGS_TO_SECURITY_HUB",
+  UPDATE_FINDINGS_IN_SECURITY_HUB: "UPDATE_FINDINGS_IN_SECURITY_HUB",
+};
 
 /**
  * @public
@@ -292,7 +292,7 @@ export interface Product {
    *             </li>
    *          </ul>
    */
-  IntegrationTypes?: (IntegrationType | string)[];
+  IntegrationTypes?: (keyof typeof IntegrationType | string)[];
 
   /**
    * <p>For integrations with Amazon Web Services services, the Amazon Web Services Console URL from which to activate the service.</p>
@@ -455,7 +455,7 @@ export interface StandardsControl {
    * <p>The current status of the security standard control. Indicates whether the control is
    *          enabled or disabled. Security Hub does not check against disabled controls.</p>
    */
-  ControlStatus?: ControlStatus | string;
+  ControlStatus?: keyof typeof ControlStatus | string;
 
   /**
    * <p>The reason provided for the most recent change in status for the control.</p>
@@ -495,7 +495,7 @@ export interface StandardsControl {
    *          <p>The finding severity is based on an assessment of how easy it would be to compromise Amazon Web Services
    *          resources if the issue is detected.</p>
    */
-  SeverityRating?: SeverityRating | string;
+  SeverityRating?: keyof typeof SeverityRating | string;
 
   /**
    * <p>The list of requirements that are related to this control.</p>
@@ -658,7 +658,7 @@ export interface EnableSecurityHubRequest {
    *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 9,
    *          2023.</p>
    */
-  ControlFindingGenerator?: ControlFindingGenerator | string;
+  ControlFindingGenerator?: keyof typeof ControlFindingGenerator | string;
 }
 
 /**
@@ -796,10 +796,10 @@ export interface GetFindingAggregatorResponse {
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "asc",
-  DESCENDING = "desc",
-}
+export const SortOrder = {
+  ASCENDING: "asc",
+  DESCENDING: "desc",
+};
 
 /**
  * @public
@@ -814,7 +814,7 @@ export interface SortCriterion {
   /**
    * <p>The order used to sort findings.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -1370,10 +1370,10 @@ export interface ListSecurityControlDefinitionsRequest {
 /**
  * @public
  */
-export enum RegionAvailabilityStatus {
-  AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const RegionAvailabilityStatus = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+};
 
 /**
  * @public
@@ -1421,14 +1421,14 @@ export interface SecurityControlDefinition {
    *          <i>Security Hub User Guide</i>.
    *       </p>
    */
-  SeverityRating: SeverityRating | string | undefined;
+  SeverityRating: keyof typeof SeverityRating | string | undefined;
 
   /**
    * <p>
    *          Specifies whether a security control is available in the current Amazon Web Services Region.
    *       </p>
    */
-  CurrentRegionAvailability: RegionAvailabilityStatus | string | undefined;
+  CurrentRegionAvailability: keyof typeof RegionAvailabilityStatus | string | undefined;
 }
 
 /**
@@ -1513,7 +1513,7 @@ export interface StandardsControlAssociationSummary {
    *          The enablement status of a control in a specific standard.
    *       </p>
    */
-  AssociationStatus: AssociationStatus | string | undefined;
+  AssociationStatus: keyof typeof AssociationStatus | string | undefined;
 
   /**
    * <p>
@@ -1732,7 +1732,7 @@ export interface UpdateFindingsRequest {
   /**
    * <p>The updated record state for the finding.</p>
    */
-  RecordState?: RecordState | string;
+  RecordState?: keyof typeof RecordState | string;
 }
 
 /**
@@ -1788,7 +1788,7 @@ export interface UpdateOrganizationConfigurationRequest {
    *          <p>By default, this parameter is equal to <code>DEFAULT</code>, and new member accounts are automatically enabled with default Security Hub standards.</p>
    *          <p>To opt out of enabling default standards for new member accounts, set this parameter equal to <code>NONE</code>.</p>
    */
-  AutoEnableStandards?: AutoEnableStandards | string;
+  AutoEnableStandards?: keyof typeof AutoEnableStandards | string;
 }
 
 /**
@@ -1818,7 +1818,7 @@ export interface UpdateSecurityHubConfigurationRequest {
    *       for a control check when the check applies to multiple enabled standards.</p>
    *          <p>For accounts that are part of an organization, this value can only be updated in the administrator account.</p>
    */
-  ControlFindingGenerator?: ControlFindingGenerator | string;
+  ControlFindingGenerator?: keyof typeof ControlFindingGenerator | string;
 }
 
 /**
@@ -1838,7 +1838,7 @@ export interface UpdateStandardsControlRequest {
   /**
    * <p>The updated status of the security standard control.</p>
    */
-  ControlStatus?: ControlStatus | string;
+  ControlStatus?: keyof typeof ControlStatus | string;
 
   /**
    * <p>A description of the reason why you are disabling a security standard control. If you

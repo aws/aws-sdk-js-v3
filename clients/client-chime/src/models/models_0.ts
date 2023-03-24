@@ -6,23 +6,23 @@ import { ChimeServiceException as __BaseException } from "./ChimeServiceExceptio
 /**
  * @public
  */
-export enum ErrorCode {
-  AccessDenied = "AccessDenied",
-  BadRequest = "BadRequest",
-  Conflict = "Conflict",
-  Forbidden = "Forbidden",
-  NotFound = "NotFound",
-  PhoneNumberAssociationsExist = "PhoneNumberAssociationsExist",
-  PreconditionFailed = "PreconditionFailed",
-  ResourceLimitExceeded = "ResourceLimitExceeded",
-  ServiceFailure = "ServiceFailure",
-  ServiceUnavailable = "ServiceUnavailable",
-  Throttled = "Throttled",
-  Throttling = "Throttling",
-  Unauthorized = "Unauthorized",
-  Unprocessable = "Unprocessable",
-  VoiceConnectorGroupAssociationsExist = "VoiceConnectorGroupAssociationsExist",
-}
+export const ErrorCode = {
+  AccessDenied: "AccessDenied",
+  BadRequest: "BadRequest",
+  Conflict: "Conflict",
+  Forbidden: "Forbidden",
+  NotFound: "NotFound",
+  PhoneNumberAssociationsExist: "PhoneNumberAssociationsExist",
+  PreconditionFailed: "PreconditionFailed",
+  ResourceLimitExceeded: "ResourceLimitExceeded",
+  ServiceFailure: "ServiceFailure",
+  ServiceUnavailable: "ServiceUnavailable",
+  Throttled: "Throttled",
+  Throttling: "Throttling",
+  Unauthorized: "Unauthorized",
+  Unprocessable: "Unprocessable",
+  VoiceConnectorGroupAssociationsExist: "VoiceConnectorGroupAssociationsExist",
+};
 
 /**
  * @public
@@ -31,7 +31,7 @@ export enum ErrorCode {
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -51,30 +51,30 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AccountStatus {
-  Active = "Active",
-  Suspended = "Suspended",
-}
+export const AccountStatus = {
+  Active: "Active",
+  Suspended: "Suspended",
+};
 
 /**
  * @public
  */
-export enum AccountType {
-  EnterpriseDirectory = "EnterpriseDirectory",
-  EnterpriseLWA = "EnterpriseLWA",
-  EnterpriseOIDC = "EnterpriseOIDC",
-  Team = "Team",
-}
+export const AccountType = {
+  EnterpriseDirectory: "EnterpriseDirectory",
+  EnterpriseLWA: "EnterpriseLWA",
+  EnterpriseOIDC: "EnterpriseOIDC",
+  Team: "Team",
+};
 
 /**
  * @public
  */
-export enum License {
-  Basic = "Basic",
-  Plus = "Plus",
-  Pro = "Pro",
-  ProTrial = "ProTrial",
-}
+export const License = {
+  Basic: "Basic",
+  Plus: "Plus",
+  Pro: "Pro",
+  ProTrial: "ProTrial",
+};
 
 /**
  * @public
@@ -112,7 +112,7 @@ export interface Account {
    *     <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration
    *                 Guide</i>.</p>
    */
-  AccountType?: AccountType | string;
+  AccountType?: keyof typeof AccountType | string;
 
   /**
    * <p>The Amazon Chime account creation timestamp, in ISO 8601 format.</p>
@@ -122,17 +122,17 @@ export interface Account {
   /**
    * <p>The default license for the Amazon Chime account.</p>
    */
-  DefaultLicense?: License | string;
+  DefaultLicense?: keyof typeof License | string;
 
   /**
    * <p>Supported licenses for the Amazon Chime account.</p>
    */
-  SupportedLicenses?: (License | string)[];
+  SupportedLicenses?: (keyof typeof License | string)[];
 
   /**
    * <p>The status of the account.</p>
    */
-  AccountStatus?: AccountStatus | string;
+  AccountStatus?: keyof typeof AccountStatus | string;
 
   /**
    * <p>The sign-in delegate groups associated with the account.</p>
@@ -313,10 +313,10 @@ export interface AppInstanceAdminSummary {
 /**
  * @public
  */
-export enum AppInstanceDataType {
-  Channel = "Channel",
-  ChannelMessage = "ChannelMessage",
-}
+export const AppInstanceDataType = {
+  Channel: "Channel",
+  ChannelMessage: "ChannelMessage",
+};
 
 /**
  * @public
@@ -369,7 +369,7 @@ export interface AppInstanceStreamingConfiguration {
   /**
    * <p>The type of data to be streamed.</p>
    */
-  AppInstanceDataType: AppInstanceDataType | string | undefined;
+  AppInstanceDataType: keyof typeof AppInstanceDataType | string | undefined;
 
   /**
    * <p>The resource ARN.</p>
@@ -432,10 +432,10 @@ export interface AppInstanceUserSummary {
 /**
  * @public
  */
-export enum ChannelMembershipType {
-  DEFAULT = "DEFAULT",
-  HIDDEN = "HIDDEN",
-}
+export const ChannelMembershipType = {
+  DEFAULT: "DEFAULT",
+  HIDDEN: "HIDDEN",
+};
 
 /**
  * @public
@@ -445,7 +445,7 @@ export interface AppInstanceUserMembershipSummary {
   /**
    * <p>The type of <code>ChannelMembership</code>.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: keyof typeof ChannelMembershipType | string;
 
   /**
    * <p>The time at which a message was last read.</p>
@@ -456,10 +456,10 @@ export interface AppInstanceUserMembershipSummary {
 /**
  * @public
  */
-export enum AudioMuxType {
-  AudioOnly = "AudioOnly",
-  AudioWithActiveSpeakerVideo = "AudioWithActiveSpeakerVideo",
-}
+export const AudioMuxType = {
+  AudioOnly: "AudioOnly",
+  AudioWithActiveSpeakerVideo: "AudioWithActiveSpeakerVideo",
+};
 
 /**
  * @public
@@ -469,23 +469,23 @@ export interface AudioArtifactsConfiguration {
   /**
    * <p>The MUX type of the audio artifact configuration object.</p>
    */
-  MuxType: AudioMuxType | string | undefined;
+  MuxType: keyof typeof AudioMuxType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ContentMuxType {
-  ContentOnly = "ContentOnly",
-}
+export const ContentMuxType = {
+  ContentOnly: "ContentOnly",
+};
 
 /**
  * @public
  */
-export enum ArtifactsState {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ArtifactsState = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -495,20 +495,20 @@ export interface ContentArtifactsConfiguration {
   /**
    * <p>Indicates whether the content artifact is enabled or disabled.</p>
    */
-  State: ArtifactsState | string | undefined;
+  State: keyof typeof ArtifactsState | string | undefined;
 
   /**
    * <p>The MUX type of the artifact configuration.</p>
    */
-  MuxType?: ContentMuxType | string;
+  MuxType?: keyof typeof ContentMuxType | string;
 }
 
 /**
  * @public
  */
-export enum VideoMuxType {
-  VideoOnly = "VideoOnly",
-}
+export const VideoMuxType = {
+  VideoOnly: "VideoOnly",
+};
 
 /**
  * @public
@@ -518,12 +518,12 @@ export interface VideoArtifactsConfiguration {
   /**
    * <p>Indicates whether the video artifact is enabled or disabled.</p>
    */
-  State: ArtifactsState | string | undefined;
+  State: keyof typeof ArtifactsState | string | undefined;
 
   /**
    * <p>The MUX type of the video artifact configuration object.</p>
    */
-  MuxType?: VideoMuxType | string;
+  MuxType?: keyof typeof VideoMuxType | string;
 }
 
 /**
@@ -581,7 +581,7 @@ export interface PhoneNumberError {
   /**
    * <p>The error code.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>The error message.</p>
@@ -607,7 +607,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorResponse {
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -631,7 +631,7 @@ export class BadRequestException extends __BaseException {
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -655,7 +655,7 @@ export class ForbiddenException extends __BaseException {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -679,7 +679,7 @@ export class NotFoundException extends __BaseException {
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -703,7 +703,7 @@ export class ServiceFailureException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -727,7 +727,7 @@ export class ServiceUnavailableException extends __BaseException {
 export class ThrottledClientException extends __BaseException {
   readonly name: "ThrottledClientException" = "ThrottledClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -751,7 +751,7 @@ export class ThrottledClientException extends __BaseException {
 export class UnauthorizedClientException extends __BaseException {
   readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -910,7 +910,7 @@ export interface BatchChannelMemberships {
   /**
    * <p>The membership types set for the channel users.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: keyof typeof ChannelMembershipType | string;
 
   /**
    * <p>The users successfully added to the request.</p>
@@ -997,7 +997,7 @@ export interface BatchCreateAttendeeResponse {
 export class ResourceLimitExceededException extends __BaseException {
   readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -1030,7 +1030,7 @@ export interface BatchCreateChannelMembershipRequest {
    *             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported
    *          by moderators.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: keyof typeof ChannelMembershipType | string;
 
   /**
    * <p>The ARNs of the members you want to add to the channel.</p>
@@ -1056,7 +1056,7 @@ export interface BatchCreateChannelMembershipError {
   /**
    * <p>The error code.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>The error message.</p>
@@ -1083,10 +1083,10 @@ export interface BatchCreateChannelMembershipResponse {
 /**
  * @public
  */
-export enum RoomMembershipRole {
-  Administrator = "Administrator",
-  Member = "Member",
-}
+export const RoomMembershipRole = {
+  Administrator: "Administrator",
+  Member: "Member",
+};
 
 /**
  * @public
@@ -1101,7 +1101,7 @@ export interface MembershipItem {
   /**
    * <p>The member role.</p>
    */
-  Role?: RoomMembershipRole | string;
+  Role?: keyof typeof RoomMembershipRole | string;
 }
 
 /**
@@ -1137,7 +1137,7 @@ export interface MemberError {
   /**
    * <p>The error code.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>The error message.</p>
@@ -1204,7 +1204,7 @@ export interface UserError {
   /**
    * <p>The error code.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>The error message.</p>
@@ -1252,11 +1252,11 @@ export interface BatchUnsuspendUserResponse {
 /**
  * @public
  */
-export enum PhoneNumberProductType {
-  BusinessCalling = "BusinessCalling",
-  SipMediaApplicationDialIn = "SipMediaApplicationDialIn",
-  VoiceConnector = "VoiceConnector",
-}
+export const PhoneNumberProductType = {
+  BusinessCalling: "BusinessCalling",
+  SipMediaApplicationDialIn: "SipMediaApplicationDialIn",
+  VoiceConnector: "VoiceConnector",
+};
 
 /**
  * @public
@@ -1272,7 +1272,7 @@ export interface UpdatePhoneNumberRequestItem {
   /**
    * <p>The product type to update.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: keyof typeof PhoneNumberProductType | string;
 
   /**
    * <p>The outbound calling name to update.</p>
@@ -1303,10 +1303,10 @@ export interface BatchUpdatePhoneNumberResponse {
 /**
  * @public
  */
-export enum UserType {
-  PrivateUser = "PrivateUser",
-  SharedDevice = "SharedDevice",
-}
+export const UserType = {
+  PrivateUser: "PrivateUser",
+  SharedDevice: "SharedDevice",
+};
 
 /**
  * @public
@@ -1322,12 +1322,12 @@ export interface UpdateUserRequestItem {
   /**
    * <p>The user license type.</p>
    */
-  LicenseType?: License | string;
+  LicenseType?: keyof typeof License | string;
 
   /**
    * <p>The user type.</p>
    */
-  UserType?: UserType | string;
+  UserType?: keyof typeof UserType | string;
 
   /**
    * <p>The Alexa for Business metadata.</p>
@@ -1364,9 +1364,9 @@ export interface BatchUpdateUserResponse {
 /**
  * @public
  */
-export enum BotType {
-  ChatBot = "ChatBot",
-}
+export const BotType = {
+  ChatBot: "ChatBot",
+};
 
 /**
  * @public
@@ -1391,7 +1391,7 @@ export interface Bot {
   /**
    * <p>The bot type.</p>
    */
-  BotType?: BotType | string;
+  BotType?: keyof typeof BotType | string;
 
   /**
    * <p>When true, the bot is stopped from running in your account.</p>
@@ -1434,12 +1434,12 @@ export interface BusinessCallingSettings {
 /**
  * @public
  */
-export enum CallingNameStatus {
-  Unassigned = "Unassigned",
-  UpdateFailed = "UpdateFailed",
-  UpdateInProgress = "UpdateInProgress",
-  UpdateSucceeded = "UpdateSucceeded",
-}
+export const CallingNameStatus = {
+  Unassigned: "Unassigned",
+  UpdateFailed: "UpdateFailed",
+  UpdateInProgress: "UpdateInProgress",
+  UpdateSucceeded: "UpdateSucceeded",
+};
 
 /**
  * @public
@@ -1485,26 +1485,26 @@ export interface CandidateAddress {
 /**
  * @public
  */
-export enum Capability {
-  SMS = "SMS",
-  Voice = "Voice",
-}
+export const Capability = {
+  SMS: "SMS",
+  Voice: "Voice",
+};
 
 /**
  * @public
  */
-export enum ChannelMode {
-  RESTRICTED = "RESTRICTED",
-  UNRESTRICTED = "UNRESTRICTED",
-}
+export const ChannelMode = {
+  RESTRICTED: "RESTRICTED",
+  UNRESTRICTED: "UNRESTRICTED",
+};
 
 /**
  * @public
  */
-export enum ChannelPrivacy {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+export const ChannelPrivacy = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+};
 
 /**
  * @public
@@ -1524,12 +1524,12 @@ export interface Channel {
   /**
    * <p>The mode of the channel.</p>
    */
-  Mode?: ChannelMode | string;
+  Mode?: keyof typeof ChannelMode | string;
 
   /**
    * <p>The channel's privacy setting.</p>
    */
-  Privacy?: ChannelPrivacy | string;
+  Privacy?: keyof typeof ChannelPrivacy | string;
 
   /**
    * <p>The channel's metadata.</p>
@@ -1607,7 +1607,7 @@ export interface ChannelMembership {
   /**
    * <p>The membership type set for the channel member.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: keyof typeof ChannelMembershipType | string;
 
   /**
    * <p>The data of the channel member.</p>
@@ -1648,12 +1648,12 @@ export interface ChannelSummary {
   /**
    * <p>The mode of the channel.</p>
    */
-  Mode?: ChannelMode | string;
+  Mode?: keyof typeof ChannelMode | string;
 
   /**
    * <p>The privacy setting of the channel.</p>
    */
-  Privacy?: ChannelPrivacy | string;
+  Privacy?: keyof typeof ChannelPrivacy | string;
 
   /**
    * <p>The metadata of the channel.</p>
@@ -1696,18 +1696,18 @@ export interface ChannelMembershipSummary {
 /**
  * @public
  */
-export enum ChannelMessagePersistenceType {
-  NON_PERSISTENT = "NON_PERSISTENT",
-  PERSISTENT = "PERSISTENT",
-}
+export const ChannelMessagePersistenceType = {
+  NON_PERSISTENT: "NON_PERSISTENT",
+  PERSISTENT: "PERSISTENT",
+};
 
 /**
  * @public
  */
-export enum ChannelMessageType {
-  CONTROL = "CONTROL",
-  STANDARD = "STANDARD",
-}
+export const ChannelMessageType = {
+  CONTROL: "CONTROL",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -1737,7 +1737,7 @@ export interface ChannelMessage {
   /**
    * <p>The message type.</p>
    */
-  Type?: ChannelMessageType | string;
+  Type?: keyof typeof ChannelMessageType | string;
 
   /**
    * <p>The time at which the message was created.</p>
@@ -1767,7 +1767,7 @@ export interface ChannelMessage {
   /**
    * <p>The persistence setting for a channel message.</p>
    */
-  Persistence?: ChannelMessagePersistenceType | string;
+  Persistence?: keyof typeof ChannelMessagePersistenceType | string;
 }
 
 /**
@@ -1793,7 +1793,7 @@ export interface ChannelMessageSummary {
   /**
    * <p>The type of message.</p>
    */
-  Type?: ChannelMessageType | string;
+  Type?: keyof typeof ChannelMessageType | string;
 
   /**
    * <p>The time at which the message summary was created.</p>
@@ -1920,7 +1920,7 @@ export interface ChimeSdkMeetingConfiguration {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -2157,14 +2157,14 @@ export interface CreateChannelRequest {
    *          moderators, and channel members can add themselves and other members to unrestricted
    *          channels. Only administrators and moderators can add members to restricted channels.</p>
    */
-  Mode?: ChannelMode | string;
+  Mode?: keyof typeof ChannelMode | string;
 
   /**
    * <p>The channel's privacy level: <code>PUBLIC</code> or <code>PRIVATE</code>. Private
    *          channels aren't discoverable by users outside the channel. Public channels are discoverable
    *          by anyone in the <code>AppInstance</code>.</p>
    */
-  Privacy?: ChannelPrivacy | string;
+  Privacy?: keyof typeof ChannelPrivacy | string;
 
   /**
    * <p>The metadata of the creation request. Limited to 1KB and UTF-8.</p>
@@ -2254,7 +2254,7 @@ export interface CreateChannelMembershipRequest {
    *             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported
    *          by moderators.</p>
    */
-  Type: ChannelMembershipType | string | undefined;
+  Type: keyof typeof ChannelMembershipType | string | undefined;
 
   /**
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
@@ -2315,16 +2315,16 @@ export interface CreateChannelModeratorResponse {
 /**
  * @public
  */
-export enum MediaPipelineSinkType {
-  S3Bucket = "S3Bucket",
-}
+export const MediaPipelineSinkType = {
+  S3Bucket: "S3Bucket",
+};
 
 /**
  * @public
  */
-export enum MediaPipelineSourceType {
-  ChimeSdkMeeting = "ChimeSdkMeeting",
-}
+export const MediaPipelineSourceType = {
+  ChimeSdkMeeting: "ChimeSdkMeeting",
+};
 
 /**
  * @public
@@ -2334,7 +2334,7 @@ export interface CreateMediaCapturePipelineRequest {
    * <p>Source type from which the media artifacts will be captured. A Chime SDK Meeting
    *             is the only supported source.</p>
    */
-  SourceType: MediaPipelineSourceType | string | undefined;
+  SourceType: keyof typeof MediaPipelineSourceType | string | undefined;
 
   /**
    * <p>ARN of the source from which the media artifacts are captured.</p>
@@ -2344,7 +2344,7 @@ export interface CreateMediaCapturePipelineRequest {
   /**
    * <p>Destination type to which the media artifacts are saved. You must use an S3 bucket. </p>
    */
-  SinkType: MediaPipelineSinkType | string | undefined;
+  SinkType: keyof typeof MediaPipelineSinkType | string | undefined;
 
   /**
    * <p>The ARN of the sink type.</p>
@@ -2365,13 +2365,13 @@ export interface CreateMediaCapturePipelineRequest {
 /**
  * @public
  */
-export enum MediaPipelineStatus {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Initializing = "Initializing",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-}
+export const MediaPipelineStatus = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Initializing: "Initializing",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+};
 
 /**
  * @public
@@ -2386,7 +2386,7 @@ export interface MediaCapturePipeline {
   /**
    * <p>Source type from which media artifacts are saved. You must use <code>ChimeMeeting</code>.</p>
    */
-  SourceType?: MediaPipelineSourceType | string;
+  SourceType?: keyof typeof MediaPipelineSourceType | string;
 
   /**
    * <p>ARN of the source from which the media artifacts will be saved.</p>
@@ -2396,12 +2396,12 @@ export interface MediaCapturePipeline {
   /**
    * <p>The status of the media capture pipeline.</p>
    */
-  Status?: MediaPipelineStatus | string;
+  Status?: keyof typeof MediaPipelineStatus | string;
 
   /**
    * <p>Destination type to which the media artifacts are saved. You must use an S3 Bucket.</p>
    */
-  SinkType?: MediaPipelineSinkType | string;
+  SinkType?: keyof typeof MediaPipelineSinkType | string;
 
   /**
    * <p>ARN of the destination to which the media artifacts are saved.</p>
@@ -2767,7 +2767,7 @@ export interface CreatePhoneNumberOrderRequest {
   /**
    * <p>The phone number product type.</p>
    */
-  ProductType: PhoneNumberProductType | string | undefined;
+  ProductType: keyof typeof PhoneNumberProductType | string | undefined;
 
   /**
    * <p>List of phone numbers, in E.164 format.</p>
@@ -2778,11 +2778,11 @@ export interface CreatePhoneNumberOrderRequest {
 /**
  * @public
  */
-export enum OrderedPhoneNumberStatus {
-  Acquired = "Acquired",
-  Failed = "Failed",
-  Processing = "Processing",
-}
+export const OrderedPhoneNumberStatus = {
+  Acquired: "Acquired",
+  Failed: "Failed",
+  Processing: "Processing",
+};
 
 /**
  * @public
@@ -2797,18 +2797,18 @@ export interface OrderedPhoneNumber {
   /**
    * <p>The phone number status.</p>
    */
-  Status?: OrderedPhoneNumberStatus | string;
+  Status?: keyof typeof OrderedPhoneNumberStatus | string;
 }
 
 /**
  * @public
  */
-export enum PhoneNumberOrderStatus {
-  Failed = "Failed",
-  Partial = "Partial",
-  Processing = "Processing",
-  Successful = "Successful",
-}
+export const PhoneNumberOrderStatus = {
+  Failed: "Failed",
+  Partial: "Partial",
+  Processing: "Processing",
+  Successful: "Successful",
+};
 
 /**
  * @public
@@ -2823,12 +2823,12 @@ export interface PhoneNumberOrder {
   /**
    * <p>The phone number order product type.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: keyof typeof PhoneNumberProductType | string;
 
   /**
    * <p>The status of the phone number order.</p>
    */
-  Status?: PhoneNumberOrderStatus | string;
+  Status?: keyof typeof PhoneNumberOrderStatus | string;
 
   /**
    * <p>The ordered phone number details, such as the phone number in E.164 format and the phone
@@ -2860,10 +2860,10 @@ export interface CreatePhoneNumberOrderResponse {
 /**
  * @public
  */
-export enum GeoMatchLevel {
-  AreaCode = "AreaCode",
-  Country = "Country",
-}
+export const GeoMatchLevel = {
+  AreaCode: "AreaCode",
+  Country: "Country",
+};
 
 /**
  * @public
@@ -2884,10 +2884,10 @@ export interface GeoMatchParams {
 /**
  * @public
  */
-export enum NumberSelectionBehavior {
-  AvoidSticky = "AvoidSticky",
-  PreferSticky = "PreferSticky",
-}
+export const NumberSelectionBehavior = {
+  AvoidSticky: "AvoidSticky",
+  PreferSticky: "PreferSticky",
+};
 
 /**
  * @public
@@ -2916,17 +2916,17 @@ export interface CreateProxySessionRequest {
   /**
    * <p>The proxy session capabilities.</p>
    */
-  Capabilities: (Capability | string)[] | undefined;
+  Capabilities: (keyof typeof Capability | string)[] | undefined;
 
   /**
    * <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
    */
-  NumberSelectionBehavior?: NumberSelectionBehavior | string;
+  NumberSelectionBehavior?: keyof typeof NumberSelectionBehavior | string;
 
   /**
    * <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
    */
-  GeoMatchLevel?: GeoMatchLevel | string;
+  GeoMatchLevel?: keyof typeof GeoMatchLevel | string;
 
   /**
    * <p>The country and area code for the proxy phone number.</p>
@@ -2953,11 +2953,11 @@ export interface Participant {
 /**
  * @public
  */
-export enum ProxySessionStatus {
-  Closed = "Closed",
-  InProgress = "InProgress",
-  Open = "Open",
-}
+export const ProxySessionStatus = {
+  Closed: "Closed",
+  InProgress: "InProgress",
+  Open: "Open",
+};
 
 /**
  * @public
@@ -2982,7 +2982,7 @@ export interface ProxySession {
   /**
    * <p>The status of the proxy session.</p>
    */
-  Status?: ProxySessionStatus | string;
+  Status?: keyof typeof ProxySessionStatus | string;
 
   /**
    * <p>The number of minutes allowed for the proxy session.</p>
@@ -2992,7 +2992,7 @@ export interface ProxySession {
   /**
    * <p>The proxy session capabilities.</p>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: (keyof typeof Capability | string)[];
 
   /**
    * <p>The created time stamp, in ISO 8601 format.</p>
@@ -3017,12 +3017,12 @@ export interface ProxySession {
   /**
    * <p>The preference for proxy phone number reuse, or stickiness, between the same participants across sessions.</p>
    */
-  NumberSelectionBehavior?: NumberSelectionBehavior | string;
+  NumberSelectionBehavior?: keyof typeof NumberSelectionBehavior | string;
 
   /**
    * <p>The preference for matching the country or area code of the proxy phone number with that of the first participant.</p>
    */
-  GeoMatchLevel?: GeoMatchLevel | string;
+  GeoMatchLevel?: keyof typeof GeoMatchLevel | string;
 
   /**
    * <p>The country and area code for the proxy phone number.</p>
@@ -3128,17 +3128,17 @@ export interface CreateRoomMembershipRequest {
   /**
    * <p>The role of the member.</p>
    */
-  Role?: RoomMembershipRole | string;
+  Role?: keyof typeof RoomMembershipRole | string;
 }
 
 /**
  * @public
  */
-export enum MemberType {
-  Bot = "Bot",
-  User = "User",
-  Webhook = "Webhook",
-}
+export const MemberType = {
+  Bot: "Bot",
+  User: "User",
+  Webhook: "Webhook",
+};
 
 /**
  * @public
@@ -3153,7 +3153,7 @@ export interface Member {
   /**
    * <p>The member type.</p>
    */
-  MemberType?: MemberType | string;
+  MemberType?: keyof typeof MemberType | string;
 
   /**
    * <p>The member email address.</p>
@@ -3189,7 +3189,7 @@ export interface RoomMembership {
   /**
    * <p>The membership role.</p>
    */
-  Role?: RoomMembershipRole | string;
+  Role?: keyof typeof RoomMembershipRole | string;
 
   /**
    * <p>The identifier of the user that invited the room member.</p>
@@ -3360,10 +3360,10 @@ export interface SipRuleTargetApplication {
 /**
  * @public
  */
-export enum SipRuleTriggerType {
-  RequestUriHostname = "RequestUriHostname",
-  ToPhoneNumber = "ToPhoneNumber",
-}
+export const SipRuleTriggerType = {
+  RequestUriHostname: "RequestUriHostname",
+  ToPhoneNumber: "ToPhoneNumber",
+};
 
 /**
  * @public
@@ -3377,7 +3377,7 @@ export interface CreateSipRuleRequest {
   /**
    * <p>The type of trigger assigned to the SIP rule in <code>TriggerValue</code>, currently <code>RequestUriHostname</code> or <code>ToPhoneNumber</code>.</p>
    */
-  TriggerType: SipRuleTriggerType | string | undefined;
+  TriggerType: keyof typeof SipRuleTriggerType | string | undefined;
 
   /**
    * <p>If <code>TriggerType</code> is <code>RequestUriHostname</code>, the value can be the outbound
@@ -3424,7 +3424,7 @@ export interface SipRule {
    * <p>The type of trigger assigned to the SIP rule in <code>TriggerValue</code>, currently <code>RequestUriHostname</code> or
    *         <code>ToPhoneNumber</code>.</p>
    */
-  TriggerType?: SipRuleTriggerType | string;
+  TriggerType?: keyof typeof SipRuleTriggerType | string;
 
   /**
    * <p>If <code>TriggerType</code> is <code>RequestUriHostname</code>, then the value can be the
@@ -3484,26 +3484,26 @@ export interface CreateUserRequest {
   /**
    * <p>The user type.</p>
    */
-  UserType?: UserType | string;
+  UserType?: keyof typeof UserType | string;
 }
 
 /**
  * @public
  */
-export enum InviteStatus {
-  Accepted = "Accepted",
-  Failed = "Failed",
-  Pending = "Pending",
-}
+export const InviteStatus = {
+  Accepted: "Accepted",
+  Failed: "Failed",
+  Pending: "Pending",
+};
 
 /**
  * @public
  */
-export enum RegistrationStatus {
-  Registered = "Registered",
-  Suspended = "Suspended",
-  Unregistered = "Unregistered",
-}
+export const RegistrationStatus = {
+  Registered: "Registered",
+  Suspended: "Suspended",
+  Unregistered: "Unregistered",
+};
 
 /**
  * @public
@@ -3538,22 +3538,22 @@ export interface User {
   /**
    * <p>The license type for the user.</p>
    */
-  LicenseType?: License | string;
+  LicenseType?: keyof typeof License | string;
 
   /**
    * <p>The user type.</p>
    */
-  UserType?: UserType | string;
+  UserType?: keyof typeof UserType | string;
 
   /**
    * <p>The user registration status.</p>
    */
-  UserRegistrationStatus?: RegistrationStatus | string;
+  UserRegistrationStatus?: keyof typeof RegistrationStatus | string;
 
   /**
    * <p>The user invite status.</p>
    */
-  UserInvitationStatus?: InviteStatus | string;
+  UserInvitationStatus?: keyof typeof InviteStatus | string;
 
   /**
    * <p>Date and time when the user is registered, in ISO 8601 format.</p>
@@ -3589,10 +3589,10 @@ export interface CreateUserResponse {
 /**
  * @public
  */
-export enum VoiceConnectorAwsRegion {
-  US_EAST_1 = "us-east-1",
-  US_WEST_2 = "us-west-2",
-}
+export const VoiceConnectorAwsRegion = {
+  US_EAST_1: "us-east-1",
+  US_WEST_2: "us-west-2",
+};
 
 /**
  * @public
@@ -3610,7 +3610,7 @@ export interface CreateVoiceConnectorRequest {
    * .
    * </p>
    */
-  AwsRegion?: VoiceConnectorAwsRegion | string;
+  AwsRegion?: keyof typeof VoiceConnectorAwsRegion | string;
 
   /**
    * <p>When enabled, requires encryption for the Amazon Chime Voice Connector.</p>
@@ -3635,7 +3635,7 @@ export interface VoiceConnector {
    * <code>us-east-1</code>.
    * </p>
    */
-  AwsRegion?: VoiceConnectorAwsRegion | string;
+  AwsRegion?: keyof typeof VoiceConnectorAwsRegion | string;
 
   /**
    * <p>The name of the Amazon Chime Voice Connector.</p>
@@ -3799,7 +3799,7 @@ export interface DeleteAccountResponse {}
 export class UnprocessableEntityException extends __BaseException {
   readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -4527,11 +4527,11 @@ export interface DNISEmergencyCallingConfiguration {
 /**
  * @public
  */
-export enum EmailStatus {
-  Failed = "Failed",
-  NotSent = "NotSent",
-  Sent = "Sent",
-}
+export const EmailStatus = {
+  Failed: "Failed",
+  NotSent: "NotSent",
+  Sent: "Sent",
+};
 
 /**
  * @public
@@ -4547,49 +4547,49 @@ export interface EmergencyCallingConfiguration {
 /**
  * @public
  */
-export enum TranscribeMedicalContentIdentificationType {
-  PHI = "PHI",
-}
+export const TranscribeMedicalContentIdentificationType = {
+  PHI: "PHI",
+};
 
 /**
  * @public
  */
-export enum TranscribeMedicalLanguageCode {
-  EN_US = "en-US",
-}
+export const TranscribeMedicalLanguageCode = {
+  EN_US: "en-US",
+};
 
 /**
  * @public
  */
-export enum TranscribeMedicalRegion {
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  AUTO = "auto",
-  CA_CENTRAL_1 = "ca-central-1",
-  EU_WEST_1 = "eu-west-1",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_WEST_2 = "us-west-2",
-}
+export const TranscribeMedicalRegion = {
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  AUTO: "auto",
+  CA_CENTRAL_1: "ca-central-1",
+  EU_WEST_1: "eu-west-1",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_WEST_2: "us-west-2",
+};
 
 /**
  * @public
  */
-export enum TranscribeMedicalSpecialty {
-  Cardiology = "CARDIOLOGY",
-  Neurology = "NEUROLOGY",
-  Oncology = "ONCOLOGY",
-  PrimaryCare = "PRIMARYCARE",
-  Radiology = "RADIOLOGY",
-  Urology = "UROLOGY",
-}
+export const TranscribeMedicalSpecialty = {
+  Cardiology: "CARDIOLOGY",
+  Neurology: "NEUROLOGY",
+  Oncology: "ONCOLOGY",
+  PrimaryCare: "PRIMARYCARE",
+  Radiology: "RADIOLOGY",
+  Urology: "UROLOGY",
+};
 
 /**
  * @public
  */
-export enum TranscribeMedicalType {
-  Conversation = "CONVERSATION",
-  Dictation = "DICTATION",
-}
+export const TranscribeMedicalType = {
+  Conversation: "CONVERSATION",
+  Dictation: "DICTATION",
+};
 
 /**
  * @public
@@ -4599,17 +4599,17 @@ export interface EngineTranscribeMedicalSettings {
   /**
    * <p>The language code specified for the Amazon Transcribe Medical engine.</p>
    */
-  LanguageCode: TranscribeMedicalLanguageCode | string | undefined;
+  LanguageCode: keyof typeof TranscribeMedicalLanguageCode | string | undefined;
 
   /**
    * <p>The specialty specified for the Amazon Transcribe Medical engine.</p>
    */
-  Specialty: TranscribeMedicalSpecialty | string | undefined;
+  Specialty: keyof typeof TranscribeMedicalSpecialty | string | undefined;
 
   /**
    * <p>The type of transcription.</p>
    */
-  Type: TranscribeMedicalType | string | undefined;
+  Type: keyof typeof TranscribeMedicalType | string | undefined;
 
   /**
    * <p>The name of the vocabulary passed to Amazon Transcribe Medical.</p>
@@ -4619,81 +4619,81 @@ export interface EngineTranscribeMedicalSettings {
   /**
    * <p>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region.</p>
    */
-  Region?: TranscribeMedicalRegion | string;
+  Region?: keyof typeof TranscribeMedicalRegion | string;
 
   /**
    * <p>Set this field to <code>PHI</code> to identify personal health information in the transcription output.</p>
    */
-  ContentIdentificationType?: TranscribeMedicalContentIdentificationType | string;
+  ContentIdentificationType?: keyof typeof TranscribeMedicalContentIdentificationType | string;
 }
 
 /**
  * @public
  */
-export enum TranscribeContentIdentificationType {
-  PII = "PII",
-}
+export const TranscribeContentIdentificationType = {
+  PII: "PII",
+};
 
 /**
  * @public
  */
-export enum TranscribeContentRedactionType {
-  PII = "PII",
-}
+export const TranscribeContentRedactionType = {
+  PII: "PII",
+};
 
 /**
  * @public
  */
-export enum TranscribeLanguageCode {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  IT_IT = "it-IT",
-  JA_JP = "ja-JP",
-  KO_KR = "ko-KR",
-  PT_BR = "pt-BR",
-  ZH_CN = "zh-CN",
-}
+export const TranscribeLanguageCode = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  IT_IT: "it-IT",
+  JA_JP: "ja-JP",
+  KO_KR: "ko-KR",
+  PT_BR: "pt-BR",
+  ZH_CN: "zh-CN",
+};
 
 /**
  * @public
  */
-export enum TranscribePartialResultsStability {
-  HIGH = "high",
-  LOW = "low",
-  MEDIUM = "medium",
-}
+export const TranscribePartialResultsStability = {
+  HIGH: "high",
+  LOW: "low",
+  MEDIUM: "medium",
+};
 
 /**
  * @public
  */
-export enum TranscribeRegion {
-  AP_NORTHEAST_1 = "ap-northeast-1",
-  AP_NORTHEAST_2 = "ap-northeast-2",
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  AUTO = "auto",
-  CA_CENTRAL_1 = "ca-central-1",
-  EU_CENTRAL_1 = "eu-central-1",
-  EU_WEST_1 = "eu-west-1",
-  EU_WEST_2 = "eu-west-2",
-  SA_EAST_1 = "sa-east-1",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_WEST_2 = "us-west-2",
-}
+export const TranscribeRegion = {
+  AP_NORTHEAST_1: "ap-northeast-1",
+  AP_NORTHEAST_2: "ap-northeast-2",
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  AUTO: "auto",
+  CA_CENTRAL_1: "ca-central-1",
+  EU_CENTRAL_1: "eu-central-1",
+  EU_WEST_1: "eu-west-1",
+  EU_WEST_2: "eu-west-2",
+  SA_EAST_1: "sa-east-1",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_WEST_2: "us-west-2",
+};
 
 /**
  * @public
  */
-export enum TranscribeVocabularyFilterMethod {
-  Mask = "mask",
-  Remove = "remove",
-  Tag = "tag",
-}
+export const TranscribeVocabularyFilterMethod = {
+  Mask: "mask",
+  Remove: "remove",
+  Tag: "tag",
+};
 
 /**
  * @public
@@ -4703,12 +4703,12 @@ export interface EngineTranscribeSettings {
   /**
    * <p>The language code specified for the Amazon Transcribe engine.</p>
    */
-  LanguageCode: TranscribeLanguageCode | string | undefined;
+  LanguageCode: keyof typeof TranscribeLanguageCode | string | undefined;
 
   /**
    * <p>The filtering method passed to Amazon Transcribe.</p>
    */
-  VocabularyFilterMethod?: TranscribeVocabularyFilterMethod | string;
+  VocabularyFilterMethod?: keyof typeof TranscribeVocabularyFilterMethod | string;
 
   /**
    * <p>The name of the vocabulary filter passed to Amazon Transcribe.</p>
@@ -4723,7 +4723,7 @@ export interface EngineTranscribeSettings {
   /**
    * <p>The AWS Region passed to Amazon Transcribe. If you don't specify a Region, Amazon Chime uses the meeting's Region.</p>
    */
-  Region?: TranscribeRegion | string;
+  Region?: keyof typeof TranscribeRegion | string;
 
   /**
    * <p>Generates partial transcription results that are less likely to change as meeting attendees speak. It does so by only allowing the last few words from the partial results to change.</p>
@@ -4733,17 +4733,17 @@ export interface EngineTranscribeSettings {
   /**
    * <p>The stabity level of a partial results transcription. Determines how stable you want the transcription results to be. A higher level means the transcription results are less likely to change.</p>
    */
-  PartialResultsStability?: TranscribePartialResultsStability | string;
+  PartialResultsStability?: keyof typeof TranscribePartialResultsStability | string;
 
   /**
    * <p>Set this field to <code>PII</code> to identify personally identifiable information in the transcription output.</p>
    */
-  ContentIdentificationType?: TranscribeContentIdentificationType | string;
+  ContentIdentificationType?: keyof typeof TranscribeContentIdentificationType | string;
 
   /**
    * <p>Set this field to <code>PII</code> to redact personally identifiable information in the transcription output. Content redaction is performed only upon complete transcription of the audio segments.</p>
    */
-  ContentRedactionType?: TranscribeContentRedactionType | string;
+  ContentRedactionType?: keyof typeof TranscribeContentRedactionType | string;
 
   /**
    * <p>Lists the PII entity types you want to identify or redact. To specify entity types, you must enable <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>
@@ -5080,13 +5080,13 @@ export interface GetPhoneNumberRequest {
 /**
  * @public
  */
-export enum PhoneNumberAssociationName {
-  AccountId = "AccountId",
-  SipRuleId = "SipRuleId",
-  UserId = "UserId",
-  VoiceConnectorGroupId = "VoiceConnectorGroupId",
-  VoiceConnectorId = "VoiceConnectorId",
-}
+export const PhoneNumberAssociationName = {
+  AccountId: "AccountId",
+  SipRuleId: "SipRuleId",
+  UserId: "UserId",
+  VoiceConnectorGroupId: "VoiceConnectorGroupId",
+  VoiceConnectorId: "VoiceConnectorId",
+};
 
 /**
  * @public
@@ -5103,7 +5103,7 @@ export interface PhoneNumberAssociation {
    * <p>Defines the association with an Amazon Chime account ID, user ID, Amazon Chime Voice Connector
    *             ID, or Amazon Chime Voice Connector group ID.</p>
    */
-  Name?: PhoneNumberAssociationName | string;
+  Name?: keyof typeof PhoneNumberAssociationName | string;
 
   /**
    * <p>The timestamp of the phone number association, in ISO 8601 format.</p>
@@ -5151,24 +5151,24 @@ export interface PhoneNumberCapabilities {
 /**
  * @public
  */
-export enum PhoneNumberStatus {
-  AcquireFailed = "AcquireFailed",
-  AcquireInProgress = "AcquireInProgress",
-  Assigned = "Assigned",
-  DeleteFailed = "DeleteFailed",
-  DeleteInProgress = "DeleteInProgress",
-  ReleaseFailed = "ReleaseFailed",
-  ReleaseInProgress = "ReleaseInProgress",
-  Unassigned = "Unassigned",
-}
+export const PhoneNumberStatus = {
+  AcquireFailed: "AcquireFailed",
+  AcquireInProgress: "AcquireInProgress",
+  Assigned: "Assigned",
+  DeleteFailed: "DeleteFailed",
+  DeleteInProgress: "DeleteInProgress",
+  ReleaseFailed: "ReleaseFailed",
+  ReleaseInProgress: "ReleaseInProgress",
+  Unassigned: "Unassigned",
+};
 
 /**
  * @public
  */
-export enum PhoneNumberType {
-  Local = "Local",
-  TollFree = "TollFree",
-}
+export const PhoneNumberType = {
+  Local: "Local",
+  TollFree: "TollFree",
+};
 
 /**
  * @public
@@ -5194,17 +5194,17 @@ export interface PhoneNumber {
   /**
    * <p>The phone number type.</p>
    */
-  Type?: PhoneNumberType | string;
+  Type?: keyof typeof PhoneNumberType | string;
 
   /**
    * <p>The phone number product type.</p>
    */
-  ProductType?: PhoneNumberProductType | string;
+  ProductType?: keyof typeof PhoneNumberProductType | string;
 
   /**
    * <p>The phone number status.</p>
    */
-  Status?: PhoneNumberStatus | string;
+  Status?: keyof typeof PhoneNumberStatus | string;
 
   /**
    * <p>The phone number capabilities.</p>
@@ -5224,7 +5224,7 @@ export interface PhoneNumber {
   /**
    * <p>The outbound calling name status.</p>
    */
-  CallingNameStatus?: CallingNameStatus | string;
+  CallingNameStatus?: keyof typeof CallingNameStatus | string;
 
   /**
    * <p>The phone number creation timestamp, in ISO 8601 format.</p>

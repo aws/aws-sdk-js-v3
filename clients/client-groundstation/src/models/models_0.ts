@@ -103,11 +103,11 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum ComponentType {
-  DIGITIZER = "DIGITIZER",
-  LAMINAR_FLOW = "LAMINAR_FLOW",
-  PRISM = "PRISM",
-}
+export const ComponentType = {
+  DIGITIZER: "DIGITIZER",
+  LAMINAR_FLOW: "LAMINAR_FLOW",
+  PRISM: "PRISM",
+};
 
 /**
  * @public
@@ -117,7 +117,7 @@ export interface ComponentVersion {
   /**
    * <p>Component type.</p>
    */
-  componentType: ComponentType | string | undefined;
+  componentType: keyof typeof ComponentType | string | undefined;
 
   /**
    * <p>List of versions.</p>
@@ -205,12 +205,12 @@ export interface RegisterAgentResponse {
 /**
  * @public
  */
-export enum AgentStatus {
-  ACTIVE = "ACTIVE",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  SUCCESS = "SUCCESS",
-}
+export const AgentStatus = {
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -220,7 +220,7 @@ export interface AggregateStatus {
   /**
    * <p>Aggregate status.</p>
    */
-  status: AgentStatus | string | undefined;
+  status: keyof typeof AgentStatus | string | undefined;
 
   /**
    * <p>Sparse map of failure signatures.</p>
@@ -236,7 +236,7 @@ export interface ComponentStatusData {
   /**
    * <p>The Component type.</p>
    */
-  componentType: ComponentType | string | undefined;
+  componentType: keyof typeof ComponentType | string | undefined;
 
   /**
    * <p>Capability ARN of the component.</p>
@@ -246,7 +246,7 @@ export interface ComponentStatusData {
   /**
    * <p>Component status.</p>
    */
-  status: AgentStatus | string | undefined;
+  status: keyof typeof AgentStatus | string | undefined;
 
   /**
    * <p>Bytes sent by the component.</p>
@@ -307,10 +307,10 @@ export interface UpdateAgentStatusResponse {
 /**
  * @public
  */
-export enum AngleUnits {
-  DEGREE_ANGLE = "DEGREE_ANGLE",
-  RADIAN = "RADIAN",
-}
+export const AngleUnits = {
+  DEGREE_ANGLE: "DEGREE_ANGLE",
+  RADIAN: "RADIAN",
+};
 
 /**
  * @public
@@ -326,11 +326,11 @@ export interface AntennaDemodDecodeDetails {
 /**
  * @public
  */
-export enum BandwidthUnits {
-  GHZ = "GHz",
-  KHZ = "kHz",
-  MHZ = "MHz",
-}
+export const BandwidthUnits = {
+  GHZ: "GHz",
+  KHZ: "kHz",
+  MHZ: "MHz",
+};
 
 /**
  * @public
@@ -356,17 +356,17 @@ export interface FrequencyBandwidth {
   /**
    * <p>Frequency bandwidth units.</p>
    */
-  units: BandwidthUnits | string | undefined;
+  units: keyof typeof BandwidthUnits | string | undefined;
 }
 
 /**
  * @public
  */
-export enum FrequencyUnits {
-  GHZ = "GHz",
-  KHZ = "kHz",
-  MHZ = "MHz",
-}
+export const FrequencyUnits = {
+  GHZ: "GHz",
+  KHZ: "kHz",
+  MHZ: "MHz",
+};
 
 /**
  * @public
@@ -381,17 +381,17 @@ export interface Frequency {
   /**
    * <p>Frequency units.</p>
    */
-  units: FrequencyUnits | string | undefined;
+  units: keyof typeof FrequencyUnits | string | undefined;
 }
 
 /**
  * @public
  */
-export enum Polarization {
-  LEFT_HAND = "LEFT_HAND",
-  NONE = "NONE",
-  RIGHT_HAND = "RIGHT_HAND",
-}
+export const Polarization = {
+  LEFT_HAND: "LEFT_HAND",
+  NONE: "NONE",
+  RIGHT_HAND: "RIGHT_HAND",
+};
 
 /**
  * @public
@@ -422,7 +422,7 @@ export interface SpectrumConfig {
   /**
    * <p>Polarization of a spectral <code>Config</code>. Capturing both <code>"RIGHT_HAND"</code> and <code>"LEFT_HAND"</code> polarization requires two separate configs.</p>
    */
-  polarization?: Polarization | string;
+  polarization?: keyof typeof Polarization | string;
 }
 
 /**
@@ -493,15 +493,15 @@ export interface UplinkSpectrumConfig {
   /**
    * <p>Polarization of an uplink spectral <code>Config</code>. Capturing both <code>"RIGHT_HAND"</code> and <code>"LEFT_HAND"</code> polarization requires two separate configs.</p>
    */
-  polarization?: Polarization | string;
+  polarization?: keyof typeof Polarization | string;
 }
 
 /**
  * @public
  */
-export enum EirpUnits {
-  DBW = "dBW",
-}
+export const EirpUnits = {
+  DBW: "dBW",
+};
 
 /**
  * @public
@@ -516,7 +516,7 @@ export interface Eirp {
   /**
    * <p>Units of an EIRP.</p>
    */
-  units: EirpUnits | string | undefined;
+  units: keyof typeof EirpUnits | string | undefined;
 }
 
 /**
@@ -543,10 +543,10 @@ export interface AntennaUplinkConfig {
 /**
  * @public
  */
-export enum AuditResults {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-}
+export const AuditResults = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+};
 
 /**
  * @public
@@ -651,12 +651,12 @@ export interface AwsGroundStationAgentEndpoint {
   /**
    * <p>The status of AgentEndpoint.</p>
    */
-  agentStatus?: AgentStatus | string;
+  agentStatus?: keyof typeof AgentStatus | string;
 
   /**
    * <p>The results of the audit.</p>
    */
-  auditResults?: AuditResults | string;
+  auditResults?: keyof typeof AuditResults | string;
 }
 
 /**
@@ -684,15 +684,15 @@ export interface ContactIdResponse {
 /**
  * @public
  */
-export enum ConfigCapabilityType {
-  ANTENNA_DOWNLINK = "antenna-downlink",
-  ANTENNA_DOWNLINK_DEMOD_DECODE = "antenna-downlink-demod-decode",
-  ANTENNA_UPLINK = "antenna-uplink",
-  DATAFLOW_ENDPOINT = "dataflow-endpoint",
-  S3_RECORDING = "s3-recording",
-  TRACKING = "tracking",
-  UPLINK_ECHO = "uplink-echo",
-}
+export const ConfigCapabilityType = {
+  ANTENNA_DOWNLINK: "antenna-downlink",
+  ANTENNA_DOWNLINK_DEMOD_DECODE: "antenna-downlink-demod-decode",
+  ANTENNA_UPLINK: "antenna-uplink",
+  DATAFLOW_ENDPOINT: "dataflow-endpoint",
+  S3_RECORDING: "s3-recording",
+  TRACKING: "tracking",
+  UPLINK_ECHO: "uplink-echo",
+};
 
 /**
  * @public
@@ -707,7 +707,7 @@ export interface ConfigIdResponse {
   /**
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType?: ConfigCapabilityType | string;
+  configType?: keyof typeof ConfigCapabilityType | string;
 
   /**
    * <p>ARN of a <code>Config</code>.</p>
@@ -755,11 +755,11 @@ export interface S3RecordingConfig {
 /**
  * @public
  */
-export enum Criticality {
-  PREFERRED = "PREFERRED",
-  REMOVED = "REMOVED",
-  REQUIRED = "REQUIRED",
-}
+export const Criticality = {
+  PREFERRED: "PREFERRED",
+  REMOVED: "REMOVED",
+  REQUIRED: "REQUIRED",
+};
 
 /**
  * @public
@@ -770,7 +770,7 @@ export interface TrackingConfig {
   /**
    * <p>Current setting for autotrack.</p>
    */
-  autotrack: Criticality | string | undefined;
+  autotrack: keyof typeof Criticality | string | undefined;
 }
 
 /**
@@ -1005,7 +1005,7 @@ export interface DeleteConfigRequest {
   /**
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType: ConfigCapabilityType | string | undefined;
+  configType: keyof typeof ConfigCapabilityType | string | undefined;
 }
 
 /**
@@ -1021,7 +1021,7 @@ export interface GetConfigRequest {
   /**
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType: ConfigCapabilityType | string | undefined;
+  configType: keyof typeof ConfigCapabilityType | string | undefined;
 }
 
 /**
@@ -1048,7 +1048,7 @@ export interface GetConfigResponse {
   /**
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType?: ConfigCapabilityType | string;
+  configType?: keyof typeof ConfigCapabilityType | string;
 
   /**
    * <p>Data elements in a <code>Config</code>.</p>
@@ -1090,7 +1090,7 @@ export interface ConfigListItem {
   /**
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType?: ConfigCapabilityType | string;
+  configType?: keyof typeof ConfigCapabilityType | string;
 
   /**
    * <p>ARN of a <code>Config</code>.</p>
@@ -1137,7 +1137,7 @@ export interface UpdateConfigRequest {
   /**
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType: ConfigCapabilityType | string | undefined;
+  configType: keyof typeof ConfigCapabilityType | string | undefined;
 
   /**
    * <p>Parameters of a <code>Config</code>.</p>
@@ -1148,13 +1148,13 @@ export interface UpdateConfigRequest {
 /**
  * @public
  */
-export enum EndpointStatus {
-  created = "created",
-  creating = "creating",
-  deleted = "deleted",
-  deleting = "deleting",
-  failed = "failed",
-}
+export const EndpointStatus = {
+  created: "created",
+  creating: "creating",
+  deleted: "deleted",
+  deleting: "deleting",
+  failed: "failed",
+};
 
 /**
  * @public
@@ -1174,7 +1174,7 @@ export interface DataflowEndpoint {
   /**
    * <p>Status of a dataflow endpoint.</p>
    */
-  status?: EndpointStatus | string;
+  status?: keyof typeof EndpointStatus | string;
 
   /**
    * <p>Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.</p>
@@ -1321,21 +1321,21 @@ export interface DescribeContactRequest {
 /**
  * @public
  */
-export enum ContactStatus {
-  AVAILABLE = "AVAILABLE",
-  AWS_CANCELLED = "AWS_CANCELLED",
-  AWS_FAILED = "AWS_FAILED",
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  FAILED_TO_SCHEDULE = "FAILED_TO_SCHEDULE",
-  PASS = "PASS",
-  POSTPASS = "POSTPASS",
-  PREPASS = "PREPASS",
-  SCHEDULED = "SCHEDULED",
-  SCHEDULING = "SCHEDULING",
-}
+export const ContactStatus = {
+  AVAILABLE: "AVAILABLE",
+  AWS_CANCELLED: "AWS_CANCELLED",
+  AWS_FAILED: "AWS_FAILED",
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  FAILED_TO_SCHEDULE: "FAILED_TO_SCHEDULE",
+  PASS: "PASS",
+  POSTPASS: "POSTPASS",
+  PREPASS: "PREPASS",
+  SCHEDULED: "SCHEDULED",
+  SCHEDULING: "SCHEDULING",
+};
 
 /**
  * @public
@@ -1345,7 +1345,7 @@ export interface Destination {
   /**
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType?: ConfigCapabilityType | string;
+  configType?: keyof typeof ConfigCapabilityType | string;
 
   /**
    * <p>UUID of a <code>Config</code>.</p>
@@ -1371,7 +1371,7 @@ export interface Source {
   /**
    * <p>Type of a <code>Config</code>.</p>
    */
-  configType?: ConfigCapabilityType | string;
+  configType?: keyof typeof ConfigCapabilityType | string;
 
   /**
    * <p>UUID of a <code>Config</code>.</p>
@@ -1424,7 +1424,7 @@ export interface Elevation {
   /**
    * <p>Elevation angle units.</p>
    */
-  unit: AngleUnits | string | undefined;
+  unit: keyof typeof AngleUnits | string | undefined;
 }
 
 /**
@@ -1475,7 +1475,7 @@ export interface DescribeContactResponse {
   /**
    * <p>Status of a contact.</p>
    */
-  contactStatus?: ContactStatus | string;
+  contactStatus?: keyof typeof ContactStatus | string;
 
   /**
    * <p>Error message for a contact.</p>
@@ -1521,7 +1521,7 @@ export interface ListContactsRequest {
   /**
    * <p>Status of a contact reservation.</p>
    */
-  statusList: (ContactStatus | string)[] | undefined;
+  statusList: (keyof typeof ContactStatus | string)[] | undefined;
 
   /**
    * <p>Start time of a contact in UTC.</p>
@@ -1597,7 +1597,7 @@ export interface ContactData {
   /**
    * <p>Status of a contact.</p>
    */
-  contactStatus?: ContactStatus | string;
+  contactStatus?: keyof typeof ContactStatus | string;
 
   /**
    * <p>Error message of a contact.</p>
@@ -2155,40 +2155,40 @@ export interface DescribeEphemerisRequest {
 /**
  * @public
  */
-export enum EphemerisInvalidReason {
+export const EphemerisInvalidReason = {
   /**
    * Provided KMS key is invalid
    */
-  KMS_KEY_INVALID = "KMS_KEY_INVALID",
+  KMS_KEY_INVALID: "KMS_KEY_INVALID",
   /**
    * Provided spacecraft identifiers such as spacecraft NORAD Id are invalid
    */
-  METADATA_INVALID = "METADATA_INVALID",
+  METADATA_INVALID: "METADATA_INVALID",
   /**
    * Start, end, or expiration time(s) are invalid for the provided ephemeris
    */
-  TIME_RANGE_INVALID = "TIME_RANGE_INVALID",
+  TIME_RANGE_INVALID: "TIME_RANGE_INVALID",
   /**
    * Provided ephemeris defines invalid spacecraft trajectory
    */
-  TRAJECTORY_INVALID = "TRAJECTORY_INVALID",
+  TRAJECTORY_INVALID: "TRAJECTORY_INVALID",
   /**
    * Internal Service Error occurred while processing ephemeris
    */
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+};
 
 /**
  * @public
  */
-export enum EphemerisStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ERROR = "ERROR",
-  EXPIRED = "EXPIRED",
-  INVALID = "INVALID",
-  VALIDATING = "VALIDATING",
-}
+export const EphemerisStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ERROR: "ERROR",
+  EXPIRED: "EXPIRED",
+  INVALID: "INVALID",
+  VALIDATING: "VALIDATING",
+};
 
 /**
  * @public
@@ -2273,7 +2273,7 @@ export interface DescribeEphemerisResponse {
   /**
    * <p>The status of the ephemeris.</p>
    */
-  status?: EphemerisStatus | string;
+  status?: keyof typeof EphemerisStatus | string;
 
   /**
    * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
@@ -2310,7 +2310,7 @@ export interface DescribeEphemerisResponse {
   /**
    * <p>Reason that an ephemeris failed validation. Only provided for ephemerides with <code>INVALID</code> status.</p>
    */
-  invalidReason?: EphemerisInvalidReason | string;
+  invalidReason?: keyof typeof EphemerisInvalidReason | string;
 }
 
 /**
@@ -2326,7 +2326,7 @@ export interface EphemerisItem {
   /**
    * <p>The status of the ephemeris.</p>
    */
-  status?: EphemerisStatus | string;
+  status?: keyof typeof EphemerisStatus | string;
 
   /**
    * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
@@ -2378,7 +2378,7 @@ export interface ListEphemeridesRequest {
   /**
    * <p>The list of ephemeris status to return.</p>
    */
-  statusList?: (EphemerisStatus | string)[];
+  statusList?: (keyof typeof EphemerisStatus | string)[];
 
   /**
    * <p>Maximum number of ephemerides to return.</p>
@@ -2436,10 +2436,10 @@ export interface UpdateEphemerisRequest {
 /**
  * @public
  */
-export enum EphemerisSource {
-  CUSTOMER_PROVIDED = "CUSTOMER_PROVIDED",
-  SPACE_TRACK = "SPACE_TRACK",
-}
+export const EphemerisSource = {
+  CUSTOMER_PROVIDED: "CUSTOMER_PROVIDED",
+  SPACE_TRACK: "SPACE_TRACK",
+};
 
 /**
  * @public
@@ -2449,7 +2449,7 @@ export interface EphemerisMetaData {
   /**
    * <p>The <code>EphemerisSource</code> that generated a given ephemeris.</p>
    */
-  source: EphemerisSource | string | undefined;
+  source: keyof typeof EphemerisSource | string | undefined;
 
   /**
    * <p>UUID of a customer-provided ephemeris.</p>

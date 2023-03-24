@@ -26,36 +26,36 @@ export class AccountLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum ArtifactNamespace {
-  BUILD_ID = "BUILD_ID",
-  NONE = "NONE",
-}
+export const ArtifactNamespace = {
+  BUILD_ID: "BUILD_ID",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum ArtifactPackaging {
-  NONE = "NONE",
-  ZIP = "ZIP",
-}
+export const ArtifactPackaging = {
+  NONE: "NONE",
+  ZIP: "ZIP",
+};
 
 /**
  * @public
  */
-export enum ArtifactsType {
-  CODEPIPELINE = "CODEPIPELINE",
-  NO_ARTIFACTS = "NO_ARTIFACTS",
-  S3 = "S3",
-}
+export const ArtifactsType = {
+  CODEPIPELINE: "CODEPIPELINE",
+  NO_ARTIFACTS: "NO_ARTIFACTS",
+  S3: "S3",
+};
 
 /**
  * @public
  */
-export enum AuthType {
-  BASIC_AUTH = "BASIC_AUTH",
-  OAUTH = "OAUTH",
-  PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN",
-}
+export const AuthType = {
+  BASIC_AUTH: "BASIC_AUTH",
+  OAUTH: "OAUTH",
+  PERSONAL_ACCESS_TOKEN: "PERSONAL_ACCESS_TOKEN",
+};
 
 /**
  * @public
@@ -131,11 +131,11 @@ export interface BatchGetBuildBatchesInput {
 /**
  * @public
  */
-export enum BucketOwnerAccess {
-  FULL = "FULL",
-  NONE = "NONE",
-  READ_ONLY = "READ_ONLY",
-}
+export const BucketOwnerAccess = {
+  FULL: "FULL",
+  NONE: "NONE",
+  READ_ONLY: "READ_ONLY",
+};
 
 /**
  * @public
@@ -231,16 +231,16 @@ export interface BuildArtifacts {
    *             </dd>
    *          </dl>
    */
-  bucketOwnerAccess?: BucketOwnerAccess | string;
+  bucketOwnerAccess?: keyof typeof BucketOwnerAccess | string;
 }
 
 /**
  * @public
  */
-export enum BatchReportModeType {
-  REPORT_AGGREGATED_BATCH = "REPORT_AGGREGATED_BATCH",
-  REPORT_INDIVIDUAL_BUILDS = "REPORT_INDIVIDUAL_BUILDS",
-}
+export const BatchReportModeType = {
+  REPORT_AGGREGATED_BATCH: "REPORT_AGGREGATED_BATCH",
+  REPORT_INDIVIDUAL_BUILDS: "REPORT_INDIVIDUAL_BUILDS",
+};
 
 /**
  * @public
@@ -303,20 +303,20 @@ export interface ProjectBuildBatchConfig {
    *             </dd>
    *          </dl>
    */
-  batchReportMode?: BatchReportModeType | string;
+  batchReportMode?: keyof typeof BatchReportModeType | string;
 }
 
 /**
  * @public
  */
-export enum StatusType {
-  FAILED = "FAILED",
-  FAULT = "FAULT",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const StatusType = {
+  FAILED: "FAILED",
+  FAULT: "FAULT",
+  IN_PROGRESS: "IN_PROGRESS",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -327,7 +327,7 @@ export interface ResolvedArtifact {
   /**
    * <p>Specifies the type of artifact.</p>
    */
-  type?: ArtifactsType | string;
+  type?: keyof typeof ArtifactsType | string;
 
   /**
    * <p>The location of the artifact.</p>
@@ -384,7 +384,7 @@ export interface BuildSummary {
    *                 </dd>
    *          </dl>
    */
-  buildStatus?: StatusType | string;
+  buildStatus?: keyof typeof StatusType | string;
 
   /**
    * <p>A <code>ResolvedArtifact</code> object that represents the primary build artifacts for the
@@ -438,20 +438,20 @@ export interface BuildGroup {
 /**
  * @public
  */
-export enum CacheMode {
-  LOCAL_CUSTOM_CACHE = "LOCAL_CUSTOM_CACHE",
-  LOCAL_DOCKER_LAYER_CACHE = "LOCAL_DOCKER_LAYER_CACHE",
-  LOCAL_SOURCE_CACHE = "LOCAL_SOURCE_CACHE",
-}
+export const CacheMode = {
+  LOCAL_CUSTOM_CACHE: "LOCAL_CUSTOM_CACHE",
+  LOCAL_DOCKER_LAYER_CACHE: "LOCAL_DOCKER_LAYER_CACHE",
+  LOCAL_SOURCE_CACHE: "LOCAL_SOURCE_CACHE",
+};
 
 /**
  * @public
  */
-export enum CacheType {
-  LOCAL = "LOCAL",
-  NO_CACHE = "NO_CACHE",
-  S3 = "S3",
-}
+export const CacheType = {
+  LOCAL: "LOCAL",
+  NO_CACHE: "NO_CACHE",
+  S3: "S3",
+};
 
 /**
  * @public
@@ -476,7 +476,7 @@ export interface ProjectCache {
    *             </li>
    *          </ul>
    */
-  type: CacheType | string | undefined;
+  type: keyof typeof CacheType | string | undefined;
 
   /**
    * <p>Information about the cache location: </p>
@@ -553,27 +553,27 @@ export interface ProjectCache {
    *                 </dd>
    *          </dl>
    */
-  modes?: (CacheMode | string)[];
+  modes?: (keyof typeof CacheMode | string)[];
 }
 
 /**
  * @public
  */
-export enum ComputeType {
-  BUILD_GENERAL1_2XLARGE = "BUILD_GENERAL1_2XLARGE",
-  BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE",
-  BUILD_GENERAL1_MEDIUM = "BUILD_GENERAL1_MEDIUM",
-  BUILD_GENERAL1_SMALL = "BUILD_GENERAL1_SMALL",
-}
+export const ComputeType = {
+  BUILD_GENERAL1_2XLARGE: "BUILD_GENERAL1_2XLARGE",
+  BUILD_GENERAL1_LARGE: "BUILD_GENERAL1_LARGE",
+  BUILD_GENERAL1_MEDIUM: "BUILD_GENERAL1_MEDIUM",
+  BUILD_GENERAL1_SMALL: "BUILD_GENERAL1_SMALL",
+};
 
 /**
  * @public
  */
-export enum EnvironmentVariableType {
-  PARAMETER_STORE = "PARAMETER_STORE",
-  PLAINTEXT = "PLAINTEXT",
-  SECRETS_MANAGER = "SECRETS_MANAGER",
-}
+export const EnvironmentVariableType = {
+  PARAMETER_STORE: "PARAMETER_STORE",
+  PLAINTEXT: "PLAINTEXT",
+  SECRETS_MANAGER: "SECRETS_MANAGER",
+};
 
 /**
  * @public
@@ -621,23 +621,23 @@ export interface EnvironmentVariable {
    *             </li>
    *          </ul>
    */
-  type?: EnvironmentVariableType | string;
+  type?: keyof typeof EnvironmentVariableType | string;
 }
 
 /**
  * @public
  */
-export enum ImagePullCredentialsType {
-  CODEBUILD = "CODEBUILD",
-  SERVICE_ROLE = "SERVICE_ROLE",
-}
+export const ImagePullCredentialsType = {
+  CODEBUILD: "CODEBUILD",
+  SERVICE_ROLE: "SERVICE_ROLE",
+};
 
 /**
  * @public
  */
-export enum CredentialProviderType {
-  SECRETS_MANAGER = "SECRETS_MANAGER",
-}
+export const CredentialProviderType = {
+  SECRETS_MANAGER: "SECRETS_MANAGER",
+};
 
 /**
  * @public
@@ -670,19 +670,19 @@ export interface RegistryCredential {
    * <p> The service that created the credentials to access a private Docker registry. The
    *             valid value, SECRETS_MANAGER, is for Secrets Manager. </p>
    */
-  credentialProvider: CredentialProviderType | string | undefined;
+  credentialProvider: keyof typeof CredentialProviderType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum EnvironmentType {
-  ARM_CONTAINER = "ARM_CONTAINER",
-  LINUX_CONTAINER = "LINUX_CONTAINER",
-  LINUX_GPU_CONTAINER = "LINUX_GPU_CONTAINER",
-  WINDOWS_CONTAINER = "WINDOWS_CONTAINER",
-  WINDOWS_SERVER_2019_CONTAINER = "WINDOWS_SERVER_2019_CONTAINER",
-}
+export const EnvironmentType = {
+  ARM_CONTAINER: "ARM_CONTAINER",
+  LINUX_CONTAINER: "LINUX_CONTAINER",
+  LINUX_GPU_CONTAINER: "LINUX_GPU_CONTAINER",
+  WINDOWS_CONTAINER: "WINDOWS_CONTAINER",
+  WINDOWS_SERVER_2019_CONTAINER: "WINDOWS_SERVER_2019_CONTAINER",
+};
 
 /**
  * @public
@@ -727,7 +727,7 @@ export interface ProjectEnvironment {
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build environment compute types</a> in the <i>CodeBuild
    *                 user guide</i>.</p>
    */
-  type: EnvironmentType | string | undefined;
+  type: keyof typeof EnvironmentType | string | undefined;
 
   /**
    * <p>The image tag or image digest that identifies the Docker image to use for this build
@@ -795,7 +795,7 @@ export interface ProjectEnvironment {
    *                 Compute Types</a> in the <i>CodeBuild User Guide.</i>
    *         </p>
    */
-  computeType: ComputeType | string | undefined;
+  computeType: keyof typeof ComputeType | string | undefined;
 
   /**
    * <p>A set of environment variables to make available to builds for this build
@@ -859,15 +859,15 @@ export interface ProjectEnvironment {
    *             credentials. When you use an CodeBuild curated image, you must use CODEBUILD credentials.
    *         </p>
    */
-  imagePullCredentialsType?: ImagePullCredentialsType | string;
+  imagePullCredentialsType?: keyof typeof ImagePullCredentialsType | string;
 }
 
 /**
  * @public
  */
-export enum FileSystemType {
-  EFS = "EFS",
-}
+export const FileSystemType = {
+  EFS: "EFS",
+};
 
 /**
  * @public
@@ -880,7 +880,7 @@ export interface ProjectFileSystemLocation {
   /**
    * <p> The type of the file system. The one supported type is <code>EFS</code>. </p>
    */
-  type?: FileSystemType | string;
+  type?: keyof typeof FileSystemType | string;
 
   /**
    * <p>A string that specifies the location of the file system created by Amazon EFS. Its
@@ -924,10 +924,10 @@ export interface ProjectFileSystemLocation {
 /**
  * @public
  */
-export enum LogsConfigStatusType {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const LogsConfigStatusType = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -947,7 +947,7 @@ export interface CloudWatchLogsConfig {
    *             </li>
    *          </ul>
    */
-  status: LogsConfigStatusType | string | undefined;
+  status: keyof typeof LogsConfigStatusType | string | undefined;
 
   /**
    * <p> The group name of the logs in CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
@@ -981,7 +981,7 @@ export interface S3LogsConfig {
    *             </li>
    *          </ul>
    */
-  status: LogsConfigStatusType | string | undefined;
+  status: keyof typeof LogsConfigStatusType | string | undefined;
 
   /**
    * <p> The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket
@@ -1041,7 +1041,7 @@ export interface S3LogsConfig {
    *             </dd>
    *          </dl>
    */
-  bucketOwnerAccess?: BucketOwnerAccess | string;
+  bucketOwnerAccess?: keyof typeof BucketOwnerAccess | string;
 }
 
 /**
@@ -1083,15 +1083,15 @@ export interface PhaseContext {
 /**
  * @public
  */
-export enum BuildBatchPhaseType {
-  COMBINE_ARTIFACTS = "COMBINE_ARTIFACTS",
-  DOWNLOAD_BATCHSPEC = "DOWNLOAD_BATCHSPEC",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-  SUBMITTED = "SUBMITTED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const BuildBatchPhaseType = {
+  COMBINE_ARTIFACTS: "COMBINE_ARTIFACTS",
+  DOWNLOAD_BATCHSPEC: "DOWNLOAD_BATCHSPEC",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  STOPPED: "STOPPED",
+  SUBMITTED: "SUBMITTED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1132,7 +1132,7 @@ export interface BuildBatchPhase {
    *                 </dd>
    *          </dl>
    */
-  phaseType?: BuildBatchPhaseType | string;
+  phaseType?: keyof typeof BuildBatchPhaseType | string;
 
   /**
    * <p>The current status of the batch build phase. Valid values include:</p>
@@ -1163,7 +1163,7 @@ export interface BuildBatchPhase {
    *                 </dd>
    *          </dl>
    */
-  phaseStatus?: StatusType | string;
+  phaseStatus?: keyof typeof StatusType | string;
 
   /**
    * <p>When the batch build phase started, expressed in Unix time format.</p>
@@ -1191,9 +1191,9 @@ export interface BuildBatchPhase {
 /**
  * @public
  */
-export enum SourceAuthType {
-  OAUTH = "OAUTH",
-}
+export const SourceAuthType = {
+  OAUTH: "OAUTH",
+};
 
 /**
  * @public
@@ -1210,7 +1210,7 @@ export interface SourceAuth {
    *         <p>The authorization type to use. The only valid value is <code>OAUTH</code>, which
    *             represents the OAuth authorization type.</p>
    */
-  type: SourceAuthType | string | undefined;
+  type: keyof typeof SourceAuthType | string | undefined;
 
   /**
    * <p>The resource value that applies to the specified authorization type.</p>
@@ -1276,15 +1276,15 @@ export interface GitSubmodulesConfig {
 /**
  * @public
  */
-export enum SourceType {
-  BITBUCKET = "BITBUCKET",
-  CODECOMMIT = "CODECOMMIT",
-  CODEPIPELINE = "CODEPIPELINE",
-  GITHUB = "GITHUB",
-  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
-  NO_SOURCE = "NO_SOURCE",
-  S3 = "S3",
-}
+export const SourceType = {
+  BITBUCKET: "BITBUCKET",
+  CODECOMMIT: "CODECOMMIT",
+  CODEPIPELINE: "CODEPIPELINE",
+  GITHUB: "GITHUB",
+  GITHUB_ENTERPRISE: "GITHUB_ENTERPRISE",
+  NO_SOURCE: "NO_SOURCE",
+  S3: "S3",
+};
 
 /**
  * @public
@@ -1328,7 +1328,7 @@ export interface ProjectSource {
    *             </li>
    *          </ul>
    */
-  type: SourceType | string | undefined;
+  type: keyof typeof SourceType | string | undefined;
 
   /**
    * <p>Information about the location of the source code to be built. Valid values
@@ -1557,7 +1557,7 @@ export interface BuildBatch {
   /**
    * <p>The status of the batch build.</p>
    */
-  buildBatchStatus?: StatusType | string;
+  buildBatchStatus?: keyof typeof StatusType | string;
 
   /**
    * <p>The identifier of the version of the source code to be built.</p>
@@ -1890,19 +1890,19 @@ export interface NetworkInterface {
 /**
  * @public
  */
-export enum BuildPhaseType {
-  BUILD = "BUILD",
-  COMPLETED = "COMPLETED",
-  DOWNLOAD_SOURCE = "DOWNLOAD_SOURCE",
-  FINALIZING = "FINALIZING",
-  INSTALL = "INSTALL",
-  POST_BUILD = "POST_BUILD",
-  PRE_BUILD = "PRE_BUILD",
-  PROVISIONING = "PROVISIONING",
-  QUEUED = "QUEUED",
-  SUBMITTED = "SUBMITTED",
-  UPLOAD_ARTIFACTS = "UPLOAD_ARTIFACTS",
-}
+export const BuildPhaseType = {
+  BUILD: "BUILD",
+  COMPLETED: "COMPLETED",
+  DOWNLOAD_SOURCE: "DOWNLOAD_SOURCE",
+  FINALIZING: "FINALIZING",
+  INSTALL: "INSTALL",
+  POST_BUILD: "POST_BUILD",
+  PRE_BUILD: "PRE_BUILD",
+  PROVISIONING: "PROVISIONING",
+  QUEUED: "QUEUED",
+  SUBMITTED: "SUBMITTED",
+  UPLOAD_ARTIFACTS: "UPLOAD_ARTIFACTS",
+};
 
 /**
  * @public
@@ -1959,7 +1959,7 @@ export interface BuildPhase {
    *                 </dd>
    *          </dl>
    */
-  phaseType?: BuildPhaseType | string;
+  phaseType?: keyof typeof BuildPhaseType | string;
 
   /**
    * <p>The current status of the build phase. Valid values include:</p>
@@ -1990,7 +1990,7 @@ export interface BuildPhase {
    *                 </dd>
    *          </dl>
    */
-  phaseStatus?: StatusType | string;
+  phaseStatus?: keyof typeof StatusType | string;
 
   /**
    * <p>When the build phase started, expressed in Unix time format.</p>
@@ -2082,7 +2082,7 @@ export interface Build {
    *             </li>
    *          </ul>
    */
-  buildStatus?: StatusType | string;
+  buildStatus?: keyof typeof StatusType | string;
 
   /**
    * <p>Any version identifier for the version of the source code to be built. If
@@ -2337,7 +2337,7 @@ export interface ProjectArtifacts {
    *             </li>
    *          </ul>
    */
-  type: ArtifactsType | string | undefined;
+  type: keyof typeof ArtifactsType | string | undefined;
 
   /**
    * <p>Information about the build output artifact location:</p>
@@ -2419,7 +2419,7 @@ export interface ProjectArtifacts {
    *             set to <code>MyArtifact.zip</code>, the output artifact is stored in
    *                 <code>MyArtifacts/<build-ID>/MyArtifact.zip</code>.</p>
    */
-  namespaceType?: ArtifactNamespace | string;
+  namespaceType?: keyof typeof ArtifactNamespace | string;
 
   /**
    * <p>Along with <code>path</code> and <code>namespaceType</code>, the pattern that CodeBuild
@@ -2493,7 +2493,7 @@ export interface ProjectArtifacts {
    *             </li>
    *          </ul>
    */
-  packaging?: ArtifactPackaging | string;
+  packaging?: keyof typeof ArtifactPackaging | string;
 
   /**
    * <p> If this flag is set, a name specified in the buildspec file overrides the artifact
@@ -2559,7 +2559,7 @@ export interface ProjectArtifacts {
    *             </dd>
    *          </dl>
    */
-  bucketOwnerAccess?: BucketOwnerAccess | string;
+  bucketOwnerAccess?: keyof typeof BucketOwnerAccess | string;
 }
 
 /**
@@ -2583,10 +2583,10 @@ export interface ProjectBadge {
 /**
  * @public
  */
-export enum ProjectVisibilityType {
-  PRIVATE = "PRIVATE",
-  PUBLIC_READ = "PUBLIC_READ",
-}
+export const ProjectVisibilityType = {
+  PRIVATE: "PRIVATE",
+  PUBLIC_READ: "PUBLIC_READ",
+};
 
 /**
  * @public
@@ -2608,22 +2608,22 @@ export interface Tag {
 /**
  * @public
  */
-export enum WebhookBuildType {
-  BUILD = "BUILD",
-  BUILD_BATCH = "BUILD_BATCH",
-}
+export const WebhookBuildType = {
+  BUILD: "BUILD",
+  BUILD_BATCH: "BUILD_BATCH",
+};
 
 /**
  * @public
  */
-export enum WebhookFilterType {
-  ACTOR_ACCOUNT_ID = "ACTOR_ACCOUNT_ID",
-  BASE_REF = "BASE_REF",
-  COMMIT_MESSAGE = "COMMIT_MESSAGE",
-  EVENT = "EVENT",
-  FILE_PATH = "FILE_PATH",
-  HEAD_REF = "HEAD_REF",
-}
+export const WebhookFilterType = {
+  ACTOR_ACCOUNT_ID: "ACTOR_ACCOUNT_ID",
+  BASE_REF: "BASE_REF",
+  COMMIT_MESSAGE: "COMMIT_MESSAGE",
+  EVENT: "EVENT",
+  FILE_PATH: "FILE_PATH",
+  HEAD_REF: "HEAD_REF",
+};
 
 /**
  * @public
@@ -2706,7 +2706,7 @@ export interface WebhookFilter {
    *                 </dd>
    *          </dl>
    */
-  type: WebhookFilterType | string | undefined;
+  type: keyof typeof WebhookFilterType | string | undefined;
 
   /**
    * <p> For a <code>WebHookFilter</code> that uses <code>EVENT</code> type, a comma-separated
@@ -2778,7 +2778,7 @@ export interface Webhook {
   /**
    * <p>Specifies the type of build this webhook will trigger.</p>
    */
-  buildType?: WebhookBuildType | string;
+  buildType?: keyof typeof WebhookBuildType | string;
 
   /**
    * <p>A timestamp that indicates the last time a repository's secret token was modified.
@@ -2986,7 +2986,7 @@ export interface Project {
    *             </dd>
    *          </dl>
    */
-  projectVisibility?: ProjectVisibilityType | string;
+  projectVisibility?: keyof typeof ProjectVisibilityType | string;
 
   /**
    * <p>Contains the project identifier used with the public build APIs. </p>
@@ -3030,18 +3030,18 @@ export interface BatchGetReportGroupsInput {
 /**
  * @public
  */
-export enum ReportExportConfigType {
-  NO_EXPORT = "NO_EXPORT",
-  S3 = "S3",
-}
+export const ReportExportConfigType = {
+  NO_EXPORT: "NO_EXPORT",
+  S3: "S3",
+};
 
 /**
  * @public
  */
-export enum ReportPackagingType {
-  NONE = "NONE",
-  ZIP = "ZIP",
-}
+export const ReportPackagingType = {
+  NONE: "NONE",
+  ZIP: "ZIP",
+};
 
 /**
  * @public
@@ -3079,7 +3079,7 @@ export interface S3ReportExportConfig {
    *             </li>
    *          </ul>
    */
-  packaging?: ReportPackagingType | string;
+  packaging?: keyof typeof ReportPackagingType | string;
 
   /**
    * <p> The encryption key for the report's encrypted raw data. </p>
@@ -3110,7 +3110,7 @@ export interface ReportExportConfig {
    *             </li>
    *          </ul>
    */
-  exportConfigType?: ReportExportConfigType | string;
+  exportConfigType?: keyof typeof ReportExportConfigType | string;
 
   /**
    * <p> A <code>S3ReportExportConfig</code> object that contains information about the S3
@@ -3122,18 +3122,18 @@ export interface ReportExportConfig {
 /**
  * @public
  */
-export enum ReportGroupStatusType {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-}
+export const ReportGroupStatusType = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
  */
-export enum ReportType {
-  CODE_COVERAGE = "CODE_COVERAGE",
-  TEST = "TEST",
-}
+export const ReportType = {
+  CODE_COVERAGE: "CODE_COVERAGE",
+  TEST: "TEST",
+};
 
 /**
  * @public
@@ -3168,7 +3168,7 @@ export interface ReportGroup {
    *             </dd>
    *          </dl>
    */
-  type?: ReportType | string;
+  type?: keyof typeof ReportType | string;
 
   /**
    * <p>Information about the destination where the raw data of this <code>ReportGroup</code>
@@ -3207,7 +3207,7 @@ export interface ReportGroup {
    *             </dd>
    *          </dl>
    */
-  status?: ReportGroupStatusType | string;
+  status?: keyof typeof ReportGroupStatusType | string;
 }
 
 /**
@@ -3284,13 +3284,13 @@ export interface CodeCoverageReportSummary {
 /**
  * @public
  */
-export enum ReportStatusType {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  GENERATING = "GENERATING",
-  INCOMPLETE = "INCOMPLETE",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ReportStatusType = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  GENERATING: "GENERATING",
+  INCOMPLETE: "INCOMPLETE",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -3342,7 +3342,7 @@ export interface Report {
    *             </dd>
    *          </dl>
    */
-  type?: ReportType | string;
+  type?: keyof typeof ReportType | string;
 
   /**
    * <p> The name of the report that was run. </p>
@@ -3362,7 +3362,7 @@ export interface Report {
   /**
    * <p> The status of this report. </p>
    */
-  status?: ReportStatusType | string;
+  status?: keyof typeof ReportStatusType | string;
 
   /**
    * <p> The date and time this report run occurred. </p>
@@ -3428,7 +3428,7 @@ export interface BuildBatchFilter {
    * <p>The status of the batch builds to retrieve. Only batch builds that have this status will
    *             be retrieved.</p>
    */
-  status?: StatusType | string;
+  status?: keyof typeof StatusType | string;
 }
 
 /**
@@ -3643,7 +3643,7 @@ export interface CreateReportGroupInput {
    *       The type of report group.
    *     </p>
    */
-  type: ReportType | string | undefined;
+  type: keyof typeof ReportType | string | undefined;
 
   /**
    * <p>
@@ -3707,7 +3707,7 @@ export interface CreateWebhookInput {
   /**
    * <p>Specifies the type of build this webhook will trigger.</p>
    */
-  buildType?: WebhookBuildType | string;
+  buildType?: keyof typeof WebhookBuildType | string;
 }
 
 /**
@@ -3901,18 +3901,18 @@ export interface DeleteWebhookOutput {}
 /**
  * @public
  */
-export enum ReportCodeCoverageSortByType {
-  FILE_PATH = "FILE_PATH",
-  LINE_COVERAGE_PERCENTAGE = "LINE_COVERAGE_PERCENTAGE",
-}
+export const ReportCodeCoverageSortByType = {
+  FILE_PATH: "FILE_PATH",
+  LINE_COVERAGE_PERCENTAGE: "LINE_COVERAGE_PERCENTAGE",
+};
 
 /**
  * @public
  */
-export enum SortOrderType {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrderType = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -3940,7 +3940,7 @@ export interface DescribeCodeCoveragesInput {
   /**
    * <p>Specifies if the results are sorted in ascending or descending order.</p>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: keyof typeof SortOrderType | string;
 
   /**
    * <p>Specifies how the results are sorted. Possible values are:</p>
@@ -3955,7 +3955,7 @@ export interface DescribeCodeCoveragesInput {
    *                 </dd>
    *          </dl>
    */
-  sortBy?: ReportCodeCoverageSortByType | string;
+  sortBy?: keyof typeof ReportCodeCoverageSortByType | string;
 
   /**
    * <p>The minimum line coverage percentage to report.</p>
@@ -4207,17 +4207,17 @@ export interface DescribeTestCasesOutput {
 /**
  * @public
  */
-export enum ReportGroupTrendFieldType {
-  BRANCHES_COVERED = "BRANCHES_COVERED",
-  BRANCHES_MISSED = "BRANCHES_MISSED",
-  BRANCH_COVERAGE = "BRANCH_COVERAGE",
-  DURATION = "DURATION",
-  LINES_COVERED = "LINES_COVERED",
-  LINES_MISSED = "LINES_MISSED",
-  LINE_COVERAGE = "LINE_COVERAGE",
-  PASS_RATE = "PASS_RATE",
-  TOTAL = "TOTAL",
-}
+export const ReportGroupTrendFieldType = {
+  BRANCHES_COVERED: "BRANCHES_COVERED",
+  BRANCHES_MISSED: "BRANCHES_MISSED",
+  BRANCH_COVERAGE: "BRANCH_COVERAGE",
+  DURATION: "DURATION",
+  LINES_COVERED: "LINES_COVERED",
+  LINES_MISSED: "LINES_MISSED",
+  LINE_COVERAGE: "LINE_COVERAGE",
+  PASS_RATE: "PASS_RATE",
+  TOTAL: "TOTAL",
+};
 
 /**
  * @public
@@ -4297,7 +4297,7 @@ export interface GetReportGroupTrendInput {
    *                 </dd>
    *          </dl>
    */
-  trendField: ReportGroupTrendFieldType | string | undefined;
+  trendField: keyof typeof ReportGroupTrendFieldType | string | undefined;
 }
 
 /**
@@ -4376,11 +4376,11 @@ export interface GetResourcePolicyOutput {
 /**
  * @public
  */
-export enum ServerType {
-  BITBUCKET = "BITBUCKET",
-  GITHUB = "GITHUB",
-  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
-}
+export const ServerType = {
+  BITBUCKET: "BITBUCKET",
+  GITHUB: "GITHUB",
+  GITHUB_ENTERPRISE: "GITHUB_ENTERPRISE",
+};
 
 /**
  * @public
@@ -4401,14 +4401,14 @@ export interface ImportSourceCredentialsInput {
   /**
    * <p> The source provider used for this project. </p>
    */
-  serverType: ServerType | string | undefined;
+  serverType: keyof typeof ServerType | string | undefined;
 
   /**
    * <p> The type of authentication used to connect to a GitHub, GitHub Enterprise, or
    *             Bitbucket repository. An OAUTH connection is not supported by the API and must be
    *             created using the CodeBuild console. </p>
    */
-  authType: AuthType | string | undefined;
+  authType: keyof typeof AuthType | string | undefined;
 
   /**
    * <p> Set to <code>false</code> to prevent overwriting the repository source credentials.
@@ -4470,7 +4470,7 @@ export interface ListBuildBatchesInput {
    *             </li>
    *          </ul>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: keyof typeof SortOrderType | string;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous call to
@@ -4530,7 +4530,7 @@ export interface ListBuildBatchesForProjectInput {
    *             </li>
    *          </ul>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: keyof typeof SortOrderType | string;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous call to
@@ -4576,7 +4576,7 @@ export interface ListBuildsInput {
    *             </li>
    *          </ul>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: keyof typeof SortOrderType | string;
 
   /**
    * <p>During a previous call, if there are more than 100 items in the list, only the first
@@ -4633,7 +4633,7 @@ export interface ListBuildsForProjectInput {
    *         <p>If the project has more than 100 builds, setting the sort order will result in an
    *             error. </p>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: keyof typeof SortOrderType | string;
 
   /**
    * <p>During a previous call, if there are more than 100 items in the list, only the first
@@ -4694,18 +4694,18 @@ export interface EnvironmentImage {
 /**
  * @public
  */
-export enum LanguageType {
-  ANDROID = "ANDROID",
-  BASE = "BASE",
-  DOCKER = "DOCKER",
-  DOTNET = "DOTNET",
-  GOLANG = "GOLANG",
-  JAVA = "JAVA",
-  NODE_JS = "NODE_JS",
-  PHP = "PHP",
-  PYTHON = "PYTHON",
-  RUBY = "RUBY",
-}
+export const LanguageType = {
+  ANDROID: "ANDROID",
+  BASE: "BASE",
+  DOCKER: "DOCKER",
+  DOTNET: "DOTNET",
+  GOLANG: "GOLANG",
+  JAVA: "JAVA",
+  NODE_JS: "NODE_JS",
+  PHP: "PHP",
+  PYTHON: "PYTHON",
+  RUBY: "RUBY",
+};
 
 /**
  * @public
@@ -4716,7 +4716,7 @@ export interface EnvironmentLanguage {
   /**
    * <p>The programming language for the Docker images.</p>
    */
-  language?: LanguageType | string;
+  language?: keyof typeof LanguageType | string;
 
   /**
    * <p>The list of Docker images that are related by the specified programming
@@ -4728,12 +4728,12 @@ export interface EnvironmentLanguage {
 /**
  * @public
  */
-export enum PlatformType {
-  AMAZON_LINUX = "AMAZON_LINUX",
-  DEBIAN = "DEBIAN",
-  UBUNTU = "UBUNTU",
-  WINDOWS_SERVER = "WINDOWS_SERVER",
-}
+export const PlatformType = {
+  AMAZON_LINUX: "AMAZON_LINUX",
+  DEBIAN: "DEBIAN",
+  UBUNTU: "UBUNTU",
+  WINDOWS_SERVER: "WINDOWS_SERVER",
+};
 
 /**
  * @public
@@ -4743,7 +4743,7 @@ export interface EnvironmentPlatform {
   /**
    * <p>The platform's name.</p>
    */
-  platform?: PlatformType | string;
+  platform?: keyof typeof PlatformType | string;
 
   /**
    * <p>The list of programming languages that are available for the specified
@@ -4766,11 +4766,11 @@ export interface ListCuratedEnvironmentImagesOutput {
 /**
  * @public
  */
-export enum ProjectSortByType {
-  CREATED_TIME = "CREATED_TIME",
-  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-  NAME = "NAME",
-}
+export const ProjectSortByType = {
+  CREATED_TIME: "CREATED_TIME",
+  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
+  NAME: "NAME",
+};
 
 /**
  * @public
@@ -4797,7 +4797,7 @@ export interface ListProjectsInput {
    *         <p>Use <code>sortOrder</code> to specify in what order to list the build project names
    *             based on the preceding criteria.</p>
    */
-  sortBy?: ProjectSortByType | string;
+  sortBy?: keyof typeof ProjectSortByType | string;
 
   /**
    * <p>The order in which to list build projects. Valid values include:</p>
@@ -4814,7 +4814,7 @@ export interface ListProjectsInput {
    *         <p>Use <code>sortBy</code> to specify the criterion to be used to list build project
    *             names.</p>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: keyof typeof SortOrderType | string;
 
   /**
    * <p>During a previous call, if there are more than 100 items in the list, only the first
@@ -4849,11 +4849,11 @@ export interface ListProjectsOutput {
 /**
  * @public
  */
-export enum ReportGroupSortByType {
-  CREATED_TIME = "CREATED_TIME",
-  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-  NAME = "NAME",
-}
+export const ReportGroupSortByType = {
+  CREATED_TIME: "CREATED_TIME",
+  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
+  NAME: "NAME",
+};
 
 /**
  * @public
@@ -4865,7 +4865,7 @@ export interface ListReportGroupsInput {
    *       <code>ASCENDING</code> and <code>DESCENDING</code>.
    *     </p>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: keyof typeof SortOrderType | string;
 
   /**
    * <p>
@@ -4887,7 +4887,7 @@ export interface ListReportGroupsInput {
    *             </li>
    *          </ul>
    */
-  sortBy?: ReportGroupSortByType | string;
+  sortBy?: keyof typeof ReportGroupSortByType | string;
 
   /**
    * <p>
@@ -4941,7 +4941,7 @@ export interface ReportFilter {
   /**
    * <p> The status used to filter reports. You can filter using one status only. </p>
    */
-  status?: ReportStatusType | string;
+  status?: keyof typeof ReportStatusType | string;
 }
 
 /**
@@ -4965,7 +4965,7 @@ export interface ListReportsInput {
    *             </li>
    *          </ul>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: keyof typeof SortOrderType | string;
 
   /**
    * <p>
@@ -5044,7 +5044,7 @@ export interface ListReportsForReportGroupInput {
    *       Use to specify whether the results are returned in ascending or descending order.
    *     </p>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: keyof typeof SortOrderType | string;
 
   /**
    * <p>
@@ -5088,10 +5088,10 @@ export interface ListReportsForReportGroupOutput {
 /**
  * @public
  */
-export enum SharedResourceSortByType {
-  ARN = "ARN",
-  MODIFIED_TIME = "MODIFIED_TIME",
-}
+export const SharedResourceSortByType = {
+  ARN: "ARN",
+  MODIFIED_TIME: "MODIFIED_TIME",
+};
 
 /**
  * @public
@@ -5112,7 +5112,7 @@ export interface ListSharedProjectsInput {
    *             </li>
    *          </ul>
    */
-  sortBy?: SharedResourceSortByType | string;
+  sortBy?: keyof typeof SharedResourceSortByType | string;
 
   /**
    * <p>The order in which to list shared build projects. Valid values include:</p>
@@ -5127,7 +5127,7 @@ export interface ListSharedProjectsInput {
    *             </li>
    *          </ul>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: keyof typeof SortOrderType | string;
 
   /**
    * <p> The maximum number of paginated shared build projects returned per response. Use
@@ -5185,7 +5185,7 @@ export interface ListSharedReportGroupsInput {
    *             </li>
    *          </ul>
    */
-  sortOrder?: SortOrderType | string;
+  sortOrder?: keyof typeof SortOrderType | string;
 
   /**
    * <p> The criterion to be used to list report groups shared with the current Amazon Web Services account or
@@ -5202,7 +5202,7 @@ export interface ListSharedReportGroupsInput {
    *             </li>
    *          </ul>
    */
-  sortBy?: SharedResourceSortByType | string;
+  sortBy?: keyof typeof SharedResourceSortByType | string;
 
   /**
    * <p> During a previous call, the maximum number of items that can be returned is the value
@@ -5263,13 +5263,13 @@ export interface SourceCredentialsInfo {
    * <p> The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, or
    *             BITBUCKET. </p>
    */
-  serverType?: ServerType | string;
+  serverType?: keyof typeof ServerType | string;
 
   /**
    * <p> The type of authentication used by the credentials. Valid options are OAUTH,
    *             BASIC_AUTH, or PERSONAL_ACCESS_TOKEN. </p>
    */
-  authType?: AuthType | string;
+  authType?: keyof typeof AuthType | string;
 }
 
 /**
@@ -5345,10 +5345,10 @@ export interface RetryBuildOutput {
 /**
  * @public
  */
-export enum RetryBuildBatchType {
-  RETRY_ALL_BUILDS = "RETRY_ALL_BUILDS",
-  RETRY_FAILED_BUILDS = "RETRY_FAILED_BUILDS",
-}
+export const RetryBuildBatchType = {
+  RETRY_ALL_BUILDS: "RETRY_ALL_BUILDS",
+  RETRY_FAILED_BUILDS: "RETRY_FAILED_BUILDS",
+};
 
 /**
  * @public
@@ -5371,7 +5371,7 @@ export interface RetryBuildBatchInput {
   /**
    * <p>Specifies the type of retry to perform.</p>
    */
-  retryType?: RetryBuildBatchType | string;
+  retryType?: keyof typeof RetryBuildBatchType | string;
 }
 
 /**
@@ -5463,7 +5463,7 @@ export interface StartBuildInput {
    * <p>A source input type, for this build, that overrides the source input defined in the
    *             build project.</p>
    */
-  sourceTypeOverride?: SourceType | string;
+  sourceTypeOverride?: keyof typeof SourceType | string;
 
   /**
    * <p>A location that overrides, for this build, the source location for the one defined in
@@ -5537,7 +5537,7 @@ export interface StartBuildInput {
    * <p>A container type for this build that overrides the one specified in the build
    *             project.</p>
    */
-  environmentTypeOverride?: EnvironmentType | string;
+  environmentTypeOverride?: keyof typeof EnvironmentType | string;
 
   /**
    * <p>The name of an image for this build that overrides the one specified in the build
@@ -5549,7 +5549,7 @@ export interface StartBuildInput {
    * <p>The name of a compute type for this build that overrides the one specified in the
    *             build project.</p>
    */
-  computeTypeOverride?: ComputeType | string;
+  computeTypeOverride?: keyof typeof ComputeType | string;
 
   /**
    * <p>The name of a certificate for this build that overrides the one specified in the build
@@ -5634,7 +5634,7 @@ export interface StartBuildInput {
    *             <code>SERVICE_ROLE</code> credentials. When using an CodeBuild curated image,
    *             you must use <code>CODEBUILD</code> credentials. </p>
    */
-  imagePullCredentialsTypeOverride?: ImagePullCredentialsType | string;
+  imagePullCredentialsTypeOverride?: keyof typeof ImagePullCredentialsType | string;
 
   /**
    * <p>Specifies if session debugging is enabled for this build. For more information, see
@@ -5734,7 +5734,7 @@ export interface StartBuildBatchInput {
    * <p>The source input type that overrides the source input defined in the batch
    *         build project.</p>
    */
-  sourceTypeOverride?: SourceType | string;
+  sourceTypeOverride?: keyof typeof SourceType | string;
 
   /**
    * <p>A location that overrides, for this batch build, the source location defined in
@@ -5798,7 +5798,7 @@ export interface StartBuildBatchInput {
    * <p>A container type for this batch build that overrides the one specified in the batch build
    *         project.</p>
    */
-  environmentTypeOverride?: EnvironmentType | string;
+  environmentTypeOverride?: keyof typeof EnvironmentType | string;
 
   /**
    * <p>The name of an image for this batch build that overrides the one specified in the batch
@@ -5810,7 +5810,7 @@ export interface StartBuildBatchInput {
    * <p>The name of a compute type for this batch build that overrides the one specified in the
    *         batch build project.</p>
    */
-  computeTypeOverride?: ComputeType | string;
+  computeTypeOverride?: keyof typeof ComputeType | string;
 
   /**
    * <p>The name of a certificate for this batch build that overrides the one specified in the batch build
@@ -5895,7 +5895,7 @@ export interface StartBuildBatchInput {
    *                 <code>SERVICE_ROLE</code> credentials. When using an CodeBuild curated image,
    *             you must use <code>CODEBUILD</code> credentials. </p>
    */
-  imagePullCredentialsTypeOverride?: ImagePullCredentialsType | string;
+  imagePullCredentialsTypeOverride?: keyof typeof ImagePullCredentialsType | string;
 
   /**
    * <p>A <code>BuildBatchConfigOverride</code> object that contains batch build configuration
@@ -6161,7 +6161,7 @@ export interface UpdateProjectVisibilityInput {
    *             </dd>
    *          </dl>
    */
-  projectVisibility: ProjectVisibilityType | string | undefined;
+  projectVisibility: keyof typeof ProjectVisibilityType | string | undefined;
 
   /**
    * <p>The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for
@@ -6198,7 +6198,7 @@ export interface UpdateProjectVisibilityOutput {
    *             </dd>
    *          </dl>
    */
-  projectVisibility?: ProjectVisibilityType | string;
+  projectVisibility?: keyof typeof ProjectVisibilityType | string;
 }
 
 /**
@@ -6291,7 +6291,7 @@ export interface UpdateWebhookInput {
   /**
    * <p>Specifies the type of build this webhook will trigger.</p>
    */
-  buildType?: WebhookBuildType | string;
+  buildType?: keyof typeof WebhookBuildType | string;
 }
 
 /**

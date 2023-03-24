@@ -2610,7 +2610,7 @@ const deserializeAws_json1_1DescribeTagsOutput = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1DetailsMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [DetailsAttributes | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [keyof typeof DetailsAttributes | string, any]) => {
       if (value === null) {
         return acc;
       }

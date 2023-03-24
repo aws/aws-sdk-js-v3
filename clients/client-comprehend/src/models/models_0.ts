@@ -6,18 +6,18 @@ import { ComprehendServiceException as __BaseException } from "./ComprehendServi
 /**
  * @public
  */
-export enum AugmentedManifestsDocumentTypeFormat {
-  PLAIN_TEXT_DOCUMENT = "PLAIN_TEXT_DOCUMENT",
-  SEMI_STRUCTURED_DOCUMENT = "SEMI_STRUCTURED_DOCUMENT",
-}
+export const AugmentedManifestsDocumentTypeFormat = {
+  PLAIN_TEXT_DOCUMENT: "PLAIN_TEXT_DOCUMENT",
+  SEMI_STRUCTURED_DOCUMENT: "SEMI_STRUCTURED_DOCUMENT",
+};
 
 /**
  * @public
  */
-export enum Split {
-  TEST = "TEST",
-  TRAIN = "TRAIN",
-}
+export const Split = {
+  TEST: "TEST",
+  TRAIN: "TRAIN",
+};
 
 /**
  * @public
@@ -38,7 +38,7 @@ export interface AugmentedManifestsListItem {
    *       documents for testing.</p>
    *          <p> TEST - all of the documents in the manifest will be used for testing.</p>
    */
-  Split?: Split | string;
+  Split?: keyof typeof Split | string;
 
   /**
    * <p>The JSON attribute that contains the annotations for your training documents. The number
@@ -81,7 +81,7 @@ export interface AugmentedManifestsListItem {
    *             </li>
    *          </ul>
    */
-  DocumentType?: AugmentedManifestsDocumentTypeFormat | string;
+  DocumentType?: keyof typeof AugmentedManifestsDocumentTypeFormat | string;
 }
 
 /**
@@ -226,12 +226,12 @@ export class InternalServerException extends __BaseException {
 /**
  * @public
  */
-export enum InvalidRequestDetailReason {
-  DOCUMENT_SIZE_EXCEEDED = "DOCUMENT_SIZE_EXCEEDED",
-  PAGE_LIMIT_EXCEEDED = "PAGE_LIMIT_EXCEEDED",
-  TEXTRACT_ACCESS_DENIED = "TEXTRACT_ACCESS_DENIED",
-  UNSUPPORTED_DOC_TYPE = "UNSUPPORTED_DOC_TYPE",
-}
+export const InvalidRequestDetailReason = {
+  DOCUMENT_SIZE_EXCEEDED: "DOCUMENT_SIZE_EXCEEDED",
+  PAGE_LIMIT_EXCEEDED: "PAGE_LIMIT_EXCEEDED",
+  TEXTRACT_ACCESS_DENIED: "TEXTRACT_ACCESS_DENIED",
+  UNSUPPORTED_DOC_TYPE: "UNSUPPORTED_DOC_TYPE",
+};
 
 /**
  * @public
@@ -255,15 +255,15 @@ export interface InvalidRequestDetail {
   /**
    * <p>Reason code is <code>INVALID_DOCUMENT</code>.</p>
    */
-  Reason?: InvalidRequestDetailReason | string;
+  Reason?: keyof typeof InvalidRequestDetailReason | string;
 }
 
 /**
  * @public
  */
-export enum InvalidRequestReason {
-  INVALID_DOCUMENT = "INVALID_DOCUMENT",
-}
+export const InvalidRequestReason = {
+  INVALID_DOCUMENT: "INVALID_DOCUMENT",
+};
 
 /**
  * @public
@@ -273,7 +273,7 @@ export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: InvalidRequestReason | string;
+  Reason?: keyof typeof InvalidRequestReason | string;
   /**
    * <p>Provides additional detail about why the request failed:</p>
    *          <ul>
@@ -333,20 +333,20 @@ export class TextSizeLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum LanguageCode {
-  AR = "ar",
-  DE = "de",
-  EN = "en",
-  ES = "es",
-  FR = "fr",
-  HI = "hi",
-  IT = "it",
-  JA = "ja",
-  KO = "ko",
-  PT = "pt",
-  ZH = "zh",
-  ZH_TW = "zh-TW",
-}
+export const LanguageCode = {
+  AR: "ar",
+  DE: "de",
+  EN: "en",
+  ES: "es",
+  FR: "fr",
+  HI: "hi",
+  IT: "it",
+  JA: "ja",
+  KO: "ko",
+  PT: "pt",
+  ZH: "zh",
+  ZH_TW: "zh-TW",
+};
 
 /**
  * @public
@@ -362,7 +362,7 @@ export interface BatchDetectEntitiesRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**
@@ -415,17 +415,17 @@ export interface BlockReference {
 /**
  * @public
  */
-export enum EntityType {
-  COMMERCIAL_ITEM = "COMMERCIAL_ITEM",
-  DATE = "DATE",
-  EVENT = "EVENT",
-  LOCATION = "LOCATION",
-  ORGANIZATION = "ORGANIZATION",
-  OTHER = "OTHER",
-  PERSON = "PERSON",
-  QUANTITY = "QUANTITY",
-  TITLE = "TITLE",
-}
+export const EntityType = {
+  COMMERCIAL_ITEM: "COMMERCIAL_ITEM",
+  DATE: "DATE",
+  EVENT: "EVENT",
+  LOCATION: "LOCATION",
+  ORGANIZATION: "ORGANIZATION",
+  OTHER: "OTHER",
+  PERSON: "PERSON",
+  QUANTITY: "QUANTITY",
+  TITLE: "TITLE",
+};
 
 /**
  * @public
@@ -445,7 +445,7 @@ export interface Entity {
    *          <p>For custom entity detection, this field contains one of the
    *       entity types that you specified when you trained your custom model.</p>
    */
-  Type?: EntityType | string;
+  Type?: keyof typeof EntityType | string;
 
   /**
    * <p>The text of the entity.</p>
@@ -552,7 +552,7 @@ export interface BatchDetectKeyPhrasesRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**
@@ -642,18 +642,18 @@ export interface BatchDetectSentimentRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**
  * @public
  */
-export enum SentimentType {
-  MIXED = "MIXED",
-  NEGATIVE = "NEGATIVE",
-  NEUTRAL = "NEUTRAL",
-  POSITIVE = "POSITIVE",
-}
+export const SentimentType = {
+  MIXED: "MIXED",
+  NEGATIVE: "NEGATIVE",
+  NEUTRAL: "NEUTRAL",
+  POSITIVE: "POSITIVE",
+};
 
 /**
  * @public
@@ -701,7 +701,7 @@ export interface BatchDetectSentimentItemResult {
   /**
    * <p>The sentiment detected in the document.</p>
    */
-  Sentiment?: SentimentType | string;
+  Sentiment?: keyof typeof SentimentType | string;
 
   /**
    * <p>The level of confidence that Amazon Comprehend has in the accuracy of its sentiment
@@ -734,14 +734,14 @@ export interface BatchDetectSentimentResponse {
 /**
  * @public
  */
-export enum SyntaxLanguageCode {
-  DE = "de",
-  EN = "en",
-  ES = "es",
-  FR = "fr",
-  IT = "it",
-  PT = "pt",
-}
+export const SyntaxLanguageCode = {
+  DE: "de",
+  EN: "en",
+  ES: "es",
+  FR: "fr",
+  IT: "it",
+  PT: "pt",
+};
 
 /**
  * @public
@@ -758,32 +758,32 @@ export interface BatchDetectSyntaxRequest {
    *       supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"),
    *       Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
    */
-  LanguageCode: SyntaxLanguageCode | string | undefined;
+  LanguageCode: keyof typeof SyntaxLanguageCode | string | undefined;
 }
 
 /**
  * @public
  */
-export enum PartOfSpeechTagType {
-  ADJ = "ADJ",
-  ADP = "ADP",
-  ADV = "ADV",
-  AUX = "AUX",
-  CCONJ = "CCONJ",
-  CONJ = "CONJ",
-  DET = "DET",
-  INTJ = "INTJ",
-  NOUN = "NOUN",
-  NUM = "NUM",
-  O = "O",
-  PART = "PART",
-  PRON = "PRON",
-  PROPN = "PROPN",
-  PUNCT = "PUNCT",
-  SCONJ = "SCONJ",
-  SYM = "SYM",
-  VERB = "VERB",
-}
+export const PartOfSpeechTagType = {
+  ADJ: "ADJ",
+  ADP: "ADP",
+  ADV: "ADV",
+  AUX: "AUX",
+  CCONJ: "CCONJ",
+  CONJ: "CONJ",
+  DET: "DET",
+  INTJ: "INTJ",
+  NOUN: "NOUN",
+  NUM: "NUM",
+  O: "O",
+  PART: "PART",
+  PRON: "PRON",
+  PROPN: "PROPN",
+  PUNCT: "PUNCT",
+  SCONJ: "SCONJ",
+  SYM: "SYM",
+  VERB: "VERB",
+};
 
 /**
  * @public
@@ -797,7 +797,7 @@ export interface PartOfSpeechTag {
   /**
    * <p>Identifies the part of speech that the token represents.</p>
    */
-  Tag?: PartOfSpeechTagType | string;
+  Tag?: keyof typeof PartOfSpeechTagType | string;
 
   /**
    * <p>The confidence that Amazon Comprehend has that the part of speech was correctly
@@ -894,7 +894,7 @@ export interface BatchDetectTargetedSentimentRequest {
   /**
    * <p>The language of the input documents. Currently, English is the only supported language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**
@@ -906,7 +906,7 @@ export interface MentionSentiment {
   /**
    * <p>The sentiment of the mention. </p>
    */
-  Sentiment?: SentimentType | string;
+  Sentiment?: keyof typeof SentimentType | string;
 
   /**
    * <p>Describes the level of confidence that Amazon Comprehend has in the accuracy of its
@@ -918,25 +918,25 @@ export interface MentionSentiment {
 /**
  * @public
  */
-export enum TargetedSentimentEntityType {
-  ATTRIBUTE = "ATTRIBUTE",
-  BOOK = "BOOK",
-  BRAND = "BRAND",
-  COMMERCIAL_ITEM = "COMMERCIAL_ITEM",
-  DATE = "DATE",
-  EVENT = "EVENT",
-  FACILITY = "FACILITY",
-  GAME = "GAME",
-  LOCATION = "LOCATION",
-  MOVIE = "MOVIE",
-  MUSIC = "MUSIC",
-  ORGANIZATION = "ORGANIZATION",
-  OTHER = "OTHER",
-  PERSON = "PERSON",
-  PERSONAL_TITLE = "PERSONAL_TITLE",
-  QUANTITY = "QUANTITY",
-  SOFTWARE = "SOFTWARE",
-}
+export const TargetedSentimentEntityType = {
+  ATTRIBUTE: "ATTRIBUTE",
+  BOOK: "BOOK",
+  BRAND: "BRAND",
+  COMMERCIAL_ITEM: "COMMERCIAL_ITEM",
+  DATE: "DATE",
+  EVENT: "EVENT",
+  FACILITY: "FACILITY",
+  GAME: "GAME",
+  LOCATION: "LOCATION",
+  MOVIE: "MOVIE",
+  MUSIC: "MUSIC",
+  ORGANIZATION: "ORGANIZATION",
+  OTHER: "OTHER",
+  PERSON: "PERSON",
+  PERSONAL_TITLE: "PERSONAL_TITLE",
+  QUANTITY: "QUANTITY",
+  SOFTWARE: "SOFTWARE",
+};
 
 /**
  * @public
@@ -963,7 +963,7 @@ export interface TargetedSentimentMention {
   /**
    * <p>The type of the entity. Amazon Comprehend supports a variety of <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html#how-targeted-sentiment-entities">entity types</a>.</p>
    */
-  Type?: TargetedSentimentEntityType | string;
+  Type?: keyof typeof TargetedSentimentEntityType | string;
 
   /**
    * <p>Contains the sentiment and sentiment score for the mention.</p>
@@ -1036,10 +1036,10 @@ export interface BatchDetectTargetedSentimentResponse {
 /**
  * @public
  */
-export enum BlockType {
-  LINE = "LINE",
-  WORD = "WORD",
-}
+export const BlockType = {
+  LINE: "LINE",
+  WORD: "WORD",
+};
 
 /**
  * @public
@@ -1110,9 +1110,9 @@ export interface Geometry {
 /**
  * @public
  */
-export enum RelationshipType {
-  CHILD = "CHILD",
-}
+export const RelationshipType = {
+  CHILD: "CHILD",
+};
 
 /**
  * @public
@@ -1127,7 +1127,7 @@ export interface RelationshipsListItem {
   /**
    * <p>Only supported relationship is a child relationship.</p>
    */
-  Type?: RelationshipType | string;
+  Type?: keyof typeof RelationshipType | string;
 }
 
 /**
@@ -1154,7 +1154,7 @@ export interface Block {
    *             </li>
    *          </ul>
    */
-  BlockType?: BlockType | string;
+  BlockType?: keyof typeof BlockType | string;
 
   /**
    * <p>The word or line of text extracted from the block.</p>
@@ -1277,26 +1277,26 @@ export interface ClassifierMetadata {
 /**
  * @public
  */
-export enum DocumentReadAction {
-  TEXTRACT_ANALYZE_DOCUMENT = "TEXTRACT_ANALYZE_DOCUMENT",
-  TEXTRACT_DETECT_DOCUMENT_TEXT = "TEXTRACT_DETECT_DOCUMENT_TEXT",
-}
+export const DocumentReadAction = {
+  TEXTRACT_ANALYZE_DOCUMENT: "TEXTRACT_ANALYZE_DOCUMENT",
+  TEXTRACT_DETECT_DOCUMENT_TEXT: "TEXTRACT_DETECT_DOCUMENT_TEXT",
+};
 
 /**
  * @public
  */
-export enum DocumentReadMode {
-  FORCE_DOCUMENT_READ_ACTION = "FORCE_DOCUMENT_READ_ACTION",
-  SERVICE_DEFAULT = "SERVICE_DEFAULT",
-}
+export const DocumentReadMode = {
+  FORCE_DOCUMENT_READ_ACTION: "FORCE_DOCUMENT_READ_ACTION",
+  SERVICE_DEFAULT: "SERVICE_DEFAULT",
+};
 
 /**
  * @public
  */
-export enum DocumentReadFeatureTypes {
-  FORMS = "FORMS",
-  TABLES = "TABLES",
-}
+export const DocumentReadFeatureTypes = {
+  FORMS: "FORMS",
+  TABLES: "TABLES",
+};
 
 /**
  * @public
@@ -1342,7 +1342,7 @@ export interface DocumentReaderConfig {
    *             </li>
    *          </ul>
    */
-  DocumentReadAction: DocumentReadAction | string | undefined;
+  DocumentReadAction: keyof typeof DocumentReadAction | string | undefined;
 
   /**
    * <p>Determines the text extraction actions for PDF files. Enter one of the following values:</p>
@@ -1358,7 +1358,7 @@ export interface DocumentReaderConfig {
    *             </li>
    *          </ul>
    */
-  DocumentReadMode?: DocumentReadMode | string;
+  DocumentReadMode?: keyof typeof DocumentReadMode | string;
 
   /**
    * <p>Specifies the type of Amazon Textract features to apply. If you chose <code>TEXTRACT_ANALYZE_DOCUMENT</code>
@@ -1374,7 +1374,7 @@ export interface DocumentReaderConfig {
    *             </li>
    *          </ul>
    */
-  FeatureTypes?: (DocumentReadFeatureTypes | string)[];
+  FeatureTypes?: (keyof typeof DocumentReadFeatureTypes | string)[];
 }
 
 /**
@@ -1470,15 +1470,15 @@ export interface DocumentMetadata {
 /**
  * @public
  */
-export enum DocumentType {
-  IMAGE = "IMAGE",
-  MS_WORD = "MS_WORD",
-  NATIVE_PDF = "NATIVE_PDF",
-  PLAIN_TEXT = "PLAIN_TEXT",
-  SCANNED_PDF = "SCANNED_PDF",
-  TEXTRACT_ANALYZE_DOCUMENT_JSON = "TEXTRACT_ANALYZE_DOCUMENT_JSON",
-  TEXTRACT_DETECT_DOCUMENT_TEXT_JSON = "TEXTRACT_DETECT_DOCUMENT_TEXT_JSON",
-}
+export const DocumentType = {
+  IMAGE: "IMAGE",
+  MS_WORD: "MS_WORD",
+  NATIVE_PDF: "NATIVE_PDF",
+  PLAIN_TEXT: "PLAIN_TEXT",
+  SCANNED_PDF: "SCANNED_PDF",
+  TEXTRACT_ANALYZE_DOCUMENT_JSON: "TEXTRACT_ANALYZE_DOCUMENT_JSON",
+  TEXTRACT_DETECT_DOCUMENT_TEXT_JSON: "TEXTRACT_DETECT_DOCUMENT_TEXT_JSON",
+};
 
 /**
  * @public
@@ -1493,19 +1493,19 @@ export interface DocumentTypeListItem {
   /**
    * <p>Document type.</p>
    */
-  Type?: DocumentType | string;
+  Type?: keyof typeof DocumentType | string;
 }
 
 /**
  * @public
  */
-export enum PageBasedErrorCode {
-  INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
-  PAGE_CHARACTERS_EXCEEDED = "PAGE_CHARACTERS_EXCEEDED",
-  PAGE_SIZE_EXCEEDED = "PAGE_SIZE_EXCEEDED",
-  TEXTRACT_BAD_PAGE = "TEXTRACT_BAD_PAGE",
-  TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED = "TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED",
-}
+export const PageBasedErrorCode = {
+  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+  PAGE_CHARACTERS_EXCEEDED: "PAGE_CHARACTERS_EXCEEDED",
+  PAGE_SIZE_EXCEEDED: "PAGE_SIZE_EXCEEDED",
+  TEXTRACT_BAD_PAGE: "TEXTRACT_BAD_PAGE",
+  TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED: "TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED",
+};
 
 /**
  * @public
@@ -1542,7 +1542,7 @@ export interface ErrorsListItem {
   /**
    * <p>Error code for the cause of the error.</p>
    */
-  ErrorCode?: PageBasedErrorCode | string;
+  ErrorCode?: keyof typeof PageBasedErrorCode | string;
 
   /**
    * <p>Text message explaining the reason for the error.</p>
@@ -1646,51 +1646,51 @@ export interface ContainsPiiEntitiesRequest {
   /**
    * <p>The language of the input documents. Currently, English is the only valid language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**
  * @public
  */
-export enum PiiEntityType {
-  ADDRESS = "ADDRESS",
-  AGE = "AGE",
-  ALL = "ALL",
-  AWS_ACCESS_KEY = "AWS_ACCESS_KEY",
-  AWS_SECRET_KEY = "AWS_SECRET_KEY",
-  BANK_ACCOUNT_NUMBER = "BANK_ACCOUNT_NUMBER",
-  BANK_ROUTING = "BANK_ROUTING",
-  CA_HEALTH_NUMBER = "CA_HEALTH_NUMBER",
-  CA_SOCIAL_INSURANCE_NUMBER = "CA_SOCIAL_INSURANCE_NUMBER",
-  CREDIT_DEBIT_CVV = "CREDIT_DEBIT_CVV",
-  CREDIT_DEBIT_EXPIRY = "CREDIT_DEBIT_EXPIRY",
-  CREDIT_DEBIT_NUMBER = "CREDIT_DEBIT_NUMBER",
-  DATE_TIME = "DATE_TIME",
-  DRIVER_ID = "DRIVER_ID",
-  EMAIL = "EMAIL",
-  INTERNATIONAL_BANK_ACCOUNT_NUMBER = "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
-  IN_AADHAAR = "IN_AADHAAR",
-  IN_NREGA = "IN_NREGA",
-  IN_PERMANENT_ACCOUNT_NUMBER = "IN_PERMANENT_ACCOUNT_NUMBER",
-  IN_VOTER_NUMBER = "IN_VOTER_NUMBER",
-  IP_ADDRESS = "IP_ADDRESS",
-  LICENSE_PLATE = "LICENSE_PLATE",
-  MAC_ADDRESS = "MAC_ADDRESS",
-  NAME = "NAME",
-  PASSPORT_NUMBER = "PASSPORT_NUMBER",
-  PASSWORD = "PASSWORD",
-  PHONE = "PHONE",
-  PIN = "PIN",
-  SSN = "SSN",
-  SWIFT_CODE = "SWIFT_CODE",
-  UK_NATIONAL_HEALTH_SERVICE_NUMBER = "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
-  UK_NATIONAL_INSURANCE_NUMBER = "UK_NATIONAL_INSURANCE_NUMBER",
-  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER = "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
-  URL = "URL",
-  USERNAME = "USERNAME",
-  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER = "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
-  VEHICLE_IDENTIFICATION_NUMBER = "VEHICLE_IDENTIFICATION_NUMBER",
-}
+export const PiiEntityType = {
+  ADDRESS: "ADDRESS",
+  AGE: "AGE",
+  ALL: "ALL",
+  AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
+  AWS_SECRET_KEY: "AWS_SECRET_KEY",
+  BANK_ACCOUNT_NUMBER: "BANK_ACCOUNT_NUMBER",
+  BANK_ROUTING: "BANK_ROUTING",
+  CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
+  CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
+  CREDIT_DEBIT_CVV: "CREDIT_DEBIT_CVV",
+  CREDIT_DEBIT_EXPIRY: "CREDIT_DEBIT_EXPIRY",
+  CREDIT_DEBIT_NUMBER: "CREDIT_DEBIT_NUMBER",
+  DATE_TIME: "DATE_TIME",
+  DRIVER_ID: "DRIVER_ID",
+  EMAIL: "EMAIL",
+  INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+  IN_AADHAAR: "IN_AADHAAR",
+  IN_NREGA: "IN_NREGA",
+  IN_PERMANENT_ACCOUNT_NUMBER: "IN_PERMANENT_ACCOUNT_NUMBER",
+  IN_VOTER_NUMBER: "IN_VOTER_NUMBER",
+  IP_ADDRESS: "IP_ADDRESS",
+  LICENSE_PLATE: "LICENSE_PLATE",
+  MAC_ADDRESS: "MAC_ADDRESS",
+  NAME: "NAME",
+  PASSPORT_NUMBER: "PASSPORT_NUMBER",
+  PASSWORD: "PASSWORD",
+  PHONE: "PHONE",
+  PIN: "PIN",
+  SSN: "SSN",
+  SWIFT_CODE: "SWIFT_CODE",
+  UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+  UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
+  UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+  URL: "URL",
+  USERNAME: "USERNAME",
+  US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+  VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
+};
 
 /**
  * @public
@@ -1701,7 +1701,7 @@ export interface EntityLabel {
   /**
    * <p>The name of the label.</p>
    */
-  Name?: PiiEntityType | string;
+  Name?: keyof typeof PiiEntityType | string;
 
   /**
    * <p>The level of confidence that Amazon Comprehend has in the accuracy of the
@@ -1724,10 +1724,10 @@ export interface ContainsPiiEntitiesResponse {
 /**
  * @public
  */
-export enum DatasetType {
-  TEST = "TEST",
-  TRAIN = "TRAIN",
-}
+export const DatasetType = {
+  TEST: "TEST",
+  TRAIN: "TRAIN",
+};
 
 /**
  * @public
@@ -1770,16 +1770,16 @@ export interface DatasetAugmentedManifestsListItem {
    *             <code>PLAIN_TEXT_DOCUMENT</code> A document type that represents any unicode text that
    *       is encoded in UTF-8.</p>
    */
-  DocumentType?: AugmentedManifestsDocumentTypeFormat | string;
+  DocumentType?: keyof typeof AugmentedManifestsDocumentTypeFormat | string;
 }
 
 /**
  * @public
  */
-export enum DatasetDataFormat {
-  AUGMENTED_MANIFEST = "AUGMENTED_MANIFEST",
-  COMPREHEND_CSV = "COMPREHEND_CSV",
-}
+export const DatasetDataFormat = {
+  AUGMENTED_MANIFEST: "AUGMENTED_MANIFEST",
+  COMPREHEND_CSV: "COMPREHEND_CSV",
+};
 
 /**
  * @public
@@ -1827,10 +1827,10 @@ export interface DatasetEntityRecognizerAnnotations {
 /**
  * @public
  */
-export enum InputFormat {
-  ONE_DOC_PER_FILE = "ONE_DOC_PER_FILE",
-  ONE_DOC_PER_LINE = "ONE_DOC_PER_LINE",
-}
+export const InputFormat = {
+  ONE_DOC_PER_FILE: "ONE_DOC_PER_FILE",
+  ONE_DOC_PER_LINE: "ONE_DOC_PER_LINE",
+};
 
 /**
  * @public
@@ -1850,7 +1850,7 @@ export interface DatasetEntityRecognizerDocuments {
    *       scientific papers. ONE_DOC_PER_LINE - Each line in a file is considered a separate document.
    *       Use this option when you are processing many short documents, such as text messages.</p>
    */
-  InputFormat?: InputFormat | string;
+  InputFormat?: keyof typeof InputFormat | string;
 }
 
 /**
@@ -1908,7 +1908,7 @@ export interface DatasetInputDataConfig {
    *          <p>
    *             <code>AUGMENTED_MANIFEST</code>: The data format  </p>
    */
-  DataFormat?: DatasetDataFormat | string;
+  DataFormat?: keyof typeof DatasetDataFormat | string;
 
   /**
    * <p>The input properties for training a document classifier model. </p>
@@ -1965,7 +1965,7 @@ export interface CreateDatasetRequest {
    * <p>The dataset type. You can specify that the data in a dataset is for training
    *       the model or for testing the model.</p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: keyof typeof DatasetType | string;
 
   /**
    * <p>Description of the dataset.</p>
@@ -2117,10 +2117,10 @@ export class TooManyTagsException extends __BaseException {
 /**
  * @public
  */
-export enum DocumentClassifierDataFormat {
-  AUGMENTED_MANIFEST = "AUGMENTED_MANIFEST",
-  COMPREHEND_CSV = "COMPREHEND_CSV",
-}
+export const DocumentClassifierDataFormat = {
+  AUGMENTED_MANIFEST: "AUGMENTED_MANIFEST",
+  COMPREHEND_CSV: "COMPREHEND_CSV",
+};
 
 /**
  * @public
@@ -2151,7 +2151,7 @@ export interface DocumentClassifierInputDataConfig {
    *          <p>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as the
    *       default.</p>
    */
-  DataFormat?: DocumentClassifierDataFormat | string;
+  DataFormat?: keyof typeof DocumentClassifierDataFormat | string;
 
   /**
    * <p>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API
@@ -2195,10 +2195,10 @@ export interface DocumentClassifierInputDataConfig {
 /**
  * @public
  */
-export enum DocumentClassifierMode {
-  MULTI_CLASS = "MULTI_CLASS",
-  MULTI_LABEL = "MULTI_LABEL",
-}
+export const DocumentClassifierMode = {
+  MULTI_CLASS: "MULTI_CLASS",
+  MULTI_LABEL: "MULTI_LABEL",
+};
 
 /**
  * @public
@@ -2327,7 +2327,7 @@ export interface CreateDocumentClassifierRequest {
    * <p>The language of the input documents. You can specify any of the languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
@@ -2361,7 +2361,7 @@ export interface CreateDocumentClassifierRequest {
    *       labels for an individual document are separated by a delimiter. The default delimiter between
    *       labels is a pipe (|).</p>
    */
-  Mode?: DocumentClassifierMode | string;
+  Mode?: keyof typeof DocumentClassifierMode | string;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
@@ -2520,10 +2520,10 @@ export interface EntityRecognizerAnnotations {
 /**
  * @public
  */
-export enum EntityRecognizerDataFormat {
-  AUGMENTED_MANIFEST = "AUGMENTED_MANIFEST",
-  COMPREHEND_CSV = "COMPREHEND_CSV",
-}
+export const EntityRecognizerDataFormat = {
+  AUGMENTED_MANIFEST: "AUGMENTED_MANIFEST",
+  COMPREHEND_CSV: "COMPREHEND_CSV",
+};
 
 /**
  * @public
@@ -2551,7 +2551,7 @@ export interface EntityRecognizerDocuments {
    *       scientific papers. ONE_DOC_PER_LINE - Each line in a file is considered a separate document.
    *       Use this option when you are processing many short documents, such as text messages.</p>
    */
-  InputFormat?: InputFormat | string;
+  InputFormat?: keyof typeof InputFormat | string;
 }
 
 /**
@@ -2613,7 +2613,7 @@ export interface EntityRecognizerInputDataConfig {
    *          <p>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as the
    *       default.</p>
    */
-  DataFormat?: EntityRecognizerDataFormat | string;
+  DataFormat?: keyof typeof EntityRecognizerDataFormat | string;
 
   /**
    * <p>The entity types in the labeled training data that Amazon Comprehend uses to train the
@@ -2706,7 +2706,7 @@ export interface CreateEntityRecognizerRequest {
    *       specify English as the language.
    *       All training documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
@@ -2823,10 +2823,10 @@ export interface DataSecurityConfig {
 /**
  * @public
  */
-export enum ModelType {
-  DOCUMENT_CLASSIFIER = "DOCUMENT_CLASSIFIER",
-  ENTITY_RECOGNIZER = "ENTITY_RECOGNIZER",
-}
+export const ModelType = {
+  DOCUMENT_CLASSIFIER: "DOCUMENT_CLASSIFIER",
+  ENTITY_RECOGNIZER: "ENTITY_RECOGNIZER",
+};
 
 /**
  * @public
@@ -2836,7 +2836,7 @@ export interface DocumentClassificationConfig {
   /**
    * <p>Classification mode indicates whether the documents are <code>MULTI_CLASS</code> or <code>MULTI_LABEL</code>.</p>
    */
-  Mode: DocumentClassifierMode | string | undefined;
+  Mode: keyof typeof DocumentClassifierMode | string | undefined;
 
   /**
    * <p>One or more labels to associate with the custom classifier.</p>
@@ -2863,7 +2863,7 @@ export interface TaskConfig {
   /**
    * <p>Language code for the language that the model supports.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 
   /**
    * <p>Configuration required for a classification model.</p>
@@ -2904,7 +2904,7 @@ export interface CreateFlywheelRequest {
   /**
    * <p>The model type.</p>
    */
-  ModelType?: ModelType | string;
+  ModelType?: keyof typeof ModelType | string;
 
   /**
    * <p>Enter the S3 location for the data lake. You can specify a new S3 bucket or a new folder of an
@@ -3037,11 +3037,11 @@ export interface DescribeDatasetRequest {
 /**
  * @public
  */
-export enum DatasetStatus {
-  COMPLETED = "COMPLETED",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-}
+export const DatasetStatus = {
+  COMPLETED: "COMPLETED",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
@@ -3061,7 +3061,7 @@ export interface DatasetProperties {
   /**
    * <p>The dataset type (training data or test data).</p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: keyof typeof DatasetType | string;
 
   /**
    * <p>The S3 URI where the dataset is stored.</p>
@@ -3077,7 +3077,7 @@ export interface DatasetProperties {
    * <p>The dataset status. While the system creates the dataset, the status is <code>CREATING</code>.
    *       When the dataset is ready to use, the status changes to <code>COMPLETED</code>. </p>
    */
-  Status?: DatasetStatus | string;
+  Status?: keyof typeof DatasetStatus | string;
 
   /**
    * <p>A description of the status of the dataset.</p>
@@ -3154,7 +3154,7 @@ export interface InputDataConfig {
    *             </li>
    *          </ul>
    */
-  InputFormat?: InputFormat | string;
+  InputFormat?: keyof typeof InputFormat | string;
 
   /**
    * <p>Provides configuration parameters to override the default actions for extracting text
@@ -3166,14 +3166,14 @@ export interface InputDataConfig {
 /**
  * @public
  */
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-  STOP_REQUESTED = "STOP_REQUESTED",
-  SUBMITTED = "SUBMITTED",
-}
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  STOPPED: "STOPPED",
+  STOP_REQUESTED: "STOP_REQUESTED",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
@@ -3257,7 +3257,7 @@ export interface DocumentClassificationJobProperties {
    * <p>The current status of the document classification job. If the status is
    *         <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>A description of the status of the job.</p>
@@ -3375,15 +3375,15 @@ export interface DescribeDocumentClassifierRequest {
 /**
  * @public
  */
-export enum ModelStatus {
-  DELETING = "DELETING",
-  IN_ERROR = "IN_ERROR",
-  STOPPED = "STOPPED",
-  STOP_REQUESTED = "STOP_REQUESTED",
-  SUBMITTED = "SUBMITTED",
-  TRAINED = "TRAINED",
-  TRAINING = "TRAINING",
-}
+export const ModelStatus = {
+  DELETING: "DELETING",
+  IN_ERROR: "IN_ERROR",
+  STOPPED: "STOPPED",
+  STOP_REQUESTED: "STOP_REQUESTED",
+  SUBMITTED: "SUBMITTED",
+  TRAINED: "TRAINED",
+  TRAINING: "TRAINING",
+};
 
 /**
  * @public
@@ -3399,14 +3399,14 @@ export interface DocumentClassifierProperties {
    * <p>The language code for the language of the documents that the classifier was trained
    *       on.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>The status of the document classifier. If the status is <code>TRAINED</code> the
    *       classifier is ready to use. If the status is <code>FAILED</code> you can see additional
    *       information about why the classifier wasn't trained in the <code>Message</code> field.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: keyof typeof ModelStatus | string;
 
   /**
    * <p>Additional information about the status of the classifier.</p>
@@ -3490,7 +3490,7 @@ export interface DocumentClassifierProperties {
    *       format of input documents and the format of the confusion matrix. Each classifier can only be
    *       trained in one mode and this cannot be changed once the classifier is trained.</p>
    */
-  Mode?: DocumentClassifierMode | string;
+  Mode?: keyof typeof DocumentClassifierMode | string;
 
   /**
    * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
@@ -3580,7 +3580,7 @@ export interface DominantLanguageDetectionJobProperties {
    * <p>The current status of the dominant language detection job. If the status is
    *         <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>A description for the status of a job.</p>
@@ -3666,13 +3666,13 @@ export interface DescribeEndpointRequest {
 /**
  * @public
  */
-export enum EndpointStatus {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  IN_SERVICE = "IN_SERVICE",
-  UPDATING = "UPDATING",
-}
+export const EndpointStatus = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IN_SERVICE: "IN_SERVICE",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -3690,7 +3690,7 @@ export interface EndpointProperties {
    *       asynchronous, so customers will need to wait for the endpoint to be <code>Ready</code> status
    *       before making inference requests.</p>
    */
-  Status?: EndpointStatus | string;
+  Status?: keyof typeof EndpointStatus | string;
 
   /**
    * <p>Specifies a reason for failure in cases of <code>Failed</code> status.</p>
@@ -3803,7 +3803,7 @@ export interface EntitiesDetectionJobProperties {
    * <p>The current status of the entities detection job. If the status is <code>FAILED</code>,
    *       the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>A description of the status of a job.</p>
@@ -3840,7 +3840,7 @@ export interface EntitiesDetectionJobProperties {
   /**
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
@@ -4028,12 +4028,12 @@ export interface EntityRecognizerProperties {
    * <p> The language of the input documents. All documents must be in the same language. Only
    *       English ("en") is currently supported.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>Provides the status of the entity recognizer.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: keyof typeof ModelStatus | string;
 
   /**
    * <p> A description of the status of the recognizer.</p>
@@ -4192,7 +4192,7 @@ export interface EventsDetectionJobProperties {
   /**
    * <p>The current status of the events detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>A description of the status of the events detection job.</p>
@@ -4224,7 +4224,7 @@ export interface EventsDetectionJobProperties {
   /**
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
@@ -4261,13 +4261,13 @@ export interface DescribeFlywheelRequest {
 /**
  * @public
  */
-export enum FlywheelStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const FlywheelStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -4308,12 +4308,12 @@ export interface FlywheelProperties {
   /**
    * <p>The status of the flywheel.</p>
    */
-  Status?: FlywheelStatus | string;
+  Status?: keyof typeof FlywheelStatus | string;
 
   /**
    * <p>Model type of the flywheel's model.</p>
    */
-  ModelType?: ModelType | string;
+  ModelType?: keyof typeof ModelType | string;
 
   /**
    * <p>A description of the status of the flywheel.</p>
@@ -4390,14 +4390,14 @@ export interface FlywheelModelEvaluationMetrics {
 /**
  * @public
  */
-export enum FlywheelIterationStatus {
-  COMPLETED = "COMPLETED",
-  EVALUATING = "EVALUATING",
-  FAILED = "FAILED",
-  STOPPED = "STOPPED",
-  STOP_REQUESTED = "STOP_REQUESTED",
-  TRAINING = "TRAINING",
-}
+export const FlywheelIterationStatus = {
+  COMPLETED: "COMPLETED",
+  EVALUATING: "EVALUATING",
+  FAILED: "FAILED",
+  STOPPED: "STOPPED",
+  STOP_REQUESTED: "STOP_REQUESTED",
+  TRAINING: "TRAINING",
+};
 
 /**
  * @public
@@ -4427,7 +4427,7 @@ export interface FlywheelIterationProperties {
   /**
    * <p>The status of the flywheel iteration.</p>
    */
-  Status?: FlywheelIterationStatus | string;
+  Status?: keyof typeof FlywheelIterationStatus | string;
 
   /**
    * <p>A description of the status of the flywheel iteration.</p>
@@ -4515,7 +4515,7 @@ export interface KeyPhrasesDetectionJobProperties {
    * <p>The current status of the key phrases detection job. If the status is <code>FAILED</code>,
    *       the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>A description of the status of a job.</p>
@@ -4547,7 +4547,7 @@ export interface KeyPhrasesDetectionJobProperties {
   /**
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
@@ -4606,10 +4606,10 @@ export interface DescribePiiEntitiesDetectionJobRequest {
 /**
  * @public
  */
-export enum PiiEntitiesDetectionMode {
-  ONLY_OFFSETS = "ONLY_OFFSETS",
-  ONLY_REDACTION = "ONLY_REDACTION",
-}
+export const PiiEntitiesDetectionMode = {
+  ONLY_OFFSETS: "ONLY_OFFSETS",
+  ONLY_REDACTION: "ONLY_REDACTION",
+};
 
 /**
  * @public
@@ -4636,10 +4636,10 @@ export interface PiiOutputDataConfig {
 /**
  * @public
  */
-export enum PiiEntitiesDetectionMaskMode {
-  MASK = "MASK",
-  REPLACE_WITH_PII_ENTITY_TYPE = "REPLACE_WITH_PII_ENTITY_TYPE",
-}
+export const PiiEntitiesDetectionMaskMode = {
+  MASK: "MASK",
+  REPLACE_WITH_PII_ENTITY_TYPE: "REPLACE_WITH_PII_ENTITY_TYPE",
+};
 
 /**
  * @public
@@ -4650,13 +4650,13 @@ export interface RedactionConfig {
    * <p>An array of the types of PII entities that Amazon Comprehend detects in the input text for
    *       your request.</p>
    */
-  PiiEntityTypes?: (PiiEntityType | string)[];
+  PiiEntityTypes?: (keyof typeof PiiEntityType | string)[];
 
   /**
    * <p>Specifies whether the PII entity is redacted with the mask character or the entity
    *       type.</p>
    */
-  MaskMode?: PiiEntitiesDetectionMaskMode | string;
+  MaskMode?: keyof typeof PiiEntitiesDetectionMaskMode | string;
 
   /**
    * <p>A character that replaces each character in the redacted PII entity.</p>
@@ -4697,7 +4697,7 @@ export interface PiiEntitiesDetectionJobProperties {
    * <p>The current status of the PII entities detection job. If the status is
    *       <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>A description of the status of a job.</p>
@@ -4736,7 +4736,7 @@ export interface PiiEntitiesDetectionJobProperties {
   /**
    * <p>The language code of the input documents</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
@@ -4748,7 +4748,7 @@ export interface PiiEntitiesDetectionJobProperties {
    * <p>Specifies whether the output provides the locations (offsets) of PII entities or a file in
    *       which PII entities are redacted.</p>
    */
-  Mode?: PiiEntitiesDetectionMode | string;
+  Mode?: keyof typeof PiiEntitiesDetectionMode | string;
 }
 
 /**
@@ -4841,7 +4841,7 @@ export interface SentimentDetectionJobProperties {
    * <p>The current status of the sentiment detection job. If the status is <code>FAILED</code>,
    *       the <code>Messages</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>A description of the status of a job.</p>
@@ -4873,7 +4873,7 @@ export interface SentimentDetectionJobProperties {
   /**
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
@@ -4962,7 +4962,7 @@ export interface TargetedSentimentDetectionJobProperties {
    * <p>The current status of the targeted sentiment detection job. If the status is <code>FAILED</code>,
    *       the <code>Messages</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>A description of the status of a job.</p>
@@ -4994,7 +4994,7 @@ export interface TargetedSentimentDetectionJobProperties {
   /**
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
@@ -5081,7 +5081,7 @@ export interface TopicsDetectionJobProperties {
    * <p>The current status of the topic detection job. If the status is <code>Failed</code>,
    *       the reason for the failure is shown in the <code>Message</code> field.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>A description for the status of a job.</p>
@@ -5198,7 +5198,7 @@ export interface DetectEntitiesRequest {
    *       specify here.</p>
    *          <p>All input documents must be in the same language.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>The Amazon Resource Name of an endpoint that is associated with a custom entity
@@ -5295,7 +5295,7 @@ export interface DetectKeyPhrasesRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**
@@ -5323,7 +5323,7 @@ export interface DetectPiiEntitiesRequest {
   /**
    * <p>The language of the input documents. Currently, English is the only valid language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**
@@ -5340,7 +5340,7 @@ export interface PiiEntity {
   /**
    * <p>The entity's type.</p>
    */
-  Type?: PiiEntityType | string;
+  Type?: keyof typeof PiiEntityType | string;
 
   /**
    * <p>The zero-based offset from the beginning of the source text to the first character in the
@@ -5384,7 +5384,7 @@ export interface DetectSentimentRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**
@@ -5395,7 +5395,7 @@ export interface DetectSentimentResponse {
    * <p>The inferred sentiment that Amazon Comprehend has the highest level of confidence
    *       in.</p>
    */
-  Sentiment?: SentimentType | string;
+  Sentiment?: keyof typeof SentimentType | string;
 
   /**
    * <p>An object that lists the sentiments, and their corresponding confidence
@@ -5418,7 +5418,7 @@ export interface DetectSyntaxRequest {
    *       supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"),
    *       Italian ("it"), or Portuguese ("pt").</p>
    */
-  LanguageCode: SyntaxLanguageCode | string | undefined;
+  LanguageCode: keyof typeof SyntaxLanguageCode | string | undefined;
 }
 
 /**
@@ -5447,7 +5447,7 @@ export interface DetectTargetedSentimentRequest {
   /**
    * <p>The language of the input documents. Currently, English is the only supported language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 }
 
 /**
@@ -5557,12 +5557,12 @@ export interface DatasetFilter {
   /**
    * <p>Filter the datasets based on the dataset status.</p>
    */
-  Status?: DatasetStatus | string;
+  Status?: keyof typeof DatasetStatus | string;
 
   /**
    * <p>Filter the datasets based on the dataset type.</p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: keyof typeof DatasetType | string;
 
   /**
    * <p>Filter the datasets to include datasets created after the specified time.</p>
@@ -5630,7 +5630,7 @@ export interface DocumentClassificationJobFilter {
   /**
    * <p>Filters the list based on job status. Returns only jobs with the specified status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -5693,7 +5693,7 @@ export interface DocumentClassifierFilter {
   /**
    * <p>Filters the list of classifiers based on status.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: keyof typeof ModelStatus | string;
 
   /**
    * <p>The name that you assigned to the document classifier</p>
@@ -5794,7 +5794,7 @@ export interface DocumentClassifierSummary {
   /**
    * <p>Provides the status of the latest document classifier version.</p>
    */
-  LatestVersionStatus?: ModelStatus | string;
+  LatestVersionStatus?: keyof typeof ModelStatus | string;
 }
 
 /**
@@ -5828,7 +5828,7 @@ export interface DominantLanguageDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -5897,7 +5897,7 @@ export interface EndpointFilter {
    * <p>Specifies the status of the endpoint being returned. Possible values are: Creating, Ready,
    *       Updating, Deleting, Failed.</p>
    */
-  Status?: EndpointStatus | string;
+  Status?: keyof typeof EndpointStatus | string;
 
   /**
    * <p>Specifies a date before which the returned endpoint or endpoints were created.</p>
@@ -5963,7 +5963,7 @@ export interface EntitiesDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -6026,7 +6026,7 @@ export interface EntityRecognizerFilter {
   /**
    * <p>The status of an entity recognizer.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: keyof typeof ModelStatus | string;
 
   /**
    * <p>The name that you assigned the entity recognizer.</p>
@@ -6128,7 +6128,7 @@ export interface EntityRecognizerSummary {
   /**
    * <p> Provides the status of the latest entity recognizer version.</p>
    */
-  LatestVersionStatus?: ModelStatus | string;
+  LatestVersionStatus?: keyof typeof ModelStatus | string;
 }
 
 /**
@@ -6160,7 +6160,7 @@ export interface EventsDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -6277,7 +6277,7 @@ export interface FlywheelFilter {
   /**
    * <p>Filter the flywheels based on the flywheel status.</p>
    */
-  Status?: FlywheelStatus | string;
+  Status?: keyof typeof FlywheelStatus | string;
 
   /**
    * <p>Filter the flywheels to include flywheels created after the specified time.</p>
@@ -6335,12 +6335,12 @@ export interface FlywheelSummary {
   /**
    * <p>The status of the flywheel.</p>
    */
-  Status?: FlywheelStatus | string;
+  Status?: keyof typeof FlywheelStatus | string;
 
   /**
    * <p>Model type of the flywheel's model.</p>
    */
-  ModelType?: ModelType | string;
+  ModelType?: keyof typeof ModelType | string;
 
   /**
    * <p>A description of the status of the flywheel.</p>
@@ -6394,7 +6394,7 @@ export interface KeyPhrasesDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -6461,7 +6461,7 @@ export interface PiiEntitiesDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -6529,7 +6529,7 @@ export interface SentimentDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -6627,7 +6627,7 @@ export interface TargetedSentimentDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -6695,7 +6695,7 @@ export interface TopicsDetectionJobFilter {
    * <p>Filters the list of topic detection jobs based on job status. Returns only jobs with
    *       the specified status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -6917,7 +6917,7 @@ export interface StartDocumentClassificationJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>The ARN of the custom classification model.</p>
@@ -7030,7 +7030,7 @@ export interface StartDominantLanguageDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -7071,7 +7071,7 @@ export interface StartEntitiesDetectionJobRequest {
    *       used, this parameter is ignored and the language used for training the model is used
    *       instead.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 
   /**
    * <p>A unique identifier for the request. If you don't set the client request token, Amazon
@@ -7165,7 +7165,7 @@ export interface StartEntitiesDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>The ARN of the custom entity recognition model.</p>
@@ -7201,7 +7201,7 @@ export interface StartEventsDetectionJobRequest {
   /**
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 
   /**
    * <p>An unique identifier for the request. If you don't set the client request token, Amazon
@@ -7249,7 +7249,7 @@ export interface StartEventsDetectionJobResponse {
   /**
    * <p>The status of the events detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -7312,7 +7312,7 @@ export interface StartKeyPhrasesDetectionJobRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 
   /**
    * <p>A unique identifier for the request. If you don't set the client request token, Amazon
@@ -7395,7 +7395,7 @@ export interface StartKeyPhrasesDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -7416,7 +7416,7 @@ export interface StartPiiEntitiesDetectionJobRequest {
    * <p>Specifies whether the output provides the locations (offsets) of PII entities or a file in
    *       which PII entities are redacted.</p>
    */
-  Mode: PiiEntitiesDetectionMode | string | undefined;
+  Mode: keyof typeof PiiEntitiesDetectionMode | string | undefined;
 
   /**
    * <p>Provides configuration parameters for PII entity redaction.</p>
@@ -7440,7 +7440,7 @@ export interface StartPiiEntitiesDetectionJobRequest {
   /**
    * <p>The language of the input documents. Currently, English is the only valid language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 
   /**
    * <p>A unique identifier for the request. If you don't set the client request token, Amazon
@@ -7482,7 +7482,7 @@ export interface StartPiiEntitiesDetectionJobResponse {
   /**
    * <p>The status of the job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -7514,7 +7514,7 @@ export interface StartSentimentDetectionJobRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 
   /**
    * <p>A unique identifier for the request. If you don't set the client request token, Amazon
@@ -7596,7 +7596,7 @@ export interface StartSentimentDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -7628,7 +7628,7 @@ export interface StartTargetedSentimentDetectionJobRequest {
   /**
    * <p>The language of the input documents. Currently, English is the only supported language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 
   /**
    * <p>A unique identifier for the request. If you don't set the client request token, Amazon
@@ -7711,7 +7711,7 @@ export interface StartTargetedSentimentDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -7828,7 +7828,7 @@ export interface StartTopicsDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -7855,7 +7855,7 @@ export interface StopDominantLanguageDetectionJobResponse {
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopDominantLanguageDetectionJob</code> operation.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -7882,7 +7882,7 @@ export interface StopEntitiesDetectionJobResponse {
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopEntitiesDetectionJob</code> operation.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -7907,7 +7907,7 @@ export interface StopEventsDetectionJobResponse {
   /**
    * <p>The status of the events detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -7934,7 +7934,7 @@ export interface StopKeyPhrasesDetectionJobResponse {
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopKeyPhrasesDetectionJob</code> operation.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -7959,7 +7959,7 @@ export interface StopPiiEntitiesDetectionJobResponse {
   /**
    * <p>The status of the PII entities detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -7986,7 +7986,7 @@ export interface StopSentimentDetectionJobResponse {
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopSentimentDetectionJob</code> operation.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**

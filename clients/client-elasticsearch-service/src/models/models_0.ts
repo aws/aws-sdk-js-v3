@@ -17,14 +17,14 @@ export interface AcceptInboundCrossClusterSearchConnectionRequest {
 /**
  * @public
  */
-export enum InboundCrossClusterSearchConnectionStatusCode {
-  APPROVED = "APPROVED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  PENDING_ACCEPTANCE = "PENDING_ACCEPTANCE",
-  REJECTED = "REJECTED",
-  REJECTING = "REJECTING",
-}
+export const InboundCrossClusterSearchConnectionStatusCode = {
+  APPROVED: "APPROVED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  PENDING_ACCEPTANCE: "PENDING_ACCEPTANCE",
+  REJECTED: "REJECTED",
+  REJECTING: "REJECTING",
+};
 
 /**
  * @public
@@ -42,7 +42,7 @@ export interface InboundCrossClusterSearchConnectionStatus {
    *       <li>DELETED: Inbound connection is deleted and cannot be used further.</li>
    *     </ul>
    */
-  StatusCode?: InboundCrossClusterSearchConnectionStatusCode | string;
+  StatusCode?: keyof typeof InboundCrossClusterSearchConnectionStatusCode | string;
 
   /**
    * <p>Specifies verbose information for the inbound connection status.</p>
@@ -183,11 +183,11 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum OptionState {
-  Active = "Active",
-  Processing = "Processing",
-  RequiresIndexDocuments = "RequiresIndexDocuments",
-}
+export const OptionState = {
+  Active: "Active",
+  Processing: "Processing",
+  RequiresIndexDocuments: "RequiresIndexDocuments",
+};
 
 /**
  * @public
@@ -212,7 +212,7 @@ export interface OptionStatus {
   /**
    * <p>Provides the <code>OptionState</code> for the Elasticsearch domain.</p>
    */
-  State: OptionState | string | undefined;
+  State: keyof typeof OptionState | string | undefined;
 
   /**
    * <p>Indicates whether the Elasticsearch domain is being deleted.</p>
@@ -617,13 +617,13 @@ export interface AssociatePackageRequest {
 /**
  * @public
  */
-export enum DomainPackageStatus {
-  ACTIVE = "ACTIVE",
-  ASSOCIATING = "ASSOCIATING",
-  ASSOCIATION_FAILED = "ASSOCIATION_FAILED",
-  DISSOCIATING = "DISSOCIATING",
-  DISSOCIATION_FAILED = "DISSOCIATION_FAILED",
-}
+export const DomainPackageStatus = {
+  ACTIVE: "ACTIVE",
+  ASSOCIATING: "ASSOCIATING",
+  ASSOCIATION_FAILED: "ASSOCIATION_FAILED",
+  DISSOCIATING: "DISSOCIATING",
+  DISSOCIATION_FAILED: "DISSOCIATION_FAILED",
+};
 
 /**
  * @public
@@ -636,9 +636,9 @@ export interface ErrorDetails {
 /**
  * @public
  */
-export enum PackageType {
-  TXT_DICTIONARY = "TXT-DICTIONARY",
-}
+export const PackageType = {
+  TXT_DICTIONARY: "TXT-DICTIONARY",
+};
 
 /**
  * @public
@@ -658,7 +658,7 @@ export interface DomainPackageDetails {
   /**
    * <p>Currently supports only TXT-DICTIONARY.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: keyof typeof PackageType | string;
 
   /**
    * <p>Timestamp of the most-recent update to the association status.</p>
@@ -673,7 +673,7 @@ export interface DomainPackageDetails {
   /**
    * <p>State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.</p>
    */
-  DomainPackageStatus?: DomainPackageStatus | string;
+  DomainPackageStatus?: keyof typeof DomainPackageStatus | string;
 
   PackageVersion?: string;
   /**
@@ -744,10 +744,10 @@ export interface AuthorizeVpcEndpointAccessRequest {
 /**
  * @public
  */
-export enum PrincipalType {
-  AWS_ACCOUNT = "AWS_ACCOUNT",
-  AWS_SERVICE = "AWS_SERVICE",
-}
+export const PrincipalType = {
+  AWS_ACCOUNT: "AWS_ACCOUNT",
+  AWS_SERVICE: "AWS_SERVICE",
+};
 
 /**
  * @public
@@ -758,7 +758,7 @@ export interface AuthorizedPrincipal {
   /**
    * <p>The type of principal.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: keyof typeof PrincipalType | string;
 
   /**
    * <p>The IAM principal that is allowed access to the domain.</p>
@@ -793,13 +793,13 @@ export interface CancelElasticsearchServiceSoftwareUpdateRequest {
 /**
  * @public
  */
-export enum DeploymentStatus {
-  COMPLETED = "COMPLETED",
-  ELIGIBLE = "ELIGIBLE",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_ELIGIBLE = "NOT_ELIGIBLE",
-  PENDING_UPDATE = "PENDING_UPDATE",
-}
+export const DeploymentStatus = {
+  COMPLETED: "COMPLETED",
+  ELIGIBLE: "ELIGIBLE",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_ELIGIBLE: "NOT_ELIGIBLE",
+  PENDING_UPDATE: "PENDING_UPDATE",
+};
 
 /**
  * @public
@@ -829,7 +829,7 @@ export interface ServiceSoftwareOptions {
   /**
    * <p>The status of your service software update. This field can take the following values: <code>ELIGIBLE</code>, <code>PENDING_UPDATE</code>, <code>IN_PROGRESS</code>, <code>COMPLETED</code>, and <code>NOT_ELIGIBLE</code>.</p>
    */
-  UpdateStatus?: DeploymentStatus | string;
+  UpdateStatus?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>The description of the <code>UpdateStatus</code>.</p>
@@ -861,17 +861,17 @@ export interface CancelElasticsearchServiceSoftwareUpdateResponse {
 /**
  * @public
  */
-export enum AutoTuneDesiredState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AutoTuneDesiredState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum TimeUnit {
-  HOURS = "HOURS",
-}
+export const TimeUnit = {
+  HOURS: "HOURS",
+};
 
 /**
  * @public
@@ -886,7 +886,7 @@ export interface Duration {
   /**
    * <p>Specifies the unit of a maintenance schedule duration. Valid value is HOURS. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
    */
-  Unit?: TimeUnit | string;
+  Unit?: keyof typeof TimeUnit | string;
 }
 
 /**
@@ -918,7 +918,7 @@ export interface AutoTuneOptionsInput {
   /**
    * <p>Specifies the Auto-Tune desired state. Valid values are ENABLED, DISABLED. </p>
    */
-  DesiredState?: AutoTuneDesiredState | string;
+  DesiredState?: keyof typeof AutoTuneDesiredState | string;
 
   /**
    * <p>Specifies list of maitenance schedules. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
@@ -955,10 +955,10 @@ export interface CognitoOptions {
 /**
  * @public
  */
-export enum TLSSecurityPolicy {
-  POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
-  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07",
-}
+export const TLSSecurityPolicy = {
+  POLICY_MIN_TLS_1_0_2019_07: "Policy-Min-TLS-1-0-2019-07",
+  POLICY_MIN_TLS_1_2_2019_07: "Policy-Min-TLS-1-2-2019-07",
+};
 
 /**
  * @public
@@ -979,7 +979,7 @@ export interface DomainEndpointOptions {
    *         </ul>
    *     </p>
    */
-  TLSSecurityPolicy?: TLSSecurityPolicy | string;
+  TLSSecurityPolicy?: keyof typeof TLSSecurityPolicy | string;
 
   /**
    * <p>Specify if custom endpoint should be enabled for the Elasticsearch domain.</p>
@@ -1000,12 +1000,12 @@ export interface DomainEndpointOptions {
 /**
  * @public
  */
-export enum VolumeType {
-  gp2 = "gp2",
-  gp3 = "gp3",
-  io1 = "io1",
-  standard = "standard",
-}
+export const VolumeType = {
+  gp2: "gp2",
+  gp3: "gp3",
+  io1: "io1",
+  standard: "standard",
+};
 
 /**
  * @public
@@ -1020,7 +1020,7 @@ export interface EBSOptions {
   /**
    * <p> Specifies the volume type for EBS-based storage.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: keyof typeof VolumeType | string;
 
   /**
    * <p> Integer to specify the size of an EBS volume.</p>
@@ -1052,74 +1052,74 @@ export interface ColdStorageOptions {
 /**
  * @public
  */
-export enum ESPartitionInstanceType {
-  c4_2xlarge_elasticsearch = "c4.2xlarge.elasticsearch",
-  c4_4xlarge_elasticsearch = "c4.4xlarge.elasticsearch",
-  c4_8xlarge_elasticsearch = "c4.8xlarge.elasticsearch",
-  c4_large_elasticsearch = "c4.large.elasticsearch",
-  c4_xlarge_elasticsearch = "c4.xlarge.elasticsearch",
-  c5_18xlarge_elasticsearch = "c5.18xlarge.elasticsearch",
-  c5_2xlarge_elasticsearch = "c5.2xlarge.elasticsearch",
-  c5_4xlarge_elasticsearch = "c5.4xlarge.elasticsearch",
-  c5_9xlarge_elasticsearch = "c5.9xlarge.elasticsearch",
-  c5_large_elasticsearch = "c5.large.elasticsearch",
-  c5_xlarge_elasticsearch = "c5.xlarge.elasticsearch",
-  d2_2xlarge_elasticsearch = "d2.2xlarge.elasticsearch",
-  d2_4xlarge_elasticsearch = "d2.4xlarge.elasticsearch",
-  d2_8xlarge_elasticsearch = "d2.8xlarge.elasticsearch",
-  d2_xlarge_elasticsearch = "d2.xlarge.elasticsearch",
-  i2_2xlarge_elasticsearch = "i2.2xlarge.elasticsearch",
-  i2_xlarge_elasticsearch = "i2.xlarge.elasticsearch",
-  i3_16xlarge_elasticsearch = "i3.16xlarge.elasticsearch",
-  i3_2xlarge_elasticsearch = "i3.2xlarge.elasticsearch",
-  i3_4xlarge_elasticsearch = "i3.4xlarge.elasticsearch",
-  i3_8xlarge_elasticsearch = "i3.8xlarge.elasticsearch",
-  i3_large_elasticsearch = "i3.large.elasticsearch",
-  i3_xlarge_elasticsearch = "i3.xlarge.elasticsearch",
-  m3_2xlarge_elasticsearch = "m3.2xlarge.elasticsearch",
-  m3_large_elasticsearch = "m3.large.elasticsearch",
-  m3_medium_elasticsearch = "m3.medium.elasticsearch",
-  m3_xlarge_elasticsearch = "m3.xlarge.elasticsearch",
-  m4_10xlarge_elasticsearch = "m4.10xlarge.elasticsearch",
-  m4_2xlarge_elasticsearch = "m4.2xlarge.elasticsearch",
-  m4_4xlarge_elasticsearch = "m4.4xlarge.elasticsearch",
-  m4_large_elasticsearch = "m4.large.elasticsearch",
-  m4_xlarge_elasticsearch = "m4.xlarge.elasticsearch",
-  m5_12xlarge_elasticsearch = "m5.12xlarge.elasticsearch",
-  m5_2xlarge_elasticsearch = "m5.2xlarge.elasticsearch",
-  m5_4xlarge_elasticsearch = "m5.4xlarge.elasticsearch",
-  m5_large_elasticsearch = "m5.large.elasticsearch",
-  m5_xlarge_elasticsearch = "m5.xlarge.elasticsearch",
-  r3_2xlarge_elasticsearch = "r3.2xlarge.elasticsearch",
-  r3_4xlarge_elasticsearch = "r3.4xlarge.elasticsearch",
-  r3_8xlarge_elasticsearch = "r3.8xlarge.elasticsearch",
-  r3_large_elasticsearch = "r3.large.elasticsearch",
-  r3_xlarge_elasticsearch = "r3.xlarge.elasticsearch",
-  r4_16xlarge_elasticsearch = "r4.16xlarge.elasticsearch",
-  r4_2xlarge_elasticsearch = "r4.2xlarge.elasticsearch",
-  r4_4xlarge_elasticsearch = "r4.4xlarge.elasticsearch",
-  r4_8xlarge_elasticsearch = "r4.8xlarge.elasticsearch",
-  r4_large_elasticsearch = "r4.large.elasticsearch",
-  r4_xlarge_elasticsearch = "r4.xlarge.elasticsearch",
-  r5_12xlarge_elasticsearch = "r5.12xlarge.elasticsearch",
-  r5_2xlarge_elasticsearch = "r5.2xlarge.elasticsearch",
-  r5_4xlarge_elasticsearch = "r5.4xlarge.elasticsearch",
-  r5_large_elasticsearch = "r5.large.elasticsearch",
-  r5_xlarge_elasticsearch = "r5.xlarge.elasticsearch",
-  t2_medium_elasticsearch = "t2.medium.elasticsearch",
-  t2_micro_elasticsearch = "t2.micro.elasticsearch",
-  t2_small_elasticsearch = "t2.small.elasticsearch",
-  ultrawarm1_large_elasticsearch = "ultrawarm1.large.elasticsearch",
-  ultrawarm1_medium_elasticsearch = "ultrawarm1.medium.elasticsearch",
-}
+export const ESPartitionInstanceType = {
+  c4_2xlarge_elasticsearch: "c4.2xlarge.elasticsearch",
+  c4_4xlarge_elasticsearch: "c4.4xlarge.elasticsearch",
+  c4_8xlarge_elasticsearch: "c4.8xlarge.elasticsearch",
+  c4_large_elasticsearch: "c4.large.elasticsearch",
+  c4_xlarge_elasticsearch: "c4.xlarge.elasticsearch",
+  c5_18xlarge_elasticsearch: "c5.18xlarge.elasticsearch",
+  c5_2xlarge_elasticsearch: "c5.2xlarge.elasticsearch",
+  c5_4xlarge_elasticsearch: "c5.4xlarge.elasticsearch",
+  c5_9xlarge_elasticsearch: "c5.9xlarge.elasticsearch",
+  c5_large_elasticsearch: "c5.large.elasticsearch",
+  c5_xlarge_elasticsearch: "c5.xlarge.elasticsearch",
+  d2_2xlarge_elasticsearch: "d2.2xlarge.elasticsearch",
+  d2_4xlarge_elasticsearch: "d2.4xlarge.elasticsearch",
+  d2_8xlarge_elasticsearch: "d2.8xlarge.elasticsearch",
+  d2_xlarge_elasticsearch: "d2.xlarge.elasticsearch",
+  i2_2xlarge_elasticsearch: "i2.2xlarge.elasticsearch",
+  i2_xlarge_elasticsearch: "i2.xlarge.elasticsearch",
+  i3_16xlarge_elasticsearch: "i3.16xlarge.elasticsearch",
+  i3_2xlarge_elasticsearch: "i3.2xlarge.elasticsearch",
+  i3_4xlarge_elasticsearch: "i3.4xlarge.elasticsearch",
+  i3_8xlarge_elasticsearch: "i3.8xlarge.elasticsearch",
+  i3_large_elasticsearch: "i3.large.elasticsearch",
+  i3_xlarge_elasticsearch: "i3.xlarge.elasticsearch",
+  m3_2xlarge_elasticsearch: "m3.2xlarge.elasticsearch",
+  m3_large_elasticsearch: "m3.large.elasticsearch",
+  m3_medium_elasticsearch: "m3.medium.elasticsearch",
+  m3_xlarge_elasticsearch: "m3.xlarge.elasticsearch",
+  m4_10xlarge_elasticsearch: "m4.10xlarge.elasticsearch",
+  m4_2xlarge_elasticsearch: "m4.2xlarge.elasticsearch",
+  m4_4xlarge_elasticsearch: "m4.4xlarge.elasticsearch",
+  m4_large_elasticsearch: "m4.large.elasticsearch",
+  m4_xlarge_elasticsearch: "m4.xlarge.elasticsearch",
+  m5_12xlarge_elasticsearch: "m5.12xlarge.elasticsearch",
+  m5_2xlarge_elasticsearch: "m5.2xlarge.elasticsearch",
+  m5_4xlarge_elasticsearch: "m5.4xlarge.elasticsearch",
+  m5_large_elasticsearch: "m5.large.elasticsearch",
+  m5_xlarge_elasticsearch: "m5.xlarge.elasticsearch",
+  r3_2xlarge_elasticsearch: "r3.2xlarge.elasticsearch",
+  r3_4xlarge_elasticsearch: "r3.4xlarge.elasticsearch",
+  r3_8xlarge_elasticsearch: "r3.8xlarge.elasticsearch",
+  r3_large_elasticsearch: "r3.large.elasticsearch",
+  r3_xlarge_elasticsearch: "r3.xlarge.elasticsearch",
+  r4_16xlarge_elasticsearch: "r4.16xlarge.elasticsearch",
+  r4_2xlarge_elasticsearch: "r4.2xlarge.elasticsearch",
+  r4_4xlarge_elasticsearch: "r4.4xlarge.elasticsearch",
+  r4_8xlarge_elasticsearch: "r4.8xlarge.elasticsearch",
+  r4_large_elasticsearch: "r4.large.elasticsearch",
+  r4_xlarge_elasticsearch: "r4.xlarge.elasticsearch",
+  r5_12xlarge_elasticsearch: "r5.12xlarge.elasticsearch",
+  r5_2xlarge_elasticsearch: "r5.2xlarge.elasticsearch",
+  r5_4xlarge_elasticsearch: "r5.4xlarge.elasticsearch",
+  r5_large_elasticsearch: "r5.large.elasticsearch",
+  r5_xlarge_elasticsearch: "r5.xlarge.elasticsearch",
+  t2_medium_elasticsearch: "t2.medium.elasticsearch",
+  t2_micro_elasticsearch: "t2.micro.elasticsearch",
+  t2_small_elasticsearch: "t2.small.elasticsearch",
+  ultrawarm1_large_elasticsearch: "ultrawarm1.large.elasticsearch",
+  ultrawarm1_medium_elasticsearch: "ultrawarm1.medium.elasticsearch",
+};
 
 /**
  * @public
  */
-export enum ESWarmPartitionInstanceType {
-  ultrawarm1_large_elasticsearch = "ultrawarm1.large.elasticsearch",
-  ultrawarm1_medium_elasticsearch = "ultrawarm1.medium.elasticsearch",
-}
+export const ESWarmPartitionInstanceType = {
+  ultrawarm1_large_elasticsearch: "ultrawarm1.large.elasticsearch",
+  ultrawarm1_medium_elasticsearch: "ultrawarm1.medium.elasticsearch",
+};
 
 /**
  * @public
@@ -1140,7 +1140,7 @@ export interface ElasticsearchClusterConfig {
   /**
    * <p>The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.</p>
    */
-  InstanceType?: ESPartitionInstanceType | string;
+  InstanceType?: keyof typeof ESPartitionInstanceType | string;
 
   /**
    * <p>The number of instances in the specified domain cluster.</p>
@@ -1165,7 +1165,7 @@ export interface ElasticsearchClusterConfig {
   /**
    * <p>The instance type for a dedicated master node.</p>
    */
-  DedicatedMasterType?: ESPartitionInstanceType | string;
+  DedicatedMasterType?: keyof typeof ESPartitionInstanceType | string;
 
   /**
    * <p>Total number of dedicated master nodes, active and on standby, for the cluster.</p>
@@ -1180,7 +1180,7 @@ export interface ElasticsearchClusterConfig {
   /**
    * <p>The instance type for the Elasticsearch cluster's warm nodes.</p>
    */
-  WarmType?: ESWarmPartitionInstanceType | string;
+  WarmType?: keyof typeof ESWarmPartitionInstanceType | string;
 
   /**
    * <p>The number of warm nodes in the cluster.</p>
@@ -1212,12 +1212,12 @@ export interface EncryptionAtRestOptions {
 /**
  * @public
  */
-export enum LogType {
-  AUDIT_LOGS = "AUDIT_LOGS",
-  ES_APPLICATION_LOGS = "ES_APPLICATION_LOGS",
-  INDEX_SLOW_LOGS = "INDEX_SLOW_LOGS",
-  SEARCH_SLOW_LOGS = "SEARCH_SLOW_LOGS",
-}
+export const LogType = {
+  AUDIT_LOGS: "AUDIT_LOGS",
+  ES_APPLICATION_LOGS: "ES_APPLICATION_LOGS",
+  INDEX_SLOW_LOGS: "INDEX_SLOW_LOGS",
+  SEARCH_SLOW_LOGS: "SEARCH_SLOW_LOGS",
+};
 
 /**
  * @public
@@ -1369,17 +1369,17 @@ export interface CreateElasticsearchDomainRequest {
 /**
  * @public
  */
-export enum AutoTuneState {
-  DISABLED = "DISABLED",
-  DISABLED_AND_ROLLBACK_COMPLETE = "DISABLED_AND_ROLLBACK_COMPLETE",
-  DISABLED_AND_ROLLBACK_ERROR = "DISABLED_AND_ROLLBACK_ERROR",
-  DISABLED_AND_ROLLBACK_IN_PROGRESS = "DISABLED_AND_ROLLBACK_IN_PROGRESS",
-  DISABLED_AND_ROLLBACK_SCHEDULED = "DISABLED_AND_ROLLBACK_SCHEDULED",
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-  ENABLE_IN_PROGRESS = "ENABLE_IN_PROGRESS",
-  ERROR = "ERROR",
-}
+export const AutoTuneState = {
+  DISABLED: "DISABLED",
+  DISABLED_AND_ROLLBACK_COMPLETE: "DISABLED_AND_ROLLBACK_COMPLETE",
+  DISABLED_AND_ROLLBACK_ERROR: "DISABLED_AND_ROLLBACK_ERROR",
+  DISABLED_AND_ROLLBACK_IN_PROGRESS: "DISABLED_AND_ROLLBACK_IN_PROGRESS",
+  DISABLED_AND_ROLLBACK_SCHEDULED: "DISABLED_AND_ROLLBACK_SCHEDULED",
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+  ENABLE_IN_PROGRESS: "ENABLE_IN_PROGRESS",
+  ERROR: "ERROR",
+};
 
 /**
  * @public
@@ -1389,7 +1389,7 @@ export interface AutoTuneOptionsOutput {
   /**
    * <p>Specifies the <code>AutoTuneState</code> for the Elasticsearch domain.</p>
    */
-  State?: AutoTuneState | string;
+  State?: keyof typeof AutoTuneState | string;
 
   /**
    * <p>Specifies the error message while enabling or disabling the Auto-Tune.</p>
@@ -1641,16 +1641,16 @@ export interface CreateOutboundCrossClusterSearchConnectionRequest {
 /**
  * @public
  */
-export enum OutboundCrossClusterSearchConnectionStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  PENDING_ACCEPTANCE = "PENDING_ACCEPTANCE",
-  PROVISIONING = "PROVISIONING",
-  REJECTED = "REJECTED",
-  VALIDATING = "VALIDATING",
-  VALIDATION_FAILED = "VALIDATION_FAILED",
-}
+export const OutboundCrossClusterSearchConnectionStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  PENDING_ACCEPTANCE: "PENDING_ACCEPTANCE",
+  PROVISIONING: "PROVISIONING",
+  REJECTED: "REJECTED",
+  VALIDATING: "VALIDATING",
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+};
 
 /**
  * @public
@@ -1670,7 +1670,7 @@ export interface OutboundCrossClusterSearchConnectionStatus {
    *       <li>DELETED: Outbound connection is deleted and cannot be used further.</li>
    *     </ul>
    */
-  StatusCode?: OutboundCrossClusterSearchConnectionStatusCode | string;
+  StatusCode?: keyof typeof OutboundCrossClusterSearchConnectionStatusCode | string;
 
   /**
    * <p>Specifies verbose information for the outbound connection status.</p>
@@ -1744,7 +1744,7 @@ export interface CreatePackageRequest {
   /**
    * <p>Type of package. Currently supports only TXT-DICTIONARY.</p>
    */
-  PackageType: PackageType | string | undefined;
+  PackageType: keyof typeof PackageType | string | undefined;
 
   /**
    * <p>Description of the package.</p>
@@ -1760,16 +1760,16 @@ export interface CreatePackageRequest {
 /**
  * @public
  */
-export enum PackageStatus {
-  AVAILABLE = "AVAILABLE",
-  COPYING = "COPYING",
-  COPY_FAILED = "COPY_FAILED",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  VALIDATING = "VALIDATING",
-  VALIDATION_FAILED = "VALIDATION_FAILED",
-}
+export const PackageStatus = {
+  AVAILABLE: "AVAILABLE",
+  COPYING: "COPYING",
+  COPY_FAILED: "COPY_FAILED",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  VALIDATING: "VALIDATING",
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+};
 
 /**
  * @public
@@ -1789,7 +1789,7 @@ export interface PackageDetails {
   /**
    * <p>Currently supports only TXT-DICTIONARY.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: keyof typeof PackageType | string;
 
   /**
    * <p>User-specified description of the package.</p>
@@ -1799,7 +1799,7 @@ export interface PackageDetails {
   /**
    * <p>Current state of the package. Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED</p>
    */
-  PackageStatus?: PackageStatus | string;
+  PackageStatus?: keyof typeof PackageStatus | string;
 
   /**
    * <p>Timestamp which tells creation date of the package.</p>
@@ -1855,15 +1855,15 @@ export interface CreateVpcEndpointRequest {
 /**
  * @public
  */
-export enum VpcEndpointStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const VpcEndpointStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1895,7 +1895,7 @@ export interface VpcEndpoint {
   /**
    * <p>The current status of the endpoint.</p>
    */
-  Status?: VpcEndpointStatus | string;
+  Status?: keyof typeof VpcEndpointStatus | string;
 
   /**
    * <p>The connection endpoint ID for connecting to the domain.</p>
@@ -2079,7 +2079,7 @@ export interface VpcEndpointSummary {
   /**
    * <p>The current status of the endpoint.</p>
    */
-  Status?: VpcEndpointStatus | string;
+  Status?: keyof typeof VpcEndpointStatus | string;
 }
 
 /**
@@ -2118,19 +2118,19 @@ export interface DescribeDomainAutoTunesRequest {
 /**
  * @public
  */
-export enum ScheduledAutoTuneActionType {
-  JVM_HEAP_SIZE_TUNING = "JVM_HEAP_SIZE_TUNING",
-  JVM_YOUNG_GEN_TUNING = "JVM_YOUNG_GEN_TUNING",
-}
+export const ScheduledAutoTuneActionType = {
+  JVM_HEAP_SIZE_TUNING: "JVM_HEAP_SIZE_TUNING",
+  JVM_YOUNG_GEN_TUNING: "JVM_YOUNG_GEN_TUNING",
+};
 
 /**
  * @public
  */
-export enum ScheduledAutoTuneSeverityType {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const ScheduledAutoTuneSeverityType = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+};
 
 /**
  * @public
@@ -2145,7 +2145,7 @@ export interface ScheduledAutoTuneDetails {
   /**
    * <p>Specifies Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING and JVM_YOUNG_GEN_TUNING. </p>
    */
-  ActionType?: ScheduledAutoTuneActionType | string;
+  ActionType?: keyof typeof ScheduledAutoTuneActionType | string;
 
   /**
    * <p>Specifies Auto-Tune action description. </p>
@@ -2155,7 +2155,7 @@ export interface ScheduledAutoTuneDetails {
   /**
    * <p>Specifies Auto-Tune action severity. Valid values are LOW, MEDIUM and HIGH. </p>
    */
-  Severity?: ScheduledAutoTuneSeverityType | string;
+  Severity?: keyof typeof ScheduledAutoTuneSeverityType | string;
 }
 
 /**
@@ -2172,9 +2172,9 @@ export interface AutoTuneDetails {
 /**
  * @public
  */
-export enum AutoTuneType {
-  SCHEDULED_ACTION = "SCHEDULED_ACTION",
-}
+export const AutoTuneType = {
+  SCHEDULED_ACTION: "SCHEDULED_ACTION",
+};
 
 /**
  * @public
@@ -2184,7 +2184,7 @@ export interface AutoTune {
   /**
    * <p>Specifies Auto-Tune type. Valid value is SCHEDULED_ACTION. </p>
    */
-  AutoTuneType?: AutoTuneType | string;
+  AutoTuneType?: keyof typeof AutoTuneType | string;
 
   /**
    * <p>Specifies details of the Auto-Tune action. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
@@ -2257,12 +2257,12 @@ export interface ChangeProgressStage {
 /**
  * @public
  */
-export enum OverallChangeStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  PROCESSING = "PROCESSING",
-}
+export const OverallChangeStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  PROCESSING: "PROCESSING",
+};
 
 /**
  * @public
@@ -2282,7 +2282,7 @@ export interface ChangeProgressStatusDetails {
   /**
    * <p>The overall status of the domain configuration change. This field can take the following values: <code>PENDING</code>, <code>PROCESSING</code>, <code>COMPLETED</code> and <code>FAILED</code></p>
    */
-  Status?: OverallChangeStatus | string;
+  Status?: keyof typeof OverallChangeStatus | string;
 
   /**
    * <p>The list of properties involved in the domain configuration change that are still in pending.</p>
@@ -2355,10 +2355,10 @@ export interface DescribeElasticsearchDomainConfigRequest {
 /**
  * @public
  */
-export enum RollbackOnDisable {
-  DEFAULT_ROLLBACK = "DEFAULT_ROLLBACK",
-  NO_ROLLBACK = "NO_ROLLBACK",
-}
+export const RollbackOnDisable = {
+  DEFAULT_ROLLBACK: "DEFAULT_ROLLBACK",
+  NO_ROLLBACK: "NO_ROLLBACK",
+};
 
 /**
  * @public
@@ -2368,12 +2368,12 @@ export interface AutoTuneOptions {
   /**
    * <p>Specifies the Auto-Tune desired state. Valid values are ENABLED, DISABLED. </p>
    */
-  DesiredState?: AutoTuneDesiredState | string;
+  DesiredState?: keyof typeof AutoTuneDesiredState | string;
 
   /**
    * <p>Specifies the rollback state while disabling Auto-Tune for the domain. Valid values are NO_ROLLBACK, DEFAULT_ROLLBACK. </p>
    */
-  RollbackOnDisable?: RollbackOnDisable | string;
+  RollbackOnDisable?: keyof typeof RollbackOnDisable | string;
 
   /**
    * <p>Specifies list of maitenance schedules. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
@@ -2404,7 +2404,7 @@ export interface AutoTuneStatus {
   /**
    * <p>Specifies the <code>AutoTuneState</code> for the Elasticsearch domain.</p>
    */
-  State: AutoTuneState | string | undefined;
+  State: keyof typeof AutoTuneState | string | undefined;
 
   /**
    * <p>Specifies the error message while enabling or disabling the Auto-Tune options.</p>
@@ -2740,7 +2740,7 @@ export interface DescribeElasticsearchInstanceTypeLimitsRequest {
    *       are needed.
    *     </p>
    */
-  InstanceType: ESPartitionInstanceType | string | undefined;
+  InstanceType: keyof typeof ESPartitionInstanceType | string | undefined;
 
   /**
    * <p>
@@ -3093,11 +3093,11 @@ export interface DescribeOutboundCrossClusterSearchConnectionsResponse {
 /**
  * @public
  */
-export enum DescribePackagesFilterName {
-  PackageID = "PackageID",
-  PackageName = "PackageName",
-  PackageStatus = "PackageStatus",
-}
+export const DescribePackagesFilterName = {
+  PackageID: "PackageID",
+  PackageName: "PackageName",
+  PackageStatus: "PackageStatus",
+};
 
 /**
  * @public
@@ -3107,7 +3107,7 @@ export interface DescribePackagesFilter {
   /**
    * <p>Any field from <code>PackageDetails</code>.</p>
    */
-  Name?: DescribePackagesFilterName | string;
+  Name?: keyof typeof DescribePackagesFilterName | string;
 
   /**
    * <p>A list of values for the specified field.</p>
@@ -3186,11 +3186,11 @@ export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
 /**
  * @public
  */
-export enum ReservedElasticsearchInstancePaymentOption {
-  ALL_UPFRONT = "ALL_UPFRONT",
-  NO_UPFRONT = "NO_UPFRONT",
-  PARTIAL_UPFRONT = "PARTIAL_UPFRONT",
-}
+export const ReservedElasticsearchInstancePaymentOption = {
+  ALL_UPFRONT: "ALL_UPFRONT",
+  NO_UPFRONT: "NO_UPFRONT",
+  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
+};
 
 /**
  * @public
@@ -3221,7 +3221,7 @@ export interface ReservedElasticsearchInstanceOffering {
   /**
    * <p>The Elasticsearch instance type offered by the reserved instance offering.</p>
    */
-  ElasticsearchInstanceType?: ESPartitionInstanceType | string;
+  ElasticsearchInstanceType?: keyof typeof ESPartitionInstanceType | string;
 
   /**
    * <p>The duration, in seconds, for which the offering will reserve the Elasticsearch instance.</p>
@@ -3246,7 +3246,7 @@ export interface ReservedElasticsearchInstanceOffering {
   /**
    * <p>Payment option for the reserved Elasticsearch instance offering</p>
    */
-  PaymentOption?: ReservedElasticsearchInstancePaymentOption | string;
+  PaymentOption?: keyof typeof ReservedElasticsearchInstancePaymentOption | string;
 
   /**
    * <p>The charge to your account regardless of whether you are creating any domains using the instance offering.</p>
@@ -3315,7 +3315,7 @@ export interface ReservedElasticsearchInstance {
   /**
    * <p>The Elasticsearch instance type offered by the reserved instance offering.</p>
    */
-  ElasticsearchInstanceType?: ESPartitionInstanceType | string;
+  ElasticsearchInstanceType?: keyof typeof ESPartitionInstanceType | string;
 
   /**
    * <p>The time the reservation started.</p>
@@ -3355,7 +3355,7 @@ export interface ReservedElasticsearchInstance {
   /**
    * <p>The payment option as defined in the reserved Elasticsearch instance offering.</p>
    */
-  PaymentOption?: ReservedElasticsearchInstancePaymentOption | string;
+  PaymentOption?: keyof typeof ReservedElasticsearchInstancePaymentOption | string;
 
   /**
    * <p>The charge to your account regardless of whether you are creating any domains using the instance offering.</p>
@@ -3393,10 +3393,10 @@ export interface DescribeVpcEndpointsRequest {
 /**
  * @public
  */
-export enum VpcEndpointErrorCode {
-  ENDPOINT_NOT_FOUND = "ENDPOINT_NOT_FOUND",
-  SERVER_ERROR = "SERVER_ERROR",
-}
+export const VpcEndpointErrorCode = {
+  ENDPOINT_NOT_FOUND: "ENDPOINT_NOT_FOUND",
+  SERVER_ERROR: "SERVER_ERROR",
+};
 
 /**
  * @public
@@ -3412,7 +3412,7 @@ export interface VpcEndpointError {
   /**
    * <p>The code associated with the error.</p>
    */
-  ErrorCode?: VpcEndpointErrorCode | string;
+  ErrorCode?: keyof typeof VpcEndpointErrorCode | string;
 
   /**
    * <p>A message describing the error.</p>
@@ -3646,21 +3646,21 @@ export interface GetUpgradeHistoryRequest {
 /**
  * @public
  */
-export enum UpgradeStep {
-  PRE_UPGRADE_CHECK = "PRE_UPGRADE_CHECK",
-  SNAPSHOT = "SNAPSHOT",
-  UPGRADE = "UPGRADE",
-}
+export const UpgradeStep = {
+  PRE_UPGRADE_CHECK: "PRE_UPGRADE_CHECK",
+  SNAPSHOT: "SNAPSHOT",
+  UPGRADE: "UPGRADE",
+};
 
 /**
  * @public
  */
-export enum UpgradeStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-  SUCCEEDED_WITH_ISSUES = "SUCCEEDED_WITH_ISSUES",
-}
+export const UpgradeStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+  SUCCEEDED_WITH_ISSUES: "SUCCEEDED_WITH_ISSUES",
+};
 
 /**
  * @public
@@ -3677,7 +3677,7 @@ export interface UpgradeStepItem {
    *       </ul>
    *     </p>
    */
-  UpgradeStep?: UpgradeStep | string;
+  UpgradeStep?: keyof typeof UpgradeStep | string;
 
   /**
    * <p>
@@ -3690,7 +3690,7 @@ export interface UpgradeStepItem {
    *       </ul>
    *     </p>
    */
-  UpgradeStepStatus?: UpgradeStatus | string;
+  UpgradeStepStatus?: keyof typeof UpgradeStatus | string;
 
   /**
    * <p>A list of strings containing detailed information about the errors encountered in a particular step.</p>
@@ -3729,7 +3729,7 @@ export interface UpgradeHistory {
    *       </ul>
    *     </p>
    */
-  UpgradeStatus?: UpgradeStatus | string;
+  UpgradeStatus?: keyof typeof UpgradeStatus | string;
 
   /**
    * <p>
@@ -3813,7 +3813,7 @@ export interface GetUpgradeStatusResponse {
    *       </ul>
    *     </p>
    */
-  UpgradeStep?: UpgradeStep | string;
+  UpgradeStep?: keyof typeof UpgradeStep | string;
 
   /**
    * <p>
@@ -3830,7 +3830,7 @@ export interface GetUpgradeStatusResponse {
    *       </ul>
    *     </p>
    */
-  StepStatus?: UpgradeStatus | string;
+  StepStatus?: keyof typeof UpgradeStatus | string;
 
   /**
    * <p>A string that describes the update briefly</p>
@@ -3841,10 +3841,10 @@ export interface GetUpgradeStatusResponse {
 /**
  * @public
  */
-export enum EngineType {
-  Elasticsearch = "Elasticsearch",
-  OpenSearch = "OpenSearch",
-}
+export const EngineType = {
+  Elasticsearch: "Elasticsearch",
+  OpenSearch: "OpenSearch",
+};
 
 /**
  * @public
@@ -3854,7 +3854,7 @@ export interface ListDomainNamesRequest {
   /**
    * <p> Optional parameter to filter the output by domain engine type. Acceptable values are 'Elasticsearch' and 'OpenSearch'. </p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: keyof typeof EngineType | string;
 }
 
 /**
@@ -3869,7 +3869,7 @@ export interface DomainInfo {
   /**
    * <p> Specifies the <code>EngineType</code> of the domain.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: keyof typeof EngineType | string;
 }
 
 /**
@@ -3990,7 +3990,7 @@ export interface ListElasticsearchInstanceTypesResponse {
    *       </code>
    *     </p>
    */
-  ElasticsearchInstanceTypes?: (ESPartitionInstanceType | string)[];
+  ElasticsearchInstanceTypes?: (keyof typeof ESPartitionInstanceType | string)[];
 
   /**
    * <p>In case if there are more results available NextToken would be

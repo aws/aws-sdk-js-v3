@@ -41,10 +41,10 @@ export interface AllowedStatistics {
 /**
  * @public
  */
-export enum AnalyticsMode {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+export const AnalyticsMode = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+};
 
 /**
  * @public
@@ -169,13 +169,13 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum InputFormat {
-  CSV = "CSV",
-  EXCEL = "EXCEL",
-  JSON = "JSON",
-  ORC = "ORC",
-  PARQUET = "PARQUET",
-}
+export const InputFormat = {
+  CSV: "CSV",
+  EXCEL: "EXCEL",
+  JSON: "JSON",
+  ORC: "ORC",
+  PARQUET: "PARQUET",
+};
 
 /**
  * @public
@@ -375,17 +375,17 @@ export interface Input {
 /**
  * @public
  */
-export enum Order {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const Order = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
  */
-export enum OrderedBy {
-  LAST_MODIFIED_DATE = "LAST_MODIFIED_DATE",
-}
+export const OrderedBy = {
+  LAST_MODIFIED_DATE: "LAST_MODIFIED_DATE",
+};
 
 /**
  * @public
@@ -402,14 +402,14 @@ export interface FilesLimit {
    * <p>A criteria to use for Amazon S3 files sorting before their selection. By default uses LAST_MODIFIED_DATE as
    *             a sorting criteria. Currently it's the only allowed value.</p>
    */
-  OrderedBy?: OrderedBy | string;
+  OrderedBy?: keyof typeof OrderedBy | string;
 
   /**
    * <p>A criteria to use for Amazon S3 files sorting before their selection. By
    *             default uses DESCENDING order, i.e. most recent files are selected first. Another
    *             possible value is ASCENDING.</p>
    */
-  Order?: Order | string;
+  Order?: keyof typeof Order | string;
 }
 
 /**
@@ -462,11 +462,11 @@ export interface DatetimeOptions {
 /**
  * @public
  */
-export enum ParameterType {
-  Datetime = "Datetime",
-  Number = "Number",
-  String = "String",
-}
+export const ParameterType = {
+  Datetime: "Datetime",
+  Number: "Number",
+  String: "String",
+};
 
 /**
  * @public
@@ -482,7 +482,7 @@ export interface DatasetParameter {
   /**
    * <p>The type of the dataset parameter, can be one of a 'String', 'Number' or 'Datetime'.</p>
    */
-  Type: ParameterType | string | undefined;
+  Type: keyof typeof ParameterType | string | undefined;
 
   /**
    * <p>Additional parameter options such as a format and a timezone. Required for datetime parameters.</p>
@@ -537,7 +537,7 @@ export interface CreateDatasetRequest {
   /**
    * <p>The file format of a dataset that is created from an Amazon S3 file or folder.</p>
    */
-  Format?: InputFormat | string;
+  Format?: keyof typeof InputFormat | string;
 
   /**
    * <p>Represents a set of options that define the structure of either comma-separated value (CSV),
@@ -789,18 +789,18 @@ export interface ProfileConfiguration {
 /**
  * @public
  */
-export enum EncryptionMode {
-  SSEKMS = "SSE-KMS",
-  SSES3 = "SSE-S3",
-}
+export const EncryptionMode = {
+  SSEKMS: "SSE-KMS",
+  SSES3: "SSE-S3",
+};
 
 /**
  * @public
  */
-export enum SampleMode {
-  CUSTOM_ROWS = "CUSTOM_ROWS",
-  FULL_DATASET = "FULL_DATASET",
-}
+export const SampleMode = {
+  CUSTOM_ROWS: "CUSTOM_ROWS",
+  FULL_DATASET: "FULL_DATASET",
+};
 
 /**
  * @public
@@ -823,7 +823,7 @@ export interface JobSample {
    *             </li>
    *          </ul>
    */
-  Mode?: SampleMode | string;
+  Mode?: keyof typeof SampleMode | string;
 
   /**
    * <p>The <code>Size</code> parameter is only required when the mode is CUSTOM_ROWS. The
@@ -837,17 +837,17 @@ export interface JobSample {
 /**
  * @public
  */
-export enum LogSubscription {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+export const LogSubscription = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+};
 
 /**
  * @public
  */
-export enum ValidationMode {
-  CHECK_ALL = "CHECK_ALL",
-}
+export const ValidationMode = {
+  CHECK_ALL: "CHECK_ALL",
+};
 
 /**
  * @public
@@ -867,7 +867,7 @@ export interface ValidationConfiguration {
    * <p>Mode of data quality validation. Default mode is “CHECK_ALL” which verifies all rules
    *             defined in the selected ruleset.</p>
    */
-  ValidationMode?: ValidationMode | string;
+  ValidationMode?: keyof typeof ValidationMode | string;
 }
 
 /**
@@ -899,7 +899,7 @@ export interface CreateProfileJobRequest {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: keyof typeof EncryptionMode | string;
 
   /**
    * <p>The name of the job to be created. Valid characters are alphanumeric (A-Z, a-z, 0-9),
@@ -911,7 +911,7 @@ export interface CreateProfileJobRequest {
    * <p>Enables or disables Amazon CloudWatch logging for the job. If logging is enabled,
    *             CloudWatch writes one log stream for each job run.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: keyof typeof LogSubscription | string;
 
   /**
    * <p>The maximum number of nodes that DataBrew can use when the job processes data.</p>
@@ -980,11 +980,11 @@ export interface CreateProfileJobResponse {
 /**
  * @public
  */
-export enum SampleType {
-  FIRST_N = "FIRST_N",
-  LAST_N = "LAST_N",
-  RANDOM = "RANDOM",
-}
+export const SampleType = {
+  FIRST_N: "FIRST_N",
+  LAST_N: "LAST_N",
+  RANDOM: "RANDOM",
+};
 
 /**
  * @public
@@ -1000,7 +1000,7 @@ export interface Sample {
   /**
    * <p>The way in which DataBrew obtains rows from a dataset.</p>
    */
-  Type: SampleType | string | undefined;
+  Type: keyof typeof SampleType | string | undefined;
 }
 
 /**
@@ -1197,9 +1197,9 @@ export interface DatabaseTableOutputOptions {
 /**
  * @public
  */
-export enum DatabaseOutputMode {
-  NEW_TABLE = "NEW_TABLE",
-}
+export const DatabaseOutputMode = {
+  NEW_TABLE: "NEW_TABLE",
+};
 
 /**
  * @public
@@ -1222,7 +1222,7 @@ export interface DatabaseOutput {
   /**
    * <p>The output mode to write into the database. Currently supported option: NEW_TABLE.</p>
    */
-  DatabaseOutputMode?: DatabaseOutputMode | string;
+  DatabaseOutputMode?: keyof typeof DatabaseOutputMode | string;
 }
 
 /**
@@ -1282,31 +1282,31 @@ export interface DataCatalogOutput {
 /**
  * @public
  */
-export enum CompressionFormat {
-  BROTLI = "BROTLI",
-  BZIP2 = "BZIP2",
-  DEFLATE = "DEFLATE",
-  GZIP = "GZIP",
-  LZ4 = "LZ4",
-  LZO = "LZO",
-  SNAPPY = "SNAPPY",
-  ZLIB = "ZLIB",
-  ZSTD = "ZSTD",
-}
+export const CompressionFormat = {
+  BROTLI: "BROTLI",
+  BZIP2: "BZIP2",
+  DEFLATE: "DEFLATE",
+  GZIP: "GZIP",
+  LZ4: "LZ4",
+  LZO: "LZO",
+  SNAPPY: "SNAPPY",
+  ZLIB: "ZLIB",
+  ZSTD: "ZSTD",
+};
 
 /**
  * @public
  */
-export enum OutputFormat {
-  AVRO = "AVRO",
-  CSV = "CSV",
-  GLUEPARQUET = "GLUEPARQUET",
-  JSON = "JSON",
-  ORC = "ORC",
-  PARQUET = "PARQUET",
-  TABLEAUHYPER = "TABLEAUHYPER",
-  XML = "XML",
-}
+export const OutputFormat = {
+  AVRO: "AVRO",
+  CSV: "CSV",
+  GLUEPARQUET: "GLUEPARQUET",
+  JSON: "JSON",
+  ORC: "ORC",
+  PARQUET: "PARQUET",
+  TABLEAUHYPER: "TABLEAUHYPER",
+  XML: "XML",
+};
 
 /**
  * @public
@@ -1341,12 +1341,12 @@ export interface Output {
   /**
    * <p>The compression algorithm used to compress the output text of the job.</p>
    */
-  CompressionFormat?: CompressionFormat | string;
+  CompressionFormat?: keyof typeof CompressionFormat | string;
 
   /**
    * <p>The data format of the output of the job.</p>
    */
-  Format?: OutputFormat | string;
+  Format?: keyof typeof OutputFormat | string;
 
   /**
    * <p>The names of one or more partition columns for the output of the job.</p>
@@ -1420,7 +1420,7 @@ export interface CreateRecipeJobRequest {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: keyof typeof EncryptionMode | string;
 
   /**
    * <p>A unique name for the job. Valid characters are alphanumeric (A-Z, a-z, 0-9), hyphen
@@ -1432,7 +1432,7 @@ export interface CreateRecipeJobRequest {
    * <p>Enables or disables Amazon CloudWatch logging for the job. If logging is enabled,
    *             CloudWatch writes one log stream for each job run.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: keyof typeof LogSubscription | string;
 
   /**
    * <p>The maximum number of nodes that DataBrew can consume when the job processes
@@ -1503,20 +1503,20 @@ export interface CreateRecipeJobResponse {
 /**
  * @public
  */
-export enum ThresholdType {
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL",
-}
+export const ThresholdType = {
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
+};
 
 /**
  * @public
  */
-export enum ThresholdUnit {
-  COUNT = "COUNT",
-  PERCENTAGE = "PERCENTAGE",
-}
+export const ThresholdUnit = {
+  COUNT: "COUNT",
+  PERCENTAGE: "PERCENTAGE",
+};
 
 /**
  * @public
@@ -1534,13 +1534,13 @@ export interface Threshold {
    * <p>The type of a threshold. Used for comparison of an actual count of rows that satisfy the
    *             rule to the threshold value.</p>
    */
-  Type?: ThresholdType | string;
+  Type?: keyof typeof ThresholdType | string;
 
   /**
    * <p>Unit of threshold value. Can be either a COUNT or PERCENTAGE of the full sample size
    *             used for validation.</p>
    */
-  Unit?: ThresholdUnit | string;
+  Unit?: keyof typeof ThresholdUnit | string;
 }
 
 /**
@@ -1827,11 +1827,11 @@ export interface DescribeDatasetRequest {
 /**
  * @public
  */
-export enum Source {
-  DATABASE = "DATABASE",
-  DATACATALOG = "DATA-CATALOG",
-  S3 = "S3",
-}
+export const Source = {
+  DATABASE: "DATABASE",
+  DATACATALOG: "DATA-CATALOG",
+  S3: "S3",
+};
 
 /**
  * @public
@@ -1856,7 +1856,7 @@ export interface DescribeDatasetResponse {
    * <p>The file format of a dataset that is created from an Amazon S3 file
    *             or folder.</p>
    */
-  Format?: InputFormat | string;
+  Format?: keyof typeof InputFormat | string;
 
   /**
    * <p>Represents a set of options that define the structure of either comma-separated value (CSV),
@@ -1884,7 +1884,7 @@ export interface DescribeDatasetResponse {
    * <p>The location of the data for this dataset, Amazon S3 or the
    *             Glue Data Catalog.</p>
    */
-  Source?: Source | string;
+  Source?: keyof typeof Source | string;
 
   /**
    * <p>A set of options that defines how DataBrew interprets an Amazon S3
@@ -1916,10 +1916,10 @@ export interface DescribeJobRequest {
 /**
  * @public
  */
-export enum JobType {
-  PROFILE = "PROFILE",
-  RECIPE = "RECIPE",
-}
+export const JobType = {
+  PROFILE: "PROFILE",
+  RECIPE: "RECIPE",
+};
 
 /**
  * @public
@@ -1960,7 +1960,7 @@ export interface DescribeJobResponse {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: keyof typeof EncryptionMode | string;
 
   /**
    * <p>The name of the job.</p>
@@ -1982,7 +1982,7 @@ export interface DescribeJobResponse {
    *             </li>
    *          </ul>
    */
-  Type?: JobType | string;
+  Type?: keyof typeof JobType | string;
 
   /**
    * <p>The identifier (user name) of the user who last modified the job.</p>
@@ -1997,7 +1997,7 @@ export interface DescribeJobResponse {
   /**
    * <p>Indicates whether Amazon CloudWatch logging is enabled for this job.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: keyof typeof LogSubscription | string;
 
   /**
    * <p>The maximum number of compute nodes that DataBrew can consume when the job processes
@@ -2095,15 +2095,15 @@ export interface DescribeJobRunRequest {
 /**
  * @public
  */
-export enum JobRunState {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-  TIMEOUT = "TIMEOUT",
-}
+export const JobRunState = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+  TIMEOUT: "TIMEOUT",
+};
 
 /**
  * @public
@@ -2159,12 +2159,12 @@ export interface DescribeJobRunResponse {
   /**
    * <p>The current state of the job run entity itself.</p>
    */
-  State?: JobRunState | string;
+  State?: keyof typeof JobRunState | string;
 
   /**
    * <p>The current status of Amazon CloudWatch logging for the job run.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: keyof typeof LogSubscription | string;
 
   /**
    * <p>The name of an Amazon CloudWatch log group, where the job writes diagnostic messages
@@ -2225,18 +2225,18 @@ export interface DescribeProjectRequest {
 /**
  * @public
  */
-export enum SessionStatus {
-  ASSIGNED = "ASSIGNED",
-  FAILED = "FAILED",
-  INITIALIZING = "INITIALIZING",
-  PROVISIONING = "PROVISIONING",
-  READY = "READY",
-  RECYCLING = "RECYCLING",
-  ROTATING = "ROTATING",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-  UPDATING = "UPDATING",
-}
+export const SessionStatus = {
+  ASSIGNED: "ASSIGNED",
+  FAILED: "FAILED",
+  INITIALIZING: "INITIALIZING",
+  PROVISIONING: "PROVISIONING",
+  READY: "READY",
+  RECYCLING: "RECYCLING",
+  ROTATING: "ROTATING",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -2316,7 +2316,7 @@ export interface DescribeProjectResponse {
    *             </li>
    *          </ul>
    */
-  SessionStatus?: SessionStatus | string;
+  SessionStatus?: keyof typeof SessionStatus | string;
 
   /**
    * <p>The identifier (user name) of the user that opened the project for use. </p>
@@ -2588,7 +2588,7 @@ export interface Dataset {
   /**
    * <p>The file format of a dataset that is created from an Amazon S3 file or folder.</p>
    */
-  Format?: InputFormat | string;
+  Format?: keyof typeof InputFormat | string;
 
   /**
    * <p>A set of options that define how DataBrew interprets the data in the dataset.</p>
@@ -2614,7 +2614,7 @@ export interface Dataset {
   /**
    * <p>The location of the data for the dataset, either Amazon S3 or the Glue Data Catalog.</p>
    */
-  Source?: Source | string;
+  Source?: keyof typeof Source | string;
 
   /**
    * <p>A set of options that defines how DataBrew interprets an Amazon S3
@@ -2712,12 +2712,12 @@ export interface JobRun {
   /**
    * <p>The current state of the job run entity itself.</p>
    */
-  State?: JobRunState | string;
+  State?: keyof typeof JobRunState | string;
 
   /**
    * <p>The current status of Amazon CloudWatch logging for the job run.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: keyof typeof LogSubscription | string;
 
   /**
    * <p>The name of an Amazon CloudWatch log group, where the job writes diagnostic messages
@@ -2862,7 +2862,7 @@ export interface Job {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: keyof typeof EncryptionMode | string;
 
   /**
    * <p>The unique name of the job.</p>
@@ -2884,7 +2884,7 @@ export interface Job {
    *             </li>
    *          </ul>
    */
-  Type?: JobType | string;
+  Type?: keyof typeof JobType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user who last modified the job.</p>
@@ -2899,7 +2899,7 @@ export interface Job {
   /**
    * <p>The current status of Amazon CloudWatch logging for the job.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: keyof typeof LogSubscription | string;
 
   /**
    * <p>The maximum number of nodes that can be consumed when the job processes data.</p>
@@ -3540,7 +3540,7 @@ export interface ViewFrame {
   /**
    * <p>Controls if analytics computation is enabled or disabled. Enabled by default.</p>
    */
-  Analytics?: AnalyticsMode | string;
+  Analytics?: keyof typeof AnalyticsMode | string;
 }
 
 /**
@@ -3732,7 +3732,7 @@ export interface UpdateDatasetRequest {
   /**
    * <p>The file format of a dataset that is created from an Amazon S3 file or folder.</p>
    */
-  Format?: InputFormat | string;
+  Format?: keyof typeof InputFormat | string;
 
   /**
    * <p>Represents a set of options that define the structure of either comma-separated value (CSV),
@@ -3793,7 +3793,7 @@ export interface UpdateProfileJobRequest {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: keyof typeof EncryptionMode | string;
 
   /**
    * <p>The name of the job to be updated.</p>
@@ -3804,7 +3804,7 @@ export interface UpdateProfileJobRequest {
    * <p>Enables or disables Amazon CloudWatch logging for the job. If logging is enabled,
    *             CloudWatch writes one log stream for each job run.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: keyof typeof LogSubscription | string;
 
   /**
    * <p>The maximum number of compute nodes that DataBrew can use when the job processes
@@ -3949,7 +3949,7 @@ export interface UpdateRecipeJobRequest {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: keyof typeof EncryptionMode | string;
 
   /**
    * <p>The name of the job to update.</p>
@@ -3960,7 +3960,7 @@ export interface UpdateRecipeJobRequest {
    * <p>Enables or disables Amazon CloudWatch logging for the job. If logging is enabled,
    *             CloudWatch writes one log stream for each job run.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: keyof typeof LogSubscription | string;
 
   /**
    * <p>The maximum number of nodes that DataBrew can consume when the job processes

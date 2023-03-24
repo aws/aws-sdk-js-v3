@@ -323,20 +323,20 @@ export interface GetSessionRequest {
 /**
  * @public
  */
-export enum ConfirmationState {
-  CONFIRMED = "Confirmed",
-  DENIED = "Denied",
-  NONE = "None",
-}
+export const ConfirmationState = {
+  CONFIRMED: "Confirmed",
+  DENIED: "Denied",
+  NONE: "None",
+};
 
 /**
  * @public
  */
-export enum Shape {
-  COMPOSITE = "Composite",
-  LIST = "List",
-  SCALAR = "Scalar",
-}
+export const Shape = {
+  COMPOSITE: "Composite",
+  LIST: "List",
+  SCALAR: "Scalar",
+};
 
 /**
  * @public
@@ -367,14 +367,14 @@ export interface Value {
 /**
  * @public
  */
-export enum IntentState {
-  FAILED = "Failed",
-  FULFILLED = "Fulfilled",
-  FULFILLMENT_IN_PROGRESS = "FulfillmentInProgress",
-  IN_PROGRESS = "InProgress",
-  READY_FOR_FULFILLMENT = "ReadyForFulfillment",
-  WAITING = "Waiting",
-}
+export const IntentState = {
+  FAILED: "Failed",
+  FULFILLED: "Fulfilled",
+  FULFILLMENT_IN_PROGRESS: "FulfillmentInProgress",
+  IN_PROGRESS: "InProgress",
+  READY_FOR_FULFILLMENT: "ReadyForFulfillment",
+  WAITING: "Waiting",
+};
 
 /**
  * @public
@@ -393,12 +393,12 @@ export interface ConfidenceScore {
 /**
  * @public
  */
-export enum SentimentType {
-  MIXED = "MIXED",
-  NEGATIVE = "NEGATIVE",
-  NEUTRAL = "NEUTRAL",
-  POSITIVE = "POSITIVE",
-}
+export const SentimentType = {
+  MIXED: "MIXED",
+  NEGATIVE: "NEGATIVE",
+  NEUTRAL: "NEUTRAL",
+  POSITIVE: "POSITIVE",
+};
 
 /**
  * @public
@@ -446,7 +446,7 @@ export interface SentimentResponse {
    *          sentiment most likely expressed by the user based on the analysis by
    *          Amazon Comprehend.</p>
    */
-  sentiment?: SentimentType | string;
+  sentiment?: keyof typeof SentimentType | string;
 
   /**
    * <p>The individual sentiment responses for the utterance.</p>
@@ -457,12 +457,12 @@ export interface SentimentResponse {
 /**
  * @public
  */
-export enum MessageContentType {
-  CUSTOM_PAYLOAD = "CustomPayload",
-  IMAGE_RESPONSE_CARD = "ImageResponseCard",
-  PLAIN_TEXT = "PlainText",
-  SSML = "SSML",
-}
+export const MessageContentType = {
+  CUSTOM_PAYLOAD: "CustomPayload",
+  IMAGE_RESPONSE_CARD: "ImageResponseCard",
+  PLAIN_TEXT: "PlainText",
+  SSML: "SSML",
+};
 
 /**
  * @public
@@ -529,7 +529,7 @@ export interface Message {
   /**
    * <p>Indicates the type of response.</p>
    */
-  contentType: MessageContentType | string | undefined;
+  contentType: keyof typeof MessageContentType | string | undefined;
 
   /**
    * <p>A card that is shown to the user by a messaging platform. You define
@@ -543,23 +543,23 @@ export interface Message {
 /**
  * @public
  */
-export enum StyleType {
-  DEFAULT = "Default",
-  SPELL_BY_LETTER = "SpellByLetter",
-  SPELL_BY_WORD = "SpellByWord",
-}
+export const StyleType = {
+  DEFAULT: "Default",
+  SPELL_BY_LETTER: "SpellByLetter",
+  SPELL_BY_WORD: "SpellByWord",
+};
 
 /**
  * @public
  */
-export enum DialogActionType {
-  CLOSE = "Close",
-  CONFIRM_INTENT = "ConfirmIntent",
-  DELEGATE = "Delegate",
-  ELICIT_INTENT = "ElicitIntent",
-  ELICIT_SLOT = "ElicitSlot",
-  NONE = "None",
-}
+export const DialogActionType = {
+  CLOSE: "Close",
+  CONFIRM_INTENT: "ConfirmIntent",
+  DELEGATE: "Delegate",
+  ELICIT_INTENT: "ElicitIntent",
+  ELICIT_SLOT: "ElicitSlot",
+  NONE: "None",
+};
 
 /**
  * @public
@@ -916,10 +916,10 @@ export interface RecognizeUtteranceResponse {
 /**
  * @public
  */
-export enum ConversationMode {
-  AUDIO = "AUDIO",
-  TEXT = "TEXT",
-}
+export const ConversationMode = {
+  AUDIO: "AUDIO",
+  TEXT: "TEXT",
+};
 
 /**
  * @public
@@ -1031,20 +1031,20 @@ export interface HeartbeatEvent {
 /**
  * @public
  */
-export enum InputMode {
-  DTMF = "DTMF",
-  SPEECH = "Speech",
-  TEXT = "Text",
-}
+export const InputMode = {
+  DTMF: "DTMF",
+  SPEECH: "Speech",
+  TEXT: "Text",
+};
 
 /**
  * @public
  */
-export enum PlaybackInterruptionReason {
-  DTMF_START_DETECTED = "DTMF_START_DETECTED",
-  TEXT_DETECTED = "TEXT_DETECTED",
-  VOICE_START_DETECTED = "VOICE_START_DETECTED",
-}
+export const PlaybackInterruptionReason = {
+  DTMF_START_DETECTED: "DTMF_START_DETECTED",
+  TEXT_DETECTED: "TEXT_DETECTED",
+  VOICE_START_DETECTED: "VOICE_START_DETECTED",
+};
 
 /**
  * @public
@@ -1059,7 +1059,7 @@ export interface PlaybackInterruptionEvent {
   /**
    * <p>Indicates the type of user input that Amazon Lex V2 detected.</p>
    */
-  eventReason?: PlaybackInterruptionReason | string;
+  eventReason?: keyof typeof PlaybackInterruptionReason | string;
 
   /**
    * <p>The identifier of the event that contained the audio, DTMF, or text
@@ -1172,7 +1172,7 @@ export interface DialogAction {
    *             </li>
    *          </ul>
    */
-  type: DialogActionType | string | undefined;
+  type: keyof typeof DialogActionType | string | undefined;
 
   /**
    * <p>The name of the slot that should be elicited from the user.</p>
@@ -1195,7 +1195,7 @@ export interface DialogAction {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-spelling.html">
    *             Using spelling to enter slot values </a>.</p>
    */
-  slotElicitationStyle?: StyleType | string;
+  slotElicitationStyle?: keyof typeof StyleType | string;
 
   /**
    * <p>The name of the constituent sub slot of the composite slot
@@ -1267,7 +1267,7 @@ export interface Slot {
    *          the value is <code>Scalar</code>, it indicates that the
    *             <code>value</code> field contains a single value.</p>
    */
-  shape?: Shape | string;
+  shape?: keyof typeof Shape | string;
 
   /**
    * <p>A list of one or more values that the user provided for the slot.
@@ -1302,13 +1302,13 @@ export interface Intent {
   /**
    * <p>Contains fulfillment information for the intent. </p>
    */
-  state?: IntentState | string;
+  state?: keyof typeof IntentState | string;
 
   /**
    * <p>Contains information about whether fulfillment of the intent has
    *          been confirmed.</p>
    */
-  confirmationState?: ConfirmationState | string;
+  confirmationState?: keyof typeof ConfirmationState | string;
 }
 
 /**
@@ -1775,7 +1775,7 @@ export interface StartConversationRequest {
    *          DTMF information. If the mode is <code>TEXT</code> you can only send
    *          text.</p>
    */
-  conversationMode?: ConversationMode | string;
+  conversationMode?: keyof typeof ConversationMode | string;
 
   /**
    * <p>Represents the stream of events to Amazon Lex V2 from your application. The
@@ -1830,7 +1830,7 @@ export interface IntentResultEvent {
    * <p>Indicates whether the input to the operation was text or
    *          speech.</p>
    */
-  inputMode?: InputMode | string;
+  inputMode?: keyof typeof InputMode | string;
 
   /**
    * <p>A list of intents that Amazon Lex V2 determined might satisfy the user's

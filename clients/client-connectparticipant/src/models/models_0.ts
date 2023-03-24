@@ -166,10 +166,10 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum ConnectionType {
-  CONNECTION_CREDENTIALS = "CONNECTION_CREDENTIALS",
-  WEBSOCKET = "WEBSOCKET",
-}
+export const ConnectionType = {
+  CONNECTION_CREDENTIALS: "CONNECTION_CREDENTIALS",
+  WEBSOCKET: "WEBSOCKET",
+};
 
 /**
  * @public
@@ -179,7 +179,7 @@ export interface CreateParticipantConnectionRequest {
    * <p>Type of connection information required. This can be omitted if
    *                 <code>ConnectParticipant</code> is <code>true</code>.</p>
    */
-  Type?: (ConnectionType | string)[];
+  Type?: (keyof typeof ConnectionType | string)[];
 
   /**
    * <p>This is a header parameter.</p>
@@ -304,18 +304,18 @@ export interface GetAttachmentResponse {
 /**
  * @public
  */
-export enum ScanDirection {
-  BACKWARD = "BACKWARD",
-  FORWARD = "FORWARD",
-}
+export const ScanDirection = {
+  BACKWARD: "BACKWARD",
+  FORWARD: "FORWARD",
+};
 
 /**
  * @public
  */
-export enum SortKey {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortKey = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -365,12 +365,12 @@ export interface GetTranscriptRequest {
    * <p>The direction from StartPosition from which to retrieve message. Default: BACKWARD
    *             when no StartPosition is provided, FORWARD with StartPosition. </p>
    */
-  ScanDirection?: ScanDirection | string;
+  ScanDirection?: keyof typeof ScanDirection | string;
 
   /**
    * <p>The sort order for the records. Default: DESCENDING.</p>
    */
-  SortOrder?: SortKey | string;
+  SortOrder?: keyof typeof SortKey | string;
 
   /**
    * <p>A filtering option for where to start.</p>
@@ -386,11 +386,11 @@ export interface GetTranscriptRequest {
 /**
  * @public
  */
-export enum ArtifactStatus {
-  APPROVED = "APPROVED",
-  IN_PROGRESS = "IN_PROGRESS",
-  REJECTED = "REJECTED",
-}
+export const ArtifactStatus = {
+  APPROVED: "APPROVED",
+  IN_PROGRESS: "IN_PROGRESS",
+  REJECTED: "REJECTED",
+};
 
 /**
  * @public
@@ -416,7 +416,7 @@ export interface AttachmentItem {
   /**
    * <p>Status of the attachment.</p>
    */
-  Status?: ArtifactStatus | string;
+  Status?: keyof typeof ArtifactStatus | string;
 }
 
 /**
@@ -459,29 +459,29 @@ export interface MessageMetadata {
 /**
  * @public
  */
-export enum ParticipantRole {
-  AGENT = "AGENT",
-  CUSTOMER = "CUSTOMER",
-  SYSTEM = "SYSTEM",
-}
+export const ParticipantRole = {
+  AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
+  SYSTEM: "SYSTEM",
+};
 
 /**
  * @public
  */
-export enum ChatItemType {
-  ATTACHMENT = "ATTACHMENT",
-  CHAT_ENDED = "CHAT_ENDED",
-  CONNECTION_ACK = "CONNECTION_ACK",
-  EVENT = "EVENT",
-  MESSAGE = "MESSAGE",
-  MESSAGE_DELIVERED = "MESSAGE_DELIVERED",
-  MESSAGE_READ = "MESSAGE_READ",
-  PARTICIPANT_JOINED = "PARTICIPANT_JOINED",
-  PARTICIPANT_LEFT = "PARTICIPANT_LEFT",
-  TRANSFER_FAILED = "TRANSFER_FAILED",
-  TRANSFER_SUCCEEDED = "TRANSFER_SUCCEEDED",
-  TYPING = "TYPING",
-}
+export const ChatItemType = {
+  ATTACHMENT: "ATTACHMENT",
+  CHAT_ENDED: "CHAT_ENDED",
+  CONNECTION_ACK: "CONNECTION_ACK",
+  EVENT: "EVENT",
+  MESSAGE: "MESSAGE",
+  MESSAGE_DELIVERED: "MESSAGE_DELIVERED",
+  MESSAGE_READ: "MESSAGE_READ",
+  PARTICIPANT_JOINED: "PARTICIPANT_JOINED",
+  PARTICIPANT_LEFT: "PARTICIPANT_LEFT",
+  TRANSFER_FAILED: "TRANSFER_FAILED",
+  TRANSFER_SUCCEEDED: "TRANSFER_SUCCEEDED",
+  TYPING: "TYPING",
+};
 
 /**
  * @public
@@ -513,7 +513,7 @@ export interface Item {
   /**
    * <p>Type of the item: message or event. </p>
    */
-  Type?: ChatItemType | string;
+  Type?: keyof typeof ChatItemType | string;
 
   /**
    * <p>The ID of the sender in the session.</p>
@@ -528,7 +528,7 @@ export interface Item {
   /**
    * <p>The role of the sender. For example, is it a customer, agent, or system.</p>
    */
-  ParticipantRole?: ParticipantRole | string;
+  ParticipantRole?: keyof typeof ParticipantRole | string;
 
   /**
    * <p>Provides information about the attachments.</p>

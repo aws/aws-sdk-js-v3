@@ -66,12 +66,12 @@ export interface SendDataToMulticastGroupResponse {
 /**
  * @public
  */
-export enum MessageType {
-  CUSTOM_COMMAND_ID_GET = "CUSTOM_COMMAND_ID_GET",
-  CUSTOM_COMMAND_ID_NOTIFY = "CUSTOM_COMMAND_ID_NOTIFY",
-  CUSTOM_COMMAND_ID_RESP = "CUSTOM_COMMAND_ID_RESP",
-  CUSTOM_COMMAND_ID_SET = "CUSTOM_COMMAND_ID_SET",
-}
+export const MessageType = {
+  CUSTOM_COMMAND_ID_GET: "CUSTOM_COMMAND_ID_GET",
+  CUSTOM_COMMAND_ID_NOTIFY: "CUSTOM_COMMAND_ID_NOTIFY",
+  CUSTOM_COMMAND_ID_RESP: "CUSTOM_COMMAND_ID_RESP",
+  CUSTOM_COMMAND_ID_SET: "CUSTOM_COMMAND_ID_SET",
+};
 
 /**
  * @public
@@ -86,7 +86,7 @@ export interface SidewalkSendDataToDevice {
   /**
    * <p>Sidewalk device message type. Default value is <code>CUSTOM_COMMAND_ID_NOTIFY</code>.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: keyof typeof MessageType | string;
 
   /**
    * <p>The duration of time in seconds to retry sending the ACK.</p>
@@ -345,7 +345,7 @@ export interface UpdateDestinationRequest {
   /**
    * <p>The type of value in <code>Expression</code>.</p>
    */
-  ExpressionType?: ExpressionType | string;
+  ExpressionType?: keyof typeof ExpressionType | string;
 
   /**
    * <p>The new rule name or topic rule to send messages to.</p>
@@ -471,7 +471,7 @@ export interface UpdateLogLevelsByResourceTypesRequest {
    * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
    *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
-  DefaultLogLevel?: LogLevel | string;
+  DefaultLogLevel?: keyof typeof LogLevel | string;
 
   /**
    * <p>The list of wireless device log options.</p>
@@ -596,7 +596,7 @@ export interface UpdatePartnerAccountRequest {
   /**
    * <p>The partner type.</p>
    */
-  PartnerType: PartnerType | string | undefined;
+  PartnerType: keyof typeof PartnerType | string | undefined;
 }
 
 /**
@@ -616,7 +616,7 @@ export interface UpdatePositionRequest {
   /**
    * <p>Resource type of the resource for which position is updated.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: keyof typeof PositionResourceType | string | undefined;
 
   /**
    * <p>The position information of the resource.</p>
@@ -641,13 +641,13 @@ export interface UpdateResourceEventConfigurationRequest {
   /**
    * <p>Identifier type of the particular resource identifier for event configuration.</p>
    */
-  IdentifierType: IdentifierType | string | undefined;
+  IdentifierType: keyof typeof IdentifierType | string | undefined;
 
   /**
    * <p>Partner type of the resource if the identifier type is <code>PartnerAccountId</code>
    *          </p>
    */
-  PartnerType?: EventNotificationPartnerType | string;
+  PartnerType?: keyof typeof EventNotificationPartnerType | string;
 
   /**
    * <p>Event configuration for the device registration state event.</p>
@@ -694,7 +694,7 @@ export interface UpdateResourcePositionRequest {
    * <p>The type of resource for which position information is updated, which can be a wireless device or a
    *            wireless gateway.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: keyof typeof PositionResourceType | string | undefined;
 
   /**
    * <p>The position information of the resource, displayed as a JSON payload. The payload uses the GeoJSON format,
@@ -809,7 +809,7 @@ export interface UpdateWirelessDeviceRequest {
   /**
    * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</p>
    */
-  Positioning?: PositioningConfigStatus | string;
+  Positioning?: keyof typeof PositioningConfigStatus | string;
 }
 
 /**

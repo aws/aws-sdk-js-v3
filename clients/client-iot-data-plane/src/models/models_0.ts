@@ -379,10 +379,10 @@ export interface ListRetainedMessagesResponse {
 /**
  * @public
  */
-export enum PayloadFormatIndicator {
-  UNSPECIFIED_BYTES = "UNSPECIFIED_BYTES",
-  UTF8_DATA = "UTF8_DATA",
-}
+export const PayloadFormatIndicator = {
+  UNSPECIFIED_BYTES: "UNSPECIFIED_BYTES",
+  UTF8_DATA: "UTF8_DATA",
+};
 
 /**
  * @public
@@ -432,7 +432,7 @@ export interface PublishRequest {
    * <p>An <code>Enum</code> string value that indicates whether the payload is formatted as
    *       UTF-8. <code>payloadFormatIndicator</code> is an HTTP header value in the API.</p>
    */
-  payloadFormatIndicator?: PayloadFormatIndicator | string;
+  payloadFormatIndicator?: keyof typeof PayloadFormatIndicator | string;
 
   /**
    * <p>A UTF-8 encoded string that describes the content of the publishing message.</p>

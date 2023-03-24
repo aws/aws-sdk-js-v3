@@ -7194,7 +7194,7 @@ const serializeAws_json1_1ListKeyPhrasesDetectionJobsRequest = (
 };
 
 const serializeAws_json1_1ListOfDocumentReadFeatureTypes = (
-  input: (DocumentReadFeatureTypes | string)[],
+  input: (keyof typeof DocumentReadFeatureTypes | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -7204,7 +7204,10 @@ const serializeAws_json1_1ListOfDocumentReadFeatureTypes = (
     });
 };
 
-const serializeAws_json1_1ListOfPiiEntityTypes = (input: (PiiEntityType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1ListOfPiiEntityTypes = (
+  input: (keyof typeof PiiEntityType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9727,7 +9730,7 @@ const deserializeAws_json1_1ListOfDetectTargetedSentimentResult = (
 const deserializeAws_json1_1ListOfDocumentReadFeatureTypes = (
   output: any,
   context: __SerdeContext
-): (DocumentReadFeatureTypes | string)[] => {
+): (keyof typeof DocumentReadFeatureTypes | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -9865,7 +9868,7 @@ const deserializeAws_json1_1ListOfPiiEntities = (output: any, context: __SerdeCo
 const deserializeAws_json1_1ListOfPiiEntityTypes = (
   output: any,
   context: __SerdeContext
-): (PiiEntityType | string)[] => {
+): (keyof typeof PiiEntityType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

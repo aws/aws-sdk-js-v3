@@ -224,12 +224,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+};
 
 /**
  * @public
@@ -241,7 +241,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason why it failed service validation.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>The list of fields that failed service validation.</p>
@@ -314,10 +314,10 @@ export namespace Definition {
 /**
  * @public
  */
-export enum EngineType {
-  BLUAGE = "bluage",
-  MICROFOCUS = "microfocus",
-}
+export const EngineType = {
+  BLUAGE: "bluage",
+  MICROFOCUS: "microfocus",
+};
 
 /**
  * @public
@@ -336,7 +336,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>The type of the target platform for this application.</p>
    */
-  engineType: EngineType | string | undefined;
+  engineType: keyof typeof EngineType | string | undefined;
 
   /**
    * <p>The application definition for this application. You can specify either inline JSON or
@@ -828,11 +828,11 @@ export interface GetApplicationRequest {
 /**
  * @public
  */
-export enum DeploymentLifecycle {
-  DEPLOYING = "Deploying",
-  FAILED = "Failed",
-  SUCCEEDED = "Succeeded",
-}
+export const DeploymentLifecycle = {
+  DEPLOYING: "Deploying",
+  FAILED: "Failed",
+  SUCCEEDED: "Succeeded",
+};
 
 /**
  * @public
@@ -847,7 +847,7 @@ export interface DeployedVersionSummary {
   /**
    * <p>The status of the deployment.</p>
    */
-  status: DeploymentLifecycle | string | undefined;
+  status: keyof typeof DeploymentLifecycle | string | undefined;
 
   /**
    * <p>The reason for the reported status.</p>
@@ -858,11 +858,11 @@ export interface DeployedVersionSummary {
 /**
  * @public
  */
-export enum ApplicationVersionLifecycle {
-  AVAILABLE = "Available",
-  CREATING = "Creating",
-  FAILED = "Failed",
-}
+export const ApplicationVersionLifecycle = {
+  AVAILABLE: "Available",
+  CREATING: "Creating",
+  FAILED: "Failed",
+};
 
 /**
  * @public
@@ -877,7 +877,7 @@ export interface ApplicationVersionSummary {
   /**
    * <p>The status of the application.</p>
    */
-  status: ApplicationVersionLifecycle | string | undefined;
+  status: keyof typeof ApplicationVersionLifecycle | string | undefined;
 
   /**
    * <p>The reason for the reported status.</p>
@@ -910,19 +910,19 @@ export interface LogGroupSummary {
 /**
  * @public
  */
-export enum ApplicationLifecycle {
-  AVAILABLE = "Available",
-  CREATED = "Created",
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  DELETING_FROM_ENVIRONMENT = "Deleting From Environment",
-  FAILED = "Failed",
-  READY = "Ready",
-  RUNNING = "Running",
-  STARTING = "Starting",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const ApplicationLifecycle = {
+  AVAILABLE: "Available",
+  CREATED: "Created",
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  DELETING_FROM_ENVIRONMENT: "Deleting From Environment",
+  FAILED: "Failed",
+  READY: "Ready",
+  RUNNING: "Running",
+  STARTING: "Starting",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+};
 
 /**
  * @public
@@ -951,7 +951,7 @@ export interface GetApplicationResponse {
   /**
    * <p>The status of the application.</p>
    */
-  status: ApplicationLifecycle | string | undefined;
+  status: keyof typeof ApplicationLifecycle | string | undefined;
 
   /**
    * <p>The latest version of the application.</p>
@@ -966,7 +966,7 @@ export interface GetApplicationResponse {
   /**
    * <p>The type of the target platform for the application.</p>
    */
-  engineType: EngineType | string | undefined;
+  engineType: keyof typeof EngineType | string | undefined;
 
   /**
    * <p>The list of log summaries. Each log summary includes the log type as well as the log
@@ -1073,7 +1073,7 @@ export interface GetApplicationVersionResponse {
   /**
    * <p>The status of the application version.</p>
    */
-  status: ApplicationVersionLifecycle | string | undefined;
+  status: keyof typeof ApplicationVersionLifecycle | string | undefined;
 
   /**
    * <p>The timestamp when the application version was created.</p>
@@ -1184,26 +1184,26 @@ export namespace BatchJobIdentifier {
 /**
  * @public
  */
-export enum BatchJobType {
-  JES2 = "JES2",
-  JES3 = "JES3",
-  VSE = "VSE",
-}
+export const BatchJobType = {
+  JES2: "JES2",
+  JES3: "JES3",
+  VSE: "VSE",
+};
 
 /**
  * @public
  */
-export enum BatchJobExecutionStatus {
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  DISPATCH = "Dispatching",
-  FAILED = "Failed",
-  HOLDING = "Holding",
-  RUNNING = "Running",
-  SUBMITTING = "Submitting",
-  SUCCEEDED = "Succeeded",
-  SUCCEEDED_WITH_WARNING = "Succeeded With Warning",
-}
+export const BatchJobExecutionStatus = {
+  CANCELLED: "Cancelled",
+  CANCELLING: "Cancelling",
+  DISPATCH: "Dispatching",
+  FAILED: "Failed",
+  HOLDING: "Holding",
+  RUNNING: "Running",
+  SUBMITTING: "Submitting",
+  SUCCEEDED: "Succeeded",
+  SUCCEEDED_WITH_WARNING: "Succeeded With Warning",
+};
 
 /**
  * @public
@@ -1237,12 +1237,12 @@ export interface GetBatchJobExecutionResponse {
   /**
    * <p>The type of job.</p>
    */
-  jobType?: BatchJobType | string;
+  jobType?: keyof typeof BatchJobType | string;
 
   /**
    * <p>The status of the batch job execution.</p>
    */
-  status: BatchJobExecutionStatus | string | undefined;
+  status: keyof typeof BatchJobExecutionStatus | string | undefined;
 
   /**
    * <p>The timestamp when the batch job execution started.</p>
@@ -1461,11 +1461,11 @@ export interface GetDataSetImportTaskRequest {
 /**
  * @public
  */
-export enum DataSetTaskLifecycle {
-  COMPLETED = "Completed",
-  CREATING = "Creating",
-  RUNNING = "Running",
-}
+export const DataSetTaskLifecycle = {
+  COMPLETED: "Completed",
+  CREATING: "Creating",
+  RUNNING: "Running",
+};
 
 /**
  * @public
@@ -1510,7 +1510,7 @@ export interface GetDataSetImportTaskResponse {
   /**
    * <p>The status of the task.</p>
    */
-  status: DataSetTaskLifecycle | string | undefined;
+  status: keyof typeof DataSetTaskLifecycle | string | undefined;
 
   /**
    * <p>A summary of the status of the task.</p>
@@ -1560,7 +1560,7 @@ export interface GetDeploymentResponse {
   /**
    * <p>The status of the deployment.</p>
    */
-  status: DeploymentLifecycle | string | undefined;
+  status: keyof typeof DeploymentLifecycle | string | undefined;
 
   /**
    * <p>The timestamp when the deployment was created.</p>
@@ -1602,10 +1602,10 @@ export interface ListApplicationsRequest {
 /**
  * @public
  */
-export enum ApplicationDeploymentLifecycle {
-  DEPLOYED = "Deployed",
-  DEPLOYING = "Deploying",
-}
+export const ApplicationDeploymentLifecycle = {
+  DEPLOYED: "Deployed",
+  DEPLOYING: "Deploying",
+};
 
 /**
  * @public
@@ -1640,12 +1640,12 @@ export interface ApplicationSummary {
   /**
    * <p>The status of the application.</p>
    */
-  status: ApplicationLifecycle | string | undefined;
+  status: keyof typeof ApplicationLifecycle | string | undefined;
 
   /**
    * <p>The type of the target platform for this application.</p>
    */
-  engineType: EngineType | string | undefined;
+  engineType: keyof typeof EngineType | string | undefined;
 
   /**
    * <p>The timestamp when the application was created.</p>
@@ -1665,13 +1665,13 @@ export interface ApplicationSummary {
   /**
    * <p>Indicates the status of the latest version of the application.</p>
    */
-  versionStatus?: ApplicationVersionLifecycle | string;
+  versionStatus?: keyof typeof ApplicationVersionLifecycle | string;
 
   /**
    * <p>Indicates either an ongoing deployment or if the application has ever deployed
    *          successfully.</p>
    */
-  deploymentStatus?: ApplicationDeploymentLifecycle | string;
+  deploymentStatus?: keyof typeof ApplicationDeploymentLifecycle | string;
 }
 
 /**
@@ -1883,7 +1883,7 @@ export interface ListBatchJobExecutionsRequest {
   /**
    * <p>The status of the batch job executions.</p>
    */
-  status?: BatchJobExecutionStatus | string;
+  status?: keyof typeof BatchJobExecutionStatus | string;
 
   /**
    * <p>The time after which the batch job executions started.</p>
@@ -1924,12 +1924,12 @@ export interface BatchJobExecutionSummary {
   /**
    * <p>The type of a particular batch job execution.</p>
    */
-  jobType?: BatchJobType | string;
+  jobType?: keyof typeof BatchJobType | string;
 
   /**
    * <p>The status of a particular batch job execution.</p>
    */
-  status: BatchJobExecutionStatus | string | undefined;
+  status: keyof typeof BatchJobExecutionStatus | string | undefined;
 
   /**
    * <p>The timestamp when a particular batch job execution started.</p>
@@ -2003,7 +2003,7 @@ export interface DataSetImportTask {
   /**
    * <p>The status of the data set import task.</p>
    */
-  status: DataSetTaskLifecycle | string | undefined;
+  status: keyof typeof DataSetTaskLifecycle | string | undefined;
 
   /**
    * <p>A summary of the data set import task.</p>
@@ -2160,7 +2160,7 @@ export interface DeploymentSummary {
   /**
    * <p>The current status of the deployment.</p>
    */
-  status: DeploymentLifecycle | string | undefined;
+  status: keyof typeof DeploymentLifecycle | string | undefined;
 
   /**
    * <p>The timestamp when the deployment was created.</p>
@@ -2408,7 +2408,7 @@ export interface CreateEnvironmentRequest {
   /**
    * <p>The engine type for the runtime environment.</p>
    */
-  engineType: EngineType | string | undefined;
+  engineType: keyof typeof EngineType | string | undefined;
 
   /**
    * <p>The version of the engine type for the runtime environment.</p>
@@ -2536,13 +2536,13 @@ export interface PendingMaintenance {
 /**
  * @public
  */
-export enum EnvironmentLifecycle {
-  AVAILABLE = "Available",
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  UPDATING = "Updating",
-}
+export const EnvironmentLifecycle = {
+  AVAILABLE: "Available",
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  UPDATING: "Updating",
+};
 
 /**
  * @public
@@ -2576,12 +2576,12 @@ export interface GetEnvironmentResponse {
   /**
    * <p>The status of the runtime environment.</p>
    */
-  status: EnvironmentLifecycle | string | undefined;
+  status: keyof typeof EnvironmentLifecycle | string | undefined;
 
   /**
    * <p>The target platform for the runtime environment.</p>
    */
-  engineType: EngineType | string | undefined;
+  engineType: keyof typeof EngineType | string | undefined;
 
   /**
    * <p>The version of the runtime engine.</p>
@@ -2688,7 +2688,7 @@ export interface ListEnvironmentsRequest {
   /**
    * <p>The engine type for the runtime environment.</p>
    */
-  engineType?: EngineType | string;
+  engineType?: keyof typeof EngineType | string;
 }
 
 /**
@@ -2720,12 +2720,12 @@ export interface EnvironmentSummary {
   /**
    * <p>The status of the runtime environment</p>
    */
-  status: EnvironmentLifecycle | string | undefined;
+  status: keyof typeof EnvironmentLifecycle | string | undefined;
 
   /**
    * <p>The target platform for the runtime environment.</p>
    */
-  engineType: EngineType | string | undefined;
+  engineType: keyof typeof EngineType | string | undefined;
 
   /**
    * <p>The version of the runtime engine.</p>
@@ -2811,7 +2811,7 @@ export interface ListEngineVersionsRequest {
   /**
    * <p>The type of target platform.</p>
    */
-  engineType?: EngineType | string;
+  engineType?: keyof typeof EngineType | string;
 
   /**
    * <p>A pagination token returned from a previous call to

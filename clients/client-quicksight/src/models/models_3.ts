@@ -213,16 +213,16 @@ export interface GetSessionEmbedUrlResponse {
 /**
  * @public
  */
-export enum GroupFilterAttribute {
-  GROUP_NAME = "GROUP_NAME",
-}
+export const GroupFilterAttribute = {
+  GROUP_NAME: "GROUP_NAME",
+};
 
 /**
  * @public
  */
-export enum GroupFilterOperator {
-  StartsWith = "StartsWith",
-}
+export const GroupFilterOperator = {
+  StartsWith: "StartsWith",
+};
 
 /**
  * @public
@@ -234,14 +234,14 @@ export interface GroupSearchFilter {
    *                 "StartsWith"</code>. Currently, the only supported operator is
    *                 <code>StartsWith</code>.</p>
    */
-  Operator: GroupFilterOperator | string | undefined;
+  Operator: keyof typeof GroupFilterOperator | string | undefined;
 
   /**
    * <p>The name of the value that you want to use as a filter, for example <code>"Name":
    *                 "GROUP_NAME"</code>. Currently, the only supported name is
    *             <code>GROUP_NAME</code>.</p>
    */
-  Name: GroupFilterAttribute | string | undefined;
+  Name: keyof typeof GroupFilterAttribute | string | undefined;
 
   /**
    * <p>The value of the named item, in this case <code>GROUP_NAME</code>, that you want to use as a filter.</p>
@@ -262,7 +262,7 @@ export interface IAMPolicyAssignmentSummary {
   /**
    * <p>Assignment status.</p>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: keyof typeof AssignmentStatus | string;
 }
 
 /**
@@ -739,7 +739,7 @@ export interface ListIAMPolicyAssignmentsRequest {
   /**
    * <p>The status of the assignments.</p>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: keyof typeof AssignmentStatus | string;
 
   /**
    * <p>The namespace for the assignments.</p>
@@ -1144,7 +1144,7 @@ export interface TemplateVersionSummary {
   /**
    * <p>The status of the template version.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The description of the template version.</p>
@@ -1263,7 +1263,7 @@ export interface ListThemesRequest {
    *             </li>
    *          </ul>
    */
-  Type?: ThemeType | string;
+  Type?: keyof typeof ThemeType | string;
 }
 
 /**
@@ -1380,7 +1380,7 @@ export interface ThemeVersionSummary {
   /**
    * <p>The status of the theme version.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: keyof typeof ResourceStatus | string;
 }
 
 /**
@@ -1535,7 +1535,7 @@ export interface RegisterUserRequest {
    *             </li>
    *          </ul>
    */
-  IdentityType: IdentityType | string | undefined;
+  IdentityType: keyof typeof IdentityType | string | undefined;
 
   /**
    * <p>The email address of the user that you want to register.</p>
@@ -1572,7 +1572,7 @@ export interface RegisterUserRequest {
    *             </li>
    *          </ul>
    */
-  UserRole: UserRole | string | undefined;
+  UserRole: keyof typeof UserRole | string | undefined;
 
   /**
    * <p>The ARN of the IAM user or role that you are registering with Amazon QuickSight. </p>
@@ -2275,7 +2275,7 @@ export interface UpdateAnalysisResponse {
   /**
    * <p>The update status of the last update that was made to the analysis.</p>
    */
-  UpdateStatus?: ResourceStatus | string;
+  UpdateStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The HTTP status of the request.</p>
@@ -2462,7 +2462,7 @@ export interface UpdateDashboardResponse {
   /**
    * <p>The creation status of the request.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The HTTP status of the request.</p>
@@ -2625,7 +2625,7 @@ export interface UpdateDataSetRequest {
   /**
    * <p>Indicates whether you want to import the data into SPICE.</p>
    */
-  ImportMode: DataSetImportMode | string | undefined;
+  ImportMode: keyof typeof DataSetImportMode | string | undefined;
 
   /**
    * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
@@ -2809,7 +2809,7 @@ export interface UpdateDataSourceResponse {
   /**
    * <p>The update status of the data source's last update.</p>
    */
-  UpdateStatus?: ResourceStatus | string;
+  UpdateStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -3056,7 +3056,7 @@ export interface UpdateIAMPolicyAssignmentRequest {
    *             </li>
    *          </ul>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: keyof typeof AssignmentStatus | string;
 
   /**
    * <p>The ARN for the IAM policy to apply to the Amazon QuickSight users and groups
@@ -3114,7 +3114,7 @@ export interface UpdateIAMPolicyAssignmentResponse {
    *             </li>
    *          </ul>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: keyof typeof AssignmentStatus | string;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -3267,7 +3267,7 @@ export interface UpdateTemplateResponse {
   /**
    * <p>The creation status of the template.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The HTTP status of the request.</p>
@@ -3443,7 +3443,7 @@ export interface UpdateThemeResponse {
   /**
    * <p>The creation status of the theme.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The HTTP status of the request.</p>
@@ -3603,7 +3603,7 @@ export interface UpdateUserRequest {
    *          <p>The name of the Amazon QuickSight role is invisible to the user except for the console
    * 	        screens dealing with permissions.</p>
    */
-  Role: UserRole | string | undefined;
+  Role: keyof typeof UserRole | string | undefined;
 
   /**
    * <p>(Enterprise edition only) The name of the custom permissions profile that you want to

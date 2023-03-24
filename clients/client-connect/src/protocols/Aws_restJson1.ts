@@ -15489,7 +15489,7 @@ const serializeAws_restJson1AllowedAccessControlTags = (
 };
 
 const serializeAws_restJson1AllowedMonitorCapabilities = (
-  input: (MonitorCapability | string)[],
+  input: (keyof typeof MonitorCapability | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -15528,7 +15528,7 @@ const serializeAws_restJson1Attributes = (input: Record<string, string>, context
   }, {});
 };
 
-const serializeAws_restJson1Channels = (input: (Channel | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1Channels = (input: (keyof typeof Channel | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -15584,7 +15584,10 @@ const serializeAws_restJson1ContactReferences = (input: Record<string, Reference
   }, {});
 };
 
-const serializeAws_restJson1ContactStates = (input: (ContactState | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1ContactStates = (
+  input: (keyof typeof ContactState | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -15708,7 +15711,7 @@ const serializeAws_restJson1FilterValueList = (input: string[], context: __Serde
     });
 };
 
-const serializeAws_restJson1Groupings = (input: (Grouping | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1Groupings = (input: (keyof typeof Grouping | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -16005,7 +16008,7 @@ const serializeAws_restJson1PersistentChat = (input: PersistentChat, context: __
 };
 
 const serializeAws_restJson1PhoneNumberCountryCodes = (
-  input: (PhoneNumberCountryCode | string)[],
+  input: (keyof typeof PhoneNumberCountryCode | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -16024,7 +16027,10 @@ const serializeAws_restJson1PhoneNumberQuickConnectConfig = (
   };
 };
 
-const serializeAws_restJson1PhoneNumberTypes = (input: (PhoneNumberType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1PhoneNumberTypes = (
+  input: (keyof typeof PhoneNumberType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -16830,13 +16836,16 @@ const deserializeAws_restJson1AvailableNumberSummary = (
 };
 
 const deserializeAws_restJson1ChannelToCountMap = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [Channel | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, number>, [key, value]: [keyof typeof Channel | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectInt32(value) as any;
       return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1ClaimedPhoneNumberSummary = (

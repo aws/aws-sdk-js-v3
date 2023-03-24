@@ -2763,7 +2763,10 @@ const serializeAws_json1_1AgentFilter = (input: AgentFilter, context: __SerdeCon
   };
 };
 
-const serializeAws_json1_1AgentHealthCodeList = (input: (AgentHealthCode | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1AgentHealthCodeList = (
+  input: (keyof typeof AgentHealthCode | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2771,7 +2774,10 @@ const serializeAws_json1_1AgentHealthCodeList = (input: (AgentHealthCode | strin
     });
 };
 
-const serializeAws_json1_1AgentHealthList = (input: (AgentHealth | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1AgentHealthList = (
+  input: (keyof typeof AgentHealth | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2810,7 +2816,7 @@ const serializeAws_json1_1AssessmentRunFilter = (input: AssessmentRunFilter, con
 };
 
 const serializeAws_json1_1AssessmentRunStateList = (
-  input: (AssessmentRunState | string)[],
+  input: (keyof typeof AssessmentRunState | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3282,7 +3288,7 @@ const serializeAws_json1_1SetTagsForResourceRequest = (
   };
 };
 
-const serializeAws_json1_1SeverityList = (input: (Severity | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1SeverityList = (input: (keyof typeof Severity | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3547,13 +3553,16 @@ const deserializeAws_json1_1AssessmentRunFindingCounts = (
   output: any,
   context: __SerdeContext
 ): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [Severity | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, number>, [key, value]: [keyof typeof Severity | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectInt32(value) as any;
       return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_json1_1AssessmentRunInProgressArnList = (output: any, context: __SerdeContext): string[] => {

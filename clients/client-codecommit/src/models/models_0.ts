@@ -26,10 +26,10 @@ export class ActorDoesNotExistException extends __BaseException {
 /**
  * @public
  */
-export enum ApprovalState {
-  APPROVE = "APPROVE",
-  REVOKE = "REVOKE",
-}
+export const ApprovalState = {
+  APPROVE: "APPROVE",
+  REVOKE: "REVOKE",
+};
 
 /**
  * @public
@@ -44,7 +44,7 @@ export interface Approval {
   /**
    * <p>The state of the approval, APPROVE or REVOKE. REVOKE states are not stored.</p>
    */
-  approvalState?: ApprovalState | string;
+  approvalState?: keyof typeof ApprovalState | string;
 }
 
 /**
@@ -214,10 +214,10 @@ export class ApprovalRuleNameRequiredException extends __BaseException {
 /**
  * @public
  */
-export enum OverrideStatus {
-  OVERRIDE = "OVERRIDE",
-  REVOKE = "REVOKE",
-}
+export const OverrideStatus = {
+  OVERRIDE: "OVERRIDE",
+  REVOKE: "REVOKE",
+};
 
 /**
  * @public
@@ -232,7 +232,7 @@ export interface ApprovalRuleOverriddenEventMetadata {
   /**
    * <p>The status of the override event.</p>
    */
-  overrideStatus?: OverrideStatus | string;
+  overrideStatus?: keyof typeof OverrideStatus | string;
 }
 
 /**
@@ -398,7 +398,7 @@ export interface ApprovalStateChangedEventMetadata {
   /**
    * <p>The approval status for the pull request.</p>
    */
-  approvalStatus?: ApprovalState | string;
+  approvalStatus?: keyof typeof ApprovalState | string;
 }
 
 /**
@@ -764,29 +764,29 @@ export class RepositoryNamesRequiredException extends __BaseException {
 /**
  * @public
  */
-export enum ConflictDetailLevelTypeEnum {
-  FILE_LEVEL = "FILE_LEVEL",
-  LINE_LEVEL = "LINE_LEVEL",
-}
+export const ConflictDetailLevelTypeEnum = {
+  FILE_LEVEL: "FILE_LEVEL",
+  LINE_LEVEL: "LINE_LEVEL",
+};
 
 /**
  * @public
  */
-export enum ConflictResolutionStrategyTypeEnum {
-  ACCEPT_DESTINATION = "ACCEPT_DESTINATION",
-  ACCEPT_SOURCE = "ACCEPT_SOURCE",
-  AUTOMERGE = "AUTOMERGE",
-  NONE = "NONE",
-}
+export const ConflictResolutionStrategyTypeEnum = {
+  ACCEPT_DESTINATION: "ACCEPT_DESTINATION",
+  ACCEPT_SOURCE: "ACCEPT_SOURCE",
+  AUTOMERGE: "AUTOMERGE",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum MergeOptionTypeEnum {
-  FAST_FORWARD_MERGE = "FAST_FORWARD_MERGE",
-  SQUASH_MERGE = "SQUASH_MERGE",
-  THREE_WAY_MERGE = "THREE_WAY_MERGE",
-}
+export const MergeOptionTypeEnum = {
+  FAST_FORWARD_MERGE: "FAST_FORWARD_MERGE",
+  SQUASH_MERGE: "SQUASH_MERGE",
+  THREE_WAY_MERGE: "THREE_WAY_MERGE",
+};
 
 /**
  * @public
@@ -812,7 +812,7 @@ export interface BatchDescribeMergeConflictsInput {
   /**
    * <p>The merge option or strategy you want to use to merge the code.</p>
    */
-  mergeOption: MergeOptionTypeEnum | string | undefined;
+  mergeOption: keyof typeof MergeOptionTypeEnum | string | undefined;
 
   /**
    * <p>The maximum number of merge hunks to include in the output.</p>
@@ -835,14 +835,14 @@ export interface BatchDescribeMergeConflictsInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: keyof typeof ConflictDetailLevelTypeEnum | string;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: keyof typeof ConflictResolutionStrategyTypeEnum | string;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
@@ -854,11 +854,11 @@ export interface BatchDescribeMergeConflictsInput {
 /**
  * @public
  */
-export enum FileModeTypeEnum {
-  EXECUTABLE = "EXECUTABLE",
-  NORMAL = "NORMAL",
-  SYMLINK = "SYMLINK",
-}
+export const FileModeTypeEnum = {
+  EXECUTABLE: "EXECUTABLE",
+  NORMAL: "NORMAL",
+  SYMLINK: "SYMLINK",
+};
 
 /**
  * @public
@@ -868,17 +868,17 @@ export interface FileModes {
   /**
    * <p>The file mode of a file in the source of a merge or pull request.</p>
    */
-  source?: FileModeTypeEnum | string;
+  source?: keyof typeof FileModeTypeEnum | string;
 
   /**
    * <p>The file mode of a file in the destination of a merge or pull request.</p>
    */
-  destination?: FileModeTypeEnum | string;
+  destination?: keyof typeof FileModeTypeEnum | string;
 
   /**
    * <p>The file mode of a file in the base of a merge or pull request.</p>
    */
-  base?: FileModeTypeEnum | string;
+  base?: keyof typeof FileModeTypeEnum | string;
 }
 
 /**
@@ -926,11 +926,11 @@ export interface IsBinaryFile {
 /**
  * @public
  */
-export enum ChangeTypeEnum {
-  ADDED = "A",
-  DELETED = "D",
-  MODIFIED = "M",
-}
+export const ChangeTypeEnum = {
+  ADDED: "A",
+  DELETED: "D",
+  MODIFIED: "M",
+};
 
 /**
  * @public
@@ -941,23 +941,23 @@ export interface MergeOperations {
    * <p>The operation (add, modify, or delete) on a file in the source of a merge or pull
    *             request.</p>
    */
-  source?: ChangeTypeEnum | string;
+  source?: keyof typeof ChangeTypeEnum | string;
 
   /**
    * <p>The operation on a file in the destination of a merge or pull request.</p>
    */
-  destination?: ChangeTypeEnum | string;
+  destination?: keyof typeof ChangeTypeEnum | string;
 }
 
 /**
  * @public
  */
-export enum ObjectTypeEnum {
-  DIRECTORY = "DIRECTORY",
-  FILE = "FILE",
-  GIT_LINK = "GIT_LINK",
-  SYMBOLIC_LINK = "SYMBOLIC_LINK",
-}
+export const ObjectTypeEnum = {
+  DIRECTORY: "DIRECTORY",
+  FILE: "FILE",
+  GIT_LINK: "GIT_LINK",
+  SYMBOLIC_LINK: "SYMBOLIC_LINK",
+};
 
 /**
  * @public
@@ -967,17 +967,17 @@ export interface ObjectTypes {
   /**
    * <p>The type of the object in the source branch.</p>
    */
-  source?: ObjectTypeEnum | string;
+  source?: keyof typeof ObjectTypeEnum | string;
 
   /**
    * <p>The type of the object in the destination branch.</p>
    */
-  destination?: ObjectTypeEnum | string;
+  destination?: keyof typeof ObjectTypeEnum | string;
 
   /**
    * <p>The type of the object in the base commit of the merge.</p>
    */
-  base?: ObjectTypeEnum | string;
+  base?: keyof typeof ObjectTypeEnum | string;
 }
 
 /**
@@ -2274,7 +2274,7 @@ export interface PutFileEntry {
   /**
    * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
    */
-  fileMode?: FileModeTypeEnum | string;
+  fileMode?: keyof typeof FileModeTypeEnum | string;
 
   /**
    * <p>The content of the file, if a source file is not specified.</p>
@@ -2301,7 +2301,7 @@ export interface SetFileModeEntry {
   /**
    * <p>The file mode for the file.</p>
    */
-  fileMode: FileModeTypeEnum | string | undefined;
+  fileMode: keyof typeof FileModeTypeEnum | string | undefined;
 }
 
 /**
@@ -2383,7 +2383,7 @@ export interface FileMetadata {
   /**
    * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
    */
-  fileMode?: FileModeTypeEnum | string;
+  fileMode?: keyof typeof FileModeTypeEnum | string;
 }
 
 /**
@@ -2994,10 +2994,10 @@ export interface CreatePullRequestInput {
 /**
  * @public
  */
-export enum PullRequestStatusEnum {
-  CLOSED = "CLOSED",
-  OPEN = "OPEN",
-}
+export const PullRequestStatusEnum = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+};
 
 /**
  * @public
@@ -3022,7 +3022,7 @@ export interface MergeMetadata {
   /**
    * <p>The merge strategy used in the merge.</p>
    */
-  mergeOption?: MergeOptionTypeEnum | string;
+  mergeOption?: keyof typeof MergeOptionTypeEnum | string;
 }
 
 /**
@@ -3103,7 +3103,7 @@ export interface PullRequest {
   /**
    * <p>The status of the pull request. Pull request status can only change from <code>OPEN</code> to <code>CLOSED</code>.</p>
    */
-  pullRequestStatus?: PullRequestStatusEnum | string;
+  pullRequestStatus?: keyof typeof PullRequestStatusEnum | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user who created the pull request.</p>
@@ -3892,12 +3892,12 @@ export class ConcurrentReferenceUpdateException extends __BaseException {
 /**
  * @public
  */
-export enum ReplacementTypeEnum {
-  KEEP_BASE = "KEEP_BASE",
-  KEEP_DESTINATION = "KEEP_DESTINATION",
-  KEEP_SOURCE = "KEEP_SOURCE",
-  USE_NEW_CONTENT = "USE_NEW_CONTENT",
-}
+export const ReplacementTypeEnum = {
+  KEEP_BASE: "KEEP_BASE",
+  KEEP_DESTINATION: "KEEP_DESTINATION",
+  KEEP_SOURCE: "KEEP_SOURCE",
+  USE_NEW_CONTENT: "USE_NEW_CONTENT",
+};
 
 /**
  * @public
@@ -3912,7 +3912,7 @@ export interface ReplaceContentEntry {
   /**
    * <p>The replacement type to use when determining how to resolve the conflict.</p>
    */
-  replacementType: ReplacementTypeEnum | string | undefined;
+  replacementType: keyof typeof ReplacementTypeEnum | string | undefined;
 
   /**
    * <p>The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.</p>
@@ -3922,7 +3922,7 @@ export interface ReplaceContentEntry {
   /**
    * <p>The file mode to apply during conflict resoltion.</p>
    */
-  fileMode?: FileModeTypeEnum | string;
+  fileMode?: keyof typeof FileModeTypeEnum | string;
 }
 
 /**
@@ -3971,7 +3971,7 @@ export interface CreateUnreferencedMergeCommitInput {
   /**
    * <p>The merge option or strategy you want to use to merge the code.</p>
    */
-  mergeOption: MergeOptionTypeEnum | string | undefined;
+  mergeOption: keyof typeof MergeOptionTypeEnum | string | undefined;
 
   /**
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
@@ -3979,14 +3979,14 @@ export interface CreateUnreferencedMergeCommitInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: keyof typeof ConflictDetailLevelTypeEnum | string;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: keyof typeof ConflictResolutionStrategyTypeEnum | string;
 
   /**
    * <p>The name of the author who created the unreferenced commit. This information is used
@@ -4580,7 +4580,7 @@ export interface DescribeMergeConflictsInput {
   /**
    * <p>The merge option or strategy you want to use to merge the code.</p>
    */
-  mergeOption: MergeOptionTypeEnum | string | undefined;
+  mergeOption: keyof typeof MergeOptionTypeEnum | string | undefined;
 
   /**
    * <p>The maximum number of merge hunks to include in the output.</p>
@@ -4598,14 +4598,14 @@ export interface DescribeMergeConflictsInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: keyof typeof ConflictDetailLevelTypeEnum | string;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: keyof typeof ConflictResolutionStrategyTypeEnum | string;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
@@ -4652,17 +4652,17 @@ export interface DescribeMergeConflictsOutput {
 /**
  * @public
  */
-export enum PullRequestEventType {
-  PULL_REQUEST_APPROVAL_RULE_CREATED = "PULL_REQUEST_APPROVAL_RULE_CREATED",
-  PULL_REQUEST_APPROVAL_RULE_DELETED = "PULL_REQUEST_APPROVAL_RULE_DELETED",
-  PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN = "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN",
-  PULL_REQUEST_APPROVAL_RULE_UPDATED = "PULL_REQUEST_APPROVAL_RULE_UPDATED",
-  PULL_REQUEST_APPROVAL_STATE_CHANGED = "PULL_REQUEST_APPROVAL_STATE_CHANGED",
-  PULL_REQUEST_CREATED = "PULL_REQUEST_CREATED",
-  PULL_REQUEST_MERGE_STATE_CHANGED = "PULL_REQUEST_MERGE_STATE_CHANGED",
-  PULL_REQUEST_SOURCE_REFERENCE_UPDATED = "PULL_REQUEST_SOURCE_REFERENCE_UPDATED",
-  PULL_REQUEST_STATUS_CHANGED = "PULL_REQUEST_STATUS_CHANGED",
-}
+export const PullRequestEventType = {
+  PULL_REQUEST_APPROVAL_RULE_CREATED: "PULL_REQUEST_APPROVAL_RULE_CREATED",
+  PULL_REQUEST_APPROVAL_RULE_DELETED: "PULL_REQUEST_APPROVAL_RULE_DELETED",
+  PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN: "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN",
+  PULL_REQUEST_APPROVAL_RULE_UPDATED: "PULL_REQUEST_APPROVAL_RULE_UPDATED",
+  PULL_REQUEST_APPROVAL_STATE_CHANGED: "PULL_REQUEST_APPROVAL_STATE_CHANGED",
+  PULL_REQUEST_CREATED: "PULL_REQUEST_CREATED",
+  PULL_REQUEST_MERGE_STATE_CHANGED: "PULL_REQUEST_MERGE_STATE_CHANGED",
+  PULL_REQUEST_SOURCE_REFERENCE_UPDATED: "PULL_REQUEST_SOURCE_REFERENCE_UPDATED",
+  PULL_REQUEST_STATUS_CHANGED: "PULL_REQUEST_STATUS_CHANGED",
+};
 
 /**
  * @public
@@ -4676,7 +4676,7 @@ export interface DescribePullRequestEventsInput {
   /**
    * <p>Optional. The pull request event type about which you want to return information.</p>
    */
-  pullRequestEventType?: PullRequestEventType | string;
+  pullRequestEventType?: keyof typeof PullRequestEventType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user whose actions resulted in the event.
@@ -4779,7 +4779,7 @@ export interface PullRequestStatusChangedEventMetadata {
   /**
    * <p>The changed status of the pull request.</p>
    */
-  pullRequestStatus?: PullRequestStatusEnum | string;
+  pullRequestStatus?: keyof typeof PullRequestStatusEnum | string;
 }
 
 /**
@@ -4802,7 +4802,7 @@ export interface PullRequestEvent {
    *             (PULL_REQUEST_STATUS_CHANGED) or update event
    *             (PULL_REQUEST_SOURCE_REFERENCE_UPDATED)).</p>
    */
-  pullRequestEventType?: PullRequestEventType | string;
+  pullRequestEventType?: keyof typeof PullRequestEventType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user whose actions resulted in the event.
@@ -5327,10 +5327,10 @@ export interface GetCommentsForComparedCommitInput {
 /**
  * @public
  */
-export enum RelativeFileVersionEnum {
-  AFTER = "AFTER",
-  BEFORE = "BEFORE",
-}
+export const RelativeFileVersionEnum = {
+  AFTER: "AFTER",
+  BEFORE: "BEFORE",
+};
 
 /**
  * @public
@@ -5351,7 +5351,7 @@ export interface Location {
    * <p>In a comparison of commits or a pull request, whether the change is in the before or
    *             after of that comparison.</p>
    */
-  relativeFileVersion?: RelativeFileVersionEnum | string;
+  relativeFileVersion?: keyof typeof RelativeFileVersionEnum | string;
 }
 
 /**
@@ -5654,7 +5654,7 @@ export interface Difference {
   /**
    * <p>Whether the change type of the difference is an addition (A), deletion (D), or modification (M).</p>
    */
-  changeType?: ChangeTypeEnum | string;
+  changeType?: keyof typeof ChangeTypeEnum | string;
 }
 
 /**
@@ -5745,7 +5745,7 @@ export interface GetFileOutput {
    *                 return values.</p>
    *         </note>
    */
-  fileMode: FileModeTypeEnum | string | undefined;
+  fileMode: keyof typeof FileModeTypeEnum | string | undefined;
 
   /**
    * <p>The size of the contents of the file, in bytes.</p>
@@ -5827,7 +5827,7 @@ export interface File {
   /**
    * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
    */
-  fileMode?: FileModeTypeEnum | string;
+  fileMode?: keyof typeof FileModeTypeEnum | string;
 }
 
 /**
@@ -5895,7 +5895,7 @@ export interface SymbolicLink {
   /**
    * <p>The file mode permissions of the blob that cotains information about the symbolic link.</p>
    */
-  fileMode?: FileModeTypeEnum | string;
+  fileMode?: keyof typeof FileModeTypeEnum | string;
 }
 
 /**
@@ -5967,14 +5967,14 @@ export interface GetMergeCommitInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: keyof typeof ConflictDetailLevelTypeEnum | string;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: keyof typeof ConflictResolutionStrategyTypeEnum | string;
 }
 
 /**
@@ -6028,7 +6028,7 @@ export interface GetMergeConflictsInput {
   /**
    * <p>The merge option or strategy you want to use to merge the code.  </p>
    */
-  mergeOption: MergeOptionTypeEnum | string | undefined;
+  mergeOption: keyof typeof MergeOptionTypeEnum | string | undefined;
 
   /**
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
@@ -6036,7 +6036,7 @@ export interface GetMergeConflictsInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: keyof typeof ConflictDetailLevelTypeEnum | string;
 
   /**
    * <p>The maximum number of files to include in the output.</p>
@@ -6048,7 +6048,7 @@ export interface GetMergeConflictsInput {
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: keyof typeof ConflictResolutionStrategyTypeEnum | string;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
@@ -6160,14 +6160,14 @@ export interface GetMergeOptionsInput {
    *             If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in
    *             both branches has differences on the same line.</p>
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum | string;
+  conflictDetailLevel?: keyof typeof ConflictDetailLevelTypeEnum | string;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
    *             automatically merging two versions of a file. The default is NONE, which requires any
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | string;
+  conflictResolutionStrategy?: keyof typeof ConflictResolutionStrategyTypeEnum | string;
 }
 
 /**
@@ -6177,7 +6177,7 @@ export interface GetMergeOptionsOutput {
   /**
    * <p>The merge option or strategy used to merge the code.</p>
    */
-  mergeOptions: (MergeOptionTypeEnum | string)[] | undefined;
+  mergeOptions: (keyof typeof MergeOptionTypeEnum | string)[] | undefined;
 
   /**
    * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
@@ -6308,12 +6308,12 @@ export interface GetRepositoryTriggersInput {
 /**
  * @public
  */
-export enum RepositoryTriggerEventEnum {
-  ALL = "all",
-  CREATE_REFERENCE = "createReference",
-  DELETE_REFERENCE = "deleteReference",
-  UPDATE_REFERENCE = "updateReference",
-}
+export const RepositoryTriggerEventEnum = {
+  ALL: "all",
+  CREATE_REFERENCE: "createReference",
+  DELETE_REFERENCE: "deleteReference",
+  UPDATE_REFERENCE: "updateReference",
+};
 
 /**
  * @public
@@ -6355,7 +6355,7 @@ export interface RepositoryTrigger {
    *             <p>The valid value "all" cannot be used with any other values.</p>
    *          </note>
    */
-  events: (RepositoryTriggerEventEnum | string)[] | undefined;
+  events: (keyof typeof RepositoryTriggerEventEnum | string)[] | undefined;
 }
 
 /**
@@ -6531,7 +6531,7 @@ export interface ListPullRequestsInput {
   /**
    * <p>Optional. The status of the pull request. If used, this refines the results to the pull requests that match the specified status.</p>
    */
-  pullRequestStatus?: PullRequestStatusEnum | string;
+  pullRequestStatus?: keyof typeof PullRequestStatusEnum | string;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the

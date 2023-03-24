@@ -48,10 +48,10 @@ export interface Entity {
 /**
  * @public
  */
-export enum ItemType {
-  PRONUNCIATION = "pronunciation",
-  PUNCTUATION = "punctuation",
-}
+export const ItemType = {
+  PRONUNCIATION: "pronunciation",
+  PUNCTUATION: "punctuation",
+};
 
 /**
  * @public
@@ -73,7 +73,7 @@ export interface Item {
    * <p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken words) and
    *       <code>PUNCTUATION</code>.</p>
    */
-  Type?: ItemType | string;
+  Type?: keyof typeof ItemType | string;
 
   /**
    * <p>The word or punctuation that was transcribed.</p>
@@ -147,10 +147,10 @@ export interface AudioEvent {
 /**
  * @public
  */
-export enum ParticipantRole {
-  AGENT = "AGENT",
-  CUSTOMER = "CUSTOMER",
-}
+export const ParticipantRole = {
+  AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
+};
 
 /**
  * @public
@@ -169,16 +169,16 @@ export interface ChannelDefinition {
    * <p>Specify the speaker you want to define. Omitting this parameter is equivalent to
    *       specifying both participants.</p>
    */
-  ParticipantRole: ParticipantRole | string | undefined;
+  ParticipantRole: keyof typeof ParticipantRole | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ContentRedactionOutput {
-  REDACTED = "redacted",
-  REDACTED_AND_UNREDACTED = "redacted_and_unredacted",
-}
+export const ContentRedactionOutput = {
+  REDACTED: "redacted",
+  REDACTED_AND_UNREDACTED: "redacted_and_unredacted",
+};
 
 /**
  * @public
@@ -228,7 +228,7 @@ export interface PostCallAnalyticsSettings {
    *          <p>Note that to include <code>ContentRedactionOutput</code> in your request, you must
    *       enable content redaction (<code>ContentRedactionType</code>).</p>
    */
-  ContentRedactionOutput?: ContentRedactionOutput | string;
+  ContentRedactionOutput?: keyof typeof ContentRedactionOutput | string;
 
   /**
    * <p>The KMS key you want to use to encrypt your Call Analytics post-call
@@ -432,7 +432,7 @@ export interface CallAnalyticsItem {
    * <p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken words) and
    *       <code>PUNCTUATION</code>.</p>
    */
-  Type?: ItemType | string;
+  Type?: keyof typeof ItemType | string;
 
   /**
    * <p>The word or punctuation that was transcribed.</p>
@@ -463,17 +463,17 @@ export interface CallAnalyticsItem {
 /**
  * @public
  */
-export enum CallAnalyticsLanguageCode {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  IT_IT = "it-IT",
-  PT_BR = "pt-BR",
-}
+export const CallAnalyticsLanguageCode = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  IT_IT: "it-IT",
+  PT_BR: "pt-BR",
+};
 
 /**
  * @public
@@ -644,12 +644,12 @@ export interface IssueDetected {
 /**
  * @public
  */
-export enum Sentiment {
-  MIXED = "MIXED",
-  NEGATIVE = "NEGATIVE",
-  NEUTRAL = "NEUTRAL",
-  POSITIVE = "POSITIVE",
-}
+export const Sentiment = {
+  MIXED: "MIXED",
+  NEGATIVE: "NEGATIVE",
+  NEUTRAL: "NEUTRAL",
+  POSITIVE: "POSITIVE",
+};
 
 /**
  * @public
@@ -673,7 +673,7 @@ export interface UtteranceEvent {
    * <p>Provides the role of the speaker for each audio channel, either <code>CUSTOMER</code> or
    *       <code>AGENT</code>.</p>
    */
-  ParticipantRole?: ParticipantRole | string;
+  ParticipantRole?: keyof typeof ParticipantRole | string;
 
   /**
    * <p>The time, in milliseconds, from the beginning of the audio stream to the start of the
@@ -707,7 +707,7 @@ export interface UtteranceEvent {
   /**
    * <p>Provides the sentiment that was detected in the specified segment.</p>
    */
-  Sentiment?: Sentiment | string;
+  Sentiment?: keyof typeof Sentiment | string;
 
   /**
    * <p>Provides the issue that was detected in the specified segment.</p>
@@ -879,36 +879,36 @@ export namespace CallAnalyticsTranscriptResultStream {
 /**
  * @public
  */
-export enum ContentIdentificationType {
-  PII = "PII",
-}
+export const ContentIdentificationType = {
+  PII: "PII",
+};
 
 /**
  * @public
  */
-export enum ContentRedactionType {
-  PII = "PII",
-}
+export const ContentRedactionType = {
+  PII: "PII",
+};
 
 /**
  * @public
  */
-export enum LanguageCode {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  HI_IN = "hi-IN",
-  IT_IT = "it-IT",
-  JA_JP = "ja-JP",
-  KO_KR = "ko-KR",
-  PT_BR = "pt-BR",
-  TH_TH = "th-TH",
-  ZH_CN = "zh-CN",
-}
+export const LanguageCode = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  HI_IN: "hi-IN",
+  IT_IT: "it-IT",
+  JA_JP: "ja-JP",
+  KO_KR: "ko-KR",
+  PT_BR: "pt-BR",
+  TH_TH: "th-TH",
+  ZH_CN: "zh-CN",
+};
 
 /**
  * @public
@@ -920,7 +920,7 @@ export interface LanguageWithScore {
   /**
    * <p>The language code of the identified language.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>The confidence score associated with the identified language code. Confidence scores are values
@@ -932,11 +932,11 @@ export interface LanguageWithScore {
 /**
  * @public
  */
-export enum MediaEncoding {
-  FLAC = "flac",
-  OGG_OPUS = "ogg-opus",
-  PCM = "pcm",
-}
+export const MediaEncoding = {
+  FLAC: "flac",
+  OGG_OPUS: "ogg-opus",
+  PCM: "pcm",
+};
 
 /**
  * @public
@@ -994,7 +994,7 @@ export interface MedicalItem {
    * <p>The type of item identified. Options are: <code>PRONUNCIATION</code> (spoken
    *             words) and <code>PUNCTUATION</code>.</p>
    */
-  Type?: ItemType | string;
+  Type?: keyof typeof ItemType | string;
 
   /**
    * <p>The word or punctuation that was transcribed.</p>
@@ -1043,9 +1043,9 @@ export interface MedicalAlternative {
 /**
  * @public
  */
-export enum MedicalContentIdentificationType {
-  PHI = "PHI",
-}
+export const MedicalContentIdentificationType = {
+  PHI: "PHI",
+};
 
 /**
  * @public
@@ -1269,11 +1269,11 @@ export namespace MedicalTranscriptResultStream {
 /**
  * @public
  */
-export enum PartialResultsStability {
-  HIGH = "high",
-  LOW = "low",
-  MEDIUM = "medium",
-}
+export const PartialResultsStability = {
+  HIGH: "high",
+  LOW: "low",
+  MEDIUM: "medium",
+};
 
 /**
  * @public
@@ -1321,7 +1321,7 @@ export interface Result {
   /**
    * <p>The language code that represents the language spoken in your audio stream.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>The language code of the dominant language identified in your stream.</p>
@@ -1334,23 +1334,23 @@ export interface Result {
 /**
  * @public
  */
-export enum Specialty {
-  CARDIOLOGY = "CARDIOLOGY",
-  NEUROLOGY = "NEUROLOGY",
-  ONCOLOGY = "ONCOLOGY",
-  PRIMARYCARE = "PRIMARYCARE",
-  RADIOLOGY = "RADIOLOGY",
-  UROLOGY = "UROLOGY",
-}
+export const Specialty = {
+  CARDIOLOGY: "CARDIOLOGY",
+  NEUROLOGY: "NEUROLOGY",
+  ONCOLOGY: "ONCOLOGY",
+  PRIMARYCARE: "PRIMARYCARE",
+  RADIOLOGY: "RADIOLOGY",
+  UROLOGY: "UROLOGY",
+};
 
 /**
  * @public
  */
-export enum VocabularyFilterMethod {
-  MASK = "mask",
-  REMOVE = "remove",
-  TAG = "tag",
-}
+export const VocabularyFilterMethod = {
+  MASK: "mask",
+  REMOVE: "remove",
+  TAG: "tag",
+};
 
 /**
  * @public
@@ -1364,7 +1364,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *       <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
    *         languages</a> table.</p>
    */
-  LanguageCode: CallAnalyticsLanguageCode | string | undefined;
+  LanguageCode: keyof typeof CallAnalyticsLanguageCode | string | undefined;
 
   /**
    * <p>The sample rate of the input audio (in hertz). Low-quality audio, such as telephone audio,
@@ -1388,7 +1388,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a>.</p>
    */
-  MediaEncoding: MediaEncoding | string | undefined;
+  MediaEncoding: keyof typeof MediaEncoding | string | undefined;
 
   /**
    * <p>Specify the name of the custom vocabulary that you want to use when processing your
@@ -1429,7 +1429,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *          <p>To delete words, choose <code>remove</code>.</p>
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+  VocabularyFilterMethod?: keyof typeof VocabularyFilterMethod | string;
 
   /**
    * <p>Specify the name of the custom language model that you want to use when processing your
@@ -1457,7 +1457,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result
    *       stabilization</a>.</p>
    */
-  PartialResultsStability?: PartialResultsStability | string;
+  PartialResultsStability?: keyof typeof PartialResultsStability | string;
 
   /**
    * <p>Labels all personally identifiable information (PII) identified in your transcript.</p>
@@ -1469,7 +1469,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
    */
-  ContentIdentificationType?: ContentIdentificationType | string;
+  ContentIdentificationType?: keyof typeof ContentIdentificationType | string;
 
   /**
    * <p>Redacts all personally identifiable information (PII) identified in your transcript.</p>
@@ -1481,7 +1481,7 @@ export interface StartCallAnalyticsStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
    */
-  ContentRedactionType?: ContentRedactionType | string;
+  ContentRedactionType?: keyof typeof ContentRedactionType | string;
 
   /**
    * <p>Specify which types of personally identifiable information (PII) you want to redact in your
@@ -1511,7 +1511,7 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
   /**
    * <p>Provides the language code that you specified in your Call Analytics request.</p>
    */
-  LanguageCode?: CallAnalyticsLanguageCode | string;
+  LanguageCode?: keyof typeof CallAnalyticsLanguageCode | string;
 
   /**
    * <p>Provides the sample rate that you specified in your Call Analytics request.</p>
@@ -1521,7 +1521,7 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
   /**
    * <p>Provides the media encoding you specified in your Call Analytics request.</p>
    */
-  MediaEncoding?: MediaEncoding | string;
+  MediaEncoding?: keyof typeof MediaEncoding | string;
 
   /**
    * <p>Provides the name of the custom vocabulary that you specified in your Call Analytics request.</p>
@@ -1547,7 +1547,7 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
   /**
    * <p>Provides the vocabulary filtering method used in your Call Analytics transcription.</p>
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+  VocabularyFilterMethod?: keyof typeof VocabularyFilterMethod | string;
 
   /**
    * <p>Provides the name of the custom language model that you specified in your Call Analytics
@@ -1563,17 +1563,17 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
   /**
    * <p>Provides the stabilization level used for your transcription.</p>
    */
-  PartialResultsStability?: PartialResultsStability | string;
+  PartialResultsStability?: keyof typeof PartialResultsStability | string;
 
   /**
    * <p>Shows whether content identification was enabled for your Call Analytics transcription.</p>
    */
-  ContentIdentificationType?: ContentIdentificationType | string;
+  ContentIdentificationType?: keyof typeof ContentIdentificationType | string;
 
   /**
    * <p>Shows whether content redaction was enabled for your Call Analytics transcription.</p>
    */
-  ContentRedactionType?: ContentRedactionType | string;
+  ContentRedactionType?: keyof typeof ContentRedactionType | string;
 
   /**
    * <p>Lists the PII entity types you specified in your Call Analytics request.</p>
@@ -1584,10 +1584,10 @@ export interface StartCallAnalyticsStreamTranscriptionResponse {
 /**
  * @public
  */
-export enum Type {
-  CONVERSATION = "CONVERSATION",
-  DICTATION = "DICTATION",
-}
+export const Type = {
+  CONVERSATION: "CONVERSATION",
+  DICTATION: "DICTATION",
+};
 
 /**
  * @public
@@ -1599,7 +1599,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    *             <p>Amazon Transcribe Medical only supports US English (<code>en-US</code>).</p>
    *         </important>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: keyof typeof LanguageCode | string | undefined;
 
   /**
    * <p>The sample rate of the input audio (in hertz). Amazon Transcribe Medical supports a
@@ -1624,7 +1624,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    *          </ul>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a>.</p>
    */
-  MediaEncoding: MediaEncoding | string | undefined;
+  MediaEncoding: keyof typeof MediaEncoding | string | undefined;
 
   /**
    * <p>Specify the name of the custom vocabulary that you want to use when processing your
@@ -1635,14 +1635,14 @@ export interface StartMedicalStreamTranscriptionRequest {
   /**
    * <p>Specify the medical specialty contained in your audio.</p>
    */
-  Specialty: Specialty | string | undefined;
+  Specialty: keyof typeof Specialty | string | undefined;
 
   /**
    * <p>Specify the type of input audio. For example, choose <code>DICTATION</code> for a
    *             provider dictating patient notes and <code>CONVERSATION</code> for a dialogue between a
    *             patient and a medical professional.</p>
    */
-  Type: Type | string | undefined;
+  Type: keyof typeof Type | string | undefined;
 
   /**
    * <p>Enables speaker partitioning (diarization) in your transcription output. Speaker
@@ -1689,7 +1689,7 @@ export interface StartMedicalStreamTranscriptionRequest {
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html">Identifying personal health information (PHI) in a
    *             transcription</a>.</p>
    */
-  ContentIdentificationType?: MedicalContentIdentificationType | string;
+  ContentIdentificationType?: keyof typeof MedicalContentIdentificationType | string;
 }
 
 /**
@@ -1705,7 +1705,7 @@ export interface StartMedicalStreamTranscriptionResponse {
    * <p>Provides the language code that you specified in your request. This must be
    *                 <code>en-US</code>.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>Provides the sample rate that you specified in your request.</p>
@@ -1715,7 +1715,7 @@ export interface StartMedicalStreamTranscriptionResponse {
   /**
    * <p>Provides the media encoding you specified in your request.</p>
    */
-  MediaEncoding?: MediaEncoding | string;
+  MediaEncoding?: keyof typeof MediaEncoding | string;
 
   /**
    * <p>Provides the name of the custom vocabulary that you specified in your request.</p>
@@ -1725,12 +1725,12 @@ export interface StartMedicalStreamTranscriptionResponse {
   /**
    * <p>Provides the medical specialty that you specified in your request.</p>
    */
-  Specialty?: Specialty | string;
+  Specialty?: keyof typeof Specialty | string;
 
   /**
    * <p>Provides the type of audio you specified in your request.</p>
    */
-  Type?: Type | string;
+  Type?: keyof typeof Type | string;
 
   /**
    * <p>Shows whether speaker partitioning was enabled for your transcription.</p>
@@ -1760,7 +1760,7 @@ export interface StartMedicalStreamTranscriptionResponse {
   /**
    * <p>Shows whether content identification was enabled for your transcription.</p>
    */
-  ContentIdentificationType?: MedicalContentIdentificationType | string;
+  ContentIdentificationType?: keyof typeof MedicalContentIdentificationType | string;
 }
 
 /**
@@ -1775,7 +1775,7 @@ export interface StartStreamTranscriptionRequest {
    *       <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
    *         languages</a> table.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>The sample rate of the input audio (in hertz). Low-quality audio, such as telephone audio,
@@ -1799,7 +1799,7 @@ export interface StartStreamTranscriptionRequest {
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a>.</p>
    */
-  MediaEncoding: MediaEncoding | string | undefined;
+  MediaEncoding: keyof typeof MediaEncoding | string | undefined;
 
   /**
    * <p>Specify the name of the custom vocabulary that you want to use when processing your
@@ -1852,7 +1852,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>To delete words, choose <code>remove</code>.</p>
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+  VocabularyFilterMethod?: keyof typeof VocabularyFilterMethod | string;
 
   /**
    * <p>Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning
@@ -1893,7 +1893,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result
    *       stabilization</a>.</p>
    */
-  PartialResultsStability?: PartialResultsStability | string;
+  PartialResultsStability?: keyof typeof PartialResultsStability | string;
 
   /**
    * <p>Labels all personally identifiable information (PII) identified in your transcript.</p>
@@ -1905,7 +1905,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
    */
-  ContentIdentificationType?: ContentIdentificationType | string;
+  ContentIdentificationType?: keyof typeof ContentIdentificationType | string;
 
   /**
    * <p>Redacts all personally identifiable information (PII) identified in your transcript.</p>
@@ -1917,7 +1917,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable
    *       information</a>.</p>
    */
-  ContentRedactionType?: ContentRedactionType | string;
+  ContentRedactionType?: keyof typeof ContentRedactionType | string;
 
   /**
    * <p>Specify which types of personally identifiable information (PII) you want to redact in your
@@ -1986,7 +1986,7 @@ export interface StartStreamTranscriptionRequest {
    *          <p>You can only use this parameter if you've included <code>IdentifyLanguage</code> and
    *         <code>LanguageOptions</code> in your request.</p>
    */
-  PreferredLanguage?: LanguageCode | string;
+  PreferredLanguage?: keyof typeof LanguageCode | string;
 
   /**
    * <p>Specify the names of the custom vocabularies that you want to use when processing your
@@ -2203,7 +2203,7 @@ export interface StartStreamTranscriptionResponse {
   /**
    * <p>Provides the language code that you specified in your request.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>Provides the sample rate that you specified in your request.</p>
@@ -2213,7 +2213,7 @@ export interface StartStreamTranscriptionResponse {
   /**
    * <p>Provides the media encoding you specified in your request.</p>
    */
-  MediaEncoding?: MediaEncoding | string;
+  MediaEncoding?: keyof typeof MediaEncoding | string;
 
   /**
    * <p>Provides the name of the custom vocabulary that you specified in your request.</p>
@@ -2239,7 +2239,7 @@ export interface StartStreamTranscriptionResponse {
   /**
    * <p>Provides the vocabulary filtering method used in your transcription.</p>
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+  VocabularyFilterMethod?: keyof typeof VocabularyFilterMethod | string;
 
   /**
    * <p>Shows whether speaker partitioning was enabled for your transcription.</p>
@@ -2264,17 +2264,17 @@ export interface StartStreamTranscriptionResponse {
   /**
    * <p>Provides the stabilization level used for your transcription.</p>
    */
-  PartialResultsStability?: PartialResultsStability | string;
+  PartialResultsStability?: keyof typeof PartialResultsStability | string;
 
   /**
    * <p>Shows whether content identification was enabled for your transcription.</p>
    */
-  ContentIdentificationType?: ContentIdentificationType | string;
+  ContentIdentificationType?: keyof typeof ContentIdentificationType | string;
 
   /**
    * <p>Shows whether content redaction was enabled for your transcription.</p>
    */
-  ContentRedactionType?: ContentRedactionType | string;
+  ContentRedactionType?: keyof typeof ContentRedactionType | string;
 
   /**
    * <p>Lists the PII entity types you specified in your request.</p>
@@ -2300,7 +2300,7 @@ export interface StartStreamTranscriptionResponse {
   /**
    * <p>Provides the preferred language that you specified in your request.</p>
    */
-  PreferredLanguage?: LanguageCode | string;
+  PreferredLanguage?: keyof typeof LanguageCode | string;
 
   /**
    * <p>Provides the names of the custom vocabularies that you specified in your request.</p>

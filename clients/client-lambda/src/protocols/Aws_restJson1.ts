@@ -7948,7 +7948,10 @@ const serializeAws_restJson1AmazonManagedKafkaEventSourceConfig = (
   };
 };
 
-const serializeAws_restJson1ArchitecturesList = (input: (Architecture | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1ArchitecturesList = (
+  input: (keyof typeof Architecture | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7965,7 +7968,7 @@ const serializeAws_restJson1CodeSigningPolicies = (input: CodeSigningPolicies, c
 };
 
 const serializeAws_restJson1CompatibleArchitectures = (
-  input: (Architecture | string)[],
+  input: (keyof typeof Architecture | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -7975,7 +7978,10 @@ const serializeAws_restJson1CompatibleArchitectures = (
     });
 };
 
-const serializeAws_restJson1CompatibleRuntimes = (input: (Runtime | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1CompatibleRuntimes = (
+  input: (keyof typeof Runtime | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8033,13 +8039,16 @@ const serializeAws_restJson1EndpointLists = (input: string[], context: __SerdeCo
 };
 
 const serializeAws_restJson1Endpoints = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [EndPointType | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof EndPointType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = serializeAws_restJson1EndpointLists(value, context);
       return acc;
-    }
-    acc[key] = serializeAws_restJson1EndpointLists(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1Environment = (input: Environment, context: __SerdeContext): any => {
@@ -8110,7 +8119,7 @@ const serializeAws_restJson1FunctionCode = (input: FunctionCode, context: __Serd
 };
 
 const serializeAws_restJson1FunctionResponseTypeList = (
-  input: (FunctionResponseType | string)[],
+  input: (keyof typeof FunctionResponseType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -8399,7 +8408,10 @@ const deserializeAws_restJson1AmazonManagedKafkaEventSourceConfig = (
   } as any;
 };
 
-const deserializeAws_restJson1ArchitecturesList = (output: any, context: __SerdeContext): (Architecture | string)[] => {
+const deserializeAws_restJson1ArchitecturesList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Architecture | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8449,7 +8461,7 @@ const deserializeAws_restJson1CodeSigningPolicies = (output: any, context: __Ser
 const deserializeAws_restJson1CompatibleArchitectures = (
   output: any,
   context: __SerdeContext
-): (Architecture | string)[] => {
+): (keyof typeof Architecture | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8461,7 +8473,10 @@ const deserializeAws_restJson1CompatibleArchitectures = (
   return retVal;
 };
 
-const deserializeAws_restJson1CompatibleRuntimes = (output: any, context: __SerdeContext): (Runtime | string)[] => {
+const deserializeAws_restJson1CompatibleRuntimes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Runtime | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8531,13 +8546,16 @@ const deserializeAws_restJson1EndpointLists = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext): Record<string, string[]> => {
-  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [EndPointType | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, string[]>, [key, value]: [keyof typeof EndPointType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = deserializeAws_restJson1EndpointLists(value, context);
       return acc;
-    }
-    acc[key] = deserializeAws_restJson1EndpointLists(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1EnvironmentError = (output: any, context: __SerdeContext): EnvironmentError => {
@@ -8832,7 +8850,7 @@ const deserializeAws_restJson1FunctionList = (output: any, context: __SerdeConte
 const deserializeAws_restJson1FunctionResponseTypeList = (
   output: any,
   context: __SerdeContext
-): (FunctionResponseType | string)[] => {
+): (keyof typeof FunctionResponseType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

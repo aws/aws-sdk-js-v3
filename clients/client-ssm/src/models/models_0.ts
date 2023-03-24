@@ -100,17 +100,17 @@ export interface Activation {
 /**
  * @public
  */
-export enum ResourceTypeForTagging {
-  ASSOCIATION = "Association",
-  AUTOMATION = "Automation",
-  DOCUMENT = "Document",
-  MAINTENANCE_WINDOW = "MaintenanceWindow",
-  MANAGED_INSTANCE = "ManagedInstance",
-  OPSMETADATA = "OpsMetadata",
-  OPS_ITEM = "OpsItem",
-  PARAMETER = "Parameter",
-  PATCH_BASELINE = "PatchBaseline",
-}
+export const ResourceTypeForTagging = {
+  ASSOCIATION: "Association",
+  AUTOMATION: "Automation",
+  DOCUMENT: "Document",
+  MAINTENANCE_WINDOW: "MaintenanceWindow",
+  MANAGED_INSTANCE: "ManagedInstance",
+  OPSMETADATA: "OpsMetadata",
+  OPS_ITEM: "OpsItem",
+  PARAMETER: "Parameter",
+  PATCH_BASELINE: "PatchBaseline",
+};
 
 /**
  * @public
@@ -126,7 +126,7 @@ export interface AddTagsToResourceRequest {
    *     <code>mi-1a2b3c4d5e6f</code>.</p>
    *          </note>
    */
-  ResourceType: ResourceTypeForTagging | string | undefined;
+  ResourceType: keyof typeof ResourceTypeForTagging | string | undefined;
 
   /**
    * <p>The resource ID you want to tag.</p>
@@ -317,10 +317,10 @@ export interface AlarmConfiguration {
 /**
  * @public
  */
-export enum ExternalAlarmState {
-  ALARM = "ALARM",
-  UNKNOWN = "UNKNOWN",
-}
+export const ExternalAlarmState = {
+  ALARM: "ALARM",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -335,7 +335,7 @@ export interface AlarmStateInformation {
   /**
    * <p>The state of your CloudWatch alarm.</p>
    */
-  State: ExternalAlarmState | string | undefined;
+  State: keyof typeof ExternalAlarmState | string | undefined;
 }
 
 /**
@@ -835,13 +835,13 @@ export class AssociationLimitExceeded extends __BaseException {
 /**
  * @public
  */
-export enum AssociationComplianceSeverity {
-  Critical = "CRITICAL",
-  High = "HIGH",
-  Low = "LOW",
-  Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED",
-}
+export const AssociationComplianceSeverity = {
+  Critical: "CRITICAL",
+  High: "HIGH",
+  Low: "LOW",
+  Medium: "MEDIUM",
+  Unspecified: "UNSPECIFIED",
+};
 
 /**
  * @public
@@ -880,10 +880,10 @@ export interface InstanceAssociationOutputLocation {
 /**
  * @public
  */
-export enum AssociationSyncCompliance {
-  Auto = "AUTO",
-  Manual = "MANUAL",
-}
+export const AssociationSyncCompliance = {
+  Auto: "AUTO",
+  Manual: "MANUAL",
+};
 
 /**
  * @public
@@ -1161,7 +1161,7 @@ export interface CreateAssociationRequest {
   /**
    * <p>The severity level to assign to the association.</p>
    */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
+  ComplianceSeverity?: keyof typeof AssociationComplianceSeverity | string;
 
   /**
    * <p>The mode for generating association compliance. You can specify <code>AUTO</code> or
@@ -1174,7 +1174,7 @@ export interface CreateAssociationRequest {
    *    managed by State Manager. It is managed by your direct call to the <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    */
-  SyncCompliance?: AssociationSyncCompliance | string;
+  SyncCompliance?: keyof typeof AssociationSyncCompliance | string;
 
   /**
    * <p>By default, when you create a new association, the system runs it immediately after it is
@@ -1259,11 +1259,11 @@ export interface AssociationOverview {
 /**
  * @public
  */
-export enum AssociationStatusName {
-  Failed = "Failed",
-  Pending = "Pending",
-  Success = "Success",
-}
+export const AssociationStatusName = {
+  Failed: "Failed",
+  Pending: "Pending",
+  Success: "Success",
+};
 
 /**
  * @public
@@ -1278,7 +1278,7 @@ export interface AssociationStatus {
   /**
    * <p>The status.</p>
    */
-  Name: AssociationStatusName | string | undefined;
+  Name: keyof typeof AssociationStatusName | string | undefined;
 
   /**
    * <p>The reason for the status.</p>
@@ -1412,7 +1412,7 @@ export interface AssociationDescription {
   /**
    * <p>The severity level that is assigned to the association.</p>
    */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
+  ComplianceSeverity?: keyof typeof AssociationComplianceSeverity | string;
 
   /**
    * <p>The mode for generating association compliance. You can specify <code>AUTO</code> or
@@ -1426,7 +1426,7 @@ export interface AssociationDescription {
    *     <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    */
-  SyncCompliance?: AssociationSyncCompliance | string;
+  SyncCompliance?: keyof typeof AssociationSyncCompliance | string;
 
   /**
    * <p>By default, when you create a new associations, the system runs it immediately after it is
@@ -1771,7 +1771,7 @@ export interface CreateAssociationBatchRequestEntry {
   /**
    * <p>The severity level to assign to the association.</p>
    */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
+  ComplianceSeverity?: keyof typeof AssociationComplianceSeverity | string;
 
   /**
    * <p>The mode for generating association compliance. You can specify <code>AUTO</code> or
@@ -1785,7 +1785,7 @@ export interface CreateAssociationBatchRequestEntry {
    *     <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    */
-  SyncCompliance?: AssociationSyncCompliance | string;
+  SyncCompliance?: keyof typeof AssociationSyncCompliance | string;
 
   /**
    * <p>By default, when you create a new associations, the system runs it immediately after it is
@@ -1839,11 +1839,11 @@ export interface CreateAssociationBatchRequest {
 /**
  * @public
  */
-export enum Fault {
-  Client = "Client",
-  Server = "Server",
-  Unknown = "Unknown",
-}
+export const Fault = {
+  Client: "Client",
+  Server: "Server",
+  Unknown: "Unknown",
+};
 
 /**
  * @public
@@ -1863,7 +1863,7 @@ export interface FailedCreateAssociation {
   /**
    * <p>The source of the failure.</p>
    */
-  Fault?: Fault | string;
+  Fault?: keyof typeof Fault | string;
 }
 
 /**
@@ -1884,11 +1884,11 @@ export interface CreateAssociationBatchResult {
 /**
  * @public
  */
-export enum AttachmentsSourceKey {
-  AttachmentReference = "AttachmentReference",
-  S3FileUrl = "S3FileUrl",
-  SourceUrl = "SourceUrl",
-}
+export const AttachmentsSourceKey = {
+  AttachmentReference: "AttachmentReference",
+  S3FileUrl: "S3FileUrl",
+  SourceUrl: "SourceUrl",
+};
 
 /**
  * @public
@@ -1900,7 +1900,7 @@ export interface AttachmentsSource {
    * <p>The key of a key-value pair that identifies the location of an attachment to a
    *    document.</p>
    */
-  Key?: AttachmentsSourceKey | string;
+  Key?: keyof typeof AttachmentsSourceKey | string;
 
   /**
    * <p>The value of a key-value pair that identifies the location of an attachment to a document.
@@ -1949,32 +1949,32 @@ export interface AttachmentsSource {
 /**
  * @public
  */
-export enum DocumentFormat {
-  JSON = "JSON",
-  TEXT = "TEXT",
-  YAML = "YAML",
-}
+export const DocumentFormat = {
+  JSON: "JSON",
+  TEXT: "TEXT",
+  YAML: "YAML",
+};
 
 /**
  * @public
  */
-export enum DocumentType {
-  ApplicationConfiguration = "ApplicationConfiguration",
-  ApplicationConfigurationSchema = "ApplicationConfigurationSchema",
-  Automation = "Automation",
-  ChangeCalendar = "ChangeCalendar",
-  ChangeTemplate = "Automation.ChangeTemplate",
-  CloudFormation = "CloudFormation",
-  Command = "Command",
-  ConformancePackTemplate = "ConformancePackTemplate",
-  DeploymentStrategy = "DeploymentStrategy",
-  Package = "Package",
-  Policy = "Policy",
-  ProblemAnalysis = "ProblemAnalysis",
-  ProblemAnalysisTemplate = "ProblemAnalysisTemplate",
-  QuickSetup = "QuickSetup",
-  Session = "Session",
-}
+export const DocumentType = {
+  ApplicationConfiguration: "ApplicationConfiguration",
+  ApplicationConfigurationSchema: "ApplicationConfigurationSchema",
+  Automation: "Automation",
+  ChangeCalendar: "ChangeCalendar",
+  ChangeTemplate: "Automation.ChangeTemplate",
+  CloudFormation: "CloudFormation",
+  Command: "Command",
+  ConformancePackTemplate: "ConformancePackTemplate",
+  DeploymentStrategy: "DeploymentStrategy",
+  Package: "Package",
+  Policy: "Policy",
+  ProblemAnalysis: "ProblemAnalysis",
+  ProblemAnalysisTemplate: "ProblemAnalysisTemplate",
+  QuickSetup: "QuickSetup",
+  Session: "Session",
+};
 
 /**
  * @public
@@ -2097,13 +2097,13 @@ export interface CreateDocumentRequest {
    *     reserved for AppConfig.</p>
    *          </note>
    */
-  DocumentType?: DocumentType | string;
+  DocumentType?: keyof typeof DocumentType | string;
 
   /**
    * <p>Specify the document format for the request. The document format can be JSON, YAML, or TEXT.
    *    JSON is the default format.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: keyof typeof DocumentFormat | string;
 
   /**
    * <p>Specify a target type to define the kinds of resources the document can run on. For example,
@@ -2154,18 +2154,18 @@ export interface AttachmentInformation {
 /**
  * @public
  */
-export enum DocumentHashType {
-  SHA1 = "Sha1",
-  SHA256 = "Sha256",
-}
+export const DocumentHashType = {
+  SHA1: "Sha1",
+  SHA256: "Sha256",
+};
 
 /**
  * @public
  */
-export enum DocumentParameterType {
-  String = "String",
-  StringList = "StringList",
-}
+export const DocumentParameterType = {
+  String: "String",
+  StringList: "StringList",
+};
 
 /**
  * @public
@@ -2181,7 +2181,7 @@ export interface DocumentParameter {
   /**
    * <p>The type of parameter. The type can be either String or StringList.</p>
    */
-  Type?: DocumentParameterType | string;
+  Type?: keyof typeof DocumentParameterType | string;
 
   /**
    * <p>A description of what the parameter does, how to use it, the default value, and whether or
@@ -2199,21 +2199,21 @@ export interface DocumentParameter {
 /**
  * @public
  */
-export enum PlatformType {
-  LINUX = "Linux",
-  MACOS = "MacOS",
-  WINDOWS = "Windows",
-}
+export const PlatformType = {
+  LINUX: "Linux",
+  MACOS: "MacOS",
+  WINDOWS: "Windows",
+};
 
 /**
  * @public
  */
-export enum ReviewStatus {
-  APPROVED = "APPROVED",
-  NOT_REVIEWED = "NOT_REVIEWED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+export const ReviewStatus = {
+  APPROVED: "APPROVED",
+  NOT_REVIEWED: "NOT_REVIEWED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+};
 
 /**
  * @public
@@ -2228,7 +2228,7 @@ export interface ReviewInformation {
   /**
    * <p>The current status of the document review request.</p>
    */
-  Status?: ReviewStatus | string;
+  Status?: keyof typeof ReviewStatus | string;
 
   /**
    * <p>The reviewer assigned to take action on the document review request.</p>
@@ -2239,13 +2239,13 @@ export interface ReviewInformation {
 /**
  * @public
  */
-export enum DocumentStatus {
-  Active = "Active",
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Updating = "Updating",
-}
+export const DocumentStatus = {
+  Active: "Active",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Updating: "Updating",
+};
 
 /**
  * @public
@@ -2272,7 +2272,7 @@ export interface DocumentDescription {
    *             <p>Sha1 hashes have been deprecated.</p>
    *          </note>
    */
-  HashType?: DocumentHashType | string;
+  HashType?: keyof typeof DocumentHashType | string;
 
   /**
    * <p>The name of the SSM document.</p>
@@ -2303,7 +2303,7 @@ export interface DocumentDescription {
   /**
    * <p>The status of the SSM document.</p>
    */
-  Status?: DocumentStatus | string;
+  Status?: keyof typeof DocumentStatus | string;
 
   /**
    * <p>A message returned by Amazon Web Services Systems Manager that explains the <code>Status</code> value. For example, a
@@ -2330,12 +2330,12 @@ export interface DocumentDescription {
   /**
    * <p>The list of operating system (OS) platforms compatible with this SSM document. </p>
    */
-  PlatformTypes?: (PlatformType | string)[];
+  PlatformTypes?: (keyof typeof PlatformType | string)[];
 
   /**
    * <p>The type of document.</p>
    */
-  DocumentType?: DocumentType | string;
+  DocumentType?: keyof typeof DocumentType | string;
 
   /**
    * <p>The schema version.</p>
@@ -2355,7 +2355,7 @@ export interface DocumentDescription {
   /**
    * <p>The document format, either JSON or YAML.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: keyof typeof DocumentFormat | string;
 
   /**
    * <p>The target type which defines the kinds of resources the document can run on. For example,
@@ -2404,7 +2404,7 @@ export interface DocumentDescription {
   /**
    * <p>The current status of the review.</p>
    */
-  ReviewStatus?: ReviewStatus | string;
+  ReviewStatus?: keyof typeof ReviewStatus | string;
 
   /**
    * <p>The classification of a document to help you identify and categorize its use.</p>
@@ -2723,10 +2723,10 @@ export interface OpsItemNotification {
 /**
  * @public
  */
-export enum OpsItemDataType {
-  SEARCHABLE_STRING = "SearchableString",
-  STRING = "String",
-}
+export const OpsItemDataType = {
+  SEARCHABLE_STRING: "SearchableString",
+  STRING: "String",
+};
 
 /**
  * @public
@@ -2742,7 +2742,7 @@ export interface OpsItemDataValue {
    * <p>The type of key-value pair. Valid types include <code>SearchableString</code> and
    *     <code>String</code>.</p>
    */
-  Type?: OpsItemDataType | string;
+  Type?: keyof typeof OpsItemDataType | string;
 }
 
 /**
@@ -3112,39 +3112,39 @@ export class OpsMetadataTooManyUpdatesException extends __BaseException {
 /**
  * @public
  */
-export enum PatchComplianceLevel {
-  Critical = "CRITICAL",
-  High = "HIGH",
-  Informational = "INFORMATIONAL",
-  Low = "LOW",
-  Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED",
-}
+export const PatchComplianceLevel = {
+  Critical: "CRITICAL",
+  High: "HIGH",
+  Informational: "INFORMATIONAL",
+  Low: "LOW",
+  Medium: "MEDIUM",
+  Unspecified: "UNSPECIFIED",
+};
 
 /**
  * @public
  */
-export enum PatchFilterKey {
-  AdvisoryId = "ADVISORY_ID",
-  Arch = "ARCH",
-  BugzillaId = "BUGZILLA_ID",
-  CVEId = "CVE_ID",
-  Classification = "CLASSIFICATION",
-  Epoch = "EPOCH",
-  MsrcSeverity = "MSRC_SEVERITY",
-  Name = "NAME",
-  PatchId = "PATCH_ID",
-  PatchSet = "PATCH_SET",
-  Priority = "PRIORITY",
-  Product = "PRODUCT",
-  ProductFamily = "PRODUCT_FAMILY",
-  Release = "RELEASE",
-  Repository = "REPOSITORY",
-  Section = "SECTION",
-  Security = "SECURITY",
-  Severity = "SEVERITY",
-  Version = "VERSION",
-}
+export const PatchFilterKey = {
+  AdvisoryId: "ADVISORY_ID",
+  Arch: "ARCH",
+  BugzillaId: "BUGZILLA_ID",
+  CVEId: "CVE_ID",
+  Classification: "CLASSIFICATION",
+  Epoch: "EPOCH",
+  MsrcSeverity: "MSRC_SEVERITY",
+  Name: "NAME",
+  PatchId: "PATCH_ID",
+  PatchSet: "PATCH_SET",
+  Priority: "PRIORITY",
+  Product: "PRODUCT",
+  ProductFamily: "PRODUCT_FAMILY",
+  Release: "RELEASE",
+  Repository: "REPOSITORY",
+  Section: "SECTION",
+  Security: "SECURITY",
+  Severity: "SEVERITY",
+  Version: "VERSION",
+};
 
 /**
  * @public
@@ -3168,7 +3168,7 @@ export interface PatchFilter {
    *          <p>Run the <a>DescribePatchProperties</a> command to view lists of valid keys for
    *    each operating system type.</p>
    */
-  Key: PatchFilterKey | string | undefined;
+  Key: keyof typeof PatchFilterKey | string | undefined;
 
   /**
    * <p>The value for the filter key.</p>
@@ -3202,7 +3202,7 @@ export interface PatchRule {
   /**
    * <p>A compliance severity level for all approved patches in a patch baseline.</p>
    */
-  ComplianceLevel?: PatchComplianceLevel | string;
+  ComplianceLevel?: keyof typeof PatchComplianceLevel | string;
 
   /**
    * <p>The number of days after the release date of each patch matched by the rule that the patch
@@ -3242,31 +3242,31 @@ export interface PatchRuleGroup {
 /**
  * @public
  */
-export enum OperatingSystem {
-  AlmaLinux = "ALMA_LINUX",
-  AmazonLinux = "AMAZON_LINUX",
-  AmazonLinux2 = "AMAZON_LINUX_2",
-  AmazonLinux2022 = "AMAZON_LINUX_2022",
-  AmazonLinux2023 = "AMAZON_LINUX_2023",
-  CentOS = "CENTOS",
-  Debian = "DEBIAN",
-  MacOS = "MACOS",
-  OracleLinux = "ORACLE_LINUX",
-  Raspbian = "RASPBIAN",
-  RedhatEnterpriseLinux = "REDHAT_ENTERPRISE_LINUX",
-  Rocky_Linux = "ROCKY_LINUX",
-  Suse = "SUSE",
-  Ubuntu = "UBUNTU",
-  Windows = "WINDOWS",
-}
+export const OperatingSystem = {
+  AlmaLinux: "ALMA_LINUX",
+  AmazonLinux: "AMAZON_LINUX",
+  AmazonLinux2: "AMAZON_LINUX_2",
+  AmazonLinux2022: "AMAZON_LINUX_2022",
+  AmazonLinux2023: "AMAZON_LINUX_2023",
+  CentOS: "CENTOS",
+  Debian: "DEBIAN",
+  MacOS: "MACOS",
+  OracleLinux: "ORACLE_LINUX",
+  Raspbian: "RASPBIAN",
+  RedhatEnterpriseLinux: "REDHAT_ENTERPRISE_LINUX",
+  Rocky_Linux: "ROCKY_LINUX",
+  Suse: "SUSE",
+  Ubuntu: "UBUNTU",
+  Windows: "WINDOWS",
+};
 
 /**
  * @public
  */
-export enum PatchAction {
-  AllowAsDependency = "ALLOW_AS_DEPENDENCY",
-  Block = "BLOCK",
-}
+export const PatchAction = {
+  AllowAsDependency: "ALLOW_AS_DEPENDENCY",
+  Block: "BLOCK",
+};
 
 /**
  * @public
@@ -3316,7 +3316,7 @@ export interface CreatePatchBaselineRequest {
    * <p>Defines the operating system the patch baseline applies to. The default value is
    *     <code>WINDOWS</code>.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 
   /**
    * <p>The name of the patch baseline.</p>
@@ -3346,7 +3346,7 @@ export interface CreatePatchBaselineRequest {
    *    missing, this value describes the severity of the compliance violation. The default value is
    *     <code>UNSPECIFIED</code>.</p>
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesComplianceLevel?: keyof typeof PatchComplianceLevel | string;
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
@@ -3388,7 +3388,7 @@ export interface CreatePatchBaselineRequest {
    *             </li>
    *          </ul>
    */
-  RejectedPatchesAction?: PatchAction | string;
+  RejectedPatchesAction?: keyof typeof PatchAction | string;
 
   /**
    * <p>A description of the patch baseline.</p>
@@ -3457,9 +3457,9 @@ export interface ResourceDataSyncDestinationDataSharing {
 /**
  * @public
  */
-export enum ResourceDataSyncS3Format {
-  JSON_SERDE = "JsonSerDe",
-}
+export const ResourceDataSyncS3Format = {
+  JSON_SERDE: "JsonSerDe",
+};
 
 /**
  * @public
@@ -3479,7 +3479,7 @@ export interface ResourceDataSyncS3Destination {
   /**
    * <p>A supported sync format. The following format is currently supported: JsonSerDe</p>
    */
-  SyncFormat: ResourceDataSyncS3Format | string | undefined;
+  SyncFormat: keyof typeof ResourceDataSyncS3Format | string | undefined;
 
   /**
    * <p>The Amazon Web Services Region with the S3 bucket targeted by the resource data sync.</p>
@@ -3871,10 +3871,10 @@ export class InvalidDocumentOperation extends __BaseException {
 /**
  * @public
  */
-export enum InventorySchemaDeleteOption {
-  DELETE_SCHEMA = "DeleteSchema",
-  DISABLE_SCHEMA = "DisableSchema",
-}
+export const InventorySchemaDeleteOption = {
+  DELETE_SCHEMA: "DeleteSchema",
+  DISABLE_SCHEMA: "DisableSchema",
+};
 
 /**
  * @public
@@ -3896,7 +3896,7 @@ export interface DeleteInventoryRequest {
    *          <p>DeleteSchema: This option deletes the specified custom type from the Inventory service. You
    *    can recreate the schema later, if you want.</p>
    */
-  SchemaDeleteOption?: InventorySchemaDeleteOption | string;
+  SchemaDeleteOption?: keyof typeof InventorySchemaDeleteOption | string;
 
   /**
    * <p>Use this option to view a summary of the deletion request without deleting any data or the
@@ -4485,11 +4485,11 @@ export interface DeregisterTaskFromMaintenanceWindowResult {
 /**
  * @public
  */
-export enum DescribeActivationsFilterKeys {
-  ACTIVATION_IDS = "ActivationIds",
-  DEFAULT_INSTANCE_NAME = "DefaultInstanceName",
-  IAM_ROLE = "IamRole",
-}
+export const DescribeActivationsFilterKeys = {
+  ACTIVATION_IDS: "ActivationIds",
+  DEFAULT_INSTANCE_NAME: "DefaultInstanceName",
+  IAM_ROLE: "IamRole",
+};
 
 /**
  * @public
@@ -4499,7 +4499,7 @@ export interface DescribeActivationsFilter {
   /**
    * <p>The name of the filter.</p>
    */
-  FilterKey?: DescribeActivationsFilterKeys | string;
+  FilterKey?: keyof typeof DescribeActivationsFilterKeys | string;
 
   /**
    * <p>The filter values.</p>
@@ -4653,20 +4653,20 @@ export class InvalidAssociationVersion extends __BaseException {
 /**
  * @public
  */
-export enum AssociationExecutionFilterKey {
-  CreatedTime = "CreatedTime",
-  ExecutionId = "ExecutionId",
-  Status = "Status",
-}
+export const AssociationExecutionFilterKey = {
+  CreatedTime: "CreatedTime",
+  ExecutionId: "ExecutionId",
+  Status: "Status",
+};
 
 /**
  * @public
  */
-export enum AssociationFilterOperatorType {
-  Equal = "EQUAL",
-  GreaterThan = "GREATER_THAN",
-  LessThan = "LESS_THAN",
-}
+export const AssociationFilterOperatorType = {
+  Equal: "EQUAL",
+  GreaterThan: "GREATER_THAN",
+  LessThan: "LESS_THAN",
+};
 
 /**
  * @public
@@ -4676,7 +4676,7 @@ export interface AssociationExecutionFilter {
   /**
    * <p>The key value used in the request.</p>
    */
-  Key: AssociationExecutionFilterKey | string | undefined;
+  Key: keyof typeof AssociationExecutionFilterKey | string | undefined;
 
   /**
    * <p>The value specified for the key.</p>
@@ -4686,7 +4686,7 @@ export interface AssociationExecutionFilter {
   /**
    * <p>The filter type specified in the request.</p>
    */
-  Type: AssociationFilterOperatorType | string | undefined;
+  Type: keyof typeof AssociationFilterOperatorType | string | undefined;
 }
 
 /**
@@ -4816,11 +4816,11 @@ export class AssociationExecutionDoesNotExist extends __BaseException {
 /**
  * @public
  */
-export enum AssociationExecutionTargetsFilterKey {
-  ResourceId = "ResourceId",
-  ResourceType = "ResourceType",
-  Status = "Status",
-}
+export const AssociationExecutionTargetsFilterKey = {
+  ResourceId: "ResourceId",
+  ResourceType: "ResourceType",
+  Status: "Status",
+};
 
 /**
  * @public
@@ -4830,7 +4830,7 @@ export interface AssociationExecutionTargetsFilter {
   /**
    * <p>The key value used in the request.</p>
    */
-  Key: AssociationExecutionTargetsFilterKey | string | undefined;
+  Key: keyof typeof AssociationExecutionTargetsFilterKey | string | undefined;
 
   /**
    * <p>The value specified for the key.</p>
@@ -4958,20 +4958,20 @@ export interface DescribeAssociationExecutionTargetsResult {
 /**
  * @public
  */
-export enum AutomationExecutionFilterKey {
-  AUTOMATION_SUBTYPE = "AutomationSubtype",
-  AUTOMATION_TYPE = "AutomationType",
-  CURRENT_ACTION = "CurrentAction",
-  DOCUMENT_NAME_PREFIX = "DocumentNamePrefix",
-  EXECUTION_ID = "ExecutionId",
-  EXECUTION_STATUS = "ExecutionStatus",
-  OPS_ITEM_ID = "OpsItemId",
-  PARENT_EXECUTION_ID = "ParentExecutionId",
-  START_TIME_AFTER = "StartTimeAfter",
-  START_TIME_BEFORE = "StartTimeBefore",
-  TAG_KEY = "TagKey",
-  TARGET_RESOURCE_GROUP = "TargetResourceGroup",
-}
+export const AutomationExecutionFilterKey = {
+  AUTOMATION_SUBTYPE: "AutomationSubtype",
+  AUTOMATION_TYPE: "AutomationType",
+  CURRENT_ACTION: "CurrentAction",
+  DOCUMENT_NAME_PREFIX: "DocumentNamePrefix",
+  EXECUTION_ID: "ExecutionId",
+  EXECUTION_STATUS: "ExecutionStatus",
+  OPS_ITEM_ID: "OpsItemId",
+  PARENT_EXECUTION_ID: "ParentExecutionId",
+  START_TIME_AFTER: "StartTimeAfter",
+  START_TIME_BEFORE: "StartTimeBefore",
+  TAG_KEY: "TagKey",
+  TARGET_RESOURCE_GROUP: "TargetResourceGroup",
+};
 
 /**
  * @public
@@ -4982,7 +4982,7 @@ export interface AutomationExecutionFilter {
   /**
    * <p>One or more keys to limit the results.</p>
    */
-  Key: AutomationExecutionFilterKey | string | undefined;
+  Key: keyof typeof AutomationExecutionFilterKey | string | undefined;
 
   /**
    * <p>The values used to limit the execution information associated with the filter's key.</p>
@@ -5015,49 +5015,49 @@ export interface DescribeAutomationExecutionsRequest {
 /**
  * @public
  */
-export enum AutomationExecutionStatus {
-  APPROVED = "Approved",
-  CANCELLED = "Cancelled",
-  CANCELLING = "Cancelling",
-  CHANGE_CALENDAR_OVERRIDE_APPROVED = "ChangeCalendarOverrideApproved",
-  CHANGE_CALENDAR_OVERRIDE_REJECTED = "ChangeCalendarOverrideRejected",
-  COMPLETED_WITH_FAILURE = "CompletedWithFailure",
-  COMPLETED_WITH_SUCCESS = "CompletedWithSuccess",
-  FAILED = "Failed",
-  INPROGRESS = "InProgress",
-  PENDING = "Pending",
-  PENDING_APPROVAL = "PendingApproval",
-  PENDING_CHANGE_CALENDAR_OVERRIDE = "PendingChangeCalendarOverride",
-  REJECTED = "Rejected",
-  RUNBOOK_INPROGRESS = "RunbookInProgress",
-  SCHEDULED = "Scheduled",
-  SUCCESS = "Success",
-  TIMEDOUT = "TimedOut",
-  WAITING = "Waiting",
-}
+export const AutomationExecutionStatus = {
+  APPROVED: "Approved",
+  CANCELLED: "Cancelled",
+  CANCELLING: "Cancelling",
+  CHANGE_CALENDAR_OVERRIDE_APPROVED: "ChangeCalendarOverrideApproved",
+  CHANGE_CALENDAR_OVERRIDE_REJECTED: "ChangeCalendarOverrideRejected",
+  COMPLETED_WITH_FAILURE: "CompletedWithFailure",
+  COMPLETED_WITH_SUCCESS: "CompletedWithSuccess",
+  FAILED: "Failed",
+  INPROGRESS: "InProgress",
+  PENDING: "Pending",
+  PENDING_APPROVAL: "PendingApproval",
+  PENDING_CHANGE_CALENDAR_OVERRIDE: "PendingChangeCalendarOverride",
+  REJECTED: "Rejected",
+  RUNBOOK_INPROGRESS: "RunbookInProgress",
+  SCHEDULED: "Scheduled",
+  SUCCESS: "Success",
+  TIMEDOUT: "TimedOut",
+  WAITING: "Waiting",
+};
 
 /**
  * @public
  */
-export enum AutomationSubtype {
-  ChangeRequest = "ChangeRequest",
-}
+export const AutomationSubtype = {
+  ChangeRequest: "ChangeRequest",
+};
 
 /**
  * @public
  */
-export enum AutomationType {
-  CrossAccount = "CrossAccount",
-  Local = "Local",
-}
+export const AutomationType = {
+  CrossAccount: "CrossAccount",
+  Local: "Local",
+};
 
 /**
  * @public
  */
-export enum ExecutionMode {
-  Auto = "Auto",
-  Interactive = "Interactive",
-}
+export const ExecutionMode = {
+  Auto: "Auto",
+  Interactive: "Interactive",
+};
 
 /**
  * @public
@@ -5163,7 +5163,7 @@ export interface AutomationExecutionMetadata {
   /**
    * <p>The status of the execution.</p>
    */
-  AutomationExecutionStatus?: AutomationExecutionStatus | string;
+  AutomationExecutionStatus?: keyof typeof AutomationExecutionStatus | string;
 
   /**
    * <p>The time the execution started.</p>
@@ -5194,7 +5194,7 @@ export interface AutomationExecutionMetadata {
   /**
    * <p>The Automation execution mode.</p>
    */
-  Mode?: ExecutionMode | string;
+  Mode?: keyof typeof ExecutionMode | string;
 
   /**
    * <p>The execution ID of the parent automation.</p>
@@ -5258,7 +5258,7 @@ export interface AutomationExecutionMetadata {
    *    Amazon Web Services accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running Automation workflows in multiple Amazon Web Services Regions and accounts</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
    */
-  AutomationType?: AutomationType | string;
+  AutomationType?: keyof typeof AutomationType | string;
 
   /**
    * <p>The details for the CloudWatch alarm applied to your automation.</p>
@@ -5274,7 +5274,7 @@ export interface AutomationExecutionMetadata {
    * <p>The subtype of the Automation operation. Currently, the only supported value is
    *     <code>ChangeRequest</code>.</p>
    */
-  AutomationSubtype?: AutomationSubtype | string;
+  AutomationSubtype?: keyof typeof AutomationSubtype | string;
 
   /**
    * <p>The date and time the Automation operation is scheduled to start.</p>
@@ -5392,14 +5392,14 @@ export class AutomationExecutionNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum StepExecutionFilterKey {
-  ACTION = "Action",
-  START_TIME_AFTER = "StartTimeAfter",
-  START_TIME_BEFORE = "StartTimeBefore",
-  STEP_EXECUTION_ID = "StepExecutionId",
-  STEP_EXECUTION_STATUS = "StepExecutionStatus",
-  STEP_NAME = "StepName",
-}
+export const StepExecutionFilterKey = {
+  ACTION: "Action",
+  START_TIME_AFTER: "StartTimeAfter",
+  START_TIME_BEFORE: "StartTimeBefore",
+  STEP_EXECUTION_ID: "StepExecutionId",
+  STEP_EXECUTION_STATUS: "StepExecutionStatus",
+  STEP_NAME: "StepName",
+};
 
 /**
  * @public
@@ -5410,7 +5410,7 @@ export interface StepExecutionFilter {
    * <p>One or more keys to limit the results. Valid filter keys include the following: StepName,
    *    Action, StepExecutionId, StepExecutionStatus, StartTimeBefore, StartTimeAfter.</p>
    */
-  Key: StepExecutionFilterKey | string | undefined;
+  Key: keyof typeof StepExecutionFilterKey | string | undefined;
 
   /**
    * <p>The values of the filter key.</p>
@@ -5520,7 +5520,7 @@ export interface StepExecution {
   /**
    * <p>The execution status for this step.</p>
    */
-  StepStatus?: AutomationExecutionStatus | string;
+  StepStatus?: keyof typeof AutomationExecutionStatus | string;
 
   /**
    * <p>The response code returned by the execution of the step.</p>
@@ -6057,9 +6057,9 @@ export interface DescribeDocumentResult {
 /**
  * @public
  */
-export enum DocumentPermissionType {
-  SHARE = "Share",
-}
+export const DocumentPermissionType = {
+  SHARE: "Share",
+};
 
 /**
  * @public
@@ -6074,7 +6074,7 @@ export interface DescribeDocumentPermissionRequest {
    * <p>The permission type for the document. The permission type can be
    *    <i>Share</i>.</p>
    */
-  PermissionType: DocumentPermissionType | string | undefined;
+  PermissionType: keyof typeof DocumentPermissionType | string | undefined;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -6223,12 +6223,12 @@ export interface DescribeEffectivePatchesForPatchBaselineRequest {
 /**
  * @public
  */
-export enum PatchDeploymentStatus {
-  Approved = "APPROVED",
-  ExplicitApproved = "EXPLICIT_APPROVED",
-  ExplicitRejected = "EXPLICIT_REJECTED",
-  PendingApproval = "PENDING_APPROVAL",
-}
+export const PatchDeploymentStatus = {
+  Approved: "APPROVED",
+  ExplicitApproved: "EXPLICIT_APPROVED",
+  ExplicitRejected: "EXPLICIT_REJECTED",
+  PendingApproval: "PENDING_APPROVAL",
+};
 
 /**
  * @public
@@ -6238,12 +6238,12 @@ export interface PatchStatus {
   /**
    * <p>The approval status of a patch.</p>
    */
-  DeploymentStatus?: PatchDeploymentStatus | string;
+  DeploymentStatus?: keyof typeof PatchDeploymentStatus | string;
 
   /**
    * <p>The compliance severity level for a patch.</p>
    */
-  ComplianceLevel?: PatchComplianceLevel | string;
+  ComplianceLevel?: keyof typeof PatchComplianceLevel | string;
 
   /**
    * <p>The date the patch was approved (or will be approved if the status is
@@ -6489,16 +6489,16 @@ export interface InstanceInformationStringFilter {
 /**
  * @public
  */
-export enum InstanceInformationFilterKey {
-  ACTIVATION_IDS = "ActivationIds",
-  AGENT_VERSION = "AgentVersion",
-  ASSOCIATION_STATUS = "AssociationStatus",
-  IAM_ROLE = "IamRole",
-  INSTANCE_IDS = "InstanceIds",
-  PING_STATUS = "PingStatus",
-  PLATFORM_TYPES = "PlatformTypes",
-  RESOURCE_TYPE = "ResourceType",
-}
+export const InstanceInformationFilterKey = {
+  ACTIVATION_IDS: "ActivationIds",
+  AGENT_VERSION: "AgentVersion",
+  ASSOCIATION_STATUS: "AssociationStatus",
+  IAM_ROLE: "IamRole",
+  INSTANCE_IDS: "InstanceIds",
+  PING_STATUS: "PingStatus",
+  PLATFORM_TYPES: "PlatformTypes",
+  RESOURCE_TYPE: "ResourceType",
+};
 
 /**
  * @public
@@ -6512,7 +6512,7 @@ export interface InstanceInformationFilter {
   /**
    * <p>The name of the filter. </p>
    */
-  key: InstanceInformationFilterKey | string | undefined;
+  key: keyof typeof InstanceInformationFilterKey | string | undefined;
 
   /**
    * <p>The filter values.</p>
@@ -6574,29 +6574,29 @@ export interface InstanceAggregatedAssociationOverview {
 /**
  * @public
  */
-export enum PingStatus {
-  CONNECTION_LOST = "ConnectionLost",
-  INACTIVE = "Inactive",
-  ONLINE = "Online",
-}
+export const PingStatus = {
+  CONNECTION_LOST: "ConnectionLost",
+  INACTIVE: "Inactive",
+  ONLINE: "Online",
+};
 
 /**
  * @public
  */
-export enum ResourceType {
-  DOCUMENT = "Document",
-  EC2_INSTANCE = "EC2Instance",
-  MANAGED_INSTANCE = "ManagedInstance",
-}
+export const ResourceType = {
+  DOCUMENT: "Document",
+  EC2_INSTANCE: "EC2Instance",
+  MANAGED_INSTANCE: "ManagedInstance",
+};
 
 /**
  * @public
  */
-export enum SourceType {
-  AWS_EC2_INSTANCE = "AWS::EC2::Instance",
-  AWS_IOT_THING = "AWS::IoT::Thing",
-  AWS_SSM_MANAGEDINSTANCE = "AWS::SSM::ManagedInstance",
-}
+export const SourceType = {
+  AWS_EC2_INSTANCE: "AWS::EC2::Instance",
+  AWS_IOT_THING: "AWS::IoT::Thing",
+  AWS_SSM_MANAGEDINSTANCE: "AWS::SSM::ManagedInstance",
+};
 
 /**
  * @public
@@ -6614,7 +6614,7 @@ export interface InstanceInformation {
    *             <p>The status <code>Inactive</code> has been deprecated and is no longer in use.</p>
    *          </note>
    */
-  PingStatus?: PingStatus | string;
+  PingStatus?: keyof typeof PingStatus | string;
 
   /**
    * <p>The date and time when the agent last pinged the Systems Manager service. </p>
@@ -6637,7 +6637,7 @@ export interface InstanceInformation {
   /**
    * <p>The operating system platform type. </p>
    */
-  PlatformType?: PlatformType | string;
+  PlatformType?: keyof typeof PlatformType | string;
 
   /**
    * <p>The name of the operating system platform running on your managed node. </p>
@@ -6672,7 +6672,7 @@ export interface InstanceInformation {
   /**
    * <p>The type of instance. Instances are either EC2 instances or managed instances. </p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The name assigned to an on-premises server, edge device, or virtual machine (VM) when it is
@@ -6727,7 +6727,7 @@ export interface InstanceInformation {
    * <p>The type of the source resource. For IoT Greengrass devices, <code>SourceType</code>
    *    is <code>AWS::IoT::Thing</code>. </p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 }
 
 /**
@@ -6835,15 +6835,15 @@ export interface DescribeInstancePatchesRequest {
 /**
  * @public
  */
-export enum PatchComplianceDataState {
-  Failed = "FAILED",
-  Installed = "INSTALLED",
-  InstalledOther = "INSTALLED_OTHER",
-  InstalledPendingReboot = "INSTALLED_PENDING_REBOOT",
-  InstalledRejected = "INSTALLED_REJECTED",
-  Missing = "MISSING",
-  NotApplicable = "NOT_APPLICABLE",
-}
+export const PatchComplianceDataState = {
+  Failed: "FAILED",
+  Installed: "INSTALLED",
+  InstalledOther: "INSTALLED_OTHER",
+  InstalledPendingReboot: "INSTALLED_PENDING_REBOOT",
+  InstalledRejected: "INSTALLED_REJECTED",
+  Missing: "MISSING",
+  NotApplicable: "NOT_APPLICABLE",
+};
 
 /**
  * @public
@@ -6877,7 +6877,7 @@ export interface PatchComplianceData {
    * <p>The state of the patch on the managed node, such as INSTALLED or FAILED.</p>
    *          <p>For descriptions of each patch state, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch">About patch compliance</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  State: PatchComplianceDataState | string | undefined;
+  State: keyof typeof PatchComplianceDataState | string | undefined;
 
   /**
    * <p>The date/time the patch was installed on the managed node. Not all operating systems provide
@@ -6955,18 +6955,18 @@ export interface DescribeInstancePatchStatesRequest {
 /**
  * @public
  */
-export enum PatchOperationType {
-  INSTALL = "Install",
-  SCAN = "Scan",
-}
+export const PatchOperationType = {
+  INSTALL: "Install",
+  SCAN: "Scan",
+};
 
 /**
  * @public
  */
-export enum RebootOption {
-  NO_REBOOT = "NoReboot",
-  REBOOT_IF_NEEDED = "RebootIfNeeded",
-}
+export const RebootOption = {
+  NO_REBOOT: "NoReboot",
+  REBOOT_IF_NEEDED: "RebootIfNeeded",
+};
 
 /**
  * @public
@@ -7093,7 +7093,7 @@ export interface InstancePatchState {
    *             </li>
    *          </ul>
    */
-  Operation: PatchOperationType | string | undefined;
+  Operation: keyof typeof PatchOperationType | string | undefined;
 
   /**
    * <p>The time of the last attempt to patch the managed node with <code>NoReboot</code> specified
@@ -7123,7 +7123,7 @@ export interface InstancePatchState {
    *             </li>
    *          </ul>
    */
-  RebootOption?: RebootOption | string;
+  RebootOption?: keyof typeof RebootOption | string;
 
   /**
    * <p>The number of patches per node that are specified as <code>Critical</code> for compliance
@@ -7168,12 +7168,12 @@ export interface DescribeInstancePatchStatesResult {
 /**
  * @public
  */
-export enum InstancePatchStateOperatorType {
-  EQUAL = "Equal",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
-  NOT_EQUAL = "NotEqual",
-}
+export const InstancePatchStateOperatorType = {
+  EQUAL: "Equal",
+  GREATER_THAN: "GreaterThan",
+  LESS_THAN: "LessThan",
+  NOT_EQUAL: "NotEqual",
+};
 
 /**
  * @public
@@ -7254,7 +7254,7 @@ export interface InstancePatchStateFilter {
   /**
    * <p>The type of comparison that should be performed for the value.</p>
    */
-  Type: InstancePatchStateOperatorType | string | undefined;
+  Type: keyof typeof InstancePatchStateOperatorType | string | undefined;
 }
 
 /**
@@ -7336,10 +7336,10 @@ export interface DescribeInventoryDeletionsRequest {
 /**
  * @public
  */
-export enum InventoryDeletionStatus {
-  COMPLETE = "Complete",
-  IN_PROGRESS = "InProgress",
-}
+export const InventoryDeletionStatus = {
+  COMPLETE: "Complete",
+  IN_PROGRESS: "InProgress",
+};
 
 /**
  * @public
@@ -7364,7 +7364,7 @@ export interface InventoryDeletionStatusItem {
   /**
    * <p>The status of the operation. Possible values are InProgress and Complete.</p>
    */
-  LastStatus?: InventoryDeletionStatus | string;
+  LastStatus?: keyof typeof InventoryDeletionStatus | string;
 
   /**
    * <p>Information about the status.</p>
@@ -7513,16 +7513,16 @@ export interface DescribeMaintenanceWindowExecutionsRequest {
 /**
  * @public
  */
-export enum MaintenanceWindowExecutionStatus {
-  Cancelled = "CANCELLED",
-  Cancelling = "CANCELLING",
-  Failed = "FAILED",
-  InProgress = "IN_PROGRESS",
-  Pending = "PENDING",
-  SkippedOverlapping = "SKIPPED_OVERLAPPING",
-  Success = "SUCCESS",
-  TimedOut = "TIMED_OUT",
-}
+export const MaintenanceWindowExecutionStatus = {
+  Cancelled: "CANCELLED",
+  Cancelling: "CANCELLING",
+  Failed: "FAILED",
+  InProgress: "IN_PROGRESS",
+  Pending: "PENDING",
+  SkippedOverlapping: "SKIPPED_OVERLAPPING",
+  Success: "SUCCESS",
+  TimedOut: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -7542,7 +7542,7 @@ export interface MaintenanceWindowExecution {
   /**
    * <p>The status of the execution.</p>
    */
-  Status?: MaintenanceWindowExecutionStatus | string;
+  Status?: keyof typeof MaintenanceWindowExecutionStatus | string;
 
   /**
    * <p>The details explaining the status. Not available for all status values.</p>
@@ -7614,12 +7614,12 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
 /**
  * @public
  */
-export enum MaintenanceWindowTaskType {
-  Automation = "AUTOMATION",
-  Lambda = "LAMBDA",
-  RunCommand = "RUN_COMMAND",
-  StepFunctions = "STEP_FUNCTIONS",
-}
+export const MaintenanceWindowTaskType = {
+  Automation: "AUTOMATION",
+  Lambda: "LAMBDA",
+  RunCommand: "RUN_COMMAND",
+  StepFunctions: "STEP_FUNCTIONS",
+};
 
 /**
  * @public
@@ -7651,7 +7651,7 @@ export interface MaintenanceWindowExecutionTaskInvocationIdentity {
   /**
    * <p>The task type.</p>
    */
-  TaskType?: MaintenanceWindowTaskType | string;
+  TaskType?: keyof typeof MaintenanceWindowTaskType | string;
 
   /**
    * <p>The parameters that were provided for the invocation when it was run.</p>
@@ -7661,7 +7661,7 @@ export interface MaintenanceWindowExecutionTaskInvocationIdentity {
   /**
    * <p>The status of the task invocation.</p>
    */
-  Status?: MaintenanceWindowExecutionStatus | string;
+  Status?: keyof typeof MaintenanceWindowExecutionStatus | string;
 
   /**
    * <p>The details explaining the status of the task invocation. Not available for all status
@@ -7758,7 +7758,7 @@ export interface MaintenanceWindowExecutionTaskIdentity {
   /**
    * <p>The status of the task execution.</p>
    */
-  Status?: MaintenanceWindowExecutionStatus | string;
+  Status?: keyof typeof MaintenanceWindowExecutionStatus | string;
 
   /**
    * <p>The details explaining the status of the task execution. Not available for all status
@@ -7784,7 +7784,7 @@ export interface MaintenanceWindowExecutionTaskIdentity {
   /**
    * <p>The type of task that ran.</p>
    */
-  TaskType?: MaintenanceWindowTaskType | string;
+  TaskType?: keyof typeof MaintenanceWindowTaskType | string;
 
   /**
    * <p>The details for the CloudWatch alarm applied to your maintenance window task.</p>
@@ -7928,10 +7928,10 @@ export interface DescribeMaintenanceWindowsResult {
 /**
  * @public
  */
-export enum MaintenanceWindowResourceType {
-  Instance = "INSTANCE",
-  ResourceGroup = "RESOURCE_GROUP",
-}
+export const MaintenanceWindowResourceType = {
+  Instance: "INSTANCE",
+  ResourceGroup: "RESOURCE_GROUP",
+};
 
 /**
  * @public
@@ -7951,7 +7951,7 @@ export interface DescribeMaintenanceWindowScheduleRequest {
    * <p>The type of resource you want to retrieve information about. For example,
    *     <code>INSTANCE</code>.</p>
    */
-  ResourceType?: MaintenanceWindowResourceType | string;
+  ResourceType?: keyof typeof MaintenanceWindowResourceType | string;
 
   /**
    * <p>Filters used to limit the range of results. For example, you can limit maintenance window
@@ -8023,7 +8023,7 @@ export interface DescribeMaintenanceWindowsForTargetRequest {
    * <p>The type of resource you want to retrieve information about. For example,
    *     <code>INSTANCE</code>.</p>
    */
-  ResourceType: MaintenanceWindowResourceType | string | undefined;
+  ResourceType: keyof typeof MaintenanceWindowResourceType | string | undefined;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
@@ -8117,7 +8117,7 @@ export interface MaintenanceWindowTarget {
   /**
    * <p>The type of target that is being registered with the maintenance window.</p>
    */
-  ResourceType?: MaintenanceWindowResourceType | string;
+  ResourceType?: keyof typeof MaintenanceWindowResourceType | string;
 
   /**
    * <p>The targets, either managed nodes or tags.</p>
@@ -8196,10 +8196,10 @@ export interface DescribeMaintenanceWindowTasksRequest {
 /**
  * @public
  */
-export enum MaintenanceWindowTaskCutoffBehavior {
-  CancelTask = "CANCEL_TASK",
-  ContinueTask = "CONTINUE_TASK",
-}
+export const MaintenanceWindowTaskCutoffBehavior = {
+  CancelTask: "CANCEL_TASK",
+  ContinueTask: "CONTINUE_TASK",
+};
 
 /**
  * @public
@@ -8268,7 +8268,7 @@ export interface MaintenanceWindowTask {
   /**
    * <p>The type of task.</p>
    */
-  Type?: MaintenanceWindowTaskType | string;
+  Type?: keyof typeof MaintenanceWindowTaskType | string;
 
   /**
    * <p>The targets (either managed nodes or tags). Managed nodes are specified using
@@ -8353,7 +8353,7 @@ export interface MaintenanceWindowTask {
    * <p>The specification for whether tasks should continue to run after the cutoff time specified
    *    in the maintenance windows is reached. </p>
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  CutoffBehavior?: keyof typeof MaintenanceWindowTaskCutoffBehavior | string;
 
   /**
    * <p>The details for the CloudWatch alarm applied to your maintenance window task.</p>
@@ -8380,46 +8380,46 @@ export interface DescribeMaintenanceWindowTasksResult {
 /**
  * @public
  */
-export enum OpsItemFilterKey {
-  ACCOUNT_ID = "AccountId",
-  ACTUAL_END_TIME = "ActualEndTime",
-  ACTUAL_START_TIME = "ActualStartTime",
-  AUTOMATION_ID = "AutomationId",
-  CATEGORY = "Category",
-  CHANGE_REQUEST_APPROVER_ARN = "ChangeRequestByApproverArn",
-  CHANGE_REQUEST_APPROVER_NAME = "ChangeRequestByApproverName",
-  CHANGE_REQUEST_REQUESTER_ARN = "ChangeRequestByRequesterArn",
-  CHANGE_REQUEST_REQUESTER_NAME = "ChangeRequestByRequesterName",
-  CHANGE_REQUEST_TARGETS_RESOURCE_GROUP = "ChangeRequestByTargetsResourceGroup",
-  CHANGE_REQUEST_TEMPLATE = "ChangeRequestByTemplate",
-  CREATED_BY = "CreatedBy",
-  CREATED_TIME = "CreatedTime",
-  INSIGHT_TYPE = "InsightByType",
-  LAST_MODIFIED_TIME = "LastModifiedTime",
-  OPERATIONAL_DATA = "OperationalData",
-  OPERATIONAL_DATA_KEY = "OperationalDataKey",
-  OPERATIONAL_DATA_VALUE = "OperationalDataValue",
-  OPSITEM_ID = "OpsItemId",
-  OPSITEM_TYPE = "OpsItemType",
-  PLANNED_END_TIME = "PlannedEndTime",
-  PLANNED_START_TIME = "PlannedStartTime",
-  PRIORITY = "Priority",
-  RESOURCE_ID = "ResourceId",
-  SEVERITY = "Severity",
-  SOURCE = "Source",
-  STATUS = "Status",
-  TITLE = "Title",
-}
+export const OpsItemFilterKey = {
+  ACCOUNT_ID: "AccountId",
+  ACTUAL_END_TIME: "ActualEndTime",
+  ACTUAL_START_TIME: "ActualStartTime",
+  AUTOMATION_ID: "AutomationId",
+  CATEGORY: "Category",
+  CHANGE_REQUEST_APPROVER_ARN: "ChangeRequestByApproverArn",
+  CHANGE_REQUEST_APPROVER_NAME: "ChangeRequestByApproverName",
+  CHANGE_REQUEST_REQUESTER_ARN: "ChangeRequestByRequesterArn",
+  CHANGE_REQUEST_REQUESTER_NAME: "ChangeRequestByRequesterName",
+  CHANGE_REQUEST_TARGETS_RESOURCE_GROUP: "ChangeRequestByTargetsResourceGroup",
+  CHANGE_REQUEST_TEMPLATE: "ChangeRequestByTemplate",
+  CREATED_BY: "CreatedBy",
+  CREATED_TIME: "CreatedTime",
+  INSIGHT_TYPE: "InsightByType",
+  LAST_MODIFIED_TIME: "LastModifiedTime",
+  OPERATIONAL_DATA: "OperationalData",
+  OPERATIONAL_DATA_KEY: "OperationalDataKey",
+  OPERATIONAL_DATA_VALUE: "OperationalDataValue",
+  OPSITEM_ID: "OpsItemId",
+  OPSITEM_TYPE: "OpsItemType",
+  PLANNED_END_TIME: "PlannedEndTime",
+  PLANNED_START_TIME: "PlannedStartTime",
+  PRIORITY: "Priority",
+  RESOURCE_ID: "ResourceId",
+  SEVERITY: "Severity",
+  SOURCE: "Source",
+  STATUS: "Status",
+  TITLE: "Title",
+};
 
 /**
  * @public
  */
-export enum OpsItemFilterOperator {
-  CONTAINS = "Contains",
-  EQUAL = "Equal",
-  GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
-}
+export const OpsItemFilterOperator = {
+  CONTAINS: "Contains",
+  EQUAL: "Equal",
+  GREATER_THAN: "GreaterThan",
+  LESS_THAN: "LessThan",
+};
 
 /**
  * @internal

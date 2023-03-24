@@ -28,22 +28,22 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum ResourceMappingType {
-  APP_REGISTRY_APP = "AppRegistryApp",
-  CFN_STACK = "CfnStack",
-  EKS = "EKS",
-  RESOURCE = "Resource",
-  RESOURCE_GROUP = "ResourceGroup",
-  TERRAFORM = "Terraform",
-}
+export const ResourceMappingType = {
+  APP_REGISTRY_APP: "AppRegistryApp",
+  CFN_STACK: "CfnStack",
+  EKS: "EKS",
+  RESOURCE: "Resource",
+  RESOURCE_GROUP: "ResourceGroup",
+  TERRAFORM: "Terraform",
+};
 
 /**
  * @public
  */
-export enum PhysicalIdentifierType {
-  ARN = "Arn",
-  NATIVE = "Native",
-}
+export const PhysicalIdentifierType = {
+  ARN: "Arn",
+  NATIVE: "Native",
+};
 
 /**
  * @public
@@ -68,7 +68,7 @@ export interface PhysicalResourceId {
    *             </dd>
    *          </dl>
    */
-  type: PhysicalIdentifierType | string | undefined;
+  type: keyof typeof PhysicalIdentifierType | string | undefined;
 
   /**
    * <p>The Amazon Web Services Region that the physical resource is located in.</p>
@@ -131,7 +131,7 @@ export interface ResourceMapping {
    *             </dd>
    *          </dl>
    */
-  mappingType: ResourceMappingType | string | undefined;
+  mappingType: keyof typeof ResourceMappingType | string | undefined;
 
   /**
    * <p>The identifier of this resource.</p>
@@ -368,13 +368,13 @@ export interface RecommendationItem {
 /**
  * @public
  */
-export enum AlarmType {
-  CANARY = "Canary",
-  COMPOSITE = "Composite",
-  EVENT = "Event",
-  LOGS = "Logs",
-  METRIC = "Metric",
-}
+export const AlarmType = {
+  CANARY: "Canary",
+  COMPOSITE: "Composite",
+  EVENT: "Event",
+  LOGS: "Logs",
+  METRIC: "Metric",
+};
 
 /**
  * @public
@@ -404,7 +404,7 @@ export interface AlarmRecommendation {
   /**
    * <p>The type of alarm recommendation.</p>
    */
-  type: AlarmType | string | undefined;
+  type: keyof typeof AlarmType | string | undefined;
 
   /**
    * <p>The Application Component for the CloudWatch alarm recommendation.</p>
@@ -425,28 +425,28 @@ export interface AlarmRecommendation {
 /**
  * @public
  */
-export enum AppAssessmentScheduleType {
-  DAILY = "Daily",
-  DISABLED = "Disabled",
-}
+export const AppAssessmentScheduleType = {
+  DAILY: "Daily",
+  DISABLED: "Disabled",
+};
 
 /**
  * @public
  */
-export enum AppComplianceStatusType {
-  CHANGES_DETECTED = "ChangesDetected",
-  NOT_ASSESSED = "NotAssessed",
-  POLICY_BREACHED = "PolicyBreached",
-  POLICY_MET = "PolicyMet",
-}
+export const AppComplianceStatusType = {
+  CHANGES_DETECTED: "ChangesDetected",
+  NOT_ASSESSED: "NotAssessed",
+  POLICY_BREACHED: "PolicyBreached",
+  POLICY_MET: "PolicyMet",
+};
 
 /**
  * @public
  */
-export enum AppStatusType {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-}
+export const AppStatusType = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+};
 
 /**
  * @public
@@ -489,12 +489,12 @@ export interface App {
   /**
    * <p>The status of the application.</p>
    */
-  status?: AppStatusType | string;
+  status?: keyof typeof AppStatusType | string;
 
   /**
    * <p>The current status of compliance for the resiliency policy.</p>
    */
-  complianceStatus?: AppComplianceStatusType | string;
+  complianceStatus?: keyof typeof AppComplianceStatusType | string;
 
   /**
    * <p>The timestamp for the most recent compliance evaluation.</p>
@@ -522,36 +522,36 @@ export interface App {
    *       Assessment execution schedule with 'Daily' or 'Disabled' values.
    *     </p>
    */
-  assessmentSchedule?: AppAssessmentScheduleType | string;
+  assessmentSchedule?: keyof typeof AppAssessmentScheduleType | string;
 }
 
 /**
  * @public
  */
-export enum AssessmentStatus {
-  FAILED = "Failed",
-  INPROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-}
+export const AssessmentStatus = {
+  FAILED: "Failed",
+  INPROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+};
 
 /**
  * @public
  */
-export enum DisruptionType {
-  AZ = "AZ",
-  HARDWARE = "Hardware",
-  REGION = "Region",
-  SOFTWARE = "Software",
-}
+export const DisruptionType = {
+  AZ: "AZ",
+  HARDWARE: "Hardware",
+  REGION: "Region",
+  SOFTWARE: "Software",
+};
 
 /**
  * @public
  */
-export enum ComplianceStatus {
-  POLICY_BREACHED = "PolicyBreached",
-  POLICY_MET = "PolicyMet",
-}
+export const ComplianceStatus = {
+  POLICY_BREACHED: "PolicyBreached",
+  POLICY_MET: "PolicyMet",
+};
 
 /**
  * @public
@@ -596,7 +596,7 @@ export interface DisruptionCompliance {
   /**
    * <p>The current status of compliance for the resiliency policy.</p>
    */
-  complianceStatus: ComplianceStatus | string | undefined;
+  complianceStatus: keyof typeof ComplianceStatus | string | undefined;
 
   /**
    * <p>The Recovery Point Objective (RPO) that is achievable, in seconds.</p>
@@ -612,12 +612,12 @@ export interface DisruptionCompliance {
 /**
  * @public
  */
-export enum CostFrequency {
-  DAILY = "Daily",
-  HOURLY = "Hourly",
-  MONTHLY = "Monthly",
-  YEARLY = "Yearly",
-}
+export const CostFrequency = {
+  DAILY: "Daily",
+  HOURLY: "Hourly",
+  MONTHLY: "Monthly",
+  YEARLY: "Yearly",
+};
 
 /**
  * @public
@@ -637,35 +637,35 @@ export interface Cost {
   /**
    * <p>The cost frequency.</p>
    */
-  frequency: CostFrequency | string | undefined;
+  frequency: keyof typeof CostFrequency | string | undefined;
 }
 
 /**
  * @public
  */
-export enum AssessmentInvoker {
-  SYSTEM = "System",
-  USER = "User",
-}
+export const AssessmentInvoker = {
+  SYSTEM: "System",
+  USER: "User",
+};
 
 /**
  * @public
  */
-export enum DataLocationConstraint {
-  ANY_LOCATION = "AnyLocation",
-  SAME_CONTINENT = "SameContinent",
-  SAME_COUNTRY = "SameCountry",
-}
+export const DataLocationConstraint = {
+  ANY_LOCATION: "AnyLocation",
+  SAME_CONTINENT: "SameContinent",
+  SAME_COUNTRY: "SameCountry",
+};
 
 /**
  * @public
  */
-export enum EstimatedCostTier {
-  L1 = "L1",
-  L2 = "L2",
-  L3 = "L3",
-  L4 = "L4",
-}
+export const EstimatedCostTier = {
+  L1: "L1",
+  L2: "L2",
+  L3: "L3",
+  L4: "L4",
+};
 
 /**
  * @public
@@ -686,13 +686,13 @@ export interface FailurePolicy {
 /**
  * @public
  */
-export enum ResiliencyPolicyTier {
-  CORE_SERVICES = "CoreServices",
-  CRITICAL = "Critical",
-  IMPORTANT = "Important",
-  MISSION_CRITICAL = "MissionCritical",
-  NON_CRITICAL = "NonCritical",
-}
+export const ResiliencyPolicyTier = {
+  CORE_SERVICES: "CoreServices",
+  CRITICAL: "Critical",
+  IMPORTANT: "Important",
+  MISSION_CRITICAL: "MissionCritical",
+  NON_CRITICAL: "NonCritical",
+};
 
 /**
  * @public
@@ -722,18 +722,18 @@ export interface ResiliencyPolicy {
    * <p>Specifies a high-level geographical location constraint for where your resilience policy
    *       data can be stored.</p>
    */
-  dataLocationConstraint?: DataLocationConstraint | string;
+  dataLocationConstraint?: keyof typeof DataLocationConstraint | string;
 
   /**
    * <p>The tier for this resiliency policy, ranging from the highest severity
    *         (<code>MissionCritical</code>) to lowest (<code>NonCritical</code>).</p>
    */
-  tier?: ResiliencyPolicyTier | string;
+  tier?: keyof typeof ResiliencyPolicyTier | string;
 
   /**
    * <p>Specifies the estimated cost tier of the resiliency policy.</p>
    */
-  estimatedCostTier?: EstimatedCostTier | string;
+  estimatedCostTier?: keyof typeof EstimatedCostTier | string;
 
   /**
    * <p>The resiliency policy.</p>
@@ -842,7 +842,7 @@ export interface AppAssessment {
   /**
    * <p>The entity that invoked the assessment.</p>
    */
-  invoker: AssessmentInvoker | string | undefined;
+  invoker: keyof typeof AssessmentInvoker | string | undefined;
 
   /**
    * <p>The cost for the application.</p>
@@ -862,12 +862,12 @@ export interface AppAssessment {
   /**
    * <p>The current status of the compliance for the resiliency policy.</p>
    */
-  complianceStatus?: ComplianceStatus | string;
+  complianceStatus?: keyof typeof ComplianceStatus | string;
 
   /**
    * <p>The current status of the assessment for the resiliency policy.</p>
    */
-  assessmentStatus: AssessmentStatus | string | undefined;
+  assessmentStatus: keyof typeof AssessmentStatus | string | undefined;
 
   /**
    * <p>The starting time for the action.</p>
@@ -939,12 +939,12 @@ export interface AppAssessmentSummary {
   /**
    * <p>The current status of the assessment for the resiliency policy.</p>
    */
-  assessmentStatus: AssessmentStatus | string | undefined;
+  assessmentStatus: keyof typeof AssessmentStatus | string | undefined;
 
   /**
    * <p>The entity that invoked the assessment.</p>
    */
-  invoker?: AssessmentInvoker | string;
+  invoker?: keyof typeof AssessmentInvoker | string;
 
   /**
    * <p>The starting time for the action.</p>
@@ -978,7 +978,7 @@ export interface AppAssessmentSummary {
   /**
    * <p>The current status of compliance for the resiliency policy.</p>
    */
-  complianceStatus?: ComplianceStatus | string;
+  complianceStatus?: keyof typeof ComplianceStatus | string;
 
   /**
    * <p>The cost for the application.</p>
@@ -1052,7 +1052,7 @@ export interface AppComponentCompliance {
   /**
    * <p>The status of the action.</p>
    */
-  status?: ComplianceStatus | string;
+  status?: keyof typeof ComplianceStatus | string;
 
   /**
    * <p>The current resiliency score for the application.</p>
@@ -1108,7 +1108,7 @@ export interface AppInputSource {
   /**
    * <p>The resource type of the input source.</p>
    */
-  importType: ResourceMappingType | string | undefined;
+  importType: keyof typeof ResourceMappingType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the input source. For more information about ARNs,
@@ -1166,7 +1166,7 @@ export interface AppSummary {
   /**
    * <p>The current status of compliance for the resiliency policy.</p>
    */
-  complianceStatus?: AppComplianceStatusType | string;
+  complianceStatus?: keyof typeof AppComplianceStatusType | string;
 
   /**
    * <p>The current resiliency score for the application.</p>
@@ -1178,12 +1178,12 @@ export interface AppSummary {
    *       Assessment execution schedule with 'Daily' or 'Disabled' values.
    *     </p>
    */
-  assessmentSchedule?: AppAssessmentScheduleType | string;
+  assessmentSchedule?: keyof typeof AppAssessmentScheduleType | string;
 
   /**
    * <p>The status of the application.</p>
    */
-  status?: AppStatusType | string;
+  status?: keyof typeof AppStatusType | string;
 }
 
 /**
@@ -1237,7 +1237,7 @@ export interface CreateAppRequest {
    *       Assessment execution schedule with 'Daily' or 'Disabled' values.
    *     </p>
    */
-  assessmentSchedule?: AppAssessmentScheduleType | string;
+  assessmentSchedule?: keyof typeof AppAssessmentScheduleType | string;
 }
 
 /**
@@ -1509,19 +1509,19 @@ export interface CreateAppVersionResourceResponse {
 /**
  * @public
  */
-export enum TemplateFormat {
-  CFN_JSON = "CfnJson",
-  CFN_YAML = "CfnYaml",
-}
+export const TemplateFormat = {
+  CFN_JSON: "CfnJson",
+  CFN_YAML: "CfnYaml",
+};
 
 /**
  * @public
  */
-export enum RenderRecommendationType {
-  ALARM = "Alarm",
-  SOP = "Sop",
-  TEST = "Test",
-}
+export const RenderRecommendationType = {
+  ALARM: "Alarm",
+  SOP: "Sop",
+  TEST: "Test",
+};
 
 /**
  * @public
@@ -1545,7 +1545,7 @@ export interface CreateRecommendationTemplateRequest {
    *             </dd>
    *          </dl>
    */
-  format?: TemplateFormat | string;
+  format?: keyof typeof TemplateFormat | string;
 
   /**
    * <p>An array of strings that specify the recommendation template type or types.</p>
@@ -1564,7 +1564,7 @@ export interface CreateRecommendationTemplateRequest {
    *             </dd>
    *          </dl>
    */
-  recommendationTypes?: (RenderRecommendationType | string)[];
+  recommendationTypes?: (keyof typeof RenderRecommendationType | string)[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
@@ -1601,12 +1601,12 @@ export interface CreateRecommendationTemplateRequest {
 /**
  * @public
  */
-export enum RecommendationTemplateStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-}
+export const RecommendationTemplateStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+};
 
 /**
  * @public
@@ -1674,7 +1674,7 @@ export interface RecommendationTemplate {
    *             </dd>
    *          </dl>
    */
-  recommendationTypes: (RenderRecommendationType | string)[] | undefined;
+  recommendationTypes: (keyof typeof RenderRecommendationType | string)[] | undefined;
 
   /**
    * <p>The format of the recommendation template.</p>
@@ -1689,7 +1689,7 @@ export interface RecommendationTemplate {
    *             </dd>
    *          </dl>
    */
-  format: TemplateFormat | string | undefined;
+  format: keyof typeof TemplateFormat | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the recommendation template.</p>
@@ -1704,7 +1704,7 @@ export interface RecommendationTemplate {
   /**
    * <p>The status of the action.</p>
    */
-  status: RecommendationTemplateStatus | string | undefined;
+  status: keyof typeof RecommendationTemplateStatus | string | undefined;
 
   /**
    * <p>The name for the recommendation template.</p>
@@ -1762,13 +1762,13 @@ export interface CreateResiliencyPolicyRequest {
    * <p>Specifies a high-level geographical location constraint for where your resilience policy
    *       data can be stored.</p>
    */
-  dataLocationConstraint?: DataLocationConstraint | string;
+  dataLocationConstraint?: keyof typeof DataLocationConstraint | string;
 
   /**
    * <p>The tier for this resiliency policy, ranging from the highest severity
    *         (<code>MissionCritical</code>) to lowest (<code>NonCritical</code>).</p>
    */
-  tier: ResiliencyPolicyTier | string | undefined;
+  tier: keyof typeof ResiliencyPolicyTier | string | undefined;
 
   /**
    * <p>The type of resiliency policy to be created, including the recovery time objective (RTO)
@@ -1875,7 +1875,7 @@ export interface DeleteAppAssessmentResponse {
   /**
    * <p>The current status of the assessment for the resiliency policy.</p>
    */
-  assessmentStatus: AssessmentStatus | string | undefined;
+  assessmentStatus: keyof typeof AssessmentStatus | string | undefined;
 }
 
 /**
@@ -2082,7 +2082,7 @@ export interface DeleteRecommendationTemplateResponse {
   /**
    * <p>The status of the action.</p>
    */
-  status: RecommendationTemplateStatus | string | undefined;
+  status: keyof typeof RecommendationTemplateStatus | string | undefined;
 }
 
 /**
@@ -2359,12 +2359,12 @@ export interface DescribeAppVersionResourcesResolutionStatusRequest {
 /**
  * @public
  */
-export enum ResourceResolutionStatusType {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-}
+export const ResourceResolutionStatusType = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+};
 
 /**
  * @public
@@ -2392,7 +2392,7 @@ export interface DescribeAppVersionResourcesResolutionStatusResponse {
   /**
    * <p>The status of the action.</p>
    */
-  status: ResourceResolutionStatusType | string | undefined;
+  status: keyof typeof ResourceResolutionStatusType | string | undefined;
 
   /**
    * <p>The returned error message for the request.</p>
@@ -2693,12 +2693,12 @@ export interface DescribeDraftAppVersionResourcesImportStatusRequest {
 /**
  * @public
  */
-export enum ResourceImportStatusType {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SUCCESS = "Success",
-}
+export const ResourceImportStatusType = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+};
 
 /**
  * @public
@@ -2721,7 +2721,7 @@ export interface DescribeDraftAppVersionResourcesImportStatusResponse {
   /**
    * <p>The status of the action.</p>
    */
-  status: ResourceImportStatusType | string | undefined;
+  status: keyof typeof ResourceImportStatusType | string | undefined;
 
   /**
    * <p>The timestamp for when the status last changed.</p>
@@ -2783,10 +2783,10 @@ export interface EksSource {
 /**
  * @public
  */
-export enum ResourceImportStrategyType {
-  ADD_ONLY = "AddOnly",
-  REPLACE_ALL = "ReplaceAll",
-}
+export const ResourceImportStrategyType = {
+  ADD_ONLY: "AddOnly",
+  REPLACE_ALL: "ReplaceAll",
+};
 
 /**
  * @public
@@ -2817,7 +2817,7 @@ export interface ImportResourcesToDraftAppVersionRequest {
    * <p>The import strategy you would like to set to import resources into Resilience Hub
    *       application.</p>
    */
-  importStrategy?: ResourceImportStrategyType | string;
+  importStrategy?: keyof typeof ResourceImportStrategyType | string;
 
   /**
    * <p>The input sources of the Amazon Elastic Kubernetes Service resources you need to import.</p>
@@ -2851,7 +2851,7 @@ export interface ImportResourcesToDraftAppVersionResponse {
   /**
    * <p>The status of the action.</p>
    */
-  status: ResourceImportStatusType | string | undefined;
+  status: keyof typeof ResourceImportStatusType | string | undefined;
 
   /**
    * <p>
@@ -2929,18 +2929,18 @@ export interface ListAppAssessmentsRequest {
   /**
    * <p>The current status of the assessment for the resiliency policy.</p>
    */
-  assessmentStatus?: (AssessmentStatus | string)[];
+  assessmentStatus?: (keyof typeof AssessmentStatus | string)[];
 
   /**
    * <p>The current status of compliance for the resiliency policy.</p>
    */
-  complianceStatus?: ComplianceStatus | string;
+  complianceStatus?: keyof typeof ComplianceStatus | string;
 
   /**
    * <p>Specifies the entity that invoked a specific assessment, either a <code>User</code> or the
    *         <code>System</code>.</p>
    */
-  invoker?: AssessmentInvoker | string;
+  invoker?: keyof typeof AssessmentInvoker | string;
 
   /**
    * <p>The default is to sort by ascending <b>startTime</b>.
@@ -3047,25 +3047,25 @@ export interface ListAppComponentRecommendationsRequest {
 /**
  * @public
  */
-export enum HaArchitecture {
-  BACKUP_AND_RESTORE = "BackupAndRestore",
-  MULTI_SITE = "MultiSite",
-  NO_RECOVERY_PLAN = "NoRecoveryPlan",
-  PILOT_LIGHT = "PilotLight",
-  WARM_STANDBY = "WarmStandby",
-}
+export const HaArchitecture = {
+  BACKUP_AND_RESTORE: "BackupAndRestore",
+  MULTI_SITE: "MultiSite",
+  NO_RECOVERY_PLAN: "NoRecoveryPlan",
+  PILOT_LIGHT: "PilotLight",
+  WARM_STANDBY: "WarmStandby",
+};
 
 /**
  * @public
  */
-export enum ConfigRecommendationOptimizationType {
-  BEST_ATTAINABLE = "BestAttainable",
-  BEST_AZ_RECOVERY = "BestAZRecovery",
-  BEST_REGION_RECOVERY = "BestRegionRecovery",
-  LEAST_CHANGE = "LeastChange",
-  LEAST_COST = "LeastCost",
-  LEAST_ERRORS = "LeastErrors",
-}
+export const ConfigRecommendationOptimizationType = {
+  BEST_ATTAINABLE: "BestAttainable",
+  BEST_AZ_RECOVERY: "BestAZRecovery",
+  BEST_REGION_RECOVERY: "BestRegionRecovery",
+  LEAST_CHANGE: "LeastChange",
+  LEAST_COST: "LeastCost",
+  LEAST_ERRORS: "LeastErrors",
+};
 
 /**
  * @public
@@ -3075,7 +3075,7 @@ export interface RecommendationDisruptionCompliance {
   /**
    * <p>The expected compliance status after applying the recommended configuration change.</p>
    */
-  expectedComplianceStatus: ComplianceStatus | string | undefined;
+  expectedComplianceStatus: keyof typeof ComplianceStatus | string | undefined;
 
   /**
    * <p>The expected RTO after applying the recommended configuration change.</p>
@@ -3130,7 +3130,7 @@ export interface ConfigRecommendation {
   /**
    * <p>The type of optimization.</p>
    */
-  optimizationType: ConfigRecommendationOptimizationType | string | undefined;
+  optimizationType: keyof typeof ConfigRecommendationOptimizationType | string | undefined;
 
   /**
    * <p>The name of the recommendation configuration.</p>
@@ -3150,7 +3150,7 @@ export interface ConfigRecommendation {
   /**
    * <p>The architecture type.</p>
    */
-  haArchitecture?: HaArchitecture | string;
+  haArchitecture?: keyof typeof HaArchitecture | string;
 
   /**
    * <p>The reference identifier for the recommendation configuration.</p>
@@ -3161,11 +3161,11 @@ export interface ConfigRecommendation {
 /**
  * @public
  */
-export enum RecommendationComplianceStatus {
-  BREACHED_CAN_MEET = "BreachedCanMeet",
-  BREACHED_UNATTAINABLE = "BreachedUnattainable",
-  MET_CAN_IMPROVE = "MetCanImprove",
-}
+export const RecommendationComplianceStatus = {
+  BREACHED_CAN_MEET: "BreachedCanMeet",
+  BREACHED_UNATTAINABLE: "BreachedUnattainable",
+  MET_CAN_IMPROVE: "MetCanImprove",
+};
 
 /**
  * @public
@@ -3182,7 +3182,7 @@ export interface ComponentRecommendation {
   /**
    * <p>The recommendation status.</p>
    */
-  recommendationStatus: RecommendationComplianceStatus | string | undefined;
+  recommendationStatus: keyof typeof RecommendationComplianceStatus | string | undefined;
 
   /**
    * <p>The list of recommendations.</p>
@@ -3520,7 +3520,7 @@ export interface ListRecommendationTemplatesRequest {
   /**
    * <p>The status of the action.</p>
    */
-  status?: (RecommendationTemplateStatus | string)[];
+  status?: (keyof typeof RecommendationTemplateStatus | string)[];
 
   /**
    * <p>The Amazon Resource Name (ARN) for a recommendation template.</p>
@@ -3623,9 +3623,9 @@ export interface ListSopRecommendationsRequest {
 /**
  * @public
  */
-export enum SopServiceType {
-  SSM = "SSM",
-}
+export const SopServiceType = {
+  SSM: "SSM",
+};
 
 /**
  * @public
@@ -3635,7 +3635,7 @@ export interface SopRecommendation {
   /**
    * <p>The service type.</p>
    */
-  serviceType: SopServiceType | string | undefined;
+  serviceType: keyof typeof SopServiceType | string | undefined;
 
   /**
    * <p>The name of the Application Component.</p>
@@ -3770,21 +3770,21 @@ export interface ListTestRecommendationsRequest {
 /**
  * @public
  */
-export enum TestRisk {
-  HIGH = "High",
-  MEDIUM = "Medium",
-  SMALL = "Small",
-}
+export const TestRisk = {
+  HIGH: "High",
+  MEDIUM: "Medium",
+  SMALL: "Small",
+};
 
 /**
  * @public
  */
-export enum TestType {
-  AZ = "AZ",
-  HARDWARE = "Hardware",
-  REGION = "Region",
-  SOFTWARE = "Software",
-}
+export const TestType = {
+  AZ: "AZ",
+  HARDWARE: "Hardware",
+  REGION: "Region",
+  SOFTWARE: "Software",
+};
 
 /**
  * @public
@@ -3819,12 +3819,12 @@ export interface TestRecommendation {
   /**
    * <p>The level of risk for this test recommendation.</p>
    */
-  risk?: TestRisk | string;
+  risk?: keyof typeof TestRisk | string;
 
   /**
    * <p>The type of test recommendation.</p>
    */
-  type?: TestType | string;
+  type?: keyof typeof TestType | string;
 
   /**
    * <p>The description for the test recommendation.</p>
@@ -4360,7 +4360,7 @@ export interface ResolveAppVersionResourcesResponse {
   /**
    * <p>The status of the action.</p>
    */
-  status: ResourceResolutionStatusType | string | undefined;
+  status: keyof typeof ResourceResolutionStatusType | string | undefined;
 }
 
 /**
@@ -4486,7 +4486,7 @@ export interface UpdateAppRequest {
    *       Assessment execution schedule with 'Daily' or 'Disabled' values.
    *     </p>
    */
-  assessmentSchedule?: AppAssessmentScheduleType | string;
+  assessmentSchedule?: keyof typeof AppAssessmentScheduleType | string;
 }
 
 /**
@@ -4724,13 +4724,13 @@ export interface UpdateResiliencyPolicyRequest {
    * <p>Specifies a high-level geographical location constraint for where your resilience policy
    *       data can be stored.</p>
    */
-  dataLocationConstraint?: DataLocationConstraint | string;
+  dataLocationConstraint?: keyof typeof DataLocationConstraint | string;
 
   /**
    * <p>The tier for this resiliency policy, ranging from the highest severity
    *         (<code>MissionCritical</code>) to lowest (<code>NonCritical</code>).</p>
    */
-  tier?: ResiliencyPolicyTier | string;
+  tier?: keyof typeof ResiliencyPolicyTier | string;
 
   /**
    * <p>The type of resiliency policy to be created, including the recovery time objective (RTO)

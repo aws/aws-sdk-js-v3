@@ -31,10 +31,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum ParticipantTokenCapability {
-  PUBLISH = "PUBLISH",
-  SUBSCRIBE = "SUBSCRIBE",
-}
+export const ParticipantTokenCapability = {
+  PUBLISH: "PUBLISH",
+  SUBSCRIBE: "SUBSCRIBE",
+};
 
 /**
  * @public
@@ -68,7 +68,7 @@ export interface CreateParticipantTokenRequest {
   /**
    * <p>Set of capabilities that the user is allowed to perform in the stage. Default: <code>PUBLISH, SUBSCRIBE</code>.</p>
    */
-  capabilities?: (ParticipantTokenCapability | string)[];
+  capabilities?: (keyof typeof ParticipantTokenCapability | string)[];
 }
 
 /**
@@ -108,7 +108,7 @@ export interface ParticipantToken {
   /**
    * <p>Set of capabilities that the user is allowed to perform in the stage.</p>
    */
-  capabilities?: (ParticipantTokenCapability | string)[];
+  capabilities?: (keyof typeof ParticipantTokenCapability | string)[];
 
   /**
    * <p>ISO 8601 timestamp (returned as a string) for when this token expires.</p>
@@ -254,7 +254,7 @@ export interface ParticipantTokenConfiguration {
   /**
    * <p>Set of capabilities that the user is allowed to perform in the stage.</p>
    */
-  capabilities?: (ParticipantTokenCapability | string)[];
+  capabilities?: (keyof typeof ParticipantTokenCapability | string)[];
 }
 
 /**

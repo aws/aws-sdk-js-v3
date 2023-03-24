@@ -380,31 +380,31 @@ export interface DescribeDBProxyTargetsRequest {
 /**
  * @public
  */
-export enum TargetRole {
-  READ_ONLY = "READ_ONLY",
-  READ_WRITE = "READ_WRITE",
-  UNKNOWN = "UNKNOWN",
-}
+export const TargetRole = {
+  READ_ONLY: "READ_ONLY",
+  READ_WRITE: "READ_WRITE",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
  */
-export enum TargetHealthReason {
-  AUTH_FAILURE = "AUTH_FAILURE",
-  CONNECTION_FAILED = "CONNECTION_FAILED",
-  INVALID_REPLICATION_STATE = "INVALID_REPLICATION_STATE",
-  PENDING_PROXY_CAPACITY = "PENDING_PROXY_CAPACITY",
-  UNREACHABLE = "UNREACHABLE",
-}
+export const TargetHealthReason = {
+  AUTH_FAILURE: "AUTH_FAILURE",
+  CONNECTION_FAILED: "CONNECTION_FAILED",
+  INVALID_REPLICATION_STATE: "INVALID_REPLICATION_STATE",
+  PENDING_PROXY_CAPACITY: "PENDING_PROXY_CAPACITY",
+  UNREACHABLE: "UNREACHABLE",
+};
 
 /**
  * @public
  */
-export enum TargetState {
-  available = "AVAILABLE",
-  registering = "REGISTERING",
-  unavailable = "UNAVAILABLE",
-}
+export const TargetState = {
+  available: "AVAILABLE",
+  registering: "REGISTERING",
+  unavailable: "UNAVAILABLE",
+};
 
 /**
  * @public
@@ -418,12 +418,12 @@ export interface TargetHealth {
    *             <code>registering</code> > <code>unavailable</code> > <code>available</code> > <code>unavailable</code> > <code>available</code>
    *          </p>
    */
-  State?: TargetState | string;
+  State?: keyof typeof TargetState | string;
 
   /**
    * <p>The reason for the current health <code>State</code> of the RDS Proxy target.</p>
    */
-  Reason?: TargetHealthReason | string;
+  Reason?: keyof typeof TargetHealthReason | string;
 
   /**
    * <p>A description of the health of the RDS Proxy target.
@@ -435,11 +435,11 @@ export interface TargetHealth {
 /**
  * @public
  */
-export enum TargetType {
-  RDS_INSTANCE = "RDS_INSTANCE",
-  RDS_SERVERLESS_ENDPOINT = "RDS_SERVERLESS_ENDPOINT",
-  TRACKED_CLUSTER = "TRACKED_CLUSTER",
-}
+export const TargetType = {
+  RDS_INSTANCE: "RDS_INSTANCE",
+  RDS_SERVERLESS_ENDPOINT: "RDS_SERVERLESS_ENDPOINT",
+  TRACKED_CLUSTER: "TRACKED_CLUSTER",
+};
 
 /**
  * @public
@@ -477,12 +477,12 @@ export interface DBProxyTarget {
   /**
    * <p>Specifies the kind of database, such as an RDS DB instance or an Aurora DB cluster, that the target represents.</p>
    */
-  Type?: TargetType | string;
+  Type?: keyof typeof TargetType | string;
 
   /**
    * <p>A value that indicates whether the target of the proxy can be used for read/write or read-only operations.</p>
    */
-  Role?: TargetRole | string;
+  Role?: keyof typeof TargetRole | string;
 
   /**
    * <p>Information about the connection health of the RDS Proxy target.</p>
@@ -1252,17 +1252,17 @@ export interface EventCategoriesMessage {
 /**
  * @public
  */
-export enum SourceType {
-  blue_green_deployment = "blue-green-deployment",
-  custom_engine_version = "custom-engine-version",
-  db_cluster = "db-cluster",
-  db_cluster_snapshot = "db-cluster-snapshot",
-  db_instance = "db-instance",
-  db_parameter_group = "db-parameter-group",
-  db_proxy = "db-proxy",
-  db_security_group = "db-security-group",
-  db_snapshot = "db-snapshot",
-}
+export const SourceType = {
+  blue_green_deployment: "blue-green-deployment",
+  custom_engine_version: "custom-engine-version",
+  db_cluster: "db-cluster",
+  db_cluster_snapshot: "db-cluster-snapshot",
+  db_instance: "db-instance",
+  db_parameter_group: "db-parameter-group",
+  db_proxy: "db-proxy",
+  db_security_group: "db-security-group",
+  db_snapshot: "db-snapshot",
+};
 
 /**
  * @public
@@ -1307,7 +1307,7 @@ export interface DescribeEventsMessage {
   /**
    * <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 
   /**
    * <p>The beginning of the time interval to retrieve events for,
@@ -1376,7 +1376,7 @@ export interface Event {
   /**
    * <p>Specifies the source type for this event.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 
   /**
    * <p>Provides the text of this event.</p>
@@ -1565,7 +1565,7 @@ export interface DescribeExportTasksMessage {
   /**
    * <p>The type of source for the export.</p>
    */
-  SourceType?: ExportSourceType | string;
+  SourceType?: keyof typeof ExportSourceType | string;
 }
 
 /**
@@ -3327,10 +3327,10 @@ export interface TagListMessage {
 /**
  * @public
  */
-export enum AuditPolicyState {
-  LOCKED_POLICY = "locked",
-  UNLOCKED_POLICY = "unlocked",
-}
+export const AuditPolicyState = {
+  LOCKED_POLICY: "locked",
+  UNLOCKED_POLICY: "unlocked",
+};
 
 /**
  * @public
@@ -3346,7 +3346,7 @@ export interface ModifyActivityStreamRequest {
    * <p>The audit policy state. When a policy is unlocked, it is read/write. When it is locked, it is
    *             read-only. You can edit your audit policy only when the activity stream is unlocked or stopped.</p>
    */
-  AuditPolicyState?: AuditPolicyState | string;
+  AuditPolicyState?: keyof typeof AuditPolicyState | string;
 }
 
 /**
@@ -3366,12 +3366,12 @@ export interface ModifyActivityStreamResponse {
   /**
    * <p>The status of the modification to the database activity stream.</p>
    */
-  Status?: ActivityStreamStatus | string;
+  Status?: keyof typeof ActivityStreamStatus | string;
 
   /**
    * <p>The mode of the database activity stream.</p>
    */
-  Mode?: ActivityStreamMode | string;
+  Mode?: keyof typeof ActivityStreamMode | string;
 
   /**
    * <p>Indicates whether engine-native audit fields are included in the database activity stream.</p>
@@ -3381,7 +3381,7 @@ export interface ModifyActivityStreamResponse {
   /**
    * <p>The status of the modification to the policy state of the database activity stream.</p>
    */
-  PolicyStatus?: ActivityStreamPolicyStatus | string;
+  PolicyStatus?: keyof typeof ActivityStreamPolicyStatus | string;
 }
 
 /**
@@ -3524,11 +3524,11 @@ export interface ModifyCurrentDBClusterCapacityMessage {
 /**
  * @public
  */
-export enum CustomEngineVersionStatus {
-  available = "available",
-  inactive = "inactive",
-  inactive_except_restore = "inactive-except-restore",
-}
+export const CustomEngineVersionStatus = {
+  available: "available",
+  inactive: "inactive",
+  inactive_except_restore: "inactive-except-restore",
+};
 
 /**
  * @public
@@ -3570,7 +3570,7 @@ export interface ModifyCustomDBEngineVersionMessage {
    *             <code>available</code>. To change the availability status of the CEV, it must not currently be in use by an
    *             RDS Custom instance, snapshot, or automated backup.</p>
    */
-  Status?: CustomEngineVersionStatus | string;
+  Status?: keyof typeof CustomEngineVersionStatus | string;
 }
 
 /**
@@ -5024,7 +5024,7 @@ export interface ModifyDBInstanceMessage {
    *             in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>This setting doesn't apply to RDS Custom.</p>
    */
-  ReplicaMode?: ReplicaMode | string;
+  ReplicaMode?: keyof typeof ReplicaMode | string;
 
   /**
    * <p>A value that indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance.</p>
@@ -5051,7 +5051,7 @@ export interface ModifyDBInstanceMessage {
    *             <code>all paused</code>, the instance pauses automation for the duration set by
    *             <code>ResumeFullAutomationModeMinutes</code>.</p>
    */
-  AutomationMode?: AutomationMode | string;
+  AutomationMode?: keyof typeof AutomationMode | string;
 
   /**
    * <p>The number of minutes to pause the automation. When the time period ends, RDS Custom resumes
@@ -9214,7 +9214,7 @@ export interface StartActivityStreamRequest {
    *             Database events such as a change or access generate an activity stream event.
    *             The database session can handle these events either synchronously or asynchronously.</p>
    */
-  Mode: ActivityStreamMode | string | undefined;
+  Mode: keyof typeof ActivityStreamMode | string | undefined;
 
   /**
    * <p>The Amazon Web Services KMS key identifier for encrypting messages in the database activity stream.
@@ -9252,12 +9252,12 @@ export interface StartActivityStreamResponse {
   /**
    * <p>The status of the database activity stream.</p>
    */
-  Status?: ActivityStreamStatus | string;
+  Status?: keyof typeof ActivityStreamStatus | string;
 
   /**
    * <p>The mode of the database activity stream.</p>
    */
-  Mode?: ActivityStreamMode | string;
+  Mode?: keyof typeof ActivityStreamMode | string;
 
   /**
    * <p>Indicates whether or not the database activity stream will start as soon as possible,
@@ -9626,7 +9626,7 @@ export interface StopActivityStreamResponse {
   /**
    * <p>The status of the database activity stream.</p>
    */
-  Status?: ActivityStreamStatus | string;
+  Status?: keyof typeof ActivityStreamStatus | string;
 }
 
 /**

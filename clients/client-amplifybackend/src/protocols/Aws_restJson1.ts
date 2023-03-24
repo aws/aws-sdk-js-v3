@@ -3328,7 +3328,7 @@ const serializeAws_restJson1ListOf__string = (input: string[], context: __SerdeC
 };
 
 const serializeAws_restJson1ListOfAdditionalConstraintsElement = (
-  input: (AdditionalConstraintsElement | string)[],
+  input: (keyof typeof AdditionalConstraintsElement | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3339,7 +3339,7 @@ const serializeAws_restJson1ListOfAdditionalConstraintsElement = (
 };
 
 const serializeAws_restJson1ListOfAuthenticatedElement = (
-  input: (AuthenticatedElement | string)[],
+  input: (keyof typeof AuthenticatedElement | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3358,7 +3358,7 @@ const serializeAws_restJson1ListOfBackendAPIAuthType = (input: BackendAPIAuthTyp
 };
 
 const serializeAws_restJson1ListOfMfaTypesElement = (
-  input: (MfaTypesElement | string)[],
+  input: (keyof typeof MfaTypesElement | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3369,7 +3369,7 @@ const serializeAws_restJson1ListOfMfaTypesElement = (
 };
 
 const serializeAws_restJson1ListOfOAuthScopesElement = (
-  input: (OAuthScopesElement | string)[],
+  input: (keyof typeof OAuthScopesElement | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3380,7 +3380,7 @@ const serializeAws_restJson1ListOfOAuthScopesElement = (
 };
 
 const serializeAws_restJson1ListOfRequiredSignUpAttributesElement = (
-  input: (RequiredSignUpAttributesElement | string)[],
+  input: (keyof typeof RequiredSignUpAttributesElement | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3391,7 +3391,7 @@ const serializeAws_restJson1ListOfRequiredSignUpAttributesElement = (
 };
 
 const serializeAws_restJson1ListOfUnAuthenticatedElement = (
-  input: (UnAuthenticatedElement | string)[],
+  input: (keyof typeof UnAuthenticatedElement | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3857,7 +3857,7 @@ const deserializeAws_restJson1ListOf__string = (output: any, context: __SerdeCon
 const deserializeAws_restJson1ListOfAdditionalConstraintsElement = (
   output: any,
   context: __SerdeContext
-): (AdditionalConstraintsElement | string)[] => {
+): (keyof typeof AdditionalConstraintsElement | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3872,7 +3872,7 @@ const deserializeAws_restJson1ListOfAdditionalConstraintsElement = (
 const deserializeAws_restJson1ListOfAuthenticatedElement = (
   output: any,
   context: __SerdeContext
-): (AuthenticatedElement | string)[] => {
+): (keyof typeof AuthenticatedElement | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3914,7 +3914,7 @@ const deserializeAws_restJson1ListOfBackendJobRespObj = (output: any, context: _
 const deserializeAws_restJson1ListOfMfaTypesElement = (
   output: any,
   context: __SerdeContext
-): (MfaTypesElement | string)[] => {
+): (keyof typeof MfaTypesElement | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3929,7 +3929,7 @@ const deserializeAws_restJson1ListOfMfaTypesElement = (
 const deserializeAws_restJson1ListOfOAuthScopesElement = (
   output: any,
   context: __SerdeContext
-): (OAuthScopesElement | string)[] => {
+): (keyof typeof OAuthScopesElement | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3944,7 +3944,7 @@ const deserializeAws_restJson1ListOfOAuthScopesElement = (
 const deserializeAws_restJson1ListOfRequiredSignUpAttributesElement = (
   output: any,
   context: __SerdeContext
-): (RequiredSignUpAttributesElement | string)[] => {
+): (keyof typeof RequiredSignUpAttributesElement | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3971,7 +3971,7 @@ const deserializeAws_restJson1ListOfS3BucketInfo = (output: any, context: __Serd
 const deserializeAws_restJson1ListOfUnAuthenticatedElement = (
   output: any,
   context: __SerdeContext
-): (UnAuthenticatedElement | string)[] => {
+): (keyof typeof UnAuthenticatedElement | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

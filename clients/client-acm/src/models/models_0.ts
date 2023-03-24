@@ -206,9 +206,9 @@ export class TooManyTagsException extends __BaseException {
 /**
  * @public
  */
-export enum RecordType {
-  CNAME = "CNAME",
-}
+export const RecordType = {
+  CNAME: "CNAME",
+};
 
 /**
  * @public
@@ -224,7 +224,7 @@ export interface ResourceRecord {
   /**
    * <p>The type of DNS record. Currently this can be <code>CNAME</code>.</p>
    */
-  Type: RecordType | string | undefined;
+  Type: keyof typeof RecordType | string | undefined;
 
   /**
    * <p>The value of the CNAME record to add to your DNS database. This is supplied by
@@ -236,19 +236,19 @@ export interface ResourceRecord {
 /**
  * @public
  */
-export enum ValidationMethod {
-  DNS = "DNS",
-  EMAIL = "EMAIL",
-}
+export const ValidationMethod = {
+  DNS: "DNS",
+  EMAIL: "EMAIL",
+};
 
 /**
  * @public
  */
-export enum DomainStatus {
-  FAILED = "FAILED",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-  SUCCESS = "SUCCESS",
-}
+export const DomainStatus = {
+  FAILED: "FAILED",
+  PENDING_VALIDATION: "PENDING_VALIDATION",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -289,7 +289,7 @@ export interface DomainValidation {
    *             </li>
    *          </ul>
    */
-  ValidationStatus?: DomainStatus | string;
+  ValidationStatus?: keyof typeof DomainStatus | string;
 
   /**
    * <p>Contains the CNAME record that you add to your DNS database for domain validation. For
@@ -304,26 +304,26 @@ export interface DomainValidation {
   /**
    * <p>Specifies the domain validation method.</p>
    */
-  ValidationMethod?: ValidationMethod | string;
+  ValidationMethod?: keyof typeof ValidationMethod | string;
 }
 
 /**
  * @public
  */
-export enum ExtendedKeyUsageName {
-  ANY = "ANY",
-  CODE_SIGNING = "CODE_SIGNING",
-  CUSTOM = "CUSTOM",
-  EMAIL_PROTECTION = "EMAIL_PROTECTION",
-  IPSEC_END_SYSTEM = "IPSEC_END_SYSTEM",
-  IPSEC_TUNNEL = "IPSEC_TUNNEL",
-  IPSEC_USER = "IPSEC_USER",
-  NONE = "NONE",
-  OCSP_SIGNING = "OCSP_SIGNING",
-  TIME_STAMPING = "TIME_STAMPING",
-  TLS_WEB_CLIENT_AUTHENTICATION = "TLS_WEB_CLIENT_AUTHENTICATION",
-  TLS_WEB_SERVER_AUTHENTICATION = "TLS_WEB_SERVER_AUTHENTICATION",
-}
+export const ExtendedKeyUsageName = {
+  ANY: "ANY",
+  CODE_SIGNING: "CODE_SIGNING",
+  CUSTOM: "CUSTOM",
+  EMAIL_PROTECTION: "EMAIL_PROTECTION",
+  IPSEC_END_SYSTEM: "IPSEC_END_SYSTEM",
+  IPSEC_TUNNEL: "IPSEC_TUNNEL",
+  IPSEC_USER: "IPSEC_USER",
+  NONE: "NONE",
+  OCSP_SIGNING: "OCSP_SIGNING",
+  TIME_STAMPING: "TIME_STAMPING",
+  TLS_WEB_CLIENT_AUTHENTICATION: "TLS_WEB_CLIENT_AUTHENTICATION",
+  TLS_WEB_SERVER_AUTHENTICATION: "TLS_WEB_SERVER_AUTHENTICATION",
+};
 
 /**
  * @public
@@ -335,7 +335,7 @@ export interface ExtendedKeyUsage {
   /**
    * <p>The name of an Extended Key Usage value.</p>
    */
-  Name?: ExtendedKeyUsageName | string;
+  Name?: keyof typeof ExtendedKeyUsageName | string;
 
   /**
    * <p>An object identifier (OID) for the extension value. OIDs are strings of numbers separated
@@ -394,55 +394,55 @@ export interface ExtendedKeyUsage {
 /**
  * @public
  */
-export enum FailureReason {
-  ADDITIONAL_VERIFICATION_REQUIRED = "ADDITIONAL_VERIFICATION_REQUIRED",
-  CAA_ERROR = "CAA_ERROR",
-  DOMAIN_NOT_ALLOWED = "DOMAIN_NOT_ALLOWED",
-  DOMAIN_VALIDATION_DENIED = "DOMAIN_VALIDATION_DENIED",
-  INVALID_PUBLIC_DOMAIN = "INVALID_PUBLIC_DOMAIN",
-  NO_AVAILABLE_CONTACTS = "NO_AVAILABLE_CONTACTS",
-  OTHER = "OTHER",
-  PCA_ACCESS_DENIED = "PCA_ACCESS_DENIED",
-  PCA_INVALID_ARGS = "PCA_INVALID_ARGS",
-  PCA_INVALID_ARN = "PCA_INVALID_ARN",
-  PCA_INVALID_DURATION = "PCA_INVALID_DURATION",
-  PCA_INVALID_STATE = "PCA_INVALID_STATE",
-  PCA_LIMIT_EXCEEDED = "PCA_LIMIT_EXCEEDED",
-  PCA_NAME_CONSTRAINTS_VALIDATION = "PCA_NAME_CONSTRAINTS_VALIDATION",
-  PCA_REQUEST_FAILED = "PCA_REQUEST_FAILED",
-  PCA_RESOURCE_NOT_FOUND = "PCA_RESOURCE_NOT_FOUND",
-  SLR_NOT_FOUND = "SLR_NOT_FOUND",
-}
+export const FailureReason = {
+  ADDITIONAL_VERIFICATION_REQUIRED: "ADDITIONAL_VERIFICATION_REQUIRED",
+  CAA_ERROR: "CAA_ERROR",
+  DOMAIN_NOT_ALLOWED: "DOMAIN_NOT_ALLOWED",
+  DOMAIN_VALIDATION_DENIED: "DOMAIN_VALIDATION_DENIED",
+  INVALID_PUBLIC_DOMAIN: "INVALID_PUBLIC_DOMAIN",
+  NO_AVAILABLE_CONTACTS: "NO_AVAILABLE_CONTACTS",
+  OTHER: "OTHER",
+  PCA_ACCESS_DENIED: "PCA_ACCESS_DENIED",
+  PCA_INVALID_ARGS: "PCA_INVALID_ARGS",
+  PCA_INVALID_ARN: "PCA_INVALID_ARN",
+  PCA_INVALID_DURATION: "PCA_INVALID_DURATION",
+  PCA_INVALID_STATE: "PCA_INVALID_STATE",
+  PCA_LIMIT_EXCEEDED: "PCA_LIMIT_EXCEEDED",
+  PCA_NAME_CONSTRAINTS_VALIDATION: "PCA_NAME_CONSTRAINTS_VALIDATION",
+  PCA_REQUEST_FAILED: "PCA_REQUEST_FAILED",
+  PCA_RESOURCE_NOT_FOUND: "PCA_RESOURCE_NOT_FOUND",
+  SLR_NOT_FOUND: "SLR_NOT_FOUND",
+};
 
 /**
  * @public
  */
-export enum KeyAlgorithm {
-  EC_prime256v1 = "EC_prime256v1",
-  EC_secp384r1 = "EC_secp384r1",
-  EC_secp521r1 = "EC_secp521r1",
-  RSA_1024 = "RSA_1024",
-  RSA_2048 = "RSA_2048",
-  RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096",
-}
+export const KeyAlgorithm = {
+  EC_prime256v1: "EC_prime256v1",
+  EC_secp384r1: "EC_secp384r1",
+  EC_secp521r1: "EC_secp521r1",
+  RSA_1024: "RSA_1024",
+  RSA_2048: "RSA_2048",
+  RSA_3072: "RSA_3072",
+  RSA_4096: "RSA_4096",
+};
 
 /**
  * @public
  */
-export enum KeyUsageName {
-  ANY = "ANY",
-  CERTIFICATE_SIGNING = "CERTIFICATE_SIGNING",
-  CRL_SIGNING = "CRL_SIGNING",
-  CUSTOM = "CUSTOM",
-  DATA_ENCIPHERMENT = "DATA_ENCIPHERMENT",
-  DECIPHER_ONLY = "DECIPHER_ONLY",
-  DIGITAL_SIGNATURE = "DIGITAL_SIGNATURE",
-  ENCHIPER_ONLY = "ENCIPHER_ONLY",
-  KEY_AGREEMENT = "KEY_AGREEMENT",
-  KEY_ENCIPHERMENT = "KEY_ENCIPHERMENT",
-  NON_REPUDATION = "NON_REPUDIATION",
-}
+export const KeyUsageName = {
+  ANY: "ANY",
+  CERTIFICATE_SIGNING: "CERTIFICATE_SIGNING",
+  CRL_SIGNING: "CRL_SIGNING",
+  CUSTOM: "CUSTOM",
+  DATA_ENCIPHERMENT: "DATA_ENCIPHERMENT",
+  DECIPHER_ONLY: "DECIPHER_ONLY",
+  DIGITAL_SIGNATURE: "DIGITAL_SIGNATURE",
+  ENCHIPER_ONLY: "ENCIPHER_ONLY",
+  KEY_AGREEMENT: "KEY_AGREEMENT",
+  KEY_ENCIPHERMENT: "KEY_ENCIPHERMENT",
+  NON_REPUDATION: "NON_REPUDIATION",
+};
 
 /**
  * @public
@@ -453,16 +453,16 @@ export interface KeyUsage {
   /**
    * <p>A string value that contains a Key Usage extension name.</p>
    */
-  Name?: KeyUsageName | string;
+  Name?: keyof typeof KeyUsageName | string;
 }
 
 /**
  * @public
  */
-export enum CertificateTransparencyLoggingPreference {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const CertificateTransparencyLoggingPreference = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -479,26 +479,26 @@ export interface CertificateOptions {
    * <p>You can opt out of certificate transparency logging by specifying the
    *         <code>DISABLED</code> option. Opt in by specifying <code>ENABLED</code>. </p>
    */
-  CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference | string;
+  CertificateTransparencyLoggingPreference?: keyof typeof CertificateTransparencyLoggingPreference | string;
 }
 
 /**
  * @public
  */
-export enum RenewalEligibility {
-  ELIGIBLE = "ELIGIBLE",
-  INELIGIBLE = "INELIGIBLE",
-}
+export const RenewalEligibility = {
+  ELIGIBLE: "ELIGIBLE",
+  INELIGIBLE: "INELIGIBLE",
+};
 
 /**
  * @public
  */
-export enum RenewalStatus {
-  FAILED = "FAILED",
-  PENDING_AUTO_RENEWAL = "PENDING_AUTO_RENEWAL",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-  SUCCESS = "SUCCESS",
-}
+export const RenewalStatus = {
+  FAILED: "FAILED",
+  PENDING_AUTO_RENEWAL: "PENDING_AUTO_RENEWAL",
+  PENDING_VALIDATION: "PENDING_VALIDATION",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -509,7 +509,7 @@ export interface RenewalSummary {
   /**
    * <p>The status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> of the certificate.</p>
    */
-  RenewalStatus: RenewalStatus | string | undefined;
+  RenewalStatus: keyof typeof RenewalStatus | string | undefined;
 
   /**
    * <p>Contains information about the validation of each domain name in the certificate, as it
@@ -523,7 +523,7 @@ export interface RenewalSummary {
   /**
    * <p>The reason that a renewal request was unsuccessful.</p>
    */
-  RenewalStatusReason?: FailureReason | string;
+  RenewalStatusReason?: keyof typeof FailureReason | string;
 
   /**
    * <p>The time at which the renewal summary was last updated.</p>
@@ -534,40 +534,40 @@ export interface RenewalSummary {
 /**
  * @public
  */
-export enum RevocationReason {
-  AFFILIATION_CHANGED = "AFFILIATION_CHANGED",
-  A_A_COMPROMISE = "A_A_COMPROMISE",
-  CA_COMPROMISE = "CA_COMPROMISE",
-  CERTIFICATE_HOLD = "CERTIFICATE_HOLD",
-  CESSATION_OF_OPERATION = "CESSATION_OF_OPERATION",
-  KEY_COMPROMISE = "KEY_COMPROMISE",
-  PRIVILEGE_WITHDRAWN = "PRIVILEGE_WITHDRAWN",
-  REMOVE_FROM_CRL = "REMOVE_FROM_CRL",
-  SUPERCEDED = "SUPERCEDED",
-  UNSPECIFIED = "UNSPECIFIED",
-}
+export const RevocationReason = {
+  AFFILIATION_CHANGED: "AFFILIATION_CHANGED",
+  A_A_COMPROMISE: "A_A_COMPROMISE",
+  CA_COMPROMISE: "CA_COMPROMISE",
+  CERTIFICATE_HOLD: "CERTIFICATE_HOLD",
+  CESSATION_OF_OPERATION: "CESSATION_OF_OPERATION",
+  KEY_COMPROMISE: "KEY_COMPROMISE",
+  PRIVILEGE_WITHDRAWN: "PRIVILEGE_WITHDRAWN",
+  REMOVE_FROM_CRL: "REMOVE_FROM_CRL",
+  SUPERCEDED: "SUPERCEDED",
+  UNSPECIFIED: "UNSPECIFIED",
+};
 
 /**
  * @public
  */
-export enum CertificateStatus {
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  ISSUED = "ISSUED",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-  REVOKED = "REVOKED",
-  VALIDATION_TIMED_OUT = "VALIDATION_TIMED_OUT",
-}
+export const CertificateStatus = {
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  ISSUED: "ISSUED",
+  PENDING_VALIDATION: "PENDING_VALIDATION",
+  REVOKED: "REVOKED",
+  VALIDATION_TIMED_OUT: "VALIDATION_TIMED_OUT",
+};
 
 /**
  * @public
  */
-export enum CertificateType {
-  AMAZON_ISSUED = "AMAZON_ISSUED",
-  IMPORTED = "IMPORTED",
-  PRIVATE = "PRIVATE",
-}
+export const CertificateType = {
+  AMAZON_ISSUED: "AMAZON_ISSUED",
+  IMPORTED: "IMPORTED",
+  PRIVATE: "PRIVATE",
+};
 
 /**
  * @public
@@ -645,7 +645,7 @@ export interface CertificateDetail {
    *       shows status FAILED or VALIDATION_TIMED_OUT, delete the request, correct the issue with <a href="https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html">DNS validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html">Email validation</a>, and
    *       try again. If validation succeeds, the certificate enters status ISSUED. </p>
    */
-  Status?: CertificateStatus | string;
+  Status?: keyof typeof CertificateStatus | string;
 
   /**
    * <p>The time at which the certificate was revoked. This value exists only when the certificate
@@ -657,7 +657,7 @@ export interface CertificateDetail {
    * <p>The reason the certificate was revoked. This value exists only when the certificate status
    *       is <code>REVOKED</code>. </p>
    */
-  RevocationReason?: RevocationReason | string;
+  RevocationReason?: keyof typeof RevocationReason | string;
 
   /**
    * <p>The time before which the certificate is not valid.</p>
@@ -672,7 +672,7 @@ export interface CertificateDetail {
   /**
    * <p>The algorithm that was used to generate the public-private key pair.</p>
    */
-  KeyAlgorithm?: KeyAlgorithm | string;
+  KeyAlgorithm?: keyof typeof KeyAlgorithm | string;
 
   /**
    * <p>The algorithm that was used to sign the certificate.</p>
@@ -690,7 +690,7 @@ export interface CertificateDetail {
    *       status is <code>FAILED</code>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed">Certificate Request
    *         Failed</a> in the <i>Certificate Manager User Guide</i>. </p>
    */
-  FailureReason?: FailureReason | string;
+  FailureReason?: keyof typeof FailureReason | string;
 
   /**
    * <p>The source of the certificate. For certificates provided by ACM, this value is
@@ -700,7 +700,7 @@ export interface CertificateDetail {
    *       you import and those that ACM provides, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing Certificates</a> in the
    *         <i>Certificate Manager User Guide</i>. </p>
    */
-  Type?: CertificateType | string;
+  Type?: keyof typeof CertificateType | string;
 
   /**
    * <p>Contains information about the status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for the certificate. This field
@@ -736,7 +736,7 @@ export interface CertificateDetail {
    *       private certificates can be renewed with the <a>RenewCertificate</a>
    *       command.</p>
    */
-  RenewalEligibility?: RenewalEligibility | string;
+  RenewalEligibility?: keyof typeof RenewalEligibility | string;
 
   /**
    * <p>Value that specifies whether to add the certificate to a transparency log. Certificate
@@ -1047,12 +1047,12 @@ export interface Filters {
   /**
    * <p>Specify one or more <a>ExtendedKeyUsage</a> extension values.</p>
    */
-  extendedKeyUsage?: (ExtendedKeyUsageName | string)[];
+  extendedKeyUsage?: (keyof typeof ExtendedKeyUsageName | string)[];
 
   /**
    * <p>Specify one or more <a>KeyUsage</a> extension values.</p>
    */
-  keyUsage?: (KeyUsageName | string)[];
+  keyUsage?: (keyof typeof KeyUsageName | string)[];
 
   /**
    * <p>Specify one or more algorithms that can be used to generate key pairs.</p>
@@ -1062,23 +1062,23 @@ export interface Filters {
    *         ["RSA_2048","RSA_4096"]</code> returns both <code>RSA_2048</code> and <code>RSA_4096</code>
    *       certificates.</p>
    */
-  keyTypes?: (KeyAlgorithm | string)[];
+  keyTypes?: (keyof typeof KeyAlgorithm | string)[];
 }
 
 /**
  * @public
  */
-export enum SortBy {
-  CREATED_AT = "CREATED_AT",
-}
+export const SortBy = {
+  CREATED_AT: "CREATED_AT",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -1087,7 +1087,7 @@ export interface ListCertificatesRequest {
   /**
    * <p>Filter the certificate list by status value.</p>
    */
-  CertificateStatuses?: (CertificateStatus | string)[];
+  CertificateStatuses?: (keyof typeof CertificateStatus | string)[];
 
   /**
    * <p>Filter the certificate list. For more information, see the <a>Filters</a>
@@ -1114,13 +1114,13 @@ export interface ListCertificatesRequest {
    * <p>Specifies the field to sort results by. If you specify <code>SortBy</code>, you must also
    *       specify <code>SortOrder</code>.</p>
    */
-  SortBy?: SortBy | string;
+  SortBy?: keyof typeof SortBy | string;
 
   /**
    * <p>Specifies the order of sorted results. If you specify <code>SortOrder</code>, you must
    *       also specify <code>SortBy</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -1173,7 +1173,7 @@ export interface CertificateSummary {
    *       shows status FAILED or VALIDATION_TIMED_OUT, delete the request, correct the issue with <a href="https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html">DNS validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html">Email validation</a>, and
    *       try again. If validation succeeds, the certificate enters status ISSUED. </p>
    */
-  Status?: CertificateStatus | string;
+  Status?: keyof typeof CertificateStatus | string;
 
   /**
    * <p>The source of the certificate. For certificates provided by ACM, this value is
@@ -1183,26 +1183,26 @@ export interface CertificateSummary {
    *       you import and those that ACM provides, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing Certificates</a> in the
    *         <i>Certificate Manager User Guide</i>. </p>
    */
-  Type?: CertificateType | string;
+  Type?: keyof typeof CertificateType | string;
 
   /**
    * <p>The algorithm that was used to generate the public-private key pair.</p>
    */
-  KeyAlgorithm?: KeyAlgorithm | string;
+  KeyAlgorithm?: keyof typeof KeyAlgorithm | string;
 
   /**
    * <p>A list of Key Usage X.509 v3 extension objects. Each object is a string value that
    *       identifies the purpose of the public key contained in the certificate. Possible extension
    *       values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.</p>
    */
-  KeyUsages?: (KeyUsageName | string)[];
+  KeyUsages?: (keyof typeof KeyUsageName | string)[];
 
   /**
    * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a
    *       purpose for which the certificate public key can be used and consists of a name and an object
    *       identifier (OID). </p>
    */
-  ExtendedKeyUsages?: (ExtendedKeyUsageName | string)[];
+  ExtendedKeyUsages?: (keyof typeof ExtendedKeyUsageName | string)[];
 
   /**
    * <p>Indicates whether the certificate is currently in use by any Amazon Web Services resources.</p>
@@ -1220,7 +1220,7 @@ export interface CertificateSummary {
    *       private certificates can be renewed with the <a>RenewCertificate</a>
    *       command.</p>
    */
-  RenewalEligibility?: RenewalEligibility | string;
+  RenewalEligibility?: keyof typeof RenewalEligibility | string;
 
   /**
    * <p>The time before which the certificate is not valid.</p>
@@ -1452,7 +1452,7 @@ export interface RequestCertificateRequest {
    *       own or control domain. You can <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">validate with DNS</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">validate with
    *         email</a>. We recommend that you use DNS validation. </p>
    */
-  ValidationMethod?: ValidationMethod | string;
+  ValidationMethod?: keyof typeof ValidationMethod | string;
 
   /**
    * <p>Additional FQDNs to be included in the Subject Alternative Name extension of the ACM
@@ -1535,7 +1535,7 @@ export interface RequestCertificateRequest {
    *       Check the requirements for the AWS service where you plan to deploy your certificate.</p>
    *          <p>Default: RSA_2048</p>
    */
-  KeyAlgorithm?: KeyAlgorithm | string;
+  KeyAlgorithm?: keyof typeof KeyAlgorithm | string;
 }
 
 /**

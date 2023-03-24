@@ -4398,7 +4398,7 @@ const serializeAws_queryAcceleratorCountRequest = (input: AcceleratorCountReques
 };
 
 const serializeAws_queryAcceleratorManufacturers = (
-  input: (AcceleratorManufacturer | string)[],
+  input: (keyof typeof AcceleratorManufacturer | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -4413,7 +4413,10 @@ const serializeAws_queryAcceleratorManufacturers = (
   return entries;
 };
 
-const serializeAws_queryAcceleratorNames = (input: (AcceleratorName | string)[], context: __SerdeContext): any => {
+const serializeAws_queryAcceleratorNames = (
+  input: (keyof typeof AcceleratorName | string)[],
+  context: __SerdeContext
+): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -4440,7 +4443,10 @@ const serializeAws_queryAcceleratorTotalMemoryMiBRequest = (
   return entries;
 };
 
-const serializeAws_queryAcceleratorTypes = (input: (AcceleratorType | string)[], context: __SerdeContext): any => {
+const serializeAws_queryAcceleratorTypes = (
+  input: (keyof typeof AcceleratorType | string)[],
+  context: __SerdeContext
+): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -4783,7 +4789,10 @@ const serializeAws_queryCompleteLifecycleActionType = (
   return entries;
 };
 
-const serializeAws_queryCpuManufacturers = (input: (CpuManufacturer | string)[], context: __SerdeContext): any => {
+const serializeAws_queryCpuManufacturers = (
+  input: (keyof typeof CpuManufacturer | string)[],
+  context: __SerdeContext
+): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -5758,7 +5767,7 @@ const serializeAws_queryGetPredictiveScalingForecastType = (
 };
 
 const serializeAws_queryInstanceGenerations = (
-  input: (InstanceGeneration | string)[],
+  input: (keyof typeof InstanceGeneration | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6204,7 +6213,10 @@ const serializeAws_queryLoadBalancerNames = (input: string[], context: __SerdeCo
   return entries;
 };
 
-const serializeAws_queryLocalStorageTypes = (input: (LocalStorageType | string)[], context: __SerdeContext): any => {
+const serializeAws_queryLocalStorageTypes = (
+  input: (keyof typeof LocalStorageType | string)[],
+  context: __SerdeContext
+): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -7476,7 +7488,7 @@ const deserializeAws_queryAcceleratorCountRequest = (output: any, context: __Ser
 const deserializeAws_queryAcceleratorManufacturers = (
   output: any,
   context: __SerdeContext
-): (AcceleratorManufacturer | string)[] => {
+): (keyof typeof AcceleratorManufacturer | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7484,7 +7496,10 @@ const deserializeAws_queryAcceleratorManufacturers = (
     });
 };
 
-const deserializeAws_queryAcceleratorNames = (output: any, context: __SerdeContext): (AcceleratorName | string)[] => {
+const deserializeAws_queryAcceleratorNames = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof AcceleratorName | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7506,7 +7521,10 @@ const deserializeAws_queryAcceleratorTotalMemoryMiBRequest = (
   return contents;
 };
 
-const deserializeAws_queryAcceleratorTypes = (output: any, context: __SerdeContext): (AcceleratorType | string)[] => {
+const deserializeAws_queryAcceleratorTypes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof AcceleratorType | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8063,7 +8081,10 @@ const deserializeAws_queryCompleteLifecycleActionAnswer = (
   return contents;
 };
 
-const deserializeAws_queryCpuManufacturers = (output: any, context: __SerdeContext): (CpuManufacturer | string)[] => {
+const deserializeAws_queryCpuManufacturers = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof CpuManufacturer | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8582,7 +8603,7 @@ const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Ins
 const deserializeAws_queryInstanceGenerations = (
   output: any,
   context: __SerdeContext
-): (InstanceGeneration | string)[] => {
+): (keyof typeof InstanceGeneration | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -9214,7 +9235,10 @@ const deserializeAws_queryLoadForecasts = (output: any, context: __SerdeContext)
     });
 };
 
-const deserializeAws_queryLocalStorageTypes = (output: any, context: __SerdeContext): (LocalStorageType | string)[] => {
+const deserializeAws_queryLocalStorageTypes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof LocalStorageType | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

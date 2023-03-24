@@ -2125,7 +2125,7 @@ const serializeAws_restJson1Device = (input: Device, context: __SerdeContext): a
 };
 
 const serializeAws_restJson1DeviceCgroupPermissions = (
-  input: (DeviceCgroupPermission | string)[],
+  input: (keyof typeof DeviceCgroupPermission | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2642,7 +2642,7 @@ const serializeAws_restJson1ParametersMap = (input: Record<string, string>, cont
 };
 
 const serializeAws_restJson1PlatformCapabilityList = (
-  input: (PlatformCapability | string)[],
+  input: (keyof typeof PlatformCapability | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3092,7 +3092,7 @@ const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): D
 const deserializeAws_restJson1DeviceCgroupPermissions = (
   output: any,
   context: __SerdeContext
-): (DeviceCgroupPermission | string)[] => {
+): (keyof typeof DeviceCgroupPermission | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3909,7 +3909,7 @@ const deserializeAws_restJson1ParametersMap = (output: any, context: __SerdeCont
 const deserializeAws_restJson1PlatformCapabilityList = (
   output: any,
   context: __SerdeContext
-): (PlatformCapability | string)[] => {
+): (keyof typeof PlatformCapability | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

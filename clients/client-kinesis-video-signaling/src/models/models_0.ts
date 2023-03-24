@@ -29,9 +29,9 @@ export class ClientLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum Service {
-  TURN = "TURN",
-}
+export const Service = {
+  TURN: "TURN",
+};
 
 /**
  * @public
@@ -52,7 +52,7 @@ export interface GetIceServerConfigRequest {
    * <p>Specifies the desired service. Currently, <code>TURN</code> is the only valid
    *             value.</p>
    */
-  Service?: Service | string;
+  Service?: keyof typeof Service | string;
 
   /**
    * <p>An optional user ID to be associated with the credentials.</p>

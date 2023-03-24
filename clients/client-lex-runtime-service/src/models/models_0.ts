@@ -241,32 +241,32 @@ export interface GetSessionRequest {
 /**
  * @public
  */
-export enum FulfillmentState {
-  FAILED = "Failed",
-  FULFILLED = "Fulfilled",
-  READY_FOR_FULFILLMENT = "ReadyForFulfillment",
-}
+export const FulfillmentState = {
+  FAILED: "Failed",
+  FULFILLED: "Fulfilled",
+  READY_FOR_FULFILLMENT: "ReadyForFulfillment",
+};
 
 /**
  * @public
  */
-export enum MessageFormatType {
-  COMPOSITE = "Composite",
-  CUSTOM_PAYLOAD = "CustomPayload",
-  PLAIN_TEXT = "PlainText",
-  SSML = "SSML",
-}
+export const MessageFormatType = {
+  COMPOSITE: "Composite",
+  CUSTOM_PAYLOAD: "CustomPayload",
+  PLAIN_TEXT: "PlainText",
+  SSML: "SSML",
+};
 
 /**
  * @public
  */
-export enum DialogActionType {
-  CLOSE = "Close",
-  CONFIRM_INTENT = "ConfirmIntent",
-  DELEGATE = "Delegate",
-  ELICIT_INTENT = "ElicitIntent",
-  ELICIT_SLOT = "ElicitSlot",
-}
+export const DialogActionType = {
+  CLOSE: "Close",
+  CONFIRM_INTENT: "ConfirmIntent",
+  DELEGATE: "Delegate",
+  ELICIT_INTENT: "ElicitIntent",
+  ELICIT_SLOT: "ElicitSlot",
+};
 
 /**
  * @public
@@ -310,7 +310,7 @@ export interface DialogAction {
    *             </li>
    *          </ul>
    */
-  type: DialogActionType | string | undefined;
+  type: keyof typeof DialogActionType | string | undefined;
 
   /**
    * <p>The name of the intent.</p>
@@ -348,7 +348,7 @@ export interface DialogAction {
    *             </li>
    *          </ul>
    */
-  fulfillmentState?: FulfillmentState | string;
+  fulfillmentState?: keyof typeof FulfillmentState | string;
 
   /**
    * <p>The message that should be shown to the user. If you don't specify a
@@ -381,17 +381,17 @@ export interface DialogAction {
    *             </li>
    *          </ul>
    */
-  messageFormat?: MessageFormatType | string;
+  messageFormat?: keyof typeof MessageFormatType | string;
 }
 
 /**
  * @public
  */
-export enum ConfirmationStatus {
-  CONFIRMED = "Confirmed",
-  DENIED = "Denied",
-  NONE = "None",
-}
+export const ConfirmationStatus = {
+  CONFIRMED: "Confirmed",
+  DENIED: "Denied",
+  NONE: "None",
+};
 
 /**
  * @public
@@ -445,7 +445,7 @@ export interface IntentSummary {
    *             </li>
    *          </ul>
    */
-  confirmationStatus?: ConfirmationStatus | string;
+  confirmationStatus?: keyof typeof ConfirmationStatus | string;
 
   /**
    * <p>The next action that the bot should take in its interaction with the
@@ -475,7 +475,7 @@ export interface IntentSummary {
    *             </li>
    *          </ul>
    */
-  dialogActionType: DialogActionType | string | undefined;
+  dialogActionType: keyof typeof DialogActionType | string | undefined;
 
   /**
    * <p>The fulfillment state of the intent. The possible values are:</p>
@@ -498,7 +498,7 @@ export interface IntentSummary {
    *             </li>
    *          </ul>
    */
-  fulfillmentState?: FulfillmentState | string;
+  fulfillmentState?: keyof typeof FulfillmentState | string;
 
   /**
    * <p>The next slot to elicit from the user. If there is not slot to elicit,
@@ -836,14 +836,14 @@ export interface PostContentRequest {
 /**
  * @public
  */
-export enum DialogState {
-  CONFIRM_INTENT = "ConfirmIntent",
-  ELICIT_INTENT = "ElicitIntent",
-  ELICIT_SLOT = "ElicitSlot",
-  FAILED = "Failed",
-  FULFILLED = "Fulfilled",
-  READY_FOR_FULFILLMENT = "ReadyForFulfillment",
-}
+export const DialogState = {
+  CONFIRM_INTENT: "ConfirmIntent",
+  ELICIT_INTENT: "ElicitIntent",
+  ELICIT_SLOT: "ElicitSlot",
+  FAILED: "Failed",
+  FULFILLED: "Fulfilled",
+  READY_FOR_FULFILLMENT: "ReadyForFulfillment",
+};
 
 /**
  * @public
@@ -984,7 +984,7 @@ export interface PostContentResponse {
    *             </li>
    *          </ul>
    */
-  messageFormat?: MessageFormatType | string;
+  messageFormat?: keyof typeof MessageFormatType | string;
 
   /**
    * <p>Identifies the current state of the user interaction. Amazon Lex returns
@@ -1043,7 +1043,7 @@ export interface PostContentResponse {
    *             </li>
    *          </ul>
    */
-  dialogState?: DialogState | string;
+  dialogState?: keyof typeof DialogState | string;
 
   /**
    * <p> If the <code>dialogState</code> value is <code>ElicitSlot</code>,
@@ -1276,9 +1276,9 @@ export interface PredictedIntent {
 /**
  * @public
  */
-export enum ContentType {
-  GENERIC = "application/vnd.amazonaws.card.generic",
-}
+export const ContentType = {
+  GENERIC: "application/vnd.amazonaws.card.generic",
+};
 
 /**
  * @public
@@ -1348,7 +1348,7 @@ export interface ResponseCard {
   /**
    * <p>The content type of the response.</p>
    */
-  contentType?: ContentType | string;
+  contentType?: keyof typeof ContentType | string;
 
   /**
    * <p>An array of attachment objects representing options.</p>
@@ -1480,7 +1480,7 @@ export interface PostTextResponse {
    *             </li>
    *          </ul>
    */
-  messageFormat?: MessageFormatType | string;
+  messageFormat?: keyof typeof MessageFormatType | string;
 
   /**
    * <p> Identifies the current state of the user interaction. Amazon Lex returns
@@ -1540,7 +1540,7 @@ export interface PostTextResponse {
    *             </li>
    *          </ul>
    */
-  dialogState?: DialogState | string;
+  dialogState?: keyof typeof DialogState | string;
 
   /**
    * <p>If the <code>dialogState</code> value is <code>ElicitSlot</code>,
@@ -1789,7 +1789,7 @@ export interface PutSessionResponse {
    *             </li>
    *          </ul>
    */
-  messageFormat?: MessageFormatType | string;
+  messageFormat?: keyof typeof MessageFormatType | string;
 
   /**
    * <p></p>
@@ -1828,7 +1828,7 @@ export interface PutSessionResponse {
    *             </li>
    *          </ul>
    */
-  dialogState?: DialogState | string;
+  dialogState?: keyof typeof DialogState | string;
 
   /**
    * <p>If the <code>dialogState</code> is <code>ElicitSlot</code>, returns

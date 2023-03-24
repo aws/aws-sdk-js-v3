@@ -31,11 +31,11 @@ export interface AssociateCustomDomainRequest {
 /**
  * @public
  */
-export enum CertificateValidationRecordStatus {
-  FAILED = "FAILED",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-  SUCCESS = "SUCCESS",
-}
+export const CertificateValidationRecordStatus = {
+  FAILED: "FAILED",
+  PENDING_VALIDATION: "PENDING_VALIDATION",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -61,21 +61,21 @@ export interface CertificateValidationRecord {
    * <p>The current state of the certificate CNAME record validation. It should change to <code>SUCCESS</code> after App Runner completes validation with your
    *       DNS.</p>
    */
-  Status?: CertificateValidationRecordStatus | string;
+  Status?: keyof typeof CertificateValidationRecordStatus | string;
 }
 
 /**
  * @public
  */
-export enum CustomDomainAssociationStatus {
-  ACTIVE = "ACTIVE",
-  BINDING_CERTIFICATE = "BINDING_CERTIFICATE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  PENDING_CERTIFICATE_DNS_VALIDATION = "PENDING_CERTIFICATE_DNS_VALIDATION",
-}
+export const CustomDomainAssociationStatus = {
+  ACTIVE: "ACTIVE",
+  BINDING_CERTIFICATE: "BINDING_CERTIFICATE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  PENDING_CERTIFICATE_DNS_VALIDATION: "PENDING_CERTIFICATE_DNS_VALIDATION",
+};
 
 /**
  * @public
@@ -103,7 +103,7 @@ export interface CustomDomain {
   /**
    * <p>The current state of the domain name association.</p>
    */
-  Status: CustomDomainAssociationStatus | string | undefined;
+  Status: keyof typeof CustomDomainAssociationStatus | string | undefined;
 }
 
 /**
@@ -285,10 +285,10 @@ export interface CreateAutoScalingConfigurationRequest {
 /**
  * @public
  */
-export enum AutoScalingConfigurationStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const AutoScalingConfigurationStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -326,7 +326,7 @@ export interface AutoScalingConfiguration {
    * <p>The current state of the auto scaling configuration. If the status of a configuration revision is <code>INACTIVE</code>, it was deleted and can't be
    *       used. Inactive configuration revisions are permanently removed some time after they are deleted.</p>
    */
-  Status?: AutoScalingConfigurationStatus | string;
+  Status?: keyof typeof AutoScalingConfigurationStatus | string;
 
   /**
    * <p>The maximum number of concurrent requests that an instance processes. If the number of concurrent requests exceeds this limit, App Runner scales the service
@@ -395,9 +395,9 @@ export class ServiceQuotaExceededException extends __BaseException {
 /**
  * @public
  */
-export enum ProviderType {
-  GITHUB = "GITHUB",
-}
+export const ProviderType = {
+  GITHUB: "GITHUB",
+};
 
 /**
  * @public
@@ -411,7 +411,7 @@ export interface CreateConnectionRequest {
   /**
    * <p>The source repository provider.</p>
    */
-  ProviderType: ProviderType | string | undefined;
+  ProviderType: keyof typeof ProviderType | string | undefined;
 
   /**
    * <p>A list of metadata items that you can associate with your connection resource. A tag is a key-value pair.</p>
@@ -422,12 +422,12 @@ export interface CreateConnectionRequest {
 /**
  * @public
  */
-export enum ConnectionStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETED = "DELETED",
-  ERROR = "ERROR",
-  PENDING_HANDSHAKE = "PENDING_HANDSHAKE",
-}
+export const ConnectionStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETED: "DELETED",
+  ERROR: "ERROR",
+  PENDING_HANDSHAKE: "PENDING_HANDSHAKE",
+};
 
 /**
  * @public
@@ -447,12 +447,12 @@ export interface Connection {
   /**
    * <p>The source repository provider.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: keyof typeof ProviderType | string;
 
   /**
    * <p>The current state of the App Runner connection. When the state is <code>AVAILABLE</code>, you can use the connection to create an App Runner service.</p>
    */
-  Status?: ConnectionStatus | string;
+  Status?: keyof typeof ConnectionStatus | string;
 
   /**
    * <p>The App Runner connection creation time, expressed as a Unix time stamp.</p>
@@ -473,9 +473,9 @@ export interface CreateConnectionResponse {
 /**
  * @public
  */
-export enum TracingVendor {
-  AWSXRAY = "AWSXRAY",
-}
+export const TracingVendor = {
+  AWSXRAY: "AWSXRAY",
+};
 
 /**
  * @public
@@ -485,7 +485,7 @@ export interface TraceConfiguration {
   /**
    * <p>The implementation provider chosen for tracing App Runner services.</p>
    */
-  Vendor: TracingVendor | string | undefined;
+  Vendor: keyof typeof TracingVendor | string | undefined;
 }
 
 /**
@@ -518,10 +518,10 @@ export interface CreateObservabilityConfigurationRequest {
 /**
  * @public
  */
-export enum ObservabilityConfigurationStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const ObservabilityConfigurationStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -563,7 +563,7 @@ export interface ObservabilityConfiguration {
    * <p>The current state of the observability configuration. If the status of a configuration revision is <code>INACTIVE</code>, it was deleted and can't be
    *       used. Inactive configuration revisions are permanently removed some time after they are deleted.</p>
    */
-  Status?: ObservabilityConfigurationStatus | string;
+  Status?: keyof typeof ObservabilityConfigurationStatus | string;
 
   /**
    * <p>The time when the observability configuration was created. It's in Unix time stamp format.</p>
@@ -600,10 +600,10 @@ export interface EncryptionConfiguration {
 /**
  * @public
  */
-export enum HealthCheckProtocol {
-  HTTP = "HTTP",
-  TCP = "TCP",
-}
+export const HealthCheckProtocol = {
+  HTTP: "HTTP",
+  TCP: "TCP",
+};
 
 /**
  * @public
@@ -616,7 +616,7 @@ export interface HealthCheckConfiguration {
    *          <p>Default: <code>TCP</code>
    *          </p>
    */
-  Protocol?: HealthCheckProtocol | string;
+  Protocol?: keyof typeof HealthCheckProtocol | string;
 
   /**
    * <p>The URL that health check requests are sent to.</p>
@@ -685,10 +685,10 @@ export interface InstanceConfiguration {
 /**
  * @public
  */
-export enum EgressType {
-  DEFAULT = "DEFAULT",
-  VPC = "VPC",
-}
+export const EgressType = {
+  DEFAULT: "DEFAULT",
+  VPC: "VPC",
+};
 
 /**
  * @public
@@ -700,7 +700,7 @@ export interface EgressConfiguration {
    *          <p>Set to <code>DEFAULT</code> for access to resources hosted on public networks.</p>
    *          <p>Set to <code>VPC</code> to associate your service to a custom VPC specified by <code>VpcConnectorArn</code>.</p>
    */
-  EgressType?: EgressType | string;
+  EgressType?: keyof typeof EgressType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when <code>EgressType =
@@ -784,18 +784,18 @@ export interface AuthenticationConfiguration {
 /**
  * @public
  */
-export enum Runtime {
-  CORRETTO_11 = "CORRETTO_11",
-  CORRETTO_8 = "CORRETTO_8",
-  DOTNET_6 = "DOTNET_6",
-  GO_1 = "GO_1",
-  NODEJS_12 = "NODEJS_12",
-  NODEJS_14 = "NODEJS_14",
-  NODEJS_16 = "NODEJS_16",
-  PHP_81 = "PHP_81",
-  PYTHON_3 = "PYTHON_3",
-  RUBY_31 = "RUBY_31",
-}
+export const Runtime = {
+  CORRETTO_11: "CORRETTO_11",
+  CORRETTO_8: "CORRETTO_8",
+  DOTNET_6: "DOTNET_6",
+  GO_1: "GO_1",
+  NODEJS_12: "NODEJS_12",
+  NODEJS_14: "NODEJS_14",
+  NODEJS_16: "NODEJS_16",
+  PHP_81: "PHP_81",
+  PYTHON_3: "PYTHON_3",
+  RUBY_31: "RUBY_31",
+};
 
 /**
  * @public
@@ -808,7 +808,7 @@ export interface CodeConfigurationValues {
    *        It represents a
    *       programming language runtime.</p>
    */
-  Runtime: Runtime | string | undefined;
+  Runtime: keyof typeof Runtime | string | undefined;
 
   /**
    * <p>The command App Runner runs to build your application.</p>
@@ -857,10 +857,10 @@ export interface CodeConfigurationValues {
 /**
  * @public
  */
-export enum ConfigurationSource {
-  API = "API",
-  REPOSITORY = "REPOSITORY",
-}
+export const ConfigurationSource = {
+  API: "API",
+  REPOSITORY: "REPOSITORY",
+};
 
 /**
  * @public
@@ -882,7 +882,7 @@ export interface CodeConfiguration {
    *             </li>
    *          </ul>
    */
-  ConfigurationSource: ConfigurationSource | string | undefined;
+  ConfigurationSource: keyof typeof ConfigurationSource | string | undefined;
 
   /**
    * <p>The basic configuration for building and running the App Runner service. Use it to quickly launch an App Runner service without providing a
@@ -894,9 +894,9 @@ export interface CodeConfiguration {
 /**
  * @public
  */
-export enum SourceCodeVersionType {
-  BRANCH = "BRANCH",
-}
+export const SourceCodeVersionType = {
+  BRANCH: "BRANCH",
+};
 
 /**
  * @public
@@ -907,7 +907,7 @@ export interface SourceCodeVersion {
    * <p>The type of version identifier.</p>
    *          <p>For a git-based repository, branches represent versions.</p>
    */
-  Type: SourceCodeVersionType | string | undefined;
+  Type: keyof typeof SourceCodeVersionType | string | undefined;
 
   /**
    * <p>A source code version.</p>
@@ -989,10 +989,10 @@ export interface ImageConfiguration {
 /**
  * @public
  */
-export enum ImageRepositoryType {
-  ECR = "ECR",
-  ECR_PUBLIC = "ECR_PUBLIC",
-}
+export const ImageRepositoryType = {
+  ECR: "ECR",
+  ECR_PUBLIC: "ECR_PUBLIC",
+};
 
 /**
  * @public
@@ -1013,7 +1013,7 @@ export interface ImageRepository {
   /**
    * <p>The type of the image repository. This reflects the repository provider and whether the repository is private or public.</p>
    */
-  ImageRepositoryType: ImageRepositoryType | string | undefined;
+  ImageRepositoryType: keyof typeof ImageRepositoryType | string | undefined;
 }
 
 /**
@@ -1134,14 +1134,14 @@ export interface AutoScalingConfigurationSummary {
 /**
  * @public
  */
-export enum ServiceStatus {
-  CREATE_FAILED = "CREATE_FAILED",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  OPERATION_IN_PROGRESS = "OPERATION_IN_PROGRESS",
-  PAUSED = "PAUSED",
-  RUNNING = "RUNNING",
-}
+export const ServiceStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  OPERATION_IN_PROGRESS: "OPERATION_IN_PROGRESS",
+  PAUSED: "PAUSED",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -1201,7 +1201,7 @@ export interface Service {
    *             </li>
    *          </ul>
    */
-  Status: ServiceStatus | string | undefined;
+  Status: keyof typeof ServiceStatus | string | undefined;
 
   /**
    * <p>The source deployed to the App Runner service. It can be a code or an image repository.</p>
@@ -1290,10 +1290,10 @@ export interface CreateVpcConnectorRequest {
 /**
  * @public
  */
-export enum VpcConnectorStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const VpcConnectorStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -1339,7 +1339,7 @@ export interface VpcConnector {
    * <p>The current state of the VPC connector. If the status of a connector revision is <code>INACTIVE</code>, it was deleted and can't be
    *       used. Inactive connector revisions are permanently removed some time after they are deleted.</p>
    */
-  Status?: VpcConnectorStatus | string;
+  Status?: keyof typeof VpcConnectorStatus | string;
 
   /**
    * <p>The time when the VPC connector was created. It's in Unix time stamp format.</p>
@@ -1410,16 +1410,16 @@ export interface CreateVpcIngressConnectionRequest {
 /**
  * @public
  */
-export enum VpcIngressConnectionStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETED = "DELETED",
-  FAILED_CREATION = "FAILED_CREATION",
-  FAILED_DELETION = "FAILED_DELETION",
-  FAILED_UPDATE = "FAILED_UPDATE",
-  PENDING_CREATION = "PENDING_CREATION",
-  PENDING_DELETION = "PENDING_DELETION",
-  PENDING_UPDATE = "PENDING_UPDATE",
-}
+export const VpcIngressConnectionStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETED: "DELETED",
+  FAILED_CREATION: "FAILED_CREATION",
+  FAILED_DELETION: "FAILED_DELETION",
+  FAILED_UPDATE: "FAILED_UPDATE",
+  PENDING_CREATION: "PENDING_CREATION",
+  PENDING_DELETION: "PENDING_DELETION",
+  PENDING_UPDATE: "PENDING_UPDATE",
+};
 
 /**
  * @public
@@ -1449,7 +1449,7 @@ export interface VpcIngressConnection {
    *       The VPC Ingress Connection displays one of the following statuses: <code>AVAILABLE</code>, <code>PENDING_CREATION</code>, <code>PENDING_UPDATE</code>, <code>PENDING_DELETION</code>,<code>FAILED_CREATION</code>, <code>FAILED_UPDATE</code>, <code>FAILED_DELETION</code>, and <code>DELETED</code>..
    *     </p>
    */
-  Status?: VpcIngressConnectionStatus | string;
+  Status?: keyof typeof VpcIngressConnectionStatus | string;
 
   /**
    * <p>The Account Id you use to create the VPC Ingress Connection resource.</p>
@@ -1964,12 +1964,12 @@ export interface ConnectionSummary {
   /**
    * <p>The source repository provider.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: keyof typeof ProviderType | string;
 
   /**
    * <p>The current state of the App Runner connection. When the state is <code>AVAILABLE</code>, you can use the connection to create an App Runner service.</p>
    */
-  Status?: ConnectionStatus | string;
+  Status?: keyof typeof ConnectionStatus | string;
 
   /**
    * <p>The App Runner connection creation time, expressed as a Unix time stamp.</p>
@@ -2092,27 +2092,27 @@ export interface ListOperationsRequest {
 /**
  * @public
  */
-export enum OperationStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  ROLLBACK_FAILED = "ROLLBACK_FAILED",
-  ROLLBACK_IN_PROGRESS = "ROLLBACK_IN_PROGRESS",
-  ROLLBACK_SUCCEEDED = "ROLLBACK_SUCCEEDED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const OperationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  ROLLBACK_SUCCEEDED: "ROLLBACK_SUCCEEDED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
  */
-export enum OperationType {
-  CREATE_SERVICE = "CREATE_SERVICE",
-  DELETE_SERVICE = "DELETE_SERVICE",
-  PAUSE_SERVICE = "PAUSE_SERVICE",
-  RESUME_SERVICE = "RESUME_SERVICE",
-  START_DEPLOYMENT = "START_DEPLOYMENT",
-  UPDATE_SERVICE = "UPDATE_SERVICE",
-}
+export const OperationType = {
+  CREATE_SERVICE: "CREATE_SERVICE",
+  DELETE_SERVICE: "DELETE_SERVICE",
+  PAUSE_SERVICE: "PAUSE_SERVICE",
+  RESUME_SERVICE: "RESUME_SERVICE",
+  START_DEPLOYMENT: "START_DEPLOYMENT",
+  UPDATE_SERVICE: "UPDATE_SERVICE",
+};
 
 /**
  * @public
@@ -2127,12 +2127,12 @@ export interface OperationSummary {
   /**
    * <p>The type of operation. It indicates a specific action that occured.</p>
    */
-  Type?: OperationType | string;
+  Type?: keyof typeof OperationType | string;
 
   /**
    * <p>The current state of the operation.</p>
    */
-  Status?: OperationStatus | string;
+  Status?: keyof typeof OperationStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that the operation acted on (for example, an App Runner service).</p>
@@ -2241,7 +2241,7 @@ export interface ServiceSummary {
    *             </li>
    *          </ul>
    */
-  Status?: ServiceStatus | string;
+  Status?: keyof typeof ServiceStatus | string;
 }
 
 /**

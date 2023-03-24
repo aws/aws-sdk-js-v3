@@ -2138,7 +2138,7 @@ const deserializeAws_json1_0FraudDetectionConfiguration = (
 const deserializeAws_json1_0FraudDetectionReasons = (
   output: any,
   context: __SerdeContext
-): (FraudDetectionReason | string)[] => {
+): (keyof typeof FraudDetectionReason | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

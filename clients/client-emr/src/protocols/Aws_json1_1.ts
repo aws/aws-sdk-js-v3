@@ -3433,7 +3433,10 @@ const serializeAws_json1_1CloudWatchAlarmDefinition = (
   };
 };
 
-const serializeAws_json1_1ClusterStateList = (input: (ClusterState | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1ClusterStateList = (
+  input: (keyof typeof ClusterState | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3851,7 +3854,7 @@ const serializeAws_json1_1InstanceGroupModifyConfigList = (
 };
 
 const serializeAws_json1_1InstanceGroupTypeList = (
-  input: (InstanceGroupType | string)[],
+  input: (keyof typeof InstanceGroupType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3873,7 +3876,10 @@ const serializeAws_json1_1InstanceResizePolicy = (input: InstanceResizePolicy, c
   };
 };
 
-const serializeAws_json1_1InstanceStateList = (input: (InstanceState | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1InstanceStateList = (
+  input: (keyof typeof InstanceState | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3908,7 +3914,7 @@ const serializeAws_json1_1InstanceTypeConfigList = (input: InstanceTypeConfig[],
 };
 
 const serializeAws_json1_1JobFlowExecutionStateList = (
-  input: (JobFlowExecutionState | string)[],
+  input: (keyof typeof JobFlowExecutionState | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4556,7 +4562,10 @@ const serializeAws_json1_1StepIdsList = (input: string[], context: __SerdeContex
     });
 };
 
-const serializeAws_json1_1StepStateList = (input: (StepState | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1StepStateList = (
+  input: (keyof typeof StepState | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

@@ -714,18 +714,18 @@ export interface GetEncryptionConfigRequest {}
 /**
  * @public
  */
-export enum EncryptionStatus {
-  ACTIVE = "ACTIVE",
-  UPDATING = "UPDATING",
-}
+export const EncryptionStatus = {
+  ACTIVE: "ACTIVE",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum EncryptionType {
-  KMS = "KMS",
-  NONE = "NONE",
-}
+export const EncryptionType = {
+  KMS: "KMS",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -740,13 +740,13 @@ export interface EncryptionConfig {
   /**
    * <p>The encryption status. While the status is <code>UPDATING</code>, X-Ray may encrypt data with a combination of the new and old settings.</p>
    */
-  Status?: EncryptionStatus | string;
+  Status?: keyof typeof EncryptionStatus | string;
 
   /**
    * <p>The type of encryption. Set to <code>KMS</code> for encryption with KMS keys. Set to <code>NONE</code> for
    *       default encryption.</p>
    */
-  Type?: EncryptionType | string;
+  Type?: keyof typeof EncryptionType | string;
 }
 
 /**
@@ -859,9 +859,9 @@ export interface GetInsightRequest {
 /**
  * @public
  */
-export enum InsightCategory {
-  FAULT = "FAULT",
-}
+export const InsightCategory = {
+  FAULT: "FAULT",
+};
 
 /**
  * @public
@@ -887,10 +887,10 @@ export interface RequestImpactStatistics {
 /**
  * @public
  */
-export enum InsightState {
-  ACTIVE = "ACTIVE",
-  CLOSED = "CLOSED",
-}
+export const InsightState = {
+  ACTIVE: "ACTIVE",
+  CLOSED: "CLOSED",
+};
 
 /**
  * @public
@@ -921,12 +921,12 @@ export interface Insight {
   /**
    * <p>The categories that label and describe the type of insight.</p>
    */
-  Categories?: (InsightCategory | string)[];
+  Categories?: (keyof typeof InsightCategory | string)[];
 
   /**
    * <p>The current state of the insight.</p>
    */
-  State?: InsightState | string;
+  State?: keyof typeof InsightState | string;
 
   /**
    * <p>The time, in Unix seconds, at which the insight began.</p>
@@ -1181,7 +1181,7 @@ export interface GetInsightSummariesRequest {
   /**
    * <p>The list of insight states. </p>
    */
-  States?: (InsightState | string)[];
+  States?: (keyof typeof InsightState | string)[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the group. Required if the GroupName isn't provided.</p>
@@ -1243,12 +1243,12 @@ export interface InsightSummary {
   /**
    * <p> Categories The categories that label and describe the type of insight.</p>
    */
-  Categories?: (InsightCategory | string)[];
+  Categories?: (keyof typeof InsightCategory | string)[];
 
   /**
    * <p>The current state of the insight.</p>
    */
-  State?: InsightState | string;
+  State?: keyof typeof InsightState | string;
 
   /**
    * <p>The time, in Unix seconds, at which the insight began.</p>
@@ -1989,10 +1989,10 @@ export interface GetTraceGraphResult {
 /**
  * @public
  */
-export enum SamplingStrategyName {
-  FixedRate = "FixedRate",
-  PartialScan = "PartialScan",
-}
+export const SamplingStrategyName = {
+  FixedRate: "FixedRate",
+  PartialScan: "PartialScan",
+};
 
 /**
  * @public
@@ -2002,7 +2002,7 @@ export interface SamplingStrategy {
   /**
    * <p>The name of a sampling rule.</p>
    */
-  Name?: SamplingStrategyName | string;
+  Name?: keyof typeof SamplingStrategyName | string;
 
   /**
    * <p>The value of a sampling rule.</p>
@@ -2013,10 +2013,10 @@ export interface SamplingStrategy {
 /**
  * @public
  */
-export enum TimeRangeType {
-  Event = "Event",
-  TraceId = "TraceId",
-}
+export const TimeRangeType = {
+  Event: "Event",
+  TraceId: "TraceId",
+};
 
 /**
  * @public
@@ -2035,7 +2035,7 @@ export interface GetTraceSummariesRequest {
   /**
    * <p>A parameter to indicate whether to query trace summaries by TraceId or Event time.</p>
    */
-  TimeRangeType?: TimeRangeType | string;
+  TimeRangeType?: keyof typeof TimeRangeType | string;
 
   /**
    * <p>Set to <code>true</code> to get summaries for only a subset of available
@@ -2657,7 +2657,7 @@ export interface PutEncryptionConfigRequest {
    * <p>The type of encryption. Set to <code>KMS</code> to use your own key for encryption. Set
    *       to <code>NONE</code> for default encryption.</p>
    */
-  Type: EncryptionType | string | undefined;
+  Type: keyof typeof EncryptionType | string | undefined;
 }
 
 /**

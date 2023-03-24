@@ -6,10 +6,10 @@ import { IAMServiceException as __BaseException } from "./IAMServiceException";
 /**
  * @public
  */
-export enum AccessAdvisorUsageGranularityType {
-  ACTION_LEVEL = "ACTION_LEVEL",
-  SERVICE_LEVEL = "SERVICE_LEVEL",
-}
+export const AccessAdvisorUsageGranularityType = {
+  ACTION_LEVEL: "ACTION_LEVEL",
+  SERVICE_LEVEL: "SERVICE_LEVEL",
+};
 
 /**
  * @public
@@ -70,10 +70,10 @@ export interface AccessDetail {
 /**
  * @public
  */
-export enum StatusType {
-  Active = "Active",
-  Inactive = "Inactive",
-}
+export const StatusType = {
+  Active: "Active",
+  Inactive: "Inactive",
+};
 
 /**
  * @public
@@ -101,7 +101,7 @@ export interface AccessKey {
    * <p>The status of the access key. <code>Active</code> means that the key is valid for API
    *          calls, while <code>Inactive</code> means it is not. </p>
    */
-  Status: StatusType | string | undefined;
+  Status: keyof typeof StatusType | string | undefined;
 
   /**
    * <p>The secret key used to sign requests.</p>
@@ -200,7 +200,7 @@ export interface AccessKeyMetadata {
    * <p>The status of the access key. <code>Active</code> means that the key is valid for API
    *          calls; <code>Inactive</code> means it is not.</p>
    */
-  Status?: StatusType | string;
+  Status?: keyof typeof StatusType | string;
 
   /**
    * <p>The date when the access key was created.</p>
@@ -394,18 +394,18 @@ export interface AddUserToGroupRequest {
 /**
  * @public
  */
-export enum AssignmentStatusType {
-  Any = "Any",
-  Assigned = "Assigned",
-  Unassigned = "Unassigned",
-}
+export const AssignmentStatusType = {
+  Any: "Any",
+  Assigned: "Assigned",
+  Unassigned: "Unassigned",
+};
 
 /**
  * @public
  */
-export enum PermissionsBoundaryAttachmentType {
-  Policy = "PermissionsBoundaryPolicy",
-}
+export const PermissionsBoundaryAttachmentType = {
+  Policy: "PermissionsBoundaryPolicy",
+};
 
 /**
  * @public
@@ -421,7 +421,7 @@ export interface AttachedPermissionsBoundary {
    *          as the permissions boundary for an entity. This data type can only have a value of
    *             <code>Policy</code>.</p>
    */
-  PermissionsBoundaryType?: PermissionsBoundaryAttachmentType | string;
+  PermissionsBoundaryType?: keyof typeof PermissionsBoundaryAttachmentType | string;
 
   /**
    * <p> The ARN of the policy used to set the permissions boundary for the user or role.</p>
@@ -1730,7 +1730,7 @@ export interface ServiceSpecificCredential {
    * <p>The status of the service-specific credential. <code>Active</code> means that the key is
    *          valid for API calls, while <code>Inactive</code> means it is not.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: keyof typeof StatusType | string | undefined;
 }
 
 /**
@@ -2514,11 +2514,11 @@ export class InvalidAuthenticationCodeException extends __BaseException {
 /**
  * @public
  */
-export enum ReportStateType {
-  COMPLETE = "COMPLETE",
-  INPROGRESS = "INPROGRESS",
-  STARTED = "STARTED",
-}
+export const ReportStateType = {
+  COMPLETE: "COMPLETE",
+  INPROGRESS: "INPROGRESS",
+  STARTED: "STARTED",
+};
 
 /**
  * @public
@@ -2529,7 +2529,7 @@ export interface GenerateCredentialReportResponse {
   /**
    * <p>Information about the state of the credential report.</p>
    */
-  State?: ReportStateType | string;
+  State?: keyof typeof ReportStateType | string;
 
   /**
    * <p>Information about the credential report.</p>
@@ -2609,7 +2609,7 @@ export interface GenerateServiceLastAccessedDetailsRequest {
    *             specify action-level granularity, it generates service and action data. If you don't
    *             include this optional parameter, the operation generates service data.</p>
    */
-  Granularity?: AccessAdvisorUsageGranularityType | string;
+  Granularity?: keyof typeof AccessAdvisorUsageGranularityType | string;
 }
 
 /**
@@ -2659,13 +2659,13 @@ export interface GetAccessKeyLastUsedResponse {
 /**
  * @public
  */
-export enum EntityType {
-  AWSManagedPolicy = "AWSManagedPolicy",
-  Group = "Group",
-  LocalManagedPolicy = "LocalManagedPolicy",
-  Role = "Role",
-  User = "User",
-}
+export const EntityType = {
+  AWSManagedPolicy: "AWSManagedPolicy",
+  Group: "Group",
+  LocalManagedPolicy: "LocalManagedPolicy",
+  Role: "Role",
+  User: "User",
+};
 
 /**
  * @public
@@ -2678,7 +2678,7 @@ export interface GetAccountAuthorizationDetailsRequest {
    *          <p>The format for this parameter is a comma-separated (if more than one) list of strings.
    *             Each string value in the list must be one of the valid values listed below.</p>
    */
-  Filter?: (EntityType | string)[];
+  Filter?: (keyof typeof EntityType | string)[];
 
   /**
    * <p>Use this only when paginating results to indicate the
@@ -3136,34 +3136,34 @@ export interface GetAccountPasswordPolicyResponse {
 /**
  * @public
  */
-export enum SummaryKeyType {
-  AccessKeysPerUserQuota = "AccessKeysPerUserQuota",
-  AccountAccessKeysPresent = "AccountAccessKeysPresent",
-  AccountMFAEnabled = "AccountMFAEnabled",
-  AccountSigningCertificatesPresent = "AccountSigningCertificatesPresent",
-  AttachedPoliciesPerGroupQuota = "AttachedPoliciesPerGroupQuota",
-  AttachedPoliciesPerRoleQuota = "AttachedPoliciesPerRoleQuota",
-  AttachedPoliciesPerUserQuota = "AttachedPoliciesPerUserQuota",
-  GlobalEndpointTokenVersion = "GlobalEndpointTokenVersion",
-  GroupPolicySizeQuota = "GroupPolicySizeQuota",
-  Groups = "Groups",
-  GroupsPerUserQuota = "GroupsPerUserQuota",
-  GroupsQuota = "GroupsQuota",
-  MFADevices = "MFADevices",
-  MFADevicesInUse = "MFADevicesInUse",
-  Policies = "Policies",
-  PoliciesQuota = "PoliciesQuota",
-  PolicySizeQuota = "PolicySizeQuota",
-  PolicyVersionsInUse = "PolicyVersionsInUse",
-  PolicyVersionsInUseQuota = "PolicyVersionsInUseQuota",
-  ServerCertificates = "ServerCertificates",
-  ServerCertificatesQuota = "ServerCertificatesQuota",
-  SigningCertificatesPerUserQuota = "SigningCertificatesPerUserQuota",
-  UserPolicySizeQuota = "UserPolicySizeQuota",
-  Users = "Users",
-  UsersQuota = "UsersQuota",
-  VersionsPerPolicyQuota = "VersionsPerPolicyQuota",
-}
+export const SummaryKeyType = {
+  AccessKeysPerUserQuota: "AccessKeysPerUserQuota",
+  AccountAccessKeysPresent: "AccountAccessKeysPresent",
+  AccountMFAEnabled: "AccountMFAEnabled",
+  AccountSigningCertificatesPresent: "AccountSigningCertificatesPresent",
+  AttachedPoliciesPerGroupQuota: "AttachedPoliciesPerGroupQuota",
+  AttachedPoliciesPerRoleQuota: "AttachedPoliciesPerRoleQuota",
+  AttachedPoliciesPerUserQuota: "AttachedPoliciesPerUserQuota",
+  GlobalEndpointTokenVersion: "GlobalEndpointTokenVersion",
+  GroupPolicySizeQuota: "GroupPolicySizeQuota",
+  Groups: "Groups",
+  GroupsPerUserQuota: "GroupsPerUserQuota",
+  GroupsQuota: "GroupsQuota",
+  MFADevices: "MFADevices",
+  MFADevicesInUse: "MFADevicesInUse",
+  Policies: "Policies",
+  PoliciesQuota: "PoliciesQuota",
+  PolicySizeQuota: "PolicySizeQuota",
+  PolicyVersionsInUse: "PolicyVersionsInUse",
+  PolicyVersionsInUseQuota: "PolicyVersionsInUseQuota",
+  ServerCertificates: "ServerCertificates",
+  ServerCertificatesQuota: "ServerCertificatesQuota",
+  SigningCertificatesPerUserQuota: "SigningCertificatesPerUserQuota",
+  UserPolicySizeQuota: "UserPolicySizeQuota",
+  Users: "Users",
+  UsersQuota: "UsersQuota",
+  VersionsPerPolicyQuota: "VersionsPerPolicyQuota",
+};
 
 /**
  * @public
@@ -3323,9 +3323,9 @@ export class CredentialReportNotReadyException extends __BaseException {
 /**
  * @public
  */
-export enum ReportFormatType {
-  text_csv = "text/csv",
-}
+export const ReportFormatType = {
+  text_csv: "text/csv",
+};
 
 /**
  * @public
@@ -3341,7 +3341,7 @@ export interface GetCredentialReportResponse {
   /**
    * <p>The format (MIME type) of the credential report.</p>
    */
-  ReportFormat?: ReportFormatType | string;
+  ReportFormat?: keyof typeof ReportFormatType | string;
 
   /**
    * <p> The date and time when the credential report was created, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>.</p>
@@ -3560,12 +3560,12 @@ export interface GetOpenIDConnectProviderResponse {
 /**
  * @public
  */
-export enum SortKeyType {
-  LAST_AUTHENTICATED_TIME_ASCENDING = "LAST_AUTHENTICATED_TIME_ASCENDING",
-  LAST_AUTHENTICATED_TIME_DESCENDING = "LAST_AUTHENTICATED_TIME_DESCENDING",
-  SERVICE_NAMESPACE_ASCENDING = "SERVICE_NAMESPACE_ASCENDING",
-  SERVICE_NAMESPACE_DESCENDING = "SERVICE_NAMESPACE_DESCENDING",
-}
+export const SortKeyType = {
+  LAST_AUTHENTICATED_TIME_ASCENDING: "LAST_AUTHENTICATED_TIME_ASCENDING",
+  LAST_AUTHENTICATED_TIME_DESCENDING: "LAST_AUTHENTICATED_TIME_DESCENDING",
+  SERVICE_NAMESPACE_ASCENDING: "SERVICE_NAMESPACE_ASCENDING",
+  SERVICE_NAMESPACE_DESCENDING: "SERVICE_NAMESPACE_DESCENDING",
+};
 
 /**
  * @public
@@ -3601,7 +3601,7 @@ export interface GetOrganizationsAccessReportRequest {
    *             are returned in alphabetical order. If you choose the time key, the results are sorted
    *             numerically by the date and time.</p>
    */
-  SortKey?: SortKeyType | string;
+  SortKey?: keyof typeof SortKeyType | string;
 }
 
 /**
@@ -3624,11 +3624,11 @@ export interface ErrorDetails {
 /**
  * @public
  */
-export enum JobStatusType {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const JobStatusType = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -3637,7 +3637,7 @@ export interface GetOrganizationsAccessReportResponse {
   /**
    * <p>The status of the job.</p>
    */
-  JobStatus: JobStatusType | string | undefined;
+  JobStatus: keyof typeof JobStatusType | string | undefined;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -4097,14 +4097,14 @@ export interface GetServiceLastAccessedDetailsResponse {
   /**
    * <p>The status of the job.</p>
    */
-  JobStatus: JobStatusType | string | undefined;
+  JobStatus: keyof typeof JobStatusType | string | undefined;
 
   /**
    * <p>The type of job. Service jobs return information about when each service was last
    *             accessed. Action jobs also include information about when tracked actions within the
    *             service were last accessed.</p>
    */
-  JobType?: AccessAdvisorUsageGranularityType | string;
+  JobType?: keyof typeof AccessAdvisorUsageGranularityType | string;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -4195,11 +4195,11 @@ export interface GetServiceLastAccessedDetailsWithEntitiesRequest {
 /**
  * @public
  */
-export enum PolicyOwnerEntityType {
-  GROUP = "GROUP",
-  ROLE = "ROLE",
-  USER = "USER",
-}
+export const PolicyOwnerEntityType = {
+  GROUP: "GROUP",
+  ROLE: "ROLE",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -4222,7 +4222,7 @@ export interface EntityInfo {
   /**
    * <p>The type of entity (user or role).</p>
    */
-  Type: PolicyOwnerEntityType | string | undefined;
+  Type: keyof typeof PolicyOwnerEntityType | string | undefined;
 
   /**
    * <p>The identifier of the entity (user or role).</p>
@@ -4266,7 +4266,7 @@ export interface GetServiceLastAccessedDetailsWithEntitiesResponse {
   /**
    * <p>The status of the job.</p>
    */
-  JobStatus: JobStatusType | string | undefined;
+  JobStatus: keyof typeof JobStatusType | string | undefined;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -4366,12 +4366,12 @@ export interface DeletionTaskFailureReasonType {
 /**
  * @public
  */
-export enum DeletionTaskStatusType {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const DeletionTaskStatusType = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -4380,7 +4380,7 @@ export interface GetServiceLinkedRoleDeletionStatusResponse {
   /**
    * <p>The status of the deletion.</p>
    */
-  Status: DeletionTaskStatusType | string | undefined;
+  Status: keyof typeof DeletionTaskStatusType | string | undefined;
 
   /**
    * <p>An object that contains details about the reason the deletion failed.</p>
@@ -4391,10 +4391,10 @@ export interface GetServiceLinkedRoleDeletionStatusResponse {
 /**
  * @public
  */
-export enum EncodingType {
-  PEM = "PEM",
-  SSH = "SSH",
-}
+export const EncodingType = {
+  PEM: "PEM",
+  SSH: "SSH",
+};
 
 /**
  * @public
@@ -4419,7 +4419,7 @@ export interface GetSSHPublicKeyRequest {
    *             public key in ssh-rsa format, use <code>SSH</code>. To retrieve the public key in PEM
    *             format, use <code>PEM</code>.</p>
    */
-  Encoding: EncodingType | string | undefined;
+  Encoding: keyof typeof EncodingType | string | undefined;
 }
 
 /**
@@ -4454,7 +4454,7 @@ export interface SSHPublicKey {
    *          authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be
    *          used.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: keyof typeof StatusType | string | undefined;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -4911,10 +4911,10 @@ export interface ListAttachedUserPoliciesResponse {
 /**
  * @public
  */
-export enum PolicyUsageType {
-  PermissionsBoundary = "PermissionsBoundary",
-  PermissionsPolicy = "PermissionsPolicy",
-}
+export const PolicyUsageType = {
+  PermissionsBoundary: "PermissionsBoundary",
+  PermissionsPolicy: "PermissionsPolicy",
+};
 
 /**
  * @public
@@ -4934,7 +4934,7 @@ export interface ListEntitiesForPolicyRequest {
    *             not included, all attached entities (users, groups, and roles) are returned. The
    *             argument for this parameter must be one of the valid values listed below.</p>
    */
-  EntityFilter?: EntityType | string;
+  EntityFilter?: keyof typeof EntityType | string;
 
   /**
    * <p>The path prefix for filtering the results. This parameter is optional. If it is not
@@ -4954,7 +4954,7 @@ export interface ListEntitiesForPolicyRequest {
    *                 to <code>PermissionsBoundary</code>.</p>
    *          <p>This parameter is optional. If it is not included, all policies are returned. </p>
    */
-  PolicyUsageFilter?: PolicyUsageType | string;
+  PolicyUsageFilter?: keyof typeof PolicyUsageType | string;
 
   /**
    * <p>Use this parameter only when paginating results and only after
@@ -5693,11 +5693,11 @@ export interface ListOpenIDConnectProviderTagsResponse {
 /**
  * @public
  */
-export enum PolicyScopeType {
-  AWS = "AWS",
-  All = "All",
-  Local = "Local",
-}
+export const PolicyScopeType = {
+  AWS: "AWS",
+  All: "All",
+  Local: "Local",
+};
 
 /**
  * @public
@@ -5711,7 +5711,7 @@ export interface ListPoliciesRequest {
    *          <p>This parameter is optional. If it is not included, or if it is set to
    *             <code>All</code>, all policies are returned.</p>
    */
-  Scope?: PolicyScopeType | string;
+  Scope?: keyof typeof PolicyScopeType | string;
 
   /**
    * <p>A flag to filter the results to only the attached policies.</p>
@@ -5739,7 +5739,7 @@ export interface ListPoliciesRequest {
    *                 to <code>PermissionsBoundary</code>.</p>
    *          <p>This parameter is optional. If it is not included, all policies are returned. </p>
    */
-  PolicyUsageFilter?: PolicyUsageType | string;
+  PolicyUsageFilter?: keyof typeof PolicyUsageType | string;
 
   /**
    * <p>Use this parameter only when paginating results and only after
@@ -5824,10 +5824,10 @@ export interface ListPoliciesGrantingServiceAccessRequest {
 /**
  * @public
  */
-export enum PolicyType {
-  INLINE = "INLINE",
-  MANAGED = "MANAGED",
-}
+export const PolicyType = {
+  INLINE: "INLINE",
+  MANAGED: "MANAGED",
+};
 
 /**
  * @public
@@ -5846,7 +5846,7 @@ export interface PolicyGrantingServiceAccess {
    *             policies and inline policies</a> in the
    *          <i>IAM User Guide</i>.</p>
    */
-  PolicyType: PolicyType | string | undefined;
+  PolicyType: keyof typeof PolicyType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
@@ -5862,7 +5862,7 @@ export interface PolicyGrantingServiceAccess {
    *          see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the
    *             <i>IAM User Guide</i>.</p>
    */
-  EntityType?: PolicyOwnerEntityType | string;
+  EntityType?: keyof typeof PolicyOwnerEntityType | string;
 
   /**
    * <p>The name of the entity (user or role) to which the inline policy is attached.</p>
@@ -6494,7 +6494,7 @@ export interface ServiceSpecificCredentialMetadata {
    * <p>The status of the service-specific credential. <code>Active</code> means that the key is
    *          valid for API calls, while <code>Inactive</code> means it is not.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: keyof typeof StatusType | string | undefined;
 
   /**
    * <p>The generated user name for the service-specific credential.</p>
@@ -6587,7 +6587,7 @@ export interface SigningCertificate {
    * <p>The status of the signing certificate. <code>Active</code> means that the key is valid
    *          for API calls, while <code>Inactive</code> means it is not.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: keyof typeof StatusType | string | undefined;
 
   /**
    * <p>The date when the signing certificate was uploaded.</p>
@@ -6681,7 +6681,7 @@ export interface SSHPublicKeyMetadata {
    *          authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be
    *          used.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: keyof typeof StatusType | string | undefined;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -6914,7 +6914,7 @@ export interface ListVirtualMFADevicesRequest {
    *                 <code>Any</code>, which lists both assigned and unassigned virtual MFA
    *             devices.,</p>
    */
-  AssignmentStatus?: AssignmentStatusType | string;
+  AssignmentStatus?: keyof typeof AssignmentStatusType | string;
 
   /**
    * <p>Use this parameter only when paginating results and only after
@@ -7289,10 +7289,10 @@ export interface SetDefaultPolicyVersionRequest {
 /**
  * @public
  */
-export enum GlobalEndpointTokenVersion {
-  v1Token = "v1Token",
-  v2Token = "v2Token",
-}
+export const GlobalEndpointTokenVersion = {
+  v1Token: "v1Token",
+  v2Token: "v2Token",
+};
 
 /**
  * @public
@@ -7307,7 +7307,7 @@ export interface SetSecurityTokenServicePreferencesRequest {
    *                 deactivating STS in an Amazon Web Services Region</a> in the
    *                 <i>IAM User Guide</i>.</p>
    */
-  GlobalEndpointTokenVersion: GlobalEndpointTokenVersion | string | undefined;
+  GlobalEndpointTokenVersion: keyof typeof GlobalEndpointTokenVersion | string | undefined;
 }
 
 /**
@@ -7334,20 +7334,20 @@ export class PolicyEvaluationException extends __BaseException {
 /**
  * @public
  */
-export enum ContextKeyTypeEnum {
-  BINARY = "binary",
-  BINARY_LIST = "binaryList",
-  BOOLEAN = "boolean",
-  BOOLEAN_LIST = "booleanList",
-  DATE = "date",
-  DATE_LIST = "dateList",
-  IP = "ip",
-  IP_LIST = "ipList",
-  NUMERIC = "numeric",
-  NUMERIC_LIST = "numericList",
-  STRING = "string",
-  STRING_LIST = "stringList",
-}
+export const ContextKeyTypeEnum = {
+  BINARY: "binary",
+  BINARY_LIST: "binaryList",
+  BOOLEAN: "boolean",
+  BOOLEAN_LIST: "booleanList",
+  DATE: "date",
+  DATE_LIST: "dateList",
+  IP: "ip",
+  IP_LIST: "ipList",
+  NUMERIC: "numeric",
+  NUMERIC_LIST: "numericList",
+  STRING: "string",
+  STRING_LIST: "stringList",
+};
 
 /**
  * @public
@@ -7376,7 +7376,7 @@ export interface ContextEntry {
    * <p>The data type of the value (or values) specified in the <code>ContextKeyValues</code>
    *          parameter.</p>
    */
-  ContextKeyType?: ContextKeyTypeEnum | string;
+  ContextKeyType?: keyof typeof ContextKeyTypeEnum | string;
 }
 
 /**
@@ -7597,11 +7597,11 @@ export interface SimulateCustomPolicyRequest {
 /**
  * @public
  */
-export enum PolicyEvaluationDecisionType {
-  ALLOWED = "allowed",
-  EXPLICIT_DENY = "explicitDeny",
-  IMPLICIT_DENY = "implicitDeny",
-}
+export const PolicyEvaluationDecisionType = {
+  ALLOWED: "allowed",
+  EXPLICIT_DENY: "explicitDeny",
+  IMPLICIT_DENY: "implicitDeny",
+};
 
 /**
  * @public
@@ -7626,15 +7626,15 @@ export interface Position {
 /**
  * @public
  */
-export enum PolicySourceType {
-  AWS_MANAGED = "aws-managed",
-  GROUP = "group",
-  NONE = "none",
-  RESOURCE = "resource",
-  ROLE = "role",
-  USER = "user",
-  USER_MANAGED = "user-managed",
-}
+export const PolicySourceType = {
+  AWS_MANAGED: "aws-managed",
+  GROUP: "group",
+  NONE: "none",
+  RESOURCE: "resource",
+  ROLE: "role",
+  USER: "user",
+  USER_MANAGED: "user-managed",
+};
 
 /**
  * @public
@@ -7653,7 +7653,7 @@ export interface Statement {
   /**
    * <p>The type of the policy.</p>
    */
-  SourcePolicyType?: PolicySourceType | string;
+  SourcePolicyType?: keyof typeof PolicySourceType | string;
 
   /**
    * <p>The row and column of the beginning of the <code>Statement</code> in an IAM
@@ -7715,7 +7715,7 @@ export interface ResourceSpecificResult {
    * <p>The result of the simulation of the simulated API operation on the resource specified in
    *             <code>EvalResourceName</code>.</p>
    */
-  EvalResourceDecision: PolicyEvaluationDecisionType | string | undefined;
+  EvalResourceDecision: keyof typeof PolicyEvaluationDecisionType | string | undefined;
 
   /**
    * <p>A list of the statements in the input policies that determine the result for this part
@@ -7743,7 +7743,7 @@ export interface ResourceSpecificResult {
    *          This parameter is returned only for cross-account simulations. This parameter explains how
    *          each policy type contributes to the resource-specific evaluation decision.</p>
    */
-  EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType | string>;
+  EvalDecisionDetails?: Record<string, keyof typeof PolicyEvaluationDecisionType | string>;
 
   /**
    * <p>Contains information about the effect that a permissions boundary has on a policy
@@ -7775,7 +7775,7 @@ export interface EvaluationResult {
   /**
    * <p>The result of the simulation.</p>
    */
-  EvalDecision: PolicyEvaluationDecisionType | string | undefined;
+  EvalDecision: keyof typeof PolicyEvaluationDecisionType | string | undefined;
 
   /**
    * <p>A list of the statements in the input policies that determine the result for this
@@ -7823,7 +7823,7 @@ export interface EvaluationResult {
    *          this case, policy evaluation does not proceed any further and this parameter is not
    *          returned.</p>
    */
-  EvalDecisionDetails?: Record<string, PolicyEvaluationDecisionType | string>;
+  EvalDecisionDetails?: Record<string, keyof typeof PolicyEvaluationDecisionType | string>;
 
   /**
    * <p>The individual results of the simulation of the API operation specified in

@@ -1903,7 +1903,7 @@ const serializeAws_json1_1AccessMethod = (input: AccessMethod, context: __SerdeC
   };
 };
 
-const serializeAws_json1_1ActionList = (input: (ActionType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1ActionList = (input: (keyof typeof ActionType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2429,7 +2429,10 @@ const deserializeAws_json1_1AccessMethod = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1ActionList = (output: any, context: __SerdeContext): (ActionType | string)[] => {
+const deserializeAws_json1_1ActionList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof ActionType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

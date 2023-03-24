@@ -4735,7 +4735,7 @@ const deserializeAws_restJson1ListsOfUtterances = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_restJson1LocaleList = (output: any, context: __SerdeContext): (Locale | string)[] => {
+const deserializeAws_restJson1LocaleList = (output: any, context: __SerdeContext): (keyof typeof Locale | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

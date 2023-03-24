@@ -50,10 +50,10 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum EndpointAccessType {
-  CUSTOMER_OWNED_IP = "CustomerOwnedIp",
-  PRIVATE = "Private",
-}
+export const EndpointAccessType = {
+  CUSTOMER_OWNED_IP: "CustomerOwnedIp",
+  PRIVATE: "Private",
+};
 
 /**
  * @public
@@ -86,7 +86,7 @@ export interface CreateEndpointRequest {
    *                <code>Private</code> is the default access type value.</p>
    *          </note>
    */
-  AccessType?: EndpointAccessType | string;
+  AccessType?: keyof typeof EndpointAccessType | string;
 
   /**
    * <p>The ID of the customer-owned IPv4 address pool (CoIP pool) for the endpoint. IP addresses
@@ -260,13 +260,13 @@ export interface NetworkInterface {
 /**
  * @public
  */
-export enum EndpointStatus {
-  AVAILABLE = "Available",
-  CREATE_FAILED = "Create_Failed",
-  DELETE_FAILED = "Delete_Failed",
-  DELETING = "Deleting",
-  PENDING = "Pending",
-}
+export const EndpointStatus = {
+  AVAILABLE: "Available",
+  CREATE_FAILED: "Create_Failed",
+  DELETE_FAILED: "Delete_Failed",
+  DELETING: "Deleting",
+  PENDING: "Pending",
+};
 
 /**
  * @public
@@ -294,7 +294,7 @@ export interface Endpoint {
   /**
    * <p>The status of the endpoint.</p>
    */
-  Status?: EndpointStatus | string;
+  Status?: keyof typeof EndpointStatus | string;
 
   /**
    * <p>The time the endpoint was created.</p>
@@ -324,7 +324,7 @@ export interface Endpoint {
   /**
    * <p>The type of connectivity used to access the Amazon S3 on Outposts endpoint.</p>
    */
-  AccessType?: EndpointAccessType | string;
+  AccessType?: keyof typeof EndpointAccessType | string;
 
   /**
    * <p>The ID of the customer-owned IPv4 address pool used for the endpoint.</p>

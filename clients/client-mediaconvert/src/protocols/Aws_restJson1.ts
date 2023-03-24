@@ -2787,7 +2787,10 @@ const serializeAws_restJson1__listOfHlsAdditionalManifest = (
     });
 };
 
-const serializeAws_restJson1__listOfHlsAdMarkers = (input: (HlsAdMarkers | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1__listOfHlsAdMarkers = (
+  input: (keyof typeof HlsAdMarkers | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2893,7 +2896,7 @@ const serializeAws_restJson1__listOfOutputGroup = (input: OutputGroup[], context
 };
 
 const serializeAws_restJson1__listOfTeletextPageType = (
-  input: (TeletextPageType | string)[],
+  input: (keyof typeof TeletextPageType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -5749,7 +5752,7 @@ const deserializeAws_restJson1__listOfHlsAdditionalManifest = (
 const deserializeAws_restJson1__listOfHlsAdMarkers = (
   output: any,
   context: __SerdeContext
-): (HlsAdMarkers | string)[] => {
+): (keyof typeof HlsAdMarkers | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5992,7 +5995,7 @@ const deserializeAws_restJson1__listOfQueueTransition = (output: any, context: _
 const deserializeAws_restJson1__listOfTeletextPageType = (
   output: any,
   context: __SerdeContext
-): (TeletextPageType | string)[] => {
+): (keyof typeof TeletextPageType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

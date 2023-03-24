@@ -338,10 +338,10 @@ export interface ActiveDirectoryConfiguration {
 /**
  * @public
  */
-export enum AutomaticTerminationMode {
-  ACTIVATED = "ACTIVATED",
-  DEACTIVATED = "DEACTIVATED",
-}
+export const AutomaticTerminationMode = {
+  ACTIVATED: "ACTIVATED",
+  DEACTIVATED: "DEACTIVATED",
+};
 
 /**
  * @public
@@ -364,37 +364,37 @@ export interface ComputeFarmConfiguration {
 /**
  * @public
  */
-export enum StreamingClipboardMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const StreamingClipboardMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum StreamingInstanceType {
-  g3_4xlarge = "g3.4xlarge",
-  g3s_xlarge = "g3s.xlarge",
-  g4dn_12xlarge = "g4dn.12xlarge",
-  g4dn_16xlarge = "g4dn.16xlarge",
-  g4dn_2xlarge = "g4dn.2xlarge",
-  g4dn_4xlarge = "g4dn.4xlarge",
-  g4dn_8xlarge = "g4dn.8xlarge",
-  g4dn_xlarge = "g4dn.xlarge",
-  g5_16xlarge = "g5.16xlarge",
-  g5_2xlarge = "g5.2xlarge",
-  g5_4xlarge = "g5.4xlarge",
-  g5_8xlarge = "g5.8xlarge",
-  g5_xlarge = "g5.xlarge",
-}
+export const StreamingInstanceType = {
+  g3_4xlarge: "g3.4xlarge",
+  g3s_xlarge: "g3s.xlarge",
+  g4dn_12xlarge: "g4dn.12xlarge",
+  g4dn_16xlarge: "g4dn.16xlarge",
+  g4dn_2xlarge: "g4dn.2xlarge",
+  g4dn_4xlarge: "g4dn.4xlarge",
+  g4dn_8xlarge: "g4dn.8xlarge",
+  g4dn_xlarge: "g4dn.xlarge",
+  g5_16xlarge: "g5.16xlarge",
+  g5_2xlarge: "g5.2xlarge",
+  g5_4xlarge: "g5.4xlarge",
+  g5_8xlarge: "g5.8xlarge",
+  g5_xlarge: "g5.xlarge",
+};
 
 /**
  * @public
  */
-export enum SessionBackupMode {
-  AUTOMATIC = "AUTOMATIC",
-  DEACTIVATED = "DEACTIVATED",
-}
+export const SessionBackupMode = {
+  AUTOMATIC: "AUTOMATIC",
+  DEACTIVATED: "DEACTIVATED",
+};
 
 /**
  * @public
@@ -408,7 +408,7 @@ export interface StreamConfigurationSessionBackup {
    *             default value is <code>DEACTIVATED</code>, which means that backups are deactivated. To
    *             allow backups, set this value to <code>AUTOMATIC</code>.</p>
    */
-  mode?: SessionBackupMode | string;
+  mode?: keyof typeof SessionBackupMode | string;
 
   /**
    * <p>The maximum number of backups that each streaming session created from this launch
@@ -420,17 +420,17 @@ export interface StreamConfigurationSessionBackup {
 /**
  * @public
  */
-export enum SessionPersistenceMode {
-  ACTIVATED = "ACTIVATED",
-  DEACTIVATED = "DEACTIVATED",
-}
+export const SessionPersistenceMode = {
+  ACTIVATED: "ACTIVATED",
+  DEACTIVATED: "DEACTIVATED",
+};
 
 /**
  * @public
  */
-export enum StreamingSessionStorageMode {
-  UPLOAD = "UPLOAD",
-}
+export const StreamingSessionStorageMode = {
+  UPLOAD: "UPLOAD",
+};
 
 /**
  * @public
@@ -463,7 +463,7 @@ export interface StreamConfigurationSessionStorage {
    * <p>Allows artists to upload files to their workstations. The only valid option is
    *                 <code>UPLOAD</code>.</p>
    */
-  mode: (StreamingSessionStorageMode | string)[] | undefined;
+  mode: (keyof typeof StreamingSessionStorageMode | string)[] | undefined;
 }
 
 /**
@@ -502,13 +502,13 @@ export interface StreamConfigurationCreate {
    * <p>Allows or deactivates the use of the system clipboard to copy and paste between the
    *             streaming session and streaming client.</p>
    */
-  clipboardMode: StreamingClipboardMode | string | undefined;
+  clipboardMode: keyof typeof StreamingClipboardMode | string | undefined;
 
   /**
    * <p>The EC2 instance types that users can select from when launching a streaming session
    *             with this launch profile.</p>
    */
-  ec2InstanceTypes: (StreamingInstanceType | string)[] | undefined;
+  ec2InstanceTypes: (keyof typeof StreamingInstanceType | string)[] | undefined;
 
   /**
    * <p>The length of time, in minutes, that a streaming session can be active before it is
@@ -561,7 +561,7 @@ export interface StreamConfigurationCreate {
    *             persistent storage. This means that <code>volumeConfiguration</code> and
    *                 <code>automaticTerminationMode</code> are configured.</p>
    */
-  sessionPersistenceMode?: SessionPersistenceMode | string;
+  sessionPersistenceMode?: keyof typeof SessionPersistenceMode | string;
 
   /**
    * <p>Custom volume configuration for the root volumes that are attached to streaming
@@ -590,7 +590,7 @@ export interface StreamConfigurationCreate {
    *                 <code>ACTIVATED</code>. When allowed, the default value for this parameter is
    *                 <code>DEACTIVATED</code>.</p>
    */
-  automaticTerminationMode?: AutomaticTerminationMode | string;
+  automaticTerminationMode?: keyof typeof AutomaticTerminationMode | string;
 }
 
 /**
@@ -652,37 +652,37 @@ export interface CreateLaunchProfileRequest {
 /**
  * @public
  */
-export enum LaunchProfileState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const LaunchProfileState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum LaunchProfileStatusCode {
-  ENCRYPTION_KEY_ACCESS_DENIED = "ENCRYPTION_KEY_ACCESS_DENIED",
-  ENCRYPTION_KEY_NOT_FOUND = "ENCRYPTION_KEY_NOT_FOUND",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_INSTANCE_TYPES_PROVIDED = "INVALID_INSTANCE_TYPES_PROVIDED",
-  INVALID_SUBNETS_COMBINATION = "INVALID_SUBNETS_COMBINATION",
-  INVALID_SUBNETS_PROVIDED = "INVALID_SUBNETS_PROVIDED",
-  LAUNCH_PROFILE_CREATED = "LAUNCH_PROFILE_CREATED",
-  LAUNCH_PROFILE_CREATE_IN_PROGRESS = "LAUNCH_PROFILE_CREATE_IN_PROGRESS",
-  LAUNCH_PROFILE_DELETED = "LAUNCH_PROFILE_DELETED",
-  LAUNCH_PROFILE_DELETE_IN_PROGRESS = "LAUNCH_PROFILE_DELETE_IN_PROGRESS",
-  LAUNCH_PROFILE_UPDATED = "LAUNCH_PROFILE_UPDATED",
-  LAUNCH_PROFILE_UPDATE_IN_PROGRESS = "LAUNCH_PROFILE_UPDATE_IN_PROGRESS",
-  LAUNCH_PROFILE_WITH_STREAM_SESSIONS_NOT_DELETED = "LAUNCH_PROFILE_WITH_STREAM_SESSIONS_NOT_DELETED",
-  STREAMING_IMAGE_NOT_FOUND = "STREAMING_IMAGE_NOT_FOUND",
-  STREAMING_IMAGE_NOT_READY = "STREAMING_IMAGE_NOT_READY",
-}
+export const LaunchProfileStatusCode = {
+  ENCRYPTION_KEY_ACCESS_DENIED: "ENCRYPTION_KEY_ACCESS_DENIED",
+  ENCRYPTION_KEY_NOT_FOUND: "ENCRYPTION_KEY_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_INSTANCE_TYPES_PROVIDED: "INVALID_INSTANCE_TYPES_PROVIDED",
+  INVALID_SUBNETS_COMBINATION: "INVALID_SUBNETS_COMBINATION",
+  INVALID_SUBNETS_PROVIDED: "INVALID_SUBNETS_PROVIDED",
+  LAUNCH_PROFILE_CREATED: "LAUNCH_PROFILE_CREATED",
+  LAUNCH_PROFILE_CREATE_IN_PROGRESS: "LAUNCH_PROFILE_CREATE_IN_PROGRESS",
+  LAUNCH_PROFILE_DELETED: "LAUNCH_PROFILE_DELETED",
+  LAUNCH_PROFILE_DELETE_IN_PROGRESS: "LAUNCH_PROFILE_DELETE_IN_PROGRESS",
+  LAUNCH_PROFILE_UPDATED: "LAUNCH_PROFILE_UPDATED",
+  LAUNCH_PROFILE_UPDATE_IN_PROGRESS: "LAUNCH_PROFILE_UPDATE_IN_PROGRESS",
+  LAUNCH_PROFILE_WITH_STREAM_SESSIONS_NOT_DELETED: "LAUNCH_PROFILE_WITH_STREAM_SESSIONS_NOT_DELETED",
+  STREAMING_IMAGE_NOT_FOUND: "STREAMING_IMAGE_NOT_FOUND",
+  STREAMING_IMAGE_NOT_READY: "STREAMING_IMAGE_NOT_READY",
+};
 
 /**
  * @public
@@ -693,13 +693,13 @@ export interface StreamConfiguration {
    * <p>Allows or deactivates the use of the system clipboard to copy and paste between the
    *             streaming session and streaming client.</p>
    */
-  clipboardMode: StreamingClipboardMode | string | undefined;
+  clipboardMode: keyof typeof StreamingClipboardMode | string | undefined;
 
   /**
    * <p>The EC2 instance types that users can select from when launching a streaming session
    *             with this launch profile.</p>
    */
-  ec2InstanceTypes: (StreamingInstanceType | string)[] | undefined;
+  ec2InstanceTypes: (keyof typeof StreamingInstanceType | string)[] | undefined;
 
   /**
    * <p>The length of time, in minutes, that a streaming session can be active before it is
@@ -750,7 +750,7 @@ export interface StreamConfiguration {
    *             persistent storage. This means that <code>volumeConfiguration</code> and
    *                 <code>automaticTerminationMode</code> are configured.</p>
    */
-  sessionPersistenceMode?: SessionPersistenceMode | string;
+  sessionPersistenceMode?: keyof typeof SessionPersistenceMode | string;
 
   /**
    * <p>Custom volume configuration for the root volumes that are attached to streaming
@@ -779,44 +779,44 @@ export interface StreamConfiguration {
    *                 <code>ACTIVATED</code>. When allowed, the default value for this parameter is
    *                 <code>DEACTIVATED</code>.</p>
    */
-  automaticTerminationMode?: AutomaticTerminationMode | string;
+  automaticTerminationMode?: keyof typeof AutomaticTerminationMode | string;
 }
 
 /**
  * @public
  */
-export enum LaunchProfileValidationState {
-  VALIDATION_FAILED = "VALIDATION_FAILED",
-  VALIDATION_FAILED_INTERNAL_SERVER_ERROR = "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
-  VALIDATION_IN_PROGRESS = "VALIDATION_IN_PROGRESS",
-  VALIDATION_NOT_STARTED = "VALIDATION_NOT_STARTED",
-  VALIDATION_SUCCESS = "VALIDATION_SUCCESS",
-}
+export const LaunchProfileValidationState = {
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+  VALIDATION_FAILED_INTERNAL_SERVER_ERROR: "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
+  VALIDATION_IN_PROGRESS: "VALIDATION_IN_PROGRESS",
+  VALIDATION_NOT_STARTED: "VALIDATION_NOT_STARTED",
+  VALIDATION_SUCCESS: "VALIDATION_SUCCESS",
+};
 
 /**
  * @public
  */
-export enum LaunchProfileValidationStatusCode {
-  VALIDATION_FAILED_INTERNAL_SERVER_ERROR = "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
-  VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY = "VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY",
-  VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION = "VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION",
-  VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION = "VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION",
-  VALIDATION_FAILED_SUBNET_NOT_FOUND = "VALIDATION_FAILED_SUBNET_NOT_FOUND",
-  VALIDATION_FAILED_UNAUTHORIZED = "VALIDATION_FAILED_UNAUTHORIZED",
-  VALIDATION_IN_PROGRESS = "VALIDATION_IN_PROGRESS",
-  VALIDATION_NOT_STARTED = "VALIDATION_NOT_STARTED",
-  VALIDATION_SUCCESS = "VALIDATION_SUCCESS",
-}
+export const LaunchProfileValidationStatusCode = {
+  VALIDATION_FAILED_INTERNAL_SERVER_ERROR: "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
+  VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY: "VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY",
+  VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION: "VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION",
+  VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION: "VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION",
+  VALIDATION_FAILED_SUBNET_NOT_FOUND: "VALIDATION_FAILED_SUBNET_NOT_FOUND",
+  VALIDATION_FAILED_UNAUTHORIZED: "VALIDATION_FAILED_UNAUTHORIZED",
+  VALIDATION_IN_PROGRESS: "VALIDATION_IN_PROGRESS",
+  VALIDATION_NOT_STARTED: "VALIDATION_NOT_STARTED",
+  VALIDATION_SUCCESS: "VALIDATION_SUCCESS",
+};
 
 /**
  * @public
  */
-export enum LaunchProfileValidationType {
-  VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT = "VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT",
-  VALIDATE_NETWORK_ACL_ASSOCIATION = "VALIDATE_NETWORK_ACL_ASSOCIATION",
-  VALIDATE_SECURITY_GROUP_ASSOCIATION = "VALIDATE_SECURITY_GROUP_ASSOCIATION",
-  VALIDATE_SUBNET_ASSOCIATION = "VALIDATE_SUBNET_ASSOCIATION",
-}
+export const LaunchProfileValidationType = {
+  VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT: "VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT",
+  VALIDATE_NETWORK_ACL_ASSOCIATION: "VALIDATE_NETWORK_ACL_ASSOCIATION",
+  VALIDATE_SECURITY_GROUP_ASSOCIATION: "VALIDATE_SECURITY_GROUP_ASSOCIATION",
+  VALIDATE_SUBNET_ASSOCIATION: "VALIDATE_SUBNET_ASSOCIATION",
+};
 
 /**
  * @public
@@ -826,18 +826,18 @@ export interface ValidationResult {
   /**
    * <p>The type of the validation result.</p>
    */
-  type: LaunchProfileValidationType | string | undefined;
+  type: keyof typeof LaunchProfileValidationType | string | undefined;
 
   /**
    * <p>The current state.</p>
    */
-  state: LaunchProfileValidationState | string | undefined;
+  state: keyof typeof LaunchProfileValidationState | string | undefined;
 
   /**
    * <p>The status code. This will contain the failure reason if the state is
    *                 <code>VALIDATION_FAILED</code>.</p>
    */
-  statusCode: LaunchProfileValidationStatusCode | string | undefined;
+  statusCode: keyof typeof LaunchProfileValidationStatusCode | string | undefined;
 
   /**
    * <p>The status message for the validation result.</p>
@@ -901,12 +901,12 @@ export interface LaunchProfile {
   /**
    * <p>The current state.</p>
    */
-  state?: LaunchProfileState | string;
+  state?: keyof typeof LaunchProfileState | string;
 
   /**
    * <p>The status code.</p>
    */
-  statusCode?: LaunchProfileStatusCode | string;
+  statusCode?: keyof typeof LaunchProfileStatusCode | string;
 
   /**
    * <p>The status message for the launch profile.</p>
@@ -997,9 +997,9 @@ export interface CreateStreamingImageRequest {
 /**
  * @public
  */
-export enum StreamingImageEncryptionConfigurationKeyType {
-  CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY",
-}
+export const StreamingImageEncryptionConfigurationKeyType = {
+  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
+};
 
 /**
  * @public
@@ -1014,35 +1014,35 @@ export interface StreamingImageEncryptionConfiguration {
   /**
    * <p>The type of KMS key that is used to encrypt studio data.</p>
    */
-  keyType: StreamingImageEncryptionConfigurationKeyType | string | undefined;
+  keyType: keyof typeof StreamingImageEncryptionConfigurationKeyType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum StreamingImageState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const StreamingImageState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum StreamingImageStatusCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STREAMING_IMAGE_CREATE_IN_PROGRESS = "STREAMING_IMAGE_CREATE_IN_PROGRESS",
-  STREAMING_IMAGE_DELETED = "STREAMING_IMAGE_DELETED",
-  STREAMING_IMAGE_DELETE_IN_PROGRESS = "STREAMING_IMAGE_DELETE_IN_PROGRESS",
-  STREAMING_IMAGE_READY = "STREAMING_IMAGE_READY",
-  STREAMING_IMAGE_UPDATE_IN_PROGRESS = "STREAMING_IMAGE_UPDATE_IN_PROGRESS",
-}
+export const StreamingImageStatusCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  STREAMING_IMAGE_CREATE_IN_PROGRESS: "STREAMING_IMAGE_CREATE_IN_PROGRESS",
+  STREAMING_IMAGE_DELETED: "STREAMING_IMAGE_DELETED",
+  STREAMING_IMAGE_DELETE_IN_PROGRESS: "STREAMING_IMAGE_DELETE_IN_PROGRESS",
+  STREAMING_IMAGE_READY: "STREAMING_IMAGE_READY",
+  STREAMING_IMAGE_UPDATE_IN_PROGRESS: "STREAMING_IMAGE_UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -1102,12 +1102,12 @@ export interface StreamingImage {
   /**
    * <p>The current state.</p>
    */
-  state?: StreamingImageState | string;
+  state?: keyof typeof StreamingImageState | string;
 
   /**
    * <p>The status code.</p>
    */
-  statusCode?: StreamingImageStatusCode | string;
+  statusCode?: keyof typeof StreamingImageStatusCode | string;
 
   /**
    * <p>The status message for the streaming image.</p>
@@ -1150,7 +1150,7 @@ export interface CreateStreamingSessionRequest {
   /**
    * <p>The EC2 Instance type used for the streaming session.</p>
    */
-  ec2InstanceType?: StreamingInstanceType | string;
+  ec2InstanceType?: keyof typeof StreamingInstanceType | string;
 
   /**
    * <p>The ID of the launch profile used to control access from the streaming session.</p>
@@ -1184,49 +1184,49 @@ export interface CreateStreamingSessionRequest {
 /**
  * @public
  */
-export enum StreamingSessionState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  START_FAILED = "START_FAILED",
-  START_IN_PROGRESS = "START_IN_PROGRESS",
-  STOPPED = "STOPPED",
-  STOP_FAILED = "STOP_FAILED",
-  STOP_IN_PROGRESS = "STOP_IN_PROGRESS",
-}
+export const StreamingSessionState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  START_FAILED: "START_FAILED",
+  START_IN_PROGRESS: "START_IN_PROGRESS",
+  STOPPED: "STOPPED",
+  STOP_FAILED: "STOP_FAILED",
+  STOP_IN_PROGRESS: "STOP_IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum StreamingSessionStatusCode {
-  ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR = "ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR",
-  AMI_VALIDATION_ERROR = "AMI_VALIDATION_ERROR",
-  DECRYPT_STREAMING_IMAGE_ERROR = "DECRYPT_STREAMING_IMAGE_ERROR",
-  INITIALIZATION_SCRIPT_ERROR = "INITIALIZATION_SCRIPT_ERROR",
-  INSUFFICIENT_CAPACITY = "INSUFFICIENT_CAPACITY",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  NETWORK_CONNECTION_ERROR = "NETWORK_CONNECTION_ERROR",
-  NETWORK_INTERFACE_ERROR = "NETWORK_INTERFACE_ERROR",
-  STREAMING_SESSION_CREATE_IN_PROGRESS = "STREAMING_SESSION_CREATE_IN_PROGRESS",
-  STREAMING_SESSION_DELETED = "STREAMING_SESSION_DELETED",
-  STREAMING_SESSION_DELETE_IN_PROGRESS = "STREAMING_SESSION_DELETE_IN_PROGRESS",
-  STREAMING_SESSION_READY = "STREAMING_SESSION_READY",
-  STREAMING_SESSION_STARTED = "STREAMING_SESSION_STARTED",
-  STREAMING_SESSION_START_IN_PROGRESS = "STREAMING_SESSION_START_IN_PROGRESS",
-  STREAMING_SESSION_STOPPED = "STREAMING_SESSION_STOPPED",
-  STREAMING_SESSION_STOP_IN_PROGRESS = "STREAMING_SESSION_STOP_IN_PROGRESS",
-}
+export const StreamingSessionStatusCode = {
+  ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR: "ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR",
+  AMI_VALIDATION_ERROR: "AMI_VALIDATION_ERROR",
+  DECRYPT_STREAMING_IMAGE_ERROR: "DECRYPT_STREAMING_IMAGE_ERROR",
+  INITIALIZATION_SCRIPT_ERROR: "INITIALIZATION_SCRIPT_ERROR",
+  INSUFFICIENT_CAPACITY: "INSUFFICIENT_CAPACITY",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  NETWORK_CONNECTION_ERROR: "NETWORK_CONNECTION_ERROR",
+  NETWORK_INTERFACE_ERROR: "NETWORK_INTERFACE_ERROR",
+  STREAMING_SESSION_CREATE_IN_PROGRESS: "STREAMING_SESSION_CREATE_IN_PROGRESS",
+  STREAMING_SESSION_DELETED: "STREAMING_SESSION_DELETED",
+  STREAMING_SESSION_DELETE_IN_PROGRESS: "STREAMING_SESSION_DELETE_IN_PROGRESS",
+  STREAMING_SESSION_READY: "STREAMING_SESSION_READY",
+  STREAMING_SESSION_STARTED: "STREAMING_SESSION_STARTED",
+  STREAMING_SESSION_START_IN_PROGRESS: "STREAMING_SESSION_START_IN_PROGRESS",
+  STREAMING_SESSION_STOPPED: "STREAMING_SESSION_STOPPED",
+  STREAMING_SESSION_STOP_IN_PROGRESS: "STREAMING_SESSION_STOP_IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum VolumeRetentionMode {
-  DELETE = "DELETE",
-  RETAIN = "RETAIN",
-}
+export const VolumeRetentionMode = {
+  DELETE: "DELETE",
+  RETAIN: "RETAIN",
+};
 
 /**
  * @public
@@ -1275,12 +1275,12 @@ export interface StreamingSession {
   /**
    * <p>The current state.</p>
    */
-  state?: StreamingSessionState | string;
+  state?: keyof typeof StreamingSessionState | string;
 
   /**
    * <p>The status code.</p>
    */
-  statusCode?: StreamingSessionStatusCode | string;
+  statusCode?: keyof typeof StreamingSessionStatusCode | string;
 
   /**
    * <p>The status message for the streaming session.</p>
@@ -1348,7 +1348,7 @@ export interface StreamingSession {
   /**
    * <p>Shows the current backup setting of the session.</p>
    */
-  backupMode?: SessionBackupMode | string;
+  backupMode?: keyof typeof SessionBackupMode | string;
 
   /**
    * <p>The maximum number of backups of a streaming session that you can have. When the
@@ -1360,14 +1360,14 @@ export interface StreamingSession {
    * <p>Determine if an EBS volume created from this streaming session will be backed
    *             up.</p>
    */
-  volumeRetentionMode?: VolumeRetentionMode | string;
+  volumeRetentionMode?: keyof typeof VolumeRetentionMode | string;
 
   /**
    * <p>Determine if a streaming session created from this launch profile can configure
    *             persistent storage. This means that <code>volumeConfiguration</code> and
    *                 <code>automaticTerminationMode</code> are configured.</p>
    */
-  sessionPersistenceMode?: SessionPersistenceMode | string;
+  sessionPersistenceMode?: keyof typeof SessionPersistenceMode | string;
 
   /**
    * <p>Custom volume configuration for the root volumes that are attached to streaming
@@ -1396,7 +1396,7 @@ export interface StreamingSession {
    *                 <code>ACTIVATED</code>. When allowed, the default value for this parameter is
    *                 <code>DEACTIVATED</code>.</p>
    */
-  automaticTerminationMode?: AutomaticTerminationMode | string;
+  automaticTerminationMode?: keyof typeof AutomaticTerminationMode | string;
 }
 
 /**
@@ -1439,26 +1439,26 @@ export interface CreateStreamingSessionStreamRequest {
 /**
  * @public
  */
-export enum StreamingSessionStreamState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-}
+export const StreamingSessionStreamState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+};
 
 /**
  * @public
  */
-export enum StreamingSessionStreamStatusCode {
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  NETWORK_CONNECTION_ERROR = "NETWORK_CONNECTION_ERROR",
-  STREAM_CREATE_IN_PROGRESS = "STREAM_CREATE_IN_PROGRESS",
-  STREAM_DELETED = "STREAM_DELETED",
-  STREAM_DELETE_IN_PROGRESS = "STREAM_DELETE_IN_PROGRESS",
-  STREAM_READY = "STREAM_READY",
-}
+export const StreamingSessionStreamStatusCode = {
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  NETWORK_CONNECTION_ERROR: "NETWORK_CONNECTION_ERROR",
+  STREAM_CREATE_IN_PROGRESS: "STREAM_CREATE_IN_PROGRESS",
+  STREAM_DELETED: "STREAM_DELETED",
+  STREAM_DELETE_IN_PROGRESS: "STREAM_DELETE_IN_PROGRESS",
+  STREAM_READY: "STREAM_READY",
+};
 
 /**
  * @public
@@ -1493,12 +1493,12 @@ export interface StreamingSessionStream {
   /**
    * <p>The current state.</p>
    */
-  state?: StreamingSessionStreamState | string;
+  state?: keyof typeof StreamingSessionStreamState | string;
 
   /**
    * <p>The streaming session stream status code.</p>
    */
-  statusCode?: StreamingSessionStreamStatusCode | string;
+  statusCode?: keyof typeof StreamingSessionStreamStatusCode | string;
 
   /**
    * <p>The stream ID.</p>
@@ -1524,10 +1524,10 @@ export interface CreateStreamingSessionStreamResponse {
 /**
  * @public
  */
-export enum StudioEncryptionConfigurationKeyType {
-  AWS_OWNED_KEY = "AWS_OWNED_KEY",
-  CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY",
-}
+export const StudioEncryptionConfigurationKeyType = {
+  AWS_OWNED_KEY: "AWS_OWNED_KEY",
+  CUSTOMER_MANAGED_KEY: "CUSTOMER_MANAGED_KEY",
+};
 
 /**
  * @public
@@ -1542,7 +1542,7 @@ export interface StudioEncryptionConfiguration {
   /**
    * <p>The type of KMS key that is used to encrypt studio data.</p>
    */
-  keyType: StudioEncryptionConfigurationKeyType | string | undefined;
+  keyType: keyof typeof StudioEncryptionConfigurationKeyType | string | undefined;
 }
 
 /**
@@ -1594,41 +1594,41 @@ export interface CreateStudioRequest {
 /**
  * @public
  */
-export enum StudioState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const StudioState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum StudioStatusCode {
-  AWS_SSO_ACCESS_DENIED = "AWS_SSO_ACCESS_DENIED",
-  AWS_SSO_CONFIGURATION_REPAIRED = "AWS_SSO_CONFIGURATION_REPAIRED",
-  AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS = "AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS",
-  AWS_SSO_NOT_ENABLED = "AWS_SSO_NOT_ENABLED",
-  AWS_STS_REGION_DISABLED = "AWS_STS_REGION_DISABLED",
-  ENCRYPTION_KEY_ACCESS_DENIED = "ENCRYPTION_KEY_ACCESS_DENIED",
-  ENCRYPTION_KEY_NOT_FOUND = "ENCRYPTION_KEY_NOT_FOUND",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  ROLE_COULD_NOT_BE_ASSUMED = "ROLE_COULD_NOT_BE_ASSUMED",
-  ROLE_NOT_OWNED_BY_STUDIO_OWNER = "ROLE_NOT_OWNED_BY_STUDIO_OWNER",
-  STUDIO_CREATED = "STUDIO_CREATED",
-  STUDIO_CREATE_IN_PROGRESS = "STUDIO_CREATE_IN_PROGRESS",
-  STUDIO_DELETED = "STUDIO_DELETED",
-  STUDIO_DELETE_IN_PROGRESS = "STUDIO_DELETE_IN_PROGRESS",
-  STUDIO_UPDATED = "STUDIO_UPDATED",
-  STUDIO_UPDATE_IN_PROGRESS = "STUDIO_UPDATE_IN_PROGRESS",
-  STUDIO_WITH_LAUNCH_PROFILES_NOT_DELETED = "STUDIO_WITH_LAUNCH_PROFILES_NOT_DELETED",
-  STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED = "STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED",
-  STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED = "STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED",
-}
+export const StudioStatusCode = {
+  AWS_SSO_ACCESS_DENIED: "AWS_SSO_ACCESS_DENIED",
+  AWS_SSO_CONFIGURATION_REPAIRED: "AWS_SSO_CONFIGURATION_REPAIRED",
+  AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS: "AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS",
+  AWS_SSO_NOT_ENABLED: "AWS_SSO_NOT_ENABLED",
+  AWS_STS_REGION_DISABLED: "AWS_STS_REGION_DISABLED",
+  ENCRYPTION_KEY_ACCESS_DENIED: "ENCRYPTION_KEY_ACCESS_DENIED",
+  ENCRYPTION_KEY_NOT_FOUND: "ENCRYPTION_KEY_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  ROLE_COULD_NOT_BE_ASSUMED: "ROLE_COULD_NOT_BE_ASSUMED",
+  ROLE_NOT_OWNED_BY_STUDIO_OWNER: "ROLE_NOT_OWNED_BY_STUDIO_OWNER",
+  STUDIO_CREATED: "STUDIO_CREATED",
+  STUDIO_CREATE_IN_PROGRESS: "STUDIO_CREATE_IN_PROGRESS",
+  STUDIO_DELETED: "STUDIO_DELETED",
+  STUDIO_DELETE_IN_PROGRESS: "STUDIO_DELETE_IN_PROGRESS",
+  STUDIO_UPDATED: "STUDIO_UPDATED",
+  STUDIO_UPDATE_IN_PROGRESS: "STUDIO_UPDATE_IN_PROGRESS",
+  STUDIO_WITH_LAUNCH_PROFILES_NOT_DELETED: "STUDIO_WITH_LAUNCH_PROFILES_NOT_DELETED",
+  STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED: "STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED",
+  STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED: "STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED",
+};
 
 /**
  * @public
@@ -1682,12 +1682,12 @@ export interface Studio {
   /**
    * <p>The current state of the studio resource.</p>
    */
-  state?: StudioState | string;
+  state?: keyof typeof StudioState | string;
 
   /**
    * <p>Status codes that provide additional detail on the studio state.</p>
    */
-  statusCode?: StudioStatusCode | string;
+  statusCode?: keyof typeof StudioStatusCode | string;
 
   /**
    * <p>Additional detail on the studio state.</p>
@@ -1819,18 +1819,18 @@ export interface StudioComponentConfiguration {
 /**
  * @public
  */
-export enum LaunchProfilePlatform {
-  LINUX = "LINUX",
-  WINDOWS = "WINDOWS",
-}
+export const LaunchProfilePlatform = {
+  LINUX: "LINUX",
+  WINDOWS: "WINDOWS",
+};
 
 /**
  * @public
  */
-export enum StudioComponentInitializationScriptRunContext {
-  SYSTEM_INITIALIZATION = "SYSTEM_INITIALIZATION",
-  USER_INITIALIZATION = "USER_INITIALIZATION",
-}
+export const StudioComponentInitializationScriptRunContext = {
+  SYSTEM_INITIALIZATION: "SYSTEM_INITIALIZATION",
+  USER_INITIALIZATION: "USER_INITIALIZATION",
+};
 
 /**
  * @public
@@ -1846,12 +1846,12 @@ export interface StudioComponentInitializationScript {
   /**
    * <p>The platform of the initialization script, either Windows or Linux.</p>
    */
-  platform?: LaunchProfilePlatform | string;
+  platform?: keyof typeof LaunchProfilePlatform | string;
 
   /**
    * <p>The method to use when running the initialization script.</p>
    */
-  runContext?: StudioComponentInitializationScriptRunContext | string;
+  runContext?: keyof typeof StudioComponentInitializationScriptRunContext | string;
 
   /**
    * <p>The initialization script.</p>
@@ -1878,23 +1878,23 @@ export interface ScriptParameterKeyValue {
 /**
  * @public
  */
-export enum StudioComponentSubtype {
-  AMAZON_FSX_FOR_LUSTRE = "AMAZON_FSX_FOR_LUSTRE",
-  AMAZON_FSX_FOR_WINDOWS = "AMAZON_FSX_FOR_WINDOWS",
-  AWS_MANAGED_MICROSOFT_AD = "AWS_MANAGED_MICROSOFT_AD",
-  CUSTOM = "CUSTOM",
-}
+export const StudioComponentSubtype = {
+  AMAZON_FSX_FOR_LUSTRE: "AMAZON_FSX_FOR_LUSTRE",
+  AMAZON_FSX_FOR_WINDOWS: "AMAZON_FSX_FOR_WINDOWS",
+  AWS_MANAGED_MICROSOFT_AD: "AWS_MANAGED_MICROSOFT_AD",
+  CUSTOM: "CUSTOM",
+};
 
 /**
  * @public
  */
-export enum StudioComponentType {
-  ACTIVE_DIRECTORY = "ACTIVE_DIRECTORY",
-  COMPUTE_FARM = "COMPUTE_FARM",
-  CUSTOM = "CUSTOM",
-  LICENSE_SERVICE = "LICENSE_SERVICE",
-  SHARED_FILE_SYSTEM = "SHARED_FILE_SYSTEM",
-}
+export const StudioComponentType = {
+  ACTIVE_DIRECTORY: "ACTIVE_DIRECTORY",
+  COMPUTE_FARM: "COMPUTE_FARM",
+  CUSTOM: "CUSTOM",
+  LICENSE_SERVICE: "LICENSE_SERVICE",
+  SHARED_FILE_SYSTEM: "SHARED_FILE_SYSTEM",
+};
 
 /**
  * @public
@@ -1945,7 +1945,7 @@ export interface CreateStudioComponentRequest {
   /**
    * <p>The specific subtype of a studio component.</p>
    */
-  subtype?: StudioComponentSubtype | string;
+  subtype?: keyof typeof StudioComponentSubtype | string;
 
   /**
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
@@ -1956,7 +1956,7 @@ export interface CreateStudioComponentRequest {
   /**
    * <p>The type of the studio component.</p>
    */
-  type: StudioComponentType | string | undefined;
+  type: keyof typeof StudioComponentType | string | undefined;
 
   /**
    * <p>An IAM role attached to Studio Component when the system initialization
@@ -1976,32 +1976,32 @@ export interface CreateStudioComponentRequest {
 /**
  * @public
  */
-export enum StudioComponentState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  READY = "READY",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const StudioComponentState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum StudioComponentStatusCode {
-  ACTIVE_DIRECTORY_ALREADY_EXISTS = "ACTIVE_DIRECTORY_ALREADY_EXISTS",
-  ENCRYPTION_KEY_ACCESS_DENIED = "ENCRYPTION_KEY_ACCESS_DENIED",
-  ENCRYPTION_KEY_NOT_FOUND = "ENCRYPTION_KEY_NOT_FOUND",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STUDIO_COMPONENT_CREATED = "STUDIO_COMPONENT_CREATED",
-  STUDIO_COMPONENT_CREATE_IN_PROGRESS = "STUDIO_COMPONENT_CREATE_IN_PROGRESS",
-  STUDIO_COMPONENT_DELETED = "STUDIO_COMPONENT_DELETED",
-  STUDIO_COMPONENT_DELETE_IN_PROGRESS = "STUDIO_COMPONENT_DELETE_IN_PROGRESS",
-  STUDIO_COMPONENT_UPDATED = "STUDIO_COMPONENT_UPDATED",
-  STUDIO_COMPONENT_UPDATE_IN_PROGRESS = "STUDIO_COMPONENT_UPDATE_IN_PROGRESS",
-}
+export const StudioComponentStatusCode = {
+  ACTIVE_DIRECTORY_ALREADY_EXISTS: "ACTIVE_DIRECTORY_ALREADY_EXISTS",
+  ENCRYPTION_KEY_ACCESS_DENIED: "ENCRYPTION_KEY_ACCESS_DENIED",
+  ENCRYPTION_KEY_NOT_FOUND: "ENCRYPTION_KEY_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  STUDIO_COMPONENT_CREATED: "STUDIO_COMPONENT_CREATED",
+  STUDIO_COMPONENT_CREATE_IN_PROGRESS: "STUDIO_COMPONENT_CREATE_IN_PROGRESS",
+  STUDIO_COMPONENT_DELETED: "STUDIO_COMPONENT_DELETED",
+  STUDIO_COMPONENT_DELETE_IN_PROGRESS: "STUDIO_COMPONENT_DELETE_IN_PROGRESS",
+  STUDIO_COMPONENT_UPDATED: "STUDIO_COMPONENT_UPDATED",
+  STUDIO_COMPONENT_UPDATE_IN_PROGRESS: "STUDIO_COMPONENT_UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -2065,12 +2065,12 @@ export interface StudioComponent {
   /**
    * <p>The current state.</p>
    */
-  state?: StudioComponentState | string;
+  state?: keyof typeof StudioComponentState | string;
 
   /**
    * <p>The status code.</p>
    */
-  statusCode?: StudioComponentStatusCode | string;
+  statusCode?: keyof typeof StudioComponentStatusCode | string;
 
   /**
    * <p>The status message for the studio component.</p>
@@ -2085,7 +2085,7 @@ export interface StudioComponent {
   /**
    * <p>The specific subtype of a studio component.</p>
    */
-  subtype?: StudioComponentSubtype | string;
+  subtype?: keyof typeof StudioComponentSubtype | string;
 
   /**
    * <p>A collection of labels, in the form of key-value pairs, that apply to this
@@ -2096,7 +2096,7 @@ export interface StudioComponent {
   /**
    * <p>The type of the studio component.</p>
    */
-  type?: StudioComponentType | string;
+  type?: keyof typeof StudioComponentType | string;
 
   /**
    * <p>The ISO timestamp in seconds for when the resource was updated.</p>
@@ -2536,12 +2536,12 @@ export interface StudioComponentSummary {
   /**
    * <p>The specific subtype of a studio component.</p>
    */
-  subtype?: StudioComponentSubtype | string;
+  subtype?: keyof typeof StudioComponentSubtype | string;
 
   /**
    * <p>The type of the studio component.</p>
    */
-  type?: StudioComponentType | string;
+  type?: keyof typeof StudioComponentType | string;
 
   /**
    * <p>The ISO timestamp in seconds for when the resource was updated.</p>
@@ -2725,7 +2725,7 @@ export interface LaunchProfileInitialization {
   /**
    * <p>The platform of the launch platform, either Windows or Linux.</p>
    */
-  platform?: LaunchProfilePlatform | string;
+  platform?: keyof typeof LaunchProfilePlatform | string;
 
   /**
    * <p>The system initializtion scripts.</p>
@@ -2771,9 +2771,9 @@ export interface GetLaunchProfileMemberRequest {
 /**
  * @public
  */
-export enum LaunchProfilePersona {
-  USER = "USER",
-}
+export const LaunchProfilePersona = {
+  USER: "USER",
+};
 
 /**
  * @public
@@ -2813,7 +2813,7 @@ export interface LaunchProfileMembership {
   /**
    * <p>The persona.</p>
    */
-  persona?: LaunchProfilePersona | string;
+  persona?: keyof typeof LaunchProfilePersona | string;
 
   /**
    * <p>The principal ID.</p>
@@ -2936,12 +2936,12 @@ export interface StreamingSessionBackup {
   /**
    * <p>The streaming session state.</p>
    */
-  state?: StreamingSessionState | string;
+  state?: keyof typeof StreamingSessionState | string;
 
   /**
    * <p>The status code.</p>
    */
-  statusCode?: StreamingSessionStatusCode | string;
+  statusCode?: keyof typeof StreamingSessionStatusCode | string;
 
   /**
    * <p>The status message for the streaming session backup.</p>
@@ -3063,9 +3063,9 @@ export interface GetStudioMemberRequest {
 /**
  * @public
  */
-export enum StudioPersona {
-  ADMINISTRATOR = "ADMINISTRATOR",
-}
+export const StudioPersona = {
+  ADMINISTRATOR: "ADMINISTRATOR",
+};
 
 /**
  * @public
@@ -3089,7 +3089,7 @@ export interface StudioMembership {
   /**
    * <p>The persona.</p>
    */
-  persona?: StudioPersona | string;
+  persona?: keyof typeof StudioPersona | string;
 
   /**
    * <p>The principal ID.</p>
@@ -3174,7 +3174,7 @@ export interface ListLaunchProfilesRequest {
   /**
    * <p>Filter this request to launch profiles in any of the given states.</p>
    */
-  states?: (LaunchProfileState | string)[];
+  states?: (keyof typeof LaunchProfileState | string)[];
 
   /**
    * <p>The studio ID. </p>
@@ -3205,7 +3205,7 @@ export interface NewLaunchProfileMember {
   /**
    * <p>The persona.</p>
    */
-  persona: LaunchProfilePersona | string | undefined;
+  persona: keyof typeof LaunchProfilePersona | string | undefined;
 
   /**
    * <p>The principal ID.</p>
@@ -3328,7 +3328,7 @@ export interface UpdateLaunchProfileMemberRequest {
   /**
    * <p>The persona.</p>
    */
-  persona: LaunchProfilePersona | string | undefined;
+  persona: keyof typeof LaunchProfilePersona | string | undefined;
 
   /**
    * <p>The principal ID. This currently supports a IAM Identity Center UserId. </p>
@@ -3483,7 +3483,7 @@ export interface ListStudioComponentsRequest {
   /**
    * <p>Filters the request to studio components that are in one of the given states. </p>
    */
-  states?: (StudioComponentState | string)[];
+  states?: (keyof typeof StudioComponentState | string)[];
 
   /**
    * <p>The studio ID. </p>
@@ -3493,7 +3493,7 @@ export interface ListStudioComponentsRequest {
   /**
    * <p>Filters the request to studio components that are of one of the given types.</p>
    */
-  types?: (StudioComponentType | string)[];
+  types?: (keyof typeof StudioComponentType | string)[];
 }
 
 /**
@@ -3600,7 +3600,7 @@ export interface NewStudioMember {
   /**
    * <p>The persona.</p>
    */
-  persona: StudioPersona | string | undefined;
+  persona: keyof typeof StudioPersona | string | undefined;
 
   /**
    * <p>The principal ID.</p>
@@ -3720,7 +3720,7 @@ export interface StopStreamingSessionRequest {
    * <p>Adds additional instructions to a streaming session stop action to either retain the
    *             EBS volumes or delete the EBS volumes.</p>
    */
-  volumeRetentionMode?: VolumeRetentionMode | string;
+  volumeRetentionMode?: keyof typeof VolumeRetentionMode | string;
 }
 
 /**
@@ -3788,12 +3788,12 @@ export interface UpdateStudioComponentRequest {
   /**
    * <p>The specific subtype of a studio component.</p>
    */
-  subtype?: StudioComponentSubtype | string;
+  subtype?: keyof typeof StudioComponentSubtype | string;
 
   /**
    * <p>The type of the studio component.</p>
    */
-  type?: StudioComponentType | string;
+  type?: keyof typeof StudioComponentType | string;
 
   /**
    * <p>An IAM role attached to Studio Component when the system initialization

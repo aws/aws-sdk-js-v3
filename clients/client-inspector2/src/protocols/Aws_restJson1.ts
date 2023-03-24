@@ -3074,7 +3074,7 @@ const serializeAws_restJson1Destination = (input: Destination, context: __SerdeC
 };
 
 const serializeAws_restJson1DisableResourceTypeList = (
-  input: (ResourceScanType | string)[],
+  input: (keyof typeof ResourceScanType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3108,7 +3108,7 @@ const serializeAws_restJson1EcrConfiguration = (input: EcrConfiguration, context
 };
 
 const serializeAws_restJson1EnableResourceTypeList = (
-  input: (ResourceScanType | string)[],
+  input: (keyof typeof ResourceScanType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3614,7 +3614,10 @@ const deserializeAws_restJson1AmiAggregationResponse = (
   } as any;
 };
 
-const deserializeAws_restJson1ArchitectureList = (output: any, context: __SerdeContext): (Architecture | string)[] => {
+const deserializeAws_restJson1ArchitectureList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Architecture | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

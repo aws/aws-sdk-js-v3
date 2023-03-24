@@ -6,9 +6,9 @@ import { MediaPackageVodServiceException as __BaseException } from "./MediaPacka
 /**
  * @public
  */
-export enum __PeriodTriggersElement {
-  ADS = "ADS",
-}
+export const __PeriodTriggersElement = {
+  ADS: "ADS",
+};
 
 /**
  * @public
@@ -59,35 +59,35 @@ export interface AssetShallow {
 /**
  * @public
  */
-export enum ManifestLayout {
-  COMPACT = "COMPACT",
-  FULL = "FULL",
-}
+export const ManifestLayout = {
+  COMPACT: "COMPACT",
+  FULL: "FULL",
+};
 
 /**
  * @public
  */
-export enum Profile {
-  HBBTV_1_5 = "HBBTV_1_5",
-  NONE = "NONE",
-}
+export const Profile = {
+  HBBTV_1_5: "HBBTV_1_5",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum ScteMarkersSource {
-  MANIFEST = "MANIFEST",
-  SEGMENTS = "SEGMENTS",
-}
+export const ScteMarkersSource = {
+  MANIFEST: "MANIFEST",
+  SEGMENTS: "SEGMENTS",
+};
 
 /**
  * @public
  */
-export enum StreamOrder {
-  ORIGINAL = "ORIGINAL",
-  VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING",
-  VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING",
-}
+export const StreamOrder = {
+  ORIGINAL: "ORIGINAL",
+  VIDEO_BITRATE_ASCENDING: "VIDEO_BITRATE_ASCENDING",
+  VIDEO_BITRATE_DESCENDING: "VIDEO_BITRATE_DESCENDING",
+};
 
 /**
  * @public
@@ -107,7 +107,7 @@ export interface StreamSelection {
   /**
    * A directive that determines the order of streams in the output.
    */
-  StreamOrder?: StreamOrder | string;
+  StreamOrder?: keyof typeof StreamOrder | string;
 }
 
 /**
@@ -118,7 +118,7 @@ export interface DashManifest {
   /**
    * Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
    */
-  ManifestLayout?: ManifestLayout | string;
+  ManifestLayout?: keyof typeof ManifestLayout | string;
 
   /**
    * An optional string to include in the name of the manifest.
@@ -133,12 +133,12 @@ export interface DashManifest {
   /**
    * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
    */
-  Profile?: Profile | string;
+  Profile?: keyof typeof Profile | string;
 
   /**
    * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
    */
-  ScteMarkersSource?: ScteMarkersSource | string;
+  ScteMarkersSource?: keyof typeof ScteMarkersSource | string;
 
   /**
    * A StreamSelection configuration.
@@ -170,11 +170,11 @@ export interface EgressEndpoint {
 /**
  * @public
  */
-export enum AdMarkers {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-  SCTE35_ENHANCED = "SCTE35_ENHANCED",
-}
+export const AdMarkers = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+  SCTE35_ENHANCED: "SCTE35_ENHANCED",
+};
 
 /**
  * @public
@@ -189,7 +189,7 @@ export interface HlsManifest {
    * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
    * messages in the input source.
    */
-  AdMarkers?: AdMarkers | string;
+  AdMarkers?: keyof typeof AdMarkers | string;
 
   /**
    * When enabled, an I-Frame only stream will be included in the output.
@@ -244,29 +244,29 @@ export interface MssManifest {
 /**
  * @public
  */
-export enum PresetSpeke20Audio {
-  PRESET_AUDIO_1 = "PRESET-AUDIO-1",
-  PRESET_AUDIO_2 = "PRESET-AUDIO-2",
-  PRESET_AUDIO_3 = "PRESET-AUDIO-3",
-  SHARED = "SHARED",
-  UNENCRYPTED = "UNENCRYPTED",
-}
+export const PresetSpeke20Audio = {
+  PRESET_AUDIO_1: "PRESET-AUDIO-1",
+  PRESET_AUDIO_2: "PRESET-AUDIO-2",
+  PRESET_AUDIO_3: "PRESET-AUDIO-3",
+  SHARED: "SHARED",
+  UNENCRYPTED: "UNENCRYPTED",
+};
 
 /**
  * @public
  */
-export enum PresetSpeke20Video {
-  PRESET_VIDEO_1 = "PRESET-VIDEO-1",
-  PRESET_VIDEO_2 = "PRESET-VIDEO-2",
-  PRESET_VIDEO_3 = "PRESET-VIDEO-3",
-  PRESET_VIDEO_4 = "PRESET-VIDEO-4",
-  PRESET_VIDEO_5 = "PRESET-VIDEO-5",
-  PRESET_VIDEO_6 = "PRESET-VIDEO-6",
-  PRESET_VIDEO_7 = "PRESET-VIDEO-7",
-  PRESET_VIDEO_8 = "PRESET-VIDEO-8",
-  SHARED = "SHARED",
-  UNENCRYPTED = "UNENCRYPTED",
-}
+export const PresetSpeke20Video = {
+  PRESET_VIDEO_1: "PRESET-VIDEO-1",
+  PRESET_VIDEO_2: "PRESET-VIDEO-2",
+  PRESET_VIDEO_3: "PRESET-VIDEO-3",
+  PRESET_VIDEO_4: "PRESET-VIDEO-4",
+  PRESET_VIDEO_5: "PRESET-VIDEO-5",
+  PRESET_VIDEO_6: "PRESET-VIDEO-6",
+  PRESET_VIDEO_7: "PRESET-VIDEO-7",
+  PRESET_VIDEO_8: "PRESET-VIDEO-8",
+  SHARED: "SHARED",
+  UNENCRYPTED: "UNENCRYPTED",
+};
 
 /**
  * @public
@@ -281,12 +281,12 @@ export interface EncryptionContractConfiguration {
   /**
    * A collection of audio encryption presets.
    */
-  PresetSpeke20Audio: PresetSpeke20Audio | string | undefined;
+  PresetSpeke20Audio: keyof typeof PresetSpeke20Audio | string | undefined;
 
   /**
    * A collection of video encryption presets.
    */
-  PresetSpeke20Video: PresetSpeke20Video | string | undefined;
+  PresetSpeke20Video: keyof typeof PresetSpeke20Video | string | undefined;
 }
 
 /**
@@ -378,11 +378,11 @@ export interface DashEncryption {
 /**
  * @public
  */
-export enum SegmentTemplateFormat {
-  NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION",
-  NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE",
-  TIME_WITH_TIMELINE = "TIME_WITH_TIMELINE",
-}
+export const SegmentTemplateFormat = {
+  NUMBER_WITH_DURATION: "NUMBER_WITH_DURATION",
+  NUMBER_WITH_TIMELINE: "NUMBER_WITH_TIMELINE",
+  TIME_WITH_TIMELINE: "TIME_WITH_TIMELINE",
+};
 
 /**
  * @public
@@ -415,7 +415,7 @@ export interface DashPackage {
    * be partitioned into more than one period. If the list contains "ADS", new periods will be created where
    * the Asset contains SCTE-35 ad markers.
    */
-  PeriodTriggers?: (__PeriodTriggersElement | string)[];
+  PeriodTriggers?: (keyof typeof __PeriodTriggersElement | string)[];
 
   /**
    * Duration (in seconds) of each segment. Actual segments will be
@@ -426,16 +426,16 @@ export interface DashPackage {
   /**
    * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
    */
-  SegmentTemplateFormat?: SegmentTemplateFormat | string;
+  SegmentTemplateFormat?: keyof typeof SegmentTemplateFormat | string;
 }
 
 /**
  * @public
  */
-export enum EncryptionMethod {
-  AES_128 = "AES_128",
-  SAMPLE_AES = "SAMPLE_AES",
-}
+export const EncryptionMethod = {
+  AES_128: "AES_128",
+  SAMPLE_AES: "SAMPLE_AES",
+};
 
 /**
  * @public
@@ -451,7 +451,7 @@ export interface HlsEncryption {
   /**
    * The encryption method to use.
    */
-  EncryptionMethod?: EncryptionMethod | string;
+  EncryptionMethod?: keyof typeof EncryptionMethod | string;
 
   /**
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.

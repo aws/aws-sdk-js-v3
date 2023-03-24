@@ -2715,7 +2715,7 @@ const deserializeAws_queryBooleanList = (output: any, context: __SerdeContext): 
     });
 };
 
-const deserializeAws_queryFooEnumList = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const deserializeAws_queryFooEnumList = (output: any, context: __SerdeContext): (keyof typeof FooEnum | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2723,7 +2723,10 @@ const deserializeAws_queryFooEnumList = (output: any, context: __SerdeContext): 
     });
 };
 
-const deserializeAws_queryFooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum | string> => {
+const deserializeAws_queryFooEnumMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, keyof typeof FooEnum | string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -2733,7 +2736,7 @@ const deserializeAws_queryFooEnumMap = (output: any, context: __SerdeContext): R
   }, {});
 };
 
-const deserializeAws_queryFooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const deserializeAws_queryFooEnumSet = (output: any, context: __SerdeContext): (keyof typeof FooEnum | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -4022,7 +4022,10 @@ const serializeAws_json1_1CountAction = (input: CountAction, context: __SerdeCon
   };
 };
 
-const serializeAws_json1_1CountryCodes = (input: (CountryCode | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1CountryCodes = (
+  input: (keyof typeof CountryCode | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5610,7 +5613,10 @@ const deserializeAws_json1_1CountAction = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1CountryCodes = (output: any, context: __SerdeContext): (CountryCode | string)[] => {
+const deserializeAws_json1_1CountryCodes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof CountryCode | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -792,10 +792,10 @@ export interface AttachTypedLinkResponse {
 /**
  * @public
  */
-export enum ConsistencyLevel {
-  EVENTUAL = "EVENTUAL",
-  SERIALIZABLE = "SERIALIZABLE",
-}
+export const ConsistencyLevel = {
+  EVENTUAL: "EVENTUAL",
+  SERIALIZABLE: "SERIALIZABLE",
+};
 
 /**
  * @public
@@ -869,13 +869,13 @@ export interface BatchListAttachedIndices {
 /**
  * @public
  */
-export enum RangeMode {
-  EXCLUSIVE = "EXCLUSIVE",
-  FIRST = "FIRST",
-  INCLUSIVE = "INCLUSIVE",
-  LAST = "LAST",
-  LAST_BEFORE_MISSING_VALUES = "LAST_BEFORE_MISSING_VALUES",
-}
+export const RangeMode = {
+  EXCLUSIVE: "EXCLUSIVE",
+  FIRST: "FIRST",
+  INCLUSIVE: "INCLUSIVE",
+  LAST: "LAST",
+  LAST_BEFORE_MISSING_VALUES: "LAST_BEFORE_MISSING_VALUES",
+};
 
 /**
  * @public
@@ -885,7 +885,7 @@ export interface TypedAttributeValueRange {
   /**
    * <p>The inclusive or exclusive range start.</p>
    */
-  StartMode: RangeMode | string | undefined;
+  StartMode: keyof typeof RangeMode | string | undefined;
 
   /**
    * <p>The value to start the range at.</p>
@@ -895,7 +895,7 @@ export interface TypedAttributeValueRange {
   /**
    * <p>The inclusive or exclusive range end.</p>
    */
-  EndMode: RangeMode | string | undefined;
+  EndMode: keyof typeof RangeMode | string | undefined;
 
   /**
    * <p>The attribute value to terminate the range at.</p>
@@ -1293,27 +1293,27 @@ export interface BatchReadRequest {
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: keyof typeof ConsistencyLevel | string;
 }
 
 /**
  * @public
  */
-export enum BatchReadExceptionType {
-  AccessDeniedException = "AccessDeniedException",
-  CannotListParentOfRootException = "CannotListParentOfRootException",
-  DirectoryNotEnabledException = "DirectoryNotEnabledException",
-  FacetValidationException = "FacetValidationException",
-  InternalServiceException = "InternalServiceException",
-  InvalidArnException = "InvalidArnException",
-  InvalidNextTokenException = "InvalidNextTokenException",
-  LimitExceededException = "LimitExceededException",
-  NotIndexException = "NotIndexException",
-  NotNodeException = "NotNodeException",
-  NotPolicyException = "NotPolicyException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-  ValidationException = "ValidationException",
-}
+export const BatchReadExceptionType = {
+  AccessDeniedException: "AccessDeniedException",
+  CannotListParentOfRootException: "CannotListParentOfRootException",
+  DirectoryNotEnabledException: "DirectoryNotEnabledException",
+  FacetValidationException: "FacetValidationException",
+  InternalServiceException: "InternalServiceException",
+  InvalidArnException: "InvalidArnException",
+  InvalidNextTokenException: "InvalidNextTokenException",
+  LimitExceededException: "LimitExceededException",
+  NotIndexException: "NotIndexException",
+  NotNodeException: "NotNodeException",
+  NotPolicyException: "NotPolicyException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ValidationException: "ValidationException",
+};
 
 /**
  * @public
@@ -1324,7 +1324,7 @@ export interface BatchReadException {
   /**
    * <p>A type of exception, such as <code>InvalidArnException</code>.</p>
    */
-  Type?: BatchReadExceptionType | string;
+  Type?: keyof typeof BatchReadExceptionType | string;
 
   /**
    * <p>An exception message that is associated with the failure.</p>
@@ -1760,26 +1760,26 @@ export interface BatchReadResponse {
 /**
  * @public
  */
-export enum BatchWriteExceptionType {
-  AccessDeniedException = "AccessDeniedException",
-  DirectoryNotEnabledException = "DirectoryNotEnabledException",
-  FacetValidationException = "FacetValidationException",
-  IndexedAttributeMissingException = "IndexedAttributeMissingException",
-  InternalServiceException = "InternalServiceException",
-  InvalidArnException = "InvalidArnException",
-  InvalidAttachmentException = "InvalidAttachmentException",
-  LimitExceededException = "LimitExceededException",
-  LinkNameAlreadyInUseException = "LinkNameAlreadyInUseException",
-  NotIndexException = "NotIndexException",
-  NotNodeException = "NotNodeException",
-  NotPolicyException = "NotPolicyException",
-  ObjectAlreadyDetachedException = "ObjectAlreadyDetachedException",
-  ObjectNotDetachedException = "ObjectNotDetachedException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-  StillContainsLinksException = "StillContainsLinksException",
-  UnsupportedIndexTypeException = "UnsupportedIndexTypeException",
-  ValidationException = "ValidationException",
-}
+export const BatchWriteExceptionType = {
+  AccessDeniedException: "AccessDeniedException",
+  DirectoryNotEnabledException: "DirectoryNotEnabledException",
+  FacetValidationException: "FacetValidationException",
+  IndexedAttributeMissingException: "IndexedAttributeMissingException",
+  InternalServiceException: "InternalServiceException",
+  InvalidArnException: "InvalidArnException",
+  InvalidAttachmentException: "InvalidAttachmentException",
+  LimitExceededException: "LimitExceededException",
+  LinkNameAlreadyInUseException: "LinkNameAlreadyInUseException",
+  NotIndexException: "NotIndexException",
+  NotNodeException: "NotNodeException",
+  NotPolicyException: "NotPolicyException",
+  ObjectAlreadyDetachedException: "ObjectAlreadyDetachedException",
+  ObjectNotDetachedException: "ObjectNotDetachedException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  StillContainsLinksException: "StillContainsLinksException",
+  UnsupportedIndexTypeException: "UnsupportedIndexTypeException",
+  ValidationException: "ValidationException",
+};
 
 /**
  * @public
@@ -1789,7 +1789,7 @@ export class BatchWriteException extends __BaseException {
   readonly name: "BatchWriteException" = "BatchWriteException";
   readonly $fault: "client" = "client";
   Index?: number;
-  Type?: BatchWriteExceptionType | string;
+  Type?: keyof typeof BatchWriteExceptionType | string;
   Message?: string;
   /**
    * @internal
@@ -2069,10 +2069,10 @@ export interface BatchRemoveFacetFromObject {
 /**
  * @public
  */
-export enum UpdateActionType {
-  CREATE_OR_UPDATE = "CREATE_OR_UPDATE",
-  DELETE = "DELETE",
-}
+export const UpdateActionType = {
+  CREATE_OR_UPDATE: "CREATE_OR_UPDATE",
+  DELETE: "DELETE",
+};
 
 /**
  * @public
@@ -2082,7 +2082,7 @@ export interface LinkAttributeAction {
   /**
    * <p>A type that can be either <code>UPDATE_OR_CREATE</code> or <code>DELETE</code>.</p>
    */
-  AttributeActionType?: UpdateActionType | string;
+  AttributeActionType?: keyof typeof UpdateActionType | string;
 
   /**
    * <p>The value that you want to update to.</p>
@@ -2130,7 +2130,7 @@ export interface ObjectAttributeAction {
   /**
    * <p>A type that can be either <code>Update</code> or <code>Delete</code>.</p>
    */
-  ObjectAttributeActionType?: UpdateActionType | string;
+  ObjectAttributeActionType?: keyof typeof UpdateActionType | string;
 
   /**
    * <p>The value that you want to update to.</p>
@@ -2562,12 +2562,12 @@ export class DirectoryAlreadyExistsException extends __BaseException {
 /**
  * @public
  */
-export enum RuleType {
-  BINARY_LENGTH = "BINARY_LENGTH",
-  NUMBER_COMPARISON = "NUMBER_COMPARISON",
-  STRING_FROM_SET = "STRING_FROM_SET",
-  STRING_LENGTH = "STRING_LENGTH",
-}
+export const RuleType = {
+  BINARY_LENGTH: "BINARY_LENGTH",
+  NUMBER_COMPARISON: "NUMBER_COMPARISON",
+  STRING_FROM_SET: "STRING_FROM_SET",
+  STRING_LENGTH: "STRING_LENGTH",
+};
 
 /**
  * @public
@@ -2578,7 +2578,7 @@ export interface Rule {
   /**
    * <p>The type of attribute validation rule.</p>
    */
-  Type?: RuleType | string;
+  Type?: keyof typeof RuleType | string;
 
   /**
    * <p>The minimum and maximum parameters that are associated with the rule.</p>
@@ -2589,14 +2589,14 @@ export interface Rule {
 /**
  * @public
  */
-export enum FacetAttributeType {
-  BINARY = "BINARY",
-  BOOLEAN = "BOOLEAN",
-  DATETIME = "DATETIME",
-  NUMBER = "NUMBER",
-  STRING = "STRING",
-  VARIANT = "VARIANT",
-}
+export const FacetAttributeType = {
+  BINARY: "BINARY",
+  BOOLEAN: "BOOLEAN",
+  DATETIME: "DATETIME",
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+  VARIANT: "VARIANT",
+};
 
 /**
  * @public
@@ -2606,7 +2606,7 @@ export interface FacetAttributeDefinition {
   /**
    * <p>The type of the attribute.</p>
    */
-  Type: FacetAttributeType | string | undefined;
+  Type: keyof typeof FacetAttributeType | string | undefined;
 
   /**
    * <p>The default value of the attribute (if configured).</p>
@@ -2644,10 +2644,10 @@ export interface FacetAttributeReference {
 /**
  * @public
  */
-export enum RequiredAttributeBehavior {
-  NOT_REQUIRED = "NOT_REQUIRED",
-  REQUIRED_ALWAYS = "REQUIRED_ALWAYS",
-}
+export const RequiredAttributeBehavior = {
+  NOT_REQUIRED: "NOT_REQUIRED",
+  REQUIRED_ALWAYS: "REQUIRED_ALWAYS",
+};
 
 /**
  * @public
@@ -2673,26 +2673,26 @@ export interface FacetAttribute {
   /**
    * <p>The required behavior of the <code>FacetAttribute</code>.</p>
    */
-  RequiredBehavior?: RequiredAttributeBehavior | string;
+  RequiredBehavior?: keyof typeof RequiredAttributeBehavior | string;
 }
 
 /**
  * @public
  */
-export enum FacetStyle {
-  DYNAMIC = "DYNAMIC",
-  STATIC = "STATIC",
-}
+export const FacetStyle = {
+  DYNAMIC: "DYNAMIC",
+  STATIC: "STATIC",
+};
 
 /**
  * @public
  */
-export enum ObjectType {
-  INDEX = "INDEX",
-  LEAF_NODE = "LEAF_NODE",
-  NODE = "NODE",
-  POLICY = "POLICY",
-}
+export const ObjectType = {
+  INDEX: "INDEX",
+  LEAF_NODE: "LEAF_NODE",
+  NODE: "NODE",
+  POLICY: "POLICY",
+};
 
 /**
  * @public
@@ -2739,12 +2739,12 @@ export interface CreateFacetRequest {
    *             </li>
    *          </ul>
    */
-  ObjectType?: ObjectType | string;
+  ObjectType?: keyof typeof ObjectType | string;
 
   /**
    * <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p>
    */
-  FacetStyle?: FacetStyle | string;
+  FacetStyle?: keyof typeof FacetStyle | string;
 }
 
 /**
@@ -2937,7 +2937,7 @@ export interface TypedLinkAttributeDefinition {
   /**
    * <p>The type of the attribute.</p>
    */
-  Type: FacetAttributeType | string | undefined;
+  Type: keyof typeof FacetAttributeType | string | undefined;
 
   /**
    * <p>The default value of the attribute (if configured).</p>
@@ -2957,7 +2957,7 @@ export interface TypedLinkAttributeDefinition {
   /**
    * <p>The required behavior of the <code>TypedLinkAttributeDefinition</code>.</p>
    */
-  RequiredBehavior: RequiredAttributeBehavior | string | undefined;
+  RequiredBehavior: keyof typeof RequiredAttributeBehavior | string | undefined;
 }
 
 /**
@@ -3469,11 +3469,11 @@ export interface GetDirectoryRequest {
 /**
  * @public
  */
-export enum DirectoryState {
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DirectoryState = {
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -3494,7 +3494,7 @@ export interface Directory {
   /**
    * <p>The state of the directory. Can be either <code>Enabled</code>, <code>Disabled</code>, or <code>Deleted</code>.</p>
    */
-  State?: DirectoryState | string;
+  State?: keyof typeof DirectoryState | string;
 
   /**
    * <p>The date and time when the directory was created.</p>
@@ -3543,12 +3543,12 @@ export interface Facet {
   /**
    * <p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>
    */
-  ObjectType?: ObjectType | string;
+  ObjectType?: keyof typeof ObjectType | string;
 
   /**
    * <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p>
    */
-  FacetStyle?: FacetStyle | string;
+  FacetStyle?: keyof typeof FacetStyle | string;
 }
 
 /**
@@ -3583,7 +3583,7 @@ export interface GetLinkAttributesRequest {
   /**
    * <p>The consistency level at which to retrieve the attributes on a typed link.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: keyof typeof ConsistencyLevel | string;
 }
 
 /**
@@ -3613,7 +3613,7 @@ export interface GetObjectAttributesRequest {
   /**
    * <p>The consistency level at which to retrieve the attributes on an object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: keyof typeof ConsistencyLevel | string;
 
   /**
    * <p>Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details.</p>
@@ -3653,7 +3653,7 @@ export interface GetObjectInformationRequest {
   /**
    * <p>The consistency level at which to retrieve the object information.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: keyof typeof ConsistencyLevel | string;
 }
 
 /**
@@ -3816,7 +3816,7 @@ export interface ListAttachedIndicesRequest {
   /**
    * <p>The consistency level to use for this operation.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: keyof typeof ConsistencyLevel | string;
 }
 
 /**
@@ -3882,7 +3882,7 @@ export interface ListDirectoriesRequest {
    * <p>The state of the directories in the list. Can be either Enabled, Disabled, or
    *       Deleted.</p>
    */
-  state?: DirectoryState | string;
+  state?: keyof typeof DirectoryState | string;
 }
 
 /**
@@ -4017,7 +4017,7 @@ export interface ListIncomingTypedLinksRequest {
   /**
    * <p>The consistency level to execute the request at.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: keyof typeof ConsistencyLevel | string;
 }
 
 /**
@@ -4067,7 +4067,7 @@ export interface ListIndexRequest {
   /**
    * <p>The consistency level to execute the request at.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: keyof typeof ConsistencyLevel | string;
 }
 
 /**
@@ -4150,7 +4150,7 @@ export interface ListObjectAttributesRequest {
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: keyof typeof ConsistencyLevel | string;
 
   /**
    * <p>Used to filter the list of object attributes that are associated with a certain
@@ -4206,7 +4206,7 @@ export interface ListObjectChildrenRequest {
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: keyof typeof ConsistencyLevel | string;
 }
 
 /**
@@ -4320,7 +4320,7 @@ export interface ListObjectParentsRequest {
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: keyof typeof ConsistencyLevel | string;
 
   /**
    * <p>When set to True, returns all <a>ListObjectParentsResponse$ParentLinks</a>. There could be multiple links between a parent-child pair.</p>
@@ -4379,7 +4379,7 @@ export interface ListObjectPoliciesRequest {
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: keyof typeof ConsistencyLevel | string;
 }
 
 /**
@@ -4439,7 +4439,7 @@ export interface ListOutgoingTypedLinksRequest {
   /**
    * <p>The consistency level to execute the request at.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: keyof typeof ConsistencyLevel | string;
 }
 
 /**
@@ -4487,7 +4487,7 @@ export interface ListPolicyAttachmentsRequest {
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    */
-  ConsistencyLevel?: ConsistencyLevel | string;
+  ConsistencyLevel?: keyof typeof ConsistencyLevel | string;
 }
 
 /**
@@ -4946,7 +4946,7 @@ export interface FacetAttributeUpdate {
   /**
    * <p>The action to perform when updating the attribute.</p>
    */
-  Action?: UpdateActionType | string;
+  Action?: keyof typeof UpdateActionType | string;
 }
 
 /**
@@ -4974,7 +4974,7 @@ export interface UpdateFacetRequest {
   /**
    * <p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>
    */
-  ObjectType?: ObjectType | string;
+  ObjectType?: keyof typeof ObjectType | string;
 }
 
 /**
@@ -5077,7 +5077,7 @@ export interface TypedLinkFacetAttributeUpdate {
   /**
    * <p>The action to perform when updating the attribute.</p>
    */
-  Action: UpdateActionType | string | undefined;
+  Action: keyof typeof UpdateActionType | string | undefined;
 }
 
 /**

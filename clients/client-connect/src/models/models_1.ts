@@ -72,7 +72,7 @@ export interface ListContactFlowModulesRequest {
   /**
    * <p>The state of the flow module.</p>
    */
-  ContactFlowModuleState?: ContactFlowModuleState | string;
+  ContactFlowModuleState?: keyof typeof ContactFlowModuleState | string;
 }
 
 /**
@@ -98,7 +98,7 @@ export interface ContactFlowModuleSummary {
   /**
    * <p>The type of flow module.</p>
    */
-  State?: ContactFlowModuleState | string;
+  State?: keyof typeof ContactFlowModuleState | string;
 }
 
 /**
@@ -128,7 +128,7 @@ export interface ListContactFlowsRequest {
   /**
    * <p>The type of flow.</p>
    */
-  ContactFlowTypes?: (ContactFlowType | string)[];
+  ContactFlowTypes?: (keyof typeof ContactFlowType | string)[];
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -167,12 +167,12 @@ export interface ContactFlowSummary {
   /**
    * <p>The type of flow.</p>
    */
-  ContactFlowType?: ContactFlowType | string;
+  ContactFlowType?: keyof typeof ContactFlowType | string;
 
   /**
    * <p>The type of flow.</p>
    */
-  ContactFlowState?: ContactFlowState | string;
+  ContactFlowState?: keyof typeof ContactFlowState | string;
 }
 
 /**
@@ -207,7 +207,7 @@ export interface ListContactReferencesRequest {
   /**
    * <p>The type of reference.</p>
    */
-  ReferenceTypes: (ReferenceType | string)[] | undefined;
+  ReferenceTypes: (keyof typeof ReferenceType | string)[] | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -223,10 +223,10 @@ export interface ListContactReferencesRequest {
 /**
  * @public
  */
-export enum ReferenceStatus {
-  APPROVED = "APPROVED",
-  REJECTED = "REJECTED",
-}
+export const ReferenceStatus = {
+  APPROVED: "APPROVED",
+  REJECTED: "REJECTED",
+};
 
 /**
  * @public
@@ -247,7 +247,7 @@ export interface AttachmentReference {
   /**
    * <p>Status of the attachment reference type.</p>
    */
-  Status?: ReferenceStatus | string;
+  Status?: keyof typeof ReferenceStatus | string;
 }
 
 /**
@@ -499,7 +499,7 @@ export interface ListDefaultVocabulariesRequest {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode?: VocabularyLanguageCode | string;
+  LanguageCode?: keyof typeof VocabularyLanguageCode | string;
 
   /**
    * <p>The maximum number of results to return per page.</p>
@@ -528,7 +528,7 @@ export interface DefaultVocabulary {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode: VocabularyLanguageCode | string | undefined;
+  LanguageCode: keyof typeof VocabularyLanguageCode | string | undefined;
 
   /**
    * <p>The identifier of the custom vocabulary.</p>
@@ -683,7 +683,7 @@ export interface InstanceSummary {
   /**
    * <p>The identity management type of the instance.</p>
    */
-  IdentityManagementType?: DirectoryType | string;
+  IdentityManagementType?: keyof typeof DirectoryType | string;
 
   /**
    * <p>The alias of the instance.</p>
@@ -703,7 +703,7 @@ export interface InstanceSummary {
   /**
    * <p>The state of the instance.</p>
    */
-  InstanceStatus?: InstanceStatus | string;
+  InstanceStatus?: keyof typeof InstanceStatus | string;
 
   /**
    * <p>Whether inbound calls are enabled.</p>
@@ -743,7 +743,7 @@ export interface ListInstanceStorageConfigsRequest {
   /**
    * <p>A valid resource type.</p>
    */
-  ResourceType: InstanceStorageResourceType | string | undefined;
+  ResourceType: keyof typeof InstanceStorageResourceType | string | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -784,7 +784,7 @@ export interface ListIntegrationAssociationsRequest {
   /**
    * <p>The integration type.</p>
    */
-  IntegrationType?: IntegrationType | string;
+  IntegrationType?: keyof typeof IntegrationType | string;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -821,7 +821,7 @@ export interface IntegrationAssociationSummary {
   /**
    * <p>The integration type.</p>
    */
-  IntegrationType?: IntegrationType | string;
+  IntegrationType?: keyof typeof IntegrationType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the AppIntegration.</p>
@@ -841,7 +841,7 @@ export interface IntegrationAssociationSummary {
   /**
    * <p>The name of the source.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 }
 
 /**
@@ -945,12 +945,12 @@ export interface ListPhoneNumbersRequest {
   /**
    * <p>The type of phone number.</p>
    */
-  PhoneNumberTypes?: (PhoneNumberType | string)[];
+  PhoneNumberTypes?: (keyof typeof PhoneNumberType | string)[];
 
   /**
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCodes?: (PhoneNumberCountryCode | string)[];
+  PhoneNumberCountryCodes?: (keyof typeof PhoneNumberCountryCode | string)[];
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -987,12 +987,12 @@ export interface PhoneNumberSummary {
   /**
    * <p>The type of phone number.</p>
    */
-  PhoneNumberType?: PhoneNumberType | string;
+  PhoneNumberType?: keyof typeof PhoneNumberType | string;
 
   /**
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
+  PhoneNumberCountryCode?: keyof typeof PhoneNumberCountryCode | string;
 }
 
 /**
@@ -1034,12 +1034,12 @@ export interface ListPhoneNumbersV2Request {
   /**
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCodes?: (PhoneNumberCountryCode | string)[];
+  PhoneNumberCountryCodes?: (keyof typeof PhoneNumberCountryCode | string)[];
 
   /**
    * <p>The type of phone number.</p>
    */
-  PhoneNumberTypes?: (PhoneNumberType | string)[];
+  PhoneNumberTypes?: (keyof typeof PhoneNumberType | string)[];
 
   /**
    * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
@@ -1071,12 +1071,12 @@ export interface ListPhoneNumbersSummary {
   /**
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
+  PhoneNumberCountryCode?: keyof typeof PhoneNumberCountryCode | string;
 
   /**
    * <p>The type of phone number.</p>
    */
-  PhoneNumberType?: PhoneNumberType | string;
+  PhoneNumberType?: keyof typeof PhoneNumberType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone numbers are claimed to.</p>
@@ -1207,7 +1207,7 @@ export interface QuickConnectSummary {
    * <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are
    *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
    */
-  QuickConnectType?: QuickConnectType | string;
+  QuickConnectType?: keyof typeof QuickConnectType | string;
 }
 
 /**
@@ -1228,10 +1228,10 @@ export interface ListQueueQuickConnectsResponse {
 /**
  * @public
  */
-export enum QueueType {
-  AGENT = "AGENT",
-  STANDARD = "STANDARD",
-}
+export const QueueType = {
+  AGENT: "AGENT",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -1245,7 +1245,7 @@ export interface ListQueuesRequest {
   /**
    * <p>The type of queue.</p>
    */
-  QueueTypes?: (QueueType | string)[];
+  QueueTypes?: (keyof typeof QueueType | string)[];
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -1282,7 +1282,7 @@ export interface QueueSummary {
   /**
    * <p>The type of queue.</p>
    */
-  QueueType?: QueueType | string;
+  QueueType?: keyof typeof QueueType | string;
 }
 
 /**
@@ -1324,7 +1324,7 @@ export interface ListQuickConnectsRequest {
    * <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are
    *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
    */
-  QuickConnectTypes?: (QuickConnectType | string)[];
+  QuickConnectTypes?: (keyof typeof QuickConnectType | string)[];
 }
 
 /**
@@ -1405,7 +1405,7 @@ export interface RoutingProfileQueueConfigSummary {
   /**
    * <p>The channels this queue supports.</p>
    */
-  Channel: Channel | string | undefined;
+  Channel: keyof typeof Channel | string | undefined;
 }
 
 /**
@@ -1492,12 +1492,12 @@ export interface ListRulesRequest {
   /**
    * <p>The publish status of the rule.</p>
    */
-  PublishStatus?: RulePublishStatus | string;
+  PublishStatus?: keyof typeof RulePublishStatus | string;
 
   /**
    * <p>The name of the event source.</p>
    */
-  EventSourceName?: EventSourceName | string;
+  EventSourceName?: keyof typeof EventSourceName | string;
 
   /**
    * <p>The maximum number of results to return per page.</p>
@@ -1534,12 +1534,12 @@ export interface RuleSummary {
   /**
    * <p>The name of the event source.</p>
    */
-  EventSourceName: EventSourceName | string | undefined;
+  EventSourceName: keyof typeof EventSourceName | string | undefined;
 
   /**
    * <p>The publish status of the rule.</p>
    */
-  PublishStatus: RulePublishStatus | string | undefined;
+  PublishStatus: keyof typeof RulePublishStatus | string | undefined;
 
   /**
    * <p>A list of ActionTypes associated with a rule. </p>
@@ -1782,7 +1782,7 @@ export interface ListTaskTemplatesRequest {
    * Tasks can only be created from <code>ACTIVE</code> templates.
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    */
-  Status?: TaskTemplateStatus | string;
+  Status?: keyof typeof TaskTemplateStatus | string;
 
   /**
    * <p>The name of the task template.</p>
@@ -1820,7 +1820,7 @@ export interface TaskTemplateMetadata {
    * Tasks can only be created from <code>ACTIVE</code> templates.
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    */
-  Status?: TaskTemplateStatus | string;
+  Status?: keyof typeof TaskTemplateStatus | string;
 
   /**
    * <p>The timestamp when the task template was last modified.</p>
@@ -1931,7 +1931,7 @@ export interface TrafficDistributionGroupSummary {
    *             </li>
    *          </ul>
    */
-  Status?: TrafficDistributionGroupStatus | string;
+  Status?: keyof typeof TrafficDistributionGroupStatus | string;
 }
 
 /**
@@ -1998,7 +1998,7 @@ export interface UseCase {
    * <p>The type of use case to associate to the integration association. Each integration
    *    association can have only one of each use case type.</p>
    */
-  UseCaseType?: UseCaseType | string;
+  UseCaseType?: keyof typeof UseCaseType | string;
 }
 
 /**
@@ -2133,7 +2133,7 @@ export interface MonitorContactRequest {
    * <p>Specify which monitoring actions the user is allowed to take. For example, whether the user
    *    is allowed to escalate from silent monitoring to barge.</p>
    */
-  AllowedMonitorCapabilities?: (MonitorCapability | string)[];
+  AllowedMonitorCapabilities?: (keyof typeof MonitorCapability | string)[];
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2285,12 +2285,12 @@ export interface SearchAvailablePhoneNumbersRequest {
   /**
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCode: PhoneNumberCountryCode | string | undefined;
+  PhoneNumberCountryCode: keyof typeof PhoneNumberCountryCode | string | undefined;
 
   /**
    * <p>The type of phone number.</p>
    */
-  PhoneNumberType: PhoneNumberType | string | undefined;
+  PhoneNumberType: keyof typeof PhoneNumberType | string | undefined;
 
   /**
    * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
@@ -2322,12 +2322,12 @@ export interface AvailableNumberSummary {
   /**
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
+  PhoneNumberCountryCode?: keyof typeof PhoneNumberCountryCode | string;
 
   /**
    * <p>The type of phone number.</p>
    */
-  PhoneNumberType?: PhoneNumberType | string;
+  PhoneNumberType?: keyof typeof PhoneNumberType | string;
 }
 
 /**
@@ -2348,18 +2348,18 @@ export interface SearchAvailablePhoneNumbersResponse {
 /**
  * @public
  */
-export enum SearchableQueueType {
-  STANDARD = "STANDARD",
-}
+export const SearchableQueueType = {
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
  */
-export enum StringComparisonType {
-  CONTAINS = "CONTAINS",
-  EXACT = "EXACT",
-  STARTS_WITH = "STARTS_WITH",
-}
+export const StringComparisonType = {
+  CONTAINS: "CONTAINS",
+  EXACT: "EXACT",
+  STARTS_WITH: "STARTS_WITH",
+};
 
 /**
  * @public
@@ -2383,7 +2383,7 @@ export interface StringCondition {
   /**
    * <p>The type of comparison to be made when evaluating the string condition.</p>
    */
-  ComparisonType?: StringComparisonType | string;
+  ComparisonType?: keyof typeof StringComparisonType | string;
 }
 
 /**
@@ -2602,10 +2602,10 @@ export interface SearchSecurityProfilesResponse {
 /**
  * @public
  */
-export enum HierarchyGroupMatchType {
-  EXACT = "EXACT",
-  WITH_CHILD_GROUPS = "WITH_CHILD_GROUPS",
-}
+export const HierarchyGroupMatchType = {
+  EXACT: "EXACT",
+  WITH_CHILD_GROUPS: "WITH_CHILD_GROUPS",
+};
 
 /**
  * @public
@@ -2620,7 +2620,7 @@ export interface HierarchyGroupCondition {
   /**
    * <p>The type of hierarchy group match.</p>
    */
-  HierarchyGroupMatchType?: HierarchyGroupMatchType | string;
+  HierarchyGroupMatchType?: keyof typeof HierarchyGroupMatchType | string;
 }
 
 /**
@@ -2760,7 +2760,7 @@ export interface SearchVocabulariesRequest {
   /**
    * <p>The current state of the custom vocabulary.</p>
    */
-  State?: VocabularyState | string;
+  State?: keyof typeof VocabularyState | string;
 
   /**
    * <p>The starting pattern of the name of the vocabulary.</p>
@@ -2772,7 +2772,7 @@ export interface SearchVocabulariesRequest {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode?: VocabularyLanguageCode | string;
+  LanguageCode?: keyof typeof VocabularyLanguageCode | string;
 }
 
 /**
@@ -2800,12 +2800,12 @@ export interface VocabularySummary {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode: VocabularyLanguageCode | string | undefined;
+  LanguageCode: keyof typeof VocabularyLanguageCode | string | undefined;
 
   /**
    * <p>The current state of the custom vocabulary.</p>
    */
-  State: VocabularyState | string | undefined;
+  State: keyof typeof VocabularyState | string | undefined;
 
   /**
    * <p>The timestamp when the custom vocabulary was last modified.</p>
@@ -2874,10 +2874,10 @@ export interface ParticipantDetails {
 /**
  * @public
  */
-export enum RehydrationType {
-  ENTIRE_PAST_SESSION = "ENTIRE_PAST_SESSION",
-  FROM_SEGMENT = "FROM_SEGMENT",
-}
+export const RehydrationType = {
+  ENTIRE_PAST_SESSION: "ENTIRE_PAST_SESSION",
+  FROM_SEGMENT: "FROM_SEGMENT",
+};
 
 /**
  * @public
@@ -2906,7 +2906,7 @@ export interface PersistentChat {
    *          </ul>
    *          <p>The actual contactId used for rehydration is provided in the response of this API. </p>
    */
-  RehydrationType?: RehydrationType | string;
+  RehydrationType?: keyof typeof RehydrationType | string;
 
   /**
    * <p>The contactId from which a persistent chat session must be started.</p>
@@ -3015,11 +3015,11 @@ export interface StartChatContactResponse {
 /**
  * @public
  */
-export enum VoiceRecordingTrack {
-  ALL = "ALL",
-  FROM_AGENT = "FROM_AGENT",
-  TO_AGENT = "TO_AGENT",
-}
+export const VoiceRecordingTrack = {
+  ALL: "ALL",
+  FROM_AGENT: "FROM_AGENT",
+  TO_AGENT: "TO_AGENT",
+};
 
 /**
  * @public
@@ -3029,7 +3029,7 @@ export interface VoiceRecordingConfiguration {
   /**
    * <p>Identifies which track is being recorded.</p>
    */
-  VoiceRecordingTrack?: VoiceRecordingTrack | string;
+  VoiceRecordingTrack?: keyof typeof VoiceRecordingTrack | string;
 }
 
 /**
@@ -3185,10 +3185,10 @@ export interface AnswerMachineDetectionConfig {
 /**
  * @public
  */
-export enum TrafficType {
-  CAMPAIGN = "CAMPAIGN",
-  GENERAL = "GENERAL",
-}
+export const TrafficType = {
+  CAMPAIGN: "CAMPAIGN",
+  GENERAL: "GENERAL",
+};
 
 /**
  * @public
@@ -3262,7 +3262,7 @@ export interface StartOutboundVoiceContactRequest {
    *     <code>EnableAnswerMachineDetection</code> is set to <code>true</code>. For all other cases, use
    *     <code>GENERAL</code>. </p>
    */
-  TrafficType?: TrafficType | string;
+  TrafficType?: keyof typeof TrafficType | string;
 }
 
 /**
@@ -3595,7 +3595,7 @@ export interface UpdateAgentStatusRequest {
   /**
    * <p>The state of the agent status.</p>
    */
-  State?: AgentStatusState | string;
+  State?: keyof typeof AgentStatusState | string;
 
   /**
    * <p>The display order of the agent status.</p>
@@ -3726,7 +3726,7 @@ export interface UpdateContactFlowMetadataRequest {
   /**
    * <p>The state of flow.</p>
    */
-  ContactFlowState?: ContactFlowState | string;
+  ContactFlowState?: keyof typeof ContactFlowState | string;
 }
 
 /**
@@ -3786,7 +3786,7 @@ export interface UpdateContactFlowModuleMetadataRequest {
   /**
    * <p>The state of flow module.</p>
    */
-  State?: ContactFlowModuleState | string;
+  State?: keyof typeof ContactFlowModuleState | string;
 }
 
 /**
@@ -3900,7 +3900,7 @@ export interface UpdateInstanceAttributeRequest {
    *     contact Amazon Web Services Support for allowlisting.</p>
    *          </note>
    */
-  AttributeType: InstanceAttributeType | string | undefined;
+  AttributeType: keyof typeof InstanceAttributeType | string | undefined;
 
   /**
    * <p>The value for the attribute. Maximum character limit is 100. </p>
@@ -3925,7 +3925,7 @@ export interface UpdateInstanceStorageConfigRequest {
   /**
    * <p>A valid resource type.</p>
    */
-  ResourceType: InstanceStorageResourceType | string | undefined;
+  ResourceType: keyof typeof InstanceStorageResourceType | string | undefined;
 
   /**
    * <p>The storage configuration for the instance.</p>
@@ -3936,25 +3936,25 @@ export interface UpdateInstanceStorageConfigRequest {
 /**
  * @public
  */
-export enum TimerEligibleParticipantRoles {
-  AGENT = "AGENT",
-  CUSTOMER = "CUSTOMER",
-}
+export const TimerEligibleParticipantRoles = {
+  AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
+};
 
 /**
  * @public
  */
-export enum ParticipantTimerType {
-  DISCONNECT_NONCUSTOMER = "DISCONNECT_NONCUSTOMER",
-  IDLE = "IDLE",
-}
+export const ParticipantTimerType = {
+  DISCONNECT_NONCUSTOMER: "DISCONNECT_NONCUSTOMER",
+  IDLE: "IDLE",
+};
 
 /**
  * @public
  */
-export enum ParticipantTimerAction {
-  Unset = "Unset",
-}
+export const ParticipantTimerAction = {
+  Unset: "Unset",
+};
 
 /**
  * @public
@@ -3977,7 +3977,7 @@ export namespace ParticipantTimerValue {
    *    timer.</p>
    */
   export interface ParticipantTimerActionMember {
-    ParticipantTimerAction: ParticipantTimerAction | string;
+    ParticipantTimerAction: keyof typeof ParticipantTimerAction | string;
     ParticipantTimerDurationInMinutes?: never;
     $unknown?: never;
   }
@@ -3998,7 +3998,7 @@ export namespace ParticipantTimerValue {
   }
 
   export interface Visitor<T> {
-    ParticipantTimerAction: (value: ParticipantTimerAction | string) => T;
+    ParticipantTimerAction: (value: keyof typeof ParticipantTimerAction | string) => T;
     ParticipantTimerDurationInMinutes: (value: number) => T;
     _: (name: string, value: any) => T;
   }
@@ -4023,14 +4023,14 @@ export interface ParticipantTimerConfiguration {
   /**
    * <p>The role of the participant in the chat conversation.</p>
    */
-  ParticipantRole: TimerEligibleParticipantRoles | string | undefined;
+  ParticipantRole: keyof typeof TimerEligibleParticipantRoles | string | undefined;
 
   /**
    * <p>The type of timer. <code>IDLE</code> indicates the timer applies for considering a human
    *    chat participant as idle. <code>DISCONNECT_NONCUSTOMER</code> indicates the timer applies to
    *    automatically disconnecting a chat participant due to idleness.</p>
    */
-  TimerType: ParticipantTimerType | string | undefined;
+  TimerType: keyof typeof ParticipantTimerType | string | undefined;
 
   /**
    * <p>The value of the timer. Either the timer action (Unset to delete the timer), or the duration
@@ -4252,7 +4252,7 @@ export interface UpdateQueueStatusRequest {
   /**
    * <p>The status of the queue.</p>
    */
-  Status: QueueStatus | string | undefined;
+  Status: keyof typeof QueueStatus | string | undefined;
 }
 
 /**
@@ -4422,7 +4422,7 @@ export interface UpdateRuleRequest {
   /**
    * <p>The publish status of the rule.</p>
    */
-  PublishStatus: RulePublishStatus | string | undefined;
+  PublishStatus: keyof typeof RulePublishStatus | string | undefined;
 }
 
 /**
@@ -4505,7 +4505,7 @@ export interface UpdateTaskTemplateRequest {
    * Tasks can only be created from <code>ACTIVE</code> templates.
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    */
-  Status?: TaskTemplateStatus | string;
+  Status?: keyof typeof TaskTemplateStatus | string;
 
   /**
    * <p>Fields that are part of the template.</p>
@@ -4567,7 +4567,7 @@ export interface UpdateTaskTemplateResponse {
    * Tasks can only be created from <code>ACTIVE</code> templates.
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    */
-  Status?: TaskTemplateStatus | string;
+  Status?: keyof typeof TaskTemplateStatus | string;
 
   /**
    * <p>The timestamp when the task template was last modified.</p>
@@ -4813,7 +4813,7 @@ export interface QueueSearchCriteria {
   /**
    * <p>The type of queue.</p>
    */
-  QueueTypeCondition?: SearchableQueueType | string;
+  QueueTypeCondition?: keyof typeof SearchableQueueType | string;
 }
 
 /**

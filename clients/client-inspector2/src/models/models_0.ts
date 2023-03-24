@@ -26,14 +26,14 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum Status {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  SUSPENDED = "SUSPENDED",
-  SUSPENDING = "SUSPENDING",
-}
+export const Status = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  SUSPENDED: "SUSPENDED",
+  SUSPENDING: "SUSPENDING",
+};
 
 /**
  * @public
@@ -43,17 +43,17 @@ export interface ResourceStatus {
   /**
    * <p>The status of Amazon Inspector scanning for Amazon EC2 resources.</p>
    */
-  ec2: Status | string | undefined;
+  ec2: keyof typeof Status | string | undefined;
 
   /**
    * <p>The status of Amazon Inspector scanning for Amazon ECR resources.</p>
    */
-  ecr: Status | string | undefined;
+  ecr: keyof typeof Status | string | undefined;
 
   /**
    * <p>The status of Amazon Inspector scanning for AWS Lambda function resources.</p>
    */
-  lambda?: Status | string;
+  lambda?: keyof typeof Status | string;
 }
 
 /**
@@ -69,7 +69,7 @@ export interface Account {
   /**
    * <p>The status of Amazon Inspector for the account.</p>
    */
-  status: Status | string | undefined;
+  status: keyof typeof Status | string | undefined;
 
   /**
    * <p>Details of the status of Amazon Inspector scans by resource type.</p>
@@ -80,36 +80,36 @@ export interface Account {
 /**
  * @public
  */
-export enum AggregationFindingType {
-  NETWORK_REACHABILITY = "NETWORK_REACHABILITY",
-  PACKAGE_VULNERABILITY = "PACKAGE_VULNERABILITY",
-}
+export const AggregationFindingType = {
+  NETWORK_REACHABILITY: "NETWORK_REACHABILITY",
+  PACKAGE_VULNERABILITY: "PACKAGE_VULNERABILITY",
+};
 
 /**
  * @public
  */
-export enum AggregationResourceType {
-  AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
-  AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
-  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
-}
+export const AggregationResourceType = {
+  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
+  AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
+  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+};
 
 /**
  * @public
  */
-export enum AccountSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const AccountSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+};
 
 /**
  * @public
@@ -120,22 +120,22 @@ export interface AccountAggregation {
   /**
    * <p>The type of finding.</p>
    */
-  findingType?: AggregationFindingType | string;
+  findingType?: keyof typeof AggregationFindingType | string;
 
   /**
    * <p>The type of resource.</p>
    */
-  resourceType?: AggregationResourceType | string;
+  resourceType?: keyof typeof AggregationResourceType | string;
 
   /**
    * <p>The sort order (ascending or descending).</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The value to sort by.</p>
    */
-  sortBy?: AccountSortBy | string;
+  sortBy?: keyof typeof AccountSortBy | string;
 }
 
 /**
@@ -183,22 +183,22 @@ export interface AccountAggregationResponse {
 /**
  * @public
  */
-export enum ErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  ACCOUNT_IS_ISOLATED = "ACCOUNT_IS_ISOLATED",
-  ALREADY_ENABLED = "ALREADY_ENABLED",
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  DISASSOCIATE_ALL_MEMBERS = "DISASSOCIATE_ALL_MEMBERS",
-  ENABLE_IN_PROGRESS = "ENABLE_IN_PROGRESS",
-  EVENTBRIDGE_THROTTLED = "EVENTBRIDGE_THROTTLED",
-  EVENTBRIDGE_UNAVAILABLE = "EVENTBRIDGE_UNAVAILABLE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  RESOURCE_SCAN_NOT_DISABLED = "RESOURCE_SCAN_NOT_DISABLED",
-  SSM_THROTTLED = "SSM_THROTTLED",
-  SSM_UNAVAILABLE = "SSM_UNAVAILABLE",
-  SUSPEND_IN_PROGRESS = "SUSPEND_IN_PROGRESS",
-}
+export const ErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  ACCOUNT_IS_ISOLATED: "ACCOUNT_IS_ISOLATED",
+  ALREADY_ENABLED: "ALREADY_ENABLED",
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  DISASSOCIATE_ALL_MEMBERS: "DISASSOCIATE_ALL_MEMBERS",
+  ENABLE_IN_PROGRESS: "ENABLE_IN_PROGRESS",
+  EVENTBRIDGE_THROTTLED: "EVENTBRIDGE_THROTTLED",
+  EVENTBRIDGE_UNAVAILABLE: "EVENTBRIDGE_UNAVAILABLE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  RESOURCE_SCAN_NOT_DISABLED: "RESOURCE_SCAN_NOT_DISABLED",
+  SSM_THROTTLED: "SSM_THROTTLED",
+  SSM_UNAVAILABLE: "SSM_UNAVAILABLE",
+  SUSPEND_IN_PROGRESS: "SUSPEND_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -208,12 +208,12 @@ export interface State {
   /**
    * <p>The status of Amazon Inspector for the account.</p>
    */
-  status: Status | string | undefined;
+  status: keyof typeof Status | string | undefined;
 
   /**
    * <p>The error code explaining why the account failed to enable Amazon Inspector.</p>
    */
-  errorCode: ErrorCode | string | undefined;
+  errorCode: keyof typeof ErrorCode | string | undefined;
 
   /**
    * <p>The error message received when the account failed to enable Amazon Inspector.</p>
@@ -266,11 +266,11 @@ export interface AccountState {
 /**
  * @public
  */
-export enum StringComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-  PREFIX = "PREFIX",
-}
+export const StringComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+  PREFIX: "PREFIX",
+};
 
 /**
  * @public
@@ -280,7 +280,7 @@ export interface StringFilter {
   /**
    * <p>The operator to use when comparing values in the filter.</p>
    */
-  comparison: StringComparison | string | undefined;
+  comparison: keyof typeof StringComparison | string | undefined;
 
   /**
    * <p>The value to filter on.</p>
@@ -291,12 +291,12 @@ export interface StringFilter {
 /**
  * @public
  */
-export enum AmiSortBy {
-  AFFECTED_INSTANCES = "AFFECTED_INSTANCES",
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const AmiSortBy = {
+  AFFECTED_INSTANCES: "AFFECTED_INSTANCES",
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+};
 
 /**
  * @public
@@ -311,22 +311,22 @@ export interface AmiAggregation {
   /**
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The value to sort results by.</p>
    */
-  sortBy?: AmiSortBy | string;
+  sortBy?: keyof typeof AmiSortBy | string;
 }
 
 /**
  * @public
  */
-export enum AwsEcrContainerSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const AwsEcrContainerSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+};
 
 /**
  * @public
@@ -361,20 +361,20 @@ export interface AwsEcrContainerAggregation {
   /**
    * <p>The sort order (ascending or descending).</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The value to sort by.</p>
    */
-  sortBy?: AwsEcrContainerSortBy | string;
+  sortBy?: keyof typeof AwsEcrContainerSortBy | string;
 }
 
 /**
  * @public
  */
-export enum MapComparison {
-  EQUALS = "EQUALS",
-}
+export const MapComparison = {
+  EQUALS: "EQUALS",
+};
 
 /**
  * @public
@@ -384,7 +384,7 @@ export interface MapFilter {
   /**
    * <p>The operator to use when comparing values in the filter.</p>
    */
-  comparison: MapComparison | string | undefined;
+  comparison: keyof typeof MapComparison | string | undefined;
 
   /**
    * <p>The tag key used in the filter.</p>
@@ -400,12 +400,12 @@ export interface MapFilter {
 /**
  * @public
  */
-export enum Ec2InstanceSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  NETWORK_FINDINGS = "NETWORK_FINDINGS",
-}
+export const Ec2InstanceSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  NETWORK_FINDINGS: "NETWORK_FINDINGS",
+};
 
 /**
  * @public
@@ -437,22 +437,22 @@ export interface Ec2InstanceAggregation {
   /**
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The value to sort results by.</p>
    */
-  sortBy?: Ec2InstanceSortBy | string;
+  sortBy?: keyof typeof Ec2InstanceSortBy | string;
 }
 
 /**
  * @public
  */
-export enum FindingTypeSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const FindingTypeSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+};
 
 /**
  * @public
@@ -462,32 +462,32 @@ export interface FindingTypeAggregation {
   /**
    * <p>The finding type to aggregate.</p>
    */
-  findingType?: AggregationFindingType | string;
+  findingType?: keyof typeof AggregationFindingType | string;
 
   /**
    * <p>The resource type to aggregate.</p>
    */
-  resourceType?: AggregationResourceType | string;
+  resourceType?: keyof typeof AggregationResourceType | string;
 
   /**
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The value to sort results by.</p>
    */
-  sortBy?: FindingTypeSortBy | string;
+  sortBy?: keyof typeof FindingTypeSortBy | string;
 }
 
 /**
  * @public
  */
-export enum ImageLayerSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const ImageLayerSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+};
 
 /**
  * @public
@@ -512,22 +512,22 @@ export interface ImageLayerAggregation {
   /**
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The value to sort results by.</p>
    */
-  sortBy?: ImageLayerSortBy | string;
+  sortBy?: keyof typeof ImageLayerSortBy | string;
 }
 
 /**
  * @public
  */
-export enum LambdaFunctionSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const LambdaFunctionSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+};
 
 /**
  * @public
@@ -557,22 +557,22 @@ export interface LambdaFunctionAggregation {
   /**
    * <p>The order to use for sorting the results.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The finding severity to use for sorting the results.</p>
    */
-  sortBy?: LambdaFunctionSortBy | string;
+  sortBy?: keyof typeof LambdaFunctionSortBy | string;
 }
 
 /**
  * @public
  */
-export enum LambdaLayerSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const LambdaLayerSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+};
 
 /**
  * @public
@@ -598,22 +598,22 @@ export interface LambdaLayerAggregation {
   /**
    * <p>The order to use for sorting the results.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The finding severity to use for sorting the results.</p>
    */
-  sortBy?: LambdaLayerSortBy | string;
+  sortBy?: keyof typeof LambdaLayerSortBy | string;
 }
 
 /**
  * @public
  */
-export enum PackageSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const PackageSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+};
 
 /**
  * @public
@@ -628,23 +628,23 @@ export interface PackageAggregation {
   /**
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The value to sort results by.</p>
    */
-  sortBy?: PackageSortBy | string;
+  sortBy?: keyof typeof PackageSortBy | string;
 }
 
 /**
  * @public
  */
-export enum RepositorySortBy {
-  AFFECTED_IMAGES = "AFFECTED_IMAGES",
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const RepositorySortBy = {
+  AFFECTED_IMAGES: "AFFECTED_IMAGES",
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+};
 
 /**
  * @public
@@ -659,22 +659,22 @@ export interface RepositoryAggregation {
   /**
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The value to sort results by.</p>
    */
-  sortBy?: RepositorySortBy | string;
+  sortBy?: keyof typeof RepositorySortBy | string;
 }
 
 /**
  * @public
  */
-export enum TitleSortBy {
-  ALL = "ALL",
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-}
+export const TitleSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+};
 
 /**
  * @public
@@ -694,17 +694,17 @@ export interface TitleAggregation {
   /**
    * <p>The resource type to aggregate on.</p>
    */
-  resourceType?: AggregationResourceType | string;
+  resourceType?: keyof typeof AggregationResourceType | string;
 
   /**
    * <p>The order to sort results by.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The value to sort results by.</p>
    */
-  sortBy?: TitleSortBy | string;
+  sortBy?: keyof typeof TitleSortBy | string;
 }
 
 /**
@@ -1560,27 +1560,27 @@ export namespace AggregationResponse {
 /**
  * @public
  */
-export enum AggregationType {
-  ACCOUNT = "ACCOUNT",
-  AMI = "AMI",
-  AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
-  AWS_ECR_CONTAINER = "AWS_ECR_CONTAINER",
-  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
-  FINDING_TYPE = "FINDING_TYPE",
-  IMAGE_LAYER = "IMAGE_LAYER",
-  LAMBDA_LAYER = "LAMBDA_LAYER",
-  PACKAGE = "PACKAGE",
-  REPOSITORY = "REPOSITORY",
-  TITLE = "TITLE",
-}
+export const AggregationType = {
+  ACCOUNT: "ACCOUNT",
+  AMI: "AMI",
+  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
+  AWS_ECR_CONTAINER: "AWS_ECR_CONTAINER",
+  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+  FINDING_TYPE: "FINDING_TYPE",
+  IMAGE_LAYER: "IMAGE_LAYER",
+  LAMBDA_LAYER: "LAMBDA_LAYER",
+  PACKAGE: "PACKAGE",
+  REPOSITORY: "REPOSITORY",
+  TITLE: "TITLE",
+};
 
 /**
  * @public
  */
-export enum Architecture {
-  ARM64 = "ARM64",
-  X86_64 = "X86_64",
-}
+export const Architecture = {
+  ARM64: "ARM64",
+  X86_64: "X86_64",
+};
 
 /**
  * @public
@@ -1677,11 +1677,11 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+};
 
 /**
  * @public
@@ -1694,7 +1694,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason for the validation failure.</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: keyof typeof ValidationExceptionReason | string | undefined;
 
   /**
    * <p>The fields that failed validation.</p>
@@ -1845,29 +1845,29 @@ export interface AwsEcrContainerImageDetails {
 /**
  * @public
  */
-export enum PackageType {
-  IMAGE = "IMAGE",
-  ZIP = "ZIP",
-}
+export const PackageType = {
+  IMAGE: "IMAGE",
+  ZIP: "ZIP",
+};
 
 /**
  * @public
  */
-export enum Runtime {
-  GO_1_X = "GO_1_X",
-  JAVA_11 = "JAVA_11",
-  JAVA_8 = "JAVA_8",
-  JAVA_8_AL2 = "JAVA_8_AL2",
-  NODEJS = "NODEJS",
-  NODEJS_12_X = "NODEJS_12_X",
-  NODEJS_14_X = "NODEJS_14_X",
-  NODEJS_16_X = "NODEJS_16_X",
-  NODEJS_18_X = "NODEJS_18_X",
-  PYTHON_3_7 = "PYTHON_3_7",
-  PYTHON_3_8 = "PYTHON_3_8",
-  PYTHON_3_9 = "PYTHON_3_9",
-  UNSUPPORTED = "UNSUPPORTED",
-}
+export const Runtime = {
+  GO_1_X: "GO_1_X",
+  JAVA_11: "JAVA_11",
+  JAVA_8: "JAVA_8",
+  JAVA_8_AL2: "JAVA_8_AL2",
+  NODEJS: "NODEJS",
+  NODEJS_12_X: "NODEJS_12_X",
+  NODEJS_14_X: "NODEJS_14_X",
+  NODEJS_16_X: "NODEJS_16_X",
+  NODEJS_18_X: "NODEJS_18_X",
+  PYTHON_3_7: "PYTHON_3_7",
+  PYTHON_3_8: "PYTHON_3_8",
+  PYTHON_3_9: "PYTHON_3_9",
+  UNSUPPORTED: "UNSUPPORTED",
+};
 
 /**
  * @public
@@ -1903,7 +1903,7 @@ export interface AwsLambdaFunctionDetails {
   /**
    * <p>The runtime environment for the AWS Lambda function.</p>
    */
-  runtime: Runtime | string | undefined;
+  runtime: keyof typeof Runtime | string | undefined;
 
   /**
    * <p>The SHA256 hash of the AWS Lambda function's deployment package.</p>
@@ -1934,13 +1934,13 @@ export interface AwsLambdaFunctionDetails {
   /**
    * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
    */
-  packageType?: PackageType | string;
+  packageType?: keyof typeof PackageType | string;
 
   /**
    * <p>The instruction set architecture that the AWS Lambda function supports. Architecture is a string array with one of the
    *          valid values. The default architecture value is <code>x86_64</code>.</p>
    */
-  architectures?: (Architecture | string)[];
+  architectures?: (keyof typeof Architecture | string)[];
 
   /**
    * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>
@@ -1992,7 +1992,7 @@ export interface FailedAccount {
   /**
    * <p>The status of Amazon Inspector for the account.</p>
    */
-  status?: Status | string;
+  status?: keyof typeof Status | string;
 
   /**
    * <p>An object detailing which resources Amazon Inspector is enabled to scan for the account.</p>
@@ -2002,7 +2002,7 @@ export interface FailedAccount {
   /**
    * <p>The error code explaining why the account failed to enable Amazon Inspector.</p>
    */
-  errorCode: ErrorCode | string | undefined;
+  errorCode: keyof typeof ErrorCode | string | undefined;
 
   /**
    * <p>The error message received when the account failed to enable Amazon Inspector.</p>
@@ -2058,19 +2058,19 @@ export interface BatchGetFreeTrialInfoRequest {
 /**
  * @public
  */
-export enum FreeTrialStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const FreeTrialStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
  */
-export enum FreeTrialType {
-  EC2 = "EC2",
-  ECR = "ECR",
-  LAMBDA = "LAMBDA",
-}
+export const FreeTrialType = {
+  EC2: "EC2",
+  ECR: "ECR",
+  LAMBDA: "LAMBDA",
+};
 
 /**
  * @public
@@ -2080,7 +2080,7 @@ export interface FreeTrialInfo {
   /**
    * <p>The type of scan covered by the Amazon Inspector free trail.</p>
    */
-  type: FreeTrialType | string | undefined;
+  type: keyof typeof FreeTrialType | string | undefined;
 
   /**
    * <p>The date and time that the Amazon Inspector free trail started for a given account.</p>
@@ -2095,7 +2095,7 @@ export interface FreeTrialInfo {
   /**
    * <p>The order to sort results by.</p>
    */
-  status: FreeTrialStatus | string | undefined;
+  status: keyof typeof FreeTrialStatus | string | undefined;
 }
 
 /**
@@ -2117,10 +2117,10 @@ export interface FreeTrialAccountInfo {
 /**
  * @public
  */
-export enum FreeTrialInfoErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-}
+export const FreeTrialInfoErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+};
 
 /**
  * @public
@@ -2135,7 +2135,7 @@ export interface FreeTrialInfoError {
   /**
    * <p>The error code.</p>
    */
-  code: FreeTrialInfoErrorCode | string | undefined;
+  code: keyof typeof FreeTrialInfoErrorCode | string | undefined;
 
   /**
    * <p>The error message returned.</p>
@@ -2214,13 +2214,13 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum GroupKey {
-  ACCOUNT_ID = "ACCOUNT_ID",
-  ECR_REPOSITORY_NAME = "ECR_REPOSITORY_NAME",
-  RESOURCE_TYPE = "RESOURCE_TYPE",
-  SCAN_STATUS_CODE = "SCAN_STATUS_CODE",
-  SCAN_STATUS_REASON = "SCAN_STATUS_REASON",
-}
+export const GroupKey = {
+  ACCOUNT_ID: "ACCOUNT_ID",
+  ECR_REPOSITORY_NAME: "ECR_REPOSITORY_NAME",
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+  SCAN_STATUS_CODE: "SCAN_STATUS_CODE",
+  SCAN_STATUS_REASON: "SCAN_STATUS_REASON",
+};
 
 /**
  * @public
@@ -2235,16 +2235,16 @@ export interface Counts {
   /**
    * <p>The key associated with this group</p>
    */
-  groupKey?: GroupKey | string;
+  groupKey?: keyof typeof GroupKey | string;
 }
 
 /**
  * @public
  */
-export enum CoverageStringComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-}
+export const CoverageStringComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+};
 
 /**
  * @public
@@ -2254,7 +2254,7 @@ export interface CoverageStringFilter {
   /**
    * <p>The operator to compare strings on.</p>
    */
-  comparison: CoverageStringComparison | string | undefined;
+  comparison: keyof typeof CoverageStringComparison | string | undefined;
 
   /**
    * <p>The value to compare strings on.</p>
@@ -2265,9 +2265,9 @@ export interface CoverageStringFilter {
 /**
  * @public
  */
-export enum CoverageMapComparison {
-  EQUALS = "EQUALS",
-}
+export const CoverageMapComparison = {
+  EQUALS: "EQUALS",
+};
 
 /**
  * @public
@@ -2277,7 +2277,7 @@ export interface CoverageMapFilter {
   /**
    * <p>The operator to compare coverage on.</p>
    */
-  comparison: CoverageMapComparison | string | undefined;
+  comparison: keyof typeof CoverageMapComparison | string | undefined;
 
   /**
    * <p>The tag key associated with the coverage map filter.</p>
@@ -2359,21 +2359,21 @@ export interface CoverageFilterCriteria {
 /**
  * @public
  */
-export enum CoverageResourceType {
-  AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
-  AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
-  AWS_ECR_REPOSITORY = "AWS_ECR_REPOSITORY",
-  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
-}
+export const CoverageResourceType = {
+  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
+  AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
+  AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
+  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+};
 
 /**
  * @public
  */
-export enum Ec2Platform {
-  LINUX = "LINUX",
-  UNKNOWN = "UNKNOWN",
-  WINDOWS = "WINDOWS",
-}
+export const Ec2Platform = {
+  LINUX: "LINUX",
+  UNKNOWN: "UNKNOWN",
+  WINDOWS: "WINDOWS",
+};
 
 /**
  * @public
@@ -2393,7 +2393,7 @@ export interface Ec2Metadata {
   /**
    * <p>The platform of the instance.</p>
    */
-  platform?: Ec2Platform | string;
+  platform?: keyof typeof Ec2Platform | string;
 }
 
 /**
@@ -2410,11 +2410,11 @@ export interface EcrContainerImageMetadata {
 /**
  * @public
  */
-export enum EcrScanFrequency {
-  CONTINUOUS_SCAN = "CONTINUOUS_SCAN",
-  MANUAL = "MANUAL",
-  SCAN_ON_PUSH = "SCAN_ON_PUSH",
-}
+export const EcrScanFrequency = {
+  CONTINUOUS_SCAN: "CONTINUOUS_SCAN",
+  MANUAL: "MANUAL",
+  SCAN_ON_PUSH: "SCAN_ON_PUSH",
+};
 
 /**
  * @public
@@ -2429,7 +2429,7 @@ export interface EcrRepositoryMetadata {
   /**
    * <p>The frequency of scans.</p>
    */
-  scanFrequency?: EcrScanFrequency | string;
+  scanFrequency?: keyof typeof EcrScanFrequency | string;
 }
 
 /**
@@ -2455,7 +2455,7 @@ export interface LambdaFunctionMetadata {
   /**
    * <p>An AWS Lambda function's runtime.</p>
    */
-  runtime?: Runtime | string;
+  runtime?: keyof typeof Runtime | string;
 }
 
 /**
@@ -2487,34 +2487,34 @@ export interface ResourceScanMetadata {
 /**
  * @public
  */
-export enum ScanStatusReason {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  EC2_INSTANCE_STOPPED = "EC2_INSTANCE_STOPPED",
-  EXCLUDED_BY_TAG = "EXCLUDED_BY_TAG",
-  IMAGE_SIZE_EXCEEDED = "IMAGE_SIZE_EXCEEDED",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  NO_INVENTORY = "NO_INVENTORY",
-  NO_RESOURCES_FOUND = "NO_RESOURCES_FOUND",
-  PENDING_DISABLE = "PENDING_DISABLE",
-  PENDING_INITIAL_SCAN = "PENDING_INITIAL_SCAN",
-  RESOURCE_TERMINATED = "RESOURCE_TERMINATED",
-  SCAN_ELIGIBILITY_EXPIRED = "SCAN_ELIGIBILITY_EXPIRED",
-  SCAN_FREQUENCY_MANUAL = "SCAN_FREQUENCY_MANUAL",
-  SCAN_FREQUENCY_SCAN_ON_PUSH = "SCAN_FREQUENCY_SCAN_ON_PUSH",
-  STALE_INVENTORY = "STALE_INVENTORY",
-  SUCCESSFUL = "SUCCESSFUL",
-  UNMANAGED_EC2_INSTANCE = "UNMANAGED_EC2_INSTANCE",
-  UNSUPPORTED_OS = "UNSUPPORTED_OS",
-  UNSUPPORTED_RUNTIME = "UNSUPPORTED_RUNTIME",
-}
+export const ScanStatusReason = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  EC2_INSTANCE_STOPPED: "EC2_INSTANCE_STOPPED",
+  EXCLUDED_BY_TAG: "EXCLUDED_BY_TAG",
+  IMAGE_SIZE_EXCEEDED: "IMAGE_SIZE_EXCEEDED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  NO_INVENTORY: "NO_INVENTORY",
+  NO_RESOURCES_FOUND: "NO_RESOURCES_FOUND",
+  PENDING_DISABLE: "PENDING_DISABLE",
+  PENDING_INITIAL_SCAN: "PENDING_INITIAL_SCAN",
+  RESOURCE_TERMINATED: "RESOURCE_TERMINATED",
+  SCAN_ELIGIBILITY_EXPIRED: "SCAN_ELIGIBILITY_EXPIRED",
+  SCAN_FREQUENCY_MANUAL: "SCAN_FREQUENCY_MANUAL",
+  SCAN_FREQUENCY_SCAN_ON_PUSH: "SCAN_FREQUENCY_SCAN_ON_PUSH",
+  STALE_INVENTORY: "STALE_INVENTORY",
+  SUCCESSFUL: "SUCCESSFUL",
+  UNMANAGED_EC2_INSTANCE: "UNMANAGED_EC2_INSTANCE",
+  UNSUPPORTED_OS: "UNSUPPORTED_OS",
+  UNSUPPORTED_RUNTIME: "UNSUPPORTED_RUNTIME",
+};
 
 /**
  * @public
  */
-export enum ScanStatusCode {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const ScanStatusCode = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -2524,21 +2524,21 @@ export interface ScanStatus {
   /**
    * <p>The status code of the scan.</p>
    */
-  statusCode: ScanStatusCode | string | undefined;
+  statusCode: keyof typeof ScanStatusCode | string | undefined;
 
   /**
    * <p>The reason for the scan.</p>
    */
-  reason: ScanStatusReason | string | undefined;
+  reason: keyof typeof ScanStatusReason | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ScanType {
-  NETWORK = "NETWORK",
-  PACKAGE = "PACKAGE",
-}
+export const ScanType = {
+  NETWORK: "NETWORK",
+  PACKAGE: "PACKAGE",
+};
 
 /**
  * @public
@@ -2548,7 +2548,7 @@ export interface CoveredResource {
   /**
    * <p>The type of the covered resource.</p>
    */
-  resourceType: CoverageResourceType | string | undefined;
+  resourceType: keyof typeof CoverageResourceType | string | undefined;
 
   /**
    * <p>The ID of the covered resource.</p>
@@ -2563,7 +2563,7 @@ export interface CoveredResource {
   /**
    * <p>The Amazon Inspector scan type covering the resource.</p>
    */
-  scanType: ScanType | string | undefined;
+  scanType: keyof typeof ScanType | string | undefined;
 
   /**
    * <p>The status of the scan covering the resource.</p>
@@ -2579,10 +2579,10 @@ export interface CoveredResource {
 /**
  * @public
  */
-export enum FilterAction {
-  NONE = "NONE",
-  SUPPRESS = "SUPPRESS",
-}
+export const FilterAction = {
+  NONE: "NONE",
+  SUPPRESS: "SUPPRESS",
+};
 
 /**
  * @public
@@ -2878,7 +2878,7 @@ export interface CreateFilterRequest {
   /**
    * <p>Defines the action that is to be applied to the findings that match the filter.</p>
    */
-  action: FilterAction | string | undefined;
+  action: keyof typeof FilterAction | string | undefined;
 
   /**
    * <p>A description of the filter.</p>
@@ -2948,10 +2948,10 @@ export class ServiceQuotaExceededException extends __BaseException {
 /**
  * @public
  */
-export enum ReportFormat {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+export const ReportFormat = {
+  CSV: "CSV",
+  JSON: "JSON",
+};
 
 /**
  * @public
@@ -2986,7 +2986,7 @@ export interface CreateFindingsReportRequest {
   /**
    * <p>The format to generate the report in.</p>
    */
-  reportFormat: ReportFormat | string | undefined;
+  reportFormat: keyof typeof ReportFormat | string | undefined;
 
   /**
    * <p>The Amazon S3 export destination for the report.</p>
@@ -3007,9 +3007,9 @@ export interface CreateFindingsReportResponse {
 /**
  * @public
  */
-export enum Currency {
-  USD = "USD",
-}
+export const Currency = {
+  USD: "USD",
+};
 
 /**
  * @public
@@ -3092,20 +3092,20 @@ export interface CvssScoreDetails {
 /**
  * @public
  */
-export enum RelationshipStatus {
-  ACCOUNT_SUSPENDED = "ACCOUNT_SUSPENDED",
-  CANNOT_CREATE_DETECTOR_IN_ORG_MASTER = "CANNOT_CREATE_DETECTOR_IN_ORG_MASTER",
-  CREATED = "CREATED",
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  EMAIL_VERIFICATION_FAILED = "EMAIL_VERIFICATION_FAILED",
-  EMAIL_VERIFICATION_IN_PROGRESS = "EMAIL_VERIFICATION_IN_PROGRESS",
-  ENABLED = "ENABLED",
-  INVITED = "INVITED",
-  REGION_DISABLED = "REGION_DISABLED",
-  REMOVED = "REMOVED",
-  RESIGNED = "RESIGNED",
-}
+export const RelationshipStatus = {
+  ACCOUNT_SUSPENDED: "ACCOUNT_SUSPENDED",
+  CANNOT_CREATE_DETECTOR_IN_ORG_MASTER: "CANNOT_CREATE_DETECTOR_IN_ORG_MASTER",
+  CREATED: "CREATED",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  EMAIL_VERIFICATION_FAILED: "EMAIL_VERIFICATION_FAILED",
+  EMAIL_VERIFICATION_IN_PROGRESS: "EMAIL_VERIFICATION_IN_PROGRESS",
+  ENABLED: "ENABLED",
+  INVITED: "INVITED",
+  REGION_DISABLED: "REGION_DISABLED",
+  REMOVED: "REMOVED",
+  RESIGNED: "RESIGNED",
+};
 
 /**
  * @public
@@ -3120,16 +3120,16 @@ export interface DelegatedAdmin {
   /**
    * <p>The status of the Amazon Inspector delegated administrator.</p>
    */
-  relationshipStatus?: RelationshipStatus | string;
+  relationshipStatus?: keyof typeof RelationshipStatus | string;
 }
 
 /**
  * @public
  */
-export enum DelegatedAdminStatus {
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-}
+export const DelegatedAdminStatus = {
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -3144,7 +3144,7 @@ export interface DelegatedAdminAccount {
   /**
    * <p>The status of the Amazon Inspector delegated administrator.</p>
    */
-  status?: DelegatedAdminStatus | string;
+  status?: keyof typeof DelegatedAdminStatus | string;
 }
 
 /**
@@ -3190,11 +3190,11 @@ export interface DescribeOrganizationConfigurationResponse {
 /**
  * @public
  */
-export enum ResourceScanType {
-  EC2 = "EC2",
-  ECR = "ECR",
-  LAMBDA = "LAMBDA",
-}
+export const ResourceScanType = {
+  EC2: "EC2",
+  ECR: "ECR",
+  LAMBDA: "LAMBDA",
+};
 
 /**
  * @public
@@ -3208,7 +3208,7 @@ export interface DisableRequest {
   /**
    * <p>The resource scan types you want to disable.</p>
    */
-  resourceTypes?: (ResourceScanType | string)[];
+  resourceTypes?: (keyof typeof ResourceScanType | string)[];
 }
 
 /**
@@ -3271,11 +3271,11 @@ export interface DisassociateMemberResponse {
 /**
  * @public
  */
-export enum EcrRescanDuration {
-  DAYS_180 = "DAYS_180",
-  DAYS_30 = "DAYS_30",
-  LIFETIME = "LIFETIME",
-}
+export const EcrRescanDuration = {
+  DAYS_180: "DAYS_180",
+  DAYS_30: "DAYS_30",
+  LIFETIME: "LIFETIME",
+};
 
 /**
  * @public
@@ -3285,17 +3285,17 @@ export interface EcrConfiguration {
   /**
    * <p>The ECR automated re-scan duration defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days since an image was last pushed exceeds the automated re-scan duration the monitoring state of that image becomes <code>inactive</code> and all associated findings are scheduled for closure.</p>
    */
-  rescanDuration: EcrRescanDuration | string | undefined;
+  rescanDuration: keyof typeof EcrRescanDuration | string | undefined;
 }
 
 /**
  * @public
  */
-export enum EcrRescanDurationStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-}
+export const EcrRescanDurationStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -3305,12 +3305,12 @@ export interface EcrRescanDurationState {
   /**
    * <p>The ECR automated re-scan duration defines how long an ECR image will be actively scanned by Amazon Inspector. When the number of days since an image was last pushed exceeds the automated re-scan duration the monitoring state of that image becomes <code>inactive</code> and all associated findings are scheduled for closure.</p>
    */
-  rescanDuration?: EcrRescanDuration | string;
+  rescanDuration?: keyof typeof EcrRescanDuration | string;
 
   /**
    * <p>The status of changes to the ECR automated re-scan duration.</p>
    */
-  status?: EcrRescanDurationStatus | string;
+  status?: keyof typeof EcrRescanDurationStatus | string;
 
   /**
    * <p>A timestamp representing when the last time the ECR scan duration setting was changed.</p>
@@ -3341,7 +3341,7 @@ export interface EnableRequest {
   /**
    * <p>The resource scan types you want to enable.</p>
    */
-  resourceTypes: (ResourceScanType | string)[] | undefined;
+  resourceTypes: (keyof typeof ResourceScanType | string)[] | undefined;
 
   /**
    * <p>The idempotency token for the request.</p>
@@ -3405,20 +3405,20 @@ export interface ExploitabilityDetails {
 /**
  * @public
  */
-export enum ExploitAvailable {
-  NO = "NO",
-  YES = "YES",
-}
+export const ExploitAvailable = {
+  NO: "NO",
+  YES: "YES",
+};
 
 /**
  * @public
  */
-export enum ExternalReportStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ExternalReportStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -3448,7 +3448,7 @@ export interface Filter {
   /**
    * <p>The action that is to be applied to the findings that match the filter.</p>
    */
-  action: FilterAction | string | undefined;
+  action: keyof typeof FilterAction | string | undefined;
 
   /**
    * <p>The date and time this filter was created at.</p>
@@ -3479,11 +3479,11 @@ export interface Filter {
 /**
  * @public
  */
-export enum FixAvailable {
-  NO = "NO",
-  PARTIAL = "PARTIAL",
-  YES = "YES",
-}
+export const FixAvailable = {
+  NO: "NO",
+  PARTIAL: "PARTIAL",
+  YES: "YES",
+};
 
 /**
  * @public
@@ -3542,10 +3542,10 @@ export interface PortRange {
 /**
  * @public
  */
-export enum NetworkProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const NetworkProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+};
 
 /**
  * @public
@@ -3560,7 +3560,7 @@ export interface NetworkReachabilityDetails {
   /**
    * <p>The protocol associated with a finding.</p>
    */
-  protocol: NetworkProtocol | string | undefined;
+  protocol: keyof typeof NetworkProtocol | string | undefined;
 
   /**
    * <p>An object that contains details about a network path associated with a finding.</p>
@@ -3571,24 +3571,24 @@ export interface NetworkReachabilityDetails {
 /**
  * @public
  */
-export enum PackageManager {
-  BUNDLER = "BUNDLER",
-  CARGO = "CARGO",
-  COMPOSER = "COMPOSER",
-  GOBINARY = "GOBINARY",
-  GOMOD = "GOMOD",
-  JAR = "JAR",
-  NODEPKG = "NODEPKG",
-  NPM = "NPM",
-  NUGET = "NUGET",
-  OS = "OS",
-  PIP = "PIP",
-  PIPENV = "PIPENV",
-  POETRY = "POETRY",
-  POM = "POM",
-  PYTHONPKG = "PYTHONPKG",
-  YARN = "YARN",
-}
+export const PackageManager = {
+  BUNDLER: "BUNDLER",
+  CARGO: "CARGO",
+  COMPOSER: "COMPOSER",
+  GOBINARY: "GOBINARY",
+  GOMOD: "GOMOD",
+  JAR: "JAR",
+  NODEPKG: "NODEPKG",
+  NPM: "NPM",
+  NUGET: "NUGET",
+  OS: "OS",
+  PIP: "PIP",
+  PIPENV: "PIPENV",
+  POETRY: "POETRY",
+  POM: "POM",
+  PYTHONPKG: "PYTHONPKG",
+  YARN: "YARN",
+};
 
 /**
  * @public
@@ -3628,7 +3628,7 @@ export interface VulnerablePackage {
   /**
    * <p>The package manager of the vulnerable package.</p>
    */
-  packageManager?: PackageManager | string;
+  packageManager?: keyof typeof PackageManager | string;
 
   /**
    * <p>The file path of the vulnerable package.</p>
@@ -3758,12 +3758,12 @@ export interface ResourceDetails {
 /**
  * @public
  */
-export enum ResourceType {
-  AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
-  AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
-  AWS_ECR_REPOSITORY = "AWS_ECR_REPOSITORY",
-  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
-}
+export const ResourceType = {
+  AWS_EC2_INSTANCE: "AWS_EC2_INSTANCE",
+  AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
+  AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
+  AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
+};
 
 /**
  * @public
@@ -3773,7 +3773,7 @@ export interface Resource {
   /**
    * <p>The type of resource.</p>
    */
-  type: ResourceType | string | undefined;
+  type: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>The ID of the resource.</p>
@@ -3804,31 +3804,31 @@ export interface Resource {
 /**
  * @public
  */
-export enum Severity {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  INFORMATIONAL = "INFORMATIONAL",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  UNTRIAGED = "UNTRIAGED",
-}
+export const Severity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  UNTRIAGED: "UNTRIAGED",
+};
 
 /**
  * @public
  */
-export enum FindingStatus {
-  ACTIVE = "ACTIVE",
-  CLOSED = "CLOSED",
-  SUPPRESSED = "SUPPRESSED",
-}
+export const FindingStatus = {
+  ACTIVE: "ACTIVE",
+  CLOSED: "CLOSED",
+  SUPPRESSED: "SUPPRESSED",
+};
 
 /**
  * @public
  */
-export enum FindingType {
-  NETWORK_REACHABILITY = "NETWORK_REACHABILITY",
-  PACKAGE_VULNERABILITY = "PACKAGE_VULNERABILITY",
-}
+export const FindingType = {
+  NETWORK_REACHABILITY: "NETWORK_REACHABILITY",
+  PACKAGE_VULNERABILITY: "PACKAGE_VULNERABILITY",
+};
 
 /**
  * @public
@@ -3848,7 +3848,7 @@ export interface Finding {
   /**
    * <p>The type of the finding.</p>
    */
-  type: FindingType | string | undefined;
+  type: keyof typeof FindingType | string | undefined;
 
   /**
    * <p>The description of the finding.</p>
@@ -3868,7 +3868,7 @@ export interface Finding {
   /**
    * <p>The severity of the finding.</p>
    */
-  severity: Severity | string | undefined;
+  severity: keyof typeof Severity | string | undefined;
 
   /**
    * <p>The date and time that the finding was first observed.</p>
@@ -3888,7 +3888,7 @@ export interface Finding {
   /**
    * <p>The status of the finding.</p>
    */
-  status: FindingStatus | string | undefined;
+  status: keyof typeof FindingStatus | string | undefined;
 
   /**
    * <p>Contains information on the resources involved in a finding.</p>
@@ -3918,12 +3918,12 @@ export interface Finding {
   /**
    * <p>Details on whether a fix is available through a version update. This value can be <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>.  A <code>PARTIAL</code> fix means that some, but not all, of the packages identified in the finding have fixes available through updated versions.</p>
    */
-  fixAvailable?: FixAvailable | string;
+  fixAvailable?: keyof typeof FixAvailable | string;
 
   /**
    * <p>If a finding discovered in your environment has an exploit available.</p>
    */
-  exploitAvailable?: ExploitAvailable | string;
+  exploitAvailable?: keyof typeof ExploitAvailable | string;
 
   /**
    * <p>The details of an exploit available for a finding discovered in your environment.</p>
@@ -3974,14 +3974,14 @@ export interface GetFindingsReportStatusRequest {
 /**
  * @public
  */
-export enum ReportingErrorCode {
-  BUCKET_NOT_FOUND = "BUCKET_NOT_FOUND",
-  INCOMPATIBLE_BUCKET_REGION = "INCOMPATIBLE_BUCKET_REGION",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_PERMISSIONS = "INVALID_PERMISSIONS",
-  MALFORMED_KMS_KEY = "MALFORMED_KMS_KEY",
-  NO_FINDINGS_FOUND = "NO_FINDINGS_FOUND",
-}
+export const ReportingErrorCode = {
+  BUCKET_NOT_FOUND: "BUCKET_NOT_FOUND",
+  INCOMPATIBLE_BUCKET_REGION: "INCOMPATIBLE_BUCKET_REGION",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_PERMISSIONS: "INVALID_PERMISSIONS",
+  MALFORMED_KMS_KEY: "MALFORMED_KMS_KEY",
+  NO_FINDINGS_FOUND: "NO_FINDINGS_FOUND",
+};
 
 /**
  * @public
@@ -3995,12 +3995,12 @@ export interface GetFindingsReportStatusResponse {
   /**
    * <p>The status of the report.</p>
    */
-  status?: ExternalReportStatus | string;
+  status?: keyof typeof ExternalReportStatus | string;
 
   /**
    * <p>The error code of the report.</p>
    */
-  errorCode?: ReportingErrorCode | string;
+  errorCode?: keyof typeof ReportingErrorCode | string;
 
   /**
    * <p>The error message of the report.</p>
@@ -4041,7 +4041,7 @@ export interface Member {
   /**
    * <p>The status of the member account.</p>
    */
-  relationshipStatus?: RelationshipStatus | string;
+  relationshipStatus?: keyof typeof RelationshipStatus | string;
 
   /**
    * <p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator for this member account.</p>
@@ -4067,11 +4067,11 @@ export interface GetMemberResponse {
 /**
  * @public
  */
-export enum Service {
-  EC2 = "EC2",
-  ECR = "ECR",
-  LAMBDA = "LAMBDA",
-}
+export const Service = {
+  EC2: "EC2",
+  ECR: "ECR",
+  LAMBDA: "LAMBDA",
+};
 
 /**
  * @public
@@ -4080,7 +4080,7 @@ export interface ListAccountPermissionsRequest {
   /**
    * <p>The service scan type to check permissions for.</p>
    */
-  service?: Service | string;
+  service?: keyof typeof Service | string;
 
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -4099,12 +4099,12 @@ export interface ListAccountPermissionsRequest {
 /**
  * @public
  */
-export enum Operation {
-  DISABLE_REPOSITORY = "DISABLE_REPOSITORY",
-  DISABLE_SCANNING = "DISABLE_SCANNING",
-  ENABLE_REPOSITORY = "ENABLE_REPOSITORY",
-  ENABLE_SCANNING = "ENABLE_SCANNING",
-}
+export const Operation = {
+  DISABLE_REPOSITORY: "DISABLE_REPOSITORY",
+  DISABLE_SCANNING: "DISABLE_SCANNING",
+  ENABLE_REPOSITORY: "ENABLE_REPOSITORY",
+  ENABLE_SCANNING: "ENABLE_SCANNING",
+};
 
 /**
  * @public
@@ -4114,12 +4114,12 @@ export interface Permission {
   /**
    * <p>The services that the permissions allow an account to perform the given operations for.</p>
    */
-  service: Service | string | undefined;
+  service: keyof typeof Service | string | undefined;
 
   /**
    * <p>The operations that can be performed with the given permissions.</p>
    */
-  operation: Operation | string | undefined;
+  operation: keyof typeof Operation | string | undefined;
 }
 
 /**
@@ -4195,7 +4195,7 @@ export interface ListCoverageStatisticsRequest {
   /**
    * <p>The value to group the results by.</p>
    */
-  groupBy?: GroupKey | string;
+  groupBy?: keyof typeof GroupKey | string;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value
@@ -4277,7 +4277,7 @@ export interface ListFiltersRequest {
   /**
    * <p>The action the filter applies to matched findings.</p>
    */
-  action?: FilterAction | string;
+  action?: keyof typeof FilterAction | string;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value
@@ -4318,7 +4318,7 @@ export interface ListFindingAggregationsRequest {
   /**
    * <p>The type of the aggregation request.</p>
    */
-  aggregationType: AggregationType | string | undefined;
+  aggregationType: keyof typeof AggregationType | string | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value
@@ -4351,7 +4351,7 @@ export interface ListFindingAggregationsResponse {
   /**
    * <p>The type of aggregation to perform.</p>
    */
-  aggregationType: AggregationType | string | undefined;
+  aggregationType: keyof typeof AggregationType | string | undefined;
 
   /**
    * <p>Objects that contain the results of an aggregation operation.</p>
@@ -4370,24 +4370,24 @@ export interface ListFindingAggregationsResponse {
 /**
  * @public
  */
-export enum SortField {
-  AWS_ACCOUNT_ID = "AWS_ACCOUNT_ID",
-  COMPONENT_TYPE = "COMPONENT_TYPE",
-  ECR_IMAGE_PUSHED_AT = "ECR_IMAGE_PUSHED_AT",
-  ECR_IMAGE_REGISTRY = "ECR_IMAGE_REGISTRY",
-  ECR_IMAGE_REPOSITORY_NAME = "ECR_IMAGE_REPOSITORY_NAME",
-  FINDING_STATUS = "FINDING_STATUS",
-  FINDING_TYPE = "FINDING_TYPE",
-  FIRST_OBSERVED_AT = "FIRST_OBSERVED_AT",
-  INSPECTOR_SCORE = "INSPECTOR_SCORE",
-  LAST_OBSERVED_AT = "LAST_OBSERVED_AT",
-  NETWORK_PROTOCOL = "NETWORK_PROTOCOL",
-  RESOURCE_TYPE = "RESOURCE_TYPE",
-  SEVERITY = "SEVERITY",
-  VENDOR_SEVERITY = "VENDOR_SEVERITY",
-  VULNERABILITY_ID = "VULNERABILITY_ID",
-  VULNERABILITY_SOURCE = "VULNERABILITY_SOURCE",
-}
+export const SortField = {
+  AWS_ACCOUNT_ID: "AWS_ACCOUNT_ID",
+  COMPONENT_TYPE: "COMPONENT_TYPE",
+  ECR_IMAGE_PUSHED_AT: "ECR_IMAGE_PUSHED_AT",
+  ECR_IMAGE_REGISTRY: "ECR_IMAGE_REGISTRY",
+  ECR_IMAGE_REPOSITORY_NAME: "ECR_IMAGE_REPOSITORY_NAME",
+  FINDING_STATUS: "FINDING_STATUS",
+  FINDING_TYPE: "FINDING_TYPE",
+  FIRST_OBSERVED_AT: "FIRST_OBSERVED_AT",
+  INSPECTOR_SCORE: "INSPECTOR_SCORE",
+  LAST_OBSERVED_AT: "LAST_OBSERVED_AT",
+  NETWORK_PROTOCOL: "NETWORK_PROTOCOL",
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+  SEVERITY: "SEVERITY",
+  VENDOR_SEVERITY: "VENDOR_SEVERITY",
+  VULNERABILITY_ID: "VULNERABILITY_ID",
+  VULNERABILITY_SOURCE: "VULNERABILITY_SOURCE",
+};
 
 /**
  * @public
@@ -4397,12 +4397,12 @@ export interface SortCriteria {
   /**
    * <p>The finding detail field by which results are sorted.</p>
    */
-  field: SortField | string | undefined;
+  field: keyof typeof SortField | string | undefined;
 
   /**
    * <p>The order by which findings are sorted.</p>
    */
-  sortOrder: SortOrder | string | undefined;
+  sortOrder: keyof typeof SortOrder | string | undefined;
 }
 
 /**
@@ -4537,12 +4537,12 @@ export interface ListUsageTotalsRequest {
 /**
  * @public
  */
-export enum UsageType {
-  EC2_INSTANCE_HOURS = "EC2_INSTANCE_HOURS",
-  ECR_INITIAL_SCAN = "ECR_INITIAL_SCAN",
-  ECR_RESCAN = "ECR_RESCAN",
-  LAMBDA_FUNCTION_HOURS = "LAMBDA_FUNCTION_HOURS",
-}
+export const UsageType = {
+  EC2_INSTANCE_HOURS: "EC2_INSTANCE_HOURS",
+  ECR_INITIAL_SCAN: "ECR_INITIAL_SCAN",
+  ECR_RESCAN: "ECR_RESCAN",
+  LAMBDA_FUNCTION_HOURS: "LAMBDA_FUNCTION_HOURS",
+};
 
 /**
  * @public
@@ -4552,7 +4552,7 @@ export interface Usage {
   /**
    * <p>The type scan.</p>
    */
-  type?: UsageType | string;
+  type?: keyof typeof UsageType | string;
 
   /**
    * <p>The total of usage.</p>
@@ -4567,7 +4567,7 @@ export interface Usage {
   /**
    * <p>The currency type used when calculating usage data.</p>
    */
-  currency?: Currency | string;
+  currency?: keyof typeof Currency | string;
 }
 
 /**
@@ -4663,7 +4663,7 @@ export interface UpdateFilterRequest {
   /**
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
-  action?: FilterAction | string;
+  action?: keyof typeof FilterAction | string;
 
   /**
    * <p>A description of the filter.</p>

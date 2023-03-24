@@ -6,10 +6,10 @@ import { CognitoIdentityServiceException as __BaseException } from "./CognitoIde
 /**
  * @public
  */
-export enum AmbiguousRoleResolutionType {
-  AUTHENTICATED_ROLE = "AuthenticatedRole",
-  DENY = "Deny",
-}
+export const AmbiguousRoleResolutionType = {
+  AUTHENTICATED_ROLE: "AuthenticatedRole",
+  DENY: "Deny",
+};
 
 /**
  * @public
@@ -296,10 +296,10 @@ export interface DeleteIdentitiesInput {
 /**
  * @public
  */
-export enum ErrorCode {
-  ACCESS_DENIED = "AccessDenied",
-  INTERNAL_SERVER_ERROR = "InternalServerError",
-}
+export const ErrorCode = {
+  ACCESS_DENIED: "AccessDenied",
+  INTERNAL_SERVER_ERROR: "InternalServerError",
+};
 
 /**
  * @public
@@ -315,7 +315,7 @@ export interface UnprocessedIdentityId {
   /**
    * <p>The error code indicating the type of error that occurred.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
 }
 
 /**
@@ -603,12 +603,12 @@ export interface GetIdentityPoolRolesInput {
 /**
  * @public
  */
-export enum MappingRuleMatchType {
-  CONTAINS = "Contains",
-  EQUALS = "Equals",
-  NOT_EQUAL = "NotEqual",
-  STARTS_WITH = "StartsWith",
-}
+export const MappingRuleMatchType = {
+  CONTAINS: "Contains",
+  EQUALS: "Equals",
+  NOT_EQUAL: "NotEqual",
+  STARTS_WITH: "StartsWith",
+};
 
 /**
  * @public
@@ -626,7 +626,7 @@ export interface MappingRule {
    * <p>The match condition that specifies how closely the claim value in the IdP token must
    *          match <code>Value</code>.</p>
    */
-  MatchType: MappingRuleMatchType | string | undefined;
+  MatchType: keyof typeof MappingRuleMatchType | string | undefined;
 
   /**
    * <p>A brief string that the claim must match, for example, "paid" or "yes".</p>
@@ -654,10 +654,10 @@ export interface RulesConfigurationType {
 /**
  * @public
  */
-export enum RoleMappingType {
-  RULES = "Rules",
-  TOKEN = "Token",
-}
+export const RoleMappingType = {
+  RULES: "Rules",
+  TOKEN: "Token",
+};
 
 /**
  * @public
@@ -670,7 +670,7 @@ export interface RoleMapping {
    *          map groups to roles. Rules will attempt to match claims from the token to map to a
    *          role.</p>
    */
-  Type: RoleMappingType | string | undefined;
+  Type: keyof typeof RoleMappingType | string | undefined;
 
   /**
    * <p>If you specify Token or Rules as the <code>Type</code>,
@@ -680,7 +680,7 @@ export interface RoleMapping {
    *          there are multiple <code>cognito:roles</code> matches for the <code>Token</code>
    *          type.</p>
    */
-  AmbiguousRoleResolution?: AmbiguousRoleResolutionType | string;
+  AmbiguousRoleResolution?: keyof typeof AmbiguousRoleResolutionType | string;
 
   /**
    * <p>The rules to be used for mapping users to roles.</p>

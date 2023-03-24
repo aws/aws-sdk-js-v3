@@ -2368,7 +2368,7 @@ const deserializeAws_restJson1__listOfConfigurationRevision = (
 const deserializeAws_restJson1__listOfDeploymentMode = (
   output: any,
   context: __SerdeContext
-): (DeploymentMode | string)[] => {
+): (keyof typeof DeploymentMode | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

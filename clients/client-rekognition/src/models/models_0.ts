@@ -114,10 +114,10 @@ export interface Asset {
 /**
  * @public
  */
-export enum Attribute {
-  ALL = "ALL",
-  DEFAULT = "DEFAULT",
-}
+export const Attribute = {
+  ALL: "ALL",
+  DEFAULT: "DEFAULT",
+};
 
 /**
  * @public
@@ -199,12 +199,12 @@ export interface BlackFrame {
 /**
  * @public
  */
-export enum BodyPart {
-  FACE = "FACE",
-  HEAD = "HEAD",
-  LEFT_HAND = "LEFT_HAND",
-  RIGHT_HAND = "RIGHT_HAND",
-}
+export const BodyPart = {
+  FACE: "FACE",
+  HEAD: "HEAD",
+  LEFT_HAND: "LEFT_HAND",
+  RIGHT_HAND: "RIGHT_HAND",
+};
 
 /**
  * @public
@@ -269,11 +269,11 @@ export interface CoversBodyPart {
 /**
  * @public
  */
-export enum ProtectiveEquipmentType {
-  FACE_COVER = "FACE_COVER",
-  HAND_COVER = "HAND_COVER",
-  HEAD_COVER = "HEAD_COVER",
-}
+export const ProtectiveEquipmentType = {
+  FACE_COVER: "FACE_COVER",
+  HAND_COVER: "HAND_COVER",
+  HEAD_COVER: "HEAD_COVER",
+};
 
 /**
  * @public
@@ -295,7 +295,7 @@ export interface EquipmentDetection {
   /**
    * <p>The type of detected PPE.</p>
    */
-  Type?: ProtectiveEquipmentType | string;
+  Type?: keyof typeof ProtectiveEquipmentType | string;
 
   /**
    * <p>Information about the body part covered by the detected PPE.</p>
@@ -313,7 +313,7 @@ export interface ProtectiveEquipmentBodyPart {
   /**
    * <p>The detected body part.</p>
    */
-  Name?: BodyPart | string;
+  Name?: keyof typeof BodyPart | string;
 
   /**
    * <p>The confidence that Amazon Rekognition has in the detection accuracy of the detected body part.
@@ -330,17 +330,17 @@ export interface ProtectiveEquipmentBodyPart {
 /**
  * @public
  */
-export enum EmotionName {
-  ANGRY = "ANGRY",
-  CALM = "CALM",
-  CONFUSED = "CONFUSED",
-  DISGUSTED = "DISGUSTED",
-  FEAR = "FEAR",
-  HAPPY = "HAPPY",
-  SAD = "SAD",
-  SURPRISED = "SURPRISED",
-  UNKNOWN = "UNKNOWN",
-}
+export const EmotionName = {
+  ANGRY: "ANGRY",
+  CALM: "CALM",
+  CONFUSED: "CONFUSED",
+  DISGUSTED: "DISGUSTED",
+  FEAR: "FEAR",
+  HAPPY: "HAPPY",
+  SAD: "SAD",
+  SURPRISED: "SURPRISED",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -354,7 +354,7 @@ export interface Emotion {
   /**
    * <p>Type of emotion detected.</p>
    */
-  Type?: EmotionName | string;
+  Type?: keyof typeof EmotionName | string;
 
   /**
    * <p>Level of confidence in the determination.</p>
@@ -365,38 +365,38 @@ export interface Emotion {
 /**
  * @public
  */
-export enum LandmarkType {
-  chinBottom = "chinBottom",
-  eyeLeft = "eyeLeft",
-  eyeRight = "eyeRight",
-  leftEyeBrowLeft = "leftEyeBrowLeft",
-  leftEyeBrowRight = "leftEyeBrowRight",
-  leftEyeBrowUp = "leftEyeBrowUp",
-  leftEyeDown = "leftEyeDown",
-  leftEyeLeft = "leftEyeLeft",
-  leftEyeRight = "leftEyeRight",
-  leftEyeUp = "leftEyeUp",
-  leftPupil = "leftPupil",
-  midJawlineLeft = "midJawlineLeft",
-  midJawlineRight = "midJawlineRight",
-  mouthDown = "mouthDown",
-  mouthLeft = "mouthLeft",
-  mouthRight = "mouthRight",
-  mouthUp = "mouthUp",
-  nose = "nose",
-  noseLeft = "noseLeft",
-  noseRight = "noseRight",
-  rightEyeBrowLeft = "rightEyeBrowLeft",
-  rightEyeBrowRight = "rightEyeBrowRight",
-  rightEyeBrowUp = "rightEyeBrowUp",
-  rightEyeDown = "rightEyeDown",
-  rightEyeLeft = "rightEyeLeft",
-  rightEyeRight = "rightEyeRight",
-  rightEyeUp = "rightEyeUp",
-  rightPupil = "rightPupil",
-  upperJawlineLeft = "upperJawlineLeft",
-  upperJawlineRight = "upperJawlineRight",
-}
+export const LandmarkType = {
+  chinBottom: "chinBottom",
+  eyeLeft: "eyeLeft",
+  eyeRight: "eyeRight",
+  leftEyeBrowLeft: "leftEyeBrowLeft",
+  leftEyeBrowRight: "leftEyeBrowRight",
+  leftEyeBrowUp: "leftEyeBrowUp",
+  leftEyeDown: "leftEyeDown",
+  leftEyeLeft: "leftEyeLeft",
+  leftEyeRight: "leftEyeRight",
+  leftEyeUp: "leftEyeUp",
+  leftPupil: "leftPupil",
+  midJawlineLeft: "midJawlineLeft",
+  midJawlineRight: "midJawlineRight",
+  mouthDown: "mouthDown",
+  mouthLeft: "mouthLeft",
+  mouthRight: "mouthRight",
+  mouthUp: "mouthUp",
+  nose: "nose",
+  noseLeft: "noseLeft",
+  noseRight: "noseRight",
+  rightEyeBrowLeft: "rightEyeBrowLeft",
+  rightEyeBrowRight: "rightEyeBrowRight",
+  rightEyeBrowUp: "rightEyeBrowUp",
+  rightEyeDown: "rightEyeDown",
+  rightEyeLeft: "rightEyeLeft",
+  rightEyeRight: "rightEyeRight",
+  rightEyeUp: "rightEyeUp",
+  rightPupil: "rightPupil",
+  upperJawlineLeft: "upperJawlineLeft",
+  upperJawlineRight: "upperJawlineRight",
+};
 
 /**
  * @public
@@ -406,7 +406,7 @@ export interface Landmark {
   /**
    * <p>Type of landmark.</p>
    */
-  Type?: LandmarkType | string;
+  Type?: keyof typeof LandmarkType | string;
 
   /**
    * <p>The x-coordinate of the landmark expressed as a ratio of the width of the image. The
@@ -528,12 +528,12 @@ export interface ComparedFace {
 /**
  * @public
  */
-export enum KnownGenderType {
-  Female = "Female",
-  Male = "Male",
-  Nonbinary = "Nonbinary",
-  Unlisted = "Unlisted",
-}
+export const KnownGenderType = {
+  Female: "Female",
+  Male: "Male",
+  Nonbinary: "Nonbinary",
+  Unlisted: "Unlisted",
+};
 
 /**
  * @public
@@ -544,7 +544,7 @@ export interface KnownGender {
   /**
    * <p>A string value of the KnownGender info about the Celebrity.</p>
    */
-  Type?: KnownGenderType | string;
+  Type?: keyof typeof KnownGenderType | string;
 }
 
 /**
@@ -624,10 +624,10 @@ export interface EyeOpen {
 /**
  * @public
  */
-export enum GenderType {
-  Female = "Female",
-  Male = "Male",
-}
+export const GenderType = {
+  Female: "Female",
+  Male: "Male",
+};
 
 /**
  * @public
@@ -650,7 +650,7 @@ export interface Gender {
   /**
    * <p>The predicted gender of the face.</p>
    */
-  Value?: GenderType | string;
+  Value?: keyof typeof GenderType | string;
 
   /**
    * <p>Level of confidence in the prediction.</p>
@@ -891,10 +891,10 @@ export interface CelebrityRecognition {
 /**
  * @public
  */
-export enum CelebrityRecognitionSortBy {
-  ID = "ID",
-  TIMESTAMP = "TIMESTAMP",
-}
+export const CelebrityRecognitionSortBy = {
+  ID: "ID",
+  TIMESTAMP: "TIMESTAMP",
+};
 
 /**
  * @public
@@ -918,13 +918,13 @@ export interface ComparedSourceImageFace {
 /**
  * @public
  */
-export enum QualityFilter {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  NONE = "NONE",
-}
+export const QualityFilter = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -1003,7 +1003,7 @@ export interface CompareFacesRequest {
    *          <p>To use quality filtering, the collection you are using must be associated with version 3
    *       of the face model or higher.</p>
    */
-  QualityFilter?: QualityFilter | string;
+  QualityFilter?: keyof typeof QualityFilter | string;
 }
 
 /**
@@ -1029,12 +1029,12 @@ export interface CompareFacesMatch {
 /**
  * @public
  */
-export enum OrientationCorrection {
-  ROTATE_0 = "ROTATE_0",
-  ROTATE_180 = "ROTATE_180",
-  ROTATE_270 = "ROTATE_270",
-  ROTATE_90 = "ROTATE_90",
-}
+export const OrientationCorrection = {
+  ROTATE_0: "ROTATE_0",
+  ROTATE_180: "ROTATE_180",
+  ROTATE_270: "ROTATE_270",
+  ROTATE_90: "ROTATE_90",
+};
 
 /**
  * @public
@@ -1070,7 +1070,7 @@ export interface CompareFacesResponse {
    *       without orientation information in the image Exif metadata. The bounding box coordinates
    *       aren't translated and represent the object locations before the image is rotated. </p>
    */
-  SourceImageOrientationCorrection?: OrientationCorrection | string;
+  SourceImageOrientationCorrection?: keyof typeof OrientationCorrection | string;
 
   /**
    * <p>The value of <code>TargetImageOrientationCorrection</code> is always null.</p>
@@ -1083,7 +1083,7 @@ export interface CompareFacesResponse {
    *       without orientation information in the image Exif metadata. The bounding box coordinates
    *       aren't translated and represent the object locations before the image is rotated. </p>
    */
-  TargetImageOrientationCorrection?: OrientationCorrection | string;
+  TargetImageOrientationCorrection?: keyof typeof OrientationCorrection | string;
 }
 
 /**
@@ -1345,10 +1345,10 @@ export interface ConnectedHomeSettingsForUpdate {
 /**
  * @public
  */
-export enum ContentClassifier {
-  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
-}
+export const ContentClassifier = {
+  FREE_OF_ADULT_CONTENT: "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: "FreeOfPersonallyIdentifiableInformation",
+};
 
 /**
  * @public
@@ -1399,10 +1399,10 @@ export interface ContentModerationDetection {
 /**
  * @public
  */
-export enum ContentModerationSortBy {
-  NAME = "NAME",
-  TIMESTAMP = "TIMESTAMP",
-}
+export const ContentModerationSortBy = {
+  NAME: "NAME",
+  TIMESTAMP: "TIMESTAMP",
+};
 
 /**
  * @public
@@ -1708,10 +1708,10 @@ export interface DatasetSource {
 /**
  * @public
  */
-export enum DatasetType {
-  TEST = "TEST",
-  TRAIN = "TRAIN",
-}
+export const DatasetType = {
+  TEST: "TEST",
+  TRAIN: "TRAIN",
+};
 
 /**
  * @public
@@ -1733,7 +1733,7 @@ export interface CreateDatasetRequest {
    *    to create a test dataset.
    * </p>
    */
-  DatasetType: DatasetType | string | undefined;
+  DatasetType: keyof typeof DatasetType | string | undefined;
 
   /**
    * <p>
@@ -2276,24 +2276,24 @@ export interface DatasetStats {
 /**
  * @public
  */
-export enum DatasetStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const DatasetStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum DatasetStatusMessageCode {
-  CLIENT_ERROR = "CLIENT_ERROR",
-  SERVICE_ERROR = "SERVICE_ERROR",
-  SUCCESS = "SUCCESS",
-}
+export const DatasetStatusMessageCode = {
+  CLIENT_ERROR: "CLIENT_ERROR",
+  SERVICE_ERROR: "SERVICE_ERROR",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -2323,7 +2323,7 @@ export interface DatasetDescription {
    *    The status of the dataset.
    * </p>
    */
-  Status?: DatasetStatus | string;
+  Status?: keyof typeof DatasetStatus | string;
 
   /**
    * <p>
@@ -2339,7 +2339,7 @@ export interface DatasetDescription {
    *    API call that failed.
    * </p>
    */
-  StatusMessageCode?: DatasetStatusMessageCode | string;
+  StatusMessageCode?: keyof typeof DatasetStatusMessageCode | string;
 
   /**
    * <p>
@@ -2413,7 +2413,7 @@ export interface DatasetMetadata {
    *    The type of the dataset.
    * </p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: keyof typeof DatasetType | string;
 
   /**
    * <p>
@@ -2427,7 +2427,7 @@ export interface DatasetMetadata {
    *    The status for the dataset.
    * </p>
    */
-  Status?: DatasetStatus | string;
+  Status?: keyof typeof DatasetStatus | string;
 
   /**
    * <p>
@@ -2443,7 +2443,7 @@ export interface DatasetMetadata {
    *    API call that failed.
    * </p>
    */
-  StatusMessageCode?: DatasetStatusMessageCode | string;
+  StatusMessageCode?: keyof typeof DatasetStatusMessageCode | string;
 }
 
 /**
@@ -2521,11 +2521,11 @@ export interface DeleteProjectRequest {
 /**
  * @public
  */
-export enum ProjectStatus {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const ProjectStatus = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -2534,7 +2534,7 @@ export interface DeleteProjectResponse {
   /**
    * <p>The current status of the delete project operation.</p>
    */
-  Status?: ProjectStatus | string;
+  Status?: keyof typeof ProjectStatus | string;
 }
 
 /**
@@ -2604,20 +2604,20 @@ export interface DeleteProjectVersionRequest {
 /**
  * @public
  */
-export enum ProjectVersionStatus {
-  COPYING_COMPLETED = "COPYING_COMPLETED",
-  COPYING_FAILED = "COPYING_FAILED",
-  COPYING_IN_PROGRESS = "COPYING_IN_PROGRESS",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  TRAINING_COMPLETED = "TRAINING_COMPLETED",
-  TRAINING_FAILED = "TRAINING_FAILED",
-  TRAINING_IN_PROGRESS = "TRAINING_IN_PROGRESS",
-}
+export const ProjectVersionStatus = {
+  COPYING_COMPLETED: "COPYING_COMPLETED",
+  COPYING_FAILED: "COPYING_FAILED",
+  COPYING_IN_PROGRESS: "COPYING_IN_PROGRESS",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  TRAINING_COMPLETED: "TRAINING_COMPLETED",
+  TRAINING_FAILED: "TRAINING_FAILED",
+  TRAINING_IN_PROGRESS: "TRAINING_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -2626,7 +2626,7 @@ export interface DeleteProjectVersionResponse {
   /**
    * <p>The status of the deletion operation.</p>
    */
-  Status?: ProjectVersionStatus | string;
+  Status?: keyof typeof ProjectVersionStatus | string;
 }
 
 /**
@@ -2750,7 +2750,7 @@ export interface ProjectDescription {
   /**
    * <p>The current status of the project.</p>
    */
-  Status?: ProjectStatus | string;
+  Status?: keyof typeof ProjectStatus | string;
 
   /**
    * <p>
@@ -2965,7 +2965,7 @@ export interface ProjectVersionDescription {
   /**
    * <p>The current status of the model version.</p>
    */
-  Status?: ProjectVersionStatus | string;
+  Status?: keyof typeof ProjectVersionStatus | string;
 
   /**
    * <p>A descriptive message for an error or warning that occurred.</p>
@@ -3057,14 +3057,14 @@ export interface DescribeStreamProcessorRequest {
 /**
  * @public
  */
-export enum StreamProcessorStatus {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
-}
+export const StreamProcessorStatus = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -3083,7 +3083,7 @@ export interface DescribeStreamProcessorResponse {
   /**
    * <p>Current status of the stream processor.</p>
    */
-  Status?: StreamProcessorStatus | string;
+  Status?: keyof typeof StreamProcessorStatus | string;
 
   /**
    * <p>Detailed status message about the stream processor.</p>
@@ -3271,7 +3271,7 @@ export interface DetectFacesRequest {
    *          <p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND
    *       operator to determine which attributes to return (in this case, all attributes). </p>
    */
-  Attributes?: (Attribute | string)[];
+  Attributes?: (keyof typeof Attribute | string)[];
 }
 
 /**
@@ -3294,7 +3294,7 @@ export interface DetectFacesResponse {
    *       without orientation information in the image Exif metadata. The bounding box coordinates
    *       aren't translated and represent the object locations before the image is rotated. </p>
    */
-  OrientationCorrection?: OrientationCorrection | string;
+  OrientationCorrection?: keyof typeof OrientationCorrection | string;
 }
 
 /**
@@ -3325,10 +3325,10 @@ export interface DetectionFilter {
 /**
  * @public
  */
-export enum DetectLabelsFeatureName {
-  GENERAL_LABELS = "GENERAL_LABELS",
-  IMAGE_PROPERTIES = "IMAGE_PROPERTIES",
-}
+export const DetectLabelsFeatureName = {
+  GENERAL_LABELS: "GENERAL_LABELS",
+  IMAGE_PROPERTIES: "IMAGE_PROPERTIES",
+};
 
 /**
  * @public
@@ -3421,7 +3421,7 @@ export interface DetectLabelsRequest {
    *       feature, while specifying IMAGE_PROPERTIES returns information regarding image color and quality.
    *       If no option is specified GENERAL_LABELS is used by default.</p>
    */
-  Features?: (DetectLabelsFeatureName | string)[];
+  Features?: (keyof typeof DetectLabelsFeatureName | string)[];
 
   /**
    * <p>A list of the filters to be applied to returned detected labels and image properties. Specified
@@ -3679,7 +3679,7 @@ export interface DetectLabelsResponse {
    *       without orientation information in the image Exif metadata. The bounding box coordinates
    *       aren't translated and represent the object locations before the image is rotated. </p>
    */
-  OrientationCorrection?: OrientationCorrection | string;
+  OrientationCorrection?: keyof typeof OrientationCorrection | string;
 
   /**
    * <p>Version number of the label detection model that was used to detect labels.</p>
@@ -3701,7 +3701,7 @@ export interface HumanLoopDataAttributes {
   /**
    * <p>Sets whether the input image is free of personally identifiable information.</p>
    */
-  ContentClassifiers?: (ContentClassifier | string)[];
+  ContentClassifiers?: (keyof typeof ContentClassifier | string)[];
 }
 
 /**
@@ -3878,7 +3878,7 @@ export interface ProtectiveEquipmentSummarizationAttributes {
    *          <code>PersonsWithRequiredEquipment</code> array field returned in <a>ProtectiveEquipmentSummary</a>
    *          by <code>DetectProtectiveEquipment</code>.  </p>
    */
-  RequiredEquipmentTypes: (ProtectiveEquipmentType | string)[] | undefined;
+  RequiredEquipmentTypes: (keyof typeof ProtectiveEquipmentType | string)[] | undefined;
 }
 
 /**
@@ -4030,10 +4030,10 @@ export interface DetectTextRequest {
 /**
  * @public
  */
-export enum TextTypes {
-  LINE = "LINE",
-  WORD = "WORD",
-}
+export const TextTypes = {
+  LINE: "LINE",
+  WORD: "WORD",
+};
 
 /**
  * @public
@@ -4056,7 +4056,7 @@ export interface TextDetection {
   /**
    * <p>The type of text that was detected.</p>
    */
-  Type?: TextTypes | string;
+  Type?: keyof typeof TextTypes | string;
 
   /**
    * <p>The identifier for the detected text. The identifier is only unique for a single call
@@ -4174,10 +4174,10 @@ export interface Face {
 /**
  * @public
  */
-export enum FaceAttributes {
-  ALL = "ALL",
-  DEFAULT = "DEFAULT",
-}
+export const FaceAttributes = {
+  ALL: "ALL",
+  DEFAULT: "DEFAULT",
+};
 
 /**
  * @public
@@ -4235,10 +4235,10 @@ export interface FaceRecord {
 /**
  * @public
  */
-export enum FaceSearchSortBy {
-  INDEX = "INDEX",
-  TIMESTAMP = "TIMESTAMP",
-}
+export const FaceSearchSortBy = {
+  INDEX: "INDEX",
+  TIMESTAMP: "TIMESTAMP",
+};
 
 /**
  * @public
@@ -4298,25 +4298,25 @@ export interface GetCelebrityRecognitionRequest {
    * <p>Sort to use for celebrities returned in <code>Celebrities</code> field. Specify <code>ID</code> to sort by the celebrity identifier,
    *         specify <code>TIMESTAMP</code> to sort by the time the celebrity was recognized.</p>
    */
-  SortBy?: CelebrityRecognitionSortBy | string;
+  SortBy?: keyof typeof CelebrityRecognitionSortBy | string;
 }
 
 /**
  * @public
  */
-export enum VideoJobStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const VideoJobStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
  */
-export enum VideoColorRange {
-  FULL = "FULL",
-  LIMITED = "LIMITED",
-}
+export const VideoColorRange = {
+  FULL: "FULL",
+  LIMITED: "LIMITED",
+};
 
 /**
  * @public
@@ -4359,7 +4359,7 @@ export interface VideoMetadata {
    *       A description of the range of luminance values in a video, either LIMITED (16 to 235) or FULL (0 to 255).
    *     </p>
    */
-  ColorRange?: VideoColorRange | string;
+  ColorRange?: keyof typeof VideoColorRange | string;
 }
 
 /**
@@ -4369,7 +4369,7 @@ export interface GetCelebrityRecognitionResponse {
   /**
    * <p>The current status of the celebrity recognition job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: keyof typeof VideoJobStatus | string;
 
   /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
@@ -4425,7 +4425,7 @@ export interface GetContentModerationRequest {
    *        Within each label group, the array element are sorted by detection confidence.
    *        The default sort is by <code>TIMESTAMP</code>.</p>
    */
-  SortBy?: ContentModerationSortBy | string;
+  SortBy?: keyof typeof ContentModerationSortBy | string;
 }
 
 /**
@@ -4435,7 +4435,7 @@ export interface GetContentModerationResponse {
   /**
    * <p>The current status of the content moderation analysis job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: keyof typeof VideoJobStatus | string;
 
   /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
@@ -4495,7 +4495,7 @@ export interface GetFaceDetectionResponse {
   /**
    * <p>The current status of the face detection job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: keyof typeof VideoJobStatus | string;
 
   /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
@@ -4546,7 +4546,7 @@ export interface GetFaceSearchRequest {
    * <p>Sort to use for grouping faces in the response. Use <code>TIMESTAMP</code> to group faces by the time
    *       that they are recognized. Use <code>INDEX</code> to sort by recognized faces. </p>
    */
-  SortBy?: FaceSearchSortBy | string;
+  SortBy?: keyof typeof FaceSearchSortBy | string;
 }
 
 /**
@@ -4603,7 +4603,7 @@ export interface GetFaceSearchResponse {
   /**
    * <p>The current status of the face search job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: keyof typeof VideoJobStatus | string;
 
   /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
@@ -4636,18 +4636,18 @@ export interface GetFaceSearchResponse {
 /**
  * @public
  */
-export enum LabelDetectionAggregateBy {
-  SEGMENTS = "SEGMENTS",
-  TIMESTAMPS = "TIMESTAMPS",
-}
+export const LabelDetectionAggregateBy = {
+  SEGMENTS: "SEGMENTS",
+  TIMESTAMPS: "TIMESTAMPS",
+};
 
 /**
  * @public
  */
-export enum LabelDetectionSortBy {
-  NAME = "NAME",
-  TIMESTAMP = "TIMESTAMP",
-}
+export const LabelDetectionSortBy = {
+  NAME: "NAME",
+  TIMESTAMP: "TIMESTAMP",
+};
 
 /**
  * @public
@@ -4679,12 +4679,12 @@ export interface GetLabelDetectionRequest {
    *       Within each label group, the array element are sorted by detection confidence.
    *       The default sort is by <code>TIMESTAMP</code>.</p>
    */
-  SortBy?: LabelDetectionSortBy | string;
+  SortBy?: keyof typeof LabelDetectionSortBy | string;
 
   /**
    * <p>Defines how to aggregate the returned results. Results can be aggregated by timestamps or segments.</p>
    */
-  AggregateBy?: LabelDetectionAggregateBy | string;
+  AggregateBy?: keyof typeof LabelDetectionAggregateBy | string;
 }
 
 /**
@@ -4726,7 +4726,7 @@ export interface GetLabelDetectionResponse {
   /**
    * <p>The current status of the label detection job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: keyof typeof VideoJobStatus | string;
 
   /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
@@ -4760,10 +4760,10 @@ export interface GetLabelDetectionResponse {
 /**
  * @public
  */
-export enum PersonTrackingSortBy {
-  INDEX = "INDEX",
-  TIMESTAMP = "TIMESTAMP",
-}
+export const PersonTrackingSortBy = {
+  INDEX: "INDEX",
+  TIMESTAMP: "TIMESTAMP",
+};
 
 /**
  * @public
@@ -4794,7 +4794,7 @@ export interface GetPersonTrackingRequest {
    *        If you sort by <code>INDEX</code>, the array elements for each person are sorted by detection confidence.
    *        The default sort is by <code>TIMESTAMP</code>.</p>
    */
-  SortBy?: PersonTrackingSortBy | string;
+  SortBy?: keyof typeof PersonTrackingSortBy | string;
 }
 
 /**
@@ -4824,7 +4824,7 @@ export interface GetPersonTrackingResponse {
   /**
    * <p>The current status of the person tracking job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: keyof typeof VideoJobStatus | string;
 
   /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
@@ -4891,15 +4891,15 @@ export interface ShotSegment {
 /**
  * @public
  */
-export enum TechnicalCueType {
-  BLACK_FRAMES = "BlackFrames",
-  COLOR_BARS = "ColorBars",
-  CONTENT = "Content",
-  END_CREDITS = "EndCredits",
-  OPENING_CREDITS = "OpeningCredits",
-  SLATE = "Slate",
-  STUDIO_LOGO = "StudioLogo",
-}
+export const TechnicalCueType = {
+  BLACK_FRAMES: "BlackFrames",
+  COLOR_BARS: "ColorBars",
+  CONTENT: "Content",
+  END_CREDITS: "EndCredits",
+  OPENING_CREDITS: "OpeningCredits",
+  SLATE: "Slate",
+  STUDIO_LOGO: "StudioLogo",
+};
 
 /**
  * @public
@@ -4909,7 +4909,7 @@ export interface TechnicalCueSegment {
   /**
    * <p>The type of the technical cue.</p>
    */
-  Type?: TechnicalCueType | string;
+  Type?: keyof typeof TechnicalCueType | string;
 
   /**
    * <p>The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.</p>
@@ -4920,10 +4920,10 @@ export interface TechnicalCueSegment {
 /**
  * @public
  */
-export enum SegmentType {
-  SHOT = "SHOT",
-  TECHNICAL_CUE = "TECHNICAL_CUE",
-}
+export const SegmentType = {
+  SHOT: "SHOT",
+  TECHNICAL_CUE: "TECHNICAL_CUE",
+};
 
 /**
  * @public
@@ -4936,7 +4936,7 @@ export interface SegmentDetection {
   /**
    * <p>The type of the  segment. Valid values are <code>TECHNICAL_CUE</code> and <code>SHOT</code>.</p>
    */
-  Type?: SegmentType | string;
+  Type?: keyof typeof SegmentType | string;
 
   /**
    * <p>The start time of the detected segment in milliseconds from the start of the video. This value
@@ -5016,7 +5016,7 @@ export interface SegmentTypeInfo {
   /**
    * <p>The type of a segment (technical cue or shot detection).</p>
    */
-  Type?: SegmentType | string;
+  Type?: keyof typeof SegmentType | string;
 
   /**
    * <p>The version of the model used to detect segments.</p>
@@ -5031,7 +5031,7 @@ export interface GetSegmentDetectionResponse {
   /**
    * <p>Current status of the segment detection job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: keyof typeof VideoJobStatus | string;
 
   /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
@@ -5125,7 +5125,7 @@ export interface GetTextDetectionResponse {
   /**
    * <p>Current status of the text detection job.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  JobStatus?: keyof typeof VideoJobStatus | string;
 
   /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
@@ -5220,7 +5220,7 @@ export interface IndexFacesRequest {
    *          <p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND
    *       operator to determine which attributes to return (in this case, all attributes). </p>
    */
-  DetectionAttributes?: (Attribute | string)[];
+  DetectionAttributes?: (keyof typeof Attribute | string)[];
 
   /**
    * <p>The maximum number of faces to index. The value of <code>MaxFaces</code> must be greater
@@ -5252,21 +5252,21 @@ export interface IndexFacesRequest {
    *          <p>To use quality filtering, the collection you are using must be associated with version 3
    *       of the face model or higher.</p>
    */
-  QualityFilter?: QualityFilter | string;
+  QualityFilter?: keyof typeof QualityFilter | string;
 }
 
 /**
  * @public
  */
-export enum Reason {
-  EXCEEDS_MAX_FACES = "EXCEEDS_MAX_FACES",
-  EXTREME_POSE = "EXTREME_POSE",
-  LOW_BRIGHTNESS = "LOW_BRIGHTNESS",
-  LOW_CONFIDENCE = "LOW_CONFIDENCE",
-  LOW_FACE_QUALITY = "LOW_FACE_QUALITY",
-  LOW_SHARPNESS = "LOW_SHARPNESS",
-  SMALL_BOUNDING_BOX = "SMALL_BOUNDING_BOX",
-}
+export const Reason = {
+  EXCEEDS_MAX_FACES: "EXCEEDS_MAX_FACES",
+  EXTREME_POSE: "EXTREME_POSE",
+  LOW_BRIGHTNESS: "LOW_BRIGHTNESS",
+  LOW_CONFIDENCE: "LOW_CONFIDENCE",
+  LOW_FACE_QUALITY: "LOW_FACE_QUALITY",
+  LOW_SHARPNESS: "LOW_SHARPNESS",
+  SMALL_BOUNDING_BOX: "SMALL_BOUNDING_BOX",
+};
 
 /**
  * @public
@@ -5299,7 +5299,7 @@ export interface UnindexedFace {
    *             </li>
    *          </ul>
    */
-  Reasons?: (Reason | string)[];
+  Reasons?: (keyof typeof Reason | string)[];
 
   /**
    * <p>The
@@ -5344,7 +5344,7 @@ export interface IndexFacesResponse {
    *          <p>Bounding box information is returned in the <code>FaceRecords</code> array. You can get
    *       the version of the face detection model by calling <a>DescribeCollection</a>. </p>
    */
-  OrientationCorrection?: OrientationCorrection | string;
+  OrientationCorrection?: keyof typeof OrientationCorrection | string;
 
   /**
    * <p>The version number of the face detection model that's associated with the input
@@ -5386,9 +5386,9 @@ export interface KinesisVideoStreamStartSelector {
 /**
  * @public
  */
-export enum LabelDetectionFeatureName {
-  GENERAL_LABELS = "GENERAL_LABELS",
-}
+export const LabelDetectionFeatureName = {
+  GENERAL_LABELS: "GENERAL_LABELS",
+};
 
 /**
  * @public
@@ -5714,7 +5714,7 @@ export interface StreamProcessor {
   /**
    * <p>Current status of the Amazon Rekognition stream processor.</p>
    */
-  Status?: StreamProcessorStatus | string;
+  Status?: keyof typeof StreamProcessorStatus | string;
 }
 
 /**
@@ -5895,7 +5895,7 @@ export interface RecognizeCelebritiesResponse {
    *         orientation. Images in .png format don't contain Exif metadata. </p>
    *          </note>
    */
-  OrientationCorrection?: OrientationCorrection | string;
+  OrientationCorrection?: keyof typeof OrientationCorrection | string;
 }
 
 /**
@@ -5992,7 +5992,7 @@ export interface SearchFacesByImageRequest {
    *          <p>To use quality filtering, the collection you are using must be associated with version 3
    *       of the face model or higher.</p>
    */
-  QualityFilter?: QualityFilter | string;
+  QualityFilter?: keyof typeof QualityFilter | string;
 }
 
 /**
@@ -6187,7 +6187,7 @@ export interface StartFaceDetectionRequest {
    *          <p>
    *             <code>ALL</code> - All facial attributes are returned.</p>
    */
-  FaceAttributes?: FaceAttributes | string;
+  FaceAttributes?: keyof typeof FaceAttributes | string;
 
   /**
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
@@ -6299,7 +6299,7 @@ export interface StartLabelDetectionRequest {
   /**
    * <p>The features to return after video analysis. You can specify that GENERAL_LABELS are returned.</p>
    */
-  Features?: (LabelDetectionFeatureName | string)[];
+  Features?: (keyof typeof LabelDetectionFeatureName | string)[];
 
   /**
    * <p>The settings for a StartLabelDetection request.Contains the specified parameters for the label detection request of an asynchronous label analysis operation.
@@ -6397,7 +6397,7 @@ export interface StartProjectVersionResponse {
   /**
    * <p>The current running status of the model. </p>
    */
-  Status?: ProjectVersionStatus | string;
+  Status?: keyof typeof ProjectVersionStatus | string;
 }
 
 /**
@@ -6497,7 +6497,7 @@ export interface StartSegmentDetectionRequest {
   /**
    * <p>An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.</p>
    */
-  SegmentTypes: (SegmentType | string)[] | undefined;
+  SegmentTypes: (keyof typeof SegmentType | string)[] | undefined;
 }
 
 /**
@@ -6665,7 +6665,7 @@ export interface StopProjectVersionResponse {
   /**
    * <p>The current status of the stop operation. </p>
    */
-  Status?: ProjectVersionStatus | string;
+  Status?: keyof typeof ProjectVersionStatus | string;
 }
 
 /**
@@ -6752,10 +6752,10 @@ export interface UpdateDatasetEntriesResponse {}
 /**
  * @public
  */
-export enum StreamProcessorParameterToDelete {
-  ConnectedHomeMinConfidence = "ConnectedHomeMinConfidence",
-  RegionsOfInterest = "RegionsOfInterest",
-}
+export const StreamProcessorParameterToDelete = {
+  ConnectedHomeMinConfidence: "ConnectedHomeMinConfidence",
+  RegionsOfInterest: "RegionsOfInterest",
+};
 
 /**
  * @public
@@ -6810,7 +6810,7 @@ export interface UpdateStreamProcessorRequest {
    *             A list of parameters you want to delete from the stream processor.
    *         </p>
    */
-  ParametersToDelete?: (StreamProcessorParameterToDelete | string)[];
+  ParametersToDelete?: (keyof typeof StreamProcessorParameterToDelete | string)[];
 }
 
 /**

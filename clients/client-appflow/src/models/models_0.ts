@@ -26,10 +26,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AggregationType {
-  NONE = "None",
-  SINGLE_FILE = "SingleFile",
-}
+export const AggregationType = {
+  NONE: "None",
+  SINGLE_FILE: "SingleFile",
+};
 
 /**
  * @public
@@ -41,7 +41,7 @@ export interface AggregationConfig {
    * <p> Specifies whether Amazon AppFlow aggregates the flow records into a single file, or
    *       leave them unaggregated. </p>
    */
-  aggregationType?: AggregationType | string;
+  aggregationType?: keyof typeof AggregationType | string;
 
   /**
    * <p>The desired file size, in MB, for each output file that Amazon AppFlow writes to the
@@ -55,9 +55,9 @@ export interface AggregationConfig {
 /**
  * @public
  */
-export enum AmplitudeConnectorOperator {
-  BETWEEN = "BETWEEN",
-}
+export const AmplitudeConnectorOperator = {
+  BETWEEN: "BETWEEN",
+};
 
 /**
  * @public
@@ -171,10 +171,10 @@ export interface CustomAuthConfig {
 /**
  * @public
  */
-export enum OAuth2CustomPropType {
-  AUTH_URL = "AUTH_URL",
-  TOKEN_URL = "TOKEN_URL",
-}
+export const OAuth2CustomPropType = {
+  AUTH_URL: "AUTH_URL",
+  TOKEN_URL: "TOKEN_URL",
+};
 
 /**
  * @public
@@ -215,16 +215,16 @@ export interface OAuth2CustomParameter {
   /**
    * <p>Indicates whether custom parameter is used with TokenUrl or AuthUrl.</p>
    */
-  type?: OAuth2CustomPropType | string;
+  type?: keyof typeof OAuth2CustomPropType | string;
 }
 
 /**
  * @public
  */
-export enum OAuth2GrantType {
-  AUTHORIZATION_CODE = "AUTHORIZATION_CODE",
-  CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS",
-}
+export const OAuth2GrantType = {
+  AUTHORIZATION_CODE: "AUTHORIZATION_CODE",
+  CLIENT_CREDENTIALS: "CLIENT_CREDENTIALS",
+};
 
 /**
  * @public
@@ -249,7 +249,7 @@ export interface OAuth2Defaults {
   /**
    * <p>OAuth 2.0 grant types supported by the connector.</p>
    */
-  oauth2GrantTypesSupported?: (OAuth2GrantType | string)[];
+  oauth2GrantTypesSupported?: (keyof typeof OAuth2GrantType | string)[];
 
   /**
    * <p>List of custom parameters required for OAuth 2.0 authentication.</p>
@@ -296,12 +296,12 @@ export interface AuthenticationConfig {
 /**
  * @public
  */
-export enum AuthenticationType {
-  APIKEY = "APIKEY",
-  BASIC = "BASIC",
-  CUSTOM = "CUSTOM",
-  OAUTH2 = "OAUTH2",
-}
+export const AuthenticationType = {
+  APIKEY: "APIKEY",
+  BASIC: "BASIC",
+  CUSTOM: "CUSTOM",
+  OAUTH2: "OAUTH2",
+};
 
 /**
  * @public
@@ -322,9 +322,9 @@ export interface BasicAuthCredentials {
 /**
  * @public
  */
-export enum CatalogType {
-  GLUE = "GLUE",
-}
+export const CatalogType = {
+  GLUE: "GLUE",
+};
 
 /**
  * @public
@@ -350,10 +350,10 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum ConnectionMode {
-  PRIVATE = "Private",
-  PUBLIC = "Public",
-}
+export const ConnectionMode = {
+  PRIVATE: "Private",
+  PUBLIC: "Public",
+};
 
 /**
  * @public
@@ -454,11 +454,11 @@ export interface S3Metadata {}
 /**
  * @public
  */
-export enum SalesforceDataTransferApi {
-  AUTOMATIC = "AUTOMATIC",
-  BULKV2 = "BULKV2",
-  REST_SYNC = "REST_SYNC",
-}
+export const SalesforceDataTransferApi = {
+  AUTOMATIC: "AUTOMATIC",
+  BULKV2: "BULKV2",
+  REST_SYNC: "REST_SYNC",
+};
 
 /**
  * @public
@@ -474,7 +474,7 @@ export interface SalesforceMetadata {
    * <p>The Salesforce APIs that you can have Amazon AppFlow use when your flows transfers
    *       data to or from Salesforce.</p>
    */
-  dataTransferApis?: (SalesforceDataTransferApi | string)[];
+  dataTransferApis?: (keyof typeof SalesforceDataTransferApi | string)[];
 }
 
 /**
@@ -690,9 +690,9 @@ export interface ConnectorProvisioningConfig {
 /**
  * @public
  */
-export enum ConnectorProvisioningType {
-  LAMBDA = "LAMBDA",
-}
+export const ConnectorProvisioningType = {
+  LAMBDA: "LAMBDA",
+};
 
 /**
  * @public
@@ -740,90 +740,90 @@ export interface ConnectorRuntimeSetting {
 /**
  * @public
  */
-export enum ConnectorType {
-  AMPLITUDE = "Amplitude",
-  CUSTOMCONNECTOR = "CustomConnector",
-  CUSTOMERPROFILES = "CustomerProfiles",
-  DATADOG = "Datadog",
-  DYNATRACE = "Dynatrace",
-  EVENTBRIDGE = "EventBridge",
-  GOOGLEANALYTICS = "Googleanalytics",
-  HONEYCODE = "Honeycode",
-  INFORNEXUS = "Infornexus",
-  LOOKOUTMETRICS = "LookoutMetrics",
-  MARKETO = "Marketo",
-  PARDOT = "Pardot",
-  REDSHIFT = "Redshift",
-  S3 = "S3",
-  SALESFORCE = "Salesforce",
-  SAPODATA = "SAPOData",
-  SERVICENOW = "Servicenow",
-  SINGULAR = "Singular",
-  SLACK = "Slack",
-  SNOWFLAKE = "Snowflake",
-  TRENDMICRO = "Trendmicro",
-  UPSOLVER = "Upsolver",
-  VEEVA = "Veeva",
-  ZENDESK = "Zendesk",
-}
+export const ConnectorType = {
+  AMPLITUDE: "Amplitude",
+  CUSTOMCONNECTOR: "CustomConnector",
+  CUSTOMERPROFILES: "CustomerProfiles",
+  DATADOG: "Datadog",
+  DYNATRACE: "Dynatrace",
+  EVENTBRIDGE: "EventBridge",
+  GOOGLEANALYTICS: "Googleanalytics",
+  HONEYCODE: "Honeycode",
+  INFORNEXUS: "Infornexus",
+  LOOKOUTMETRICS: "LookoutMetrics",
+  MARKETO: "Marketo",
+  PARDOT: "Pardot",
+  REDSHIFT: "Redshift",
+  S3: "S3",
+  SALESFORCE: "Salesforce",
+  SAPODATA: "SAPOData",
+  SERVICENOW: "Servicenow",
+  SINGULAR: "Singular",
+  SLACK: "Slack",
+  SNOWFLAKE: "Snowflake",
+  TRENDMICRO: "Trendmicro",
+  UPSOLVER: "Upsolver",
+  VEEVA: "Veeva",
+  ZENDESK: "Zendesk",
+};
 
 /**
  * @public
  */
-export enum Operators {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NOT_EQUAL_TO = "NOT_EQUAL_TO",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const Operators = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum ScheduleFrequencyType {
-  BYMINUTE = "BYMINUTE",
-  DAILY = "DAILY",
-  HOURLY = "HOURLY",
-  MONTHLY = "MONTHLY",
-  ONCE = "ONCE",
-  WEEKLY = "WEEKLY",
-}
+export const ScheduleFrequencyType = {
+  BYMINUTE: "BYMINUTE",
+  DAILY: "DAILY",
+  HOURLY: "HOURLY",
+  MONTHLY: "MONTHLY",
+  ONCE: "ONCE",
+  WEEKLY: "WEEKLY",
+};
 
 /**
  * @public
  */
-export enum TriggerType {
-  EVENT = "Event",
-  ONDEMAND = "OnDemand",
-  SCHEDULED = "Scheduled",
-}
+export const TriggerType = {
+  EVENT: "Event",
+  ONDEMAND: "OnDemand",
+  SCHEDULED: "Scheduled",
+};
 
 /**
  * @public
  */
-export enum WriteOperationType {
-  DELETE = "DELETE",
-  INSERT = "INSERT",
-  UPDATE = "UPDATE",
-  UPSERT = "UPSERT",
-}
+export const WriteOperationType = {
+  DELETE: "DELETE",
+  INSERT: "INSERT",
+  UPDATE: "UPDATE",
+  UPSERT: "UPSERT",
+};
 
 /**
  * @public
@@ -843,12 +843,12 @@ export interface ConnectorConfiguration {
   /**
    * <p> Lists the connectors that are available for use as destinations. </p>
    */
-  supportedDestinationConnectors?: (ConnectorType | string)[];
+  supportedDestinationConnectors?: (keyof typeof ConnectorType | string)[];
 
   /**
    * <p> Specifies the supported flow frequency for that connector. </p>
    */
-  supportedSchedulingFrequencies?: (ScheduleFrequencyType | string)[];
+  supportedSchedulingFrequencies?: (keyof typeof ScheduleFrequencyType | string)[];
 
   /**
    * <p> Specifies if PrivateLink is enabled for that connector. </p>
@@ -863,7 +863,7 @@ export interface ConnectorConfiguration {
   /**
    * <p> Specifies the supported trigger types for the flow. </p>
    */
-  supportedTriggerTypes?: (TriggerType | string)[];
+  supportedTriggerTypes?: (keyof typeof TriggerType | string)[];
 
   /**
    * <p> Specifies connector-specific metadata such as <code>oAuthScopes</code>,
@@ -874,7 +874,7 @@ export interface ConnectorConfiguration {
   /**
    * <p>The connector type.</p>
    */
-  connectorType?: ConnectorType | string;
+  connectorType?: keyof typeof ConnectorType | string;
 
   /**
    * <p>The label used for registering the connector.</p>
@@ -929,17 +929,17 @@ export interface ConnectorConfiguration {
   /**
    * <p>A list of operators supported by the connector.</p>
    */
-  supportedOperators?: (Operators | string)[];
+  supportedOperators?: (keyof typeof Operators | string)[];
 
   /**
    * <p>A list of write operations supported by the connector.</p>
    */
-  supportedWriteOperations?: (WriteOperationType | string)[];
+  supportedWriteOperations?: (keyof typeof WriteOperationType | string)[];
 
   /**
    * <p>The provisioning type used to register the connector.</p>
    */
-  connectorProvisioningType?: ConnectorProvisioningType | string;
+  connectorProvisioningType?: keyof typeof ConnectorProvisioningType | string;
 
   /**
    * <p>The configuration required for registering the connector.</p>
@@ -995,7 +995,7 @@ export interface ConnectorDetail {
   /**
    * <p>The connector type.</p>
    */
-  connectorType?: ConnectorType | string;
+  connectorType?: keyof typeof ConnectorType | string;
 
   /**
    * <p>A label used for the connector.</p>
@@ -1015,7 +1015,7 @@ export interface ConnectorDetail {
   /**
    * <p>The provisioning type that the connector uses.</p>
    */
-  connectorProvisioningType?: ConnectorProvisioningType | string;
+  connectorProvisioningType?: keyof typeof ConnectorProvisioningType | string;
 
   /**
    * <p>The connection mode that the connector supports.</p>
@@ -1089,7 +1089,7 @@ export interface DestinationFieldProperties {
    *       used in <code>idFieldNames</code> when that write operation is present as a destination
    *       option. </p>
    */
-  supportedWriteOperations?: (WriteOperationType | string)[];
+  supportedWriteOperations?: (keyof typeof WriteOperationType | string)[];
 }
 
 /**
@@ -1133,29 +1133,29 @@ export interface Range {
 /**
  * @public
  */
-export enum Operator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NOT_EQUAL_TO = "NOT_EQUAL_TO",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const Operator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
@@ -1171,7 +1171,7 @@ export interface FieldTypeDetails {
   /**
    * <p> The list of operators supported by a field. </p>
    */
-  filterOperators: (Operator | string)[] | undefined;
+  filterOperators: (keyof typeof Operator | string)[] | undefined;
 
   /**
    * <p> The list of values that a field can contain. For example, a Boolean
@@ -1301,334 +1301,334 @@ export interface ConnectorOAuthRequest {
 /**
  * @public
  */
-export enum DatadogConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const DatadogConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum DynatraceConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const DynatraceConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum GoogleAnalyticsConnectorOperator {
-  BETWEEN = "BETWEEN",
-  PROJECTION = "PROJECTION",
-}
+export const GoogleAnalyticsConnectorOperator = {
+  BETWEEN: "BETWEEN",
+  PROJECTION: "PROJECTION",
+};
 
 /**
  * @public
  */
-export enum InforNexusConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const InforNexusConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum MarketoConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  DIVISION = "DIVISION",
-  GREATER_THAN = "GREATER_THAN",
-  LESS_THAN = "LESS_THAN",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const MarketoConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  DIVISION: "DIVISION",
+  GREATER_THAN: "GREATER_THAN",
+  LESS_THAN: "LESS_THAN",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum PardotConnectorOperator {
-  ADDITION = "ADDITION",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const PardotConnectorOperator = {
+  ADDITION: "ADDITION",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum S3ConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NOT_EQUAL_TO = "NOT_EQUAL_TO",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const S3ConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum SalesforceConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NOT_EQUAL_TO = "NOT_EQUAL_TO",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const SalesforceConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum SAPODataConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NOT_EQUAL_TO = "NOT_EQUAL_TO",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const SAPODataConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum ServiceNowConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NOT_EQUAL_TO = "NOT_EQUAL_TO",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const ServiceNowConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum SingularConnectorOperator {
-  ADDITION = "ADDITION",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const SingularConnectorOperator = {
+  ADDITION: "ADDITION",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum SlackConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const SlackConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum TrendmicroConnectorOperator {
-  ADDITION = "ADDITION",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const TrendmicroConnectorOperator = {
+  ADDITION: "ADDITION",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum VeevaConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NOT_EQUAL_TO = "NOT_EQUAL_TO",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const VeevaConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum ZendeskConnectorOperator {
-  ADDITION = "ADDITION",
-  DIVISION = "DIVISION",
-  GREATER_THAN = "GREATER_THAN",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const ZendeskConnectorOperator = {
+  ADDITION: "ADDITION",
+  DIVISION: "DIVISION",
+  GREATER_THAN: "GREATER_THAN",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
@@ -1638,87 +1638,87 @@ export interface ConnectorOperator {
   /**
    * <p> The operation to be performed on the provided Amplitude source fields. </p>
    */
-  Amplitude?: AmplitudeConnectorOperator | string;
+  Amplitude?: keyof typeof AmplitudeConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided Datadog source fields. </p>
    */
-  Datadog?: DatadogConnectorOperator | string;
+  Datadog?: keyof typeof DatadogConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided Dynatrace source fields. </p>
    */
-  Dynatrace?: DynatraceConnectorOperator | string;
+  Dynatrace?: keyof typeof DynatraceConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided Google Analytics source fields. </p>
    */
-  GoogleAnalytics?: GoogleAnalyticsConnectorOperator | string;
+  GoogleAnalytics?: keyof typeof GoogleAnalyticsConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided Infor Nexus source fields. </p>
    */
-  InforNexus?: InforNexusConnectorOperator | string;
+  InforNexus?: keyof typeof InforNexusConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided Marketo source fields. </p>
    */
-  Marketo?: MarketoConnectorOperator | string;
+  Marketo?: keyof typeof MarketoConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided Amazon S3 source fields. </p>
    */
-  S3?: S3ConnectorOperator | string;
+  S3?: keyof typeof S3ConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided Salesforce source fields. </p>
    */
-  Salesforce?: SalesforceConnectorOperator | string;
+  Salesforce?: keyof typeof SalesforceConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided ServiceNow source fields. </p>
    */
-  ServiceNow?: ServiceNowConnectorOperator | string;
+  ServiceNow?: keyof typeof ServiceNowConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided Singular source fields. </p>
    */
-  Singular?: SingularConnectorOperator | string;
+  Singular?: keyof typeof SingularConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided Slack source fields. </p>
    */
-  Slack?: SlackConnectorOperator | string;
+  Slack?: keyof typeof SlackConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided Trend Micro source fields. </p>
    */
-  Trendmicro?: TrendmicroConnectorOperator | string;
+  Trendmicro?: keyof typeof TrendmicroConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided Veeva source fields. </p>
    */
-  Veeva?: VeevaConnectorOperator | string;
+  Veeva?: keyof typeof VeevaConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided Zendesk source fields. </p>
    */
-  Zendesk?: ZendeskConnectorOperator | string;
+  Zendesk?: keyof typeof ZendeskConnectorOperator | string;
 
   /**
    * <p> The operation to be performed on the provided SAPOData source fields. </p>
    */
-  SAPOData?: SAPODataConnectorOperator | string;
+  SAPOData?: keyof typeof SAPODataConnectorOperator | string;
 
   /**
    * <p>Operators supported by the custom connector.</p>
    */
-  CustomConnector?: Operator | string;
+  CustomConnector?: keyof typeof Operator | string;
 
   /**
    * <p>The operation to be performed on the provided Salesforce Pardot source fields.</p>
    */
-  Pardot?: PardotConnectorOperator | string;
+  Pardot?: keyof typeof PardotConnectorOperator | string;
 }
 
 /**
@@ -1734,7 +1734,7 @@ export interface OAuth2Properties {
   /**
    * <p>The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication.</p>
    */
-  oAuth2GrantType: OAuth2GrantType | string | undefined;
+  oAuth2GrantType: keyof typeof OAuth2GrantType | string | undefined;
 
   /**
    * <p>Associates your token URL with a map of properties that you define. Use this parameter to
@@ -2229,22 +2229,22 @@ export interface ConnectorProfileProperties {
 /**
  * @public
  */
-export enum PrivateConnectionProvisioningFailureCause {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  CONNECTOR_AUTHENTICATION = "CONNECTOR_AUTHENTICATION",
-  CONNECTOR_SERVER = "CONNECTOR_SERVER",
-  INTERNAL_SERVER = "INTERNAL_SERVER",
-  VALIDATION = "VALIDATION",
-}
+export const PrivateConnectionProvisioningFailureCause = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  CONNECTOR_AUTHENTICATION: "CONNECTOR_AUTHENTICATION",
+  CONNECTOR_SERVER: "CONNECTOR_SERVER",
+  INTERNAL_SERVER: "INTERNAL_SERVER",
+  VALIDATION: "VALIDATION",
+};
 
 /**
  * @public
  */
-export enum PrivateConnectionProvisioningStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
+export const PrivateConnectionProvisioningStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -2254,7 +2254,7 @@ export interface PrivateConnectionProvisioningState {
   /**
    * <p> Specifies the private connection provisioning status. </p>
    */
-  status?: PrivateConnectionProvisioningStatus | string;
+  status?: keyof typeof PrivateConnectionProvisioningStatus | string;
 
   /**
    * <p> Specifies the private connection provisioning failure reason. </p>
@@ -2264,7 +2264,7 @@ export interface PrivateConnectionProvisioningState {
   /**
    * <p> Specifies the private connection provisioning failure cause. </p>
    */
-  failureCause?: PrivateConnectionProvisioningFailureCause | string;
+  failureCause?: keyof typeof PrivateConnectionProvisioningFailureCause | string;
 }
 
 /**
@@ -2290,7 +2290,7 @@ export interface ConnectorProfile {
   /**
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType?: ConnectorType | string;
+  connectorType?: keyof typeof ConnectorType | string;
 
   /**
    * <p>The label for the connector profile being created.</p>
@@ -2300,7 +2300,7 @@ export interface ConnectorProfile {
   /**
    * <p> Indicates the connection mode and if it is public or private. </p>
    */
-  connectionMode?: ConnectionMode | string;
+  connectionMode?: keyof typeof ConnectionMode | string;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the connector profile credentials. </p>
@@ -2387,7 +2387,7 @@ export interface CustomConnectorProfileCredentials {
    * <p>The authentication type that the custom connector uses for authenticating while creating a
    *       connector profile.</p>
    */
-  authenticationType: AuthenticationType | string | undefined;
+  authenticationType: keyof typeof AuthenticationType | string | undefined;
 
   /**
    * <p>The basic credentials that are required for the authentication of the user.</p>
@@ -2958,7 +2958,7 @@ export interface CreateConnectorProfileRequest {
   /**
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType: ConnectorType | string | undefined;
+  connectorType: keyof typeof ConnectorType | string | undefined;
 
   /**
    * <p>The label of the connector. The label is unique for each
@@ -2972,7 +2972,7 @@ export interface CreateConnectorProfileRequest {
    *       flows use Amazon Web Services PrivateLink to route data over Amazon Web Services infrastructure
    *       without exposing it to the public internet. </p>
    */
-  connectionMode: ConnectionMode | string | undefined;
+  connectionMode: keyof typeof ConnectionMode | string | undefined;
 
   /**
    * <p> Defines the connector-specific configuration and credentials. </p>
@@ -3099,7 +3099,7 @@ export interface CustomConnectorDestinationProperties {
    * <p>Specifies the type of write operation to be performed in the custom connector when it's
    *       used as destination.</p>
    */
-  writeOperationType?: WriteOperationType | string;
+  writeOperationType?: keyof typeof WriteOperationType | string;
 
   /**
    * <p>The name of the field that Amazon AppFlow uses as an ID when performing a write
@@ -3236,39 +3236,39 @@ export interface RedshiftDestinationProperties {
 /**
  * @public
  */
-export enum FileType {
-  CSV = "CSV",
-  JSON = "JSON",
-  PARQUET = "PARQUET",
-}
+export const FileType = {
+  CSV: "CSV",
+  JSON: "JSON",
+  PARQUET: "PARQUET",
+};
 
 /**
  * @public
  */
-export enum PathPrefix {
-  EXECUTION_ID = "EXECUTION_ID",
-  SCHEMA_VERSION = "SCHEMA_VERSION",
-}
+export const PathPrefix = {
+  EXECUTION_ID: "EXECUTION_ID",
+  SCHEMA_VERSION: "SCHEMA_VERSION",
+};
 
 /**
  * @public
  */
-export enum PrefixFormat {
-  DAY = "DAY",
-  HOUR = "HOUR",
-  MINUTE = "MINUTE",
-  MONTH = "MONTH",
-  YEAR = "YEAR",
-}
+export const PrefixFormat = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  MINUTE: "MINUTE",
+  MONTH: "MONTH",
+  YEAR: "YEAR",
+};
 
 /**
  * @public
  */
-export enum PrefixType {
-  FILENAME = "FILENAME",
-  PATH = "PATH",
-  PATH_AND_FILENAME = "PATH_AND_FILENAME",
-}
+export const PrefixType = {
+  FILENAME: "FILENAME",
+  PATH: "PATH",
+  PATH_AND_FILENAME: "PATH_AND_FILENAME",
+};
 
 /**
  * @public
@@ -3280,13 +3280,13 @@ export interface PrefixConfig {
    * <p>Determines the format of the prefix, and whether it applies to the file name, file path,
    *       or both. </p>
    */
-  prefixType?: PrefixType | string;
+  prefixType?: keyof typeof PrefixType | string;
 
   /**
    * <p>Determines the level of granularity for the date and time that's included in the prefix.
    *     </p>
    */
-  prefixFormat?: PrefixFormat | string;
+  prefixFormat?: keyof typeof PrefixFormat | string;
 
   /**
    * <p>Specifies whether the destination file path includes either or both of the following
@@ -3315,7 +3315,7 @@ export interface PrefixConfig {
    *             </dd>
    *          </dl>
    */
-  pathPrefixHierarchy?: (PathPrefix | string)[];
+  pathPrefixHierarchy?: (keyof typeof PathPrefix | string)[];
 }
 
 /**
@@ -3328,7 +3328,7 @@ export interface S3OutputFormatConfig {
    * <p> Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
    *     </p>
    */
-  fileType?: FileType | string;
+  fileType?: keyof typeof FileType | string;
 
   /**
    * <p> Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. </p>
@@ -3414,7 +3414,7 @@ export interface SalesforceDestinationProperties {
    * <p> This specifies the type of write operation to be performed in Salesforce. When the value
    *       is <code>UPSERT</code>, then <code>idFieldNames</code> is required. </p>
    */
-  writeOperationType?: WriteOperationType | string;
+  writeOperationType?: keyof typeof WriteOperationType | string;
 
   /**
    * <p>Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers
@@ -3455,7 +3455,7 @@ export interface SalesforceDestinationProperties {
    *             </dd>
    *          </dl>
    */
-  dataTransferApi?: SalesforceDataTransferApi | string;
+  dataTransferApi?: keyof typeof SalesforceDataTransferApi | string;
 }
 
 /**
@@ -3514,7 +3514,7 @@ export interface SAPODataDestinationProperties {
    * <p> The possible write operations in the destination connector. When this value is not
    *       provided, this defaults to the <code>INSERT</code> operation. </p>
    */
-  writeOperationType?: WriteOperationType | string;
+  writeOperationType?: keyof typeof WriteOperationType | string;
 }
 
 /**
@@ -3559,7 +3559,7 @@ export interface UpsolverS3OutputFormatConfig {
    * <p> Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3
    *       bucket. </p>
    */
-  fileType?: FileType | string;
+  fileType?: keyof typeof FileType | string;
 
   /**
    * <p>Specifies elements that Amazon AppFlow includes in the file and folder names in the flow
@@ -3626,7 +3626,7 @@ export interface ZendeskDestinationProperties {
    * <p> The possible write operations in the destination connector. When this value is not
    *       provided, this defaults to the <code>INSERT</code> operation. </p>
    */
-  writeOperationType?: WriteOperationType | string;
+  writeOperationType?: keyof typeof WriteOperationType | string;
 }
 
 /**
@@ -3709,7 +3709,7 @@ export interface DestinationFlowConfig {
   /**
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType: ConnectorType | string | undefined;
+  connectorType: keyof typeof ConnectorType | string | undefined;
 
   /**
    * <p>The API version that the destination connector uses.</p>
@@ -3877,10 +3877,10 @@ export interface PardotSourceProperties {
 /**
  * @public
  */
-export enum S3InputFileType {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+export const S3InputFileType = {
+  CSV: "CSV",
+  JSON: "JSON",
+};
 
 /**
  * @public
@@ -3891,7 +3891,7 @@ export interface S3InputFormatConfig {
   /**
    * <p> The file type that Amazon AppFlow gets from your Amazon S3 bucket. </p>
    */
-  s3InputFileType?: S3InputFileType | string;
+  s3InputFileType?: keyof typeof S3InputFileType | string;
 }
 
 /**
@@ -3978,7 +3978,7 @@ export interface SalesforceSourceProperties {
    *             </dd>
    *          </dl>
    */
-  dataTransferApi?: SalesforceDataTransferApi | string;
+  dataTransferApi?: keyof typeof SalesforceDataTransferApi | string;
 }
 
 /**
@@ -4179,7 +4179,7 @@ export interface SourceFlowConfig {
   /**
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType: ConnectorType | string | undefined;
+  connectorType: keyof typeof ConnectorType | string | undefined;
 
   /**
    * <p>The API version of the connector when it's used as a source in the flow.</p>
@@ -4209,41 +4209,41 @@ export interface SourceFlowConfig {
 /**
  * @public
  */
-export enum OperatorPropertiesKeys {
-  CONCAT_FORMAT = "CONCAT_FORMAT",
-  DATA_TYPE = "DATA_TYPE",
-  DESTINATION_DATA_TYPE = "DESTINATION_DATA_TYPE",
-  EXCLUDE_SOURCE_FIELDS_LIST = "EXCLUDE_SOURCE_FIELDS_LIST",
-  INCLUDE_NEW_FIELDS = "INCLUDE_NEW_FIELDS",
-  LOWER_BOUND = "LOWER_BOUND",
-  MASK_LENGTH = "MASK_LENGTH",
-  MASK_VALUE = "MASK_VALUE",
-  MATH_OPERATION_FIELDS_ORDER = "MATH_OPERATION_FIELDS_ORDER",
-  ORDERED_PARTITION_KEYS_LIST = "ORDERED_PARTITION_KEYS_LIST",
-  SOURCE_DATA_TYPE = "SOURCE_DATA_TYPE",
-  SUBFIELD_CATEGORY_MAP = "SUBFIELD_CATEGORY_MAP",
-  TRUNCATE_LENGTH = "TRUNCATE_LENGTH",
-  UPPER_BOUND = "UPPER_BOUND",
-  VALIDATION_ACTION = "VALIDATION_ACTION",
-  VALUE = "VALUE",
-  VALUES = "VALUES",
-}
+export const OperatorPropertiesKeys = {
+  CONCAT_FORMAT: "CONCAT_FORMAT",
+  DATA_TYPE: "DATA_TYPE",
+  DESTINATION_DATA_TYPE: "DESTINATION_DATA_TYPE",
+  EXCLUDE_SOURCE_FIELDS_LIST: "EXCLUDE_SOURCE_FIELDS_LIST",
+  INCLUDE_NEW_FIELDS: "INCLUDE_NEW_FIELDS",
+  LOWER_BOUND: "LOWER_BOUND",
+  MASK_LENGTH: "MASK_LENGTH",
+  MASK_VALUE: "MASK_VALUE",
+  MATH_OPERATION_FIELDS_ORDER: "MATH_OPERATION_FIELDS_ORDER",
+  ORDERED_PARTITION_KEYS_LIST: "ORDERED_PARTITION_KEYS_LIST",
+  SOURCE_DATA_TYPE: "SOURCE_DATA_TYPE",
+  SUBFIELD_CATEGORY_MAP: "SUBFIELD_CATEGORY_MAP",
+  TRUNCATE_LENGTH: "TRUNCATE_LENGTH",
+  UPPER_BOUND: "UPPER_BOUND",
+  VALIDATION_ACTION: "VALIDATION_ACTION",
+  VALUE: "VALUE",
+  VALUES: "VALUES",
+};
 
 /**
  * @public
  */
-export enum TaskType {
-  ARITHMETIC = "Arithmetic",
-  FILTER = "Filter",
-  MAP = "Map",
-  MAP_ALL = "Map_all",
-  MASK = "Mask",
-  MERGE = "Merge",
-  PARTITION = "Partition",
-  PASSTHROUGH = "Passthrough",
-  TRUNCATE = "Truncate",
-  VALIDATE = "Validate",
-}
+export const TaskType = {
+  ARITHMETIC: "Arithmetic",
+  FILTER: "Filter",
+  MAP: "Map",
+  MAP_ALL: "Map_all",
+  MASK: "Mask",
+  MERGE: "Merge",
+  PARTITION: "Partition",
+  PASSTHROUGH: "Passthrough",
+  TRUNCATE: "Truncate",
+  VALIDATE: "Validate",
+};
 
 /**
  * @public
@@ -4270,7 +4270,7 @@ export interface Task {
   /**
    * <p> Specifies the particular task implementation that Amazon AppFlow performs. </p>
    */
-  taskType: TaskType | string | undefined;
+  taskType: keyof typeof TaskType | string | undefined;
 
   /**
    * <p> A map used to store task-related information. The execution service looks for particular
@@ -4282,10 +4282,10 @@ export interface Task {
 /**
  * @public
  */
-export enum DataPullMode {
-  COMPLETE = "Complete",
-  INCREMENTAL = "Incremental",
-}
+export const DataPullMode = {
+  COMPLETE: "Complete",
+  INCREMENTAL: "Incremental",
+};
 
 /**
  * @public
@@ -4303,7 +4303,7 @@ export interface ScheduledTriggerProperties {
    * <p> Specifies whether a scheduled flow has an incremental data transfer or a complete data
    *       transfer for each flow run. </p>
    */
-  dataPullMode?: DataPullMode | string;
+  dataPullMode?: keyof typeof DataPullMode | string;
 
   /**
    * <p>The time at which the scheduled flow starts. The time is formatted as a timestamp that
@@ -4371,7 +4371,7 @@ export interface TriggerConfig {
    * <p> Specifies the type of flow trigger. This can be <code>OnDemand</code>,
    *         <code>Scheduled</code>, or <code>Event</code>. </p>
    */
-  triggerType: TriggerType | string | undefined;
+  triggerType: keyof typeof TriggerType | string | undefined;
 
   /**
    * <p> Specifies the configuration details of a schedule-triggered flow as defined by the user.
@@ -4441,14 +4441,14 @@ export interface CreateFlowRequest {
 /**
  * @public
  */
-export enum FlowStatus {
-  ACTIVE = "Active",
-  DELETED = "Deleted",
-  DEPRECATED = "Deprecated",
-  DRAFT = "Draft",
-  ERRORED = "Errored",
-  SUSPENDED = "Suspended",
-}
+export const FlowStatus = {
+  ACTIVE: "Active",
+  DELETED: "Deleted",
+  DEPRECATED: "Deprecated",
+  DRAFT: "Draft",
+  ERRORED: "Errored",
+  SUSPENDED: "Suspended",
+};
 
 /**
  * @public
@@ -4462,7 +4462,7 @@ export interface CreateFlowResponse {
   /**
    * <p> Indicates the current status of the flow. </p>
    */
-  flowStatus?: FlowStatus | string;
+  flowStatus?: keyof typeof FlowStatus | string;
 }
 
 /**
@@ -4538,7 +4538,7 @@ export interface DescribeConnectorRequest {
    * <p>The connector type, such as CUSTOMCONNECTOR, Saleforce, Marketo. Please choose
    *       CUSTOMCONNECTOR for Lambda based custom connectors.</p>
    */
-  connectorType: ConnectorType | string | undefined;
+  connectorType: keyof typeof ConnectorType | string | undefined;
 
   /**
    * <p>The label of the connector. The label is unique for each
@@ -4570,7 +4570,7 @@ export interface DescribeConnectorEntityRequest {
   /**
    * <p> The type of connector application, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType?: ConnectorType | string;
+  connectorType?: keyof typeof ConnectorType | string;
 
   /**
    * <p> The name of the connector profile. The name is unique for each
@@ -4609,7 +4609,7 @@ export interface DescribeConnectorProfilesRequest {
   /**
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType?: ConnectorType | string;
+  connectorType?: keyof typeof ConnectorType | string;
 
   /**
    * <p>The name of the connector. The name is unique for each <code>ConnectorRegistration</code>
@@ -4653,7 +4653,7 @@ export interface DescribeConnectorsRequest {
   /**
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorTypes?: (ConnectorType | string)[];
+  connectorTypes?: (keyof typeof ConnectorType | string)[];
 
   /**
    * <p>The maximum number of items that should be returned in the result set. The default is
@@ -4701,11 +4701,11 @@ export interface DescribeFlowRequest {
 /**
  * @public
  */
-export enum ExecutionStatus {
-  ERROR = "Error",
-  INPROGRESS = "InProgress",
-  SUCCESSFUL = "Successful",
-}
+export const ExecutionStatus = {
+  ERROR: "Error",
+  INPROGRESS: "InProgress",
+  SUCCESSFUL: "Successful",
+};
 
 /**
  * @public
@@ -4726,7 +4726,7 @@ export interface ExecutionDetails {
   /**
    * <p> Specifies the status of the most recent flow run. </p>
    */
-  mostRecentExecutionStatus?: ExecutionStatus | string;
+  mostRecentExecutionStatus?: keyof typeof ExecutionStatus | string;
 }
 
 /**
@@ -4753,7 +4753,7 @@ export interface RegistrationOutput {
   /**
    * <p>Indicates the status of the registration attempt from Amazon AppFlow.</p>
    */
-  status?: ExecutionStatus | string;
+  status?: keyof typeof ExecutionStatus | string;
 }
 
 /**
@@ -4772,7 +4772,7 @@ export interface MetadataCatalogDetail {
    *             </dd>
    *          </dl>
    */
-  catalogType?: CatalogType | string;
+  catalogType?: keyof typeof CatalogType | string;
 
   /**
    * <p>The name of the table that stores the metadata for the associated flow run. The table
@@ -4827,7 +4827,7 @@ export interface DescribeFlowResponse {
   /**
    * <p> Indicates the current status of the flow. </p>
    */
-  flowStatus?: FlowStatus | string;
+  flowStatus?: keyof typeof FlowStatus | string;
 
   /**
    * <p> Contains an error message if the flow status is in a suspended or error state. This
@@ -4998,7 +4998,7 @@ export interface ExecutionRecord {
    * <p> Specifies the flow run status and whether it is in progress, has completed successfully,
    *       or has failed. </p>
    */
-  executionStatus?: ExecutionStatus | string;
+  executionStatus?: keyof typeof ExecutionStatus | string;
 
   /**
    * <p> Describes the result of the given flow run. </p>
@@ -5073,13 +5073,13 @@ export interface FlowDefinition {
   /**
    * <p> Indicates the current status of the flow. </p>
    */
-  flowStatus?: FlowStatus | string;
+  flowStatus?: keyof typeof FlowStatus | string;
 
   /**
    * <p> Specifies the source connector type, such as Salesforce, Amazon S3, Amplitude,
    *       and so on. </p>
    */
-  sourceConnectorType?: ConnectorType | string;
+  sourceConnectorType?: keyof typeof ConnectorType | string;
 
   /**
    * <p>The label of the source connector in the flow.</p>
@@ -5090,7 +5090,7 @@ export interface FlowDefinition {
    * <p> Specifies the destination connector type, such as Salesforce, Amazon S3,
    *       Amplitude, and so on. </p>
    */
-  destinationConnectorType?: ConnectorType | string;
+  destinationConnectorType?: keyof typeof ConnectorType | string;
 
   /**
    * <p>The label of the destination connector in the flow.</p>
@@ -5101,7 +5101,7 @@ export interface FlowDefinition {
    * <p> Specifies the type of flow trigger. This can be <code>OnDemand</code>,
    *         <code>Scheduled</code>, or <code>Event</code>. </p>
    */
-  triggerType?: TriggerType | string;
+  triggerType?: keyof typeof TriggerType | string;
 
   /**
    * <p> Specifies when the flow was created. </p>
@@ -5148,7 +5148,7 @@ export interface ListConnectorEntitiesRequest {
   /**
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
-  connectorType?: ConnectorType | string;
+  connectorType?: keyof typeof ConnectorType | string;
 
   /**
    * <p> This optional parameter is specific to connector implementation. Some connectors support
@@ -5297,7 +5297,7 @@ export interface RegisterConnectorRequest {
    * <p>The provisioning type of the connector. Currently the only supported value is LAMBDA.
    *     </p>
    */
-  connectorProvisioningType?: ConnectorProvisioningType | string;
+  connectorProvisioningType?: keyof typeof ConnectorProvisioningType | string;
 
   /**
    * <p>The provisioning type of the connector. Currently the only supported value is
@@ -5360,7 +5360,7 @@ export interface StartFlowResponse {
   /**
    * <p> Indicates the current status of the flow. </p>
    */
-  flowStatus?: FlowStatus | string;
+  flowStatus?: keyof typeof FlowStatus | string;
 
   /**
    * <p> Returns the internal execution ID of an on-demand flow when the flow is started. For
@@ -5392,7 +5392,7 @@ export interface StopFlowResponse {
   /**
    * <p> Indicates the current status of the flow. </p>
    */
-  flowStatus?: FlowStatus | string;
+  flowStatus?: keyof typeof FlowStatus | string;
 }
 
 /**
@@ -5490,7 +5490,7 @@ export interface UpdateConnectorProfileRequest {
   /**
    * <p> Indicates the connection mode and if it is public or private. </p>
    */
-  connectionMode: ConnectionMode | string | undefined;
+  connectionMode: keyof typeof ConnectionMode | string | undefined;
 
   /**
    * <p> Defines the connector-specific profile configuration and credentials. </p>
@@ -5592,7 +5592,7 @@ export interface UpdateFlowResponse {
   /**
    * <p>Indicates the current status of the flow. </p>
    */
-  flowStatus?: FlowStatus | string;
+  flowStatus?: keyof typeof FlowStatus | string;
 }
 
 /**

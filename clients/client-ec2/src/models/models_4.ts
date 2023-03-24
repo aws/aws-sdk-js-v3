@@ -131,7 +131,7 @@ export interface Monitoring {
    * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
    *             enabled.</p>
    */
-  State?: MonitoringState | string;
+  State?: keyof typeof MonitoringState | string;
 }
 
 /**
@@ -193,7 +193,7 @@ export interface InstanceNetworkInterfaceAttachment {
   /**
    * <p>The attachment state.</p>
    */
-  Status?: AttachmentStatus | string;
+  Status?: keyof typeof AttachmentStatus | string;
 
   /**
    * <p>The index of the network card.</p>
@@ -318,7 +318,7 @@ export interface InstanceNetworkInterface {
   /**
    * <p>The status of the network interface.</p>
    */
-  Status?: NetworkInterfaceStatus | string;
+  Status?: keyof typeof NetworkInterfaceStatus | string;
 
   /**
    * <p>The ID of the subnet.</p>
@@ -356,7 +356,7 @@ export interface PrivateDnsNameOptionsResponse {
   /**
    * <p>The type of hostname to assign to an instance.</p>
    */
-  HostnameType?: HostnameType | string;
+  HostnameType?: keyof typeof HostnameType | string;
 
   /**
    * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
@@ -374,14 +374,14 @@ export interface PrivateDnsNameOptionsResponse {
 /**
  * @public
  */
-export enum InstanceStateName {
-  pending = "pending",
-  running = "running",
-  shutting_down = "shutting-down",
-  stopped = "stopped",
-  stopping = "stopping",
-  terminated = "terminated",
-}
+export const InstanceStateName = {
+  pending: "pending",
+  running: "running",
+  shutting_down: "shutting-down",
+  stopped: "stopped",
+  stopping: "stopping",
+  terminated: "terminated",
+};
 
 /**
  * @public
@@ -437,7 +437,7 @@ export interface InstanceState {
   /**
    * <p>The current state of the instance.</p>
    */
-  Name?: InstanceStateName | string;
+  Name?: keyof typeof InstanceStateName | string;
 }
 
 /**
@@ -464,7 +464,7 @@ export interface Instance {
   /**
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The kernel associated with this instance, if applicable.</p>
@@ -495,7 +495,7 @@ export interface Instance {
   /**
    * <p>The value is <code>Windows</code> for Windows instances; otherwise blank.</p>
    */
-  Platform?: PlatformValues | string;
+  Platform?: keyof typeof PlatformValues | string;
 
   /**
    * <p>(IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname
@@ -561,7 +561,7 @@ export interface Instance {
   /**
    * <p>The architecture of the image.</p>
    */
-  Architecture?: ArchitectureValues | string;
+  Architecture?: keyof typeof ArchitectureValues | string;
 
   /**
    * <p>Any block device mapping entries for the instance.</p>
@@ -591,7 +591,7 @@ export interface Instance {
    * <p>The hypervisor type of the instance. The value <code>xen</code> is used for both Xen
    *             and Nitro hypervisors.</p>
    */
-  Hypervisor?: HypervisorType | string;
+  Hypervisor?: keyof typeof HypervisorType | string;
 
   /**
    * <p>The IAM instance profile associated with the instance, if
@@ -602,7 +602,7 @@ export interface Instance {
   /**
    * <p>Indicates whether this is a Spot Instance or a Scheduled Instance.</p>
    */
-  InstanceLifecycle?: InstanceLifecycleType | string;
+  InstanceLifecycle?: keyof typeof InstanceLifecycleType | string;
 
   /**
    * <p>The Elastic GPU associated with the instance.</p>
@@ -634,7 +634,7 @@ export interface Instance {
    * <p>The root device type used by the AMI. The AMI can use an EBS volume or an instance
    *             store volume.</p>
    */
-  RootDeviceType?: DeviceType | string;
+  RootDeviceType?: keyof typeof DeviceType | string;
 
   /**
    * <p>The security groups for the instance.</p>
@@ -670,7 +670,7 @@ export interface Instance {
   /**
    * <p>The virtualization type of the instance.</p>
    */
-  VirtualizationType?: VirtualizationType | string;
+  VirtualizationType?: keyof typeof VirtualizationType | string;
 
   /**
    * <p>The CPU options for the instance.</p>
@@ -718,7 +718,7 @@ export interface Instance {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    */
-  BootMode?: BootModeValues | string;
+  BootMode?: keyof typeof BootModeValues | string;
 
   /**
    * <p>The platform details value for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI
@@ -765,7 +765,7 @@ export interface Instance {
    * <p>The boot mode that is used to boot the instance at launch or start. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *             <i>Amazon EC2 User Guide</i>.</p>
    */
-  CurrentInstanceBootMode?: InstanceBootModeValues | string;
+  CurrentInstanceBootMode?: keyof typeof InstanceBootModeValues | string;
 }
 
 /**
@@ -942,13 +942,13 @@ export interface DescribeInstanceStatusRequest {
 /**
  * @public
  */
-export enum EventCode {
-  instance_reboot = "instance-reboot",
-  instance_retirement = "instance-retirement",
-  instance_stop = "instance-stop",
-  system_maintenance = "system-maintenance",
-  system_reboot = "system-reboot",
-}
+export const EventCode = {
+  instance_reboot: "instance-reboot",
+  instance_retirement: "instance-retirement",
+  instance_stop: "instance-stop",
+  system_maintenance: "system-maintenance",
+  system_reboot: "system-reboot",
+};
 
 /**
  * @public
@@ -963,7 +963,7 @@ export interface InstanceStatusEvent {
   /**
    * <p>The event code.</p>
    */
-  Code?: EventCode | string;
+  Code?: keyof typeof EventCode | string;
 
   /**
    * <p>A description of the event.</p>
@@ -992,19 +992,19 @@ export interface InstanceStatusEvent {
 /**
  * @public
  */
-export enum StatusName {
-  reachability = "reachability",
-}
+export const StatusName = {
+  reachability: "reachability",
+};
 
 /**
  * @public
  */
-export enum StatusType {
-  failed = "failed",
-  initializing = "initializing",
-  insufficient_data = "insufficient-data",
-  passed = "passed",
-}
+export const StatusType = {
+  failed: "failed",
+  initializing: "initializing",
+  insufficient_data: "insufficient-data",
+  passed: "passed",
+};
 
 /**
  * @public
@@ -1020,24 +1020,24 @@ export interface InstanceStatusDetails {
   /**
    * <p>The type of instance status.</p>
    */
-  Name?: StatusName | string;
+  Name?: keyof typeof StatusName | string;
 
   /**
    * <p>The status.</p>
    */
-  Status?: StatusType | string;
+  Status?: keyof typeof StatusType | string;
 }
 
 /**
  * @public
  */
-export enum SummaryStatus {
-  impaired = "impaired",
-  initializing = "initializing",
-  insufficient_data = "insufficient-data",
-  not_applicable = "not-applicable",
-  ok = "ok",
-}
+export const SummaryStatus = {
+  impaired: "impaired",
+  initializing: "initializing",
+  insufficient_data: "insufficient-data",
+  not_applicable: "not-applicable",
+  ok: "ok",
+};
 
 /**
  * @public
@@ -1052,7 +1052,7 @@ export interface InstanceStatusSummary {
   /**
    * <p>The status.</p>
    */
-  Status?: SummaryStatus | string;
+  Status?: keyof typeof SummaryStatus | string;
 }
 
 /**
@@ -1118,11 +1118,11 @@ export interface DescribeInstanceStatusResult {
 /**
  * @public
  */
-export enum LocationType {
-  availability_zone = "availability-zone",
-  availability_zone_id = "availability-zone-id",
-  region = "region",
-}
+export const LocationType = {
+  availability_zone: "availability-zone",
+  availability_zone_id: "availability-zone-id",
+  region: "region",
+};
 
 /**
  * @public
@@ -1138,7 +1138,7 @@ export interface DescribeInstanceTypeOfferingsRequest {
   /**
    * <p>The location type.</p>
    */
-  LocationType?: LocationType | string;
+  LocationType?: keyof typeof LocationType | string;
 
   /**
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
@@ -1178,12 +1178,12 @@ export interface InstanceTypeOffering {
   /**
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The location type.</p>
    */
-  LocationType?: LocationType | string;
+  LocationType?: keyof typeof LocationType | string;
 
   /**
    * <p>The identifier for the location. This depends on the location type. For example, if the location type is
@@ -1222,7 +1222,7 @@ export interface DescribeInstanceTypesRequest {
   /**
    * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  InstanceTypes?: (_InstanceType | string)[];
+  InstanceTypes?: (keyof typeof _InstanceType | string)[];
 
   /**
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
@@ -1504,28 +1504,28 @@ export interface EbsOptimizedInfo {
 /**
  * @public
  */
-export enum EbsOptimizedSupport {
-  default = "default",
-  supported = "supported",
-  unsupported = "unsupported",
-}
+export const EbsOptimizedSupport = {
+  default: "default",
+  supported: "supported",
+  unsupported: "unsupported",
+};
 
 /**
  * @public
  */
-export enum EbsEncryptionSupport {
-  supported = "supported",
-  unsupported = "unsupported",
-}
+export const EbsEncryptionSupport = {
+  supported: "supported",
+  unsupported: "unsupported",
+};
 
 /**
  * @public
  */
-export enum EbsNvmeSupport {
-  REQUIRED = "required",
-  SUPPORTED = "supported",
-  UNSUPPORTED = "unsupported",
-}
+export const EbsNvmeSupport = {
+  REQUIRED: "required",
+  SUPPORTED: "supported",
+  UNSUPPORTED: "unsupported",
+};
 
 /**
  * @public
@@ -1536,12 +1536,12 @@ export interface EbsInfo {
    * <p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-optimized
    *     instances</a> in <i>Amazon EC2 User Guide</i>.</p>
    */
-  EbsOptimizedSupport?: EbsOptimizedSupport | string;
+  EbsOptimizedSupport?: keyof typeof EbsOptimizedSupport | string;
 
   /**
    * <p>Indicates whether Amazon EBS encryption is supported.</p>
    */
-  EncryptionSupport?: EbsEncryptionSupport | string;
+  EncryptionSupport?: keyof typeof EbsEncryptionSupport | string;
 
   /**
    * <p>Describes the optimized EBS performance for the instance type.</p>
@@ -1551,7 +1551,7 @@ export interface EbsInfo {
   /**
    * <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
    */
-  NvmeSupport?: EbsNvmeSupport | string;
+  NvmeSupport?: keyof typeof EbsNvmeSupport | string;
 }
 
 /**
@@ -1663,10 +1663,10 @@ export interface GpuInfo {
 /**
  * @public
  */
-export enum InstanceTypeHypervisor {
-  NITRO = "nitro",
-  XEN = "xen",
-}
+export const InstanceTypeHypervisor = {
+  NITRO: "nitro",
+  XEN: "xen",
+};
 
 /**
  * @public
@@ -1703,10 +1703,10 @@ export interface InferenceAcceleratorInfo {
 /**
  * @public
  */
-export enum DiskType {
-  hdd = "hdd",
-  ssd = "ssd",
-}
+export const DiskType = {
+  hdd: "hdd",
+  ssd: "ssd",
+};
 
 /**
  * @public
@@ -1726,25 +1726,25 @@ export interface DiskInfo {
   /**
    * <p>The type of disk.</p>
    */
-  Type?: DiskType | string;
+  Type?: keyof typeof DiskType | string;
 }
 
 /**
  * @public
  */
-export enum InstanceStorageEncryptionSupport {
-  required = "required",
-  unsupported = "unsupported",
-}
+export const InstanceStorageEncryptionSupport = {
+  required: "required",
+  unsupported: "unsupported",
+};
 
 /**
  * @public
  */
-export enum EphemeralNvmeSupport {
-  REQUIRED = "required",
-  SUPPORTED = "supported",
-  UNSUPPORTED = "unsupported",
-}
+export const EphemeralNvmeSupport = {
+  REQUIRED: "required",
+  SUPPORTED: "supported",
+  UNSUPPORTED: "unsupported",
+};
 
 /**
  * @public
@@ -1764,12 +1764,12 @@ export interface InstanceStorageInfo {
   /**
    * <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
    */
-  NvmeSupport?: EphemeralNvmeSupport | string;
+  NvmeSupport?: keyof typeof EphemeralNvmeSupport | string;
 
   /**
    * <p>Indicates whether data is encrypted at rest.</p>
    */
-  EncryptionSupport?: InstanceStorageEncryptionSupport | string;
+  EncryptionSupport?: keyof typeof InstanceStorageEncryptionSupport | string;
 }
 
 /**
@@ -1797,11 +1797,11 @@ export interface EfaInfo {
 /**
  * @public
  */
-export enum EnaSupport {
-  required = "required",
-  supported = "supported",
-  unsupported = "unsupported",
-}
+export const EnaSupport = {
+  required: "required",
+  supported: "supported",
+  unsupported: "unsupported",
+};
 
 /**
  * @public
@@ -1872,7 +1872,7 @@ export interface NetworkInfo {
   /**
    * <p>Indicates whether Elastic Network Adapter (ENA) is supported.</p>
    */
-  EnaSupport?: EnaSupport | string;
+  EnaSupport?: keyof typeof EnaSupport | string;
 
   /**
    * <p>Indicates whether Elastic Fabric Adapter (EFA) is supported.</p>
@@ -1900,11 +1900,11 @@ export interface NetworkInfo {
 /**
  * @public
  */
-export enum PlacementGroupStrategy {
-  cluster = "cluster",
-  partition = "partition",
-  spread = "spread",
-}
+export const PlacementGroupStrategy = {
+  cluster: "cluster",
+  partition: "partition",
+  spread: "spread",
+};
 
 /**
  * @public
@@ -1914,19 +1914,19 @@ export interface PlacementGroupInfo {
   /**
    * <p>The supported placement group types.</p>
    */
-  SupportedStrategies?: (PlacementGroupStrategy | string)[];
+  SupportedStrategies?: (keyof typeof PlacementGroupStrategy | string)[];
 }
 
 /**
  * @public
  */
-export enum ArchitectureType {
-  arm64 = "arm64",
-  arm64_mac = "arm64_mac",
-  i386 = "i386",
-  x86_64 = "x86_64",
-  x86_64_mac = "x86_64_mac",
-}
+export const ArchitectureType = {
+  arm64: "arm64",
+  arm64_mac: "arm64_mac",
+  i386: "i386",
+  x86_64: "x86_64",
+  x86_64_mac: "x86_64_mac",
+};
 
 /**
  * @public
@@ -1936,7 +1936,7 @@ export interface ProcessorInfo {
   /**
    * <p>The architectures supported by the instance type.</p>
    */
-  SupportedArchitectures?: (ArchitectureType | string)[];
+  SupportedArchitectures?: (keyof typeof ArchitectureType | string)[];
 
   /**
    * <p>The speed of the processor, in GHz.</p>
@@ -1947,26 +1947,26 @@ export interface ProcessorInfo {
 /**
  * @public
  */
-export enum BootModeType {
-  legacy_bios = "legacy-bios",
-  uefi = "uefi",
-}
+export const BootModeType = {
+  legacy_bios: "legacy-bios",
+  uefi: "uefi",
+};
 
 /**
  * @public
  */
-export enum RootDeviceType {
-  ebs = "ebs",
-  instance_store = "instance-store",
-}
+export const RootDeviceType = {
+  ebs: "ebs",
+  instance_store: "instance-store",
+};
 
 /**
  * @public
  */
-export enum UsageClassType {
-  on_demand = "on-demand",
-  spot = "spot",
-}
+export const UsageClassType = {
+  on_demand: "on-demand",
+  spot: "spot",
+};
 
 /**
  * @public
@@ -2007,7 +2007,7 @@ export interface InstanceTypeInfo {
   /**
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>Indicates whether the instance type is current generation.</p>
@@ -2022,17 +2022,17 @@ export interface InstanceTypeInfo {
   /**
    * <p>Indicates whether the instance type is offered for spot or On-Demand.</p>
    */
-  SupportedUsageClasses?: (UsageClassType | string)[];
+  SupportedUsageClasses?: (keyof typeof UsageClassType | string)[];
 
   /**
    * <p>The supported root device types.</p>
    */
-  SupportedRootDeviceTypes?: (RootDeviceType | string)[];
+  SupportedRootDeviceTypes?: (keyof typeof RootDeviceType | string)[];
 
   /**
    * <p>The supported virtualization types.</p>
    */
-  SupportedVirtualizationTypes?: (VirtualizationType | string)[];
+  SupportedVirtualizationTypes?: (keyof typeof VirtualizationType | string)[];
 
   /**
    * <p>Indicates whether the instance is a bare metal instance type.</p>
@@ -2042,7 +2042,7 @@ export interface InstanceTypeInfo {
   /**
    * <p>The hypervisor for the instance type.</p>
    */
-  Hypervisor?: InstanceTypeHypervisor | string;
+  Hypervisor?: keyof typeof InstanceTypeHypervisor | string;
 
   /**
    * <p>Describes the processor.</p>
@@ -2123,7 +2123,7 @@ export interface InstanceTypeInfo {
    * <p>The supported boot modes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *    <i>Amazon EC2 User Guide</i>.</p>
    */
-  SupportedBootModes?: (BootModeType | string)[];
+  SupportedBootModes?: (keyof typeof BootModeType | string)[];
 }
 
 /**
@@ -2651,7 +2651,7 @@ export interface KeyPairInfo {
   /**
    * <p>The type of key pair.</p>
    */
-  KeyType?: KeyType | string;
+  KeyType?: keyof typeof KeyType | string;
 
   /**
    * <p>Any tags applied to the key pair.</p>
@@ -3600,10 +3600,10 @@ export interface DescribeMovingAddressesRequest {
 /**
  * @public
  */
-export enum MoveStatus {
-  movingToVpc = "movingToVpc",
-  restoringToClassic = "restoringToClassic",
-}
+export const MoveStatus = {
+  movingToVpc: "movingToVpc",
+  restoringToClassic: "restoringToClassic",
+};
 
 /**
  * @public
@@ -3616,7 +3616,7 @@ export interface MovingAddressStatus {
   /**
    * <p>The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.</p>
    */
-  MoveStatus?: MoveStatus | string;
+  MoveStatus?: keyof typeof MoveStatus | string;
 
   /**
    * <p>The Elastic IP address.</p>
@@ -3898,20 +3898,20 @@ export interface DescribeNetworkInsightsAccessScopeAnalysesRequest {
 /**
  * @public
  */
-export enum FindingsFound {
-  false = "false",
-  true = "true",
-  unknown = "unknown",
-}
+export const FindingsFound = {
+  false: "false",
+  true: "true",
+  unknown: "unknown",
+};
 
 /**
  * @public
  */
-export enum AnalysisStatus {
-  failed = "failed",
-  running = "running",
-  succeeded = "succeeded",
-}
+export const AnalysisStatus = {
+  failed: "failed",
+  running: "running",
+  succeeded: "succeeded",
+};
 
 /**
  * @public
@@ -3936,7 +3936,7 @@ export interface NetworkInsightsAccessScopeAnalysis {
   /**
    * <p>The status.</p>
    */
-  Status?: AnalysisStatus | string;
+  Status?: keyof typeof AnalysisStatus | string;
 
   /**
    * <p>The status message.</p>
@@ -3961,7 +3961,7 @@ export interface NetworkInsightsAccessScopeAnalysis {
   /**
    * <p>Indicates whether there are findings.</p>
    */
-  FindingsFound?: FindingsFound | string;
+  FindingsFound?: keyof typeof FindingsFound | string;
 
   /**
    * <p>The number of network interfaces analyzed.</p>
@@ -4131,7 +4131,7 @@ export interface NetworkInsightsAnalysis {
   /**
    * <p>The status of the network insights analysis.</p>
    */
-  Status?: AnalysisStatus | string;
+  Status?: keyof typeof AnalysisStatus | string;
 
   /**
    * <p>The status message, if the status is <code>failed</code>.</p>
@@ -4280,12 +4280,12 @@ export interface DescribeNetworkInsightsPathsResult {
 /**
  * @public
  */
-export enum NetworkInterfaceAttribute {
-  attachment = "attachment",
-  description = "description",
-  groupSet = "groupSet",
-  sourceDestCheck = "sourceDestCheck",
-}
+export const NetworkInterfaceAttribute = {
+  attachment: "attachment",
+  description: "description",
+  groupSet: "groupSet",
+  sourceDestCheck: "sourceDestCheck",
+};
 
 /**
  * @public
@@ -4295,7 +4295,7 @@ export interface DescribeNetworkInterfaceAttributeRequest {
   /**
    * <p>The attribute of the network interface. This parameter is required.</p>
    */
-  Attribute?: NetworkInterfaceAttribute | string;
+  Attribute?: keyof typeof NetworkInterfaceAttribute | string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5113,22 +5113,22 @@ export interface DescribeReplaceRootVolumeTasksResult {
 /**
  * @public
  */
-export enum OfferingClassType {
-  CONVERTIBLE = "convertible",
-  STANDARD = "standard",
-}
+export const OfferingClassType = {
+  CONVERTIBLE: "convertible",
+  STANDARD: "standard",
+};
 
 /**
  * @public
  */
-export enum OfferingTypeValues {
-  All_Upfront = "All Upfront",
-  Heavy_Utilization = "Heavy Utilization",
-  Light_Utilization = "Light Utilization",
-  Medium_Utilization = "Medium Utilization",
-  No_Upfront = "No Upfront",
-  Partial_Upfront = "Partial Upfront",
-}
+export const OfferingTypeValues = {
+  All_Upfront: "All Upfront",
+  Heavy_Utilization: "Heavy Utilization",
+  Light_Utilization: "Light Utilization",
+  Medium_Utilization: "Medium Utilization",
+  No_Upfront: "No Upfront",
+  Partial_Upfront: "Partial Upfront",
+};
 
 /**
  * @public
@@ -5209,7 +5209,7 @@ export interface DescribeReservedInstancesRequest {
   /**
    * <p>Describes whether the Reserved Instance is Standard or Convertible.</p>
    */
-  OfferingClass?: OfferingClassType | string;
+  OfferingClass?: keyof typeof OfferingClassType | string;
 
   /**
    * <p>One or more Reserved Instance IDs.</p>
@@ -5229,25 +5229,25 @@ export interface DescribeReservedInstancesRequest {
    * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
    * 			offering type.</p>
    */
-  OfferingType?: OfferingTypeValues | string;
+  OfferingType?: keyof typeof OfferingTypeValues | string;
 }
 
 /**
  * @public
  */
-export enum RIProductDescription {
-  Linux_UNIX = "Linux/UNIX",
-  Linux_UNIX_Amazon_VPC_ = "Linux/UNIX (Amazon VPC)",
-  Windows = "Windows",
-  Windows_Amazon_VPC_ = "Windows (Amazon VPC)",
-}
+export const RIProductDescription = {
+  Linux_UNIX: "Linux/UNIX",
+  Linux_UNIX_Amazon_VPC_: "Linux/UNIX (Amazon VPC)",
+  Windows: "Windows",
+  Windows_Amazon_VPC_: "Windows (Amazon VPC)",
+};
 
 /**
  * @public
  */
-export enum RecurringChargeFrequency {
-  Hourly = "Hourly",
-}
+export const RecurringChargeFrequency = {
+  Hourly: "Hourly",
+};
 
 /**
  * @public
@@ -5262,28 +5262,28 @@ export interface RecurringCharge {
   /**
    * <p>The frequency of the recurring charge.</p>
    */
-  Frequency?: RecurringChargeFrequency | string;
+  Frequency?: keyof typeof RecurringChargeFrequency | string;
 }
 
 /**
  * @public
  */
-export enum Scope {
-  AVAILABILITY_ZONE = "Availability Zone",
-  REGIONAL = "Region",
-}
+export const Scope = {
+  AVAILABILITY_ZONE: "Availability Zone",
+  REGIONAL: "Region",
+};
 
 /**
  * @public
  */
-export enum ReservedInstanceState {
-  active = "active",
-  payment_failed = "payment-failed",
-  payment_pending = "payment-pending",
-  queued = "queued",
-  queued_deleted = "queued-deleted",
-  retired = "retired",
-}
+export const ReservedInstanceState = {
+  active: "active",
+  payment_failed: "payment-failed",
+  payment_pending: "payment-pending",
+  queued: "queued",
+  queued_deleted: "queued-deleted",
+  retired: "retired",
+};
 
 /**
  * @public
@@ -5318,12 +5318,12 @@ export interface ReservedInstances {
   /**
    * <p>The instance type on which the Reserved Instance can be used.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The Reserved Instance product platform description.</p>
    */
-  ProductDescription?: RIProductDescription | string;
+  ProductDescription?: keyof typeof RIProductDescription | string;
 
   /**
    * <p>The ID of the Reserved Instance.</p>
@@ -5338,7 +5338,7 @@ export interface ReservedInstances {
   /**
    * <p>The state of the Reserved Instance purchase.</p>
    */
-  State?: ReservedInstanceState | string;
+  State?: keyof typeof ReservedInstanceState | string;
 
   /**
    * <p>The usage price of the Reserved Instance, per hour.</p>
@@ -5349,22 +5349,22 @@ export interface ReservedInstances {
    * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes.
    * 				At this time, the only supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: keyof typeof CurrencyCodeValues | string;
 
   /**
    * <p>The tenancy of the instance.</p>
    */
-  InstanceTenancy?: Tenancy | string;
+  InstanceTenancy?: keyof typeof Tenancy | string;
 
   /**
    * <p>The offering class of the Reserved Instance.</p>
    */
-  OfferingClass?: OfferingClassType | string;
+  OfferingClass?: keyof typeof OfferingClassType | string;
 
   /**
    * <p>The Reserved Instance offering type.</p>
    */
-  OfferingType?: OfferingTypeValues | string;
+  OfferingType?: keyof typeof OfferingTypeValues | string;
 
   /**
    * <p>The recurring charge tag assigned to the resource.</p>
@@ -5374,7 +5374,7 @@ export interface ReservedInstances {
   /**
    * <p>The scope of the Reserved Instance.</p>
    */
-  Scope?: Scope | string;
+  Scope?: keyof typeof Scope | string;
 
   /**
    * <p>Any tags assigned to the resource.</p>
@@ -5541,7 +5541,7 @@ export interface ReservedInstancesConfiguration {
   /**
    * <p>The instance type for the modified Reserved Instances.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.</p>
@@ -5551,7 +5551,7 @@ export interface ReservedInstancesConfiguration {
   /**
    * <p>Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.</p>
    */
-  Scope?: Scope | string;
+  Scope?: keyof typeof Scope | string;
 }
 
 /**
@@ -5733,7 +5733,7 @@ export interface DescribeReservedInstancesOfferingsRequest {
    *        <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
    *       <i>Amazon EC2 User Guide</i>.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The maximum duration (in seconds) to filter when searching for offerings.</p>
@@ -5756,13 +5756,13 @@ export interface DescribeReservedInstancesOfferingsRequest {
   /**
    * <p>The offering class of the Reserved Instance. Can be <code>standard</code> or <code>convertible</code>.</p>
    */
-  OfferingClass?: OfferingClassType | string;
+  OfferingClass?: keyof typeof OfferingClassType | string;
 
   /**
    * <p>The Reserved Instance product platform description. Instances that include <code>(Amazon
    *         VPC)</code> in the description are for use with Amazon VPC.</p>
    */
-  ProductDescription?: RIProductDescription | string;
+  ProductDescription?: keyof typeof RIProductDescription | string;
 
   /**
    * <p>One or more Reserved Instances offering IDs.</p>
@@ -5785,7 +5785,7 @@ export interface DescribeReservedInstancesOfferingsRequest {
    *          <p>Default: <code>default</code>
    *          </p>
    */
-  InstanceTenancy?: Tenancy | string;
+  InstanceTenancy?: keyof typeof Tenancy | string;
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining
@@ -5805,7 +5805,7 @@ export interface DescribeReservedInstancesOfferingsRequest {
    * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
    * 			offering type. </p>
    */
-  OfferingType?: OfferingTypeValues | string;
+  OfferingType?: keyof typeof OfferingTypeValues | string;
 }
 
 /**
@@ -5847,12 +5847,12 @@ export interface ReservedInstancesOffering {
   /**
    * <p>The instance type on which the Reserved Instance can be used.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The Reserved Instance product platform description.</p>
    */
-  ProductDescription?: RIProductDescription | string;
+  ProductDescription?: keyof typeof RIProductDescription | string;
 
   /**
    * <p>The ID of the Reserved Instance offering. This is the offering ID used in <a>GetReservedInstancesExchangeQuote</a>
@@ -5870,12 +5870,12 @@ export interface ReservedInstancesOffering {
    * 				specified using ISO 4217 standard currency codes. At this time,
    * 				the only supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: keyof typeof CurrencyCodeValues | string;
 
   /**
    * <p>The tenancy of the instance.</p>
    */
-  InstanceTenancy?: Tenancy | string;
+  InstanceTenancy?: keyof typeof Tenancy | string;
 
   /**
    * <p>Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or Amazon Web Services.
@@ -5888,12 +5888,12 @@ export interface ReservedInstancesOffering {
    *       the same or higher monetary value, with different configurations. If <code>standard</code>, it is not
    *       possible to perform an exchange.</p>
    */
-  OfferingClass?: OfferingClassType | string;
+  OfferingClass?: keyof typeof OfferingClassType | string;
 
   /**
    * <p>The Reserved Instance offering type.</p>
    */
-  OfferingType?: OfferingTypeValues | string;
+  OfferingType?: keyof typeof OfferingTypeValues | string;
 
   /**
    * <p>The pricing details of the Reserved Instance offering.</p>
@@ -5908,7 +5908,7 @@ export interface ReservedInstancesOffering {
   /**
    * <p>Whether the Reserved Instance is applied to instances in a Region or an Availability Zone.</p>
    */
-  Scope?: Scope | string;
+  Scope?: keyof typeof Scope | string;
 }
 
 /**
@@ -6839,10 +6839,10 @@ export interface DescribeSecurityGroupsResult {
 /**
  * @public
  */
-export enum SnapshotAttributeName {
-  createVolumePermission = "createVolumePermission",
-  productCodes = "productCodes",
-}
+export const SnapshotAttributeName = {
+  createVolumePermission: "createVolumePermission",
+  productCodes: "productCodes",
+};
 
 /**
  * @public
@@ -6851,7 +6851,7 @@ export interface DescribeSnapshotAttributeRequest {
   /**
    * <p>The snapshot attribute you would like to view.</p>
    */
-  Attribute: SnapshotAttributeName | string | undefined;
+  Attribute: keyof typeof SnapshotAttributeName | string | undefined;
 
   /**
    * <p>The ID of the EBS snapshot.</p>
@@ -6875,7 +6875,7 @@ export interface CreateVolumePermission {
   /**
    * <p>The group to be added or removed. The possible value is <code>all</code>.</p>
    */
-  Group?: PermissionGroup | string;
+  Group?: keyof typeof PermissionGroup | string;
 
   /**
    * <p>The ID of the Amazon Web Services account to be added or removed.</p>
@@ -7081,17 +7081,17 @@ export interface DescribeSnapshotTierStatusRequest {
 /**
  * @public
  */
-export enum TieringOperationStatus {
-  archival_completed = "archival-completed",
-  archival_failed = "archival-failed",
-  archival_in_progress = "archival-in-progress",
-  permanent_restore_completed = "permanent-restore-completed",
-  permanent_restore_failed = "permanent-restore-failed",
-  permanent_restore_in_progress = "permanent-restore-in-progress",
-  temporary_restore_completed = "temporary-restore-completed",
-  temporary_restore_failed = "temporary-restore-failed",
-  temporary_restore_in_progress = "temporary-restore-in-progress",
-}
+export const TieringOperationStatus = {
+  archival_completed: "archival-completed",
+  archival_failed: "archival-failed",
+  archival_in_progress: "archival-in-progress",
+  permanent_restore_completed: "permanent-restore-completed",
+  permanent_restore_failed: "permanent-restore-failed",
+  permanent_restore_in_progress: "permanent-restore-in-progress",
+  temporary_restore_completed: "temporary-restore-completed",
+  temporary_restore_failed: "temporary-restore-failed",
+  temporary_restore_in_progress: "temporary-restore-in-progress",
+};
 
 /**
  * @public
@@ -7111,7 +7111,7 @@ export interface SnapshotTierStatus {
   /**
    * <p>The state of the snapshot.</p>
    */
-  Status?: SnapshotState | string;
+  Status?: keyof typeof SnapshotState | string;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the snapshot.</p>
@@ -7129,7 +7129,7 @@ export interface SnapshotTierStatus {
    *       for use. <code>archive</code> indicates that the snapshot is currently archived and that
    *       it must be restored before it can be used.</p>
    */
-  StorageTier?: StorageTier | string;
+  StorageTier?: keyof typeof StorageTier | string;
 
   /**
    * <p>The date and time when the last archive or restore process was started.</p>
@@ -7144,7 +7144,7 @@ export interface SnapshotTierStatus {
   /**
    * <p>The status of the last archive or restore process.</p>
    */
-  LastTieringOperationStatus?: TieringOperationStatus | string;
+  LastTieringOperationStatus?: keyof typeof TieringOperationStatus | string;
 
   /**
    * <p>A message describing the status of the last archive or restore process.</p>
@@ -7262,12 +7262,12 @@ export interface DescribeSpotFleetInstancesResponse {
 /**
  * @public
  */
-export enum EventType {
-  BATCH_CHANGE = "fleetRequestChange",
-  ERROR = "error",
-  INFORMATION = "information",
-  INSTANCE_CHANGE = "instanceChange",
-}
+export const EventType = {
+  BATCH_CHANGE: "fleetRequestChange",
+  ERROR: "error",
+  INFORMATION: "information",
+  INSTANCE_CHANGE: "instanceChange",
+};
 
 /**
  * @public
@@ -7285,7 +7285,7 @@ export interface DescribeSpotFleetRequestHistoryRequest {
   /**
    * <p>The type of events to describe. By default, all events are described.</p>
    */
-  EventType?: EventType | string;
+  EventType?: keyof typeof EventType | string;
 
   /**
    * <p>The maximum number of items to return for this request.
@@ -7344,7 +7344,7 @@ export interface HistoryRecord {
    *             </li>
    *          </ul>
    */
-  EventType?: EventType | string;
+  EventType?: keyof typeof EventType | string;
 
   /**
    * <p>The date and time of the event, in UTC format (for example,
@@ -7425,10 +7425,10 @@ export interface DescribeSpotFleetRequestsRequest {
 /**
  * @public
  */
-export enum ExcessCapacityTerminationPolicy {
-  DEFAULT = "default",
-  NO_TERMINATION = "noTermination",
-}
+export const ExcessCapacityTerminationPolicy = {
+  DEFAULT: "default",
+  NO_TERMINATION: "noTermination",
+};
 
 /**
  * @public
@@ -7599,7 +7599,7 @@ export interface SpotPlacement {
    *             tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
    *             tenancy is not supported for Spot Instances.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: keyof typeof Tenancy | string;
 }
 
 /**
@@ -7614,7 +7614,7 @@ export interface SpotFleetTagSpecification {
    *                <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html">SpotFleetRequestConfigData</a>
    *             </code>.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tags.</p>
@@ -7667,7 +7667,7 @@ export interface SpotFleetLaunchSpecification {
   /**
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The ID of the kernel.</p>
@@ -7756,7 +7756,7 @@ export interface LaunchTemplateOverrides {
   /**
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to
@@ -7894,18 +7894,18 @@ export interface LoadBalancersConfig {
 /**
  * @public
  */
-export enum OnDemandAllocationStrategy {
-  LOWEST_PRICE = "lowestPrice",
-  PRIORITIZED = "prioritized",
-}
+export const OnDemandAllocationStrategy = {
+  LOWEST_PRICE: "lowestPrice",
+  PRIORITIZED: "prioritized",
+};
 
 /**
  * @public
  */
-export enum ReplacementStrategy {
-  LAUNCH = "launch",
-  LAUNCH_BEFORE_TERMINATE = "launch-before-terminate",
-}
+export const ReplacementStrategy = {
+  LAUNCH: "launch",
+  LAUNCH_BEFORE_TERMINATE: "launch-before-terminate",
+};
 
 /**
  * @public
@@ -7929,7 +7929,7 @@ export interface SpotCapacityRebalance {
    *             fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
    *             terminates the instances that received a rebalance notification.</p>
    */
-  ReplacementStrategy?: ReplacementStrategy | string;
+  ReplacementStrategy?: keyof typeof ReplacementStrategy | string;
 
   /**
    * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
@@ -8007,7 +8007,7 @@ export interface SpotFleetRequestConfigData {
    *          <p>Default: <code>lowestPrice</code>
    *          </p>
    */
-  AllocationStrategy?: AllocationStrategy | string;
+  AllocationStrategy?: keyof typeof AllocationStrategy | string;
 
   /**
    * <p>The order of the launch template overrides to use in fulfilling On-Demand capacity. If
@@ -8016,7 +8016,7 @@ export interface SpotFleetRequestConfigData {
    *             that you assign to each Spot Fleet launch template override, launching the highest priority
    *             first. If you do not specify a value, Spot Fleet defaults to <code>lowestPrice</code>.</p>
    */
-  OnDemandAllocationStrategy?: OnDemandAllocationStrategy | string;
+  OnDemandAllocationStrategy?: keyof typeof OnDemandAllocationStrategy | string;
 
   /**
    * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
@@ -8035,7 +8035,7 @@ export interface SpotFleetRequestConfigData {
    *             target capacity of the Spot Fleet request below the current size of the Spot Fleet.</p>
    *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
-  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | string;
+  ExcessCapacityTerminationPolicy?: keyof typeof ExcessCapacityTerminationPolicy | string;
 
   /**
    * <p>The number of units fulfilled by this request compared to the set target capacity. You
@@ -8141,7 +8141,7 @@ export interface SpotFleetRequestConfigData {
    *                 <code>maintain</code>. <code>instant</code> is listed but is not used by Spot
    *             Fleet.</p>
    */
-  Type?: FleetType | string;
+  Type?: keyof typeof FleetType | string;
 
   /**
    * <p>The start date and time of the request, in UTC format
@@ -8168,7 +8168,7 @@ export interface SpotFleetRequestConfigData {
    * <p>The behavior when a Spot Instance is interrupted. The default is
    *                 <code>terminate</code>.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: keyof typeof InstanceInterruptionBehavior | string;
 
   /**
    * <p>One or more Classic Load Balancers and target groups to attach to the Spot Fleet
@@ -8205,7 +8205,7 @@ export interface SpotFleetRequestConfigData {
    * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
    *          <p>Default: <code>units</code> (translates to number of instances)</p>
    */
-  TargetCapacityUnitType?: TargetCapacityUnitType | string;
+  TargetCapacityUnitType?: keyof typeof TargetCapacityUnitType | string;
 
   /**
    * <p>The key-value pair for tagging the Spot Fleet request on creation. The value for
@@ -8234,7 +8234,7 @@ export interface SpotFleetRequestConfig {
    *           If the size of the fleet is decreased, the status is <code>pending_termination</code>
    *           while Spot Instances are terminating.</p>
    */
-  ActivityStatus?: ActivityStatus | string;
+  ActivityStatus?: keyof typeof ActivityStatus | string;
 
   /**
    * <p>The creation date and time of the request.</p>
@@ -8254,7 +8254,7 @@ export interface SpotFleetRequestConfig {
   /**
    * <p>The state of the Spot Fleet request.</p>
    */
-  SpotFleetRequestState?: BatchState | string;
+  SpotFleetRequestState?: keyof typeof BatchState | string;
 
   /**
    * <p>The tags for a Spot Fleet resource.</p>
@@ -8565,7 +8565,7 @@ export interface LaunchSpecification {
   /**
    * <p>The instance type. Only one instance type can be specified.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The ID of the kernel.</p>
@@ -8607,13 +8607,13 @@ export interface LaunchSpecification {
 /**
  * @public
  */
-export enum SpotInstanceState {
-  active = "active",
-  cancelled = "cancelled",
-  closed = "closed",
-  failed = "failed",
-  open = "open",
-}
+export const SpotInstanceState = {
+  active: "active",
+  cancelled: "cancelled",
+  closed: "closed",
+  failed: "failed",
+  open: "open",
+};
 
 /**
  * @public
@@ -8690,7 +8690,7 @@ export interface SpotInstanceRequest {
   /**
    * <p>The product description associated with the Spot Instance.</p>
    */
-  ProductDescription?: RIProductDescription | string;
+  ProductDescription?: keyof typeof RIProductDescription | string;
 
   /**
    * <p>The ID of the Spot Instance request.</p>
@@ -8711,7 +8711,7 @@ export interface SpotInstanceRequest {
    *             Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html">Spot request status</a> in the
    *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
-  State?: SpotInstanceState | string;
+  State?: keyof typeof SpotInstanceState | string;
 
   /**
    * <p>The status code and status message describing the Spot Instance request.</p>
@@ -8726,7 +8726,7 @@ export interface SpotInstanceRequest {
   /**
    * <p>The Spot Instance request type.</p>
    */
-  Type?: SpotInstanceType | string;
+  Type?: keyof typeof SpotInstanceType | string;
 
   /**
    * <p>The start date of the request, in UTC format (for example,
@@ -8756,7 +8756,7 @@ export interface SpotInstanceRequest {
   /**
    * <p>The behavior when a Spot Instance is interrupted.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: keyof typeof InstanceInterruptionBehavior | string;
 }
 
 /**
@@ -8843,7 +8843,7 @@ export interface DescribeSpotPriceHistoryRequest {
   /**
    * <p>Filters the results by the specified instance types.</p>
    */
-  InstanceTypes?: (_InstanceType | string)[];
+  InstanceTypes?: (keyof typeof _InstanceType | string)[];
 
   /**
    * <p>The maximum number of items to return for this request.
@@ -8887,12 +8887,12 @@ export interface SpotPrice {
   /**
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>A general description of the AMI.</p>
    */
-  ProductDescription?: RIProductDescription | string;
+  ProductDescription?: keyof typeof RIProductDescription | string;
 
   /**
    * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
@@ -9409,7 +9409,7 @@ export interface TagDescription {
   /**
    * <p>The resource type.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tag value.</p>
@@ -9734,7 +9734,7 @@ export interface TransitGatewayAttachmentAssociation {
   /**
    * <p>The state of the association.</p>
    */
-  State?: TransitGatewayAssociationState | string;
+  State?: keyof typeof TransitGatewayAssociationState | string;
 }
 
 /**
@@ -9765,7 +9765,7 @@ export interface TransitGatewayAttachment {
   /**
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: keyof typeof TransitGatewayAttachmentResourceType | string;
 
   /**
    * <p>The ID of the resource.</p>
@@ -9775,7 +9775,7 @@ export interface TransitGatewayAttachment {
   /**
    * <p>The attachment state. Note that the <code>initiating</code> state has been deprecated.</p>
    */
-  State?: TransitGatewayAttachmentState | string;
+  State?: keyof typeof TransitGatewayAttachmentState | string;
 
   /**
    * <p>The association.</p>
@@ -10624,10 +10624,10 @@ export interface DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {
 /**
  * @public
  */
-export enum VerifiedAccessLogDeliveryStatusCode {
-  FAILED = "failed",
-  SUCCESS = "success",
-}
+export const VerifiedAccessLogDeliveryStatusCode = {
+  FAILED: "failed",
+  SUCCESS: "success",
+};
 
 /**
  * @public
@@ -10637,7 +10637,7 @@ export interface VerifiedAccessLogDeliveryStatus {
   /**
    * <p>The status code.</p>
    */
-  Code?: VerifiedAccessLogDeliveryStatusCode | string;
+  Code?: keyof typeof VerifiedAccessLogDeliveryStatusCode | string;
 
   /**
    * <p>The status message.</p>
@@ -10869,10 +10869,10 @@ export interface DescribeVerifiedAccessTrustProvidersResult {
 /**
  * @public
  */
-export enum VolumeAttributeName {
-  autoEnableIO = "autoEnableIO",
-  productCodes = "productCodes",
-}
+export const VolumeAttributeName = {
+  autoEnableIO: "autoEnableIO",
+  productCodes: "productCodes",
+};
 
 /**
  * @public
@@ -10881,7 +10881,7 @@ export interface DescribeVolumeAttributeRequest {
   /**
    * <p>The attribute of the volume. This parameter is required.</p>
    */
-  Attribute: VolumeAttributeName | string | undefined;
+  Attribute: keyof typeof VolumeAttributeName | string | undefined;
 
   /**
    * <p>The ID of the volume.</p>

@@ -482,12 +482,12 @@ export interface GetBulkPublishDetailsRequest {
 /**
  * @public
  */
-export enum BulkPublishStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const BulkPublishStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -518,7 +518,7 @@ export interface GetBulkPublishDetailsResponse {
    *       <p>SUCCEEDED - All data for the identity pool has been published to the configured stream</p>
    *       <p>FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.</p>
    */
-  BulkPublishStatus?: BulkPublishStatus | string;
+  BulkPublishStatus?: keyof typeof BulkPublishStatus | string;
 
   /**
    * If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.
@@ -585,7 +585,7 @@ export interface CognitoStreams {
    *       <p>ENABLED - Streaming of updates to identity pool is enabled.</p>
    *       <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p>
    */
-  StreamingStatus?: StreamingStatus | string;
+  StreamingStatus?: keyof typeof StreamingStatus | string;
 }
 
 /**
@@ -923,7 +923,7 @@ export interface RegisterDeviceRequest {
   /**
    * <p>The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</p>
    */
-  Platform: Platform | string | undefined;
+  Platform: keyof typeof Platform | string | undefined;
 
   /**
    * <p>The push token.</p>
@@ -1162,7 +1162,7 @@ export interface RecordPatch {
   /**
    * An operation, either replace or remove.
    */
-  Op: Operation | string | undefined;
+  Op: keyof typeof Operation | string | undefined;
 
   /**
    * The key associated with the record patch.

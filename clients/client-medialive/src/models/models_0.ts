@@ -34,17 +34,17 @@ export interface AudioChannelMapping {
 /**
  * @public
  */
-export enum AudioNormalizationAlgorithm {
-  ITU_1770_1 = "ITU_1770_1",
-  ITU_1770_2 = "ITU_1770_2",
-}
+export const AudioNormalizationAlgorithm = {
+  ITU_1770_1: "ITU_1770_1",
+  ITU_1770_2: "ITU_1770_2",
+};
 
 /**
  * @public
  */
-export enum AudioNormalizationAlgorithmControl {
-  CORRECT_AUDIO = "CORRECT_AUDIO",
-}
+export const AudioNormalizationAlgorithmControl = {
+  CORRECT_AUDIO: "CORRECT_AUDIO",
+};
 
 /**
  * @public
@@ -54,12 +54,12 @@ export interface AudioNormalizationSettings {
   /**
    * Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
    */
-  Algorithm?: AudioNormalizationAlgorithm | string;
+  Algorithm?: keyof typeof AudioNormalizationAlgorithm | string;
 
   /**
    * When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
    */
-  AlgorithmControl?: AudioNormalizationAlgorithmControl | string;
+  AlgorithmControl?: keyof typeof AudioNormalizationAlgorithmControl | string;
 
   /**
    * Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm.  The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.
@@ -70,28 +70,28 @@ export interface AudioNormalizationSettings {
 /**
  * @public
  */
-export enum AudioType {
-  CLEAN_EFFECTS = "CLEAN_EFFECTS",
-  HEARING_IMPAIRED = "HEARING_IMPAIRED",
-  UNDEFINED = "UNDEFINED",
-  VISUAL_IMPAIRED_COMMENTARY = "VISUAL_IMPAIRED_COMMENTARY",
-}
+export const AudioType = {
+  CLEAN_EFFECTS: "CLEAN_EFFECTS",
+  HEARING_IMPAIRED: "HEARING_IMPAIRED",
+  UNDEFINED: "UNDEFINED",
+  VISUAL_IMPAIRED_COMMENTARY: "VISUAL_IMPAIRED_COMMENTARY",
+};
 
 /**
  * @public
  */
-export enum AudioDescriptionAudioTypeControl {
-  FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
+export const AudioDescriptionAudioTypeControl = {
+  FOLLOW_INPUT: "FOLLOW_INPUT",
+  USE_CONFIGURED: "USE_CONFIGURED",
+};
 
 /**
  * @public
  */
-export enum NielsenWatermarksCbetStepaside {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const NielsenWatermarksCbetStepaside = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -106,7 +106,7 @@ export interface NielsenCBET {
   /**
    * Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
    */
-  CbetStepaside: NielsenWatermarksCbetStepaside | string | undefined;
+  CbetStepaside: keyof typeof NielsenWatermarksCbetStepaside | string | undefined;
 
   /**
    * Enter the CBET Source ID (CSID) to use in the watermark
@@ -117,26 +117,26 @@ export interface NielsenCBET {
 /**
  * @public
  */
-export enum NielsenWatermarksDistributionTypes {
-  FINAL_DISTRIBUTOR = "FINAL_DISTRIBUTOR",
-  PROGRAM_CONTENT = "PROGRAM_CONTENT",
-}
+export const NielsenWatermarksDistributionTypes = {
+  FINAL_DISTRIBUTOR: "FINAL_DISTRIBUTOR",
+  PROGRAM_CONTENT: "PROGRAM_CONTENT",
+};
 
 /**
  * @public
  */
-export enum NielsenWatermarkTimezones {
-  AMERICA_PUERTO_RICO = "AMERICA_PUERTO_RICO",
-  US_ALASKA = "US_ALASKA",
-  US_ARIZONA = "US_ARIZONA",
-  US_CENTRAL = "US_CENTRAL",
-  US_EASTERN = "US_EASTERN",
-  US_HAWAII = "US_HAWAII",
-  US_MOUNTAIN = "US_MOUNTAIN",
-  US_PACIFIC = "US_PACIFIC",
-  US_SAMOA = "US_SAMOA",
-  UTC = "UTC",
-}
+export const NielsenWatermarkTimezones = {
+  AMERICA_PUERTO_RICO: "AMERICA_PUERTO_RICO",
+  US_ALASKA: "US_ALASKA",
+  US_ARIZONA: "US_ARIZONA",
+  US_CENTRAL: "US_CENTRAL",
+  US_EASTERN: "US_EASTERN",
+  US_HAWAII: "US_HAWAII",
+  US_MOUNTAIN: "US_MOUNTAIN",
+  US_PACIFIC: "US_PACIFIC",
+  US_SAMOA: "US_SAMOA",
+  UTC: "UTC",
+};
 
 /**
  * @public
@@ -157,7 +157,7 @@ export interface NielsenNaesIiNw {
    * Choose the timezone for the time stamps in the watermark. If not provided,
    * the timestamps will be in Coordinated Universal Time (UTC)
    */
-  Timezone?: NielsenWatermarkTimezones | string;
+  Timezone?: keyof typeof NielsenWatermarkTimezones | string;
 }
 
 /**
@@ -175,7 +175,7 @@ export interface NielsenWatermarksSettings {
    * - PROGRAM_CONTENT
    * - FINAL_DISTRIBUTOR
    */
-  NielsenDistributionType?: NielsenWatermarksDistributionTypes | string;
+  NielsenDistributionType?: keyof typeof NielsenWatermarksDistributionTypes | string;
 
   /**
    * Complete these fields only if you want to insert watermarks of type Nielsen NAES II (N2) and Nielsen NAES VI (NW).
@@ -197,64 +197,64 @@ export interface AudioWatermarkSettings {
 /**
  * @public
  */
-export enum AacCodingMode {
-  AD_RECEIVER_MIX = "AD_RECEIVER_MIX",
-  CODING_MODE_1_0 = "CODING_MODE_1_0",
-  CODING_MODE_1_1 = "CODING_MODE_1_1",
-  CODING_MODE_2_0 = "CODING_MODE_2_0",
-  CODING_MODE_5_1 = "CODING_MODE_5_1",
-}
+export const AacCodingMode = {
+  AD_RECEIVER_MIX: "AD_RECEIVER_MIX",
+  CODING_MODE_1_0: "CODING_MODE_1_0",
+  CODING_MODE_1_1: "CODING_MODE_1_1",
+  CODING_MODE_2_0: "CODING_MODE_2_0",
+  CODING_MODE_5_1: "CODING_MODE_5_1",
+};
 
 /**
  * @public
  */
-export enum AacInputType {
-  BROADCASTER_MIXED_AD = "BROADCASTER_MIXED_AD",
-  NORMAL = "NORMAL",
-}
+export const AacInputType = {
+  BROADCASTER_MIXED_AD: "BROADCASTER_MIXED_AD",
+  NORMAL: "NORMAL",
+};
 
 /**
  * @public
  */
-export enum AacProfile {
-  HEV1 = "HEV1",
-  HEV2 = "HEV2",
-  LC = "LC",
-}
+export const AacProfile = {
+  HEV1: "HEV1",
+  HEV2: "HEV2",
+  LC: "LC",
+};
 
 /**
  * @public
  */
-export enum AacRateControlMode {
-  CBR = "CBR",
-  VBR = "VBR",
-}
+export const AacRateControlMode = {
+  CBR: "CBR",
+  VBR: "VBR",
+};
 
 /**
  * @public
  */
-export enum AacRawFormat {
-  LATM_LOAS = "LATM_LOAS",
-  NONE = "NONE",
-}
+export const AacRawFormat = {
+  LATM_LOAS: "LATM_LOAS",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum AacSpec {
-  MPEG2 = "MPEG2",
-  MPEG4 = "MPEG4",
-}
+export const AacSpec = {
+  MPEG2: "MPEG2",
+  MPEG4: "MPEG4",
+};
 
 /**
  * @public
  */
-export enum AacVbrQuality {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM_HIGH = "MEDIUM_HIGH",
-  MEDIUM_LOW = "MEDIUM_LOW",
-}
+export const AacVbrQuality = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM_HIGH: "MEDIUM_HIGH",
+  MEDIUM_LOW: "MEDIUM_LOW",
+};
 
 /**
  * @public
@@ -269,29 +269,29 @@ export interface AacSettings {
   /**
    * Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
    */
-  CodingMode?: AacCodingMode | string;
+  CodingMode?: keyof typeof AacCodingMode | string;
 
   /**
    * Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.  The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd.
    *
    * Leave set to "normal" when input does not contain pre-mixed audio + AD.
    */
-  InputType?: AacInputType | string;
+  InputType?: keyof typeof AacInputType | string;
 
   /**
    * AAC Profile.
    */
-  Profile?: AacProfile | string;
+  Profile?: keyof typeof AacProfile | string;
 
   /**
    * Rate Control Mode.
    */
-  RateControlMode?: AacRateControlMode | string;
+  RateControlMode?: keyof typeof AacRateControlMode | string;
 
   /**
    * Sets LATM / LOAS AAC output for raw containers.
    */
-  RawFormat?: AacRawFormat | string;
+  RawFormat?: keyof typeof AacRawFormat | string;
 
   /**
    * Sample rate in Hz. Valid values depend on rate control mode and profile.
@@ -301,61 +301,61 @@ export interface AacSettings {
   /**
    * Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
    */
-  Spec?: AacSpec | string;
+  Spec?: keyof typeof AacSpec | string;
 
   /**
    * VBR Quality Level - Only used if rateControlMode is VBR.
    */
-  VbrQuality?: AacVbrQuality | string;
+  VbrQuality?: keyof typeof AacVbrQuality | string;
 }
 
 /**
  * @public
  */
-export enum Ac3BitstreamMode {
-  COMMENTARY = "COMMENTARY",
-  COMPLETE_MAIN = "COMPLETE_MAIN",
-  DIALOGUE = "DIALOGUE",
-  EMERGENCY = "EMERGENCY",
-  HEARING_IMPAIRED = "HEARING_IMPAIRED",
-  MUSIC_AND_EFFECTS = "MUSIC_AND_EFFECTS",
-  VISUALLY_IMPAIRED = "VISUALLY_IMPAIRED",
-  VOICE_OVER = "VOICE_OVER",
-}
+export const Ac3BitstreamMode = {
+  COMMENTARY: "COMMENTARY",
+  COMPLETE_MAIN: "COMPLETE_MAIN",
+  DIALOGUE: "DIALOGUE",
+  EMERGENCY: "EMERGENCY",
+  HEARING_IMPAIRED: "HEARING_IMPAIRED",
+  MUSIC_AND_EFFECTS: "MUSIC_AND_EFFECTS",
+  VISUALLY_IMPAIRED: "VISUALLY_IMPAIRED",
+  VOICE_OVER: "VOICE_OVER",
+};
 
 /**
  * @public
  */
-export enum Ac3CodingMode {
-  CODING_MODE_1_0 = "CODING_MODE_1_0",
-  CODING_MODE_1_1 = "CODING_MODE_1_1",
-  CODING_MODE_2_0 = "CODING_MODE_2_0",
-  CODING_MODE_3_2_LFE = "CODING_MODE_3_2_LFE",
-}
+export const Ac3CodingMode = {
+  CODING_MODE_1_0: "CODING_MODE_1_0",
+  CODING_MODE_1_1: "CODING_MODE_1_1",
+  CODING_MODE_2_0: "CODING_MODE_2_0",
+  CODING_MODE_3_2_LFE: "CODING_MODE_3_2_LFE",
+};
 
 /**
  * @public
  */
-export enum Ac3DrcProfile {
-  FILM_STANDARD = "FILM_STANDARD",
-  NONE = "NONE",
-}
+export const Ac3DrcProfile = {
+  FILM_STANDARD: "FILM_STANDARD",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum Ac3LfeFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const Ac3LfeFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum Ac3MetadataControl {
-  FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
+export const Ac3MetadataControl = {
+  FOLLOW_INPUT: "FOLLOW_INPUT",
+  USE_CONFIGURED: "USE_CONFIGURED",
+};
 
 /**
  * @public
@@ -370,12 +370,12 @@ export interface Ac3Settings {
   /**
    * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
    */
-  BitstreamMode?: Ac3BitstreamMode | string;
+  BitstreamMode?: keyof typeof Ac3BitstreamMode | string;
 
   /**
    * Dolby Digital coding mode. Determines number of channels.
    */
-  CodingMode?: Ac3CodingMode | string;
+  CodingMode?: keyof typeof Ac3CodingMode | string;
 
   /**
    * Sets the dialnorm for the output. If excluded and input audio is Dolby Digital, dialnorm will be passed through.
@@ -385,51 +385,51 @@ export interface Ac3Settings {
   /**
    * If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
    */
-  DrcProfile?: Ac3DrcProfile | string;
+  DrcProfile?: keyof typeof Ac3DrcProfile | string;
 
   /**
    * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
    */
-  LfeFilter?: Ac3LfeFilter | string;
+  LfeFilter?: keyof typeof Ac3LfeFilter | string;
 
   /**
    * When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
    */
-  MetadataControl?: Ac3MetadataControl | string;
+  MetadataControl?: keyof typeof Ac3MetadataControl | string;
 }
 
 /**
  * @public
  */
-export enum Eac3AtmosCodingMode {
-  CODING_MODE_5_1_4 = "CODING_MODE_5_1_4",
-  CODING_MODE_7_1_4 = "CODING_MODE_7_1_4",
-  CODING_MODE_9_1_6 = "CODING_MODE_9_1_6",
-}
+export const Eac3AtmosCodingMode = {
+  CODING_MODE_5_1_4: "CODING_MODE_5_1_4",
+  CODING_MODE_7_1_4: "CODING_MODE_7_1_4",
+  CODING_MODE_9_1_6: "CODING_MODE_9_1_6",
+};
 
 /**
  * @public
  */
-export enum Eac3AtmosDrcLine {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
+export const Eac3AtmosDrcLine = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+};
 
 /**
  * @public
  */
-export enum Eac3AtmosDrcRf {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
+export const Eac3AtmosDrcRf = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+};
 
 /**
  * @public
@@ -445,7 +445,7 @@ export interface Eac3AtmosSettings {
   /**
    * Dolby Digital Plus with Dolby Atmos coding mode. Determines number of channels.
    */
-  CodingMode?: Eac3AtmosCodingMode | string;
+  CodingMode?: keyof typeof Eac3AtmosCodingMode | string;
 
   /**
    * Sets the dialnorm for the output. Default 23.
@@ -455,12 +455,12 @@ export interface Eac3AtmosSettings {
   /**
    * Sets the Dolby dynamic range compression profile.
    */
-  DrcLine?: Eac3AtmosDrcLine | string;
+  DrcLine?: keyof typeof Eac3AtmosDrcLine | string;
 
   /**
    * Sets the profile for heavy Dolby dynamic range compression, ensures that the instantaneous signal peaks do not exceed specified levels.
    */
-  DrcRf?: Eac3AtmosDrcRf | string;
+  DrcRf?: keyof typeof Eac3AtmosDrcRf | string;
 
   /**
    * Height dimensional trim. Sets the maximum amount to attenuate the height channels when the downstream player isn??t configured to handle Dolby Digital Plus with Dolby Atmos and must remix the channels.
@@ -476,130 +476,130 @@ export interface Eac3AtmosSettings {
 /**
  * @public
  */
-export enum Eac3AttenuationControl {
-  ATTENUATE_3_DB = "ATTENUATE_3_DB",
-  NONE = "NONE",
-}
+export const Eac3AttenuationControl = {
+  ATTENUATE_3_DB: "ATTENUATE_3_DB",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum Eac3BitstreamMode {
-  COMMENTARY = "COMMENTARY",
-  COMPLETE_MAIN = "COMPLETE_MAIN",
-  EMERGENCY = "EMERGENCY",
-  HEARING_IMPAIRED = "HEARING_IMPAIRED",
-  VISUALLY_IMPAIRED = "VISUALLY_IMPAIRED",
-}
+export const Eac3BitstreamMode = {
+  COMMENTARY: "COMMENTARY",
+  COMPLETE_MAIN: "COMPLETE_MAIN",
+  EMERGENCY: "EMERGENCY",
+  HEARING_IMPAIRED: "HEARING_IMPAIRED",
+  VISUALLY_IMPAIRED: "VISUALLY_IMPAIRED",
+};
 
 /**
  * @public
  */
-export enum Eac3CodingMode {
-  CODING_MODE_1_0 = "CODING_MODE_1_0",
-  CODING_MODE_2_0 = "CODING_MODE_2_0",
-  CODING_MODE_3_2 = "CODING_MODE_3_2",
-}
+export const Eac3CodingMode = {
+  CODING_MODE_1_0: "CODING_MODE_1_0",
+  CODING_MODE_2_0: "CODING_MODE_2_0",
+  CODING_MODE_3_2: "CODING_MODE_3_2",
+};
 
 /**
  * @public
  */
-export enum Eac3DcFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const Eac3DcFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum Eac3DrcLine {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
+export const Eac3DrcLine = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+};
 
 /**
  * @public
  */
-export enum Eac3DrcRf {
-  FILM_LIGHT = "FILM_LIGHT",
-  FILM_STANDARD = "FILM_STANDARD",
-  MUSIC_LIGHT = "MUSIC_LIGHT",
-  MUSIC_STANDARD = "MUSIC_STANDARD",
-  NONE = "NONE",
-  SPEECH = "SPEECH",
-}
+export const Eac3DrcRf = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+};
 
 /**
  * @public
  */
-export enum Eac3LfeControl {
-  LFE = "LFE",
-  NO_LFE = "NO_LFE",
-}
+export const Eac3LfeControl = {
+  LFE: "LFE",
+  NO_LFE: "NO_LFE",
+};
 
 /**
  * @public
  */
-export enum Eac3LfeFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const Eac3LfeFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum Eac3MetadataControl {
-  FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
+export const Eac3MetadataControl = {
+  FOLLOW_INPUT: "FOLLOW_INPUT",
+  USE_CONFIGURED: "USE_CONFIGURED",
+};
 
 /**
  * @public
  */
-export enum Eac3PassthroughControl {
-  NO_PASSTHROUGH = "NO_PASSTHROUGH",
-  WHEN_POSSIBLE = "WHEN_POSSIBLE",
-}
+export const Eac3PassthroughControl = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  WHEN_POSSIBLE: "WHEN_POSSIBLE",
+};
 
 /**
  * @public
  */
-export enum Eac3PhaseControl {
-  NO_SHIFT = "NO_SHIFT",
-  SHIFT_90_DEGREES = "SHIFT_90_DEGREES",
-}
+export const Eac3PhaseControl = {
+  NO_SHIFT: "NO_SHIFT",
+  SHIFT_90_DEGREES: "SHIFT_90_DEGREES",
+};
 
 /**
  * @public
  */
-export enum Eac3StereoDownmix {
-  DPL2 = "DPL2",
-  LO_RO = "LO_RO",
-  LT_RT = "LT_RT",
-  NOT_INDICATED = "NOT_INDICATED",
-}
+export const Eac3StereoDownmix = {
+  DPL2: "DPL2",
+  LO_RO: "LO_RO",
+  LT_RT: "LT_RT",
+  NOT_INDICATED: "NOT_INDICATED",
+};
 
 /**
  * @public
  */
-export enum Eac3SurroundExMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  NOT_INDICATED = "NOT_INDICATED",
-}
+export const Eac3SurroundExMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  NOT_INDICATED: "NOT_INDICATED",
+};
 
 /**
  * @public
  */
-export enum Eac3SurroundMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  NOT_INDICATED = "NOT_INDICATED",
-}
+export const Eac3SurroundMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  NOT_INDICATED: "NOT_INDICATED",
+};
 
 /**
  * @public
@@ -609,7 +609,7 @@ export interface Eac3Settings {
   /**
    * When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
    */
-  AttenuationControl?: Eac3AttenuationControl | string;
+  AttenuationControl?: keyof typeof Eac3AttenuationControl | string;
 
   /**
    * Average bitrate in bits/second. Valid bitrates depend on the coding mode.
@@ -619,17 +619,17 @@ export interface Eac3Settings {
   /**
    * Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
    */
-  BitstreamMode?: Eac3BitstreamMode | string;
+  BitstreamMode?: keyof typeof Eac3BitstreamMode | string;
 
   /**
    * Dolby Digital Plus coding mode. Determines number of channels.
    */
-  CodingMode?: Eac3CodingMode | string;
+  CodingMode?: keyof typeof Eac3CodingMode | string;
 
   /**
    * When set to enabled, activates a DC highpass filter for all input channels.
    */
-  DcFilter?: Eac3DcFilter | string;
+  DcFilter?: keyof typeof Eac3DcFilter | string;
 
   /**
    * Sets the dialnorm for the output. If blank and input audio is Dolby Digital Plus, dialnorm will be passed through.
@@ -639,22 +639,22 @@ export interface Eac3Settings {
   /**
    * Sets the Dolby dynamic range compression profile.
    */
-  DrcLine?: Eac3DrcLine | string;
+  DrcLine?: keyof typeof Eac3DrcLine | string;
 
   /**
    * Sets the profile for heavy Dolby dynamic range compression, ensures that the instantaneous signal peaks do not exceed specified levels.
    */
-  DrcRf?: Eac3DrcRf | string;
+  DrcRf?: keyof typeof Eac3DrcRf | string;
 
   /**
    * When encoding 3/2 audio, setting to lfe enables the LFE channel
    */
-  LfeControl?: Eac3LfeControl | string;
+  LfeControl?: keyof typeof Eac3LfeControl | string;
 
   /**
    * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with codingMode32 coding mode.
    */
-  LfeFilter?: Eac3LfeFilter | string;
+  LfeFilter?: keyof typeof Eac3LfeFilter | string;
 
   /**
    * Left only/Right only center mix level. Only used for 3/2 coding mode.
@@ -679,41 +679,41 @@ export interface Eac3Settings {
   /**
    * When set to followInput, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
    */
-  MetadataControl?: Eac3MetadataControl | string;
+  MetadataControl?: keyof typeof Eac3MetadataControl | string;
 
   /**
    * When set to whenPossible, input DD+ audio will be passed through if it is present on the input. This detection is dynamic over the life of the transcode. Inputs that alternate between DD+ and non-DD+ content will have a consistent DD+ output as the system alternates between passthrough and encoding.
    */
-  PassthroughControl?: Eac3PassthroughControl | string;
+  PassthroughControl?: keyof typeof Eac3PassthroughControl | string;
 
   /**
    * When set to shift90Degrees, applies a 90-degree phase shift to the surround channels. Only used for 3/2 coding mode.
    */
-  PhaseControl?: Eac3PhaseControl | string;
+  PhaseControl?: keyof typeof Eac3PhaseControl | string;
 
   /**
    * Stereo downmix preference. Only used for 3/2 coding mode.
    */
-  StereoDownmix?: Eac3StereoDownmix | string;
+  StereoDownmix?: keyof typeof Eac3StereoDownmix | string;
 
   /**
    * When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
    */
-  SurroundExMode?: Eac3SurroundExMode | string;
+  SurroundExMode?: keyof typeof Eac3SurroundExMode | string;
 
   /**
    * When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
    */
-  SurroundMode?: Eac3SurroundMode | string;
+  SurroundMode?: keyof typeof Eac3SurroundMode | string;
 }
 
 /**
  * @public
  */
-export enum Mp2CodingMode {
-  CODING_MODE_1_0 = "CODING_MODE_1_0",
-  CODING_MODE_2_0 = "CODING_MODE_2_0",
-}
+export const Mp2CodingMode = {
+  CODING_MODE_1_0: "CODING_MODE_1_0",
+  CODING_MODE_2_0: "CODING_MODE_2_0",
+};
 
 /**
  * @public
@@ -728,7 +728,7 @@ export interface Mp2Settings {
   /**
    * The MPEG2 Audio coding mode.  Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
    */
-  CodingMode?: Mp2CodingMode | string;
+  CodingMode?: keyof typeof Mp2CodingMode | string;
 
   /**
    * Sample rate in Hz.
@@ -745,12 +745,12 @@ export interface PassThroughSettings {}
 /**
  * @public
  */
-export enum WavCodingMode {
-  CODING_MODE_1_0 = "CODING_MODE_1_0",
-  CODING_MODE_2_0 = "CODING_MODE_2_0",
-  CODING_MODE_4_0 = "CODING_MODE_4_0",
-  CODING_MODE_8_0 = "CODING_MODE_8_0",
-}
+export const WavCodingMode = {
+  CODING_MODE_1_0: "CODING_MODE_1_0",
+  CODING_MODE_2_0: "CODING_MODE_2_0",
+  CODING_MODE_4_0: "CODING_MODE_4_0",
+  CODING_MODE_8_0: "CODING_MODE_8_0",
+};
 
 /**
  * @public
@@ -765,7 +765,7 @@ export interface WavSettings {
   /**
    * The audio coding mode for the WAV audio. The mode determines the number of channels in the audio.
    */
-  CodingMode?: WavCodingMode | string;
+  CodingMode?: keyof typeof WavCodingMode | string;
 
   /**
    * Sample rate in Hz.
@@ -817,10 +817,10 @@ export interface AudioCodecSettings {
 /**
  * @public
  */
-export enum AudioDescriptionLanguageCodeControl {
-  FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
+export const AudioDescriptionLanguageCodeControl = {
+  FOLLOW_INPUT: "FOLLOW_INPUT",
+  USE_CONFIGURED: "USE_CONFIGURED",
+};
 
 /**
  * @public
@@ -862,7 +862,7 @@ export interface AudioDescription {
   /**
    * Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
    */
-  AudioType?: AudioType | string;
+  AudioType?: keyof typeof AudioType | string;
 
   /**
    * Determines how audio type is determined.
@@ -870,7 +870,7 @@ export interface AudioDescription {
    *   useConfigured: The value in Audio Type is included in the output.
    * Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
    */
-  AudioTypeControl?: AudioDescriptionAudioTypeControl | string;
+  AudioTypeControl?: keyof typeof AudioDescriptionAudioTypeControl | string;
 
   /**
    * Settings to configure one or more solutions that insert audio watermarks in the audio encode
@@ -890,7 +890,7 @@ export interface AudioDescription {
   /**
    * Choosing followInput will cause the ISO 639 language code of the output to follow the ISO 639 language code of the input. The languageCode will be used when useConfigured is set, or when followInput is selected but there is no ISO 639 language code specified by the input.
    */
-  LanguageCodeControl?: AudioDescriptionLanguageCodeControl | string;
+  LanguageCodeControl?: keyof typeof AudioDescriptionLanguageCodeControl | string;
 
   /**
    * The name of this AudioDescription. Outputs will use this name to uniquely identify this AudioDescription.  Description names should be unique within this Live Event.
@@ -927,10 +927,10 @@ export interface AudioHlsRenditionSelection {
 /**
  * @public
  */
-export enum AudioLanguageSelectionPolicy {
-  LOOSE = "LOOSE",
-  STRICT = "STRICT",
-}
+export const AudioLanguageSelectionPolicy = {
+  LOOSE: "LOOSE",
+  STRICT: "STRICT",
+};
 
 /**
  * @public
@@ -945,7 +945,7 @@ export interface AudioLanguageSelection {
   /**
    * When set to "strict", the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If "loose", then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can't find one with the same language.
    */
-  LanguageSelectionPolicy?: AudioLanguageSelectionPolicy | string;
+  LanguageSelectionPolicy?: keyof typeof AudioLanguageSelectionPolicy | string;
 }
 
 /**
@@ -962,17 +962,17 @@ export interface AudioPidSelection {
 /**
  * @public
  */
-export enum DolbyEProgramSelection {
-  ALL_CHANNELS = "ALL_CHANNELS",
-  PROGRAM_1 = "PROGRAM_1",
-  PROGRAM_2 = "PROGRAM_2",
-  PROGRAM_3 = "PROGRAM_3",
-  PROGRAM_4 = "PROGRAM_4",
-  PROGRAM_5 = "PROGRAM_5",
-  PROGRAM_6 = "PROGRAM_6",
-  PROGRAM_7 = "PROGRAM_7",
-  PROGRAM_8 = "PROGRAM_8",
-}
+export const DolbyEProgramSelection = {
+  ALL_CHANNELS: "ALL_CHANNELS",
+  PROGRAM_1: "PROGRAM_1",
+  PROGRAM_2: "PROGRAM_2",
+  PROGRAM_3: "PROGRAM_3",
+  PROGRAM_4: "PROGRAM_4",
+  PROGRAM_5: "PROGRAM_5",
+  PROGRAM_6: "PROGRAM_6",
+  PROGRAM_7: "PROGRAM_7",
+  PROGRAM_8: "PROGRAM_8",
+};
 
 /**
  * @public
@@ -982,7 +982,7 @@ export interface AudioDolbyEDecode {
   /**
    * Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
    */
-  ProgramSelection: DolbyEProgramSelection | string | undefined;
+  ProgramSelection: keyof typeof DolbyEProgramSelection | string | undefined;
 }
 
 /**
@@ -1104,10 +1104,10 @@ export interface BatchSuccessfulResultModel {
 /**
  * @public
  */
-export enum AccessibilityType {
-  DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES = "DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES",
-  IMPLEMENTS_ACCESSIBILITY_FEATURES = "IMPLEMENTS_ACCESSIBILITY_FEATURES",
-}
+export const AccessibilityType = {
+  DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES: "DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES",
+  IMPLEMENTS_ACCESSIBILITY_FEATURES: "IMPLEMENTS_ACCESSIBILITY_FEATURES",
+};
 
 /**
  * @public
@@ -1118,20 +1118,20 @@ export interface AribDestinationSettings {}
 /**
  * @public
  */
-export enum BurnInAlignment {
-  CENTERED = "CENTERED",
-  LEFT = "LEFT",
-  SMART = "SMART",
-}
+export const BurnInAlignment = {
+  CENTERED: "CENTERED",
+  LEFT: "LEFT",
+  SMART: "SMART",
+};
 
 /**
  * @public
  */
-export enum BurnInBackgroundColor {
-  BLACK = "BLACK",
-  NONE = "NONE",
-  WHITE = "WHITE",
-}
+export const BurnInBackgroundColor = {
+  BLACK: "BLACK",
+  NONE: "NONE",
+  WHITE: "WHITE",
+};
 
 /**
  * @public
@@ -1157,43 +1157,43 @@ export interface InputLocation {
 /**
  * @public
  */
-export enum BurnInFontColor {
-  BLACK = "BLACK",
-  BLUE = "BLUE",
-  GREEN = "GREEN",
-  RED = "RED",
-  WHITE = "WHITE",
-  YELLOW = "YELLOW",
-}
+export const BurnInFontColor = {
+  BLACK: "BLACK",
+  BLUE: "BLUE",
+  GREEN: "GREEN",
+  RED: "RED",
+  WHITE: "WHITE",
+  YELLOW: "YELLOW",
+};
 
 /**
  * @public
  */
-export enum BurnInOutlineColor {
-  BLACK = "BLACK",
-  BLUE = "BLUE",
-  GREEN = "GREEN",
-  RED = "RED",
-  WHITE = "WHITE",
-  YELLOW = "YELLOW",
-}
+export const BurnInOutlineColor = {
+  BLACK: "BLACK",
+  BLUE: "BLUE",
+  GREEN: "GREEN",
+  RED: "RED",
+  WHITE: "WHITE",
+  YELLOW: "YELLOW",
+};
 
 /**
  * @public
  */
-export enum BurnInShadowColor {
-  BLACK = "BLACK",
-  NONE = "NONE",
-  WHITE = "WHITE",
-}
+export const BurnInShadowColor = {
+  BLACK: "BLACK",
+  NONE: "NONE",
+  WHITE: "WHITE",
+};
 
 /**
  * @public
  */
-export enum BurnInTeletextGridControl {
-  FIXED = "FIXED",
-  SCALED = "SCALED",
-}
+export const BurnInTeletextGridControl = {
+  FIXED: "FIXED",
+  SCALED: "SCALED",
+};
 
 /**
  * @public
@@ -1203,12 +1203,12 @@ export interface BurnInDestinationSettings {
   /**
    * If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles.  All burn-in and DVB-Sub font settings must match.
    */
-  Alignment?: BurnInAlignment | string;
+  Alignment?: keyof typeof BurnInAlignment | string;
 
   /**
    * Specifies the color of the rectangle behind the captions.  All burn-in and DVB-Sub font settings must match.
    */
-  BackgroundColor?: BurnInBackgroundColor | string;
+  BackgroundColor?: keyof typeof BurnInBackgroundColor | string;
 
   /**
    * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match.
@@ -1223,7 +1223,7 @@ export interface BurnInDestinationSettings {
   /**
    * Specifies the color of the burned-in captions.  This option is not valid for source captions that are STL, 608/embedded or teletext.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
    */
-  FontColor?: BurnInFontColor | string;
+  FontColor?: keyof typeof BurnInFontColor | string;
 
   /**
    * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.  All burn-in and DVB-Sub font settings must match.
@@ -1243,7 +1243,7 @@ export interface BurnInDestinationSettings {
   /**
    * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
    */
-  OutlineColor?: BurnInOutlineColor | string;
+  OutlineColor?: keyof typeof BurnInOutlineColor | string;
 
   /**
    * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
@@ -1253,7 +1253,7 @@ export interface BurnInDestinationSettings {
   /**
    * Specifies the color of the shadow cast by the captions.  All burn-in and DVB-Sub font settings must match.
    */
-  ShadowColor?: BurnInShadowColor | string;
+  ShadowColor?: keyof typeof BurnInShadowColor | string;
 
   /**
    * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match.
@@ -1273,7 +1273,7 @@ export interface BurnInDestinationSettings {
   /**
    * Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
    */
-  TeletextGridControl?: BurnInTeletextGridControl | string;
+  TeletextGridControl?: keyof typeof BurnInTeletextGridControl | string;
 
   /**
    * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter.  All burn-in and DVB-Sub font settings must match.
@@ -1289,61 +1289,61 @@ export interface BurnInDestinationSettings {
 /**
  * @public
  */
-export enum DvbSubDestinationAlignment {
-  CENTERED = "CENTERED",
-  LEFT = "LEFT",
-  SMART = "SMART",
-}
+export const DvbSubDestinationAlignment = {
+  CENTERED: "CENTERED",
+  LEFT: "LEFT",
+  SMART: "SMART",
+};
 
 /**
  * @public
  */
-export enum DvbSubDestinationBackgroundColor {
-  BLACK = "BLACK",
-  NONE = "NONE",
-  WHITE = "WHITE",
-}
+export const DvbSubDestinationBackgroundColor = {
+  BLACK: "BLACK",
+  NONE: "NONE",
+  WHITE: "WHITE",
+};
 
 /**
  * @public
  */
-export enum DvbSubDestinationFontColor {
-  BLACK = "BLACK",
-  BLUE = "BLUE",
-  GREEN = "GREEN",
-  RED = "RED",
-  WHITE = "WHITE",
-  YELLOW = "YELLOW",
-}
+export const DvbSubDestinationFontColor = {
+  BLACK: "BLACK",
+  BLUE: "BLUE",
+  GREEN: "GREEN",
+  RED: "RED",
+  WHITE: "WHITE",
+  YELLOW: "YELLOW",
+};
 
 /**
  * @public
  */
-export enum DvbSubDestinationOutlineColor {
-  BLACK = "BLACK",
-  BLUE = "BLUE",
-  GREEN = "GREEN",
-  RED = "RED",
-  WHITE = "WHITE",
-  YELLOW = "YELLOW",
-}
+export const DvbSubDestinationOutlineColor = {
+  BLACK: "BLACK",
+  BLUE: "BLUE",
+  GREEN: "GREEN",
+  RED: "RED",
+  WHITE: "WHITE",
+  YELLOW: "YELLOW",
+};
 
 /**
  * @public
  */
-export enum DvbSubDestinationShadowColor {
-  BLACK = "BLACK",
-  NONE = "NONE",
-  WHITE = "WHITE",
-}
+export const DvbSubDestinationShadowColor = {
+  BLACK: "BLACK",
+  NONE: "NONE",
+  WHITE: "WHITE",
+};
 
 /**
  * @public
  */
-export enum DvbSubDestinationTeletextGridControl {
-  FIXED = "FIXED",
-  SCALED = "SCALED",
-}
+export const DvbSubDestinationTeletextGridControl = {
+  FIXED: "FIXED",
+  SCALED: "SCALED",
+};
 
 /**
  * @public
@@ -1353,12 +1353,12 @@ export interface DvbSubDestinationSettings {
   /**
    * If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting "smart" justification will left-justify live subtitles and center-justify pre-recorded subtitles.  This option is not valid for source captions that are STL or 608/embedded.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
    */
-  Alignment?: DvbSubDestinationAlignment | string;
+  Alignment?: keyof typeof DvbSubDestinationAlignment | string;
 
   /**
    * Specifies the color of the rectangle behind the captions.  All burn-in and DVB-Sub font settings must match.
    */
-  BackgroundColor?: DvbSubDestinationBackgroundColor | string;
+  BackgroundColor?: keyof typeof DvbSubDestinationBackgroundColor | string;
 
   /**
    * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match.
@@ -1373,7 +1373,7 @@ export interface DvbSubDestinationSettings {
   /**
    * Specifies the color of the burned-in captions.  This option is not valid for source captions that are STL, 608/embedded or teletext.  These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
    */
-  FontColor?: DvbSubDestinationFontColor | string;
+  FontColor?: keyof typeof DvbSubDestinationFontColor | string;
 
   /**
    * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.  All burn-in and DVB-Sub font settings must match.
@@ -1393,7 +1393,7 @@ export interface DvbSubDestinationSettings {
   /**
    * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
    */
-  OutlineColor?: DvbSubDestinationOutlineColor | string;
+  OutlineColor?: keyof typeof DvbSubDestinationOutlineColor | string;
 
   /**
    * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
@@ -1403,7 +1403,7 @@ export interface DvbSubDestinationSettings {
   /**
    * Specifies the color of the shadow cast by the captions.  All burn-in and DVB-Sub font settings must match.
    */
-  ShadowColor?: DvbSubDestinationShadowColor | string;
+  ShadowColor?: keyof typeof DvbSubDestinationShadowColor | string;
 
   /**
    * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent).  All burn-in and DVB-Sub font settings must match.
@@ -1423,7 +1423,7 @@ export interface DvbSubDestinationSettings {
   /**
    * Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
    */
-  TeletextGridControl?: DvbSubDestinationTeletextGridControl | string;
+  TeletextGridControl?: keyof typeof DvbSubDestinationTeletextGridControl | string;
 
   /**
    * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter.  This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream.  All burn-in and DVB-Sub font settings must match.
@@ -1439,18 +1439,18 @@ export interface DvbSubDestinationSettings {
 /**
  * @public
  */
-export enum EbuTtDFillLineGapControl {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const EbuTtDFillLineGapControl = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum EbuTtDDestinationStyleControl {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export const EbuTtDDestinationStyleControl = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+};
 
 /**
  * @public
@@ -1468,7 +1468,7 @@ export interface EbuTtDDestinationSettings {
    * - enabled: Fill with the captions background color (as specified in the input captions).
    * - disabled: Leave the gap unfilled.
    */
-  FillLineGap?: EbuTtDFillLineGapControl | string;
+  FillLineGap?: keyof typeof EbuTtDFillLineGapControl | string;
 
   /**
    * Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to "monospaced". (If styleControl is set to exclude, the font family is always set to "monospaced".)
@@ -1486,7 +1486,7 @@ export interface EbuTtDDestinationSettings {
    * - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext.
    * - exclude: In the font data attached to the EBU-TT captions, set the font family to "monospaced". Do not include any other style information.
    */
-  StyleControl?: EbuTtDDestinationStyleControl | string;
+  StyleControl?: keyof typeof EbuTtDDestinationStyleControl | string;
 }
 
 /**
@@ -1534,10 +1534,10 @@ export interface TeletextDestinationSettings {}
 /**
  * @public
  */
-export enum TtmlDestinationStyleControl {
-  PASSTHROUGH = "PASSTHROUGH",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
+export const TtmlDestinationStyleControl = {
+  PASSTHROUGH: "PASSTHROUGH",
+  USE_CONFIGURED: "USE_CONFIGURED",
+};
 
 /**
  * @public
@@ -1547,16 +1547,16 @@ export interface TtmlDestinationSettings {
   /**
    * This field is not currently supported and will not affect the output styling. Leave the default value.
    */
-  StyleControl?: TtmlDestinationStyleControl | string;
+  StyleControl?: keyof typeof TtmlDestinationStyleControl | string;
 }
 
 /**
  * @public
  */
-export enum WebvttDestinationStyleControl {
-  NO_STYLE_DATA = "NO_STYLE_DATA",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export const WebvttDestinationStyleControl = {
+  NO_STYLE_DATA: "NO_STYLE_DATA",
+  PASSTHROUGH: "PASSTHROUGH",
+};
 
 /**
  * @public
@@ -1566,7 +1566,7 @@ export interface WebvttDestinationSettings {
   /**
    * Controls whether the color and position of the source captions is passed through to the WebVTT output captions.  PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT.  NO_STYLE_DATA - Don't pass through the style. The output captions will not contain any font styling information.
    */
-  StyleControl?: WebvttDestinationStyleControl | string;
+  StyleControl?: keyof typeof WebvttDestinationStyleControl | string;
 }
 
 /**
@@ -1648,7 +1648,7 @@ export interface CaptionDescription {
   /**
    * Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
    */
-  Accessibility?: AccessibilityType | string;
+  Accessibility?: keyof typeof AccessibilityType | string;
 
   /**
    * Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
@@ -1717,14 +1717,14 @@ export interface AribSourceSettings {}
 /**
  * @public
  */
-export enum DvbSubOcrLanguage {
-  DEU = "DEU",
-  ENG = "ENG",
-  FRA = "FRA",
-  NLD = "NLD",
-  POR = "POR",
-  SPA = "SPA",
-}
+export const DvbSubOcrLanguage = {
+  DEU: "DEU",
+  ENG: "ENG",
+  FRA: "FRA",
+  NLD: "NLD",
+  POR: "POR",
+  SPA: "SPA",
+};
 
 /**
  * @public
@@ -1735,7 +1735,7 @@ export interface DvbSubSourceSettings {
    * If you will configure a WebVTT caption description that references this caption selector, use this field to
    * provide the language to consider when translating the image-based source to text.
    */
-  OcrLanguage?: DvbSubOcrLanguage | string;
+  OcrLanguage?: keyof typeof DvbSubOcrLanguage | string;
 
   /**
    * When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
@@ -1746,18 +1746,18 @@ export interface DvbSubSourceSettings {
 /**
  * @public
  */
-export enum EmbeddedConvert608To708 {
-  DISABLED = "DISABLED",
-  UPCONVERT = "UPCONVERT",
-}
+export const EmbeddedConvert608To708 = {
+  DISABLED: "DISABLED",
+  UPCONVERT: "UPCONVERT",
+};
 
 /**
  * @public
  */
-export enum EmbeddedScte20Detection {
-  AUTO = "AUTO",
-  OFF = "OFF",
-}
+export const EmbeddedScte20Detection = {
+  AUTO: "AUTO",
+  OFF: "OFF",
+};
 
 /**
  * @public
@@ -1767,12 +1767,12 @@ export interface EmbeddedSourceSettings {
   /**
    * If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
    */
-  Convert608To708?: EmbeddedConvert608To708 | string;
+  Convert608To708?: keyof typeof EmbeddedConvert608To708 | string;
 
   /**
    * Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
    */
-  Scte20Detection?: EmbeddedScte20Detection | string;
+  Scte20Detection?: keyof typeof EmbeddedScte20Detection | string;
 
   /**
    * Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
@@ -1788,10 +1788,10 @@ export interface EmbeddedSourceSettings {
 /**
  * @public
  */
-export enum Scte20Convert608To708 {
-  DISABLED = "DISABLED",
-  UPCONVERT = "UPCONVERT",
-}
+export const Scte20Convert608To708 = {
+  DISABLED: "DISABLED",
+  UPCONVERT: "UPCONVERT",
+};
 
 /**
  * @public
@@ -1801,7 +1801,7 @@ export interface Scte20SourceSettings {
   /**
    * If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
    */
-  Convert608To708?: Scte20Convert608To708 | string;
+  Convert608To708?: keyof typeof Scte20Convert608To708 | string;
 
   /**
    * Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
@@ -1812,14 +1812,14 @@ export interface Scte20SourceSettings {
 /**
  * @public
  */
-export enum Scte27OcrLanguage {
-  DEU = "DEU",
-  ENG = "ENG",
-  FRA = "FRA",
-  NLD = "NLD",
-  POR = "POR",
-  SPA = "SPA",
-}
+export const Scte27OcrLanguage = {
+  DEU: "DEU",
+  ENG: "ENG",
+  FRA: "FRA",
+  NLD: "NLD",
+  POR: "POR",
+  SPA: "SPA",
+};
 
 /**
  * @public
@@ -1830,7 +1830,7 @@ export interface Scte27SourceSettings {
    * If you will configure a WebVTT caption description that references this caption selector, use this field to
    * provide the language to consider when translating the image-based source to text.
    */
-  OcrLanguage?: Scte27OcrLanguage | string;
+  OcrLanguage?: keyof typeof Scte27OcrLanguage | string;
 
   /**
    * The pid field is used in conjunction with the caption selector languageCode field as follows:
@@ -1969,12 +1969,12 @@ export interface ChannelEgressEndpoint {
 /**
  * @public
  */
-export enum CdiInputResolution {
-  FHD = "FHD",
-  HD = "HD",
-  SD = "SD",
-  UHD = "UHD",
-}
+export const CdiInputResolution = {
+  FHD: "FHD",
+  HD: "HD",
+  SD: "SD",
+  UHD: "UHD",
+};
 
 /**
  * @public
@@ -1984,16 +1984,16 @@ export interface CdiInputSpecification {
   /**
    * Maximum CDI input resolution
    */
-  Resolution?: CdiInputResolution | string;
+  Resolution?: keyof typeof CdiInputResolution | string;
 }
 
 /**
  * @public
  */
-export enum ChannelClass {
-  SINGLE_PIPELINE = "SINGLE_PIPELINE",
-  STANDARD = "STANDARD",
-}
+export const ChannelClass = {
+  SINGLE_PIPELINE: "SINGLE_PIPELINE",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -2153,10 +2153,10 @@ export interface FailoverCondition {
 /**
  * @public
  */
-export enum InputPreference {
-  EQUAL_INPUT_PREFERENCE = "EQUAL_INPUT_PREFERENCE",
-  PRIMARY_INPUT_PREFERRED = "PRIMARY_INPUT_PREFERRED",
-}
+export const InputPreference = {
+  EQUAL_INPUT_PREFERENCE: "EQUAL_INPUT_PREFERENCE",
+  PRIMARY_INPUT_PREFERRED: "PRIMARY_INPUT_PREFERRED",
+};
 
 /**
  * @public
@@ -2176,7 +2176,7 @@ export interface AutomaticInputFailoverSettings {
   /**
    * Input preference when deciding which input to make active when a previously failed input has recovered.
    */
-  InputPreference?: InputPreference | string;
+  InputPreference?: keyof typeof InputPreference | string;
 
   /**
    * The input ID of the secondary input in the automatic input failover pair.
@@ -2187,35 +2187,35 @@ export interface AutomaticInputFailoverSettings {
 /**
  * @public
  */
-export enum InputDeblockFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const InputDeblockFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum InputDenoiseFilter {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const InputDenoiseFilter = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum InputFilter {
-  AUTO = "AUTO",
-  DISABLED = "DISABLED",
-  FORCED = "FORCED",
-}
+export const InputFilter = {
+  AUTO: "AUTO",
+  DISABLED: "DISABLED",
+  FORCED: "FORCED",
+};
 
 /**
  * @public
  */
-export enum HlsScte35SourceType {
-  MANIFEST = "MANIFEST",
-  SEGMENTS = "SEGMENTS",
-}
+export const HlsScte35SourceType = {
+  MANIFEST: "MANIFEST",
+  SEGMENTS: "SEGMENTS",
+};
 
 /**
  * @public
@@ -2245,16 +2245,16 @@ export interface HlsInputSettings {
   /**
    * Identifies the source for the SCTE-35 messages that MediaLive will ingest. Messages can be ingested from the content segments (in the stream) or from tags in the playlist (the HLS manifest). MediaLive ignores SCTE-35 information in the source that is not selected.
    */
-  Scte35Source?: HlsScte35SourceType | string;
+  Scte35Source?: keyof typeof HlsScte35SourceType | string;
 }
 
 /**
  * @public
  */
-export enum NetworkInputServerValidation {
-  CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME = "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME",
-  CHECK_CRYPTOGRAPHY_ONLY = "CHECK_CRYPTOGRAPHY_ONLY",
-}
+export const NetworkInputServerValidation = {
+  CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME: "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME",
+  CHECK_CRYPTOGRAPHY_ONLY: "CHECK_CRYPTOGRAPHY_ONLY",
+};
 
 /**
  * @public
@@ -2269,35 +2269,35 @@ export interface NetworkInputSettings {
   /**
    * Check HTTPS server certificates. When set to checkCryptographyOnly, cryptography in the certificate will be checked, but not the server's name. Certain subdomains (notably S3 buckets that use dots in the bucket name) do not strictly match the corresponding certificate's wildcard pattern and would otherwise cause the event to error. This setting is ignored for protocols that do not use https.
    */
-  ServerValidation?: NetworkInputServerValidation | string;
+  ServerValidation?: keyof typeof NetworkInputServerValidation | string;
 }
 
 /**
  * @public
  */
-export enum Smpte2038DataPreference {
-  IGNORE = "IGNORE",
-  PREFER = "PREFER",
-}
+export const Smpte2038DataPreference = {
+  IGNORE: "IGNORE",
+  PREFER: "PREFER",
+};
 
 /**
  * @public
  */
-export enum InputSourceEndBehavior {
-  CONTINUE = "CONTINUE",
-  LOOP = "LOOP",
-}
+export const InputSourceEndBehavior = {
+  CONTINUE: "CONTINUE",
+  LOOP: "LOOP",
+};
 
 /**
  * @public
  */
-export enum VideoSelectorColorSpace {
-  FOLLOW = "FOLLOW",
-  HDR10 = "HDR10",
-  HLG_2020 = "HLG_2020",
-  REC_601 = "REC_601",
-  REC_709 = "REC_709",
-}
+export const VideoSelectorColorSpace = {
+  FOLLOW: "FOLLOW",
+  HDR10: "HDR10",
+  HLG_2020: "HLG_2020",
+  REC_601: "REC_601",
+  REC_709: "REC_709",
+};
 
 /**
  * @public
@@ -2333,10 +2333,10 @@ export interface VideoSelectorColorSpaceSettings {
 /**
  * @public
  */
-export enum VideoSelectorColorSpaceUsage {
-  FALLBACK = "FALLBACK",
-  FORCE = "FORCE",
-}
+export const VideoSelectorColorSpaceUsage = {
+  FALLBACK: "FALLBACK",
+  FORCE: "FORCE",
+};
 
 /**
  * @public
@@ -2384,7 +2384,7 @@ export interface VideoSelector {
   /**
    * Specifies the color space of an input. This setting works in tandem with colorSpaceUsage and a video description's colorSpaceSettingsChoice to determine if any conversion will be performed.
    */
-  ColorSpace?: VideoSelectorColorSpace | string;
+  ColorSpace?: keyof typeof VideoSelectorColorSpace | string;
 
   /**
    * Color space settings
@@ -2394,7 +2394,7 @@ export interface VideoSelector {
   /**
    * Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
    */
-  ColorSpaceUsage?: VideoSelectorColorSpaceUsage | string;
+  ColorSpaceUsage?: keyof typeof VideoSelectorColorSpaceUsage | string;
 
   /**
    * The video selector settings.
@@ -2420,12 +2420,12 @@ export interface InputSettings {
   /**
    * Enable or disable the deblock filter when filtering.
    */
-  DeblockFilter?: InputDeblockFilter | string;
+  DeblockFilter?: keyof typeof InputDeblockFilter | string;
 
   /**
    * Enable or disable the denoise filter when filtering.
    */
-  DenoiseFilter?: InputDenoiseFilter | string;
+  DenoiseFilter?: keyof typeof InputDenoiseFilter | string;
 
   /**
    * Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
@@ -2438,7 +2438,7 @@ export interface InputSettings {
    * 2) disabled - no filtering will be applied to the input
    * 3) forced - filtering will be applied regardless of input type
    */
-  InputFilter?: InputFilter | string;
+  InputFilter?: keyof typeof InputFilter | string;
 
   /**
    * Input settings.
@@ -2455,12 +2455,12 @@ export interface InputSettings {
    * - PREFER: Extract from SMPTE-2038 if present in this input, otherwise extract from another source (if any).
    * - IGNORE: Never extract any ancillary data from SMPTE-2038.
    */
-  Smpte2038DataPreference?: Smpte2038DataPreference | string;
+  Smpte2038DataPreference?: keyof typeof Smpte2038DataPreference | string;
 
   /**
    * Loop input if it is a file. This allows a file input to be streamed indefinitely.
    */
-  SourceEndBehavior?: InputSourceEndBehavior | string;
+  SourceEndBehavior?: keyof typeof InputSourceEndBehavior | string;
 
   /**
    * Informs which video elementary stream to decode for input types that have multiple available.
@@ -2497,29 +2497,29 @@ export interface InputAttachment {
 /**
  * @public
  */
-export enum InputCodec {
-  AVC = "AVC",
-  HEVC = "HEVC",
-  MPEG2 = "MPEG2",
-}
+export const InputCodec = {
+  AVC: "AVC",
+  HEVC: "HEVC",
+  MPEG2: "MPEG2",
+};
 
 /**
  * @public
  */
-export enum InputMaximumBitrate {
-  MAX_10_MBPS = "MAX_10_MBPS",
-  MAX_20_MBPS = "MAX_20_MBPS",
-  MAX_50_MBPS = "MAX_50_MBPS",
-}
+export const InputMaximumBitrate = {
+  MAX_10_MBPS: "MAX_10_MBPS",
+  MAX_20_MBPS: "MAX_20_MBPS",
+  MAX_50_MBPS: "MAX_50_MBPS",
+};
 
 /**
  * @public
  */
-export enum InputResolution {
-  HD = "HD",
-  SD = "SD",
-  UHD = "UHD",
-}
+export const InputResolution = {
+  HD: "HD",
+  SD: "SD",
+  UHD: "UHD",
+};
 
 /**
  * @public
@@ -2529,42 +2529,42 @@ export interface InputSpecification {
   /**
    * Input codec
    */
-  Codec?: InputCodec | string;
+  Codec?: keyof typeof InputCodec | string;
 
   /**
    * Maximum input bitrate, categorized coarsely
    */
-  MaximumBitrate?: InputMaximumBitrate | string;
+  MaximumBitrate?: keyof typeof InputMaximumBitrate | string;
 
   /**
    * Input resolution, categorized coarsely
    */
-  Resolution?: InputResolution | string;
+  Resolution?: keyof typeof InputResolution | string;
 }
 
 /**
  * @public
  */
-export enum LogLevel {
-  DEBUG = "DEBUG",
-  DISABLED = "DISABLED",
-  ERROR = "ERROR",
-  INFO = "INFO",
-  WARNING = "WARNING",
-}
+export const LogLevel = {
+  DEBUG: "DEBUG",
+  DISABLED: "DISABLED",
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARNING: "WARNING",
+};
 
 /**
  * @public
  */
-export enum MaintenanceDay {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
+export const MaintenanceDay = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+};
 
 /**
  * @public
@@ -2574,7 +2574,7 @@ export interface MaintenanceStatus {
   /**
    * The currently selected maintenance day.
    */
-  MaintenanceDay?: MaintenanceDay | string;
+  MaintenanceDay?: keyof typeof MaintenanceDay | string;
 
   /**
    * Maintenance is required by the displayed date and time. Date and time is in ISO.
@@ -2595,19 +2595,19 @@ export interface MaintenanceStatus {
 /**
  * @public
  */
-export enum ChannelState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  IDLE = "IDLE",
-  RECOVERING = "RECOVERING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const ChannelState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  IDLE: "IDLE",
+  RECOVERING: "RECOVERING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -2656,7 +2656,7 @@ export interface ChannelSummary {
   /**
    * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
-  ChannelClass?: ChannelClass | string;
+  ChannelClass?: keyof typeof ChannelClass | string;
 
   /**
    * A list of destinations of the channel. For UDP outputs, there is one
@@ -2688,7 +2688,7 @@ export interface ChannelSummary {
   /**
    * The log level being written to CloudWatch Logs.
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 
   /**
    * Maintenance settings for this channel.
@@ -2713,7 +2713,7 @@ export interface ChannelSummary {
   /**
    * Placeholder documentation for ChannelState
    */
-  State?: ChannelState | string;
+  State?: keyof typeof ChannelState | string;
 
   /**
    * A collection of key-value pairs.
@@ -2729,11 +2729,11 @@ export interface ChannelSummary {
 /**
  * @public
  */
-export enum HlsAdMarkers {
-  ADOBE = "ADOBE",
-  ELEMENTAL = "ELEMENTAL",
-  ELEMENTAL_SCTE35 = "ELEMENTAL_SCTE35",
-}
+export const HlsAdMarkers = {
+  ADOBE: "ADOBE",
+  ELEMENTAL: "ELEMENTAL",
+  ELEMENTAL_SCTE35: "ELEMENTAL_SCTE35",
+};
 
 /**
  * @public
@@ -2782,10 +2782,10 @@ export interface InputDestination {
 /**
  * @public
  */
-export enum InputClass {
-  SINGLE_PIPELINE = "SINGLE_PIPELINE",
-  STANDARD = "STANDARD",
-}
+export const InputClass = {
+  SINGLE_PIPELINE: "SINGLE_PIPELINE",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -2801,10 +2801,10 @@ export interface InputDeviceSettings {
 /**
  * @public
  */
-export enum InputSourceType {
-  DYNAMIC = "DYNAMIC",
-  STATIC = "STATIC",
-}
+export const InputSourceType = {
+  DYNAMIC: "DYNAMIC",
+  STATIC: "STATIC",
+};
 
 /**
  * @public
@@ -2842,29 +2842,29 @@ export interface InputSource {
 /**
  * @public
  */
-export enum InputState {
-  ATTACHED = "ATTACHED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  DETACHED = "DETACHED",
-}
+export const InputState = {
+  ATTACHED: "ATTACHED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  DETACHED: "DETACHED",
+};
 
 /**
  * @public
  */
-export enum InputType {
-  AWS_CDI = "AWS_CDI",
-  INPUT_DEVICE = "INPUT_DEVICE",
-  MEDIACONNECT = "MEDIACONNECT",
-  MP4_FILE = "MP4_FILE",
-  RTMP_PULL = "RTMP_PULL",
-  RTMP_PUSH = "RTMP_PUSH",
-  RTP_PUSH = "RTP_PUSH",
-  TS_FILE = "TS_FILE",
-  UDP_PUSH = "UDP_PUSH",
-  URL_PULL = "URL_PULL",
-}
+export const InputType = {
+  AWS_CDI: "AWS_CDI",
+  INPUT_DEVICE: "INPUT_DEVICE",
+  MEDIACONNECT: "MEDIACONNECT",
+  MP4_FILE: "MP4_FILE",
+  RTMP_PULL: "RTMP_PULL",
+  RTMP_PUSH: "RTMP_PUSH",
+  RTP_PUSH: "RTP_PUSH",
+  TS_FILE: "TS_FILE",
+  UDP_PUSH: "UDP_PUSH",
+  URL_PULL: "URL_PULL",
+};
 
 /**
  * @public
@@ -2895,7 +2895,7 @@ export interface Input {
    * STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
    * SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
    */
-  InputClass?: InputClass | string;
+  InputClass?: keyof typeof InputClass | string;
 
   /**
    * Settings for the input devices.
@@ -2911,7 +2911,7 @@ export interface Input {
    * Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
    * during input switch actions. Presently, this functionality only works with MP4_FILE and TS_FILE inputs.
    */
-  InputSourceType?: InputSourceType | string;
+  InputSourceType?: keyof typeof InputSourceType | string;
 
   /**
    * A list of MediaConnect Flows for this input.
@@ -2941,7 +2941,7 @@ export interface Input {
   /**
    * Placeholder documentation for InputState
    */
-  State?: InputState | string;
+  State?: keyof typeof InputState | string;
 
   /**
    * A collection of key-value pairs.
@@ -2951,7 +2951,7 @@ export interface Input {
   /**
    * The different types of inputs that AWS Elemental MediaLive supports.
    */
-  Type?: InputType | string;
+  Type?: keyof typeof InputType | string;
 }
 
 /**
@@ -2980,60 +2980,60 @@ export interface InputDeviceRequest {
 /**
  * @public
  */
-export enum InputDeviceConnectionState {
-  CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED",
-}
+export const InputDeviceConnectionState = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+};
 
 /**
  * @public
  */
-export enum DeviceSettingsSyncState {
-  SYNCED = "SYNCED",
-  SYNCING = "SYNCING",
-}
+export const DeviceSettingsSyncState = {
+  SYNCED: "SYNCED",
+  SYNCING: "SYNCING",
+};
 
 /**
  * @public
  */
-export enum DeviceUpdateStatus {
-  NOT_UP_TO_DATE = "NOT_UP_TO_DATE",
-  UPDATING = "UPDATING",
-  UP_TO_DATE = "UP_TO_DATE",
-}
+export const DeviceUpdateStatus = {
+  NOT_UP_TO_DATE: "NOT_UP_TO_DATE",
+  UPDATING: "UPDATING",
+  UP_TO_DATE: "UP_TO_DATE",
+};
 
 /**
  * @public
  */
-export enum InputDeviceActiveInput {
-  HDMI = "HDMI",
-  SDI = "SDI",
-}
+export const InputDeviceActiveInput = {
+  HDMI: "HDMI",
+  SDI: "SDI",
+};
 
 /**
  * @public
  */
-export enum InputDeviceConfiguredInput {
-  AUTO = "AUTO",
-  HDMI = "HDMI",
-  SDI = "SDI",
-}
+export const InputDeviceConfiguredInput = {
+  AUTO: "AUTO",
+  HDMI: "HDMI",
+  SDI: "SDI",
+};
 
 /**
  * @public
  */
-export enum InputDeviceState {
-  IDLE = "IDLE",
-  STREAMING = "STREAMING",
-}
+export const InputDeviceState = {
+  IDLE: "IDLE",
+  STREAMING: "STREAMING",
+};
 
 /**
  * @public
  */
-export enum InputDeviceScanType {
-  INTERLACED = "INTERLACED",
-  PROGRESSIVE = "PROGRESSIVE",
-}
+export const InputDeviceScanType = {
+  INTERLACED: "INTERLACED",
+  PROGRESSIVE: "PROGRESSIVE",
+};
 
 /**
  * @public
@@ -3043,17 +3043,17 @@ export interface InputDeviceHdSettings {
   /**
    * If you specified Auto as the configured input, specifies which of the sources is currently active (SDI or HDMI).
    */
-  ActiveInput?: InputDeviceActiveInput | string;
+  ActiveInput?: keyof typeof InputDeviceActiveInput | string;
 
   /**
    * The source at the input device that is currently active. You can specify this source.
    */
-  ConfiguredInput?: InputDeviceConfiguredInput | string;
+  ConfiguredInput?: keyof typeof InputDeviceConfiguredInput | string;
 
   /**
    * The state of the input device.
    */
-  DeviceState?: InputDeviceState | string;
+  DeviceState?: keyof typeof InputDeviceState | string;
 
   /**
    * The frame rate of the video source.
@@ -3073,7 +3073,7 @@ export interface InputDeviceHdSettings {
   /**
    * The scan type of the video source.
    */
-  ScanType?: InputDeviceScanType | string;
+  ScanType?: keyof typeof InputDeviceScanType | string;
 
   /**
    * The width of the video source, in pixels.
@@ -3089,10 +3089,10 @@ export interface InputDeviceHdSettings {
 /**
  * @public
  */
-export enum InputDeviceIpScheme {
-  DHCP = "DHCP",
-  STATIC = "STATIC",
-}
+export const InputDeviceIpScheme = {
+  DHCP: "DHCP",
+  STATIC: "STATIC",
+};
 
 /**
  * @public
@@ -3117,7 +3117,7 @@ export interface InputDeviceNetworkSettings {
   /**
    * Specifies whether the input device has been configured (outside of MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP address.
    */
-  IpScheme?: InputDeviceIpScheme | string;
+  IpScheme?: keyof typeof InputDeviceIpScheme | string;
 
   /**
    * The subnet mask of the input device.
@@ -3128,10 +3128,10 @@ export interface InputDeviceNetworkSettings {
 /**
  * @public
  */
-export enum InputDeviceType {
-  HD = "HD",
-  UHD = "UHD",
-}
+export const InputDeviceType = {
+  HD: "HD",
+  UHD: "UHD",
+};
 
 /**
  * @public
@@ -3141,17 +3141,17 @@ export interface InputDeviceUhdSettings {
   /**
    * If you specified Auto as the configured input, specifies which of the sources is currently active (SDI or HDMI).
    */
-  ActiveInput?: InputDeviceActiveInput | string;
+  ActiveInput?: keyof typeof InputDeviceActiveInput | string;
 
   /**
    * The source at the input device that is currently active. You can specify this source.
    */
-  ConfiguredInput?: InputDeviceConfiguredInput | string;
+  ConfiguredInput?: keyof typeof InputDeviceConfiguredInput | string;
 
   /**
    * The state of the input device.
    */
-  DeviceState?: InputDeviceState | string;
+  DeviceState?: keyof typeof InputDeviceState | string;
 
   /**
    * The frame rate of the video source.
@@ -3171,7 +3171,7 @@ export interface InputDeviceUhdSettings {
   /**
    * The scan type of the video source.
    */
-  ScanType?: InputDeviceScanType | string;
+  ScanType?: keyof typeof InputDeviceScanType | string;
 
   /**
    * The width of the video source, in pixels.
@@ -3197,17 +3197,17 @@ export interface InputDeviceSummary {
   /**
    * The state of the connection between the input device and AWS.
    */
-  ConnectionState?: InputDeviceConnectionState | string;
+  ConnectionState?: keyof typeof InputDeviceConnectionState | string;
 
   /**
    * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
    */
-  DeviceSettingsSyncState?: DeviceSettingsSyncState | string;
+  DeviceSettingsSyncState?: keyof typeof DeviceSettingsSyncState | string;
 
   /**
    * The status of software on the input device.
    */
-  DeviceUpdateStatus?: DeviceUpdateStatus | string;
+  DeviceUpdateStatus?: keyof typeof DeviceUpdateStatus | string;
 
   /**
    * Settings that describe an input device that is type HD.
@@ -3242,7 +3242,7 @@ export interface InputDeviceSummary {
   /**
    * The type of the input device.
    */
-  Type?: InputDeviceType | string;
+  Type?: keyof typeof InputDeviceType | string;
 
   /**
    * Settings that describe an input device that is type UHD.
@@ -3253,12 +3253,12 @@ export interface InputDeviceSummary {
 /**
  * @public
  */
-export enum InputSecurityGroupState {
-  DELETED = "DELETED",
-  IDLE = "IDLE",
-  IN_USE = "IN_USE",
-  UPDATING = "UPDATING",
-}
+export const InputSecurityGroupState = {
+  DELETED: "DELETED",
+  IDLE: "IDLE",
+  IN_USE: "IN_USE",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -3294,7 +3294,7 @@ export interface InputSecurityGroup {
   /**
    * The current state of the Input Security Group.
    */
-  State?: InputSecurityGroupState | string;
+  State?: keyof typeof InputSecurityGroupState | string;
 
   /**
    * A collection of key-value pairs.
@@ -3419,17 +3419,17 @@ export interface MultiplexSettingsSummary {
 /**
  * @public
  */
-export enum MultiplexState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  IDLE = "IDLE",
-  RECOVERING = "RECOVERING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-}
+export const MultiplexState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  IDLE: "IDLE",
+  RECOVERING: "RECOVERING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
@@ -3474,7 +3474,7 @@ export interface MultiplexSummary {
   /**
    * The current state of the multiplex.
    */
-  State?: MultiplexState | string;
+  State?: keyof typeof MultiplexState | string;
 
   /**
    * A collection of key-value pairs.
@@ -3485,83 +3485,83 @@ export interface MultiplexSummary {
 /**
  * @public
  */
-export enum OfferingDurationUnits {
-  MONTHS = "MONTHS",
-}
+export const OfferingDurationUnits = {
+  MONTHS: "MONTHS",
+};
 
 /**
  * @public
  */
-export enum OfferingType {
-  NO_UPFRONT = "NO_UPFRONT",
-}
+export const OfferingType = {
+  NO_UPFRONT: "NO_UPFRONT",
+};
 
 /**
  * @public
  */
-export enum ReservationCodec {
-  AUDIO = "AUDIO",
-  AVC = "AVC",
-  HEVC = "HEVC",
-  LINK = "LINK",
-  MPEG2 = "MPEG2",
-}
+export const ReservationCodec = {
+  AUDIO: "AUDIO",
+  AVC: "AVC",
+  HEVC: "HEVC",
+  LINK: "LINK",
+  MPEG2: "MPEG2",
+};
 
 /**
  * @public
  */
-export enum ReservationMaximumBitrate {
-  MAX_10_MBPS = "MAX_10_MBPS",
-  MAX_20_MBPS = "MAX_20_MBPS",
-  MAX_50_MBPS = "MAX_50_MBPS",
-}
+export const ReservationMaximumBitrate = {
+  MAX_10_MBPS: "MAX_10_MBPS",
+  MAX_20_MBPS: "MAX_20_MBPS",
+  MAX_50_MBPS: "MAX_50_MBPS",
+};
 
 /**
  * @public
  */
-export enum ReservationMaximumFramerate {
-  MAX_30_FPS = "MAX_30_FPS",
-  MAX_60_FPS = "MAX_60_FPS",
-}
+export const ReservationMaximumFramerate = {
+  MAX_30_FPS: "MAX_30_FPS",
+  MAX_60_FPS: "MAX_60_FPS",
+};
 
 /**
  * @public
  */
-export enum ReservationResolution {
-  FHD = "FHD",
-  HD = "HD",
-  SD = "SD",
-  UHD = "UHD",
-}
+export const ReservationResolution = {
+  FHD: "FHD",
+  HD: "HD",
+  SD: "SD",
+  UHD: "UHD",
+};
 
 /**
  * @public
  */
-export enum ReservationResourceType {
-  CHANNEL = "CHANNEL",
-  INPUT = "INPUT",
-  MULTIPLEX = "MULTIPLEX",
-  OUTPUT = "OUTPUT",
-}
+export const ReservationResourceType = {
+  CHANNEL: "CHANNEL",
+  INPUT: "INPUT",
+  MULTIPLEX: "MULTIPLEX",
+  OUTPUT: "OUTPUT",
+};
 
 /**
  * @public
  */
-export enum ReservationSpecialFeature {
-  ADVANCED_AUDIO = "ADVANCED_AUDIO",
-  AUDIO_NORMALIZATION = "AUDIO_NORMALIZATION",
-  MGHD = "MGHD",
-  MGUHD = "MGUHD",
-}
+export const ReservationSpecialFeature = {
+  ADVANCED_AUDIO: "ADVANCED_AUDIO",
+  AUDIO_NORMALIZATION: "AUDIO_NORMALIZATION",
+  MGHD: "MGHD",
+  MGUHD: "MGUHD",
+};
 
 /**
  * @public
  */
-export enum ReservationVideoQuality {
-  ENHANCED = "ENHANCED",
-  PREMIUM = "PREMIUM",
-  STANDARD = "STANDARD",
-}
+export const ReservationVideoQuality = {
+  ENHANCED: "ENHANCED",
+  PREMIUM: "PREMIUM",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -3571,42 +3571,42 @@ export interface ReservationResourceSpecification {
   /**
    * Channel class, e.g. 'STANDARD'
    */
-  ChannelClass?: ChannelClass | string;
+  ChannelClass?: keyof typeof ChannelClass | string;
 
   /**
    * Codec, e.g. 'AVC'
    */
-  Codec?: ReservationCodec | string;
+  Codec?: keyof typeof ReservationCodec | string;
 
   /**
    * Maximum bitrate, e.g. 'MAX_20_MBPS'
    */
-  MaximumBitrate?: ReservationMaximumBitrate | string;
+  MaximumBitrate?: keyof typeof ReservationMaximumBitrate | string;
 
   /**
    * Maximum framerate, e.g. 'MAX_30_FPS' (Outputs only)
    */
-  MaximumFramerate?: ReservationMaximumFramerate | string;
+  MaximumFramerate?: keyof typeof ReservationMaximumFramerate | string;
 
   /**
    * Resolution, e.g. 'HD'
    */
-  Resolution?: ReservationResolution | string;
+  Resolution?: keyof typeof ReservationResolution | string;
 
   /**
    * Resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
    */
-  ResourceType?: ReservationResourceType | string;
+  ResourceType?: keyof typeof ReservationResourceType | string;
 
   /**
    * Special feature, e.g. 'AUDIO_NORMALIZATION' (Channels only)
    */
-  SpecialFeature?: ReservationSpecialFeature | string;
+  SpecialFeature?: keyof typeof ReservationSpecialFeature | string;
 
   /**
    * Video quality, e.g. 'STANDARD' (Outputs only)
    */
-  VideoQuality?: ReservationVideoQuality | string;
+  VideoQuality?: keyof typeof ReservationVideoQuality | string;
 }
 
 /**
@@ -3632,7 +3632,7 @@ export interface Offering {
   /**
    * Units for duration, e.g. 'MONTHS'
    */
-  DurationUnits?: OfferingDurationUnits | string;
+  DurationUnits?: keyof typeof OfferingDurationUnits | string;
 
   /**
    * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
@@ -3652,7 +3652,7 @@ export interface Offering {
   /**
    * Offering type, e.g. 'NO_UPFRONT'
    */
-  OfferingType?: OfferingType | string;
+  OfferingType?: keyof typeof OfferingType | string;
 
   /**
    * AWS region, e.g. 'us-west-2'
@@ -3673,58 +3673,58 @@ export interface Offering {
 /**
  * @public
  */
-export enum M2tsAbsentInputAudioBehavior {
-  DROP = "DROP",
-  ENCODE_SILENCE = "ENCODE_SILENCE",
-}
+export const M2tsAbsentInputAudioBehavior = {
+  DROP: "DROP",
+  ENCODE_SILENCE: "ENCODE_SILENCE",
+};
 
 /**
  * @public
  */
-export enum M2tsArib {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const M2tsArib = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum M2tsAribCaptionsPidControl {
-  AUTO = "AUTO",
-  USE_CONFIGURED = "USE_CONFIGURED",
-}
+export const M2tsAribCaptionsPidControl = {
+  AUTO: "AUTO",
+  USE_CONFIGURED: "USE_CONFIGURED",
+};
 
 /**
  * @public
  */
-export enum M2tsAudioBufferModel {
-  ATSC = "ATSC",
-  DVB = "DVB",
-}
+export const M2tsAudioBufferModel = {
+  ATSC: "ATSC",
+  DVB: "DVB",
+};
 
 /**
  * @public
  */
-export enum M2tsAudioStreamType {
-  ATSC = "ATSC",
-  DVB = "DVB",
-}
+export const M2tsAudioStreamType = {
+  ATSC: "ATSC",
+  DVB: "DVB",
+};
 
 /**
  * @public
  */
-export enum M2tsBufferModel {
-  MULTIPLEX = "MULTIPLEX",
-  NONE = "NONE",
-}
+export const M2tsBufferModel = {
+  MULTIPLEX: "MULTIPLEX",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum M2tsCcDescriptor {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const M2tsCcDescriptor = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -3750,12 +3750,12 @@ export interface DvbNitSettings {
 /**
  * @public
  */
-export enum DvbSdtOutputSdt {
-  SDT_FOLLOW = "SDT_FOLLOW",
-  SDT_FOLLOW_IF_PRESENT = "SDT_FOLLOW_IF_PRESENT",
-  SDT_MANUAL = "SDT_MANUAL",
-  SDT_NONE = "SDT_NONE",
-}
+export const DvbSdtOutputSdt = {
+  SDT_FOLLOW: "SDT_FOLLOW",
+  SDT_FOLLOW_IF_PRESENT: "SDT_FOLLOW_IF_PRESENT",
+  SDT_MANUAL: "SDT_MANUAL",
+  SDT_NONE: "SDT_NONE",
+};
 
 /**
  * @public
@@ -3765,7 +3765,7 @@ export interface DvbSdtSettings {
   /**
    * Selects method of inserting SDT information into output stream. The sdtFollow setting copies SDT information from input stream to output stream. The sdtFollowIfPresent setting copies SDT information from input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. The sdtManual setting means user will enter the SDT information. The sdtNone setting means output stream will not contain SDT information.
    */
-  OutputSdt?: DvbSdtOutputSdt | string;
+  OutputSdt?: keyof typeof DvbSdtOutputSdt | string;
 
   /**
    * The number of milliseconds between instances of this table in the output transport stream.
@@ -3797,102 +3797,102 @@ export interface DvbTdtSettings {
 /**
  * @public
  */
-export enum M2tsEbifControl {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export const M2tsEbifControl = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+};
 
 /**
  * @public
  */
-export enum M2tsAudioInterval {
-  VIDEO_AND_FIXED_INTERVALS = "VIDEO_AND_FIXED_INTERVALS",
-  VIDEO_INTERVAL = "VIDEO_INTERVAL",
-}
+export const M2tsAudioInterval = {
+  VIDEO_AND_FIXED_INTERVALS: "VIDEO_AND_FIXED_INTERVALS",
+  VIDEO_INTERVAL: "VIDEO_INTERVAL",
+};
 
 /**
  * @public
  */
-export enum M2tsEbpPlacement {
-  VIDEO_AND_AUDIO_PIDS = "VIDEO_AND_AUDIO_PIDS",
-  VIDEO_PID = "VIDEO_PID",
-}
+export const M2tsEbpPlacement = {
+  VIDEO_AND_AUDIO_PIDS: "VIDEO_AND_AUDIO_PIDS",
+  VIDEO_PID: "VIDEO_PID",
+};
 
 /**
  * @public
  */
-export enum M2tsEsRateInPes {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export const M2tsEsRateInPes = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+};
 
 /**
  * @public
  */
-export enum M2tsKlv {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export const M2tsKlv = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+};
 
 /**
  * @public
  */
-export enum M2tsNielsenId3Behavior {
-  NO_PASSTHROUGH = "NO_PASSTHROUGH",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export const M2tsNielsenId3Behavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+};
 
 /**
  * @public
  */
-export enum M2tsPcrControl {
-  CONFIGURED_PCR_PERIOD = "CONFIGURED_PCR_PERIOD",
-  PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET",
-}
+export const M2tsPcrControl = {
+  CONFIGURED_PCR_PERIOD: "CONFIGURED_PCR_PERIOD",
+  PCR_EVERY_PES_PACKET: "PCR_EVERY_PES_PACKET",
+};
 
 /**
  * @public
  */
-export enum M2tsRateMode {
-  CBR = "CBR",
-  VBR = "VBR",
-}
+export const M2tsRateMode = {
+  CBR: "CBR",
+  VBR: "VBR",
+};
 
 /**
  * @public
  */
-export enum M2tsScte35Control {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export const M2tsScte35Control = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+};
 
 /**
  * @public
  */
-export enum M2tsSegmentationMarkers {
-  EBP = "EBP",
-  EBP_LEGACY = "EBP_LEGACY",
-  NONE = "NONE",
-  PSI_SEGSTART = "PSI_SEGSTART",
-  RAI_ADAPT = "RAI_ADAPT",
-  RAI_SEGSTART = "RAI_SEGSTART",
-}
+export const M2tsSegmentationMarkers = {
+  EBP: "EBP",
+  EBP_LEGACY: "EBP_LEGACY",
+  NONE: "NONE",
+  PSI_SEGSTART: "PSI_SEGSTART",
+  RAI_ADAPT: "RAI_ADAPT",
+  RAI_SEGSTART: "RAI_SEGSTART",
+};
 
 /**
  * @public
  */
-export enum M2tsSegmentationStyle {
-  MAINTAIN_CADENCE = "MAINTAIN_CADENCE",
-  RESET_CADENCE = "RESET_CADENCE",
-}
+export const M2tsSegmentationStyle = {
+  MAINTAIN_CADENCE: "MAINTAIN_CADENCE",
+  RESET_CADENCE: "RESET_CADENCE",
+};
 
 /**
  * @public
  */
-export enum M2tsTimedMetadataBehavior {
-  NO_PASSTHROUGH = "NO_PASSTHROUGH",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export const M2tsTimedMetadataBehavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+};
 
 /**
  * @public
@@ -3902,12 +3902,12 @@ export interface M2tsSettings {
   /**
    * When set to drop, output audio streams will be removed from the program if the selected input audio stream is removed from the input. This allows the output audio configuration to dynamically change based on input configuration. If this is set to encodeSilence, all output audio streams will output encoded silence when not connected to an active input stream.
    */
-  AbsentInputAudioBehavior?: M2tsAbsentInputAudioBehavior | string;
+  AbsentInputAudioBehavior?: keyof typeof M2tsAbsentInputAudioBehavior | string;
 
   /**
    * When set to enabled, uses ARIB-compliant field muxing and removes video descriptor.
    */
-  Arib?: M2tsArib | string;
+  Arib?: keyof typeof M2tsArib | string;
 
   /**
    * Packet Identifier (PID) for ARIB Captions in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -3917,12 +3917,12 @@ export interface M2tsSettings {
   /**
    * If set to auto, pid number used for ARIB Captions will be auto-selected from unused pids.  If set to useConfigured, ARIB Captions will be on the configured pid number.
    */
-  AribCaptionsPidControl?: M2tsAribCaptionsPidControl | string;
+  AribCaptionsPidControl?: keyof typeof M2tsAribCaptionsPidControl | string;
 
   /**
    * When set to dvb, uses DVB buffer model for Dolby Digital audio.  When set to atsc, the ATSC model is used.
    */
-  AudioBufferModel?: M2tsAudioBufferModel | string;
+  AudioBufferModel?: keyof typeof M2tsAudioBufferModel | string;
 
   /**
    * The number of audio frames to insert for each PES packet.
@@ -3937,7 +3937,7 @@ export interface M2tsSettings {
   /**
    * When set to atsc, uses stream type = 0x81 for AC3 and stream type = 0x87 for EAC3. When set to dvb, uses stream type = 0x06.
    */
-  AudioStreamType?: M2tsAudioStreamType | string;
+  AudioStreamType?: keyof typeof M2tsAudioStreamType | string;
 
   /**
    * The output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate.
@@ -3947,12 +3947,12 @@ export interface M2tsSettings {
   /**
    * Controls the timing accuracy for output network traffic. Leave as MULTIPLEX to ensure accurate network packet timing. Or set to NONE, which might result in lower latency but will result in more variability in output network packet timing. This variability might cause interruptions, jitter, or bursty behavior in your playback or receiving devices.
    */
-  BufferModel?: M2tsBufferModel | string;
+  BufferModel?: keyof typeof M2tsBufferModel | string;
 
   /**
    * When set to enabled, generates captionServiceDescriptor in PMT.
    */
-  CcDescriptor?: M2tsCcDescriptor | string;
+  CcDescriptor?: keyof typeof M2tsCcDescriptor | string;
 
   /**
    * Inserts DVB Network Information Table (NIT) at the specified table repetition interval.
@@ -3982,12 +3982,12 @@ export interface M2tsSettings {
   /**
    * If set to passthrough, passes any EBIF data from the input source to this output.
    */
-  Ebif?: M2tsEbifControl | string;
+  Ebif?: keyof typeof M2tsEbifControl | string;
 
   /**
    * When videoAndFixedIntervals is selected, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. Only available when EBP Cablelabs segmentation markers are selected.  Partitions 1 and 2 will always follow the video interval.
    */
-  EbpAudioInterval?: M2tsAudioInterval | string;
+  EbpAudioInterval?: keyof typeof M2tsAudioInterval | string;
 
   /**
    * When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker.  The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
@@ -3997,7 +3997,7 @@ export interface M2tsSettings {
   /**
    * Controls placement of EBP on Audio PIDs. If set to videoAndAudioPids, EBP markers will be placed on the video PID and all audio PIDs.  If set to videoPid, EBP markers will be placed on only the video PID.
    */
-  EbpPlacement?: M2tsEbpPlacement | string;
+  EbpPlacement?: keyof typeof M2tsEbpPlacement | string;
 
   /**
    * This field is unused and deprecated.
@@ -4007,7 +4007,7 @@ export interface M2tsSettings {
   /**
    * Include or exclude the ES Rate field in the PES header.
    */
-  EsRateInPes?: M2tsEsRateInPes | string;
+  EsRateInPes?: keyof typeof M2tsEsRateInPes | string;
 
   /**
    * Packet Identifier (PID) for input source ETV Platform data to this output. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -4027,7 +4027,7 @@ export interface M2tsSettings {
   /**
    * If set to passthrough, passes any KLV data from the input source to this output.
    */
-  Klv?: M2tsKlv | string;
+  Klv?: keyof typeof M2tsKlv | string;
 
   /**
    * Packet Identifier (PID) for input source KLV data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
@@ -4037,7 +4037,7 @@ export interface M2tsSettings {
   /**
    * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
    */
-  NielsenId3Behavior?: M2tsNielsenId3Behavior | string;
+  NielsenId3Behavior?: keyof typeof M2tsNielsenId3Behavior | string;
 
   /**
    * Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
@@ -4052,7 +4052,7 @@ export interface M2tsSettings {
   /**
    * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
    */
-  PcrControl?: M2tsPcrControl | string;
+  PcrControl?: keyof typeof M2tsPcrControl | string;
 
   /**
    * Maximum time in milliseconds between Program Clock Reference (PCRs) inserted into the transport stream.
@@ -4082,7 +4082,7 @@ export interface M2tsSettings {
   /**
    * When vbr, does not insert null packets into transport stream to fill specified bitrate. The bitrate setting acts as the maximum bitrate when vbr is set.
    */
-  RateMode?: M2tsRateMode | string;
+  RateMode?: keyof typeof M2tsRateMode | string;
 
   /**
    * Packet Identifier (PID) for input source SCTE-27 data to this output. Multiple values are accepted, and can be entered in ranges and/or by comma separation. Can be entered as decimal or hexadecimal values.  Each PID specified must be in the range of 32 (or 0x20)..8182 (or 0x1ff6).
@@ -4092,7 +4092,7 @@ export interface M2tsSettings {
   /**
    * Optionally pass SCTE-35 signals from the input source to this output.
    */
-  Scte35Control?: M2tsScte35Control | string;
+  Scte35Control?: keyof typeof M2tsScte35Control | string;
 
   /**
    * Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -4102,7 +4102,7 @@ export interface M2tsSettings {
   /**
    * Inserts segmentation markers at each segmentationTime period. raiSegstart sets the Random Access Indicator bit in the adaptation field. raiAdapt sets the RAI bit and adds the current timecode in the private data bytes. psiSegstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebpLegacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
    */
-  SegmentationMarkers?: M2tsSegmentationMarkers | string;
+  SegmentationMarkers?: keyof typeof M2tsSegmentationMarkers | string;
 
   /**
    * The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted.
@@ -4111,7 +4111,7 @@ export interface M2tsSettings {
    *
    * When a segmentation style of "maintainCadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentationTime seconds. Note that EBP lookahead is a slight exception to this rule.
    */
-  SegmentationStyle?: M2tsSegmentationStyle | string;
+  SegmentationStyle?: keyof typeof M2tsSegmentationStyle | string;
 
   /**
    * The length in seconds of each segment. Required unless markers is set to _none_.
@@ -4121,7 +4121,7 @@ export interface M2tsSettings {
   /**
    * When set to passthrough, timed metadata will be passed through from input to output.
    */
-  TimedMetadataBehavior?: M2tsTimedMetadataBehavior | string;
+  TimedMetadataBehavior?: keyof typeof M2tsTimedMetadataBehavior | string;
 
   /**
    * Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -4201,28 +4201,28 @@ export interface FrameCaptureOutputSettings {
 /**
  * @public
  */
-export enum HlsH265PackagingType {
-  HEV1 = "HEV1",
-  HVC1 = "HVC1",
-}
+export const HlsH265PackagingType = {
+  HEV1: "HEV1",
+  HVC1: "HVC1",
+};
 
 /**
  * @public
  */
-export enum AudioOnlyHlsTrackType {
-  ALTERNATE_AUDIO_AUTO_SELECT = "ALTERNATE_AUDIO_AUTO_SELECT",
-  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT = "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
-  ALTERNATE_AUDIO_NOT_AUTO_SELECT = "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
-  AUDIO_ONLY_VARIANT_STREAM = "AUDIO_ONLY_VARIANT_STREAM",
-}
+export const AudioOnlyHlsTrackType = {
+  ALTERNATE_AUDIO_AUTO_SELECT: "ALTERNATE_AUDIO_AUTO_SELECT",
+  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
+  ALTERNATE_AUDIO_NOT_AUTO_SELECT: "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
+  AUDIO_ONLY_VARIANT_STREAM: "AUDIO_ONLY_VARIANT_STREAM",
+};
 
 /**
  * @public
  */
-export enum AudioOnlyHlsSegmentType {
-  AAC = "AAC",
-  FMP4 = "FMP4",
-}
+export const AudioOnlyHlsSegmentType = {
+  AAC: "AAC",
+  FMP4: "FMP4",
+};
 
 /**
  * @public
@@ -4256,29 +4256,29 @@ export interface AudioOnlyHlsSettings {
    * Alternate Audio, not Auto Select
    * Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
    */
-  AudioTrackType?: AudioOnlyHlsTrackType | string;
+  AudioTrackType?: keyof typeof AudioOnlyHlsTrackType | string;
 
   /**
    * Specifies the segment type.
    */
-  SegmentType?: AudioOnlyHlsSegmentType | string;
+  SegmentType?: keyof typeof AudioOnlyHlsSegmentType | string;
 }
 
 /**
  * @public
  */
-export enum Fmp4NielsenId3Behavior {
-  NO_PASSTHROUGH = "NO_PASSTHROUGH",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export const Fmp4NielsenId3Behavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+};
 
 /**
  * @public
  */
-export enum Fmp4TimedMetadataBehavior {
-  NO_PASSTHROUGH = "NO_PASSTHROUGH",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export const Fmp4TimedMetadataBehavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+};
 
 /**
  * @public
@@ -4293,12 +4293,12 @@ export interface Fmp4HlsSettings {
   /**
    * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
    */
-  NielsenId3Behavior?: Fmp4NielsenId3Behavior | string;
+  NielsenId3Behavior?: keyof typeof Fmp4NielsenId3Behavior | string;
 
   /**
    * When set to passthrough, timed metadata is passed through from input to output.
    */
-  TimedMetadataBehavior?: Fmp4TimedMetadataBehavior | string;
+  TimedMetadataBehavior?: keyof typeof Fmp4TimedMetadataBehavior | string;
 }
 
 /**
@@ -4310,34 +4310,34 @@ export interface FrameCaptureHlsSettings {}
 /**
  * @public
  */
-export enum M3u8NielsenId3Behavior {
-  NO_PASSTHROUGH = "NO_PASSTHROUGH",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export const M3u8NielsenId3Behavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+};
 
 /**
  * @public
  */
-export enum M3u8PcrControl {
-  CONFIGURED_PCR_PERIOD = "CONFIGURED_PCR_PERIOD",
-  PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET",
-}
+export const M3u8PcrControl = {
+  CONFIGURED_PCR_PERIOD: "CONFIGURED_PCR_PERIOD",
+  PCR_EVERY_PES_PACKET: "PCR_EVERY_PES_PACKET",
+};
 
 /**
  * @public
  */
-export enum M3u8Scte35Behavior {
-  NO_PASSTHROUGH = "NO_PASSTHROUGH",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export const M3u8Scte35Behavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+};
 
 /**
  * @public
  */
-export enum M3u8TimedMetadataBehavior {
-  NO_PASSTHROUGH = "NO_PASSTHROUGH",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export const M3u8TimedMetadataBehavior = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  PASSTHROUGH: "PASSTHROUGH",
+};
 
 /**
  * @public
@@ -4362,7 +4362,7 @@ export interface M3u8Settings {
   /**
    * If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
    */
-  NielsenId3Behavior?: M3u8NielsenId3Behavior | string;
+  NielsenId3Behavior?: keyof typeof M3u8NielsenId3Behavior | string;
 
   /**
    * The number of milliseconds between instances of this table in the output transport stream. A value of \"0\" writes out the PMT once per segment file.
@@ -4372,7 +4372,7 @@ export interface M3u8Settings {
   /**
    * When set to pcrEveryPesPacket, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
    */
-  PcrControl?: M3u8PcrControl | string;
+  PcrControl?: keyof typeof M3u8PcrControl | string;
 
   /**
    * Maximum time in milliseconds between Program Clock References (PCRs) inserted into the transport stream.
@@ -4402,7 +4402,7 @@ export interface M3u8Settings {
   /**
    * If set to passthrough, passes any SCTE-35 signals from the input source to this output.
    */
-  Scte35Behavior?: M3u8Scte35Behavior | string;
+  Scte35Behavior?: keyof typeof M3u8Scte35Behavior | string;
 
   /**
    * Packet Identifier (PID) of the SCTE-35 stream in the transport stream. Can be entered as a decimal or hexadecimal value.
@@ -4412,7 +4412,7 @@ export interface M3u8Settings {
   /**
    * When set to passthrough, timed metadata is passed through from input to output.
    */
-  TimedMetadataBehavior?: M3u8TimedMetadataBehavior | string;
+  TimedMetadataBehavior?: keyof typeof M3u8TimedMetadataBehavior | string;
 
   /**
    * Packet Identifier (PID) of the timed metadata stream in the transport stream. Can be entered as a decimal or hexadecimal value.  Valid values are 32 (or 0x20)..8182 (or 0x1ff6).
@@ -4481,7 +4481,7 @@ export interface HlsOutputSettings {
    * Only applicable when this output is referencing an H.265 video description.
    * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
    */
-  H265PackagingType?: HlsH265PackagingType | string;
+  H265PackagingType?: keyof typeof HlsH265PackagingType | string;
 
   /**
    * Settings regarding the underlying stream. These settings are different for audio-only outputs.
@@ -4508,10 +4508,10 @@ export interface MediaPackageOutputSettings {}
 /**
  * @public
  */
-export enum MsSmoothH265PackagingType {
-  HEV1 = "HEV1",
-  HVC1 = "HVC1",
-}
+export const MsSmoothH265PackagingType = {
+  HEV1: "HEV1",
+  HVC1: "HVC1",
+};
 
 /**
  * @public
@@ -4522,7 +4522,7 @@ export interface MsSmoothOutputSettings {
    * Only applicable when this output is referencing an H.265 video description.
    * Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
    */
-  H265PackagingType?: MsSmoothH265PackagingType | string;
+  H265PackagingType?: keyof typeof MsSmoothH265PackagingType | string;
 
   /**
    * String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
@@ -4555,10 +4555,10 @@ export interface MultiplexOutputSettings {
 /**
  * @public
  */
-export enum RtmpOutputCertificateMode {
-  SELF_SIGNED = "SELF_SIGNED",
-  VERIFY_AUTHENTICITY = "VERIFY_AUTHENTICITY",
-}
+export const RtmpOutputCertificateMode = {
+  SELF_SIGNED: "SELF_SIGNED",
+  VERIFY_AUTHENTICITY: "VERIFY_AUTHENTICITY",
+};
 
 /**
  * @public
@@ -4568,7 +4568,7 @@ export interface RtmpOutputSettings {
   /**
    * If set to verifyAuthenticity, verify the tls certificate chain to a trusted Certificate Authority (CA).  This will cause rtmps outputs with self-signed certificates to fail.
    */
-  CertificateMode?: RtmpOutputCertificateMode | string;
+  CertificateMode?: keyof typeof RtmpOutputCertificateMode | string;
 
   /**
    * Number of seconds to wait before retrying a connection to the Flash Media server if the connection is lost.
@@ -4600,10 +4600,10 @@ export interface UdpContainerSettings {
 /**
  * @public
  */
-export enum FecOutputIncludeFec {
-  COLUMN = "COLUMN",
-  COLUMN_AND_ROW = "COLUMN_AND_ROW",
-}
+export const FecOutputIncludeFec = {
+  COLUMN: "COLUMN",
+  COLUMN_AND_ROW: "COLUMN_AND_ROW",
+};
 
 /**
  * @public
@@ -4618,7 +4618,7 @@ export interface FecOutputSettings {
   /**
    * Enables column only or column and row based FEC
    */
-  IncludeFec?: FecOutputIncludeFec | string;
+  IncludeFec?: keyof typeof FecOutputIncludeFec | string;
 
   /**
    * Parameter L from SMPTE 2022-1. The width of the FEC protection matrix.  Must be between 1 and 20, inclusive. If only Column FEC is used, then larger values increase robustness.  If Row FEC is used, then this is the number of transport stream packets per row error correction packet, and the value must be between 4 and 20, inclusive, if includeFec is columnAndRow. If includeFec is column, this value must be 1 to 20, inclusive.
@@ -4732,12 +4732,12 @@ export interface Output {
 /**
  * @public
  */
-export enum S3CannedAcl {
-  AUTHENTICATED_READ = "AUTHENTICATED_READ",
-  BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
-  BUCKET_OWNER_READ = "BUCKET_OWNER_READ",
-  PUBLIC_READ = "PUBLIC_READ",
-}
+export const S3CannedAcl = {
+  AUTHENTICATED_READ: "AUTHENTICATED_READ",
+  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
+  BUCKET_OWNER_READ: "BUCKET_OWNER_READ",
+  PUBLIC_READ: "PUBLIC_READ",
+};
 
 /**
  * @public
@@ -4747,7 +4747,7 @@ export interface ArchiveS3Settings {
   /**
    * Specify the canned ACL to apply to each S3 request. Defaults to none.
    */
-  CannedAcl?: S3CannedAcl | string;
+  CannedAcl?: keyof typeof S3CannedAcl | string;
 }
 
 /**
@@ -4790,7 +4790,7 @@ export interface FrameCaptureS3Settings {
   /**
    * Specify the canned ACL to apply to each S3 request. Defaults to none.
    */
-  CannedAcl?: S3CannedAcl | string;
+  CannedAcl?: keyof typeof S3CannedAcl | string;
 }
 
 /**
@@ -4823,59 +4823,59 @@ export interface FrameCaptureGroupSettings {
 /**
  * @public
  */
-export enum HlsCaptionLanguageSetting {
-  INSERT = "INSERT",
-  NONE = "NONE",
-  OMIT = "OMIT",
-}
+export const HlsCaptionLanguageSetting = {
+  INSERT: "INSERT",
+  NONE: "NONE",
+  OMIT: "OMIT",
+};
 
 /**
  * @public
  */
-export enum HlsClientCache {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const HlsClientCache = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum HlsCodecSpecification {
-  RFC_4281 = "RFC_4281",
-  RFC_6381 = "RFC_6381",
-}
+export const HlsCodecSpecification = {
+  RFC_4281: "RFC_4281",
+  RFC_6381: "RFC_6381",
+};
 
 /**
  * @public
  */
-export enum HlsDirectoryStructure {
-  SINGLE_DIRECTORY = "SINGLE_DIRECTORY",
-  SUBDIRECTORY_PER_STREAM = "SUBDIRECTORY_PER_STREAM",
-}
+export const HlsDirectoryStructure = {
+  SINGLE_DIRECTORY: "SINGLE_DIRECTORY",
+  SUBDIRECTORY_PER_STREAM: "SUBDIRECTORY_PER_STREAM",
+};
 
 /**
  * @public
  */
-export enum HlsDiscontinuityTags {
-  INSERT = "INSERT",
-  NEVER_INSERT = "NEVER_INSERT",
-}
+export const HlsDiscontinuityTags = {
+  INSERT: "INSERT",
+  NEVER_INSERT: "NEVER_INSERT",
+};
 
 /**
  * @public
  */
-export enum HlsEncryptionType {
-  AES128 = "AES128",
-  SAMPLE_AES = "SAMPLE_AES",
-}
+export const HlsEncryptionType = {
+  AES128: "AES128",
+  SAMPLE_AES: "SAMPLE_AES",
+};
 
 /**
  * @public
  */
-export enum HlsAkamaiHttpTransferMode {
-  CHUNKED = "CHUNKED",
-  NON_CHUNKED = "NON_CHUNKED",
-}
+export const HlsAkamaiHttpTransferMode = {
+  CHUNKED: "CHUNKED",
+  NON_CHUNKED: "NON_CHUNKED",
+};
 
 /**
  * @public
@@ -4895,7 +4895,7 @@ export interface HlsAkamaiSettings {
   /**
    * Specify whether or not to use chunked transfer encoding to Akamai. User should contact Akamai to enable this feature.
    */
-  HttpTransferMode?: HlsAkamaiHttpTransferMode | string;
+  HttpTransferMode?: keyof typeof HlsAkamaiHttpTransferMode | string;
 
   /**
    * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
@@ -4947,9 +4947,9 @@ export interface HlsBasicPutSettings {
 /**
  * @public
  */
-export enum HlsMediaStoreStorageClass {
-  TEMPORAL = "TEMPORAL",
-}
+export const HlsMediaStoreStorageClass = {
+  TEMPORAL: "TEMPORAL",
+};
 
 /**
  * @public
@@ -4969,7 +4969,7 @@ export interface HlsMediaStoreSettings {
   /**
    * When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
    */
-  MediaStoreStorageClass?: HlsMediaStoreStorageClass | string;
+  MediaStoreStorageClass?: keyof typeof HlsMediaStoreStorageClass | string;
 
   /**
    * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
@@ -4990,16 +4990,16 @@ export interface HlsS3Settings {
   /**
    * Specify the canned ACL to apply to each S3 request. Defaults to none.
    */
-  CannedAcl?: S3CannedAcl | string;
+  CannedAcl?: keyof typeof S3CannedAcl | string;
 }
 
 /**
  * @public
  */
-export enum HlsWebdavHttpTransferMode {
-  CHUNKED = "CHUNKED",
-  NON_CHUNKED = "NON_CHUNKED",
-}
+export const HlsWebdavHttpTransferMode = {
+  CHUNKED: "CHUNKED",
+  NON_CHUNKED: "NON_CHUNKED",
+};
 
 /**
  * @public
@@ -5019,7 +5019,7 @@ export interface HlsWebdavSettings {
   /**
    * Specify whether or not to use chunked transfer encoding to WebDAV.
    */
-  HttpTransferMode?: HlsWebdavHttpTransferMode | string;
+  HttpTransferMode?: keyof typeof HlsWebdavHttpTransferMode | string;
 
   /**
    * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
@@ -5066,50 +5066,50 @@ export interface HlsCdnSettings {
 /**
  * @public
  */
-export enum HlsId3SegmentTaggingState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const HlsId3SegmentTaggingState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum IFrameOnlyPlaylistType {
-  DISABLED = "DISABLED",
-  STANDARD = "STANDARD",
-}
+export const IFrameOnlyPlaylistType = {
+  DISABLED: "DISABLED",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
  */
-export enum HlsIncompleteSegmentBehavior {
-  AUTO = "AUTO",
-  SUPPRESS = "SUPPRESS",
-}
+export const HlsIncompleteSegmentBehavior = {
+  AUTO: "AUTO",
+  SUPPRESS: "SUPPRESS",
+};
 
 /**
  * @public
  */
-export enum InputLossActionForHlsOut {
-  EMIT_OUTPUT = "EMIT_OUTPUT",
-  PAUSE_OUTPUT = "PAUSE_OUTPUT",
-}
+export const InputLossActionForHlsOut = {
+  EMIT_OUTPUT: "EMIT_OUTPUT",
+  PAUSE_OUTPUT: "PAUSE_OUTPUT",
+};
 
 /**
  * @public
  */
-export enum HlsIvInManifest {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export const HlsIvInManifest = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+};
 
 /**
  * @public
  */
-export enum HlsIvSource {
-  EXPLICIT = "EXPLICIT",
-  FOLLOWS_SEGMENT_NUMBER = "FOLLOWS_SEGMENT_NUMBER",
-}
+export const HlsIvSource = {
+  EXPLICIT: "EXPLICIT",
+  FOLLOWS_SEGMENT_NUMBER: "FOLLOWS_SEGMENT_NUMBER",
+};
 
 /**
  * @public
@@ -5141,15 +5141,15 @@ export interface KeyProviderSettings {
 /**
  * @public
  */
-export enum HlsManifestCompression {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
+export const HlsManifestCompression = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum HlsManifestDurationFormat {
-  FLOATING_POINT = "FLOATING_POINT",
-  INTEGER = "INTEGER",
-}
+export const HlsManifestDurationFormat = {
+  FLOATING_POINT: "FLOATING_POINT",
+  INTEGER: "INTEGER",
+};

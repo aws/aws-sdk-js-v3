@@ -133,11 +133,11 @@ export interface Resource {
 /**
  * @public
  */
-export enum ProjectState {
-  IMPORTING = "IMPORTING",
-  NORMAL = "NORMAL",
-  SYNCING = "SYNCING",
-}
+export const ProjectState = {
+  IMPORTING: "IMPORTING",
+  NORMAL: "NORMAL",
+  SYNCING: "SYNCING",
+};
 
 /**
  * @public
@@ -172,7 +172,7 @@ export interface ProjectDetails {
    *             Synchronization state for a project.
    *         </p>
    */
-  state?: ProjectState | string;
+  state?: keyof typeof ProjectState | string;
 
   /**
    * <p>
@@ -436,15 +436,15 @@ export interface DescribeBundleRequest {
 /**
  * @public
  */
-export enum Platform {
-  ANDROID = "ANDROID",
-  JAVASCRIPT = "JAVASCRIPT",
-  LINUX = "LINUX",
-  OBJC = "OBJC",
-  OSX = "OSX",
-  SWIFT = "SWIFT",
-  WINDOWS = "WINDOWS",
-}
+export const Platform = {
+  ANDROID: "ANDROID",
+  JAVASCRIPT: "JAVASCRIPT",
+  LINUX: "LINUX",
+  OBJC: "OBJC",
+  OSX: "OSX",
+  SWIFT: "SWIFT",
+  WINDOWS: "WINDOWS",
+};
 
 /**
  * @public
@@ -493,7 +493,7 @@ export interface BundleDetails {
    *             Developer desktop or mobile app or website platforms.
    *         </p>
    */
-  availablePlatforms?: (Platform | string)[];
+  availablePlatforms?: (keyof typeof Platform | string)[];
 }
 
 /**
@@ -575,7 +575,7 @@ export interface ExportBundleRequest {
    *             Developer desktop or target application platform.
    *         </p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 }
 
 /**

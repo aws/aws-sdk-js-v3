@@ -29,28 +29,28 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AllowPublish {
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-}
+export const AllowPublish = {
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+};
 
 /**
  * @public
  */
-export enum AllowUpstream {
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-}
+export const AllowUpstream = {
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+};
 
 /**
  * @public
  */
-export enum HashAlgorithm {
-  MD5 = "MD5",
-  SHA1 = "SHA-1",
-  SHA256 = "SHA-256",
-  SHA512 = "SHA-512",
-}
+export const HashAlgorithm = {
+  MD5: "MD5",
+  SHA1: "SHA-1",
+  SHA256: "SHA-256",
+  SHA512: "SHA-512",
+};
 
 /**
  * @public
@@ -157,20 +157,20 @@ export interface AssociateExternalConnectionRequest {
 /**
  * @public
  */
-export enum PackageFormat {
-  GENERIC = "generic",
-  MAVEN = "maven",
-  NPM = "npm",
-  NUGET = "nuget",
-  PYPI = "pypi",
-}
+export const PackageFormat = {
+  GENERIC: "generic",
+  MAVEN: "maven",
+  NPM: "npm",
+  NUGET: "nuget",
+  PYPI: "pypi",
+};
 
 /**
  * @public
  */
-export enum ExternalConnectionStatus {
-  AVAILABLE = "Available",
-}
+export const ExternalConnectionStatus = {
+  AVAILABLE: "Available",
+};
 
 /**
  * @public
@@ -211,14 +211,14 @@ export interface RepositoryExternalConnectionInfo {
    *             </li>
    *          </ul>
    */
-  packageFormat?: PackageFormat | string;
+  packageFormat?: keyof typeof PackageFormat | string;
 
   /**
    * <p>
    *         The status of the external connection of a repository. There is one valid value, <code>Available</code>.
    *       </p>
    */
-  status?: ExternalConnectionStatus | string;
+  status?: keyof typeof ExternalConnectionStatus | string;
 }
 
 /**
@@ -318,13 +318,13 @@ export interface AssociateExternalConnectionResult {
 /**
  * @public
  */
-export enum ResourceType {
-  ASSET = "asset",
-  DOMAIN = "domain",
-  PACKAGE = "package",
-  PACKAGE_VERSION = "package-version",
-  REPOSITORY = "repository",
-}
+export const ResourceType = {
+  ASSET: "asset",
+  DOMAIN: "domain",
+  PACKAGE: "package",
+  PACKAGE_VERSION: "package-version",
+  REPOSITORY: "repository",
+};
 
 /**
  * @public
@@ -347,7 +347,7 @@ export class ConflictException extends __BaseException {
    *       The type of Amazon Web Services resource.
    *     </p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * @internal
@@ -405,7 +405,7 @@ export class ResourceNotFoundException extends __BaseException {
    *       The type of Amazon Web Services resource.
    *     </p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * @internal
@@ -443,7 +443,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    *       The type of Amazon Web Services resource.
    *     </p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * @internal
@@ -493,13 +493,13 @@ export class ThrottlingException extends __BaseException {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  ENCRYPTION_KEY_ERROR = "ENCRYPTION_KEY_ERROR",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  ENCRYPTION_KEY_ERROR: "ENCRYPTION_KEY_ERROR",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+};
 
 /**
  * @public
@@ -515,7 +515,7 @@ export class ValidationException extends __BaseException {
    *
    *     </p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * @internal
@@ -569,7 +569,7 @@ export interface CopyPackageVersionsRequest {
    *       The format of the package versions to be copied.
    *     </p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package versions to be copied. The package version component that specifies its
@@ -652,14 +652,14 @@ export interface CopyPackageVersionsRequest {
 /**
  * @public
  */
-export enum PackageVersionErrorCode {
-  ALREADY_EXISTS = "ALREADY_EXISTS",
-  MISMATCHED_REVISION = "MISMATCHED_REVISION",
-  MISMATCHED_STATUS = "MISMATCHED_STATUS",
-  NOT_ALLOWED = "NOT_ALLOWED",
-  NOT_FOUND = "NOT_FOUND",
-  SKIPPED = "SKIPPED",
-}
+export const PackageVersionErrorCode = {
+  ALREADY_EXISTS: "ALREADY_EXISTS",
+  MISMATCHED_REVISION: "MISMATCHED_REVISION",
+  MISMATCHED_STATUS: "MISMATCHED_STATUS",
+  NOT_ALLOWED: "NOT_ALLOWED",
+  NOT_FOUND: "NOT_FOUND",
+  SKIPPED: "SKIPPED",
+};
 
 /**
  * @public
@@ -703,7 +703,7 @@ export interface PackageVersionError {
    *             </li>
    *          </ul>
    */
-  errorCode?: PackageVersionErrorCode | string;
+  errorCode?: keyof typeof PackageVersionErrorCode | string;
 
   /**
    * <p>
@@ -716,14 +716,14 @@ export interface PackageVersionError {
 /**
  * @public
  */
-export enum PackageVersionStatus {
-  ARCHIVED = "Archived",
-  DELETED = "Deleted",
-  DISPOSED = "Disposed",
-  PUBLISHED = "Published",
-  UNFINISHED = "Unfinished",
-  UNLISTED = "Unlisted",
-}
+export const PackageVersionStatus = {
+  ARCHIVED: "Archived",
+  DELETED: "Deleted",
+  DISPOSED: "Disposed",
+  PUBLISHED: "Published",
+  UNFINISHED: "Unfinished",
+  UNLISTED: "Unlisted",
+};
 
 /**
  * @public
@@ -744,7 +744,7 @@ export interface SuccessfulPackageVersionInfo {
    *       The status of a package version.
    *     </p>
    */
-  status?: PackageVersionStatus | string;
+  status?: keyof typeof PackageVersionStatus | string;
 }
 
 /**
@@ -851,10 +851,10 @@ export interface CreateDomainRequest {
 /**
  * @public
  */
-export enum DomainStatus {
-  ACTIVE = "Active",
-  DELETED = "Deleted",
-}
+export const DomainStatus = {
+  ACTIVE: "Active",
+  DELETED: "Deleted",
+};
 
 /**
  * @public
@@ -886,7 +886,7 @@ export interface DomainDescription {
    *         The current status of a domain.
    *       </p>
    */
-  status?: DomainStatus | string;
+  status?: keyof typeof DomainStatus | string;
 
   /**
    * <p>
@@ -1129,7 +1129,7 @@ export interface DeletePackageRequest {
   /**
    * <p>The format of the requested package to delete.</p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package to delete. The package component that specifies its namespace depends on its type. For example:</p>
@@ -1170,12 +1170,12 @@ export interface PackageOriginRestrictions {
   /**
    * <p>The package origin configuration that determines if new versions of the package can be published directly to the repository.</p>
    */
-  publish: AllowPublish | string | undefined;
+  publish: keyof typeof AllowPublish | string | undefined;
 
   /**
    * <p>The package origin configuration that determines if new versions of the package can be added to the repository from an external connection or upstream source.</p>
    */
-  upstream: AllowUpstream | string | undefined;
+  upstream: keyof typeof AllowUpstream | string | undefined;
 }
 
 /**
@@ -1202,7 +1202,7 @@ export interface PackageSummary {
    *       The format of the package.
    *     </p>
    */
-  format?: PackageFormat | string;
+  format?: keyof typeof PackageFormat | string;
 
   /**
    * <p>The namespace of the package. The package component that specifies its
@@ -1289,7 +1289,7 @@ export interface DeletePackageVersionsRequest {
    *         The format of the package versions to delete.
    *       </p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package versions to be deleted. The package version component that specifies its
@@ -1337,7 +1337,7 @@ export interface DeletePackageVersionsRequest {
    *         The expected status of the package version to delete.
    *       </p>
    */
-  expectedStatus?: PackageVersionStatus | string;
+  expectedStatus?: keyof typeof PackageVersionStatus | string;
 }
 
 /**
@@ -1535,7 +1535,7 @@ export interface DescribePackageRequest {
   /**
    * <p>A format that specifies the type of the requested package.</p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the requested package. The package component that specifies its
@@ -1578,7 +1578,7 @@ export interface PackageDescription {
   /**
    * <p>A format that specifies the type of the package.</p>
    */
-  format?: PackageFormat | string;
+  format?: keyof typeof PackageFormat | string;
 
   /**
    * <p>The namespace of the package. The package component that specifies its
@@ -1658,7 +1658,7 @@ export interface DescribePackageVersionRequest {
    *       A format that specifies the type of the requested package version.
    *     </p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the requested package version. The package version component that specifies its
@@ -1743,11 +1743,11 @@ export interface DomainEntryPoint {
 /**
  * @public
  */
-export enum PackageVersionOriginType {
-  EXTERNAL = "EXTERNAL",
-  INTERNAL = "INTERNAL",
-  UNKNOWN = "UNKNOWN",
-}
+export const PackageVersionOriginType = {
+  EXTERNAL: "EXTERNAL",
+  INTERNAL: "INTERNAL",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -1764,7 +1764,7 @@ export interface PackageVersionOrigin {
    * <p>Describes how the package version was originally added to the domain. An <code>INTERNAL</code> origin type means the package version was published
    *     directly to a repository in the domain. An <code>EXTERNAL</code> origin type means the package version was ingested from an external connection.</p>
    */
-  originType?: PackageVersionOriginType | string;
+  originType?: keyof typeof PackageVersionOriginType | string;
 }
 
 /**
@@ -1779,7 +1779,7 @@ export interface PackageVersionDescription {
    *       The format of the package version.
    *     </p>
    */
-  format?: PackageFormat | string;
+  format?: keyof typeof PackageFormat | string;
 
   /**
    * <p>The namespace of the package version. The package version component that specifies its
@@ -1880,7 +1880,7 @@ export interface PackageVersionDescription {
    *       A string that contains the status of the package version.
    *     </p>
    */
-  status?: PackageVersionStatus | string;
+  status?: keyof typeof PackageVersionStatus | string;
 
   /**
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html">PackageVersionOrigin</a> object that contains
@@ -2013,7 +2013,7 @@ export interface DisposePackageVersionsRequest {
    *       A format that specifies the type of package versions you want to dispose.
    *     </p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package versions to be disposed. The package version component that specifies its
@@ -2068,7 +2068,7 @@ export interface DisposePackageVersionsRequest {
    *       The expected status of the package version to dispose.
    *     </p>
    */
-  expectedStatus?: PackageVersionStatus | string;
+  expectedStatus?: keyof typeof PackageVersionStatus | string;
 }
 
 /**
@@ -2233,7 +2233,7 @@ export interface GetPackageVersionAssetRequest {
    *       A format that specifies the type of the package version with the requested asset file.
    *     </p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package version with the requested asset file. The package version component that specifies its
@@ -2353,7 +2353,7 @@ export interface GetPackageVersionReadmeRequest {
    *       A format that specifies the type of the package version with the requested readme file.
    *     </p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package version with the requested readme file. The package version component that specifies its
@@ -2394,7 +2394,7 @@ export interface GetPackageVersionReadmeResult {
    *       The format of the package with the requested readme file.
    *     </p>
    */
-  format?: PackageFormat | string;
+  format?: keyof typeof PackageFormat | string;
 
   /**
    * <p>The namespace of the package version with the requested readme file. The package version component that specifies its
@@ -2481,7 +2481,7 @@ export interface GetRepositoryEndpointRequest {
    *       package format.
    *     </p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 }
 
 /**
@@ -2588,7 +2588,7 @@ export interface DomainSummary {
    *       A string that contains the status of the domain.
    *     </p>
    */
-  status?: DomainStatus | string;
+  status?: keyof typeof DomainStatus | string;
 
   /**
    * <p>
@@ -2653,7 +2653,7 @@ export interface ListPackagesRequest {
   /**
    * <p>The format used to filter requested packages. Only packages from the provided format will be returned.</p>
    */
-  format?: PackageFormat | string;
+  format?: keyof typeof PackageFormat | string;
 
   /**
    * <p>The namespace prefix used to filter requested packages. Only packages with a namespace that starts with the provided string value are returned. Note that although this option is called <code>--namespace</code> and not <code>--namespace-prefix</code>, it has prefix-matching behavior.</p>
@@ -2709,13 +2709,13 @@ export interface ListPackagesRequest {
    *       Only packages with the provided restriction are returned.
    *       For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
    */
-  publish?: AllowPublish | string;
+  publish?: keyof typeof AllowPublish | string;
 
   /**
    * <p>The value of the <code>Upstream</code> package origin control restriction used to filter requested packages.
    *       Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
    */
-  upstream?: AllowUpstream | string;
+  upstream?: keyof typeof AllowUpstream | string;
 }
 
 /**
@@ -2769,7 +2769,7 @@ export interface ListPackageVersionAssetsRequest {
    *       The format of the package that contains the requested package version assets.
    *     </p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package version that contains the requested package version assets. The package version component that specifies its
@@ -2836,7 +2836,7 @@ export interface ListPackageVersionAssetsResult {
    *       The format of the package that contains the requested package version assets.
    *     </p>
    */
-  format?: PackageFormat | string;
+  format?: keyof typeof PackageFormat | string;
 
   /**
    * <p>The namespace of the package version that contains the requested package version assets. The package version component that specifies its
@@ -2929,7 +2929,7 @@ export interface ListPackageVersionDependenciesRequest {
    *       The format of the package with the requested dependencies.
    *     </p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package version with the requested dependencies. The package version component that specifies its
@@ -3061,7 +3061,7 @@ export interface ListPackageVersionDependenciesResult {
    *       A format that specifies the type of the package that contains the returned dependencies.
    *     </p>
    */
-  format?: PackageFormat | string;
+  format?: keyof typeof PackageFormat | string;
 
   /**
    * <p>The namespace of the package version that contains the returned dependencies. The package version component that specifies its
@@ -3126,9 +3126,9 @@ export interface ListPackageVersionDependenciesResult {
 /**
  * @public
  */
-export enum PackageVersionSortType {
-  PUBLISHED_TIME = "PUBLISHED_TIME",
-}
+export const PackageVersionSortType = {
+  PUBLISHED_TIME: "PUBLISHED_TIME",
+};
 
 /**
  * @public
@@ -3161,7 +3161,7 @@ export interface ListPackageVersionsRequest {
    *       The format of the package versions you want to list.
    *     </p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package that contains the requested package versions. The package component that specifies its
@@ -3202,14 +3202,14 @@ export interface ListPackageVersionsRequest {
    *       A string that filters the requested package versions by status.
    *     </p>
    */
-  status?: PackageVersionStatus | string;
+  status?: keyof typeof PackageVersionStatus | string;
 
   /**
    * <p>
    *       How to sort the requested list of package versions.
    *     </p>
    */
-  sortBy?: PackageVersionSortType | string;
+  sortBy?: keyof typeof PackageVersionSortType | string;
 
   /**
    * <p>
@@ -3229,7 +3229,7 @@ export interface ListPackageVersionsRequest {
    * <p>The <code>originType</code> used to filter package versions.
    *       Only package versions with the provided <code>originType</code> will be returned.</p>
    */
-  originType?: PackageVersionOriginType | string;
+  originType?: keyof typeof PackageVersionOriginType | string;
 }
 
 /**
@@ -3260,7 +3260,7 @@ export interface PackageVersionSummary {
    *       A string that contains the status of the package version. It can be one of the following:
    *     </p>
    */
-  status: PackageVersionStatus | string | undefined;
+  status: keyof typeof PackageVersionStatus | string | undefined;
 
   /**
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html">PackageVersionOrigin</a> object that contains information
@@ -3298,7 +3298,7 @@ export interface ListPackageVersionsResult {
    *       A format of the package.
    *     </p>
    */
-  format?: PackageFormat | string;
+  format?: keyof typeof PackageFormat | string;
 
   /**
    * <p>The namespace of the package that contains the requested package versions. The package component that specifies its
@@ -3557,7 +3557,7 @@ export interface PublishPackageVersionRequest {
   /**
    * <p>A format that specifies the type of the package version with the requested asset file.</p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package version to publish.</p>
@@ -3613,7 +3613,7 @@ export interface PublishPackageVersionResult {
   /**
    * <p>The format of the package version.</p>
    */
-  format?: PackageFormat | string;
+  format?: keyof typeof PackageFormat | string;
 
   /**
    * <p>The namespace of the package version.</p>
@@ -3638,7 +3638,7 @@ export interface PublishPackageVersionResult {
   /**
    * <p>A string that contains the status of the package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact User Guide</i>.</p>
    */
-  status?: PackageVersionStatus | string;
+  status?: keyof typeof PackageVersionStatus | string;
 
   /**
    * <p>An <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a> for the published asset.</p>
@@ -3715,7 +3715,7 @@ export interface PutPackageOriginConfigurationRequest {
   /**
    * <p>A format that specifies the type of the package to be updated.</p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package to be updated. The package component that specifies its
@@ -3893,7 +3893,7 @@ export interface UpdatePackageVersionsStatusRequest {
    *       A format that specifies the type of the package with the statuses to update.
    *     </p>
    */
-  format: PackageFormat | string | undefined;
+  format: keyof typeof PackageFormat | string | undefined;
 
   /**
    * <p>The namespace of the package version to be updated. The package version component that specifies its
@@ -3949,14 +3949,14 @@ export interface UpdatePackageVersionsStatusRequest {
    *       status at the time <code>UpdatePackageVersionsStatus</code> is called matches
    *         <code>expectedStatus</code>. </p>
    */
-  expectedStatus?: PackageVersionStatus | string;
+  expectedStatus?: keyof typeof PackageVersionStatus | string;
 
   /**
    * <p>
    *       The status you want to change the package version status to.
    *     </p>
    */
-  targetStatus: PackageVersionStatus | string | undefined;
+  targetStatus: keyof typeof PackageVersionStatus | string | undefined;
 }
 
 /**

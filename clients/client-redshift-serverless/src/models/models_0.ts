@@ -110,14 +110,14 @@ export interface ConvertRecoveryPointToSnapshotRequest {
 /**
  * @public
  */
-export enum SnapshotStatus {
-  AVAILABLE = "AVAILABLE",
-  CANCELLED = "CANCELLED",
-  COPYING = "COPYING",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-}
+export const SnapshotStatus = {
+  AVAILABLE: "AVAILABLE",
+  CANCELLED: "CANCELLED",
+  COPYING: "COPYING",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
@@ -152,7 +152,7 @@ export interface Snapshot {
   /**
    * <p>The status of the snapshot.</p>
    */
-  status?: SnapshotStatus | string;
+  status?: keyof typeof SnapshotStatus | string;
 
   /**
    * <p>The unique identifier of the KMS key used to encrypt the snapshot.</p>
@@ -513,11 +513,11 @@ export interface CreateEndpointAccessResponse {
 /**
  * @public
  */
-export enum LogExport {
-  CONNECTION_LOG = "connectionlog",
-  USER_ACTIVITY_LOG = "useractivitylog",
-  USER_LOG = "userlog",
-}
+export const LogExport = {
+  CONNECTION_LOG: "connectionlog",
+  USER_ACTIVITY_LOG: "useractivitylog",
+  USER_LOG: "userlog",
+};
 
 /**
  * @public
@@ -562,7 +562,7 @@ export interface CreateNamespaceRequest {
    * <p>The types of logs the namespace can export.
    *          Available export types are <code>userlog</code>, <code>connectionlog</code>, and <code>useractivitylog</code>.</p>
    */
-  logExports?: (LogExport | string)[];
+  logExports?: (keyof typeof LogExport | string)[];
 
   /**
    * <p>A list of tag instances.</p>
@@ -573,11 +573,11 @@ export interface CreateNamespaceRequest {
 /**
  * @public
  */
-export enum NamespaceStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  MODIFYING = "MODIFYING",
-}
+export const NamespaceStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+  MODIFYING: "MODIFYING",
+};
 
 /**
  * @public
@@ -630,12 +630,12 @@ export interface Namespace {
   /**
    * <p>The types of logs the namespace can export. Available export types are User log, Connection log, and User activity log.</p>
    */
-  logExports?: (LogExport | string)[];
+  logExports?: (keyof typeof LogExport | string)[];
 
   /**
    * <p>The status of the namespace.</p>
    */
-  status?: NamespaceStatus | string;
+  status?: keyof typeof NamespaceStatus | string;
 
   /**
    * <p>The date of when the namespace was created.</p>
@@ -691,28 +691,28 @@ export interface CreateSnapshotResponse {
 /**
  * @public
  */
-export enum UsageLimitBreachAction {
-  DEACTIVATE = "deactivate",
-  EMIT_METRIC = "emit-metric",
-  LOG = "log",
-}
+export const UsageLimitBreachAction = {
+  DEACTIVATE: "deactivate",
+  EMIT_METRIC: "emit-metric",
+  LOG: "log",
+};
 
 /**
  * @public
  */
-export enum UsageLimitPeriod {
-  DAILY = "daily",
-  MONTHLY = "monthly",
-  WEEKLY = "weekly",
-}
+export const UsageLimitPeriod = {
+  DAILY: "daily",
+  MONTHLY: "monthly",
+  WEEKLY: "weekly",
+};
 
 /**
  * @public
  */
-export enum UsageLimitUsageType {
-  CROSS_REGION_DATASHARING = "cross-region-datasharing",
-  SERVERLESS_COMPUTE = "serverless-compute",
-}
+export const UsageLimitUsageType = {
+  CROSS_REGION_DATASHARING: "cross-region-datasharing",
+  SERVERLESS_COMPUTE: "serverless-compute",
+};
 
 /**
  * @public
@@ -726,7 +726,7 @@ export interface CreateUsageLimitRequest {
   /**
    * <p>The type of Amazon Redshift Serverless usage to create a usage limit for.</p>
    */
-  usageType: UsageLimitUsageType | string | undefined;
+  usageType: keyof typeof UsageLimitUsageType | string | undefined;
 
   /**
    * <p>The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data
@@ -737,12 +737,12 @@ export interface CreateUsageLimitRequest {
   /**
    * <p>The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly.</p>
    */
-  period?: UsageLimitPeriod | string;
+  period?: keyof typeof UsageLimitPeriod | string;
 
   /**
    * <p>The action that Amazon Redshift Serverless takes when the limit is reached. The default is log.</p>
    */
-  breachAction?: UsageLimitBreachAction | string;
+  breachAction?: keyof typeof UsageLimitBreachAction | string;
 }
 
 /**
@@ -768,7 +768,7 @@ export interface UsageLimit {
   /**
    * <p>The Amazon Redshift Serverless feature to limit.</p>
    */
-  usageType?: UsageLimitUsageType | string;
+  usageType?: keyof typeof UsageLimitUsageType | string;
 
   /**
    * <p>The limit amount. If time-based, this amount is in RPUs consumed per hour. If data-based, this amount is in terabytes (TB). The value must be a positive number.</p>
@@ -778,12 +778,12 @@ export interface UsageLimit {
   /**
    * <p>The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly.</p>
    */
-  period?: UsageLimitPeriod | string;
+  period?: keyof typeof UsageLimitPeriod | string;
 
   /**
    * <p>The action that Amazon Redshift Serverless takes when the limit is reached.</p>
    */
-  breachAction?: UsageLimitBreachAction | string;
+  breachAction?: keyof typeof UsageLimitBreachAction | string;
 }
 
 /**
@@ -880,12 +880,12 @@ export interface Endpoint {
 /**
  * @public
  */
-export enum WorkgroupStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  MODIFYING = "MODIFYING",
-}
+export const WorkgroupStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  MODIFYING: "MODIFYING",
+};
 
 /**
  * @public
@@ -944,7 +944,7 @@ export interface Workgroup {
   /**
    * <p>The status of the workgroup.</p>
    */
-  status?: WorkgroupStatus | string;
+  status?: keyof typeof WorkgroupStatus | string;
 
   /**
    * <p>The endpoint that is created from the workgroup.</p>
@@ -1843,7 +1843,7 @@ export interface ListUsageLimitsRequest {
   /**
    * <p>The Amazon Redshift Serverless feature whose limits you want to see.</p>
    */
-  usageType?: UsageLimitUsageType | string;
+  usageType?: keyof typeof UsageLimitUsageType | string;
 
   /**
    * <p>If your initial <code>ListUsageLimits</code> operation returns a <code>nextToken</code>,
@@ -1953,7 +1953,7 @@ export interface UpdateNamespaceRequest {
   /**
    * <p>The types of logs the namespace can export. The export types are <code>userlog</code>, <code>connectionlog</code>, and <code>useractivitylog</code>.</p>
    */
-  logExports?: (LogExport | string)[];
+  logExports?: (keyof typeof LogExport | string)[];
 }
 
 /**
@@ -2235,7 +2235,7 @@ export interface UpdateUsageLimitRequest {
   /**
    * <p>The new action that Amazon Redshift Serverless takes when the limit is reached.</p>
    */
-  breachAction?: UsageLimitBreachAction | string;
+  breachAction?: keyof typeof UsageLimitBreachAction | string;
 }
 
 /**

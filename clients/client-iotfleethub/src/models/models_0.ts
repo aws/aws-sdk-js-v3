@@ -6,13 +6,13 @@ import { IoTFleetHubServiceException as __BaseException } from "./IoTFleetHubSer
 /**
  * @public
  */
-export enum ApplicationState {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+export const ApplicationState = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -55,7 +55,7 @@ export interface ApplicationSummary {
   /**
    * <p>The current state of the web application.</p>
    */
-  applicationState?: ApplicationState | string;
+  applicationState?: keyof typeof ApplicationState | string;
 }
 
 /**
@@ -271,7 +271,7 @@ export interface DescribeApplicationResponse {
   /**
    * <p>The current state of the web application.</p>
    */
-  applicationState: ApplicationState | string | undefined;
+  applicationState: keyof typeof ApplicationState | string | undefined;
 
   /**
    * <p>The date (in Unix epoch time) when the application was created.</p>

@@ -28,19 +28,19 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum Action {
-  ALERT = "ALERT",
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-}
+export const Action = {
+  ALERT: "ALERT",
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+};
 
 /**
  * @public
  */
-export enum MutationProtectionStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const MutationProtectionStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -101,7 +101,7 @@ export interface AssociateFirewallRuleGroupRequest {
    * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
    *        When you create the association, the default setting is <code>DISABLED</code>. </p>
    */
-  MutationProtection?: MutationProtectionStatus | string;
+  MutationProtection?: keyof typeof MutationProtectionStatus | string;
 
   /**
    * <p>A list of the tag keys and values that you want to associate with the rule group association. </p>
@@ -112,11 +112,11 @@ export interface AssociateFirewallRuleGroupRequest {
 /**
  * @public
  */
-export enum FirewallRuleGroupAssociationStatus {
-  COMPLETE = "COMPLETE",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const FirewallRuleGroupAssociationStatus = {
+  COMPLETE: "COMPLETE",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -158,7 +158,7 @@ export interface FirewallRuleGroupAssociation {
   /**
    * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. </p>
    */
-  MutationProtection?: MutationProtectionStatus | string;
+  MutationProtection?: keyof typeof MutationProtectionStatus | string;
 
   /**
    * <p>The owner of the association, used only for associations that are not managed by you. If you use Firewall Manager to
@@ -169,7 +169,7 @@ export interface FirewallRuleGroupAssociation {
   /**
    * <p>The current status of the association.</p>
    */
-  Status?: FirewallRuleGroupAssociationStatus | string;
+  Status?: keyof typeof FirewallRuleGroupAssociationStatus | string;
 
   /**
    * <p>Additional information about the status of the response, if available.</p>
@@ -403,31 +403,31 @@ export interface AssociateResolverEndpointIpAddressRequest {
 /**
  * @public
  */
-export enum ResolverEndpointDirection {
-  Inbound = "INBOUND",
-  Outbound = "OUTBOUND",
-}
+export const ResolverEndpointDirection = {
+  Inbound: "INBOUND",
+  Outbound: "OUTBOUND",
+};
 
 /**
  * @public
  */
-export enum ResolverEndpointType {
-  DUALSTACK = "DUALSTACK",
-  IPV4 = "IPV4",
-  IPV6 = "IPV6",
-}
+export const ResolverEndpointType = {
+  DUALSTACK: "DUALSTACK",
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+};
 
 /**
  * @public
  */
-export enum ResolverEndpointStatus {
-  ActionNeeded = "ACTION_NEEDED",
-  AutoRecovering = "AUTO_RECOVERING",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Operational = "OPERATIONAL",
-  Updating = "UPDATING",
-}
+export const ResolverEndpointStatus = {
+  ActionNeeded: "ACTION_NEEDED",
+  AutoRecovering: "AUTO_RECOVERING",
+  Creating: "CREATING",
+  Deleting: "DELETING",
+  Operational: "OPERATIONAL",
+  Updating: "UPDATING",
+};
 
 /**
  * @public
@@ -485,7 +485,7 @@ export interface ResolverEndpoint {
    *             </li>
    *          </ul>
    */
-  Direction?: ResolverEndpointDirection | string;
+  Direction?: keyof typeof ResolverEndpointDirection | string;
 
   /**
    * <p>The number of IP addresses that the Resolver endpoint can use for DNS queries.</p>
@@ -543,7 +543,7 @@ export interface ResolverEndpoint {
    *             </li>
    *          </ul>
    */
-  Status?: ResolverEndpointStatus | string;
+  Status?: keyof typeof ResolverEndpointStatus | string;
 
   /**
    * <p>A detailed description of the status of the Resolver endpoint.</p>
@@ -565,7 +565,7 @@ export interface ResolverEndpoint {
    * 			The Resolver endpoint IP address type.
    * 		</p>
    */
-  ResolverEndpointType?: ResolverEndpointType | string;
+  ResolverEndpointType?: keyof typeof ResolverEndpointType | string;
 }
 
 /**
@@ -675,23 +675,23 @@ export interface AssociateResolverQueryLogConfigRequest {
 /**
  * @public
  */
-export enum ResolverQueryLogConfigAssociationError {
-  AccessDenied = "ACCESS_DENIED",
-  DestinationNotFound = "DESTINATION_NOT_FOUND",
-  InternalServiceError = "INTERNAL_SERVICE_ERROR",
-  None = "NONE",
-}
+export const ResolverQueryLogConfigAssociationError = {
+  AccessDenied: "ACCESS_DENIED",
+  DestinationNotFound: "DESTINATION_NOT_FOUND",
+  InternalServiceError: "INTERNAL_SERVICE_ERROR",
+  None: "NONE",
+};
 
 /**
  * @public
  */
-export enum ResolverQueryLogConfigAssociationStatus {
-  ActionNeeded = "ACTION_NEEDED",
-  Active = "ACTIVE",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-}
+export const ResolverQueryLogConfigAssociationStatus = {
+  ActionNeeded: "ACTION_NEEDED",
+  Active: "ACTIVE",
+  Creating: "CREATING",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+};
 
 /**
  * @public
@@ -741,7 +741,7 @@ export interface ResolverQueryLogConfigAssociation {
    *             </li>
    *          </ul>
    */
-  Status?: ResolverQueryLogConfigAssociationStatus | string;
+  Status?: keyof typeof ResolverQueryLogConfigAssociationStatus | string;
 
   /**
    * <p>If the value of <code>Status</code> is <code>FAILED</code>, the value of <code>Error</code> indicates the cause:</p>
@@ -757,7 +757,7 @@ export interface ResolverQueryLogConfigAssociation {
    *          </ul>
    *          <p>If the value of <code>Status</code> is a value other than <code>FAILED</code>, <code>Error</code> is null. </p>
    */
-  Error?: ResolverQueryLogConfigAssociationError | string;
+  Error?: keyof typeof ResolverQueryLogConfigAssociationError | string;
 
   /**
    * <p>Contains additional information about the error. If the value or <code>Error</code> is null, the value of <code>ErrorMessage</code> also is null.</p>
@@ -804,13 +804,13 @@ export interface AssociateResolverRuleRequest {
 /**
  * @public
  */
-export enum ResolverRuleAssociationStatus {
-  Complete = "COMPLETE",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Overridden = "OVERRIDDEN",
-}
+export const ResolverRuleAssociationStatus = {
+  Complete: "COMPLETE",
+  Creating: "CREATING",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  Overridden: "OVERRIDDEN",
+};
 
 /**
  * @public
@@ -848,7 +848,7 @@ export interface ResolverRuleAssociation {
   /**
    * <p>A code that specifies the current status of the association between a Resolver rule and a VPC.</p>
    */
-  Status?: ResolverRuleAssociationStatus | string;
+  Status?: keyof typeof ResolverRuleAssociationStatus | string;
 
   /**
    * <p>A detailed description of the status of the association between a Resolver rule and a VPC.</p>
@@ -896,27 +896,27 @@ export class ResourceUnavailableException extends __BaseException {
 /**
  * @public
  */
-export enum AutodefinedReverseFlag {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-  USE_LOCAL_RESOURCE_SETTING = "USE_LOCAL_RESOURCE_SETTING",
-}
+export const AutodefinedReverseFlag = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+  USE_LOCAL_RESOURCE_SETTING: "USE_LOCAL_RESOURCE_SETTING",
+};
 
 /**
  * @public
  */
-export enum BlockOverrideDnsType {
-  CNAME = "CNAME",
-}
+export const BlockOverrideDnsType = {
+  CNAME: "CNAME",
+};
 
 /**
  * @public
  */
-export enum BlockResponse {
-  NODATA = "NODATA",
-  NXDOMAIN = "NXDOMAIN",
-  OVERRIDE = "OVERRIDE",
-}
+export const BlockResponse = {
+  NODATA: "NODATA",
+  NXDOMAIN: "NXDOMAIN",
+  OVERRIDE: "OVERRIDE",
+};
 
 /**
  * @public
@@ -943,13 +943,13 @@ export interface CreateFirewallDomainListRequest {
 /**
  * @public
  */
-export enum FirewallDomainListStatus {
-  COMPLETE = "COMPLETE",
-  COMPLETE_IMPORT_FAILED = "COMPLETE_IMPORT_FAILED",
-  DELETING = "DELETING",
-  IMPORTING = "IMPORTING",
-  UPDATING = "UPDATING",
-}
+export const FirewallDomainListStatus = {
+  COMPLETE: "COMPLETE",
+  COMPLETE_IMPORT_FAILED: "COMPLETE_IMPORT_FAILED",
+  DELETING: "DELETING",
+  IMPORTING: "IMPORTING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -980,7 +980,7 @@ export interface FirewallDomainList {
   /**
    * <p>The status of the domain list.  </p>
    */
-  Status?: FirewallDomainListStatus | string;
+  Status?: keyof typeof FirewallDomainListStatus | string;
 
   /**
    * <p>Additional information about the status of the list, if available.</p>
@@ -1068,7 +1068,7 @@ export interface CreateFirewallRuleRequest {
    *             </li>
    *          </ul>
    */
-  Action: Action | string | undefined;
+  Action: keyof typeof Action | string | undefined;
 
   /**
    * <p>The way that you want DNS Firewall to block the request, used with the rule action
@@ -1089,7 +1089,7 @@ export interface CreateFirewallRuleRequest {
    *          </ul>
    *          <p>This setting is required if the rule action setting is <code>BLOCK</code>.</p>
    */
-  BlockResponse?: BlockResponse | string;
+  BlockResponse?: keyof typeof BlockResponse | string;
 
   /**
    * <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
@@ -1101,7 +1101,7 @@ export interface CreateFirewallRuleRequest {
    * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
    */
-  BlockOverrideDnsType?: BlockOverrideDnsType | string;
+  BlockOverrideDnsType?: keyof typeof BlockOverrideDnsType | string;
 
   /**
    * <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
@@ -1157,7 +1157,7 @@ export interface FirewallRule {
    *             </li>
    *          </ul>
    */
-  Action?: Action | string;
+  Action?: keyof typeof Action | string;
 
   /**
    * <p>The way that you want DNS Firewall to block the request. Used for the rule action setting <code>BLOCK</code>.</p>
@@ -1176,7 +1176,7 @@ export interface FirewallRule {
    *             </li>
    *          </ul>
    */
-  BlockResponse?: BlockResponse | string;
+  BlockResponse?: keyof typeof BlockResponse | string;
 
   /**
    * <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
@@ -1186,7 +1186,7 @@ export interface FirewallRule {
   /**
    * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    */
-  BlockOverrideDnsType?: BlockOverrideDnsType | string;
+  BlockOverrideDnsType?: keyof typeof BlockOverrideDnsType | string;
 
   /**
    * <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
@@ -1246,20 +1246,20 @@ export interface CreateFirewallRuleGroupRequest {
 /**
  * @public
  */
-export enum ShareStatus {
-  NotShared = "NOT_SHARED",
-  SharedByMe = "SHARED_BY_ME",
-  SharedWithMe = "SHARED_WITH_ME",
-}
+export const ShareStatus = {
+  NotShared: "NOT_SHARED",
+  SharedByMe: "SHARED_BY_ME",
+  SharedWithMe: "SHARED_WITH_ME",
+};
 
 /**
  * @public
  */
-export enum FirewallRuleGroupStatus {
-  COMPLETE = "COMPLETE",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const FirewallRuleGroupStatus = {
+  COMPLETE: "COMPLETE",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1289,7 +1289,7 @@ export interface FirewallRuleGroup {
   /**
    * <p>The status of the domain list.  </p>
    */
-  Status?: FirewallRuleGroupStatus | string;
+  Status?: keyof typeof FirewallRuleGroupStatus | string;
 
   /**
    * <p>Additional information about the status of the rule group, if available.</p>
@@ -1313,7 +1313,7 @@ export interface FirewallRuleGroup {
    * <p>Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another
    *               Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: keyof typeof ShareStatus | string;
 
   /**
    * <p>The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC). </p>
@@ -1399,7 +1399,7 @@ export interface CreateResolverEndpointRequest {
    *             </li>
    *          </ul>
    */
-  Direction: ResolverEndpointDirection | string | undefined;
+  Direction: keyof typeof ResolverEndpointDirection | string | undefined;
 
   /**
    * <p>The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward
@@ -1419,7 +1419,7 @@ export interface CreateResolverEndpointRequest {
    * 			endpoint type is applied to all IP addresses.
    * 		</p>
    */
-  ResolverEndpointType?: ResolverEndpointType | string;
+  ResolverEndpointType?: keyof typeof ResolverEndpointType | string;
 }
 
 /**
@@ -1490,12 +1490,12 @@ export interface CreateResolverQueryLogConfigRequest {
 /**
  * @public
  */
-export enum ResolverQueryLogConfigStatus {
-  Created = "CREATED",
-  Creating = "CREATING",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-}
+export const ResolverQueryLogConfigStatus = {
+  Created: "CREATED",
+  Creating: "CREATING",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+};
 
 /**
  * @public
@@ -1549,13 +1549,13 @@ export interface ResolverQueryLogConfig {
    *             </li>
    *          </ul>
    */
-  Status?: ResolverQueryLogConfigStatus | string;
+  Status?: keyof typeof ResolverQueryLogConfigStatus | string;
 
   /**
    * <p>An indication of whether the query logging configuration is shared with other Amazon Web Services accounts, or was shared with the current account by another
    * 			Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: keyof typeof ShareStatus | string;
 
   /**
    * <p>The number of VPCs that are associated with the query logging configuration.</p>
@@ -1604,11 +1604,11 @@ export interface CreateResolverQueryLogConfigResponse {
 /**
  * @public
  */
-export enum RuleTypeOption {
-  Forward = "FORWARD",
-  Recursive = "RECURSIVE",
-  System = "SYSTEM",
-}
+export const RuleTypeOption = {
+  Forward: "FORWARD",
+  Recursive: "RECURSIVE",
+  System: "SYSTEM",
+};
 
 /**
  * @public
@@ -1660,7 +1660,7 @@ export interface CreateResolverRuleRequest {
    * 			<code>SYSTEM</code> for <code>RuleType</code>.</p>
    *          <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
    */
-  RuleType: RuleTypeOption | string | undefined;
+  RuleType: keyof typeof RuleTypeOption | string | undefined;
 
   /**
    * <p>DNS queries for this domain name are forwarded to the IP addresses that you specify in <code>TargetIps</code>. If a query matches
@@ -1691,12 +1691,12 @@ export interface CreateResolverRuleRequest {
 /**
  * @public
  */
-export enum ResolverRuleStatus {
-  Complete = "COMPLETE",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Updating = "UPDATING",
-}
+export const ResolverRuleStatus = {
+  Complete: "COMPLETE",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  Updating: "UPDATING",
+};
 
 /**
  * @public
@@ -1737,7 +1737,7 @@ export interface ResolverRule {
   /**
    * <p>A code that specifies the current status of the Resolver rule.</p>
    */
-  Status?: ResolverRuleStatus | string;
+  Status?: keyof typeof ResolverRuleStatus | string;
 
   /**
    * <p>A detailed description of the status of a Resolver rule.</p>
@@ -1753,7 +1753,7 @@ export interface ResolverRule {
    * 			<code>SYSTEM</code> for <code>RuleType</code>.</p>
    *          <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
    */
-  RuleType?: RuleTypeOption | string;
+  RuleType?: keyof typeof RuleTypeOption | string;
 
   /**
    * <p>The name for the Resolver rule, which you specified when you created the Resolver rule.</p>
@@ -1780,7 +1780,7 @@ export interface ResolverRule {
    * <p>Whether the rule is shared and, if so, whether the current account is sharing the rule with
    * 			another account, or another account is sharing the rule with the current account.</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: keyof typeof ShareStatus | string;
 
   /**
    * <p>The date and time that the Resolver rule was created, in Unix time format and Coordinated Universal Time (UTC).</p>
@@ -2314,11 +2314,11 @@ export interface Filter {
 /**
  * @public
  */
-export enum FirewallFailOpenStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  USE_LOCAL_RESOURCE_SETTING = "USE_LOCAL_RESOURCE_SETTING",
-}
+export const FirewallFailOpenStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  USE_LOCAL_RESOURCE_SETTING: "USE_LOCAL_RESOURCE_SETTING",
+};
 
 /**
  * @public
@@ -2355,15 +2355,15 @@ export interface FirewallConfig {
    *          </ul>
    *          <p>This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association. </p>
    */
-  FirewallFailOpen?: FirewallFailOpenStatus | string;
+  FirewallFailOpen?: keyof typeof FirewallFailOpenStatus | string;
 }
 
 /**
  * @public
  */
-export enum FirewallDomainImportOperation {
-  REPLACE = "REPLACE",
-}
+export const FirewallDomainImportOperation = {
+  REPLACE: "REPLACE",
+};
 
 /**
  * @public
@@ -2402,11 +2402,11 @@ export interface FirewallDomainListMetadata {
 /**
  * @public
  */
-export enum FirewallDomainUpdateOperation {
-  ADD = "ADD",
-  REMOVE = "REMOVE",
-  REPLACE = "REPLACE",
-}
+export const FirewallDomainUpdateOperation = {
+  ADD: "ADD",
+  REMOVE: "REMOVE",
+  REPLACE: "REPLACE",
+};
 
 /**
  * @public
@@ -2446,7 +2446,7 @@ export interface FirewallRuleGroupMetadata {
    * <p>Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another
    *               Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: keyof typeof ShareStatus | string;
 }
 
 /**
@@ -2565,14 +2565,14 @@ export interface GetResolverConfigRequest {
 /**
  * @public
  */
-export enum ResolverAutodefinedReverseStatus {
-  Disabled = "DISABLED",
-  Disabling = "DISABLING",
-  Enabled = "ENABLED",
-  Enabling = "ENABLING",
-  UpdatingToUseLocalResourceSetting = "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
-  UseLocalResourceSetting = "USE_LOCAL_RESOURCE_SETTING",
-}
+export const ResolverAutodefinedReverseStatus = {
+  Disabled: "DISABLED",
+  Disabling: "DISABLING",
+  Enabled: "ENABLED",
+  Enabling: "ENABLING",
+  UpdatingToUseLocalResourceSetting: "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
+  UseLocalResourceSetting: "USE_LOCAL_RESOURCE_SETTING",
+};
 
 /**
  * @public
@@ -2620,7 +2620,7 @@ export interface ResolverConfig {
    *             </li>
    *          </ul>
    */
-  AutodefinedReverse?: ResolverAutodefinedReverseStatus | string;
+  AutodefinedReverse?: keyof typeof ResolverAutodefinedReverseStatus | string;
 }
 
 /**
@@ -2647,14 +2647,14 @@ export interface GetResolverDnssecConfigRequest {
 /**
  * @public
  */
-export enum ResolverDNSSECValidationStatus {
-  Disabled = "DISABLED",
-  Disabling = "DISABLING",
-  Enabled = "ENABLED",
-  Enabling = "ENABLING",
-  UpdateToUseLocalResourceSetting = "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
-  UseLocalResourceSetting = "USE_LOCAL_RESOURCE_SETTING",
-}
+export const ResolverDNSSECValidationStatus = {
+  Disabled: "DISABLED",
+  Disabling: "DISABLING",
+  Enabled: "ENABLED",
+  Enabling: "ENABLING",
+  UpdateToUseLocalResourceSetting: "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING",
+  UseLocalResourceSetting: "USE_LOCAL_RESOURCE_SETTING",
+};
 
 /**
  * @public
@@ -2697,7 +2697,7 @@ export interface ResolverDnssecConfig {
    *             </li>
    *          </ul>
    */
-  ValidationStatus?: ResolverDNSSECValidationStatus | string;
+  ValidationStatus?: keyof typeof ResolverDNSSECValidationStatus | string;
 }
 
 /**
@@ -2885,7 +2885,7 @@ export interface ImportFirewallDomainsRequest {
   /**
    * <p>What you want DNS Firewall to do with the domains that are listed in the file. This must be set to <code>REPLACE</code>, which updates the domain list to exactly match the list in the file. </p>
    */
-  Operation: FirewallDomainImportOperation | string | undefined;
+  Operation: keyof typeof FirewallDomainImportOperation | string | undefined;
 
   /**
    * <p>The fully qualified URL or URI of the file stored in Amazon Simple Storage Service
@@ -2913,7 +2913,7 @@ export interface ImportFirewallDomainsResponse {
   /**
    * <p>Status of the import request.</p>
    */
-  Status?: FirewallDomainListStatus | string;
+  Status?: keyof typeof FirewallDomainListStatus | string;
 
   /**
    * <p>Additional information about the status of the list, if available.</p>
@@ -2990,19 +2990,19 @@ export class InvalidTagException extends __BaseException {
 /**
  * @public
  */
-export enum IpAddressStatus {
-  Attached = "ATTACHED",
-  Attaching = "ATTACHING",
-  Creating = "CREATING",
-  DeleteFailedFasExpired = "DELETE_FAILED_FAS_EXPIRED",
-  Deleting = "DELETING",
-  Detaching = "DETACHING",
-  FailedCreation = "FAILED_CREATION",
-  FailedResourceGone = "FAILED_RESOURCE_GONE",
-  RemapAttaching = "REMAP_ATTACHING",
-  RemapDetaching = "REMAP_DETACHING",
-  Updating = "UPDATING",
-}
+export const IpAddressStatus = {
+  Attached: "ATTACHED",
+  Attaching: "ATTACHING",
+  Creating: "CREATING",
+  DeleteFailedFasExpired: "DELETE_FAILED_FAS_EXPIRED",
+  Deleting: "DELETING",
+  Detaching: "DETACHING",
+  FailedCreation: "FAILED_CREATION",
+  FailedResourceGone: "FAILED_RESOURCE_GONE",
+  RemapAttaching: "REMAP_ATTACHING",
+  RemapDetaching: "REMAP_DETACHING",
+  Updating: "UPDATING",
+};
 
 /**
  * @public
@@ -3036,7 +3036,7 @@ export interface IpAddressResponse {
   /**
    * <p>A status code that gives the current status of the request.</p>
    */
-  Status?: IpAddressStatus | string;
+  Status?: keyof typeof IpAddressStatus | string;
 
   /**
    * <p>A message that provides additional information about the status of the request.</p>
@@ -3204,7 +3204,7 @@ export interface ListFirewallRuleGroupAssociationsRequest {
   /**
    * <p>The association <code>Status</code> setting that you want DNS Firewall to filter on for the list. If you don't specify this, then DNS Firewall returns all associations, regardless of status.</p>
    */
-  Status?: FirewallRuleGroupAssociationStatus | string;
+  Status?: keyof typeof FirewallRuleGroupAssociationStatus | string;
 
   /**
    * <p>The maximum number of objects that you want Resolver to return for this request. If more
@@ -3314,7 +3314,7 @@ export interface ListFirewallRulesRequest {
    *             </li>
    *          </ul>
    */
-  Action?: Action | string;
+  Action?: keyof typeof Action | string;
 
   /**
    * <p>The maximum number of objects that you want Resolver to return for this request. If more
@@ -3540,10 +3540,10 @@ export interface ListResolverEndpointsResponse {
 /**
  * @public
  */
-export enum SortOrder {
-  Ascending = "ASCENDING",
-  Descending = "DESCENDING",
-}
+export const SortOrder = {
+  Ascending: "ASCENDING",
+  Descending: "DESCENDING",
+};
 
 /**
  * @public
@@ -3656,7 +3656,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    * 				you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p>
    *          </note>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -3806,7 +3806,7 @@ export interface ListResolverQueryLogConfigsRequest {
    * 				you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p>
    *          </note>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -4265,7 +4265,7 @@ export interface UpdateFirewallConfigRequest {
    *          </ul>
    *          <p>This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association. </p>
    */
-  FirewallFailOpen: FirewallFailOpenStatus | string | undefined;
+  FirewallFailOpen: keyof typeof FirewallFailOpenStatus | string | undefined;
 }
 
 /**
@@ -4304,7 +4304,7 @@ export interface UpdateFirewallDomainsRequest {
    *             </li>
    *          </ul>
    */
-  Operation: FirewallDomainUpdateOperation | string | undefined;
+  Operation: keyof typeof FirewallDomainUpdateOperation | string | undefined;
 
   /**
    * <p>A list of domains to use in the update operation.</p>
@@ -4347,7 +4347,7 @@ export interface UpdateFirewallDomainsResponse {
   /**
    * <p>Status of the <code>UpdateFirewallDomains</code> request.</p>
    */
-  Status?: FirewallDomainListStatus | string;
+  Status?: keyof typeof FirewallDomainListStatus | string;
 
   /**
    * <p>Additional information about the status of the list, if available.</p>
@@ -4395,7 +4395,7 @@ export interface UpdateFirewallRuleRequest {
    *             </li>
    *          </ul>
    */
-  Action?: Action | string;
+  Action?: keyof typeof Action | string;
 
   /**
    * <p>The way that you want DNS Firewall to block the request. Used for the rule action setting <code>BLOCK</code>.</p>
@@ -4414,7 +4414,7 @@ export interface UpdateFirewallRuleRequest {
    *             </li>
    *          </ul>
    */
-  BlockResponse?: BlockResponse | string;
+  BlockResponse?: keyof typeof BlockResponse | string;
 
   /**
    * <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
@@ -4424,7 +4424,7 @@ export interface UpdateFirewallRuleRequest {
   /**
    * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    */
-  BlockOverrideDnsType?: BlockOverrideDnsType | string;
+  BlockOverrideDnsType?: keyof typeof BlockOverrideDnsType | string;
 
   /**
    * <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
@@ -4469,7 +4469,7 @@ export interface UpdateFirewallRuleGroupAssociationRequest {
   /**
    * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. </p>
    */
-  MutationProtection?: MutationProtectionStatus | string;
+  MutationProtection?: keyof typeof MutationProtectionStatus | string;
 
   /**
    * <p>The name of the rule group association.</p>
@@ -4510,7 +4510,7 @@ export interface UpdateResolverConfigRequest {
    *          </note>
    *          <p></p>
    */
-  AutodefinedReverseFlag: AutodefinedReverseFlag | string | undefined;
+  AutodefinedReverseFlag: keyof typeof AutodefinedReverseFlag | string | undefined;
 }
 
 /**
@@ -4526,11 +4526,11 @@ export interface UpdateResolverConfigResponse {
 /**
  * @public
  */
-export enum Validation {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-  USE_LOCAL_RESOURCE_SETTING = "USE_LOCAL_RESOURCE_SETTING",
-}
+export const Validation = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+  USE_LOCAL_RESOURCE_SETTING: "USE_LOCAL_RESOURCE_SETTING",
+};
 
 /**
  * @public
@@ -4545,7 +4545,7 @@ export interface UpdateResolverDnssecConfigRequest {
    * <p>The new value that you are specifying for DNSSEC validation for the VPC. The value can be <code>ENABLE</code>
    * 			or <code>DISABLE</code>. Be aware that it can take time for a validation status change to be completed.</p>
    */
-  Validation: Validation | string | undefined;
+  Validation: keyof typeof Validation | string | undefined;
 }
 
 /**
@@ -4597,7 +4597,7 @@ export interface UpdateResolverEndpointRequest {
    * 			Specifies the endpoint type for what type of IP address the endpoint uses to forward DNS queries.
    * 		</p>
    */
-  ResolverEndpointType?: ResolverEndpointType | string;
+  ResolverEndpointType?: keyof typeof ResolverEndpointType | string;
 
   /**
    * <p>

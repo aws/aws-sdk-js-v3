@@ -109,20 +109,20 @@ export interface ComboChartVisual {
 /**
  * @public
  */
-export enum CustomContentType {
-  IMAGE = "IMAGE",
-  OTHER_EMBEDDED_CONTENT = "OTHER_EMBEDDED_CONTENT",
-}
+export const CustomContentType = {
+  IMAGE: "IMAGE",
+  OTHER_EMBEDDED_CONTENT: "OTHER_EMBEDDED_CONTENT",
+};
 
 /**
  * @public
  */
-export enum CustomContentImageScalingConfiguration {
-  DO_NOT_SCALE = "DO_NOT_SCALE",
-  FIT_TO_HEIGHT = "FIT_TO_HEIGHT",
-  FIT_TO_WIDTH = "FIT_TO_WIDTH",
-  SCALE_TO_VISUAL = "SCALE_TO_VISUAL",
-}
+export const CustomContentImageScalingConfiguration = {
+  DO_NOT_SCALE: "DO_NOT_SCALE",
+  FIT_TO_HEIGHT: "FIT_TO_HEIGHT",
+  FIT_TO_WIDTH: "FIT_TO_WIDTH",
+  SCALE_TO_VISUAL: "SCALE_TO_VISUAL",
+};
 
 /**
  * @public
@@ -137,12 +137,12 @@ export interface CustomContentConfiguration {
   /**
    * <p>The content type of the custom content visual. You can use this to have the visual render as an image.</p>
    */
-  ContentType?: CustomContentType | string;
+  ContentType?: keyof typeof CustomContentType | string;
 
   /**
    * <p>The sizing options for the size of the custom content visual. This structure is required when the <code>ContentType</code> of the visual is <code>'IMAGE'</code>.</p>
    */
-  ImageScaling?: CustomContentImageScalingConfiguration | string;
+  ImageScaling?: keyof typeof CustomContentImageScalingConfiguration | string;
 }
 
 /**
@@ -235,12 +235,12 @@ export interface FilledMapFieldWells {
 /**
  * @public
  */
-export enum BaseMapStyleType {
-  DARK_GRAY = "DARK_GRAY",
-  IMAGERY = "IMAGERY",
-  LIGHT_GRAY = "LIGHT_GRAY",
-  STREET = "STREET",
-}
+export const BaseMapStyleType = {
+  DARK_GRAY: "DARK_GRAY",
+  IMAGERY: "IMAGERY",
+  LIGHT_GRAY: "LIGHT_GRAY",
+  STREET: "STREET",
+};
 
 /**
  * @public
@@ -250,7 +250,7 @@ export interface GeospatialMapStyleOptions {
   /**
    * <p>The base map style of the geospatial map.</p>
    */
-  BaseMapStyle?: BaseMapStyleType | string;
+  BaseMapStyle?: keyof typeof BaseMapStyleType | string;
 }
 
 /**
@@ -294,10 +294,10 @@ export interface GeospatialCoordinateBounds {
 /**
  * @public
  */
-export enum MapZoomMode {
-  AUTO = "AUTO",
-  MANUAL = "MANUAL",
-}
+export const MapZoomMode = {
+  AUTO: "AUTO",
+  MANUAL: "MANUAL",
+};
 
 /**
  * @public
@@ -312,7 +312,7 @@ export interface GeospatialWindowOptions {
   /**
    * <p>The map zoom modes (manual, auto) of the geospatial window options.</p>
    */
-  MapZoomMode?: MapZoomMode | string;
+  MapZoomMode?: keyof typeof MapZoomMode | string;
 }
 
 /**
@@ -525,13 +525,13 @@ export interface FilledMapVisual {
 /**
  * @public
  */
-export enum FunnelChartMeasureDataLabelStyle {
-  PERCENTAGE_BY_FIRST_STAGE = "PERCENTAGE_BY_FIRST_STAGE",
-  PERCENTAGE_BY_PREVIOUS_STAGE = "PERCENTAGE_BY_PREVIOUS_STAGE",
-  VALUE_AND_PERCENTAGE_BY_FIRST_STAGE = "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE",
-  VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE = "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE",
-  VALUE_ONLY = "VALUE_ONLY",
-}
+export const FunnelChartMeasureDataLabelStyle = {
+  PERCENTAGE_BY_FIRST_STAGE: "PERCENTAGE_BY_FIRST_STAGE",
+  PERCENTAGE_BY_PREVIOUS_STAGE: "PERCENTAGE_BY_PREVIOUS_STAGE",
+  VALUE_AND_PERCENTAGE_BY_FIRST_STAGE: "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE",
+  VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE: "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE",
+  VALUE_ONLY: "VALUE_ONLY",
+};
 
 /**
  * @public
@@ -541,22 +541,22 @@ export interface FunnelChartDataLabelOptions {
   /**
    * <p>The visibility option that determines if data labels are displayed.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The visibility of the category labels within the data labels.</p>
    */
-  CategoryLabelVisibility?: Visibility | string;
+  CategoryLabelVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The visibility of the measure labels within the data labels.</p>
    */
-  MeasureLabelVisibility?: Visibility | string;
+  MeasureLabelVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>Determines the positioning of the data label relative to a section of the funnel.</p>
    */
-  Position?: DataLabelPosition | string;
+  Position?: keyof typeof DataLabelPosition | string;
 
   /**
    * <p>The font configuration for the data labels.</p>
@@ -572,7 +572,7 @@ export interface FunnelChartDataLabelOptions {
   /**
    * <p>Determines the style of the metric labels.</p>
    */
-  MeasureDataLabelStyle?: FunnelChartMeasureDataLabelStyle | string;
+  MeasureDataLabelStyle?: keyof typeof FunnelChartMeasureDataLabelStyle | string;
 }
 
 /**
@@ -716,11 +716,11 @@ export interface GaugeChartFieldWells {
 /**
  * @public
  */
-export enum ArcThicknessOptions {
-  LARGE = "LARGE",
-  MEDIUM = "MEDIUM",
-  SMALL = "SMALL",
-}
+export const ArcThicknessOptions = {
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  SMALL: "SMALL",
+};
 
 /**
  * @public
@@ -735,7 +735,7 @@ export interface ArcConfiguration {
   /**
    * <p>The options that determine the arc thickness of a <code>GaugeChartVisual</code>.</p>
    */
-  ArcThickness?: ArcThicknessOptions | string;
+  ArcThickness?: keyof typeof ArcThicknessOptions | string;
 }
 
 /**
@@ -790,11 +790,11 @@ export interface ComparisonFormatConfiguration {
 /**
  * @public
  */
-export enum ComparisonMethod {
-  DIFFERENCE = "DIFFERENCE",
-  PERCENT = "PERCENT",
-  PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE",
-}
+export const ComparisonMethod = {
+  DIFFERENCE: "DIFFERENCE",
+  PERCENT: "PERCENT",
+  PERCENT_DIFFERENCE: "PERCENT_DIFFERENCE",
+};
 
 /**
  * @public
@@ -821,7 +821,7 @@ export interface ComparisonConfiguration {
    *             </li>
    *          </ul>
    */
-  ComparisonMethod?: ComparisonMethod | string;
+  ComparisonMethod?: keyof typeof ComparisonMethod | string;
 
   /**
    * <p>The format of the comparison.</p>
@@ -832,11 +832,11 @@ export interface ComparisonConfiguration {
 /**
  * @public
  */
-export enum PrimaryValueDisplayType {
-  ACTUAL = "ACTUAL",
-  COMPARISON = "COMPARISON",
-  HIDDEN = "HIDDEN",
-}
+export const PrimaryValueDisplayType = {
+  ACTUAL: "ACTUAL",
+  COMPARISON: "COMPARISON",
+  HIDDEN: "HIDDEN",
+};
 
 /**
  * @public
@@ -846,7 +846,7 @@ export interface GaugeChartOptions {
   /**
    * <p>The options that determine the primary value display type.</p>
    */
-  PrimaryValueDisplayType?: PrimaryValueDisplayType | string;
+  PrimaryValueDisplayType?: keyof typeof PrimaryValueDisplayType | string;
 
   /**
    * <p>The comparison configuration of a <code>GaugeChartVisual</code>.</p>
@@ -914,9 +914,9 @@ export interface GaugeChartArcConditionalFormatting {
 /**
  * @public
  */
-export enum ConditionalFormattingIconDisplayOption {
-  ICON_ONLY = "ICON_ONLY",
-}
+export const ConditionalFormattingIconDisplayOption = {
+  ICON_ONLY: "ICON_ONLY",
+};
 
 /**
  * @public
@@ -926,40 +926,40 @@ export interface ConditionalFormattingIconDisplayConfiguration {
   /**
    * <p>Determines the icon display configuration.</p>
    */
-  IconDisplayOption?: ConditionalFormattingIconDisplayOption | string;
+  IconDisplayOption?: keyof typeof ConditionalFormattingIconDisplayOption | string;
 }
 
 /**
  * @public
  */
-export enum Icon {
-  ARROW_DOWN = "ARROW_DOWN",
-  ARROW_DOWN_LEFT = "ARROW_DOWN_LEFT",
-  ARROW_DOWN_RIGHT = "ARROW_DOWN_RIGHT",
-  ARROW_LEFT = "ARROW_LEFT",
-  ARROW_RIGHT = "ARROW_RIGHT",
-  ARROW_UP = "ARROW_UP",
-  ARROW_UP_LEFT = "ARROW_UP_LEFT",
-  ARROW_UP_RIGHT = "ARROW_UP_RIGHT",
-  CARET_DOWN = "CARET_DOWN",
-  CARET_UP = "CARET_UP",
-  CHECKMARK = "CHECKMARK",
-  CIRCLE = "CIRCLE",
-  FACE_DOWN = "FACE_DOWN",
-  FACE_FLAT = "FACE_FLAT",
-  FACE_UP = "FACE_UP",
-  FLAG = "FLAG",
-  MINUS = "MINUS",
-  ONE_BAR = "ONE_BAR",
-  PLUS = "PLUS",
-  SQUARE = "SQUARE",
-  THREE_BAR = "THREE_BAR",
-  THUMBS_DOWN = "THUMBS_DOWN",
-  THUMBS_UP = "THUMBS_UP",
-  TRIANGLE = "TRIANGLE",
-  TWO_BAR = "TWO_BAR",
-  X = "X",
-}
+export const Icon = {
+  ARROW_DOWN: "ARROW_DOWN",
+  ARROW_DOWN_LEFT: "ARROW_DOWN_LEFT",
+  ARROW_DOWN_RIGHT: "ARROW_DOWN_RIGHT",
+  ARROW_LEFT: "ARROW_LEFT",
+  ARROW_RIGHT: "ARROW_RIGHT",
+  ARROW_UP: "ARROW_UP",
+  ARROW_UP_LEFT: "ARROW_UP_LEFT",
+  ARROW_UP_RIGHT: "ARROW_UP_RIGHT",
+  CARET_DOWN: "CARET_DOWN",
+  CARET_UP: "CARET_UP",
+  CHECKMARK: "CHECKMARK",
+  CIRCLE: "CIRCLE",
+  FACE_DOWN: "FACE_DOWN",
+  FACE_FLAT: "FACE_FLAT",
+  FACE_UP: "FACE_UP",
+  FLAG: "FLAG",
+  MINUS: "MINUS",
+  ONE_BAR: "ONE_BAR",
+  PLUS: "PLUS",
+  SQUARE: "SQUARE",
+  THREE_BAR: "THREE_BAR",
+  THUMBS_DOWN: "THUMBS_DOWN",
+  THUMBS_UP: "THUMBS_UP",
+  TRIANGLE: "TRIANGLE",
+  TWO_BAR: "TWO_BAR",
+  X: "X",
+};
 
 /**
  * @public
@@ -969,7 +969,7 @@ export interface ConditionalFormattingCustomIconOptions {
   /**
    * <p>Determines the type of icon.</p>
    */
-  Icon?: Icon | string;
+  Icon?: keyof typeof Icon | string;
 
   /**
    * <p>Determines the Unicode icon type.</p>
@@ -1006,19 +1006,19 @@ export interface ConditionalFormattingCustomIconCondition {
 /**
  * @public
  */
-export enum ConditionalFormattingIconSetType {
-  BARS = "BARS",
-  CARET_UP_MINUS_DOWN = "CARET_UP_MINUS_DOWN",
-  CHECK_X = "CHECK_X",
-  FLAGS = "FLAGS",
-  FOUR_COLOR_ARROW = "FOUR_COLOR_ARROW",
-  FOUR_GRAY_ARROW = "FOUR_GRAY_ARROW",
-  PLUS_MINUS = "PLUS_MINUS",
-  THREE_CIRCLE = "THREE_CIRCLE",
-  THREE_COLOR_ARROW = "THREE_COLOR_ARROW",
-  THREE_GRAY_ARROW = "THREE_GRAY_ARROW",
-  THREE_SHAPE = "THREE_SHAPE",
-}
+export const ConditionalFormattingIconSetType = {
+  BARS: "BARS",
+  CARET_UP_MINUS_DOWN: "CARET_UP_MINUS_DOWN",
+  CHECK_X: "CHECK_X",
+  FLAGS: "FLAGS",
+  FOUR_COLOR_ARROW: "FOUR_COLOR_ARROW",
+  FOUR_GRAY_ARROW: "FOUR_GRAY_ARROW",
+  PLUS_MINUS: "PLUS_MINUS",
+  THREE_CIRCLE: "THREE_CIRCLE",
+  THREE_COLOR_ARROW: "THREE_COLOR_ARROW",
+  THREE_GRAY_ARROW: "THREE_GRAY_ARROW",
+  THREE_SHAPE: "THREE_SHAPE",
+};
 
 /**
  * @public
@@ -1033,7 +1033,7 @@ export interface ConditionalFormattingIconSet {
   /**
    * <p>Determines the icon set type.</p>
    */
-  IconSetType?: ConditionalFormattingIconSetType | string;
+  IconSetType?: keyof typeof ConditionalFormattingIconSetType | string;
 }
 
 /**
@@ -1202,10 +1202,10 @@ export interface ClusterMarkerConfiguration {
 /**
  * @public
  */
-export enum GeospatialSelectedPointStyle {
-  CLUSTER = "CLUSTER",
-  POINT = "POINT",
-}
+export const GeospatialSelectedPointStyle = {
+  CLUSTER: "CLUSTER",
+  POINT: "POINT",
+};
 
 /**
  * @public
@@ -1215,7 +1215,7 @@ export interface GeospatialPointStyleOptions {
   /**
    * <p>The selected point styles (point, cluster) of the geospatial map.</p>
    */
-  SelectedPointStyle?: GeospatialSelectedPointStyle | string;
+  SelectedPointStyle?: keyof typeof GeospatialSelectedPointStyle | string;
 
   /**
    * <p>The cluster marker configuration of the geospatial point style.</p>
@@ -1304,10 +1304,10 @@ export interface GeospatialMapVisual {
 /**
  * @public
  */
-export enum ColorFillType {
-  DISCRETE = "DISCRETE",
-  GRADIENT = "GRADIENT",
-}
+export const ColorFillType = {
+  DISCRETE: "DISCRETE",
+  GRADIENT: "GRADIENT",
+};
 
 /**
  * @public
@@ -1338,7 +1338,7 @@ export interface ColorScale {
   /**
    * <p>Determines the color fill type.</p>
    */
-  ColorFillType: ColorFillType | string | undefined;
+  ColorFillType: keyof typeof ColorFillType | string | undefined;
 
   /**
    * <p>Determines the color that is applied to null values.</p>
@@ -1518,10 +1518,10 @@ export interface BinWidthOptions {
 /**
  * @public
  */
-export enum HistogramBinType {
-  BIN_COUNT = "BIN_COUNT",
-  BIN_WIDTH = "BIN_WIDTH",
-}
+export const HistogramBinType = {
+  BIN_COUNT: "BIN_COUNT",
+  BIN_WIDTH: "BIN_WIDTH",
+};
 
 /**
  * @public
@@ -1531,7 +1531,7 @@ export interface HistogramBinOptions {
   /**
    * <p>The options that determine the selected bin type.</p>
    */
-  SelectedBinType?: HistogramBinType | string;
+  SelectedBinType?: keyof typeof HistogramBinType | string;
 
   /**
    * <p>The options that determine the bin count of a histogram.</p>
@@ -1652,10 +1652,10 @@ export interface HistogramVisual {
 /**
  * @public
  */
-export enum ForecastComputationSeasonality {
-  AUTOMATIC = "AUTOMATIC",
-  CUSTOM = "CUSTOM",
-}
+export const ForecastComputationSeasonality = {
+  AUTOMATIC: "AUTOMATIC",
+  CUSTOM: "CUSTOM",
+};
 
 /**
  * @public
@@ -1721,7 +1721,7 @@ export interface ForecastComputation {
    *             </li>
    *          </ul>
    */
-  Seasonality?: ForecastComputationSeasonality | string;
+  Seasonality?: keyof typeof ForecastComputationSeasonality | string;
 
   /**
    * <p>The custom seasonality value setup of a forecast computation.</p>
@@ -1763,10 +1763,10 @@ export interface GrowthRateComputation {
 /**
  * @public
  */
-export enum MaximumMinimumComputationType {
-  MAXIMUM = "MAXIMUM",
-  MINIMUM = "MINIMUM",
-}
+export const MaximumMinimumComputationType = {
+  MAXIMUM: "MAXIMUM",
+  MINIMUM: "MINIMUM",
+};
 
 /**
  * @public
@@ -1804,7 +1804,7 @@ export interface MaximumMinimumComputation {
    *             </li>
    *          </ul>
    */
-  Type: MaximumMinimumComputationType | string | undefined;
+  Type: keyof typeof MaximumMinimumComputationType | string | undefined;
 }
 
 /**
@@ -1900,24 +1900,24 @@ export interface PeriodToDateComputation {
    *             </li>
    *          </ul>
    */
-  PeriodTimeGranularity?: TimeGranularity | string;
+  PeriodTimeGranularity?: keyof typeof TimeGranularity | string;
 }
 
 /**
  * @public
  */
-export enum TopBottomSortOrder {
-  ABSOLUTE_DIFFERENCE = "ABSOLUTE_DIFFERENCE",
-  PERCENT_DIFFERENCE = "PERCENT_DIFFERENCE",
-}
+export const TopBottomSortOrder = {
+  ABSOLUTE_DIFFERENCE: "ABSOLUTE_DIFFERENCE",
+  PERCENT_DIFFERENCE: "PERCENT_DIFFERENCE",
+};
 
 /**
  * @public
  */
-export enum TopBottomComputationType {
-  BOTTOM = "BOTTOM",
-  TOP = "TOP",
-}
+export const TopBottomComputationType = {
+  BOTTOM: "BOTTOM",
+  TOP: "TOP",
+};
 
 /**
  * @public
@@ -1957,7 +1957,7 @@ export interface TopBottomMoversComputation {
   /**
    * <p>The sort order setup of the top and bottom movers computation.</p>
    */
-  SortOrder?: TopBottomSortOrder | string;
+  SortOrder?: keyof typeof TopBottomSortOrder | string;
 
   /**
    * <p>The computation type. Choose from the following options:</p>
@@ -1970,7 +1970,7 @@ export interface TopBottomMoversComputation {
    *             </li>
    *          </ul>
    */
-  Type: TopBottomComputationType | string | undefined;
+  Type: keyof typeof TopBottomComputationType | string | undefined;
 }
 
 /**
@@ -2014,7 +2014,7 @@ export interface TopBottomRankedComputation {
    *             </li>
    *          </ul>
    */
-  Type: TopBottomComputationType | string | undefined;
+  Type: keyof typeof TopBottomComputationType | string | undefined;
 }
 
 /**
@@ -2209,7 +2209,7 @@ export interface ProgressBarOptions {
   /**
    * <p>The visibility of the progress bar.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -2220,7 +2220,7 @@ export interface SecondaryValueOptions {
   /**
    * <p>Determines the visibility of the secondary value.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -2231,7 +2231,7 @@ export interface TrendArrowOptions {
   /**
    * <p>The visibility of the trend arrows.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -2262,7 +2262,7 @@ export interface KPIOptions {
   /**
    * <p>The options that determine the primary value display type.</p>
    */
-  PrimaryValueDisplayType?: PrimaryValueDisplayType | string;
+  PrimaryValueDisplayType?: keyof typeof PrimaryValueDisplayType | string;
 
   /**
    * <p>The options that determine the primary value font configuration.</p>
@@ -2406,20 +2406,20 @@ export interface KPIVisual {
 /**
  * @public
  */
-export enum LineInterpolation {
-  LINEAR = "LINEAR",
-  SMOOTH = "SMOOTH",
-  STEPPED = "STEPPED",
-}
+export const LineInterpolation = {
+  LINEAR: "LINEAR",
+  SMOOTH: "SMOOTH",
+  STEPPED: "STEPPED",
+};
 
 /**
  * @public
  */
-export enum LineChartLineStyle {
-  DASHED = "DASHED",
-  DOTTED = "DOTTED",
-  SOLID = "SOLID",
-}
+export const LineChartLineStyle = {
+  DASHED: "DASHED",
+  DOTTED: "DOTTED",
+  SOLID: "SOLID",
+};
 
 /**
  * @public
@@ -2429,7 +2429,7 @@ export interface LineChartLineStyleSettings {
   /**
    * <p>Configuration option that determines whether to show the line for the series.</p>
    */
-  LineVisibility?: Visibility | string;
+  LineVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>Interpolation style for line series.</p>
@@ -2448,7 +2448,7 @@ export interface LineChartLineStyleSettings {
    *             </li>
    *          </ul>
    */
-  LineInterpolation?: LineInterpolation | string;
+  LineInterpolation?: keyof typeof LineInterpolation | string;
 
   /**
    * <p>Line style for line series.</p>
@@ -2467,7 +2467,7 @@ export interface LineChartLineStyleSettings {
    *             </li>
    *          </ul>
    */
-  LineStyle?: LineChartLineStyle | string;
+  LineStyle?: keyof typeof LineChartLineStyle | string;
 
   /**
    * <p>Width that determines the line thickness.</p>
@@ -2478,13 +2478,13 @@ export interface LineChartLineStyleSettings {
 /**
  * @public
  */
-export enum LineChartMarkerShape {
-  CIRCLE = "CIRCLE",
-  DIAMOND = "DIAMOND",
-  ROUNDED_SQUARE = "ROUNDED_SQUARE",
-  SQUARE = "SQUARE",
-  TRIANGLE = "TRIANGLE",
-}
+export const LineChartMarkerShape = {
+  CIRCLE: "CIRCLE",
+  DIAMOND: "DIAMOND",
+  ROUNDED_SQUARE: "ROUNDED_SQUARE",
+  SQUARE: "SQUARE",
+  TRIANGLE: "TRIANGLE",
+};
 
 /**
  * @public
@@ -2494,7 +2494,7 @@ export interface LineChartMarkerStyleSettings {
   /**
    * <p>Configuration option that determines whether to show the markers in the series.</p>
    */
-  MarkerVisibility?: Visibility | string;
+  MarkerVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>Shape option for markers in the series.</p>
@@ -2521,7 +2521,7 @@ export interface LineChartMarkerStyleSettings {
    *             </li>
    *          </ul>
    */
-  MarkerShape?: LineChartMarkerShape | string;
+  MarkerShape?: keyof typeof LineChartMarkerShape | string;
 
   /**
    * <p>Size of marker in the series.</p>
@@ -2542,7 +2542,7 @@ export interface LineChartDefaultSeriesSettings {
   /**
    * <p>The axis to which you are binding all line series to.</p>
    */
-  AxisBinding?: AxisBinding | string;
+  AxisBinding?: keyof typeof AxisBinding | string;
 
   /**
    * <p>Line styles options for all line series in the visual.</p>
@@ -2711,11 +2711,11 @@ export interface ForecastConfiguration {
 /**
  * @public
  */
-export enum MissingDataTreatmentOption {
-  INTERPOLATE = "INTERPOLATE",
-  SHOW_AS_BLANK = "SHOW_AS_BLANK",
-  SHOW_AS_ZERO = "SHOW_AS_ZERO",
-}
+export const MissingDataTreatmentOption = {
+  INTERPOLATE: "INTERPOLATE",
+  SHOW_AS_BLANK: "SHOW_AS_BLANK",
+  SHOW_AS_ZERO: "SHOW_AS_ZERO",
+};
 
 /**
  * @public
@@ -2740,7 +2740,7 @@ export interface MissingDataConfiguration {
    *             </li>
    *          </ul>
    */
-  TreatmentOption?: MissingDataTreatmentOption | string;
+  TreatmentOption?: keyof typeof MissingDataTreatmentOption | string;
 }
 
 /**
@@ -2793,7 +2793,7 @@ export interface DataFieldSeriesItem {
   /**
    * <p>The axis that you are binding the field to.</p>
    */
-  AxisBinding: AxisBinding | string | undefined;
+  AxisBinding: keyof typeof AxisBinding | string | undefined;
 
   /**
    * <p>The options that determine the presentation of line series associated to the field.</p>
@@ -2814,7 +2814,7 @@ export interface FieldSeriesItem {
   /**
    * <p>The axis that you are binding the field to.</p>
    */
-  AxisBinding: AxisBinding | string | undefined;
+  AxisBinding: keyof typeof AxisBinding | string | undefined;
 
   /**
    * <p>The options that determine the presentation of line series associated to the field.</p>
@@ -2873,11 +2873,11 @@ export interface LineChartSortConfiguration {
 /**
  * @public
  */
-export enum LineChartType {
-  AREA = "AREA",
-  LINE = "LINE",
-  STACKED_AREA = "STACKED_AREA",
-}
+export const LineChartType = {
+  AREA: "AREA",
+  LINE: "LINE",
+  STACKED_AREA: "STACKED_AREA",
+};
 
 /**
  * @public
@@ -2902,7 +2902,7 @@ export interface LineChartConfiguration {
   /**
    * <p>Determines the type of the line chart.</p>
    */
-  Type?: LineChartType | string;
+  Type?: keyof typeof LineChartType | string;
 
   /**
    * <p>The small multiples setup for the visual.</p>
@@ -3020,12 +3020,12 @@ export interface LineChartVisual {
 /**
  * @public
  */
-export enum ArcThickness {
-  LARGE = "LARGE",
-  MEDIUM = "MEDIUM",
-  SMALL = "SMALL",
-  WHOLE = "WHOLE",
-}
+export const ArcThickness = {
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  SMALL: "SMALL",
+  WHOLE: "WHOLE",
+};
 
 /**
  * @public
@@ -3035,7 +3035,7 @@ export interface ArcOptions {
   /**
    * <p>The arc thickness of a <code>GaugeChartVisual</code>.</p>
    */
-  ArcThickness?: ArcThickness | string;
+  ArcThickness?: keyof typeof ArcThickness | string;
 }
 
 /**
@@ -3046,7 +3046,7 @@ export interface DonutCenterOptions {
   /**
    * <p>Determines the visibility of the label in a donut chart. In the Amazon QuickSight console, this option is called <code>'Show total'</code>.</p>
    */
-  LabelVisibility?: Visibility | string;
+  LabelVisibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -3285,7 +3285,7 @@ export interface PivotTableFieldOption {
   /**
    * <p>The visibility of the pivot table field.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -3345,12 +3345,12 @@ export interface PivotTablePaginatedReportOptions {
   /**
    * <p>The visibility of the printing table overflow across pages.</p>
    */
-  VerticalOverflowVisibility?: Visibility | string;
+  VerticalOverflowVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The visibility of the repeating header rows on each page.</p>
    */
-  OverflowColumnHeaderVisibility?: Visibility | string;
+  OverflowColumnHeaderVisibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -3361,7 +3361,7 @@ export interface DataPathSort {
   /**
    * <p>Determines the sort direction.</p>
    */
-  Direction: SortDirection | string | undefined;
+  Direction: keyof typeof SortDirection | string | undefined;
 
   /**
    * <p>The list of data paths that need to be sorted.</p>
@@ -3420,10 +3420,10 @@ export interface PivotTableSortConfiguration {
 /**
  * @public
  */
-export enum TableBorderStyle {
-  NONE = "NONE",
-  SOLID = "SOLID",
-}
+export const TableBorderStyle = {
+  NONE: "NONE",
+  SOLID: "SOLID",
+};
 
 /**
  * @public
@@ -3443,7 +3443,7 @@ export interface TableBorderOptions {
   /**
    * <p>The style (none, solid) of a table border.</p>
    */
-  Style?: TableBorderStyle | string;
+  Style?: keyof typeof TableBorderStyle | string;
 }
 
 /**
@@ -3501,19 +3501,19 @@ export interface GlobalTableBorderOptions {
 /**
  * @public
  */
-export enum TextWrap {
-  NONE = "NONE",
-  WRAP = "WRAP",
-}
+export const TextWrap = {
+  NONE: "NONE",
+  WRAP: "WRAP",
+};
 
 /**
  * @public
  */
-export enum VerticalTextAlignment {
-  BOTTOM = "BOTTOM",
-  MIDDLE = "MIDDLE",
-  TOP = "TOP",
-}
+export const VerticalTextAlignment = {
+  BOTTOM: "BOTTOM",
+  MIDDLE: "MIDDLE",
+  TOP: "TOP",
+};
 
 /**
  * @public
@@ -3523,7 +3523,7 @@ export interface TableCellStyle {
   /**
    * <p>The visibility of the table cells.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The font configuration of the table cells.</p>
@@ -3533,17 +3533,17 @@ export interface TableCellStyle {
   /**
    * <p>The text wrap (none, wrap) for the table cells.</p>
    */
-  TextWrap?: TextWrap | string;
+  TextWrap?: keyof typeof TextWrap | string;
 
   /**
    * <p>The horizontal text alignment (left, center, right, auto) for the table cells.</p>
    */
-  HorizontalTextAlignment?: HorizontalTextAlignment | string;
+  HorizontalTextAlignment?: keyof typeof HorizontalTextAlignment | string;
 
   /**
    * <p>The vertical text alignment (top, middle, bottom) for the table cells.</p>
    */
-  VerticalTextAlignment?: VerticalTextAlignment | string;
+  VerticalTextAlignment?: keyof typeof VerticalTextAlignment | string;
 
   /**
    * <p>The background color for the table cells.</p>
@@ -3564,10 +3564,10 @@ export interface TableCellStyle {
 /**
  * @public
  */
-export enum PivotTableMetricPlacement {
-  COLUMN = "COLUMN",
-  ROW = "ROW",
-}
+export const PivotTableMetricPlacement = {
+  COLUMN: "COLUMN",
+  ROW: "ROW",
+};
 
 /**
  * @public
@@ -3577,7 +3577,7 @@ export interface RowAlternateColorOptions {
   /**
    * <p>Determines the widget status.</p>
    */
-  Status?: WidgetStatus | string;
+  Status?: keyof typeof WidgetStatus | string;
 
   /**
    * <p>Determines the list of row alternate colors.</p>
@@ -3593,22 +3593,22 @@ export interface PivotTableOptions {
   /**
    * <p>The metric placement (row, column) options.</p>
    */
-  MetricPlacement?: PivotTableMetricPlacement | string;
+  MetricPlacement?: keyof typeof PivotTableMetricPlacement | string;
 
   /**
    * <p>The visibility of the single metric options.</p>
    */
-  SingleMetricVisibility?: Visibility | string;
+  SingleMetricVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The visibility of the column names.</p>
    */
-  ColumnNamesVisibility?: Visibility | string;
+  ColumnNamesVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>Determines the visibility of the pivot table.</p>
    */
-  ToggleButtonsVisibility?: Visibility | string;
+  ToggleButtonsVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The table cell style of the column header.</p>
@@ -3638,17 +3638,17 @@ export interface PivotTableOptions {
   /**
    * <p>The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is <code>HIDDEN</code>, all collapsed columns in a pivot table are automatically hidden. The default value is <code>VISIBLE</code>.</p>
    */
-  CollapsedRowDimensionsVisibility?: Visibility | string;
+  CollapsedRowDimensionsVisibility?: keyof typeof Visibility | string;
 }
 
 /**
  * @public
  */
-export enum PivotTableSubtotalLevel {
-  ALL = "ALL",
-  CUSTOM = "CUSTOM",
-  LAST = "LAST",
-}
+export const PivotTableSubtotalLevel = {
+  ALL: "ALL",
+  CUSTOM: "CUSTOM",
+  LAST: "LAST",
+};
 
 /**
  * @public
@@ -3669,7 +3669,7 @@ export interface SubtotalOptions {
   /**
    * <p>The visibility configuration for the subtotal cells.</p>
    */
-  TotalsVisibility?: Visibility | string;
+  TotalsVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The custom label string for the subtotal cells.</p>
@@ -3679,7 +3679,7 @@ export interface SubtotalOptions {
   /**
    * <p>The field level (all, custom, last) for the subtotal cells.</p>
    */
-  FieldLevel?: PivotTableSubtotalLevel | string;
+  FieldLevel?: keyof typeof PivotTableSubtotalLevel | string;
 
   /**
    * <p>The optional configuration of subtotal cells.</p>
@@ -3705,18 +3705,18 @@ export interface SubtotalOptions {
 /**
  * @public
  */
-export enum TableTotalsPlacement {
-  END = "END",
-  START = "START",
-}
+export const TableTotalsPlacement = {
+  END: "END",
+  START: "START",
+};
 
 /**
  * @public
  */
-export enum TableTotalsScrollStatus {
-  PINNED = "PINNED",
-  SCROLLED = "SCROLLED",
-}
+export const TableTotalsScrollStatus = {
+  PINNED: "PINNED",
+  SCROLLED: "SCROLLED",
+};
 
 /**
  * @public
@@ -3726,17 +3726,17 @@ export interface PivotTotalOptions {
   /**
    * <p>The visibility configuration for the total cells.</p>
    */
-  TotalsVisibility?: Visibility | string;
+  TotalsVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The placement (start, end) for the total cells.</p>
    */
-  Placement?: TableTotalsPlacement | string;
+  Placement?: keyof typeof TableTotalsPlacement | string;
 
   /**
    * <p>The scroll status (pinned, scrolled) for the total cells.</p>
    */
-  ScrollStatus?: TableTotalsScrollStatus | string;
+  ScrollStatus?: keyof typeof TableTotalsScrollStatus | string;
 
   /**
    * <p>The custom label string for the total cells.</p>
@@ -3824,11 +3824,11 @@ export interface PivotTableConfiguration {
 /**
  * @public
  */
-export enum PivotTableConditionalFormattingScopeRole {
-  FIELD = "FIELD",
-  FIELD_TOTAL = "FIELD_TOTAL",
-  GRAND_TOTAL = "GRAND_TOTAL",
-}
+export const PivotTableConditionalFormattingScopeRole = {
+  FIELD: "FIELD",
+  FIELD_TOTAL: "FIELD_TOTAL",
+  GRAND_TOTAL: "GRAND_TOTAL",
+};
 
 /**
  * @public
@@ -3838,7 +3838,7 @@ export interface PivotTableConditionalFormattingScope {
   /**
    * <p>The role (field, field total, grand total) of the cell for conditional formatting.</p>
    */
-  Role?: PivotTableConditionalFormattingScopeRole | string;
+  Role?: keyof typeof PivotTableConditionalFormattingScopeRole | string;
 }
 
 /**
@@ -3950,7 +3950,7 @@ export interface RadarChartAreaStyleSettings {
   /**
    * <p>The visibility settings of a radar chart.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -3999,10 +3999,10 @@ export interface RadarChartFieldWells {
 /**
  * @public
  */
-export enum RadarChartShape {
-  CIRCLE = "CIRCLE",
-  POLYGON = "POLYGON",
-}
+export const RadarChartShape = {
+  CIRCLE: "CIRCLE",
+  POLYGON: "POLYGON",
+};
 
 /**
  * @public
@@ -4048,7 +4048,7 @@ export interface RadarChartConfiguration {
   /**
    * <p>The shape of the radar chart.</p>
    */
-  Shape?: RadarChartShape | string;
+  Shape?: keyof typeof RadarChartShape | string;
 
   /**
    * <p>The base sreies settings of a radar chart.</p>
@@ -4068,7 +4068,7 @@ export interface RadarChartConfiguration {
   /**
    * <p>Determines the visibility of the colors of alternatign bands in a radar chart.</p>
    */
-  AlternateBandColorsVisibility?: Visibility | string;
+  AlternateBandColorsVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The color of the even-numbered alternate bands of a radar chart.</p>
@@ -4409,11 +4409,11 @@ export interface ScatterPlotVisual {
 /**
  * @public
  */
-export enum TableCellImageScalingConfiguration {
-  DO_NOT_SCALE = "DO_NOT_SCALE",
-  FIT_TO_CELL_HEIGHT = "FIT_TO_CELL_HEIGHT",
-  FIT_TO_CELL_WIDTH = "FIT_TO_CELL_WIDTH",
-}
+export const TableCellImageScalingConfiguration = {
+  DO_NOT_SCALE: "DO_NOT_SCALE",
+  FIT_TO_CELL_HEIGHT: "FIT_TO_CELL_HEIGHT",
+  FIT_TO_CELL_WIDTH: "FIT_TO_CELL_WIDTH",
+};
 
 /**
  * @public
@@ -4423,7 +4423,7 @@ export interface TableCellImageSizingConfiguration {
   /**
    * <p>The cell scaling configuration of the sizing options for the table image configuration.</p>
    */
-  TableCellImageScalingConfiguration?: TableCellImageScalingConfiguration | string;
+  TableCellImageScalingConfiguration?: keyof typeof TableCellImageScalingConfiguration | string;
 }
 
 /**
@@ -4440,9 +4440,9 @@ export interface TableFieldImageConfiguration {
 /**
  * @public
  */
-export enum TableFieldIconSetType {
-  LINK = "LINK",
-}
+export const TableFieldIconSetType = {
+  LINK: "LINK",
+};
 
 /**
  * @public
@@ -4452,7 +4452,7 @@ export interface TableFieldCustomIconContent {
   /**
    * <p>The icon set type (link) of the custom icon content for table URL link content.</p>
    */
-  Icon?: TableFieldIconSetType | string;
+  Icon?: keyof typeof TableFieldIconSetType | string;
 }
 
 /**
@@ -4495,7 +4495,7 @@ export interface TableFieldLinkConfiguration {
   /**
    * <p>The URL target (new tab, new window, same tab) for the table link configuration.</p>
    */
-  Target: URLTargetConfiguration | string | undefined;
+  Target: keyof typeof URLTargetConfiguration | string | undefined;
 
   /**
    * <p>The URL content (text, icon) for the table link configuration.</p>
@@ -4542,7 +4542,7 @@ export interface TableFieldOption {
   /**
    * <p>The visibility of a table field.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The URL configuration for a table field.</p>
@@ -4639,12 +4639,12 @@ export interface TablePaginatedReportOptions {
   /**
    * <p>The visibility of printing table overflow across pages.</p>
    */
-  VerticalOverflowVisibility?: Visibility | string;
+  VerticalOverflowVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The visibility of repeating header rows on each page.</p>
    */
-  OverflowColumnHeaderVisibility?: Visibility | string;
+  OverflowColumnHeaderVisibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -4698,10 +4698,10 @@ export interface TableInlineVisualization {
 /**
  * @public
  */
-export enum TableOrientation {
-  HORIZONTAL = "HORIZONTAL",
-  VERTICAL = "VERTICAL",
-}
+export const TableOrientation = {
+  HORIZONTAL: "HORIZONTAL",
+  VERTICAL: "VERTICAL",
+};
 
 /**
  * @public
@@ -4711,7 +4711,7 @@ export interface TableOptions {
   /**
    * <p>The orientation (vertical, horizontal) for a table.</p>
    */
-  Orientation?: TableOrientation | string;
+  Orientation?: keyof typeof TableOrientation | string;
 
   /**
    * <p>The table cell style of a table header.</p>
@@ -4737,17 +4737,17 @@ export interface TotalOptions {
   /**
    * <p>The visibility configuration for the total cells.</p>
    */
-  TotalsVisibility?: Visibility | string;
+  TotalsVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The placement (start, end) for the total cells.</p>
    */
-  Placement?: TableTotalsPlacement | string;
+  Placement?: keyof typeof TableTotalsPlacement | string;
 
   /**
    * <p>The scroll status (pinned, scrolled) for the total cells.</p>
    */
-  ScrollStatus?: TableTotalsScrollStatus | string;
+  ScrollStatus?: keyof typeof TableTotalsScrollStatus | string;
 
   /**
    * <p>The custom label string for the total cells.</p>
@@ -5233,44 +5233,44 @@ export interface WordCloudSortConfiguration {
 /**
  * @public
  */
-export enum WordCloudCloudLayout {
-  FLUID = "FLUID",
-  NORMAL = "NORMAL",
-}
+export const WordCloudCloudLayout = {
+  FLUID: "FLUID",
+  NORMAL: "NORMAL",
+};
 
 /**
  * @public
  */
-export enum WordCloudWordCasing {
-  EXISTING_CASE = "EXISTING_CASE",
-  LOWER_CASE = "LOWER_CASE",
-}
+export const WordCloudWordCasing = {
+  EXISTING_CASE: "EXISTING_CASE",
+  LOWER_CASE: "LOWER_CASE",
+};
 
 /**
  * @public
  */
-export enum WordCloudWordOrientation {
-  HORIZONTAL = "HORIZONTAL",
-  HORIZONTAL_AND_VERTICAL = "HORIZONTAL_AND_VERTICAL",
-}
+export const WordCloudWordOrientation = {
+  HORIZONTAL: "HORIZONTAL",
+  HORIZONTAL_AND_VERTICAL: "HORIZONTAL_AND_VERTICAL",
+};
 
 /**
  * @public
  */
-export enum WordCloudWordPadding {
-  LARGE = "LARGE",
-  MEDIUM = "MEDIUM",
-  NONE = "NONE",
-  SMALL = "SMALL",
-}
+export const WordCloudWordPadding = {
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+  SMALL: "SMALL",
+};
 
 /**
  * @public
  */
-export enum WordCloudWordScaling {
-  EMPHASIZE = "EMPHASIZE",
-  NORMAL = "NORMAL",
-}
+export const WordCloudWordScaling = {
+  EMPHASIZE: "EMPHASIZE",
+  NORMAL: "NORMAL",
+};
 
 /**
  * @public
@@ -5280,27 +5280,27 @@ export interface WordCloudOptions {
   /**
    * <p>The word orientation options (horizontal, horizontal_and_vertical) for the words in a word cloud.</p>
    */
-  WordOrientation?: WordCloudWordOrientation | string;
+  WordOrientation?: keyof typeof WordCloudWordOrientation | string;
 
   /**
    * <p>The word scaling options (emphasize, normal) for the words in a word cloud.</p>
    */
-  WordScaling?: WordCloudWordScaling | string;
+  WordScaling?: keyof typeof WordCloudWordScaling | string;
 
   /**
    * <p>The cloud layout options (fluid, normal) of a word cloud.</p>
    */
-  CloudLayout?: WordCloudCloudLayout | string;
+  CloudLayout?: keyof typeof WordCloudCloudLayout | string;
 
   /**
    * <p>The word casing options (lower_case, existing_case) for the words in a word cloud.</p>
    */
-  WordCasing?: WordCloudWordCasing | string;
+  WordCasing?: keyof typeof WordCloudWordCasing | string;
 
   /**
    * <p>The word padding options (none, small, medium, large) for the words in a word cloud.</p>
    */
-  WordPadding?: WordCloudWordPadding | string;
+  WordPadding?: keyof typeof WordCloudWordPadding | string;
 
   /**
    * <p>The length limit of each word from 1-100.</p>
@@ -5588,7 +5588,7 @@ export interface SheetDefinition {
    *             </li>
    *          </ul>
    */
-  ContentType?: SheetContentType | string;
+  ContentType?: keyof typeof SheetContentType | string;
 }
 
 /**
@@ -5643,23 +5643,23 @@ export interface AnalysisDefinition {
 /**
  * @public
  */
-export enum AnalysisFilterAttribute {
-  ANALYSIS_NAME = "ANALYSIS_NAME",
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
-  QUICKSIGHT_USER = "QUICKSIGHT_USER",
-  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
-}
+export const AnalysisFilterAttribute = {
+  ANALYSIS_NAME: "ANALYSIS_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_USER: "QUICKSIGHT_USER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+};
 
 /**
  * @public
  */
-export enum FilterOperator {
-  StringEquals = "StringEquals",
-  StringLike = "StringLike",
-}
+export const FilterOperator = {
+  StringEquals: "StringEquals",
+  StringLike: "StringLike",
+};
 
 /**
  * @public
@@ -5671,7 +5671,7 @@ export interface AnalysisSearchFilter {
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"ANALYSIS_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>ANALYSIS_NAME</code>.</p>
    */
-  Operator?: FilterOperator | string;
+  Operator?: keyof typeof FilterOperator | string;
 
   /**
    * <p>The name of the value that you want to use as a filter, for example <code>"Name":
@@ -5704,7 +5704,7 @@ export interface AnalysisSearchFilter {
    *             </li>
    *          </ul>
    */
-  Name?: AnalysisFilterAttribute | string;
+  Name?: keyof typeof AnalysisFilterAttribute | string;
 
   /**
    * <p>The value of the named item, in this case <code>QUICKSIGHT_USER</code>, that you want
@@ -5781,7 +5781,7 @@ export interface AnalysisSummary {
   /**
    * <p>The last known status for the analysis.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The time that the analysis was created.</p>
@@ -5887,11 +5887,11 @@ export interface AnonymousUserEmbeddingExperienceConfiguration {
 /**
  * @public
  */
-export enum AssignmentStatus {
-  DISABLED = "DISABLED",
-  DRAFT = "DRAFT",
-  ENABLED = "ENABLED",
-}
+export const AssignmentStatus = {
+  DISABLED: "DISABLED",
+  DRAFT: "DRAFT",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -5954,11 +5954,11 @@ export interface AuroraPostgreSqlParameters {
 /**
  * @public
  */
-export enum AuthenticationMethodOption {
-  ACTIVE_DIRECTORY = "ACTIVE_DIRECTORY",
-  IAM_AND_QUICKSIGHT = "IAM_AND_QUICKSIGHT",
-  IAM_ONLY = "IAM_ONLY",
-}
+export const AuthenticationMethodOption = {
+  ACTIVE_DIRECTORY: "ACTIVE_DIRECTORY",
+  IAM_AND_QUICKSIGHT: "IAM_AND_QUICKSIGHT",
+  IAM_ONLY: "IAM_ONLY",
+};
 
 /**
  * @public
@@ -6107,17 +6107,17 @@ export class InvalidParameterValueException extends __BaseException {
 /**
  * @public
  */
-export enum ExceptionResourceType {
-  ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
-  DATA_SET = "DATA_SET",
-  DATA_SOURCE = "DATA_SOURCE",
-  GROUP = "GROUP",
-  IAMPOLICY_ASSIGNMENT = "IAMPOLICY_ASSIGNMENT",
-  INGESTION = "INGESTION",
-  NAMESPACE = "NAMESPACE",
-  USER = "USER",
-  VPC_CONNECTION = "VPC_CONNECTION",
-}
+export const ExceptionResourceType = {
+  ACCOUNT_SETTINGS: "ACCOUNT_SETTINGS",
+  DATA_SET: "DATA_SET",
+  DATA_SOURCE: "DATA_SOURCE",
+  GROUP: "GROUP",
+  IAMPOLICY_ASSIGNMENT: "IAMPOLICY_ASSIGNMENT",
+  INGESTION: "INGESTION",
+  NAMESPACE: "NAMESPACE",
+  USER: "USER",
+  VPC_CONNECTION: "VPC_CONNECTION",
+};
 
 /**
  * @public
@@ -6130,7 +6130,7 @@ export class ResourceExistsException extends __BaseException {
   /**
    * <p>The resource type for this request.</p>
    */
-  ResourceType?: ExceptionResourceType | string;
+  ResourceType?: keyof typeof ExceptionResourceType | string;
 
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
@@ -6163,7 +6163,7 @@ export class ResourceNotFoundException extends __BaseException {
   /**
    * <p>The resource type for this request.</p>
    */
-  ResourceType?: ExceptionResourceType | string;
+  ResourceType?: keyof typeof ExceptionResourceType | string;
 
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
@@ -6215,12 +6215,12 @@ export class ThrottlingException extends __BaseException {
 /**
  * @public
  */
-export enum ColumnDataType {
-  DATETIME = "DATETIME",
-  DECIMAL = "DECIMAL",
-  INTEGER = "INTEGER",
-  STRING = "STRING",
-}
+export const ColumnDataType = {
+  DATETIME: "DATETIME",
+  DECIMAL: "DECIMAL",
+  INTEGER: "INTEGER",
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -6235,7 +6235,7 @@ export interface CastColumnTypeOperation {
   /**
    * <p>New column data type.</p>
    */
-  NewColumnType: ColumnDataType | string | undefined;
+  NewColumnType: keyof typeof ColumnDataType | string | undefined;
 
   /**
    * <p>When casting a column from string to datetime type, you can supply a string in a
@@ -6258,9 +6258,9 @@ export interface ColumnDescription {
 /**
  * @public
  */
-export enum GeoSpatialCountryCode {
-  US = "US",
-}
+export const GeoSpatialCountryCode = {
+  US: "US",
+};
 
 /**
  * @public
@@ -6275,7 +6275,7 @@ export interface GeoSpatialColumnGroup {
   /**
    * <p>Country code.</p>
    */
-  CountryCode?: GeoSpatialCountryCode | string;
+  CountryCode?: keyof typeof GeoSpatialCountryCode | string;
 
   /**
    * <p>Columns in this hierarchy.</p>
@@ -6368,15 +6368,15 @@ export interface ColumnSchema {
 /**
  * @public
  */
-export enum GeoSpatialDataRole {
-  CITY = "CITY",
-  COUNTRY = "COUNTRY",
-  COUNTY = "COUNTY",
-  LATITUDE = "LATITUDE",
-  LONGITUDE = "LONGITUDE",
-  POSTCODE = "POSTCODE",
-  STATE = "STATE",
-}
+export const GeoSpatialDataRole = {
+  CITY: "CITY",
+  COUNTRY: "COUNTRY",
+  COUNTY: "COUNTY",
+  LATITUDE: "LATITUDE",
+  LONGITUDE: "LONGITUDE",
+  POSTCODE: "POSTCODE",
+  STATE: "STATE",
+};
 
 /**
  * @public
@@ -6392,7 +6392,7 @@ export interface ColumnTag {
   /**
    * <p>A geospatial role for a column.</p>
    */
-  ColumnGeographicRole?: GeoSpatialDataRole | string;
+  ColumnGeographicRole?: keyof typeof GeoSpatialDataRole | string;
 
   /**
    * <p>A description for a column.</p>
@@ -6403,10 +6403,10 @@ export interface ColumnTag {
 /**
  * @public
  */
-export enum ColumnTagName {
-  COLUMN_DESCRIPTION = "COLUMN_DESCRIPTION",
-  COLUMN_GEOGRAPHIC_ROLE = "COLUMN_GEOGRAPHIC_ROLE",
-}
+export const ColumnTagName = {
+  COLUMN_DESCRIPTION: "COLUMN_DESCRIPTION",
+  COLUMN_GEOGRAPHIC_ROLE: "COLUMN_GEOGRAPHIC_ROLE",
+};
 
 /**
  * @public
@@ -6555,7 +6555,7 @@ export class ResourceUnavailableException extends __BaseException {
   /**
    * <p>The resource type for this request.</p>
    */
-  ResourceType?: ExceptionResourceType | string;
+  ResourceType?: keyof typeof ExceptionResourceType | string;
 
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
@@ -6610,14 +6610,14 @@ export interface CreateAccountSubscriptionRequest {
    *             </li>
    *          </ul>
    */
-  Edition: Edition | string | undefined;
+  Edition: keyof typeof Edition | string | undefined;
 
   /**
    * <p>The method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are <code>IAM_AND_QUICKSIGHT</code>, <code>IAM_ONLY</code>, and <code>ACTIVE_DIRECTORY</code>.</p>
    *          <p>If you choose <code>ACTIVE_DIRECTORY</code>, provide an <code>ActiveDirectoryName</code>
    *             and an <code>AdminGroup</code> associated with your Active Directory.</p>
    */
-  AuthenticationMethod: AuthenticationMethodOption | string | undefined;
+  AuthenticationMethod: keyof typeof AuthenticationMethodOption | string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the account that you're using to create your Amazon QuickSight account.</p>

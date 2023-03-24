@@ -7224,13 +7224,16 @@ const serializeAws_restJson1FormatOptions = (input: FormatOptions, context: __Se
 };
 
 const serializeAws_restJson1FormatToHeader = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [FormatToHeaderKey | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof FormatToHeaderKey | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = value;
       return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1IdList = (input: string[], context: __SerdeContext): any => {
@@ -7356,7 +7359,7 @@ const serializeAws_restJson1RunParameters = (input: __DocumentType, context: __S
 };
 
 const serializeAws_restJson1Schema = (
-  input: Record<string, SchemaValueType | string>[],
+  input: Record<string, keyof typeof SchemaValueType | string>[],
   context: __SerdeContext
 ): any => {
   return input
@@ -7367,7 +7370,7 @@ const serializeAws_restJson1Schema = (
 };
 
 const serializeAws_restJson1SchemaItem = (
-  input: Record<string, SchemaValueType | string>,
+  input: Record<string, keyof typeof SchemaValueType | string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -7785,7 +7788,7 @@ const deserializeAws_restJson1FormatOptions = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1FormatToHeader = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [FormatToHeaderKey | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [keyof typeof FormatToHeaderKey | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -8135,7 +8138,7 @@ const deserializeAws_restJson1RunResourceDigests = (output: any, context: __Serd
 const deserializeAws_restJson1Schema = (
   output: any,
   context: __SerdeContext
-): Record<string, SchemaValueType | string>[] => {
+): Record<string, keyof typeof SchemaValueType | string>[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8150,14 +8153,17 @@ const deserializeAws_restJson1Schema = (
 const deserializeAws_restJson1SchemaItem = (
   output: any,
   context: __SerdeContext
-): Record<string, SchemaValueType | string> => {
-  return Object.entries(output).reduce((acc: Record<string, SchemaValueType | string>, [key, value]: [string, any]) => {
-    if (value === null) {
+): Record<string, keyof typeof SchemaValueType | string> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, keyof typeof SchemaValueType | string>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectString(value) as any;
       return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1SequenceInformation = (output: any, context: __SerdeContext): SequenceInformation => {

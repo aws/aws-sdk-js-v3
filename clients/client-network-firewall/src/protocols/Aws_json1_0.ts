@@ -2713,7 +2713,7 @@ const serializeAws_json1_0FirewallPolicy = (input: FirewallPolicy, context: __Se
   };
 };
 
-const serializeAws_json1_0Flags = (input: (TCPFlag | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_0Flags = (input: (keyof typeof TCPFlag | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3187,7 +3187,7 @@ const serializeAws_json1_0TagResourceRequest = (input: TagResourceRequest, conte
   };
 };
 
-const serializeAws_json1_0TargetTypes = (input: (TargetType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_0TargetTypes = (input: (keyof typeof TargetType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3772,7 +3772,7 @@ const deserializeAws_json1_0FirewallStatus = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_0Flags = (output: any, context: __SerdeContext): (TCPFlag | string)[] => {
+const deserializeAws_json1_0Flags = (output: any, context: __SerdeContext): (keyof typeof TCPFlag | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4475,7 +4475,10 @@ const deserializeAws_json1_0TagResourceResponse = (output: any, context: __Serde
   return {} as any;
 };
 
-const deserializeAws_json1_0TargetTypes = (output: any, context: __SerdeContext): (TargetType | string)[] => {
+const deserializeAws_json1_0TargetTypes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof TargetType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

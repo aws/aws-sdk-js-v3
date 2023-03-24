@@ -8175,7 +8175,10 @@ const serializeAws_restJson1RouteAnalysisEndpointOptionsSpecification = (
   };
 };
 
-const serializeAws_restJson1RouteStateList = (input: (RouteState | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1RouteStateList = (
+  input: (keyof typeof RouteState | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8197,7 +8200,10 @@ const serializeAws_restJson1RouteTableIdentifier = (input: RouteTableIdentifier,
   };
 };
 
-const serializeAws_restJson1RouteTypeList = (input: (RouteType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1RouteTypeList = (
+  input: (keyof typeof RouteType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

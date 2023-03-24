@@ -73,13 +73,13 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum LoggingLevel {
-  CRITICAL = "CRITICAL",
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  INFO = "INFO",
-  WARNING = "WARNING",
-}
+export const LoggingLevel = {
+  CRITICAL: "CRITICAL",
+  DEBUG: "DEBUG",
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARNING: "WARNING",
+};
 
 /**
  * @public
@@ -94,7 +94,7 @@ export interface ModuleLoggingConfigurationInput {
   /**
    * <p>Defines the Apache Airflow log level (e.g. <code>INFO</code>) to send to CloudWatch Logs.</p>
    */
-  LogLevel: LoggingLevel | string | undefined;
+  LogLevel: keyof typeof LoggingLevel | string | undefined;
 }
 
 /**
@@ -147,10 +147,10 @@ export interface NetworkConfiguration {
 /**
  * @public
  */
-export enum WebserverAccessMode {
-  PRIVATE_ONLY = "PRIVATE_ONLY",
-  PUBLIC_ONLY = "PUBLIC_ONLY",
-}
+export const WebserverAccessMode = {
+  PRIVATE_ONLY: "PRIVATE_ONLY",
+  PUBLIC_ONLY: "PUBLIC_ONLY",
+};
 
 /**
  * @public
@@ -247,7 +247,7 @@ export interface CreateEnvironmentInput {
   /**
    * <p>The Apache Airflow <i>Web server</i> access mode. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
    */
-  WebserverAccessMode?: WebserverAccessMode | string;
+  WebserverAccessMode?: keyof typeof WebserverAccessMode | string;
 
   /**
    * <p>The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the <code>MaxWorkers</code> field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the <code>MinWorkers</code> field. For example, <code>2</code>.</p>
@@ -387,11 +387,11 @@ export interface UpdateError {
 /**
  * @public
  */
-export enum UpdateStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-}
+export const UpdateStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -401,7 +401,7 @@ export interface LastUpdate {
   /**
    * <p>The status of the last update on the environment.</p>
    */
-  Status?: UpdateStatus | string;
+  Status?: keyof typeof UpdateStatus | string;
 
   /**
    * <p>The day and time of the last update on the environment.</p>
@@ -432,7 +432,7 @@ export interface ModuleLoggingConfiguration {
   /**
    * <p>The Apache Airflow log level for the log type (e.g. <code>DagProcessingLogs</code>). </p>
    */
-  LogLevel?: LoggingLevel | string;
+  LogLevel?: keyof typeof LoggingLevel | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the CloudWatch Logs group where the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>) is published. For example, <code>arn:aws:logs:us-east-1:123456789012:log-group:airflow-MyMWAAEnvironment-MwaaEnvironment-DAGProcessing:*</code>.</p>
@@ -474,16 +474,16 @@ export interface LoggingConfiguration {
 /**
  * @public
  */
-export enum EnvironmentStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  UNAVAILABLE = "UNAVAILABLE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const EnvironmentStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  UNAVAILABLE: "UNAVAILABLE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -533,7 +533,7 @@ export interface Environment {
    *          </ul>
    *          <p>We recommend reviewing our troubleshooting guide for a list of common errors and their solutions. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/troubleshooting.html">Amazon MWAA troubleshooting</a>.</p>
    */
-  Status?: EnvironmentStatus | string;
+  Status?: keyof typeof EnvironmentStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon MWAA environment.</p>
@@ -643,7 +643,7 @@ export interface Environment {
   /**
    * <p>The Apache Airflow <i>Web server</i> access mode. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
    */
-  WebserverAccessMode?: WebserverAccessMode | string;
+  WebserverAccessMode?: keyof typeof WebserverAccessMode | string;
 
   /**
    * <p>The minimum number of workers that run in your environment. For example, <code>2</code>.</p>
@@ -769,35 +769,35 @@ export interface StatisticSet {
 /**
  * @public
  */
-export enum Unit {
-  BITS = "Bits",
-  BITS_PER_SECOND = "Bits/Second",
-  BYTES = "Bytes",
-  BYTES_PER_SECOND = "Bytes/Second",
-  COUNT = "Count",
-  COUNT_PER_SECOND = "Count/Second",
-  GIGABITS = "Gigabits",
-  GIGABITS_PER_SECOND = "Gigabits/Second",
-  GIGABYTES = "Gigabytes",
-  GIGABYTES_PER_SECOND = "Gigabytes/Second",
-  KILOBITS = "Kilobits",
-  KILOBITS_PER_SECOND = "Kilobits/Second",
-  KILOBYTES = "Kilobytes",
-  KILOBYTES_PER_SECOND = "Kilobytes/Second",
-  MEGABITS = "Megabits",
-  MEGABITS_PER_SECOND = "Megabits/Second",
-  MEGABYTES = "Megabytes",
-  MEGABYTES_PER_SECOND = "Megabytes/Second",
-  MICROSECONDS = "Microseconds",
-  MILLISECONDS = "Milliseconds",
-  NONE = "None",
-  PERCENT = "Percent",
-  SECONDS = "Seconds",
-  TERABITS = "Terabits",
-  TERABITS_PER_SECOND = "Terabits/Second",
-  TERABYTES = "Terabytes",
-  TERABYTES_PER_SECOND = "Terabytes/Second",
-}
+export const Unit = {
+  BITS: "Bits",
+  BITS_PER_SECOND: "Bits/Second",
+  BYTES: "Bytes",
+  BYTES_PER_SECOND: "Bytes/Second",
+  COUNT: "Count",
+  COUNT_PER_SECOND: "Count/Second",
+  GIGABITS: "Gigabits",
+  GIGABITS_PER_SECOND: "Gigabits/Second",
+  GIGABYTES: "Gigabytes",
+  GIGABYTES_PER_SECOND: "Gigabytes/Second",
+  KILOBITS: "Kilobits",
+  KILOBITS_PER_SECOND: "Kilobits/Second",
+  KILOBYTES: "Kilobytes",
+  KILOBYTES_PER_SECOND: "Kilobytes/Second",
+  MEGABITS: "Megabits",
+  MEGABITS_PER_SECOND: "Megabits/Second",
+  MEGABYTES: "Megabytes",
+  MEGABYTES_PER_SECOND: "Megabytes/Second",
+  MICROSECONDS: "Microseconds",
+  MILLISECONDS: "Milliseconds",
+  NONE: "None",
+  PERCENT: "Percent",
+  SECONDS: "Seconds",
+  TERABITS: "Terabits",
+  TERABITS_PER_SECOND: "Terabits/Second",
+  TERABYTES: "Terabytes",
+  TERABYTES_PER_SECOND: "Terabytes/Second",
+};
 
 /**
  * @public
@@ -833,7 +833,7 @@ export interface MetricDatum {
    * <p>
    *             <b>Internal only</b>. The unit used to store the metric.</p>
    */
-  Unit?: Unit | string;
+  Unit?: keyof typeof Unit | string;
 
   /**
    * <p>
@@ -998,7 +998,7 @@ export interface UpdateEnvironmentInput {
   /**
    * <p>The Apache Airflow <i>Web server</i> access mode. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache Airflow access modes</a>.</p>
    */
-  WebserverAccessMode?: WebserverAccessMode | string;
+  WebserverAccessMode?: keyof typeof WebserverAccessMode | string;
 
   /**
    * <p>The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the <code>MaxWorkers</code> field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the <code>MinWorkers</code> field. For example, <code>2</code>.</p>

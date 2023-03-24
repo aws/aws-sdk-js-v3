@@ -73,34 +73,34 @@ export class AccountStreamLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum APIName {
-  GET_CLIP = "GET_CLIP",
-  GET_DASH_STREAMING_SESSION_URL = "GET_DASH_STREAMING_SESSION_URL",
-  GET_HLS_STREAMING_SESSION_URL = "GET_HLS_STREAMING_SESSION_URL",
-  GET_IMAGES = "GET_IMAGES",
-  GET_MEDIA = "GET_MEDIA",
-  GET_MEDIA_FOR_FRAGMENT_LIST = "GET_MEDIA_FOR_FRAGMENT_LIST",
-  LIST_FRAGMENTS = "LIST_FRAGMENTS",
-  PUT_MEDIA = "PUT_MEDIA",
-}
+export const APIName = {
+  GET_CLIP: "GET_CLIP",
+  GET_DASH_STREAMING_SESSION_URL: "GET_DASH_STREAMING_SESSION_URL",
+  GET_HLS_STREAMING_SESSION_URL: "GET_HLS_STREAMING_SESSION_URL",
+  GET_IMAGES: "GET_IMAGES",
+  GET_MEDIA: "GET_MEDIA",
+  GET_MEDIA_FOR_FRAGMENT_LIST: "GET_MEDIA_FOR_FRAGMENT_LIST",
+  LIST_FRAGMENTS: "LIST_FRAGMENTS",
+  PUT_MEDIA: "PUT_MEDIA",
+};
 
 /**
  * @public
  */
-export enum Status {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const Status = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum ChannelType {
-  FULL_MESH = "FULL_MESH",
-  SINGLE_MASTER = "SINGLE_MASTER",
-}
+export const ChannelType = {
+  FULL_MESH: "FULL_MESH",
+  SINGLE_MASTER: "SINGLE_MASTER",
+};
 
 /**
  * @public
@@ -133,12 +133,12 @@ export interface ChannelInfo {
   /**
    * <p>The type of the signaling channel.</p>
    */
-  ChannelType?: ChannelType | string;
+  ChannelType?: keyof typeof ChannelType | string;
 
   /**
    * <p>Current status of the signaling channel.</p>
    */
-  ChannelStatus?: Status | string;
+  ChannelStatus?: keyof typeof Status | string;
 
   /**
    * <p>The time at which the signaling channel was created.</p>
@@ -160,9 +160,9 @@ export interface ChannelInfo {
 /**
  * @public
  */
-export enum ComparisonOperator {
-  BEGINS_WITH = "BEGINS_WITH",
-}
+export const ComparisonOperator = {
+  BEGINS_WITH: "BEGINS_WITH",
+};
 
 /**
  * @public
@@ -176,7 +176,7 @@ export interface ChannelNameCondition {
    * <p>A comparison operator. Currently, you can only specify the <code>BEGINS_WITH</code>
    *             operator, which finds signaling channels whose names begin with a given prefix.</p>
    */
-  ComparisonOperator?: ComparisonOperator | string;
+  ComparisonOperator?: keyof typeof ComparisonOperator | string;
 
   /**
    * <p>A value to compare.</p>
@@ -187,19 +187,19 @@ export interface ChannelNameCondition {
 /**
  * @public
  */
-export enum ChannelProtocol {
-  HTTPS = "HTTPS",
-  WEBRTC = "WEBRTC",
-  WSS = "WSS",
-}
+export const ChannelProtocol = {
+  HTTPS: "HTTPS",
+  WEBRTC: "WEBRTC",
+  WSS: "WSS",
+};
 
 /**
  * @public
  */
-export enum ChannelRole {
-  MASTER = "MASTER",
-  VIEWER = "VIEWER",
-}
+export const ChannelRole = {
+  MASTER: "MASTER",
+  VIEWER: "VIEWER",
+};
 
 /**
  * @public
@@ -227,10 +227,10 @@ export class ClientLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum ConfigurationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ConfigurationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -261,7 +261,7 @@ export interface CreateSignalingChannelInput {
    * <p>A type of the signaling channel that you are creating. Currently,
    *                 <code>SINGLE_MASTER</code> is the only supported channel type. </p>
    */
-  ChannelType?: ChannelType | string;
+  ChannelType?: keyof typeof ChannelType | string;
 
   /**
    * <p>A structure containing the configuration for the <code>SINGLE_MASTER</code> channel
@@ -599,10 +599,10 @@ export class NotAuthorizedException extends __BaseException {
 /**
  * @public
  */
-export enum StrategyOnFullSize {
-  DELETE_OLDEST_MEDIA = "DELETE_OLDEST_MEDIA",
-  DENY_NEW_MEDIA = "DENY_NEW_MEDIA",
-}
+export const StrategyOnFullSize = {
+  DELETE_OLDEST_MEDIA: "DELETE_OLDEST_MEDIA",
+  DENY_NEW_MEDIA: "DENY_NEW_MEDIA",
+};
 
 /**
  * @public
@@ -620,7 +620,7 @@ export interface LocalSizeConfig {
   /**
    * <p>The strategy to perform when a stream’s <code>MaxLocalMediaSizeInMB</code> limit is reached.</p>
    */
-  StrategyOnFullSize?: StrategyOnFullSize | string;
+  StrategyOnFullSize?: keyof typeof StrategyOnFullSize | string;
 }
 
 /**
@@ -671,10 +671,10 @@ export interface DescribeEdgeConfigurationInput {
 /**
  * @public
  */
-export enum MediaUriType {
-  FILE_URI = "FILE_URI",
-  RTSP_URI = "RTSP_URI",
-}
+export const MediaUriType = {
+  FILE_URI: "FILE_URI",
+  RTSP_URI: "RTSP_URI",
+};
 
 /**
  * @public
@@ -695,7 +695,7 @@ export interface MediaSourceConfig {
    *             <p>Preview only supports the <code>RTSP_URI</code> media source URI format .</p>
    *          </note>
    */
-  MediaUriType: MediaUriType | string | undefined;
+  MediaUriType: keyof typeof MediaUriType | string | undefined;
 }
 
 /**
@@ -800,14 +800,14 @@ export interface EdgeConfig {
 /**
  * @public
  */
-export enum SyncStatus {
-  ACKNOWLEDGED = "ACKNOWLEDGED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  IN_SYNC = "IN_SYNC",
-  SYNCING = "SYNCING",
-  SYNC_FAILED = "SYNC_FAILED",
-}
+export const SyncStatus = {
+  ACKNOWLEDGED: "ACKNOWLEDGED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  IN_SYNC: "IN_SYNC",
+  SYNCING: "SYNCING",
+  SYNC_FAILED: "SYNC_FAILED",
+};
 
 /**
  * @public
@@ -836,7 +836,7 @@ export interface DescribeEdgeConfigurationOutput {
   /**
    * <p>The latest status of the edge configuration update.</p>
    */
-  SyncStatus?: SyncStatus | string;
+  SyncStatus?: keyof typeof SyncStatus | string;
 
   /**
    * <p>A description of the generated failure status.</p>
@@ -908,25 +908,25 @@ export interface ImageGenerationDestinationConfig {
 /**
  * @public
  */
-export enum Format {
-  JPEG = "JPEG",
-  PNG = "PNG",
-}
+export const Format = {
+  JPEG: "JPEG",
+  PNG: "PNG",
+};
 
 /**
  * @public
  */
-export enum FormatConfigKey {
-  JPEGQuality = "JPEGQuality",
-}
+export const FormatConfigKey = {
+  JPEGQuality: "JPEGQuality",
+};
 
 /**
  * @public
  */
-export enum ImageSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export const ImageSelectorType = {
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+};
 
 /**
  * @public
@@ -936,12 +936,12 @@ export interface ImageGenerationConfiguration {
   /**
    * <p>Indicates whether the <code>ContinuousImageGenerationConfigurations</code> API is enabled or disabled.</p>
    */
-  Status: ConfigurationStatus | string | undefined;
+  Status: keyof typeof ConfigurationStatus | string | undefined;
 
   /**
    * <p>The origin of the Server or Producer timestamps to use to generate the images.</p>
    */
-  ImageSelectorType: ImageSelectorType | string | undefined;
+  ImageSelectorType: keyof typeof ImageSelectorType | string | undefined;
 
   /**
    * <p>The structure that contains the information required to deliver images to a customer.</p>
@@ -958,7 +958,7 @@ export interface ImageGenerationConfiguration {
   /**
    * <p>The accepted image format.</p>
    */
-  Format: Format | string | undefined;
+  Format: keyof typeof Format | string | undefined;
 
   /**
    * <p>The list of a key-value pair structure that contains extra parameters that can be applied when the image is generated.
@@ -1069,10 +1069,10 @@ export interface DescribeMediaStorageConfigurationInput {
 /**
  * @public
  */
-export enum MediaStorageConfigurationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const MediaStorageConfigurationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1087,7 +1087,7 @@ export interface MediaStorageConfiguration {
   /**
    * <p>The status of the media storage configuration.</p>
    */
-  Status: MediaStorageConfigurationStatus | string | undefined;
+  Status: keyof typeof MediaStorageConfigurationStatus | string | undefined;
 }
 
 /**
@@ -1134,7 +1134,7 @@ export interface NotificationConfiguration {
   /**
    * <p>Indicates if a notification configuration is enabled or disabled.</p>
    */
-  Status: ConfigurationStatus | string | undefined;
+  Status: keyof typeof ConfigurationStatus | string | undefined;
 
   /**
    * <p>The destination information required to deliver a notification to a customer.</p>
@@ -1232,7 +1232,7 @@ export interface StreamInfo {
   /**
    * <p>The status of the stream.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>A time stamp that indicates when the stream was created.</p>
@@ -1275,7 +1275,7 @@ export interface GetDataEndpointInput {
   /**
    * <p>The name of the API action for which to get an endpoint.</p>
    */
-  APIName: APIName | string | undefined;
+  APIName: keyof typeof APIName | string | undefined;
 }
 
 /**
@@ -1301,7 +1301,7 @@ export interface SingleMasterChannelEndpointConfiguration {
    *             API returns a websocket endpoint. If <code>HTTPS</code> is specified, this API returns
    *             an <code>HTTPS</code> endpoint.</p>
    */
-  Protocols?: (ChannelProtocol | string)[];
+  Protocols?: (keyof typeof ChannelProtocol | string)[];
 
   /**
    * <p>This property is used to determine messaging permissions in this
@@ -1311,7 +1311,7 @@ export interface SingleMasterChannelEndpointConfiguration {
    *             specified, this API returns an endpoint that a client can use only to send offers to
    *             another <code>MASTER</code> client on this signaling channel. </p>
    */
-  Role?: ChannelRole | string;
+  Role?: keyof typeof ChannelRole | string;
 }
 
 /**
@@ -1341,7 +1341,7 @@ export interface ResourceEndpointListItem {
    * <p>The protocol of the signaling channel returned by the
    *                 <code>GetSignalingChannelEndpoint</code> API.</p>
    */
-  Protocol?: ChannelProtocol | string;
+  Protocol?: keyof typeof ChannelProtocol | string;
 
   /**
    * <p>The endpoint of the signaling channel returned by the
@@ -1432,7 +1432,7 @@ export interface StreamNameCondition {
    * <p>A comparison operator. Currently, you can specify only the <code>BEGINS_WITH</code>
    *             operator, which finds streams whose names start with a given prefix.</p>
    */
-  ComparisonOperator?: ComparisonOperator | string;
+  ComparisonOperator?: keyof typeof ComparisonOperator | string;
 
   /**
    * <p>A value to compare.</p>
@@ -1628,7 +1628,7 @@ export interface StartEdgeConfigurationUpdateOutput {
    *             status will be set to the <code>SYNCING</code> state. Use the <code>DescribeEdgeConfiguration</code> API
    *             to get the latest status of the edge configuration.</p>
    */
-  SyncStatus?: SyncStatus | string;
+  SyncStatus?: keyof typeof SyncStatus | string;
 
   /**
    * <p>A description of the generated failure status.</p>
@@ -1742,10 +1742,10 @@ export interface UntagStreamOutput {}
 /**
  * @public
  */
-export enum UpdateDataRetentionOperation {
-  DECREASE_DATA_RETENTION = "DECREASE_DATA_RETENTION",
-  INCREASE_DATA_RETENTION = "INCREASE_DATA_RETENTION",
-}
+export const UpdateDataRetentionOperation = {
+  DECREASE_DATA_RETENTION: "DECREASE_DATA_RETENTION",
+  INCREASE_DATA_RETENTION: "INCREASE_DATA_RETENTION",
+};
 
 /**
  * @public
@@ -1772,7 +1772,7 @@ export interface UpdateDataRetentionInput {
   /**
    * <p>Indicates whether you want to increase or decrease the retention period.</p>
    */
-  Operation: UpdateDataRetentionOperation | string | undefined;
+  Operation: keyof typeof UpdateDataRetentionOperation | string | undefined;
 
   /**
    * <p>The retention period, in hours. The value you specify replaces the current value.

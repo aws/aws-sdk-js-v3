@@ -4151,7 +4151,10 @@ const serializeAws_json1_1As2ConnectorConfig = (input: As2ConnectorConfig, conte
   };
 };
 
-const serializeAws_json1_1As2Transports = (input: (As2Transport | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1As2Transports = (
+  input: (keyof typeof As2Transport | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4707,7 +4710,7 @@ const serializeAws_json1_1ProtocolDetails = (input: ProtocolDetails, context: __
   };
 };
 
-const serializeAws_json1_1Protocols = (input: (Protocol | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1Protocols = (input: (keyof typeof Protocol | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5041,7 +5044,10 @@ const deserializeAws_json1_1As2ConnectorConfig = (output: any, context: __SerdeC
   } as any;
 };
 
-const deserializeAws_json1_1As2Transports = (output: any, context: __SerdeContext): (As2Transport | string)[] => {
+const deserializeAws_json1_1As2Transports = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof As2Transport | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6031,7 +6037,7 @@ const deserializeAws_json1_1ProtocolDetails = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_json1_1Protocols = (output: any, context: __SerdeContext): (Protocol | string)[] => {
+const deserializeAws_json1_1Protocols = (output: any, context: __SerdeContext): (keyof typeof Protocol | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

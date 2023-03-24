@@ -6,11 +6,11 @@ import { ApplicationAutoScalingServiceException as __BaseException } from "./App
 /**
  * @public
  */
-export enum AdjustmentType {
-  ChangeInCapacity = "ChangeInCapacity",
-  ExactCapacity = "ExactCapacity",
-  PercentChangeInCapacity = "PercentChangeInCapacity",
-}
+export const AdjustmentType = {
+  ChangeInCapacity: "ChangeInCapacity",
+  ExactCapacity: "ExactCapacity",
+  PercentChangeInCapacity: "PercentChangeInCapacity",
+};
 
 /**
  * @public
@@ -54,48 +54,48 @@ export class ConcurrentUpdateException extends __BaseException {
 /**
  * @public
  */
-export enum ScalableDimension {
-  AppstreamFleetDesiredCapacity = "appstream:fleet:DesiredCapacity",
-  CassandraTableReadCapacityUnits = "cassandra:table:ReadCapacityUnits",
-  CassandraTableWriteCapacityUnits = "cassandra:table:WriteCapacityUnits",
-  ComprehendDocClassifierEndpointInferenceUnits = "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
-  ComprehendEntityRecognizerEndpointInferenceUnits = "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
-  CustomResourceScalableDimension = "custom-resource:ResourceType:Property",
-  DynamoDBIndexReadCapacityUnits = "dynamodb:index:ReadCapacityUnits",
-  DynamoDBIndexWriteCapacityUnits = "dynamodb:index:WriteCapacityUnits",
-  DynamoDBTableReadCapacityUnits = "dynamodb:table:ReadCapacityUnits",
-  DynamoDBTableWriteCapacityUnits = "dynamodb:table:WriteCapacityUnits",
-  EC2SpotFleetRequestTargetCapacity = "ec2:spot-fleet-request:TargetCapacity",
-  ECSServiceDesiredCount = "ecs:service:DesiredCount",
-  EMRInstanceGroupInstanceCount = "elasticmapreduce:instancegroup:InstanceCount",
-  ElastiCacheReplicationGroupNodeGroups = "elasticache:replication-group:NodeGroups",
-  ElastiCacheReplicationGroupReplicas = "elasticache:replication-group:Replicas",
-  KafkaBrokerStorageVolumeSize = "kafka:broker-storage:VolumeSize",
-  LambdaFunctionProvisionedConcurrency = "lambda:function:ProvisionedConcurrency",
-  NeptuneClusterReadReplicaCount = "neptune:cluster:ReadReplicaCount",
-  RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount",
-  SageMakerVariantDesiredInstanceCount = "sagemaker:variant:DesiredInstanceCount",
-}
+export const ScalableDimension = {
+  AppstreamFleetDesiredCapacity: "appstream:fleet:DesiredCapacity",
+  CassandraTableReadCapacityUnits: "cassandra:table:ReadCapacityUnits",
+  CassandraTableWriteCapacityUnits: "cassandra:table:WriteCapacityUnits",
+  ComprehendDocClassifierEndpointInferenceUnits: "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
+  ComprehendEntityRecognizerEndpointInferenceUnits: "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
+  CustomResourceScalableDimension: "custom-resource:ResourceType:Property",
+  DynamoDBIndexReadCapacityUnits: "dynamodb:index:ReadCapacityUnits",
+  DynamoDBIndexWriteCapacityUnits: "dynamodb:index:WriteCapacityUnits",
+  DynamoDBTableReadCapacityUnits: "dynamodb:table:ReadCapacityUnits",
+  DynamoDBTableWriteCapacityUnits: "dynamodb:table:WriteCapacityUnits",
+  EC2SpotFleetRequestTargetCapacity: "ec2:spot-fleet-request:TargetCapacity",
+  ECSServiceDesiredCount: "ecs:service:DesiredCount",
+  EMRInstanceGroupInstanceCount: "elasticmapreduce:instancegroup:InstanceCount",
+  ElastiCacheReplicationGroupNodeGroups: "elasticache:replication-group:NodeGroups",
+  ElastiCacheReplicationGroupReplicas: "elasticache:replication-group:Replicas",
+  KafkaBrokerStorageVolumeSize: "kafka:broker-storage:VolumeSize",
+  LambdaFunctionProvisionedConcurrency: "lambda:function:ProvisionedConcurrency",
+  NeptuneClusterReadReplicaCount: "neptune:cluster:ReadReplicaCount",
+  RDSClusterReadReplicaCount: "rds:cluster:ReadReplicaCount",
+  SageMakerVariantDesiredInstanceCount: "sagemaker:variant:DesiredInstanceCount",
+};
 
 /**
  * @public
  */
-export enum ServiceNamespace {
-  APPSTREAM = "appstream",
-  CASSANDRA = "cassandra",
-  COMPREHEND = "comprehend",
-  CUSTOM_RESOURCE = "custom-resource",
-  DYNAMODB = "dynamodb",
-  EC2 = "ec2",
-  ECS = "ecs",
-  ELASTICACHE = "elasticache",
-  EMR = "elasticmapreduce",
-  KAFKA = "kafka",
-  LAMBDA = "lambda",
-  NEPTUNE = "neptune",
-  RDS = "rds",
-  SAGEMAKER = "sagemaker",
-}
+export const ServiceNamespace = {
+  APPSTREAM: "appstream",
+  CASSANDRA: "cassandra",
+  COMPREHEND: "comprehend",
+  CUSTOM_RESOURCE: "custom-resource",
+  DYNAMODB: "dynamodb",
+  EC2: "ec2",
+  ECS: "ecs",
+  ELASTICACHE: "elasticache",
+  EMR: "elasticmapreduce",
+  KAFKA: "kafka",
+  LAMBDA: "lambda",
+  NEPTUNE: "neptune",
+  RDS: "rds",
+  SAGEMAKER: "sagemaker",
+};
 
 /**
  * @public
@@ -110,7 +110,7 @@ export interface DeleteScalingPolicyRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The identifier of the resource associated with the scalable target.
@@ -267,7 +267,7 @@ export interface DeleteScalingPolicyRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: keyof typeof ScalableDimension | string | undefined;
 }
 
 /**
@@ -354,7 +354,7 @@ export interface DeleteScheduledActionRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The name of the scheduled action.</p>
@@ -516,7 +516,7 @@ export interface DeleteScheduledActionRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: keyof typeof ScalableDimension | string | undefined;
 }
 
 /**
@@ -532,7 +532,7 @@ export interface DeregisterScalableTargetRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The identifier of the resource associated with the scalable target.
@@ -690,7 +690,7 @@ export interface DeregisterScalableTargetRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: keyof typeof ScalableDimension | string | undefined;
 }
 
 /**
@@ -706,7 +706,7 @@ export interface DescribeScalableTargetsRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The identifier of the resource associated with the scalable target.
@@ -864,7 +864,7 @@ export interface DescribeScalableTargetsRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: keyof typeof ScalableDimension | string;
 
   /**
    * <p>The maximum number of scalable targets. This value can be between 1 and
@@ -920,7 +920,7 @@ export interface ScalableTarget {
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The identifier of the resource associated with the scalable target.
@@ -1078,7 +1078,7 @@ export interface ScalableTarget {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: keyof typeof ScalableDimension | string | undefined;
 
   /**
    * <p>The minimum value to scale to in response to a scale-in activity.</p>
@@ -1159,7 +1159,7 @@ export interface DescribeScalingActivitiesRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The identifier of the resource associated with the scaling activity.
@@ -1317,7 +1317,7 @@ export interface DescribeScalingActivitiesRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: keyof typeof ScalableDimension | string;
 
   /**
    * <p>The maximum number of scalable targets. This value can be between 1 and
@@ -1393,14 +1393,14 @@ export interface NotScaledReason {
 /**
  * @public
  */
-export enum ScalingActivityStatusCode {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Overridden = "Overridden",
-  Pending = "Pending",
-  Successful = "Successful",
-  Unfulfilled = "Unfulfilled",
-}
+export const ScalingActivityStatusCode = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Overridden: "Overridden",
+  Pending: "Pending",
+  Successful: "Successful",
+  Unfulfilled: "Unfulfilled",
+};
 
 /**
  * @public
@@ -1416,7 +1416,7 @@ export interface ScalingActivity {
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The identifier of the resource associated with the scaling activity.
@@ -1573,7 +1573,7 @@ export interface ScalingActivity {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: keyof typeof ScalableDimension | string | undefined;
 
   /**
    * <p>A simple description of what action the scaling activity intends to accomplish.</p>
@@ -1598,7 +1598,7 @@ export interface ScalingActivity {
   /**
    * <p>Indicates the status of the scaling activity.</p>
    */
-  StatusCode: ScalingActivityStatusCode | string | undefined;
+  StatusCode: keyof typeof ScalingActivityStatusCode | string | undefined;
 
   /**
    * <p>A simple message about the current status of the scaling activity.</p>
@@ -1646,7 +1646,7 @@ export interface DescribeScalingPoliciesRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The identifier of the resource associated with the scaling policy.
@@ -1804,7 +1804,7 @@ export interface DescribeScalingPoliciesRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: keyof typeof ScalableDimension | string;
 
   /**
    * <p>The maximum number of scalable targets. This value can be between 1 and 10. The default
@@ -1826,19 +1826,19 @@ export interface DescribeScalingPoliciesRequest {
 /**
  * @public
  */
-export enum PolicyType {
-  StepScaling = "StepScaling",
-  TargetTrackingScaling = "TargetTrackingScaling",
-}
+export const PolicyType = {
+  StepScaling: "StepScaling",
+  TargetTrackingScaling: "TargetTrackingScaling",
+};
 
 /**
  * @public
  */
-export enum MetricAggregationType {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-}
+export const MetricAggregationType = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+};
 
 /**
  * @public
@@ -1920,7 +1920,7 @@ export interface StepScalingPolicyConfiguration {
    *             <code>AdjustmentType</code> is required if you are adding a new step scaling policy
    *          configuration.</p>
    */
-  AdjustmentType?: AdjustmentType | string;
+  AdjustmentType?: keyof typeof AdjustmentType | string;
 
   /**
    * <p>A set of adjustments that enable you to scale based on the size of the alarm
@@ -2012,7 +2012,7 @@ export interface StepScalingPolicyConfiguration {
    *             <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the
    *          value is treated as <code>Average</code>.</p>
    */
-  MetricAggregationType?: MetricAggregationType | string;
+  MetricAggregationType?: keyof typeof MetricAggregationType | string;
 }
 
 /**
@@ -2165,13 +2165,13 @@ export interface TargetTrackingMetricDataQuery {
 /**
  * @public
  */
-export enum MetricStatistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
-}
+export const MetricStatistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+};
 
 /**
  * @public
@@ -2220,7 +2220,7 @@ export interface CustomizedMetricSpecification {
   /**
    * <p>The statistic of the metric.</p>
    */
-  Statistic?: MetricStatistic | string;
+  Statistic?: keyof typeof MetricStatistic | string;
 
   /**
    * <p>The unit of the metric. For a complete list of the units that CloudWatch supports, see the
@@ -2239,29 +2239,29 @@ export interface CustomizedMetricSpecification {
 /**
  * @public
  */
-export enum MetricType {
-  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
-  AppStreamAverageCapacityUtilization = "AppStreamAverageCapacityUtilization",
-  CassandraReadCapacityUtilization = "CassandraReadCapacityUtilization",
-  CassandraWriteCapacityUtilization = "CassandraWriteCapacityUtilization",
-  ComprehendInferenceUtilization = "ComprehendInferenceUtilization",
-  DynamoDBReadCapacityUtilization = "DynamoDBReadCapacityUtilization",
-  DynamoDBWriteCapacityUtilization = "DynamoDBWriteCapacityUtilization",
-  EC2SpotFleetRequestAverageCPUUtilization = "EC2SpotFleetRequestAverageCPUUtilization",
-  EC2SpotFleetRequestAverageNetworkIn = "EC2SpotFleetRequestAverageNetworkIn",
-  EC2SpotFleetRequestAverageNetworkOut = "EC2SpotFleetRequestAverageNetworkOut",
-  ECSServiceAverageCPUUtilization = "ECSServiceAverageCPUUtilization",
-  ECSServiceAverageMemoryUtilization = "ECSServiceAverageMemoryUtilization",
-  ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage = "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage",
-  ElastiCachePrimaryEngineCPUUtilization = "ElastiCachePrimaryEngineCPUUtilization",
-  ElastiCacheReplicaEngineCPUUtilization = "ElastiCacheReplicaEngineCPUUtilization",
-  KafkaBrokerStorageUtilization = "KafkaBrokerStorageUtilization",
-  LambdaProvisionedConcurrencyUtilization = "LambdaProvisionedConcurrencyUtilization",
-  NeptuneReaderAverageCPUUtilization = "NeptuneReaderAverageCPUUtilization",
-  RDSReaderAverageCPUUtilization = "RDSReaderAverageCPUUtilization",
-  RDSReaderAverageDatabaseConnections = "RDSReaderAverageDatabaseConnections",
-  SageMakerVariantInvocationsPerInstance = "SageMakerVariantInvocationsPerInstance",
-}
+export const MetricType = {
+  ALBRequestCountPerTarget: "ALBRequestCountPerTarget",
+  AppStreamAverageCapacityUtilization: "AppStreamAverageCapacityUtilization",
+  CassandraReadCapacityUtilization: "CassandraReadCapacityUtilization",
+  CassandraWriteCapacityUtilization: "CassandraWriteCapacityUtilization",
+  ComprehendInferenceUtilization: "ComprehendInferenceUtilization",
+  DynamoDBReadCapacityUtilization: "DynamoDBReadCapacityUtilization",
+  DynamoDBWriteCapacityUtilization: "DynamoDBWriteCapacityUtilization",
+  EC2SpotFleetRequestAverageCPUUtilization: "EC2SpotFleetRequestAverageCPUUtilization",
+  EC2SpotFleetRequestAverageNetworkIn: "EC2SpotFleetRequestAverageNetworkIn",
+  EC2SpotFleetRequestAverageNetworkOut: "EC2SpotFleetRequestAverageNetworkOut",
+  ECSServiceAverageCPUUtilization: "ECSServiceAverageCPUUtilization",
+  ECSServiceAverageMemoryUtilization: "ECSServiceAverageMemoryUtilization",
+  ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage: "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage",
+  ElastiCachePrimaryEngineCPUUtilization: "ElastiCachePrimaryEngineCPUUtilization",
+  ElastiCacheReplicaEngineCPUUtilization: "ElastiCacheReplicaEngineCPUUtilization",
+  KafkaBrokerStorageUtilization: "KafkaBrokerStorageUtilization",
+  LambdaProvisionedConcurrencyUtilization: "LambdaProvisionedConcurrencyUtilization",
+  NeptuneReaderAverageCPUUtilization: "NeptuneReaderAverageCPUUtilization",
+  RDSReaderAverageCPUUtilization: "RDSReaderAverageCPUUtilization",
+  RDSReaderAverageDatabaseConnections: "RDSReaderAverageDatabaseConnections",
+  SageMakerVariantInvocationsPerInstance: "SageMakerVariantInvocationsPerInstance",
+};
 
 /**
  * @public
@@ -2277,7 +2277,7 @@ export interface PredefinedMetricSpecification {
    * <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
    *          Spot Fleets and ECS services.</p>
    */
-  PredefinedMetricType: MetricType | string | undefined;
+  PredefinedMetricType: keyof typeof MetricType | string | undefined;
 
   /**
    * <p>Identifies the resource associated with the metric type. You can't specify a resource
@@ -2485,7 +2485,7 @@ export interface ScalingPolicy {
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The identifier of the resource associated with the scaling policy.
@@ -2642,7 +2642,7 @@ export interface ScalingPolicy {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: keyof typeof ScalableDimension | string | undefined;
 
   /**
    * <p>The scaling policy type.</p>
@@ -2653,7 +2653,7 @@ export interface ScalingPolicy {
    *             <code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or
    *       Neptune.</p>
    */
-  PolicyType: PolicyType | string | undefined;
+  PolicyType: keyof typeof PolicyType | string | undefined;
 
   /**
    * <p>A step scaling policy.</p>
@@ -2730,7 +2730,7 @@ export interface DescribeScheduledActionsRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The identifier of the resource associated with the scheduled action.
@@ -2888,7 +2888,7 @@ export interface DescribeScheduledActionsRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: keyof typeof ScalableDimension | string;
 
   /**
    * <p>The maximum number of scheduled action results. This value can be between
@@ -2951,7 +2951,7 @@ export interface ScheduledAction {
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The schedule for this action. The following formats are supported:</p>
@@ -3140,7 +3140,7 @@ export interface ScheduledAction {
    *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: keyof typeof ScalableDimension | string;
 
   /**
    * <p>The date and time that the action is scheduled to begin, in UTC.</p>
@@ -3270,7 +3270,7 @@ export interface PutScalingPolicyRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The identifier of the resource associated with the scaling policy.
@@ -3427,7 +3427,7 @@ export interface PutScalingPolicyRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: keyof typeof ScalableDimension | string | undefined;
 
   /**
    * <p>The scaling policy type. This parameter is required if you are creating a scaling
@@ -3441,7 +3441,7 @@ export interface PutScalingPolicyRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
    *         tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
-  PolicyType?: PolicyType | string;
+  PolicyType?: keyof typeof PolicyType | string;
 
   /**
    * <p>A step scaling policy.</p>
@@ -3482,7 +3482,7 @@ export interface PutScheduledActionRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The schedule for this action. The following formats are supported:</p>
@@ -3679,7 +3679,7 @@ export interface PutScheduledActionRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: keyof typeof ScalableDimension | string | undefined;
 
   /**
    * <p>The date and time for this scheduled action to start, in UTC.</p>
@@ -3713,7 +3713,7 @@ export interface RegisterScalableTargetRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The identifier of the resource that is associated with the scalable target.
@@ -3871,7 +3871,7 @@ export interface RegisterScalableTargetRequest {
    *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: keyof typeof ScalableDimension | string | undefined;
 
   /**
    * <p>The minimum value that you plan to scale in to. When a scaling policy is in effect,

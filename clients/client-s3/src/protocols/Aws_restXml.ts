@@ -8194,7 +8194,7 @@ const serializeAws_restXmlEventBridgeConfiguration = (
   return bodyNode;
 };
 
-const serializeAws_restXmlEventList = (input: (Event | string)[], context: __SerdeContext): any => {
+const serializeAws_restXmlEventList = (input: (keyof typeof Event | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8471,7 +8471,7 @@ const serializeAws_restXmlInventoryFilter = (input: InventoryFilter, context: __
 };
 
 const serializeAws_restXmlInventoryOptionalFields = (
-  input: (InventoryOptionalField | string)[],
+  input: (keyof typeof InventoryOptionalField | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -9979,7 +9979,7 @@ const deserializeAws_restXmlChecksum = (output: any, context: __SerdeContext): C
 const deserializeAws_restXmlChecksumAlgorithmList = (
   output: any,
   context: __SerdeContext
-): (ChecksumAlgorithm | string)[] => {
+): (keyof typeof ChecksumAlgorithm | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -10283,7 +10283,7 @@ const deserializeAws_restXmlEventBridgeConfiguration = (
   return contents;
 };
 
-const deserializeAws_restXmlEventList = (output: any, context: __SerdeContext): (Event | string)[] => {
+const deserializeAws_restXmlEventList = (output: any, context: __SerdeContext): (keyof typeof Event | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -10556,7 +10556,7 @@ const deserializeAws_restXmlInventoryFilter = (output: any, context: __SerdeCont
 const deserializeAws_restXmlInventoryOptionalFields = (
   output: any,
   context: __SerdeContext
-): (InventoryOptionalField | string)[] => {
+): (keyof typeof InventoryOptionalField | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

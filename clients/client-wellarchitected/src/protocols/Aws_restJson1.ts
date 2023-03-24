@@ -3973,13 +3973,16 @@ const serializeAws_restJson1WorkloadPillarPriorities = (input: string[], context
 };
 
 const deserializeAws_restJson1AccountSummary = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [CheckStatus | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, number>, [key, value]: [keyof typeof CheckStatus | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectInt32(value) as any;
       return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1AdditionalResources = (output: any, context: __SerdeContext): AdditionalResources => {
@@ -4499,13 +4502,16 @@ const deserializeAws_restJson1QuestionDifferences = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1RiskCounts = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [Risk | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, number>, [key, value]: [keyof typeof Risk | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectInt32(value) as any;
       return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1SelectedChoices = (output: any, context: __SerdeContext): string[] => {

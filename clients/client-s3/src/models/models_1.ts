@@ -27,7 +27,7 @@ export interface PutObjectRetentionOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 }
 
 /**
@@ -60,7 +60,7 @@ export interface PutObjectRetentionRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The version ID for the object that you want to apply this Object Retention configuration
@@ -88,7 +88,7 @@ export interface PutObjectRetentionRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -145,7 +145,7 @@ export interface PutObjectTaggingRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>Container for the <code>TagSet</code> and <code>Tag</code> elements</p>
@@ -163,7 +163,7 @@ export interface PutObjectTaggingRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 }
 
 /**
@@ -193,7 +193,7 @@ export interface PutPublicAccessBlockRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
@@ -236,7 +236,7 @@ export interface RestoreObjectOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 
   /**
    * <p>Indicates the path in the provided S3 output location where Select results will be
@@ -248,11 +248,11 @@ export interface RestoreObjectOutput {
 /**
  * @public
  */
-export enum Tier {
-  Bulk = "Bulk",
-  Expedited = "Expedited",
-  Standard = "Standard",
-}
+export const Tier = {
+  Bulk: "Bulk",
+  Expedited: "Expedited",
+  Standard: "Standard",
+};
 
 /**
  * @public
@@ -262,7 +262,7 @@ export interface GlacierJobParameters {
   /**
    * <p>Retrieval tier at which the restore will be processed.</p>
    */
-  Tier: Tier | string | undefined;
+  Tier: keyof typeof Tier | string | undefined;
 }
 
 /**
@@ -274,7 +274,7 @@ export interface Encryption {
    * <p>The server-side encryption algorithm used when storing job results in Amazon S3 (for example,
    *          AES256, aws:kms).</p>
    */
-  EncryptionType: ServerSideEncryption | string | undefined;
+  EncryptionType: keyof typeof ServerSideEncryption | string | undefined;
 
   /**
    * <p>If the encryption type is <code>aws:kms</code>, this optional value specifies the ID of
@@ -331,7 +331,7 @@ export interface S3Location {
   /**
    * <p>The canned ACL to apply to the restore results.</p>
    */
-  CannedACL?: ObjectCannedACL | string;
+  CannedACL?: keyof typeof ObjectCannedACL | string;
 
   /**
    * <p>A list of grants that control access to the staged results.</p>
@@ -351,7 +351,7 @@ export interface S3Location {
   /**
    * <p>The class of storage used to store the restore results.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 }
 
 /**
@@ -368,27 +368,27 @@ export interface OutputLocation {
 /**
  * @public
  */
-export enum ExpressionType {
-  SQL = "SQL",
-}
+export const ExpressionType = {
+  SQL: "SQL",
+};
 
 /**
  * @public
  */
-export enum CompressionType {
-  BZIP2 = "BZIP2",
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
+export const CompressionType = {
+  BZIP2: "BZIP2",
+  GZIP: "GZIP",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum FileHeaderInfo {
-  IGNORE = "IGNORE",
-  NONE = "NONE",
-  USE = "USE",
-}
+export const FileHeaderInfo = {
+  IGNORE: "IGNORE",
+  NONE: "NONE",
+  USE: "USE",
+};
 
 /**
  * @public
@@ -416,7 +416,7 @@ export interface CSVInput {
    *             </li>
    *          </ul>
    */
-  FileHeaderInfo?: FileHeaderInfo | string;
+  FileHeaderInfo?: keyof typeof FileHeaderInfo | string;
 
   /**
    * <p>A single character used to indicate that a row should be ignored when the character is
@@ -467,10 +467,10 @@ export interface CSVInput {
 /**
  * @public
  */
-export enum JSONType {
-  DOCUMENT = "DOCUMENT",
-  LINES = "LINES",
-}
+export const JSONType = {
+  DOCUMENT: "DOCUMENT",
+  LINES: "LINES",
+};
 
 /**
  * @public
@@ -480,7 +480,7 @@ export interface JSONInput {
   /**
    * <p>The type of JSON. Valid values: Document, Lines.</p>
    */
-  Type?: JSONType | string;
+  Type?: keyof typeof JSONType | string;
 }
 
 /**
@@ -503,7 +503,7 @@ export interface InputSerialization {
    * <p>Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value:
    *          NONE.</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: keyof typeof CompressionType | string;
 
   /**
    * <p>Specifies JSON as object's input serialization format.</p>
@@ -519,10 +519,10 @@ export interface InputSerialization {
 /**
  * @public
  */
-export enum QuoteFields {
-  ALWAYS = "ALWAYS",
-  ASNEEDED = "ASNEEDED",
-}
+export const QuoteFields = {
+  ALWAYS: "ALWAYS",
+  ASNEEDED: "ASNEEDED",
+};
 
 /**
  * @public
@@ -543,7 +543,7 @@ export interface CSVOutput {
    *             </li>
    *          </ul>
    */
-  QuoteFields?: QuoteFields | string;
+  QuoteFields?: keyof typeof QuoteFields | string;
 
   /**
    * <p>The single character used for escaping the quote character inside an already escaped
@@ -612,7 +612,7 @@ export interface SelectParameters {
   /**
    * <p>The type of the provided expression (for example, SQL).</p>
    */
-  ExpressionType: ExpressionType | string | undefined;
+  ExpressionType: keyof typeof ExpressionType | string | undefined;
 
   /**
    * <p>The expression that is used to query the object.</p>
@@ -628,9 +628,9 @@ export interface SelectParameters {
 /**
  * @public
  */
-export enum RestoreRequestType {
-  SELECT = "SELECT",
-}
+export const RestoreRequestType = {
+  SELECT: "SELECT",
+};
 
 /**
  * @public
@@ -654,12 +654,12 @@ export interface RestoreRequest {
   /**
    * <p>Type of restore request.</p>
    */
-  Type?: RestoreRequestType | string;
+  Type?: keyof typeof RestoreRequestType | string;
 
   /**
    * <p>Retrieval tier at which the restore will be processed.</p>
    */
-  Tier?: Tier | string;
+  Tier?: keyof typeof Tier | string;
 
   /**
    * <p>The optional description for the job.</p>
@@ -712,7 +712,7 @@ export interface RestoreObjectRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any
@@ -723,7 +723,7 @@ export interface RestoreObjectRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -1029,7 +1029,7 @@ export interface SelectObjectContentRequest {
   /**
    * <p>The type of the provided expression (for example, SQL).</p>
    */
-  ExpressionType: ExpressionType | string | undefined;
+  ExpressionType: keyof typeof ExpressionType | string | undefined;
 
   /**
    * <p>Specifies if periodic request progress information should be enabled.</p>
@@ -1088,7 +1088,7 @@ export interface UploadPartOutput {
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
    *          AES256, aws:kms).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: keyof typeof ServerSideEncryption | string;
 
   /**
    * <p>Entity tag for the uploaded object.</p>
@@ -1155,7 +1155,7 @@ export interface UploadPartOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 }
 
 /**
@@ -1201,7 +1201,7 @@ export interface UploadPartRequest {
    *          <p>This checksum algorithm must be the same for all parts and it match the checksum
    *             value supplied in the <code>CreateMultipartUpload</code> request.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
@@ -1279,7 +1279,7 @@ export interface UploadPartRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -1354,7 +1354,7 @@ export interface UploadPartCopyOutput {
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
    *          AES256, aws:kms).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: keyof typeof ServerSideEncryption | string;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -1384,7 +1384,7 @@ export interface UploadPartCopyOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 }
 
 /**
@@ -1520,7 +1520,7 @@ export interface UploadPartCopyRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -1793,12 +1793,12 @@ export interface WriteGetObjectResponseRequest {
    * <p>Indicates whether an object stored in Amazon S3 has Object Lock enabled. For more
    *           information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Object Lock</a>.</p>
    */
-  ObjectLockMode?: ObjectLockMode | string;
+  ObjectLockMode?: keyof typeof ObjectLockMode | string;
 
   /**
    * <p>Indicates whether an object stored in Amazon S3 has an active legal hold.</p>
    */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
+  ObjectLockLegalHoldStatus?: keyof typeof ObjectLockLegalHoldStatus | string;
 
   /**
    * <p>The date and time when Object Lock is configured to expire.</p>
@@ -1814,13 +1814,13 @@ export interface WriteGetObjectResponseRequest {
    * <p>Indicates if request involves bucket that is either a source or destination in a Replication rule. For more
    *           information about S3 Replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication</a>.</p>
    */
-  ReplicationStatus?: ReplicationStatus | string;
+  ReplicationStatus?: keyof typeof ReplicationStatus | string;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 
   /**
    * <p>Provides information about object restoration operation and expiration time of the
@@ -1831,7 +1831,7 @@ export interface WriteGetObjectResponseRequest {
   /**
    * <p> The server-side encryption algorithm used when storing requested object in Amazon S3 (for example, AES256, aws:kms).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: keyof typeof ServerSideEncryption | string;
 
   /**
    * <p>Encryption algorithm used if server-side encryption with a customer-provided encryption key was specified for object stored in Amazon S3.</p>
@@ -1857,7 +1857,7 @@ export interface WriteGetObjectResponseRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
    *             Classes</a>.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 
   /**
    * <p>The number of tags, if any, on the object.</p>

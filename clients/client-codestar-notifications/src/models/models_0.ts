@@ -74,18 +74,18 @@ export class ConfigurationException extends __BaseException {
 /**
  * @public
  */
-export enum DetailType {
-  BASIC = "BASIC",
-  FULL = "FULL",
-}
+export const DetailType = {
+  BASIC: "BASIC",
+  FULL: "FULL",
+};
 
 /**
  * @public
  */
-export enum NotificationRuleStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const NotificationRuleStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -143,7 +143,7 @@ export interface CreateNotificationRuleRequest {
    *         contents of the event as it would appear in Amazon CloudWatch. <code>FULL</code> will include any supplemental information
    *         provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    */
-  DetailType: DetailType | string | undefined;
+  DetailType: keyof typeof DetailType | string | undefined;
 
   /**
    * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
@@ -166,7 +166,7 @@ export interface CreateNotificationRuleRequest {
    * <p>The status of the notification rule. The default value is <code>ENABLED</code>. If the status is
    *             set to <code>DISABLED</code>, notifications aren't sent for the notification rule.</p>
    */
-  Status?: NotificationRuleStatus | string;
+  Status?: keyof typeof NotificationRuleStatus | string;
 }
 
 /**
@@ -331,13 +331,13 @@ export interface EventTypeSummary {
 /**
  * @public
  */
-export enum TargetStatus {
-  ACTIVE = "ACTIVE",
-  DEACTIVATED = "DEACTIVATED",
-  INACTIVE = "INACTIVE",
-  PENDING = "PENDING",
-  UNREACHABLE = "UNREACHABLE",
-}
+export const TargetStatus = {
+  ACTIVE: "ACTIVE",
+  DEACTIVATED: "DEACTIVATED",
+  INACTIVE: "INACTIVE",
+  PENDING: "PENDING",
+  UNREACHABLE: "UNREACHABLE",
+};
 
 /**
  * @public
@@ -365,7 +365,7 @@ export interface TargetSummary {
   /**
    * <p>The status of the target.</p>
    */
-  TargetStatus?: TargetStatus | string;
+  TargetStatus?: keyof typeof TargetStatus | string;
 }
 
 /**
@@ -403,7 +403,7 @@ export interface DescribeNotificationRuleResult {
    *             contents of the event as it would appear in Amazon CloudWatch. FULL will include any supplemental information
    *             provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    */
-  DetailType?: DetailType | string;
+  DetailType?: keyof typeof DetailType | string;
 
   /**
    * <p>The name or email alias of the person who created the notification rule.</p>
@@ -414,7 +414,7 @@ export interface DescribeNotificationRuleResult {
    * <p>The status of the notification rule. Valid statuses are on (sending notifications) or off
    *       (not sending notifications).</p>
    */
-  Status?: NotificationRuleStatus | string;
+  Status?: keyof typeof NotificationRuleStatus | string;
 
   /**
    * <p>The date and time the notification rule was created, in timestamp format.</p>
@@ -480,10 +480,10 @@ export class InvalidNextTokenException extends __BaseException {
 /**
  * @public
  */
-export enum ListEventTypesFilterName {
-  RESOURCE_TYPE = "RESOURCE_TYPE",
-  SERVICE_NAME = "SERVICE_NAME",
-}
+export const ListEventTypesFilterName = {
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+  SERVICE_NAME: "SERVICE_NAME",
+};
 
 /**
  * @public
@@ -494,7 +494,7 @@ export interface ListEventTypesFilter {
   /**
    * <p>The system-generated name of the filter type you want to filter by.</p>
    */
-  Name: ListEventTypesFilterName | string | undefined;
+  Name: keyof typeof ListEventTypesFilterName | string | undefined;
 
   /**
    * <p>The name of the resource type (for example, pipeline) or service name (for example,
@@ -544,12 +544,12 @@ export interface ListEventTypesResult {
 /**
  * @public
  */
-export enum ListNotificationRulesFilterName {
-  CREATED_BY = "CREATED_BY",
-  EVENT_TYPE_ID = "EVENT_TYPE_ID",
-  RESOURCE = "RESOURCE",
-  TARGET_ADDRESS = "TARGET_ADDRESS",
-}
+export const ListNotificationRulesFilterName = {
+  CREATED_BY: "CREATED_BY",
+  EVENT_TYPE_ID: "EVENT_TYPE_ID",
+  RESOURCE: "RESOURCE",
+  TARGET_ADDRESS: "TARGET_ADDRESS",
+};
 
 /**
  * @public
@@ -560,7 +560,7 @@ export interface ListNotificationRulesFilter {
   /**
    * <p>The name of the attribute you want to use to filter the returned notification rules.</p>
    */
-  Name: ListNotificationRulesFilterName | string | undefined;
+  Name: keyof typeof ListNotificationRulesFilterName | string | undefined;
 
   /**
    * <p>The value of the attribute you want to use to filter the returned notification rules. For example, if you specify filtering by <i>RESOURCE</i>
@@ -649,11 +649,11 @@ export interface ListTagsForResourceResult {
 /**
  * @public
  */
-export enum ListTargetsFilterName {
-  TARGET_ADDRESS = "TARGET_ADDRESS",
-  TARGET_STATUS = "TARGET_STATUS",
-  TARGET_TYPE = "TARGET_TYPE",
-}
+export const ListTargetsFilterName = {
+  TARGET_ADDRESS: "TARGET_ADDRESS",
+  TARGET_STATUS: "TARGET_STATUS",
+  TARGET_TYPE: "TARGET_TYPE",
+};
 
 /**
  * @public
@@ -667,7 +667,7 @@ export interface ListTargetsFilter {
   /**
    * <p>The name of the attribute you want to use to filter the returned targets.</p>
    */
-  Name: ListTargetsFilterName | string | undefined;
+  Name: keyof typeof ListTargetsFilterName | string | undefined;
 
   /**
    * <p>The value of the attribute you want to use to filter the returned targets. For example,
@@ -839,7 +839,7 @@ export interface UpdateNotificationRuleRequest {
    * <p>The status of the notification rule. Valid statuses include enabled (sending notifications) or
    *       disabled (not sending notifications).</p>
    */
-  Status?: NotificationRuleStatus | string;
+  Status?: keyof typeof NotificationRuleStatus | string;
 
   /**
    * <p>A list of event types associated with this notification rule. For a complete list of event types and IDs, see
@@ -859,7 +859,7 @@ export interface UpdateNotificationRuleRequest {
    *             contents of the event as it would appear in Amazon CloudWatch. FULL will include any supplemental information
    *             provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    */
-  DetailType?: DetailType | string;
+  DetailType?: keyof typeof DetailType | string;
 }
 
 /**

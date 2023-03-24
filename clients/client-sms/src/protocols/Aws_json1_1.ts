@@ -3485,7 +3485,7 @@ const deserializeAws_json1_1Connector = (output: any, context: __SerdeContext): 
 const deserializeAws_json1_1ConnectorCapabilityList = (
   output: any,
   context: __SerdeContext
-): (ConnectorCapability | string)[] => {
+): (keyof typeof ConnectorCapability | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

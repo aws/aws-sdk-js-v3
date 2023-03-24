@@ -2196,7 +2196,10 @@ const serializeAws_restJson1Channels = (input: Channel[], context: __SerdeContex
     });
 };
 
-const serializeAws_restJson1EventPublishers = (input: (EventPublisher | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1EventPublishers = (
+  input: (keyof typeof EventPublisher | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2223,13 +2226,16 @@ const serializeAws_restJson1FrameMetrics = (input: FrameMetric[], context: __Ser
 };
 
 const serializeAws_restJson1Metadata = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [MetadataField | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof MetadataField | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = value;
       return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1Principals = (input: string[], context: __SerdeContext): any => {
@@ -2280,7 +2286,7 @@ const deserializeAws_restJson1AgentOrchestrationConfig = (
 
 const deserializeAws_restJson1AgentParameters = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [AgentParameterField | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [keyof typeof AgentParameterField | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2365,7 +2371,10 @@ const deserializeAws_restJson1Channels = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_restJson1EventPublishers = (output: any, context: __SerdeContext): (EventPublisher | string)[] => {
+const deserializeAws_restJson1EventPublishers = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof EventPublisher | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

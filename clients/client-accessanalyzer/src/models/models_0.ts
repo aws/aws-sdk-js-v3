@@ -248,12 +248,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+};
 
 /**
  * @public
@@ -265,7 +265,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason for the exception.</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: keyof typeof ValidationExceptionReason | string | undefined;
 
   /**
    * <p>A list of fields that didn't validate.</p>
@@ -462,7 +462,7 @@ export interface CreateAnalyzerRequest {
    *          You can create only one analyzer per account per Region. You can create up to 5 analyzers
    *          per organization per Region.</p>
    */
-  type: Type | string | undefined;
+  type: keyof typeof Type | string | undefined;
 
   /**
    * <p>Specifies the archive rules to add for the analyzer. Archive rules automatically archive
@@ -544,7 +544,7 @@ export interface StatusReason {
   /**
    * <p>The reason code for the current status of the analyzer.</p>
    */
-  code: ReasonCode | string | undefined;
+  code: keyof typeof ReasonCode | string | undefined;
 }
 
 /**
@@ -566,7 +566,7 @@ export interface AnalyzerSummary {
    * <p>The type of analyzer, which corresponds to the zone of trust chosen for the
    *          analyzer.</p>
    */
-  type: Type | string | undefined;
+  type: keyof typeof Type | string | undefined;
 
   /**
    * <p>A timestamp for the time at which the analyzer was created.</p>
@@ -596,7 +596,7 @@ export interface AnalyzerSummary {
    *          analyzer creation is in progress and <code>Failed</code> when the analyzer creation has
    *          failed. </p>
    */
-  status: AnalyzerStatus | string | undefined;
+  status: keyof typeof AnalyzerStatus | string | undefined;
 
   /**
    * <p>The <code>statusReason</code> provides more details about the current status of the
@@ -638,7 +638,7 @@ export interface ListAnalyzersRequest {
   /**
    * <p>The type of analyzer.</p>
    */
-  type?: Type | string;
+  type?: keyof typeof Type | string;
 }
 
 /**
@@ -872,22 +872,22 @@ export interface KmsGrantConstraints {
 /**
  * @public
  */
-export enum KmsGrantOperation {
-  CREATE_GRANT = "CreateGrant",
-  DECRYPT = "Decrypt",
-  DESCRIBE_KEY = "DescribeKey",
-  ENCRYPT = "Encrypt",
-  GENERATE_DATA_KEY = "GenerateDataKey",
-  GENERATE_DATA_KEY_PAIR = "GenerateDataKeyPair",
-  GENERATE_DATA_KEY_PAIR_WITHOUT_PLAINTEXT = "GenerateDataKeyPairWithoutPlaintext",
-  GENERATE_DATA_KEY_WITHOUT_PLAINTEXT = "GenerateDataKeyWithoutPlaintext",
-  GET_PUBLIC_KEY = "GetPublicKey",
-  REENCRYPT_FROM = "ReEncryptFrom",
-  REENCRYPT_TO = "ReEncryptTo",
-  RETIRE_GRANT = "RetireGrant",
-  SIGN = "Sign",
-  VERIFY = "Verify",
-}
+export const KmsGrantOperation = {
+  CREATE_GRANT: "CreateGrant",
+  DECRYPT: "Decrypt",
+  DESCRIBE_KEY: "DescribeKey",
+  ENCRYPT: "Encrypt",
+  GENERATE_DATA_KEY: "GenerateDataKey",
+  GENERATE_DATA_KEY_PAIR: "GenerateDataKeyPair",
+  GENERATE_DATA_KEY_PAIR_WITHOUT_PLAINTEXT: "GenerateDataKeyPairWithoutPlaintext",
+  GENERATE_DATA_KEY_WITHOUT_PLAINTEXT: "GenerateDataKeyWithoutPlaintext",
+  GET_PUBLIC_KEY: "GetPublicKey",
+  REENCRYPT_FROM: "ReEncryptFrom",
+  REENCRYPT_TO: "ReEncryptTo",
+  RETIRE_GRANT: "RetireGrant",
+  SIGN: "Sign",
+  VERIFY: "Verify",
+};
 
 /**
  * @public
@@ -897,7 +897,7 @@ export interface KmsGrantConfiguration {
   /**
    * <p>A list of operations that the grant permits.</p>
    */
-  operations: (KmsGrantOperation | string)[] | undefined;
+  operations: (keyof typeof KmsGrantOperation | string)[] | undefined;
 
   /**
    * <p>The principal that is given permission to perform the operations that the grant
@@ -1327,13 +1327,13 @@ export namespace AclGrantee {
 /**
  * @public
  */
-export enum AclPermission {
-  FULL_CONTROL = "FULL_CONTROL",
-  READ = "READ",
-  READ_ACP = "READ_ACP",
-  WRITE = "WRITE",
-  WRITE_ACP = "WRITE_ACP",
-}
+export const AclPermission = {
+  FULL_CONTROL: "FULL_CONTROL",
+  READ: "READ",
+  READ_ACP: "READ_ACP",
+  WRITE: "WRITE",
+  WRITE_ACP: "WRITE_ACP",
+};
 
 /**
  * @public
@@ -1345,7 +1345,7 @@ export interface S3BucketAclGrantConfiguration {
   /**
    * <p>The permissions being granted.</p>
    */
-  permission: AclPermission | string | undefined;
+  permission: keyof typeof AclPermission | string | undefined;
 
   /**
    * <p>The grantee to whom you’re assigning access rights.</p>
@@ -1780,19 +1780,19 @@ export interface GetAccessPreviewRequest {
 /**
  * @public
  */
-export enum AccessPreviewStatus {
-  COMPLETED = "COMPLETED",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-}
+export const AccessPreviewStatus = {
+  COMPLETED: "COMPLETED",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
  */
-export enum AccessPreviewStatusReasonCode {
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_CONFIGURATION = "INVALID_CONFIGURATION",
-}
+export const AccessPreviewStatusReasonCode = {
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_CONFIGURATION: "INVALID_CONFIGURATION",
+};
 
 /**
  * @public
@@ -1805,7 +1805,7 @@ export interface AccessPreviewStatusReason {
   /**
    * <p>The reason code for the current status of the access preview.</p>
    */
-  code: AccessPreviewStatusReasonCode | string | undefined;
+  code: keyof typeof AccessPreviewStatusReasonCode | string | undefined;
 }
 
 /**
@@ -1851,7 +1851,7 @@ export interface AccessPreview {
    *             </li>
    *          </ul>
    */
-  status: AccessPreviewStatus | string | undefined;
+  status: keyof typeof AccessPreviewStatus | string | undefined;
 
   /**
    * <p>Provides more details about the current status of the access preview.</p>
@@ -1925,7 +1925,7 @@ export interface AnalyzedResource {
   /**
    * <p>The type of the resource that was analyzed.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>The time at which the finding was created.</p>
@@ -1963,7 +1963,7 @@ export interface AnalyzedResource {
   /**
    * <p>The current status of the finding generated from the analyzed resource.</p>
    */
-  status?: FindingStatus | string;
+  status?: keyof typeof FindingStatus | string;
 
   /**
    * <p>The Amazon Web Services account ID that owns the resource.</p>
@@ -2037,7 +2037,7 @@ export interface FindingSource {
   /**
    * <p>Indicates the type of access that generated the finding.</p>
    */
-  type: FindingSourceType | string | undefined;
+  type: keyof typeof FindingSourceType | string | undefined;
 
   /**
    * <p>Includes details about how the access that generated the finding is granted. This is
@@ -2081,7 +2081,7 @@ export interface Finding {
   /**
    * <p>The type of the resource identified in the finding.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>The condition in the analyzed policy statement that resulted in a finding.</p>
@@ -2106,7 +2106,7 @@ export interface Finding {
   /**
    * <p>The current status of the finding.</p>
    */
-  status: FindingStatus | string | undefined;
+  status: keyof typeof FindingStatus | string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID that owns the resource.</p>
@@ -2271,12 +2271,12 @@ export interface GeneratedPolicyResult {
 /**
  * @public
  */
-export enum JobErrorCode {
-  AUTHORIZATION_ERROR = "AUTHORIZATION_ERROR",
-  RESOURCE_NOT_FOUND_ERROR = "RESOURCE_NOT_FOUND_ERROR",
-  SERVICE_ERROR = "SERVICE_ERROR",
-  SERVICE_QUOTA_EXCEEDED_ERROR = "SERVICE_QUOTA_EXCEEDED_ERROR",
-}
+export const JobErrorCode = {
+  AUTHORIZATION_ERROR: "AUTHORIZATION_ERROR",
+  RESOURCE_NOT_FOUND_ERROR: "RESOURCE_NOT_FOUND_ERROR",
+  SERVICE_ERROR: "SERVICE_ERROR",
+  SERVICE_QUOTA_EXCEEDED_ERROR: "SERVICE_QUOTA_EXCEEDED_ERROR",
+};
 
 /**
  * @public
@@ -2286,7 +2286,7 @@ export interface JobError {
   /**
    * <p>The job error code.</p>
    */
-  code: JobErrorCode | string | undefined;
+  code: keyof typeof JobErrorCode | string | undefined;
 
   /**
    * <p>Specific information about the error. For example, which service quota was exceeded or
@@ -2298,12 +2298,12 @@ export interface JobError {
 /**
  * @public
  */
-export enum JobStatus {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const JobStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2321,7 +2321,7 @@ export interface JobDetails {
   /**
    * <p>The status of the job request.</p>
    */
-  status: JobStatus | string | undefined;
+  status: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p>A timestamp of when the job was started.</p>
@@ -2390,11 +2390,11 @@ export interface ListAccessPreviewFindingsRequest {
 /**
  * @public
  */
-export enum FindingChangeType {
-  CHANGED = "CHANGED",
-  NEW = "NEW",
-  UNCHANGED = "UNCHANGED",
-}
+export const FindingChangeType = {
+  CHANGED: "CHANGED",
+  NEW: "NEW",
+  UNCHANGED: "UNCHANGED",
+};
 
 /**
  * @public
@@ -2417,7 +2417,7 @@ export interface AccessPreviewFinding {
   /**
    * <p>The existing status of the finding, provided only for existing findings.</p>
    */
-  existingFindingStatus?: FindingStatus | string;
+  existingFindingStatus?: keyof typeof FindingStatus | string;
 
   /**
    * <p>The external principal that has access to a resource within the zone of trust.</p>
@@ -2450,7 +2450,7 @@ export interface AccessPreviewFinding {
   /**
    * <p>The type of the resource that can be accessed in the finding.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>The time at which the access preview finding was created.</p>
@@ -2480,7 +2480,7 @@ export interface AccessPreviewFinding {
    *          and existing status <code>Active</code> indicates the existing <code>Active</code> finding
    *          would become <code>Resolved</code> as a result of the proposed permissions change.</p>
    */
-  changeType: FindingChangeType | string | undefined;
+  changeType: keyof typeof FindingChangeType | string | undefined;
 
   /**
    * <p>The preview status of the finding. This is what the status of the finding would be after
@@ -2489,7 +2489,7 @@ export interface AccessPreviewFinding {
    *             <code>Active</code> finding would become <code>Resolved</code> as a result of the
    *          proposed permissions change.</p>
    */
-  status: FindingStatus | string | undefined;
+  status: keyof typeof FindingStatus | string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID that owns the resource. For most Amazon Web Services resources, the owning
@@ -2583,7 +2583,7 @@ export interface AccessPreviewSummary {
    *             </li>
    *          </ul>
    */
-  status: AccessPreviewStatus | string | undefined;
+  status: keyof typeof AccessPreviewStatus | string | undefined;
 
   /**
    * <p>Provides more details about the current status of the access preview. For example, if
@@ -2623,7 +2623,7 @@ export interface ListAnalyzedResourcesRequest {
   /**
    * <p>The type of resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>A token used for pagination of results returned.</p>
@@ -2654,7 +2654,7 @@ export interface AnalyzedResourceSummary {
   /**
    * <p>The type of resource that was analyzed.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 }
 
 /**
@@ -2691,7 +2691,7 @@ export interface SortCriteria {
   /**
    * <p>The sort order, ascending or descending.</p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: keyof typeof OrderBy | string;
 }
 
 /**
@@ -2761,7 +2761,7 @@ export interface FindingSummary {
   /**
    * <p>The type of the resource that the external principal has access to.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>The condition in the analyzed policy statement that resulted in a finding.</p>
@@ -2787,7 +2787,7 @@ export interface FindingSummary {
   /**
    * <p>The status of the finding.</p>
    */
-  status: FindingStatus | string | undefined;
+  status: keyof typeof FindingStatus | string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID that owns the resource.</p>
@@ -2866,7 +2866,7 @@ export interface PolicyGeneration {
   /**
    * <p>The status of the policy generation request.</p>
    */
-  status: JobStatus | string | undefined;
+  status: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p>A timestamp of when the policy generation started.</p>
@@ -3113,7 +3113,7 @@ export interface UpdateFindingsRequest {
    *             <code>ARCHIVE</code> to change an Active finding to an Archived finding. Use
    *             <code>ACTIVE</code> to change an Archived finding to an Active finding.</p>
    */
-  status: FindingStatusUpdate | string | undefined;
+  status: keyof typeof FindingStatusUpdate | string | undefined;
 
   /**
    * <p>The IDs of the findings to update.</p>
@@ -3134,38 +3134,38 @@ export interface UpdateFindingsRequest {
 /**
  * @public
  */
-export enum Locale {
-  DE = "DE",
-  EN = "EN",
-  ES = "ES",
-  FR = "FR",
-  IT = "IT",
-  JA = "JA",
-  KO = "KO",
-  PT_BR = "PT_BR",
-  ZH_CN = "ZH_CN",
-  ZH_TW = "ZH_TW",
-}
+export const Locale = {
+  DE: "DE",
+  EN: "EN",
+  ES: "ES",
+  FR: "FR",
+  IT: "IT",
+  JA: "JA",
+  KO: "KO",
+  PT_BR: "PT_BR",
+  ZH_CN: "ZH_CN",
+  ZH_TW: "ZH_TW",
+};
 
 /**
  * @public
  */
-export enum PolicyType {
-  IDENTITY_POLICY = "IDENTITY_POLICY",
-  RESOURCE_POLICY = "RESOURCE_POLICY",
-  SERVICE_CONTROL_POLICY = "SERVICE_CONTROL_POLICY",
-}
+export const PolicyType = {
+  IDENTITY_POLICY: "IDENTITY_POLICY",
+  RESOURCE_POLICY: "RESOURCE_POLICY",
+  SERVICE_CONTROL_POLICY: "SERVICE_CONTROL_POLICY",
+};
 
 /**
  * @public
  */
-export enum ValidatePolicyResourceType {
-  ROLE_TRUST = "AWS::IAM::AssumeRolePolicyDocument",
-  S3_ACCESS_POINT = "AWS::S3::AccessPoint",
-  S3_BUCKET = "AWS::S3::Bucket",
-  S3_MULTI_REGION_ACCESS_POINT = "AWS::S3::MultiRegionAccessPoint",
-  S3_OBJECT_LAMBDA_ACCESS_POINT = "AWS::S3ObjectLambda::AccessPoint",
-}
+export const ValidatePolicyResourceType = {
+  ROLE_TRUST: "AWS::IAM::AssumeRolePolicyDocument",
+  S3_ACCESS_POINT: "AWS::S3::AccessPoint",
+  S3_BUCKET: "AWS::S3::Bucket",
+  S3_MULTI_REGION_ACCESS_POINT: "AWS::S3::MultiRegionAccessPoint",
+  S3_OBJECT_LAMBDA_ACCESS_POINT: "AWS::S3ObjectLambda::AccessPoint",
+};
 
 /**
  * @public
@@ -3174,7 +3174,7 @@ export interface ValidatePolicyRequest {
   /**
    * <p>The locale to use for localizing the findings.</p>
    */
-  locale?: Locale | string;
+  locale?: keyof typeof Locale | string;
 
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -3201,7 +3201,7 @@ export interface ValidatePolicyRequest {
    *          input such as identity policy or resource policy or a specific input such as managed policy
    *          or Amazon S3 bucket policy. </p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: keyof typeof PolicyType | string | undefined;
 
   /**
    * <p>The type of resource to attach to your resource policy. Specify a value for the policy
@@ -3213,18 +3213,18 @@ export interface ValidatePolicyRequest {
    *          KMS key, do not specify a value for the policy validation resource type and IAM Access Analyzer
    *          will run policy checks that apply to all resource policies.</p>
    */
-  validatePolicyResourceType?: ValidatePolicyResourceType | string;
+  validatePolicyResourceType?: keyof typeof ValidatePolicyResourceType | string;
 }
 
 /**
  * @public
  */
-export enum ValidatePolicyFindingType {
-  ERROR = "ERROR",
-  SECURITY_WARNING = "SECURITY_WARNING",
-  SUGGESTION = "SUGGESTION",
-  WARNING = "WARNING",
-}
+export const ValidatePolicyFindingType = {
+  ERROR: "ERROR",
+  SECURITY_WARNING: "SECURITY_WARNING",
+  SUGGESTION: "SUGGESTION",
+  WARNING: "WARNING",
+};
 
 /**
  * @public
@@ -3403,7 +3403,7 @@ export interface ValidatePolicyFinding {
    *          <p>Suggestions recommend stylistic improvements in the policy that do not impact
    *          access.</p>
    */
-  findingType: ValidatePolicyFindingType | string | undefined;
+  findingType: keyof typeof ValidatePolicyFindingType | string | undefined;
 
   /**
    * <p>The issue code provides an identifier of the issue associated with this finding.</p>

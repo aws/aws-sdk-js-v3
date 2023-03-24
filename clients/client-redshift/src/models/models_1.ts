@@ -118,10 +118,10 @@ export interface DescribeLoggingStatusMessage {
 /**
  * @public
  */
-export enum LogDestinationType {
-  CLOUDWATCH = "cloudwatch",
-  S3 = "s3",
-}
+export const LogDestinationType = {
+  CLOUDWATCH: "cloudwatch",
+  S3: "s3",
+};
 
 /**
  * @public
@@ -162,7 +162,7 @@ export interface LoggingStatus {
   /**
    * <p>The log destination type. An enum with possible values of <code>s3</code> and <code>cloudwatch</code>.</p>
    */
-  LogDestinationType?: LogDestinationType | string;
+  LogDestinationType?: keyof typeof LogDestinationType | string;
 
   /**
    * <p>The collection of exported log types. Possible values are <code>connectionlog</code>, <code>useractivitylog</code>, and
@@ -174,25 +174,25 @@ export interface LoggingStatus {
 /**
  * @public
  */
-export enum NodeConfigurationOptionsFilterName {
-  ESTIMATED_DISK_UTILIZATION_PERCENT = "EstimatedDiskUtilizationPercent",
-  MODE = "Mode",
-  NODE_TYPE = "NodeType",
-  NUM_NODES = "NumberOfNodes",
-}
+export const NodeConfigurationOptionsFilterName = {
+  ESTIMATED_DISK_UTILIZATION_PERCENT: "EstimatedDiskUtilizationPercent",
+  MODE: "Mode",
+  NODE_TYPE: "NodeType",
+  NUM_NODES: "NumberOfNodes",
+};
 
 /**
  * @public
  */
-export enum OperatorType {
-  BETWEEN = "between",
-  EQ = "eq",
-  GE = "ge",
-  GT = "gt",
-  IN = "in",
-  LE = "le",
-  LT = "lt",
-}
+export const OperatorType = {
+  BETWEEN: "between",
+  EQ: "eq",
+  GE: "ge",
+  GT: "gt",
+  IN: "in",
+  LE: "le",
+  LT: "lt",
+};
 
 /**
  * @public
@@ -202,7 +202,7 @@ export interface NodeConfigurationOptionsFilter {
   /**
    * <p>The name of the element to filter.</p>
    */
-  Name?: NodeConfigurationOptionsFilterName | string;
+  Name?: keyof typeof NodeConfigurationOptionsFilterName | string;
 
   /**
    * <p>The filter operator.
@@ -211,7 +211,7 @@ export interface NodeConfigurationOptionsFilter {
    *             Provide two values to evaluate for 'between'.
    *             Provide a list of values for 'in'.</p>
    */
-  Operator?: OperatorType | string;
+  Operator?: keyof typeof OperatorType | string;
 
   /**
    * <p>List of values. Compare Name using Operator to Values.
@@ -233,7 +233,7 @@ export interface DescribeNodeConfigurationOptionsMessage {
    *             Specify "resize-cluster" to get configuration combinations for elastic resize based on an existing cluster.
    *         </p>
    */
-  ActionType: ActionType | string | undefined;
+  ActionType: keyof typeof ActionType | string | undefined;
 
   /**
    * <p>The identifier of the cluster to evaluate for possible node configurations.</p>
@@ -287,10 +287,10 @@ export interface DescribeNodeConfigurationOptionsMessage {
 /**
  * @public
  */
-export enum Mode {
-  HIGH_PERFORMANCE = "high-performance",
-  STANDARD = "standard",
-}
+export const Mode = {
+  HIGH_PERFORMANCE: "high-performance",
+  STANDARD: "standard",
+};
 
 /**
  * @public
@@ -315,7 +315,7 @@ export interface NodeConfigurationOption {
   /**
    * <p>The category of the node configuration recommendation.</p>
    */
-  Mode?: Mode | string;
+  Mode?: keyof typeof Mode | string;
 }
 
 /**
@@ -454,12 +454,12 @@ export interface DescribePartnersInputMessage {
 /**
  * @public
  */
-export enum PartnerIntegrationStatus {
-  Active = "Active",
-  ConnectionFailure = "ConnectionFailure",
-  Inactive = "Inactive",
-  RuntimeFailure = "RuntimeFailure",
-}
+export const PartnerIntegrationStatus = {
+  Active: "Active",
+  ConnectionFailure: "ConnectionFailure",
+  Inactive: "Inactive",
+  RuntimeFailure: "RuntimeFailure",
+};
 
 /**
  * @public
@@ -479,7 +479,7 @@ export interface PartnerIntegrationInfo {
   /**
    * <p>The partner integration status.</p>
    */
-  Status?: PartnerIntegrationStatus | string;
+  Status?: keyof typeof PartnerIntegrationStatus | string;
 
   /**
    * <p>The status message provided by the partner.</p>
@@ -660,7 +660,7 @@ export interface ReservedNodeOffering {
   /**
    * <p></p>
    */
-  ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
+  ReservedNodeOfferingType?: keyof typeof ReservedNodeOfferingType | string;
 }
 
 /**
@@ -752,10 +752,10 @@ export interface DescribeResizeMessage {
 /**
  * @public
  */
-export enum ScheduledActionFilterName {
-  CLUSTER_IDENTIFIER = "cluster-identifier",
-  IAM_ROLE = "iam-role",
-}
+export const ScheduledActionFilterName = {
+  CLUSTER_IDENTIFIER: "cluster-identifier",
+  IAM_ROLE: "iam-role",
+};
 
 /**
  * @public
@@ -765,7 +765,7 @@ export interface ScheduledActionFilter {
   /**
    * <p>The type of element to filter. </p>
    */
-  Name: ScheduledActionFilterName | string | undefined;
+  Name: keyof typeof ScheduledActionFilterName | string | undefined;
 
   /**
    * <p>List of values. Compare if the value (of type defined by <code>Name</code>) equals an item in the list of scheduled actions. </p>
@@ -776,11 +776,11 @@ export interface ScheduledActionFilter {
 /**
  * @public
  */
-export enum ScheduledActionTypeValues {
-  PAUSE_CLUSTER = "PauseCluster",
-  RESIZE_CLUSTER = "ResizeCluster",
-  RESUME_CLUSTER = "ResumeCluster",
-}
+export const ScheduledActionTypeValues = {
+  PAUSE_CLUSTER: "PauseCluster",
+  RESIZE_CLUSTER: "ResizeCluster",
+  RESUME_CLUSTER: "ResumeCluster",
+};
 
 /**
  * @public
@@ -794,7 +794,7 @@ export interface DescribeScheduledActionsMessage {
   /**
    * <p>The type of the scheduled actions to retrieve. </p>
    */
-  TargetActionType?: ScheduledActionTypeValues | string;
+  TargetActionType?: keyof typeof ScheduledActionTypeValues | string;
 
   /**
    * <p>The start time in UTC of the scheduled actions to retrieve.
@@ -1054,13 +1054,13 @@ export class TableRestoreNotFoundFault extends __BaseException {
 /**
  * @public
  */
-export enum TableRestoreStatusType {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const TableRestoreStatusType = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1079,7 +1079,7 @@ export interface TableRestoreStatus {
    *                 <code>PENDING</code>, <code>IN_PROGRESS</code>
    *          </p>
    */
-  Status?: TableRestoreStatusType | string;
+  Status?: keyof typeof TableRestoreStatusType | string;
 
   /**
    * <p>A description of the status of the table restore request. Status values include
@@ -1341,7 +1341,7 @@ export interface DescribeUsageLimitsMessage {
   /**
    * <p>The feature type for which you want to describe usage limits.</p>
    */
-  FeatureType?: UsageLimitFeatureType | string;
+  FeatureType?: keyof typeof UsageLimitFeatureType | string;
 
   /**
    * <p>The maximum number of response records to return in each call. If the number of
@@ -1550,7 +1550,7 @@ export interface EnableLoggingMessage {
   /**
    * <p>The log destination type. An enum with possible values of <code>s3</code> and <code>cloudwatch</code>.</p>
    */
-  LogDestinationType?: LogDestinationType | string;
+  LogDestinationType?: keyof typeof LogDestinationType | string;
 
   /**
    * <p>The collection of exported log types. Possible values are <code>connectionlog</code>, <code>useractivitylog</code>, and <code>userlog</code>.</p>
@@ -1898,10 +1898,10 @@ export interface GetClusterCredentialsWithIAMMessage {
 /**
  * @public
  */
-export enum ReservedNodeExchangeActionType {
-  RESIZE_CLUSTER = "resize-cluster",
-  RESTORE_CLUSTER = "restore-cluster",
-}
+export const ReservedNodeExchangeActionType = {
+  RESIZE_CLUSTER: "resize-cluster",
+  RESTORE_CLUSTER: "restore-cluster",
+};
 
 /**
  * @public
@@ -1910,7 +1910,7 @@ export interface GetReservedNodeExchangeConfigurationOptionsInputMessage {
   /**
    * <p>The action type of the reserved-node configuration. The action type can be an exchange initiated from either a snapshot or a resize.</p>
    */
-  ActionType: ReservedNodeExchangeActionType | string | undefined;
+  ActionType: keyof typeof ReservedNodeExchangeActionType | string | undefined;
 
   /**
    * <p>The identifier for the cluster that is the source for a reserved-node exchange.</p>
@@ -2100,7 +2100,7 @@ export interface ModifyAquaInputMessage {
   /**
    * <p>This parameter is retired. Amazon Redshift automatically  determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
-  AquaConfigurationStatus?: AquaConfigurationStatus | string;
+  AquaConfigurationStatus?: keyof typeof AquaConfigurationStatus | string;
 }
 
 /**
@@ -2974,7 +2974,7 @@ export interface ModifyUsageLimitMessage {
    * <p>The new action that Amazon Redshift takes when the limit is reached.
    *             For more information about this parameter, see <a>UsageLimit</a>. </p>
    */
-  BreachAction?: UsageLimitBreachAction | string;
+  BreachAction?: keyof typeof UsageLimitBreachAction | string;
 }
 
 /**
@@ -3360,7 +3360,7 @@ export interface RestoreFromClusterSnapshotMessage {
   /**
    * <p>This parameter is retired. It does not set the AQUA configuration status. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
-  AquaConfigurationStatus?: AquaConfigurationStatus | string;
+  AquaConfigurationStatus?: keyof typeof AquaConfigurationStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was last modified while it was restored from a snapshot.</p>
@@ -3635,7 +3635,7 @@ export interface UpdatePartnerStatusInputMessage {
   /**
    * <p>The value of the updated status.</p>
    */
-  Status: PartnerIntegrationStatus | string | undefined;
+  Status: keyof typeof PartnerIntegrationStatus | string | undefined;
 
   /**
    * <p>The status message provided by the partner.</p>

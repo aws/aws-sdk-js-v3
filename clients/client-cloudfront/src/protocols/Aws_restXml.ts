@@ -12180,7 +12180,7 @@ const serializeAws_restXmlAccessControlAllowHeadersList = (input: string[], cont
 };
 
 const serializeAws_restXmlAccessControlAllowMethodsList = (
-  input: (ResponseHeadersPolicyAccessControlAllowMethodsValues | string)[],
+  input: (keyof typeof ResponseHeadersPolicyAccessControlAllowMethodsValues | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -13335,7 +13335,7 @@ const serializeAws_restXmlLoggingConfig = (input: LoggingConfig, context: __Serd
   return bodyNode;
 };
 
-const serializeAws_restXmlMethodsList = (input: (Method | string)[], context: __SerdeContext): any => {
+const serializeAws_restXmlMethodsList = (input: (keyof typeof Method | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -14384,7 +14384,10 @@ const serializeAws_restXmlSessionStickinessConfig = (input: SessionStickinessCon
   return bodyNode;
 };
 
-const serializeAws_restXmlSslProtocolsList = (input: (SslProtocol | string)[], context: __SerdeContext): any => {
+const serializeAws_restXmlSslProtocolsList = (
+  input: (keyof typeof SslProtocol | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -14700,7 +14703,7 @@ const deserializeAws_restXmlAccessControlAllowHeadersList = (output: any, contex
 const deserializeAws_restXmlAccessControlAllowMethodsList = (
   output: any,
   context: __SerdeContext
-): (ResponseHeadersPolicyAccessControlAllowMethodsValues | string)[] => {
+): (keyof typeof ResponseHeadersPolicyAccessControlAllowMethodsValues | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -16528,7 +16531,7 @@ const deserializeAws_restXmlLoggingConfig = (output: any, context: __SerdeContex
   return contents;
 };
 
-const deserializeAws_restXmlMethodsList = (output: any, context: __SerdeContext): (Method | string)[] => {
+const deserializeAws_restXmlMethodsList = (output: any, context: __SerdeContext): (keyof typeof Method | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -17792,7 +17795,10 @@ const deserializeAws_restXmlSignerList = (output: any, context: __SerdeContext):
     });
 };
 
-const deserializeAws_restXmlSslProtocolsList = (output: any, context: __SerdeContext): (SslProtocol | string)[] => {
+const deserializeAws_restXmlSslProtocolsList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof SslProtocol | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -2503,13 +2503,16 @@ const deserializeAws_restJson1LineItemListDefinition = (output: any, context: __
 };
 
 const deserializeAws_restJson1LineItemStatusCounts = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [LineItemStatus | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, number>, [key, value]: [keyof typeof LineItemStatus | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectInt32(value) as any;
       return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1MacAddressList = (output: any, context: __SerdeContext): string[] => {
@@ -2665,7 +2668,7 @@ const deserializeAws_restJson1siteListDefinition = (output: any, context: __Serd
 const deserializeAws_restJson1SupportedStorageList = (
   output: any,
   context: __SerdeContext
-): (SupportedStorageEnum | string)[] => {
+): (keyof typeof SupportedStorageEnum | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

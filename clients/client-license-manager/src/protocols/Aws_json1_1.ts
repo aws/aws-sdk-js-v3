@@ -4077,7 +4077,7 @@ const serializeAws_json1_1AcceptGrantRequest = (input: AcceptGrantRequest, conte
 };
 
 const serializeAws_json1_1AllowedOperationList = (
-  input: (AllowedOperation | string)[],
+  input: (keyof typeof AllowedOperation | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4842,7 +4842,10 @@ const serializeAws_json1_1ReportFrequency = (input: ReportFrequency, context: __
   };
 };
 
-const serializeAws_json1_1ReportTypeList = (input: (ReportType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1ReportTypeList = (
+  input: (keyof typeof ReportType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4989,7 +4992,7 @@ const deserializeAws_json1_1AccessDeniedException = (output: any, context: __Ser
 const deserializeAws_json1_1AllowedOperationList = (
   output: any,
   context: __SerdeContext
-): (AllowedOperation | string)[] => {
+): (keyof typeof AllowedOperation | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6228,7 +6231,10 @@ const deserializeAws_json1_1ReportGeneratorList = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_json1_1ReportTypeList = (output: any, context: __SerdeContext): (ReportType | string)[] => {
+const deserializeAws_json1_1ReportTypeList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof ReportType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

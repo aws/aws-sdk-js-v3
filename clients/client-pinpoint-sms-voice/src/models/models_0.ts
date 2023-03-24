@@ -176,15 +176,15 @@ export interface KinesisFirehoseDestination {
 /**
  * @public
  */
-export enum EventType {
-  ANSWERED = "ANSWERED",
-  BUSY = "BUSY",
-  COMPLETED_CALL = "COMPLETED_CALL",
-  FAILED = "FAILED",
-  INITIATED_CALL = "INITIATED_CALL",
-  NO_ANSWER = "NO_ANSWER",
-  RINGING = "RINGING",
-}
+export const EventType = {
+  ANSWERED: "ANSWERED",
+  BUSY: "BUSY",
+  COMPLETED_CALL: "COMPLETED_CALL",
+  FAILED: "FAILED",
+  INITIATED_CALL: "INITIATED_CALL",
+  NO_ANSWER: "NO_ANSWER",
+  RINGING: "RINGING",
+};
 
 /**
  * @public
@@ -220,7 +220,7 @@ export interface EventDestinationDefinition {
   /**
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
    */
-  MatchingEventTypes?: (EventType | string)[];
+  MatchingEventTypes?: (keyof typeof EventType | string)[];
 
   /**
    * An object that contains information about an event destination that sends data to Amazon SNS.
@@ -337,7 +337,7 @@ export interface EventDestination {
   /**
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
    */
-  MatchingEventTypes?: (EventType | string)[];
+  MatchingEventTypes?: (keyof typeof EventType | string)[];
 
   /**
    * A name that identifies the event destination configuration.

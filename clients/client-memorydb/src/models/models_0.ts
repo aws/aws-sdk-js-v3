@@ -162,10 +162,10 @@ export interface BatchUpdateClusterRequest {
 /**
  * @public
  */
-export enum AZStatus {
-  MultiAZ = "multiaz",
-  SingleAZ = "singleaz",
-}
+export const AZStatus = {
+  MultiAZ: "multiaz",
+  SingleAZ: "singleaz",
+};
 
 /**
  * @public
@@ -186,10 +186,10 @@ export interface Endpoint {
 /**
  * @public
  */
-export enum DataTieringStatus {
-  FALSE = "false",
-  TRUE = "true",
-}
+export const DataTieringStatus = {
+  FALSE: "false",
+  TRUE: "true",
+};
 
 /**
  * @public
@@ -216,12 +216,12 @@ export interface ReshardingStatus {
 /**
  * @public
  */
-export enum ServiceUpdateStatus {
-  COMPLETE = "complete",
-  IN_PROGRESS = "in-progress",
-  NOT_APPLIED = "available",
-  SCHEDULED = "scheduled",
-}
+export const ServiceUpdateStatus = {
+  COMPLETE: "complete",
+  IN_PROGRESS: "in-progress",
+  NOT_APPLIED: "available",
+  SCHEDULED: "scheduled",
+};
 
 /**
  * @public
@@ -236,7 +236,7 @@ export interface PendingModifiedServiceUpdate {
   /**
    * <p>The status of the service update</p>
    */
-  Status?: ServiceUpdateStatus | string;
+  Status?: keyof typeof ServiceUpdateStatus | string;
 }
 
 /**
@@ -376,7 +376,7 @@ export interface Cluster {
   /**
    * <p>Indicates if the cluster has a Multi-AZ configuration (multiaz) or not (singleaz).</p>
    */
-  AvailabilityMode?: AZStatus | string;
+  AvailabilityMode?: keyof typeof AZStatus | string;
 
   /**
    * <p>The cluster's configuration endpoint</p>
@@ -476,7 +476,7 @@ export interface Cluster {
    * <p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
    *             This parameter must be set when using r6gd nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html">Data tiering</a>.</p>
    */
-  DataTiering?: DataTieringStatus | string;
+  DataTiering?: keyof typeof DataTieringStatus | string;
 }
 
 /**
@@ -767,7 +767,7 @@ export interface Snapshot {
    * <p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
    *             This parameter must be set when using r6gd nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html">Data tiering</a>.</p>
    */
-  DataTiering?: DataTieringStatus | string;
+  DataTiering?: keyof typeof DataTieringStatus | string;
 }
 
 /**
@@ -1802,9 +1802,9 @@ export class SubnetQuotaExceededFault extends __BaseException {
 /**
  * @public
  */
-export enum InputAuthenticationType {
-  PASSWORD = "password",
-}
+export const InputAuthenticationType = {
+  PASSWORD: "password",
+};
 
 /**
  * @public
@@ -1814,7 +1814,7 @@ export interface AuthenticationMode {
   /**
    * <p>Indicates whether the user requires a password to authenticate. All newly-created users require a password.</p>
    */
-  Type?: InputAuthenticationType | string;
+  Type?: keyof typeof InputAuthenticationType | string;
 
   /**
    * <p>The password(s) used for authentication</p>
@@ -1850,10 +1850,10 @@ export interface CreateUserRequest {
 /**
  * @public
  */
-export enum AuthenticationType {
-  NO_PASSWORD = "no-password",
-  PASSWORD = "password",
-}
+export const AuthenticationType = {
+  NO_PASSWORD: "no-password",
+  PASSWORD: "password",
+};
 
 /**
  * @public
@@ -1863,7 +1863,7 @@ export interface Authentication {
   /**
    * <p>Indicates whether the user requires a password to authenticate.</p>
    */
-  Type?: AuthenticationType | string;
+  Type?: keyof typeof AuthenticationType | string;
 
   /**
    * <p>The number of passwords belonging to the user. The maximum is two.</p>
@@ -2273,14 +2273,14 @@ export interface DescribeEngineVersionsResponse {
 /**
  * @public
  */
-export enum SourceType {
-  acl = "acl",
-  cluster = "cluster",
-  node = "node",
-  parameter_group = "parameter-group",
-  subnet_group = "subnet-group",
-  user = "user",
-}
+export const SourceType = {
+  acl: "acl",
+  cluster: "cluster",
+  node: "node",
+  parameter_group: "parameter-group",
+  subnet_group: "subnet-group",
+  user: "user",
+};
 
 /**
  * @public
@@ -2294,7 +2294,7 @@ export interface DescribeEventsRequest {
   /**
    * <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 
   /**
    * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
@@ -2340,7 +2340,7 @@ export interface Event {
   /**
    * <p>Specifies the origin of this event - a cluster, a parameter group, a security group, etc.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 
   /**
    * <p>The text of the event.</p>
@@ -2753,7 +2753,7 @@ export interface DescribeServiceUpdatesRequest {
   /**
    * <p>The status(es) of the service updates to filter on</p>
    */
-  Status?: (ServiceUpdateStatus | string)[];
+  Status?: (keyof typeof ServiceUpdateStatus | string)[];
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
@@ -2769,9 +2769,9 @@ export interface DescribeServiceUpdatesRequest {
 /**
  * @public
  */
-export enum ServiceUpdateType {
-  SECURITY_UPDATE = "security-update",
-}
+export const ServiceUpdateType = {
+  SECURITY_UPDATE: "security-update",
+};
 
 /**
  * @public
@@ -2801,12 +2801,12 @@ export interface ServiceUpdate {
   /**
    * <p>The status of the service update</p>
    */
-  Status?: ServiceUpdateStatus | string;
+  Status?: keyof typeof ServiceUpdateStatus | string;
 
   /**
    * <p>Reflects the nature of the service update</p>
    */
-  Type?: ServiceUpdateType | string;
+  Type?: keyof typeof ServiceUpdateType | string;
 
   /**
    * <p>A list of nodes updated by the service update</p>

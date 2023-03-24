@@ -135,22 +135,22 @@ export interface CreateExtendedSourceServerRequest {
 /**
  * @public
  */
-export enum DataReplicationErrorString {
-  AGENT_NOT_SEEN = "AGENT_NOT_SEEN",
-  FAILED_TO_ATTACH_STAGING_DISKS = "FAILED_TO_ATTACH_STAGING_DISKS",
-  FAILED_TO_AUTHENTICATE_WITH_SERVICE = "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
-  FAILED_TO_BOOT_REPLICATION_SERVER = "FAILED_TO_BOOT_REPLICATION_SERVER",
-  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER = "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
-  FAILED_TO_CREATE_SECURITY_GROUP = "FAILED_TO_CREATE_SECURITY_GROUP",
-  FAILED_TO_CREATE_STAGING_DISKS = "FAILED_TO_CREATE_STAGING_DISKS",
-  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE = "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
-  FAILED_TO_LAUNCH_REPLICATION_SERVER = "FAILED_TO_LAUNCH_REPLICATION_SERVER",
-  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT = "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
-  FAILED_TO_START_DATA_TRANSFER = "FAILED_TO_START_DATA_TRANSFER",
-  NOT_CONVERGING = "NOT_CONVERGING",
-  SNAPSHOTS_FAILURE = "SNAPSHOTS_FAILURE",
-  UNSTABLE_NETWORK = "UNSTABLE_NETWORK",
-}
+export const DataReplicationErrorString = {
+  AGENT_NOT_SEEN: "AGENT_NOT_SEEN",
+  FAILED_TO_ATTACH_STAGING_DISKS: "FAILED_TO_ATTACH_STAGING_DISKS",
+  FAILED_TO_AUTHENTICATE_WITH_SERVICE: "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
+  FAILED_TO_BOOT_REPLICATION_SERVER: "FAILED_TO_BOOT_REPLICATION_SERVER",
+  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER: "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
+  FAILED_TO_CREATE_SECURITY_GROUP: "FAILED_TO_CREATE_SECURITY_GROUP",
+  FAILED_TO_CREATE_STAGING_DISKS: "FAILED_TO_CREATE_STAGING_DISKS",
+  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE: "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
+  FAILED_TO_LAUNCH_REPLICATION_SERVER: "FAILED_TO_LAUNCH_REPLICATION_SERVER",
+  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT: "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
+  FAILED_TO_START_DATA_TRANSFER: "FAILED_TO_START_DATA_TRANSFER",
+  NOT_CONVERGING: "NOT_CONVERGING",
+  SNAPSHOTS_FAILURE: "SNAPSHOTS_FAILURE",
+  UNSTABLE_NETWORK: "UNSTABLE_NETWORK",
+};
 
 /**
  * @public
@@ -160,7 +160,7 @@ export interface DataReplicationError {
   /**
    * <p>Error in data replication.</p>
    */
-  error?: DataReplicationErrorString | string;
+  error?: keyof typeof DataReplicationErrorString | string;
 
   /**
    * <p>Error in data replication.</p>
@@ -171,30 +171,30 @@ export interface DataReplicationError {
 /**
  * @public
  */
-export enum DataReplicationInitiationStepName {
-  ATTACH_STAGING_DISKS = "ATTACH_STAGING_DISKS",
-  AUTHENTICATE_WITH_SERVICE = "AUTHENTICATE_WITH_SERVICE",
-  BOOT_REPLICATION_SERVER = "BOOT_REPLICATION_SERVER",
-  CONNECT_AGENT_TO_REPLICATION_SERVER = "CONNECT_AGENT_TO_REPLICATION_SERVER",
-  CREATE_SECURITY_GROUP = "CREATE_SECURITY_GROUP",
-  CREATE_STAGING_DISKS = "CREATE_STAGING_DISKS",
-  DOWNLOAD_REPLICATION_SOFTWARE = "DOWNLOAD_REPLICATION_SOFTWARE",
-  LAUNCH_REPLICATION_SERVER = "LAUNCH_REPLICATION_SERVER",
-  PAIR_REPLICATION_SERVER_WITH_AGENT = "PAIR_REPLICATION_SERVER_WITH_AGENT",
-  START_DATA_TRANSFER = "START_DATA_TRANSFER",
-  WAIT = "WAIT",
-}
+export const DataReplicationInitiationStepName = {
+  ATTACH_STAGING_DISKS: "ATTACH_STAGING_DISKS",
+  AUTHENTICATE_WITH_SERVICE: "AUTHENTICATE_WITH_SERVICE",
+  BOOT_REPLICATION_SERVER: "BOOT_REPLICATION_SERVER",
+  CONNECT_AGENT_TO_REPLICATION_SERVER: "CONNECT_AGENT_TO_REPLICATION_SERVER",
+  CREATE_SECURITY_GROUP: "CREATE_SECURITY_GROUP",
+  CREATE_STAGING_DISKS: "CREATE_STAGING_DISKS",
+  DOWNLOAD_REPLICATION_SOFTWARE: "DOWNLOAD_REPLICATION_SOFTWARE",
+  LAUNCH_REPLICATION_SERVER: "LAUNCH_REPLICATION_SERVER",
+  PAIR_REPLICATION_SERVER_WITH_AGENT: "PAIR_REPLICATION_SERVER_WITH_AGENT",
+  START_DATA_TRANSFER: "START_DATA_TRANSFER",
+  WAIT: "WAIT",
+};
 
 /**
  * @public
  */
-export enum DataReplicationInitiationStepStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SKIPPED = "SKIPPED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const DataReplicationInitiationStepStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  SKIPPED: "SKIPPED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -204,12 +204,12 @@ export interface DataReplicationInitiationStep {
   /**
    * <p>The name of the step.</p>
    */
-  name?: DataReplicationInitiationStepName | string;
+  name?: keyof typeof DataReplicationInitiationStepName | string;
 
   /**
    * <p>The status of the step.</p>
    */
-  status?: DataReplicationInitiationStepStatus | string;
+  status?: keyof typeof DataReplicationInitiationStepStatus | string;
 }
 
 /**
@@ -236,18 +236,18 @@ export interface DataReplicationInitiation {
 /**
  * @public
  */
-export enum DataReplicationState {
-  BACKLOG = "BACKLOG",
-  CONTINUOUS = "CONTINUOUS",
-  CREATING_SNAPSHOT = "CREATING_SNAPSHOT",
-  DISCONNECTED = "DISCONNECTED",
-  INITIAL_SYNC = "INITIAL_SYNC",
-  INITIATING = "INITIATING",
-  PAUSED = "PAUSED",
-  RESCAN = "RESCAN",
-  STALLED = "STALLED",
-  STOPPED = "STOPPED",
-}
+export const DataReplicationState = {
+  BACKLOG: "BACKLOG",
+  CONTINUOUS: "CONTINUOUS",
+  CREATING_SNAPSHOT: "CREATING_SNAPSHOT",
+  DISCONNECTED: "DISCONNECTED",
+  INITIAL_SYNC: "INITIAL_SYNC",
+  INITIATING: "INITIATING",
+  PAUSED: "PAUSED",
+  RESCAN: "RESCAN",
+  STALLED: "STALLED",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -303,7 +303,7 @@ export interface DataReplicationInfo {
   /**
    * <p>The state of the data replication.</p>
    */
-  dataReplicationState?: DataReplicationState | string;
+  dataReplicationState?: keyof typeof DataReplicationState | string;
 
   /**
    * <p>Information about whether the data replication has been initiated.</p>
@@ -324,20 +324,20 @@ export interface DataReplicationInfo {
 /**
  * @public
  */
-export enum LastLaunchResult {
-  FAILED = "FAILED",
-  NOT_STARTED = "NOT_STARTED",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const LastLaunchResult = {
+  FAILED: "FAILED",
+  NOT_STARTED: "NOT_STARTED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
  */
-export enum LastLaunchType {
-  DRILL = "DRILL",
-  RECOVERY = "RECOVERY",
-}
+export const LastLaunchType = {
+  DRILL: "DRILL",
+  RECOVERY: "RECOVERY",
+};
 
 /**
  * @public
@@ -357,19 +357,19 @@ export interface LifeCycleLastLaunchInitiated {
   /**
    * <p>The Job type that was used to last launch the Source Server.</p>
    */
-  type?: LastLaunchType | string;
+  type?: keyof typeof LastLaunchType | string;
 }
 
 /**
  * @public
  */
-export enum LaunchStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  LAUNCHED = "LAUNCHED",
-  PENDING = "PENDING",
-  TERMINATED = "TERMINATED",
-}
+export const LaunchStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  LAUNCHED: "LAUNCHED",
+  PENDING: "PENDING",
+  TERMINATED: "TERMINATED",
+};
 
 /**
  * @public
@@ -384,7 +384,7 @@ export interface LifeCycleLastLaunch {
   /**
    * <p>Status of Source Server's last launch.</p>
    */
-  status?: LaunchStatus | string;
+  status?: keyof typeof LaunchStatus | string;
 }
 
 /**
@@ -421,10 +421,10 @@ export interface LifeCycle {
 /**
  * @public
  */
-export enum ReplicationDirection {
-  FAILBACK = "FAILBACK",
-  FAILOVER = "FAILOVER",
-}
+export const ReplicationDirection = {
+  FAILBACK: "FAILBACK",
+  FAILOVER: "FAILOVER",
+};
 
 /**
  * @public
@@ -570,11 +570,11 @@ export interface SourceProperties {
 /**
  * @public
  */
-export enum ExtensionStatus {
-  EXTENDED = "EXTENDED",
-  EXTENSION_ERROR = "EXTENSION_ERROR",
-  NOT_EXTENDED = "NOT_EXTENDED",
-}
+export const ExtensionStatus = {
+  EXTENDED: "EXTENDED",
+  EXTENSION_ERROR: "EXTENSION_ERROR",
+  NOT_EXTENDED: "NOT_EXTENDED",
+};
 
 /**
  * @public
@@ -587,7 +587,7 @@ export interface StagingArea {
    *             (b) EXTENDED - Source server is extended from a staging source server. In this case, the value of stagingSourceServerArn is pointing to the Arn of the source server in the staging account.
    *             (c) EXTENSION_ERROR - Some issue occurred when accessing staging source server. In this case, errorMessage field will contain an error message that explains what happened.</p>
    */
-  status?: ExtensionStatus | string;
+  status?: keyof typeof ExtensionStatus | string;
 
   /**
    * <p>Account ID of the account to which source server belongs. If this source server is extended - shows Account ID of staging source server.</p>
@@ -632,7 +632,7 @@ export interface SourceServer {
   /**
    * <p>The status of the last recovery launch of this Source Server.</p>
    */
-  lastLaunchResult?: LastLaunchResult | string;
+  lastLaunchResult?: keyof typeof LastLaunchResult | string;
 
   /**
    * <p>The Data Replication Info of the Source Server.</p>
@@ -662,7 +662,7 @@ export interface SourceServer {
   /**
    * <p>Replication direction of the Source Server.</p>
    */
-  replicationDirection?: ReplicationDirection | string;
+  replicationDirection?: keyof typeof ReplicationDirection | string;
 
   /**
    * <p>For EC2-originated Source Servers which have been failed over and then failed back, this value will mean the ARN of the Source Server on the opposite replication direction.</p>
@@ -865,12 +865,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+};
 
 /**
  * @public
@@ -883,7 +883,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>Validation exception reason.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>A list of fields that failed validation.</p>
@@ -909,37 +909,37 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum ReplicationConfigurationDataPlaneRouting {
-  PRIVATE_IP = "PRIVATE_IP",
-  PUBLIC_IP = "PUBLIC_IP",
-}
+export const ReplicationConfigurationDataPlaneRouting = {
+  PRIVATE_IP: "PRIVATE_IP",
+  PUBLIC_IP: "PUBLIC_IP",
+};
 
 /**
  * @public
  */
-export enum ReplicationConfigurationDefaultLargeStagingDiskType {
-  AUTO = "AUTO",
-  GP2 = "GP2",
-  GP3 = "GP3",
-  ST1 = "ST1",
-}
+export const ReplicationConfigurationDefaultLargeStagingDiskType = {
+  AUTO: "AUTO",
+  GP2: "GP2",
+  GP3: "GP3",
+  ST1: "ST1",
+};
 
 /**
  * @public
  */
-export enum ReplicationConfigurationEbsEncryption {
-  CUSTOM = "CUSTOM",
-  DEFAULT = "DEFAULT",
-}
+export const ReplicationConfigurationEbsEncryption = {
+  CUSTOM: "CUSTOM",
+  DEFAULT: "DEFAULT",
+};
 
 /**
  * @public
  */
-export enum PITPolicyRuleUnits {
-  DAY = "DAY",
-  HOUR = "HOUR",
-  MINUTE = "MINUTE",
-}
+export const PITPolicyRuleUnits = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  MINUTE: "MINUTE",
+};
 
 /**
  * @public
@@ -954,7 +954,7 @@ export interface PITPolicyRule {
   /**
    * <p>The units used to measure the interval and retentionDuration.</p>
    */
-  units: PITPolicyRuleUnits | string | undefined;
+  units: keyof typeof PITPolicyRuleUnits | string | undefined;
 
   /**
    * <p>How often, in the chosen units, a snapshot should be taken.</p>
@@ -1004,12 +1004,12 @@ export interface CreateReplicationConfigurationTemplateRequest {
   /**
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskType | string | undefined;
+  defaultLargeStagingDiskType: keyof typeof ReplicationConfigurationDefaultLargeStagingDiskType | string | undefined;
 
   /**
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption: ReplicationConfigurationEbsEncryption | string | undefined;
+  ebsEncryption: keyof typeof ReplicationConfigurationEbsEncryption | string | undefined;
 
   /**
    * <p>The ARN of the EBS encryption key to be used during replication.</p>
@@ -1024,7 +1024,7 @@ export interface CreateReplicationConfigurationTemplateRequest {
   /**
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting: ReplicationConfigurationDataPlaneRouting | string | undefined;
+  dataPlaneRouting: keyof typeof ReplicationConfigurationDataPlaneRouting | string | undefined;
 
   /**
    * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
@@ -1089,12 +1089,12 @@ export interface ReplicationConfigurationTemplate {
   /**
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: keyof typeof ReplicationConfigurationDefaultLargeStagingDiskType | string;
 
   /**
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: keyof typeof ReplicationConfigurationEbsEncryption | string;
 
   /**
    * <p>The ARN of the EBS encryption key to be used during replication.</p>
@@ -1109,7 +1109,7 @@ export interface ReplicationConfigurationTemplate {
   /**
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: keyof typeof ReplicationConfigurationDataPlaneRouting | string;
 
   /**
    * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
@@ -1210,25 +1210,25 @@ export interface DescribeJobLogItemsRequest {
 /**
  * @public
  */
-export enum JobLogEvent {
-  CLEANUP_END = "CLEANUP_END",
-  CLEANUP_FAIL = "CLEANUP_FAIL",
-  CLEANUP_START = "CLEANUP_START",
-  CONVERSION_END = "CONVERSION_END",
-  CONVERSION_FAIL = "CONVERSION_FAIL",
-  CONVERSION_START = "CONVERSION_START",
-  JOB_CANCEL = "JOB_CANCEL",
-  JOB_END = "JOB_END",
-  JOB_START = "JOB_START",
-  LAUNCH_FAILED = "LAUNCH_FAILED",
-  LAUNCH_START = "LAUNCH_START",
-  SERVER_SKIPPED = "SERVER_SKIPPED",
-  SNAPSHOT_END = "SNAPSHOT_END",
-  SNAPSHOT_FAIL = "SNAPSHOT_FAIL",
-  SNAPSHOT_START = "SNAPSHOT_START",
-  USING_PREVIOUS_SNAPSHOT = "USING_PREVIOUS_SNAPSHOT",
-  USING_PREVIOUS_SNAPSHOT_FAILED = "USING_PREVIOUS_SNAPSHOT_FAILED",
-}
+export const JobLogEvent = {
+  CLEANUP_END: "CLEANUP_END",
+  CLEANUP_FAIL: "CLEANUP_FAIL",
+  CLEANUP_START: "CLEANUP_START",
+  CONVERSION_END: "CONVERSION_END",
+  CONVERSION_FAIL: "CONVERSION_FAIL",
+  CONVERSION_START: "CONVERSION_START",
+  JOB_CANCEL: "JOB_CANCEL",
+  JOB_END: "JOB_END",
+  JOB_START: "JOB_START",
+  LAUNCH_FAILED: "LAUNCH_FAILED",
+  LAUNCH_START: "LAUNCH_START",
+  SERVER_SKIPPED: "SERVER_SKIPPED",
+  SNAPSHOT_END: "SNAPSHOT_END",
+  SNAPSHOT_FAIL: "SNAPSHOT_FAIL",
+  SNAPSHOT_START: "SNAPSHOT_START",
+  USING_PREVIOUS_SNAPSHOT: "USING_PREVIOUS_SNAPSHOT",
+  USING_PREVIOUS_SNAPSHOT_FAILED: "USING_PREVIOUS_SNAPSHOT_FAILED",
+};
 
 /**
  * @public
@@ -1274,7 +1274,7 @@ export interface JobLog {
   /**
    * <p>The event represents the type of a log.</p>
    */
-  event?: JobLogEvent | string;
+  event?: keyof typeof JobLogEvent | string;
 
   /**
    * <p>Metadata associated with a Job log.</p>
@@ -1341,14 +1341,14 @@ export interface DescribeJobsRequest {
 /**
  * @public
  */
-export enum InitiatedBy {
-  DIAGNOSTIC = "DIAGNOSTIC",
-  FAILBACK = "FAILBACK",
-  START_DRILL = "START_DRILL",
-  START_RECOVERY = "START_RECOVERY",
-  TARGET_ACCOUNT = "TARGET_ACCOUNT",
-  TERMINATE_RECOVERY_INSTANCES = "TERMINATE_RECOVERY_INSTANCES",
-}
+export const InitiatedBy = {
+  DIAGNOSTIC: "DIAGNOSTIC",
+  FAILBACK: "FAILBACK",
+  START_DRILL: "START_DRILL",
+  START_RECOVERY: "START_RECOVERY",
+  TARGET_ACCOUNT: "TARGET_ACCOUNT",
+  TERMINATE_RECOVERY_INSTANCES: "TERMINATE_RECOVERY_INSTANCES",
+};
 
 /**
  * @public
@@ -1368,26 +1368,26 @@ export interface ParticipatingServer {
   /**
    * <p>The launch status of a participating server.</p>
    */
-  launchStatus?: LaunchStatus | string;
+  launchStatus?: keyof typeof LaunchStatus | string;
 }
 
 /**
  * @public
  */
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  PENDING = "PENDING",
-  STARTED = "STARTED",
-}
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+};
 
 /**
  * @public
  */
-export enum JobType {
-  CREATE_CONVERTED_SNAPSHOT = "CREATE_CONVERTED_SNAPSHOT",
-  LAUNCH = "LAUNCH",
-  TERMINATE = "TERMINATE",
-}
+export const JobType = {
+  CREATE_CONVERTED_SNAPSHOT: "CREATE_CONVERTED_SNAPSHOT",
+  LAUNCH: "LAUNCH",
+  TERMINATE: "TERMINATE",
+};
 
 /**
  * @public
@@ -1407,12 +1407,12 @@ export interface Job {
   /**
    * <p>The type of the Job.</p>
    */
-  type?: JobType | string;
+  type?: keyof typeof JobType | string;
 
   /**
    * <p>A string representing who initiated the Job.</p>
    */
-  initiatedBy?: InitiatedBy | string;
+  initiatedBy?: keyof typeof InitiatedBy | string;
 
   /**
    * <p>The date and time of when the Job was created.</p>
@@ -1427,7 +1427,7 @@ export interface Job {
   /**
    * <p>The status of the Job.</p>
    */
-  status?: JobStatus | string;
+  status?: keyof typeof JobStatus | string;
 
   /**
    * <p>A list of servers that the Job is acting upon.</p>
@@ -1494,29 +1494,31 @@ export interface DescribeRecoveryInstancesRequest {
 /**
  * @public
  */
-export enum FailbackReplicationError {
-  AGENT_NOT_SEEN = "AGENT_NOT_SEEN",
-  FAILBACK_CLIENT_NOT_SEEN = "FAILBACK_CLIENT_NOT_SEEN",
-  FAILED_GETTING_REPLICATION_STATE = "FAILED_GETTING_REPLICATION_STATE",
-  FAILED_TO_ATTACH_STAGING_DISKS = "FAILED_TO_ATTACH_STAGING_DISKS",
-  FAILED_TO_AUTHENTICATE_WITH_SERVICE = "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
-  FAILED_TO_BOOT_REPLICATION_SERVER = "FAILED_TO_BOOT_REPLICATION_SERVER",
-  FAILED_TO_CONFIGURE_REPLICATION_SOFTWARE = "FAILED_TO_CONFIGURE_REPLICATION_SOFTWARE",
-  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER = "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
-  FAILED_TO_CREATE_SECURITY_GROUP = "FAILED_TO_CREATE_SECURITY_GROUP",
-  FAILED_TO_CREATE_STAGING_DISKS = "FAILED_TO_CREATE_STAGING_DISKS",
-  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE = "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
-  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT = "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT",
-  FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION = "FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION",
-  FAILED_TO_ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION = "FAILED_TO_ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION",
-  FAILED_TO_LAUNCH_REPLICATION_SERVER = "FAILED_TO_LAUNCH_REPLICATION_SERVER",
-  FAILED_TO_PAIR_AGENT_WITH_REPLICATION_SOFTWARE = "FAILED_TO_PAIR_AGENT_WITH_REPLICATION_SOFTWARE",
-  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT = "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
-  FAILED_TO_START_DATA_TRANSFER = "FAILED_TO_START_DATA_TRANSFER",
-  NOT_CONVERGING = "NOT_CONVERGING",
-  SNAPSHOTS_FAILURE = "SNAPSHOTS_FAILURE",
-  UNSTABLE_NETWORK = "UNSTABLE_NETWORK",
-}
+export const FailbackReplicationError = {
+  AGENT_NOT_SEEN: "AGENT_NOT_SEEN",
+  FAILBACK_CLIENT_NOT_SEEN: "FAILBACK_CLIENT_NOT_SEEN",
+  FAILED_GETTING_REPLICATION_STATE: "FAILED_GETTING_REPLICATION_STATE",
+  FAILED_TO_ATTACH_STAGING_DISKS: "FAILED_TO_ATTACH_STAGING_DISKS",
+  FAILED_TO_AUTHENTICATE_WITH_SERVICE: "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
+  FAILED_TO_BOOT_REPLICATION_SERVER: "FAILED_TO_BOOT_REPLICATION_SERVER",
+  FAILED_TO_CONFIGURE_REPLICATION_SOFTWARE: "FAILED_TO_CONFIGURE_REPLICATION_SOFTWARE",
+  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER: "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
+  FAILED_TO_CREATE_SECURITY_GROUP: "FAILED_TO_CREATE_SECURITY_GROUP",
+  FAILED_TO_CREATE_STAGING_DISKS: "FAILED_TO_CREATE_STAGING_DISKS",
+  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE: "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
+  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT:
+    "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT",
+  FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION:
+    "FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION",
+  FAILED_TO_ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION: "FAILED_TO_ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION",
+  FAILED_TO_LAUNCH_REPLICATION_SERVER: "FAILED_TO_LAUNCH_REPLICATION_SERVER",
+  FAILED_TO_PAIR_AGENT_WITH_REPLICATION_SOFTWARE: "FAILED_TO_PAIR_AGENT_WITH_REPLICATION_SOFTWARE",
+  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT: "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
+  FAILED_TO_START_DATA_TRANSFER: "FAILED_TO_START_DATA_TRANSFER",
+  NOT_CONVERGING: "NOT_CONVERGING",
+  SNAPSHOTS_FAILURE: "SNAPSHOTS_FAILURE",
+  UNSTABLE_NETWORK: "UNSTABLE_NETWORK",
+};
 
 /**
  * @public
@@ -1526,7 +1528,7 @@ export interface RecoveryInstanceDataReplicationError {
   /**
    * <p>Error in data replication.</p>
    */
-  error?: FailbackReplicationError | string;
+  error?: keyof typeof FailbackReplicationError | string;
 
   /**
    * <p>Error in data replication.</p>
@@ -1537,37 +1539,37 @@ export interface RecoveryInstanceDataReplicationError {
 /**
  * @public
  */
-export enum RecoveryInstanceDataReplicationInitiationStepName {
-  ATTACH_STAGING_DISKS = "ATTACH_STAGING_DISKS",
-  AUTHENTICATE_WITH_SERVICE = "AUTHENTICATE_WITH_SERVICE",
-  BOOT_REPLICATION_SERVER = "BOOT_REPLICATION_SERVER",
-  COMPLETE_VOLUME_MAPPING = "COMPLETE_VOLUME_MAPPING",
-  CONFIGURE_REPLICATION_SOFTWARE = "CONFIGURE_REPLICATION_SOFTWARE",
-  CONNECT_AGENT_TO_REPLICATION_SERVER = "CONNECT_AGENT_TO_REPLICATION_SERVER",
-  CREATE_SECURITY_GROUP = "CREATE_SECURITY_GROUP",
-  CREATE_STAGING_DISKS = "CREATE_STAGING_DISKS",
-  DOWNLOAD_REPLICATION_SOFTWARE = "DOWNLOAD_REPLICATION_SOFTWARE",
-  DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT = "DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT",
-  ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION = "ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION",
-  ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION = "ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION",
-  LAUNCH_REPLICATION_SERVER = "LAUNCH_REPLICATION_SERVER",
-  LINK_FAILBACK_CLIENT_WITH_RECOVERY_INSTANCE = "LINK_FAILBACK_CLIENT_WITH_RECOVERY_INSTANCE",
-  PAIR_AGENT_WITH_REPLICATION_SOFTWARE = "PAIR_AGENT_WITH_REPLICATION_SOFTWARE",
-  PAIR_REPLICATION_SERVER_WITH_AGENT = "PAIR_REPLICATION_SERVER_WITH_AGENT",
-  START_DATA_TRANSFER = "START_DATA_TRANSFER",
-  WAIT = "WAIT",
-}
+export const RecoveryInstanceDataReplicationInitiationStepName = {
+  ATTACH_STAGING_DISKS: "ATTACH_STAGING_DISKS",
+  AUTHENTICATE_WITH_SERVICE: "AUTHENTICATE_WITH_SERVICE",
+  BOOT_REPLICATION_SERVER: "BOOT_REPLICATION_SERVER",
+  COMPLETE_VOLUME_MAPPING: "COMPLETE_VOLUME_MAPPING",
+  CONFIGURE_REPLICATION_SOFTWARE: "CONFIGURE_REPLICATION_SOFTWARE",
+  CONNECT_AGENT_TO_REPLICATION_SERVER: "CONNECT_AGENT_TO_REPLICATION_SERVER",
+  CREATE_SECURITY_GROUP: "CREATE_SECURITY_GROUP",
+  CREATE_STAGING_DISKS: "CREATE_STAGING_DISKS",
+  DOWNLOAD_REPLICATION_SOFTWARE: "DOWNLOAD_REPLICATION_SOFTWARE",
+  DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT: "DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT",
+  ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION: "ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION",
+  ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION: "ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION",
+  LAUNCH_REPLICATION_SERVER: "LAUNCH_REPLICATION_SERVER",
+  LINK_FAILBACK_CLIENT_WITH_RECOVERY_INSTANCE: "LINK_FAILBACK_CLIENT_WITH_RECOVERY_INSTANCE",
+  PAIR_AGENT_WITH_REPLICATION_SOFTWARE: "PAIR_AGENT_WITH_REPLICATION_SOFTWARE",
+  PAIR_REPLICATION_SERVER_WITH_AGENT: "PAIR_REPLICATION_SERVER_WITH_AGENT",
+  START_DATA_TRANSFER: "START_DATA_TRANSFER",
+  WAIT: "WAIT",
+};
 
 /**
  * @public
  */
-export enum RecoveryInstanceDataReplicationInitiationStepStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SKIPPED = "SKIPPED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const RecoveryInstanceDataReplicationInitiationStepStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  SKIPPED: "SKIPPED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1577,12 +1579,12 @@ export interface RecoveryInstanceDataReplicationInitiationStep {
   /**
    * <p>The name of the step.</p>
    */
-  name?: RecoveryInstanceDataReplicationInitiationStepName | string;
+  name?: keyof typeof RecoveryInstanceDataReplicationInitiationStepName | string;
 
   /**
    * <p>The status of the step.</p>
    */
-  status?: RecoveryInstanceDataReplicationInitiationStepStatus | string;
+  status?: keyof typeof RecoveryInstanceDataReplicationInitiationStepStatus | string;
 }
 
 /**
@@ -1604,20 +1606,20 @@ export interface RecoveryInstanceDataReplicationInitiation {
 /**
  * @public
  */
-export enum RecoveryInstanceDataReplicationState {
-  BACKLOG = "BACKLOG",
-  CONTINUOUS = "CONTINUOUS",
-  CREATING_SNAPSHOT = "CREATING_SNAPSHOT",
-  DISCONNECTED = "DISCONNECTED",
-  INITIAL_SYNC = "INITIAL_SYNC",
-  INITIATING = "INITIATING",
-  NOT_STARTED = "NOT_STARTED",
-  PAUSED = "PAUSED",
-  REPLICATION_STATE_NOT_AVAILABLE = "REPLICATION_STATE_NOT_AVAILABLE",
-  RESCAN = "RESCAN",
-  STALLED = "STALLED",
-  STOPPED = "STOPPED",
-}
+export const RecoveryInstanceDataReplicationState = {
+  BACKLOG: "BACKLOG",
+  CONTINUOUS: "CONTINUOUS",
+  CREATING_SNAPSHOT: "CREATING_SNAPSHOT",
+  DISCONNECTED: "DISCONNECTED",
+  INITIAL_SYNC: "INITIAL_SYNC",
+  INITIATING: "INITIATING",
+  NOT_STARTED: "NOT_STARTED",
+  PAUSED: "PAUSED",
+  REPLICATION_STATE_NOT_AVAILABLE: "REPLICATION_STATE_NOT_AVAILABLE",
+  RESCAN: "RESCAN",
+  STALLED: "STALLED",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -1673,7 +1675,7 @@ export interface RecoveryInstanceDataReplicationInfo {
   /**
    * <p>The state of the data replication.</p>
    */
-  dataReplicationState?: RecoveryInstanceDataReplicationState | string;
+  dataReplicationState?: keyof typeof RecoveryInstanceDataReplicationState | string;
 
   /**
    * <p>Information about whether the data replication has been initiated.</p>
@@ -1694,36 +1696,36 @@ export interface RecoveryInstanceDataReplicationInfo {
 /**
  * @public
  */
-export enum EC2InstanceState {
-  NOT_FOUND = "NOT_FOUND",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SHUTTING_DOWN = "SHUTTING-DOWN",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  TERMINATED = "TERMINATED",
-}
+export const EC2InstanceState = {
+  NOT_FOUND: "NOT_FOUND",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SHUTTING_DOWN: "SHUTTING-DOWN",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  TERMINATED: "TERMINATED",
+};
 
 /**
  * @public
  */
-export enum FailbackLaunchType {
-  DRILL = "DRILL",
-  RECOVERY = "RECOVERY",
-}
+export const FailbackLaunchType = {
+  DRILL: "DRILL",
+  RECOVERY: "RECOVERY",
+};
 
 /**
  * @public
  */
-export enum FailbackState {
-  FAILBACK_COMPLETED = "FAILBACK_COMPLETED",
-  FAILBACK_ERROR = "FAILBACK_ERROR",
-  FAILBACK_IN_PROGRESS = "FAILBACK_IN_PROGRESS",
-  FAILBACK_LAUNCH_STATE_NOT_AVAILABLE = "FAILBACK_LAUNCH_STATE_NOT_AVAILABLE",
-  FAILBACK_NOT_READY_FOR_LAUNCH = "FAILBACK_NOT_READY_FOR_LAUNCH",
-  FAILBACK_NOT_STARTED = "FAILBACK_NOT_STARTED",
-  FAILBACK_READY_FOR_LAUNCH = "FAILBACK_READY_FOR_LAUNCH",
-}
+export const FailbackState = {
+  FAILBACK_COMPLETED: "FAILBACK_COMPLETED",
+  FAILBACK_ERROR: "FAILBACK_ERROR",
+  FAILBACK_IN_PROGRESS: "FAILBACK_IN_PROGRESS",
+  FAILBACK_LAUNCH_STATE_NOT_AVAILABLE: "FAILBACK_LAUNCH_STATE_NOT_AVAILABLE",
+  FAILBACK_NOT_READY_FOR_LAUNCH: "FAILBACK_NOT_READY_FOR_LAUNCH",
+  FAILBACK_NOT_STARTED: "FAILBACK_NOT_STARTED",
+  FAILBACK_READY_FOR_LAUNCH: "FAILBACK_READY_FOR_LAUNCH",
+};
 
 /**
  * @public
@@ -1748,7 +1750,7 @@ export interface RecoveryInstanceFailback {
   /**
    * <p>The state of the failback process that this Recovery Instance is in.</p>
    */
-  state?: FailbackState | string;
+  state?: keyof typeof FailbackState | string;
 
   /**
    * <p>The date and time the agent on the Recovery Instance was last seen by the service.</p>
@@ -1778,16 +1780,16 @@ export interface RecoveryInstanceFailback {
   /**
    * <p>The launch type (Recovery / Drill) of the last launch for the failback replication of this recovery instance.</p>
    */
-  failbackLaunchType?: FailbackLaunchType | string;
+  failbackLaunchType?: keyof typeof FailbackLaunchType | string;
 }
 
 /**
  * @public
  */
-export enum OriginEnvironment {
-  AWS = "AWS",
-  ON_PREMISES = "ON_PREMISES",
-}
+export const OriginEnvironment = {
+  AWS: "AWS",
+  ON_PREMISES: "ON_PREMISES",
+};
 
 /**
  * @public
@@ -1864,7 +1866,7 @@ export interface RecoveryInstance {
   /**
    * <p>The state of the EC2 instance for this Recovery Instance.</p>
    */
-  ec2InstanceState?: EC2InstanceState | string;
+  ec2InstanceState?: keyof typeof EC2InstanceState | string;
 
   /**
    * <p>The ID of the Job that created the Recovery Instance.</p>
@@ -1919,7 +1921,7 @@ export interface RecoveryInstance {
   /**
    * <p>Environment (On Premises / AWS) of the instance that the recovery instance originated from.</p>
    */
-  originEnvironment?: OriginEnvironment | string;
+  originEnvironment?: keyof typeof OriginEnvironment | string;
 
   /**
    * <p>AWS availability zone associated with the recovery instance.</p>
@@ -1961,10 +1963,10 @@ export interface DescribeRecoverySnapshotsRequestFilters {
 /**
  * @public
  */
-export enum RecoverySnapshotsOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const RecoverySnapshotsOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+};
 
 /**
  * @public
@@ -1983,7 +1985,7 @@ export interface DescribeRecoverySnapshotsRequest {
   /**
    * <p>The sorted ordering by which to return Recovery Snapshots.</p>
    */
-  order?: RecoverySnapshotsOrder | string;
+  order?: keyof typeof RecoverySnapshotsOrder | string;
 
   /**
    * <p>Maximum number of Recovery Snapshots to retrieve.</p>
@@ -2446,12 +2448,12 @@ export interface UpdateReplicationConfigurationTemplateRequest {
   /**
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: keyof typeof ReplicationConfigurationDefaultLargeStagingDiskType | string;
 
   /**
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: keyof typeof ReplicationConfigurationEbsEncryption | string;
 
   /**
    * <p>The ARN of the EBS encryption key to be used during replication.</p>
@@ -2466,7 +2468,7 @@ export interface UpdateReplicationConfigurationTemplateRequest {
   /**
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: keyof typeof ReplicationConfigurationDataPlaneRouting | string;
 
   /**
    * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
@@ -2497,10 +2499,10 @@ export interface GetLaunchConfigurationRequest {
 /**
  * @public
  */
-export enum LaunchDisposition {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-}
+export const LaunchDisposition = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -2516,10 +2518,10 @@ export interface Licensing {
 /**
  * @public
  */
-export enum TargetInstanceTypeRightSizingMethod {
-  BASIC = "BASIC",
-  NONE = "NONE",
-}
+export const TargetInstanceTypeRightSizingMethod = {
+  BASIC: "BASIC",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -2543,12 +2545,12 @@ export interface LaunchConfiguration {
   /**
    * <p>The state of the Recovery Instance in EC2 after the recovery operation.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: keyof typeof LaunchDisposition | string;
 
   /**
    * <p>Whether Elastic Disaster Recovery should try to automatically choose the instance type that best matches the OS, CPU, and RAM of your Source Server.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: keyof typeof TargetInstanceTypeRightSizingMethod | string;
 
   /**
    * <p>Whether we should copy the Private IP of the Source Server to the Recovery Instance.</p>
@@ -2579,15 +2581,15 @@ export interface GetReplicationConfigurationRequest {
 /**
  * @public
  */
-export enum ReplicationConfigurationReplicatedDiskStagingDiskType {
-  AUTO = "AUTO",
-  GP2 = "GP2",
-  GP3 = "GP3",
-  IO1 = "IO1",
-  SC1 = "SC1",
-  ST1 = "ST1",
-  STANDARD = "STANDARD",
-}
+export const ReplicationConfigurationReplicatedDiskStagingDiskType = {
+  AUTO: "AUTO",
+  GP2: "GP2",
+  GP3: "GP3",
+  IO1: "IO1",
+  SC1: "SC1",
+  ST1: "ST1",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -2607,7 +2609,7 @@ export interface ReplicationConfigurationReplicatedDisk {
   /**
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  stagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
+  stagingDiskType?: keyof typeof ReplicationConfigurationReplicatedDiskStagingDiskType | string;
 
   /**
    * <p>The requested number of I/O operations per second (IOPS).</p>
@@ -2622,7 +2624,7 @@ export interface ReplicationConfigurationReplicatedDisk {
   /**
    * <p>The Staging Disk EBS volume type to be used during replication when <code>stagingDiskType</code> is set to Auto. This is a read-only field.</p>
    */
-  optimizedStagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
+  optimizedStagingDiskType?: keyof typeof ReplicationConfigurationReplicatedDiskStagingDiskType | string;
 }
 
 /**
@@ -2667,7 +2669,7 @@ export interface ReplicationConfiguration {
   /**
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: keyof typeof ReplicationConfigurationDefaultLargeStagingDiskType | string;
 
   /**
    * <p>The configuration of the disks of the Source Server to be replicated.</p>
@@ -2677,7 +2679,7 @@ export interface ReplicationConfiguration {
   /**
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: keyof typeof ReplicationConfigurationEbsEncryption | string;
 
   /**
    * <p>The ARN of the EBS encryption key to be used during replication.</p>
@@ -2692,7 +2694,7 @@ export interface ReplicationConfiguration {
   /**
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: keyof typeof ReplicationConfigurationDataPlaneRouting | string;
 
   /**
    * <p>Whether to create a Public IP for the Recovery Instance by default.</p>
@@ -2823,12 +2825,12 @@ export interface UpdateLaunchConfigurationRequest {
   /**
    * <p>The state of the Recovery Instance in EC2 after the recovery operation.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: keyof typeof LaunchDisposition | string;
 
   /**
    * <p>Whether Elastic Disaster Recovery should try to automatically choose the instance type that best matches the OS, CPU, and RAM of your Source Server.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: keyof typeof TargetInstanceTypeRightSizingMethod | string;
 
   /**
    * <p>Whether we should copy the Private IP of the Source Server to the Recovery Instance.</p>
@@ -2888,7 +2890,7 @@ export interface UpdateReplicationConfigurationRequest {
   /**
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: keyof typeof ReplicationConfigurationDefaultLargeStagingDiskType | string;
 
   /**
    * <p>The configuration of the disks of the Source Server to be replicated.</p>
@@ -2898,7 +2900,7 @@ export interface UpdateReplicationConfigurationRequest {
   /**
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: keyof typeof ReplicationConfigurationEbsEncryption | string;
 
   /**
    * <p>The ARN of the EBS encryption key to be used during replication.</p>
@@ -2913,7 +2915,7 @@ export interface UpdateReplicationConfigurationRequest {
   /**
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: keyof typeof ReplicationConfigurationDataPlaneRouting | string;
 
   /**
    * <p>Whether to create a Public IP for the Recovery Instance by default.</p>

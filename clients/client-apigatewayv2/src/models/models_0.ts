@@ -42,10 +42,10 @@ export interface Cors {
 /**
  * @public
  */
-export enum ProtocolType {
-  HTTP = "HTTP",
-  WEBSOCKET = "WEBSOCKET",
-}
+export const ProtocolType = {
+  HTTP: "HTTP",
+  WEBSOCKET: "WEBSOCKET",
+};
 
 /**
  * @public
@@ -110,7 +110,7 @@ export interface Api {
   /**
    * <p>The API protocol.</p>
    */
-  ProtocolType: ProtocolType | string | undefined;
+  ProtocolType: keyof typeof ProtocolType | string | undefined;
 
   /**
    * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
@@ -162,10 +162,10 @@ export interface ApiMapping {
 /**
  * @public
  */
-export enum AuthorizerType {
-  JWT = "JWT",
-  REQUEST = "REQUEST",
-}
+export const AuthorizerType = {
+  JWT: "JWT",
+  REQUEST: "REQUEST",
+};
 
 /**
  * @public
@@ -212,7 +212,7 @@ export interface Authorizer {
   /**
    * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
    */
-  AuthorizerType?: AuthorizerType | string;
+  AuthorizerType?: keyof typeof AuthorizerType | string;
 
   /**
    * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>\{account_id\}</replaceable>:function:<replaceable>\{lambda_function_name\}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>\{region\}</replaceable>:lambda:path/<replaceable>\{service_api\}</replaceable>
@@ -249,11 +249,11 @@ export interface Authorizer {
 /**
  * @public
  */
-export enum DeploymentStatus {
-  DEPLOYED = "DEPLOYED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
+export const DeploymentStatus = {
+  DEPLOYED: "DEPLOYED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -278,7 +278,7 @@ export interface Deployment {
   /**
    * <p>The status of the deployment: PENDING, FAILED, or SUCCEEDED.</p>
    */
-  DeploymentStatus?: DeploymentStatus | string;
+  DeploymentStatus?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>May contain additional feedback on the status of an API deployment.</p>
@@ -294,28 +294,28 @@ export interface Deployment {
 /**
  * @public
  */
-export enum DomainNameStatus {
-  AVAILABLE = "AVAILABLE",
-  PENDING_CERTIFICATE_REIMPORT = "PENDING_CERTIFICATE_REIMPORT",
-  PENDING_OWNERSHIP_VERIFICATION = "PENDING_OWNERSHIP_VERIFICATION",
-  UPDATING = "UPDATING",
-}
+export const DomainNameStatus = {
+  AVAILABLE: "AVAILABLE",
+  PENDING_CERTIFICATE_REIMPORT: "PENDING_CERTIFICATE_REIMPORT",
+  PENDING_OWNERSHIP_VERIFICATION: "PENDING_OWNERSHIP_VERIFICATION",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum EndpointType {
-  EDGE = "EDGE",
-  REGIONAL = "REGIONAL",
-}
+export const EndpointType = {
+  EDGE: "EDGE",
+  REGIONAL: "REGIONAL",
+};
 
 /**
  * @public
  */
-export enum SecurityPolicy {
-  TLS_1_0 = "TLS_1_0",
-  TLS_1_2 = "TLS_1_2",
-}
+export const SecurityPolicy = {
+  TLS_1_0: "TLS_1_0",
+  TLS_1_2: "TLS_1_2",
+};
 
 /**
  * @public
@@ -345,7 +345,7 @@ export interface DomainNameConfiguration {
   /**
    * <p>The status of the domain name migration. The valid values are AVAILABLE, UPDATING, PENDING_CERTIFICATE_REIMPORT, and PENDING_OWNERSHIP_VERIFICATION. If the status is UPDATING, the domain cannot be modified further until the existing operation is complete. If it is AVAILABLE, the domain can be updated.</p>
    */
-  DomainNameStatus?: DomainNameStatus | string;
+  DomainNameStatus?: keyof typeof DomainNameStatus | string;
 
   /**
    * <p>An optional text message containing detailed information about status of the domain name migration.</p>
@@ -355,7 +355,7 @@ export interface DomainNameConfiguration {
   /**
    * <p>The endpoint type.</p>
    */
-  EndpointType?: EndpointType | string;
+  EndpointType?: keyof typeof EndpointType | string;
 
   /**
    * <p>The Amazon Route 53 Hosted Zone ID of the endpoint.</p>
@@ -365,7 +365,7 @@ export interface DomainNameConfiguration {
   /**
    * <p>The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are TLS_1_0 and TLS_1_2.</p>
    */
-  SecurityPolicy?: SecurityPolicy | string;
+  SecurityPolicy?: keyof typeof SecurityPolicy | string;
 
   /**
    * <p>The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the regionalCertificateArn</p>
@@ -427,38 +427,38 @@ export interface DomainName {
 /**
  * @public
  */
-export enum ConnectionType {
-  INTERNET = "INTERNET",
-  VPC_LINK = "VPC_LINK",
-}
+export const ConnectionType = {
+  INTERNET: "INTERNET",
+  VPC_LINK: "VPC_LINK",
+};
 
 /**
  * @public
  */
-export enum ContentHandlingStrategy {
-  CONVERT_TO_BINARY = "CONVERT_TO_BINARY",
-  CONVERT_TO_TEXT = "CONVERT_TO_TEXT",
-}
+export const ContentHandlingStrategy = {
+  CONVERT_TO_BINARY: "CONVERT_TO_BINARY",
+  CONVERT_TO_TEXT: "CONVERT_TO_TEXT",
+};
 
 /**
  * @public
  */
-export enum IntegrationType {
-  AWS = "AWS",
-  AWS_PROXY = "AWS_PROXY",
-  HTTP = "HTTP",
-  HTTP_PROXY = "HTTP_PROXY",
-  MOCK = "MOCK",
-}
+export const IntegrationType = {
+  AWS: "AWS",
+  AWS_PROXY: "AWS_PROXY",
+  HTTP: "HTTP",
+  HTTP_PROXY: "HTTP_PROXY",
+  MOCK: "MOCK",
+};
 
 /**
  * @public
  */
-export enum PassthroughBehavior {
-  NEVER = "NEVER",
-  WHEN_NO_MATCH = "WHEN_NO_MATCH",
-  WHEN_NO_TEMPLATES = "WHEN_NO_TEMPLATES",
-}
+export const PassthroughBehavior = {
+  NEVER: "NEVER",
+  WHEN_NO_MATCH: "WHEN_NO_MATCH",
+  WHEN_NO_TEMPLATES: "WHEN_NO_TEMPLATES",
+};
 
 /**
  * @public
@@ -489,12 +489,12 @@ export interface Integration {
   /**
    * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
    */
-  ConnectionType?: ConnectionType | string;
+  ConnectionType?: keyof typeof ConnectionType | string;
 
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ContentHandlingStrategy?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
@@ -529,7 +529,7 @@ export interface Integration {
   /**
    * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
    */
-  IntegrationType?: IntegrationType | string;
+  IntegrationType?: keyof typeof IntegrationType | string;
 
   /**
    * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
@@ -539,7 +539,7 @@ export interface Integration {
   /**
    * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
    */
-  PassthroughBehavior?: PassthroughBehavior | string;
+  PassthroughBehavior?: keyof typeof PassthroughBehavior | string;
 
   /**
    * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
@@ -590,7 +590,7 @@ export interface IntegrationResponse {
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ContentHandlingStrategy?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>The integration response ID.</p>
@@ -652,12 +652,12 @@ export interface Model {
 /**
  * @public
  */
-export enum AuthorizationType {
-  AWS_IAM = "AWS_IAM",
-  CUSTOM = "CUSTOM",
-  JWT = "JWT",
-  NONE = "NONE",
-}
+export const AuthorizationType = {
+  AWS_IAM: "AWS_IAM",
+  CUSTOM: "CUSTOM",
+  JWT: "JWT",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -693,7 +693,7 @@ export interface Route {
   /**
    * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
    */
-  AuthorizationType?: AuthorizationType | string;
+  AuthorizationType?: keyof typeof AuthorizationType | string;
 
   /**
    * <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
@@ -791,11 +791,11 @@ export interface AccessLogSettings {
 /**
  * @public
  */
-export enum LoggingLevel {
-  ERROR = "ERROR",
-  INFO = "INFO",
-  OFF = "OFF",
-}
+export const LoggingLevel = {
+  ERROR: "ERROR",
+  INFO: "INFO",
+  OFF: "OFF",
+};
 
 /**
  * @public
@@ -815,7 +815,7 @@ export interface RouteSettings {
   /**
    * <p>Specifies the logging level for this route: INFO, ERROR, or OFF. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.</p>
    */
-  LoggingLevel?: LoggingLevel | string;
+  LoggingLevel?: keyof typeof LoggingLevel | string;
 
   /**
    * <p>Specifies the throttling burst limit.</p>
@@ -907,20 +907,20 @@ export interface Stage {
 /**
  * @public
  */
-export enum VpcLinkStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  PENDING = "PENDING",
-}
+export const VpcLinkStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
  */
-export enum VpcLinkVersion {
-  V2 = "V2",
-}
+export const VpcLinkVersion = {
+  V2: "V2",
+};
 
 /**
  * @public
@@ -960,7 +960,7 @@ export interface VpcLink {
   /**
    * <p>The status of the VPC link.</p>
    */
-  VpcLinkStatus?: VpcLinkStatus | string;
+  VpcLinkStatus?: keyof typeof VpcLinkStatus | string;
 
   /**
    * <p>A message summarizing the cause of the status of the VPC link.</p>
@@ -970,7 +970,7 @@ export interface VpcLink {
   /**
    * <p>The version of the VPC link.</p>
    */
-  VpcLinkVersion?: VpcLinkVersion | string;
+  VpcLinkVersion?: keyof typeof VpcLinkVersion | string;
 }
 
 /**
@@ -1087,7 +1087,7 @@ export interface CreateApiRequest {
   /**
    * <p>The API protocol.</p>
    */
-  ProtocolType: ProtocolType | string | undefined;
+  ProtocolType: keyof typeof ProtocolType | string | undefined;
 
   /**
    * <p>This property is part of quick create. If you don't specify a routeKey, a default route of $default is created. The $default route acts as a catch-all for any request made to your API, for a particular stage. The $default route key can't be modified. You can add routes after creating the API, and you can update the route keys of additional routes. Supported only for HTTP APIs.</p>
@@ -1177,7 +1177,7 @@ export interface CreateApiResponse {
   /**
    * <p>The API protocol.</p>
    */
-  ProtocolType?: ProtocolType | string;
+  ProtocolType?: keyof typeof ProtocolType | string;
 
   /**
    * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
@@ -1341,7 +1341,7 @@ export interface CreateAuthorizerRequest {
   /**
    * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
    */
-  AuthorizerType: AuthorizerType | string | undefined;
+  AuthorizerType: keyof typeof AuthorizerType | string | undefined;
 
   /**
    * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>\{account_id\}</replaceable>:function:<replaceable>\{lambda_function_name\}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>\{region\}</replaceable>:lambda:path/<replaceable>\{service_api\}</replaceable>
@@ -1402,7 +1402,7 @@ export interface CreateAuthorizerResponse {
   /**
    * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
    */
-  AuthorizerType?: AuthorizerType | string;
+  AuthorizerType?: keyof typeof AuthorizerType | string;
 
   /**
    * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>\{account_id\}</replaceable>:function:<replaceable>\{lambda_function_name\}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>\{region\}</replaceable>:lambda:path/<replaceable>\{service_api\}</replaceable>
@@ -1479,7 +1479,7 @@ export interface CreateDeploymentResponse {
   /**
    * <p>The status of the deployment: PENDING, FAILED, or SUCCEEDED.</p>
    */
-  DeploymentStatus?: DeploymentStatus | string;
+  DeploymentStatus?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>May contain additional feedback on the status of an API deployment.</p>
@@ -1592,12 +1592,12 @@ export interface CreateIntegrationRequest {
   /**
    * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
    */
-  ConnectionType?: ConnectionType | string;
+  ConnectionType?: keyof typeof ConnectionType | string;
 
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ContentHandlingStrategy?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
@@ -1622,7 +1622,7 @@ export interface CreateIntegrationRequest {
   /**
    * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration. For HTTP API private integrations, use an HTTP_PROXY integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
    */
-  IntegrationType: IntegrationType | string | undefined;
+  IntegrationType: keyof typeof IntegrationType | string | undefined;
 
   /**
    * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
@@ -1632,7 +1632,7 @@ export interface CreateIntegrationRequest {
   /**
    * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
    */
-  PassthroughBehavior?: PassthroughBehavior | string;
+  PassthroughBehavior?: keyof typeof PassthroughBehavior | string;
 
   /**
    * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
@@ -1692,12 +1692,12 @@ export interface CreateIntegrationResult {
   /**
    * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
    */
-  ConnectionType?: ConnectionType | string;
+  ConnectionType?: keyof typeof ConnectionType | string;
 
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ContentHandlingStrategy?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
@@ -1732,7 +1732,7 @@ export interface CreateIntegrationResult {
   /**
    * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
    */
-  IntegrationType?: IntegrationType | string;
+  IntegrationType?: keyof typeof IntegrationType | string;
 
   /**
    * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
@@ -1742,7 +1742,7 @@ export interface CreateIntegrationResult {
   /**
    * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
    */
-  PassthroughBehavior?: PassthroughBehavior | string;
+  PassthroughBehavior?: keyof typeof PassthroughBehavior | string;
 
   /**
    * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
@@ -1798,7 +1798,7 @@ export interface CreateIntegrationResponseRequest {
   /**
    * <p>Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ContentHandlingStrategy?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>The integration ID.</p>
@@ -1833,7 +1833,7 @@ export interface CreateIntegrationResponseResponse {
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ContentHandlingStrategy?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>The integration response ID.</p>
@@ -1945,7 +1945,7 @@ export interface CreateRouteRequest {
   /**
    * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
    */
-  AuthorizationType?: AuthorizationType | string;
+  AuthorizationType?: keyof typeof AuthorizationType | string;
 
   /**
    * <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
@@ -2010,7 +2010,7 @@ export interface CreateRouteResult {
   /**
    * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
    */
-  AuthorizationType?: AuthorizationType | string;
+  AuthorizationType?: keyof typeof AuthorizationType | string;
 
   /**
    * <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
@@ -2323,7 +2323,7 @@ export interface CreateVpcLinkResponse {
   /**
    * <p>The status of the VPC link.</p>
    */
-  VpcLinkStatus?: VpcLinkStatus | string;
+  VpcLinkStatus?: keyof typeof VpcLinkStatus | string;
 
   /**
    * <p>A message summarizing the cause of the status of the VPC link.</p>
@@ -2333,7 +2333,7 @@ export interface CreateVpcLinkResponse {
   /**
    * <p>The version of the VPC link.</p>
    */
-  VpcLinkVersion?: VpcLinkVersion | string;
+  VpcLinkVersion?: keyof typeof VpcLinkVersion | string;
 }
 
 /**
@@ -2698,7 +2698,7 @@ export interface GetApiResponse {
   /**
    * <p>The API protocol.</p>
    */
-  ProtocolType?: ProtocolType | string;
+  ProtocolType?: keyof typeof ProtocolType | string;
 
   /**
    * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
@@ -2868,7 +2868,7 @@ export interface GetAuthorizerResponse {
   /**
    * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
    */
-  AuthorizerType?: AuthorizerType | string;
+  AuthorizerType?: keyof typeof AuthorizerType | string;
 
   /**
    * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>\{account_id\}</replaceable>:function:<replaceable>\{lambda_function_name\}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>\{region\}</replaceable>:lambda:path/<replaceable>\{service_api\}</replaceable>
@@ -2974,7 +2974,7 @@ export interface GetDeploymentResponse {
   /**
    * <p>The status of the deployment: PENDING, FAILED, or SUCCEEDED.</p>
    */
-  DeploymentStatus?: DeploymentStatus | string;
+  DeploymentStatus?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>May contain additional feedback on the status of an API deployment.</p>
@@ -3124,12 +3124,12 @@ export interface GetIntegrationResult {
   /**
    * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
    */
-  ConnectionType?: ConnectionType | string;
+  ConnectionType?: keyof typeof ConnectionType | string;
 
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ContentHandlingStrategy?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
@@ -3164,7 +3164,7 @@ export interface GetIntegrationResult {
   /**
    * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
    */
-  IntegrationType?: IntegrationType | string;
+  IntegrationType?: keyof typeof IntegrationType | string;
 
   /**
    * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
@@ -3174,7 +3174,7 @@ export interface GetIntegrationResult {
   /**
    * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
    */
-  PassthroughBehavior?: PassthroughBehavior | string;
+  PassthroughBehavior?: keyof typeof PassthroughBehavior | string;
 
   /**
    * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
@@ -3244,7 +3244,7 @@ export interface GetIntegrationResponseResponse {
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ContentHandlingStrategy?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>The integration response ID.</p>
@@ -3489,7 +3489,7 @@ export interface GetRouteResult {
   /**
    * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
    */
-  AuthorizationType?: AuthorizationType | string;
+  AuthorizationType?: keyof typeof AuthorizationType | string;
 
   /**
    * <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
@@ -3854,7 +3854,7 @@ export interface GetVpcLinkResponse {
   /**
    * <p>The status of the VPC link.</p>
    */
-  VpcLinkStatus?: VpcLinkStatus | string;
+  VpcLinkStatus?: keyof typeof VpcLinkStatus | string;
 
   /**
    * <p>A message summarizing the cause of the status of the VPC link.</p>
@@ -3864,7 +3864,7 @@ export interface GetVpcLinkResponse {
   /**
    * <p>The version of the VPC link.</p>
    */
-  VpcLinkVersion?: VpcLinkVersion | string;
+  VpcLinkVersion?: keyof typeof VpcLinkVersion | string;
 }
 
 /**
@@ -3980,7 +3980,7 @@ export interface ImportApiResponse {
   /**
    * <p>The API protocol.</p>
    */
-  ProtocolType?: ProtocolType | string;
+  ProtocolType?: keyof typeof ProtocolType | string;
 
   /**
    * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
@@ -4091,7 +4091,7 @@ export interface ReimportApiResponse {
   /**
    * <p>The API protocol.</p>
    */
-  ProtocolType?: ProtocolType | string;
+  ProtocolType?: keyof typeof ProtocolType | string;
 
   /**
    * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
@@ -4293,7 +4293,7 @@ export interface UpdateApiResponse {
   /**
    * <p>The API protocol.</p>
    */
-  ProtocolType?: ProtocolType | string;
+  ProtocolType?: keyof typeof ProtocolType | string;
 
   /**
    * <p>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression must be $\{request.method\} $\{request.path\}. If not provided, this will be the default for HTTP APIs. This property is required for WebSocket APIs.</p>
@@ -4405,7 +4405,7 @@ export interface UpdateAuthorizerRequest {
   /**
    * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
    */
-  AuthorizerType?: AuthorizerType | string;
+  AuthorizerType?: keyof typeof AuthorizerType | string;
 
   /**
    * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>\{account_id\}</replaceable>:function:<replaceable>\{lambda_function_name\}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>\{region\}</replaceable>:lambda:path/<replaceable>\{service_api\}</replaceable>
@@ -4466,7 +4466,7 @@ export interface UpdateAuthorizerResponse {
   /**
    * <p>The authorizer type. Specify REQUEST for a Lambda function using incoming request parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</p>
    */
-  AuthorizerType?: AuthorizerType | string;
+  AuthorizerType?: keyof typeof AuthorizerType | string;
 
   /**
    * <p>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>\{account_id\}</replaceable>:function:<replaceable>\{lambda_function_name\}</replaceable>/invocations. In general, the URI has this form: arn:aws:apigateway:<replaceable>\{region\}</replaceable>:lambda:path/<replaceable>\{service_api\}</replaceable>
@@ -4543,7 +4543,7 @@ export interface UpdateDeploymentResponse {
   /**
    * <p>The status of the deployment: PENDING, FAILED, or SUCCEEDED.</p>
    */
-  DeploymentStatus?: DeploymentStatus | string;
+  DeploymentStatus?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>May contain additional feedback on the status of an API deployment.</p>
@@ -4625,12 +4625,12 @@ export interface UpdateIntegrationRequest {
   /**
    * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
    */
-  ConnectionType?: ConnectionType | string;
+  ConnectionType?: keyof typeof ConnectionType | string;
 
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ContentHandlingStrategy?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
@@ -4660,7 +4660,7 @@ export interface UpdateIntegrationRequest {
   /**
    * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration. For HTTP API private integrations, use an HTTP_PROXY integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
    */
-  IntegrationType?: IntegrationType | string;
+  IntegrationType?: keyof typeof IntegrationType | string;
 
   /**
    * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
@@ -4670,7 +4670,7 @@ export interface UpdateIntegrationRequest {
   /**
    * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
    */
-  PassthroughBehavior?: PassthroughBehavior | string;
+  PassthroughBehavior?: keyof typeof PassthroughBehavior | string;
 
   /**
    * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
@@ -4730,12 +4730,12 @@ export interface UpdateIntegrationResult {
   /**
    * <p>The type of the network connection to the integration endpoint. Specify INTERNET for connections through the public routable internet or VPC_LINK for private connections between API Gateway and resources in a VPC. The default value is INTERNET.</p>
    */
-  ConnectionType?: ConnectionType | string;
+  ConnectionType?: keyof typeof ConnectionType | string;
 
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ContentHandlingStrategy?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, specify null.</p>
@@ -4770,7 +4770,7 @@ export interface UpdateIntegrationResult {
   /**
    * <p>The integration type of an integration. One of the following:</p> <p>AWS: for integrating the route or method request with an AWS service action, including the Lambda function-invoking action. With the Lambda function-invoking action, this is referred to as the Lambda custom integration. With any other AWS service action, this is known as AWS integration. Supported only for WebSocket APIs.</p> <p>AWS_PROXY: for integrating the route or method request with a Lambda function or other AWS service action. This integration is also referred to as a Lambda proxy integration.</p> <p>HTTP: for integrating the route or method request with an HTTP endpoint. This integration is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</p> <p>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with the client request passed through as-is. This is also referred to as HTTP proxy integration.</p> <p>MOCK: for integrating the route or method request with API Gateway as a "loopback" endpoint without invoking any backend. Supported only for WebSocket APIs.</p>
    */
-  IntegrationType?: IntegrationType | string;
+  IntegrationType?: keyof typeof IntegrationType | string;
 
   /**
    * <p>For a Lambda integration, specify the URI of a Lambda function.</p> <p>For an HTTP integration, specify a fully-qualified URL.</p> <p>For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify resources. You can use query parameters to target specific resources. To learn more, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>. For private integrations, all resources must be owned by the same AWS account.</p>
@@ -4780,7 +4780,7 @@ export interface UpdateIntegrationResult {
   /**
    * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource. There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and NEVER. Supported only for WebSocket APIs.</p> <p>WHEN_NO_MATCH passes the request body for unmapped content types through to the integration backend without transformation.</p> <p>NEVER rejects unmapped content types with an HTTP 415 Unsupported Media Type response.</p> <p>WHEN_NO_TEMPLATES allows pass-through when the integration has no content types mapped to templates. However, if there is at least one content type defined, unmapped content types will be rejected with the same HTTP 415 Unsupported Media Type response.</p>
    */
-  PassthroughBehavior?: PassthroughBehavior | string;
+  PassthroughBehavior?: keyof typeof PassthroughBehavior | string;
 
   /**
    * <p>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</p>
@@ -4836,7 +4836,7 @@ export interface UpdateIntegrationResponseRequest {
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ContentHandlingStrategy?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>The integration ID.</p>
@@ -4883,7 +4883,7 @@ export interface UpdateIntegrationResponseResponse {
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
    */
-  ContentHandlingStrategy?: ContentHandlingStrategy | string;
+  ContentHandlingStrategy?: keyof typeof ContentHandlingStrategy | string;
 
   /**
    * <p>The integration response ID.</p>
@@ -5000,7 +5000,7 @@ export interface UpdateRouteRequest {
   /**
    * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
    */
-  AuthorizationType?: AuthorizationType | string;
+  AuthorizationType?: keyof typeof AuthorizationType | string;
 
   /**
    * <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
@@ -5070,7 +5070,7 @@ export interface UpdateRouteResult {
   /**
    * <p>The authorization type for the route. For WebSocket APIs, valid values are NONE for open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</p>
    */
-  AuthorizationType?: AuthorizationType | string;
+  AuthorizationType?: keyof typeof AuthorizationType | string;
 
   /**
    * <p>The identifier of the Authorizer resource to be associated with this route. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
@@ -5373,7 +5373,7 @@ export interface UpdateVpcLinkResponse {
   /**
    * <p>The status of the VPC link.</p>
    */
-  VpcLinkStatus?: VpcLinkStatus | string;
+  VpcLinkStatus?: keyof typeof VpcLinkStatus | string;
 
   /**
    * <p>A message summarizing the cause of the status of the VPC link.</p>
@@ -5383,5 +5383,5 @@ export interface UpdateVpcLinkResponse {
   /**
    * <p>The version of the VPC link.</p>
    */
-  VpcLinkVersion?: VpcLinkVersion | string;
+  VpcLinkVersion?: keyof typeof VpcLinkVersion | string;
 }

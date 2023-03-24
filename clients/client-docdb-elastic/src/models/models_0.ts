@@ -26,10 +26,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum Auth {
-  PLAIN_TEXT = "PLAIN_TEXT",
-  SECRET_ARN = "SECRET_ARN",
-}
+export const Auth = {
+  PLAIN_TEXT: "PLAIN_TEXT",
+  SECRET_ARN: "SECRET_ARN",
+};
 
 /**
  * @public
@@ -92,7 +92,7 @@ export interface CreateClusterInput {
   /**
    * <p>The authentication type for the Elastic DocumentDB cluster.</p>
    */
-  authType: Auth | string | undefined;
+  authType: keyof typeof Auth | string | undefined;
 
   /**
    * <p>The name of the Elastic DocumentDB cluster administrator.</p>
@@ -190,17 +190,17 @@ export interface CreateClusterInput {
 /**
  * @public
  */
-export enum Status {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDS = "INACCESSIBLE_ENCRYPTION_CREDS",
-  INVALID_SECURITY_GROUP_ID = "INVALID_SECURITY_GROUP_ID",
-  INVALID_SUBNET_ID = "INVALID_SUBNET_ID",
-  IP_ADDRESS_LIMIT_EXCEEDED = "IP_ADDRESS_LIMIT_EXCEEDED",
-  UPDATING = "UPDATING",
-  VPC_ENDPOINT_LIMIT_EXCEEDED = "VPC_ENDPOINT_LIMIT_EXCEEDED",
-}
+export const Status = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDS: "INACCESSIBLE_ENCRYPTION_CREDS",
+  INVALID_SECURITY_GROUP_ID: "INVALID_SECURITY_GROUP_ID",
+  INVALID_SUBNET_ID: "INVALID_SUBNET_ID",
+  IP_ADDRESS_LIMIT_EXCEEDED: "IP_ADDRESS_LIMIT_EXCEEDED",
+  UPDATING: "UPDATING",
+  VPC_ENDPOINT_LIMIT_EXCEEDED: "VPC_ENDPOINT_LIMIT_EXCEEDED",
+};
 
 /**
  * @public
@@ -220,7 +220,7 @@ export interface Cluster {
   /**
    * <p>The status of the Elastic DocumentDB cluster.</p>
    */
-  status: Status | string | undefined;
+  status: keyof typeof Status | string | undefined;
 
   /**
    * <p>The URL used to connect to the Elastic DocumentDB cluster.</p>
@@ -240,7 +240,7 @@ export interface Cluster {
   /**
    * <p>The authentication type for the Elastic DocumentDB cluster.</p>
    */
-  authType: Auth | string | undefined;
+  authType: keyof typeof Auth | string | undefined;
 
   /**
    * <p>The capacity of each shard in the Elastic DocumentDB cluster.</p>
@@ -374,12 +374,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+};
 
 /**
  * @public
@@ -392,7 +392,7 @@ export class ValidationException extends __BaseException {
    * <p>The reason why the validation exception occurred (one of <code>unknownOperation</code>,
    *       <code>cannotParse</code>, <code>fieldValidationFailed</code>, or <code>other</code>).</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: keyof typeof ValidationExceptionReason | string | undefined;
 
   /**
    * <p>A list of the fields in which the validation exception occurred.</p>
@@ -472,7 +472,7 @@ export interface ClusterSnapshot {
   /**
    * <p>The status of the Elastic DocumentDB snapshot.</p>
    */
-  status: Status | string | undefined;
+  status: keyof typeof Status | string | undefined;
 
   /**
    * <p>A list of the IDs of the VPC security groups associated with the cluster snapshot.</p>
@@ -645,7 +645,7 @@ export interface ClusterInList {
   /**
    * <p>The status of the Elastic DocumentDB cluster.</p>
    */
-  status: Status | string | undefined;
+  status: keyof typeof Status | string | undefined;
 }
 
 /**
@@ -707,7 +707,7 @@ export interface ClusterSnapshotInList {
   /**
    * <p>The status of the Elastic DocumentDB snapshot.</p>
    */
-  status: Status | string | undefined;
+  status: keyof typeof Status | string | undefined;
 
   /**
    * <p>The time when the Elastic DocumentDB snapshot was created in Universal Coordinated Time (UTC).</p>
@@ -858,7 +858,7 @@ export interface UpdateClusterInput {
   /**
    * <p>The authentication type for the Elastic DocumentDB cluster.</p>
    */
-  authType?: Auth | string;
+  authType?: keyof typeof Auth | string;
 
   /**
    * <p>The capacity of each shard in the Elastic DocumentDB cluster.</p>

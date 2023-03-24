@@ -26,13 +26,13 @@ export class BadRequestException extends __BaseException {
 /**
  * @public
  */
-export enum Stage {
-  BETA = "BETA",
-  DEVELOPMENT = "DEVELOPMENT",
-  EXPERIMENTAL = "EXPERIMENTAL",
-  PRODUCTION = "PRODUCTION",
-  PULL_REQUEST = "PULL_REQUEST",
-}
+export const Stage = {
+  BETA: "BETA",
+  DEVELOPMENT: "DEVELOPMENT",
+  EXPERIMENTAL: "EXPERIMENTAL",
+  PRODUCTION: "PRODUCTION",
+  PULL_REQUEST: "PULL_REQUEST",
+};
 
 /**
  * @public
@@ -42,7 +42,7 @@ export interface AutoBranchCreationConfig {
   /**
    * <p> Describes the current stage for the autocreated branch. </p>
    */
-  stage?: Stage | string;
+  stage?: keyof typeof Stage | string;
 
   /**
    * <p> The framework for the autocreated branch. </p>
@@ -148,11 +148,11 @@ export interface CustomRule {
 /**
  * @public
  */
-export enum Platform {
-  WEB = "WEB",
-  WEB_COMPUTE = "WEB_COMPUTE",
-  WEB_DYNAMIC = "WEB_DYNAMIC",
-}
+export const Platform = {
+  WEB: "WEB",
+  WEB_COMPUTE: "WEB_COMPUTE",
+  WEB_DYNAMIC: "WEB_DYNAMIC",
+};
 
 /**
  * @public
@@ -180,7 +180,7 @@ export interface CreateAppRequest {
    *             <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR support only, set the platform type to
    *             <code>WEB_DYNAMIC</code>.</p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 
   /**
    * <p> The AWS Identity and Access Management (IAM) service role for an Amplify app. </p>
@@ -312,11 +312,11 @@ export interface ProductionBranch {
 /**
  * @public
  */
-export enum RepositoryCloneMethod {
-  SIGV4 = "SIGV4",
-  SSH = "SSH",
-  TOKEN = "TOKEN",
-}
+export const RepositoryCloneMethod = {
+  SIGV4: "SIGV4",
+  SSH: "SSH",
+  TOKEN: "TOKEN",
+};
 
 /**
  * @public
@@ -360,7 +360,7 @@ export interface App {
    *             <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR support only, set the platform type to
    *             <code>WEB_DYNAMIC</code>.</p>
    */
-  platform: Platform | string | undefined;
+  platform: keyof typeof Platform | string | undefined;
 
   /**
    * <p> Creates a date and time for the Amplify app. </p>
@@ -456,7 +456,7 @@ export interface App {
    *             repository, <code>SIGV4</code> for an Amazon Web Services CodeCommit repository, and
    *                 <code>SSH</code> for GitLab and Bitbucket repositories.</p>
    */
-  repositoryCloneMethod?: RepositoryCloneMethod | string;
+  repositoryCloneMethod?: keyof typeof RepositoryCloneMethod | string;
 }
 
 /**
@@ -669,7 +669,7 @@ export interface CreateBranchRequest {
   /**
    * <p> Describes the current stage for the branch. </p>
    */
-  stage?: Stage | string;
+  stage?: keyof typeof Stage | string;
 
   /**
    * <p> The framework for the branch. </p>
@@ -776,7 +776,7 @@ export interface Branch {
   /**
    * <p> The current stage for the branch that is part of an Amplify app. </p>
    */
-  stage: Stage | string | undefined;
+  stage: keyof typeof Stage | string | undefined;
 
   /**
    * <p> The display name for the branch. This is used as the default domain prefix. </p>
@@ -1011,16 +1011,16 @@ export interface CreateDomainAssociationRequest {
 /**
  * @public
  */
-export enum DomainStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING_DEPLOYMENT = "PENDING_DEPLOYMENT",
-  PENDING_VERIFICATION = "PENDING_VERIFICATION",
-  REQUESTING_CERTIFICATE = "REQUESTING_CERTIFICATE",
-  UPDATING = "UPDATING",
-}
+export const DomainStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING_DEPLOYMENT: "PENDING_DEPLOYMENT",
+  PENDING_VERIFICATION: "PENDING_VERIFICATION",
+  REQUESTING_CERTIFICATE: "REQUESTING_CERTIFICATE",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1078,7 +1078,7 @@ export interface DomainAssociation {
   /**
    * <p> The current status of the domain association. </p>
    */
-  domainStatus: DomainStatus | string | undefined;
+  domainStatus: keyof typeof DomainStatus | string | undefined;
 
   /**
    * <p> The reason for the current status of the domain association. </p>
@@ -1309,25 +1309,25 @@ export interface DeleteJobRequest {
 /**
  * @public
  */
-export enum JobType {
-  MANUAL = "MANUAL",
-  RELEASE = "RELEASE",
-  RETRY = "RETRY",
-  WEB_HOOK = "WEB_HOOK",
-}
+export const JobType = {
+  MANUAL: "MANUAL",
+  RELEASE: "RELEASE",
+  RETRY: "RETRY",
+  WEB_HOOK: "WEB_HOOK",
+};
 
 /**
  * @public
  */
-export enum JobStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  PROVISIONING = "PROVISIONING",
-  RUNNING = "RUNNING",
-  SUCCEED = "SUCCEED",
-}
+export const JobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  PROVISIONING: "PROVISIONING",
+  RUNNING: "RUNNING",
+  SUCCEED: "SUCCEED",
+};
 
 /**
  * @public
@@ -1367,7 +1367,7 @@ export interface JobSummary {
   /**
    * <p> The current status for the job. </p>
    */
-  status: JobStatus | string | undefined;
+  status: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p> The end date and time for the job. </p>
@@ -1381,7 +1381,7 @@ export interface JobSummary {
    *             API. If the value is <code>WEB_HOOK</code>, the job was automatically triggered by
    *             webhooks. </p>
    */
-  jobType: JobType | string | undefined;
+  jobType: keyof typeof JobType | string | undefined;
 }
 
 /**
@@ -1625,7 +1625,7 @@ export interface Step {
   /**
    * <p> The status of the execution step. </p>
    */
-  status: JobStatus | string | undefined;
+  status: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p> The end date and time of the execution step. </p>
@@ -2139,7 +2139,7 @@ export interface StartJobRequest {
    *             job. If the job type value is <code>RETRY</code>, the <code>jobId</code> is also
    *             required. </p>
    */
-  jobType: JobType | string | undefined;
+  jobType: keyof typeof JobType | string | undefined;
 
   /**
    * <p> A descriptive reason for starting this job. </p>
@@ -2275,7 +2275,7 @@ export interface UpdateAppRequest {
    *             <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR support only, set the platform type to
    *             <code>WEB_DYNAMIC</code>.</p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 
   /**
    * <p> The AWS Identity and Access Management (IAM) service role for an Amplify app. </p>
@@ -2417,7 +2417,7 @@ export interface UpdateBranchRequest {
   /**
    * <p> Describes the current stage for the branch. </p>
    */
-  stage?: Stage | string;
+  stage?: keyof typeof Stage | string;
 
   /**
    * <p> Enables notifications for the branch. </p>

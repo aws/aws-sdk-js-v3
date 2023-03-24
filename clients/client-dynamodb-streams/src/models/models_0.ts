@@ -28,10 +28,10 @@ export interface DescribeStreamInput {
 /**
  * @public
  */
-export enum KeyType {
-  HASH = "HASH",
-  RANGE = "RANGE",
-}
+export const KeyType = {
+  HASH: "HASH",
+  RANGE: "RANGE",
+};
 
 /**
  * @public
@@ -76,7 +76,7 @@ export interface KeySchemaElement {
    *                 by the sort key value.</p>
    *          </note>
    */
-  KeyType: KeyType | string | undefined;
+  KeyType: keyof typeof KeyType | string | undefined;
 }
 
 /**
@@ -119,22 +119,22 @@ export interface Shard {
 /**
  * @public
  */
-export enum StreamStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-}
+export const StreamStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+};
 
 /**
  * @public
  */
-export enum StreamViewType {
-  KEYS_ONLY = "KEYS_ONLY",
-  NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES",
-  NEW_IMAGE = "NEW_IMAGE",
-  OLD_IMAGE = "OLD_IMAGE",
-}
+export const StreamViewType = {
+  KEYS_ONLY: "KEYS_ONLY",
+  NEW_AND_OLD_IMAGES: "NEW_AND_OLD_IMAGES",
+  NEW_IMAGE: "NEW_IMAGE",
+  OLD_IMAGE: "OLD_IMAGE",
+};
 
 /**
  * @public
@@ -187,7 +187,7 @@ export interface StreamDescription {
    *             </li>
    *          </ul>
    */
-  StreamStatus?: StreamStatus | string;
+  StreamStatus?: keyof typeof StreamStatus | string;
 
   /**
    * <p>Indicates the format of the records within this stream:</p>
@@ -210,7 +210,7 @@ export interface StreamDescription {
    *             </li>
    *          </ul>
    */
-  StreamViewType?: StreamViewType | string;
+  StreamViewType?: keyof typeof StreamViewType | string;
 
   /**
    * <p>The date and time when the request to create this stream was issued.</p>
@@ -337,11 +337,11 @@ export interface GetRecordsInput {
 /**
  * @public
  */
-export enum OperationType {
-  INSERT = "INSERT",
-  MODIFY = "MODIFY",
-  REMOVE = "REMOVE",
-}
+export const OperationType = {
+  INSERT: "INSERT",
+  MODIFY: "MODIFY",
+  REMOVE: "REMOVE",
+};
 
 /**
  * @public
@@ -424,12 +424,12 @@ export class TrimmedDataAccessException extends __BaseException {
 /**
  * @public
  */
-export enum ShardIteratorType {
-  AFTER_SEQUENCE_NUMBER = "AFTER_SEQUENCE_NUMBER",
-  AT_SEQUENCE_NUMBER = "AT_SEQUENCE_NUMBER",
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const ShardIteratorType = {
+  AFTER_SEQUENCE_NUMBER: "AFTER_SEQUENCE_NUMBER",
+  AT_SEQUENCE_NUMBER: "AT_SEQUENCE_NUMBER",
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+};
 
 /**
  * @public
@@ -473,7 +473,7 @@ export interface GetShardIteratorInput {
    *             </li>
    *          </ul>
    */
-  ShardIteratorType: ShardIteratorType | string | undefined;
+  ShardIteratorType: keyof typeof ShardIteratorType | string | undefined;
 
   /**
    * <p>The sequence number of a stream record in the shard from which to start reading.</p>
@@ -897,7 +897,7 @@ export interface StreamRecord {
    *             </li>
    *          </ul>
    */
-  StreamViewType?: StreamViewType | string;
+  StreamViewType?: keyof typeof StreamViewType | string;
 }
 
 /**
@@ -927,7 +927,7 @@ export interface _Record {
    *             </li>
    *          </ul>
    */
-  eventName?: OperationType | string;
+  eventName?: keyof typeof OperationType | string;
 
   /**
    * <p>The version number of the stream record format.  This number is updated whenever the structure of <code>Record</code> is modified.</p>

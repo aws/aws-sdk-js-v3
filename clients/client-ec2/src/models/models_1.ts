@@ -37,11 +37,11 @@ import {
 /**
  * @public
  */
-export enum ClientVpnAuthenticationType {
-  certificate_authentication = "certificate-authentication",
-  directory_service_authentication = "directory-service-authentication",
-  federated_authentication = "federated-authentication",
-}
+export const ClientVpnAuthenticationType = {
+  certificate_authentication: "certificate-authentication",
+  directory_service_authentication: "directory-service-authentication",
+  federated_authentication: "federated-authentication",
+};
 
 /**
  * @public
@@ -52,7 +52,7 @@ export interface ClientVpnAuthenticationRequest {
   /**
    * <p>The type of client authentication to be used.</p>
    */
-  Type?: ClientVpnAuthenticationType | string;
+  Type?: keyof typeof ClientVpnAuthenticationType | string;
 
   /**
    * <p>Information about the Active Directory to be used, if applicable. You must provide this information if <b>Type</b> is <code>directory-service-authentication</code>.</p>
@@ -134,18 +134,18 @@ export interface ConnectionLogOptions {
 /**
  * @public
  */
-export enum SelfServicePortal {
-  disabled = "disabled",
-  enabled = "enabled",
-}
+export const SelfServicePortal = {
+  disabled: "disabled",
+  enabled: "enabled",
+};
 
 /**
  * @public
  */
-export enum TransportProtocol {
-  tcp = "tcp",
-  udp = "udp",
-}
+export const TransportProtocol = {
+  tcp: "tcp",
+  udp: "udp",
+};
 
 /**
  * @public
@@ -199,7 +199,7 @@ export interface CreateClientVpnEndpointRequest {
    *          <p>Default value: <code>udp</code>
    *          </p>
    */
-  TransportProtocol?: TransportProtocol | string;
+  TransportProtocol?: keyof typeof TransportProtocol | string;
 
   /**
    * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
@@ -253,7 +253,7 @@ export interface CreateClientVpnEndpointRequest {
    *          <p>Default Value: <code>enabled</code>
    *          </p>
    */
-  SelfServicePortal?: SelfServicePortal | string;
+  SelfServicePortal?: keyof typeof SelfServicePortal | string;
 
   /**
    * <p>The options for managing connection authorization for new client connections.</p>
@@ -279,12 +279,12 @@ export interface CreateClientVpnEndpointRequest {
 /**
  * @public
  */
-export enum ClientVpnEndpointStatusCode {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending_associate = "pending-associate",
-}
+export const ClientVpnEndpointStatusCode = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending_associate: "pending-associate",
+};
 
 /**
  * @public
@@ -316,7 +316,7 @@ export interface ClientVpnEndpointStatus {
    *             </li>
    *          </ul>
    */
-  Code?: ClientVpnEndpointStatusCode | string;
+  Code?: keyof typeof ClientVpnEndpointStatusCode | string;
 
   /**
    * <p>A message about the status of the Client VPN endpoint.</p>
@@ -399,12 +399,12 @@ export interface CreateClientVpnRouteRequest {
 /**
  * @public
  */
-export enum ClientVpnRouteStatusCode {
-  active = "active",
-  creating = "creating",
-  deleting = "deleting",
-  failed = "failed",
-}
+export const ClientVpnRouteStatusCode = {
+  active: "active",
+  creating: "creating",
+  deleting: "deleting",
+  failed: "failed",
+};
 
 /**
  * @public
@@ -414,7 +414,7 @@ export interface ClientVpnRouteStatus {
   /**
    * <p>The state of the Client VPN endpoint route.</p>
    */
-  Code?: ClientVpnRouteStatusCode | string;
+  Code?: keyof typeof ClientVpnRouteStatusCode | string;
 
   /**
    * <p>A message about the status of the Client VPN endpoint route, if applicable.</p>
@@ -569,9 +569,9 @@ export interface CreateCoipPoolResult {
 /**
  * @public
  */
-export enum GatewayType {
-  ipsec_1 = "ipsec.1",
-}
+export const GatewayType = {
+  ipsec_1: "ipsec.1",
+};
 
 /**
  * @public
@@ -600,7 +600,7 @@ export interface CreateCustomerGatewayRequest {
    * <p>The type of VPN connection that this customer gateway supports
    *             (<code>ipsec.1</code>).</p>
    */
-  Type: GatewayType | string | undefined;
+  Type: keyof typeof GatewayType | string | undefined;
 
   /**
    * <p>The tags to apply to the customer gateway.</p>
@@ -715,10 +715,10 @@ export interface CreateDefaultSubnetRequest {
 /**
  * @public
  */
-export enum HostnameType {
-  ip_name = "ip-name",
-  resource_name = "resource-name",
-}
+export const HostnameType = {
+  ip_name: "ip-name",
+  resource_name: "resource-name",
+};
 
 /**
  * @public
@@ -731,7 +731,7 @@ export interface PrivateDnsNameOptionsOnLaunch {
    *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
    *             names use the instance IPv4 address or the instance ID.</p>
    */
-  HostnameType?: HostnameType | string;
+  HostnameType?: keyof typeof HostnameType | string;
 
   /**
    * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
@@ -749,10 +749,10 @@ export interface PrivateDnsNameOptionsOnLaunch {
 /**
  * @public
  */
-export enum SubnetState {
-  available = "available",
-  pending = "pending",
-}
+export const SubnetState = {
+  available: "available",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -813,7 +813,7 @@ export interface Subnet {
   /**
    * <p>The current state of the subnet.</p>
    */
-  State?: SubnetState | string;
+  State?: keyof typeof SubnetState | string;
 
   /**
    * <p>The ID of the subnet.</p>
@@ -899,19 +899,19 @@ export interface CreateDefaultVpcRequest {
 /**
  * @public
  */
-export enum Tenancy {
-  dedicated = "dedicated",
-  default = "default",
-  host = "host",
-}
+export const Tenancy = {
+  dedicated: "dedicated",
+  default: "default",
+  host: "host",
+};
 
 /**
  * @public
  */
-export enum VpcState {
-  available = "available",
-  pending = "pending",
-}
+export const VpcState = {
+  available: "available",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -931,7 +931,7 @@ export interface Vpc {
   /**
    * <p>The current state of the VPC.</p>
    */
-  State?: VpcState | string;
+  State?: keyof typeof VpcState | string;
 
   /**
    * <p>The ID of the VPC.</p>
@@ -946,7 +946,7 @@ export interface Vpc {
   /**
    * <p>The allowed tenancy of instances launched into the VPC.</p>
    */
-  InstanceTenancy?: Tenancy | string;
+  InstanceTenancy?: keyof typeof Tenancy | string;
 
   /**
    * <p>Information about the IPv6 CIDR blocks associated with the VPC.</p>
@@ -1120,7 +1120,7 @@ export interface InternetGatewayAttachment {
    * 				<code>available</code> when attached to a VPC; otherwise, this value is not
    * 			returned.</p>
    */
-  State?: AttachmentStatus | string;
+  State?: keyof typeof AttachmentStatus | string;
 
   /**
    * <p>The ID of the VPC.</p>
@@ -1168,10 +1168,10 @@ export interface CreateEgressOnlyInternetGatewayResult {
 /**
  * @public
  */
-export enum FleetExcessCapacityTerminationPolicy {
-  NO_TERMINATION = "no-termination",
-  TERMINATION = "termination",
-}
+export const FleetExcessCapacityTerminationPolicy = {
+  NO_TERMINATION: "no-termination",
+  TERMINATION: "termination",
+};
 
 /**
  * @public
@@ -1205,11 +1205,11 @@ export interface FleetLaunchTemplateSpecificationRequest {
 /**
  * @public
  */
-export enum BareMetal {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
+export const BareMetal = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+};
 
 /**
  * @public
@@ -1234,45 +1234,45 @@ export interface BaselineEbsBandwidthMbpsRequest {
 /**
  * @public
  */
-export enum BurstablePerformance {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
+export const BurstablePerformance = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+};
 
 /**
  * @public
  */
-export enum CpuManufacturer {
-  AMAZON_WEB_SERVICES = "amazon-web-services",
-  AMD = "amd",
-  INTEL = "intel",
-}
+export const CpuManufacturer = {
+  AMAZON_WEB_SERVICES: "amazon-web-services",
+  AMD: "amd",
+  INTEL: "intel",
+};
 
 /**
  * @public
  */
-export enum InstanceGeneration {
-  CURRENT = "current",
-  PREVIOUS = "previous",
-}
+export const InstanceGeneration = {
+  CURRENT: "current",
+  PREVIOUS: "previous",
+};
 
 /**
  * @public
  */
-export enum LocalStorage {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
+export const LocalStorage = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+};
 
 /**
  * @public
  */
-export enum LocalStorageType {
-  HDD = "hdd",
-  SSD = "ssd",
-}
+export const LocalStorageType = {
+  HDD: "hdd",
+  SSD: "ssd",
+};
 
 /**
  * @public
@@ -1446,7 +1446,7 @@ export interface InstanceRequirementsRequest {
    *          </note>
    *          <p>Default: Any manufacturer</p>
    */
-  CpuManufacturers?: (CpuManufacturer | string)[];
+  CpuManufacturers?: (keyof typeof CpuManufacturer | string)[];
 
   /**
    * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
@@ -1481,7 +1481,7 @@ export interface InstanceRequirementsRequest {
    *          <p>For previous generation instance types, specify <code>previous</code>.</p>
    *          <p>Default: Current and previous generation instance types</p>
    */
-  InstanceGenerations?: (InstanceGeneration | string)[];
+  InstanceGenerations?: (keyof typeof InstanceGeneration | string)[];
 
   /**
    * <p>The price protection threshold for Spot Instance. This is the maximum you’ll pay for an Spot Instance,
@@ -1535,7 +1535,7 @@ export interface InstanceRequirementsRequest {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BareMetal?: BareMetal | string;
+  BareMetal?: keyof typeof BareMetal | string;
 
   /**
    * <p>Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see
@@ -1554,7 +1554,7 @@ export interface InstanceRequirementsRequest {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BurstablePerformance?: BurstablePerformance | string;
+  BurstablePerformance?: keyof typeof BurstablePerformance | string;
 
   /**
    * <p>Indicates whether instance types must support hibernation for On-Demand Instances.</p>
@@ -1591,7 +1591,7 @@ export interface InstanceRequirementsRequest {
    *          <p>Default: <code>included</code>
    *          </p>
    */
-  LocalStorage?: LocalStorage | string;
+  LocalStorage?: keyof typeof LocalStorage | string;
 
   /**
    * <p>The type of local storage that is required.</p>
@@ -1607,7 +1607,7 @@ export interface InstanceRequirementsRequest {
    *          <p>Default: <code>hdd</code> and <code>ssd</code>
    *          </p>
    */
-  LocalStorageTypes?: (LocalStorageType | string)[];
+  LocalStorageTypes?: (keyof typeof LocalStorageType | string)[];
 
   /**
    * <p>The minimum and maximum amount of total local storage, in GB.</p>
@@ -1638,7 +1638,7 @@ export interface InstanceRequirementsRequest {
    *          </ul>
    *          <p>Default: Any accelerator type</p>
    */
-  AcceleratorTypes?: (AcceleratorType | string)[];
+  AcceleratorTypes?: (keyof typeof AcceleratorType | string)[];
 
   /**
    * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on
@@ -1666,7 +1666,7 @@ export interface InstanceRequirementsRequest {
    *          </ul>
    *          <p>Default: Any manufacturer</p>
    */
-  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+  AcceleratorManufacturers?: (keyof typeof AcceleratorManufacturer | string)[];
 
   /**
    * <p>The accelerators that must be on the instance type.</p>
@@ -1701,7 +1701,7 @@ export interface InstanceRequirementsRequest {
    *          </ul>
    *          <p>Default: Any accelerator</p>
    */
-  AcceleratorNames?: (AcceleratorName | string)[];
+  AcceleratorNames?: (keyof typeof AcceleratorName | string)[];
 
   /**
    * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
@@ -1780,7 +1780,7 @@ export interface Placement {
    *             for T3 instances that are configured for the <code>unlimited</code> CPU credit
    *             option.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: keyof typeof Tenancy | string;
 
   /**
    * <p>Reserved for future use.</p>
@@ -1815,7 +1815,7 @@ export interface FleetLaunchTemplateOverridesRequest {
    *                <code>InstanceRequirements</code>.</p>
    *          </note>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
@@ -1901,17 +1901,17 @@ export interface FleetLaunchTemplateConfigRequest {
 /**
  * @public
  */
-export enum FleetOnDemandAllocationStrategy {
-  LOWEST_PRICE = "lowest-price",
-  PRIORITIZED = "prioritized",
-}
+export const FleetOnDemandAllocationStrategy = {
+  LOWEST_PRICE: "lowest-price",
+  PRIORITIZED: "prioritized",
+};
 
 /**
  * @public
  */
-export enum FleetCapacityReservationUsageStrategy {
-  USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first",
-}
+export const FleetCapacityReservationUsageStrategy = {
+  USE_CAPACITY_RESERVATIONS_FIRST: "use-capacity-reservations-first",
+};
 
 /**
  * @public
@@ -1938,7 +1938,7 @@ export interface CapacityReservationOptionsRequest {
    *          <p>If you do not specify a value, the fleet fulfils the On-Demand capacity according to the
    *          chosen On-Demand allocation strategy.</p>
    */
-  UsageStrategy?: FleetCapacityReservationUsageStrategy | string;
+  UsageStrategy?: keyof typeof FleetCapacityReservationUsageStrategy | string;
 }
 
 /**
@@ -1958,7 +1958,7 @@ export interface OnDemandOptionsRequest {
    *          <p>Default: <code>lowest-price</code>
    *          </p>
    */
-  AllocationStrategy?: FleetOnDemandAllocationStrategy | string;
+  AllocationStrategy?: keyof typeof FleetOnDemandAllocationStrategy | string;
 
   /**
    * <p>The strategy for using unused Capacity Reservations for fulfilling On-Demand
@@ -1999,30 +1999,30 @@ export interface OnDemandOptionsRequest {
 /**
  * @public
  */
-export enum SpotAllocationStrategy {
-  CAPACITY_OPTIMIZED = "capacity-optimized",
-  CAPACITY_OPTIMIZED_PRIORITIZED = "capacity-optimized-prioritized",
-  DIVERSIFIED = "diversified",
-  LOWEST_PRICE = "lowest-price",
-  PRICE_CAPACITY_OPTIMIZED = "price-capacity-optimized",
-}
+export const SpotAllocationStrategy = {
+  CAPACITY_OPTIMIZED: "capacity-optimized",
+  CAPACITY_OPTIMIZED_PRIORITIZED: "capacity-optimized-prioritized",
+  DIVERSIFIED: "diversified",
+  LOWEST_PRICE: "lowest-price",
+  PRICE_CAPACITY_OPTIMIZED: "price-capacity-optimized",
+};
 
 /**
  * @public
  */
-export enum SpotInstanceInterruptionBehavior {
-  hibernate = "hibernate",
-  stop = "stop",
-  terminate = "terminate",
-}
+export const SpotInstanceInterruptionBehavior = {
+  hibernate: "hibernate",
+  stop: "stop",
+  terminate: "terminate",
+};
 
 /**
  * @public
  */
-export enum FleetReplacementStrategy {
-  LAUNCH = "launch",
-  LAUNCH_BEFORE_TERMINATE = "launch-before-terminate",
-}
+export const FleetReplacementStrategy = {
+  LAUNCH: "launch",
+  LAUNCH_BEFORE_TERMINATE: "launch-before-terminate",
+};
 
 /**
  * @public
@@ -2046,7 +2046,7 @@ export interface FleetSpotCapacityRebalanceRequest {
    *          then, after a delay that you specify (in <code>TerminationDelay</code>), terminates the
    *          instances that received a rebalance notification.</p>
    */
-  ReplacementStrategy?: FleetReplacementStrategy | string;
+  ReplacementStrategy?: keyof typeof FleetReplacementStrategy | string;
 
   /**
    * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
@@ -2122,7 +2122,7 @@ export interface SpotOptionsRequest {
    *          <p>Default: <code>lowest-price</code>
    *          </p>
    */
-  AllocationStrategy?: SpotAllocationStrategy | string;
+  AllocationStrategy?: keyof typeof SpotAllocationStrategy | string;
 
   /**
    * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
@@ -2135,7 +2135,7 @@ export interface SpotOptionsRequest {
    *          <p>Default: <code>terminate</code>
    *          </p>
    */
-  InstanceInterruptionBehavior?: SpotInstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: keyof typeof SpotInstanceInterruptionBehavior | string;
 
   /**
    * <p>The number of Spot pools across which to allocate your target Spot capacity. Supported
@@ -2189,19 +2189,19 @@ export interface SpotOptionsRequest {
 /**
  * @public
  */
-export enum DefaultTargetCapacityType {
-  ON_DEMAND = "on-demand",
-  SPOT = "spot",
-}
+export const DefaultTargetCapacityType = {
+  ON_DEMAND: "on-demand",
+  SPOT: "spot",
+};
 
 /**
  * @public
  */
-export enum TargetCapacityUnitType {
-  MEMORY_MIB = "memory-mib",
-  UNITS = "units",
-  VCPU = "vcpu",
-}
+export const TargetCapacityUnitType = {
+  MEMORY_MIB: "memory-mib",
+  UNITS: "units",
+  VCPU: "vcpu",
+};
 
 /**
  * @public
@@ -2239,23 +2239,23 @@ export interface TargetCapacitySpecificationRequest {
    * <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
    *          <code>On-Demand</code>.</p>
    */
-  DefaultTargetCapacityType?: DefaultTargetCapacityType | string;
+  DefaultTargetCapacityType?: keyof typeof DefaultTargetCapacityType | string;
 
   /**
    * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
    *          <p>Default: <code>units</code> (translates to number of instances)</p>
    */
-  TargetCapacityUnitType?: TargetCapacityUnitType | string;
+  TargetCapacityUnitType?: keyof typeof TargetCapacityUnitType | string;
 }
 
 /**
  * @public
  */
-export enum FleetType {
-  INSTANT = "instant",
-  MAINTAIN = "maintain",
-  REQUEST = "request",
-}
+export const FleetType = {
+  INSTANT: "instant",
+  MAINTAIN: "maintain",
+  REQUEST: "request",
+};
 
 /**
  * @public
@@ -2290,7 +2290,7 @@ export interface CreateFleetRequest {
    *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
    *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
-  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
+  ExcessCapacityTerminationPolicy?: keyof typeof FleetExcessCapacityTerminationPolicy | string;
 
   /**
    * <p>The configuration for the EC2 Fleet.</p>
@@ -2333,7 +2333,7 @@ export interface CreateFleetRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html">EC2 Fleet
    *             request types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  Type?: FleetType | string;
+  Type?: keyof typeof FleetType | string;
 
   /**
    * <p>The start date and time of the request, in UTC format (for example,
@@ -2600,7 +2600,7 @@ export interface InstanceRequirements {
    *          </note>
    *          <p>Default: Any manufacturer</p>
    */
-  CpuManufacturers?: (CpuManufacturer | string)[];
+  CpuManufacturers?: (keyof typeof CpuManufacturer | string)[];
 
   /**
    * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
@@ -2635,7 +2635,7 @@ export interface InstanceRequirements {
    *          <p>For previous generation instance types, specify <code>previous</code>.</p>
    *          <p>Default: Current and previous generation instance types</p>
    */
-  InstanceGenerations?: (InstanceGeneration | string)[];
+  InstanceGenerations?: (keyof typeof InstanceGeneration | string)[];
 
   /**
    * <p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance,
@@ -2689,7 +2689,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BareMetal?: BareMetal | string;
+  BareMetal?: keyof typeof BareMetal | string;
 
   /**
    * <p>Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see
@@ -2708,7 +2708,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BurstablePerformance?: BurstablePerformance | string;
+  BurstablePerformance?: keyof typeof BurstablePerformance | string;
 
   /**
    * <p>Indicates whether instance types must support hibernation for On-Demand
@@ -2746,7 +2746,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>included</code>
    *          </p>
    */
-  LocalStorage?: LocalStorage | string;
+  LocalStorage?: keyof typeof LocalStorage | string;
 
   /**
    * <p>The type of local storage that is required.</p>
@@ -2762,7 +2762,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>hdd</code> and <code>ssd</code>
    *          </p>
    */
-  LocalStorageTypes?: (LocalStorageType | string)[];
+  LocalStorageTypes?: (keyof typeof LocalStorageType | string)[];
 
   /**
    * <p>The minimum and maximum amount of total local storage, in GB.</p>
@@ -2793,7 +2793,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any accelerator type</p>
    */
-  AcceleratorTypes?: (AcceleratorType | string)[];
+  AcceleratorTypes?: (keyof typeof AcceleratorType | string)[];
 
   /**
    * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on
@@ -2821,7 +2821,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any manufacturer</p>
    */
-  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+  AcceleratorManufacturers?: (keyof typeof AcceleratorManufacturer | string)[];
 
   /**
    * <p>The accelerators that must be on the instance type.</p>
@@ -2856,7 +2856,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any accelerator</p>
    */
-  AcceleratorNames?: (AcceleratorName | string)[];
+  AcceleratorNames?: (keyof typeof AcceleratorName | string)[];
 
   /**
    * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
@@ -2914,7 +2914,7 @@ export interface FleetLaunchTemplateOverrides {
    *                <code>InstanceRequirements</code>.</p>
    *          </note>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
@@ -2997,10 +2997,10 @@ export interface LaunchTemplateAndOverridesResponse {
 /**
  * @public
  */
-export enum InstanceLifecycle {
-  ON_DEMAND = "on-demand",
-  SPOT = "spot",
-}
+export const InstanceLifecycle = {
+  ON_DEMAND: "on-demand",
+  SPOT: "spot",
+};
 
 /**
  * @public
@@ -3016,7 +3016,7 @@ export interface CreateFleetError {
   /**
    * <p>Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.</p>
    */
-  Lifecycle?: InstanceLifecycle | string;
+  Lifecycle?: keyof typeof InstanceLifecycle | string;
 
   /**
    * <p>The error code that indicates why the instance could not be launched. For more
@@ -3034,9 +3034,9 @@ export interface CreateFleetError {
 /**
  * @public
  */
-export enum PlatformValues {
-  Windows = "Windows",
-}
+export const PlatformValues = {
+  Windows: "Windows",
+};
 
 /**
  * @public
@@ -3052,7 +3052,7 @@ export interface CreateFleetInstance {
   /**
    * <p>Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.</p>
    */
-  Lifecycle?: InstanceLifecycle | string;
+  Lifecycle?: keyof typeof InstanceLifecycle | string;
 
   /**
    * <p>The IDs of the instances.</p>
@@ -3062,13 +3062,13 @@ export interface CreateFleetInstance {
   /**
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The value is <code>Windows</code> for Windows instances. Otherwise, the value is
    *          blank.</p>
    */
-  Platform?: PlatformValues | string;
+  Platform?: keyof typeof PlatformValues | string;
 }
 
 /**
@@ -3096,10 +3096,10 @@ export interface CreateFleetResult {
 /**
  * @public
  */
-export enum DestinationFileFormat {
-  parquet = "parquet",
-  plain_text = "plain-text",
-}
+export const DestinationFileFormat = {
+  parquet: "parquet",
+  plain_text: "plain-text",
+};
 
 /**
  * @public
@@ -3109,7 +3109,7 @@ export interface DestinationOptionsRequest {
   /**
    * <p>The format for the flow log. The default is <code>plain-text</code>.</p>
    */
-  FileFormat?: DestinationFileFormat | string;
+  FileFormat?: keyof typeof DestinationFileFormat | string;
 
   /**
    * <p>Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3.
@@ -3127,31 +3127,31 @@ export interface DestinationOptionsRequest {
 /**
  * @public
  */
-export enum LogDestinationType {
-  cloud_watch_logs = "cloud-watch-logs",
-  kinesis_data_firehose = "kinesis-data-firehose",
-  s3 = "s3",
-}
+export const LogDestinationType = {
+  cloud_watch_logs: "cloud-watch-logs",
+  kinesis_data_firehose: "kinesis-data-firehose",
+  s3: "s3",
+};
 
 /**
  * @public
  */
-export enum FlowLogsResourceType {
-  NetworkInterface = "NetworkInterface",
-  Subnet = "Subnet",
-  TransitGateway = "TransitGateway",
-  TransitGatewayAttachment = "TransitGatewayAttachment",
-  VPC = "VPC",
-}
+export const FlowLogsResourceType = {
+  NetworkInterface: "NetworkInterface",
+  Subnet: "Subnet",
+  TransitGateway: "TransitGateway",
+  TransitGatewayAttachment: "TransitGatewayAttachment",
+  VPC: "VPC",
+};
 
 /**
  * @public
  */
-export enum TrafficType {
-  ACCEPT = "ACCEPT",
-  ALL = "ALL",
-  REJECT = "REJECT",
-}
+export const TrafficType = {
+  ACCEPT: "ACCEPT",
+  ALL: "ALL",
+  REJECT: "REJECT",
+};
 
 /**
  * @public
@@ -3201,21 +3201,21 @@ export interface CreateFlowLogsRequest {
   /**
    * <p>The type of resource to monitor.</p>
    */
-  ResourceType: FlowLogsResourceType | string | undefined;
+  ResourceType: keyof typeof FlowLogsResourceType | string | undefined;
 
   /**
    * <p>The type of traffic to monitor (accepted traffic, rejected traffic, or all traffic).
    *             This parameter is not supported for transit gateway resource types. It is required for
    *             the other resource types.</p>
    */
-  TrafficType?: TrafficType | string;
+  TrafficType?: keyof typeof TrafficType | string;
 
   /**
    * <p>The type of destination for the flow log data.</p>
    *          <p>Default: <code>cloud-watch-logs</code>
    *          </p>
    */
-  LogDestinationType?: LogDestinationType | string;
+  LogDestinationType?: keyof typeof LogDestinationType | string;
 
   /**
    * <p>The destination for the flow log data. The meaning of this parameter depends on the destination type.</p>
@@ -3373,15 +3373,15 @@ export interface CreateFpgaImageResult {
 /**
  * @public
  */
-export enum VolumeType {
-  gp2 = "gp2",
-  gp3 = "gp3",
-  io1 = "io1",
-  io2 = "io2",
-  sc1 = "sc1",
-  st1 = "st1",
-  standard = "standard",
-}
+export const VolumeType = {
+  gp2: "gp2",
+  gp3: "gp3",
+  io1: "io1",
+  io2: "io2",
+  sc1: "sc1",
+  st1: "st1",
+  standard: "standard",
+};
 
 /**
  * @public
@@ -3461,7 +3461,7 @@ export interface EbsBlockDevice {
    *                 <i>Amazon EC2 User Guide</i>. If the volume type is <code>io1</code> or
    *                 <code>io2</code>, you must specify the IOPS that the volume supports.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: keyof typeof VolumeType | string;
 
   /**
    * <p>Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer managed CMK under
@@ -3656,7 +3656,7 @@ export interface InstanceEventWindowTimeRangeRequest {
   /**
    * <p>The day on which the time range begins.</p>
    */
-  StartWeekDay?: WeekDay | string;
+  StartWeekDay?: keyof typeof WeekDay | string;
 
   /**
    * <p>The hour when the time range begins.</p>
@@ -3666,7 +3666,7 @@ export interface InstanceEventWindowTimeRangeRequest {
   /**
    * <p>The day on which the time range ends.</p>
    */
-  EndWeekDay?: WeekDay | string;
+  EndWeekDay?: keyof typeof WeekDay | string;
 
   /**
    * <p>The hour when the time range ends.</p>
@@ -3749,18 +3749,18 @@ export interface CreateInstanceEventWindowResult {
 /**
  * @public
  */
-export enum ContainerFormat {
-  ova = "ova",
-}
+export const ContainerFormat = {
+  ova: "ova",
+};
 
 /**
  * @public
  */
-export enum DiskImageFormat {
-  RAW = "RAW",
-  VHD = "VHD",
-  VMDK = "VMDK",
-}
+export const DiskImageFormat = {
+  RAW: "RAW",
+  VHD: "VHD",
+  VMDK: "VMDK",
+};
 
 /**
  * @public
@@ -3771,12 +3771,12 @@ export interface ExportToS3TaskSpecification {
    * <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
    *    exported.</p>
    */
-  ContainerFormat?: ContainerFormat | string;
+  ContainerFormat?: keyof typeof ContainerFormat | string;
 
   /**
    * <p>The format for the exported image.</p>
    */
-  DiskImageFormat?: DiskImageFormat | string;
+  DiskImageFormat?: keyof typeof DiskImageFormat | string;
 
   /**
    * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and have
@@ -3795,11 +3795,11 @@ export interface ExportToS3TaskSpecification {
 /**
  * @public
  */
-export enum ExportEnvironment {
-  citrix = "citrix",
-  microsoft = "microsoft",
-  vmware = "vmware",
-}
+export const ExportEnvironment = {
+  citrix: "citrix",
+  microsoft: "microsoft",
+  vmware: "vmware",
+};
 
 /**
  * @public
@@ -3823,7 +3823,7 @@ export interface CreateInstanceExportTaskRequest {
   /**
    * <p>The target virtualization environment.</p>
    */
-  TargetEnvironment: ExportEnvironment | string | undefined;
+  TargetEnvironment: keyof typeof ExportEnvironment | string | undefined;
 
   /**
    * <p>The tags to apply to the export instance task during creation.</p>
@@ -3840,12 +3840,12 @@ export interface ExportToS3Task {
    * <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
    *    exported.</p>
    */
-  ContainerFormat?: ContainerFormat | string;
+  ContainerFormat?: keyof typeof ContainerFormat | string;
 
   /**
    * <p>The format for the exported image.</p>
    */
-  DiskImageFormat?: DiskImageFormat | string;
+  DiskImageFormat?: keyof typeof DiskImageFormat | string;
 
   /**
    * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and have
@@ -3873,18 +3873,18 @@ export interface InstanceExportDetails {
   /**
    * <p>The target virtualization environment.</p>
    */
-  TargetEnvironment?: ExportEnvironment | string;
+  TargetEnvironment?: keyof typeof ExportEnvironment | string;
 }
 
 /**
  * @public
  */
-export enum ExportTaskState {
-  active = "active",
-  cancelled = "cancelled",
-  cancelling = "cancelling",
-  completed = "completed",
-}
+export const ExportTaskState = {
+  active: "active",
+  cancelled: "cancelled",
+  cancelling: "cancelling",
+  completed: "completed",
+};
 
 /**
  * @public
@@ -3914,7 +3914,7 @@ export interface ExportTask {
   /**
    * <p>The state of the export task.</p>
    */
-  State?: ExportTaskState | string;
+  State?: keyof typeof ExportTaskState | string;
 
   /**
    * <p>The status message related to the export task.</p>
@@ -4040,20 +4040,20 @@ export interface IpamOperatingRegion {
 /**
  * @public
  */
-export enum IpamState {
-  create_complete = "create-complete",
-  create_failed = "create-failed",
-  create_in_progress = "create-in-progress",
-  delete_complete = "delete-complete",
-  delete_failed = "delete-failed",
-  delete_in_progress = "delete-in-progress",
-  isolate_complete = "isolate-complete",
-  isolate_in_progress = "isolate-in-progress",
-  modify_complete = "modify-complete",
-  modify_failed = "modify-failed",
-  modify_in_progress = "modify-in-progress",
-  restore_in_progress = "restore-in-progress",
-}
+export const IpamState = {
+  create_complete: "create-complete",
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_failed: "delete-failed",
+  delete_in_progress: "delete-in-progress",
+  isolate_complete: "isolate-complete",
+  isolate_in_progress: "isolate-in-progress",
+  modify_complete: "modify-complete",
+  modify_failed: "modify-failed",
+  modify_in_progress: "modify-in-progress",
+  restore_in_progress: "restore-in-progress",
+};
 
 /**
  * @public
@@ -4110,7 +4110,7 @@ export interface Ipam {
   /**
    * <p>The state of the IPAM.</p>
    */
-  State?: IpamState | string;
+  State?: keyof typeof IpamState | string;
 
   /**
    * <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
@@ -4163,17 +4163,17 @@ export interface RequestIpamResourceTag {
 /**
  * @public
  */
-export enum IpamPoolAwsService {
-  ec2 = "ec2",
-}
+export const IpamPoolAwsService = {
+  ec2: "ec2",
+};
 
 /**
  * @public
  */
-export enum IpamPoolPublicIpSource {
-  amazon = "amazon",
-  byoip = "byoip",
-}
+export const IpamPoolPublicIpSource = {
+  amazon: "amazon",
+  byoip: "byoip",
+};
 
 /**
  * @public
@@ -4210,7 +4210,7 @@ export interface CreateIpamPoolRequest {
   /**
    * <p>The IP protocol assigned to this IPAM pool. You must choose either IPv4 or IPv6 protocol for a pool.</p>
    */
-  AddressFamily: AddressFamily | string | undefined;
+  AddressFamily: keyof typeof AddressFamily | string | undefined;
 
   /**
    * <p>If selected, IPAM will continuously look for resources within the CIDR range of this pool
@@ -4266,13 +4266,13 @@ export interface CreateIpamPoolRequest {
   /**
    * <p>Limits which service in Amazon Web Services that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.</p>
    */
-  AwsService?: IpamPoolAwsService | string;
+  AwsService?: keyof typeof IpamPoolAwsService | string;
 
   /**
    * <p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>byoip</code>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *          By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool if PublicIpSource is <code>amazon</code>. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  PublicIpSource?: IpamPoolPublicIpSource | string;
+  PublicIpSource?: keyof typeof IpamPoolPublicIpSource | string;
 }
 
 /**
@@ -4295,28 +4295,28 @@ export interface IpamResourceTag {
 /**
  * @public
  */
-export enum IpamScopeType {
-  private = "private",
-  public = "public",
-}
+export const IpamScopeType = {
+  private: "private",
+  public: "public",
+};
 
 /**
  * @public
  */
-export enum IpamPoolState {
-  create_complete = "create-complete",
-  create_failed = "create-failed",
-  create_in_progress = "create-in-progress",
-  delete_complete = "delete-complete",
-  delete_failed = "delete-failed",
-  delete_in_progress = "delete-in-progress",
-  isolate_complete = "isolate-complete",
-  isolate_in_progress = "isolate-in-progress",
-  modify_complete = "modify-complete",
-  modify_failed = "modify-failed",
-  modify_in_progress = "modify-in-progress",
-  restore_in_progress = "restore-in-progress",
-}
+export const IpamPoolState = {
+  create_complete: "create-complete",
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_failed: "delete-failed",
+  delete_in_progress: "delete-in-progress",
+  isolate_complete: "isolate-complete",
+  isolate_in_progress: "isolate-in-progress",
+  modify_complete: "modify-complete",
+  modify_failed: "modify-failed",
+  modify_in_progress: "modify-in-progress",
+  restore_in_progress: "restore-in-progress",
+};
 
 /**
  * @public
@@ -4351,7 +4351,7 @@ export interface IpamPool {
   /**
    * <p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
    */
-  IpamScopeType?: IpamScopeType | string;
+  IpamScopeType?: keyof typeof IpamScopeType | string;
 
   /**
    * <p>The ARN of the IPAM.</p>
@@ -4377,7 +4377,7 @@ export interface IpamPool {
   /**
    * <p>The state of the IPAM pool.</p>
    */
-  State?: IpamPoolState | string;
+  State?: keyof typeof IpamPoolState | string;
 
   /**
    * <p>A message related to the failed creation of an IPAM pool.</p>
@@ -4409,7 +4409,7 @@ export interface IpamPool {
   /**
    * <p>The address family of the pool.</p>
    */
-  AddressFamily?: AddressFamily | string;
+  AddressFamily?: keyof typeof AddressFamily | string;
 
   /**
    * <p>The minimum netmask length required for CIDR allocations in this IPAM pool to be compliant. The minimum netmask length must be less than the maximum netmask length. Possible netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are  0 - 128.</p>
@@ -4441,13 +4441,13 @@ export interface IpamPool {
   /**
    * <p>Limits which service in Amazon Web Services that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.</p>
    */
-  AwsService?: IpamPoolAwsService | string;
+  AwsService?: keyof typeof IpamPoolAwsService | string;
 
   /**
    * <p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>BYOIP</code>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *          By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  PublicIpSource?: IpamPoolPublicIpSource | string;
+  PublicIpSource?: keyof typeof IpamPoolPublicIpSource | string;
 }
 
 /**
@@ -4495,20 +4495,20 @@ export interface CreateIpamResourceDiscoveryRequest {
 /**
  * @public
  */
-export enum IpamResourceDiscoveryState {
-  CREATE_COMPLETE = "create-complete",
-  CREATE_FAILED = "create-failed",
-  CREATE_IN_PROGRESS = "create-in-progress",
-  DELETE_COMPLETE = "delete-complete",
-  DELETE_FAILED = "delete-failed",
-  DELETE_IN_PROGRESS = "delete-in-progress",
-  ISOLATE_COMPLETE = "isolate-complete",
-  ISOLATE_IN_PROGRESS = "isolate-in-progress",
-  MODIFY_COMPLETE = "modify-complete",
-  MODIFY_FAILED = "modify-failed",
-  MODIFY_IN_PROGRESS = "modify-in-progress",
-  RESTORE_IN_PROGRESS = "restore-in-progress",
-}
+export const IpamResourceDiscoveryState = {
+  CREATE_COMPLETE: "create-complete",
+  CREATE_FAILED: "create-failed",
+  CREATE_IN_PROGRESS: "create-in-progress",
+  DELETE_COMPLETE: "delete-complete",
+  DELETE_FAILED: "delete-failed",
+  DELETE_IN_PROGRESS: "delete-in-progress",
+  ISOLATE_COMPLETE: "isolate-complete",
+  ISOLATE_IN_PROGRESS: "isolate-in-progress",
+  MODIFY_COMPLETE: "modify-complete",
+  MODIFY_FAILED: "modify-failed",
+  MODIFY_IN_PROGRESS: "modify-in-progress",
+  RESTORE_IN_PROGRESS: "restore-in-progress",
+};
 
 /**
  * @public
@@ -4603,7 +4603,7 @@ export interface IpamResourceDiscovery {
    *             </li>
    *          </ul>
    */
-  State?: IpamResourceDiscoveryState | string;
+  State?: keyof typeof IpamResourceDiscoveryState | string;
 
   /**
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
@@ -4657,20 +4657,20 @@ export interface CreateIpamScopeRequest {
 /**
  * @public
  */
-export enum IpamScopeState {
-  create_complete = "create-complete",
-  create_failed = "create-failed",
-  create_in_progress = "create-in-progress",
-  delete_complete = "delete-complete",
-  delete_failed = "delete-failed",
-  delete_in_progress = "delete-in-progress",
-  isolate_complete = "isolate-complete",
-  isolate_in_progress = "isolate-in-progress",
-  modify_complete = "modify-complete",
-  modify_failed = "modify-failed",
-  modify_in_progress = "modify-in-progress",
-  restore_in_progress = "restore-in-progress",
-}
+export const IpamScopeState = {
+  create_complete: "create-complete",
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_failed: "delete-failed",
+  delete_in_progress: "delete-in-progress",
+  isolate_complete: "isolate-complete",
+  isolate_in_progress: "isolate-in-progress",
+  modify_complete: "modify-complete",
+  modify_failed: "modify-failed",
+  modify_in_progress: "modify-in-progress",
+  restore_in_progress: "restore-in-progress",
+};
 
 /**
  * @public
@@ -4706,7 +4706,7 @@ export interface IpamScope {
   /**
    * <p>The type of the scope.</p>
    */
-  IpamScopeType?: IpamScopeType | string;
+  IpamScopeType?: keyof typeof IpamScopeType | string;
 
   /**
    * <p>Defines if the scope is the default scope or not.</p>
@@ -4726,7 +4726,7 @@ export interface IpamScope {
   /**
    * <p>The state of the IPAM scope.</p>
    */
-  State?: IpamScopeState | string;
+  State?: keyof typeof IpamScopeState | string;
 
   /**
    * <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
@@ -4748,18 +4748,18 @@ export interface CreateIpamScopeResult {
 /**
  * @public
  */
-export enum KeyFormat {
-  pem = "pem",
-  ppk = "ppk",
-}
+export const KeyFormat = {
+  pem: "pem",
+  ppk: "ppk",
+};
 
 /**
  * @public
  */
-export enum KeyType {
-  ed25519 = "ed25519",
-  rsa = "rsa",
-}
+export const KeyType = {
+  ed25519: "ed25519",
+  rsa: "rsa",
+};
 
 /**
  * @public
@@ -4783,7 +4783,7 @@ export interface CreateKeyPairRequest {
    *          <p>Default: <code>rsa</code>
    *          </p>
    */
-  KeyType?: KeyType | string;
+  KeyType?: keyof typeof KeyType | string;
 
   /**
    * <p>The tags to apply to the new key pair.</p>
@@ -4795,7 +4795,7 @@ export interface CreateKeyPairRequest {
    *          <p>Default: <code>pem</code>
    *          </p>
    */
-  KeyFormat?: KeyFormat | string;
+  KeyFormat?: keyof typeof KeyFormat | string;
 }
 
 /**
@@ -4921,7 +4921,7 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
    * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: keyof typeof VolumeType | string;
 
   /**
    * <p>The throughput to provision for a <code>gp3</code> volume, with a maximum of 1,000
@@ -4964,10 +4964,10 @@ export interface LaunchTemplateBlockDeviceMappingRequest {
 /**
  * @public
  */
-export enum CapacityReservationPreference {
-  none = "none",
-  open = "open",
-}
+export const CapacityReservationPreference = {
+  none: "none",
+  open: "open",
+};
 
 /**
  * @public
@@ -5012,7 +5012,7 @@ export interface LaunchTemplateCapacityReservationSpecificationRequest {
    *             </li>
    *          </ul>
    */
-  CapacityReservationPreference?: CapacityReservationPreference | string;
+  CapacityReservationPreference?: keyof typeof CapacityReservationPreference | string;
 
   /**
    * <p>Information about the target Capacity Reservation or Capacity Reservation
@@ -5133,34 +5133,34 @@ export interface LaunchTemplateIamInstanceProfileSpecificationRequest {
 /**
  * @public
  */
-export enum ShutdownBehavior {
-  stop = "stop",
-  terminate = "terminate",
-}
+export const ShutdownBehavior = {
+  stop: "stop",
+  terminate: "terminate",
+};
 
 /**
  * @public
  */
-export enum MarketType {
-  spot = "spot",
-}
+export const MarketType = {
+  spot: "spot",
+};
 
 /**
  * @public
  */
-export enum InstanceInterruptionBehavior {
-  hibernate = "hibernate",
-  stop = "stop",
-  terminate = "terminate",
-}
+export const InstanceInterruptionBehavior = {
+  hibernate: "hibernate",
+  stop: "stop",
+  terminate: "terminate",
+};
 
 /**
  * @public
  */
-export enum SpotInstanceType {
-  one_time = "one-time",
-  persistent = "persistent",
-}
+export const SpotInstanceType = {
+  one_time: "one-time",
+  persistent: "persistent",
+};
 
 /**
  * @public
@@ -5181,7 +5181,7 @@ export interface LaunchTemplateSpotMarketOptionsRequest {
   /**
    * <p>The Spot Instance request type.</p>
    */
-  SpotInstanceType?: SpotInstanceType | string;
+  SpotInstanceType?: keyof typeof SpotInstanceType | string;
 
   /**
    * <p>Deprecated.</p>
@@ -5211,7 +5211,7 @@ export interface LaunchTemplateSpotMarketOptionsRequest {
    * <p>The behavior when a Spot Instance is interrupted. The default is
    *                 <code>terminate</code>.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: keyof typeof InstanceInterruptionBehavior | string;
 }
 
 /**
@@ -5222,7 +5222,7 @@ export interface LaunchTemplateInstanceMarketOptionsRequest {
   /**
    * <p>The market type.</p>
    */
-  MarketType?: MarketType | string;
+  MarketType?: keyof typeof MarketType | string;
 
   /**
    * <p>The options for Spot Instances.</p>
@@ -5244,10 +5244,10 @@ export interface LaunchTemplateLicenseConfigurationRequest {
 /**
  * @public
  */
-export enum LaunchTemplateAutoRecoveryState {
-  default = "default",
-  disabled = "disabled",
-}
+export const LaunchTemplateAutoRecoveryState = {
+  default: "default",
+  disabled: "disabled",
+};
 
 /**
  * @public
@@ -5258,40 +5258,40 @@ export interface LaunchTemplateInstanceMaintenanceOptionsRequest {
    * <p>Disables the automatic recovery behavior of your instance or sets it to default. For
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
    */
-  AutoRecovery?: LaunchTemplateAutoRecoveryState | string;
+  AutoRecovery?: keyof typeof LaunchTemplateAutoRecoveryState | string;
 }
 
 /**
  * @public
  */
-export enum LaunchTemplateInstanceMetadataEndpointState {
-  disabled = "disabled",
-  enabled = "enabled",
-}
+export const LaunchTemplateInstanceMetadataEndpointState = {
+  disabled: "disabled",
+  enabled: "enabled",
+};
 
 /**
  * @public
  */
-export enum LaunchTemplateInstanceMetadataProtocolIpv6 {
-  disabled = "disabled",
-  enabled = "enabled",
-}
+export const LaunchTemplateInstanceMetadataProtocolIpv6 = {
+  disabled: "disabled",
+  enabled: "enabled",
+};
 
 /**
  * @public
  */
-export enum LaunchTemplateHttpTokensState {
-  optional = "optional",
-  required = "required",
-}
+export const LaunchTemplateHttpTokensState = {
+  optional: "optional",
+  required: "required",
+};
 
 /**
  * @public
  */
-export enum LaunchTemplateInstanceMetadataTagsState {
-  disabled = "disabled",
-  enabled = "enabled",
-}
+export const LaunchTemplateInstanceMetadataTagsState = {
+  disabled: "disabled",
+  enabled: "enabled",
+};
 
 /**
  * @public
@@ -5322,7 +5322,7 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
    *          <p>Default: <code>optional</code>
    *          </p>
    */
-  HttpTokens?: LaunchTemplateHttpTokensState | string;
+  HttpTokens?: keyof typeof LaunchTemplateHttpTokensState | string;
 
   /**
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
@@ -5341,14 +5341,14 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
    *                 your instance metadata. </p>
    *          </note>
    */
-  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState | string;
+  HttpEndpoint?: keyof typeof LaunchTemplateInstanceMetadataEndpointState | string;
 
   /**
    * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6 | string;
+  HttpProtocolIpv6?: keyof typeof LaunchTemplateInstanceMetadataProtocolIpv6 | string;
 
   /**
    * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
@@ -5358,7 +5358,7 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState | string;
+  InstanceMetadataTags?: keyof typeof LaunchTemplateInstanceMetadataTagsState | string;
 }
 
 /**
@@ -5576,7 +5576,7 @@ export interface LaunchTemplatePlacementRequest {
    * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
    *             tenancy of dedicated runs on single-tenant hardware.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: keyof typeof Tenancy | string;
 
   /**
    * <p>Reserved for future use.</p>
@@ -5614,7 +5614,7 @@ export interface LaunchTemplatePrivateDnsNameOptionsRequest {
    *             name must be based on the instance ID. For dual-stack subnets, you can specify whether
    *             DNS names use the instance IPv4 address or the instance ID.</p>
    */
-  HostnameType?: HostnameType | string;
+  HostnameType?: keyof typeof HostnameType | string;
 
   /**
    * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
@@ -5644,7 +5644,7 @@ export interface LaunchTemplateTagSpecificationRequest {
    *          </p>
    *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tags to apply to the resource.</p>
@@ -5731,7 +5731,7 @@ export interface RequestLaunchTemplateData {
    *          <p>If you specify <code>InstanceType</code>, you can't specify
    *                 <code>InstanceRequirements</code>.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The name of the key pair. You can create a key pair using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a> or
@@ -5778,7 +5778,7 @@ export interface RequestLaunchTemplateData {
    *          <p>Default: <code>stop</code>
    *          </p>
    */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+  InstanceInitiatedShutdownBehavior?: keyof typeof ShutdownBehavior | string;
 
   /**
    * <p>The user data to make available to the instance. You must provide base64-encoded text.
@@ -6157,7 +6157,7 @@ export interface LaunchTemplateEbsBlockDevice {
   /**
    * <p>The volume type.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: keyof typeof VolumeType | string;
 
   /**
    * <p>The throughput that the volume supports, in MiB/s.</p>
@@ -6229,7 +6229,7 @@ export interface LaunchTemplateCapacityReservationSpecificationResponse {
    *             </li>
    *          </ul>
    */
-  CapacityReservationPreference?: CapacityReservationPreference | string;
+  CapacityReservationPreference?: keyof typeof CapacityReservationPreference | string;
 
   /**
    * <p>Information about the target Capacity Reservation or Capacity Reservation
@@ -6355,7 +6355,7 @@ export interface LaunchTemplateSpotMarketOptions {
   /**
    * <p>The Spot Instance request type.</p>
    */
-  SpotInstanceType?: SpotInstanceType | string;
+  SpotInstanceType?: keyof typeof SpotInstanceType | string;
 
   /**
    * <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes.
@@ -6374,7 +6374,7 @@ export interface LaunchTemplateSpotMarketOptions {
   /**
    * <p>The behavior when a Spot Instance is interrupted.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: keyof typeof InstanceInterruptionBehavior | string;
 }
 
 /**
@@ -6385,7 +6385,7 @@ export interface LaunchTemplateInstanceMarketOptions {
   /**
    * <p>The market type.</p>
    */
-  MarketType?: MarketType | string;
+  MarketType?: keyof typeof MarketType | string;
 
   /**
    * <p>The options for Spot Instances.</p>
@@ -6413,16 +6413,16 @@ export interface LaunchTemplateInstanceMaintenanceOptions {
    * <p>Disables the automatic recovery behavior of your instance or sets it to
    *             default.</p>
    */
-  AutoRecovery?: LaunchTemplateAutoRecoveryState | string;
+  AutoRecovery?: keyof typeof LaunchTemplateAutoRecoveryState | string;
 }
 
 /**
  * @public
  */
-export enum LaunchTemplateInstanceMetadataOptionsState {
-  applied = "applied",
-  pending = "pending",
-}
+export const LaunchTemplateInstanceMetadataOptionsState = {
+  applied: "applied",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -6439,7 +6439,7 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *             <code>applied</code> - The metadata options have been successfully applied on the
    *             instance.</p>
    */
-  State?: LaunchTemplateInstanceMetadataOptionsState | string;
+  State?: keyof typeof LaunchTemplateInstanceMetadataOptionsState | string;
 
   /**
    * <p>Indicates whether IMDSv2 is <code>optional</code> or <code>required</code>.</p>
@@ -6455,7 +6455,7 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *          <p>Default: <code>optional</code>
    *          </p>
    */
-  HttpTokens?: LaunchTemplateHttpTokensState | string;
+  HttpTokens?: keyof typeof LaunchTemplateHttpTokensState | string;
 
   /**
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
@@ -6473,14 +6473,14 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *                 your instance metadata. </p>
    *          </note>
    */
-  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState | string;
+  HttpEndpoint?: keyof typeof LaunchTemplateInstanceMetadataEndpointState | string;
 
   /**
    * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6 | string;
+  HttpProtocolIpv6?: keyof typeof LaunchTemplateInstanceMetadataProtocolIpv6 | string;
 
   /**
    * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
@@ -6490,7 +6490,7 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState | string;
+  InstanceMetadataTags?: keyof typeof LaunchTemplateInstanceMetadataTagsState | string;
 }
 
 /**
@@ -6679,7 +6679,7 @@ export interface LaunchTemplatePlacement {
    * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
    *             tenancy of <code>dedicated</code> runs on single-tenant hardware. </p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: keyof typeof Tenancy | string;
 
   /**
    * <p>Reserved for future use.</p>
@@ -6712,7 +6712,7 @@ export interface LaunchTemplatePrivateDnsNameOptions {
   /**
    * <p>The type of hostname to assign to an instance.</p>
    */
-  HostnameType?: HostnameType | string;
+  HostnameType?: keyof typeof HostnameType | string;
 
   /**
    * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
@@ -6735,7 +6735,7 @@ export interface LaunchTemplateTagSpecification {
   /**
    * <p>The type of resource to tag.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tags for the resource.</p>
@@ -6799,7 +6799,7 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The name of the key pair.</p>
@@ -6831,7 +6831,7 @@ export interface ResponseLaunchTemplateData {
    * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
    *             instance (using the operating system command for system shutdown).</p>
    */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+  InstanceInitiatedShutdownBehavior?: keyof typeof ShutdownBehavior | string;
 
   /**
    * <p>The user data for the instance. </p>
@@ -7041,21 +7041,21 @@ export interface CreateLocalGatewayRouteRequest {
 /**
  * @public
  */
-export enum LocalGatewayRouteState {
-  active = "active",
-  blackhole = "blackhole",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const LocalGatewayRouteState = {
+  active: "active",
+  blackhole: "blackhole",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+};
 
 /**
  * @public
  */
-export enum LocalGatewayRouteType {
-  propagated = "propagated",
-  static = "static",
-}
+export const LocalGatewayRouteType = {
+  propagated: "propagated",
+  static: "static",
+};
 
 /**
  * @public
@@ -7075,12 +7075,12 @@ export interface LocalGatewayRoute {
   /**
    * <p>The route type.</p>
    */
-  Type?: LocalGatewayRouteType | string;
+  Type?: keyof typeof LocalGatewayRouteType | string;
 
   /**
    * <p>The state of the route.</p>
    */
-  State?: LocalGatewayRouteState | string;
+  State?: keyof typeof LocalGatewayRouteState | string;
 
   /**
    * <p>The ID of the local gateway route table.</p>
@@ -7133,10 +7133,10 @@ export interface CreateLocalGatewayRouteResult {
 /**
  * @public
  */
-export enum LocalGatewayRouteTableMode {
-  coip = "coip",
-  direct_vpc_routing = "direct-vpc-routing",
-}
+export const LocalGatewayRouteTableMode = {
+  coip: "coip",
+  direct_vpc_routing: "direct-vpc-routing",
+};
 
 /**
  * @public
@@ -7154,7 +7154,7 @@ export interface CreateLocalGatewayRouteTableRequest {
    *       The mode of the local gateway route table.
    *       </p>
    */
-  Mode?: LocalGatewayRouteTableMode | string;
+  Mode?: keyof typeof LocalGatewayRouteTableMode | string;
 
   /**
    * <p>
@@ -7297,7 +7297,7 @@ export interface LocalGatewayRouteTable {
   /**
    * <p>The mode of the local gateway route table.</p>
    */
-  Mode?: LocalGatewayRouteTableMode | string;
+  Mode?: keyof typeof LocalGatewayRouteTableMode | string;
 
   /**
    * <p>Information about the state change.</p>
@@ -7538,20 +7538,20 @@ export interface CreateManagedPrefixListRequest {
 /**
  * @public
  */
-export enum PrefixListState {
-  create_complete = "create-complete",
-  create_failed = "create-failed",
-  create_in_progress = "create-in-progress",
-  delete_complete = "delete-complete",
-  delete_failed = "delete-failed",
-  delete_in_progress = "delete-in-progress",
-  modify_complete = "modify-complete",
-  modify_failed = "modify-failed",
-  modify_in_progress = "modify-in-progress",
-  restore_complete = "restore-complete",
-  restore_failed = "restore-failed",
-  restore_in_progress = "restore-in-progress",
-}
+export const PrefixListState = {
+  create_complete: "create-complete",
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_failed: "delete-failed",
+  delete_in_progress: "delete-in-progress",
+  modify_complete: "modify-complete",
+  modify_failed: "modify-failed",
+  modify_in_progress: "modify-in-progress",
+  restore_complete: "restore-complete",
+  restore_failed: "restore-failed",
+  restore_in_progress: "restore-in-progress",
+};
 
 /**
  * @public
@@ -7571,7 +7571,7 @@ export interface ManagedPrefixList {
   /**
    * <p>The current state of the prefix list.</p>
    */
-  State?: PrefixListState | string;
+  State?: keyof typeof PrefixListState | string;
 
   /**
    * <p>The state message.</p>
@@ -7622,10 +7622,10 @@ export interface CreateManagedPrefixListResult {
 /**
  * @public
  */
-export enum ConnectivityType {
-  PRIVATE = "private",
-  PUBLIC = "public",
-}
+export const ConnectivityType = {
+  PRIVATE: "private",
+  PUBLIC: "public",
+};
 
 /**
  * @public
@@ -7667,7 +7667,7 @@ export interface CreateNatGatewayRequest {
    * <p>Indicates whether the NAT gateway supports public or private connectivity.
    *           The default is public connectivity.</p>
    */
-  ConnectivityType?: ConnectivityType | string;
+  ConnectivityType?: keyof typeof ConnectivityType | string;
 
   /**
    * <p>The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.</p>
@@ -7724,13 +7724,13 @@ export interface ProvisionedBandwidth {
 /**
  * @public
  */
-export enum NatGatewayState {
-  AVAILABLE = "available",
-  DELETED = "deleted",
-  DELETING = "deleting",
-  FAILED = "failed",
-  PENDING = "pending",
-}
+export const NatGatewayState = {
+  AVAILABLE: "available",
+  DELETED: "deleted",
+  DELETING: "deleting",
+  FAILED: "failed",
+  PENDING: "pending",
+};
 
 /**
  * @public
@@ -7826,7 +7826,7 @@ export interface NatGateway {
    *             </li>
    *          </ul>
    */
-  State?: NatGatewayState | string;
+  State?: keyof typeof NatGatewayState | string;
 
   /**
    * <p>The ID of the subnet in which the NAT gateway is located.</p>
@@ -7846,7 +7846,7 @@ export interface NatGateway {
   /**
    * <p>Indicates whether the NAT gateway supports public or private connectivity.</p>
    */
-  ConnectivityType?: ConnectivityType | string;
+  ConnectivityType?: keyof typeof ConnectivityType | string;
 }
 
 /**
@@ -7926,10 +7926,10 @@ export interface IcmpTypeCode {
 /**
  * @public
  */
-export enum RuleAction {
-  allow = "allow",
-  deny = "deny",
-}
+export const RuleAction = {
+  allow: "allow",
+  deny: "deny",
+};
 
 /**
  * @public
@@ -7969,7 +7969,7 @@ export interface NetworkAclEntry {
   /**
    * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
    */
-  RuleAction?: RuleAction | string;
+  RuleAction?: keyof typeof RuleAction | string;
 
   /**
    * <p>The rule number for the entry. ACL entries are processed in ascending order by rule number.</p>
@@ -8086,7 +8086,7 @@ export interface CreateNetworkAclEntryRequest {
   /**
    * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
    */
-  RuleAction: RuleAction | string | undefined;
+  RuleAction: keyof typeof RuleAction | string | undefined;
 
   /**
    * <p>The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.</p>
@@ -8265,7 +8265,7 @@ export interface CreateNetworkInsightsPathRequest {
   /**
    * <p>The protocol.</p>
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: keyof typeof Protocol | string | undefined;
 
   /**
    * <p>The destination port.</p>
@@ -8399,7 +8399,7 @@ export interface NetworkInsightsPath {
   /**
    * <p>The protocol.</p>
    */
-  Protocol?: Protocol | string;
+  Protocol?: keyof typeof Protocol | string;
 
   /**
    * <p>The destination port.</p>
@@ -8435,11 +8435,11 @@ export interface CreateNetworkInsightsPathResult {
 /**
  * @public
  */
-export enum NetworkInterfaceCreationType {
-  branch = "branch",
-  efa = "efa",
-  trunk = "trunk",
-}
+export const NetworkInterfaceCreationType = {
+  branch: "branch",
+  efa: "efa",
+  trunk: "trunk",
+};
 
 /**
  * @public
@@ -8538,7 +8538,7 @@ export interface CreateNetworkInterfaceRequest {
    * <p>The type of network interface. The default is <code>interface</code>.</p>
    *          <p>The only supported values are <code>efa</code> and <code>trunk</code>.</p>
    */
-  InterfaceType?: NetworkInterfaceCreationType | string;
+  InterfaceType?: keyof typeof NetworkInterfaceCreationType | string;
 
   /**
    * <p>The ID of the subnet to associate with the network interface.</p>
@@ -8674,7 +8674,7 @@ export interface NetworkInterfaceAttachment {
   /**
    * <p>The attachment state.</p>
    */
-  Status?: AttachmentStatus | string;
+  Status?: keyof typeof AttachmentStatus | string;
 
   /**
    * <p>Configures ENA Express for the network interface that this action attaches to the instance.</p>
@@ -8701,25 +8701,25 @@ export interface GroupIdentifier {
 /**
  * @public
  */
-export enum NetworkInterfaceType {
-  api_gateway_managed = "api_gateway_managed",
-  aws_codestar_connections_managed = "aws_codestar_connections_managed",
-  branch = "branch",
-  efa = "efa",
-  gateway_load_balancer = "gateway_load_balancer",
-  gateway_load_balancer_endpoint = "gateway_load_balancer_endpoint",
-  global_accelerator_managed = "global_accelerator_managed",
-  interface = "interface",
-  iot_rules_managed = "iot_rules_managed",
-  lambda = "lambda",
-  load_balancer = "load_balancer",
-  natGateway = "natGateway",
-  network_load_balancer = "network_load_balancer",
-  quicksight = "quicksight",
-  transit_gateway = "transit_gateway",
-  trunk = "trunk",
-  vpc_endpoint = "vpc_endpoint",
-}
+export const NetworkInterfaceType = {
+  api_gateway_managed: "api_gateway_managed",
+  aws_codestar_connections_managed: "aws_codestar_connections_managed",
+  branch: "branch",
+  efa: "efa",
+  gateway_load_balancer: "gateway_load_balancer",
+  gateway_load_balancer_endpoint: "gateway_load_balancer_endpoint",
+  global_accelerator_managed: "global_accelerator_managed",
+  interface: "interface",
+  iot_rules_managed: "iot_rules_managed",
+  lambda: "lambda",
+  load_balancer: "load_balancer",
+  natGateway: "natGateway",
+  network_load_balancer: "network_load_balancer",
+  quicksight: "quicksight",
+  transit_gateway: "transit_gateway",
+  trunk: "trunk",
+  vpc_endpoint: "vpc_endpoint",
+};
 
 /**
  * @public
@@ -8772,13 +8772,13 @@ export interface NetworkInterfacePrivateIpAddress {
 /**
  * @public
  */
-export enum NetworkInterfaceStatus {
-  associated = "associated",
-  attaching = "attaching",
-  available = "available",
-  detaching = "detaching",
-  in_use = "in-use",
-}
+export const NetworkInterfaceStatus = {
+  associated: "associated",
+  attaching: "attaching",
+  available: "available",
+  detaching: "detaching",
+  in_use: "in-use",
+};
 
 /**
  * @public
@@ -8813,7 +8813,7 @@ export interface NetworkInterface {
   /**
    * <p>The type of network interface.</p>
    */
-  InterfaceType?: NetworkInterfaceType | string;
+  InterfaceType?: keyof typeof NetworkInterfaceType | string;
 
   /**
    * <p>The IPv6 addresses associated with the network interface.</p>
@@ -8883,7 +8883,7 @@ export interface NetworkInterface {
   /**
    * <p>The status of the network interface.</p>
    */
-  Status?: NetworkInterfaceStatus | string;
+  Status?: keyof typeof NetworkInterfaceStatus | string;
 
   /**
    * <p>The ID of the subnet.</p>
@@ -8938,10 +8938,10 @@ export interface CreateNetworkInterfaceResult {
 /**
  * @public
  */
-export enum InterfacePermissionType {
-  EIP_ASSOCIATE = "EIP-ASSOCIATE",
-  INSTANCE_ATTACH = "INSTANCE-ATTACH",
-}
+export const InterfacePermissionType = {
+  EIP_ASSOCIATE: "EIP-ASSOCIATE",
+  INSTANCE_ATTACH: "INSTANCE-ATTACH",
+};
 
 /**
  * @public
@@ -8966,7 +8966,7 @@ export interface CreateNetworkInterfacePermissionRequest {
   /**
    * <p>The type of permission to grant.</p>
    */
-  Permission: InterfacePermissionType | string | undefined;
+  Permission: keyof typeof InterfacePermissionType | string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -8979,12 +8979,12 @@ export interface CreateNetworkInterfacePermissionRequest {
 /**
  * @public
  */
-export enum NetworkInterfacePermissionStateCode {
-  granted = "granted",
-  pending = "pending",
-  revoked = "revoked",
-  revoking = "revoking",
-}
+export const NetworkInterfacePermissionStateCode = {
+  granted: "granted",
+  pending: "pending",
+  revoked: "revoked",
+  revoking: "revoking",
+};
 
 /**
  * @public
@@ -8994,7 +8994,7 @@ export interface NetworkInterfacePermissionState {
   /**
    * <p>The state of the permission.</p>
    */
-  State?: NetworkInterfacePermissionStateCode | string;
+  State?: keyof typeof NetworkInterfacePermissionStateCode | string;
 
   /**
    * <p>A status message, if applicable.</p>
@@ -9030,7 +9030,7 @@ export interface NetworkInterfacePermission {
   /**
    * <p>The type of permission.</p>
    */
-  Permission?: InterfacePermissionType | string;
+  Permission?: keyof typeof InterfacePermissionType | string;
 
   /**
    * <p>Information about the state of the permission.</p>
@@ -9052,19 +9052,19 @@ export interface CreateNetworkInterfacePermissionResult {
 /**
  * @public
  */
-export enum SpreadLevel {
-  host = "host",
-  rack = "rack",
-}
+export const SpreadLevel = {
+  host: "host",
+  rack: "rack",
+};
 
 /**
  * @public
  */
-export enum PlacementStrategy {
-  cluster = "cluster",
-  partition = "partition",
-  spread = "spread",
-}
+export const PlacementStrategy = {
+  cluster: "cluster",
+  partition: "partition",
+  spread: "spread",
+};
 
 /**
  * @public
@@ -9087,7 +9087,7 @@ export interface CreatePlacementGroupRequest {
   /**
    * <p>The placement strategy.</p>
    */
-  Strategy?: PlacementStrategy | string;
+  Strategy?: keyof typeof PlacementStrategy | string;
 
   /**
    * <p>The number of partitions. Valid only when <b>Strategy</b> is
@@ -9112,18 +9112,18 @@ export interface CreatePlacementGroupRequest {
    *             </li>
    *          </ul>
    */
-  SpreadLevel?: SpreadLevel | string;
+  SpreadLevel?: keyof typeof SpreadLevel | string;
 }
 
 /**
  * @public
  */
-export enum PlacementGroupState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const PlacementGroupState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -9138,12 +9138,12 @@ export interface PlacementGroup {
   /**
    * <p>The state of the placement group.</p>
    */
-  State?: PlacementGroupState | string;
+  State?: keyof typeof PlacementGroupState | string;
 
   /**
    * <p>The placement strategy.</p>
    */
-  Strategy?: PlacementStrategy | string;
+  Strategy?: keyof typeof PlacementStrategy | string;
 
   /**
    * <p>The number of partitions. Valid only if <b>strategy</b> is
@@ -9170,7 +9170,7 @@ export interface PlacementGroup {
    * <p>The spread level for the placement group. <i>Only</i> Outpost placement
    *             groups can be spread across hosts.</p>
    */
-  SpreadLevel?: SpreadLevel | string;
+  SpreadLevel?: keyof typeof SpreadLevel | string;
 }
 
 /**
@@ -9270,14 +9270,14 @@ export interface CreateReplaceRootVolumeTaskRequest {
 /**
  * @public
  */
-export enum ReplaceRootVolumeTaskState {
-  failed = "failed",
-  failed_detached = "failed-detached",
-  failing = "failing",
-  in_progress = "in-progress",
-  pending = "pending",
-  succeeded = "succeeded",
-}
+export const ReplaceRootVolumeTaskState = {
+  failed: "failed",
+  failed_detached: "failed-detached",
+  failing: "failing",
+  in_progress: "in-progress",
+  pending: "pending",
+  succeeded: "succeeded",
+};
 
 /**
  * @public
@@ -9332,7 +9332,7 @@ export interface ReplaceRootVolumeTask {
    *             </li>
    *          </ul>
    */
-  TaskState?: ReplaceRootVolumeTaskState | string;
+  TaskState?: keyof typeof ReplaceRootVolumeTaskState | string;
 
   /**
    * <p>The time the task was started.</p>

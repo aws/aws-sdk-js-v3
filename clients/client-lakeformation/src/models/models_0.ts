@@ -154,10 +154,10 @@ export interface LFTag {
 /**
  * @public
  */
-export enum ResourceType {
-  DATABASE = "DATABASE",
-  TABLE = "TABLE",
-}
+export const ResourceType = {
+  DATABASE: "DATABASE",
+  TABLE: "TABLE",
+};
 
 /**
  * @public
@@ -172,7 +172,7 @@ export interface LFTagPolicyResource {
   /**
    * <p>The resource type for which the LF-tag policy applies.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>A list of LF-tag conditions that apply to the resource's LF-tag policy.</p>
@@ -611,20 +611,20 @@ export interface AuditContext {
 /**
  * @public
  */
-export enum Permission {
-  ALL = "ALL",
-  ALTER = "ALTER",
-  ASSOCIATE = "ASSOCIATE",
-  CREATE_DATABASE = "CREATE_DATABASE",
-  CREATE_TABLE = "CREATE_TABLE",
-  CREATE_TAG = "CREATE_TAG",
-  DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS",
-  DELETE = "DELETE",
-  DESCRIBE = "DESCRIBE",
-  DROP = "DROP",
-  INSERT = "INSERT",
-  SELECT = "SELECT",
-}
+export const Permission = {
+  ALL: "ALL",
+  ALTER: "ALTER",
+  ASSOCIATE: "ASSOCIATE",
+  CREATE_DATABASE: "CREATE_DATABASE",
+  CREATE_TABLE: "CREATE_TABLE",
+  CREATE_TAG: "CREATE_TAG",
+  DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
+  DELETE: "DELETE",
+  DESCRIBE: "DESCRIBE",
+  DROP: "DROP",
+  INSERT: "INSERT",
+  SELECT: "SELECT",
+};
 
 /**
  * @public
@@ -661,12 +661,12 @@ export interface BatchPermissionsRequestEntry {
   /**
    * <p>The permissions to be granted.</p>
    */
-  Permissions?: (Permission | string)[];
+  Permissions?: (keyof typeof Permission | string)[];
 
   /**
    * <p>Indicates if the option to pass permissions is granted.</p>
    */
-  PermissionsWithGrantOption?: (Permission | string)[];
+  PermissionsWithGrantOption?: (keyof typeof Permission | string)[];
 }
 
 /**
@@ -813,12 +813,12 @@ export interface CommitTransactionRequest {
 /**
  * @public
  */
-export enum TransactionStatus {
-  ABORTED = "ABORTED",
-  ACTIVE = "ACTIVE",
-  COMMITTED = "COMMITTED",
-  COMMIT_IN_PROGRESS = "COMMIT_IN_PROGRESS",
-}
+export const TransactionStatus = {
+  ABORTED: "ABORTED",
+  ACTIVE: "ACTIVE",
+  COMMITTED: "COMMITTED",
+  COMMIT_IN_PROGRESS: "COMMIT_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -827,7 +827,7 @@ export interface CommitTransactionResponse {
   /**
    * <p>The status of the transaction.</p>
    */
-  TransactionStatus?: TransactionStatus | string;
+  TransactionStatus?: keyof typeof TransactionStatus | string;
 }
 
 /**
@@ -1190,7 +1190,7 @@ export interface TransactionDescription {
   /**
    * <p>A status of ACTIVE, COMMITTED, or ABORTED.</p>
    */
-  TransactionStatus?: TransactionStatus | string;
+  TransactionStatus?: keyof typeof TransactionStatus | string;
 
   /**
    * <p>The time when the transaction started.</p>
@@ -1286,7 +1286,7 @@ export interface PrincipalPermissions {
   /**
    * <p>The permissions that are granted to the principal.</p>
    */
-  Permissions?: (Permission | string)[];
+  Permissions?: (keyof typeof Permission | string)[];
 }
 
 /**
@@ -1410,12 +1410,12 @@ export interface PrincipalResourcePermissions {
   /**
    * <p>The permissions to be granted or revoked on the resource.</p>
    */
-  Permissions?: (Permission | string)[];
+  Permissions?: (keyof typeof Permission | string)[];
 
   /**
    * <p>Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).</p>
    */
-  PermissionsWithGrantOption?: (Permission | string)[];
+  PermissionsWithGrantOption?: (keyof typeof Permission | string)[];
 
   /**
    * <p>This attribute can be used to return any additional details of <code>PrincipalResourcePermissions</code>. Currently returns only as a RAM resource share ARN.</p>
@@ -1486,13 +1486,13 @@ export interface GetQueryStateRequest {
 /**
  * @public
  */
-export enum QueryStateString {
-  ERROR = "ERROR",
-  EXPIRED = "EXPIRED",
-  FINISHED = "FINISHED",
-  PENDING = "PENDING",
-  WORKUNITS_AVAILABLE = "WORKUNITS_AVAILABLE",
-}
+export const QueryStateString = {
+  ERROR: "ERROR",
+  EXPIRED: "EXPIRED",
+  FINISHED: "FINISHED",
+  PENDING: "PENDING",
+  WORKUNITS_AVAILABLE: "WORKUNITS_AVAILABLE",
+};
 
 /**
  * @public
@@ -1521,7 +1521,7 @@ export interface GetQueryStateResponse {
    *             </li>
    *          </ul>
    */
-  State: QueryStateString | string | undefined;
+  State: keyof typeof QueryStateString | string | undefined;
 }
 
 /**
@@ -1882,10 +1882,10 @@ export interface PartitionValueList {
 /**
  * @public
  */
-export enum PermissionType {
-  CELL_FILTER_PERMISSION = "CELL_FILTER_PERMISSION",
-  COLUMN_PERMISSION = "COLUMN_PERMISSION",
-}
+export const PermissionType = {
+  CELL_FILTER_PERMISSION: "CELL_FILTER_PERMISSION",
+  COLUMN_PERMISSION: "COLUMN_PERMISSION",
+};
 
 /**
  * @public
@@ -1904,7 +1904,7 @@ export interface GetTemporaryGluePartitionCredentialsRequest {
   /**
    * <p>Filters the request based on the user having been granted a list of specified permissions on the requested resource(s).</p>
    */
-  Permissions?: (Permission | string)[];
+  Permissions?: (keyof typeof Permission | string)[];
 
   /**
    * <p>The time period, between 900 and 21,600 seconds, for the timeout of the temporary credentials.</p>
@@ -1919,7 +1919,7 @@ export interface GetTemporaryGluePartitionCredentialsRequest {
   /**
    * <p>A list of supported permission types for the partition. Valid values are <code>COLUMN_PERMISSION</code> and <code>CELL_FILTER_PERMISSION</code>.</p>
    */
-  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+  SupportedPermissionTypes: (keyof typeof PermissionType | string)[] | undefined;
 }
 
 /**
@@ -1984,7 +1984,7 @@ export interface GetTemporaryGlueTableCredentialsRequest {
   /**
    * <p>Filters the request based on the user having been granted a list of specified permissions on the requested resource(s).</p>
    */
-  Permissions?: (Permission | string)[];
+  Permissions?: (keyof typeof Permission | string)[];
 
   /**
    * <p>The time period, between 900 and 21,600 seconds, for the timeout of the temporary credentials.</p>
@@ -1999,7 +1999,7 @@ export interface GetTemporaryGlueTableCredentialsRequest {
   /**
    * <p>A list of supported permission types for the table. Valid values are <code>COLUMN_PERMISSION</code> and <code>CELL_FILTER_PERMISSION</code>.</p>
    */
-  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+  SupportedPermissionTypes: (keyof typeof PermissionType | string)[] | undefined;
 }
 
 /**
@@ -2168,12 +2168,12 @@ export interface GrantPermissionsRequest {
   /**
    * <p>The permissions granted to the principal on the resource. Lake Formation defines privileges to grant and revoke access to metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Lake Formation requires that each principal be authorized to perform a specific task on Lake Formation resources. </p>
    */
-  Permissions: (Permission | string)[] | undefined;
+  Permissions: (keyof typeof Permission | string)[] | undefined;
 
   /**
    * <p>Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the <code>Privileges</code>.</p>
    */
-  PermissionsWithGrantOption?: (Permission | string)[];
+  PermissionsWithGrantOption?: (keyof typeof Permission | string)[];
 }
 
 /**
@@ -2219,10 +2219,10 @@ export interface ListDataCellsFilterResponse {
 /**
  * @public
  */
-export enum ResourceShareType {
-  ALL = "ALL",
-  FOREIGN = "FOREIGN",
-}
+export const ResourceShareType = {
+  ALL: "ALL",
+  FOREIGN: "FOREIGN",
+};
 
 /**
  * @public
@@ -2236,7 +2236,7 @@ export interface ListLFTagsRequest {
   /**
    * <p>If resource share type is <code>ALL</code>, returns both in-account LF-tags and shared LF-tags that the requester has permission to view. If resource share type is <code>FOREIGN</code>, returns all share LF-tags that the requester can view. If no resource share type is passed, lists LF-tags in the given catalog ID that the requester has permission to view.</p>
    */
-  ResourceShareType?: ResourceShareType | string;
+  ResourceShareType?: keyof typeof ResourceShareType | string;
 
   /**
    * <p>The maximum number of results to return.</p>
@@ -2267,16 +2267,16 @@ export interface ListLFTagsResponse {
 /**
  * @public
  */
-export enum DataLakeResourceType {
-  CATALOG = "CATALOG",
-  DATABASE = "DATABASE",
-  DATA_LOCATION = "DATA_LOCATION",
-  LF_TAG = "LF_TAG",
-  LF_TAG_POLICY = "LF_TAG_POLICY",
-  LF_TAG_POLICY_DATABASE = "LF_TAG_POLICY_DATABASE",
-  LF_TAG_POLICY_TABLE = "LF_TAG_POLICY_TABLE",
-  TABLE = "TABLE",
-}
+export const DataLakeResourceType = {
+  CATALOG: "CATALOG",
+  DATABASE: "DATABASE",
+  DATA_LOCATION: "DATA_LOCATION",
+  LF_TAG: "LF_TAG",
+  LF_TAG_POLICY: "LF_TAG_POLICY",
+  LF_TAG_POLICY_DATABASE: "LF_TAG_POLICY_DATABASE",
+  LF_TAG_POLICY_TABLE: "LF_TAG_POLICY_TABLE",
+  TABLE: "TABLE",
+};
 
 /**
  * @public
@@ -2295,7 +2295,7 @@ export interface ListPermissionsRequest {
   /**
    * <p>Specifies a resource type to filter the permissions returned.</p>
    */
-  ResourceType?: DataLakeResourceType | string;
+  ResourceType?: keyof typeof DataLakeResourceType | string;
 
   /**
    * <p>A resource where you will get a list of the principal permissions.</p>
@@ -2337,28 +2337,28 @@ export interface ListPermissionsResponse {
 /**
  * @public
  */
-export enum ComparisonOperator {
-  BEGINS_WITH = "BEGINS_WITH",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  IN = "IN",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-  NOT_CONTAINS = "NOT_CONTAINS",
-}
+export const ComparisonOperator = {
+  BEGINS_WITH: "BEGINS_WITH",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  IN: "IN",
+  LE: "LE",
+  LT: "LT",
+  NE: "NE",
+  NOT_CONTAINS: "NOT_CONTAINS",
+};
 
 /**
  * @public
  */
-export enum FieldNameString {
-  LAST_MODIFIED = "LAST_MODIFIED",
-  RESOURCE_ARN = "RESOURCE_ARN",
-  ROLE_ARN = "ROLE_ARN",
-}
+export const FieldNameString = {
+  LAST_MODIFIED: "LAST_MODIFIED",
+  RESOURCE_ARN: "RESOURCE_ARN",
+  ROLE_ARN: "ROLE_ARN",
+};
 
 /**
  * @public
@@ -2368,12 +2368,12 @@ export interface FilterCondition {
   /**
    * <p>The field to filter in the filter condition.</p>
    */
-  Field?: FieldNameString | string;
+  Field?: keyof typeof FieldNameString | string;
 
   /**
    * <p>The comparison operator used in the filter condition.</p>
    */
-  ComparisonOperator?: ComparisonOperator | string;
+  ComparisonOperator?: keyof typeof ComparisonOperator | string;
 
   /**
    * <p>A string with values used in evaluating the filter condition.</p>
@@ -2419,11 +2419,11 @@ export interface ListResourcesResponse {
 /**
  * @public
  */
-export enum OptimizerType {
-  COMPACTION = "COMPACTION",
-  GARBAGE_COLLECTION = "GARBAGE_COLLECTION",
-  GENERIC = "ALL",
-}
+export const OptimizerType = {
+  COMPACTION: "COMPACTION",
+  GARBAGE_COLLECTION: "GARBAGE_COLLECTION",
+  GENERIC: "ALL",
+};
 
 /**
  * @public
@@ -2447,7 +2447,7 @@ export interface ListTableStorageOptimizersRequest {
   /**
    * <p>The specific type of storage optimizers to list. The supported value is <code>compaction</code>.</p>
    */
-  StorageOptimizerType?: OptimizerType | string;
+  StorageOptimizerType?: keyof typeof OptimizerType | string;
 
   /**
    * <p>The number of storage optimizers to return on each call.</p>
@@ -2468,7 +2468,7 @@ export interface StorageOptimizer {
   /**
    * <p>The specific type of storage optimizer. The supported value is <code>compaction</code>.</p>
    */
-  StorageOptimizerType?: OptimizerType | string;
+  StorageOptimizerType?: keyof typeof OptimizerType | string;
 
   /**
    * <p>A map of the storage optimizer configuration. Currently contains only one key-value pair: <code>is_enabled</code> indicates true or false for acceleration.</p>
@@ -2511,13 +2511,13 @@ export interface ListTableStorageOptimizersResponse {
 /**
  * @public
  */
-export enum TransactionStatusFilter {
-  ABORTED = "ABORTED",
-  ACTIVE = "ACTIVE",
-  ALL = "ALL",
-  COMMITTED = "COMMITTED",
-  COMPLETED = "COMPLETED",
-}
+export const TransactionStatusFilter = {
+  ABORTED: "ABORTED",
+  ACTIVE: "ACTIVE",
+  ALL: "ALL",
+  COMMITTED: "COMMITTED",
+  COMPLETED: "COMPLETED",
+};
 
 /**
  * @public
@@ -2531,7 +2531,7 @@ export interface ListTransactionsRequest {
   /**
    * <p> A filter indicating the status of transactions to return. Options are ALL | COMPLETED | COMMITTED | ABORTED | ACTIVE. The default is <code>ALL</code>.</p>
    */
-  StatusFilter?: TransactionStatusFilter | string;
+  StatusFilter?: keyof typeof TransactionStatusFilter | string;
 
   /**
    * <p>The maximum number of transactions to return in a single call.</p>
@@ -2658,12 +2658,12 @@ export interface RevokePermissionsRequest {
    * <p>The permissions revoked to the principal on the resource. For information about permissions, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security
    *       and Access Control to Metadata and Data</a>.</p>
    */
-  Permissions: (Permission | string)[] | undefined;
+  Permissions: (keyof typeof Permission | string)[] | undefined;
 
   /**
    * <p>Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals.</p>
    */
-  PermissionsWithGrantOption?: (Permission | string)[];
+  PermissionsWithGrantOption?: (keyof typeof Permission | string)[];
 }
 
 /**
@@ -2853,10 +2853,10 @@ export interface StartQueryPlanningResponse {
 /**
  * @public
  */
-export enum TransactionType {
-  READ_AND_WRITE = "READ_AND_WRITE",
-  READ_ONLY = "READ_ONLY",
-}
+export const TransactionType = {
+  READ_AND_WRITE: "READ_AND_WRITE",
+  READ_ONLY: "READ_ONLY",
+};
 
 /**
  * @public
@@ -2865,7 +2865,7 @@ export interface StartTransactionRequest {
   /**
    * <p>Indicates whether this transaction should be read only or read and write. Writes made using a read-only transaction ID will be rejected. Read-only transactions do not need to be committed. </p>
    */
-  TransactionType?: TransactionType | string;
+  TransactionType?: keyof typeof TransactionType | string;
 }
 
 /**

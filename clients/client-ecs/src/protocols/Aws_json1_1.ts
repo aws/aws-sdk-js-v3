@@ -4452,7 +4452,7 @@ const serializeAws_json1_1AwsVpcConfiguration = (input: AwsVpcConfiguration, con
 };
 
 const serializeAws_json1_1CapacityProviderFieldList = (
-  input: (CapacityProviderField | string)[],
+  input: (keyof typeof CapacityProviderField | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4495,7 +4495,10 @@ const serializeAws_json1_1ClusterConfiguration = (input: ClusterConfiguration, c
   };
 };
 
-const serializeAws_json1_1ClusterFieldList = (input: (ClusterField | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1ClusterFieldList = (
+  input: (keyof typeof ClusterField | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4527,7 +4530,10 @@ const serializeAws_json1_1ClusterSettings = (input: ClusterSetting[], context: _
     });
 };
 
-const serializeAws_json1_1CompatibilityList = (input: (Compatibility | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1CompatibilityList = (
+  input: (keyof typeof Compatibility | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4627,7 +4633,7 @@ const serializeAws_json1_1ContainerDependency = (input: ContainerDependency, con
 };
 
 const serializeAws_json1_1ContainerInstanceFieldList = (
-  input: (ContainerInstanceField | string)[],
+  input: (keyof typeof ContainerInstanceField | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4997,7 +5003,7 @@ const serializeAws_json1_1Device = (input: Device, context: __SerdeContext): any
 };
 
 const serializeAws_json1_1DeviceCgroupPermissions = (
-  input: (DeviceCgroupPermission | string)[],
+  input: (keyof typeof DeviceCgroupPermission | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -5860,7 +5866,10 @@ const serializeAws_json1_1ServiceConnectServiceList = (
     });
 };
 
-const serializeAws_json1_1ServiceFieldList = (input: (ServiceField | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1ServiceFieldList = (
+  input: (keyof typeof ServiceField | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6034,7 +6043,7 @@ const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any =>
 };
 
 const serializeAws_json1_1TaskDefinitionFieldList = (
-  input: (TaskDefinitionField | string)[],
+  input: (keyof typeof TaskDefinitionField | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -6065,7 +6074,10 @@ const serializeAws_json1_1TaskDefinitionPlacementConstraints = (
     });
 };
 
-const serializeAws_json1_1TaskFieldList = (input: (TaskField | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1TaskFieldList = (
+  input: (keyof typeof TaskField | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6094,7 +6106,10 @@ const serializeAws_json1_1TaskOverride = (input: TaskOverride, context: __SerdeC
   };
 };
 
-const serializeAws_json1_1TaskSetFieldList = (input: (TaskSetField | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1TaskSetFieldList = (
+  input: (keyof typeof TaskSetField | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6608,7 +6623,10 @@ const deserializeAws_json1_1ClusterSettings = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_json1_1CompatibilityList = (output: any, context: __SerdeContext): (Compatibility | string)[] => {
+const deserializeAws_json1_1CompatibilityList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Compatibility | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7148,7 +7166,7 @@ const deserializeAws_json1_1Device = (output: any, context: __SerdeContext): Dev
 const deserializeAws_json1_1DeviceCgroupPermissions = (
   output: any,
   context: __SerdeContext
-): (DeviceCgroupPermission | string)[] => {
+): (keyof typeof DeviceCgroupPermission | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

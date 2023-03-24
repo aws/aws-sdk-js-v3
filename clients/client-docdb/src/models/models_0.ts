@@ -3357,7 +3357,7 @@ export interface Parameter {
   /**
    * <p>Indicates when to apply parameter updates.</p>
    */
-  ApplyMethod?: ApplyMethod | string;
+  ApplyMethod?: keyof typeof ApplyMethod | string;
 }
 
 /**
@@ -4096,7 +4096,7 @@ export interface DescribeEventsMessage {
   /**
    * <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 
   /**
    * <p> The beginning of the time interval to retrieve events for, specified in ISO 8601 format. </p>
@@ -4158,7 +4158,7 @@ export interface Event {
   /**
    * <p>Specifies the source type for this event.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 
   /**
    * <p>Provides the text of this event.</p>

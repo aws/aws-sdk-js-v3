@@ -6,12 +6,12 @@ import { MachineLearningServiceException as __BaseException } from "./MachineLea
 /**
  * @public
  */
-export enum TaggableResourceType {
-  BATCH_PREDICTION = "BatchPrediction",
-  DATASOURCE = "DataSource",
-  EVALUATION = "Evaluation",
-  ML_MODEL = "MLModel",
-}
+export const TaggableResourceType = {
+  BATCH_PREDICTION: "BatchPrediction",
+  DATASOURCE: "DataSource",
+  EVALUATION: "Evaluation",
+  ML_MODEL: "MLModel",
+};
 
 /**
  * @public
@@ -46,7 +46,7 @@ export interface AddTagsInput {
   /**
    * <p>The type of the ML object to tag.</p>
    */
-  ResourceType: TaggableResourceType | string | undefined;
+  ResourceType: keyof typeof TaggableResourceType | string | undefined;
 }
 
 /**
@@ -62,7 +62,7 @@ export interface AddTagsOutput {
   /**
    * <p>The type of the ML object that was tagged.</p>
    */
-  ResourceType?: TaggableResourceType | string;
+  ResourceType?: keyof typeof TaggableResourceType | string;
 }
 
 /**
@@ -172,9 +172,9 @@ export class TagLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum Algorithm {
-  SGD = "sgd",
-}
+export const Algorithm = {
+  SGD: "sgd",
+};
 
 /**
  * @public
@@ -1053,11 +1053,11 @@ export interface CreateEvaluationOutput {
 /**
  * @public
  */
-export enum MLModelType {
-  BINARY = "BINARY",
-  MULTICLASS = "MULTICLASS",
-  REGRESSION = "REGRESSION",
-}
+export const MLModelType = {
+  BINARY: "BINARY",
+  MULTICLASS: "MULTICLASS",
+  REGRESSION: "REGRESSION",
+};
 
 /**
  * @public
@@ -1088,7 +1088,7 @@ export interface CreateMLModelInput {
    *          </ul>
    *         <p> For more information, see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon Machine Learning Developer Guide</a>.</p>
    */
-  MLModelType: MLModelType | string | undefined;
+  MLModelType: keyof typeof MLModelType | string | undefined;
 
   /**
    * <p>A list of the training parameters in the <code>MLModel</code>. The list is implemented as
@@ -1185,12 +1185,12 @@ export interface CreateRealtimeEndpointInput {
 /**
  * @public
  */
-export enum RealtimeEndpointStatus {
-  FAILED = "FAILED",
-  NONE = "NONE",
-  READY = "READY",
-  UPDATING = "UPDATING",
-}
+export const RealtimeEndpointStatus = {
+  FAILED: "FAILED",
+  NONE: "NONE",
+  READY: "READY",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1231,7 +1231,7 @@ export interface RealtimeEndpointInfo {
    *             </li>
    *          </ul>
    */
-  EndpointStatus?: RealtimeEndpointStatus | string;
+  EndpointStatus?: keyof typeof RealtimeEndpointStatus | string;
 }
 
 /**
@@ -1391,7 +1391,7 @@ export interface DeleteTagsInput {
   /**
    * <p>The type of the tagged ML object.</p>
    */
-  ResourceType: TaggableResourceType | string | undefined;
+  ResourceType: keyof typeof TaggableResourceType | string | undefined;
 }
 
 /**
@@ -1407,30 +1407,30 @@ export interface DeleteTagsOutput {
   /**
    * <p>The type of the ML object from which tags were deleted.</p>
    */
-  ResourceType?: TaggableResourceType | string;
+  ResourceType?: keyof typeof TaggableResourceType | string;
 }
 
 /**
  * @public
  */
-export enum BatchPredictionFilterVariable {
-  CREATED_AT = "CreatedAt",
-  DATASOURCE_ID = "DataSourceId",
-  DATA_URI = "DataURI",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  ML_MODEL_ID = "MLModelId",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const BatchPredictionFilterVariable = {
+  CREATED_AT: "CreatedAt",
+  DATASOURCE_ID: "DataSourceId",
+  DATA_URI: "DataURI",
+  IAM_USER: "IAMUser",
+  LAST_UPDATED_AT: "LastUpdatedAt",
+  ML_MODEL_ID: "MLModelId",
+  NAME: "Name",
+  STATUS: "Status",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASC = "asc",
-  DSC = "dsc",
-}
+export const SortOrder = {
+  ASC: "asc",
+  DSC: "dsc",
+};
 
 /**
  * @public
@@ -1471,7 +1471,7 @@ export interface DescribeBatchPredictionsInput {
    *             </li>
    *          </ul>
    */
-  FilterVariable?: BatchPredictionFilterVariable | string;
+  FilterVariable?: keyof typeof BatchPredictionFilterVariable | string;
 
   /**
    * <p>The equal to operator. The <code>BatchPrediction</code> results will have
@@ -1543,7 +1543,7 @@ export interface DescribeBatchPredictionsInput {
    *          </ul>
    *         <p>Results are sorted by <code>FilterVariable</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>An ID of the page in the paginated results.</p>
@@ -1559,13 +1559,13 @@ export interface DescribeBatchPredictionsInput {
 /**
  * @public
  */
-export enum EntityStatus {
-  COMPLETED = "COMPLETED",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  INPROGRESS = "INPROGRESS",
-  PENDING = "PENDING",
-}
+export const EntityStatus = {
+  COMPLETED: "COMPLETED",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  INPROGRESS: "INPROGRESS",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -1641,7 +1641,7 @@ export interface BatchPrediction {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: keyof typeof EntityStatus | string;
 
   /**
    * <p>The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the <code>s3 key</code> portion of the <code>outputURI</code> field: ':', '//', '/./', '/../'.</p>
@@ -1699,14 +1699,14 @@ export interface DescribeBatchPredictionsOutput {
 /**
  * @public
  */
-export enum DataSourceFilterVariable {
-  CREATED_AT = "CreatedAt",
-  DATA_URI = "DataLocationS3",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const DataSourceFilterVariable = {
+  CREATED_AT: "CreatedAt",
+  DATA_URI: "DataLocationS3",
+  IAM_USER: "IAMUser",
+  LAST_UPDATED_AT: "LastUpdatedAt",
+  NAME: "Name",
+  STATUS: "Status",
+};
 
 /**
  * @public
@@ -1738,7 +1738,7 @@ export interface DescribeDataSourcesInput {
    *             </li>
    *          </ul>
    */
-  FilterVariable?: DataSourceFilterVariable | string;
+  FilterVariable?: keyof typeof DataSourceFilterVariable | string;
 
   /**
    * <p>The equal to operator. The <code>DataSource</code> results will have
@@ -1810,7 +1810,7 @@ export interface DescribeDataSourcesInput {
    *          </ul>
    *         <p>Results are sorted by <code>FilterVariable</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The ID of the page in the paginated results.</p>
@@ -1955,7 +1955,7 @@ export interface DataSource {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: keyof typeof EntityStatus | string;
 
   /**
    * <p>A description of the most recent details about creating the <code>DataSource</code>.</p>
@@ -2020,16 +2020,16 @@ export interface DescribeDataSourcesOutput {
 /**
  * @public
  */
-export enum EvaluationFilterVariable {
-  CREATED_AT = "CreatedAt",
-  DATASOURCE_ID = "DataSourceId",
-  DATA_URI = "DataURI",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  ML_MODEL_ID = "MLModelId",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const EvaluationFilterVariable = {
+  CREATED_AT: "CreatedAt",
+  DATASOURCE_ID: "DataSourceId",
+  DATA_URI: "DataURI",
+  IAM_USER: "IAMUser",
+  LAST_UPDATED_AT: "LastUpdatedAt",
+  ML_MODEL_ID: "MLModelId",
+  NAME: "Name",
+  STATUS: "Status",
+};
 
 /**
  * @public
@@ -2070,7 +2070,7 @@ export interface DescribeEvaluationsInput {
    *             </li>
    *          </ul>
    */
-  FilterVariable?: EvaluationFilterVariable | string;
+  FilterVariable?: keyof typeof EvaluationFilterVariable | string;
 
   /**
    * <p>The equal to operator. The <code>Evaluation</code> results will have
@@ -2142,7 +2142,7 @@ export interface DescribeEvaluationsInput {
    *          </ul>
    *         <p>Results are sorted by <code>FilterVariable</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The ID of the page in the paginated results.</p>
@@ -2250,7 +2250,7 @@ export interface Evaluation {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: keyof typeof EntityStatus | string;
 
   /**
    * <p>Measurements of how well the <code>MLModel</code> performed, using observations referenced
@@ -2314,18 +2314,18 @@ export interface DescribeEvaluationsOutput {
 /**
  * @public
  */
-export enum MLModelFilterVariable {
-  ALGORITHM = "Algorithm",
-  CREATED_AT = "CreatedAt",
-  IAM_USER = "IAMUser",
-  LAST_UPDATED_AT = "LastUpdatedAt",
-  ML_MODEL_TYPE = "MLModelType",
-  NAME = "Name",
-  REAL_TIME_ENDPOINT_STATUS = "RealtimeEndpointStatus",
-  STATUS = "Status",
-  TRAINING_DATASOURCE_ID = "TrainingDataSourceId",
-  TRAINING_DATA_URI = "TrainingDataURI",
-}
+export const MLModelFilterVariable = {
+  ALGORITHM: "Algorithm",
+  CREATED_AT: "CreatedAt",
+  IAM_USER: "IAMUser",
+  LAST_UPDATED_AT: "LastUpdatedAt",
+  ML_MODEL_TYPE: "MLModelType",
+  NAME: "Name",
+  REAL_TIME_ENDPOINT_STATUS: "RealtimeEndpointStatus",
+  STATUS: "Status",
+  TRAINING_DATASOURCE_ID: "TrainingDataSourceId",
+  TRAINING_DATA_URI: "TrainingDataURI",
+};
 
 /**
  * @public
@@ -2374,7 +2374,7 @@ export interface DescribeMLModelsInput {
    *             </li>
    *          </ul>
    */
-  FilterVariable?: MLModelFilterVariable | string;
+  FilterVariable?: keyof typeof MLModelFilterVariable | string;
 
   /**
    * <p>The equal to operator. The <code>MLModel</code> results will have
@@ -2446,7 +2446,7 @@ export interface DescribeMLModelsInput {
    *          </ul>
    *         <p>Results are sorted by <code>FilterVariable</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The ID of the page in the paginated results.</p>
@@ -2522,7 +2522,7 @@ export interface MLModel {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: keyof typeof EntityStatus | string;
 
   /**
    * <p>Long integer type that is a 64-bit signed number.</p>
@@ -2597,7 +2597,7 @@ export interface MLModel {
    *             </li>
    *          </ul>
    */
-  Algorithm?: Algorithm | string;
+  Algorithm?: keyof typeof Algorithm | string;
 
   /**
    * <p>Identifies the <code>MLModel</code> category. The following are the available types:</p>
@@ -2619,7 +2619,7 @@ export interface MLModel {
    *             </li>
    *          </ul>
    */
-  MLModelType?: MLModelType | string;
+  MLModelType?: keyof typeof MLModelType | string;
 
   ScoreThreshold?: number;
   /**
@@ -2676,7 +2676,7 @@ export interface DescribeTagsInput {
   /**
    * <p>The type of the ML object.</p>
    */
-  ResourceType: TaggableResourceType | string | undefined;
+  ResourceType: keyof typeof TaggableResourceType | string | undefined;
 }
 
 /**
@@ -2692,7 +2692,7 @@ export interface DescribeTagsOutput {
   /**
    * <p>The type of the tagged ML object.</p>
    */
-  ResourceType?: TaggableResourceType | string;
+  ResourceType?: keyof typeof TaggableResourceType | string;
 
   /**
    * <p>A list of tags associated with the ML object.</p>
@@ -2782,7 +2782,7 @@ export interface GetBatchPredictionOutput {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: keyof typeof EntityStatus | string;
 
   /**
    * <p>The location of an Amazon S3 bucket or directory to receive the operation results.</p>
@@ -2918,7 +2918,7 @@ export interface GetDataSourceOutput {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: keyof typeof EntityStatus | string;
 
   /**
    * <p>A link to the file containing logs of <code>CreateDataSourceFrom*</code> operations.</p>
@@ -3055,7 +3055,7 @@ export interface GetEvaluationOutput {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: keyof typeof EntityStatus | string;
 
   /**
    * <p>Measurements of how well the <code>MLModel</code> performed using observations referenced by the <code>DataSource</code>. One of the following metric is returned based on the type of the <code>MLModel</code>:
@@ -3183,7 +3183,7 @@ export interface GetMLModelOutput {
    *             </li>
    *          </ul>
    */
-  Status?: EntityStatus | string;
+  Status?: keyof typeof EntityStatus | string;
 
   /**
    * <p>Long integer type that is a 64-bit signed number.</p>
@@ -3264,7 +3264,7 @@ export interface GetMLModelOutput {
    *             </li>
    *          </ul>
    */
-  MLModelType?: MLModelType | string;
+  MLModelType?: keyof typeof MLModelType | string;
 
   /**
    * <p>The scoring threshold is used in binary classification <code>MLModel</code>
@@ -3385,10 +3385,10 @@ export class PredictorNotMountedException extends __BaseException {
 /**
  * @public
  */
-export enum DetailsAttributes {
-  ALGORITHM = "Algorithm",
-  PREDICTIVE_MODEL_TYPE = "PredictiveModelType",
-}
+export const DetailsAttributes = {
+  ALGORITHM: "Algorithm",
+  PREDICTIVE_MODEL_TYPE: "PredictiveModelType",
+};
 
 /**
  * @public

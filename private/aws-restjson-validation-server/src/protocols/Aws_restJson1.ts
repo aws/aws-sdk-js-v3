@@ -1183,7 +1183,10 @@ const serializeAws_restJson1ValidationExceptionFieldList = (
     });
 };
 
-const deserializeAws_restJson1EnumList = (output: any, context: __SerdeContext): (EnumString | string)[] => {
+const deserializeAws_restJson1EnumList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof EnumString | string)[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1195,9 +1198,12 @@ const deserializeAws_restJson1EnumList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_restJson1EnumMap = (output: any, context: __SerdeContext): Record<string, EnumString | string> => {
+const deserializeAws_restJson1EnumMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, keyof typeof EnumString | string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, EnumString | string>, [key, value]: [EnumString | string, any]) => {
+    (acc: Record<string, keyof typeof EnumString | string>, [key, value]: [keyof typeof EnumString | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -1372,7 +1378,10 @@ const deserializeAws_restJson1DateTimeSet = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_restJson1FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const deserializeAws_restJson1FooEnumSet = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof FooEnum | string)[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(

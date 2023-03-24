@@ -26,10 +26,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum VariableType {
-  INCIDENT_RECORD_ARN = "INCIDENT_RECORD_ARN",
-  INVOLVED_RESOURCES = "INVOLVED_RESOURCES",
-}
+export const VariableType = {
+  INCIDENT_RECORD_ARN: "INCIDENT_RECORD_ARN",
+  INVOLVED_RESOURCES: "INVOLVED_RESOURCES",
+};
 
 /**
  * @public
@@ -48,7 +48,7 @@ export namespace DynamicSsmParameterValue {
    *          created.</p>
    */
   export interface VariableMember {
-    variable: VariableType | string;
+    variable: keyof typeof VariableType | string;
     $unknown?: never;
   }
 
@@ -58,7 +58,7 @@ export namespace DynamicSsmParameterValue {
   }
 
   export interface Visitor<T> {
-    variable: (value: VariableType | string) => T;
+    variable: (value: keyof typeof VariableType | string) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -71,10 +71,10 @@ export namespace DynamicSsmParameterValue {
 /**
  * @public
  */
-export enum SsmTargetAccount {
-  IMPACTED_ACCOUNT = "IMPACTED_ACCOUNT",
-  RESPONSE_PLAN_OWNER_ACCOUNT = "RESPONSE_PLAN_OWNER_ACCOUNT",
-}
+export const SsmTargetAccount = {
+  IMPACTED_ACCOUNT: "IMPACTED_ACCOUNT",
+  RESPONSE_PLAN_OWNER_ACCOUNT: "RESPONSE_PLAN_OWNER_ACCOUNT",
+};
 
 /**
  * @public
@@ -102,7 +102,7 @@ export interface SsmAutomation {
    * <p>The account that the automation document will be run in. This can be in either the
    *          management account or an application account.</p>
    */
-  targetAccount?: SsmTargetAccount | string;
+  targetAccount?: keyof typeof SsmTargetAccount | string;
 
   /**
    * <p>The key-value pair parameters to use when running the automation document.</p>
@@ -382,13 +382,13 @@ export namespace Condition {
 /**
  * @public
  */
-export enum ResourceType {
-  INCIDENT_RECORD = "INCIDENT_RECORD",
-  REPLICATION_SET = "REPLICATION_SET",
-  RESOURCE_POLICY = "RESOURCE_POLICY",
-  RESPONSE_PLAN = "RESPONSE_PLAN",
-  TIMELINE_EVENT = "TIMELINE_EVENT",
-}
+export const ResourceType = {
+  INCIDENT_RECORD: "INCIDENT_RECORD",
+  REPLICATION_SET: "REPLICATION_SET",
+  RESOURCE_POLICY: "RESOURCE_POLICY",
+  RESPONSE_PLAN: "RESPONSE_PLAN",
+  TIMELINE_EVENT: "TIMELINE_EVENT",
+};
 
 /**
  * @public
@@ -405,7 +405,7 @@ export class ConflictException extends __BaseException {
   /**
    * The resource type
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * If present in the output, the operation can be retried after this time
@@ -496,9 +496,9 @@ export class InternalServerException extends __BaseException {
 /**
  * @public
  */
-export enum ServiceCode {
-  SSM_INCIDENTS = "ssm-incidents",
-}
+export const ServiceCode = {
+  SSM_INCIDENTS: "ssm-incidents",
+};
 
 /**
  * @public
@@ -515,12 +515,12 @@ export class ServiceQuotaExceededException extends __BaseException {
   /**
    * The resource type
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * Originating service code
    */
-  serviceCode: ServiceCode | string | undefined;
+  serviceCode: keyof typeof ServiceCode | string | undefined;
 
   /**
    * Originating quota code
@@ -554,7 +554,7 @@ export class ThrottlingException extends __BaseException {
   /**
    * Originating service code
    */
-  serviceCode: ServiceCode | string | undefined;
+  serviceCode: keyof typeof ServiceCode | string | undefined;
 
   /**
    * Originating quota code
@@ -820,7 +820,7 @@ export class ResourceNotFoundException extends __BaseException {
   /**
    * The resource type
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * @internal
@@ -1143,10 +1143,10 @@ export interface IncidentRecordSource {
 /**
  * @public
  */
-export enum IncidentRecordStatus {
-  OPEN = "OPEN",
-  RESOLVED = "RESOLVED",
-}
+export const IncidentRecordStatus = {
+  OPEN: "OPEN",
+  RESOLVED: "RESOLVED",
+};
 
 /**
  * @public
@@ -1172,7 +1172,7 @@ export interface IncidentRecord {
   /**
    * <p>The current status of the incident.</p>
    */
-  status: IncidentRecordStatus | string | undefined;
+  status: keyof typeof IncidentRecordStatus | string | undefined;
 
   /**
    * <p>The impact of the incident on customers and applications.</p>
@@ -1250,24 +1250,24 @@ export interface GetReplicationSetInput {
 /**
  * @public
  */
-export enum RegionStatus {
+export const RegionStatus = {
   /**
    * All operations have completed successfully and the region is ready to use
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * The region is in the process of being created.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * The region is in the process of being deleted.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * The region is not healthy and we cannot automatically fix it.
    */
-  FAILED = "FAILED",
-}
+  FAILED: "FAILED",
+};
 
 /**
  * @public
@@ -1282,7 +1282,7 @@ export interface RegionInfo {
   /**
    * <p>The status of the Amazon Web Services Region in the replication set.</p>
    */
-  status: RegionStatus | string | undefined;
+  status: keyof typeof RegionStatus | string | undefined;
 
   /**
    * <p>Information displayed about the status of the Amazon Web Services Region.</p>
@@ -1298,28 +1298,28 @@ export interface RegionInfo {
 /**
  * @public
  */
-export enum ReplicationSetStatus {
+export const ReplicationSetStatus = {
   /**
    * All operations have completed successfully and the replication set is ready to use
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Replication set is in the process of being created.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Replication set is in the process of being deleted.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Replication set is not healthy and we cannot fix it.
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * Replication set is in the process of being updated.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1341,7 +1341,7 @@ export interface ReplicationSet {
    * <p>The status of the replication set. If the replication set is still pending, you can't
    *          use Incident Manager functionality.</p>
    */
-  status: ReplicationSetStatus | string | undefined;
+  status: keyof typeof ReplicationSetStatus | string | undefined;
 
   /**
    * <p>Determines if the replication set deletion protection is enabled or not. If deletion
@@ -1585,7 +1585,7 @@ export interface IncidentRecordSummary {
   /**
    * <p>The current status of the incident.</p>
    */
-  status: IncidentRecordStatus | string | undefined;
+  status: keyof typeof IncidentRecordStatus | string | undefined;
 
   /**
    * <p>Defines the impact to customers and applications.</p>
@@ -1611,17 +1611,17 @@ export interface IncidentRecordSummary {
 /**
  * @public
  */
-export enum ItemType {
-  ANALYSIS = "ANALYSIS",
-  ATTACHMENT = "ATTACHMENT",
-  AUTOMATION = "AUTOMATION",
-  INCIDENT = "INCIDENT",
-  INVOLVED_RESOURCE = "INVOLVED_RESOURCE",
-  METRIC = "METRIC",
-  OTHER = "OTHER",
-  PARENT = "PARENT",
-  TASK = "TASK",
-}
+export const ItemType = {
+  ANALYSIS: "ANALYSIS",
+  ATTACHMENT: "ATTACHMENT",
+  AUTOMATION: "AUTOMATION",
+  INCIDENT: "INCIDENT",
+  INVOLVED_RESOURCE: "INVOLVED_RESOURCE",
+  METRIC: "METRIC",
+  OTHER: "OTHER",
+  PARENT: "PARENT",
+  TASK: "TASK",
+};
 
 /**
  * @public
@@ -1747,7 +1747,7 @@ export interface ItemIdentifier {
   /**
    * <p>The type of related item. </p>
    */
-  type: ItemType | string | undefined;
+  type: keyof typeof ItemType | string | undefined;
 }
 
 /**
@@ -1988,17 +1988,17 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
-export enum TimelineEventSort {
-  EVENT_TIME = "EVENT_TIME",
-}
+export const TimelineEventSort = {
+  EVENT_TIME: "EVENT_TIME",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -2046,13 +2046,13 @@ export interface ListTimelineEventsInput {
   /**
    * <p>Sort by the specified key value pair.</p>
    */
-  sortBy?: TimelineEventSort | string;
+  sortBy?: keyof typeof TimelineEventSort | string;
 
   /**
    * <p>Sorts the order of timeline events by the value specified in the <code>sortBy</code>
    *             field.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The maximum number of results per page.</p>
@@ -2396,7 +2396,7 @@ export interface UpdateIncidentRecordInput {
    * <p>The status of the incident. An incident can be <code>Open</code> or
    *                 <code>Resolved</code>.</p>
    */
-  status?: IncidentRecordStatus | string;
+  status?: keyof typeof IncidentRecordStatus | string;
 
   /**
    * <p>The Chatbot chat channel where responders can collaborate.</p>

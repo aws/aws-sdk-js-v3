@@ -3823,7 +3823,7 @@ const serializeAws_json1_1CustomRoutingEndpointConfigurations = (
 };
 
 const serializeAws_json1_1CustomRoutingProtocols = (
-  input: (CustomRoutingProtocol | string)[],
+  input: (keyof typeof CustomRoutingProtocol | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4749,7 +4749,7 @@ const deserializeAws_json1_1CustomRoutingListeners = (
 const deserializeAws_json1_1CustomRoutingProtocols = (
   output: any,
   context: __SerdeContext
-): (CustomRoutingProtocol | string)[] => {
+): (keyof typeof CustomRoutingProtocol | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5265,7 +5265,7 @@ const deserializeAws_json1_1PortRanges = (output: any, context: __SerdeContext):
   return retVal;
 };
 
-const deserializeAws_json1_1Protocols = (output: any, context: __SerdeContext): (Protocol | string)[] => {
+const deserializeAws_json1_1Protocols = (output: any, context: __SerdeContext): (keyof typeof Protocol | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

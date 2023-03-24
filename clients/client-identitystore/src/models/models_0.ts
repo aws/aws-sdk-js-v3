@@ -262,12 +262,12 @@ export class InternalServerException extends __BaseException {
 /**
  * @public
  */
-export enum ResourceType {
-  GROUP = "GROUP",
-  GROUP_MEMBERSHIP = "GROUP_MEMBERSHIP",
-  IDENTITY_STORE = "IDENTITY_STORE",
-  USER = "USER",
-}
+export const ResourceType = {
+  GROUP: "GROUP",
+  GROUP_MEMBERSHIP: "GROUP_MEMBERSHIP",
+  IDENTITY_STORE: "IDENTITY_STORE",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -279,7 +279,7 @@ export class ResourceNotFoundException extends __BaseException {
   /**
    * <p>An enum object indicating the type of resource in the identity store service. Valid values include USER, GROUP, and IDENTITY_STORE.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The identifier for a resource in the identity store that can be used as <code>UserId</code> or <code>GroupId</code>. The format for <code>ResourceId</code> is either <code>UUID</code> or <code>1234567890-UUID</code>, where <code>UUID</code> is a randomly generated value for each resource when it is created and <code>1234567890</code> represents the <code>IdentityStoreId</code> string value. In the case that the identity store is migrated from a legacy SSO identity store, the <code>ResourceId</code> for that identity store will be in the format of <code>UUID</code>. Otherwise, it will be in the <code>1234567890-UUID</code> format.</p>
@@ -482,10 +482,10 @@ export interface GetUserIdResponse {
 /**
  * @public
  */
-export enum ConflictExceptionReason {
-  CONCURRENT_MODIFICATION = "CONCURRENT_MODIFICATION",
-  UNIQUENESS_CONSTRAINT_VIOLATION = "UNIQUENESS_CONSTRAINT_VIOLATION",
-}
+export const ConflictExceptionReason = {
+  CONCURRENT_MODIFICATION: "CONCURRENT_MODIFICATION",
+  UNIQUENESS_CONSTRAINT_VIOLATION: "UNIQUENESS_CONSTRAINT_VIOLATION",
+};
 
 /**
  * @public
@@ -519,7 +519,7 @@ export class ConflictException extends __BaseException {
    *             </li>
    *          </ul>
    */
-  Reason?: ConflictExceptionReason | string;
+  Reason?: keyof typeof ConflictExceptionReason | string;
   /**
    * @internal
    */

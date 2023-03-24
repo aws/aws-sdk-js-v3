@@ -6,23 +6,23 @@ import { SsmSapServiceException as __BaseException } from "./SsmSapServiceExcept
 /**
  * @public
  */
-export enum ApplicationStatus {
-  ACTIVATED = "ACTIVATED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  REGISTERING = "REGISTERING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UNKNOWN = "UNKNOWN",
-}
+export const ApplicationStatus = {
+  ACTIVATED: "ACTIVATED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  REGISTERING: "REGISTERING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
  */
-export enum ApplicationType {
-  HANA = "HANA",
-}
+export const ApplicationType = {
+  HANA: "HANA",
+};
 
 /**
  * @public
@@ -37,7 +37,7 @@ export interface Application {
   /**
    * <p>The type of the application.</p>
    */
-  Type?: ApplicationType | string;
+  Type?: keyof typeof ApplicationType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -52,7 +52,7 @@ export interface Application {
   /**
    * <p>The status of the application.</p>
    */
-  Status?: ApplicationStatus | string;
+  Status?: keyof typeof ApplicationStatus | string;
 
   /**
    * <p>The components of the application.</p>
@@ -73,9 +73,9 @@ export interface Application {
 /**
  * @public
  */
-export enum CredentialType {
-  ADMIN = "ADMIN",
-}
+export const CredentialType = {
+  ADMIN: "ADMIN",
+};
 
 /**
  * @public
@@ -90,7 +90,7 @@ export interface ApplicationCredential {
   /**
    * <p>The type of the application credentials. </p>
    */
-  CredentialType: CredentialType | string | undefined;
+  CredentialType: keyof typeof CredentialType | string | undefined;
 
   /**
    * <p>The secret ID created in AWS Secrets Manager to store the credentials of the SAP
@@ -113,7 +113,7 @@ export interface ApplicationSummary {
   /**
    * <p>The type of the application.</p>
    */
-  Type?: ApplicationType | string;
+  Type?: keyof typeof ApplicationType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -129,19 +129,19 @@ export interface ApplicationSummary {
 /**
  * @public
  */
-export enum ComponentType {
-  HANA = "HANA",
-}
+export const ComponentType = {
+  HANA: "HANA",
+};
 
 /**
  * @public
  */
-export enum HostRole {
-  LEADER = "LEADER",
-  STANDBY = "STANDBY",
-  UNKNOWN = "UNKNOWN",
-  WORKER = "WORKER",
-}
+export const HostRole = {
+  LEADER: "LEADER",
+  STANDBY: "STANDBY",
+  UNKNOWN: "UNKNOWN",
+  WORKER: "WORKER",
+};
 
 /**
  * @public
@@ -156,7 +156,7 @@ export interface Host {
   /**
    * <p>The role of the Dedicated Host.</p>
    */
-  HostRole?: HostRole | string;
+  HostRole?: keyof typeof HostRole | string;
 
   /**
    * <p>The IP address of the Dedicated Host. </p>
@@ -172,9 +172,9 @@ export interface Host {
 /**
  * @public
  */
-export enum ComponentStatus {
-  ACTIVATED = "ACTIVATED",
-}
+export const ComponentStatus = {
+  ACTIVATED: "ACTIVATED",
+};
 
 /**
  * @public
@@ -194,12 +194,12 @@ export interface Component {
   /**
    * <p>The type of the component.</p>
    */
-  ComponentType?: ComponentType | string;
+  ComponentType?: keyof typeof ComponentType | string;
 
   /**
    * <p>The status of the component.</p>
    */
-  Status?: ComponentStatus | string;
+  Status?: keyof typeof ComponentStatus | string;
 
   /**
    * <p>The SAP HANA databases of the component.</p>
@@ -240,7 +240,7 @@ export interface ComponentSummary {
   /**
    * <p>The type of the component.</p>
    */
-  ComponentType?: ComponentType | string;
+  ComponentType?: keyof typeof ComponentType | string;
 
   /**
    * <p>The tags of the component.</p>
@@ -273,21 +273,21 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum DatabaseType {
-  SYSTEM = "SYSTEM",
-  TENANT = "TENANT",
-}
+export const DatabaseType = {
+  SYSTEM: "SYSTEM",
+  TENANT: "TENANT",
+};
 
 /**
  * @public
  */
-export enum DatabaseStatus {
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  UNKNOWN = "UNKNOWN",
-  WARNING = "WARNING",
-}
+export const DatabaseStatus = {
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  UNKNOWN: "UNKNOWN",
+  WARNING: "WARNING",
+};
 
 /**
  * @public
@@ -323,7 +323,7 @@ export interface Database {
   /**
    * <p>The type of the database.</p>
    */
-  DatabaseType?: DatabaseType | string;
+  DatabaseType?: keyof typeof DatabaseType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the database.</p>
@@ -333,7 +333,7 @@ export interface Database {
   /**
    * <p>The status of the database.</p>
    */
-  Status?: DatabaseStatus | string;
+  Status?: keyof typeof DatabaseStatus | string;
 
   /**
    * <p>The primary host of the database.</p>
@@ -374,7 +374,7 @@ export interface DatabaseSummary {
   /**
    * <p>The type of the database.</p>
    */
-  DatabaseType?: DatabaseType | string;
+  DatabaseType?: keyof typeof DatabaseType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the database.</p>
@@ -390,9 +390,9 @@ export interface DatabaseSummary {
 /**
  * @public
  */
-export enum PermissionActionType {
-  RESTORE = "RESTORE",
-}
+export const PermissionActionType = {
+  RESTORE: "RESTORE",
+};
 
 /**
  * @public
@@ -401,7 +401,7 @@ export interface DeleteResourcePermissionInput {
   /**
    * <p>Delete or restore the permissions on the target database.</p>
    */
-  ActionType?: PermissionActionType | string;
+  ActionType?: keyof typeof PermissionActionType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source resource.</p>
@@ -508,11 +508,11 @@ export interface DeregisterApplicationOutput {}
 /**
  * @public
  */
-export enum FilterOperator {
-  EQUALS = "Equals",
-  GREATER_THAN_OR_EQUALS = "GreaterThanOrEquals",
-  LESS_THAN_OR_EQUALS = "LessThanOrEquals",
-}
+export const FilterOperator = {
+  EQUALS: "Equals",
+  GREATER_THAN_OR_EQUALS: "GreaterThanOrEquals",
+  LESS_THAN_OR_EQUALS: "LessThanOrEquals",
+};
 
 /**
  * @public
@@ -534,7 +534,7 @@ export interface Filter {
   /**
    * <p>The operator for the filter. </p>
    */
-  Operator: FilterOperator | string | undefined;
+  Operator: keyof typeof FilterOperator | string | undefined;
 }
 
 /**
@@ -652,11 +652,11 @@ export interface GetOperationInput {
 /**
  * @public
  */
-export enum OperationStatus {
-  ERROR = "ERROR",
-  INPROGRESS = "INPROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export const OperationStatus = {
+  ERROR: "ERROR",
+  INPROGRESS: "INPROGRESS",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -676,7 +676,7 @@ export interface Operation {
   /**
    * <p>The status of the operation.</p>
    */
-  Status?: OperationStatus | string;
+  Status?: keyof typeof OperationStatus | string;
 
   /**
    * <p>The status message of the operation.</p>
@@ -736,7 +736,7 @@ export interface GetResourcePermissionInput {
   /**
    * <p/>
    */
-  ActionType?: PermissionActionType | string;
+  ActionType?: keyof typeof PermissionActionType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -939,7 +939,7 @@ export interface PutResourcePermissionInput {
   /**
    * <p/>
    */
-  ActionType: PermissionActionType | string | undefined;
+  ActionType: keyof typeof PermissionActionType | string | undefined;
 
   /**
    * <p/>
@@ -974,7 +974,7 @@ export interface RegisterApplicationInput {
   /**
    * <p>The type of the application.</p>
    */
-  ApplicationType: ApplicationType | string | undefined;
+  ApplicationType: keyof typeof ApplicationType | string | undefined;
 
   /**
    * <p>The Amazon EC2 instances on which your SAP application is running.</p>

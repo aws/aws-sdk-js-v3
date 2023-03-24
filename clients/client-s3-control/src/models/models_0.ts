@@ -18,9 +18,9 @@ export interface AbortIncompleteMultipartUpload {
 /**
  * @public
  */
-export enum OwnerOverride {
-  Destination = "Destination",
-}
+export const OwnerOverride = {
+  Destination: "Destination",
+};
 
 /**
  * @public
@@ -33,16 +33,16 @@ export interface AccessControlTranslation {
   /**
    * <p>Specifies the replica ownership.</p>
    */
-  Owner: OwnerOverride | string | undefined;
+  Owner: keyof typeof OwnerOverride | string | undefined;
 }
 
 /**
  * @public
  */
-export enum NetworkOrigin {
-  Internet = "Internet",
-  VPC = "VPC",
-}
+export const NetworkOrigin = {
+  Internet: "Internet",
+  VPC: "VPC",
+};
 
 /**
  * @public
@@ -74,7 +74,7 @@ export interface AccessPoint {
    *          the access point allows access from the public internet, subject to the access point and bucket access
    *          policies.</p>
    */
-  NetworkOrigin: NetworkOrigin | string | undefined;
+  NetworkOrigin: keyof typeof NetworkOrigin | string | undefined;
 
   /**
    * <p>The virtual private cloud (VPC) configuration for this access point, if one exists.</p>
@@ -308,11 +308,11 @@ export interface AsyncErrorDetails {
 /**
  * @public
  */
-export enum AsyncOperationName {
-  CreateMultiRegionAccessPoint = "CreateMultiRegionAccessPoint",
-  DeleteMultiRegionAccessPoint = "DeleteMultiRegionAccessPoint",
-  PutMultiRegionAccessPointPolicy = "PutMultiRegionAccessPointPolicy",
-}
+export const AsyncOperationName = {
+  CreateMultiRegionAccessPoint: "CreateMultiRegionAccessPoint",
+  DeleteMultiRegionAccessPoint: "DeleteMultiRegionAccessPoint",
+  PutMultiRegionAccessPointPolicy: "PutMultiRegionAccessPointPolicy",
+};
 
 /**
  * @public
@@ -523,7 +523,7 @@ export interface AsyncOperation {
   /**
    * <p>The specific operation for the asynchronous request.</p>
    */
-  Operation?: AsyncOperationName | string;
+  Operation?: keyof typeof AsyncOperationName | string;
 
   /**
    * <p>The request token associated with the request.</p>
@@ -626,22 +626,22 @@ export interface CreateAccessPointResult {
 /**
  * @public
  */
-export enum ObjectLambdaAllowedFeature {
-  GetObjectPartNumber = "GetObject-PartNumber",
-  GetObjectRange = "GetObject-Range",
-  HeadObjectPartNumber = "HeadObject-PartNumber",
-  HeadObjectRange = "HeadObject-Range",
-}
+export const ObjectLambdaAllowedFeature = {
+  GetObjectPartNumber: "GetObject-PartNumber",
+  GetObjectRange: "GetObject-Range",
+  HeadObjectPartNumber: "HeadObject-PartNumber",
+  HeadObjectRange: "HeadObject-Range",
+};
 
 /**
  * @public
  */
-export enum ObjectLambdaTransformationConfigurationAction {
-  GetObject = "GetObject",
-  HeadObject = "HeadObject",
-  ListObjects = "ListObjects",
-  ListObjectsV2 = "ListObjectsV2",
-}
+export const ObjectLambdaTransformationConfigurationAction = {
+  GetObject: "GetObject",
+  HeadObject: "HeadObject",
+  ListObjects: "ListObjects",
+  ListObjectsV2: "ListObjectsV2",
+};
 
 /**
  * @public
@@ -689,7 +689,7 @@ export interface ObjectLambdaTransformationConfiguration {
    *             <code>GetObject</code>, <code>ListObjects</code>, <code>HeadObject</code>, and
    *             <code>ListObjectsV2</code>.</p>
    */
-  Actions: (ObjectLambdaTransformationConfigurationAction | string)[] | undefined;
+  Actions: (keyof typeof ObjectLambdaTransformationConfigurationAction | string)[] | undefined;
 
   /**
    * <p>A container for the content transformation of an Object Lambda Access Point configuration.</p>
@@ -717,7 +717,7 @@ export interface ObjectLambdaConfiguration {
    *             <code>GetObject-PartNumber</code>, <code>HeadObject-Range</code>, and
    *             <code>HeadObject-PartNumber</code>.</p>
    */
-  AllowedFeatures?: (ObjectLambdaAllowedFeature | string)[];
+  AllowedFeatures?: (keyof typeof ObjectLambdaAllowedFeature | string)[];
 
   /**
    * <p>A container for transformation configurations for an Object Lambda Access Point.</p>
@@ -748,10 +748,10 @@ export interface CreateAccessPointForObjectLambdaRequest {
 /**
  * @public
  */
-export enum ObjectLambdaAccessPointAliasStatus {
-  PROVISIONING = "PROVISIONING",
-  READY = "READY",
-}
+export const ObjectLambdaAccessPointAliasStatus = {
+  PROVISIONING: "PROVISIONING",
+  READY: "READY",
+};
 
 /**
  * @public
@@ -768,7 +768,7 @@ export interface ObjectLambdaAccessPointAlias {
    * <p>The status of the Object Lambda Access Point alias. If the status is <code>PROVISIONING</code>, the Object Lambda Access Point is provisioning the alias and the alias is not ready for use yet. If
    *          the status is <code>READY</code>, the Object Lambda Access Point alias is successfully provisioned and ready for use.</p>
    */
-  Status?: ObjectLambdaAccessPointAliasStatus | string;
+  Status?: keyof typeof ObjectLambdaAccessPointAliasStatus | string;
 }
 
 /**
@@ -831,29 +831,29 @@ export class BucketAlreadyOwnedByYou extends __BaseException {
 /**
  * @public
  */
-export enum BucketCannedACL {
-  authenticated_read = "authenticated-read",
-  private = "private",
-  public_read = "public-read",
-  public_read_write = "public-read-write",
-}
+export const BucketCannedACL = {
+  authenticated_read: "authenticated-read",
+  private: "private",
+  public_read: "public-read",
+  public_read_write: "public-read-write",
+};
 
 /**
  * @public
  */
-export enum BucketLocationConstraint {
-  EU = "EU",
-  ap_northeast_1 = "ap-northeast-1",
-  ap_south_1 = "ap-south-1",
-  ap_southeast_1 = "ap-southeast-1",
-  ap_southeast_2 = "ap-southeast-2",
-  cn_north_1 = "cn-north-1",
-  eu_central_1 = "eu-central-1",
-  eu_west_1 = "eu-west-1",
-  sa_east_1 = "sa-east-1",
-  us_west_1 = "us-west-1",
-  us_west_2 = "us-west-2",
-}
+export const BucketLocationConstraint = {
+  EU: "EU",
+  ap_northeast_1: "ap-northeast-1",
+  ap_south_1: "ap-south-1",
+  ap_southeast_1: "ap-southeast-1",
+  ap_southeast_2: "ap-southeast-2",
+  cn_north_1: "cn-north-1",
+  eu_central_1: "eu-central-1",
+  eu_west_1: "eu-west-1",
+  sa_east_1: "sa-east-1",
+  us_west_1: "us-west-1",
+  us_west_2: "us-west-2",
+};
 
 /**
  * @public
@@ -870,7 +870,7 @@ export interface CreateBucketConfiguration {
    *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
    *          </note>
    */
-  LocationConstraint?: BucketLocationConstraint | string;
+  LocationConstraint?: keyof typeof BucketLocationConstraint | string;
 }
 
 /**
@@ -883,7 +883,7 @@ export interface CreateBucketRequest {
    *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
    *          </note>
    */
-  ACL?: BucketCannedACL | string;
+  ACL?: keyof typeof BucketCannedACL | string;
 
   /**
    * <p>The name of the bucket.</p>
@@ -1025,20 +1025,20 @@ export interface JobManifestLocation {
 /**
  * @public
  */
-export enum JobManifestFieldName {
-  Bucket = "Bucket",
-  Ignore = "Ignore",
-  Key = "Key",
-  VersionId = "VersionId",
-}
+export const JobManifestFieldName = {
+  Bucket: "Bucket",
+  Ignore: "Ignore",
+  Key: "Key",
+  VersionId: "VersionId",
+};
 
 /**
  * @public
  */
-export enum JobManifestFormat {
-  S3BatchOperations_CSV_20180820 = "S3BatchOperations_CSV_20180820",
-  S3InventoryReport_CSV_20161130 = "S3InventoryReport_CSV_20161130",
-}
+export const JobManifestFormat = {
+  S3BatchOperations_CSV_20180820: "S3BatchOperations_CSV_20180820",
+  S3InventoryReport_CSV_20161130: "S3InventoryReport_CSV_20161130",
+};
 
 /**
  * @public
@@ -1049,13 +1049,13 @@ export interface JobManifestSpec {
   /**
    * <p>Indicates which of the available formats the specified manifest uses.</p>
    */
-  Format: JobManifestFormat | string | undefined;
+  Format: keyof typeof JobManifestFormat | string | undefined;
 
   /**
    * <p>If the specified manifest object is in the <code>S3BatchOperations_CSV_20180820</code>
    *          format, this element describes which columns contain the required data.</p>
    */
-  Fields?: (JobManifestFieldName | string)[];
+  Fields?: (keyof typeof JobManifestFieldName | string)[];
 }
 
 /**
@@ -1078,12 +1078,12 @@ export interface JobManifest {
 /**
  * @public
  */
-export enum ReplicationStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  NONE = "NONE",
-  REPLICA = "REPLICA",
-}
+export const ReplicationStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  NONE: "NONE",
+  REPLICA: "REPLICA",
+};
 
 /**
  * @public
@@ -1112,7 +1112,7 @@ export interface JobManifestGeneratorFilter {
    * <p>If provided, the generated manifest should include only source bucket objects that have
    *          one of the specified Replication statuses.</p>
    */
-  ObjectReplicationStatuses?: (ReplicationStatus | string)[];
+  ObjectReplicationStatuses?: (keyof typeof ReplicationStatus | string)[];
 }
 
 /**
@@ -1153,9 +1153,9 @@ export interface GeneratedManifestEncryption {
 /**
  * @public
  */
-export enum GeneratedManifestFormat {
-  S3InventoryReport_CSV_20211130 = "S3InventoryReport_CSV_20211130",
-}
+export const GeneratedManifestFormat = {
+  S3InventoryReport_CSV_20211130: "S3InventoryReport_CSV_20211130",
+};
 
 /**
  * @public
@@ -1186,7 +1186,7 @@ export interface S3ManifestOutputLocation {
   /**
    * <p>The format of the generated manifest.</p>
    */
-  ManifestFormat: GeneratedManifestFormat | string | undefined;
+  ManifestFormat: keyof typeof GeneratedManifestFormat | string | undefined;
 }
 
 /**
@@ -1287,10 +1287,10 @@ export interface S3DeleteObjectTaggingOperation {}
 /**
  * @public
  */
-export enum S3GlacierJobTier {
-  BULK = "BULK",
-  STANDARD = "STANDARD",
-}
+export const S3GlacierJobTier = {
+  BULK: "BULK",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -1324,17 +1324,17 @@ export interface S3InitiateRestoreObjectOperation {
    * <p>S3 Batch Operations supports <code>STANDARD</code> and <code>BULK</code> retrieval tiers, but
    *          not the <code>EXPEDITED</code> retrieval tier.</p>
    */
-  GlacierJobTier?: S3GlacierJobTier | string;
+  GlacierJobTier?: keyof typeof S3GlacierJobTier | string;
 }
 
 /**
  * @public
  */
-export enum S3GranteeTypeIdentifier {
-  CANONICAL = "id",
-  EMAIL_ADDRESS = "emailAddress",
-  GROUP = "uri",
-}
+export const S3GranteeTypeIdentifier = {
+  CANONICAL: "id",
+  EMAIL_ADDRESS: "emailAddress",
+  GROUP: "uri",
+};
 
 /**
  * @public
@@ -1344,7 +1344,7 @@ export interface S3Grantee {
   /**
    * <p></p>
    */
-  TypeIdentifier?: S3GranteeTypeIdentifier | string;
+  TypeIdentifier?: keyof typeof S3GranteeTypeIdentifier | string;
 
   /**
    * <p></p>
@@ -1360,13 +1360,13 @@ export interface S3Grantee {
 /**
  * @public
  */
-export enum S3Permission {
-  FULL_CONTROL = "FULL_CONTROL",
-  READ = "READ",
-  READ_ACP = "READ_ACP",
-  WRITE = "WRITE",
-  WRITE_ACP = "WRITE_ACP",
-}
+export const S3Permission = {
+  FULL_CONTROL: "FULL_CONTROL",
+  READ: "READ",
+  READ_ACP: "READ_ACP",
+  WRITE: "WRITE",
+  WRITE_ACP: "WRITE_ACP",
+};
 
 /**
  * @public
@@ -1381,7 +1381,7 @@ export interface S3Grant {
   /**
    * <p></p>
    */
-  Permission?: S3Permission | string;
+  Permission?: keyof typeof S3Permission | string;
 }
 
 /**
@@ -1419,15 +1419,15 @@ export interface S3AccessControlList {
 /**
  * @public
  */
-export enum S3CannedAccessControlList {
-  AUTHENTICATED_READ = "authenticated-read",
-  AWS_EXEC_READ = "aws-exec-read",
-  BUCKET_OWNER_FULL_CONTROL = "bucket-owner-full-control",
-  BUCKET_OWNER_READ = "bucket-owner-read",
-  PRIVATE = "private",
-  PUBLIC_READ = "public-read",
-  PUBLIC_READ_WRITE = "public-read-write",
-}
+export const S3CannedAccessControlList = {
+  AUTHENTICATED_READ: "authenticated-read",
+  AWS_EXEC_READ: "aws-exec-read",
+  BUCKET_OWNER_FULL_CONTROL: "bucket-owner-full-control",
+  BUCKET_OWNER_READ: "bucket-owner-read",
+  PRIVATE: "private",
+  PUBLIC_READ: "public-read",
+  PUBLIC_READ_WRITE: "public-read-write",
+};
 
 /**
  * @public
@@ -1442,7 +1442,7 @@ export interface S3AccessControlPolicy {
   /**
    * <p></p>
    */
-  CannedAccessControlList?: S3CannedAccessControlList | string;
+  CannedAccessControlList?: keyof typeof S3CannedAccessControlList | string;
 }
 
 /**
@@ -1465,28 +1465,28 @@ export interface S3SetObjectAclOperation {
 /**
  * @public
  */
-export enum S3ChecksumAlgorithm {
-  CRC32 = "CRC32",
-  CRC32C = "CRC32C",
-  SHA1 = "SHA1",
-  SHA256 = "SHA256",
-}
+export const S3ChecksumAlgorithm = {
+  CRC32: "CRC32",
+  CRC32C: "CRC32C",
+  SHA1: "SHA1",
+  SHA256: "SHA256",
+};
 
 /**
  * @public
  */
-export enum S3MetadataDirective {
-  COPY = "COPY",
-  REPLACE = "REPLACE",
-}
+export const S3MetadataDirective = {
+  COPY: "COPY",
+  REPLACE: "REPLACE",
+};
 
 /**
  * @public
  */
-export enum S3SSEAlgorithm {
-  AES256 = "AES256",
-  KMS = "KMS",
-}
+export const S3SSEAlgorithm = {
+  AES256: "AES256",
+  KMS: "KMS",
+};
 
 /**
  * @public
@@ -1546,7 +1546,7 @@ export interface S3ObjectMetadata {
   /**
    * <p></p>
    */
-  SSEAlgorithm?: S3SSEAlgorithm | string;
+  SSEAlgorithm?: keyof typeof S3SSEAlgorithm | string;
 }
 
 /**
@@ -1568,31 +1568,31 @@ export interface S3Tag {
 /**
  * @public
  */
-export enum S3ObjectLockLegalHoldStatus {
-  OFF = "OFF",
-  ON = "ON",
-}
+export const S3ObjectLockLegalHoldStatus = {
+  OFF: "OFF",
+  ON: "ON",
+};
 
 /**
  * @public
  */
-export enum S3ObjectLockMode {
-  COMPLIANCE = "COMPLIANCE",
-  GOVERNANCE = "GOVERNANCE",
-}
+export const S3ObjectLockMode = {
+  COMPLIANCE: "COMPLIANCE",
+  GOVERNANCE: "GOVERNANCE",
+};
 
 /**
  * @public
  */
-export enum S3StorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  GLACIER_IR = "GLACIER_IR",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  STANDARD = "STANDARD",
-  STANDARD_IA = "STANDARD_IA",
-}
+export const S3StorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  STANDARD: "STANDARD",
+  STANDARD_IA: "STANDARD_IA",
+};
 
 /**
  * @public
@@ -1618,7 +1618,7 @@ export interface S3CopyObjectOperation {
   /**
    * <p></p>
    */
-  CannedAccessControlList?: S3CannedAccessControlList | string;
+  CannedAccessControlList?: keyof typeof S3CannedAccessControlList | string;
 
   /**
    * <p></p>
@@ -1628,7 +1628,7 @@ export interface S3CopyObjectOperation {
   /**
    * <p></p>
    */
-  MetadataDirective?: S3MetadataDirective | string;
+  MetadataDirective?: keyof typeof S3MetadataDirective | string;
 
   /**
    * <p></p>
@@ -1662,7 +1662,7 @@ export interface S3CopyObjectOperation {
   /**
    * <p></p>
    */
-  StorageClass?: S3StorageClass | string;
+  StorageClass?: keyof typeof S3StorageClass | string;
 
   /**
    * <p></p>
@@ -1692,12 +1692,12 @@ export interface S3CopyObjectOperation {
   /**
    * <p>The legal hold status to be applied to all objects in the Batch Operations job.</p>
    */
-  ObjectLockLegalHoldStatus?: S3ObjectLockLegalHoldStatus | string;
+  ObjectLockLegalHoldStatus?: keyof typeof S3ObjectLockLegalHoldStatus | string;
 
   /**
    * <p>The retention mode to be applied to all objects in the Batch Operations job.</p>
    */
-  ObjectLockMode?: S3ObjectLockMode | string;
+  ObjectLockMode?: keyof typeof S3ObjectLockMode | string;
 
   /**
    * <p>The date when the applied object retention configuration expires on all objects in the
@@ -1721,7 +1721,7 @@ export interface S3CopyObjectOperation {
    *          information,
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  ChecksumAlgorithm?: S3ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof S3ChecksumAlgorithm | string;
 }
 
 /**
@@ -1734,7 +1734,7 @@ export interface S3ObjectLockLegalHold {
    * <p>The Object Lock legal hold status to be applied to all objects in the Batch Operations
    *          job.</p>
    */
-  Status: S3ObjectLockLegalHoldStatus | string | undefined;
+  Status: keyof typeof S3ObjectLockLegalHoldStatus | string | undefined;
 }
 
 /**
@@ -1759,10 +1759,10 @@ export interface S3SetObjectLegalHoldOperation {
 /**
  * @public
  */
-export enum S3ObjectLockRetentionMode {
-  COMPLIANCE = "COMPLIANCE",
-  GOVERNANCE = "GOVERNANCE",
-}
+export const S3ObjectLockRetentionMode = {
+  COMPLIANCE: "COMPLIANCE",
+  GOVERNANCE: "GOVERNANCE",
+};
 
 /**
  * @public
@@ -1783,7 +1783,7 @@ export interface S3Retention {
    * <p>The Object Lock retention mode to be applied to all objects in the Batch Operations
    *          job.</p>
    */
-  Mode?: S3ObjectLockRetentionMode | string;
+  Mode?: keyof typeof S3ObjectLockRetentionMode | string;
 }
 
 /**
@@ -1909,17 +1909,17 @@ export interface JobOperation {
 /**
  * @public
  */
-export enum JobReportFormat {
-  Report_CSV_20180820 = "Report_CSV_20180820",
-}
+export const JobReportFormat = {
+  Report_CSV_20180820: "Report_CSV_20180820",
+};
 
 /**
  * @public
  */
-export enum JobReportScope {
-  AllTasks = "AllTasks",
-  FailedTasksOnly = "FailedTasksOnly",
-}
+export const JobReportScope = {
+  AllTasks: "AllTasks",
+  FailedTasksOnly: "FailedTasksOnly",
+};
 
 /**
  * @public
@@ -1935,7 +1935,7 @@ export interface JobReport {
   /**
    * <p>The format of the specified job-completion report.</p>
    */
-  Format?: JobReportFormat | string;
+  Format?: keyof typeof JobReportFormat | string;
 
   /**
    * <p>Indicates whether the specified job will generate a job-completion report.</p>
@@ -1953,7 +1953,7 @@ export interface JobReport {
    * <p>Indicates whether the job-completion report will include details of all tasks or only
    *          failed tasks.</p>
    */
-  ReportScope?: JobReportScope | string;
+  ReportScope?: keyof typeof JobReportScope | string;
 }
 
 /**
@@ -2445,7 +2445,7 @@ export interface S3GeneratedManifestDescriptor {
   /**
    * <p>The format of the generated manifest.</p>
    */
-  Format?: GeneratedManifestFormat | string;
+  Format?: keyof typeof GeneratedManifestFormat | string;
 
   /**
    * <p>Contains the information required to locate a manifest object.</p>
@@ -2494,21 +2494,21 @@ export interface JobProgressSummary {
 /**
  * @public
  */
-export enum JobStatus {
-  Active = "Active",
-  Cancelled = "Cancelled",
-  Cancelling = "Cancelling",
-  Complete = "Complete",
-  Completing = "Completing",
-  Failed = "Failed",
-  Failing = "Failing",
-  New = "New",
-  Paused = "Paused",
-  Pausing = "Pausing",
-  Preparing = "Preparing",
-  Ready = "Ready",
-  Suspended = "Suspended",
-}
+export const JobStatus = {
+  Active: "Active",
+  Cancelled: "Cancelled",
+  Cancelling: "Cancelling",
+  Complete: "Complete",
+  Completing: "Completing",
+  Failed: "Failed",
+  Failing: "Failing",
+  New: "New",
+  Paused: "Paused",
+  Pausing: "Pausing",
+  Preparing: "Preparing",
+  Ready: "Ready",
+  Suspended: "Suspended",
+};
 
 /**
  * @public
@@ -2541,7 +2541,7 @@ export interface JobDescriptor {
   /**
    * <p>The current status of the specified job.</p>
    */
-  Status?: JobStatus | string;
+  Status?: keyof typeof JobStatus | string;
 
   /**
    * <p>The configuration information for the specified job's manifest object.</p>
@@ -2702,7 +2702,7 @@ export interface GetAccessPointResult {
    *          policies.</p>
    *          <p>This will always be true for an Amazon S3 on Outposts access point</p>
    */
-  NetworkOrigin?: NetworkOrigin | string;
+  NetworkOrigin?: keyof typeof NetworkOrigin | string;
 
   /**
    * <p>Contains the virtual private cloud (VPC) configuration for the specified access point.</p>
@@ -3096,13 +3096,13 @@ export interface NoncurrentVersionExpiration {
 /**
  * @public
  */
-export enum TransitionStorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  STANDARD_IA = "STANDARD_IA",
-}
+export const TransitionStorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  STANDARD_IA: "STANDARD_IA",
+};
 
 /**
  * @public
@@ -3120,16 +3120,16 @@ export interface NoncurrentVersionTransition {
   /**
    * <p>The class of storage used to store the object.</p>
    */
-  StorageClass?: TransitionStorageClass | string;
+  StorageClass?: keyof typeof TransitionStorageClass | string;
 }
 
 /**
  * @public
  */
-export enum ExpirationStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ExpirationStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -3154,7 +3154,7 @@ export interface Transition {
   /**
    * <p>The storage class to which you want the object to transition.</p>
    */
-  StorageClass?: TransitionStorageClass | string;
+  StorageClass?: keyof typeof TransitionStorageClass | string;
 }
 
 /**
@@ -3182,7 +3182,7 @@ export interface LifecycleRule {
    * <p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not
    *          currently being applied.</p>
    */
-  Status: ExpirationStatus | string | undefined;
+  Status: keyof typeof ExpirationStatus | string | undefined;
 
   /**
    * <p>Specifies when an Amazon S3 object transitions to a specified storage class.</p>
@@ -3275,10 +3275,10 @@ export interface GetBucketReplicationRequest {
 /**
  * @public
  */
-export enum DeleteMarkerReplicationStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const DeleteMarkerReplicationStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -3294,7 +3294,7 @@ export interface DeleteMarkerReplication {
   /**
    * <p>Indicates whether to replicate delete markers.</p>
    */
-  Status: DeleteMarkerReplicationStatus | string | undefined;
+  Status: keyof typeof DeleteMarkerReplicationStatus | string | undefined;
 }
 
 /**
@@ -3337,10 +3337,10 @@ export interface ReplicationTimeValue {
 /**
  * @public
  */
-export enum MetricsStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const MetricsStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -3350,7 +3350,7 @@ export interface Metrics {
   /**
    * <p>Specifies whether replication metrics are enabled. </p>
    */
-  Status: MetricsStatus | string | undefined;
+  Status: keyof typeof MetricsStatus | string | undefined;
 
   /**
    * <p>A container that specifies the time threshold for emitting the
@@ -3365,10 +3365,10 @@ export interface Metrics {
 /**
  * @public
  */
-export enum ReplicationTimeStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ReplicationTimeStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -3383,7 +3383,7 @@ export interface ReplicationTime {
   /**
    * <p>Specifies whether S3 Replication Time Control (S3 RTC) is enabled. </p>
    */
-  Status: ReplicationTimeStatus | string | undefined;
+  Status: keyof typeof ReplicationTimeStatus | string | undefined;
 
   /**
    * <p>A container that specifies the time by which replication should be complete for all
@@ -3395,17 +3395,17 @@ export interface ReplicationTime {
 /**
  * @public
  */
-export enum ReplicationStorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  GLACIER_IR = "GLACIER_IR",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  OUTPOSTS = "OUTPOSTS",
-  REDUCED_REDUNDANCY = "REDUCED_REDUNDANCY",
-  STANDARD = "STANDARD",
-  STANDARD_IA = "STANDARD_IA",
-}
+export const ReplicationStorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  OUTPOSTS: "OUTPOSTS",
+  REDUCED_REDUNDANCY: "REDUCED_REDUNDANCY",
+  STANDARD: "STANDARD",
+  STANDARD_IA: "STANDARD_IA",
+};
 
 /**
  * @public
@@ -3468,16 +3468,16 @@ export interface Destination {
    *             <p>Values other than <code>OUTPOSTS</code> are not supported by Amazon S3 on Outposts. </p>
    *          </note>
    */
-  StorageClass?: ReplicationStorageClass | string;
+  StorageClass?: keyof typeof ReplicationStorageClass | string;
 }
 
 /**
  * @public
  */
-export enum ExistingObjectReplicationStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ExistingObjectReplicationStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -3490,7 +3490,7 @@ export interface ExistingObjectReplication {
   /**
    * <p>Specifies whether Amazon S3 replicates existing source bucket objects. </p>
    */
-  Status: ExistingObjectReplicationStatus | string | undefined;
+  Status: keyof typeof ExistingObjectReplicationStatus | string | undefined;
 }
 
 /**
@@ -3567,10 +3567,10 @@ export interface ReplicationRuleFilter {
 /**
  * @public
  */
-export enum ReplicaModificationsStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ReplicaModificationsStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -3592,16 +3592,16 @@ export interface ReplicaModifications {
    * <p>Specifies whether S3 on Outposts replicates modifications to object metadata on
    *          replicas.</p>
    */
-  Status: ReplicaModificationsStatus | string | undefined;
+  Status: keyof typeof ReplicaModificationsStatus | string | undefined;
 }
 
 /**
  * @public
  */
-export enum SseKmsEncryptedObjectsStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const SseKmsEncryptedObjectsStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -3616,7 +3616,7 @@ export interface SseKmsEncryptedObjects {
    * <p>Specifies whether Amazon S3 replicates objects that are created with server-side encryption
    *          by using an KMS key stored in Key Management Service.</p>
    */
-  Status: SseKmsEncryptedObjectsStatus | string | undefined;
+  Status: keyof typeof SseKmsEncryptedObjectsStatus | string | undefined;
 }
 
 /**
@@ -3657,10 +3657,10 @@ export interface SourceSelectionCriteria {
 /**
  * @public
  */
-export enum ReplicationRuleStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ReplicationRuleStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -3708,7 +3708,7 @@ export interface ReplicationRule {
   /**
    * <p>Specifies whether the rule is enabled.</p>
    */
-  Status: ReplicationRuleStatus | string | undefined;
+  Status: keyof typeof ReplicationRuleStatus | string | undefined;
 
   /**
    * <p>A container that describes additional filters for identifying the source Outposts objects that
@@ -3825,18 +3825,18 @@ export interface GetBucketVersioningRequest {
 /**
  * @public
  */
-export enum MFADeleteStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const MFADeleteStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
  */
-export enum BucketVersioningStatus {
-  Enabled = "Enabled",
-  Suspended = "Suspended",
-}
+export const BucketVersioningStatus = {
+  Enabled: "Enabled",
+  Suspended: "Suspended",
+};
 
 /**
  * @public
@@ -3845,14 +3845,14 @@ export interface GetBucketVersioningResult {
   /**
    * <p>The versioning state of the S3 on Outposts bucket.</p>
    */
-  Status?: BucketVersioningStatus | string;
+  Status?: keyof typeof BucketVersioningStatus | string;
 
   /**
    * <p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This
    *          element is returned only if the bucket has been configured with MFA delete. If MFA delete
    *          has never been configured for the bucket, this element is not returned.</p>
    */
-  MFADelete?: MFADeleteStatus | string;
+  MFADelete?: keyof typeof MFADeleteStatus | string;
 }
 
 /**
@@ -3923,14 +3923,14 @@ export interface RegionReport {
 /**
  * @public
  */
-export enum MultiRegionAccessPointStatus {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  INCONSISTENT_ACROSS_REGIONS = "INCONSISTENT_ACROSS_REGIONS",
-  PARTIALLY_CREATED = "PARTIALLY_CREATED",
-  PARTIALLY_DELETED = "PARTIALLY_DELETED",
-  READY = "READY",
-}
+export const MultiRegionAccessPointStatus = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  INCONSISTENT_ACROSS_REGIONS: "INCONSISTENT_ACROSS_REGIONS",
+  PARTIALLY_CREATED: "PARTIALLY_CREATED",
+  PARTIALLY_DELETED: "PARTIALLY_DELETED",
+  READY: "READY",
+};
 
 /**
  * @public
@@ -3970,7 +3970,7 @@ export interface MultiRegionAccessPointReport {
    *          Multi-Region Access Point. If a Multi-Region Access Point has a status of <code>PARTIALLY_DELETED</code>, you can retry a delete
    *          request to finish the deletion of the Multi-Region Access Point.</p>
    */
-  Status?: MultiRegionAccessPointStatus | string;
+  Status?: keyof typeof MultiRegionAccessPointStatus | string;
 
   /**
    * <p>A collection of the Regions and buckets associated with the Multi-Region Access Point.</p>
@@ -4295,17 +4295,17 @@ export interface StorageLensDataExportEncryption {
 /**
  * @public
  */
-export enum Format {
-  CSV = "CSV",
-  Parquet = "Parquet",
-}
+export const Format = {
+  CSV: "CSV",
+  Parquet: "Parquet",
+};
 
 /**
  * @public
  */
-export enum OutputSchemaVersion {
-  V_1 = "V_1",
-}
+export const OutputSchemaVersion = {
+  V_1: "V_1",
+};
 
 /**
  * @public
@@ -4316,12 +4316,12 @@ export interface S3BucketDestination {
   /**
    * <p></p>
    */
-  Format: Format | string | undefined;
+  Format: keyof typeof Format | string | undefined;
 
   /**
    * <p>The schema version of the export file.</p>
    */
-  OutputSchemaVersion: OutputSchemaVersion | string | undefined;
+  OutputSchemaVersion: keyof typeof OutputSchemaVersion | string | undefined;
 
   /**
    * <p>The account ID of the owner of the S3 Storage Lens metrics export bucket.</p>
@@ -4677,7 +4677,7 @@ export interface ListJobsRequest {
    * <p>The <code>List Jobs</code> request returns jobs that match the statuses listed in this
    *          element.</p>
    */
-  JobStatuses?: (JobStatus | string)[];
+  JobStatuses?: (keyof typeof JobStatus | string)[];
 
   /**
    * <p>A pagination token to request the next page of results. Use the token that Amazon S3 returned
@@ -4698,17 +4698,17 @@ export interface ListJobsRequest {
 /**
  * @public
  */
-export enum OperationName {
-  LambdaInvoke = "LambdaInvoke",
-  S3DeleteObjectTagging = "S3DeleteObjectTagging",
-  S3InitiateRestoreObject = "S3InitiateRestoreObject",
-  S3PutObjectAcl = "S3PutObjectAcl",
-  S3PutObjectCopy = "S3PutObjectCopy",
-  S3PutObjectLegalHold = "S3PutObjectLegalHold",
-  S3PutObjectRetention = "S3PutObjectRetention",
-  S3PutObjectTagging = "S3PutObjectTagging",
-  S3ReplicateObject = "S3ReplicateObject",
-}
+export const OperationName = {
+  LambdaInvoke: "LambdaInvoke",
+  S3DeleteObjectTagging: "S3DeleteObjectTagging",
+  S3InitiateRestoreObject: "S3InitiateRestoreObject",
+  S3PutObjectAcl: "S3PutObjectAcl",
+  S3PutObjectCopy: "S3PutObjectCopy",
+  S3PutObjectLegalHold: "S3PutObjectLegalHold",
+  S3PutObjectRetention: "S3PutObjectRetention",
+  S3PutObjectTagging: "S3PutObjectTagging",
+  S3ReplicateObject: "S3ReplicateObject",
+};
 
 /**
  * @public
@@ -4731,7 +4731,7 @@ export interface JobListDescriptor {
    * <p>The operation that the specified job is configured to run on every object listed in the
    *          manifest.</p>
    */
-  Operation?: OperationName | string;
+  Operation?: keyof typeof OperationName | string;
 
   /**
    * <p>The current priority for the specified job.</p>
@@ -4741,7 +4741,7 @@ export interface JobListDescriptor {
   /**
    * <p>The specified job's current status.</p>
    */
-  Status?: JobStatus | string;
+  Status?: keyof typeof JobStatus | string;
 
   /**
    * <p>A timestamp indicating when the specified job was created.</p>
@@ -5139,10 +5139,10 @@ export interface PutBucketTaggingRequest {
 /**
  * @public
  */
-export enum MFADelete {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const MFADelete = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -5154,12 +5154,12 @@ export interface VersioningConfiguration {
    * <p>Specifies whether MFA delete is enabled or disabled in the bucket versioning
    *          configuration for the S3 on Outposts bucket.</p>
    */
-  MFADelete?: MFADelete | string;
+  MFADelete?: keyof typeof MFADelete | string;
 
   /**
    * <p>Sets the versioning state of the S3 on Outposts bucket.</p>
    */
-  Status?: BucketVersioningStatus | string;
+  Status?: keyof typeof BucketVersioningStatus | string;
 }
 
 /**
@@ -5426,10 +5426,10 @@ export class JobStatusException extends __BaseException {
 /**
  * @public
  */
-export enum RequestedJobStatus {
-  Cancelled = "Cancelled",
-  Ready = "Ready",
-}
+export const RequestedJobStatus = {
+  Cancelled: "Cancelled",
+  Ready: "Ready",
+};
 
 /**
  * @public
@@ -5448,7 +5448,7 @@ export interface UpdateJobStatusRequest {
   /**
    * <p>The status that you want to move the specified job to.</p>
    */
-  RequestedJobStatus: RequestedJobStatus | string | undefined;
+  RequestedJobStatus: keyof typeof RequestedJobStatus | string | undefined;
 
   /**
    * <p>A description of the reason why you want to change the specified job's status. This
@@ -5469,7 +5469,7 @@ export interface UpdateJobStatusResult {
   /**
    * <p>The current status for the specified job.</p>
    */
-  Status?: JobStatus | string;
+  Status?: keyof typeof JobStatus | string;
 
   /**
    * <p>The reason that the specified job's status was updated.</p>

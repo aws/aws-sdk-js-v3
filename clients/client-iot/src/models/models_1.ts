@@ -285,13 +285,13 @@ export interface DeleteTopicRuleDestinationResponse {}
 /**
  * @public
  */
-export enum LogTargetType {
-  CLIENT_ID = "CLIENT_ID",
-  DEFAULT = "DEFAULT",
-  PRINCIPAL_ID = "PRINCIPAL_ID",
-  SOURCE_IP = "SOURCE_IP",
-  THING_GROUP = "THING_GROUP",
-}
+export const LogTargetType = {
+  CLIENT_ID: "CLIENT_ID",
+  DEFAULT: "DEFAULT",
+  PRINCIPAL_ID: "PRINCIPAL_ID",
+  SOURCE_IP: "SOURCE_IP",
+  THING_GROUP: "THING_GROUP",
+};
 
 /**
  * @public
@@ -301,7 +301,7 @@ export interface DeleteV2LoggingLevelRequest {
    * <p>The type of resource for which you are configuring logging. Must be
    *             <code>THING_Group</code>.</p>
    */
-  targetType: LogTargetType | string | undefined;
+  targetType: keyof typeof LogTargetType | string | undefined;
 
   /**
    * <p>The name of the resource for which you are configuring logging.</p>
@@ -425,7 +425,7 @@ export interface DescribeAuditMitigationActionsTaskResponse {
   /**
    * <p>The current status of the task.</p>
    */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
+  taskStatus?: keyof typeof AuditMitigationActionsTaskStatus | string;
 
   /**
    * <p>The date and time when the task was started.</p>
@@ -574,12 +574,12 @@ export interface DescribeAuditTaskResponse {
    * <p>The status of the audit: one of "IN_PROGRESS", "COMPLETED",
    *             "FAILED", or "CANCELED".</p>
    */
-  taskStatus?: AuditTaskStatus | string;
+  taskStatus?: keyof typeof AuditTaskStatus | string;
 
   /**
    * <p>The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
    */
-  taskType?: AuditTaskType | string;
+  taskType?: keyof typeof AuditTaskType | string;
 
   /**
    * <p>The time the audit started.</p>
@@ -692,18 +692,18 @@ export interface DescribeCACertificateRequest {
 /**
  * @public
  */
-export enum CertificateMode {
-  DEFAULT = "DEFAULT",
-  SNI_ONLY = "SNI_ONLY",
-}
+export const CertificateMode = {
+  DEFAULT: "DEFAULT",
+  SNI_ONLY: "SNI_ONLY",
+};
 
 /**
  * @public
  */
-export enum CACertificateStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const CACertificateStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -739,7 +739,7 @@ export interface CACertificateDescription {
   /**
    * <p>The status of a CA certificate.</p>
    */
-  status?: CACertificateStatus | string;
+  status?: keyof typeof CACertificateStatus | string;
 
   /**
    * <p>The CA certificate data, in PEM format.</p>
@@ -760,7 +760,7 @@ export interface CACertificateDescription {
    * <p>Whether the CA certificate configured for auto registration of device certificates.
    *          Valid values are "ENABLE" and "DISABLE"</p>
    */
-  autoRegistrationStatus?: AutoRegistrationStatus | string;
+  autoRegistrationStatus?: keyof typeof AutoRegistrationStatus | string;
 
   /**
    * <p>The date the CA certificate was last modified.</p>
@@ -787,7 +787,7 @@ export interface CACertificateDescription {
    *          <p>All the device certificates that are registered using this CA will be registered
    *          in the same mode as the CA. For more information about certificate mode for device certificates, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode">certificate mode</a>.</p>
    */
-  certificateMode?: CertificateMode | string;
+  certificateMode?: keyof typeof CertificateMode | string;
 }
 
 /**
@@ -842,14 +842,14 @@ export interface DescribeCertificateRequest {
 /**
  * @public
  */
-export enum CertificateStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  PENDING_ACTIVATION = "PENDING_ACTIVATION",
-  PENDING_TRANSFER = "PENDING_TRANSFER",
-  REGISTER_INACTIVE = "REGISTER_INACTIVE",
-  REVOKED = "REVOKED",
-}
+export const CertificateStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+  PENDING_ACTIVATION: "PENDING_ACTIVATION",
+  PENDING_TRANSFER: "PENDING_TRANSFER",
+  REGISTER_INACTIVE: "REGISTER_INACTIVE",
+  REVOKED: "REVOKED",
+};
 
 /**
  * @public
@@ -905,7 +905,7 @@ export interface CertificateDescription {
   /**
    * <p>The status of the certificate.</p>
    */
-  status?: CertificateStatus | string;
+  status?: keyof typeof CertificateStatus | string;
 
   /**
    * <p>The certificate data, in PEM format.</p>
@@ -966,7 +966,7 @@ export interface CertificateDescription {
    *          in <code>SNI_ONLY</code> mode must send the SNI extension when connecting to Amazon Web Services IoT Core. </p>
    *          <p>For more information about the value for SNI extension, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html">Transport security in IoT</a>.</p>
    */
-  certificateMode?: CertificateMode | string;
+  certificateMode?: keyof typeof CertificateMode | string;
 }
 
 /**
@@ -1016,7 +1016,7 @@ export interface DescribeCustomMetricResponse {
    *             <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p>
    *          </important>
    */
-  metricType?: CustomMetricType | string;
+  metricType?: keyof typeof CustomMetricType | string;
 
   /**
    * <p>
@@ -1128,12 +1128,12 @@ export interface DetectMitigationActionsTaskStatistics {
 /**
  * @public
  */
-export enum DetectMitigationActionsTaskStatus {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESSFUL = "SUCCESSFUL",
-}
+export const DetectMitigationActionsTaskStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESSFUL: "SUCCESSFUL",
+};
 
 /**
  * @public
@@ -1176,7 +1176,7 @@ export interface DetectMitigationActionsTaskSummary {
    *             The status of the task.
    *         </p>
    */
-  taskStatus?: DetectMitigationActionsTaskStatus | string;
+  taskStatus?: keyof typeof DetectMitigationActionsTaskStatus | string;
 
   /**
    * <p>
@@ -1277,7 +1277,7 @@ export interface DescribeDimensionResponse {
   /**
    * <p>The type of the dimension.</p>
    */
-  type?: DimensionType | string;
+  type?: keyof typeof DimensionType | string;
 
   /**
    * <p>The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.</p>
@@ -1308,27 +1308,27 @@ export interface DescribeDomainConfigurationRequest {
 /**
  * @public
  */
-export enum DomainConfigurationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DomainConfigurationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum DomainType {
-  AWS_MANAGED = "AWS_MANAGED",
-  CUSTOMER_MANAGED = "CUSTOMER_MANAGED",
-  ENDPOINT = "ENDPOINT",
-}
+export const DomainType = {
+  AWS_MANAGED: "AWS_MANAGED",
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
+  ENDPOINT: "ENDPOINT",
+};
 
 /**
  * @public
  */
-export enum ServerCertificateStatus {
-  INVALID = "INVALID",
-  VALID = "VALID",
-}
+export const ServerCertificateStatus = {
+  INVALID: "INVALID",
+  VALID: "VALID",
+};
 
 /**
  * @public
@@ -1343,7 +1343,7 @@ export interface ServerCertificateSummary {
   /**
    * <p>The status of the server certificate.</p>
    */
-  serverCertificateStatus?: ServerCertificateStatus | string;
+  serverCertificateStatus?: keyof typeof ServerCertificateStatus | string;
 
   /**
    * <p>Details that explain the status of the server certificate.</p>
@@ -1383,17 +1383,17 @@ export interface DescribeDomainConfigurationResponse {
   /**
    * <p>A Boolean value that specifies the current state of the domain configuration.</p>
    */
-  domainConfigurationStatus?: DomainConfigurationStatus | string;
+  domainConfigurationStatus?: keyof typeof DomainConfigurationStatus | string;
 
   /**
    * <p>The type of service delivered by the endpoint.</p>
    */
-  serviceType?: ServiceType | string;
+  serviceType?: keyof typeof ServiceType | string;
 
   /**
    * <p>The type of the domain.</p>
    */
-  domainType?: DomainType | string;
+  domainType?: keyof typeof DomainType | string;
 
   /**
    * <p>The date and time the domain configuration's status was last changed.</p>
@@ -1460,19 +1460,19 @@ export interface DescribeEventConfigurationsRequest {}
 /**
  * @public
  */
-export enum EventType {
-  CA_CERTIFICATE = "CA_CERTIFICATE",
-  CERTIFICATE = "CERTIFICATE",
-  JOB = "JOB",
-  JOB_EXECUTION = "JOB_EXECUTION",
-  POLICY = "POLICY",
-  THING = "THING",
-  THING_GROUP = "THING_GROUP",
-  THING_GROUP_HIERARCHY = "THING_GROUP_HIERARCHY",
-  THING_GROUP_MEMBERSHIP = "THING_GROUP_MEMBERSHIP",
-  THING_TYPE = "THING_TYPE",
-  THING_TYPE_ASSOCIATION = "THING_TYPE_ASSOCIATION",
-}
+export const EventType = {
+  CA_CERTIFICATE: "CA_CERTIFICATE",
+  CERTIFICATE: "CERTIFICATE",
+  JOB: "JOB",
+  JOB_EXECUTION: "JOB_EXECUTION",
+  POLICY: "POLICY",
+  THING: "THING",
+  THING_GROUP: "THING_GROUP",
+  THING_GROUP_HIERARCHY: "THING_GROUP_HIERARCHY",
+  THING_GROUP_MEMBERSHIP: "THING_GROUP_MEMBERSHIP",
+  THING_TYPE: "THING_TYPE",
+  THING_TYPE_ASSOCIATION: "THING_TYPE_ASSOCIATION",
+};
 
 /**
  * @public
@@ -1573,7 +1573,7 @@ export interface DescribeFleetMetricResponse {
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
    *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
    */
-  unit?: FleetMetricUnit | string;
+  unit?: keyof typeof FleetMetricUnit | string;
 
   /**
    * <p>The version of the fleet metric.</p>
@@ -1599,11 +1599,11 @@ export interface DescribeIndexRequest {
 /**
  * @public
  */
-export enum IndexStatus {
-  ACTIVE = "ACTIVE",
-  BUILDING = "BUILDING",
-  REBUILDING = "REBUILDING",
-}
+export const IndexStatus = {
+  ACTIVE: "ACTIVE",
+  BUILDING: "BUILDING",
+  REBUILDING: "REBUILDING",
+};
 
 /**
  * @public
@@ -1617,7 +1617,7 @@ export interface DescribeIndexResponse {
   /**
    * <p>The index status.</p>
    */
-  indexStatus?: IndexStatus | string;
+  indexStatus?: keyof typeof IndexStatus | string;
 
   /**
    * <p>Contains a value that specifies the type of indexing performed. Valid values
@@ -1722,13 +1722,13 @@ export interface ScheduledJobRollout {
 /**
  * @public
  */
-export enum JobStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
-  IN_PROGRESS = "IN_PROGRESS",
-  SCHEDULED = "SCHEDULED",
-}
+export const JobStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
+  IN_PROGRESS: "IN_PROGRESS",
+  SCHEDULED: "SCHEDULED",
+};
 
 /**
  * @public
@@ -1757,13 +1757,13 @@ export interface Job {
    *                 been created.</p>
    *          </note>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: keyof typeof TargetSelection | string;
 
   /**
    * <p>The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>,
    *             <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>. </p>
    */
-  status?: JobStatus | string;
+  status?: keyof typeof JobStatus | string;
 
   /**
    * <p>Will be <code>true</code> if the job was canceled with the optional <code>force</code> parameter set to
@@ -1928,16 +1928,16 @@ export interface DescribeJobExecutionRequest {
 /**
  * @public
  */
-export enum JobExecutionStatus {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  REJECTED = "REJECTED",
-  REMOVED = "REMOVED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const JobExecutionStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+  REJECTED: "REJECTED",
+  REMOVED: "REMOVED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -1964,7 +1964,7 @@ export interface JobExecution {
    * <p>The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT,
    *             CANCELED, or REJECTED).</p>
    */
-  status?: JobExecutionStatus | string;
+  status?: keyof typeof JobExecutionStatus | string;
 
   /**
    * <p>Will be <code>true</code> if the job execution was canceled with the optional <code>force</code>
@@ -2249,14 +2249,14 @@ export interface DescribeMitigationActionRequest {
 /**
  * @public
  */
-export enum MitigationActionType {
-  ADD_THINGS_TO_THING_GROUP = "ADD_THINGS_TO_THING_GROUP",
-  ENABLE_IOT_LOGGING = "ENABLE_IOT_LOGGING",
-  PUBLISH_FINDING_TO_SNS = "PUBLISH_FINDING_TO_SNS",
-  REPLACE_DEFAULT_POLICY_VERSION = "REPLACE_DEFAULT_POLICY_VERSION",
-  UPDATE_CA_CERTIFICATE = "UPDATE_CA_CERTIFICATE",
-  UPDATE_DEVICE_CERTIFICATE = "UPDATE_DEVICE_CERTIFICATE",
-}
+export const MitigationActionType = {
+  ADD_THINGS_TO_THING_GROUP: "ADD_THINGS_TO_THING_GROUP",
+  ENABLE_IOT_LOGGING: "ENABLE_IOT_LOGGING",
+  PUBLISH_FINDING_TO_SNS: "PUBLISH_FINDING_TO_SNS",
+  REPLACE_DEFAULT_POLICY_VERSION: "REPLACE_DEFAULT_POLICY_VERSION",
+  UPDATE_CA_CERTIFICATE: "UPDATE_CA_CERTIFICATE",
+  UPDATE_DEVICE_CERTIFICATE: "UPDATE_DEVICE_CERTIFICATE",
+};
 
 /**
  * @public
@@ -2270,7 +2270,7 @@ export interface DescribeMitigationActionResponse {
   /**
    * <p>The type of mitigation action.</p>
    */
-  actionType?: MitigationActionType | string;
+  actionType?: keyof typeof MitigationActionType | string;
 
   /**
    * <p>The ARN that identifies this migration action.</p>
@@ -2374,7 +2374,7 @@ export interface DescribeProvisioningTemplateResponse {
    *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
    *       </p>
    */
-  type?: TemplateType | string;
+  type?: keyof typeof TemplateType | string;
 }
 
 /**
@@ -2499,7 +2499,7 @@ export interface DescribeScheduledAuditResponse {
    *             <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the
    *       system.</p>
    */
-  frequency?: AuditFrequency | string;
+  frequency?: keyof typeof AuditFrequency | string;
 
   /**
    * <p>The day of the month on which the scheduled audit takes place.
@@ -2518,7 +2518,7 @@ export interface DescribeScheduledAuditResponse {
    *       either one of
    *             <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>.</p>
    */
-  dayOfWeek?: DayOfWeek | string;
+  dayOfWeek?: keyof typeof DayOfWeek | string;
 
   /**
    * <p>Which checks are performed during the scheduled audit. Checks must be
@@ -2765,11 +2765,11 @@ export interface DescribeThingGroupRequest {
 /**
  * @public
  */
-export enum DynamicGroupStatus {
-  ACTIVE = "ACTIVE",
-  BUILDING = "BUILDING",
-  REBUILDING = "REBUILDING",
-}
+export const DynamicGroupStatus = {
+  ACTIVE: "ACTIVE",
+  BUILDING: "BUILDING",
+  REBUILDING: "REBUILDING",
+};
 
 /**
  * @public
@@ -2860,7 +2860,7 @@ export interface DescribeThingGroupResponse {
   /**
    * <p>The dynamic thing group status.</p>
    */
-  status?: DynamicGroupStatus | string;
+  status?: keyof typeof DynamicGroupStatus | string;
 }
 
 /**
@@ -2876,13 +2876,13 @@ export interface DescribeThingRegistrationTaskRequest {
 /**
  * @public
  */
-export enum Status {
-  Cancelled = "Cancelled",
-  Cancelling = "Cancelling",
-  Completed = "Completed",
-  Failed = "Failed",
-  InProgress = "InProgress",
-}
+export const Status = {
+  Cancelled: "Cancelled",
+  Cancelling: "Cancelling",
+  Completed: "Completed",
+  Failed: "Failed",
+  InProgress: "InProgress",
+};
 
 /**
  * @public
@@ -2926,7 +2926,7 @@ export interface DescribeThingRegistrationTaskResponse {
   /**
    * <p>The status of the bulk thing provisioning task.</p>
    */
-  status?: Status | string;
+  status?: keyof typeof Status | string;
 
   /**
    * <p>The message.</p>
@@ -3145,11 +3145,11 @@ export interface GetBehaviorModelTrainingSummariesRequest {
 /**
  * @public
  */
-export enum ModelStatus {
-  ACTIVE = "ACTIVE",
-  EXPIRED = "EXPIRED",
-  PENDING_BUILD = "PENDING_BUILD",
-}
+export const ModelStatus = {
+  ACTIVE: "ACTIVE",
+  EXPIRED: "EXPIRED",
+  PENDING_BUILD: "PENDING_BUILD",
+};
 
 /**
  * @public
@@ -3184,7 +3184,7 @@ export interface BehaviorModelTrainingSummary {
    *             The status of the behavior model.
    *         </p>
    */
-  modelStatus?: ModelStatus | string;
+  modelStatus?: keyof typeof ModelStatus | string;
 
   /**
    * <p>
@@ -3401,11 +3401,11 @@ export interface GetIndexingConfigurationRequest {}
 /**
  * @public
  */
-export enum FieldType {
-  BOOLEAN = "Boolean",
-  NUMBER = "Number",
-  STRING = "String",
-}
+export const FieldType = {
+  BOOLEAN: "Boolean",
+  NUMBER: "Number",
+  STRING: "String",
+};
 
 /**
  * @public
@@ -3420,16 +3420,16 @@ export interface Field {
   /**
    * <p>The data type of the field.</p>
    */
-  type?: FieldType | string;
+  type?: keyof typeof FieldType | string;
 }
 
 /**
  * @public
  */
-export enum ThingGroupIndexingMode {
-  OFF = "OFF",
-  ON = "ON",
-}
+export const ThingGroupIndexingMode = {
+  OFF: "OFF",
+  ON: "ON",
+};
 
 /**
  * @public
@@ -3439,7 +3439,7 @@ export interface ThingGroupIndexingConfiguration {
   /**
    * <p>Thing group indexing mode.</p>
    */
-  thingGroupIndexingMode: ThingGroupIndexingMode | string | undefined;
+  thingGroupIndexingMode: keyof typeof ThingGroupIndexingMode | string | undefined;
 
   /**
    * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
@@ -3458,10 +3458,10 @@ export interface ThingGroupIndexingConfiguration {
 /**
  * @public
  */
-export enum DeviceDefenderIndexingMode {
-  OFF = "OFF",
-  VIOLATIONS = "VIOLATIONS",
-}
+export const DeviceDefenderIndexingMode = {
+  OFF: "OFF",
+  VIOLATIONS: "VIOLATIONS",
+};
 
 /**
  * @public
@@ -3482,27 +3482,27 @@ export interface IndexingFilter {
 /**
  * @public
  */
-export enum NamedShadowIndexingMode {
-  OFF = "OFF",
-  ON = "ON",
-}
+export const NamedShadowIndexingMode = {
+  OFF: "OFF",
+  ON: "ON",
+};
 
 /**
  * @public
  */
-export enum ThingConnectivityIndexingMode {
-  OFF = "OFF",
-  STATUS = "STATUS",
-}
+export const ThingConnectivityIndexingMode = {
+  OFF: "OFF",
+  STATUS: "STATUS",
+};
 
 /**
  * @public
  */
-export enum ThingIndexingMode {
-  OFF = "OFF",
-  REGISTRY = "REGISTRY",
-  REGISTRY_AND_SHADOW = "REGISTRY_AND_SHADOW",
-}
+export const ThingIndexingMode = {
+  OFF: "OFF",
+  REGISTRY: "REGISTRY",
+  REGISTRY_AND_SHADOW: "REGISTRY_AND_SHADOW",
+};
 
 /**
  * @public
@@ -3524,7 +3524,7 @@ export interface ThingIndexingConfiguration {
    *             </li>
    *          </ul>
    */
-  thingIndexingMode: ThingIndexingMode | string | undefined;
+  thingIndexingMode: keyof typeof ThingIndexingMode | string | undefined;
 
   /**
    * <p>Thing connectivity indexing mode. Valid values are: </p>
@@ -3539,7 +3539,7 @@ export interface ThingIndexingConfiguration {
    *             </li>
    *          </ul>
    */
-  thingConnectivityIndexingMode?: ThingConnectivityIndexingMode | string;
+  thingConnectivityIndexingMode?: keyof typeof ThingConnectivityIndexingMode | string;
 
   /**
    * <p>Device Defender indexing mode. Valid values are:</p>
@@ -3556,7 +3556,7 @@ export interface ThingIndexingConfiguration {
    *          <p>For more information about Device Defender violations, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect.html">Device Defender Detect.</a>
    *          </p>
    */
-  deviceDefenderIndexingMode?: DeviceDefenderIndexingMode | string;
+  deviceDefenderIndexingMode?: keyof typeof DeviceDefenderIndexingMode | string;
 
   /**
    * <p>Named shadow indexing mode. Valid values are:</p>
@@ -3573,7 +3573,7 @@ export interface ThingIndexingConfiguration {
    *          <p>For more information about Shadows, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html">IoT Device Shadow service.</a>
    *          </p>
    */
-  namedShadowIndexingMode?: NamedShadowIndexingMode | string;
+  namedShadowIndexingMode?: keyof typeof NamedShadowIndexingMode | string;
 
   /**
    * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
@@ -3648,7 +3648,7 @@ export interface GetLoggingOptionsResponse {
   /**
    * <p>The logging level.</p>
    */
-  logLevel?: LogLevel | string;
+  logLevel?: keyof typeof LogLevel | string;
 }
 
 /**
@@ -3716,7 +3716,7 @@ export interface OTAUpdateInfo {
    * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
    *              HTTP and MQTT are specified, the target device can choose the protocol.</p>
    */
-  protocols?: (Protocol | string)[];
+  protocols?: (keyof typeof Protocol | string)[];
 
   /**
    * <p>Configuration for the rollout of OTA updates.</p>
@@ -3736,7 +3736,7 @@ export interface OTAUpdateInfo {
    *             the thing is added to a target group, even after the OTA update was completed by all things originally in
    *             the group. </p>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: keyof typeof TargetSelection | string;
 
   /**
    * <p>A list of files associated with the OTA update.</p>
@@ -3746,7 +3746,7 @@ export interface OTAUpdateInfo {
   /**
    * <p>The status of the OTA update.</p>
    */
-  otaUpdateStatus?: OTAUpdateStatus | string;
+  otaUpdateStatus?: keyof typeof OTAUpdateStatus | string;
 
   /**
    * <p>The IoT job ID associated with the OTA update.</p>
@@ -4162,7 +4162,7 @@ export interface GetV2LoggingOptionsResponse {
   /**
    * <p>The default log level.</p>
    */
-  defaultLogLevel?: LogLevel | string;
+  defaultLogLevel?: keyof typeof LogLevel | string;
 
   /**
    * <p>Disables all logs.</p>
@@ -4193,11 +4193,11 @@ export class NotConfiguredException extends __BaseException {
 /**
  * @public
  */
-export enum BehaviorCriteriaType {
-  MACHINE_LEARNING = "MACHINE_LEARNING",
-  STATIC = "STATIC",
-  STATISTICAL = "STATISTICAL",
-}
+export const BehaviorCriteriaType = {
+  MACHINE_LEARNING: "MACHINE_LEARNING",
+  STATIC: "STATIC",
+  STATISTICAL: "STATISTICAL",
+};
 
 /**
  * @public
@@ -4218,7 +4218,7 @@ export interface ListActiveViolationsRequest {
    *       The criteria for a behavior.
    *     </p>
    */
-  behaviorCriteriaType?: BehaviorCriteriaType | string;
+  behaviorCriteriaType?: keyof typeof BehaviorCriteriaType | string;
 
   /**
    * <p>
@@ -4230,7 +4230,7 @@ export interface ListActiveViolationsRequest {
   /**
    * <p>The verification state of the violation (detect alarm).</p>
    */
-  verificationState?: VerificationState | string;
+  verificationState?: keyof typeof VerificationState | string;
 
   /**
    * <p>The token for the next set of results.</p>
@@ -4378,7 +4378,7 @@ export interface ListAuditMitigationActionsExecutionsRequest {
   /**
    * <p>Specify this filter to limit results to those with a specific status.</p>
    */
-  actionStatus?: AuditMitigationActionsExecutionStatus | string;
+  actionStatus?: keyof typeof AuditMitigationActionsExecutionStatus | string;
 
   /**
    * <p>Specify this filter to limit results to those that were applied to a specific audit finding.</p>
@@ -4428,7 +4428,7 @@ export interface ListAuditMitigationActionsTasksRequest {
   /**
    * <p>Specify this filter to limit results to tasks that are in a specific state.</p>
    */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
+  taskStatus?: keyof typeof AuditMitigationActionsTaskStatus | string;
 
   /**
    * <p>The maximum number of results to return at one time. The default is 25.</p>
@@ -4544,13 +4544,13 @@ export interface ListAuditTasksRequest {
    * <p>A filter to limit the output to the specified type of audit: can be one of
    *             "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".</p>
    */
-  taskType?: AuditTaskType | string;
+  taskType?: keyof typeof AuditTaskType | string;
 
   /**
    * <p>A filter to limit the output to audits with the specified completion
    *             status: can be one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".</p>
    */
-  taskStatus?: AuditTaskStatus | string;
+  taskStatus?: keyof typeof AuditTaskStatus | string;
 
   /**
    * <p>The token for the next set of results.</p>
@@ -4601,7 +4601,7 @@ export interface ListAuthorizersRequest {
   /**
    * <p>The status of the list authorizers request.</p>
    */
-  status?: AuthorizerStatus | string;
+  status?: keyof typeof AuthorizerStatus | string;
 }
 
 /**
@@ -4701,7 +4701,7 @@ export interface CACertificate {
    * <p>The status of the CA certificate.</p>
    *          <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>
    */
-  status?: CACertificateStatus | string;
+  status?: keyof typeof CACertificateStatus | string;
 
   /**
    * <p>The date the CA certificate was created.</p>
@@ -4767,7 +4767,7 @@ export interface Certificate {
    * <p>The status of the certificate.</p>
    *          <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>
    */
-  status?: CertificateStatus | string;
+  status?: keyof typeof CertificateStatus | string;
 
   /**
    * <p>The mode of the certificate.</p>
@@ -4782,7 +4782,7 @@ export interface Certificate {
    *             <code>SNI_ONLY</code>: A certificate in <code>SNI_ONLY</code> mode is registered without an issuer CA. Devices with certificates
    *          in <code>SNI_ONLY</code> mode must send the SNI extension when connecting to Amazon Web Services IoT Core. </p>
    */
-  certificateMode?: CertificateMode | string;
+  certificateMode?: keyof typeof CertificateMode | string;
 
   /**
    * <p>The date and time the certificate was created.</p>
@@ -4949,12 +4949,12 @@ export interface ListDetectMitigationActionsExecutionsRequest {
 /**
  * @public
  */
-export enum DetectMitigationActionExecutionStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SKIPPED = "SKIPPED",
-  SUCCESSFUL = "SUCCESSFUL",
-}
+export const DetectMitigationActionExecutionStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SKIPPED: "SKIPPED",
+  SUCCESSFUL: "SUCCESSFUL",
+};
 
 /**
  * @public
@@ -5010,7 +5010,7 @@ export interface DetectMitigationActionExecution {
    *             The status of a mitigation action.
    *         </p>
    */
-  status?: DetectMitigationActionExecutionStatus | string;
+  status?: keyof typeof DetectMitigationActionExecutionStatus | string;
 
   /**
    * <p>
@@ -5144,7 +5144,7 @@ export interface ListDomainConfigurationsRequest {
   /**
    * <p>The type of service delivered by the endpoint.</p>
    */
-  serviceType?: ServiceType | string;
+  serviceType?: keyof typeof ServiceType | string;
 }
 
 /**
@@ -5178,7 +5178,7 @@ export interface DomainConfigurationSummary {
   /**
    * <p>The type of service delivered by the endpoint.</p>
    */
-  serviceType?: ServiceType | string;
+  serviceType?: keyof typeof ServiceType | string;
 }
 
 /**
@@ -5288,7 +5288,7 @@ export interface ListJobExecutionsForJobRequest {
   /**
    * <p>The status of the job.</p>
    */
-  status?: JobExecutionStatus | string;
+  status?: keyof typeof JobExecutionStatus | string;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
@@ -5309,7 +5309,7 @@ export interface JobExecutionSummary {
   /**
    * <p>The status of the job execution.</p>
    */
-  status?: JobExecutionStatus | string;
+  status?: keyof typeof JobExecutionStatus | string;
 
   /**
    * <p>The time, in seconds since the epoch, when the job execution was queued.</p>
@@ -5384,7 +5384,7 @@ export interface ListJobExecutionsForThingRequest {
   /**
    * <p>An optional filter that lets you search for jobs that have the specified status.</p>
    */
-  status?: JobExecutionStatus | string;
+  status?: keyof typeof JobExecutionStatus | string;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
@@ -5454,7 +5454,7 @@ export interface ListJobsRequest {
   /**
    * <p>An optional filter that lets you search for jobs that have the specified status.</p>
    */
-  status?: JobStatus | string;
+  status?: keyof typeof JobStatus | string;
 
   /**
    * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
@@ -5467,7 +5467,7 @@ export interface ListJobsRequest {
    *                 been created.</p>
    *          </note>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: keyof typeof TargetSelection | string;
 
   /**
    * <p>The maximum number of results to return per request.</p>
@@ -5534,12 +5534,12 @@ export interface JobSummary {
    *                 been created.</p>
    *          </note>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: keyof typeof TargetSelection | string;
 
   /**
    * <p>The job summary status.</p>
    */
-  status?: JobStatus | string;
+  status?: keyof typeof JobStatus | string;
 
   /**
    * <p>The time, in seconds since the epoch, when the job was created.</p>
@@ -5726,7 +5726,7 @@ export interface ListMetricValuesRequest {
   /**
    * <p>The dimension value operator.</p>
    */
-  dimensionValueOperator?: DimensionValueOperator | string;
+  dimensionValueOperator?: keyof typeof DimensionValueOperator | string;
 
   /**
    * <p>The start of the time period for which metric values are returned.</p>
@@ -5788,7 +5788,7 @@ export interface ListMitigationActionsRequest {
   /**
    * <p>Specify a value to limit the result to mitigation actions with a specific action type.</p>
    */
-  actionType?: MitigationActionType | string;
+  actionType?: keyof typeof MitigationActionType | string;
 
   /**
    * <p>The maximum number of results to return at one time. The default is 25.</p>
@@ -5854,7 +5854,7 @@ export interface ListOTAUpdatesRequest {
   /**
    * <p>The OTA update job status.</p>
    */
-  otaUpdateStatus?: OTAUpdateStatus | string;
+  otaUpdateStatus?: keyof typeof OTAUpdateStatus | string;
 }
 
 /**
@@ -6232,7 +6232,7 @@ export interface ProvisioningTemplateSummary {
    *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
    *       </p>
    */
-  type?: TemplateType | string;
+  type?: keyof typeof TemplateType | string;
 }
 
 /**
@@ -6412,7 +6412,7 @@ export interface ScheduledAuditMetadata {
   /**
    * <p>How often the scheduled audit occurs.</p>
    */
-  frequency?: AuditFrequency | string;
+  frequency?: keyof typeof AuditFrequency | string;
 
   /**
    * <p>The day of the month on which the scheduled audit is run (if the
@@ -6426,7 +6426,7 @@ export interface ScheduledAuditMetadata {
    * <p>The day of the week on which the scheduled audit is run (if the
    *           <code>frequency</code> is "WEEKLY" or "BIWEEKLY").</p>
    */
-  dayOfWeek?: DayOfWeek | string;
+  dayOfWeek?: keyof typeof DayOfWeek | string;
 }
 
 /**

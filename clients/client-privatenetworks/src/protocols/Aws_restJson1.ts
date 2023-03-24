@@ -2209,7 +2209,7 @@ const serializeAws_restJson1DeviceIdentifierFilters = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [DeviceIdentifierFilterKeys | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [keyof typeof DeviceIdentifierFilterKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2236,13 +2236,16 @@ const serializeAws_restJson1NameValuePair = (input: NameValuePair, context: __Se
 };
 
 const serializeAws_restJson1NetworkFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [NetworkFilterKeys | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof NetworkFilterKeys | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = serializeAws_restJson1NetworkFilterValues(value, context);
       return acc;
-    }
-    acc[key] = serializeAws_restJson1NetworkFilterValues(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1NetworkFilterValues = (input: string[], context: __SerdeContext): any => {
@@ -2280,7 +2283,7 @@ const serializeAws_restJson1NetworkResourceFilters = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [NetworkResourceFilterKeys | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [keyof typeof NetworkResourceFilterKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2301,7 +2304,7 @@ const serializeAws_restJson1NetworkResourceFilterValues = (input: string[], cont
 
 const serializeAws_restJson1NetworkSiteFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [NetworkSiteFilterKeys | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [keyof typeof NetworkSiteFilterKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2329,13 +2332,16 @@ const serializeAws_restJson1Options = (input: NameValuePair[], context: __SerdeC
 };
 
 const serializeAws_restJson1OrderFilters = (input: Record<string, string[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [OrderFilterKeys | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof OrderFilterKeys | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = serializeAws_restJson1OrderFilterValues(value, context);
       return acc;
-    }
-    acc[key] = serializeAws_restJson1OrderFilterValues(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1OrderFilterValues = (input: string[], context: __SerdeContext): any => {

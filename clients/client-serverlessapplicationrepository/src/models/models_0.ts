@@ -95,12 +95,12 @@ export interface ApplicationSummary {
 /**
  * @public
  */
-export enum Capability {
-  CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND",
-  CAPABILITY_IAM = "CAPABILITY_IAM",
-  CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM",
-  CAPABILITY_RESOURCE_POLICY = "CAPABILITY_RESOURCE_POLICY",
-}
+export const Capability = {
+  CAPABILITY_AUTO_EXPAND: "CAPABILITY_AUTO_EXPAND",
+  CAPABILITY_IAM: "CAPABILITY_IAM",
+  CAPABILITY_NAMED_IAM: "CAPABILITY_NAMED_IAM",
+  CAPABILITY_RESOURCE_POLICY: "CAPABILITY_RESOURCE_POLICY",
+};
 
 /**
  * @public
@@ -467,7 +467,7 @@ export interface Version {
    *  all permissions associated with the application before deploying. If you don't specify
    *  this parameter for an application that requires capabilities, the call will fail.</p>
    */
-  RequiredCapabilities: (Capability | string)[] | undefined;
+  RequiredCapabilities: (keyof typeof Capability | string)[] | undefined;
 
   /**
    * <p>Whether all of the AWS resources contained in this application are supported in the region
@@ -740,7 +740,7 @@ export interface CreateApplicationVersionResponse {
    *  all permissions associated with the application before deploying. If you don't specify
    *  this parameter for an application that requires capabilities, the call will fail.</p>
    */
-  RequiredCapabilities?: (Capability | string)[];
+  RequiredCapabilities?: (keyof typeof Capability | string)[];
 
   /**
    * <p>Whether all of the AWS resources contained in this application are supported in the region
@@ -939,11 +939,11 @@ export interface CreateCloudFormationTemplateRequest {
 /**
  * @public
  */
-export enum Status {
-  ACTIVE = "ACTIVE",
-  EXPIRED = "EXPIRED",
-  PREPARING = "PREPARING",
-}
+export const Status = {
+  ACTIVE: "ACTIVE",
+  EXPIRED: "EXPIRED",
+  PREPARING: "PREPARING",
+};
 
 /**
  * @public
@@ -976,7 +976,7 @@ export interface CreateCloudFormationTemplateResponse {
    * <p>Status of the template creation workflow.</p><p>Possible values: PREPARING | ACTIVE | EXPIRED
    *  </p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]\{8\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{12\}</p>
@@ -1182,7 +1182,7 @@ export interface GetCloudFormationTemplateResponse {
    * <p>Status of the template creation workflow.</p><p>Possible values: PREPARING | ACTIVE | EXPIRED
    *  </p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>The UUID returned by CreateCloudFormationTemplate.</p><p>Pattern: [0-9a-fA-F]\{8\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{4\}\-[0-9a-fA-F]\{12\}</p>

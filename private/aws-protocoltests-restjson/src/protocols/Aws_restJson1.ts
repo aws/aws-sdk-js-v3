@@ -6461,7 +6461,7 @@ const serializeAws_restJson1BooleanList = (input: boolean[], context: __SerdeCon
     });
 };
 
-const serializeAws_restJson1FooEnumList = (input: (FooEnum | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1FooEnumList = (input: (keyof typeof FooEnum | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6469,7 +6469,10 @@ const serializeAws_restJson1FooEnumList = (input: (FooEnum | string)[], context:
     });
 };
 
-const serializeAws_restJson1FooEnumMap = (input: Record<string, FooEnum | string>, context: __SerdeContext): any => {
+const serializeAws_restJson1FooEnumMap = (
+  input: Record<string, keyof typeof FooEnum | string>,
+  context: __SerdeContext
+): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -6479,7 +6482,7 @@ const serializeAws_restJson1FooEnumMap = (input: Record<string, FooEnum | string
   }, {});
 };
 
-const serializeAws_restJson1FooEnumSet = (input: (FooEnum | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1FooEnumSet = (input: (keyof typeof FooEnum | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6859,7 +6862,10 @@ const deserializeAws_restJson1BooleanList = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_restJson1FooEnumList = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const deserializeAws_restJson1FooEnumList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof FooEnum | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6871,17 +6877,26 @@ const deserializeAws_restJson1FooEnumList = (output: any, context: __SerdeContex
   return retVal;
 };
 
-const deserializeAws_restJson1FooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum | string> => {
-  return Object.entries(output).reduce((acc: Record<string, FooEnum | string>, [key, value]: [string, any]) => {
-    if (value === null) {
+const deserializeAws_restJson1FooEnumMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, keyof typeof FooEnum | string> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, keyof typeof FooEnum | string>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectString(value) as any;
       return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
-const deserializeAws_restJson1FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const deserializeAws_restJson1FooEnumSet = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof FooEnum | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

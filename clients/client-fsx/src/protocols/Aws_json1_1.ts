@@ -4105,7 +4105,7 @@ const serializeAws_json1_1DeleteFileSystemOpenZFSConfiguration = (
 };
 
 const serializeAws_json1_1DeleteFileSystemOpenZFSOptions = (
-  input: (DeleteFileSystemOpenZFSOption | string)[],
+  input: (keyof typeof DeleteFileSystemOpenZFSOption | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4148,7 +4148,7 @@ const serializeAws_json1_1DeleteFileSystemWindowsConfiguration = (
 };
 
 const serializeAws_json1_1DeleteOpenZFSVolumeOptions = (
-  input: (DeleteOpenZFSVolumeOption | string)[],
+  input: (keyof typeof DeleteOpenZFSVolumeOption | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4339,7 +4339,7 @@ const serializeAws_json1_1DnsIps = (input: string[], context: __SerdeContext): a
     });
 };
 
-const serializeAws_json1_1EventTypes = (input: (EventType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1EventTypes = (input: (keyof typeof EventType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4562,7 +4562,7 @@ const serializeAws_json1_1RepositoryDnsIps = (input: string[], context: __SerdeC
 };
 
 const serializeAws_json1_1RestoreOpenZFSVolumeOptions = (
-  input: (RestoreOpenZFSVolumeOption | string)[],
+  input: (keyof typeof RestoreOpenZFSVolumeOption | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -5823,7 +5823,10 @@ const deserializeAws_json1_1DnsIps = (output: any, context: __SerdeContext): str
   return retVal;
 };
 
-const deserializeAws_json1_1EventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
+const deserializeAws_json1_1EventTypes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof EventType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6046,7 +6049,7 @@ const deserializeAws_json1_1FileSystemFailureDetails = (
 const deserializeAws_json1_1FileSystemMaintenanceOperations = (
   output: any,
   context: __SerdeContext
-): (FileSystemMaintenanceOperation | string)[] => {
+): (keyof typeof FileSystemMaintenanceOperation | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

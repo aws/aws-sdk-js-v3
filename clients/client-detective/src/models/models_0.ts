@@ -18,11 +18,11 @@ export interface AcceptInvitationRequest {
 /**
  * @public
  */
-export enum ErrorCode {
-  InternalError = "INTERNAL_ERROR",
-  InvalidGraphArn = "INVALID_GRAPH_ARN",
-  InvalidRequestBody = "INVALID_REQUEST_BODY",
-}
+export const ErrorCode = {
+  InternalError: "INTERNAL_ERROR",
+  InvalidGraphArn: "INVALID_GRAPH_ARN",
+  InvalidRequestBody: "INVALID_REQUEST_BODY",
+};
 
 /**
  * @public
@@ -36,7 +36,7 @@ export class AccessDeniedException extends __BaseException {
   /**
    * <p>The SDK default error code associated with the access denied exception.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>The SDK default explanation of why access was denied.</p>
@@ -46,7 +46,7 @@ export class AccessDeniedException extends __BaseException {
   /**
    * <p>The error code associated with the access denied exception.</p>
    */
-  SubErrorCode?: ErrorCode | string;
+  SubErrorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p> An explanation of why access was denied.</p>
@@ -147,7 +147,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The error code associated with the validation failure.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p> An explanation of why validation failed.</p>
@@ -231,19 +231,19 @@ export interface BatchGetGraphMemberDatasourcesRequest {
 /**
  * @public
  */
-export enum DatasourcePackage {
-  DETECTIVE_CORE = "DETECTIVE_CORE",
-  EKS_AUDIT = "EKS_AUDIT",
-}
+export const DatasourcePackage = {
+  DETECTIVE_CORE: "DETECTIVE_CORE",
+  EKS_AUDIT: "EKS_AUDIT",
+};
 
 /**
  * @public
  */
-export enum DatasourcePackageIngestState {
-  DISABLED = "DISABLED",
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-}
+export const DatasourcePackageIngestState = {
+  DISABLED: "DISABLED",
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -454,29 +454,29 @@ export interface CreateMembersRequest {
 /**
  * @public
  */
-export enum MemberDisabledReason {
-  VOLUME_TOO_HIGH = "VOLUME_TOO_HIGH",
-  VOLUME_UNKNOWN = "VOLUME_UNKNOWN",
-}
+export const MemberDisabledReason = {
+  VOLUME_TOO_HIGH: "VOLUME_TOO_HIGH",
+  VOLUME_UNKNOWN: "VOLUME_UNKNOWN",
+};
 
 /**
  * @public
  */
-export enum InvitationType {
-  INVITATION = "INVITATION",
-  ORGANIZATION = "ORGANIZATION",
-}
+export const InvitationType = {
+  INVITATION: "INVITATION",
+  ORGANIZATION: "ORGANIZATION",
+};
 
 /**
  * @public
  */
-export enum MemberStatus {
-  ACCEPTED_BUT_DISABLED = "ACCEPTED_BUT_DISABLED",
-  ENABLED = "ENABLED",
-  INVITED = "INVITED",
-  VERIFICATION_FAILED = "VERIFICATION_FAILED",
-  VERIFICATION_IN_PROGRESS = "VERIFICATION_IN_PROGRESS",
-}
+export const MemberStatus = {
+  ACCEPTED_BUT_DISABLED: "ACCEPTED_BUT_DISABLED",
+  ENABLED: "ENABLED",
+  INVITED: "INVITED",
+  VERIFICATION_FAILED: "VERIFICATION_FAILED",
+  VERIFICATION_IN_PROGRESS: "VERIFICATION_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -573,7 +573,7 @@ export interface MemberDetail {
    *          graph are not included. In the organization behavior graph, organization accounts that the
    *             Detective administrator account did not enable are not included.</p>
    */
-  Status?: MemberStatus | string;
+  Status?: keyof typeof MemberStatus | string;
 
   /**
    * <p>For member accounts with a status of <code>ACCEPTED_BUT_DISABLED</code>, the reason that
@@ -593,7 +593,7 @@ export interface MemberDetail {
    *             </li>
    *          </ul>
    */
-  DisabledReason?: MemberDisabledReason | string;
+  DisabledReason?: keyof typeof MemberDisabledReason | string;
 
   /**
    * <p>For invited accounts, the date and time that Detective sent the invitation to
@@ -651,7 +651,7 @@ export interface MemberDetail {
    *          <p>For an account that was invited to a behavior graph, the type is
    *          <code>INVITATION</code>. </p>
    */
-  InvitationType?: InvitationType | string;
+  InvitationType?: keyof typeof InvitationType | string;
 
   /**
    * <p>Details on the volume of usage for each data source package in a behavior graph.</p>
@@ -661,7 +661,7 @@ export interface MemberDetail {
   /**
    * <p>The state of a data source package for the behavior graph.</p>
    */
-  DatasourcePackageIngestStates?: Record<string, DatasourcePackageIngestState | string>;
+  DatasourcePackageIngestStates?: Record<string, keyof typeof DatasourcePackageIngestState | string>;
 }
 
 /**
@@ -860,7 +860,7 @@ export interface DatasourcePackageIngestDetail {
   /**
    * <p>Details on which data source packages are ingested for a member account.</p>
    */
-  DatasourcePackageIngestState?: DatasourcePackageIngestState | string;
+  DatasourcePackageIngestState?: keyof typeof DatasourcePackageIngestState | string;
 
   /**
    * <p>The date a data source package was enabled for this account</p>
@@ -1155,7 +1155,7 @@ export interface UpdateDatasourcePackagesRequest {
   /**
    * <p>The data source package start for the behavior graph.</p>
    */
-  DatasourcePackages: (DatasourcePackage | string)[] | undefined;
+  DatasourcePackages: (keyof typeof DatasourcePackage | string)[] | undefined;
 }
 
 /**

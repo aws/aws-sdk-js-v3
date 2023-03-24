@@ -4972,7 +4972,7 @@ const serializeAws_restJson1StreamingImageIdList = (input: string[], context: __
 };
 
 const serializeAws_restJson1StreamingInstanceTypeList = (
-  input: (StreamingInstanceType | string)[],
+  input: (keyof typeof StreamingInstanceType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4983,7 +4983,7 @@ const serializeAws_restJson1StreamingInstanceTypeList = (
 };
 
 const serializeAws_restJson1StreamingSessionStorageModeList = (
-  input: (StreamingSessionStorageMode | string)[],
+  input: (keyof typeof StreamingSessionStorageMode | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -5577,7 +5577,7 @@ const deserializeAws_restJson1StreamingImageList = (output: any, context: __Serd
 const deserializeAws_restJson1StreamingInstanceTypeList = (
   output: any,
   context: __SerdeContext
-): (StreamingInstanceType | string)[] => {
+): (keyof typeof StreamingInstanceType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5678,7 +5678,7 @@ const deserializeAws_restJson1StreamingSessionList = (output: any, context: __Se
 const deserializeAws_restJson1StreamingSessionStorageModeList = (
   output: any,
   context: __SerdeContext
-): (StreamingSessionStorageMode | string)[] => {
+): (keyof typeof StreamingSessionStorageMode | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

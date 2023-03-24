@@ -5191,7 +5191,7 @@ const serializeAws_queryConfigurationSet = (input: ConfigurationSet, context: __
 };
 
 const serializeAws_queryConfigurationSetAttributeList = (
-  input: (ConfigurationSetAttribute | string)[],
+  input: (keyof typeof ConfigurationSetAttribute | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -5613,7 +5613,7 @@ const serializeAws_queryEventDestination = (input: EventDestination, context: __
   return entries;
 };
 
-const serializeAws_queryEventTypes = (input: (EventType | string)[], context: __SerdeContext): any => {
+const serializeAws_queryEventTypes = (input: (keyof typeof EventType | string)[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -7438,7 +7438,7 @@ const deserializeAws_queryEventDestinations = (output: any, context: __SerdeCont
     });
 };
 
-const deserializeAws_queryEventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
+const deserializeAws_queryEventTypes = (output: any, context: __SerdeContext): (keyof typeof EventType | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

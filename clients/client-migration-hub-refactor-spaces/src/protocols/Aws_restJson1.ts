@@ -2813,7 +2813,10 @@ const serializeAws_restJson1DefaultRouteInput = (input: DefaultRouteInput, conte
   };
 };
 
-const serializeAws_restJson1HttpMethods = (input: (HttpMethod | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1HttpMethods = (
+  input: (keyof typeof HttpMethod | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3028,7 +3031,10 @@ const deserializeAws_restJson1ErrorResponse = (output: any, context: __SerdeCont
   } as any;
 };
 
-const deserializeAws_restJson1HttpMethods = (output: any, context: __SerdeContext): (HttpMethod | string)[] => {
+const deserializeAws_restJson1HttpMethods = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof HttpMethod | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

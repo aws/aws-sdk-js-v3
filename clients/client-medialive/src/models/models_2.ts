@@ -106,7 +106,7 @@ export interface StartMultiplexResponse {
   /**
    * The current state of the multiplex.
    */
-  State?: MultiplexState | string;
+  State?: keyof typeof MultiplexState | string;
 
   /**
    * A collection of key-value pairs.
@@ -143,7 +143,7 @@ export interface StopChannelResponse {
   /**
    * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
-  ChannelClass?: ChannelClass | string;
+  ChannelClass?: keyof typeof ChannelClass | string;
 
   /**
    * A list of destinations of the channel. For UDP outputs, there is one
@@ -180,7 +180,7 @@ export interface StopChannelResponse {
   /**
    * The log level being written to CloudWatch Logs.
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 
   /**
    * Maintenance settings for this channel.
@@ -210,7 +210,7 @@ export interface StopChannelResponse {
   /**
    * Placeholder documentation for ChannelState
    */
-  State?: ChannelState | string;
+  State?: keyof typeof ChannelState | string;
 
   /**
    * A collection of key-value pairs.
@@ -282,7 +282,7 @@ export interface StopMultiplexResponse {
   /**
    * The current state of the multiplex.
    */
-  State?: MultiplexState | string;
+  State?: keyof typeof MultiplexState | string;
 
   /**
    * A collection of key-value pairs.
@@ -360,7 +360,7 @@ export interface UpdateChannelRequest {
   /**
    * The log level to write to CloudWatch Logs.
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 
   /**
    * Maintenance settings for this channel.
@@ -397,7 +397,7 @@ export interface UpdateChannelClassRequest {
   /**
    * The channel class that you wish to update this channel to use.
    */
-  ChannelClass: ChannelClass | string | undefined;
+  ChannelClass: keyof typeof ChannelClass | string | undefined;
 
   /**
    * Channel Id of the channel whose class should be updated.
@@ -521,17 +521,17 @@ export interface UpdateInputDeviceResponse {
   /**
    * The state of the connection between the input device and AWS.
    */
-  ConnectionState?: InputDeviceConnectionState | string;
+  ConnectionState?: keyof typeof InputDeviceConnectionState | string;
 
   /**
    * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
    */
-  DeviceSettingsSyncState?: DeviceSettingsSyncState | string;
+  DeviceSettingsSyncState?: keyof typeof DeviceSettingsSyncState | string;
 
   /**
    * The status of software on the input device.
    */
-  DeviceUpdateStatus?: DeviceUpdateStatus | string;
+  DeviceUpdateStatus?: keyof typeof DeviceUpdateStatus | string;
 
   /**
    * Settings that describe an input device that is type HD.
@@ -566,7 +566,7 @@ export interface UpdateInputDeviceResponse {
   /**
    * The type of the input device.
    */
-  Type?: InputDeviceType | string;
+  Type?: keyof typeof InputDeviceType | string;
 
   /**
    * Settings that describe an input device that is type UHD.

@@ -3064,16 +3064,22 @@ const serializeAws_json1_1LanguageIdSettingsMap = (
   input: Record<string, LanguageIdSettings>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [LanguageCode | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof LanguageCode | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = serializeAws_json1_1LanguageIdSettings(value, context);
       return acc;
-    }
-    acc[key] = serializeAws_json1_1LanguageIdSettings(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
-const serializeAws_json1_1LanguageOptions = (input: (LanguageCode | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1LanguageOptions = (
+  input: (keyof typeof LanguageCode | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3228,7 +3234,10 @@ const serializeAws_json1_1Phrases = (input: string[], context: __SerdeContext): 
     });
 };
 
-const serializeAws_json1_1PiiEntityTypes = (input: (PiiEntityType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1PiiEntityTypes = (
+  input: (keyof typeof PiiEntityType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3277,7 +3286,10 @@ const serializeAws_json1_1SentimentFilter = (input: SentimentFilter, context: __
   };
 };
 
-const serializeAws_json1_1SentimentValueList = (input: (SentimentValue | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1SentimentValueList = (
+  input: (keyof typeof SentimentValue | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3390,7 +3402,10 @@ const serializeAws_json1_1StringTargetList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1SubtitleFormats = (input: (SubtitleFormat | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1SubtitleFormats = (
+  input: (keyof typeof SubtitleFormat | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3940,7 +3955,7 @@ const deserializeAws_json1_1LanguageIdSettingsMap = (
   context: __SerdeContext
 ): Record<string, LanguageIdSettings> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, LanguageIdSettings>, [key, value]: [LanguageCode | string, any]) => {
+    (acc: Record<string, LanguageIdSettings>, [key, value]: [keyof typeof LanguageCode | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -3972,7 +3987,10 @@ const deserializeAws_json1_1LanguageModel = (output: any, context: __SerdeContex
   } as any;
 };
 
-const deserializeAws_json1_1LanguageOptions = (output: any, context: __SerdeContext): (LanguageCode | string)[] => {
+const deserializeAws_json1_1LanguageOptions = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof LanguageCode | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4240,7 +4258,10 @@ const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeCo
   } as any;
 };
 
-const deserializeAws_json1_1PiiEntityTypes = (output: any, context: __SerdeContext): (PiiEntityType | string)[] => {
+const deserializeAws_json1_1PiiEntityTypes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof PiiEntityType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4317,7 +4338,7 @@ const deserializeAws_json1_1SentimentFilter = (output: any, context: __SerdeCont
 const deserializeAws_json1_1SentimentValueList = (
   output: any,
   context: __SerdeContext
-): (SentimentValue | string)[] => {
+): (keyof typeof SentimentValue | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4402,7 +4423,10 @@ const deserializeAws_json1_1SubtitleFileUris = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_json1_1SubtitleFormats = (output: any, context: __SerdeContext): (SubtitleFormat | string)[] => {
+const deserializeAws_json1_1SubtitleFormats = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof SubtitleFormat | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -6,11 +6,11 @@ import { RoboMakerServiceException as __BaseException } from "./RoboMakerService
 /**
  * @public
  */
-export enum Architecture {
-  ARM64 = "ARM64",
-  ARMHF = "ARMHF",
-  X86_64 = "X86_64",
-}
+export const Architecture = {
+  ARM64: "ARM64",
+  ARMHF: "ARMHF",
+  X86_64: "X86_64",
+};
 
 /**
  * @public
@@ -107,10 +107,10 @@ export interface BatchDescribeSimulationJobRequest {
 /**
  * @public
  */
-export enum ComputeType {
-  CPU = "CPU",
-  GPU_AND_CPU = "GPU_AND_CPU",
-}
+export const ComputeType = {
+  CPU: "CPU",
+  GPU_AND_CPU: "GPU_AND_CPU",
+};
 
 /**
  * @public
@@ -128,7 +128,7 @@ export interface ComputeResponse {
   /**
    * <p>Compute type response information for the simulation job.</p>
    */
-  computeType?: ComputeType | string;
+  computeType?: keyof typeof ComputeType | string;
 
   /**
    * <p>Compute GPU unit limit for the simulation job. It is the same as the number of GPUs
@@ -156,11 +156,11 @@ export interface S3KeyOutput {
 /**
  * @public
  */
-export enum DataSourceType {
-  Archive = "Archive",
-  File = "File",
-  Prefix = "Prefix",
-}
+export const DataSourceType = {
+  Archive: "Archive",
+  File: "File",
+  Prefix: "Prefix",
+};
 
 /**
  * @public
@@ -188,7 +188,7 @@ export interface DataSource {
    *          an Amazon S3 prefix, or a file.</p>
    *          <p>If you don't specify a field, the default value is <code>File</code>.</p>
    */
-  type?: DataSourceType | string;
+  type?: keyof typeof DataSourceType | string;
 
   /**
    * <p>The location where your files are mounted in the container image.</p>
@@ -207,47 +207,47 @@ export interface DataSource {
 /**
  * @public
  */
-export enum FailureBehavior {
-  Continue = "Continue",
-  Fail = "Fail",
-}
+export const FailureBehavior = {
+  Continue: "Continue",
+  Fail: "Fail",
+};
 
 /**
  * @public
  */
-export enum SimulationJobErrorCode {
-  BadPermissionsCloudwatchLogs = "BadPermissionsCloudwatchLogs",
-  BadPermissionsRobotApplication = "BadPermissionsRobotApplication",
-  BadPermissionsS3Object = "BadPermissionsS3Object",
-  BadPermissionsS3Output = "BadPermissionsS3Output",
-  BadPermissionsSimulationApplication = "BadPermissionsSimulationApplication",
-  BadPermissionsUserCredentials = "BadPermissionsUserCredentials",
-  BatchCanceled = "BatchCanceled",
-  BatchTimedOut = "BatchTimedOut",
-  ENILimitExceeded = "ENILimitExceeded",
-  InternalServiceError = "InternalServiceError",
-  InvalidBundleRobotApplication = "InvalidBundleRobotApplication",
-  InvalidBundleSimulationApplication = "InvalidBundleSimulationApplication",
-  InvalidInput = "InvalidInput",
-  InvalidS3Resource = "InvalidS3Resource",
-  LimitExceeded = "LimitExceeded",
-  MismatchedEtag = "MismatchedEtag",
-  RequestThrottled = "RequestThrottled",
-  ResourceNotFound = "ResourceNotFound",
-  RobotApplicationCrash = "RobotApplicationCrash",
-  RobotApplicationHealthCheckFailure = "RobotApplicationHealthCheckFailure",
-  RobotApplicationVersionMismatchedEtag = "RobotApplicationVersionMismatchedEtag",
-  SimulationApplicationCrash = "SimulationApplicationCrash",
-  SimulationApplicationHealthCheckFailure = "SimulationApplicationHealthCheckFailure",
-  SimulationApplicationVersionMismatchedEtag = "SimulationApplicationVersionMismatchedEtag",
-  SubnetIpLimitExceeded = "SubnetIpLimitExceeded",
-  ThrottlingError = "ThrottlingError",
-  UploadContentMismatchError = "UploadContentMismatchError",
-  WrongRegionRobotApplication = "WrongRegionRobotApplication",
-  WrongRegionS3Bucket = "WrongRegionS3Bucket",
-  WrongRegionS3Output = "WrongRegionS3Output",
-  WrongRegionSimulationApplication = "WrongRegionSimulationApplication",
-}
+export const SimulationJobErrorCode = {
+  BadPermissionsCloudwatchLogs: "BadPermissionsCloudwatchLogs",
+  BadPermissionsRobotApplication: "BadPermissionsRobotApplication",
+  BadPermissionsS3Object: "BadPermissionsS3Object",
+  BadPermissionsS3Output: "BadPermissionsS3Output",
+  BadPermissionsSimulationApplication: "BadPermissionsSimulationApplication",
+  BadPermissionsUserCredentials: "BadPermissionsUserCredentials",
+  BatchCanceled: "BatchCanceled",
+  BatchTimedOut: "BatchTimedOut",
+  ENILimitExceeded: "ENILimitExceeded",
+  InternalServiceError: "InternalServiceError",
+  InvalidBundleRobotApplication: "InvalidBundleRobotApplication",
+  InvalidBundleSimulationApplication: "InvalidBundleSimulationApplication",
+  InvalidInput: "InvalidInput",
+  InvalidS3Resource: "InvalidS3Resource",
+  LimitExceeded: "LimitExceeded",
+  MismatchedEtag: "MismatchedEtag",
+  RequestThrottled: "RequestThrottled",
+  ResourceNotFound: "ResourceNotFound",
+  RobotApplicationCrash: "RobotApplicationCrash",
+  RobotApplicationHealthCheckFailure: "RobotApplicationHealthCheckFailure",
+  RobotApplicationVersionMismatchedEtag: "RobotApplicationVersionMismatchedEtag",
+  SimulationApplicationCrash: "SimulationApplicationCrash",
+  SimulationApplicationHealthCheckFailure: "SimulationApplicationHealthCheckFailure",
+  SimulationApplicationVersionMismatchedEtag: "SimulationApplicationVersionMismatchedEtag",
+  SubnetIpLimitExceeded: "SubnetIpLimitExceeded",
+  ThrottlingError: "ThrottlingError",
+  UploadContentMismatchError: "UploadContentMismatchError",
+  WrongRegionRobotApplication: "WrongRegionRobotApplication",
+  WrongRegionS3Bucket: "WrongRegionS3Bucket",
+  WrongRegionS3Output: "WrongRegionS3Output",
+  WrongRegionSimulationApplication: "WrongRegionSimulationApplication",
+};
 
 /**
  * @public
@@ -378,10 +378,10 @@ export interface LaunchConfig {
 /**
  * @public
  */
-export enum ExitBehavior {
-  FAIL = "FAIL",
-  RESTART = "RESTART",
-}
+export const ExitBehavior = {
+  FAIL: "FAIL",
+  RESTART: "RESTART",
+};
 
 /**
  * @public
@@ -417,16 +417,16 @@ export interface Tool {
    *          will cause your tool to be restarted. <code>FAIL</code> will cause your job to exit. The
    *          default is <code>RESTART</code>. </p>
    */
-  exitBehavior?: ExitBehavior | string;
+  exitBehavior?: keyof typeof ExitBehavior | string;
 }
 
 /**
  * @public
  */
-export enum UploadBehavior {
-  UPLOAD_ON_TERMINATE = "UPLOAD_ON_TERMINATE",
-  UPLOAD_ROLLING_AUTO_REMOVE = "UPLOAD_ROLLING_AUTO_REMOVE",
-}
+export const UploadBehavior = {
+  UPLOAD_ON_TERMINATE: "UPLOAD_ON_TERMINATE",
+  UPLOAD_ROLLING_AUTO_REMOVE: "UPLOAD_ROLLING_AUTO_REMOVE",
+};
 
 /**
  * @public
@@ -470,7 +470,7 @@ export interface UploadConfiguration {
    *             </dd>
    *          </dl>
    */
-  uploadBehavior: UploadBehavior | string | undefined;
+  uploadBehavior: keyof typeof UploadBehavior | string | undefined;
 }
 
 /**
@@ -602,18 +602,18 @@ export interface SimulationApplicationConfig {
 /**
  * @public
  */
-export enum SimulationJobStatus {
-  Canceled = "Canceled",
-  Completed = "Completed",
-  Failed = "Failed",
-  Pending = "Pending",
-  Preparing = "Preparing",
-  Restarting = "Restarting",
-  Running = "Running",
-  RunningFailed = "RunningFailed",
-  Terminated = "Terminated",
-  Terminating = "Terminating",
-}
+export const SimulationJobStatus = {
+  Canceled: "Canceled",
+  Completed: "Completed",
+  Failed: "Failed",
+  Pending: "Pending",
+  Preparing: "Preparing",
+  Restarting: "Restarting",
+  Running: "Running",
+  RunningFailed: "RunningFailed",
+  Terminated: "Terminated",
+  Terminating: "Terminating",
+};
 
 /**
  * @public
@@ -659,7 +659,7 @@ export interface SimulationJob {
   /**
    * <p>Status of the simulation job.</p>
    */
-  status?: SimulationJobStatus | string;
+  status?: keyof typeof SimulationJobStatus | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the simulation job was last
@@ -687,12 +687,12 @@ export interface SimulationJob {
    *             </dd>
    *          </dl>
    */
-  failureBehavior?: FailureBehavior | string;
+  failureBehavior?: keyof typeof FailureBehavior | string;
 
   /**
    * <p>The failure code of the simulation job if it failed.</p>
    */
-  failureCode?: SimulationJobErrorCode | string;
+  failureCode?: keyof typeof SimulationJobErrorCode | string;
 
   /**
    * <p>The reason why the simulation job failed.</p>
@@ -922,7 +922,7 @@ export interface Compute {
   /**
    * <p>Compute type information for the simulation job.</p>
    */
-  computeType?: ComputeType | string;
+  computeType?: keyof typeof ComputeType | string;
 
   /**
    * <p>Compute GPU unit limit for the simulation job. It is the same as the number of GPUs
@@ -1089,44 +1089,44 @@ export interface CreateDeploymentJobRequest {
 /**
  * @public
  */
-export enum DeploymentJobErrorCode {
-  BadLambdaAssociated = "BadLambdaAssociated",
-  BadPermissionError = "BadPermissionError",
-  DeploymentFleetDoesNotExist = "DeploymentFleetDoesNotExist",
-  DownloadConditionFailed = "DownloadConditionFailed",
-  EnvironmentSetupError = "EnvironmentSetupError",
-  EtagMismatch = "EtagMismatch",
-  ExtractingBundleFailure = "ExtractingBundleFailure",
-  FailureThresholdBreached = "FailureThresholdBreached",
-  FleetDeploymentTimeout = "FleetDeploymentTimeout",
-  GreengrassDeploymentFailed = "GreengrassDeploymentFailed",
-  GreengrassGroupVersionDoesNotExist = "GreengrassGroupVersionDoesNotExist",
-  InternalServerError = "InternalServerError",
-  InvalidGreengrassGroup = "InvalidGreengrassGroup",
-  LambdaDeleted = "LambdaDeleted",
-  MissingRobotApplicationArchitecture = "MissingRobotApplicationArchitecture",
-  MissingRobotArchitecture = "MissingRobotArchitecture",
-  MissingRobotDeploymentResource = "MissingRobotDeploymentResource",
-  PostLaunchFileFailure = "PostLaunchFileFailure",
-  PreLaunchFileFailure = "PreLaunchFileFailure",
-  ResourceNotFound = "ResourceNotFound",
-  RobotAgentConnectionTimeout = "RobotAgentConnectionTimeout",
-  RobotApplicationDoesNotExist = "RobotApplicationDoesNotExist",
-  RobotDeploymentAborted = "RobotDeploymentAborted",
-  RobotDeploymentNoResponse = "RobotDeploymentNoResponse",
-}
+export const DeploymentJobErrorCode = {
+  BadLambdaAssociated: "BadLambdaAssociated",
+  BadPermissionError: "BadPermissionError",
+  DeploymentFleetDoesNotExist: "DeploymentFleetDoesNotExist",
+  DownloadConditionFailed: "DownloadConditionFailed",
+  EnvironmentSetupError: "EnvironmentSetupError",
+  EtagMismatch: "EtagMismatch",
+  ExtractingBundleFailure: "ExtractingBundleFailure",
+  FailureThresholdBreached: "FailureThresholdBreached",
+  FleetDeploymentTimeout: "FleetDeploymentTimeout",
+  GreengrassDeploymentFailed: "GreengrassDeploymentFailed",
+  GreengrassGroupVersionDoesNotExist: "GreengrassGroupVersionDoesNotExist",
+  InternalServerError: "InternalServerError",
+  InvalidGreengrassGroup: "InvalidGreengrassGroup",
+  LambdaDeleted: "LambdaDeleted",
+  MissingRobotApplicationArchitecture: "MissingRobotApplicationArchitecture",
+  MissingRobotArchitecture: "MissingRobotArchitecture",
+  MissingRobotDeploymentResource: "MissingRobotDeploymentResource",
+  PostLaunchFileFailure: "PostLaunchFileFailure",
+  PreLaunchFileFailure: "PreLaunchFileFailure",
+  ResourceNotFound: "ResourceNotFound",
+  RobotAgentConnectionTimeout: "RobotAgentConnectionTimeout",
+  RobotApplicationDoesNotExist: "RobotApplicationDoesNotExist",
+  RobotDeploymentAborted: "RobotDeploymentAborted",
+  RobotDeploymentNoResponse: "RobotDeploymentNoResponse",
+};
 
 /**
  * @public
  */
-export enum DeploymentStatus {
-  Canceled = "Canceled",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Pending = "Pending",
-  Preparing = "Preparing",
-  Succeeded = "Succeeded",
-}
+export const DeploymentStatus = {
+  Canceled: "Canceled",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Pending: "Pending",
+  Preparing: "Preparing",
+  Succeeded: "Succeeded",
+};
 
 /**
  * @public
@@ -1145,7 +1145,7 @@ export interface CreateDeploymentJobResponse {
   /**
    * <p>The status of the deployment job.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>The deployment application configuration.</p>
@@ -1220,7 +1220,7 @@ export interface CreateDeploymentJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: DeploymentJobErrorCode | string;
+  failureCode?: keyof typeof DeploymentJobErrorCode | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the fleet was created.</p>
@@ -1332,7 +1332,7 @@ export interface CreateRobotRequest {
   /**
    * <p>The target architecture of the robot.</p>
    */
-  architecture: Architecture | string | undefined;
+  architecture: keyof typeof Architecture | string | undefined;
 
   /**
    * <p>The Greengrass group id.</p>
@@ -1372,7 +1372,7 @@ export interface CreateRobotResponse {
   /**
    * <p>The target architecture of the robot.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: keyof typeof Architecture | string;
 
   /**
    * <p>The list of all tags added to the robot.</p>
@@ -1415,21 +1415,21 @@ export interface Environment {
 /**
  * @public
  */
-export enum RobotSoftwareSuiteType {
-  General = "General",
-  ROS = "ROS",
-  ROS2 = "ROS2",
-}
+export const RobotSoftwareSuiteType = {
+  General: "General",
+  ROS: "ROS",
+  ROS2: "ROS2",
+};
 
 /**
  * @public
  */
-export enum RobotSoftwareSuiteVersionType {
-  Dashing = "Dashing",
-  Foxy = "Foxy",
-  Kinetic = "Kinetic",
-  Melodic = "Melodic",
-}
+export const RobotSoftwareSuiteVersionType = {
+  Dashing: "Dashing",
+  Foxy: "Foxy",
+  Kinetic: "Kinetic",
+  Melodic: "Melodic",
+};
 
 /**
  * @public
@@ -1439,12 +1439,12 @@ export interface RobotSoftwareSuite {
   /**
    * <p>The name of the robot software suite (ROS distribution).</p>
    */
-  name?: RobotSoftwareSuiteType | string;
+  name?: keyof typeof RobotSoftwareSuiteType | string;
 
   /**
    * <p>The version of the robot software suite (ROS distribution).</p>
    */
-  version?: RobotSoftwareSuiteVersionType | string;
+  version?: keyof typeof RobotSoftwareSuiteVersionType | string;
 }
 
 /**
@@ -1465,7 +1465,7 @@ export interface SourceConfig {
   /**
    * <p>The target processor architecture for the application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: keyof typeof Architecture | string;
 }
 
 /**
@@ -1523,7 +1523,7 @@ export interface Source {
   /**
    * <p>The taget processor architecture for the application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: keyof typeof Architecture | string;
 }
 
 /**
@@ -1655,9 +1655,9 @@ export interface CreateRobotApplicationVersionResponse {
 /**
  * @public
  */
-export enum RenderingEngineType {
-  OGRE = "OGRE",
-}
+export const RenderingEngineType = {
+  OGRE: "OGRE",
+};
 
 /**
  * @public
@@ -1667,7 +1667,7 @@ export interface RenderingEngine {
   /**
    * <p>The name of the rendering engine.</p>
    */
-  name?: RenderingEngineType | string;
+  name?: keyof typeof RenderingEngineType | string;
 
   /**
    * <p>The version of the rendering engine.</p>
@@ -1678,11 +1678,11 @@ export interface RenderingEngine {
 /**
  * @public
  */
-export enum SimulationSoftwareSuiteType {
-  Gazebo = "Gazebo",
-  RosbagPlay = "RosbagPlay",
-  SimulationRuntime = "SimulationRuntime",
-}
+export const SimulationSoftwareSuiteType = {
+  Gazebo: "Gazebo",
+  RosbagPlay: "RosbagPlay",
+  SimulationRuntime: "SimulationRuntime",
+};
 
 /**
  * @public
@@ -1692,7 +1692,7 @@ export interface SimulationSoftwareSuite {
   /**
    * <p>The name of the simulation software suite.</p>
    */
-  name?: SimulationSoftwareSuiteType | string;
+  name?: keyof typeof SimulationSoftwareSuiteType | string;
 
   /**
    * <p>The version of the simulation software suite.</p>
@@ -1915,7 +1915,7 @@ export interface DataSourceConfig {
    *          an Amazon S3 prefix, or a file.</p>
    *          <p>If you don't specify a field, the default value is <code>File</code>.</p>
    */
-  type?: DataSourceType | string;
+  type?: keyof typeof DataSourceType | string;
 
   /**
    * <p>The location where your files are mounted in the container image.</p>
@@ -2002,7 +2002,7 @@ export interface CreateSimulationJobRequest {
    *             </dd>
    *          </dl>
    */
-  failureBehavior?: FailureBehavior | string;
+  failureBehavior?: keyof typeof FailureBehavior | string;
 
   /**
    * <p>The robot application to use in the simulation job.</p>
@@ -2055,7 +2055,7 @@ export interface CreateSimulationJobResponse {
   /**
    * <p>The status of the simulation job.</p>
    */
-  status?: SimulationJobStatus | string;
+  status?: keyof typeof SimulationJobStatus | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the simulation job was last
@@ -2072,7 +2072,7 @@ export interface CreateSimulationJobResponse {
   /**
    * <p>the failure behavior for the simulation job.</p>
    */
-  failureBehavior?: FailureBehavior | string;
+  failureBehavior?: keyof typeof FailureBehavior | string;
 
   /**
    * <p>The failure code of the simulation job if it failed:</p>
@@ -2138,7 +2138,7 @@ export interface CreateSimulationJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: SimulationJobErrorCode | string;
+  failureCode?: keyof typeof SimulationJobErrorCode | string;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2265,7 +2265,7 @@ export interface SimulationJobRequest {
    *             </dd>
    *          </dl>
    */
-  failureBehavior?: FailureBehavior | string;
+  failureBehavior?: keyof typeof FailureBehavior | string;
 
   /**
    * <p>A Boolean indicating whether to use default applications in the simulation job. Default
@@ -2348,26 +2348,26 @@ export interface CreateWorldExportJobRequest {
 /**
  * @public
  */
-export enum WorldExportJobErrorCode {
-  AccessDenied = "AccessDenied",
-  InternalServiceError = "InternalServiceError",
-  InvalidInput = "InvalidInput",
-  LimitExceeded = "LimitExceeded",
-  RequestThrottled = "RequestThrottled",
-  ResourceNotFound = "ResourceNotFound",
-}
+export const WorldExportJobErrorCode = {
+  AccessDenied: "AccessDenied",
+  InternalServiceError: "InternalServiceError",
+  InvalidInput: "InvalidInput",
+  LimitExceeded: "LimitExceeded",
+  RequestThrottled: "RequestThrottled",
+  ResourceNotFound: "ResourceNotFound",
+};
 
 /**
  * @public
  */
-export enum WorldExportJobStatus {
-  Canceled = "Canceled",
-  Canceling = "Canceling",
-  Completed = "Completed",
-  Failed = "Failed",
-  Pending = "Pending",
-  Running = "Running",
-}
+export const WorldExportJobStatus = {
+  Canceled: "Canceled",
+  Canceling: "Canceling",
+  Completed: "Completed",
+  Failed: "Failed",
+  Pending: "Pending",
+  Running: "Running",
+};
 
 /**
  * @public
@@ -2408,7 +2408,7 @@ export interface CreateWorldExportJobResponse {
    *             </dd>
    *          </dl>
    */
-  status?: WorldExportJobStatus | string;
+  status?: keyof typeof WorldExportJobStatus | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the world export job was created.</p>
@@ -2447,7 +2447,7 @@ export interface CreateWorldExportJobResponse {
    *          </dl>
    *          <p>For more information about troubleshooting WorldForge, see <a href="https://docs.aws.amazon.com/robomaker/latest/dg/troubleshooting-worldforge.html">Troubleshooting Simulation WorldForge</a>. </p>
    */
-  failureCode?: WorldExportJobErrorCode | string;
+  failureCode?: keyof typeof WorldExportJobErrorCode | string;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2532,27 +2532,27 @@ export interface CreateWorldGenerationJobRequest {
 /**
  * @public
  */
-export enum WorldGenerationJobErrorCode {
-  AllWorldGenerationFailed = "AllWorldGenerationFailed",
-  InternalServiceError = "InternalServiceError",
-  InvalidInput = "InvalidInput",
-  LimitExceeded = "LimitExceeded",
-  RequestThrottled = "RequestThrottled",
-  ResourceNotFound = "ResourceNotFound",
-}
+export const WorldGenerationJobErrorCode = {
+  AllWorldGenerationFailed: "AllWorldGenerationFailed",
+  InternalServiceError: "InternalServiceError",
+  InvalidInput: "InvalidInput",
+  LimitExceeded: "LimitExceeded",
+  RequestThrottled: "RequestThrottled",
+  ResourceNotFound: "ResourceNotFound",
+};
 
 /**
  * @public
  */
-export enum WorldGenerationJobStatus {
-  Canceled = "Canceled",
-  Canceling = "Canceling",
-  Completed = "Completed",
-  Failed = "Failed",
-  PartialFailed = "PartialFailed",
-  Pending = "Pending",
-  Running = "Running",
-}
+export const WorldGenerationJobStatus = {
+  Canceled: "Canceled",
+  Canceling: "Canceling",
+  Completed: "Completed",
+  Failed: "Failed",
+  PartialFailed: "PartialFailed",
+  Pending: "Pending",
+  Running: "Running",
+};
 
 /**
  * @public
@@ -2597,7 +2597,7 @@ export interface CreateWorldGenerationJobResponse {
    *             </dd>
    *          </dl>
    */
-  status?: WorldGenerationJobStatus | string;
+  status?: keyof typeof WorldGenerationJobStatus | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the world generator job was
@@ -2631,7 +2631,7 @@ export interface CreateWorldGenerationJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: WorldGenerationJobErrorCode | string;
+  failureCode?: keyof typeof WorldGenerationJobErrorCode | string;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2845,7 +2845,7 @@ export interface DeploymentJob {
   /**
    * <p>The status of the deployment job.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>The deployment application configuration.</p>
@@ -2865,7 +2865,7 @@ export interface DeploymentJob {
   /**
    * <p>The deployment job failure code.</p>
    */
-  failureCode?: DeploymentJobErrorCode | string;
+  failureCode?: keyof typeof DeploymentJobErrorCode | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the deployment job was created.</p>
@@ -2916,15 +2916,15 @@ export interface DescribeDeploymentJobRequest {
 /**
  * @public
  */
-export enum RobotDeploymentStep {
-  DownloadingExtractingStep = "DownloadingExtracting",
-  ExecutingDownloadCondition = "ExecutingDownloadCondition",
-  FinishedStep = "Finished",
-  LaunchingStep = "Launching",
-  PostLaunchStep = "ExecutingPostLaunch",
-  PreLaunchStep = "ExecutingPreLaunch",
-  ValidatingStep = "Validating",
-}
+export const RobotDeploymentStep = {
+  DownloadingExtractingStep: "DownloadingExtracting",
+  ExecutingDownloadCondition: "ExecutingDownloadCondition",
+  FinishedStep: "Finished",
+  LaunchingStep: "Launching",
+  PostLaunchStep: "ExecutingPostLaunch",
+  PreLaunchStep: "ExecutingPreLaunch",
+  ValidatingStep: "Validating",
+};
 
 /**
  * @public
@@ -2960,7 +2960,7 @@ export interface ProgressDetail {
    *             </dd>
    *          </dl>
    */
-  currentProgress?: RobotDeploymentStep | string;
+  currentProgress?: keyof typeof RobotDeploymentStep | string;
 
   /**
    * <p>Precentage of the step that is done. This currently only applies to the
@@ -2985,15 +2985,15 @@ export interface ProgressDetail {
 /**
  * @public
  */
-export enum RobotStatus {
-  Available = "Available",
-  Deploying = "Deploying",
-  Failed = "Failed",
-  InSync = "InSync",
-  NoResponse = "NoResponse",
-  PendingNewDeployment = "PendingNewDeployment",
-  Registered = "Registered",
-}
+export const RobotStatus = {
+  Available: "Available",
+  Deploying: "Deploying",
+  Failed: "Failed",
+  InSync: "InSync",
+  NoResponse: "NoResponse",
+  PendingNewDeployment: "PendingNewDeployment",
+  Registered: "Registered",
+};
 
 /**
  * @public
@@ -3018,7 +3018,7 @@ export interface RobotDeployment {
   /**
    * <p>The status of the robot deployment.</p>
    */
-  status?: RobotStatus | string;
+  status?: keyof typeof RobotStatus | string;
 
   /**
    * <p>Information about how the deployment is progressing.</p>
@@ -3033,7 +3033,7 @@ export interface RobotDeployment {
   /**
    * <p>The robot deployment failure code.</p>
    */
-  failureCode?: DeploymentJobErrorCode | string;
+  failureCode?: keyof typeof DeploymentJobErrorCode | string;
 }
 
 /**
@@ -3053,7 +3053,7 @@ export interface DescribeDeploymentJobResponse {
   /**
    * <p>The status of the deployment job.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>The deployment configuration.</p>
@@ -3073,7 +3073,7 @@ export interface DescribeDeploymentJobResponse {
   /**
    * <p>The deployment job failure code.</p>
    */
-  failureCode?: DeploymentJobErrorCode | string;
+  failureCode?: keyof typeof DeploymentJobErrorCode | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the deployment job was created.</p>
@@ -3124,7 +3124,7 @@ export interface Robot {
   /**
    * <p>The status of the robot.</p>
    */
-  status?: RobotStatus | string;
+  status?: keyof typeof RobotStatus | string;
 
   /**
    * <p>The Greengrass group associated with the robot.</p>
@@ -3139,7 +3139,7 @@ export interface Robot {
   /**
    * <p>The architecture of the robot.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: keyof typeof Architecture | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the last deployment job.</p>
@@ -3179,7 +3179,7 @@ export interface DescribeFleetResponse {
   /**
    * <p>The status of the last deployment.</p>
    */
-  lastDeploymentStatus?: DeploymentStatus | string;
+  lastDeploymentStatus?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the last deployment job.</p>
@@ -3229,7 +3229,7 @@ export interface DescribeRobotResponse {
   /**
    * <p>The status of the fleet.</p>
    */
-  status?: RobotStatus | string;
+  status?: keyof typeof RobotStatus | string;
 
   /**
    * <p>The Greengrass group id.</p>
@@ -3244,7 +3244,7 @@ export interface DescribeRobotResponse {
   /**
    * <p>The target architecture of the robot application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: keyof typeof Architecture | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the last deployment job.</p>
@@ -3444,7 +3444,7 @@ export interface DescribeSimulationJobResponse {
   /**
    * <p>The status of the simulation job.</p>
    */
-  status?: SimulationJobStatus | string;
+  status?: keyof typeof SimulationJobStatus | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the simulation job was last
@@ -3461,7 +3461,7 @@ export interface DescribeSimulationJobResponse {
   /**
    * <p>The failure behavior for the simulation job.</p>
    */
-  failureBehavior?: FailureBehavior | string;
+  failureBehavior?: keyof typeof FailureBehavior | string;
 
   /**
    * <p>The failure code of the simulation job if it failed:</p>
@@ -3527,7 +3527,7 @@ export interface DescribeSimulationJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: SimulationJobErrorCode | string;
+  failureCode?: keyof typeof SimulationJobErrorCode | string;
 
   /**
    * <p>Details about why the simulation job failed. For more information about troubleshooting,
@@ -3638,7 +3638,7 @@ export interface SimulationJobSummary {
   /**
    * <p>The status of the simulation job.</p>
    */
-  status?: SimulationJobStatus | string;
+  status?: keyof typeof SimulationJobStatus | string;
 
   /**
    * <p>A list of simulation job simulation application names.</p>
@@ -3658,7 +3658,7 @@ export interface SimulationJobSummary {
   /**
    * <p>The compute type for the simulation job summary.</p>
    */
-  computeType?: ComputeType | string;
+  computeType?: keyof typeof ComputeType | string;
 }
 
 /**
@@ -3679,7 +3679,7 @@ export interface FailedCreateSimulationJobRequest {
   /**
    * <p>The failure code.</p>
    */
-  failureCode?: SimulationJobErrorCode | string;
+  failureCode?: keyof typeof SimulationJobErrorCode | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the simulation job batch failed.</p>
@@ -3690,24 +3690,24 @@ export interface FailedCreateSimulationJobRequest {
 /**
  * @public
  */
-export enum SimulationJobBatchErrorCode {
-  InternalServiceError = "InternalServiceError",
-}
+export const SimulationJobBatchErrorCode = {
+  InternalServiceError: "InternalServiceError",
+};
 
 /**
  * @public
  */
-export enum SimulationJobBatchStatus {
-  Canceled = "Canceled",
-  Canceling = "Canceling",
-  Completed = "Completed",
-  Completing = "Completing",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Pending = "Pending",
-  TimedOut = "TimedOut",
-  TimingOut = "TimingOut",
-}
+export const SimulationJobBatchStatus = {
+  Canceled: "Canceled",
+  Canceling: "Canceling",
+  Completed: "Completed",
+  Completing: "Completing",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Pending: "Pending",
+  TimedOut: "TimedOut",
+  TimingOut: "TimingOut",
+};
 
 /**
  * @public
@@ -3770,7 +3770,7 @@ export interface DescribeSimulationJobBatchResponse {
    *             </dd>
    *          </dl>
    */
-  status?: SimulationJobBatchStatus | string;
+  status?: keyof typeof SimulationJobBatchStatus | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the simulation job batch was last
@@ -3798,7 +3798,7 @@ export interface DescribeSimulationJobBatchResponse {
   /**
    * <p>The failure code of the simulation job batch.</p>
    */
-  failureCode?: SimulationJobBatchErrorCode | string;
+  failureCode?: keyof typeof SimulationJobBatchErrorCode | string;
 
   /**
    * <p>The reason the simulation job batch failed.</p>
@@ -3924,7 +3924,7 @@ export interface DescribeWorldExportJobResponse {
    *             </dd>
    *          </dl>
    */
-  status?: WorldExportJobStatus | string;
+  status?: keyof typeof WorldExportJobStatus | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the world export job was created.</p>
@@ -3957,7 +3957,7 @@ export interface DescribeWorldExportJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: WorldExportJobErrorCode | string;
+  failureCode?: keyof typeof WorldExportJobErrorCode | string;
 
   /**
    * <p>The reason why the world export job failed.</p>
@@ -4034,7 +4034,7 @@ export interface WorldFailure {
    *             </dd>
    *          </dl>
    */
-  failureCode?: WorldGenerationJobErrorCode | string;
+  failureCode?: keyof typeof WorldGenerationJobErrorCode | string;
 
   /**
    * <p>The sample reason why the world failed. World errors are aggregated. A sample is used as
@@ -4128,7 +4128,7 @@ export interface DescribeWorldGenerationJobResponse {
    *             </dd>
    *          </dl>
    */
-  status?: WorldGenerationJobStatus | string;
+  status?: keyof typeof WorldGenerationJobStatus | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the world generation job was
@@ -4162,7 +4162,7 @@ export interface DescribeWorldGenerationJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: WorldGenerationJobErrorCode | string;
+  failureCode?: keyof typeof WorldGenerationJobErrorCode | string;
 
   /**
    * <p>The reason why the world generation job failed.</p>
@@ -4295,7 +4295,7 @@ export interface Fleet {
   /**
    * <p>The status of the last fleet deployment.</p>
    */
-  lastDeploymentStatus?: DeploymentStatus | string;
+  lastDeploymentStatus?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the last deployment job.</p>
@@ -4777,7 +4777,7 @@ export interface SimulationJobBatchSummary {
    *             </dd>
    *          </dl>
    */
-  status?: SimulationJobBatchStatus | string;
+  status?: keyof typeof SimulationJobBatchStatus | string;
 
   /**
    * <p>The number of failed simulation job requests.</p>
@@ -4959,7 +4959,7 @@ export interface WorldExportJobSummary {
    *             </dd>
    *          </dl>
    */
-  status?: WorldExportJobStatus | string;
+  status?: keyof typeof WorldExportJobStatus | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the world export job was created.</p>
@@ -5082,7 +5082,7 @@ export interface WorldGenerationJobSummary {
    *             </dd>
    *          </dl>
    */
-  status?: WorldGenerationJobStatus | string;
+  status?: keyof typeof WorldGenerationJobStatus | string;
 
   /**
    * <p>Information about the world count.</p>
@@ -5402,7 +5402,7 @@ export interface StartSimulationJobBatchResponse {
    *             </dd>
    *          </dl>
    */
-  status?: SimulationJobBatchStatus | string;
+  status?: keyof typeof SimulationJobBatchStatus | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the simulation job batch was
@@ -5424,7 +5424,7 @@ export interface StartSimulationJobBatchResponse {
   /**
    * <p>The failure code if the simulation job batch failed.</p>
    */
-  failureCode?: SimulationJobBatchErrorCode | string;
+  failureCode?: keyof typeof SimulationJobBatchErrorCode | string;
 
   /**
    * <p>The reason the simulation job batch failed.</p>
@@ -5488,7 +5488,7 @@ export interface SyncDeploymentJobResponse {
   /**
    * <p>The status of the synchronization job.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>Information about the deployment configuration.</p>
@@ -5569,7 +5569,7 @@ export interface SyncDeploymentJobResponse {
    *             </dd>
    *          </dl>
    */
-  failureCode?: DeploymentJobErrorCode | string;
+  failureCode?: keyof typeof DeploymentJobErrorCode | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the fleet was created.</p>

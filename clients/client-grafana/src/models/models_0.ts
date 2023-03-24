@@ -30,16 +30,16 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AccountAccessType {
+export const AccountAccessType = {
   /**
    * Indicates that the customer is using Grafana to monitor resources in their current account.
    */
-  CURRENT_ACCOUNT = "CURRENT_ACCOUNT",
+  CURRENT_ACCOUNT: "CURRENT_ACCOUNT",
   /**
    * Indicates that the customer is using Grafana to monitor resources in organizational units.
    */
-  ORGANIZATION = "ORGANIZATION",
-}
+  ORGANIZATION: "ORGANIZATION",
+};
 
 /**
  * @public
@@ -284,12 +284,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+};
 
 /**
  * @public
@@ -301,7 +301,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason that the operation failed.</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: keyof typeof ValidationExceptionReason | string | undefined;
 
   /**
    * <p>A list of fields that might be associated with the error.</p>
@@ -398,16 +398,16 @@ export interface AssertionAttributes {
 /**
  * @public
  */
-export enum LicenseType {
+export const LicenseType = {
   /**
    * Grafana Enterprise License.
    */
-  ENTERPRISE = "ENTERPRISE",
+  ENTERPRISE: "ENTERPRISE",
   /**
    * Grafana Enterprise Free Trial License.
    */
-  ENTERPRISE_FREE_TRIAL = "ENTERPRISE_FREE_TRIAL",
-}
+  ENTERPRISE_FREE_TRIAL: "ENTERPRISE_FREE_TRIAL",
+};
 
 /**
  * @public
@@ -421,36 +421,36 @@ export interface AssociateLicenseRequest {
   /**
    * <p>The type of license to associate with the workspace.</p>
    */
-  licenseType: LicenseType | string | undefined;
+  licenseType: keyof typeof LicenseType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum AuthenticationProviderTypes {
+export const AuthenticationProviderTypes = {
   /**
    * Indicates that AMG workspace has AWS SSO enabled as its authentication provider.
    */
-  AWS_SSO = "AWS_SSO",
+  AWS_SSO: "AWS_SSO",
   /**
    * Indicates that the AMG workspace has SAML enabled as its authentication provider.
    */
-  SAML = "SAML",
-}
+  SAML: "SAML",
+};
 
 /**
  * @public
  */
-export enum SamlConfigurationStatus {
+export const SamlConfigurationStatus = {
   /**
    * Indicates that SAML on an AMG workspace is enabled and has been configured.
    */
-  CONFIGURED = "CONFIGURED",
+  CONFIGURED: "CONFIGURED",
   /**
    * Indicates that SAML on an AMG workspace is enabled but has not been configured.
    */
-  NOT_CONFIGURED = "NOT_CONFIGURED",
-}
+  NOT_CONFIGURED: "NOT_CONFIGURED",
+};
 
 /**
  * @public
@@ -463,56 +463,56 @@ export interface AuthenticationSummary {
    * <p>Specifies whether the workspace uses SAML, IAM Identity Center, or both methods for
    *             user authentication.</p>
    */
-  providers: (AuthenticationProviderTypes | string)[] | undefined;
+  providers: (keyof typeof AuthenticationProviderTypes | string)[] | undefined;
 
   /**
    * <p>Specifies whether the workplace's user authentication method is fully
    *             configured.</p>
    */
-  samlConfigurationStatus?: SamlConfigurationStatus | string;
+  samlConfigurationStatus?: keyof typeof SamlConfigurationStatus | string;
 }
 
 /**
  * @public
  */
-export enum DataSourceType {
+export const DataSourceType = {
   /**
    * Amazon OpenSearch Service
    */
-  AMAZON_OPENSEARCH_SERVICE = "AMAZON_OPENSEARCH_SERVICE",
+  AMAZON_OPENSEARCH_SERVICE: "AMAZON_OPENSEARCH_SERVICE",
   /**
    * Amazon Athena
    */
-  ATHENA = "ATHENA",
+  ATHENA: "ATHENA",
   /**
    * CloudWatch Logs
    */
-  CLOUDWATCH = "CLOUDWATCH",
+  CLOUDWATCH: "CLOUDWATCH",
   /**
    * Managed Prometheus
    */
-  PROMETHEUS = "PROMETHEUS",
+  PROMETHEUS: "PROMETHEUS",
   /**
    * Redshift
    */
-  REDSHIFT = "REDSHIFT",
+  REDSHIFT: "REDSHIFT",
   /**
    * IoT SiteWise
    */
-  SITEWISE = "SITEWISE",
+  SITEWISE: "SITEWISE",
   /**
    * Timestream
    */
-  TIMESTREAM = "TIMESTREAM",
+  TIMESTREAM: "TIMESTREAM",
   /**
    * IoT TwinMaker
    */
-  TWINMAKER = "TWINMAKER",
+  TWINMAKER: "TWINMAKER",
   /**
    * X-Ray
    */
-  XRAY = "XRAY",
-}
+  XRAY: "XRAY",
+};
 
 /**
  * @public
@@ -561,76 +561,76 @@ export interface NetworkAccessConfiguration {
 /**
  * @public
  */
-export enum NotificationDestinationType {
+export const NotificationDestinationType = {
   /**
    * AWS Simple Notification Service
    */
-  SNS = "SNS",
-}
+  SNS: "SNS",
+};
 
 /**
  * @public
  */
-export enum PermissionType {
+export const PermissionType = {
   /**
    * Customer Managed
    */
-  CUSTOMER_MANAGED = "CUSTOMER_MANAGED",
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
   /**
    * Service Managed
    */
-  SERVICE_MANAGED = "SERVICE_MANAGED",
-}
+  SERVICE_MANAGED: "SERVICE_MANAGED",
+};
 
 /**
  * @public
  */
-export enum WorkspaceStatus {
+export const WorkspaceStatus = {
   /**
    * Workspace is active.
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Workspace is being created.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Workspace creation failed.
    */
-  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_FAILED: "CREATION_FAILED",
   /**
    * Workspace is being deleted.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Workspace deletion failed.
    */
-  DELETION_FAILED = "DELETION_FAILED",
+  DELETION_FAILED: "DELETION_FAILED",
   /**
    * Workspace is in an invalid state, it can only and should be deleted.
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * Failed to remove enterprise license from workspace.
    */
-  LICENSE_REMOVAL_FAILED = "LICENSE_REMOVAL_FAILED",
+  LICENSE_REMOVAL_FAILED: "LICENSE_REMOVAL_FAILED",
   /**
    * Workspace update failed.
    */
-  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
   /**
    * Workspace is being updated.
    */
-  UPDATING = "UPDATING",
+  UPDATING: "UPDATING",
   /**
    * Workspace upgrade failed.
    */
-  UPGRADE_FAILED = "UPGRADE_FAILED",
+  UPGRADE_FAILED: "UPGRADE_FAILED",
   /**
    * Workspace is being upgraded to enterprise.
    */
-  UPGRADING = "UPGRADING",
-}
+  UPGRADING: "UPGRADING",
+};
 
 /**
  * @public
@@ -668,7 +668,7 @@ export interface WorkspaceDescription {
    *                 <code>ORGANIZATION</code>, the <code>workspaceOrganizationalUnits</code> parameter
    *             specifies which organizational units the workspace can access.</p>
    */
-  accountAccessType?: AccountAccessType | string;
+  accountAccessType?: keyof typeof AccountAccessType | string;
 
   /**
    * <p>The date that the workspace was created.</p>
@@ -682,7 +682,7 @@ export interface WorkspaceDescription {
    *          <p>This list is only used when the workspace was created through the Amazon Web Services
    *             console, and the <code>permissionType</code> is <code>SERVICE_MANAGED</code>.</p>
    */
-  dataSources: (DataSourceType | string)[] | undefined;
+  dataSources: (keyof typeof DataSourceType | string)[] | undefined;
 
   /**
    * <p>The user-defined description of the workspace.</p>
@@ -725,7 +725,7 @@ export interface WorkspaceDescription {
    *             create IAM roles and permissions for, to allow Amazon Managed Grafana to use
    *             these channels.</p>
    */
-  notificationDestinations?: (NotificationDestinationType | string)[];
+  notificationDestinations?: (keyof typeof NotificationDestinationType | string)[];
 
   /**
    * <p>Specifies the organizational units that this workspace is allowed to use data sources
@@ -752,7 +752,7 @@ export interface WorkspaceDescription {
    *             channels</a>
    *          </p>
    */
-  permissionType?: PermissionType | string;
+  permissionType?: keyof typeof PermissionType | string;
 
   /**
    * <p>The name of the CloudFormation stack set that is used to generate IAM roles to be used for this workspace.</p>
@@ -762,7 +762,7 @@ export interface WorkspaceDescription {
   /**
    * <p>The current status of the workspace.</p>
    */
-  status: WorkspaceStatus | string | undefined;
+  status: keyof typeof WorkspaceStatus | string | undefined;
 
   /**
    * <p>The IAM role that grants permissions to the Amazon Web Services
@@ -774,7 +774,7 @@ export interface WorkspaceDescription {
    * <p>Specifies whether this workspace has a full Grafana Enterprise license or a free trial
    *             license.</p>
    */
-  licenseType?: LicenseType | string;
+  licenseType?: keyof typeof LicenseType | string;
 
   /**
    * <p>Specifies whether this workspace has already fully used its free trial for Grafana
@@ -964,7 +964,7 @@ export interface SamlAuthentication {
   /**
    * <p>Specifies whether the workspace's SAML configuration is complete.</p>
    */
-  status: SamlConfigurationStatus | string | undefined;
+  status: keyof typeof SamlConfigurationStatus | string | undefined;
 
   /**
    * <p>A structure containing details about how this workspace works with SAML. </p>
@@ -983,7 +983,7 @@ export interface AuthenticationDescription {
    *             authenticate users to use the Grafana console in the Amazon Managed Grafana
    *             workspace.</p>
    */
-  providers: (AuthenticationProviderTypes | string)[] | undefined;
+  providers: (keyof typeof AuthenticationProviderTypes | string)[] | undefined;
 
   /**
    * <p>A structure containing information about how this workspace works with SAML, including
@@ -1024,7 +1024,7 @@ export interface UpdateWorkspaceAuthenticationRequest {
    *             information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html">User authentication in
    *                     Amazon Managed Grafana</a>.</p>
    */
-  authenticationProviders: (AuthenticationProviderTypes | string)[] | undefined;
+  authenticationProviders: (keyof typeof AuthenticationProviderTypes | string)[] | undefined;
 
   /**
    * <p>If the workspace uses SAML, use this structure to map SAML assertion attributes to
@@ -1101,7 +1101,7 @@ export interface DisassociateLicenseRequest {
   /**
    * <p>The type of license to remove from the workspace.</p>
    */
-  licenseType: LicenseType | string | undefined;
+  licenseType: keyof typeof LicenseType | string | undefined;
 }
 
 /**
@@ -1137,16 +1137,16 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
-export enum UserType {
+export const UserType = {
   /**
    * SSO group.
    */
-  SSO_GROUP = "SSO_GROUP",
+  SSO_GROUP: "SSO_GROUP",
   /**
    * SSO user.
    */
-  SSO_USER = "SSO_USER",
-}
+  SSO_USER: "SSO_USER",
+};
 
 /**
  * @public
@@ -1167,7 +1167,7 @@ export interface ListPermissionsRequest {
    * <p>(Optional) If you specify <code>SSO_USER</code>, then only the permissions of IAM Identity Center users are returned. If you specify <code>SSO_GROUP</code>, only the
    *             permissions of IAM Identity Center groups are returned.</p>
    */
-  userType?: UserType | string;
+  userType?: keyof typeof UserType | string;
 
   /**
    * <p>(Optional) Limits the results to only the user that matches this ID.</p>
@@ -1188,20 +1188,20 @@ export interface ListPermissionsRequest {
 /**
  * @public
  */
-export enum Role {
+export const Role = {
   /**
    * Role Admin.
    */
-  ADMIN = "ADMIN",
+  ADMIN: "ADMIN",
   /**
    * Role Editor.
    */
-  EDITOR = "EDITOR",
+  EDITOR: "EDITOR",
   /**
    * Role Viewer.
    */
-  VIEWER = "VIEWER",
-}
+  VIEWER: "VIEWER",
+};
 
 /**
  * @public
@@ -1219,7 +1219,7 @@ export interface User {
   /**
    * <p>Specifies whether this is a single user or a group.</p>
    */
-  type: UserType | string | undefined;
+  type: keyof typeof UserType | string | undefined;
 }
 
 /**
@@ -1237,7 +1237,7 @@ export interface PermissionEntry {
    * <p>Specifies whether the user or group has the <code>Admin</code>, <code>Editor</code>,
    *             or <code>Viewer</code> role.</p>
    */
-  role: Role | string | undefined;
+  role: keyof typeof Role | string | undefined;
 }
 
 /**
@@ -1259,16 +1259,16 @@ export interface ListPermissionsResponse {
 /**
  * @public
  */
-export enum UpdateAction {
+export const UpdateAction = {
   /**
    * Add permissions.
    */
-  ADD = "ADD",
+  ADD: "ADD",
   /**
    * Revoke permissions.
    */
-  REVOKE = "REVOKE",
-}
+  REVOKE: "REVOKE",
+};
 
 /**
  * @public
@@ -1278,13 +1278,13 @@ export interface UpdateInstruction {
   /**
    * <p>Specifies whether this update is to add or revoke role permissions.</p>
    */
-  action: UpdateAction | string | undefined;
+  action: keyof typeof UpdateAction | string | undefined;
 
   /**
    * <p>The role to add or revoke for the user or the group specified in
    *             <code>users</code>.</p>
    */
-  role: Role | string | undefined;
+  role: keyof typeof Role | string | undefined;
 
   /**
    * <p>A structure that specifies the user or group to add or revoke the role for.</p>
@@ -1391,7 +1391,7 @@ export interface CreateWorkspaceRequest {
    *                 <code>ORGANIZATION</code>, you must specify which organizational units the workspace
    *             can access in the <code>workspaceOrganizationalUnits</code> parameter.</p>
    */
-  accountAccessType: AccountAccessType | string | undefined;
+  accountAccessType: keyof typeof AccountAccessType | string | undefined;
 
   /**
    * <p>A unique, case-sensitive, user-provided identifier to ensure the idempotency of the
@@ -1423,7 +1423,7 @@ export interface CreateWorkspaceRequest {
    *                 permissions and policies for Amazon Web Services data sources and notification
    *                 channels</a>.</p>
    */
-  permissionType: PermissionType | string | undefined;
+  permissionType: keyof typeof PermissionType | string | undefined;
 
   /**
    * <p>The name of the CloudFormation stack set to use to generate IAM
@@ -1434,7 +1434,7 @@ export interface CreateWorkspaceRequest {
   /**
    * <p>This parameter is for internal use only, and should not be used.</p>
    */
-  workspaceDataSources?: (DataSourceType | string)[];
+  workspaceDataSources?: (keyof typeof DataSourceType | string)[];
 
   /**
    * <p>A description for the workspace. This is used only to help you identify this
@@ -1455,7 +1455,7 @@ export interface CreateWorkspaceRequest {
    *                 IAM roles and permissions that allow Amazon Managed Grafana to use these
    *             channels.</p>
    */
-  workspaceNotificationDestinations?: (NotificationDestinationType | string)[];
+  workspaceNotificationDestinations?: (keyof typeof NotificationDestinationType | string)[];
 
   /**
    * <p>Specifies the organizational units that this workspace is allowed to use data sources
@@ -1476,7 +1476,7 @@ export interface CreateWorkspaceRequest {
    *             information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html">User authentication in
    *                     Amazon Managed Grafana</a>.</p>
    */
-  authenticationProviders: (AuthenticationProviderTypes | string)[] | undefined;
+  authenticationProviders: (keyof typeof AuthenticationProviderTypes | string)[] | undefined;
 
   /**
    * <p>The list of tags associated with the workspace.</p>
@@ -1619,12 +1619,12 @@ export interface WorkspaceSummary {
    *             create IAM roles and permissions for, which allows Amazon Managed Grafana to
    *             use these channels.</p>
    */
-  notificationDestinations?: (NotificationDestinationType | string)[];
+  notificationDestinations?: (keyof typeof NotificationDestinationType | string)[];
 
   /**
    * <p>The current status of the workspace.</p>
    */
-  status: WorkspaceStatus | string | undefined;
+  status: keyof typeof WorkspaceStatus | string | undefined;
 
   /**
    * <p>A structure containing information about the authentication methods used in the
@@ -1665,7 +1665,7 @@ export interface UpdateWorkspaceRequest {
    *                 <code>ORGANIZATION</code>, you must specify which organizational units the workspace
    *             can access in the <code>workspaceOrganizationalUnits</code> parameter.</p>
    */
-  accountAccessType?: AccountAccessType | string;
+  accountAccessType?: keyof typeof AccountAccessType | string;
 
   /**
    * <p>The name of an IAM role that already exists to use to access resources
@@ -1697,7 +1697,7 @@ export interface UpdateWorkspaceRequest {
    *                 information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html">Managing permissions for data sources and notification channels</a>.</p>
    *          </note>
    */
-  permissionType?: PermissionType | string;
+  permissionType?: keyof typeof PermissionType | string;
 
   /**
    * <p>The name of the CloudFormation stack set to use to generate IAM
@@ -1708,7 +1708,7 @@ export interface UpdateWorkspaceRequest {
   /**
    * <p>This parameter is for internal use only, and should not be used.</p>
    */
-  workspaceDataSources?: (DataSourceType | string)[];
+  workspaceDataSources?: (keyof typeof DataSourceType | string)[];
 
   /**
    * <p>A description for the workspace. This is used only to help you identify this
@@ -1732,7 +1732,7 @@ export interface UpdateWorkspaceRequest {
    *                 IAM roles and permissions that allow Amazon Managed Grafana to use these
    *             channels.</p>
    */
-  workspaceNotificationDestinations?: (NotificationDestinationType | string)[];
+  workspaceNotificationDestinations?: (keyof typeof NotificationDestinationType | string)[];
 
   /**
    * <p>Specifies the organizational units that this workspace is allowed to use data sources

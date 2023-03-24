@@ -2766,7 +2766,7 @@ const serializeAws_restJson1KmsGrantConstraints = (input: KmsGrantConstraints, c
 };
 
 const serializeAws_restJson1KmsGrantOperationsList = (
-  input: (KmsGrantOperation | string)[],
+  input: (keyof typeof KmsGrantOperation | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3653,7 +3653,7 @@ const deserializeAws_restJson1KmsGrantConstraints = (output: any, context: __Ser
 const deserializeAws_restJson1KmsGrantOperationsList = (
   output: any,
   context: __SerdeContext
-): (KmsGrantOperation | string)[] => {
+): (keyof typeof KmsGrantOperation | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

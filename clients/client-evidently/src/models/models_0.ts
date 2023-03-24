@@ -295,12 +295,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+};
 
 /**
  * @public
@@ -312,7 +312,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>A reason for the error.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>The parameter that caused the exception.</p>
@@ -337,10 +337,10 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum ChangeDirectionEnum {
-  DECREASE = "DECREASE",
-  INCREASE = "INCREASE",
-}
+export const ChangeDirectionEnum = {
+  DECREASE: "DECREASE",
+  INCREASE: "INCREASE",
+};
 
 /**
  * @public
@@ -454,7 +454,7 @@ export interface MetricGoalConfig {
    *             <code>DECREASE</code> means that a variation with a lower number for this metric is performing
    *        better.</p>
    */
-  desiredChange?: ChangeDirectionEnum | string;
+  desiredChange?: keyof typeof ChangeDirectionEnum | string;
 }
 
 /**
@@ -646,7 +646,7 @@ export interface MetricGoal {
    *             <code>DECREASE</code> means that a variation with a lower number for this metric is performing
    *      better.</p>
    */
-  desiredChange?: ChangeDirectionEnum | string;
+  desiredChange?: keyof typeof ChangeDirectionEnum | string;
 }
 
 /**
@@ -684,13 +684,13 @@ export interface ExperimentSchedule {
 /**
  * @public
  */
-export enum ExperimentStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  RUNNING = "RUNNING",
-  UPDATING = "UPDATING",
-}
+export const ExperimentStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -718,9 +718,9 @@ export interface Treatment {
 /**
  * @public
  */
-export enum ExperimentType {
-  ONLINE_AB_EXPERIMENT = "aws.evidently.onlineab",
-}
+export const ExperimentType = {
+  ONLINE_AB_EXPERIMENT: "aws.evidently.onlineab",
+};
 
 /**
  * @public
@@ -745,7 +745,7 @@ export interface Experiment {
   /**
    * <p>The current state of the experiment.</p>
    */
-  status: ExperimentStatus | string | undefined;
+  status: keyof typeof ExperimentStatus | string | undefined;
 
   /**
    * <p>If the experiment was stopped, this is the string that was entered by the person who
@@ -813,7 +813,7 @@ export interface Experiment {
   /**
    * <p>The type of this experiment. Currently, this value must be <code>aws.experiment.onlineab</code>.</p>
    */
-  type: ExperimentType | string | undefined;
+  type: keyof typeof ExperimentType | string | undefined;
 
   /**
    * <p>A structure that contains the configuration of which variation to use as the "control"
@@ -886,10 +886,10 @@ export class ServiceQuotaExceededException extends __BaseException {
 /**
  * @public
  */
-export enum FeatureEvaluationStrategy {
-  ALL_RULES = "ALL_RULES",
-  DEFAULT_VARIATION = "DEFAULT_VARIATION",
-}
+export const FeatureEvaluationStrategy = {
+  ALL_RULES: "ALL_RULES",
+  DEFAULT_VARIATION: "DEFAULT_VARIATION",
+};
 
 /**
  * @public
@@ -926,7 +926,7 @@ export interface CreateFeatureRequest {
    *       ongoing launches or experiments. Specify <code>DEFAULT_VARIATION</code> to serve the default
    *       variation to all users instead.</p>
    */
-  evaluationStrategy?: FeatureEvaluationStrategy | string;
+  evaluationStrategy?: keyof typeof FeatureEvaluationStrategy | string;
 
   /**
    * <p>An optional description of the feature.</p>
@@ -991,20 +991,20 @@ export interface EvaluationRule {
 /**
  * @public
  */
-export enum FeatureStatus {
-  AVAILABLE = "AVAILABLE",
-  UPDATING = "UPDATING",
-}
+export const FeatureStatus = {
+  AVAILABLE: "AVAILABLE",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum VariationValueType {
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  LONG = "LONG",
-  STRING = "STRING",
-}
+export const VariationValueType = {
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  LONG: "LONG",
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -1045,7 +1045,7 @@ export interface Feature {
   /**
    * <p>The current state of the feature.</p>
    */
-  status: FeatureStatus | string | undefined;
+  status: keyof typeof FeatureStatus | string | undefined;
 
   /**
    * <p>The date and time that the feature is created.</p>
@@ -1067,14 +1067,14 @@ export interface Feature {
    *       any ongoing launches or experiments is being used. If this is <code>DEFAULT_VARIATION</code>,
    *       the default variation is being served to all users.</p>
    */
-  evaluationStrategy: FeatureEvaluationStrategy | string | undefined;
+  evaluationStrategy: keyof typeof FeatureEvaluationStrategy | string | undefined;
 
   /**
    * <p>Defines the type of value used to define the different feature variations.
    *       For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-variationtypes.html">Variation types</a>
    *          </p>
    */
-  valueType: VariationValueType | string | undefined;
+  valueType: keyof typeof VariationValueType | string | undefined;
 
   /**
    * <p>An array of structures that contain the configuration of the feature's different variations.</p>
@@ -1392,20 +1392,20 @@ export interface ScheduledSplitsLaunchDefinition {
 /**
  * @public
  */
-export enum LaunchStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  RUNNING = "RUNNING",
-  UPDATING = "UPDATING",
-}
+export const LaunchStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum LaunchType {
-  SCHEDULED_SPLITS_LAUNCH = "aws.evidently.splits",
-}
+export const LaunchType = {
+  SCHEDULED_SPLITS_LAUNCH: "aws.evidently.splits",
+};
 
 /**
  * @public
@@ -1430,7 +1430,7 @@ export interface Launch {
   /**
    * <p>The current state of the launch.</p>
    */
-  status: LaunchStatus | string | undefined;
+  status: keyof typeof LaunchStatus | string | undefined;
 
   /**
    * <p>If the launch was stopped, this is the string that was entered by the person who
@@ -1478,7 +1478,7 @@ export interface Launch {
   /**
    * <p>The type of launch.</p>
    */
-  type: LaunchType | string | undefined;
+  type: keyof typeof LaunchType | string | undefined;
 
   /**
    * <p>An array of structures that define the traffic allocation percentages among the feature
@@ -1672,10 +1672,10 @@ export interface ProjectDataDelivery {
 /**
  * @public
  */
-export enum ProjectStatus {
-  AVAILABLE = "AVAILABLE",
-  UPDATING = "UPDATING",
-}
+export const ProjectStatus = {
+  AVAILABLE: "AVAILABLE",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1696,7 +1696,7 @@ export interface Project {
   /**
    * <p>The current state of the project.</p>
    */
-  status: ProjectStatus | string | undefined;
+  status: keyof typeof ProjectStatus | string | undefined;
 
   /**
    * <p>The user-entered description of the project.</p>
@@ -2063,10 +2063,10 @@ export interface EvaluateFeatureResponse {
 /**
  * @public
  */
-export enum EventType {
-  CUSTOM = "aws.evidently.custom",
-  EVALUATION = "aws.evidently.evaluation",
-}
+export const EventType = {
+  CUSTOM: "aws.evidently.custom",
+  EVALUATION: "aws.evidently.evaluation",
+};
 
 /**
  * @public
@@ -2086,7 +2086,7 @@ export interface Event {
    *       which feature variation that a user sees. <code>aws.evidently.custom</code> specifies a custom
    *       event, which generates metrics from user actions such as clicks and checkouts.</p>
    */
-  type: EventType | string | undefined;
+  type: keyof typeof EventType | string | undefined;
 
   /**
    * <p>The event data.</p>
@@ -2142,26 +2142,26 @@ export interface GetExperimentResponse {
 /**
  * @public
  */
-export enum ExperimentBaseStat {
-  MEAN = "Mean",
-}
+export const ExperimentBaseStat = {
+  MEAN: "Mean",
+};
 
 /**
  * @public
  */
-export enum ExperimentReportName {
-  BAYESIAN_INFERENCE = "BayesianInference",
-}
+export const ExperimentReportName = {
+  BAYESIAN_INFERENCE: "BayesianInference",
+};
 
 /**
  * @public
  */
-export enum ExperimentResultRequestType {
-  BASE_STAT = "BaseStat",
-  CONFIDENCE_INTERVAL = "ConfidenceInterval",
-  P_VALUE = "PValue",
-  TREATMENT_EFFECT = "TreatmentEffect",
-}
+export const ExperimentResultRequestType = {
+  BASE_STAT: "BaseStat",
+  CONFIDENCE_INTERVAL: "ConfidenceInterval",
+  P_VALUE: "PValue",
+  TREATMENT_EFFECT: "TreatmentEffect",
+};
 
 /**
  * @public
@@ -2202,7 +2202,7 @@ export interface GetExperimentResultsRequest {
    * <p>The statistic used to calculate experiment results. Currently the only valid value is <code>mean</code>,
    *       which uses the mean of the collected values as the statistic.</p>
    */
-  baseStat?: ExperimentBaseStat | string;
+  baseStat?: keyof typeof ExperimentBaseStat | string;
 
   /**
    * <p>The statistics that you want to see in the returned results.</p>
@@ -2235,13 +2235,13 @@ export interface GetExperimentResultsRequest {
    *             </li>
    *          </ul>
    */
-  resultStats?: (ExperimentResultRequestType | string)[];
+  resultStats?: (keyof typeof ExperimentResultRequestType | string)[];
 
   /**
    * <p>The names of the report types that you want to see. Currently, <code>BayesianInference</code>
    *        is the only valid value.</p>
    */
-  reportNames?: (ExperimentReportName | string)[];
+  reportNames?: (keyof typeof ExperimentReportName | string)[];
 
   /**
    * <p>In seconds, the amount of time to aggregate results together. </p>
@@ -2267,7 +2267,7 @@ export interface ExperimentReport {
   /**
    * <p>The type of analysis used for this report.</p>
    */
-  reportName?: ExperimentReportName | string;
+  reportName?: keyof typeof ExperimentReportName | string;
 
   /**
    * <p>The content of the report.</p>
@@ -2278,13 +2278,13 @@ export interface ExperimentReport {
 /**
  * @public
  */
-export enum ExperimentResultResponseType {
-  CONFIDENCE_INTERVAL_LOWERBOUND = "ConfidenceIntervalLowerBound",
-  CONFIDENCE_INTERVAL_UPPERBOUND = "ConfidenceIntervalUpperBound",
-  MEAN = "Mean",
-  P_VALUE = "PValue",
-  TREATMENT_EFFECT = "TreatmentEffect",
-}
+export const ExperimentResultResponseType = {
+  CONFIDENCE_INTERVAL_LOWERBOUND: "ConfidenceIntervalLowerBound",
+  CONFIDENCE_INTERVAL_UPPERBOUND: "ConfidenceIntervalUpperBound",
+  MEAN: "Mean",
+  P_VALUE: "PValue",
+  TREATMENT_EFFECT: "TreatmentEffect",
+};
 
 /**
  * @public
@@ -2305,7 +2305,7 @@ export interface ExperimentResultsData {
   /**
    * <p>The experiment statistic that these results pertain to.</p>
    */
-  resultStat?: ExperimentResultResponseType | string;
+  resultStat?: keyof typeof ExperimentResultResponseType | string;
 
   /**
    * <p>The values for the <code>metricName</code> that were recorded in the experiment.</p>
@@ -2363,7 +2363,7 @@ export interface ListExperimentsRequest {
   /**
    * <p>Use this optional parameter to limit the returned results to only the experiments with the status that you specify here.</p>
    */
-  status?: ExperimentStatus | string;
+  status?: keyof typeof ExperimentStatus | string;
 }
 
 /**
@@ -2417,10 +2417,10 @@ export interface StartExperimentResponse {
 /**
  * @public
  */
-export enum ExperimentStopDesiredState {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-}
+export const ExperimentStopDesiredState = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+};
 
 /**
  * @public
@@ -2440,7 +2440,7 @@ export interface StopExperimentRequest {
    * <p>Specify whether the experiment is to be considered <code>COMPLETED</code> or
    *       <code>CANCELLED</code> after it stops.</p>
    */
-  desiredState?: ExperimentStopDesiredState | string;
+  desiredState?: keyof typeof ExperimentStopDesiredState | string;
 
   /**
    * <p>A string that describes why you are stopping the experiment.</p>
@@ -2606,7 +2606,7 @@ export interface FeatureSummary {
   /**
    * <p>The current state of the feature.</p>
    */
-  status: FeatureStatus | string | undefined;
+  status: keyof typeof FeatureStatus | string | undefined;
 
   /**
    * <p>The date and time that the feature is created.</p>
@@ -2623,7 +2623,7 @@ export interface FeatureSummary {
    *       any ongoing launches or experiments is being used. If this is <code>DEFAULT_VARIATION</code>,
    *       the default variation is being served to all users.</p>
    */
-  evaluationStrategy: FeatureEvaluationStrategy | string | undefined;
+  evaluationStrategy: keyof typeof FeatureEvaluationStrategy | string | undefined;
 
   /**
    * <p>An array of structures that define</p>
@@ -2679,7 +2679,7 @@ export interface UpdateFeatureRequest {
    *       launches or experiments. Specify <code>DEFAULT_VARIATION</code> to serve the default variation
    *       to all users instead.</p>
    */
-  evaluationStrategy?: FeatureEvaluationStrategy | string;
+  evaluationStrategy?: keyof typeof FeatureEvaluationStrategy | string;
 
   /**
    * <p>An optional description of the feature.</p>
@@ -2798,7 +2798,7 @@ export interface ListLaunchesRequest {
   /**
    * <p>Use this optional parameter to limit the returned results to only the launches with the status that you specify here.</p>
    */
-  status?: LaunchStatus | string;
+  status?: keyof typeof LaunchStatus | string;
 }
 
 /**
@@ -2846,10 +2846,10 @@ export interface StartLaunchResponse {
 /**
  * @public
  */
-export enum LaunchStopDesiredState {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-}
+export const LaunchStopDesiredState = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+};
 
 /**
  * @public
@@ -2869,7 +2869,7 @@ export interface StopLaunchRequest {
    * <p>Specify whether to consider the launch as <code>COMPLETED</code> or
    *         <code>CANCELLED</code> after it stops.</p>
    */
-  desiredState?: LaunchStopDesiredState | string;
+  desiredState?: keyof typeof LaunchStopDesiredState | string;
 
   /**
    * <p>A string that describes why you are stopping the launch.</p>
@@ -2977,7 +2977,7 @@ export interface ProjectSummary {
   /**
    * <p>The current state of the project.</p>
    */
-  status: ProjectStatus | string | undefined;
+  status: keyof typeof ProjectStatus | string | undefined;
 
   /**
    * <p>The description of the project.</p>
@@ -3186,10 +3186,10 @@ export interface GetSegmentResponse {
 /**
  * @public
  */
-export enum SegmentReferenceResourceType {
-  EXPERIMENT = "EXPERIMENT",
-  LAUNCH = "LAUNCH",
-}
+export const SegmentReferenceResourceType = {
+  EXPERIMENT: "EXPERIMENT",
+  LAUNCH: "LAUNCH",
+};
 
 /**
  * @public
@@ -3214,7 +3214,7 @@ export interface ListSegmentReferencesRequest {
   /**
    * <p>Specifies whether to return information about launches or experiments that use this segment.</p>
    */
-  type: SegmentReferenceResourceType | string | undefined;
+  type: keyof typeof SegmentReferenceResourceType | string | undefined;
 }
 
 /**

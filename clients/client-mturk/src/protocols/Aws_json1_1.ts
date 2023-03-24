@@ -2496,7 +2496,7 @@ const serializeAws_json1_1ApproveAssignmentRequest = (
 };
 
 const serializeAws_json1_1AssignmentStatusList = (
-  input: (AssignmentStatus | string)[],
+  input: (keyof typeof AssignmentStatus | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2680,7 +2680,10 @@ const serializeAws_json1_1DisassociateQualificationFromWorkerRequest = (
   };
 };
 
-const serializeAws_json1_1EventTypeList = (input: (EventType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1EventTypeList = (
+  input: (keyof typeof EventType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2991,7 +2994,7 @@ const serializeAws_json1_1ReviewPolicy = (input: ReviewPolicy, context: __SerdeC
 };
 
 const serializeAws_json1_1ReviewPolicyLevelList = (
-  input: (ReviewPolicyLevel | string)[],
+  input: (keyof typeof ReviewPolicyLevel | string)[],
   context: __SerdeContext
 ): any => {
   return input

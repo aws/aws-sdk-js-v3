@@ -6315,7 +6315,7 @@ const serializeAws_json1_1EndOfMeetingReminderMinutesList = (input: number[], co
     });
 };
 
-const serializeAws_json1_1Features = (input: (Feature | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1Features = (input: (keyof typeof Feature | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

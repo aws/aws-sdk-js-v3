@@ -89,10 +89,10 @@ export interface Address {
 /**
  * @public
  */
-export enum AddressType {
-  OPERATING_ADDRESS = "OPERATING_ADDRESS",
-  SHIPPING_ADDRESS = "SHIPPING_ADDRESS",
-}
+export const AddressType = {
+  OPERATING_ADDRESS: "OPERATING_ADDRESS",
+  SHIPPING_ADDRESS: "SHIPPING_ADDRESS",
+};
 
 /**
  * @public
@@ -108,18 +108,18 @@ export interface AssetLocation {
 /**
  * @public
  */
-export enum AssetType {
-  COMPUTE = "COMPUTE",
-}
+export const AssetType = {
+  COMPUTE: "COMPUTE",
+};
 
 /**
  * @public
  */
-export enum ComputeAssetState {
-  ACTIVE = "ACTIVE",
-  ISOLATED = "ISOLATED",
-  RETIRING = "RETIRING",
-}
+export const ComputeAssetState = {
+  ACTIVE: "ACTIVE",
+  ISOLATED: "ISOLATED",
+  RETIRING: "RETIRING",
+};
 
 /**
  * @public
@@ -149,7 +149,7 @@ export interface ComputeAttributes {
    *             </li>
    *          </ul>
    */
-  State?: ComputeAssetState | string;
+  State?: keyof typeof ComputeAssetState | string;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface AssetInfo {
   /**
    * <p> The type of the asset. </p>
    */
-  AssetType?: AssetType | string;
+  AssetType?: keyof typeof AssetType | string;
 
   /**
    * <p> Information about compute hardware assets. </p>
@@ -186,10 +186,10 @@ export interface AssetInfo {
 /**
  * @public
  */
-export enum AssetState {
-  ACTIVE = "ACTIVE",
-  RETIRING = "RETIRING",
-}
+export const AssetState = {
+  ACTIVE: "ACTIVE",
+  RETIRING: "RETIRING",
+};
 
 /**
  * @public
@@ -209,10 +209,10 @@ export interface CancelOrderOutput {}
 /**
  * @public
  */
-export enum ResourceType {
-  ORDER = "ORDER",
-  OUTPOST = "OUTPOST",
-}
+export const ResourceType = {
+  ORDER: "ORDER",
+  OUTPOST: "OUTPOST",
+};
 
 /**
  * @public
@@ -230,7 +230,7 @@ export class ConflictException extends __BaseException {
   /**
    * <p>The type of the resource causing the conflict.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
   /**
    * @internal
    */
@@ -337,18 +337,18 @@ export interface EC2Capacity {
 /**
  * @public
  */
-export enum CatalogItemStatus {
-  AVAILABLE = "AVAILABLE",
-  DISCONTINUED = "DISCONTINUED",
-}
+export const CatalogItemStatus = {
+  AVAILABLE: "AVAILABLE",
+  DISCONTINUED: "DISCONTINUED",
+};
 
 /**
  * @public
  */
-export enum SupportedStorageEnum {
-  EBS = "EBS",
-  S3 = "S3",
-}
+export const SupportedStorageEnum = {
+  EBS: "EBS",
+  S3: "S3",
+};
 
 /**
  * @public
@@ -363,7 +363,7 @@ export interface CatalogItem {
   /**
    * <p> The status of a catalog item. </p>
    */
-  ItemStatus?: CatalogItemStatus | string;
+  ItemStatus?: keyof typeof CatalogItemStatus | string;
 
   /**
    * <p> Information about the EC2 capacity of an item. </p>
@@ -388,16 +388,16 @@ export interface CatalogItem {
   /**
    * <p> The supported storage options for the catalog item. </p>
    */
-  SupportedStorage?: (SupportedStorageEnum | string)[];
+  SupportedStorage?: (keyof typeof SupportedStorageEnum | string)[];
 }
 
 /**
  * @public
  */
-export enum CatalogItemClass {
-  RACK = "RACK",
-  SERVER = "SERVER",
-}
+export const CatalogItemClass = {
+  RACK: "RACK",
+  SERVER: "SERVER",
+};
 
 /**
  * @public
@@ -454,19 +454,19 @@ export interface LineItemRequest {
 /**
  * @public
  */
-export enum PaymentOption {
-  ALL_UPFRONT = "ALL_UPFRONT",
-  NO_UPFRONT = "NO_UPFRONT",
-  PARTIAL_UPFRONT = "PARTIAL_UPFRONT",
-}
+export const PaymentOption = {
+  ALL_UPFRONT: "ALL_UPFRONT",
+  NO_UPFRONT: "NO_UPFRONT",
+  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
+};
 
 /**
  * @public
  */
-export enum PaymentTerm {
-  ONE_YEAR = "ONE_YEAR",
-  THREE_YEARS = "THREE_YEARS",
-}
+export const PaymentTerm = {
+  ONE_YEAR: "ONE_YEAR",
+  THREE_YEARS: "THREE_YEARS",
+};
 
 /**
  * @public
@@ -485,12 +485,12 @@ export interface CreateOrderInput {
   /**
    * <p>The payment option.</p>
    */
-  PaymentOption: PaymentOption | string | undefined;
+  PaymentOption: keyof typeof PaymentOption | string | undefined;
 
   /**
    * <p>The payment terms.</p>
    */
-  PaymentTerm?: PaymentTerm | string;
+  PaymentTerm?: keyof typeof PaymentTerm | string;
 }
 
 /**
@@ -512,12 +512,12 @@ export interface LineItemAssetInformation {
 /**
  * @public
  */
-export enum ShipmentCarrier {
-  DBS = "DBS",
-  DHL = "DHL",
-  FEDEX = "FEDEX",
-  UPS = "UPS",
-}
+export const ShipmentCarrier = {
+  DBS: "DBS",
+  DHL: "DHL",
+  FEDEX: "FEDEX",
+  UPS: "UPS",
+};
 
 /**
  * @public
@@ -532,23 +532,23 @@ export interface ShipmentInformation {
   /**
    * <p> The carrier of the shipment. </p>
    */
-  ShipmentCarrier?: ShipmentCarrier | string;
+  ShipmentCarrier?: keyof typeof ShipmentCarrier | string;
 }
 
 /**
  * @public
  */
-export enum LineItemStatus {
-  BUILDING = "BUILDING",
-  CANCELLED = "CANCELLED",
-  DELIVERED = "DELIVERED",
-  ERROR = "ERROR",
-  INSTALLED = "INSTALLED",
-  INSTALLING = "INSTALLING",
-  PREPARING = "PREPARING",
-  REPLACED = "REPLACED",
-  SHIPPED = "SHIPPED",
-}
+export const LineItemStatus = {
+  BUILDING: "BUILDING",
+  CANCELLED: "CANCELLED",
+  DELIVERED: "DELIVERED",
+  ERROR: "ERROR",
+  INSTALLED: "INSTALLED",
+  INSTALLING: "INSTALLING",
+  PREPARING: "PREPARING",
+  REPLACED: "REPLACED",
+  SHIPPED: "SHIPPED",
+};
 
 /**
  * @public
@@ -573,7 +573,7 @@ export interface LineItem {
   /**
    * <p>The status of the line item.</p>
    */
-  Status?: LineItemStatus | string;
+  Status?: keyof typeof LineItemStatus | string;
 
   /**
    * <p> Information about a line item shipment. </p>
@@ -599,26 +599,26 @@ export interface LineItem {
 /**
  * @public
  */
-export enum OrderType {
-  OUTPOST = "OUTPOST",
-  REPLACEMENT = "REPLACEMENT",
-}
+export const OrderType = {
+  OUTPOST: "OUTPOST",
+  REPLACEMENT: "REPLACEMENT",
+};
 
 /**
  * @public
  */
-export enum OrderStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  ERROR = "ERROR",
-  FULFILLED = "FULFILLED",
-  INSTALLING = "INSTALLING",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  PREPARING = "PREPARING",
-  PROCESSING = "PROCESSING",
-  RECEIVED = "RECEIVED",
-}
+export const OrderStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  FULFILLED: "FULFILLED",
+  INSTALLING: "INSTALLING",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  PREPARING: "PREPARING",
+  PROCESSING: "PROCESSING",
+  RECEIVED: "RECEIVED",
+};
 
 /**
  * @public
@@ -665,7 +665,7 @@ export interface Order {
    *           <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
    *          </note>
    */
-  Status?: OrderStatus | string;
+  Status?: keyof typeof OrderStatus | string;
 
   /**
    * <p>The line items for the order</p>
@@ -675,7 +675,7 @@ export interface Order {
   /**
    * <p>The payment option for the order.</p>
    */
-  PaymentOption?: PaymentOption | string;
+  PaymentOption?: keyof typeof PaymentOption | string;
 
   /**
    * <p>The submission date for the order.</p>
@@ -690,12 +690,12 @@ export interface Order {
   /**
    * <p>The payment term.</p>
    */
-  PaymentTerm?: PaymentTerm | string;
+  PaymentTerm?: keyof typeof PaymentTerm | string;
 
   /**
    * <p>The type of order.</p>
    */
-  OrderType?: OrderType | string;
+  OrderType?: keyof typeof OrderType | string;
 }
 
 /**
@@ -733,10 +733,10 @@ export class ServiceQuotaExceededException extends __BaseException {
 /**
  * @public
  */
-export enum SupportedHardwareType {
-  RACK = "RACK",
-  SERVER = "SERVER",
-}
+export const SupportedHardwareType = {
+  RACK: "RACK",
+  SERVER: "SERVER",
+};
 
 /**
  * @public
@@ -775,7 +775,7 @@ export interface CreateOutpostInput {
   /**
    * <p> The type of hardware for this Outpost. </p>
    */
-  SupportedHardwareType?: SupportedHardwareType | string;
+  SupportedHardwareType?: keyof typeof SupportedHardwareType | string;
 }
 
 /**
@@ -841,7 +841,7 @@ export interface Outpost {
   /**
    * <p> The hardware type. </p>
    */
-  SupportedHardwareType?: SupportedHardwareType | string;
+  SupportedHardwareType?: keyof typeof SupportedHardwareType | string;
 }
 
 /**
@@ -857,102 +857,102 @@ export interface CreateOutpostOutput {
 /**
  * @public
  */
-export enum FiberOpticCableType {
-  MULTI_MODE = "MULTI_MODE",
-  SINGLE_MODE = "SINGLE_MODE",
-}
+export const FiberOpticCableType = {
+  MULTI_MODE: "MULTI_MODE",
+  SINGLE_MODE: "SINGLE_MODE",
+};
 
 /**
  * @public
  */
-export enum MaximumSupportedWeightLbs {
-  MAX_1400_LBS = "MAX_1400_LBS",
-  MAX_1600_LBS = "MAX_1600_LBS",
-  MAX_1800_LBS = "MAX_1800_LBS",
-  MAX_2000_LBS = "MAX_2000_LBS",
-  NO_LIMIT = "NO_LIMIT",
-}
+export const MaximumSupportedWeightLbs = {
+  MAX_1400_LBS: "MAX_1400_LBS",
+  MAX_1600_LBS: "MAX_1600_LBS",
+  MAX_1800_LBS: "MAX_1800_LBS",
+  MAX_2000_LBS: "MAX_2000_LBS",
+  NO_LIMIT: "NO_LIMIT",
+};
 
 /**
  * @public
  */
-export enum OpticalStandard {
-  OPTIC_1000BASE_LX = "OPTIC_1000BASE_LX",
-  OPTIC_1000BASE_SX = "OPTIC_1000BASE_SX",
-  OPTIC_100GBASE_CWDM4 = "OPTIC_100GBASE_CWDM4",
-  OPTIC_100GBASE_LR4 = "OPTIC_100GBASE_LR4",
-  OPTIC_100GBASE_SR4 = "OPTIC_100GBASE_SR4",
-  OPTIC_100G_PSM4_MSA = "OPTIC_100G_PSM4_MSA",
-  OPTIC_10GBASE_IR = "OPTIC_10GBASE_IR",
-  OPTIC_10GBASE_LR = "OPTIC_10GBASE_LR",
-  OPTIC_10GBASE_SR = "OPTIC_10GBASE_SR",
-  OPTIC_40GBASE_ESR = "OPTIC_40GBASE_ESR",
-  OPTIC_40GBASE_IR4_LR4L = "OPTIC_40GBASE_IR4_LR4L",
-  OPTIC_40GBASE_LR4 = "OPTIC_40GBASE_LR4",
-  OPTIC_40GBASE_SR = "OPTIC_40GBASE_SR",
-}
+export const OpticalStandard = {
+  OPTIC_1000BASE_LX: "OPTIC_1000BASE_LX",
+  OPTIC_1000BASE_SX: "OPTIC_1000BASE_SX",
+  OPTIC_100GBASE_CWDM4: "OPTIC_100GBASE_CWDM4",
+  OPTIC_100GBASE_LR4: "OPTIC_100GBASE_LR4",
+  OPTIC_100GBASE_SR4: "OPTIC_100GBASE_SR4",
+  OPTIC_100G_PSM4_MSA: "OPTIC_100G_PSM4_MSA",
+  OPTIC_10GBASE_IR: "OPTIC_10GBASE_IR",
+  OPTIC_10GBASE_LR: "OPTIC_10GBASE_LR",
+  OPTIC_10GBASE_SR: "OPTIC_10GBASE_SR",
+  OPTIC_40GBASE_ESR: "OPTIC_40GBASE_ESR",
+  OPTIC_40GBASE_IR4_LR4L: "OPTIC_40GBASE_IR4_LR4L",
+  OPTIC_40GBASE_LR4: "OPTIC_40GBASE_LR4",
+  OPTIC_40GBASE_SR: "OPTIC_40GBASE_SR",
+};
 
 /**
  * @public
  */
-export enum PowerConnector {
-  AH530P7W = "AH530P7W",
-  AH532P6W = "AH532P6W",
-  IEC309 = "IEC309",
-  L6_30P = "L6_30P",
-}
+export const PowerConnector = {
+  AH530P7W: "AH530P7W",
+  AH532P6W: "AH532P6W",
+  IEC309: "IEC309",
+  L6_30P: "L6_30P",
+};
 
 /**
  * @public
  */
-export enum PowerDrawKva {
-  POWER_10_KVA = "POWER_10_KVA",
-  POWER_15_KVA = "POWER_15_KVA",
-  POWER_30_KVA = "POWER_30_KVA",
-  POWER_5_KVA = "POWER_5_KVA",
-}
+export const PowerDrawKva = {
+  POWER_10_KVA: "POWER_10_KVA",
+  POWER_15_KVA: "POWER_15_KVA",
+  POWER_30_KVA: "POWER_30_KVA",
+  POWER_5_KVA: "POWER_5_KVA",
+};
 
 /**
  * @public
  */
-export enum PowerFeedDrop {
-  ABOVE_RACK = "ABOVE_RACK",
-  BELOW_RACK = "BELOW_RACK",
-}
+export const PowerFeedDrop = {
+  ABOVE_RACK: "ABOVE_RACK",
+  BELOW_RACK: "BELOW_RACK",
+};
 
 /**
  * @public
  */
-export enum PowerPhase {
-  SINGLE_PHASE = "SINGLE_PHASE",
-  THREE_PHASE = "THREE_PHASE",
-}
+export const PowerPhase = {
+  SINGLE_PHASE: "SINGLE_PHASE",
+  THREE_PHASE: "THREE_PHASE",
+};
 
 /**
  * @public
  */
-export enum UplinkCount {
-  UPLINK_COUNT_1 = "UPLINK_COUNT_1",
-  UPLINK_COUNT_12 = "UPLINK_COUNT_12",
-  UPLINK_COUNT_16 = "UPLINK_COUNT_16",
-  UPLINK_COUNT_2 = "UPLINK_COUNT_2",
-  UPLINK_COUNT_3 = "UPLINK_COUNT_3",
-  UPLINK_COUNT_4 = "UPLINK_COUNT_4",
-  UPLINK_COUNT_5 = "UPLINK_COUNT_5",
-  UPLINK_COUNT_6 = "UPLINK_COUNT_6",
-  UPLINK_COUNT_7 = "UPLINK_COUNT_7",
-  UPLINK_COUNT_8 = "UPLINK_COUNT_8",
-}
+export const UplinkCount = {
+  UPLINK_COUNT_1: "UPLINK_COUNT_1",
+  UPLINK_COUNT_12: "UPLINK_COUNT_12",
+  UPLINK_COUNT_16: "UPLINK_COUNT_16",
+  UPLINK_COUNT_2: "UPLINK_COUNT_2",
+  UPLINK_COUNT_3: "UPLINK_COUNT_3",
+  UPLINK_COUNT_4: "UPLINK_COUNT_4",
+  UPLINK_COUNT_5: "UPLINK_COUNT_5",
+  UPLINK_COUNT_6: "UPLINK_COUNT_6",
+  UPLINK_COUNT_7: "UPLINK_COUNT_7",
+  UPLINK_COUNT_8: "UPLINK_COUNT_8",
+};
 
 /**
  * @public
  */
-export enum UplinkGbps {
-  UPLINK_100G = "UPLINK_100G",
-  UPLINK_10G = "UPLINK_10G",
-  UPLINK_1G = "UPLINK_1G",
-  UPLINK_40G = "UPLINK_40G",
-}
+export const UplinkGbps = {
+  UPLINK_100G: "UPLINK_100G",
+  UPLINK_10G: "UPLINK_10G",
+  UPLINK_1G: "UPLINK_1G",
+  UPLINK_40G: "UPLINK_40G",
+};
 
 /**
  * @public
@@ -966,37 +966,37 @@ export interface RackPhysicalProperties {
   /**
    * <p>The power draw available at the hardware placement position for the rack. </p>
    */
-  PowerDrawKva?: PowerDrawKva | string;
+  PowerDrawKva?: keyof typeof PowerDrawKva | string;
 
   /**
    * <p>The power option that you can provide for hardware.</p>
    */
-  PowerPhase?: PowerPhase | string;
+  PowerPhase?: keyof typeof PowerPhase | string;
 
   /**
    * <p>The power connector for the hardware. </p>
    */
-  PowerConnector?: PowerConnector | string;
+  PowerConnector?: keyof typeof PowerConnector | string;
 
   /**
    * <p>The position of the power feed.</p>
    */
-  PowerFeedDrop?: PowerFeedDrop | string;
+  PowerFeedDrop?: keyof typeof PowerFeedDrop | string;
 
   /**
    * <p>The uplink speed the rack supports for the connection to the Region. </p>
    */
-  UplinkGbps?: UplinkGbps | string;
+  UplinkGbps?: keyof typeof UplinkGbps | string;
 
   /**
    * <p>The number of uplinks each Outpost network device.</p>
    */
-  UplinkCount?: UplinkCount | string;
+  UplinkCount?: keyof typeof UplinkCount | string;
 
   /**
    * <p>The type of fiber used to attach the Outpost to the network. </p>
    */
-  FiberOpticCableType?: FiberOpticCableType | string;
+  FiberOpticCableType?: keyof typeof FiberOpticCableType | string;
 
   /**
    * <p>The type of optical standard used to attach the Outpost to the network. This field is
@@ -1006,13 +1006,13 @@ export interface RackPhysicalProperties {
    *         in the Amazon Web Services Outposts User Guide.
    *         </p>
    */
-  OpticalStandard?: OpticalStandard | string;
+  OpticalStandard?: keyof typeof OpticalStandard | string;
 
   /**
    * <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000 lbs
    *       (907 kg). </p>
    */
-  MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs | string;
+  MaximumSupportedWeightLbs?: keyof typeof MaximumSupportedWeightLbs | string;
 }
 
 /**
@@ -1338,7 +1338,7 @@ export interface GetSiteAddressInput {
   /**
    * <p>The type of the address you request. </p>
    */
-  AddressType: AddressType | string | undefined;
+  AddressType: keyof typeof AddressType | string | undefined;
 }
 
 /**
@@ -1353,7 +1353,7 @@ export interface GetSiteAddressOutput {
   /**
    * <p>The type of the address you receive. </p>
    */
-  AddressType?: AddressType | string;
+  AddressType?: keyof typeof AddressType | string;
 
   /**
    * <p> Information about the address. </p>
@@ -1388,7 +1388,7 @@ export interface ListAssetsInput {
   /**
    * <p>Filters the results by state.</p>
    */
-  StatusFilter?: (AssetState | string)[];
+  StatusFilter?: (keyof typeof AssetState | string)[];
 }
 
 /**
@@ -1423,12 +1423,12 @@ export interface ListCatalogItemsInput {
   /**
    * <p>Filters the results by item class.</p>
    */
-  ItemClassFilter?: (CatalogItemClass | string)[];
+  ItemClassFilter?: (keyof typeof CatalogItemClass | string)[];
 
   /**
    * <p>Filters the results by storage option.</p>
    */
-  SupportedStorageFilter?: (SupportedStorageEnum | string)[];
+  SupportedStorageFilter?: (keyof typeof SupportedStorageEnum | string)[];
 
   /**
    * <p>Filters the results by EC2 family (for example, M5).</p>
@@ -1489,7 +1489,7 @@ export interface OrderSummary {
   /**
    * <p>The type of order.</p>
    */
-  OrderType?: OrderType | string;
+  OrderType?: keyof typeof OrderType | string;
 
   /**
    * <p>The status of the order.</p>
@@ -1521,7 +1521,7 @@ export interface OrderSummary {
    *           <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
    *          </note>
    */
-  Status?: OrderStatus | string;
+  Status?: keyof typeof OrderStatus | string;
 
   /**
    * <p> The status of all line items in the order. </p>
@@ -1766,7 +1766,7 @@ export interface UpdateOutpostInput {
   /**
    * <p> The type of hardware for this Outpost. </p>
    */
-  SupportedHardwareType?: SupportedHardwareType | string;
+  SupportedHardwareType?: keyof typeof SupportedHardwareType | string;
 }
 
 /**
@@ -1826,7 +1826,7 @@ export interface UpdateSiteAddressInput {
   /**
    * <p> The type of the address. </p>
    */
-  AddressType: AddressType | string | undefined;
+  AddressType: keyof typeof AddressType | string | undefined;
 
   /**
    * <p> The address for the site. </p>
@@ -1841,7 +1841,7 @@ export interface UpdateSiteAddressOutput {
   /**
    * <p> The type of the address. </p>
    */
-  AddressType?: AddressType | string;
+  AddressType?: keyof typeof AddressType | string;
 
   /**
    * <p> Information about an address. </p>
@@ -1861,7 +1861,7 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
   /**
    * <p>The power draw, in kVA, available at the hardware placement position for the rack.</p>
    */
-  PowerDrawKva?: PowerDrawKva | string;
+  PowerDrawKva?: keyof typeof PowerDrawKva | string;
 
   /**
    * <p>The power option that you can provide for hardware. </p>
@@ -1874,7 +1874,7 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *             </li>
    *          </ul>
    */
-  PowerPhase?: PowerPhase | string;
+  PowerPhase?: keyof typeof PowerPhase | string;
 
   /**
    * <p>The power connector that Amazon Web Services should plan to provide for connections to the hardware.
@@ -1911,17 +1911,17 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *             </li>
    *          </ul>
    */
-  PowerConnector?: PowerConnector | string;
+  PowerConnector?: keyof typeof PowerConnector | string;
 
   /**
    * <p>Indicates whether the power feed comes above or below the rack. </p>
    */
-  PowerFeedDrop?: PowerFeedDrop | string;
+  PowerFeedDrop?: keyof typeof PowerFeedDrop | string;
 
   /**
    * <p>The uplink speed the rack should support for the connection to the Region. </p>
    */
-  UplinkGbps?: UplinkGbps | string;
+  UplinkGbps?: keyof typeof UplinkGbps | string;
 
   /**
    * <p>Racks come with two Outpost network devices. Depending on the supported uplink speed at
@@ -1940,12 +1940,12 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *             </li>
    *          </ul>
    */
-  UplinkCount?: UplinkCount | string;
+  UplinkCount?: keyof typeof UplinkCount | string;
 
   /**
    * <p>The type of fiber that you will use to attach the Outpost to your network. </p>
    */
-  FiberOpticCableType?: FiberOpticCableType | string;
+  FiberOpticCableType?: keyof typeof FiberOpticCableType | string;
 
   /**
    * <p>The type of optical standard that you will use to attach the Outpost to your network. This
@@ -2009,13 +2009,13 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *             </li>
    *          </ul>
    */
-  OpticalStandard?: OpticalStandard | string;
+  OpticalStandard?: keyof typeof OpticalStandard | string;
 
   /**
    * <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000lbs.
    *     </p>
    */
-  MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs | string;
+  MaximumSupportedWeightLbs?: keyof typeof MaximumSupportedWeightLbs | string;
 }
 
 /**

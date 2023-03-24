@@ -6,11 +6,11 @@ import { IoTSecureTunnelingServiceException as __BaseException } from "./IoTSecu
 /**
  * @public
  */
-export enum ClientMode {
-  ALL = "ALL",
-  DESTINATION = "DESTINATION",
-  SOURCE = "SOURCE",
-}
+export const ClientMode = {
+  ALL: "ALL",
+  DESTINATION: "DESTINATION",
+  SOURCE: "SOURCE",
+};
 
 /**
  * @public
@@ -56,10 +56,10 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum ConnectionStatus {
-  CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED",
-}
+export const ConnectionStatus = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+};
 
 /**
  * @public
@@ -70,7 +70,7 @@ export interface ConnectionState {
    * <p>The connection status of the tunnel. Valid values are <code>CONNECTED</code> and
    * 				<code>DISCONNECTED</code>.</p>
    */
-  status?: ConnectionStatus | string;
+  status?: keyof typeof ConnectionStatus | string;
 
   /**
    * <p>The last time the connection status was updated.</p>
@@ -110,10 +110,10 @@ export interface DestinationConfig {
 /**
  * @public
  */
-export enum TunnelStatus {
-  CLOSED = "CLOSED",
-  OPEN = "OPEN",
-}
+export const TunnelStatus = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+};
 
 /**
  * @public
@@ -163,7 +163,7 @@ export interface Tunnel {
   /**
    * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
    */
-  status?: TunnelStatus | string;
+  status?: keyof typeof TunnelStatus | string;
 
   /**
    * <p>The connection state of the source application.</p>
@@ -277,7 +277,7 @@ export interface TunnelSummary {
   /**
    * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
    */
-  status?: TunnelStatus | string;
+  status?: keyof typeof TunnelStatus | string;
 
   /**
    * <p>A description of the tunnel.</p>
@@ -396,7 +396,7 @@ export interface RotateTunnelAccessTokenRequest {
    * <p>The mode of the client that will use the client token, which can be either the source
    * 			or destination, or both source and destination.</p>
    */
-  clientMode: ClientMode | string | undefined;
+  clientMode: keyof typeof ClientMode | string | undefined;
 
   /**
    * <p>The destination configuration.</p>

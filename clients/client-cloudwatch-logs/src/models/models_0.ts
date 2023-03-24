@@ -303,12 +303,12 @@ export class DataAlreadyAcceptedException extends __BaseException {
 /**
  * @public
  */
-export enum DataProtectionStatus {
-  ACTIVATED = "ACTIVATED",
-  ARCHIVED = "ARCHIVED",
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-}
+export const DataProtectionStatus = {
+  ACTIVATED: "ACTIVATED",
+  ARCHIVED: "ARCHIVED",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+};
 
 /**
  * @public
@@ -505,14 +505,14 @@ export interface DescribeDestinationsResponse {
 /**
  * @public
  */
-export enum ExportTaskStatusCode {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  PENDING_CANCEL = "PENDING_CANCEL",
-  RUNNING = "RUNNING",
-}
+export const ExportTaskStatusCode = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  PENDING_CANCEL: "PENDING_CANCEL",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -527,7 +527,7 @@ export interface DescribeExportTasksRequest {
   /**
    * <p>The status code of the export task. Specifying a status code filters the results to zero or more export tasks.</p>
    */
-  statusCode?: ExportTaskStatusCode | string;
+  statusCode?: keyof typeof ExportTaskStatusCode | string;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
@@ -566,7 +566,7 @@ export interface ExportTaskStatus {
   /**
    * <p>The status code of the export task.</p>
    */
-  code?: ExportTaskStatusCode | string;
+  code?: keyof typeof ExportTaskStatusCode | string;
 
   /**
    * <p>The status message related to the status code.</p>
@@ -754,7 +754,7 @@ export interface LogGroup {
    * <p>Displays whether this log group has a protection policy, or whether it had one in the past. For more information, see
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
    */
-  dataProtectionStatus?: DataProtectionStatus | string;
+  dataProtectionStatus?: keyof typeof DataProtectionStatus | string;
 }
 
 /**
@@ -777,10 +777,10 @@ export interface DescribeLogGroupsResponse {
 /**
  * @public
  */
-export enum OrderBy {
-  LastEventTime = "LastEventTime",
-  LogStreamName = "LogStreamName",
-}
+export const OrderBy = {
+  LastEventTime: "LastEventTime",
+  LogStreamName: "LogStreamName",
+};
 
 /**
  * @public
@@ -828,7 +828,7 @@ export interface DescribeLogStreamsRequest {
    *       eventual consistency basis. It typically updates in less than an hour from ingestion, but in
    *       rare situations might take longer.</p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: keyof typeof OrderBy | string;
 
   /**
    * <p>If the value is true, results are returned in descending order.
@@ -971,35 +971,35 @@ export interface DescribeMetricFiltersRequest {
 /**
  * @public
  */
-export enum StandardUnit {
-  Bits = "Bits",
-  BitsSecond = "Bits/Second",
-  Bytes = "Bytes",
-  BytesSecond = "Bytes/Second",
-  Count = "Count",
-  CountSecond = "Count/Second",
-  Gigabits = "Gigabits",
-  GigabitsSecond = "Gigabits/Second",
-  Gigabytes = "Gigabytes",
-  GigabytesSecond = "Gigabytes/Second",
-  Kilobits = "Kilobits",
-  KilobitsSecond = "Kilobits/Second",
-  Kilobytes = "Kilobytes",
-  KilobytesSecond = "Kilobytes/Second",
-  Megabits = "Megabits",
-  MegabitsSecond = "Megabits/Second",
-  Megabytes = "Megabytes",
-  MegabytesSecond = "Megabytes/Second",
-  Microseconds = "Microseconds",
-  Milliseconds = "Milliseconds",
-  None = "None",
-  Percent = "Percent",
-  Seconds = "Seconds",
-  Terabits = "Terabits",
-  TerabitsSecond = "Terabits/Second",
-  Terabytes = "Terabytes",
-  TerabytesSecond = "Terabytes/Second",
-}
+export const StandardUnit = {
+  Bits: "Bits",
+  BitsSecond: "Bits/Second",
+  Bytes: "Bytes",
+  BytesSecond: "Bytes/Second",
+  Count: "Count",
+  CountSecond: "Count/Second",
+  Gigabits: "Gigabits",
+  GigabitsSecond: "Gigabits/Second",
+  Gigabytes: "Gigabytes",
+  GigabytesSecond: "Gigabytes/Second",
+  Kilobits: "Kilobits",
+  KilobitsSecond: "Kilobits/Second",
+  Kilobytes: "Kilobytes",
+  KilobytesSecond: "Kilobytes/Second",
+  Megabits: "Megabits",
+  MegabitsSecond: "Megabits/Second",
+  Megabytes: "Megabytes",
+  MegabytesSecond: "Megabytes/Second",
+  Microseconds: "Microseconds",
+  Milliseconds: "Milliseconds",
+  None: "None",
+  Percent: "Percent",
+  Seconds: "Seconds",
+  Terabits: "Terabits",
+  TerabitsSecond: "Terabits/Second",
+  Terabytes: "Terabytes",
+  TerabytesSecond: "Terabytes/Second",
+};
 
 /**
  * @public
@@ -1054,7 +1054,7 @@ export interface MetricTransformation {
   /**
    * <p>The unit to assign to the metric. If you omit this, the unit is set as <code>None</code>.</p>
    */
-  unit?: StandardUnit | string;
+  unit?: keyof typeof StandardUnit | string;
 }
 
 /**
@@ -1110,15 +1110,15 @@ export interface DescribeMetricFiltersResponse {
 /**
  * @public
  */
-export enum QueryStatus {
-  Cancelled = "Cancelled",
-  Complete = "Complete",
-  Failed = "Failed",
-  Running = "Running",
-  Scheduled = "Scheduled",
-  Timeout = "Timeout",
-  Unknown = "Unknown",
-}
+export const QueryStatus = {
+  Cancelled: "Cancelled",
+  Complete: "Complete",
+  Failed: "Failed",
+  Running: "Running",
+  Scheduled: "Scheduled",
+  Timeout: "Timeout",
+  Unknown: "Unknown",
+};
 
 /**
  * @public
@@ -1133,7 +1133,7 @@ export interface DescribeQueriesRequest {
    * <p>Limits the returned queries to only those that have the specified status. Valid values are <code>Cancelled</code>,
    *       <code>Complete</code>, <code>Failed</code>, <code>Running</code>, and <code>Scheduled</code>.</p>
    */
-  status?: QueryStatus | string;
+  status?: keyof typeof QueryStatus | string;
 
   /**
    * <p>Limits the number of returned queries to the specified number.</p>
@@ -1165,7 +1165,7 @@ export interface QueryInfo {
    * <p>The status of this query. Possible values are <code>Cancelled</code>,
    *       <code>Complete</code>, <code>Failed</code>, <code>Running</code>, <code>Scheduled</code>, and <code>Unknown</code>.</p>
    */
-  status?: QueryStatus | string;
+  status?: keyof typeof QueryStatus | string;
 
   /**
    * <p>The date and time that this query was created.</p>
@@ -1340,10 +1340,10 @@ export interface DescribeSubscriptionFiltersRequest {
 /**
  * @public
  */
-export enum Distribution {
-  ByLogStream = "ByLogStream",
-  Random = "Random",
-}
+export const Distribution = {
+  ByLogStream: "ByLogStream",
+  Random: "Random",
+};
 
 /**
  * @public
@@ -1381,7 +1381,7 @@ export interface SubscriptionFilter {
    * <p>The method used to distribute log data to the destination, which can be either
    *       random or grouped by log stream.</p>
    */
-  distribution?: Distribution | string;
+  distribution?: keyof typeof Distribution | string;
 
   /**
    * <p>The creation time of the subscription filter, expressed as the number of milliseconds
@@ -1908,7 +1908,7 @@ export interface GetQueryResultsResponse {
    *          <p>Queries time out after 15 minutes of runtime. To avoid having your queries time out,
    *       reduce the time range being searched or partition your query into a number of queries.</p>
    */
-  status?: QueryStatus | string;
+  status?: keyof typeof QueryStatus | string;
 }
 
 /**
@@ -2451,7 +2451,7 @@ export interface PutSubscriptionFilterRequest {
    *       grouped by log stream, but the grouping can be set to random for a more even distribution.
    *       This property is only applicable when the destination is an Amazon Kinesis data stream. </p>
    */
-  distribution?: Distribution | string;
+  distribution?: keyof typeof Distribution | string;
 }
 
 /**

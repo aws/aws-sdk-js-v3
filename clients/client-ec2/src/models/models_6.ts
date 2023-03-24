@@ -387,10 +387,10 @@ export interface ModifyAddressAttributeResult {
 /**
  * @public
  */
-export enum ModifyAvailabilityZoneOptInStatus {
-  not_opted_in = "not-opted-in",
-  opted_in = "opted-in",
-}
+export const ModifyAvailabilityZoneOptInStatus = {
+  not_opted_in: "not-opted-in",
+  opted_in: "opted-in",
+};
 
 /**
  * @public
@@ -406,7 +406,7 @@ export interface ModifyAvailabilityZoneGroupRequest {
    * <p>Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The
    *       only valid value is <code>opted-in</code>. You must contact <a href="https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services">Amazon Web Services Support</a> to opt out of a Local Zone or Wavelength Zone group.</p>
    */
-  OptInStatus: ModifyAvailabilityZoneOptInStatus | string | undefined;
+  OptInStatus: keyof typeof ModifyAvailabilityZoneOptInStatus | string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -471,7 +471,7 @@ export interface ModifyCapacityReservationRequest {
    *             </li>
    *          </ul>
    */
-  EndDateType?: EndDateType | string;
+  EndDateType?: keyof typeof EndDateType | string;
 
   /**
    * <p>Reserved. Capacity Reservations you have created are accepted by default.</p>
@@ -654,7 +654,7 @@ export interface ModifyClientVpnEndpointRequest {
   /**
    * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
    */
-  SelfServicePortal?: SelfServicePortal | string;
+  SelfServicePortal?: keyof typeof SelfServicePortal | string;
 
   /**
    * <p>The options for managing connection authorization for new client connections.</p>
@@ -701,7 +701,7 @@ export interface ModifyDefaultCreditSpecificationRequest {
   /**
    * <p>The instance family.</p>
    */
-  InstanceFamily: UnlimitedSupportedInstanceFamily | string | undefined;
+  InstanceFamily: keyof typeof UnlimitedSupportedInstanceFamily | string | undefined;
 
   /**
    * <p>The credit option for CPU usage of the instance family.</p>
@@ -784,7 +784,7 @@ export interface ModifyFleetRequest {
    *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
    *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
-  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
+  ExcessCapacityTerminationPolicy?: keyof typeof FleetExcessCapacityTerminationPolicy | string;
 
   /**
    * <p>The launch template and overrides.</p>
@@ -826,7 +826,7 @@ export interface LoadPermissionRequest {
   /**
    * <p>The name of the group.</p>
    */
-  Group?: PermissionGroup | string;
+  Group?: keyof typeof PermissionGroup | string;
 
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -853,10 +853,10 @@ export interface LoadPermissionModifications {
 /**
  * @public
  */
-export enum OperationType {
-  add = "add",
-  remove = "remove",
-}
+export const OperationType = {
+  add: "add",
+  remove: "remove",
+};
 
 /**
  * @public
@@ -877,12 +877,12 @@ export interface ModifyFpgaImageAttributeRequest {
   /**
    * <p>The name of the attribute.</p>
    */
-  Attribute?: FpgaImageAttributeName | string;
+  Attribute?: keyof typeof FpgaImageAttributeName | string;
 
   /**
    * <p>The operation type.</p>
    */
-  OperationType?: OperationType | string;
+  OperationType?: keyof typeof OperationType | string;
 
   /**
    * <p>The Amazon Web Services account IDs. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
@@ -933,7 +933,7 @@ export interface ModifyHostsRequest {
   /**
    * <p>Specify whether to enable or disable auto-placement.</p>
    */
-  AutoPlacement?: AutoPlacement | string;
+  AutoPlacement?: keyof typeof AutoPlacement | string;
 
   /**
    * <p>The IDs of the Dedicated Hosts to modify.</p>
@@ -945,7 +945,7 @@ export interface ModifyHostsRequest {
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html"> Host recovery</a>
    *             in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  HostRecovery?: HostRecovery | string;
+  HostRecovery?: keyof typeof HostRecovery | string;
 
   /**
    * <p>Specifies the instance type to be supported by the Dedicated Host. Specify this
@@ -971,7 +971,7 @@ export interface ModifyHostsRequest {
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html"> Host
    *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  HostMaintenance?: HostMaintenance | string;
+  HostMaintenance?: keyof typeof HostMaintenance | string;
 }
 
 /**
@@ -1096,7 +1096,7 @@ export interface ModifyImageAttributeRequest {
    * <p>The operation type.
    *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    */
-  OperationType?: OperationType | string;
+  OperationType?: keyof typeof OperationType | string;
 
   /**
    * <p>Not supported.</p>
@@ -1231,7 +1231,7 @@ export interface ModifyInstanceAttributeRequest {
    *             </p>
    *          </important>
    */
-  Attribute?: InstanceAttributeName | string;
+  Attribute?: keyof typeof InstanceAttributeName | string;
 
   /**
    * <p>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently
@@ -1371,7 +1371,7 @@ export interface CapacityReservationSpecification {
    *             </li>
    *          </ul>
    */
-  CapacityReservationPreference?: CapacityReservationPreference | string;
+  CapacityReservationPreference?: keyof typeof CapacityReservationPreference | string;
 
   /**
    * <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
@@ -1468,12 +1468,12 @@ export interface SuccessfulInstanceCreditSpecificationItem {
 /**
  * @public
  */
-export enum UnsuccessfulInstanceCreditSpecificationErrorCode {
-  INCORRECT_INSTANCE_STATE = "IncorrectInstanceState",
-  INSTANCE_CREDIT_SPECIFICATION_NOT_SUPPORTED = "InstanceCreditSpecification.NotSupported",
-  INSTANCE_NOT_FOUND = "InvalidInstanceID.NotFound",
-  INVALID_INSTANCE_ID = "InvalidInstanceID.Malformed",
-}
+export const UnsuccessfulInstanceCreditSpecificationErrorCode = {
+  INCORRECT_INSTANCE_STATE: "IncorrectInstanceState",
+  INSTANCE_CREDIT_SPECIFICATION_NOT_SUPPORTED: "InstanceCreditSpecification.NotSupported",
+  INSTANCE_NOT_FOUND: "InvalidInstanceID.NotFound",
+  INVALID_INSTANCE_ID: "InvalidInstanceID.Malformed",
+};
 
 /**
  * @public
@@ -1484,7 +1484,7 @@ export interface UnsuccessfulInstanceCreditSpecificationItemError {
   /**
    * <p>The error code.</p>
    */
-  Code?: UnsuccessfulInstanceCreditSpecificationErrorCode | string;
+  Code?: keyof typeof UnsuccessfulInstanceCreditSpecificationErrorCode | string;
 
   /**
    * <p>The applicable error message.</p>
@@ -1647,7 +1647,7 @@ export interface ModifyInstanceMaintenanceOptionsRequest {
    * <p>Disables the automatic recovery behavior of your instance or sets it to
    *             default.</p>
    */
-  AutoRecovery?: InstanceAutoRecoveryState | string;
+  AutoRecovery?: keyof typeof InstanceAutoRecoveryState | string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
@@ -1671,7 +1671,7 @@ export interface ModifyInstanceMaintenanceOptionsResult {
    * <p>Provides information on the current automatic recovery behavior of your
    *             instance.</p>
    */
-  AutoRecovery?: InstanceAutoRecoveryState | string;
+  AutoRecovery?: keyof typeof InstanceAutoRecoveryState | string;
 }
 
 /**
@@ -1706,7 +1706,7 @@ export interface ModifyInstanceMetadataOptionsRequest {
    *          <p>Default: <code>optional</code>
    *          </p>
    */
-  HttpTokens?: HttpTokensState | string;
+  HttpTokens?: keyof typeof HttpTokensState | string;
 
   /**
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
@@ -1722,7 +1722,7 @@ export interface ModifyInstanceMetadataOptionsRequest {
    *          <p>If you specify a value of <code>disabled</code>, you cannot access your instance
    *             metadata.</p>
    */
-  HttpEndpoint?: InstanceMetadataEndpointState | string;
+  HttpEndpoint?: keyof typeof InstanceMetadataEndpointState | string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
@@ -1736,7 +1736,7 @@ export interface ModifyInstanceMetadataOptionsRequest {
    * <p>Enables or disables the IPv6 endpoint for the instance metadata service. This setting
    *             applies only if you have enabled the HTTP metadata endpoint.</p>
    */
-  HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
+  HttpProtocolIpv6?: keyof typeof InstanceMetadataProtocolState | string;
 
   /**
    * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
@@ -1746,7 +1746,7 @@ export interface ModifyInstanceMetadataOptionsRequest {
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  InstanceMetadataTags?: InstanceMetadataTagsState | string;
+  InstanceMetadataTags?: keyof typeof InstanceMetadataTagsState | string;
 }
 
 /**
@@ -1767,10 +1767,10 @@ export interface ModifyInstanceMetadataOptionsResult {
 /**
  * @public
  */
-export enum HostTenancy {
-  dedicated = "dedicated",
-  host = "host",
-}
+export const HostTenancy = {
+  dedicated: "dedicated",
+  host: "host",
+};
 
 /**
  * @public
@@ -1779,7 +1779,7 @@ export interface ModifyInstancePlacementRequest {
   /**
    * <p>The affinity setting for the instance.</p>
    */
-  Affinity?: Affinity | string;
+  Affinity?: keyof typeof Affinity | string;
 
   /**
    * <p>The name of the placement group in which to place the instance. For spread placement
@@ -1809,7 +1809,7 @@ export interface ModifyInstancePlacementRequest {
    *                     <code>InvalidTenancy</code> error code.</p>
    *          </note>
    */
-  Tenancy?: HostTenancy | string;
+  Tenancy?: keyof typeof HostTenancy | string;
 
   /**
    * <p>The number of the partition in which to place the instance. Valid only if the
@@ -2358,7 +2358,7 @@ export interface ModifyPrivateDnsNameOptionsRequest {
    *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
    *             names use the instance IPv4 address or the instance ID.</p>
    */
-  PrivateDnsHostnameType?: HostnameType | string;
+  PrivateDnsHostnameType?: keyof typeof HostnameType | string;
 
   /**
    * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
@@ -2558,7 +2558,7 @@ export interface ModifySnapshotAttributeRequest {
   /**
    * <p>The snapshot attribute to modify. Only volume creation permissions can be modified.</p>
    */
-  Attribute?: SnapshotAttributeName | string;
+  Attribute?: keyof typeof SnapshotAttributeName | string;
 
   /**
    * <p>A JSON representation of the snapshot attribute modification.</p>
@@ -2573,7 +2573,7 @@ export interface ModifySnapshotAttributeRequest {
   /**
    * <p>The type of operation to perform to the attribute.</p>
    */
-  OperationType?: OperationType | string;
+  OperationType?: keyof typeof OperationType | string;
 
   /**
    * <p>The ID of the snapshot.</p>
@@ -2596,9 +2596,9 @@ export interface ModifySnapshotAttributeRequest {
 /**
  * @public
  */
-export enum TargetStorageTier {
-  archive = "archive",
-}
+export const TargetStorageTier = {
+  archive: "archive",
+};
 
 /**
  * @public
@@ -2612,7 +2612,7 @@ export interface ModifySnapshotTierRequest {
   /**
    * <p>The name of the storage tier. You must specify <code>archive</code>.</p>
    */
-  StorageTier?: TargetStorageTier | string;
+  StorageTier?: keyof typeof TargetStorageTier | string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2647,7 +2647,7 @@ export interface ModifySpotFleetRequestRequest {
    *             of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
    *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
-  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | string;
+  ExcessCapacityTerminationPolicy?: keyof typeof ExcessCapacityTerminationPolicy | string;
 
   /**
    * <p>The launch template and overrides. You can only use this parameter if you specified a
@@ -2740,7 +2740,7 @@ export interface ModifySubnetAttributeRequest {
    *             instance DNS name can be based on the instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6 only subnets, an instance
    *             DNS name must be based on the instance ID (resource-name).</p>
    */
-  PrivateDnsHostnameTypeOnLaunch?: HostnameType | string;
+  PrivateDnsHostnameTypeOnLaunch?: keyof typeof HostnameType | string;
 
   /**
    * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
@@ -2783,12 +2783,12 @@ export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
   /**
    * <p>The network service, for example Amazon DNS, that you want to mirror.</p>
    */
-  AddNetworkServices?: (TrafficMirrorNetworkService | string)[];
+  AddNetworkServices?: (keyof typeof TrafficMirrorNetworkService | string)[];
 
   /**
    * <p>The network service, for example Amazon DNS, that you no longer want to mirror.</p>
    */
-  RemoveNetworkServices?: (TrafficMirrorNetworkService | string)[];
+  RemoveNetworkServices?: (keyof typeof TrafficMirrorNetworkService | string)[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2811,12 +2811,12 @@ export interface ModifyTrafficMirrorFilterNetworkServicesResult {
 /**
  * @public
  */
-export enum TrafficMirrorFilterRuleField {
-  description = "description",
-  destination_port_range = "destination-port-range",
-  protocol = "protocol",
-  source_port_range = "source-port-range",
-}
+export const TrafficMirrorFilterRuleField = {
+  description: "description",
+  destination_port_range: "destination-port-range",
+  protocol: "protocol",
+  source_port_range: "source-port-range",
+};
 
 /**
  * @public
@@ -2830,7 +2830,7 @@ export interface ModifyTrafficMirrorFilterRuleRequest {
   /**
    * <p>The type of traffic to assign to the rule.</p>
    */
-  TrafficDirection?: TrafficDirection | string;
+  TrafficDirection?: keyof typeof TrafficDirection | string;
 
   /**
    * <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given
@@ -2841,7 +2841,7 @@ export interface ModifyTrafficMirrorFilterRuleRequest {
   /**
    * <p>The action to assign to the rule.</p>
    */
-  RuleAction?: TrafficMirrorRuleAction | string;
+  RuleAction?: keyof typeof TrafficMirrorRuleAction | string;
 
   /**
    * <p>The destination ports that are associated with the Traffic Mirror rule.</p>
@@ -2877,7 +2877,7 @@ export interface ModifyTrafficMirrorFilterRuleRequest {
    * <p>The properties that you want to remove from the Traffic Mirror filter rule.</p>
    *          <p>When you remove a property from a Traffic Mirror filter rule, the property is set to the default.</p>
    */
-  RemoveFields?: (TrafficMirrorFilterRuleField | string)[];
+  RemoveFields?: (keyof typeof TrafficMirrorFilterRuleField | string)[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2900,11 +2900,11 @@ export interface ModifyTrafficMirrorFilterRuleResult {
 /**
  * @public
  */
-export enum TrafficMirrorSessionField {
-  description = "description",
-  packet_length = "packet-length",
-  virtual_network_id = "virtual-network-id",
-}
+export const TrafficMirrorSessionField = {
+  description: "description",
+  packet_length: "packet-length",
+  virtual_network_id: "virtual-network-id",
+};
 
 /**
  * @public
@@ -2950,7 +2950,7 @@ export interface ModifyTrafficMirrorSessionRequest {
    * <p>The properties that you want to remove from the Traffic Mirror session.</p>
    *          <p>When you remove a property from a Traffic Mirror session, the property is set to the default.</p>
    */
-  RemoveFields?: (TrafficMirrorSessionField | string)[];
+  RemoveFields?: (keyof typeof TrafficMirrorSessionField | string)[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2988,22 +2988,22 @@ export interface ModifyTransitGatewayOptions {
   /**
    * <p>Enable or disable Equal Cost Multipath Protocol support.</p>
    */
-  VpnEcmpSupport?: VpnEcmpSupportValue | string;
+  VpnEcmpSupport?: keyof typeof VpnEcmpSupportValue | string;
 
   /**
    * <p>Enable or disable DNS support.</p>
    */
-  DnsSupport?: DnsSupportValue | string;
+  DnsSupport?: keyof typeof DnsSupportValue | string;
 
   /**
    * <p>Enable or disable automatic acceptance of attachment requests.</p>
    */
-  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | string;
+  AutoAcceptSharedAttachments?: keyof typeof AutoAcceptSharedAttachmentsValue | string;
 
   /**
    * <p>Enable or disable automatic association with the default association route table.</p>
    */
-  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | string;
+  DefaultRouteTableAssociation?: keyof typeof DefaultRouteTableAssociationValue | string;
 
   /**
    * <p>The ID of the default association route table.</p>
@@ -3013,7 +3013,7 @@ export interface ModifyTransitGatewayOptions {
   /**
    * <p>Enable or disable automatic propagation of routes to the default propagation route table.</p>
    */
-  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | string;
+  DefaultRouteTablePropagation?: keyof typeof DefaultRouteTablePropagationValue | string;
 
   /**
    * <p>The ID of the default propagation route table.</p>
@@ -3115,17 +3115,17 @@ export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
   /**
    * <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
    */
-  DnsSupport?: DnsSupportValue | string;
+  DnsSupport?: keyof typeof DnsSupportValue | string;
 
   /**
    * <p>Enable or disable IPv6 support. The default is <code>enable</code>.</p>
    */
-  Ipv6Support?: Ipv6SupportValue | string;
+  Ipv6Support?: keyof typeof Ipv6SupportValue | string;
 
   /**
    * <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
    */
-  ApplianceModeSupport?: ApplianceModeSupportValue | string;
+  ApplianceModeSupport?: keyof typeof ApplianceModeSupportValue | string;
 }
 
 /**
@@ -3184,7 +3184,7 @@ export interface ModifyVerifiedAccessEndpointLoadBalancerOptions {
   /**
    * <p>The IP protocol.</p>
    */
-  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Protocol?: keyof typeof VerifiedAccessEndpointProtocol | string;
 
   /**
    * <p>The IP port number.</p>
@@ -3200,7 +3200,7 @@ export interface ModifyVerifiedAccessEndpointEniOptions {
   /**
    * <p>The IP protocol.</p>
    */
-  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Protocol?: keyof typeof VerifiedAccessEndpointProtocol | string;
 
   /**
    * <p>The IP port number.</p>
@@ -3657,7 +3657,7 @@ export interface ModifyVolumeRequest {
    * <p>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>Default: The existing type is retained.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: keyof typeof VolumeType | string;
 
   /**
    * <p>The target IOPS rate of the volume. This parameter is valid only for <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes.</p>
@@ -3826,7 +3826,7 @@ export interface ModifyVpcEndpointRequest {
   /**
    * <p>The IP address type for the endpoint.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>The DNS options for the endpoint.</p>
@@ -3985,7 +3985,7 @@ export interface ModifyVpcEndpointServicePayerResponsibilityRequest {
    *             If you set the payer responsibility to the service owner, you cannot set it back to the
    *             endpoint owner.</p>
    */
-  PayerResponsibility: PayerResponsibility | string | undefined;
+  PayerResponsibility: keyof typeof PayerResponsibility | string | undefined;
 }
 
 /**
@@ -4141,9 +4141,9 @@ export interface ModifyVpcPeeringConnectionOptionsResult {
 /**
  * @public
  */
-export enum VpcTenancy {
-  default = "default",
-}
+export const VpcTenancy = {
+  default: "default",
+};
 
 /**
  * @public
@@ -4157,7 +4157,7 @@ export interface ModifyVpcTenancyRequest {
   /**
    * <p>The instance tenancy attribute for the VPC. </p>
    */
-  InstanceTenancy: VpcTenancy | string | undefined;
+  InstanceTenancy: keyof typeof VpcTenancy | string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4620,11 +4620,11 @@ export interface MoveAddressToVpcRequest {
 /**
  * @public
  */
-export enum Status {
-  inClassic = "InClassic",
-  inVpc = "InVpc",
-  moveInProgress = "MoveInProgress",
-}
+export const Status = {
+  inClassic: "InClassic",
+  inVpc: "InVpc",
+  moveInProgress: "MoveInProgress",
+};
 
 /**
  * @public
@@ -4638,7 +4638,7 @@ export interface MoveAddressToVpcResult {
   /**
    * <p>The status of the move of the IP address.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -4871,7 +4871,7 @@ export interface PurchaseHostReservationRequest {
    *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
    *             supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: keyof typeof CurrencyCodeValues | string;
 
   /**
    * <p>The IDs of the Dedicated Hosts with which the reservation will be associated.</p>
@@ -4913,7 +4913,7 @@ export interface PurchaseHostReservationResult {
    *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
    *             supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: keyof typeof CurrencyCodeValues | string;
 
   /**
    * <p>Describes the details of the purchase.</p>
@@ -4945,7 +4945,7 @@ export interface ReservedInstanceLimitPrice {
    * <p>The currency in which the <code>limitPrice</code> amount is specified.
    * 				At this time, the only supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: keyof typeof CurrencyCodeValues | string;
 }
 
 /**
@@ -5080,7 +5080,7 @@ export interface RegisterImageRequest {
    *          <p>Default: For Amazon EBS-backed AMIs, <code>i386</code>.
    *         For instance store-backed AMIs, the architecture specified in the manifest file.</p>
    */
-  Architecture?: ArchitectureValues | string;
+  Architecture?: keyof typeof ArchitectureValues | string;
 
   /**
    * <p>The block device mapping entries.</p>
@@ -5163,13 +5163,13 @@ export interface RegisterImageRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *         <i>Amazon EC2 User Guide</i>.</p>
    */
-  BootMode?: BootModeValues | string;
+  BootMode?: keyof typeof BootModeValues | string;
 
   /**
    * <p>Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more
    *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  TpmSupport?: TpmSupportValues | string;
+  TpmSupport?: keyof typeof TpmSupportValues | string;
 
   /**
    * <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,
@@ -5191,7 +5191,7 @@ export interface RegisterImageRequest {
    *             <p>If you set the value to <code>v2.0</code>, make sure that your AMI software can support IMDSv2.</p>
    *          </note>
    */
-  ImdsSupport?: ImdsSupportValues | string;
+  ImdsSupport?: keyof typeof ImdsSupportValues | string;
 }
 
 /**
@@ -5727,7 +5727,7 @@ export interface ReplaceNetworkAclEntryRequest {
   /**
    * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
    */
-  RuleAction: RuleAction | string | undefined;
+  RuleAction: keyof typeof RuleAction | string | undefined;
 
   /**
    * <p>The rule number of the entry to replace.</p>
@@ -5911,25 +5911,25 @@ export interface ReplaceTransitGatewayRouteResult {
 /**
  * @public
  */
-export enum ReportInstanceReasonCodes {
-  instance_stuck_in_state = "instance-stuck-in-state",
-  not_accepting_credentials = "not-accepting-credentials",
-  other = "other",
-  password_not_available = "password-not-available",
-  performance_ebs_volume = "performance-ebs-volume",
-  performance_instance_store = "performance-instance-store",
-  performance_network = "performance-network",
-  performance_other = "performance-other",
-  unresponsive = "unresponsive",
-}
+export const ReportInstanceReasonCodes = {
+  instance_stuck_in_state: "instance-stuck-in-state",
+  not_accepting_credentials: "not-accepting-credentials",
+  other: "other",
+  password_not_available: "password-not-available",
+  performance_ebs_volume: "performance-ebs-volume",
+  performance_instance_store: "performance-instance-store",
+  performance_network: "performance-network",
+  performance_other: "performance-other",
+  unresponsive: "unresponsive",
+};
 
 /**
  * @public
  */
-export enum ReportStatusType {
-  impaired = "impaired",
-  ok = "ok",
-}
+export const ReportStatusType = {
+  impaired: "impaired",
+  ok: "ok",
+};
 
 /**
  * @public
@@ -6004,7 +6004,7 @@ export interface ReportInstanceStatusRequest {
    *             </li>
    *          </ul>
    */
-  ReasonCodes: (ReportInstanceReasonCodes | string)[] | undefined;
+  ReasonCodes: (keyof typeof ReportInstanceReasonCodes | string)[] | undefined;
 
   /**
    * <p>The time at which the reported instance health state began.</p>
@@ -6014,7 +6014,7 @@ export interface ReportInstanceStatusRequest {
   /**
    * <p>The status of all instances listed.</p>
    */
-  Status: ReportStatusType | string | undefined;
+  Status: keyof typeof ReportStatusType | string | undefined;
 }
 
 /**
@@ -6094,7 +6094,7 @@ export interface RequestSpotLaunchSpecification {
   /**
    * <p>The instance type. Only one instance type can be specified.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The ID of the kernel.</p>
@@ -6215,7 +6215,7 @@ export interface RequestSpotInstancesRequest {
    *          <p>Default: <code>one-time</code>
    *          </p>
    */
-  Type?: SpotInstanceType | string;
+  Type?: keyof typeof SpotInstanceType | string;
 
   /**
    * <p>The start date of the request. If this is a one-time request, the request becomes
@@ -6257,7 +6257,7 @@ export interface RequestSpotInstancesRequest {
   /**
    * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: keyof typeof InstanceInterruptionBehavior | string;
 }
 
 /**
@@ -6283,7 +6283,7 @@ export interface ResetAddressAttributeRequest {
   /**
    * <p>The attribute of the IP address.</p>
    */
-  Attribute: AddressAttributeName | string | undefined;
+  Attribute: keyof typeof AddressAttributeName | string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6328,9 +6328,9 @@ export interface ResetEbsDefaultKmsKeyIdResult {
 /**
  * @public
  */
-export enum ResetFpgaImageAttributeName {
-  loadPermission = "loadPermission",
-}
+export const ResetFpgaImageAttributeName = {
+  loadPermission: "loadPermission",
+};
 
 /**
  * @public
@@ -6351,7 +6351,7 @@ export interface ResetFpgaImageAttributeRequest {
   /**
    * <p>The attribute.</p>
    */
-  Attribute?: ResetFpgaImageAttributeName | string;
+  Attribute?: keyof typeof ResetFpgaImageAttributeName | string;
 }
 
 /**
@@ -6367,9 +6367,9 @@ export interface ResetFpgaImageAttributeResult {
 /**
  * @public
  */
-export enum ResetImageAttributeName {
-  launchPermission = "launchPermission",
-}
+export const ResetImageAttributeName = {
+  launchPermission: "launchPermission",
+};
 
 /**
  * @public
@@ -6379,7 +6379,7 @@ export interface ResetImageAttributeRequest {
   /**
    * <p>The attribute to reset (currently you can only reset the launch permission attribute).</p>
    */
-  Attribute: ResetImageAttributeName | string | undefined;
+  Attribute: keyof typeof ResetImageAttributeName | string | undefined;
 
   /**
    * <p>The ID of the AMI.</p>
@@ -6405,7 +6405,7 @@ export interface ResetInstanceAttributeRequest {
    *                     <code>ramdisk</code> | <code>sourceDestCheck</code>.</p>
    *          </important>
    */
-  Attribute: InstanceAttributeName | string | undefined;
+  Attribute: keyof typeof InstanceAttributeName | string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -6451,7 +6451,7 @@ export interface ResetSnapshotAttributeRequest {
    * <p>The attribute to reset. Currently, only the attribute for permission to create volumes can
    *       be reset.</p>
    */
-  Attribute: SnapshotAttributeName | string | undefined;
+  Attribute: keyof typeof SnapshotAttributeName | string | undefined;
 
   /**
    * <p>The ID of the snapshot.</p>
@@ -6495,7 +6495,7 @@ export interface RestoreAddressToClassicResult {
   /**
    * <p>The move status for the IP address.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -6622,7 +6622,7 @@ export interface RestoreSnapshotFromRecycleBinResult {
   /**
    * <p>The state of the snapshot.</p>
    */
-  State?: SnapshotState | string;
+  State?: keyof typeof SnapshotState | string;
 
   /**
    * <p>The ID of the volume that was used to create the snapshot.</p>
@@ -6995,7 +6995,7 @@ export interface SpotMarketOptions {
    *             Spot Instance requests are only supported when the instance interruption behavior is
    *             either <code>hibernate</code> or <code>stop</code>.</p>
    */
-  SpotInstanceType?: SpotInstanceType | string;
+  SpotInstanceType?: keyof typeof SpotInstanceType | string;
 
   /**
    * <p>Deprecated.</p>
@@ -7024,7 +7024,7 @@ export interface SpotMarketOptions {
    * <p>The behavior when a Spot Instance is interrupted. The default is
    *                 <code>terminate</code>.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: keyof typeof InstanceInterruptionBehavior | string;
 }
 
 /**
@@ -7035,7 +7035,7 @@ export interface InstanceMarketOptionsRequest {
   /**
    * <p>The market type.</p>
    */
-  MarketType?: MarketType | string;
+  MarketType?: keyof typeof MarketType | string;
 
   /**
    * <p>The options for Spot Instances.</p>
@@ -7095,7 +7095,7 @@ export interface InstanceMaintenanceOptionsRequest {
    * <p>Disables the automatic recovery behavior of your instance or sets it to default. For
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
    */
-  AutoRecovery?: InstanceAutoRecoveryState | string;
+  AutoRecovery?: keyof typeof InstanceAutoRecoveryState | string;
 }
 
 /**
@@ -7126,7 +7126,7 @@ export interface InstanceMetadataOptionsRequest {
    *          <p>Default: <code>optional</code>
    *          </p>
    */
-  HttpTokens?: HttpTokensState | string;
+  HttpTokens?: keyof typeof HttpTokensState | string;
 
   /**
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
@@ -7143,12 +7143,12 @@ export interface InstanceMetadataOptionsRequest {
    *          <p>Default: <code>enabled</code>
    *          </p>
    */
-  HttpEndpoint?: InstanceMetadataEndpointState | string;
+  HttpEndpoint?: keyof typeof InstanceMetadataEndpointState | string;
 
   /**
    * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
    */
-  HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
+  HttpProtocolIpv6?: keyof typeof InstanceMetadataProtocolState | string;
 
   /**
    * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
@@ -7158,7 +7158,7 @@ export interface InstanceMetadataOptionsRequest {
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  InstanceMetadataTags?: InstanceMetadataTagsState | string;
+  InstanceMetadataTags?: keyof typeof InstanceMetadataTagsState | string;
 }
 
 /**
@@ -7172,7 +7172,7 @@ export interface PrivateDnsNameOptionsRequest {
    *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
    *             names use the instance IPv4 address or the instance ID.</p>
    */
-  HostnameType?: HostnameType | string;
+  HostnameType?: keyof typeof HostnameType | string;
 
   /**
    * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
@@ -7210,7 +7210,7 @@ export interface RunInstancesRequest {
    *          <p>Default: <code>m1.small</code>
    *          </p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>[EC2-VPC] The number of IPv6 addresses to associate with the primary network
@@ -7386,7 +7386,7 @@ export interface RunInstancesRequest {
    *          <p>Default: <code>stop</code>
    *          </p>
    */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+  InstanceInitiatedShutdownBehavior?: keyof typeof ShutdownBehavior | string;
 
   /**
    * <p>The network interfaces to associate with the instance. If you specify a network
@@ -8037,10 +8037,10 @@ export interface SearchTransitGatewayMulticastGroupsRequest {
 /**
  * @public
  */
-export enum MembershipType {
-  igmp = "igmp",
-  static = "static",
-}
+export const MembershipType = {
+  igmp: "igmp",
+  static: "static",
+};
 
 /**
  * @public
@@ -8070,7 +8070,7 @@ export interface TransitGatewayMulticastGroup {
   /**
    * <p>The type of resource, for example a VPC attachment.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: keyof typeof TransitGatewayAttachmentResourceType | string;
 
   /**
    * <p> The ID of the Amazon Web Services account that owns the transit gateway multicast domain group resource.</p>
@@ -8095,12 +8095,12 @@ export interface TransitGatewayMulticastGroup {
   /**
    * <p>The member type (for example, <code>static</code>).</p>
    */
-  MemberType?: MembershipType | string;
+  MemberType?: keyof typeof MembershipType | string;
 
   /**
    * <p>The source type.</p>
    */
-  SourceType?: MembershipType | string;
+  SourceType?: keyof typeof MembershipType | string;
 }
 
 /**

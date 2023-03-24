@@ -13,13 +13,13 @@ export interface GreetingStruct {
 /**
  * @public
  */
-export enum FooEnum {
-  BAR = "Bar",
-  BAZ = "Baz",
-  FOO = "Foo",
-  ONE = "1",
-  ZERO = "0",
-}
+export const FooEnum = {
+  BAR: "Bar",
+  BAZ: "Baz",
+  FOO: "Foo",
+  ONE: "1",
+  ZERO: "0",
+};
 
 export enum IntegerEnum {
   A = 1,
@@ -55,7 +55,7 @@ export interface HostLabelInput {
  * @public
  */
 export interface FlattenedXmlMapOutput {
-  myMap?: Record<string, FooEnum | string>;
+  myMap?: Record<string, keyof typeof FooEnum | string>;
 }
 
 /**
@@ -245,7 +245,7 @@ export interface SimpleInputParamsInput {
   FloatValue?: number;
   Boo?: number;
   Qux?: Uint8Array;
-  FooEnum?: FooEnum | string;
+  FooEnum?: keyof typeof FooEnum | string;
   IntegerEnum?: IntegerEnum | number;
 }
 
@@ -289,7 +289,7 @@ export interface XmlListsOutput {
   integerList?: number[];
   booleanList?: boolean[];
   timestampList?: Date[];
-  enumList?: (FooEnum | string)[];
+  enumList?: (keyof typeof FooEnum | string)[];
   intEnumList?: (IntegerEnum | number)[];
   /**
    * A list of lists of strings.
@@ -315,12 +315,12 @@ export interface XmlMapsOutput {
  * @public
  */
 export interface XmlEnumsOutput {
-  fooEnum1?: FooEnum | string;
-  fooEnum2?: FooEnum | string;
-  fooEnum3?: FooEnum | string;
-  fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: Record<string, FooEnum | string>;
+  fooEnum1?: keyof typeof FooEnum | string;
+  fooEnum2?: keyof typeof FooEnum | string;
+  fooEnum3?: keyof typeof FooEnum | string;
+  fooEnumList?: (keyof typeof FooEnum | string)[];
+  fooEnumSet?: (keyof typeof FooEnum | string)[];
+  fooEnumMap?: Record<string, keyof typeof FooEnum | string>;
 }
 
 /**

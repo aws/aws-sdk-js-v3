@@ -142,12 +142,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+};
 
 /**
  * @public
@@ -160,7 +160,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason for the validation exception.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>The list of fields that failed to validate.</p>
@@ -396,22 +396,22 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum CloudComponentState {
-  DEPLOYABLE = "DEPLOYABLE",
-  DEPRECATED = "DEPRECATED",
-  FAILED = "FAILED",
-  INITIATED = "INITIATED",
-  REQUESTED = "REQUESTED",
-}
+export const CloudComponentState = {
+  DEPLOYABLE: "DEPLOYABLE",
+  DEPRECATED: "DEPRECATED",
+  FAILED: "FAILED",
+  INITIATED: "INITIATED",
+  REQUESTED: "REQUESTED",
+};
 
 /**
  * @public
  */
-export enum VendorGuidance {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DISCONTINUED = "DISCONTINUED",
-}
+export const VendorGuidance = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DISCONTINUED: "DISCONTINUED",
+};
 
 /**
  * @public
@@ -421,7 +421,7 @@ export interface CloudComponentStatus {
   /**
    * <p>The state of the component version.</p>
    */
-  componentState?: CloudComponentState | string;
+  componentState?: keyof typeof CloudComponentState | string;
 
   /**
    * <p>A message that communicates details, such as errors, about the status of the component
@@ -457,7 +457,7 @@ export interface CloudComponentStatus {
    *             </li>
    *          </ul>
    */
-  vendorGuidance?: VendorGuidance | string;
+  vendorGuidance?: keyof typeof VendorGuidance | string;
 
   /**
    * <p>A message that communicates details about the vendor guidance state
@@ -601,10 +601,10 @@ export interface ComponentConfigurationUpdate {
 /**
  * @public
  */
-export enum ComponentDependencyType {
-  HARD = "HARD",
-  SOFT = "SOFT",
-}
+export const ComponentDependencyType = {
+  HARD: "HARD",
+  SOFT: "SOFT",
+};
 
 /**
  * @public
@@ -634,7 +634,7 @@ export interface ComponentDependencyRequirement {
    *          <p>Default: <code>HARD</code>
    *          </p>
    */
-  dependencyType?: ComponentDependencyType | string;
+  dependencyType?: keyof typeof ComponentDependencyType | string;
 }
 
 /**
@@ -751,10 +751,10 @@ export interface ComponentVersionListItem {
 /**
  * @public
  */
-export enum ComponentVisibilityScope {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+export const ComponentVisibilityScope = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+};
 
 /**
  * @public
@@ -788,10 +788,10 @@ export interface ConnectivityInfo {
 /**
  * @public
  */
-export enum CoreDeviceStatus {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-}
+export const CoreDeviceStatus = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+};
 
 /**
  * @public
@@ -819,7 +819,7 @@ export interface CoreDevice {
    *             </li>
    *          </ul>
    */
-  status?: CoreDeviceStatus | string;
+  status?: keyof typeof CoreDeviceStatus | string;
 
   /**
    * <p>The time at which the core device's status last updated, expressed in ISO 8601
@@ -831,10 +831,10 @@ export interface CoreDevice {
 /**
  * @public
  */
-export enum LambdaEventSourceType {
-  IOT_CORE = "IOT_CORE",
-  PUB_SUB = "PUB_SUB",
-}
+export const LambdaEventSourceType = {
+  IOT_CORE: "IOT_CORE",
+  PUB_SUB: "PUB_SUB",
+};
 
 /**
  * @public
@@ -865,24 +865,24 @@ export interface LambdaEventSource {
    *             </li>
    *          </ul>
    */
-  type: LambdaEventSourceType | string | undefined;
+  type: keyof typeof LambdaEventSourceType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum LambdaInputPayloadEncodingType {
-  BINARY = "binary",
-  JSON = "json",
-}
+export const LambdaInputPayloadEncodingType = {
+  BINARY: "binary",
+  JSON: "json",
+};
 
 /**
  * @public
  */
-export enum LambdaFilesystemPermission {
-  RO = "ro",
-  RW = "rw",
-}
+export const LambdaFilesystemPermission = {
+  RO: "ro",
+  RW: "rw",
+};
 
 /**
  * @public
@@ -900,7 +900,7 @@ export interface LambdaDeviceMount {
    *          <p>Default: <code>ro</code>
    *          </p>
    */
-  permission?: LambdaFilesystemPermission | string;
+  permission?: keyof typeof LambdaFilesystemPermission | string;
 
   /**
    * <p>Whether or not to add the component's system user as an owner of the device.</p>
@@ -933,7 +933,7 @@ export interface LambdaVolumeMount {
    *          <p>Default: <code>ro</code>
    *          </p>
    */
-  permission?: LambdaFilesystemPermission | string;
+  permission?: keyof typeof LambdaFilesystemPermission | string;
 
   /**
    * <p>Whether or not to add the IoT Greengrass user group as an owner of the volume.</p>
@@ -977,10 +977,10 @@ export interface LambdaContainerParams {
 /**
  * @public
  */
-export enum LambdaIsolationMode {
-  GREENGRASS_CONTAINER = "GreengrassContainer",
-  NO_CONTAINER = "NoContainer",
-}
+export const LambdaIsolationMode = {
+  GREENGRASS_CONTAINER: "GreengrassContainer",
+  NO_CONTAINER: "NoContainer",
+};
 
 /**
  * @public
@@ -994,7 +994,7 @@ export interface LambdaLinuxProcessParams {
    *          <p>Default: <code>GreengrassContainer</code>
    *          </p>
    */
-  isolationMode?: LambdaIsolationMode | string;
+  isolationMode?: keyof typeof LambdaIsolationMode | string;
 
   /**
    * <p>The parameters for the container in which the Lambda function runs.</p>
@@ -1068,7 +1068,7 @@ export interface LambdaExecutionParameters {
    *          <p>Default: <code>json</code>
    *          </p>
    */
-  inputPayloadEncodingType?: LambdaInputPayloadEncodingType | string;
+  inputPayloadEncodingType?: keyof typeof LambdaInputPayloadEncodingType | string;
 
   /**
    * <p>The list of arguments to pass to the Lambda function when it runs.</p>
@@ -1262,10 +1262,10 @@ export class ServiceQuotaExceededException extends __BaseException {
 /**
  * @public
  */
-export enum DeploymentComponentUpdatePolicyAction {
-  NOTIFY_COMPONENTS = "NOTIFY_COMPONENTS",
-  SKIP_NOTIFY_COMPONENTS = "SKIP_NOTIFY_COMPONENTS",
-}
+export const DeploymentComponentUpdatePolicyAction = {
+  NOTIFY_COMPONENTS: "NOTIFY_COMPONENTS",
+  SKIP_NOTIFY_COMPONENTS: "SKIP_NOTIFY_COMPONENTS",
+};
 
 /**
  * @public
@@ -1306,7 +1306,7 @@ export interface DeploymentComponentUpdatePolicy {
    *          <p>Default: <code>NOTIFY_COMPONENTS</code>
    *          </p>
    */
-  action?: DeploymentComponentUpdatePolicyAction | string;
+  action?: keyof typeof DeploymentComponentUpdatePolicyAction | string;
 }
 
 /**
@@ -1328,10 +1328,10 @@ export interface DeploymentConfigurationValidationPolicy {
 /**
  * @public
  */
-export enum DeploymentFailureHandlingPolicy {
-  DO_NOTHING = "DO_NOTHING",
-  ROLLBACK = "ROLLBACK",
-}
+export const DeploymentFailureHandlingPolicy = {
+  DO_NOTHING: "DO_NOTHING",
+  ROLLBACK: "ROLLBACK",
+};
 
 /**
  * @public
@@ -1345,7 +1345,7 @@ export interface DeploymentPolicies {
    *          <p>Default: <code>ROLLBACK</code>
    *          </p>
    */
-  failureHandlingPolicy?: DeploymentFailureHandlingPolicy | string;
+  failureHandlingPolicy?: keyof typeof DeploymentFailureHandlingPolicy | string;
 
   /**
    * <p>The component update policy for the configuration deployment. This policy defines when
@@ -1363,19 +1363,19 @@ export interface DeploymentPolicies {
 /**
  * @public
  */
-export enum IoTJobAbortAction {
-  CANCEL = "CANCEL",
-}
+export const IoTJobAbortAction = {
+  CANCEL: "CANCEL",
+};
 
 /**
  * @public
  */
-export enum IoTJobExecutionFailureType {
-  ALL = "ALL",
-  FAILED = "FAILED",
-  REJECTED = "REJECTED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const IoTJobExecutionFailureType = {
+  ALL: "ALL",
+  FAILED: "FAILED",
+  REJECTED: "REJECTED",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -1396,12 +1396,12 @@ export interface IoTJobAbortCriteria {
   /**
    * <p>The type of job deployment failure that can cancel a job.</p>
    */
-  failureType: IoTJobExecutionFailureType | string | undefined;
+  failureType: keyof typeof IoTJobExecutionFailureType | string | undefined;
 
   /**
    * <p>The action to perform when the criteria are met.</p>
    */
-  action: IoTJobAbortAction | string | undefined;
+  action: keyof typeof IoTJobAbortAction | string | undefined;
 
   /**
    * <p>The minimum percentage of <code>failureType</code> failures that occur before the job can
@@ -1638,13 +1638,13 @@ export interface DeleteDeploymentRequest {
 /**
  * @public
  */
-export enum DeploymentStatus {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-}
+export const DeploymentStatus = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -1679,7 +1679,7 @@ export interface Deployment {
   /**
    * <p>The status of the deployment.</p>
    */
-  deploymentStatus?: DeploymentStatus | string;
+  deploymentStatus?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>Whether or not the deployment is the latest revision for its target.</p>
@@ -1695,10 +1695,10 @@ export interface Deployment {
 /**
  * @public
  */
-export enum DeploymentHistoryFilter {
-  ALL = "ALL",
-  LATEST_ONLY = "LATEST_ONLY",
-}
+export const DeploymentHistoryFilter = {
+  ALL: "ALL",
+  LATEST_ONLY: "LATEST_ONLY",
+};
 
 /**
  * @public
@@ -1782,15 +1782,15 @@ export interface DisassociateServiceRoleFromAccountResponse {
 /**
  * @public
  */
-export enum EffectiveDeploymentExecutionStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  REJECTED = "REJECTED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const EffectiveDeploymentExecutionStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+  REJECTED: "REJECTED",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -1857,7 +1857,7 @@ export interface EffectiveDeployment {
   /**
    * <p>The status of the deployment job on the Greengrass core device.</p>
    */
-  coreDeviceExecutionStatus: EffectiveDeploymentExecutionStatus | string | undefined;
+  coreDeviceExecutionStatus: keyof typeof EffectiveDeploymentExecutionStatus | string | undefined;
 
   /**
    * <p>The reason code for the update, if the job was updated.</p>
@@ -1885,10 +1885,10 @@ export interface EffectiveDeployment {
 /**
  * @public
  */
-export enum RecipeOutputFormat {
-  JSON = "JSON",
-  YAML = "YAML",
-}
+export const RecipeOutputFormat = {
+  JSON: "JSON",
+  YAML: "YAML",
+};
 
 /**
  * @public
@@ -1897,7 +1897,7 @@ export interface GetComponentRequest {
   /**
    * <p>The format of the recipe.</p>
    */
-  recipeOutputFormat?: RecipeOutputFormat | string;
+  recipeOutputFormat?: keyof typeof RecipeOutputFormat | string;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
@@ -1912,7 +1912,7 @@ export interface GetComponentResponse {
   /**
    * <p>The format of the recipe.</p>
    */
-  recipeOutputFormat: RecipeOutputFormat | string | undefined;
+  recipeOutputFormat: keyof typeof RecipeOutputFormat | string | undefined;
 
   /**
    * <p>The recipe of the component version.</p>
@@ -2033,7 +2033,7 @@ export interface GetCoreDeviceResponse {
    *             </li>
    *          </ul>
    */
-  status?: CoreDeviceStatus | string;
+  status?: keyof typeof CoreDeviceStatus | string;
 
   /**
    * <p>The time at which the core device's status last updated, expressed in ISO 8601
@@ -2086,7 +2086,7 @@ export interface GetDeploymentResponse {
   /**
    * <p>The status of the deployment.</p>
    */
-  deploymentStatus?: DeploymentStatus | string;
+  deploymentStatus?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>The ID of the IoT job that applies the deployment to target devices.</p>
@@ -2205,7 +2205,7 @@ export interface ListComponentsRequest {
    *          <p>Default: <code>PRIVATE</code>
    *          </p>
    */
-  scope?: ComponentVisibilityScope | string;
+  scope?: keyof typeof ComponentVisibilityScope | string;
 
   /**
    * <p>The maximum number of results to be returned per paginated request.</p>
@@ -2295,7 +2295,7 @@ export interface ListCoreDevicesRequest {
    *             </li>
    *          </ul>
    */
-  status?: CoreDeviceStatus | string;
+  status?: keyof typeof CoreDeviceStatus | string;
 
   /**
    * <p>The maximum number of results to be returned per paginated request.</p>
@@ -2348,7 +2348,7 @@ export interface ListDeploymentsRequest {
    *          <p>Default: <code>LATEST_ONLY</code>
    *          </p>
    */
-  historyFilter?: DeploymentHistoryFilter | string;
+  historyFilter?: keyof typeof DeploymentHistoryFilter | string;
 
   /**
    * <p>The parent deployment's target <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> within a subdeployment.</p>
@@ -2419,10 +2419,10 @@ export interface ListEffectiveDeploymentsResponse {
 /**
  * @public
  */
-export enum InstalledComponentTopologyFilter {
-  ALL = "ALL",
-  ROOT = "ROOT",
-}
+export const InstalledComponentTopologyFilter = {
+  ALL: "ALL",
+  ROOT: "ROOT",
+};
 
 /**
  * @public
@@ -2462,22 +2462,22 @@ export interface ListInstalledComponentsRequest {
    *          <p>Default: <code>ROOT</code>
    *          </p>
    */
-  topologyFilter?: InstalledComponentTopologyFilter | string;
+  topologyFilter?: keyof typeof InstalledComponentTopologyFilter | string;
 }
 
 /**
  * @public
  */
-export enum InstalledComponentLifecycleState {
-  BROKEN = "BROKEN",
-  ERRORED = "ERRORED",
-  FINISHED = "FINISHED",
-  INSTALLED = "INSTALLED",
-  NEW = "NEW",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-}
+export const InstalledComponentLifecycleState = {
+  BROKEN: "BROKEN",
+  ERRORED: "ERRORED",
+  FINISHED: "FINISHED",
+  INSTALLED: "INSTALLED",
+  NEW: "NEW",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
@@ -2497,7 +2497,7 @@ export interface InstalledComponent {
   /**
    * <p>The lifecycle state of the component.</p>
    */
-  lifecycleState?: InstalledComponentLifecycleState | string;
+  lifecycleState?: keyof typeof InstalledComponentLifecycleState | string;
 
   /**
    * <p>A detailed response about the lifecycle state of the component that explains the reason
@@ -2652,7 +2652,7 @@ export interface ResolvedComponentVersion {
    *             </li>
    *          </ul>
    */
-  vendorGuidance?: VendorGuidance | string;
+  vendorGuidance?: keyof typeof VendorGuidance | string;
 
   /**
    * <p>A message that communicates details about the vendor guidance state

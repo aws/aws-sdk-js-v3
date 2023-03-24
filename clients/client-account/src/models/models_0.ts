@@ -27,11 +27,11 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AlternateContactType {
-  BILLING = "BILLING",
-  OPERATIONS = "OPERATIONS",
-  SECURITY = "SECURITY",
-}
+export const AlternateContactType = {
+  BILLING: "BILLING",
+  OPERATIONS: "OPERATIONS",
+  SECURITY: "SECURITY",
+};
 
 /**
  * @public
@@ -40,7 +40,7 @@ export interface DeleteAlternateContactRequest {
   /**
    * <p>Specifies which of the alternate contacts to delete. </p>
    */
-  AlternateContactType: AlternateContactType | string | undefined;
+  AlternateContactType: keyof typeof AlternateContactType | string | undefined;
 
   /**
    * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that
@@ -150,10 +150,10 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  INVALID_REGION_OPT_TARGET = "invalidRegionOptTarget",
-}
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  INVALID_REGION_OPT_TARGET: "invalidRegionOptTarget",
+};
 
 /**
  * @public
@@ -165,7 +165,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason that validation failed.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>The field where the invalid entry was detected.</p>
@@ -194,7 +194,7 @@ export interface GetAlternateContactRequest {
   /**
    * <p>Specifies which alternate contact you want to retrieve.</p>
    */
-  AlternateContactType: AlternateContactType | string | undefined;
+  AlternateContactType: keyof typeof AlternateContactType | string | undefined;
 
   /**
    * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that
@@ -248,7 +248,7 @@ export interface AlternateContact {
   /**
    * <p>The type of alternate contact.</p>
    */
-  AlternateContactType?: AlternateContactType | string;
+  AlternateContactType?: keyof typeof AlternateContactType | string;
 }
 
 /**
@@ -288,7 +288,7 @@ export interface PutAlternateContactRequest {
   /**
    * <p>Specifies which alternate contact you want to create or update.</p>
    */
-  AlternateContactType: AlternateContactType | string | undefined;
+  AlternateContactType: keyof typeof AlternateContactType | string | undefined;
 
   /**
    * <p>Specifies the 12 digit account ID number of the Amazon Web Services account that
@@ -579,13 +579,13 @@ export interface GetRegionOptStatusRequest {
 /**
  * @public
  */
-export enum RegionOptStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLED_BY_DEFAULT = "ENABLED_BY_DEFAULT",
-  ENABLING = "ENABLING",
-}
+export const RegionOptStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLED_BY_DEFAULT: "ENABLED_BY_DEFAULT",
+  ENABLING: "ENABLING",
+};
 
 /**
  * @public
@@ -600,7 +600,7 @@ export interface GetRegionOptStatusResponse {
    * <p>One of the potential statuses a Region can undergo (Enabled, Enabling, Disabled,
    *             Disabling, Enabled_By_Default).</p>
    */
-  RegionOptStatus?: RegionOptStatus | string;
+  RegionOptStatus?: keyof typeof RegionOptStatus | string;
 }
 
 /**
@@ -653,7 +653,7 @@ export interface ListRegionsRequest {
    *             value of ENABLING will only return a list of Regions with a Region status of
    *             ENABLING.</p>
    */
-  RegionOptStatusContains?: (RegionOptStatus | string)[];
+  RegionOptStatusContains?: (keyof typeof RegionOptStatus | string)[];
 }
 
 /**
@@ -671,7 +671,7 @@ export interface Region {
    * <p>One of potential statuses a Region can undergo (Enabled, Enabling, Disabled, Disabling,
    *             Enabled_By_Default).</p>
    */
-  RegionOptStatus?: RegionOptStatus | string;
+  RegionOptStatus?: keyof typeof RegionOptStatus | string;
 }
 
 /**

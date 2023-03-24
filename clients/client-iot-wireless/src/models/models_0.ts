@@ -132,9 +132,9 @@ export interface Accuracy {
 /**
  * @public
  */
-export enum ApplicationConfigType {
-  SemtechGeoLocation = "SemtechGeolocation",
-}
+export const ApplicationConfigType = {
+  SemtechGeoLocation: "SemtechGeolocation",
+};
 
 /**
  * @public
@@ -149,7 +149,7 @@ export interface ApplicationConfig {
   /**
    * <p>Application type, which can be specified to obtain real-time position information of your LoRaWAN device.</p>
    */
-  Type?: ApplicationConfigType | string;
+  Type?: keyof typeof ApplicationConfigType | string;
 
   /**
    * <p>The name of the position data destination that describes the AWS IoT rule that processes the device's position data
@@ -485,11 +485,11 @@ export interface AssociateWirelessGatewayWithThingResponse {}
 /**
  * @public
  */
-export enum BatteryLevel {
-  CRITICAL = "critical",
-  LOW = "low",
-  NORMAL = "normal",
-}
+export const BatteryLevel = {
+  CRITICAL: "critical",
+  LOW: "low",
+  NORMAL: "normal",
+};
 
 /**
  * @public
@@ -1052,10 +1052,10 @@ export interface CellTowers {
 /**
  * @public
  */
-export enum SigningAlg {
-  Ed25519 = "Ed25519",
-  P256r1 = "P256r1",
-}
+export const SigningAlg = {
+  Ed25519: "Ed25519",
+  P256r1: "P256r1",
+};
 
 /**
  * @public
@@ -1065,7 +1065,7 @@ export interface CertificateList {
   /**
    * <p>The certificate chain algorithm provided by sidewalk.</p>
    */
-  SigningAlg: SigningAlg | string | undefined;
+  SigningAlg: keyof typeof SigningAlg | string | undefined;
 
   /**
    * <p>The value of the chosen sidewalk certificate.</p>
@@ -1076,18 +1076,18 @@ export interface CertificateList {
 /**
  * @public
  */
-export enum ConnectionStatus {
-  CONNECTED = "Connected",
-  DISCONNECTED = "Disconnected",
-}
+export const ConnectionStatus = {
+  CONNECTED: "Connected",
+  DISCONNECTED: "Disconnected",
+};
 
 /**
  * @public
  */
-export enum EventNotificationTopicStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const EventNotificationTopicStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -1097,7 +1097,7 @@ export interface LoRaWANConnectionStatusEventNotificationConfigurations {
   /**
    * <p>Denotes whether the gateway EUI connection status event topic is enabled or disabled.</p>
    */
-  GatewayEuiEventTopic?: EventNotificationTopicStatus | string;
+  GatewayEuiEventTopic?: keyof typeof EventNotificationTopicStatus | string;
 }
 
 /**
@@ -1113,7 +1113,7 @@ export interface ConnectionStatusEventConfiguration {
   /**
    * <p>Denotes whether the wireless gateway ID connection status event topic is enabled or disabled.</p>
    */
-  WirelessGatewayIdEventTopic?: EventNotificationTopicStatus | string;
+  WirelessGatewayIdEventTopic?: keyof typeof EventNotificationTopicStatus | string;
 }
 
 /**
@@ -1124,7 +1124,7 @@ export interface LoRaWANConnectionStatusResourceTypeEventConfiguration {
   /**
    * <p>Denotes whether the wireless gateway connection status event topic is enabled or disabled.</p>
    */
-  WirelessGatewayEventTopic?: EventNotificationTopicStatus | string;
+  WirelessGatewayEventTopic?: keyof typeof EventNotificationTopicStatus | string;
 }
 
 /**
@@ -1142,10 +1142,10 @@ export interface ConnectionStatusResourceTypeEventConfiguration {
 /**
  * @public
  */
-export enum ExpressionType {
-  MqttTopic = "MqttTopic",
-  RuleName = "RuleName",
-}
+export const ExpressionType = {
+  MqttTopic: "MqttTopic",
+  RuleName: "RuleName",
+};
 
 /**
  * @public
@@ -1159,7 +1159,7 @@ export interface CreateDestinationRequest {
   /**
    * <p>The type of value in <code>Expression</code>.</p>
    */
-  ExpressionType: ExpressionType | string | undefined;
+  ExpressionType: keyof typeof ExpressionType | string | undefined;
 
   /**
    * <p>The rule name or topic rule to send messages to.</p>
@@ -1346,12 +1346,12 @@ export interface CreateDeviceProfileResponse {
 /**
  * @public
  */
-export enum SupportedRfRegion {
-  AS923_1 = "AS923-1",
-  AU915 = "AU915",
-  EU868 = "EU868",
-  US915 = "US915",
-}
+export const SupportedRfRegion = {
+  AS923_1: "AS923-1",
+  AU915: "AU915",
+  EU868: "EU868",
+  US915: "US915",
+};
 
 /**
  * @public
@@ -1361,7 +1361,7 @@ export interface LoRaWANFuotaTask {
   /**
    * <p>Supported RfRegions</p>
    */
-  RfRegion?: SupportedRfRegion | string;
+  RfRegion?: keyof typeof SupportedRfRegion | string;
 }
 
 /**
@@ -1441,10 +1441,10 @@ export interface CreateFuotaTaskResponse {
 /**
  * @public
  */
-export enum DlClass {
-  ClassB = "ClassB",
-  ClassC = "ClassC",
-}
+export const DlClass = {
+  ClassB: "ClassB",
+  ClassC: "ClassC",
+};
 
 /**
  * @public
@@ -1454,12 +1454,12 @@ export interface LoRaWANMulticast {
   /**
    * <p>Supported RfRegions</p>
    */
-  RfRegion?: SupportedRfRegion | string;
+  RfRegion?: keyof typeof SupportedRfRegion | string;
 
   /**
    * <p>DlClass for LoRaWAM, valid values are ClassB and ClassC.</p>
    */
-  DlClass?: DlClass | string;
+  DlClass?: keyof typeof DlClass | string;
 }
 
 /**
@@ -1512,19 +1512,19 @@ export interface CreateMulticastGroupResponse {
 /**
  * @public
  */
-export enum LogLevel {
-  DISABLED = "DISABLED",
-  ERROR = "ERROR",
-  INFO = "INFO",
-}
+export const LogLevel = {
+  DISABLED: "DISABLED",
+  ERROR: "ERROR",
+  INFO: "INFO",
+};
 
 /**
  * @public
  */
-export enum WirelessDeviceFrameInfo {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const WirelessDeviceFrameInfo = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1536,13 +1536,13 @@ export interface TraceContent {
    *             <code>FrameInfo</code> of your wireless device resources for the trace content. Use FrameInfo to debug
    *             the communication between your LoRaWAN end devices and the network server.</p>
    */
-  WirelessDeviceFrameInfo?: WirelessDeviceFrameInfo | string;
+  WirelessDeviceFrameInfo?: keyof typeof WirelessDeviceFrameInfo | string;
 
   /**
    * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
    *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 }
 
 /**
@@ -1804,18 +1804,18 @@ export interface LoRaWANDevice {
 /**
  * @public
  */
-export enum PositioningConfigStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const PositioningConfigStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
  */
-export enum WirelessDeviceType {
-  LoRaWAN = "LoRaWAN",
-  Sidewalk = "Sidewalk",
-}
+export const WirelessDeviceType = {
+  LoRaWAN: "LoRaWAN",
+  Sidewalk: "Sidewalk",
+};
 
 /**
  * @public
@@ -1824,7 +1824,7 @@ export interface CreateWirelessDeviceRequest {
   /**
    * <p>The wireless device type.</p>
    */
-  Type: WirelessDeviceType | string | undefined;
+  Type: keyof typeof WirelessDeviceType | string | undefined;
 
   /**
    * <p>The name of the new resource.</p>
@@ -1859,7 +1859,7 @@ export interface CreateWirelessDeviceRequest {
   /**
    * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</p>
    */
-  Positioning?: PositioningConfigStatus | string;
+  Positioning?: keyof typeof PositioningConfigStatus | string;
 }
 
 /**
@@ -1976,14 +1976,14 @@ export interface CreateWirelessGatewayTaskRequest {
 /**
  * @public
  */
-export enum WirelessGatewayTaskStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  FIRST_RETRY = "FIRST_RETRY",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SECOND_RETRY = "SECOND_RETRY",
-}
+export const WirelessGatewayTaskStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  FIRST_RETRY: "FIRST_RETRY",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SECOND_RETRY: "SECOND_RETRY",
+};
 
 /**
  * @public
@@ -1997,7 +1997,7 @@ export interface CreateWirelessGatewayTaskResponse {
   /**
    * <p>The status of the request.</p>
    */
-  Status?: WirelessGatewayTaskStatus | string;
+  Status?: keyof typeof WirelessGatewayTaskStatus | string;
 }
 
 /**
@@ -2207,7 +2207,7 @@ export interface DeleteQueuedMessagesRequest {
   /**
    * <p>The wireless device type, which can be either Sidewalk or LoRaWAN.</p>
    */
-  WirelessDeviceType?: WirelessDeviceType | string;
+  WirelessDeviceType?: keyof typeof WirelessDeviceType | string;
 }
 
 /**
@@ -2308,7 +2308,7 @@ export interface Destinations {
   /**
    * <p>The type of value in <code>Expression</code>.</p>
    */
-  ExpressionType?: ExpressionType | string;
+  ExpressionType?: keyof typeof ExpressionType | string;
 
   /**
    * <p>The rule name or topic rule to send messages to.</p>
@@ -2357,7 +2357,7 @@ export interface SidewalkEventNotificationConfigurations {
   /**
    * <p>Denotes whether the Amazon ID event topic is enabled or disabled.</p>
    */
-  AmazonIdEventTopic?: EventNotificationTopicStatus | string;
+  AmazonIdEventTopic?: keyof typeof EventNotificationTopicStatus | string;
 }
 
 /**
@@ -2374,7 +2374,7 @@ export interface DeviceRegistrationStateEventConfiguration {
   /**
    * <p>Denotes whether the wireless device ID device registration state event topic is enabled or disabled.</p>
    */
-  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
+  WirelessDeviceIdEventTopic?: keyof typeof EventNotificationTopicStatus | string;
 }
 
 /**
@@ -2385,7 +2385,7 @@ export interface SidewalkResourceTypeEventConfiguration {
   /**
    * <p>Denotes whether the wireless device join event topic is enabled or disabled.</p>
    */
-  WirelessDeviceEventTopic?: EventNotificationTopicStatus | string;
+  WirelessDeviceEventTopic?: keyof typeof EventNotificationTopicStatus | string;
 }
 
 /**
@@ -2403,19 +2403,19 @@ export interface DeviceRegistrationStateResourceTypeEventConfiguration {
 /**
  * @public
  */
-export enum DeviceState {
-  PROVISIONED = "Provisioned",
-  REGISTEREDNOTSEEN = "RegisteredNotSeen",
-  REGISTEREDREACHABLE = "RegisteredReachable",
-  REGISTEREDUNREACHABLE = "RegisteredUnreachable",
-}
+export const DeviceState = {
+  PROVISIONED: "Provisioned",
+  REGISTEREDNOTSEEN: "RegisteredNotSeen",
+  REGISTEREDREACHABLE: "RegisteredReachable",
+  REGISTEREDUNREACHABLE: "RegisteredUnreachable",
+};
 
 /**
  * @public
  */
-export enum PartnerType {
-  Sidewalk = "Sidewalk",
-}
+export const PartnerType = {
+  Sidewalk: "Sidewalk",
+};
 
 /**
  * @public
@@ -2429,7 +2429,7 @@ export interface DisassociateAwsAccountFromPartnerAccountRequest {
   /**
    * <p>The partner type.</p>
    */
-  PartnerType: PartnerType | string | undefined;
+  PartnerType: keyof typeof PartnerType | string | undefined;
 }
 
 /**
@@ -2545,11 +2545,11 @@ export interface DisassociateWirelessGatewayFromThingResponse {}
 /**
  * @public
  */
-export enum DownlinkMode {
-  CONCURRENT = "CONCURRENT",
-  SEQUENTIAL = "SEQUENTIAL",
-  USING_UPLINK_GATEWAY = "USING_UPLINK_GATEWAY",
-}
+export const DownlinkMode = {
+  CONCURRENT: "CONCURRENT",
+  SEQUENTIAL: "SEQUENTIAL",
+  USING_UPLINK_GATEWAY: "USING_UPLINK_GATEWAY",
+};
 
 /**
  * @public
@@ -2579,7 +2579,7 @@ export interface ParticipatingGateways {
    * <p>Indicates whether to send the downlink message in sequential mode or concurrent mode, or to use
    *             only the chosen gateways from the previous uplink message transmission.</p>
    */
-  DownlinkMode: DownlinkMode | string | undefined;
+  DownlinkMode: keyof typeof DownlinkMode | string | undefined;
 
   /**
    * <p>The list of gateways that you want to use for sending the downlink data traffic.</p>
@@ -2641,13 +2641,13 @@ export interface DownlinkQueueMessage {
 /**
  * @public
  */
-export enum Event {
-  ACK = "ack",
-  DISCOVERED = "discovered",
-  LOST = "lost",
-  NACK = "nack",
-  PASSTHROUGH = "passthrough",
-}
+export const Event = {
+  ACK: "ack",
+  DISCOVERED: "discovered",
+  LOST: "lost",
+  NACK: "nack",
+  PASSTHROUGH: "passthrough",
+};
 
 /**
  * @public
@@ -2657,7 +2657,7 @@ export interface LoRaWANJoinEventNotificationConfigurations {
   /**
    * <p>Denotes whether the Dev EUI join event topic is enabled or disabled.</p>
    */
-  DevEuiEventTopic?: EventNotificationTopicStatus | string;
+  DevEuiEventTopic?: keyof typeof EventNotificationTopicStatus | string;
 }
 
 /**
@@ -2673,7 +2673,7 @@ export interface JoinEventConfiguration {
   /**
    * <p>Denotes whether the wireless device ID join event topic is enabled or disabled.</p>
    */
-  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
+  WirelessDeviceIdEventTopic?: keyof typeof EventNotificationTopicStatus | string;
 }
 
 /**
@@ -2693,7 +2693,7 @@ export interface MessageDeliveryStatusEventConfiguration {
    * <p>Denotes whether the wireless device ID message delivery status event topic is enabled
    *             or disabled.</p>
    */
-  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
+  WirelessDeviceIdEventTopic?: keyof typeof EventNotificationTopicStatus | string;
 }
 
 /**
@@ -2709,7 +2709,7 @@ export interface ProximityEventConfiguration {
   /**
    * <p>Denotes whether the wireless device ID proximity event topic is enabled or disabled.</p>
    */
-  WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
+  WirelessDeviceIdEventTopic?: keyof typeof EventNotificationTopicStatus | string;
 }
 
 /**
@@ -2746,20 +2746,20 @@ export interface EventNotificationItemConfigurations {
 /**
  * @public
  */
-export enum IdentifierType {
-  DevEui = "DevEui",
-  GatewayEui = "GatewayEui",
-  PartnerAccountId = "PartnerAccountId",
-  WirelessDeviceId = "WirelessDeviceId",
-  WirelessGatewayId = "WirelessGatewayId",
-}
+export const IdentifierType = {
+  DevEui: "DevEui",
+  GatewayEui: "GatewayEui",
+  PartnerAccountId: "PartnerAccountId",
+  WirelessDeviceId: "WirelessDeviceId",
+  WirelessGatewayId: "WirelessGatewayId",
+};
 
 /**
  * @public
  */
-export enum EventNotificationPartnerType {
-  Sidewalk = "Sidewalk",
-}
+export const EventNotificationPartnerType = {
+  Sidewalk: "Sidewalk",
+};
 
 /**
  * @public
@@ -2774,12 +2774,12 @@ export interface EventConfigurationItem {
   /**
    * <p>Identifier type of the particular resource identifier for event configuration.</p>
    */
-  IdentifierType?: IdentifierType | string;
+  IdentifierType?: keyof typeof IdentifierType | string;
 
   /**
    * <p>Partner type of the resource if the identifier type is PartnerAccountId.</p>
    */
-  PartnerType?: EventNotificationPartnerType | string;
+  PartnerType?: keyof typeof EventNotificationPartnerType | string;
 
   /**
    * <p>Object of all event configurations and the status of the event topics.</p>
@@ -2790,28 +2790,28 @@ export interface EventConfigurationItem {
 /**
  * @public
  */
-export enum EventNotificationResourceType {
-  SidewalkAccount = "SidewalkAccount",
-  WirelessDevice = "WirelessDevice",
-  WirelessGateway = "WirelessGateway",
-}
+export const EventNotificationResourceType = {
+  SidewalkAccount: "SidewalkAccount",
+  WirelessDevice: "WirelessDevice",
+  WirelessGateway: "WirelessGateway",
+};
 
 /**
  * @public
  */
-export enum FuotaDeviceStatus {
-  FragAlgo_unsupported = "FragAlgo_unsupported",
-  FragIndex_unsupported = "FragIndex_unsupported",
-  Initial = "Initial",
-  MICError = "MICError",
-  MemoryError = "MemoryError",
-  MissingFrag = "MissingFrag",
-  Not_enough_memory = "Not_enough_memory",
-  Package_Not_Supported = "Package_Not_Supported",
-  SessionCnt_replay = "SessionCnt_replay",
-  Successful = "Successful",
-  Wrong_descriptor = "Wrong_descriptor",
-}
+export const FuotaDeviceStatus = {
+  FragAlgo_unsupported: "FragAlgo_unsupported",
+  FragIndex_unsupported: "FragIndex_unsupported",
+  Initial: "Initial",
+  MICError: "MICError",
+  MemoryError: "MemoryError",
+  MissingFrag: "MissingFrag",
+  Not_enough_memory: "Not_enough_memory",
+  Package_Not_Supported: "Package_Not_Supported",
+  SessionCnt_replay: "SessionCnt_replay",
+  Successful: "Successful",
+  Wrong_descriptor: "Wrong_descriptor",
+};
 
 /**
  * @public
@@ -2837,13 +2837,13 @@ export interface FuotaTask {
 /**
  * @public
  */
-export enum FuotaTaskStatus {
-  Delete_Waiting = "Delete_Waiting",
-  FuotaDone = "FuotaDone",
-  FuotaSession_Waiting = "FuotaSession_Waiting",
-  In_FuotaSession = "In_FuotaSession",
-  Pending = "Pending",
-}
+export const FuotaTaskStatus = {
+  Delete_Waiting: "Delete_Waiting",
+  FuotaDone: "FuotaDone",
+  FuotaSession_Waiting: "FuotaSession_Waiting",
+  In_FuotaSession: "In_FuotaSession",
+  Pending: "Pending",
+};
 
 /**
  * @public
@@ -2877,7 +2877,7 @@ export interface GetDestinationResponse {
   /**
    * <p>The type of value in <code>Expression</code>.</p>
    */
-  ExpressionType?: ExpressionType | string;
+  ExpressionType?: keyof typeof ExpressionType | string;
 
   /**
    * <p>The description of the resource.</p>
@@ -2938,7 +2938,7 @@ export interface LoRaWANJoinResourceTypeEventConfiguration {
   /**
    * <p>Denotes whether the wireless device join event topic is enabled or disabled.</p>
    */
-  WirelessDeviceEventTopic?: EventNotificationTopicStatus | string;
+  WirelessDeviceEventTopic?: keyof typeof EventNotificationTopicStatus | string;
 }
 
 /**
@@ -3049,7 +3049,7 @@ export interface GetFuotaTaskResponse {
   /**
    * <p>The status of a FUOTA task.</p>
    */
-  Status?: FuotaTaskStatus | string;
+  Status?: keyof typeof FuotaTaskStatus | string;
 
   /**
    * <p>The name of a FUOTA task.</p>
@@ -3109,13 +3109,13 @@ export interface GetLogLevelsByResourceTypesRequest {}
 /**
  * @public
  */
-export enum WirelessDeviceEvent {
-  Downlink_Data = "Downlink_Data",
-  Join = "Join",
-  Registration = "Registration",
-  Rejoin = "Rejoin",
-  Uplink_Data = "Uplink_Data",
-}
+export const WirelessDeviceEvent = {
+  Downlink_Data: "Downlink_Data",
+  Join: "Join",
+  Registration: "Registration",
+  Rejoin: "Rejoin",
+  Uplink_Data: "Uplink_Data",
+};
 
 /**
  * @public
@@ -3128,13 +3128,13 @@ export interface WirelessDeviceEventLogOption {
   /**
    * <p>The event for a log message, if the log message is tied to a wireless device.</p>
    */
-  Event: WirelessDeviceEvent | string | undefined;
+  Event: keyof typeof WirelessDeviceEvent | string | undefined;
 
   /**
    * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
    *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: keyof typeof LogLevel | string | undefined;
 }
 
 /**
@@ -3145,13 +3145,13 @@ export interface WirelessDeviceLogOption {
   /**
    * <p>The wireless device type.</p>
    */
-  Type: WirelessDeviceType | string | undefined;
+  Type: keyof typeof WirelessDeviceType | string | undefined;
 
   /**
    * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
    *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: keyof typeof LogLevel | string | undefined;
 
   /**
    * <p>The list of wireless device event log options.</p>
@@ -3162,10 +3162,10 @@ export interface WirelessDeviceLogOption {
 /**
  * @public
  */
-export enum WirelessGatewayEvent {
-  CUPS_Request = "CUPS_Request",
-  Certificate = "Certificate",
-}
+export const WirelessGatewayEvent = {
+  CUPS_Request: "CUPS_Request",
+  Certificate: "Certificate",
+};
 
 /**
  * @public
@@ -3176,21 +3176,21 @@ export interface WirelessGatewayEventLogOption {
   /**
    * <p>The event for a log message, if the log message is tied to a wireless gateway.</p>
    */
-  Event: WirelessGatewayEvent | string | undefined;
+  Event: keyof typeof WirelessGatewayEvent | string | undefined;
 
   /**
    * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
    *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: keyof typeof LogLevel | string | undefined;
 }
 
 /**
  * @public
  */
-export enum WirelessGatewayType {
-  LoRaWAN = "LoRaWAN",
-}
+export const WirelessGatewayType = {
+  LoRaWAN: "LoRaWAN",
+};
 
 /**
  * @public
@@ -3200,13 +3200,13 @@ export interface WirelessGatewayLogOption {
   /**
    * <p>The wireless gateway type.</p>
    */
-  Type: WirelessGatewayType | string | undefined;
+  Type: keyof typeof WirelessGatewayType | string | undefined;
 
   /**
    * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
    *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: keyof typeof LogLevel | string | undefined;
 
   /**
    * <p>The list of wireless gateway event log options.</p>
@@ -3222,7 +3222,7 @@ export interface GetLogLevelsByResourceTypesResponse {
    * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
    *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
-  DefaultLogLevel?: LogLevel | string;
+  DefaultLogLevel?: keyof typeof LogLevel | string;
 
   /**
    * <p>The list of wireless gateway log options.</p>
@@ -3253,12 +3253,12 @@ export interface LoRaWANMulticastGet {
   /**
    * <p>Supported RfRegions</p>
    */
-  RfRegion?: SupportedRfRegion | string;
+  RfRegion?: keyof typeof SupportedRfRegion | string;
 
   /**
    * <p>DlClass for LoRaWAM, valid values are ClassB and ClassC.</p>
    */
-  DlClass?: DlClass | string;
+  DlClass?: keyof typeof DlClass | string;
 
   /**
    * <p>Number of devices that are requested to be associated with the multicast group.</p>
@@ -3414,7 +3414,7 @@ export interface GetPartnerAccountRequest {
   /**
    * <p>The partner type.</p>
    */
-  PartnerType: PartnerType | string | undefined;
+  PartnerType: keyof typeof PartnerType | string | undefined;
 }
 
 /**
@@ -3456,10 +3456,10 @@ export interface GetPartnerAccountResponse {
 /**
  * @public
  */
-export enum PositionResourceType {
-  WirelessDevice = "WirelessDevice",
-  WirelessGateway = "WirelessGateway",
-}
+export const PositionResourceType = {
+  WirelessDevice: "WirelessDevice",
+  WirelessGateway: "WirelessGateway",
+};
 
 /**
  * @public
@@ -3473,22 +3473,22 @@ export interface GetPositionRequest {
   /**
    * <p>Resource type of the resource for which position information is retrieved.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: keyof typeof PositionResourceType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum PositionSolverProvider {
-  SEMTECH = "Semtech",
-}
+export const PositionSolverProvider = {
+  SEMTECH: "Semtech",
+};
 
 /**
  * @public
  */
-export enum PositionSolverType {
-  GNSS = "GNSS",
-}
+export const PositionSolverType = {
+  GNSS: "GNSS",
+};
 
 /**
  * @public
@@ -3509,12 +3509,12 @@ export interface GetPositionResponse {
   /**
    * <p>The type of solver used to identify the position of the resource.</p>
    */
-  SolverType?: PositionSolverType | string;
+  SolverType?: keyof typeof PositionSolverType | string;
 
   /**
    * <p>The vendor of the positioning solver.</p>
    */
-  SolverProvider?: PositionSolverProvider | string;
+  SolverProvider?: keyof typeof PositionSolverProvider | string;
 
   /**
    * <p>The version of the positioning solver.</p>
@@ -3539,24 +3539,24 @@ export interface GetPositionConfigurationRequest {
   /**
    * <p>Resource type of the resource for which position configuration is retrieved.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: keyof typeof PositionResourceType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum PositionConfigurationFec {
-  NONE = "NONE",
-  ROSE = "ROSE",
-}
+export const PositionConfigurationFec = {
+  NONE: "NONE",
+  ROSE: "ROSE",
+};
 
 /**
  * @public
  */
-export enum PositionConfigurationStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const PositionConfigurationStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -3566,22 +3566,22 @@ export interface SemtechGnssDetail {
   /**
    * <p>The vendor of the solver object.</p>
    */
-  Provider?: PositionSolverProvider | string;
+  Provider?: keyof typeof PositionSolverProvider | string;
 
   /**
    * <p>The type of positioning solver used.</p>
    */
-  Type?: PositionSolverType | string;
+  Type?: keyof typeof PositionSolverType | string;
 
   /**
    * <p>The status indicating whether the solver is enabled.</p>
    */
-  Status?: PositionConfigurationStatus | string;
+  Status?: keyof typeof PositionConfigurationStatus | string;
 
   /**
    * <p>Whether forward error correction is enabled.</p>
    */
-  Fec?: PositionConfigurationFec | string;
+  Fec?: keyof typeof PositionConfigurationFec | string;
 }
 
 /**
@@ -3738,12 +3738,12 @@ export interface GetResourceEventConfigurationRequest {
   /**
    * <p>Identifier type of the particular resource identifier for event configuration.</p>
    */
-  IdentifierType: IdentifierType | string | undefined;
+  IdentifierType: keyof typeof IdentifierType | string | undefined;
 
   /**
    * <p>Partner type of the resource if the identifier type is <code>PartnerAccountId</code>.</p>
    */
-  PartnerType?: EventNotificationPartnerType | string;
+  PartnerType?: keyof typeof EventNotificationPartnerType | string;
 }
 
 /**
@@ -3800,7 +3800,7 @@ export interface GetResourceLogLevelResponse {
    * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
    *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 }
 
 /**
@@ -3818,7 +3818,7 @@ export interface GetResourcePositionRequest {
    * <p>The type of resource for which position information is retrieved, which can be a wireless device or a
    *           wireless gateway.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: keyof typeof PositionResourceType | string | undefined;
 }
 
 /**
@@ -3835,10 +3835,10 @@ export interface GetResourcePositionResponse {
 /**
  * @public
  */
-export enum WirelessGatewayServiceType {
-  CUPS = "CUPS",
-  LNS = "LNS",
-}
+export const WirelessGatewayServiceType = {
+  CUPS: "CUPS",
+  LNS: "LNS",
+};
 
 /**
  * @public
@@ -3849,7 +3849,7 @@ export interface GetServiceEndpointRequest {
    *             Configuration and Update Server endpoint, or <code>LNS</code> for the LoRaWAN Network Server endpoint or
    *             <code>CLAIM</code> for the global endpoint.</p>
    */
-  ServiceType?: WirelessGatewayServiceType | string;
+  ServiceType?: keyof typeof WirelessGatewayServiceType | string;
 }
 
 /**
@@ -3859,7 +3859,7 @@ export interface GetServiceEndpointResponse {
   /**
    * <p>The endpoint's service type.</p>
    */
-  ServiceType?: WirelessGatewayServiceType | string;
+  ServiceType?: keyof typeof WirelessGatewayServiceType | string;
 
   /**
    * <p>The service endpoint value.</p>
@@ -4011,12 +4011,12 @@ export interface GetServiceProfileResponse {
 /**
  * @public
  */
-export enum WirelessDeviceIdType {
-  DevEui = "DevEui",
-  SidewalkManufacturingSn = "SidewalkManufacturingSn",
-  ThingName = "ThingName",
-  WirelessDeviceId = "WirelessDeviceId",
-}
+export const WirelessDeviceIdType = {
+  DevEui: "DevEui",
+  SidewalkManufacturingSn: "SidewalkManufacturingSn",
+  ThingName: "ThingName",
+  WirelessDeviceId: "WirelessDeviceId",
+};
 
 /**
  * @public
@@ -4030,7 +4030,7 @@ export interface GetWirelessDeviceRequest {
   /**
    * <p>The type of identifier used in <code>identifier</code>.</p>
    */
-  IdentifierType: WirelessDeviceIdType | string | undefined;
+  IdentifierType: keyof typeof WirelessDeviceIdType | string | undefined;
 }
 
 /**
@@ -4066,7 +4066,7 @@ export interface GetWirelessDeviceResponse {
   /**
    * <p>The wireless device type.</p>
    */
-  Type?: WirelessDeviceType | string;
+  Type?: keyof typeof WirelessDeviceType | string;
 
   /**
    * <p>The name of the resource.</p>
@@ -4116,7 +4116,7 @@ export interface GetWirelessDeviceResponse {
   /**
    * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</p>
    */
-  Positioning?: PositioningConfigStatus | string;
+  Positioning?: keyof typeof PositioningConfigStatus | string;
 }
 
 /**
@@ -4199,17 +4199,17 @@ export interface SidewalkDeviceMetadata {
   /**
    * <p>Sidewalk device battery level.</p>
    */
-  BatteryLevel?: BatteryLevel | string;
+  BatteryLevel?: keyof typeof BatteryLevel | string;
 
   /**
    * <p>Sidewalk device status notification.</p>
    */
-  Event?: Event | string;
+  Event?: keyof typeof Event | string;
 
   /**
    * <p>Device state defines the device status of sidewalk device.</p>
    */
-  DeviceState?: DeviceState | string;
+  DeviceState?: keyof typeof DeviceState | string;
 }
 
 /**
@@ -4240,11 +4240,11 @@ export interface GetWirelessDeviceStatisticsResponse {
 /**
  * @public
  */
-export enum WirelessGatewayIdType {
-  GatewayEui = "GatewayEui",
-  ThingName = "ThingName",
-  WirelessGatewayId = "WirelessGatewayId",
-}
+export const WirelessGatewayIdType = {
+  GatewayEui: "GatewayEui",
+  ThingName: "ThingName",
+  WirelessGatewayId: "WirelessGatewayId",
+};
 
 /**
  * @public
@@ -4258,7 +4258,7 @@ export interface GetWirelessGatewayRequest {
   /**
    * <p>The type of identifier used in <code>identifier</code>.</p>
    */
-  IdentifierType: WirelessGatewayIdType | string | undefined;
+  IdentifierType: keyof typeof WirelessGatewayIdType | string | undefined;
 }
 
 /**
@@ -4384,7 +4384,7 @@ export interface GetWirelessGatewayStatisticsResponse {
   /**
    * <p>The connection status of the wireless gateway.</p>
    */
-  ConnectionStatus?: ConnectionStatus | string;
+  ConnectionStatus?: keyof typeof ConnectionStatus | string;
 }
 
 /**
@@ -4424,7 +4424,7 @@ export interface GetWirelessGatewayTaskResponse {
   /**
    * <p>The status of the request.</p>
    */
-  Status?: WirelessGatewayTaskStatus | string;
+  Status?: keyof typeof WirelessGatewayTaskStatus | string;
 }
 
 /**
@@ -4529,7 +4529,7 @@ export interface ListEventConfigurationsRequest {
   /**
    * <p>Resource type to filter event configurations.</p>
    */
-  ResourceType: EventNotificationResourceType | string | undefined;
+  ResourceType: keyof typeof EventNotificationResourceType | string | undefined;
 
   /**
    * <p>The maximum number of results to return in this operation.</p>
@@ -4769,7 +4769,7 @@ export interface ListPositionConfigurationsRequest {
   /**
    * <p>Resource type for which position configurations are listed.</p>
    */
-  ResourceType?: PositionResourceType | string;
+  ResourceType?: keyof typeof PositionResourceType | string;
 
   /**
    * <p>The maximum number of results to return in this operation.</p>
@@ -4796,7 +4796,7 @@ export interface PositionConfigurationItem {
   /**
    * <p>Resource type of the resource for the position configuration.</p>
    */
-  ResourceType?: PositionResourceType | string;
+  ResourceType?: keyof typeof PositionResourceType | string;
 
   /**
    * <p>The details of the positioning solver object used to compute the location.</p>
@@ -4848,7 +4848,7 @@ export interface ListQueuedMessagesRequest {
   /**
    * <p>The wireless device type, whic can be either Sidewalk or LoRaWAN.</p>
    */
-  WirelessDeviceType?: WirelessDeviceType | string;
+  WirelessDeviceType?: keyof typeof WirelessDeviceType | string;
 }
 
 /**
@@ -4970,7 +4970,7 @@ export interface ListWirelessDevicesRequest {
   /**
    * <p>A filter to list only the wireless devices that use this wireless device type.</p>
    */
-  WirelessDeviceType?: WirelessDeviceType | string;
+  WirelessDeviceType?: keyof typeof WirelessDeviceType | string;
 
   /**
    * <p>The ID of a FUOTA task.</p>
@@ -5038,7 +5038,7 @@ export interface WirelessDeviceStatistics {
   /**
    * <p>The wireless device type.</p>
    */
-  Type?: WirelessDeviceType | string;
+  Type?: keyof typeof WirelessDeviceType | string;
 
   /**
    * <p>The name of the resource.</p>
@@ -5068,7 +5068,7 @@ export interface WirelessDeviceStatistics {
   /**
    * <p>The status of a wireless device in a FUOTA task.</p>
    */
-  FuotaDeviceStatus?: FuotaDeviceStatus | string;
+  FuotaDeviceStatus?: keyof typeof FuotaDeviceStatus | string;
 
   /**
    * <p>The status of the wireless device in the multicast group.</p>
@@ -5165,9 +5165,9 @@ export interface ListWirelessGatewaysResponse {
 /**
  * @public
  */
-export enum WirelessGatewayTaskDefinitionType {
-  UPDATE = "UPDATE",
-}
+export const WirelessGatewayTaskDefinitionType = {
+  UPDATE: "UPDATE",
+};
 
 /**
  * @public
@@ -5186,7 +5186,7 @@ export interface ListWirelessGatewayTaskDefinitionsRequest {
   /**
    * <p>A filter to list only the wireless gateway task definitions that use this task definition type.</p>
    */
-  TaskDefinitionType?: WirelessGatewayTaskDefinitionType | string;
+  TaskDefinitionType?: keyof typeof WirelessGatewayTaskDefinitionType | string;
 }
 
 /**
@@ -5249,12 +5249,12 @@ export interface SemtechGnssConfiguration {
   /**
    * <p>The status indicating whether the solver is enabled.</p>
    */
-  Status: PositionConfigurationStatus | string | undefined;
+  Status: keyof typeof PositionConfigurationStatus | string | undefined;
 
   /**
    * <p>Whether forward error correction is enabled.</p>
    */
-  Fec: PositionConfigurationFec | string | undefined;
+  Fec: keyof typeof PositionConfigurationFec | string | undefined;
 }
 
 /**
@@ -5280,7 +5280,7 @@ export interface PutPositionConfigurationRequest {
   /**
    * <p>Resource type of the resource for which you want to update the position configuration.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: keyof typeof PositionResourceType | string | undefined;
 
   /**
    * <p>The positioning solvers used to update the position configuration of the resource.</p>
@@ -5318,7 +5318,7 @@ export interface PutResourceLogLevelRequest {
    * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
    *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: keyof typeof LogLevel | string | undefined;
 }
 
 /**

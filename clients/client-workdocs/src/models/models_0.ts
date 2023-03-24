@@ -204,36 +204,36 @@ export interface ActivateUserRequest {
 /**
  * @public
  */
-export enum LocaleType {
-  DE = "de",
-  DEFAULT = "default",
-  EN = "en",
-  ES = "es",
-  FR = "fr",
-  JA = "ja",
-  KO = "ko",
-  PT_BR = "pt_BR",
-  RU = "ru",
-  ZH_CN = "zh_CN",
-  ZH_TW = "zh_TW",
-}
+export const LocaleType = {
+  DE: "de",
+  DEFAULT: "default",
+  EN: "en",
+  ES: "es",
+  FR: "fr",
+  JA: "ja",
+  KO: "ko",
+  PT_BR: "pt_BR",
+  RU: "ru",
+  ZH_CN: "zh_CN",
+  ZH_TW: "zh_TW",
+};
 
 /**
  * @public
  */
-export enum UserStatusType {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  PENDING = "PENDING",
-}
+export const UserStatusType = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
  */
-export enum StorageType {
-  QUOTA = "QUOTA",
-  UNLIMITED = "UNLIMITED",
-}
+export const StorageType = {
+  QUOTA: "QUOTA",
+  UNLIMITED: "UNLIMITED",
+};
 
 /**
  * @public
@@ -248,7 +248,7 @@ export interface StorageRuleType {
   /**
    * <p>The type of storage.</p>
    */
-  StorageType?: StorageType | string;
+  StorageType?: keyof typeof StorageType | string;
 }
 
 /**
@@ -270,13 +270,13 @@ export interface UserStorageMetadata {
 /**
  * @public
  */
-export enum UserType {
-  ADMIN = "ADMIN",
-  MINIMALUSER = "MINIMALUSER",
-  POWERUSER = "POWERUSER",
-  USER = "USER",
-  WORKSPACESUSER = "WORKSPACESUSER",
-}
+export const UserType = {
+  ADMIN: "ADMIN",
+  MINIMALUSER: "MINIMALUSER",
+  POWERUSER: "POWERUSER",
+  USER: "USER",
+  WORKSPACESUSER: "WORKSPACESUSER",
+};
 
 /**
  * @public
@@ -326,12 +326,12 @@ export interface User {
   /**
    * <p>The status of the user.</p>
    */
-  Status?: UserStatusType | string;
+  Status?: keyof typeof UserStatusType | string;
 
   /**
    * <p>The type of user.</p>
    */
-  Type?: UserType | string;
+  Type?: keyof typeof UserType | string;
 
   /**
    * <p>The time when the user was created.</p>
@@ -351,7 +351,7 @@ export interface User {
   /**
    * <p>The locale of the user.</p>
    */
-  Locale?: LocaleType | string;
+  Locale?: keyof typeof LocaleType | string;
 
   /**
    * <p>The storage for the user.</p>
@@ -372,11 +372,11 @@ export interface ActivateUserResponse {
 /**
  * @public
  */
-export enum CommentStatusType {
-  DELETED = "DELETED",
-  DRAFT = "DRAFT",
-  PUBLISHED = "PUBLISHED",
-}
+export const CommentStatusType = {
+  DELETED: "DELETED",
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+};
 
 /**
  * @public
@@ -401,7 +401,7 @@ export interface CommentMetadata {
   /**
    * <p>The status of the comment.</p>
    */
-  CommentStatus?: CommentStatusType | string;
+  CommentStatus?: keyof typeof CommentStatusType | string;
 
   /**
    * <p>The ID of the user being replied to.</p>
@@ -448,10 +448,10 @@ export interface UserMetadata {
 /**
  * @public
  */
-export enum ResourceType {
-  DOCUMENT = "DOCUMENT",
-  FOLDER = "FOLDER",
-}
+export const ResourceType = {
+  DOCUMENT: "DOCUMENT",
+  FOLDER: "FOLDER",
+};
 
 /**
  * @public
@@ -461,7 +461,7 @@ export interface ResourceMetadata {
   /**
    * <p>The type of resource.</p>
    */
-  Type?: ResourceType | string;
+  Type?: keyof typeof ResourceType | string;
 
   /**
    * <p>The name of the resource.</p>
@@ -530,41 +530,41 @@ export interface Participants {
 /**
  * @public
  */
-export enum ActivityType {
-  DOCUMENT_ANNOTATION_ADDED = "DOCUMENT_ANNOTATION_ADDED",
-  DOCUMENT_ANNOTATION_DELETED = "DOCUMENT_ANNOTATION_DELETED",
-  DOCUMENT_CHECKED_IN = "DOCUMENT_CHECKED_IN",
-  DOCUMENT_CHECKED_OUT = "DOCUMENT_CHECKED_OUT",
-  DOCUMENT_COMMENT_ADDED = "DOCUMENT_COMMENT_ADDED",
-  DOCUMENT_COMMENT_DELETED = "DOCUMENT_COMMENT_DELETED",
-  DOCUMENT_MOVED = "DOCUMENT_MOVED",
-  DOCUMENT_RECYCLED = "DOCUMENT_RECYCLED",
-  DOCUMENT_RENAMED = "DOCUMENT_RENAMED",
-  DOCUMENT_RESTORED = "DOCUMENT_RESTORED",
-  DOCUMENT_REVERTED = "DOCUMENT_REVERTED",
-  DOCUMENT_SHAREABLE_LINK_CREATED = "DOCUMENT_SHAREABLE_LINK_CREATED",
-  DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED = "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED",
-  DOCUMENT_SHAREABLE_LINK_REMOVED = "DOCUMENT_SHAREABLE_LINK_REMOVED",
-  DOCUMENT_SHARED = "DOCUMENT_SHARED",
-  DOCUMENT_SHARE_PERMISSION_CHANGED = "DOCUMENT_SHARE_PERMISSION_CHANGED",
-  DOCUMENT_UNSHARED = "DOCUMENT_UNSHARED",
-  DOCUMENT_VERSION_DELETED = "DOCUMENT_VERSION_DELETED",
-  DOCUMENT_VERSION_DOWNLOADED = "DOCUMENT_VERSION_DOWNLOADED",
-  DOCUMENT_VERSION_UPLOADED = "DOCUMENT_VERSION_UPLOADED",
-  DOCUMENT_VERSION_VIEWED = "DOCUMENT_VERSION_VIEWED",
-  FOLDER_CREATED = "FOLDER_CREATED",
-  FOLDER_DELETED = "FOLDER_DELETED",
-  FOLDER_MOVED = "FOLDER_MOVED",
-  FOLDER_RECYCLED = "FOLDER_RECYCLED",
-  FOLDER_RENAMED = "FOLDER_RENAMED",
-  FOLDER_RESTORED = "FOLDER_RESTORED",
-  FOLDER_SHAREABLE_LINK_CREATED = "FOLDER_SHAREABLE_LINK_CREATED",
-  FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED = "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED",
-  FOLDER_SHAREABLE_LINK_REMOVED = "FOLDER_SHAREABLE_LINK_REMOVED",
-  FOLDER_SHARED = "FOLDER_SHARED",
-  FOLDER_SHARE_PERMISSION_CHANGED = "FOLDER_SHARE_PERMISSION_CHANGED",
-  FOLDER_UNSHARED = "FOLDER_UNSHARED",
-}
+export const ActivityType = {
+  DOCUMENT_ANNOTATION_ADDED: "DOCUMENT_ANNOTATION_ADDED",
+  DOCUMENT_ANNOTATION_DELETED: "DOCUMENT_ANNOTATION_DELETED",
+  DOCUMENT_CHECKED_IN: "DOCUMENT_CHECKED_IN",
+  DOCUMENT_CHECKED_OUT: "DOCUMENT_CHECKED_OUT",
+  DOCUMENT_COMMENT_ADDED: "DOCUMENT_COMMENT_ADDED",
+  DOCUMENT_COMMENT_DELETED: "DOCUMENT_COMMENT_DELETED",
+  DOCUMENT_MOVED: "DOCUMENT_MOVED",
+  DOCUMENT_RECYCLED: "DOCUMENT_RECYCLED",
+  DOCUMENT_RENAMED: "DOCUMENT_RENAMED",
+  DOCUMENT_RESTORED: "DOCUMENT_RESTORED",
+  DOCUMENT_REVERTED: "DOCUMENT_REVERTED",
+  DOCUMENT_SHAREABLE_LINK_CREATED: "DOCUMENT_SHAREABLE_LINK_CREATED",
+  DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED: "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED",
+  DOCUMENT_SHAREABLE_LINK_REMOVED: "DOCUMENT_SHAREABLE_LINK_REMOVED",
+  DOCUMENT_SHARED: "DOCUMENT_SHARED",
+  DOCUMENT_SHARE_PERMISSION_CHANGED: "DOCUMENT_SHARE_PERMISSION_CHANGED",
+  DOCUMENT_UNSHARED: "DOCUMENT_UNSHARED",
+  DOCUMENT_VERSION_DELETED: "DOCUMENT_VERSION_DELETED",
+  DOCUMENT_VERSION_DOWNLOADED: "DOCUMENT_VERSION_DOWNLOADED",
+  DOCUMENT_VERSION_UPLOADED: "DOCUMENT_VERSION_UPLOADED",
+  DOCUMENT_VERSION_VIEWED: "DOCUMENT_VERSION_VIEWED",
+  FOLDER_CREATED: "FOLDER_CREATED",
+  FOLDER_DELETED: "FOLDER_DELETED",
+  FOLDER_MOVED: "FOLDER_MOVED",
+  FOLDER_RECYCLED: "FOLDER_RECYCLED",
+  FOLDER_RENAMED: "FOLDER_RENAMED",
+  FOLDER_RESTORED: "FOLDER_RESTORED",
+  FOLDER_SHAREABLE_LINK_CREATED: "FOLDER_SHAREABLE_LINK_CREATED",
+  FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED: "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED",
+  FOLDER_SHAREABLE_LINK_REMOVED: "FOLDER_SHAREABLE_LINK_REMOVED",
+  FOLDER_SHARED: "FOLDER_SHARED",
+  FOLDER_SHARE_PERMISSION_CHANGED: "FOLDER_SHARE_PERMISSION_CHANGED",
+  FOLDER_UNSHARED: "FOLDER_UNSHARED",
+};
 
 /**
  * @public
@@ -574,7 +574,7 @@ export interface Activity {
   /**
    * <p>The activity type.</p>
    */
-  Type?: ActivityType | string;
+  Type?: keyof typeof ActivityType | string;
 
   /**
    * <p>The timestamp when the action was performed.</p>
@@ -627,9 +627,9 @@ export interface Activity {
 /**
  * @public
  */
-export enum AdditionalResponseFieldType {
-  WEBURL = "WEBURL",
-}
+export const AdditionalResponseFieldType = {
+  WEBURL: "WEBURL",
+};
 
 /**
  * @public
@@ -651,23 +651,23 @@ export interface NotificationOptions {
 /**
  * @public
  */
-export enum RoleType {
-  CONTRIBUTOR = "CONTRIBUTOR",
-  COOWNER = "COOWNER",
-  OWNER = "OWNER",
-  VIEWER = "VIEWER",
-}
+export const RoleType = {
+  CONTRIBUTOR: "CONTRIBUTOR",
+  COOWNER: "COOWNER",
+  OWNER: "OWNER",
+  VIEWER: "VIEWER",
+};
 
 /**
  * @public
  */
-export enum PrincipalType {
-  ANONYMOUS = "ANONYMOUS",
-  GROUP = "GROUP",
-  INVITE = "INVITE",
-  ORGANIZATION = "ORGANIZATION",
-  USER = "USER",
-}
+export const PrincipalType = {
+  ANONYMOUS: "ANONYMOUS",
+  GROUP: "GROUP",
+  INVITE: "INVITE",
+  ORGANIZATION: "ORGANIZATION",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -682,12 +682,12 @@ export interface SharePrincipal {
   /**
    * <p>The type of the recipient.</p>
    */
-  Type: PrincipalType | string | undefined;
+  Type: keyof typeof PrincipalType | string | undefined;
 
   /**
    * <p>The role of the recipient.</p>
    */
-  Role: RoleType | string | undefined;
+  Role: keyof typeof RoleType | string | undefined;
 }
 
 /**
@@ -718,10 +718,10 @@ export interface AddResourcePermissionsRequest {
 /**
  * @public
  */
-export enum ShareStatusType {
-  FAILURE = "FAILURE",
-  SUCCESS = "SUCCESS",
-}
+export const ShareStatusType = {
+  FAILURE: "FAILURE",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -741,12 +741,12 @@ export interface ShareResult {
   /**
    * <p>The role.</p>
    */
-  Role?: RoleType | string;
+  Role?: keyof typeof RoleType | string;
 
   /**
    * <p>The status.</p>
    */
-  Status?: ShareStatusType | string;
+  Status?: keyof typeof ShareStatusType | string;
 
   /**
    * <p>The ID of the resource that was shared.</p>
@@ -772,10 +772,10 @@ export interface AddResourcePermissionsResponse {
 /**
  * @public
  */
-export enum CommentVisibilityType {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+export const CommentVisibilityType = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+};
 
 /**
  * @public
@@ -816,7 +816,7 @@ export interface CreateCommentRequest {
    *             visible only to the comment author and document owner and co-owners, or PUBLIC, where
    *             the comment is visible to document owners, co-owners, and contributors.</p>
    */
-  Visibility?: CommentVisibilityType | string;
+  Visibility?: keyof typeof CommentVisibilityType | string;
 
   /**
    * <p>Set this parameter to TRUE to send an email out to the document collaborators after
@@ -863,14 +863,14 @@ export interface Comment {
   /**
    * <p>The status of the comment.</p>
    */
-  Status?: CommentStatusType | string;
+  Status?: keyof typeof CommentStatusType | string;
 
   /**
    * <p>The visibility of the comment. Options are either PRIVATE, where the comment is
    *             visible only to the comment author and document owner and co-owners, or PUBLIC, where
    *             the comment is visible to document owners, co-owners, and contributors.</p>
    */
-  Visibility?: CommentVisibilityType | string;
+  Visibility?: keyof typeof CommentVisibilityType | string;
 
   /**
    * <p>If the comment is a reply to another user's comment, this field contains the user
@@ -1033,12 +1033,12 @@ export interface CreateFolderRequest {
 /**
  * @public
  */
-export enum ResourceStateType {
-  ACTIVE = "ACTIVE",
-  RECYCLED = "RECYCLED",
-  RECYCLING = "RECYCLING",
-  RESTORING = "RESTORING",
-}
+export const ResourceStateType = {
+  ACTIVE: "ACTIVE",
+  RECYCLED: "RECYCLED",
+  RECYCLING: "RECYCLING",
+  RESTORING: "RESTORING",
+};
 
 /**
  * @public
@@ -1078,7 +1078,7 @@ export interface FolderMetadata {
   /**
    * <p>The resource state of the folder.</p>
    */
-  ResourceState?: ResourceStateType | string;
+  ResourceState?: keyof typeof ResourceStateType | string;
 
   /**
    * <p>The unique identifier created from the subfolders and documents of the
@@ -1207,17 +1207,17 @@ export class TooManyLabelsException extends __BaseException {
 /**
  * @public
  */
-export enum SubscriptionProtocolType {
-  HTTPS = "HTTPS",
-  SQS = "SQS",
-}
+export const SubscriptionProtocolType = {
+  HTTPS: "HTTPS",
+  SQS: "SQS",
+};
 
 /**
  * @public
  */
-export enum SubscriptionType {
-  ALL = "ALL",
-}
+export const SubscriptionType = {
+  ALL: "ALL",
+};
 
 /**
  * @public
@@ -1238,12 +1238,12 @@ export interface CreateNotificationSubscriptionRequest {
    * <p>The protocol to use. The supported value is https, which delivers JSON-encoded
    *             messages using HTTPS POST.</p>
    */
-  Protocol: SubscriptionProtocolType | string | undefined;
+  Protocol: keyof typeof SubscriptionProtocolType | string | undefined;
 
   /**
    * <p>The notification type.</p>
    */
-  SubscriptionType: SubscriptionType | string | undefined;
+  SubscriptionType: keyof typeof SubscriptionType | string | undefined;
 }
 
 /**
@@ -1264,7 +1264,7 @@ export interface Subscription {
   /**
    * <p>The protocol of the subscription.</p>
    */
-  Protocol?: SubscriptionProtocolType | string;
+  Protocol?: keyof typeof SubscriptionProtocolType | string;
 }
 
 /**
@@ -1779,27 +1779,27 @@ export interface DescribeDocumentVersionsRequest {
 /**
  * @public
  */
-export enum DocumentSourceType {
-  ORIGINAL = "ORIGINAL",
-  WITH_COMMENTS = "WITH_COMMENTS",
-}
+export const DocumentSourceType = {
+  ORIGINAL: "ORIGINAL",
+  WITH_COMMENTS: "WITH_COMMENTS",
+};
 
 /**
  * @public
  */
-export enum DocumentStatusType {
-  ACTIVE = "ACTIVE",
-  INITIALIZED = "INITIALIZED",
-}
+export const DocumentStatusType = {
+  ACTIVE: "ACTIVE",
+  INITIALIZED: "INITIALIZED",
+};
 
 /**
  * @public
  */
-export enum DocumentThumbnailType {
-  LARGE = "LARGE",
-  SMALL = "SMALL",
-  SMALL_HQ = "SMALL_HQ",
-}
+export const DocumentThumbnailType = {
+  LARGE: "LARGE",
+  SMALL: "SMALL",
+  SMALL_HQ: "SMALL_HQ",
+};
 
 /**
  * @public
@@ -1834,7 +1834,7 @@ export interface DocumentVersionMetadata {
   /**
    * <p>The status of the document.</p>
    */
-  Status?: DocumentStatusType | string;
+  Status?: keyof typeof DocumentStatusType | string;
 
   /**
    * <p>The timestamp when the document was first uploaded.</p>
@@ -1913,27 +1913,27 @@ export class InvalidPasswordException extends __BaseException {
 /**
  * @public
  */
-export enum OrderType {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const OrderType = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
  */
-export enum ResourceSortType {
-  DATE = "DATE",
-  NAME = "NAME",
-}
+export const ResourceSortType = {
+  DATE: "DATE",
+  NAME: "NAME",
+};
 
 /**
  * @public
  */
-export enum FolderContentType {
-  ALL = "ALL",
-  DOCUMENT = "DOCUMENT",
-  FOLDER = "FOLDER",
-}
+export const FolderContentType = {
+  ALL: "ALL",
+  DOCUMENT: "DOCUMENT",
+  FOLDER: "FOLDER",
+};
 
 /**
  * @public
@@ -1952,12 +1952,12 @@ export interface DescribeFolderContentsRequest {
   /**
    * <p>The sorting criteria.</p>
    */
-  Sort?: ResourceSortType | string;
+  Sort?: keyof typeof ResourceSortType | string;
 
   /**
    * <p>The order for the contents of the folder.</p>
    */
-  Order?: OrderType | string;
+  Order?: keyof typeof OrderType | string;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
@@ -1973,7 +1973,7 @@ export interface DescribeFolderContentsRequest {
   /**
    * <p>The type of items.</p>
    */
-  Type?: FolderContentType | string;
+  Type?: keyof typeof FolderContentType | string;
 
   /**
    * <p>The contents to include. Specify "INITIALIZED" to include initialized
@@ -2020,7 +2020,7 @@ export interface DocumentMetadata {
   /**
    * <p>The resource state.</p>
    */
-  ResourceState?: ResourceStateType | string;
+  ResourceState?: keyof typeof ResourceStateType | string;
 
   /**
    * <p>List of labels on the document.</p>
@@ -2167,10 +2167,10 @@ export interface DescribeResourcePermissionsRequest {
 /**
  * @public
  */
-export enum RolePermissionType {
-  DIRECT = "DIRECT",
-  INHERITED = "INHERITED",
-}
+export const RolePermissionType = {
+  DIRECT: "DIRECT",
+  INHERITED: "INHERITED",
+};
 
 /**
  * @public
@@ -2180,12 +2180,12 @@ export interface PermissionInfo {
   /**
    * <p>The role of the user.</p>
    */
-  Role?: RoleType | string;
+  Role?: keyof typeof RoleType | string;
 
   /**
    * <p>The type of permissions.</p>
    */
-  Type?: RolePermissionType | string;
+  Type?: keyof typeof RolePermissionType | string;
 }
 
 /**
@@ -2201,7 +2201,7 @@ export interface Principal {
   /**
    * <p>The type of resource.</p>
    */
-  Type?: PrincipalType | string;
+  Type?: keyof typeof PrincipalType | string;
 
   /**
    * <p>The permission information for the resource.</p>
@@ -2264,21 +2264,21 @@ export interface DescribeRootFoldersResponse {
 /**
  * @public
  */
-export enum UserFilterType {
-  ACTIVE_PENDING = "ACTIVE_PENDING",
-  ALL = "ALL",
-}
+export const UserFilterType = {
+  ACTIVE_PENDING: "ACTIVE_PENDING",
+  ALL: "ALL",
+};
 
 /**
  * @public
  */
-export enum UserSortType {
-  FULL_NAME = "FULL_NAME",
-  STORAGE_LIMIT = "STORAGE_LIMIT",
-  STORAGE_USED = "STORAGE_USED",
-  USER_NAME = "USER_NAME",
-  USER_STATUS = "USER_STATUS",
-}
+export const UserSortType = {
+  FULL_NAME: "FULL_NAME",
+  STORAGE_LIMIT: "STORAGE_LIMIT",
+  STORAGE_USED: "STORAGE_USED",
+  USER_NAME: "USER_NAME",
+  USER_STATUS: "USER_STATUS",
+};
 
 /**
  * @public
@@ -2324,17 +2324,17 @@ export interface DescribeUsersRequest {
   /**
    * <p>The state of the users. Specify "ALL" to include inactive users.</p>
    */
-  Include?: UserFilterType | string;
+  Include?: keyof typeof UserFilterType | string;
 
   /**
    * <p>The order for the results.</p>
    */
-  Order?: OrderType | string;
+  Order?: keyof typeof OrderType | string;
 
   /**
    * <p>The sorting criteria.</p>
    */
-  Sort?: UserSortType | string;
+  Sort?: keyof typeof UserSortType | string;
 
   /**
    * <p>The marker for the next set of results. (You received this marker from a previous
@@ -2647,9 +2647,9 @@ export interface GetFolderPathResponse {
 /**
  * @public
  */
-export enum ResourceCollectionType {
-  SHARED_WITH_ME = "SHARED_WITH_ME",
-}
+export const ResourceCollectionType = {
+  SHARED_WITH_ME: "SHARED_WITH_ME",
+};
 
 /**
  * @public
@@ -2669,7 +2669,7 @@ export interface GetResourcesRequest {
   /**
    * <p>The collection type.</p>
    */
-  CollectionType?: ResourceCollectionType | string;
+  CollectionType?: keyof typeof ResourceCollectionType | string;
 
   /**
    * <p>The maximum number of resources to return.</p>
@@ -2904,7 +2904,7 @@ export interface RemoveResourcePermissionRequest {
   /**
    * <p>The principal type of the resource.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: keyof typeof PrincipalType | string;
 }
 
 /**
@@ -2925,17 +2925,17 @@ export interface RestoreDocumentVersionsRequest {
 /**
  * @public
  */
-export enum ContentCategoryType {
-  AUDIO = "AUDIO",
-  DOCUMENT = "DOCUMENT",
-  IMAGE = "IMAGE",
-  OTHER = "OTHER",
-  PDF = "PDF",
-  PRESENTATION = "PRESENTATION",
-  SOURCE_CODE = "SOURCE_CODE",
-  SPREADSHEET = "SPREADSHEET",
-  VIDEO = "VIDEO",
-}
+export const ContentCategoryType = {
+  AUDIO: "AUDIO",
+  DOCUMENT: "DOCUMENT",
+  IMAGE: "IMAGE",
+  OTHER: "OTHER",
+  PDF: "PDF",
+  PRESENTATION: "PRESENTATION",
+  SOURCE_CODE: "SOURCE_CODE",
+  SPREADSHEET: "SPREADSHEET",
+  VIDEO: "VIDEO",
+};
 
 /**
  * @public
@@ -2956,12 +2956,12 @@ export interface DateRangeType {
 /**
  * @public
  */
-export enum PrincipalRoleType {
-  CONTRIBUTOR = "CONTRIBUTOR",
-  COOWNER = "COOWNER",
-  OWNER = "OWNER",
-  VIEWER = "VIEWER",
-}
+export const PrincipalRoleType = {
+  CONTRIBUTOR: "CONTRIBUTOR",
+  COOWNER: "COOWNER",
+  OWNER: "OWNER",
+  VIEWER: "VIEWER",
+};
 
 /**
  * @public
@@ -2976,26 +2976,26 @@ export interface SearchPrincipalType {
   /**
    * <p>The Role of a User or Group.</p>
    */
-  Roles?: (PrincipalRoleType | string)[];
+  Roles?: (keyof typeof PrincipalRoleType | string)[];
 }
 
 /**
  * @public
  */
-export enum SearchResourceType {
-  COMMENT = "COMMENT",
-  DOCUMENT = "DOCUMENT",
-  DOCUMENT_VERSION = "DOCUMENT_VERSION",
-  FOLDER = "FOLDER",
-}
+export const SearchResourceType = {
+  COMMENT: "COMMENT",
+  DOCUMENT: "DOCUMENT",
+  DOCUMENT_VERSION: "DOCUMENT_VERSION",
+  FOLDER: "FOLDER",
+};
 
 /**
  * @public
  */
-export enum SearchCollectionType {
-  OWNED = "OWNED",
-  SHARED_WITH_ME = "SHARED_WITH_ME",
-}
+export const SearchCollectionType = {
+  OWNED: "OWNED",
+  SHARED_WITH_ME: "SHARED_WITH_ME",
+};
 
 /**
  * @public
@@ -3016,39 +3016,39 @@ export interface LongRangeType {
 /**
  * @public
  */
-export enum LanguageCodeType {
-  AR = "AR",
-  BG = "BG",
-  BN = "BN",
-  CS = "CS",
-  DA = "DA",
-  DE = "DE",
-  DEFAULT = "DEFAULT",
-  EL = "EL",
-  EN = "EN",
-  ES = "ES",
-  FA = "FA",
-  FI = "FI",
-  FR = "FR",
-  HI = "HI",
-  HU = "HU",
-  ID = "ID",
-  IT = "IT",
-  JA = "JA",
-  KO = "KO",
-  LT = "LT",
-  LV = "LV",
-  NL = "NL",
-  NO = "NO",
-  PT = "PT",
-  RO = "RO",
-  RU = "RU",
-  SV = "SV",
-  SW = "SW",
-  TH = "TH",
-  TR = "TR",
-  ZH = "ZH",
-}
+export const LanguageCodeType = {
+  AR: "AR",
+  BG: "BG",
+  BN: "BN",
+  CS: "CS",
+  DA: "DA",
+  DE: "DE",
+  DEFAULT: "DEFAULT",
+  EL: "EL",
+  EN: "EN",
+  ES: "ES",
+  FA: "FA",
+  FI: "FI",
+  FR: "FR",
+  HI: "HI",
+  HU: "HU",
+  ID: "ID",
+  IT: "IT",
+  JA: "JA",
+  KO: "KO",
+  LT: "LT",
+  LV: "LV",
+  NL: "NL",
+  NO: "NO",
+  PT: "PT",
+  RO: "RO",
+  RU: "RU",
+  SV: "SV",
+  SW: "SW",
+  TH: "TH",
+  TR: "TR",
+  ZH: "ZH",
+};
 
 /**
  * @public
@@ -3058,17 +3058,17 @@ export interface Filters {
   /**
    * <p>Filters by the locale of the content or comment.</p>
    */
-  TextLocales?: (LanguageCodeType | string)[];
+  TextLocales?: (keyof typeof LanguageCodeType | string)[];
 
   /**
    * <p>Filters by content category.</p>
    */
-  ContentCategories?: (ContentCategoryType | string)[];
+  ContentCategories?: (keyof typeof ContentCategoryType | string)[];
 
   /**
    * <p>Filters based on entity type.</p>
    */
-  ResourceTypes?: (SearchResourceType | string)[];
+  ResourceTypes?: (keyof typeof SearchResourceType | string)[];
 
   /**
    * <p>Filter by labels using exact match.</p>
@@ -3088,7 +3088,7 @@ export interface Filters {
   /**
    * <p>Filter based on file groupings.</p>
    */
-  SearchCollectionTypes?: (SearchCollectionType | string)[];
+  SearchCollectionTypes?: (keyof typeof SearchCollectionType | string)[];
 
   /**
    * <p>Filter based on size (in bytes).</p>
@@ -3109,21 +3109,21 @@ export interface Filters {
 /**
  * @public
  */
-export enum OrderByFieldType {
-  CREATED_TIMESTAMP = "CREATED_TIMESTAMP",
-  MODIFIED_TIMESTAMP = "MODIFIED_TIMESTAMP",
-  NAME = "NAME",
-  RELEVANCE = "RELEVANCE",
-  SIZE = "SIZE",
-}
+export const OrderByFieldType = {
+  CREATED_TIMESTAMP: "CREATED_TIMESTAMP",
+  MODIFIED_TIMESTAMP: "MODIFIED_TIMESTAMP",
+  NAME: "NAME",
+  RELEVANCE: "RELEVANCE",
+  SIZE: "SIZE",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+};
 
 /**
  * @public
@@ -3133,21 +3133,21 @@ export interface SearchSortResult {
   /**
    * <p>Sort search results based on this field name.</p>
    */
-  Field?: OrderByFieldType | string;
+  Field?: keyof typeof OrderByFieldType | string;
 
   /**
    * <p>Sort direction.</p>
    */
-  Order?: SortOrder | string;
+  Order?: keyof typeof SortOrder | string;
 }
 
 /**
  * @public
  */
-export enum SearchQueryScopeType {
-  CONTENT = "CONTENT",
-  NAME = "NAME",
-}
+export const SearchQueryScopeType = {
+  CONTENT: "CONTENT",
+  NAME: "NAME",
+};
 
 /**
  * @public
@@ -3166,7 +3166,7 @@ export interface SearchResourcesRequest {
   /**
    * <p>Filter based on the text field type. A Folder has only a name and no content. A Comment has only content and no name. A Document or Document Version has a name and content</p>
    */
-  QueryScopes?: (SearchQueryScopeType | string)[];
+  QueryScopes?: (keyof typeof SearchQueryScopeType | string)[];
 
   /**
    * <p>Filters based on the resource owner OrgId. This is a mandatory parameter when using Admin SigV4 credentials.</p>
@@ -3177,7 +3177,7 @@ export interface SearchResourcesRequest {
    * <p>A list of attributes to include in the response. Used to request fields that are not normally
    *             returned in a standard response.</p>
    */
-  AdditionalResponseFields?: (AdditionalResponseFieldType | string)[];
+  AdditionalResponseFields?: (keyof typeof AdditionalResponseFieldType | string)[];
 
   /**
    * <p>Filters results based on entity metadata.</p>
@@ -3203,12 +3203,12 @@ export interface SearchResourcesRequest {
 /**
  * @public
  */
-export enum ResponseItemType {
-  COMMENT = "COMMENT",
-  DOCUMENT = "DOCUMENT",
-  DOCUMENT_VERSION = "DOCUMENT_VERSION",
-  FOLDER = "FOLDER",
-}
+export const ResponseItemType = {
+  COMMENT: "COMMENT",
+  DOCUMENT: "DOCUMENT",
+  DOCUMENT_VERSION: "DOCUMENT_VERSION",
+  FOLDER: "FOLDER",
+};
 
 /**
  * @public
@@ -3218,7 +3218,7 @@ export interface ResponseItem {
   /**
    * <p>The type of item being returned.</p>
    */
-  ResourceType?: ResponseItemType | string;
+  ResourceType?: keyof typeof ResponseItemType | string;
 
   /**
    * <p>The webUrl of the item being returned.</p>
@@ -3289,15 +3289,15 @@ export interface UpdateDocumentRequest {
    * <p>The resource state of the document. Only ACTIVE and RECYCLED are
    *             supported.</p>
    */
-  ResourceState?: ResourceStateType | string;
+  ResourceState?: keyof typeof ResourceStateType | string;
 }
 
 /**
  * @public
  */
-export enum DocumentVersionStatus {
-  ACTIVE = "ACTIVE",
-}
+export const DocumentVersionStatus = {
+  ACTIVE: "ACTIVE",
+};
 
 /**
  * @public
@@ -3321,7 +3321,7 @@ export interface UpdateDocumentVersionRequest {
   /**
    * <p>The status of the version.</p>
    */
-  VersionStatus?: DocumentVersionStatus | string;
+  VersionStatus?: keyof typeof DocumentVersionStatus | string;
 }
 
 /**
@@ -3352,7 +3352,7 @@ export interface UpdateFolderRequest {
    * <p>The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from
    *             the API.</p>
    */
-  ResourceState?: ResourceStateType | string;
+  ResourceState?: keyof typeof ResourceStateType | string;
 }
 
 /**
@@ -3404,10 +3404,10 @@ export class IllegalUserStateException extends __BaseException {
 /**
  * @public
  */
-export enum BooleanEnumType {
-  FALSE = "FALSE",
-  TRUE = "TRUE",
-}
+export const BooleanEnumType = {
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+};
 
 /**
  * @public
@@ -3436,7 +3436,7 @@ export interface UpdateUserRequest {
   /**
    * <p>The type of the user.</p>
    */
-  Type?: UserType | string;
+  Type?: keyof typeof UserType | string;
 
   /**
    * <p>The amount of storage for the user.</p>
@@ -3451,12 +3451,12 @@ export interface UpdateUserRequest {
   /**
    * <p>The locale of the user.</p>
    */
-  Locale?: LocaleType | string;
+  Locale?: keyof typeof LocaleType | string;
 
   /**
    * <p>Boolean value to determine whether the user is granted Power user privileges.</p>
    */
-  GrantPoweruserPrivileges?: BooleanEnumType | string;
+  GrantPoweruserPrivileges?: keyof typeof BooleanEnumType | string;
 }
 
 /**

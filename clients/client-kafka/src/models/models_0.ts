@@ -43,17 +43,17 @@ export interface BrokerEBSVolumeInfo {
 /**
  * @public
  */
-export enum ClusterType {
-  PROVISIONED = "PROVISIONED",
-  SERVERLESS = "SERVERLESS",
-}
+export const ClusterType = {
+  PROVISIONED: "PROVISIONED",
+  SERVERLESS: "SERVERLESS",
+};
 
 /**
  * @public
  */
-export enum BrokerAZDistribution {
-  DEFAULT = "DEFAULT",
-}
+export const BrokerAZDistribution = {
+  DEFAULT: "DEFAULT",
+};
 
 /**
  * @public
@@ -113,7 +113,7 @@ export interface BrokerNodeGroupInfo {
    * <p>The distribution of broker nodes across Availability Zones. This is an optional parameter. If you don't specify it, Amazon MSK gives it the value DEFAULT. You can also explicitly set this parameter to the value DEFAULT. No other values are currently allowed.</p>
    *          <p>Amazon MSK distributes the broker nodes evenly across the Availability Zones that correspond to the subnets you provide when you create the cluster.</p>
    */
-  BrokerAZDistribution?: BrokerAZDistribution | string;
+  BrokerAZDistribution?: keyof typeof BrokerAZDistribution | string;
 
   /**
    * <p>The list of subnets to connect to in the client virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets. Client applications use elastic network interfaces to produce and consume data. Client subnets can't occupy the Availability Zone with ID use use1-az3.</p>
@@ -262,11 +262,11 @@ export interface EncryptionAtRest {
 /**
  * @public
  */
-export enum ClientBroker {
-  PLAINTEXT = "PLAINTEXT",
-  TLS = "TLS",
-  TLS_PLAINTEXT = "TLS_PLAINTEXT",
-}
+export const ClientBroker = {
+  PLAINTEXT: "PLAINTEXT",
+  TLS: "TLS",
+  TLS_PLAINTEXT: "TLS_PLAINTEXT",
+};
 
 /**
  * @public
@@ -283,7 +283,7 @@ export interface EncryptionInTransit {
    *                PLAINTEXT means that client-broker communication is enabled in plaintext only.</p>
    *             <p>The default value is TLS_PLAINTEXT.</p>
    */
-  ClientBroker?: ClientBroker | string;
+  ClientBroker?: keyof typeof ClientBroker | string;
 
   /**
    * <p>When set to true, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to false, the communication happens in plaintext.</p>
@@ -311,12 +311,12 @@ export interface EncryptionInfo {
 /**
  * @public
  */
-export enum EnhancedMonitoring {
-  DEFAULT = "DEFAULT",
-  PER_BROKER = "PER_BROKER",
-  PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER",
-  PER_TOPIC_PER_PARTITION = "PER_TOPIC_PER_PARTITION",
-}
+export const EnhancedMonitoring = {
+  DEFAULT: "DEFAULT",
+  PER_BROKER: "PER_BROKER",
+  PER_TOPIC_PER_BROKER: "PER_TOPIC_PER_BROKER",
+  PER_TOPIC_PER_PARTITION: "PER_TOPIC_PER_PARTITION",
+};
 
 /**
  * @public
@@ -411,10 +411,10 @@ export interface OpenMonitoringInfo {
 /**
  * @public
  */
-export enum StorageMode {
-  LOCAL = "LOCAL",
-  TIERED = "TIERED",
-}
+export const StorageMode = {
+  LOCAL: "LOCAL",
+  TIERED: "TIERED",
+};
 
 /**
  * @public
@@ -444,7 +444,7 @@ export interface Provisioned {
   /**
    * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>
    */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
+  EnhancedMonitoring?: keyof typeof EnhancedMonitoring | string;
 
   /**
    * <p>The settings for open monitoring.</p>
@@ -474,7 +474,7 @@ export interface Provisioned {
   /**
    * <p>This controls storage mode for supported storage tiers.</p>
    */
-  StorageMode?: StorageMode | string;
+  StorageMode?: keyof typeof StorageMode | string;
 }
 
 /**
@@ -534,16 +534,16 @@ export interface Serverless {
 /**
  * @public
  */
-export enum ClusterState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  HEALING = "HEALING",
-  MAINTENANCE = "MAINTENANCE",
-  REBOOTING_BROKER = "REBOOTING_BROKER",
-  UPDATING = "UPDATING",
-}
+export const ClusterState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  HEALING: "HEALING",
+  MAINTENANCE: "MAINTENANCE",
+  REBOOTING_BROKER: "REBOOTING_BROKER",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -566,7 +566,7 @@ export interface Cluster {
   /**
    * <p>Cluster Type.</p>
    */
-  ClusterType?: ClusterType | string;
+  ClusterType?: keyof typeof ClusterType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -591,7 +591,7 @@ export interface Cluster {
   /**
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
-  State?: ClusterState | string;
+  State?: keyof typeof ClusterState | string;
 
   /**
    * <p>State Info for the Amazon MSK cluster.</p>
@@ -716,7 +716,7 @@ export interface ClusterInfo {
   /**
    * <p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href="https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html">Monitoring</a>.</p>
    */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
+  EnhancedMonitoring?: keyof typeof EnhancedMonitoring | string;
 
   /**
    * <p>Settings for open monitoring using Prometheus.</p>
@@ -732,7 +732,7 @@ export interface ClusterInfo {
   /**
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
-  State?: ClusterState | string;
+  State?: keyof typeof ClusterState | string;
 
   StateInfo?: StateInfo;
   /**
@@ -753,7 +753,7 @@ export interface ClusterInfo {
   /**
    * <p>This controls storage mode for supported storage tiers.</p>
    */
-  StorageMode?: StorageMode | string;
+  StorageMode?: keyof typeof StorageMode | string;
 }
 
 /**
@@ -838,7 +838,7 @@ export interface MutableClusterInfo {
   /**
    * <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
    */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
+  EnhancedMonitoring?: keyof typeof EnhancedMonitoring | string;
 
   /**
    * <p>The settings for open monitoring.</p>
@@ -878,7 +878,7 @@ export interface MutableClusterInfo {
   /**
    * <p>This controls storage mode for supported storage tiers.</p>
    */
-  StorageMode?: StorageMode | string;
+  StorageMode?: keyof typeof StorageMode | string;
 }
 
 /**
@@ -982,11 +982,11 @@ export interface ConfigurationRevision {
 /**
  * @public
  */
-export enum ConfigurationState {
-  ACTIVE = "ACTIVE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+export const ConfigurationState = {
+  ACTIVE: "ACTIVE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -1026,23 +1026,23 @@ export interface Configuration {
   /**
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
-  State: ConfigurationState | string | undefined;
+  State: keyof typeof ConfigurationState | string | undefined;
 }
 
 /**
  * @public
  */
-export enum KafkaVersionStatus {
-  ACTIVE = "ACTIVE",
-  DEPRECATED = "DEPRECATED",
-}
+export const KafkaVersionStatus = {
+  ACTIVE: "ACTIVE",
+  DEPRECATED: "DEPRECATED",
+};
 
 /**
  * @public
  */
 export interface KafkaVersion {
   Version?: string;
-  Status?: KafkaVersionStatus | string;
+  Status?: keyof typeof KafkaVersionStatus | string;
 }
 
 /**
@@ -1084,9 +1084,9 @@ export interface BrokerNodeInfo {
 /**
  * @public
  */
-export enum NodeType {
-  BROKER = "BROKER",
-}
+export const NodeType = {
+  BROKER: "BROKER",
+};
 
 /**
  * @public
@@ -1147,7 +1147,7 @@ export interface NodeInfo {
   /**
    * <p>The node type.</p>
    */
-  NodeType?: NodeType | string;
+  NodeType?: keyof typeof NodeType | string;
 
   /**
    * <p>The ZookeeperNodeInfo.</p>
@@ -1518,7 +1518,7 @@ export interface CreateClusterRequest {
   /**
    * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>
    */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
+  EnhancedMonitoring?: keyof typeof EnhancedMonitoring | string;
 
   /**
    * <p>The settings for open monitoring.</p>
@@ -1544,7 +1544,7 @@ export interface CreateClusterRequest {
   /**
    * <p>This controls storage mode for supported storage tiers.</p>
    */
-  StorageMode?: StorageMode | string;
+  StorageMode?: keyof typeof StorageMode | string;
 }
 
 /**
@@ -1564,7 +1564,7 @@ export interface CreateClusterResponse {
   /**
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
-  State?: ClusterState | string;
+  State?: keyof typeof ClusterState | string;
 }
 
 /**
@@ -1595,7 +1595,7 @@ export interface ProvisionedRequest {
   /**
    * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>
    */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
+  EnhancedMonitoring?: keyof typeof EnhancedMonitoring | string;
 
   /**
    * <p>The settings for open monitoring.</p>
@@ -1620,7 +1620,7 @@ export interface ProvisionedRequest {
   /**
    * <p>This controls storage mode for supported storage tiers.</p>
    */
-  StorageMode?: StorageMode | string;
+  StorageMode?: keyof typeof StorageMode | string;
 }
 
 /**
@@ -1681,12 +1681,12 @@ export interface CreateClusterV2Response {
   /**
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
-  State?: ClusterState | string;
+  State?: keyof typeof ClusterState | string;
 
   /**
    * <p>The type of the cluster. The possible states are PROVISIONED or SERVERLESS.</p>
    */
-  ClusterType?: ClusterType | string;
+  ClusterType?: keyof typeof ClusterType | string;
 }
 
 /**
@@ -1742,7 +1742,7 @@ export interface CreateConfigurationResponse {
   /**
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
-  State?: ConfigurationState | string;
+  State?: keyof typeof ConfigurationState | string;
 }
 
 /**
@@ -1772,7 +1772,7 @@ export interface DeleteClusterResponse {
   /**
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
-  State?: ClusterState | string;
+  State?: keyof typeof ClusterState | string;
 }
 
 /**
@@ -1797,7 +1797,7 @@ export interface DeleteConfigurationResponse {
   /**
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
-  State?: ConfigurationState | string;
+  State?: keyof typeof ConfigurationState | string;
 }
 
 /**
@@ -1907,7 +1907,7 @@ export interface DescribeConfigurationResponse {
   /**
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
-  State?: ConfigurationState | string;
+  State?: keyof typeof ConfigurationState | string;
 }
 
 /**
@@ -2674,7 +2674,7 @@ export interface UpdateMonitoringRequest {
   /**
    * <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
    */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
+  EnhancedMonitoring?: keyof typeof EnhancedMonitoring | string;
 
   /**
    * <p>The settings for open monitoring.</p>
@@ -2762,7 +2762,7 @@ export interface UpdateStorageRequest {
   /**
    * <p>Controls storage mode for supported storage tiers.</p>
    */
-  StorageMode?: StorageMode | string;
+  StorageMode?: keyof typeof StorageMode | string;
 
   /**
    * <p>size of the EBS volume to update.</p>

@@ -434,10 +434,10 @@ export class ResourceAlreadyExistsException extends __BaseException {
 /**
  * @public
  */
-export enum ComputeType {
-  ACU_1 = "ACU_1",
-  ACU_2 = "ACU_2",
-}
+export const ComputeType = {
+  ACU_1: "ACU_1",
+  ACU_2: "ACU_2",
+};
 
 /**
  * @public
@@ -449,7 +449,7 @@ export interface ResourceConfiguration {
    *       Possible values are: <code>ACU_1</code> (vCPU=4, memory=16 GiB) or <code>ACU_2</code> (vCPU=8,
    *       memory=32 GiB).</p>
    */
-  computeType: ComputeType | string | undefined;
+  computeType: keyof typeof ComputeType | string | undefined;
 
   /**
    * <p>The size, in GB, of the persistent storage available to the resource instance used to
@@ -1665,11 +1665,11 @@ export interface DescribeChannelRequest {
 /**
  * @public
  */
-export enum ChannelStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const ChannelStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -1698,7 +1698,7 @@ export interface Channel {
   /**
    * <p>The status of the channel.</p>
    */
-  status?: ChannelStatus | string;
+  status?: keyof typeof ChannelStatus | string;
 
   /**
    * <p>How long, in days, message data is kept for the channel.</p>
@@ -1779,11 +1779,11 @@ export interface DescribeDatasetRequest {
 /**
  * @public
  */
-export enum DatasetStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const DatasetStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -1821,7 +1821,7 @@ export interface Dataset {
   /**
    * <p>The status of the dataset.</p>
    */
-  status?: DatasetStatus | string;
+  status?: keyof typeof DatasetStatus | string;
 
   /**
    * <p>When the dataset was created.</p>
@@ -1884,11 +1884,11 @@ export interface DescribeDatastoreRequest {
 /**
  * @public
  */
-export enum DatastoreStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const DatastoreStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -1927,7 +1927,7 @@ export interface Datastore {
    *             </dd>
    *          </dl>
    */
-  status?: DatastoreStatus | string;
+  status?: keyof typeof DatastoreStatus | string;
 
   /**
    * <p>How long, in days, message data is kept for the data store. When
@@ -2000,9 +2000,9 @@ export interface DescribeLoggingOptionsRequest {}
 /**
  * @public
  */
-export enum LoggingLevel {
-  ERROR = "ERROR",
-}
+export const LoggingLevel = {
+  ERROR: "ERROR",
+};
 
 /**
  * @public
@@ -2017,7 +2017,7 @@ export interface LoggingOptions {
   /**
    * <p>The logging level. Currently, only ERROR is supported.</p>
    */
-  level: LoggingLevel | string | undefined;
+  level: keyof typeof LoggingLevel | string | undefined;
 
   /**
    * <p>If true, logging is enabled for IoT Analytics.</p>
@@ -2048,12 +2048,12 @@ export interface DescribePipelineRequest {
 /**
  * @public
  */
-export enum ReprocessingStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ReprocessingStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2068,7 +2068,7 @@ export interface ReprocessingSummary {
   /**
    * <p>The status of the pipeline reprocessing.</p>
    */
-  status?: ReprocessingStatus | string;
+  status?: keyof typeof ReprocessingStatus | string;
 
   /**
    * <p>The time the pipeline reprocessing was created.</p>
@@ -2158,11 +2158,11 @@ export interface DatasetEntry {
 /**
  * @public
  */
-export enum DatasetContentState {
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const DatasetContentState = {
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2173,7 +2173,7 @@ export interface DatasetContentStatus {
    * <p>The state of the dataset contents. Can be one of READY, CREATING, SUCCEEDED, or
    *       FAILED.</p>
    */
-  state?: DatasetContentState | string;
+  state?: keyof typeof DatasetContentState | string;
 
   /**
    * <p>The reason the dataset contents are in this state.</p>
@@ -2281,7 +2281,7 @@ export interface ChannelSummary {
   /**
    * <p>The status of the channel.</p>
    */
-  status?: ChannelStatus | string;
+  status?: keyof typeof ChannelStatus | string;
 
   /**
    * <p>When the channel was created.</p>
@@ -2417,10 +2417,10 @@ export interface ListDatasetsRequest {
 /**
  * @public
  */
-export enum DatasetActionType {
-  CONTAINER = "CONTAINER",
-  QUERY = "QUERY",
-}
+export const DatasetActionType = {
+  CONTAINER: "CONTAINER",
+  QUERY: "QUERY",
+};
 
 /**
  * @public
@@ -2435,7 +2435,7 @@ export interface DatasetActionSummary {
   /**
    * <p>The type of action by which the dataset's contents are automatically created.</p>
    */
-  actionType?: DatasetActionType | string;
+  actionType?: keyof typeof DatasetActionType | string;
 }
 
 /**
@@ -2451,7 +2451,7 @@ export interface DatasetSummary {
   /**
    * <p>The status of the dataset.</p>
    */
-  status?: DatasetStatus | string;
+  status?: keyof typeof DatasetStatus | string;
 
   /**
    * <p>The time the dataset was created.</p>
@@ -2586,10 +2586,10 @@ export interface DatastoreStorageSummary {
 /**
  * @public
  */
-export enum FileFormatType {
-  JSON = "JSON",
-  PARQUET = "PARQUET",
-}
+export const FileFormatType = {
+  JSON: "JSON",
+  PARQUET: "PARQUET",
+};
 
 /**
  * @public
@@ -2609,7 +2609,7 @@ export interface DatastoreSummary {
   /**
    * <p>The status of the data store.</p>
    */
-  status?: DatastoreStatus | string;
+  status?: keyof typeof DatastoreStatus | string;
 
   /**
    * <p>When the data store was created.</p>
@@ -2631,7 +2631,7 @@ export interface DatastoreSummary {
   /**
    * <p>The file format of the data in the data store.</p>
    */
-  fileFormatType?: FileFormatType | string;
+  fileFormatType?: keyof typeof FileFormatType | string;
 
   /**
    * <p> Contains information about the partition dimensions in a data store. </p>

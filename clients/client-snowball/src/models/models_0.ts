@@ -266,30 +266,30 @@ export class UnsupportedAddressException extends __BaseException {
 /**
  * @public
  */
-export enum JobType {
-  EXPORT = "EXPORT",
-  IMPORT = "IMPORT",
-  LOCAL_USE = "LOCAL_USE",
-}
+export const JobType = {
+  EXPORT: "EXPORT",
+  IMPORT: "IMPORT",
+  LOCAL_USE: "LOCAL_USE",
+};
 
 /**
  * @public
  */
-export enum JobState {
-  CANCELLED = "Cancelled",
-  COMPLETE = "Complete",
-  IN_PROGRESS = "InProgress",
-  IN_TRANSIT_TO_AWS = "InTransitToAWS",
-  IN_TRANSIT_TO_CUSTOMER = "InTransitToCustomer",
-  LISTING = "Listing",
-  NEW = "New",
-  PENDING = "Pending",
-  PREPARING_APPLIANCE = "PreparingAppliance",
-  PREPARING_SHIPMENT = "PreparingShipment",
-  WITH_AWS = "WithAWS",
-  WITH_AWS_SORTING_FACILITY = "WithAWSSortingFacility",
-  WITH_CUSTOMER = "WithCustomer",
-}
+export const JobState = {
+  CANCELLED: "Cancelled",
+  COMPLETE: "Complete",
+  IN_PROGRESS: "InProgress",
+  IN_TRANSIT_TO_AWS: "InTransitToAWS",
+  IN_TRANSIT_TO_CUSTOMER: "InTransitToCustomer",
+  LISTING: "Listing",
+  NEW: "New",
+  PENDING: "Pending",
+  PREPARING_APPLIANCE: "PreparingAppliance",
+  PREPARING_SHIPMENT: "PreparingShipment",
+  WITH_AWS: "WithAWS",
+  WITH_AWS_SORTING_FACILITY: "WithAWSSortingFacility",
+  WITH_CUSTOMER: "WithCustomer",
+};
 
 /**
  * @public
@@ -315,7 +315,7 @@ export interface Notification {
   /**
    * <p>The list of job states that will trigger a notification for this job.</p>
    */
-  JobStatesToNotify?: (JobState | string)[];
+  JobStatesToNotify?: (keyof typeof JobState | string)[];
 
   /**
    * <p>Any change in job state will trigger a notification for this job.</p>
@@ -342,9 +342,9 @@ export interface EKSOnDeviceServiceConfiguration {
 /**
  * @public
  */
-export enum StorageUnit {
-  TB = "TB",
-}
+export const StorageUnit = {
+  TB: "TB",
+};
 
 /**
  * @public
@@ -361,7 +361,7 @@ export interface NFSOnDeviceServiceConfiguration {
    * <p>The scale unit of the NFS storage on the device.</p>
    *          <p>Valid values: TB.</p>
    */
-  StorageUnit?: StorageUnit | string;
+  StorageUnit?: keyof typeof StorageUnit | string;
 }
 
 /**
@@ -379,7 +379,7 @@ export interface TGWOnDeviceServiceConfiguration {
   /**
    * <p>The scale unit of the virtual tapes on the device.</p>
    */
-  StorageUnit?: StorageUnit | string;
+  StorageUnit?: keyof typeof StorageUnit | string;
 }
 
 /**
@@ -407,10 +407,10 @@ export interface OnDeviceServiceConfiguration {
 /**
  * @public
  */
-export enum RemoteManagement {
-  INSTALLED_AUTOSTART = "INSTALLED_AUTOSTART",
-  INSTALLED_ONLY = "INSTALLED_ONLY",
-}
+export const RemoteManagement = {
+  INSTALLED_AUTOSTART: "INSTALLED_AUTOSTART",
+  INSTALLED_ONLY: "INSTALLED_ONLY",
+};
 
 /**
  * @public
@@ -482,19 +482,19 @@ export interface KeyRange {
 /**
  * @public
  */
-export enum DeviceServiceName {
-  NFS_ON_DEVICE_SERVICE = "NFS_ON_DEVICE_SERVICE",
-  S3_ON_DEVICE_SERVICE = "S3_ON_DEVICE_SERVICE",
-}
+export const DeviceServiceName = {
+  NFS_ON_DEVICE_SERVICE: "NFS_ON_DEVICE_SERVICE",
+  S3_ON_DEVICE_SERVICE: "S3_ON_DEVICE_SERVICE",
+};
 
 /**
  * @public
  */
-export enum TransferOption {
-  EXPORT = "EXPORT",
-  IMPORT = "IMPORT",
-  LOCAL_USE = "LOCAL_USE",
-}
+export const TransferOption = {
+  EXPORT: "EXPORT",
+  IMPORT: "IMPORT",
+  LOCAL_USE: "LOCAL_USE",
+};
 
 /**
  * @public
@@ -507,13 +507,13 @@ export interface TargetOnDeviceService {
    * <p>Specifies the name of the service on the Snow Family device that your transferred data
    *       will be exported from or imported into.</p>
    */
-  ServiceName?: DeviceServiceName | string;
+  ServiceName?: keyof typeof DeviceServiceName | string;
 
   /**
    * <p>Specifies whether the data is being imported or exported. You can import or export the
    *       data, or use it locally on the device.</p>
    */
-  TransferOption?: TransferOption | string;
+  TransferOption?: keyof typeof TransferOption | string;
 }
 
 /**
@@ -572,26 +572,26 @@ export interface JobResource {
 /**
  * @public
  */
-export enum ShippingOption {
-  EXPRESS = "EXPRESS",
-  NEXT_DAY = "NEXT_DAY",
-  SECOND_DAY = "SECOND_DAY",
-  STANDARD = "STANDARD",
-}
+export const ShippingOption = {
+  EXPRESS: "EXPRESS",
+  NEXT_DAY: "NEXT_DAY",
+  SECOND_DAY: "SECOND_DAY",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
  */
-export enum SnowballType {
-  EDGE = "EDGE",
-  EDGE_C = "EDGE_C",
-  EDGE_CG = "EDGE_CG",
-  EDGE_S = "EDGE_S",
-  SNC1_HDD = "SNC1_HDD",
-  SNC1_SSD = "SNC1_SSD",
-  STANDARD = "STANDARD",
-  V3_5C = "V3_5C",
-}
+export const SnowballType = {
+  EDGE: "EDGE",
+  EDGE_C: "EDGE_C",
+  EDGE_CG: "EDGE_CG",
+  EDGE_S: "EDGE_S",
+  SNC1_HDD: "SNC1_HDD",
+  SNC1_SSD: "SNC1_SSD",
+  STANDARD: "STANDARD",
+  V3_5C: "V3_5C",
+};
 
 /**
  * @public
@@ -629,7 +629,7 @@ export interface CreateClusterRequest {
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  JobType: JobType | string | undefined;
+  JobType: keyof typeof JobType | string | undefined;
 
   /**
    * <p>The resources associated with the cluster job. These resources include Amazon S3
@@ -680,7 +680,7 @@ export interface CreateClusterRequest {
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  SnowballType: SnowballType | string | undefined;
+  SnowballType: keyof typeof SnowballType | string | undefined;
 
   /**
    * <p>The shipping speed for each node in this cluster. This speed doesn't dictate how soon
@@ -724,7 +724,7 @@ export interface CreateClusterRequest {
    *             </li>
    *          </ul>
    */
-  ShippingOption: ShippingOption | string | undefined;
+  ShippingOption: keyof typeof ShippingOption | string | undefined;
 
   /**
    * <p>The Amazon Simple Notification Service (Amazon SNS) notification settings for this
@@ -749,7 +749,7 @@ export interface CreateClusterRequest {
    *       automatically be available when the device arrives at your location. Otherwise, you need to
    *       use the Snowball Client to manage the device.</p>
    */
-  RemoteManagement?: RemoteManagement | string;
+  RemoteManagement?: keyof typeof RemoteManagement | string;
 }
 
 /**
@@ -868,17 +868,17 @@ export interface DeviceConfiguration {
 /**
  * @public
  */
-export enum SnowballCapacity {
-  NO_PREFERENCE = "NoPreference",
-  T100 = "T100",
-  T14 = "T14",
-  T32 = "T32",
-  T42 = "T42",
-  T50 = "T50",
-  T8 = "T8",
-  T80 = "T80",
-  T98 = "T98",
-}
+export const SnowballCapacity = {
+  NO_PREFERENCE: "NoPreference",
+  T100: "T100",
+  T14: "T14",
+  T32: "T32",
+  T42: "T42",
+  T50: "T50",
+  T8: "T8",
+  T80: "T80",
+  T98: "T98",
+};
 
 /**
  * @public
@@ -888,7 +888,7 @@ export interface CreateJobRequest {
    * <p>Defines the type of job that you're creating.
    *       </p>
    */
-  JobType?: JobType | string;
+  JobType?: keyof typeof JobType | string;
 
   /**
    * <p>Defines the Amazon S3 buckets associated with this job.</p>
@@ -944,7 +944,7 @@ export interface CreateJobRequest {
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  SnowballCapacityPreference?: SnowballCapacity | string;
+  SnowballCapacityPreference?: keyof typeof SnowballCapacity | string;
 
   /**
    * <p>The shipping speed for this job. This speed doesn't dictate how soon you'll get the
@@ -969,7 +969,7 @@ export interface CreateJobRequest {
    *             </li>
    *          </ul>
    */
-  ShippingOption?: ShippingOption | string;
+  ShippingOption?: keyof typeof ShippingOption | string;
 
   /**
    * <p>Defines the Amazon Simple Notification Service (Amazon SNS) notification settings for
@@ -1001,7 +1001,7 @@ export interface CreateJobRequest {
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  SnowballType?: SnowballType | string;
+  SnowballType?: keyof typeof SnowballType | string;
 
   /**
    * <p>The forwarding address ID for a job. This field is not supported in most
@@ -1030,7 +1030,7 @@ export interface CreateJobRequest {
    *       automatically be available when the device arrives at your location. Otherwise, you need to
    *       use the Snowball Client to manage the device.</p>
    */
-  RemoteManagement?: RemoteManagement | string;
+  RemoteManagement?: keyof typeof RemoteManagement | string;
 
   /**
    * <p>The ID of the long-term pricing type for the device.</p>
@@ -1052,10 +1052,10 @@ export interface CreateJobResult {
 /**
  * @public
  */
-export enum LongTermPricingType {
-  ONE_YEAR = "OneYear",
-  THREE_YEAR = "ThreeYear",
-}
+export const LongTermPricingType = {
+  ONE_YEAR: "OneYear",
+  THREE_YEAR: "ThreeYear",
+};
 
 /**
  * @public
@@ -1065,7 +1065,7 @@ export interface CreateLongTermPricingRequest {
    * <p>The type of long-term pricing option you want for the device, either 1-year or 3-year
    *       long-term pricing.</p>
    */
-  LongTermPricingType: LongTermPricingType | string | undefined;
+  LongTermPricingType: keyof typeof LongTermPricingType | string | undefined;
 
   /**
    * <p>Specifies whether the current long-term pricing type for the device should be
@@ -1076,7 +1076,7 @@ export interface CreateLongTermPricingRequest {
   /**
    * <p>The type of Snow Family devices to use for the long-term pricing job.</p>
    */
-  SnowballType?: SnowballType | string;
+  SnowballType?: keyof typeof SnowballType | string;
 }
 
 /**
@@ -1133,18 +1133,18 @@ export interface CreateReturnShippingLabelRequest {
    *       is returned to Amazon Web Services. This speed represents how quickly it moves to its
    *       destination while in transit. Regional shipping speeds are as follows:</p>
    */
-  ShippingOption?: ShippingOption | string;
+  ShippingOption?: keyof typeof ShippingOption | string;
 }
 
 /**
  * @public
  */
-export enum ShippingLabelStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  SUCCEEDED = "Succeeded",
-  TIMED_OUT = "TimedOut",
-}
+export const ShippingLabelStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  SUCCEEDED: "Succeeded",
+  TIMED_OUT: "TimedOut",
+};
 
 /**
  * @public
@@ -1153,7 +1153,7 @@ export interface CreateReturnShippingLabelResult {
   /**
    * <p>The status information of the task on a Snow device that is being returned to Amazon Web Services.</p>
    */
-  Status?: ShippingLabelStatus | string;
+  Status?: keyof typeof ShippingLabelStatus | string;
 }
 
 /**
@@ -1272,13 +1272,13 @@ export interface DescribeClusterRequest {
 /**
  * @public
  */
-export enum ClusterState {
-  AWAITING_QUORUM = "AwaitingQuorum",
-  CANCELLED = "Cancelled",
-  COMPLETE = "Complete",
-  IN_USE = "InUse",
-  PENDING = "Pending",
-}
+export const ClusterState = {
+  AWAITING_QUORUM: "AwaitingQuorum",
+  CANCELLED: "Cancelled",
+  COMPLETE: "Complete",
+  IN_USE: "InUse",
+  PENDING: "Pending",
+};
 
 /**
  * @public
@@ -1310,13 +1310,13 @@ export interface ClusterMetadata {
   /**
    * <p>The current status of the cluster.</p>
    */
-  ClusterState?: ClusterState | string;
+  ClusterState?: keyof typeof ClusterState | string;
 
   /**
    * <p>The type of job for this cluster. Currently, the only job type supported for clusters
    *       is <code>LOCAL_USE</code>.</p>
    */
-  JobType?: JobType | string;
+  JobType?: keyof typeof JobType | string;
 
   /**
    * <p>The type of Snowcone device to use for this cluster.
@@ -1326,7 +1326,7 @@ export interface ClusterMetadata {
    *           <code>EDGE</code> device type.</p>
    *          </note>
    */
-  SnowballType?: SnowballType | string;
+  SnowballType?: keyof typeof SnowballType | string;
 
   /**
    * <p>The creation date for this cluster.</p>
@@ -1366,7 +1366,7 @@ export interface ClusterMetadata {
    *             </li>
    *          </ul>
    */
-  ShippingOption?: ShippingOption | string;
+  ShippingOption?: keyof typeof ShippingOption | string;
 
   /**
    * <p>The Amazon Simple Notification Service (Amazon SNS) notification settings for this
@@ -1531,7 +1531,7 @@ export interface ShippingDetails {
    *             </li>
    *          </ul>
    */
-  ShippingOption?: ShippingOption | string;
+  ShippingOption?: keyof typeof ShippingOption | string;
 
   /**
    * <p>The <code>Status</code> and <code>TrackingNumber</code> values for a Snow device being
@@ -1562,17 +1562,17 @@ export interface JobMetadata {
   /**
    * <p>The current status of the jobs.</p>
    */
-  JobState?: JobState | string;
+  JobState?: keyof typeof JobState | string;
 
   /**
    * <p>The type of job.</p>
    */
-  JobType?: JobType | string;
+  JobType?: keyof typeof JobType | string;
 
   /**
    * <p>The type of device used with this job.</p>
    */
-  SnowballType?: SnowballType | string;
+  SnowballType?: keyof typeof SnowballType | string;
 
   /**
    * <p>The creation date for this job.</p>
@@ -1624,7 +1624,7 @@ export interface JobMetadata {
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  SnowballCapacityPreference?: SnowballCapacity | string;
+  SnowballCapacityPreference?: keyof typeof SnowballCapacity | string;
 
   /**
    * <p>The Amazon Simple Notification Service (Amazon SNS) notification settings associated
@@ -1678,7 +1678,7 @@ export interface JobMetadata {
    *       automatically be available when the device arrives at your location. Otherwise, you need to
    *       use the Snowball Client to manage the device.</p>
    */
-  RemoteManagement?: RemoteManagement | string;
+  RemoteManagement?: keyof typeof RemoteManagement | string;
 
   /**
    * <p>The ID of the long-term pricing type for the device.</p>
@@ -1727,7 +1727,7 @@ export interface DescribeReturnShippingLabelResult {
   /**
    * <p>The status information of the task on a Snow device that is being returned to Amazon Web Services.</p>
    */
-  Status?: ShippingLabelStatus | string;
+  Status?: keyof typeof ShippingLabelStatus | string;
 
   /**
    * <p>The expiration date of the current return shipping label.</p>
@@ -1867,7 +1867,7 @@ export interface JobListEntry {
   /**
    * <p>The current state of this job.</p>
    */
-  JobState?: JobState | string;
+  JobState?: keyof typeof JobState | string;
 
   /**
    * <p>A value that indicates that this job is a main job. A main job represents a successful
@@ -1881,12 +1881,12 @@ export interface JobListEntry {
   /**
    * <p>The type of job.</p>
    */
-  JobType?: JobType | string;
+  JobType?: keyof typeof JobType | string;
 
   /**
    * <p>The type of device used with this job.</p>
    */
-  SnowballType?: SnowballType | string;
+  SnowballType?: keyof typeof SnowballType | string;
 
   /**
    * <p>The creation date for this job.</p>
@@ -1950,7 +1950,7 @@ export interface ClusterListEntry {
    * <p>The current state of this cluster. For information about the state of a specific node,
    *       see <a>JobListEntry$JobState</a>.</p>
    */
-  ClusterState?: ClusterState | string;
+  ClusterState?: keyof typeof ClusterState | string;
 
   /**
    * <p>The creation date for this cluster.</p>
@@ -2111,7 +2111,7 @@ export interface LongTermPricingListEntry {
   /**
    * <p>The type of long-term pricing that was selected for the device.</p>
    */
-  LongTermPricingType?: LongTermPricingType | string;
+  LongTermPricingType?: keyof typeof LongTermPricingType | string;
 
   /**
    * <p>The current active jobs on the device the long-term pricing type.</p>
@@ -2137,7 +2137,7 @@ export interface LongTermPricingListEntry {
   /**
    * <p>The type of Snow Family devices associated with this long-term pricing job.</p>
    */
-  SnowballType?: SnowballType | string;
+  SnowballType?: keyof typeof SnowballType | string;
 
   /**
    * <p>The IDs of the jobs that are associated with a long-term pricing type.</p>
@@ -2165,10 +2165,10 @@ export interface ListLongTermPricingResult {
 /**
  * @public
  */
-export enum ServiceName {
-  EKS_ANYWHERE = "EKS_ANYWHERE",
-  KUBERNETES = "KUBERNETES",
-}
+export const ServiceName = {
+  EKS_ANYWHERE: "EKS_ANYWHERE",
+  KUBERNETES: "KUBERNETES",
+};
 
 /**
  * @public
@@ -2189,7 +2189,7 @@ export interface DependentService {
   /**
    * <p>The name of the dependent service.</p>
    */
-  ServiceName?: ServiceName | string;
+  ServiceName?: keyof typeof ServiceName | string;
 
   /**
    * <p>The version of the dependent service.</p>
@@ -2204,7 +2204,7 @@ export interface ListServiceVersionsRequest {
   /**
    * <p>The name of the service for which you're requesting supported versions.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: keyof typeof ServiceName | string | undefined;
 
   /**
    * <p>A list of names and versions of dependant services of the requested service.</p>
@@ -2235,7 +2235,7 @@ export interface ListServiceVersionsResult {
   /**
    * <p>The name of the service for which the system provided supported versions.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: keyof typeof ServiceName | string | undefined;
 
   /**
    * <p>A list of names and versions of dependant services of the service for which the system provided supported versions.</p>
@@ -2292,7 +2292,7 @@ export interface UpdateClusterRequest {
    * <p>The updated shipping option value of this cluster's <a>ShippingDetails</a>
    *       object.</p>
    */
-  ShippingOption?: ShippingOption | string;
+  ShippingOption?: keyof typeof ShippingOption | string;
 
   /**
    * <p>The new or updated <a>Notification</a> object.</p>
@@ -2354,7 +2354,7 @@ export interface UpdateJobRequest {
    * <p>The updated shipping option value of this job's <a>ShippingDetails</a>
    *       object.</p>
    */
-  ShippingOption?: ShippingOption | string;
+  ShippingOption?: keyof typeof ShippingOption | string;
 
   /**
    * <p>The updated description of this job's <a>JobMetadata</a> object.</p>
@@ -2370,7 +2370,7 @@ export interface UpdateJobRequest {
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  SnowballCapacityPreference?: SnowballCapacity | string;
+  SnowballCapacityPreference?: keyof typeof SnowballCapacity | string;
 
   /**
    * <p>The updated ID for the forwarding address for a job. This field is not
@@ -2387,10 +2387,10 @@ export interface UpdateJobResult {}
 /**
  * @public
  */
-export enum ShipmentState {
-  RECEIVED = "RECEIVED",
-  RETURNED = "RETURNED",
-}
+export const ShipmentState = {
+  RECEIVED: "RECEIVED",
+  RETURNED: "RETURNED",
+};
 
 /**
  * @public
@@ -2407,7 +2407,7 @@ export interface UpdateJobShipmentStateRequest {
    *          <p>Set to <code>RECEIVED</code> when the device arrives at your location.</p>
    *          <p>Set to <code>RETURNED</code> when you have returned the device to Amazon Web Services.</p>
    */
-  ShipmentState: ShipmentState | string | undefined;
+  ShipmentState: keyof typeof ShipmentState | string | undefined;
 }
 
 /**

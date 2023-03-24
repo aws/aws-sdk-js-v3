@@ -28,9 +28,9 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum SummaryChecksumAlgorithm {
-  SUMMARY = "SUMMARY",
-}
+export const SummaryChecksumAlgorithm = {
+  SUMMARY: "SUMMARY",
+};
 
 /**
  * @public
@@ -60,7 +60,7 @@ export interface BackupObject {
   /**
    * Checksum algorithm
    */
-  ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | string | undefined;
+  ObjectChecksumAlgorithm: keyof typeof SummaryChecksumAlgorithm | string | undefined;
 
   /**
    * Object token
@@ -71,9 +71,9 @@ export interface BackupObject {
 /**
  * @public
  */
-export enum DataChecksumAlgorithm {
-  SHA256 = "SHA256",
-}
+export const DataChecksumAlgorithm = {
+  SHA256: "SHA256",
+};
 
 /**
  * @public
@@ -98,7 +98,7 @@ export interface Chunk {
   /**
    * Checksum algorithm
    */
-  ChecksumAlgorithm: DataChecksumAlgorithm | string | undefined;
+  ChecksumAlgorithm: keyof typeof DataChecksumAlgorithm | string | undefined;
 
   /**
    * Chunk token
@@ -291,7 +291,7 @@ export interface GetChunkOutput {
   /**
    * Checksum algorithm
    */
-  ChecksumAlgorithm: DataChecksumAlgorithm | string | undefined;
+  ChecksumAlgorithm: keyof typeof DataChecksumAlgorithm | string | undefined;
 }
 
 /**
@@ -358,7 +358,7 @@ export interface GetObjectMetadataOutput {
   /**
    * Checksum algorithm.
    */
-  MetadataBlobChecksumAlgorithm?: DataChecksumAlgorithm | string;
+  MetadataBlobChecksumAlgorithm?: keyof typeof DataChecksumAlgorithm | string;
 }
 
 /**
@@ -478,7 +478,7 @@ export interface NotifyObjectCompleteInput {
   /**
    * Checksum algorithm
    */
-  ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | string | undefined;
+  ObjectChecksumAlgorithm: keyof typeof SummaryChecksumAlgorithm | string | undefined;
 
   /**
    * Optional metadata associated with an Object. Maximum string length is 256 bytes.
@@ -503,7 +503,7 @@ export interface NotifyObjectCompleteInput {
   /**
    * Checksum algorithm.
    */
-  MetadataBlobChecksumAlgorithm?: DataChecksumAlgorithm | string;
+  MetadataBlobChecksumAlgorithm?: keyof typeof DataChecksumAlgorithm | string;
 }
 
 /**
@@ -518,7 +518,7 @@ export interface NotifyObjectCompleteOutput {
   /**
    * Checksum algorithm
    */
-  ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | string | undefined;
+  ObjectChecksumAlgorithm: keyof typeof SummaryChecksumAlgorithm | string | undefined;
 }
 
 /**
@@ -580,7 +580,7 @@ export interface PutChunkInput {
   /**
    * Checksum algorithm
    */
-  ChecksumAlgorithm: DataChecksumAlgorithm | string | undefined;
+  ChecksumAlgorithm: keyof typeof DataChecksumAlgorithm | string | undefined;
 }
 
 /**
@@ -595,7 +595,7 @@ export interface PutChunkOutput {
   /**
    * Checksum algorithm
    */
-  ChunkChecksumAlgorithm: DataChecksumAlgorithm | string | undefined;
+  ChunkChecksumAlgorithm: keyof typeof DataChecksumAlgorithm | string | undefined;
 }
 
 /**
@@ -645,7 +645,7 @@ export interface PutObjectInput {
   /**
    * object checksum algorithm
    */
-  ObjectChecksumAlgorithm?: SummaryChecksumAlgorithm | string;
+  ObjectChecksumAlgorithm?: keyof typeof SummaryChecksumAlgorithm | string;
 
   /**
    * Throw an exception if Object name is already exist.
@@ -665,7 +665,7 @@ export interface PutObjectOutput {
   /**
    * Inline chunk checksum algorithm
    */
-  InlineChunkChecksumAlgorithm: DataChecksumAlgorithm | string | undefined;
+  InlineChunkChecksumAlgorithm: keyof typeof DataChecksumAlgorithm | string | undefined;
 
   /**
    * object checksum
@@ -675,7 +675,7 @@ export interface PutObjectOutput {
   /**
    * object checksum algorithm
    */
-  ObjectChecksumAlgorithm: SummaryChecksumAlgorithm | string | undefined;
+  ObjectChecksumAlgorithm: keyof typeof SummaryChecksumAlgorithm | string | undefined;
 }
 
 /**

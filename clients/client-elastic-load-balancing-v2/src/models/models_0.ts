@@ -6,11 +6,11 @@ import { ElasticLoadBalancingV2ServiceException as __BaseException } from "./Ela
 /**
  * @public
  */
-export enum AuthenticateCognitoActionConditionalBehaviorEnum {
-  ALLOW = "allow",
-  AUTHENTICATE = "authenticate",
-  DENY = "deny",
-}
+export const AuthenticateCognitoActionConditionalBehaviorEnum = {
+  ALLOW: "allow",
+  AUTHENTICATE: "authenticate",
+  DENY: "deny",
+};
 
 /**
  * @public
@@ -74,17 +74,17 @@ export interface AuthenticateCognitoActionConfig {
    *             </li>
    *          </ul>
    */
-  OnUnauthenticatedRequest?: AuthenticateCognitoActionConditionalBehaviorEnum | string;
+  OnUnauthenticatedRequest?: keyof typeof AuthenticateCognitoActionConditionalBehaviorEnum | string;
 }
 
 /**
  * @public
  */
-export enum AuthenticateOidcActionConditionalBehaviorEnum {
-  ALLOW = "allow",
-  AUTHENTICATE = "authenticate",
-  DENY = "deny",
-}
+export const AuthenticateOidcActionConditionalBehaviorEnum = {
+  ALLOW: "allow",
+  AUTHENTICATE: "authenticate",
+  DENY: "deny",
+};
 
 /**
  * @public
@@ -169,7 +169,7 @@ export interface AuthenticateOidcActionConfig {
    *             </li>
    *          </ul>
    */
-  OnUnauthenticatedRequest?: AuthenticateOidcActionConditionalBehaviorEnum | string;
+  OnUnauthenticatedRequest?: keyof typeof AuthenticateOidcActionConditionalBehaviorEnum | string;
 
   /**
    * <p>Indicates whether to use the existing client secret when modifying a rule. If you are
@@ -255,10 +255,10 @@ export interface ForwardActionConfig {
 /**
  * @public
  */
-export enum RedirectActionStatusCodeEnum {
-  HTTP_301 = "HTTP_301",
-  HTTP_302 = "HTTP_302",
-}
+export const RedirectActionStatusCodeEnum = {
+  HTTP_301: "HTTP_301",
+  HTTP_302: "HTTP_302",
+};
 
 /**
  * @public
@@ -322,19 +322,19 @@ export interface RedirectActionConfig {
    * <p>The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP
    *       302).</p>
    */
-  StatusCode: RedirectActionStatusCodeEnum | string | undefined;
+  StatusCode: keyof typeof RedirectActionStatusCodeEnum | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ActionTypeEnum {
-  AUTHENTICATE_COGNITO = "authenticate-cognito",
-  AUTHENTICATE_OIDC = "authenticate-oidc",
-  FIXED_RESPONSE = "fixed-response",
-  FORWARD = "forward",
-  REDIRECT = "redirect",
-}
+export const ActionTypeEnum = {
+  AUTHENTICATE_COGNITO: "authenticate-cognito",
+  AUTHENTICATE_OIDC: "authenticate-oidc",
+  FIXED_RESPONSE: "fixed-response",
+  FORWARD: "forward",
+  REDIRECT: "redirect",
+};
 
 /**
  * @public
@@ -347,7 +347,7 @@ export interface Action {
   /**
    * <p>The type of action.</p>
    */
-  Type: ActionTypeEnum | string | undefined;
+  Type: keyof typeof ActionTypeEnum | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the target group. Specify only when <code>Type</code> is
@@ -795,15 +795,15 @@ export interface Cipher {
 /**
  * @public
  */
-export enum ProtocolEnum {
-  GENEVE = "GENEVE",
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  TCP = "TCP",
-  TCP_UDP = "TCP_UDP",
-  TLS = "TLS",
-  UDP = "UDP",
-}
+export const ProtocolEnum = {
+  GENEVE: "GENEVE",
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  TCP: "TCP",
+  TCP_UDP: "TCP_UDP",
+  TLS: "TLS",
+  UDP: "UDP",
+};
 
 /**
  * @public
@@ -821,7 +821,7 @@ export interface CreateListenerInput {
    *       protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load
    *       Balancer.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: keyof typeof ProtocolEnum | string;
 
   /**
    * <p>The port on which the load balancer is listening. You cannot specify a port for a Gateway
@@ -913,7 +913,7 @@ export interface Listener {
   /**
    * <p>The protocol for connections from clients to the load balancer.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: keyof typeof ProtocolEnum | string;
 
   /**
    * <p>[HTTPS or TLS listener] The default certificate for the listener.</p>
@@ -1219,18 +1219,18 @@ export class UnsupportedProtocolException extends __BaseException {
 /**
  * @public
  */
-export enum IpAddressType {
-  DUALSTACK = "dualstack",
-  IPV4 = "ipv4",
-}
+export const IpAddressType = {
+  DUALSTACK: "dualstack",
+  IPV4: "ipv4",
+};
 
 /**
  * @public
  */
-export enum LoadBalancerSchemeEnum {
-  INTERNAL = "internal",
-  INTERNET_FACING = "internet-facing",
-}
+export const LoadBalancerSchemeEnum = {
+  INTERNAL: "internal",
+  INTERNET_FACING: "internet-facing",
+};
 
 /**
  * @public
@@ -1262,11 +1262,11 @@ export interface SubnetMapping {
 /**
  * @public
  */
-export enum LoadBalancerTypeEnum {
-  APPLICATION = "application",
-  GATEWAY = "gateway",
-  NETWORK = "network",
-}
+export const LoadBalancerTypeEnum = {
+  APPLICATION: "application",
+  GATEWAY: "gateway",
+  NETWORK: "network",
+};
 
 /**
  * @public
@@ -1331,7 +1331,7 @@ export interface CreateLoadBalancerInput {
    *          <p>The default is an Internet-facing load balancer.</p>
    *          <p>You cannot specify a scheme for a Gateway Load Balancer.</p>
    */
-  Scheme?: LoadBalancerSchemeEnum | string;
+  Scheme?: keyof typeof LoadBalancerSchemeEnum | string;
 
   /**
    * <p>The tags to assign to the load balancer.</p>
@@ -1341,14 +1341,14 @@ export interface CreateLoadBalancerInput {
   /**
    * <p>The type of load balancer. The default is <code>application</code>.</p>
    */
-  Type?: LoadBalancerTypeEnum | string;
+  Type?: keyof typeof LoadBalancerTypeEnum | string;
 
   /**
    * <p>The type of IP addresses used by the subnets for your load balancer. The possible values
    *       are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
    *       addresses). </p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>[Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP
@@ -1360,12 +1360,12 @@ export interface CreateLoadBalancerInput {
 /**
  * @public
  */
-export enum LoadBalancerStateEnum {
-  ACTIVE = "active",
-  ACTIVE_IMPAIRED = "active_impaired",
-  FAILED = "failed",
-  PROVISIONING = "provisioning",
-}
+export const LoadBalancerStateEnum = {
+  ACTIVE: "active",
+  ACTIVE_IMPAIRED: "active_impaired",
+  FAILED: "failed",
+  PROVISIONING: "provisioning",
+};
 
 /**
  * @public
@@ -1379,7 +1379,7 @@ export interface LoadBalancerState {
    *       needs to scale, its state is<code>active_impaired</code>. If the load balancer could not be
    *       set up, its state is <code>failed</code>.</p>
    */
-  Code?: LoadBalancerStateEnum | string;
+  Code?: keyof typeof LoadBalancerStateEnum | string;
 
   /**
    * <p>A description of the state.</p>
@@ -1427,7 +1427,7 @@ export interface LoadBalancer {
    *       Therefore, internal load balancers can route requests only from clients with access to the VPC
    *       for the load balancer.</p>
    */
-  Scheme?: LoadBalancerSchemeEnum | string;
+  Scheme?: keyof typeof LoadBalancerSchemeEnum | string;
 
   /**
    * <p>The ID of the VPC for the load balancer.</p>
@@ -1442,7 +1442,7 @@ export interface LoadBalancer {
   /**
    * <p>The type of load balancer.</p>
    */
-  Type?: LoadBalancerTypeEnum | string;
+  Type?: keyof typeof LoadBalancerTypeEnum | string;
 
   /**
    * <p>The subnets for the load balancer.</p>
@@ -1459,7 +1459,7 @@ export interface LoadBalancer {
    *       are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
    *       addresses).</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>[Application Load Balancers on Outposts] The ID of the customer-owned address pool.</p>
@@ -2065,10 +2065,10 @@ export class TooManyTargetGroupsException extends __BaseException {
 /**
  * @public
  */
-export enum TargetGroupIpAddressTypeEnum {
-  IPV4 = "ipv4",
-  IPV6 = "ipv6",
-}
+export const TargetGroupIpAddressTypeEnum = {
+  IPV4: "ipv4",
+  IPV6: "ipv6",
+};
 
 /**
  * @public
@@ -2097,12 +2097,12 @@ export interface Matcher {
 /**
  * @public
  */
-export enum TargetTypeEnum {
-  ALB = "alb",
-  INSTANCE = "instance",
-  IP = "ip",
-  LAMBDA = "lambda",
-}
+export const TargetTypeEnum = {
+  ALB: "alb",
+  INSTANCE: "instance",
+  IP: "ip",
+  LAMBDA: "lambda",
+};
 
 /**
  * @public
@@ -2123,7 +2123,7 @@ export interface CreateTargetGroupInput {
    *       GENEVE. A TCP_UDP listener must be associated with a TCP_UDP target group. If the target is a
    *       Lambda function, this parameter does not apply.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: keyof typeof ProtocolEnum | string;
 
   /**
    * <p>[HTTP/HTTPS protocol] The protocol version. Specify <code>GRPC</code> to send requests to
@@ -2152,7 +2152,7 @@ export interface CreateTargetGroupInput {
    *       protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, and TCP_UDP protocols are
    *       not supported for health checks.</p>
    */
-  HealthCheckProtocol?: ProtocolEnum | string;
+  HealthCheckProtocol?: keyof typeof ProtocolEnum | string;
 
   /**
    * <p>The port the load balancer uses when performing health checks on targets. If the protocol
@@ -2245,7 +2245,7 @@ export interface CreateTargetGroupInput {
    *             </li>
    *          </ul>
    */
-  TargetType?: TargetTypeEnum | string;
+  TargetType?: keyof typeof TargetTypeEnum | string;
 
   /**
    * <p>The tags to assign to the target group.</p>
@@ -2257,7 +2257,7 @@ export interface CreateTargetGroupInput {
    *         <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,
    *       the IP address type defaults to <code>ipv4</code>.</p>
    */
-  IpAddressType?: TargetGroupIpAddressTypeEnum | string;
+  IpAddressType?: keyof typeof TargetGroupIpAddressTypeEnum | string;
 }
 
 /**
@@ -2278,7 +2278,7 @@ export interface TargetGroup {
   /**
    * <p>The protocol to use for routing traffic to the targets.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: keyof typeof ProtocolEnum | string;
 
   /**
    * <p>The port on which the targets are listening. Not used if the target is a Lambda
@@ -2295,7 +2295,7 @@ export interface TargetGroup {
    * <p>The protocol to use to connect with the target. The GENEVE, TLS, UDP, and TCP_UDP
    *       protocols are not supported for health checks.</p>
    */
-  HealthCheckProtocol?: ProtocolEnum | string;
+  HealthCheckProtocol?: keyof typeof ProtocolEnum | string;
 
   /**
    * <p>The port to use to connect with the target.</p>
@@ -2355,7 +2355,7 @@ export interface TargetGroup {
    *       Lambda function as a target), or <code>alb</code> (register a single Application Load Balancer
    *       as a target).</p>
    */
-  TargetType?: TargetTypeEnum | string;
+  TargetType?: keyof typeof TargetTypeEnum | string;
 
   /**
    * <p>[HTTP/HTTPS protocol] The protocol version. The possible values are <code>GRPC</code>,
@@ -2368,7 +2368,7 @@ export interface TargetGroup {
    *         <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,
    *       the IP address type defaults to <code>ipv4</code>.</p>
    */
-  IpAddressType?: TargetGroupIpAddressTypeEnum | string;
+  IpAddressType?: keyof typeof TargetGroupIpAddressTypeEnum | string;
 }
 
 /**
@@ -3008,7 +3008,7 @@ export interface DescribeSSLPoliciesInput {
    * <p> The type of load balancer. The default lists the SSL policies for all load
    *       balancers.</p>
    */
-  LoadBalancerType?: LoadBalancerTypeEnum | string;
+  LoadBalancerType?: keyof typeof LoadBalancerTypeEnum | string;
 }
 
 /**
@@ -3368,32 +3368,32 @@ export interface DescribeTargetHealthInput {
 /**
  * @public
  */
-export enum TargetHealthReasonEnum {
-  DEREGISTRATION_IN_PROGRESS = "Target.DeregistrationInProgress",
-  FAILED_HEALTH_CHECKS = "Target.FailedHealthChecks",
-  HEALTH_CHECK_DISABLED = "Target.HealthCheckDisabled",
-  INITIAL_HEALTH_CHECKING = "Elb.InitialHealthChecking",
-  INTERNAL_ERROR = "Elb.InternalError",
-  INVALID_STATE = "Target.InvalidState",
-  IP_UNUSABLE = "Target.IpUnusable",
-  NOT_IN_USE = "Target.NotInUse",
-  NOT_REGISTERED = "Target.NotRegistered",
-  REGISTRATION_IN_PROGRESS = "Elb.RegistrationInProgress",
-  RESPONSE_CODE_MISMATCH = "Target.ResponseCodeMismatch",
-  TIMEOUT = "Target.Timeout",
-}
+export const TargetHealthReasonEnum = {
+  DEREGISTRATION_IN_PROGRESS: "Target.DeregistrationInProgress",
+  FAILED_HEALTH_CHECKS: "Target.FailedHealthChecks",
+  HEALTH_CHECK_DISABLED: "Target.HealthCheckDisabled",
+  INITIAL_HEALTH_CHECKING: "Elb.InitialHealthChecking",
+  INTERNAL_ERROR: "Elb.InternalError",
+  INVALID_STATE: "Target.InvalidState",
+  IP_UNUSABLE: "Target.IpUnusable",
+  NOT_IN_USE: "Target.NotInUse",
+  NOT_REGISTERED: "Target.NotRegistered",
+  REGISTRATION_IN_PROGRESS: "Elb.RegistrationInProgress",
+  RESPONSE_CODE_MISMATCH: "Target.ResponseCodeMismatch",
+  TIMEOUT: "Target.Timeout",
+};
 
 /**
  * @public
  */
-export enum TargetHealthStateEnum {
-  DRAINING = "draining",
-  HEALTHY = "healthy",
-  INITIAL = "initial",
-  UNAVAILABLE = "unavailable",
-  UNHEALTHY = "unhealthy",
-  UNUSED = "unused",
-}
+export const TargetHealthStateEnum = {
+  DRAINING: "draining",
+  HEALTHY: "healthy",
+  INITIAL: "initial",
+  UNAVAILABLE: "unavailable",
+  UNHEALTHY: "unhealthy",
+  UNUSED: "unused",
+};
 
 /**
  * @public
@@ -3403,7 +3403,7 @@ export interface TargetHealth {
   /**
    * <p>The state of the target.</p>
    */
-  State?: TargetHealthStateEnum | string;
+  State?: keyof typeof TargetHealthStateEnum | string;
 
   /**
    * <p>The reason code.</p>
@@ -3495,7 +3495,7 @@ export interface TargetHealth {
    *             </li>
    *          </ul>
    */
-  Reason?: TargetHealthReasonEnum | string;
+  Reason?: keyof typeof TargetHealthReasonEnum | string;
 
   /**
    * <p>A description of the target health that provides additional details. If the state is
@@ -3579,7 +3579,7 @@ export interface ModifyListenerInput {
    *       TCP_UDP protocols. You can’t change the protocol to UDP or TCP_UDP if dual-stack mode is
    *       enabled. You cannot specify a protocol for a Gateway Load Balancer.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: keyof typeof ProtocolEnum | string;
 
   /**
    * <p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are
@@ -3719,7 +3719,7 @@ export interface ModifyTargetGroupInput {
    *       protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP
    *       protocols are not supported for health checks.</p>
    */
-  HealthCheckProtocol?: ProtocolEnum | string;
+  HealthCheckProtocol?: keyof typeof ProtocolEnum | string;
 
   /**
    * <p>The port the load balancer uses when performing health checks on targets.</p>
@@ -3883,7 +3883,7 @@ export interface SetIpAddressTypeInput {
    *        You can’t specify
    *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>
    */
-  IpAddressType: IpAddressType | string | undefined;
+  IpAddressType: keyof typeof IpAddressType | string | undefined;
 }
 
 /**
@@ -3893,7 +3893,7 @@ export interface SetIpAddressTypeOutput {
   /**
    * <p>The IP address type.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 }
 
 /**
@@ -4002,7 +4002,7 @@ export interface SetSubnetsInput {
    *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.
    *       .</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 }
 
 /**
@@ -4017,5 +4017,5 @@ export interface SetSubnetsOutput {
   /**
    * <p>[Network Load Balancers] The IP address type.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 }

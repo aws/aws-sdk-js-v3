@@ -6,10 +6,10 @@ import { PipesServiceException as __BaseException } from "./PipesServiceExceptio
 /**
  * @public
  */
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AssignPublicIp = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -32,7 +32,7 @@ export interface AwsVpcConfiguration {
    * <p>Specifies whether the task's elastic network interface receives a public IP address. You can specify <code>ENABLED</code> only when
    *          <code>LaunchType</code> in <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
    */
-  AssignPublicIp?: AssignPublicIp | string;
+  AssignPublicIp?: keyof typeof AssignPublicIp | string;
 }
 
 /**
@@ -70,11 +70,11 @@ export interface BatchEnvironmentVariable {
 /**
  * @public
  */
-export enum BatchResourceRequirementType {
-  GPU = "GPU",
-  MEMORY = "MEMORY",
-  VCPU = "VCPU",
-}
+export const BatchResourceRequirementType = {
+  GPU: "GPU",
+  MEMORY: "MEMORY",
+  VCPU: "VCPU",
+};
 
 /**
  * @public
@@ -84,7 +84,7 @@ export interface BatchResourceRequirement {
   /**
    * <p>The type of resource to assign to a container. The supported resources include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
    */
-  Type: BatchResourceRequirementType | string | undefined;
+  Type: keyof typeof BatchResourceRequirementType | string | undefined;
 
   /**
    * <p>The quantity of the specified resource to reserve for the container. The values vary based on the
@@ -289,10 +289,10 @@ export interface BatchContainerOverrides {
 /**
  * @public
  */
-export enum BatchJobDependencyType {
-  N_TO_N = "N_TO_N",
-  SEQUENTIAL = "SEQUENTIAL",
-}
+export const BatchJobDependencyType = {
+  N_TO_N: "N_TO_N",
+  SEQUENTIAL: "SEQUENTIAL",
+};
 
 /**
  * @public
@@ -307,7 +307,7 @@ export interface BatchJobDependency {
   /**
    * <p>The type of the job dependency.</p>
    */
-  Type?: BatchJobDependencyType | string;
+  Type?: keyof typeof BatchJobDependencyType | string;
 }
 
 /**
@@ -383,10 +383,10 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum RequestedPipeState {
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+export const RequestedPipeState = {
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -515,17 +515,17 @@ export interface DeadLetterConfig {
 /**
  * @public
  */
-export enum OnPartialBatchItemFailureStreams {
-  AUTOMATIC_BISECT = "AUTOMATIC_BISECT",
-}
+export const OnPartialBatchItemFailureStreams = {
+  AUTOMATIC_BISECT: "AUTOMATIC_BISECT",
+};
 
 /**
  * @public
  */
-export enum DynamoDBStreamStartPosition {
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const DynamoDBStreamStartPosition = {
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+};
 
 /**
  * @public
@@ -546,7 +546,7 @@ export interface PipeSourceDynamoDBStreamParameters {
    * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    */
-  OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams | string;
+  OnPartialBatchItemFailure?: keyof typeof OnPartialBatchItemFailureStreams | string;
 
   /**
    * <p>The maximum length of a time to wait for events.</p>
@@ -573,7 +573,7 @@ export interface PipeSourceDynamoDBStreamParameters {
   /**
    * <p>(Streams only) The position in a stream from which to start reading.</p>
    */
-  StartingPosition: DynamoDBStreamStartPosition | string | undefined;
+  StartingPosition: keyof typeof DynamoDBStreamStartPosition | string | undefined;
 }
 
 /**
@@ -603,11 +603,11 @@ export interface FilterCriteria {
 /**
  * @public
  */
-export enum KinesisStreamStartPosition {
-  AT_TIMESTAMP = "AT_TIMESTAMP",
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const KinesisStreamStartPosition = {
+  AT_TIMESTAMP: "AT_TIMESTAMP",
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+};
 
 /**
  * @public
@@ -628,7 +628,7 @@ export interface PipeSourceKinesisStreamParameters {
    * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    */
-  OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams | string;
+  OnPartialBatchItemFailure?: keyof typeof OnPartialBatchItemFailureStreams | string;
 
   /**
    * <p>The maximum length of a time to wait for events.</p>
@@ -655,7 +655,7 @@ export interface PipeSourceKinesisStreamParameters {
   /**
    * <p>(Streams only) The position in a stream from which to start reading.</p>
    */
-  StartingPosition: KinesisStreamStartPosition | string | undefined;
+  StartingPosition: keyof typeof KinesisStreamStartPosition | string | undefined;
 
   /**
    * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading, in Unix time seconds.</p>
@@ -717,10 +717,10 @@ export namespace MSKAccessCredentials {
 /**
  * @public
  */
-export enum MSKStartPosition {
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const MSKStartPosition = {
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+};
 
 /**
  * @public
@@ -735,7 +735,7 @@ export interface PipeSourceManagedStreamingKafkaParameters {
   /**
    * <p>(Streams only) The position in a stream from which to start reading.</p>
    */
-  StartingPosition?: MSKStartPosition | string;
+  StartingPosition?: keyof typeof MSKStartPosition | string;
 
   /**
    * <p>The maximum number of records to include in each batch.</p>
@@ -877,10 +877,10 @@ export namespace SelfManagedKafkaAccessConfigurationCredentials {
 /**
  * @public
  */
-export enum SelfManagedKafkaStartPosition {
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const SelfManagedKafkaStartPosition = {
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+};
 
 /**
  * @public
@@ -912,7 +912,7 @@ export interface PipeSourceSelfManagedKafkaParameters {
   /**
    * <p>(Streams only) The position in a stream from which to start reading.</p>
    */
-  StartingPosition?: SelfManagedKafkaStartPosition | string;
+  StartingPosition?: keyof typeof SelfManagedKafkaStartPosition | string;
 
   /**
    * <p>An array of server URLs.</p>
@@ -1080,11 +1080,11 @@ export interface PipeTargetCloudWatchLogsParameters {
 /**
  * @public
  */
-export enum LaunchType {
-  EC2 = "EC2",
-  EXTERNAL = "EXTERNAL",
-  FARGATE = "FARGATE",
-}
+export const LaunchType = {
+  EC2: "EC2",
+  EXTERNAL: "EXTERNAL",
+  FARGATE: "FARGATE",
+};
 
 /**
  * @public
@@ -1119,9 +1119,9 @@ export interface EcsEnvironmentVariable {
 /**
  * @public
  */
-export enum EcsEnvironmentFileType {
-  s3 = "s3",
-}
+export const EcsEnvironmentFileType = {
+  s3: "s3",
+};
 
 /**
  * @public
@@ -1153,7 +1153,7 @@ export interface EcsEnvironmentFile {
   /**
    * <p>The file type to use. The only supported value is <code>s3</code>.</p>
    */
-  type: EcsEnvironmentFileType | string | undefined;
+  type: keyof typeof EcsEnvironmentFileType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.</p>
@@ -1164,10 +1164,10 @@ export interface EcsEnvironmentFile {
 /**
  * @public
  */
-export enum EcsResourceRequirementType {
-  GPU = "GPU",
-  InferenceAccelerator = "InferenceAccelerator",
-}
+export const EcsResourceRequirementType = {
+  GPU: "GPU",
+  InferenceAccelerator: "InferenceAccelerator",
+};
 
 /**
  * @public
@@ -1183,7 +1183,7 @@ export interface EcsResourceRequirement {
    * <p>The type of resource to assign to a container. The supported values are
    *          <code>GPU</code> or <code>InferenceAccelerator</code>.</p>
    */
-  type: EcsResourceRequirementType | string | undefined;
+  type: keyof typeof EcsResourceRequirementType | string | undefined;
 
   /**
    * <p>The value for the specified resource type.</p>
@@ -1350,10 +1350,10 @@ export interface EcsTaskOverride {
 /**
  * @public
  */
-export enum PlacementConstraintType {
-  DISTINCT_INSTANCE = "distinctInstance",
-  MEMBER_OF = "memberOf",
-}
+export const PlacementConstraintType = {
+  DISTINCT_INSTANCE: "distinctInstance",
+  MEMBER_OF: "memberOf",
+};
 
 /**
  * @public
@@ -1366,7 +1366,7 @@ export interface PlacementConstraint {
    *          group is running on a different container instance. Use memberOf to restrict the selection to
    *          a group of valid candidates. </p>
    */
-  type?: PlacementConstraintType | string;
+  type?: keyof typeof PlacementConstraintType | string;
 
   /**
    * <p>A cluster query language expression to apply to the constraint. You cannot specify an
@@ -1379,11 +1379,11 @@ export interface PlacementConstraint {
 /**
  * @public
  */
-export enum PlacementStrategyType {
-  BINPACK = "binpack",
-  RANDOM = "random",
-  SPREAD = "spread",
-}
+export const PlacementStrategyType = {
+  BINPACK: "binpack",
+  RANDOM: "random",
+  SPREAD: "spread",
+};
 
 /**
  * @public
@@ -1399,7 +1399,7 @@ export interface PlacementStrategy {
    *          field parameter. For example, if you binpack on memory, a task is placed on the instance with
    *          the least amount of remaining memory (but still enough to run the task). </p>
    */
-  type?: PlacementStrategyType | string;
+  type?: keyof typeof PlacementStrategyType | string;
 
   /**
    * <p>The field to apply the placement strategy against. For the spread placement strategy,
@@ -1414,9 +1414,9 @@ export interface PlacementStrategy {
 /**
  * @public
  */
-export enum PropagateTags {
-  TASK_DEFINITION = "TASK_DEFINITION",
-}
+export const PropagateTags = {
+  TASK_DEFINITION: "TASK_DEFINITION",
+};
 
 /**
  * @public
@@ -1458,7 +1458,7 @@ export interface PipeTargetEcsTaskParameters {
    *          is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">Fargate on Amazon ECS</a> in
    *          the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  LaunchType?: LaunchType | string;
+  LaunchType?: keyof typeof LaunchType | string;
 
   /**
    * <p>Use this structure if the Amazon ECS task uses the <code>awsvpc</code> network mode. This
@@ -1526,7 +1526,7 @@ export interface PipeTargetEcsTaskParameters {
    *          is specified, the tags are not propagated. Tags can only be propagated to the task during task
    *          creation. To add tags to a task after task creation, use the <code>TagResource</code> API action. </p>
    */
-  PropagateTags?: PropagateTags | string;
+  PropagateTags?: keyof typeof PropagateTags | string;
 
   /**
    * <p>The reference ID to use for the task.</p>
@@ -1622,10 +1622,10 @@ export interface PipeTargetKinesisStreamParameters {
 /**
  * @public
  */
-export enum PipeTargetInvocationType {
-  FIRE_AND_FORGET = "FIRE_AND_FORGET",
-  REQUEST_RESPONSE = "REQUEST_RESPONSE",
-}
+export const PipeTargetInvocationType = {
+  FIRE_AND_FORGET: "FIRE_AND_FORGET",
+  REQUEST_RESPONSE: "REQUEST_RESPONSE",
+};
 
 /**
  * @public
@@ -1653,7 +1653,7 @@ export interface PipeTargetLambdaFunctionParameters {
    *             </li>
    *          </ul>
    */
-  InvocationType?: PipeTargetInvocationType | string;
+  InvocationType?: keyof typeof PipeTargetInvocationType | string;
 }
 
 /**
@@ -1749,7 +1749,7 @@ export interface PipeTargetStateMachineParameters {
   /**
    * <p>Specify whether to wait for the state machine to finish or not.</p>
    */
-  InvocationType?: PipeTargetInvocationType | string;
+  InvocationType?: keyof typeof PipeTargetInvocationType | string;
 }
 
 /**
@@ -1839,7 +1839,7 @@ export interface CreatePipeRequest {
   /**
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: keyof typeof RequestedPipeState | string;
 
   /**
    * <p>The ARN of the source resource.</p>
@@ -1885,19 +1885,19 @@ export interface CreatePipeRequest {
 /**
  * @public
  */
-export enum PipeState {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  START_FAILED = "START_FAILED",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  STOP_FAILED = "STOP_FAILED",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const PipeState = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  START_FAILED: "START_FAILED",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  STOP_FAILED: "STOP_FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1916,12 +1916,12 @@ export interface CreatePipeResponse {
   /**
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: keyof typeof RequestedPipeState | string;
 
   /**
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: keyof typeof PipeState | string;
 
   /**
    * <p>The time the pipe was created.</p>
@@ -2117,11 +2117,11 @@ export interface DeletePipeRequest {
 /**
  * @public
  */
-export enum RequestedPipeStateDescribeResponse {
-  DELETED = "DELETED",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+export const RequestedPipeStateDescribeResponse = {
+  DELETED: "DELETED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -2140,12 +2140,12 @@ export interface DeletePipeResponse {
   /**
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeStateDescribeResponse | string;
+  DesiredState?: keyof typeof RequestedPipeStateDescribeResponse | string;
 
   /**
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: keyof typeof PipeState | string;
 
   /**
    * <p>The time the pipe was created.</p>
@@ -2190,12 +2190,12 @@ export interface DescribePipeResponse {
   /**
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeStateDescribeResponse | string;
+  DesiredState?: keyof typeof RequestedPipeStateDescribeResponse | string;
 
   /**
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: keyof typeof PipeState | string;
 
   /**
    * <p>The reason the pipe is in its current state.</p>
@@ -2266,12 +2266,12 @@ export interface ListPipesRequest {
   /**
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: keyof typeof RequestedPipeState | string;
 
   /**
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: keyof typeof PipeState | string;
 
   /**
    * <p>The prefix matching the pipe source.</p>
@@ -2314,12 +2314,12 @@ export interface Pipe {
   /**
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: keyof typeof RequestedPipeState | string;
 
   /**
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: keyof typeof PipeState | string;
 
   /**
    * <p>The reason the pipe is in its current state.</p>
@@ -2416,12 +2416,12 @@ export interface StartPipeResponse {
   /**
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: keyof typeof RequestedPipeState | string;
 
   /**
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: keyof typeof PipeState | string;
 
   /**
    * <p>The time the pipe was created.</p>
@@ -2461,12 +2461,12 @@ export interface StopPipeResponse {
   /**
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: keyof typeof RequestedPipeState | string;
 
   /**
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: keyof typeof PipeState | string;
 
   /**
    * <p>The time the pipe was created.</p>
@@ -2519,7 +2519,7 @@ export interface UpdatePipeSourceDynamoDBStreamParameters {
    * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    */
-  OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams | string;
+  OnPartialBatchItemFailure?: keyof typeof OnPartialBatchItemFailureStreams | string;
 
   /**
    * <p>The maximum length of a time to wait for events.</p>
@@ -2563,7 +2563,7 @@ export interface UpdatePipeSourceKinesisStreamParameters {
    * <p>(Streams only) Define how to handle item process failures. <code>AUTOMATIC_BISECT</code> halves each batch and retry each half
    * until all the records are processed or there is one failed message left in the batch.</p>
    */
-  OnPartialBatchItemFailure?: OnPartialBatchItemFailureStreams | string;
+  OnPartialBatchItemFailure?: keyof typeof OnPartialBatchItemFailureStreams | string;
 
   /**
    * <p>The maximum length of a time to wait for events.</p>
@@ -2741,7 +2741,7 @@ export interface UpdatePipeRequest {
   /**
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: keyof typeof RequestedPipeState | string;
 
   /**
    * <p>The parameters required to set up a source for your pipe.</p>
@@ -2791,12 +2791,12 @@ export interface UpdatePipeResponse {
   /**
    * <p>The state the pipe should be in.</p>
    */
-  DesiredState?: RequestedPipeState | string;
+  DesiredState?: keyof typeof RequestedPipeState | string;
 
   /**
    * <p>The state the pipe is in.</p>
    */
-  CurrentState?: PipeState | string;
+  CurrentState?: keyof typeof PipeState | string;
 
   /**
    * <p>The time the pipe was created.</p>

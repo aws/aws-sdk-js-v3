@@ -929,7 +929,7 @@ const serializeAws_restJson1ParticipantTokenAttributes = (
 };
 
 const serializeAws_restJson1ParticipantTokenCapabilities = (
-  input: (ParticipantTokenCapability | string)[],
+  input: (keyof typeof ParticipantTokenCapability | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1013,7 +1013,7 @@ const deserializeAws_restJson1ParticipantTokenAttributes = (
 const deserializeAws_restJson1ParticipantTokenCapabilities = (
   output: any,
   context: __SerdeContext
-): (ParticipantTokenCapability | string)[] => {
+): (keyof typeof ParticipantTokenCapability | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

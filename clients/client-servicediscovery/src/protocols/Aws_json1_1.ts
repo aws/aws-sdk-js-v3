@@ -2686,14 +2686,17 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
 const deserializeAws_json1_1InstanceHealthStatusMap = (
   output: any,
   context: __SerdeContext
-): Record<string, HealthStatus | string> => {
-  return Object.entries(output).reduce((acc: Record<string, HealthStatus | string>, [key, value]: [string, any]) => {
-    if (value === null) {
+): Record<string, keyof typeof HealthStatus | string> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, keyof typeof HealthStatus | string>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectString(value) as any;
       return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_json1_1InstanceNotFound = (output: any, context: __SerdeContext): InstanceNotFound => {
@@ -2876,7 +2879,7 @@ const deserializeAws_json1_1OperationSummaryList = (output: any, context: __Serd
 
 const deserializeAws_json1_1OperationTargetsMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [OperationTargetType | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [keyof typeof OperationTargetType | string, any]) => {
       if (value === null) {
         return acc;
       }

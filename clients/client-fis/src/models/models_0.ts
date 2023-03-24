@@ -619,16 +619,16 @@ export interface DeleteExperimentTemplateResponse {
 /**
  * @public
  */
-export enum ExperimentActionStatus {
-  cancelled = "cancelled",
-  completed = "completed",
-  failed = "failed",
-  initiating = "initiating",
-  pending = "pending",
-  running = "running",
-  stopped = "stopped",
-  stopping = "stopping",
-}
+export const ExperimentActionStatus = {
+  cancelled: "cancelled",
+  completed: "completed",
+  failed: "failed",
+  initiating: "initiating",
+  pending: "pending",
+  running: "running",
+  stopped: "stopped",
+  stopping: "stopping",
+};
 
 /**
  * @public
@@ -638,7 +638,7 @@ export interface ExperimentActionState {
   /**
    * <p>The state of the action.</p>
    */
-  status?: ExperimentActionStatus | string;
+  status?: keyof typeof ExperimentActionStatus | string;
 
   /**
    * <p>The reason for the state.</p>
@@ -743,15 +743,15 @@ export interface ExperimentLogConfiguration {
 /**
  * @public
  */
-export enum ExperimentStatus {
-  completed = "completed",
-  failed = "failed",
-  initiating = "initiating",
-  pending = "pending",
-  running = "running",
-  stopped = "stopped",
-  stopping = "stopping",
-}
+export const ExperimentStatus = {
+  completed: "completed",
+  failed: "failed",
+  initiating: "initiating",
+  pending: "pending",
+  running: "running",
+  stopped: "stopped",
+  stopping: "stopping",
+};
 
 /**
  * @public
@@ -761,7 +761,7 @@ export interface ExperimentState {
   /**
    * <p>The state of the experiment.</p>
    */
-  status?: ExperimentStatus | string;
+  status?: keyof typeof ExperimentStatus | string;
 
   /**
    * <p>The reason for the state.</p>

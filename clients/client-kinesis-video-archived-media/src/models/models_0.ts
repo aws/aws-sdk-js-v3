@@ -29,10 +29,10 @@ export class ClientLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum ClipFragmentSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export const ClipFragmentSelectorType = {
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+};
 
 /**
  * @public
@@ -76,7 +76,7 @@ export interface ClipFragmentSelector {
   /**
    * <p>The origin of the timestamps to use (Server or Producer).</p>
    */
-  FragmentSelectorType: ClipFragmentSelectorType | string | undefined;
+  FragmentSelectorType: keyof typeof ClipFragmentSelectorType | string | undefined;
 
   /**
    * <p>The range of timestamps to return.</p>
@@ -320,10 +320,10 @@ export class UnsupportedStreamMediaTypeException extends __BaseException {
 /**
  * @public
  */
-export enum DASHFragmentSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export const DASHFragmentSelectorType = {
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+};
 
 /**
  * @public
@@ -397,7 +397,7 @@ export interface DASHFragmentSelector {
    *             timestamps with values now, they are not included in the HLS media playlist.</p>
    *         <p>The default is <code>SERVER_TIMESTAMP</code>.</p>
    */
-  FragmentSelectorType?: DASHFragmentSelectorType | string;
+  FragmentSelectorType?: keyof typeof DASHFragmentSelectorType | string;
 
   /**
    * <p>The start and end of the timestamp range for the requested media.</p>
@@ -410,27 +410,27 @@ export interface DASHFragmentSelector {
 /**
  * @public
  */
-export enum DASHDisplayFragmentNumber {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
-}
+export const DASHDisplayFragmentNumber = {
+  ALWAYS: "ALWAYS",
+  NEVER: "NEVER",
+};
 
 /**
  * @public
  */
-export enum DASHDisplayFragmentTimestamp {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
-}
+export const DASHDisplayFragmentTimestamp = {
+  ALWAYS: "ALWAYS",
+  NEVER: "NEVER",
+};
 
 /**
  * @public
  */
-export enum DASHPlaybackMode {
-  LIVE = "LIVE",
-  LIVE_REPLAY = "LIVE_REPLAY",
-  ON_DEMAND = "ON_DEMAND",
-}
+export const DASHPlaybackMode = {
+  LIVE: "LIVE",
+  LIVE_REPLAY: "LIVE_REPLAY",
+  ON_DEMAND: "ON_DEMAND",
+};
 
 /**
  * @public
@@ -513,7 +513,7 @@ export interface GetDASHStreamingSessionURLInput {
    *             player.</p>
    *         <p>The default is <code>LIVE</code>.</p>
    */
-  PlaybackMode?: DASHPlaybackMode | string;
+  PlaybackMode?: keyof typeof DASHPlaybackMode | string;
 
   /**
    * <p>Per the MPEG-DASH specification, the wall-clock time of fragments in the manifest file
@@ -531,7 +531,7 @@ export interface GetDASHStreamingSessionURLInput {
    *                 <code>PRODUCER_TIMESTAMP</code>, the timestamps will be the producer start
    *             timestamps. </p>
    */
-  DisplayFragmentTimestamp?: DASHDisplayFragmentTimestamp | string;
+  DisplayFragmentTimestamp?: keyof typeof DASHDisplayFragmentTimestamp | string;
 
   /**
    * <p>Fragments are identified in the manifest file based on their sequence number in the
@@ -543,7 +543,7 @@ export interface GetDASHStreamingSessionURLInput {
    *             attribute.</p>
    *         <p>The default value is <code>NEVER</code>.</p>
    */
-  DisplayFragmentNumber?: DASHDisplayFragmentNumber | string;
+  DisplayFragmentNumber?: keyof typeof DASHDisplayFragmentNumber | string;
 
   /**
    * <p>The time range of the requested fragment and the source of the timestamps.</p>
@@ -601,35 +601,35 @@ export interface GetDASHStreamingSessionURLOutput {
 /**
  * @public
  */
-export enum ContainerFormat {
-  FRAGMENTED_MP4 = "FRAGMENTED_MP4",
-  MPEG_TS = "MPEG_TS",
-}
+export const ContainerFormat = {
+  FRAGMENTED_MP4: "FRAGMENTED_MP4",
+  MPEG_TS: "MPEG_TS",
+};
 
 /**
  * @public
  */
-export enum HLSDiscontinuityMode {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
-  ON_DISCONTINUITY = "ON_DISCONTINUITY",
-}
+export const HLSDiscontinuityMode = {
+  ALWAYS: "ALWAYS",
+  NEVER: "NEVER",
+  ON_DISCONTINUITY: "ON_DISCONTINUITY",
+};
 
 /**
  * @public
  */
-export enum HLSDisplayFragmentTimestamp {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
-}
+export const HLSDisplayFragmentTimestamp = {
+  ALWAYS: "ALWAYS",
+  NEVER: "NEVER",
+};
 
 /**
  * @public
  */
-export enum HLSFragmentSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export const HLSFragmentSelectorType = {
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+};
 
 /**
  * @public
@@ -699,7 +699,7 @@ export interface HLSFragmentSelector {
    *             timestamps with values now, they are not included in the HLS media playlist.</p>
    *         <p>The default is <code>SERVER_TIMESTAMP</code>.</p>
    */
-  FragmentSelectorType?: HLSFragmentSelectorType | string;
+  FragmentSelectorType?: keyof typeof HLSFragmentSelectorType | string;
 
   /**
    * <p>The start and end of the timestamp range for the requested media.</p>
@@ -712,11 +712,11 @@ export interface HLSFragmentSelector {
 /**
  * @public
  */
-export enum HLSPlaybackMode {
-  LIVE = "LIVE",
-  LIVE_REPLAY = "LIVE_REPLAY",
-  ON_DEMAND = "ON_DEMAND",
-}
+export const HLSPlaybackMode = {
+  LIVE: "LIVE",
+  LIVE_REPLAY: "LIVE_REPLAY",
+  ON_DEMAND: "ON_DEMAND",
+};
 
 /**
  * @public
@@ -799,7 +799,7 @@ export interface GetHLSStreamingSessionURLInput {
    *             player.</p>
    *         <p>The default is <code>LIVE</code>.</p>
    */
-  PlaybackMode?: HLSPlaybackMode | string;
+  PlaybackMode?: keyof typeof HLSPlaybackMode | string;
 
   /**
    * <p>The time range of the requested fragment and the source of the timestamps.</p>
@@ -823,7 +823,7 @@ export interface GetHLSStreamingSessionURLInput {
    *             MPEG TS typically requires 5-25 percent more bandwidth and cost than fMP4.</p>
    *         <p>The default is <code>FRAGMENTED_MP4</code>.</p>
    */
-  ContainerFormat?: ContainerFormat | string;
+  ContainerFormat?: keyof typeof ContainerFormat | string;
 
   /**
    * <p>Specifies when flags marking discontinuities between fragments are added to the media
@@ -865,7 +865,7 @@ export interface GetHLSStreamingSessionURLInput {
    *             to <code>SERVER_TIMESTAMP</code>, and <code>NEVER</code> when it is set to
    *                 <code>PRODUCER_TIMESTAMP</code>.</p>
    */
-  DiscontinuityMode?: HLSDiscontinuityMode | string;
+  DiscontinuityMode?: keyof typeof HLSDiscontinuityMode | string;
 
   /**
    * <p>Specifies when the fragment start timestamps should be included in the HLS media
@@ -881,7 +881,7 @@ export interface GetHLSStreamingSessionURLInput {
    *             <code>PRODUCER_TIMESTAMP</code>, the timestamps will be the producer start timestamps.
    *         </p>
    */
-  DisplayFragmentTimestamp?: HLSDisplayFragmentTimestamp | string;
+  DisplayFragmentTimestamp?: keyof typeof HLSDisplayFragmentTimestamp | string;
 
   /**
    * <p>The time in seconds until the requested session expires. This value can be between 300
@@ -928,25 +928,25 @@ export interface GetHLSStreamingSessionURLOutput {
 /**
  * @public
  */
-export enum Format {
-  JPEG = "JPEG",
-  PNG = "PNG",
-}
+export const Format = {
+  JPEG: "JPEG",
+  PNG: "PNG",
+};
 
 /**
  * @public
  */
-export enum FormatConfigKey {
-  JPEGQuality = "JPEGQuality",
-}
+export const FormatConfigKey = {
+  JPEGQuality: "JPEGQuality",
+};
 
 /**
  * @public
  */
-export enum ImageSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export const ImageSelectorType = {
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+};
 
 /**
  * @public
@@ -965,7 +965,7 @@ export interface GetImagesInput {
   /**
    * <p>The origin of the Server or Producer timestamps to use to generate the images.</p>
    */
-  ImageSelectorType: ImageSelectorType | string | undefined;
+  ImageSelectorType: keyof typeof ImageSelectorType | string | undefined;
 
   /**
    * <p>The starting point from which the images should be generated. This <code>StartTimestamp</code> must be within an inclusive range of timestamps for an image to be returned.</p>
@@ -989,7 +989,7 @@ export interface GetImagesInput {
   /**
    * <p>The format that will be used to encode the image.</p>
    */
-  Format: Format | string | undefined;
+  Format: keyof typeof Format | string | undefined;
 
   /**
    * <p>The list of a key-value pair structure that contains extra parameters that can be applied when the image is generated. The <code>FormatConfig</code> key is the <code>JPEGQuality</code>, which indicates the JPEG quality key to be used to generate the image.
@@ -1029,10 +1029,10 @@ export interface GetImagesInput {
 /**
  * @public
  */
-export enum ImageError {
-  MEDIA_ERROR = "MEDIA_ERROR",
-  NO_MEDIA = "NO_MEDIA",
-}
+export const ImageError = {
+  MEDIA_ERROR: "MEDIA_ERROR",
+  NO_MEDIA: "NO_MEDIA",
+};
 
 /**
  * @public
@@ -1059,7 +1059,7 @@ export interface Image {
    *             </li>
    *          </ul>
    */
-  Error?: ImageError | string;
+  Error?: keyof typeof ImageError | string;
 
   /**
    * <p>An attribute of the <code>Image</code> object that is Base64 encoded.</p>
@@ -1154,10 +1154,10 @@ export interface GetMediaForFragmentListOutput {
 /**
  * @public
  */
-export enum FragmentSelectorType {
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export const FragmentSelectorType = {
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+};
 
 /**
  * @public
@@ -1203,7 +1203,7 @@ export interface FragmentSelector {
   /**
    * <p>The origin of the timestamps to use (Server or Producer).</p>
    */
-  FragmentSelectorType: FragmentSelectorType | string | undefined;
+  FragmentSelectorType: keyof typeof FragmentSelectorType | string | undefined;
 
   /**
    * <p>The range of timestamps to return.</p>

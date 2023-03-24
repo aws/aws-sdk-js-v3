@@ -44,10 +44,10 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
 /**
  * @public
  */
-export enum GatewayType {
-  TransitGateway = "transitGateway",
-  VirtualPrivateGateway = "virtualPrivateGateway",
-}
+export const GatewayType = {
+  TransitGateway: "transitGateway",
+  VirtualPrivateGateway: "virtualPrivateGateway",
+};
 
 /**
  * @public
@@ -62,7 +62,7 @@ export interface AssociatedGateway {
   /**
    * <p>The type of associated gateway.</p>
    */
-  type?: GatewayType | string;
+  type?: keyof typeof GatewayType | string;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the associated virtual private gateway or transit gateway.</p>
@@ -78,13 +78,13 @@ export interface AssociatedGateway {
 /**
  * @public
  */
-export enum DirectConnectGatewayAssociationState {
-  associated = "associated",
-  associating = "associating",
-  disassociated = "disassociated",
-  disassociating = "disassociating",
-  updating = "updating",
-}
+export const DirectConnectGatewayAssociationState = {
+  associated: "associated",
+  associating: "associating",
+  disassociated: "disassociated",
+  disassociating: "disassociating",
+  updating: "updating",
+};
 
 /**
  * @public
@@ -127,7 +127,7 @@ export interface DirectConnectGatewayAssociation {
    *             </li>
    *          </ul>
    */
-  associationState?: DirectConnectGatewayAssociationState | string;
+  associationState?: keyof typeof DirectConnectGatewayAssociationState | string;
 
   /**
    * <p>The error message if the state of an object failed to advance.</p>
@@ -220,10 +220,10 @@ export class DirectConnectServerException extends __BaseException {
 /**
  * @public
  */
-export enum AddressFamily {
-  IPv4 = "ipv4",
-  IPv6 = "ipv6",
-}
+export const AddressFamily = {
+  IPv4: "ipv4",
+  IPv6: "ipv6",
+};
 
 /**
  * @public
@@ -278,26 +278,26 @@ export interface AllocateConnectionOnInterconnectRequest {
 /**
  * @public
  */
-export enum ConnectionState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  down = "down",
-  ordering = "ordering",
-  pending = "pending",
-  rejected = "rejected",
-  requested = "requested",
-  unknown = "unknown",
-}
+export const ConnectionState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  down: "down",
+  ordering: "ordering",
+  pending: "pending",
+  rejected: "rejected",
+  requested: "requested",
+  unknown: "unknown",
+};
 
 /**
  * @public
  */
-export enum HasLogicalRedundancy {
-  No = "no",
-  Unknown = "unknown",
-  Yes = "yes",
-}
+export const HasLogicalRedundancy = {
+  No: "no",
+  Unknown: "unknown",
+  Yes: "yes",
+};
 
 /**
  * @public
@@ -421,7 +421,7 @@ export interface Connection {
    *             </li>
    *          </ul>
    */
-  connectionState?: ConnectionState | string;
+  connectionState?: keyof typeof ConnectionState | string;
 
   /**
    * <p>The Amazon Web Services Region where the connection is located.</p>
@@ -484,7 +484,7 @@ export interface Connection {
   /**
    * <p>Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
    */
-  hasLogicalRedundancy?: HasLogicalRedundancy | string;
+  hasLogicalRedundancy?: keyof typeof HasLogicalRedundancy | string;
 
   /**
    * <p>The tags associated with the connection.</p>
@@ -633,7 +633,7 @@ export interface NewPrivateVirtualInterfaceAllocation {
   /**
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: keyof typeof AddressFamily | string;
 
   /**
    * <p>The IP address assigned to the customer interface.</p>
@@ -669,22 +669,22 @@ export interface AllocatePrivateVirtualInterfaceRequest {
 /**
  * @public
  */
-export enum BGPPeerState {
-  Available = "available",
-  Deleted = "deleted",
-  Deleting = "deleting",
-  Pending = "pending",
-  Verifying = "verifying",
-}
+export const BGPPeerState = {
+  Available: "available",
+  Deleted: "deleted",
+  Deleting: "deleting",
+  Pending: "pending",
+  Verifying: "verifying",
+};
 
 /**
  * @public
  */
-export enum BGPStatus {
-  Down = "down",
-  Unknown = "unknown",
-  Up = "up",
-}
+export const BGPStatus = {
+  Down: "down",
+  Unknown: "unknown",
+  Up: "up",
+};
 
 /**
  * @public
@@ -709,7 +709,7 @@ export interface BGPPeer {
   /**
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: keyof typeof AddressFamily | string;
 
   /**
    * <p>The IP address assigned to the Amazon interface.</p>
@@ -746,7 +746,7 @@ export interface BGPPeer {
    *             </li>
    *          </ul>
    */
-  bgpPeerState?: BGPPeerState | string;
+  bgpPeerState?: keyof typeof BGPPeerState | string;
 
   /**
    * <p>The status of the BGP peer. The following are the possible values:</p>
@@ -766,7 +766,7 @@ export interface BGPPeer {
    *             </li>
    *          </ul>
    */
-  bgpStatus?: BGPStatus | string;
+  bgpStatus?: keyof typeof BGPStatus | string;
 
   /**
    * <p>The Direct Connect endpoint that terminates the BGP peer.</p>
@@ -783,17 +783,17 @@ export interface BGPPeer {
 /**
  * @public
  */
-export enum VirtualInterfaceState {
-  available = "available",
-  confirming = "confirming",
-  deleted = "deleted",
-  deleting = "deleting",
-  down = "down",
-  pending = "pending",
-  rejected = "rejected",
-  unknown = "unknown",
-  verifying = "verifying",
-}
+export const VirtualInterfaceState = {
+  available: "available",
+  confirming: "confirming",
+  deleted: "deleted",
+  deleting: "deleting",
+  down: "down",
+  pending: "pending",
+  rejected: "rejected",
+  unknown: "unknown",
+  verifying: "verifying",
+};
 
 /**
  * @public
@@ -864,7 +864,7 @@ export interface VirtualInterface {
   /**
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: keyof typeof AddressFamily | string;
 
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
@@ -907,7 +907,7 @@ export interface VirtualInterface {
    *             </li>
    *          </ul>
    */
-  virtualInterfaceState?: VirtualInterfaceState | string;
+  virtualInterfaceState?: keyof typeof VirtualInterfaceState | string;
 
   /**
    * <p>The customer router configuration.</p>
@@ -1010,7 +1010,7 @@ export interface NewPublicVirtualInterfaceAllocation {
   /**
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: keyof typeof AddressFamily | string;
 
   /**
    * <p>The routes to be advertised to the Amazon Web Services network in this Region. Applies to public virtual interfaces.</p>
@@ -1087,7 +1087,7 @@ export interface NewTransitVirtualInterfaceAllocation {
   /**
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: keyof typeof AddressFamily | string;
 
   /**
    * <p>The tags associated with the transitive virtual interface.</p>
@@ -1274,7 +1274,7 @@ export interface ConfirmConnectionResponse {
    *             </li>
    *          </ul>
    */
-  connectionState?: ConnectionState | string;
+  connectionState?: keyof typeof ConnectionState | string;
 }
 
 /**
@@ -1368,7 +1368,7 @@ export interface ConfirmPrivateVirtualInterfaceResponse {
    *             </li>
    *          </ul>
    */
-  virtualInterfaceState?: VirtualInterfaceState | string;
+  virtualInterfaceState?: keyof typeof VirtualInterfaceState | string;
 }
 
 /**
@@ -1426,7 +1426,7 @@ export interface ConfirmPublicVirtualInterfaceResponse {
    *             </li>
    *          </ul>
    */
-  virtualInterfaceState?: VirtualInterfaceState | string;
+  virtualInterfaceState?: keyof typeof VirtualInterfaceState | string;
 }
 
 /**
@@ -1489,7 +1489,7 @@ export interface ConfirmTransitVirtualInterfaceResponse {
    *             </li>
    *          </ul>
    */
-  virtualInterfaceState?: VirtualInterfaceState | string;
+  virtualInterfaceState?: keyof typeof VirtualInterfaceState | string;
 }
 
 /**
@@ -1520,7 +1520,7 @@ export interface NewBGPPeer {
   /**
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: keyof typeof AddressFamily | string;
 
   /**
    * <p>The IP address assigned to the Amazon interface.</p>
@@ -1619,12 +1619,12 @@ export interface CreateDirectConnectGatewayRequest {
 /**
  * @public
  */
-export enum DirectConnectGatewayState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  pending = "pending",
-}
+export const DirectConnectGatewayState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -1672,7 +1672,7 @@ export interface DirectConnectGateway {
    *             </li>
    *          </ul>
    */
-  directConnectGatewayState?: DirectConnectGatewayState | string;
+  directConnectGatewayState?: keyof typeof DirectConnectGatewayState | string;
 
   /**
    * <p>The error message if the state of an object failed to advance.</p>
@@ -1760,11 +1760,11 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
 /**
  * @public
  */
-export enum DirectConnectGatewayAssociationProposalState {
-  accepted = "accepted",
-  deleted = "deleted",
-  requested = "requested",
-}
+export const DirectConnectGatewayAssociationProposalState = {
+  accepted: "accepted",
+  deleted: "deleted",
+  requested: "requested",
+};
 
 /**
  * @public
@@ -1803,7 +1803,7 @@ export interface DirectConnectGatewayAssociationProposal {
    *             </li>
    *          </ul>
    */
-  proposalState?: DirectConnectGatewayAssociationProposalState | string;
+  proposalState?: keyof typeof DirectConnectGatewayAssociationProposalState | string;
 
   /**
    * <p>Information about the associated gateway.</p>
@@ -1869,15 +1869,15 @@ export interface CreateInterconnectRequest {
 /**
  * @public
  */
-export enum InterconnectState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  down = "down",
-  pending = "pending",
-  requested = "requested",
-  unknown = "unknown",
-}
+export const InterconnectState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  down: "down",
+  pending: "pending",
+  requested: "requested",
+  unknown: "unknown",
+};
 
 /**
  * @public
@@ -1928,7 +1928,7 @@ export interface Interconnect {
    *             </li>
    *          </ul>
    */
-  interconnectState?: InterconnectState | string;
+  interconnectState?: keyof typeof InterconnectState | string;
 
   /**
    * <p>The Amazon Web Services Region where the connection is located.</p>
@@ -1981,7 +1981,7 @@ export interface Interconnect {
   /**
    * <p>Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).</p>
    */
-  hasLogicalRedundancy?: HasLogicalRedundancy | string;
+  hasLogicalRedundancy?: keyof typeof HasLogicalRedundancy | string;
 
   /**
    * <p>The tags associated with the interconnect.</p>
@@ -2052,15 +2052,15 @@ export interface CreateLagRequest {
 /**
  * @public
  */
-export enum LagState {
-  available = "available",
-  deleted = "deleted",
-  deleting = "deleting",
-  down = "down",
-  pending = "pending",
-  requested = "requested",
-  unknown = "unknown",
-}
+export const LagState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  down: "down",
+  pending: "pending",
+  requested: "requested",
+  unknown: "unknown",
+};
 
 /**
  * @public
@@ -2127,7 +2127,7 @@ export interface Lag {
    *             </li>
    *          </ul>
    */
-  lagState?: LagState | string;
+  lagState?: keyof typeof LagState | string;
 
   /**
    * <p>The location of the LAG.</p>
@@ -2180,7 +2180,7 @@ export interface Lag {
   /**
    * <p>Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
    */
-  hasLogicalRedundancy?: HasLogicalRedundancy | string;
+  hasLogicalRedundancy?: keyof typeof HasLogicalRedundancy | string;
 
   /**
    * <p>The tags associated with the LAG.</p>
@@ -2253,7 +2253,7 @@ export interface NewPrivateVirtualInterface {
   /**
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: keyof typeof AddressFamily | string;
 
   /**
    * <p>The ID of the virtual private gateway.</p>
@@ -2330,7 +2330,7 @@ export interface NewPublicVirtualInterface {
   /**
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: keyof typeof AddressFamily | string;
 
   /**
    * <p>The routes to be advertised to the Amazon Web Services network in this Region. Applies to public virtual interfaces.</p>
@@ -2402,7 +2402,7 @@ export interface NewTransitVirtualInterface {
   /**
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: keyof typeof AddressFamily | string;
 
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -2608,7 +2608,7 @@ export interface DeleteInterconnectResponse {
    *             </li>
    *          </ul>
    */
-  interconnectState?: InterconnectState | string;
+  interconnectState?: keyof typeof InterconnectState | string;
 }
 
 /**
@@ -2676,15 +2676,15 @@ export interface DeleteVirtualInterfaceResponse {
    *             </li>
    *          </ul>
    */
-  virtualInterfaceState?: VirtualInterfaceState | string;
+  virtualInterfaceState?: keyof typeof VirtualInterfaceState | string;
 }
 
 /**
  * @public
  */
-export enum LoaContentType {
-  PDF = "application/pdf",
-}
+export const LoaContentType = {
+  PDF: "application/pdf",
+};
 
 /**
  * @public
@@ -2704,7 +2704,7 @@ export interface DescribeConnectionLoaRequest {
   /**
    * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
-  loaContentType?: LoaContentType | string;
+  loaContentType?: keyof typeof LoaContentType | string;
 }
 
 /**
@@ -2720,7 +2720,7 @@ export interface Loa {
   /**
    * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
-  loaContentType?: LoaContentType | string;
+  loaContentType?: keyof typeof LoaContentType | string;
 }
 
 /**
@@ -2756,11 +2756,11 @@ export interface DescribeConnectionsOnInterconnectRequest {
 /**
  * @public
  */
-export enum NniPartnerType {
-  NonPartner = "nonPartner",
-  V1 = "v1",
-  V2 = "v2",
-}
+export const NniPartnerType = {
+  NonPartner: "nonPartner",
+  V1: "v1",
+  V2: "v2",
+};
 
 /**
  * @public
@@ -2785,7 +2785,7 @@ export interface DescribeCustomerMetadataResponse {
    *             </li>
    *          </ul>
    */
-  nniPartnerType?: NniPartnerType | string;
+  nniPartnerType?: keyof typeof NniPartnerType | string;
 }
 
 /**
@@ -2920,20 +2920,20 @@ export interface DescribeDirectConnectGatewayAttachmentsRequest {
 /**
  * @public
  */
-export enum DirectConnectGatewayAttachmentState {
-  attached = "attached",
-  attaching = "attaching",
-  detached = "detached",
-  detaching = "detaching",
-}
+export const DirectConnectGatewayAttachmentState = {
+  attached: "attached",
+  attaching: "attaching",
+  detached: "detached",
+  detaching: "detaching",
+};
 
 /**
  * @public
  */
-export enum DirectConnectGatewayAttachmentType {
-  PrivateVirtualInterface = "PrivateVirtualInterface",
-  TransitVirtualInterface = "TransitVirtualInterface",
-}
+export const DirectConnectGatewayAttachmentType = {
+  PrivateVirtualInterface: "PrivateVirtualInterface",
+  TransitVirtualInterface: "TransitVirtualInterface",
+};
 
 /**
  * @public
@@ -2981,12 +2981,12 @@ export interface DirectConnectGatewayAttachment {
    *             </li>
    *          </ul>
    */
-  attachmentState?: DirectConnectGatewayAttachmentState | string;
+  attachmentState?: keyof typeof DirectConnectGatewayAttachmentState | string;
 
   /**
    * <p>The type of attachment.</p>
    */
-  attachmentType?: DirectConnectGatewayAttachmentType | string;
+  attachmentType?: keyof typeof DirectConnectGatewayAttachmentType | string;
 
   /**
    * <p>The error message if the state of an object failed to advance.</p>
@@ -3074,7 +3074,7 @@ export interface DescribeInterconnectLoaRequest {
   /**
    * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
-  loaContentType?: LoaContentType | string;
+  loaContentType?: keyof typeof LoaContentType | string;
 }
 
 /**
@@ -3145,7 +3145,7 @@ export interface DescribeLoaRequest {
   /**
    * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
-  loaContentType?: LoaContentType | string;
+  loaContentType?: keyof typeof LoaContentType | string;
 }
 
 /**

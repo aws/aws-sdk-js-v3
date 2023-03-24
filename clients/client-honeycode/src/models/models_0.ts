@@ -646,10 +646,10 @@ export interface BatchUpsertTableRowsRequest {
 /**
  * @public
  */
-export enum UpsertAction {
-  Appended = "APPENDED",
-  Updated = "UPDATED",
-}
+export const UpsertAction = {
+  Appended: "APPENDED",
+  Updated: "UPDATED",
+};
 
 /**
  * @public
@@ -672,7 +672,7 @@ export interface UpsertRowsResult {
    *             The result of the upsert action.
    *         </p>
    */
-  upsertAction: UpsertAction | string | undefined;
+  upsertAction: keyof typeof UpsertAction | string | undefined;
 }
 
 /**
@@ -706,20 +706,20 @@ export interface BatchUpsertTableRowsResult {
 /**
  * @public
  */
-export enum Format {
-  Accounting = "ACCOUNTING",
-  Auto = "AUTO",
-  Contact = "CONTACT",
-  Currency = "CURRENCY",
-  Date = "DATE",
-  DateTime = "DATE_TIME",
-  Number = "NUMBER",
-  Percentage = "PERCENTAGE",
-  Rowlink = "ROWLINK",
-  Rowset = "ROWSET",
-  Text = "TEXT",
-  Time = "TIME",
-}
+export const Format = {
+  Accounting: "ACCOUNTING",
+  Auto: "AUTO",
+  Contact: "CONTACT",
+  Currency: "CURRENCY",
+  Date: "DATE",
+  DateTime: "DATE_TIME",
+  Number: "NUMBER",
+  Percentage: "PERCENTAGE",
+  Rowlink: "ROWLINK",
+  Rowset: "ROWSET",
+  Text: "TEXT",
+  Time: "TIME",
+};
 
 /**
  * @public
@@ -737,7 +737,7 @@ export interface Cell {
    * <p>The format of the cell. If this field is empty, then the format is either not specified in the
    *         workbook or the format is set to AUTO.</p>
    */
-  format?: Format | string;
+  format?: keyof typeof Format | string;
 
   /**
    * <p>
@@ -831,7 +831,7 @@ export interface ColumnMetadata {
   /**
    * <p>The format of the column.</p>
    */
-  format: Format | string | undefined;
+  format: keyof typeof Format | string | undefined;
 }
 
 /**
@@ -845,7 +845,7 @@ export interface DataItem {
    *             the data than the default format defined on the screen or the table.
    *         </p>
    */
-  overrideFormat?: Format | string;
+  overrideFormat?: keyof typeof Format | string;
 
   /**
    * <p>The raw value of the data. e.g. jsmith@example.com</p>
@@ -861,14 +861,14 @@ export interface DataItem {
 /**
  * @public
  */
-export enum ImportDataCharacterEncoding {
-  ISO_8859_1 = "ISO-8859-1",
-  US_ASCII = "US-ASCII",
-  UTF_16 = "UTF-16",
-  UTF_16BE = "UTF-16BE",
-  UTF_16LE = "UTF-16LE",
-  UTF_8 = "UTF-8",
-}
+export const ImportDataCharacterEncoding = {
+  ISO_8859_1: "ISO-8859-1",
+  US_ASCII: "US-ASCII",
+  UTF_16: "UTF-16",
+  UTF_16BE: "UTF-16BE",
+  UTF_16LE: "UTF-16LE",
+  UTF_8: "UTF-8",
+};
 
 /**
  * @public
@@ -895,7 +895,7 @@ export interface DelimitedTextImportOptions {
   /**
    * <p>The encoding of the data in the input file.</p>
    */
-  dataCharacterEncoding?: ImportDataCharacterEncoding | string;
+  dataCharacterEncoding?: keyof typeof ImportDataCharacterEncoding | string;
 }
 
 /**
@@ -930,22 +930,22 @@ export interface DescribeTableDataImportJobRequest {
 /**
  * @public
  */
-export enum ErrorCode {
-  AccessDenied = "ACCESS_DENIED",
-  FileEmptyError = "FILE_EMPTY_ERROR",
-  FileNotFoundError = "FILE_NOT_FOUND_ERROR",
-  FileParsingError = "FILE_PARSING_ERROR",
-  FileSizeLimitError = "FILE_SIZE_LIMIT_ERROR",
-  InvalidFileTypeError = "INVALID_FILE_TYPE_ERROR",
-  InvalidImportOptionsError = "INVALID_IMPORT_OPTIONS_ERROR",
-  InvalidTableColumnIdError = "INVALID_TABLE_COLUMN_ID_ERROR",
-  InvalidTableIdError = "INVALID_TABLE_ID_ERROR",
-  InvalidUrlError = "INVALID_URL_ERROR",
-  ResourceNotFoundError = "RESOURCE_NOT_FOUND_ERROR",
-  SystemLimitError = "SYSTEM_LIMIT_ERROR",
-  TableNotFoundError = "TABLE_NOT_FOUND_ERROR",
-  UnknownError = "UNKNOWN_ERROR",
-}
+export const ErrorCode = {
+  AccessDenied: "ACCESS_DENIED",
+  FileEmptyError: "FILE_EMPTY_ERROR",
+  FileNotFoundError: "FILE_NOT_FOUND_ERROR",
+  FileParsingError: "FILE_PARSING_ERROR",
+  FileSizeLimitError: "FILE_SIZE_LIMIT_ERROR",
+  InvalidFileTypeError: "INVALID_FILE_TYPE_ERROR",
+  InvalidImportOptionsError: "INVALID_IMPORT_OPTIONS_ERROR",
+  InvalidTableColumnIdError: "INVALID_TABLE_COLUMN_ID_ERROR",
+  InvalidTableIdError: "INVALID_TABLE_ID_ERROR",
+  InvalidUrlError: "INVALID_URL_ERROR",
+  ResourceNotFoundError: "RESOURCE_NOT_FOUND_ERROR",
+  SystemLimitError: "SYSTEM_LIMIT_ERROR",
+  TableNotFoundError: "TABLE_NOT_FOUND_ERROR",
+  UnknownError: "UNKNOWN_ERROR",
+};
 
 /**
  * @public
@@ -1056,12 +1056,12 @@ export interface TableDataImportJobMetadata {
 /**
  * @public
  */
-export enum TableDataImportJobStatus {
-  Completed = "COMPLETED",
-  Failed = "FAILED",
-  InProgress = "IN_PROGRESS",
-  Submitted = "SUBMITTED",
-}
+export const TableDataImportJobStatus = {
+  Completed: "COMPLETED",
+  Failed: "FAILED",
+  InProgress: "IN_PROGRESS",
+  Submitted: "SUBMITTED",
+};
 
 /**
  * @public
@@ -1072,7 +1072,7 @@ export interface DescribeTableDataImportJobResult {
    *             The current status of the import job.
    *         </p>
    */
-  jobStatus: TableDataImportJobStatus | string | undefined;
+  jobStatus: keyof typeof TableDataImportJobStatus | string | undefined;
 
   /**
    * <p>
@@ -1093,7 +1093,7 @@ export interface DescribeTableDataImportJobResult {
    *             If job status is failed, error code to understand reason for the failure.
    *         </p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: keyof typeof ErrorCode | string;
 }
 
 /**
@@ -1237,9 +1237,9 @@ export interface GetScreenDataResult {
 /**
  * @public
  */
-export enum ImportSourceDataFormat {
-  DelimitedText = "DELIMITED_TEXT",
-}
+export const ImportSourceDataFormat = {
+  DelimitedText: "DELIMITED_TEXT",
+};
 
 /**
  * @public
@@ -1360,7 +1360,7 @@ export interface TableColumn {
    *             column format is the default value 'AUTO'.
    *         </p>
    */
-  format?: Format | string;
+  format?: keyof typeof Format | string;
 }
 
 /**
@@ -1697,7 +1697,7 @@ export interface StartTableDataImportJobRequest {
    *             The format of the data that is being imported. Currently the only option supported is "DELIMITED_TEXT".
    *         </p>
    */
-  dataFormat: ImportSourceDataFormat | string | undefined;
+  dataFormat: keyof typeof ImportSourceDataFormat | string | undefined;
 
   /**
    * <p>The ID of the table where the rows are being imported.</p>
@@ -1747,7 +1747,7 @@ export interface StartTableDataImportJobResult {
    *             The status of the import job immediately after submitting the request.
    *         </p>
    */
-  jobStatus: TableDataImportJobStatus | string | undefined;
+  jobStatus: keyof typeof TableDataImportJobStatus | string | undefined;
 }
 
 /**

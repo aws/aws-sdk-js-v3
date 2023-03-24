@@ -7,12 +7,12 @@ import { OpenSearchServerlessServiceException as __BaseException } from "./OpenS
 /**
  * @public
  */
-export enum AccessPolicyType {
+export const AccessPolicyType = {
   /**
    * data policy type
    */
-  data = "data",
-}
+  data: "data",
+};
 
 /**
  * @public
@@ -43,7 +43,7 @@ export interface CreateAccessPolicyRequest {
   /**
    * <p>The type of policy.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: keyof typeof AccessPolicyType | string | undefined;
 
   /**
    * <p>The name of the policy.</p>
@@ -75,7 +75,7 @@ export interface AccessPolicyDetail {
   /**
    * <p>The type of access policy.</p>
    */
-  type?: AccessPolicyType | string;
+  type?: keyof typeof AccessPolicyType | string;
 
   /**
    * <p>The name of the policy.</p>
@@ -166,7 +166,7 @@ export interface DeleteAccessPolicyRequest {
   /**
    * <p>The type of policy.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: keyof typeof AccessPolicyType | string | undefined;
 
   /**
    * <p>The name of the policy to delete.</p>
@@ -211,7 +211,7 @@ export interface GetAccessPolicyRequest {
   /**
    * <p>Tye type of policy. Currently the only supported value is <code>data</code>.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: keyof typeof AccessPolicyType | string | undefined;
 
   /**
    * <p>The name of the access policy.</p>
@@ -236,7 +236,7 @@ export interface ListAccessPoliciesRequest {
   /**
    * <p>The type of access policy.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: keyof typeof AccessPolicyType | string | undefined;
 
   /**
    * <p>Resource filters (can be collection or indexes) that policies can apply to.</p>
@@ -266,7 +266,7 @@ export interface AccessPolicySummary {
   /**
    * <p>The type of access policy. Currently the only available type is <code>data</code>.</p>
    */
-  type?: AccessPolicyType | string;
+  type?: keyof typeof AccessPolicyType | string;
 
   /**
    * <p>The name of the access policy.</p>
@@ -318,7 +318,7 @@ export interface UpdateAccessPolicyRequest {
   /**
    * <p>The type of policy.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: keyof typeof AccessPolicyType | string | undefined;
 
   /**
    * <p>The name of the policy.</p>
@@ -418,38 +418,38 @@ export interface BatchGetCollectionRequest {
 /**
  * @public
  */
-export enum CollectionStatus {
+export const CollectionStatus = {
   /**
    * Collection resource is ready to use
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Creating collection resource
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Deleting collection resource
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Collection resource create or delete failed
    */
-  FAILED = "FAILED",
-}
+  FAILED: "FAILED",
+};
 
 /**
  * @public
  */
-export enum CollectionType {
+export const CollectionType = {
   /**
    * Search collection type
    */
-  SEARCH = "SEARCH",
+  SEARCH: "SEARCH",
   /**
    * Timeseries collection type
    */
-  TIMESERIES = "TIMESERIES",
-}
+  TIMESERIES: "TIMESERIES",
+};
 
 /**
  * @public
@@ -470,12 +470,12 @@ export interface CollectionDetail {
   /**
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: keyof typeof CollectionStatus | string;
 
   /**
    * <p>The type of collection.</p>
    */
-  type?: CollectionType | string;
+  type?: keyof typeof CollectionType | string;
 
   /**
    * <p>A description of the collection.</p>
@@ -572,24 +572,24 @@ export interface BatchGetVpcEndpointRequest {
 /**
  * @public
  */
-export enum VpcEndpointStatus {
+export const VpcEndpointStatus = {
   /**
    * VPCEndpoint resource is ready to use
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Deleting VPCEndpoint resource
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * VPCEndpoint resource create or delete failed
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * Pending VPCEndpoint resource
    */
-  PENDING = "PENDING",
-}
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -625,7 +625,7 @@ export interface VpcEndpointDetail {
   /**
    * <p>The current status of the endpoint.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: keyof typeof VpcEndpointStatus | string;
 
   /**
    * <p>The date the endpoint was created.</p>
@@ -697,7 +697,7 @@ export interface CreateCollectionRequest {
   /**
    * <p>The type of collection.</p>
    */
-  type?: CollectionType | string;
+  type?: keyof typeof CollectionType | string;
 
   /**
    * <p>Description of the collection.</p>
@@ -733,12 +733,12 @@ export interface CreateCollectionDetail {
   /**
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: keyof typeof CollectionStatus | string;
 
   /**
    * <p>The type of collection.</p>
    */
-  type?: CollectionType | string;
+  type?: keyof typeof CollectionType | string;
 
   /**
    * <p>A description of the collection.</p>
@@ -810,7 +810,7 @@ export interface DeleteCollectionDetail {
   /**
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: keyof typeof CollectionStatus | string;
 }
 
 /**
@@ -837,7 +837,7 @@ export interface CollectionFilters {
   /**
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: keyof typeof CollectionStatus | string;
 }
 
 /**
@@ -881,7 +881,7 @@ export interface CollectionSummary {
   /**
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: keyof typeof CollectionStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the collection.</p>
@@ -944,12 +944,12 @@ export interface UpdateCollectionDetail {
   /**
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: keyof typeof CollectionStatus | string;
 
   /**
    * <p>The collection type.</p>
    */
-  type?: CollectionType | string;
+  type?: keyof typeof CollectionType | string;
 
   /**
    * <p>The description of the collection.</p>
@@ -1013,12 +1013,12 @@ export interface SamlConfigOptions {
 /**
  * @public
  */
-export enum SecurityConfigType {
+export const SecurityConfigType = {
   /**
    * saml provider
    */
-  saml = "saml",
-}
+  saml: "saml",
+};
 
 /**
  * @public
@@ -1027,7 +1027,7 @@ export interface CreateSecurityConfigRequest {
   /**
    * <p>The type of security configuration.</p>
    */
-  type: SecurityConfigType | string | undefined;
+  type: keyof typeof SecurityConfigType | string | undefined;
 
   /**
    * <p>The name of the security configuration.</p>
@@ -1063,7 +1063,7 @@ export interface SecurityConfigDetail {
   /**
    * <p>The type of security configuration.</p>
    */
-  type?: SecurityConfigType | string;
+  type?: keyof typeof SecurityConfigType | string;
 
   /**
    * <p>The version of the security configuration.</p>
@@ -1104,16 +1104,16 @@ export interface CreateSecurityConfigResponse {
 /**
  * @public
  */
-export enum SecurityPolicyType {
+export const SecurityPolicyType = {
   /**
    * encryption policy type
    */
-  encryption = "encryption",
+  encryption: "encryption",
   /**
    * network policy type
    */
-  network = "network",
-}
+  network: "network",
+};
 
 /**
  * @public
@@ -1122,7 +1122,7 @@ export interface CreateSecurityPolicyRequest {
   /**
    * <p>The type of security policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: keyof typeof SecurityPolicyType | string | undefined;
 
   /**
    * <p>The name of the policy.</p>
@@ -1154,7 +1154,7 @@ export interface SecurityPolicyDetail {
   /**
    * <p>The type of security policy.</p>
    */
-  type?: SecurityPolicyType | string;
+  type?: keyof typeof SecurityPolicyType | string;
 
   /**
    * <p>The name of the policy.</p>
@@ -1247,7 +1247,7 @@ export interface CreateVpcEndpointDetail {
   /**
    * <p>The current status in the endpoint creation process.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: keyof typeof VpcEndpointStatus | string;
 }
 
 /**
@@ -1289,7 +1289,7 @@ export interface DeleteSecurityPolicyRequest {
   /**
    * <p>The type of policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: keyof typeof SecurityPolicyType | string | undefined;
 
   /**
    * <p>The name of the policy to delete.</p>
@@ -1340,7 +1340,7 @@ export interface DeleteVpcEndpointDetail {
   /**
    * <p>The current status of the endpoint deletion process.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: keyof typeof VpcEndpointStatus | string;
 }
 
 /**
@@ -1453,7 +1453,7 @@ export interface GetSecurityPolicyRequest {
   /**
    * <p>The type of security policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: keyof typeof SecurityPolicyType | string | undefined;
 
   /**
    * <p>The name of the security policy.</p>
@@ -1478,7 +1478,7 @@ export interface ListSecurityConfigsRequest {
   /**
    * <p>The type of security configuration.</p>
    */
-  type: SecurityConfigType | string | undefined;
+  type: keyof typeof SecurityConfigType | string | undefined;
 
   /**
    * <p>If your initial <code>ListSecurityConfigs</code> operation returns a
@@ -1508,7 +1508,7 @@ export interface SecurityConfigSummary {
   /**
    * <p>The type of security configuration.</p>
    */
-  type?: SecurityConfigType | string;
+  type?: keyof typeof SecurityConfigType | string;
 
   /**
    * <p>The version of the security configuration.</p>
@@ -1555,7 +1555,7 @@ export interface ListSecurityPoliciesRequest {
   /**
    * <p>The type of policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: keyof typeof SecurityPolicyType | string | undefined;
 
   /**
    * <p>Resource filters (can be collection or indexes) that policies can apply to. </p>
@@ -1585,7 +1585,7 @@ export interface SecurityPolicySummary {
   /**
    * <p>The type of security policy.</p>
    */
-  type?: SecurityPolicyType | string;
+  type?: keyof typeof SecurityPolicyType | string;
 
   /**
    * <p>The name of the policy.</p>
@@ -1660,7 +1660,7 @@ export interface VpcEndpointFilters {
   /**
    * <p>The current status of the endpoint.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: keyof typeof VpcEndpointStatus | string;
 }
 
 /**
@@ -1707,7 +1707,7 @@ export interface VpcEndpointSummary {
   /**
    * <p>The current status of the endpoint.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: keyof typeof VpcEndpointStatus | string;
 }
 
 /**
@@ -1778,7 +1778,7 @@ export interface UpdateSecurityPolicyRequest {
   /**
    * <p>The type of access policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: keyof typeof SecurityPolicyType | string | undefined;
 
   /**
    * <p>The name of the policy.</p>
@@ -1940,7 +1940,7 @@ export interface UpdateVpcEndpointDetail {
   /**
    * <p>The current status of the endpoint update process.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: keyof typeof VpcEndpointStatus | string;
 
   /**
    * <p>The ID of the subnets from which you access OpenSearch Serverless.</p>

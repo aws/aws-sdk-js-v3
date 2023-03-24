@@ -33,10 +33,10 @@ export interface AvailabilityZone {
 /**
  * @public
  */
-export enum EngineType {
-  ACTIVEMQ = "ACTIVEMQ",
-  RABBITMQ = "RABBITMQ",
-}
+export const EngineType = {
+  ACTIVEMQ: "ACTIVEMQ",
+  RABBITMQ: "RABBITMQ",
+};
 
 /**
  * @public
@@ -57,7 +57,7 @@ export interface BrokerEngineType {
   /**
    * <p>The broker's engine type.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: keyof typeof EngineType | string;
 
   /**
    * <p>The list of engine versions.</p>
@@ -89,19 +89,19 @@ export interface BrokerInstance {
 /**
  * @public
  */
-export enum BrokerStorageType {
-  EBS = "EBS",
-  EFS = "EFS",
-}
+export const BrokerStorageType = {
+  EBS: "EBS",
+  EFS: "EFS",
+};
 
 /**
  * @public
  */
-export enum DeploymentMode {
-  ACTIVE_STANDBY_MULTI_AZ = "ACTIVE_STANDBY_MULTI_AZ",
-  CLUSTER_MULTI_AZ = "CLUSTER_MULTI_AZ",
-  SINGLE_INSTANCE = "SINGLE_INSTANCE",
-}
+export const DeploymentMode = {
+  ACTIVE_STANDBY_MULTI_AZ: "ACTIVE_STANDBY_MULTI_AZ",
+  CLUSTER_MULTI_AZ: "CLUSTER_MULTI_AZ",
+  SINGLE_INSTANCE: "SINGLE_INSTANCE",
+};
 
 /**
  * @public
@@ -116,7 +116,7 @@ export interface BrokerInstanceOption {
   /**
    * <p>The broker's engine type.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: keyof typeof EngineType | string;
 
   /**
    * <p>The broker's instance type.</p>
@@ -126,12 +126,12 @@ export interface BrokerInstanceOption {
   /**
    * <p>The broker's storage type.</p>
    */
-  StorageType?: BrokerStorageType | string;
+  StorageType?: keyof typeof BrokerStorageType | string;
 
   /**
    * <p>The list of supported deployment modes.</p>
    */
-  SupportedDeploymentModes?: (DeploymentMode | string)[];
+  SupportedDeploymentModes?: (keyof typeof DeploymentMode | string)[];
 
   /**
    * <p>The list of supported engine versions.</p>
@@ -142,14 +142,14 @@ export interface BrokerInstanceOption {
 /**
  * @public
  */
-export enum BrokerState {
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  CRITICAL_ACTION_REQUIRED = "CRITICAL_ACTION_REQUIRED",
-  DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
-  REBOOT_IN_PROGRESS = "REBOOT_IN_PROGRESS",
-  RUNNING = "RUNNING",
-}
+export const BrokerState = {
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  CRITICAL_ACTION_REQUIRED: "CRITICAL_ACTION_REQUIRED",
+  DELETION_IN_PROGRESS: "DELETION_IN_PROGRESS",
+  REBOOT_IN_PROGRESS: "REBOOT_IN_PROGRESS",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -174,7 +174,7 @@ export interface BrokerSummary {
   /**
    * <p>The broker's status.</p>
    */
-  BrokerState?: BrokerState | string;
+  BrokerState?: keyof typeof BrokerState | string;
 
   /**
    * <p>The time when the broker was created.</p>
@@ -184,12 +184,12 @@ export interface BrokerSummary {
   /**
    * <p>The broker's deployment mode.</p>
    */
-  DeploymentMode: DeploymentMode | string | undefined;
+  DeploymentMode: keyof typeof DeploymentMode | string | undefined;
 
   /**
    * <p>The type of broker engine.</p>
    */
-  EngineType: EngineType | string | undefined;
+  EngineType: keyof typeof EngineType | string | undefined;
 
   /**
    * <p>The broker's instance type.</p>
@@ -200,10 +200,10 @@ export interface BrokerSummary {
 /**
  * @public
  */
-export enum AuthenticationStrategy {
-  LDAP = "LDAP",
-  SIMPLE = "SIMPLE",
-}
+export const AuthenticationStrategy = {
+  LDAP: "LDAP",
+  SIMPLE: "SIMPLE",
+};
 
 /**
  * @public
@@ -239,7 +239,7 @@ export interface Configuration {
   /**
    * <p>Optional. The authentication strategy associated with the configuration. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy: AuthenticationStrategy | string | undefined;
+  AuthenticationStrategy: keyof typeof AuthenticationStrategy | string | undefined;
 
   /**
    * <p>Required. The date and time of the configuration revision.</p>
@@ -254,7 +254,7 @@ export interface Configuration {
   /**
    * <p>Required. The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
    */
-  EngineType: EngineType | string | undefined;
+  EngineType: keyof typeof EngineType | string | undefined;
 
   /**
    * <p>Required. The broker engine's version. For a list of supported engine versions, see, <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
@@ -301,11 +301,11 @@ export interface ConfigurationId {
 /**
  * @public
  */
-export enum SanitizationWarningReason {
-  DISALLOWED_ATTRIBUTE_REMOVED = "DISALLOWED_ATTRIBUTE_REMOVED",
-  DISALLOWED_ELEMENT_REMOVED = "DISALLOWED_ELEMENT_REMOVED",
-  INVALID_ATTRIBUTE_VALUE_REMOVED = "INVALID_ATTRIBUTE_VALUE_REMOVED",
-}
+export const SanitizationWarningReason = {
+  DISALLOWED_ATTRIBUTE_REMOVED: "DISALLOWED_ATTRIBUTE_REMOVED",
+  DISALLOWED_ELEMENT_REMOVED: "DISALLOWED_ELEMENT_REMOVED",
+  INVALID_ATTRIBUTE_VALUE_REMOVED: "INVALID_ATTRIBUTE_VALUE_REMOVED",
+};
 
 /**
  * @public
@@ -325,7 +325,7 @@ export interface SanitizationWarning {
   /**
    * <p>Required. The reason for which the XML elements or attributes were sanitized.</p>
    */
-  Reason: SanitizationWarningReason | string | undefined;
+  Reason: keyof typeof SanitizationWarningReason | string | undefined;
 }
 
 /**
@@ -357,11 +357,11 @@ export interface User {
 /**
  * @public
  */
-export enum ChangeType {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+export const ChangeType = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+};
 
 /**
  * @public
@@ -371,7 +371,7 @@ export interface UserSummary {
   /**
    * <p>The type of change pending for the broker user.</p>
    */
-  PendingChange?: ChangeType | string;
+  PendingChange?: keyof typeof ChangeType | string;
 
   /**
    * <p>Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
@@ -563,15 +563,15 @@ export interface Logs {
 /**
  * @public
  */
-export enum DayOfWeek {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
+export const DayOfWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+};
 
 /**
  * @public
@@ -581,7 +581,7 @@ export interface WeeklyStartTime {
   /**
    * <p>Required. The day of the week.</p>
    */
-  DayOfWeek: DayOfWeek | string | undefined;
+  DayOfWeek: keyof typeof DayOfWeek | string | undefined;
 
   /**
    * <p>Required. The time, in 24-hour format.</p>
@@ -602,7 +602,7 @@ export interface CreateBrokerRequest {
   /**
    * <p>Optional. The authentication strategy used to secure the broker. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: keyof typeof AuthenticationStrategy | string;
 
   /**
    * <p>Enables automatic upgrades to new minor versions for brokers, as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot. Set to true by default, if no value is specified.</p>
@@ -627,7 +627,7 @@ export interface CreateBrokerRequest {
   /**
    * <p>Required. The broker's deployment mode.</p>
    */
-  DeploymentMode: DeploymentMode | string | undefined;
+  DeploymentMode: keyof typeof DeploymentMode | string | undefined;
 
   /**
    * <p>Encryption options for the broker. Does not apply to RabbitMQ brokers.</p>
@@ -637,7 +637,7 @@ export interface CreateBrokerRequest {
   /**
    * <p>Required. The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
    */
-  EngineType: EngineType | string | undefined;
+  EngineType: keyof typeof EngineType | string | undefined;
 
   /**
    * <p>Required. The broker engine's version. For a list of supported engine versions, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
@@ -677,7 +677,7 @@ export interface CreateBrokerRequest {
   /**
    * <p>The broker's storage type.</p>
    */
-  StorageType?: BrokerStorageType | string;
+  StorageType?: keyof typeof BrokerStorageType | string;
 
   /**
    * <p>The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.</p> <important><p>If you specify subnets in a <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html">shared VPC</a> for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account. Amazon MQ will not be able to create VPC endpoints in VPCs that are not owned by your AWS account.</p></important>
@@ -811,12 +811,12 @@ export interface CreateConfigurationRequest {
   /**
    * <p>Optional. The authentication strategy associated with the configuration. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: keyof typeof AuthenticationStrategy | string;
 
   /**
    * <p>Required. The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
    */
-  EngineType: EngineType | string | undefined;
+  EngineType: keyof typeof EngineType | string | undefined;
 
   /**
    * <p>Required. The broker engine's version. For a list of supported engine versions, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
@@ -846,7 +846,7 @@ export interface CreateConfigurationResponse {
   /**
    * <p>Optional. The authentication strategy associated with the configuration. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: keyof typeof AuthenticationStrategy | string;
 
   /**
    * <p>Required. The date and time of the configuration.</p>
@@ -1136,7 +1136,7 @@ export interface DescribeBrokerResponse {
   /**
    * <p>The authentication strategy used to secure the broker. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: keyof typeof AuthenticationStrategy | string;
 
   /**
    * <p>Enables automatic upgrades to new minor versions for brokers, as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.</p>
@@ -1166,7 +1166,7 @@ export interface DescribeBrokerResponse {
   /**
    * <p>The broker's status.</p>
    */
-  BrokerState?: BrokerState | string;
+  BrokerState?: keyof typeof BrokerState | string;
 
   /**
    * <p>The list of all revisions for the specified configuration.</p>
@@ -1181,7 +1181,7 @@ export interface DescribeBrokerResponse {
   /**
    * <p>The broker's deployment mode.</p>
    */
-  DeploymentMode?: DeploymentMode | string;
+  DeploymentMode?: keyof typeof DeploymentMode | string;
 
   /**
    * <p>Encryption options for the broker. Does not apply to RabbitMQ brokers.</p>
@@ -1191,7 +1191,7 @@ export interface DescribeBrokerResponse {
   /**
    * <p>The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: keyof typeof EngineType | string;
 
   /**
    * <p>The broker engine's version. For a list of supported engine versions, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
@@ -1221,7 +1221,7 @@ export interface DescribeBrokerResponse {
   /**
    * <p>The authentication strategy that will be applied when the broker is rebooted. The default is SIMPLE.</p>
    */
-  PendingAuthenticationStrategy?: AuthenticationStrategy | string;
+  PendingAuthenticationStrategy?: keyof typeof AuthenticationStrategy | string;
 
   /**
    * <p>The broker engine version to upgrade to. For a list of supported engine versions, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
@@ -1256,7 +1256,7 @@ export interface DescribeBrokerResponse {
   /**
    * <p>The broker's storage type.</p>
    */
-  StorageType?: BrokerStorageType | string;
+  StorageType?: keyof typeof BrokerStorageType | string;
 
   /**
    * <p>The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones.</p>
@@ -1386,7 +1386,7 @@ export interface DescribeConfigurationResponse {
   /**
    * <p>Optional. The authentication strategy associated with the configuration. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: keyof typeof AuthenticationStrategy | string;
 
   /**
    * <p>Required. The date and time of the configuration revision.</p>
@@ -1401,7 +1401,7 @@ export interface DescribeConfigurationResponse {
   /**
    * <p>Required. The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: keyof typeof EngineType | string;
 
   /**
    * <p>Required. The broker engine's version. For a list of supported engine versions, see, <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
@@ -1502,7 +1502,7 @@ export interface UserPendingChanges {
   /**
    * <p>Required. The type of change pending for the ActiveMQ user.</p>
    */
-  PendingChange: ChangeType | string | undefined;
+  PendingChange: keyof typeof ChangeType | string | undefined;
 }
 
 /**
@@ -1733,7 +1733,7 @@ export interface UpdateBrokerRequest {
   /**
    * <p>Optional. The authentication strategy used to secure the broker. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: keyof typeof AuthenticationStrategy | string;
 
   /**
    * <p>Enables automatic upgrades to new minor versions for brokers, as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.</p>
@@ -1788,7 +1788,7 @@ export interface UpdateBrokerResponse {
   /**
    * <p>Optional. The authentication strategy used to secure the broker. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: keyof typeof AuthenticationStrategy | string;
 
   /**
    * <p>The new boolean value that specifies whether broker engines automatically upgrade to new minor versions as new versions are released and supported by Amazon MQ.</p>

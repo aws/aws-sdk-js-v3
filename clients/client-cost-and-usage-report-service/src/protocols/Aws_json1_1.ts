@@ -332,7 +332,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 };
 
 const serializeAws_json1_1AdditionalArtifactList = (
-  input: (AdditionalArtifact | string)[],
+  input: (keyof typeof AdditionalArtifact | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -405,7 +405,10 @@ const serializeAws_json1_1ReportDefinition = (input: ReportDefinition, context: 
   };
 };
 
-const serializeAws_json1_1SchemaElementList = (input: (SchemaElement | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1SchemaElementList = (
+  input: (keyof typeof SchemaElement | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -416,7 +419,7 @@ const serializeAws_json1_1SchemaElementList = (input: (SchemaElement | string)[]
 const deserializeAws_json1_1AdditionalArtifactList = (
   output: any,
   context: __SerdeContext
-): (AdditionalArtifact | string)[] => {
+): (keyof typeof AdditionalArtifact | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -523,7 +526,10 @@ const deserializeAws_json1_1ReportLimitReachedException = (
   } as any;
 };
 
-const deserializeAws_json1_1SchemaElementList = (output: any, context: __SerdeContext): (SchemaElement | string)[] => {
+const deserializeAws_json1_1SchemaElementList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof SchemaElement | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

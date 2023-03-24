@@ -95,12 +95,12 @@ export interface ReadinessCheckOutput {
 /**
  * @public
  */
-export enum Readiness {
-  NOT_AUTHORIZED = "NOT_AUTHORIZED",
-  NOT_READY = "NOT_READY",
-  READY = "READY",
-  UNKNOWN = "UNKNOWN",
-}
+export const Readiness = {
+  NOT_AUTHORIZED: "NOT_AUTHORIZED",
+  NOT_READY: "NOT_READY",
+  READY: "READY",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -110,7 +110,7 @@ export interface ReadinessCheckSummary {
   /**
    * <p>The readiness status of this readiness check.</p>
    */
-  Readiness?: Readiness | string;
+  Readiness?: keyof typeof Readiness | string;
 
   /**
    * <p>The name of a readiness check.</p>
@@ -273,7 +273,7 @@ export interface ResourceResult {
   /**
    * <p>The readiness of a resource.</p>
    */
-  Readiness: Readiness | string | undefined;
+  Readiness: keyof typeof Readiness | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -330,7 +330,7 @@ export interface RuleResult {
   /**
    * <p>The readiness at rule level.</p>
    */
-  Readiness: Readiness | string | undefined;
+  Readiness: keyof typeof Readiness | string | undefined;
 
   /**
    * <p>The identifier of the rule.</p>
@@ -852,7 +852,7 @@ export interface GetCellReadinessSummaryResponse {
   /**
    * <p>The readiness at a cell level.</p>
    */
-  Readiness?: Readiness | string;
+  Readiness?: keyof typeof Readiness | string;
 
   /**
    * <p>Summaries for the readiness checks that make up the cell.</p>
@@ -932,7 +932,7 @@ export interface GetReadinessCheckResourceStatusResponse {
   /**
    * <p>The readiness at a rule level.</p>
    */
-  Readiness?: Readiness | string;
+  Readiness?: keyof typeof Readiness | string;
 
   /**
    * <p>Details of the rule's results.</p>
@@ -977,7 +977,7 @@ export interface GetReadinessCheckStatusResponse {
   /**
    * <p>The readiness at rule level.</p>
    */
-  Readiness?: Readiness | string;
+  Readiness?: keyof typeof Readiness | string;
 
   /**
    * <p>Summary of the readiness of resources.</p>
@@ -1052,7 +1052,7 @@ export interface GetRecoveryGroupReadinessSummaryResponse {
   /**
    * <p>The readiness status at a recovery group level.</p>
    */
-  Readiness?: Readiness | string;
+  Readiness?: keyof typeof Readiness | string;
 
   /**
    * <p>Summaries of the readiness checks for the recovery group.</p>

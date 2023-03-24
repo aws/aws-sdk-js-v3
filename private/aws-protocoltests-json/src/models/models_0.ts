@@ -17,13 +17,13 @@ export interface GreetingStruct {
 /**
  * @public
  */
-export enum FooEnum {
-  BAR = "Bar",
-  BAZ = "Baz",
-  FOO = "Foo",
-  ONE = "1",
-  ZERO = "0",
-}
+export const FooEnum = {
+  BAR: "Bar",
+  BAZ: "Baz",
+  FOO: "Foo",
+  ONE: "1",
+  ZERO: "0",
+};
 
 /**
  * @public
@@ -170,12 +170,12 @@ export class InvalidGreeting extends __BaseException {
  * @public
  */
 export interface JsonEnumsInputOutput {
-  fooEnum1?: FooEnum | string;
-  fooEnum2?: FooEnum | string;
-  fooEnum3?: FooEnum | string;
-  fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: Record<string, FooEnum | string>;
+  fooEnum1?: keyof typeof FooEnum | string;
+  fooEnum2?: keyof typeof FooEnum | string;
+  fooEnum3?: keyof typeof FooEnum | string;
+  fooEnumList?: (keyof typeof FooEnum | string)[];
+  fooEnumSet?: (keyof typeof FooEnum | string)[];
+  fooEnumMap?: Record<string, keyof typeof FooEnum | string>;
 }
 
 /**
@@ -269,7 +269,7 @@ export namespace MyUnion {
     numberValue?: never;
     blobValue?: never;
     timestampValue?: never;
-    enumValue: FooEnum | string;
+    enumValue: keyof typeof FooEnum | string;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -334,7 +334,7 @@ export namespace MyUnion {
     numberValue: (value: number) => T;
     blobValue: (value: Uint8Array) => T;
     timestampValue: (value: Date) => T;
-    enumValue: (value: FooEnum | string) => T;
+    enumValue: (value: keyof typeof FooEnum | string) => T;
     listValue: (value: string[]) => T;
     mapValue: (value: Record<string, string>) => T;
     structureValue: (value: GreetingStruct) => T;

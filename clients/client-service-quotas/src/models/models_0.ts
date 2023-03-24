@@ -295,12 +295,12 @@ export class ServiceQuotaTemplateNotInUseException extends __BaseException {
 /**
  * @public
  */
-export enum ErrorCode {
-  DEPENDENCY_ACCESS_DENIED_ERROR = "DEPENDENCY_ACCESS_DENIED_ERROR",
-  DEPENDENCY_SERVICE_ERROR = "DEPENDENCY_SERVICE_ERROR",
-  DEPENDENCY_THROTTLING_ERROR = "DEPENDENCY_THROTTLING_ERROR",
-  SERVICE_QUOTA_NOT_AVAILABLE_ERROR = "SERVICE_QUOTA_NOT_AVAILABLE_ERROR",
-}
+export const ErrorCode = {
+  DEPENDENCY_ACCESS_DENIED_ERROR: "DEPENDENCY_ACCESS_DENIED_ERROR",
+  DEPENDENCY_SERVICE_ERROR: "DEPENDENCY_SERVICE_ERROR",
+  DEPENDENCY_THROTTLING_ERROR: "DEPENDENCY_THROTTLING_ERROR",
+  SERVICE_QUOTA_NOT_AVAILABLE_ERROR: "SERVICE_QUOTA_NOT_AVAILABLE_ERROR",
+};
 
 /**
  * @public
@@ -332,7 +332,7 @@ export interface ErrorReason {
    *             </li>
    *          </ul>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>The error message.</p>
@@ -348,10 +348,10 @@ export interface GetAssociationForServiceQuotaTemplateRequest {}
 /**
  * @public
  */
-export enum ServiceQuotaTemplateAssociationStatus {
-  ASSOCIATED = "ASSOCIATED",
-  DISASSOCIATED = "DISASSOCIATED",
-}
+export const ServiceQuotaTemplateAssociationStatus = {
+  ASSOCIATED: "ASSOCIATED",
+  DISASSOCIATED: "DISASSOCIATED",
+};
 
 /**
  * @public
@@ -362,7 +362,7 @@ export interface GetAssociationForServiceQuotaTemplateResponse {
    *       requests in the template are automatically applied to new accounts in your
    *       organization.</p>
    */
-  ServiceQuotaTemplateAssociationStatus?: ServiceQuotaTemplateAssociationStatus | string;
+  ServiceQuotaTemplateAssociationStatus?: keyof typeof ServiceQuotaTemplateAssociationStatus | string;
 }
 
 /**
@@ -383,15 +383,15 @@ export interface GetAWSDefaultServiceQuotaRequest {
 /**
  * @public
  */
-export enum PeriodUnit {
-  DAY = "DAY",
-  HOUR = "HOUR",
-  MICROSECOND = "MICROSECOND",
-  MILLISECOND = "MILLISECOND",
-  MINUTE = "MINUTE",
-  SECOND = "SECOND",
-  WEEK = "WEEK",
-}
+export const PeriodUnit = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  MICROSECOND: "MICROSECOND",
+  MILLISECOND: "MILLISECOND",
+  MINUTE: "MINUTE",
+  SECOND: "SECOND",
+  WEEK: "WEEK",
+};
 
 /**
  * @public
@@ -406,7 +406,7 @@ export interface QuotaPeriod {
   /**
    * <p>The time unit.</p>
    */
-  PeriodUnit?: PeriodUnit | string;
+  PeriodUnit?: keyof typeof PeriodUnit | string;
 }
 
 /**
@@ -525,13 +525,13 @@ export interface GetRequestedServiceQuotaChangeRequest {
 /**
  * @public
  */
-export enum RequestStatus {
-  APPROVED = "APPROVED",
-  CASE_CLOSED = "CASE_CLOSED",
-  CASE_OPENED = "CASE_OPENED",
-  DENIED = "DENIED",
-  PENDING = "PENDING",
-}
+export const RequestStatus = {
+  APPROVED: "APPROVED",
+  CASE_CLOSED: "CASE_CLOSED",
+  CASE_OPENED: "CASE_OPENED",
+  DENIED: "DENIED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -576,7 +576,7 @@ export interface RequestedServiceQuotaChange {
   /**
    * <p>The state of the quota increase request.</p>
    */
-  Status?: RequestStatus | string;
+  Status?: keyof typeof RequestStatus | string;
 
   /**
    * <p>The date and time when the quota increase request was received and the case ID was
@@ -834,7 +834,7 @@ export interface ListRequestedServiceQuotaChangeHistoryRequest {
   /**
    * <p>The status of the quota increase request.</p>
    */
-  Status?: RequestStatus | string;
+  Status?: keyof typeof RequestStatus | string;
 
   /**
    * <p>The token for the next page of results.</p>
@@ -881,7 +881,7 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
   /**
    * <p>The status value of the quota increase request.</p>
    */
-  Status?: RequestStatus | string;
+  Status?: keyof typeof RequestStatus | string;
 
   /**
    * <p>The token for the next page of results.</p>

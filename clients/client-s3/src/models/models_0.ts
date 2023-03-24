@@ -22,9 +22,9 @@ export interface AbortIncompleteMultipartUpload {
 /**
  * @public
  */
-export enum RequestCharged {
-  requester = "requester",
-}
+export const RequestCharged = {
+  requester: "requester",
+};
 
 /**
  * @public
@@ -34,15 +34,15 @@ export interface AbortMultipartUploadOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 }
 
 /**
  * @public
  */
-export enum RequestPayer {
-  requester = "requester",
-}
+export const RequestPayer = {
+  requester: "requester",
+};
 
 /**
  * @public
@@ -74,7 +74,7 @@ export interface AbortMultipartUploadRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -105,10 +105,10 @@ export class NoSuchUpload extends __BaseException {
 /**
  * @public
  */
-export enum BucketAccelerateStatus {
-  Enabled = "Enabled",
-  Suspended = "Suspended",
-}
+export const BucketAccelerateStatus = {
+  Enabled: "Enabled",
+  Suspended: "Suspended",
+};
 
 /**
  * @public
@@ -120,17 +120,17 @@ export interface AccelerateConfiguration {
   /**
    * <p>Specifies the transfer acceleration status of the bucket.</p>
    */
-  Status?: BucketAccelerateStatus | string;
+  Status?: keyof typeof BucketAccelerateStatus | string;
 }
 
 /**
  * @public
  */
-export enum Type {
-  AmazonCustomerByEmail = "AmazonCustomerByEmail",
-  CanonicalUser = "CanonicalUser",
-  Group = "Group",
-}
+export const Type = {
+  AmazonCustomerByEmail: "AmazonCustomerByEmail",
+  CanonicalUser: "CanonicalUser",
+  Group: "Group",
+};
 
 /**
  * @public
@@ -190,19 +190,19 @@ export interface Grantee {
   /**
    * <p>Type of grantee</p>
    */
-  Type: Type | string | undefined;
+  Type: keyof typeof Type | string | undefined;
 }
 
 /**
  * @public
  */
-export enum Permission {
-  FULL_CONTROL = "FULL_CONTROL",
-  READ = "READ",
-  READ_ACP = "READ_ACP",
-  WRITE = "WRITE",
-  WRITE_ACP = "WRITE_ACP",
-}
+export const Permission = {
+  FULL_CONTROL: "FULL_CONTROL",
+  READ: "READ",
+  READ_ACP: "READ_ACP",
+  WRITE: "WRITE",
+  WRITE_ACP: "WRITE_ACP",
+};
 
 /**
  * @public
@@ -217,7 +217,7 @@ export interface Grant {
   /**
    * <p>Specifies the permission given to the grantee.</p>
    */
-  Permission?: Permission | string;
+  Permission?: keyof typeof Permission | string;
 }
 
 /**
@@ -255,9 +255,9 @@ export interface AccessControlPolicy {
 /**
  * @public
  */
-export enum OwnerOverride {
-  Destination = "Destination",
-}
+export const OwnerOverride = {
+  Destination: "Destination",
+};
 
 /**
  * @public
@@ -268,16 +268,16 @@ export interface AccessControlTranslation {
    * <p>Specifies the replica ownership. For default and valid values, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html">PUT bucket
    *             replication</a> in the <i>Amazon S3 API Reference</i>.</p>
    */
-  Owner: OwnerOverride | string | undefined;
+  Owner: keyof typeof OwnerOverride | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ServerSideEncryption {
-  AES256 = "AES256",
-  aws_kms = "aws:kms",
-}
+export const ServerSideEncryption = {
+  AES256: "AES256",
+  aws_kms: "aws:kms",
+};
 
 /**
  * @public
@@ -358,7 +358,7 @@ export interface CompleteMultipartUploadOutput {
    *          includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the
    *          object.</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: keyof typeof ServerSideEncryption | string;
 
   /**
    * <p>Version ID of the newly created object, in case the bucket has versioning turned
@@ -381,7 +381,7 @@ export interface CompleteMultipartUploadOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 }
 
 /**
@@ -513,7 +513,7 @@ export interface CompleteMultipartUploadRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -621,7 +621,7 @@ export interface CopyObjectOutput {
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
    *          AES256, aws:kms).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: keyof typeof ServerSideEncryption | string;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -658,78 +658,78 @@ export interface CopyObjectOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 }
 
 /**
  * @public
  */
-export enum ObjectCannedACL {
-  authenticated_read = "authenticated-read",
-  aws_exec_read = "aws-exec-read",
-  bucket_owner_full_control = "bucket-owner-full-control",
-  bucket_owner_read = "bucket-owner-read",
-  private = "private",
-  public_read = "public-read",
-  public_read_write = "public-read-write",
-}
+export const ObjectCannedACL = {
+  authenticated_read: "authenticated-read",
+  aws_exec_read: "aws-exec-read",
+  bucket_owner_full_control: "bucket-owner-full-control",
+  bucket_owner_read: "bucket-owner-read",
+  private: "private",
+  public_read: "public-read",
+  public_read_write: "public-read-write",
+};
 
 /**
  * @public
  */
-export enum ChecksumAlgorithm {
-  CRC32 = "CRC32",
-  CRC32C = "CRC32C",
-  SHA1 = "SHA1",
-  SHA256 = "SHA256",
-}
+export const ChecksumAlgorithm = {
+  CRC32: "CRC32",
+  CRC32C: "CRC32C",
+  SHA1: "SHA1",
+  SHA256: "SHA256",
+};
 
 /**
  * @public
  */
-export enum MetadataDirective {
-  COPY = "COPY",
-  REPLACE = "REPLACE",
-}
+export const MetadataDirective = {
+  COPY: "COPY",
+  REPLACE: "REPLACE",
+};
 
 /**
  * @public
  */
-export enum ObjectLockLegalHoldStatus {
-  OFF = "OFF",
-  ON = "ON",
-}
+export const ObjectLockLegalHoldStatus = {
+  OFF: "OFF",
+  ON: "ON",
+};
 
 /**
  * @public
  */
-export enum ObjectLockMode {
-  COMPLIANCE = "COMPLIANCE",
-  GOVERNANCE = "GOVERNANCE",
-}
+export const ObjectLockMode = {
+  COMPLIANCE: "COMPLIANCE",
+  GOVERNANCE: "GOVERNANCE",
+};
 
 /**
  * @public
  */
-export enum StorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  GLACIER_IR = "GLACIER_IR",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  OUTPOSTS = "OUTPOSTS",
-  REDUCED_REDUNDANCY = "REDUCED_REDUNDANCY",
-  STANDARD = "STANDARD",
-  STANDARD_IA = "STANDARD_IA",
-}
+export const StorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  OUTPOSTS: "OUTPOSTS",
+  REDUCED_REDUNDANCY: "REDUCED_REDUNDANCY",
+  STANDARD: "STANDARD",
+  STANDARD_IA: "STANDARD_IA",
+};
 
 /**
  * @public
  */
-export enum TaggingDirective {
-  COPY = "COPY",
-  REPLACE = "REPLACE",
-}
+export const TaggingDirective = {
+  COPY: "COPY",
+  REPLACE: "REPLACE",
+};
 
 /**
  * @public
@@ -739,7 +739,7 @@ export interface CopyObjectRequest {
    * <p>The canned ACL to apply to the object.</p>
    *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    */
-  ACL?: ObjectCannedACL | string;
+  ACL?: keyof typeof ObjectCannedACL | string;
 
   /**
    * <p>The name of the destination bucket.</p>
@@ -761,7 +761,7 @@ export interface CopyObjectRequest {
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>Specifies presentational information for the object.</p>
@@ -878,19 +878,19 @@ export interface CopyObjectRequest {
    * <p>Specifies whether the metadata is copied from the source object or replaced with
    *          metadata provided in the request.</p>
    */
-  MetadataDirective?: MetadataDirective | string;
+  MetadataDirective?: keyof typeof MetadataDirective | string;
 
   /**
    * <p>Specifies whether the object tag-set are copied from the source object or replaced with
    *          tag-set provided in the request.</p>
    */
-  TaggingDirective?: TaggingDirective | string;
+  TaggingDirective?: keyof typeof TaggingDirective | string;
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
    *          AES256, aws:kms).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: keyof typeof ServerSideEncryption | string;
 
   /**
    * <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The
@@ -899,7 +899,7 @@ export interface CopyObjectRequest {
    *          the OUTPOSTS Storage Class. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
    *          <i>Amazon S3 User Guide</i>.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 
   /**
    * <p>If the bucket is configured as a website, redirects requests for this object to another
@@ -977,7 +977,7 @@ export interface CopyObjectRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The tag-set for the object destination object this value must be used in conjunction
@@ -989,7 +989,7 @@ export interface CopyObjectRequest {
   /**
    * <p>The Object Lock mode that you want to apply to the copied object.</p>
    */
-  ObjectLockMode?: ObjectLockMode | string;
+  ObjectLockMode?: keyof typeof ObjectLockMode | string;
 
   /**
    * <p>The date and time when you want the copied object's Object Lock to expire.</p>
@@ -999,7 +999,7 @@ export interface CopyObjectRequest {
   /**
    * <p>Specifies whether you want to apply a legal hold to the copied object.</p>
    */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
+  ObjectLockLegalHoldStatus?: keyof typeof ObjectLockLegalHoldStatus | string;
 
   /**
    * <p>The account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -1090,44 +1090,44 @@ export interface CreateBucketOutput {
 /**
  * @public
  */
-export enum BucketCannedACL {
-  authenticated_read = "authenticated-read",
-  private = "private",
-  public_read = "public-read",
-  public_read_write = "public-read-write",
-}
+export const BucketCannedACL = {
+  authenticated_read: "authenticated-read",
+  private: "private",
+  public_read: "public-read",
+  public_read_write: "public-read-write",
+};
 
 /**
  * @public
  */
-export enum BucketLocationConstraint {
-  EU = "EU",
-  af_south_1 = "af-south-1",
-  ap_east_1 = "ap-east-1",
-  ap_northeast_1 = "ap-northeast-1",
-  ap_northeast_2 = "ap-northeast-2",
-  ap_northeast_3 = "ap-northeast-3",
-  ap_south_1 = "ap-south-1",
-  ap_southeast_1 = "ap-southeast-1",
-  ap_southeast_2 = "ap-southeast-2",
-  ap_southeast_3 = "ap-southeast-3",
-  ca_central_1 = "ca-central-1",
-  cn_north_1 = "cn-north-1",
-  cn_northwest_1 = "cn-northwest-1",
-  eu_central_1 = "eu-central-1",
-  eu_north_1 = "eu-north-1",
-  eu_south_1 = "eu-south-1",
-  eu_west_1 = "eu-west-1",
-  eu_west_2 = "eu-west-2",
-  eu_west_3 = "eu-west-3",
-  me_south_1 = "me-south-1",
-  sa_east_1 = "sa-east-1",
-  us_east_2 = "us-east-2",
-  us_gov_east_1 = "us-gov-east-1",
-  us_gov_west_1 = "us-gov-west-1",
-  us_west_1 = "us-west-1",
-  us_west_2 = "us-west-2",
-}
+export const BucketLocationConstraint = {
+  EU: "EU",
+  af_south_1: "af-south-1",
+  ap_east_1: "ap-east-1",
+  ap_northeast_1: "ap-northeast-1",
+  ap_northeast_2: "ap-northeast-2",
+  ap_northeast_3: "ap-northeast-3",
+  ap_south_1: "ap-south-1",
+  ap_southeast_1: "ap-southeast-1",
+  ap_southeast_2: "ap-southeast-2",
+  ap_southeast_3: "ap-southeast-3",
+  ca_central_1: "ca-central-1",
+  cn_north_1: "cn-north-1",
+  cn_northwest_1: "cn-northwest-1",
+  eu_central_1: "eu-central-1",
+  eu_north_1: "eu-north-1",
+  eu_south_1: "eu-south-1",
+  eu_west_1: "eu-west-1",
+  eu_west_2: "eu-west-2",
+  eu_west_3: "eu-west-3",
+  me_south_1: "me-south-1",
+  sa_east_1: "sa-east-1",
+  us_east_2: "us-east-2",
+  us_gov_east_1: "us-gov-east-1",
+  us_gov_west_1: "us-gov-west-1",
+  us_west_1: "us-west-1",
+  us_west_2: "us-west-2",
+};
 
 /**
  * @public
@@ -1138,17 +1138,17 @@ export interface CreateBucketConfiguration {
    * <p>Specifies the Region where the bucket will be created. If you don't specify a Region,
    *          the bucket is created in the US East (N. Virginia) Region (us-east-1).</p>
    */
-  LocationConstraint?: BucketLocationConstraint | string;
+  LocationConstraint?: keyof typeof BucketLocationConstraint | string;
 }
 
 /**
  * @public
  */
-export enum ObjectOwnership {
-  BucketOwnerEnforced = "BucketOwnerEnforced",
-  BucketOwnerPreferred = "BucketOwnerPreferred",
-  ObjectWriter = "ObjectWriter",
-}
+export const ObjectOwnership = {
+  BucketOwnerEnforced: "BucketOwnerEnforced",
+  BucketOwnerPreferred: "BucketOwnerPreferred",
+  ObjectWriter: "ObjectWriter",
+};
 
 /**
  * @public
@@ -1157,7 +1157,7 @@ export interface CreateBucketRequest {
   /**
    * <p>The canned ACL to apply to the bucket.</p>
    */
-  ACL?: BucketCannedACL | string;
+  ACL?: keyof typeof BucketCannedACL | string;
 
   /**
    * <p>The name of the bucket to create.</p>
@@ -1214,7 +1214,7 @@ export interface CreateBucketRequest {
    *          ACLs, such as the <code>bucket-owner-full-control</code> canned
    *          ACL or an equivalent form of this ACL expressed in the XML format.</p>
    */
-  ObjectOwnership?: ObjectOwnership | string;
+  ObjectOwnership?: keyof typeof ObjectOwnership | string;
 }
 
 /**
@@ -1261,7 +1261,7 @@ export interface CreateMultipartUploadOutput {
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
    *          AES256, aws:kms).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: keyof typeof ServerSideEncryption | string;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -1298,12 +1298,12 @@ export interface CreateMultipartUploadOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 
   /**
    * <p>The algorithm that was used to create a checksum of the object.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 }
 
 /**
@@ -1314,7 +1314,7 @@ export interface CreateMultipartUploadRequest {
    * <p>The canned ACL to apply to the object.</p>
    *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    */
-  ACL?: ObjectCannedACL | string;
+  ACL?: keyof typeof ObjectCannedACL | string;
 
   /**
    * <p>The name of the bucket to which to initiate the upload</p>
@@ -1399,7 +1399,7 @@ export interface CreateMultipartUploadRequest {
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
    *          AES256, aws:kms).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: keyof typeof ServerSideEncryption | string;
 
   /**
    * <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The
@@ -1408,7 +1408,7 @@ export interface CreateMultipartUploadRequest {
    *          the OUTPOSTS Storage Class. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
    *          <i>Amazon S3 User Guide</i>.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 
   /**
    * <p>If the bucket is configured as a website, redirects requests for this object to another
@@ -1466,7 +1466,7 @@ export interface CreateMultipartUploadRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters.</p>
@@ -1476,7 +1476,7 @@ export interface CreateMultipartUploadRequest {
   /**
    * <p>Specifies the Object Lock mode that you want to apply to the uploaded object.</p>
    */
-  ObjectLockMode?: ObjectLockMode | string;
+  ObjectLockMode?: keyof typeof ObjectLockMode | string;
 
   /**
    * <p>Specifies the date and time when you want the Object Lock to expire.</p>
@@ -1486,7 +1486,7 @@ export interface CreateMultipartUploadRequest {
   /**
    * <p>Specifies whether you want to apply a legal hold to the uploaded object.</p>
    */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
+  ObjectLockLegalHoldStatus?: keyof typeof ObjectLockLegalHoldStatus | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -1498,7 +1498,7 @@ export interface CreateMultipartUploadRequest {
    *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
    *     the <i>Amazon S3 User Guide</i>.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 }
 
 /**
@@ -1756,7 +1756,7 @@ export interface DeleteObjectOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 }
 
 /**
@@ -1796,7 +1796,7 @@ export interface DeleteObjectRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process
@@ -3748,7 +3748,7 @@ export interface DeleteObjectsOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 
   /**
    * <p>Container for a failed delete action that describes the object that Amazon S3 attempted to
@@ -3827,7 +3827,7 @@ export interface DeleteObjectsRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>Specifies whether you want to delete this object even if it has a Governance-type Object
@@ -3852,7 +3852,7 @@ export interface DeleteObjectsRequest {
    *          <p>This checksum algorithm must be the same for all parts and it match the checksum
    *             value supplied in the <code>CreateMultipartUpload</code> request.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 }
 
 /**
@@ -3920,7 +3920,7 @@ export interface GetBucketAccelerateConfigurationOutput {
   /**
    * <p>The accelerate configuration of the bucket.</p>
    */
-  Status?: BucketAccelerateStatus | string;
+  Status?: keyof typeof BucketAccelerateStatus | string;
 }
 
 /**
@@ -4079,9 +4079,9 @@ export namespace AnalyticsFilter {
 /**
  * @public
  */
-export enum AnalyticsS3ExportFileFormat {
-  CSV = "CSV",
-}
+export const AnalyticsS3ExportFileFormat = {
+  CSV: "CSV",
+};
 
 /**
  * @public
@@ -4091,7 +4091,7 @@ export interface AnalyticsS3BucketDestination {
   /**
    * <p>Specifies the file format used when exporting data to Amazon S3.</p>
    */
-  Format: AnalyticsS3ExportFileFormat | string | undefined;
+  Format: keyof typeof AnalyticsS3ExportFileFormat | string | undefined;
 
   /**
    * <p>The account ID that owns the destination S3 bucket. If no account ID is provided, the
@@ -4128,9 +4128,9 @@ export interface AnalyticsExportDestination {
 /**
  * @public
  */
-export enum StorageClassAnalysisSchemaVersion {
-  V_1 = "V_1",
-}
+export const StorageClassAnalysisSchemaVersion = {
+  V_1: "V_1",
+};
 
 /**
  * @public
@@ -4142,7 +4142,7 @@ export interface StorageClassAnalysisDataExport {
    * <p>The version of the output schema to use when exporting data. Must be
    *          <code>V_1</code>.</p>
    */
-  OutputSchemaVersion: StorageClassAnalysisSchemaVersion | string | undefined;
+  OutputSchemaVersion: keyof typeof StorageClassAnalysisSchemaVersion | string | undefined;
 
   /**
    * <p>The place to store the data for an analysis.</p>
@@ -4302,7 +4302,7 @@ export interface ServerSideEncryptionByDefault {
   /**
    * <p>Server-side encryption algorithm to use for the default encryption.</p>
    */
-  SSEAlgorithm: ServerSideEncryption | string | undefined;
+  SSEAlgorithm: keyof typeof ServerSideEncryption | string | undefined;
 
   /**
    * <p>Amazon Web Services Key Management Service (KMS) customer Amazon Web Services KMS key ID to use for the default
@@ -4445,18 +4445,18 @@ export interface IntelligentTieringFilter {
 /**
  * @public
  */
-export enum IntelligentTieringStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const IntelligentTieringStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
  */
-export enum IntelligentTieringAccessTier {
-  ARCHIVE_ACCESS = "ARCHIVE_ACCESS",
-  DEEP_ARCHIVE_ACCESS = "DEEP_ARCHIVE_ACCESS",
-}
+export const IntelligentTieringAccessTier = {
+  ARCHIVE_ACCESS: "ARCHIVE_ACCESS",
+  DEEP_ARCHIVE_ACCESS: "DEEP_ARCHIVE_ACCESS",
+};
 
 /**
  * @public
@@ -4478,7 +4478,7 @@ export interface Tiering {
    *             automatically optimizing frequently and infrequently accessed objects</a> for a list
    *          of access tiers in the S3 Intelligent-Tiering storage class.</p>
    */
-  AccessTier: IntelligentTieringAccessTier | string | undefined;
+  AccessTier: keyof typeof IntelligentTieringAccessTier | string | undefined;
 }
 
 /**
@@ -4502,7 +4502,7 @@ export interface IntelligentTieringConfiguration {
   /**
    * <p>Specifies the status of the configuration.</p>
    */
-  Status: IntelligentTieringStatus | string | undefined;
+  Status: keyof typeof IntelligentTieringStatus | string | undefined;
 
   /**
    * <p>Specifies the S3 Intelligent-Tiering storage class tier of the configuration.</p>
@@ -4575,11 +4575,11 @@ export interface InventoryEncryption {
 /**
  * @public
  */
-export enum InventoryFormat {
-  CSV = "CSV",
-  ORC = "ORC",
-  Parquet = "Parquet",
-}
+export const InventoryFormat = {
+  CSV: "CSV",
+  ORC: "ORC",
+  Parquet: "Parquet",
+};
 
 /**
  * @public
@@ -4606,7 +4606,7 @@ export interface InventoryS3BucketDestination {
   /**
    * <p>Specifies the output format of the inventory results.</p>
    */
-  Format: InventoryFormat | string | undefined;
+  Format: keyof typeof InventoryFormat | string | undefined;
 
   /**
    * <p>The prefix that is prepended to all inventory results.</p>
@@ -4647,37 +4647,37 @@ export interface InventoryFilter {
 /**
  * @public
  */
-export enum InventoryIncludedObjectVersions {
-  All = "All",
-  Current = "Current",
-}
+export const InventoryIncludedObjectVersions = {
+  All: "All",
+  Current: "Current",
+};
 
 /**
  * @public
  */
-export enum InventoryOptionalField {
-  BucketKeyStatus = "BucketKeyStatus",
-  ChecksumAlgorithm = "ChecksumAlgorithm",
-  ETag = "ETag",
-  EncryptionStatus = "EncryptionStatus",
-  IntelligentTieringAccessTier = "IntelligentTieringAccessTier",
-  IsMultipartUploaded = "IsMultipartUploaded",
-  LastModifiedDate = "LastModifiedDate",
-  ObjectLockLegalHoldStatus = "ObjectLockLegalHoldStatus",
-  ObjectLockMode = "ObjectLockMode",
-  ObjectLockRetainUntilDate = "ObjectLockRetainUntilDate",
-  ReplicationStatus = "ReplicationStatus",
-  Size = "Size",
-  StorageClass = "StorageClass",
-}
+export const InventoryOptionalField = {
+  BucketKeyStatus: "BucketKeyStatus",
+  ChecksumAlgorithm: "ChecksumAlgorithm",
+  ETag: "ETag",
+  EncryptionStatus: "EncryptionStatus",
+  IntelligentTieringAccessTier: "IntelligentTieringAccessTier",
+  IsMultipartUploaded: "IsMultipartUploaded",
+  LastModifiedDate: "LastModifiedDate",
+  ObjectLockLegalHoldStatus: "ObjectLockLegalHoldStatus",
+  ObjectLockMode: "ObjectLockMode",
+  ObjectLockRetainUntilDate: "ObjectLockRetainUntilDate",
+  ReplicationStatus: "ReplicationStatus",
+  Size: "Size",
+  StorageClass: "StorageClass",
+};
 
 /**
  * @public
  */
-export enum InventoryFrequency {
-  Daily = "Daily",
-  Weekly = "Weekly",
-}
+export const InventoryFrequency = {
+  Daily: "Daily",
+  Weekly: "Weekly",
+};
 
 /**
  * @public
@@ -4687,7 +4687,7 @@ export interface InventorySchedule {
   /**
    * <p>Specifies how frequently inventory results are produced.</p>
    */
-  Frequency: InventoryFrequency | string | undefined;
+  Frequency: keyof typeof InventoryFrequency | string | undefined;
 }
 
 /**
@@ -4727,12 +4727,12 @@ export interface InventoryConfiguration {
    *          list. If set to <code>Current</code>, the list does not contain these version-related
    *          fields.</p>
    */
-  IncludedObjectVersions: InventoryIncludedObjectVersions | string | undefined;
+  IncludedObjectVersions: keyof typeof InventoryIncludedObjectVersions | string | undefined;
 
   /**
    * <p>Contains the optional fields that are included in the inventory results.</p>
    */
-  OptionalFields?: (InventoryOptionalField | string)[];
+  OptionalFields?: (keyof typeof InventoryOptionalField | string)[];
 
   /**
    * <p>Specifies the schedule for generating inventory results.</p>
@@ -4966,14 +4966,14 @@ export interface NoncurrentVersionExpiration {
 /**
  * @public
  */
-export enum TransitionStorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  GLACIER_IR = "GLACIER_IR",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  STANDARD_IA = "STANDARD_IA",
-}
+export const TransitionStorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  STANDARD_IA: "STANDARD_IA",
+};
 
 /**
  * @public
@@ -4998,7 +4998,7 @@ export interface NoncurrentVersionTransition {
   /**
    * <p>The class of storage used to store the object.</p>
    */
-  StorageClass?: TransitionStorageClass | string;
+  StorageClass?: keyof typeof TransitionStorageClass | string;
 
   /**
    * <p>Specifies how many noncurrent versions Amazon S3 will retain. If there are this many more recent
@@ -5012,10 +5012,10 @@ export interface NoncurrentVersionTransition {
 /**
  * @public
  */
-export enum ExpirationStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ExpirationStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -5039,7 +5039,7 @@ export interface Transition {
   /**
    * <p>The storage class to which you want the object to transition.</p>
    */
-  StorageClass?: TransitionStorageClass | string;
+  StorageClass?: keyof typeof TransitionStorageClass | string;
 }
 
 /**
@@ -5083,7 +5083,7 @@ export interface LifecycleRule {
    * <p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not
    *          currently being applied.</p>
    */
-  Status: ExpirationStatus | string | undefined;
+  Status: keyof typeof ExpirationStatus | string | undefined;
 
   /**
    * <p>Specifies when an Amazon S3 object transitions to a specified storage class.</p>
@@ -5153,7 +5153,7 @@ export interface GetBucketLocationOutput {
    *          Buckets in Region <code>us-east-1</code> have a LocationConstraint of
    *          <code>null</code>.</p>
    */
-  LocationConstraint?: BucketLocationConstraint | string;
+  LocationConstraint?: keyof typeof BucketLocationConstraint | string;
 }
 
 /**
@@ -5176,11 +5176,11 @@ export interface GetBucketLocationRequest {
 /**
  * @public
  */
-export enum BucketLogsPermission {
-  FULL_CONTROL = "FULL_CONTROL",
-  READ = "READ",
-  WRITE = "WRITE",
-}
+export const BucketLogsPermission = {
+  FULL_CONTROL: "FULL_CONTROL",
+  READ: "READ",
+  WRITE: "WRITE",
+};
 
 /**
  * @public
@@ -5198,7 +5198,7 @@ export interface TargetGrant {
   /**
    * <p>Logging permissions assigned to the grantee for the bucket.</p>
    */
-  Permission?: BucketLogsPermission | string;
+  Permission?: keyof typeof BucketLogsPermission | string;
 }
 
 /**
@@ -5485,10 +5485,10 @@ export type Event =
 /**
  * @public
  */
-export enum FilterRuleName {
-  prefix = "prefix",
-  suffix = "suffix",
-}
+export const FilterRuleName = {
+  prefix: "prefix",
+  suffix: "suffix",
+};
 
 /**
  * @public
@@ -5502,7 +5502,7 @@ export interface FilterRule {
    *          suffixes are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event Notifications</a>
    *          in the <i>Amazon S3 User Guide</i>.</p>
    */
-  Name?: FilterRuleName | string;
+  Name?: keyof typeof FilterRuleName | string;
 
   /**
    * <p>The value that the filter searches for in object key names.</p>
@@ -5557,7 +5557,7 @@ export interface LambdaFunctionConfiguration {
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported
    *             Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  Events: (Event | string)[] | undefined;
+  Events: (keyof typeof Event | string)[] | undefined;
 
   /**
    * <p>Specifies object key name filtering rules. For information about key name filtering, see
@@ -5588,7 +5588,7 @@ export interface QueueConfiguration {
   /**
    * <p>A collection of bucket events for which to send notifications</p>
    */
-  Events: (Event | string)[] | undefined;
+  Events: (keyof typeof Event | string)[] | undefined;
 
   /**
    * <p>Specifies object key name filtering rules. For information about key name filtering, see
@@ -5621,7 +5621,7 @@ export interface TopicConfiguration {
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported
    *             Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  Events: (Event | string)[] | undefined;
+  Events: (keyof typeof Event | string)[] | undefined;
 
   /**
    * <p>Specifies object key name filtering rules. For information about key name filtering, see
@@ -5679,7 +5679,7 @@ export interface OwnershipControlsRule {
    *          ACLs, such as the <code>bucket-owner-full-control</code> canned
    *          ACL or an equivalent form of this ACL expressed in the XML format.</p>
    */
-  ObjectOwnership: ObjectOwnership | string | undefined;
+  ObjectOwnership: keyof typeof ObjectOwnership | string | undefined;
 }
 
 /**
@@ -5791,10 +5791,10 @@ export interface GetBucketPolicyStatusRequest {
 /**
  * @public
  */
-export enum DeleteMarkerReplicationStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const DeleteMarkerReplicationStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -5818,7 +5818,7 @@ export interface DeleteMarkerReplication {
    *             <p>Indicates whether to replicate delete markers.</p>
    *          </note>
    */
-  Status?: DeleteMarkerReplicationStatus | string;
+  Status?: keyof typeof DeleteMarkerReplicationStatus | string;
 }
 
 /**
@@ -5853,10 +5853,10 @@ export interface ReplicationTimeValue {
 /**
  * @public
  */
-export enum MetricsStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const MetricsStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -5867,7 +5867,7 @@ export interface Metrics {
   /**
    * <p> Specifies whether the replication metrics are enabled. </p>
    */
-  Status: MetricsStatus | string | undefined;
+  Status: keyof typeof MetricsStatus | string | undefined;
 
   /**
    * <p> A container specifying the time threshold for emitting the
@@ -5879,10 +5879,10 @@ export interface Metrics {
 /**
  * @public
  */
-export enum ReplicationTimeStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ReplicationTimeStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -5894,7 +5894,7 @@ export interface ReplicationTime {
   /**
    * <p> Specifies whether the replication time is enabled. </p>
    */
-  Status: ReplicationTimeStatus | string | undefined;
+  Status: keyof typeof ReplicationTimeStatus | string | undefined;
 
   /**
    * <p> A container specifying the time by which replication should be complete for all objects
@@ -5930,7 +5930,7 @@ export interface Destination {
    *          <p>For valid values, see the <code>StorageClass</code> element of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html">PUT Bucket
    *             replication</a> action in the <i>Amazon S3 API Reference</i>.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 
   /**
    * <p>Specify this only in a cross-account scenario (where source and destination bucket
@@ -5963,10 +5963,10 @@ export interface Destination {
 /**
  * @public
  */
-export enum ExistingObjectReplicationStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ExistingObjectReplicationStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -5978,7 +5978,7 @@ export interface ExistingObjectReplication {
   /**
    * <p></p>
    */
-  Status: ExistingObjectReplicationStatus | string | undefined;
+  Status: keyof typeof ExistingObjectReplicationStatus | string | undefined;
 }
 
 /**
@@ -6100,10 +6100,10 @@ export namespace ReplicationRuleFilter {
 /**
  * @public
  */
-export enum ReplicaModificationsStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ReplicaModificationsStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -6121,16 +6121,16 @@ export interface ReplicaModifications {
   /**
    * <p>Specifies whether Amazon S3 replicates modifications on replicas.</p>
    */
-  Status: ReplicaModificationsStatus | string | undefined;
+  Status: keyof typeof ReplicaModificationsStatus | string | undefined;
 }
 
 /**
  * @public
  */
-export enum SseKmsEncryptedObjectsStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const SseKmsEncryptedObjectsStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -6142,7 +6142,7 @@ export interface SseKmsEncryptedObjects {
    * <p>Specifies whether Amazon S3 replicates objects created with server-side encryption using an
    *          Amazon Web Services KMS key stored in Amazon Web Services Key Management Service.</p>
    */
-  Status: SseKmsEncryptedObjectsStatus | string | undefined;
+  Status: keyof typeof SseKmsEncryptedObjectsStatus | string | undefined;
 }
 
 /**
@@ -6178,10 +6178,10 @@ export interface SourceSelectionCriteria {
 /**
  * @public
  */
-export enum ReplicationRuleStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ReplicationRuleStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -6228,7 +6228,7 @@ export interface ReplicationRule {
   /**
    * <p>Specifies whether the rule is enabled.</p>
    */
-  Status: ReplicationRuleStatus | string | undefined;
+  Status: keyof typeof ReplicationRuleStatus | string | undefined;
 
   /**
    * <p>A container that describes additional filters for identifying the source objects that
@@ -6318,10 +6318,10 @@ export interface GetBucketReplicationRequest {
 /**
  * @public
  */
-export enum Payer {
-  BucketOwner = "BucketOwner",
-  Requester = "Requester",
-}
+export const Payer = {
+  BucketOwner: "BucketOwner",
+  Requester: "Requester",
+};
 
 /**
  * @public
@@ -6330,7 +6330,7 @@ export interface GetBucketRequestPaymentOutput {
   /**
    * <p>Specifies who pays for the download and request fees.</p>
    */
-  Payer?: Payer | string;
+  Payer?: keyof typeof Payer | string;
 }
 
 /**
@@ -6380,18 +6380,18 @@ export interface GetBucketTaggingRequest {
 /**
  * @public
  */
-export enum MFADeleteStatus {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const MFADeleteStatus = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
  */
-export enum BucketVersioningStatus {
-  Enabled = "Enabled",
-  Suspended = "Suspended",
-}
+export const BucketVersioningStatus = {
+  Enabled: "Enabled",
+  Suspended: "Suspended",
+};
 
 /**
  * @public
@@ -6400,14 +6400,14 @@ export interface GetBucketVersioningOutput {
   /**
    * <p>The versioning state of the bucket.</p>
    */
-  Status?: BucketVersioningStatus | string;
+  Status?: keyof typeof BucketVersioningStatus | string;
 
   /**
    * <p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This
    *          element is only returned if the bucket has been configured with MFA delete. If the bucket
    *          has never been so configured, this element is not returned.</p>
    */
-  MFADelete?: MFADeleteStatus | string;
+  MFADelete?: keyof typeof MFADeleteStatus | string;
 }
 
 /**
@@ -6465,10 +6465,10 @@ export interface IndexDocument {
 /**
  * @public
  */
-export enum Protocol {
-  http = "http",
-  https = "https",
-}
+export const Protocol = {
+  http: "http",
+  https: "https",
+};
 
 /**
  * @public
@@ -6485,7 +6485,7 @@ export interface RedirectAllRequestsTo {
    * <p>Protocol to use when redirecting requests. The default is the protocol that is used in
    *          the original request.</p>
    */
-  Protocol?: Protocol | string;
+  Protocol?: keyof typeof Protocol | string;
 }
 
 /**
@@ -6544,7 +6544,7 @@ export interface Redirect {
    * <p>Protocol to use when redirecting requests. The default is the protocol that is used in
    *          the original request.</p>
    */
-  Protocol?: Protocol | string;
+  Protocol?: keyof typeof Protocol | string;
 
   /**
    * <p>The object key prefix to use in the redirect request. For example, to redirect requests
@@ -6644,12 +6644,12 @@ export interface GetBucketWebsiteRequest {
 /**
  * @public
  */
-export enum ReplicationStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  REPLICA = "REPLICA",
-}
+export const ReplicationStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  REPLICA: "REPLICA",
+};
 
 /**
  * @public
@@ -6794,7 +6794,7 @@ export interface GetObjectOutput {
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
    *          AES256, aws:kms).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: keyof typeof ServerSideEncryption | string;
 
   /**
    * <p>A map of metadata to store with the object in S3.</p>
@@ -6829,19 +6829,19 @@ export interface GetObjectOutput {
    * <p>Provides storage class information of the object. Amazon S3 returns this header for all
    *          objects except for S3 Standard storage class objects.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 
   /**
    * <p>Amazon S3 can return this if your request involves a bucket that is either a source or
    *          destination in a replication rule.</p>
    */
-  ReplicationStatus?: ReplicationStatus | string;
+  ReplicationStatus?: keyof typeof ReplicationStatus | string;
 
   /**
    * <p>The count of parts this object has. This value is only returned if you specify <code>partNumber</code>
@@ -6857,7 +6857,7 @@ export interface GetObjectOutput {
   /**
    * <p>The Object Lock mode currently in place for this object.</p>
    */
-  ObjectLockMode?: ObjectLockMode | string;
+  ObjectLockMode?: keyof typeof ObjectLockMode | string;
 
   /**
    * <p>The date and time when this object's Object Lock will expire.</p>
@@ -6868,15 +6868,15 @@ export interface GetObjectOutput {
    * <p>Indicates whether this object has an active legal hold. This field is only returned if
    *          you have permission to view an object's legal hold status. </p>
    */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
+  ObjectLockLegalHoldStatus?: keyof typeof ObjectLockLegalHoldStatus | string;
 }
 
 /**
  * @public
  */
-export enum ChecksumMode {
-  ENABLED = "ENABLED",
-}
+export const ChecksumMode = {
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -6994,7 +6994,7 @@ export interface GetObjectRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>Part number of the object being read. This is a positive integer between 1 and 10,000.
@@ -7011,7 +7011,7 @@ export interface GetObjectRequest {
   /**
    * <p>To retrieve the checksum, this mode must be enabled.</p>
    */
-  ChecksumMode?: ChecksumMode | string;
+  ChecksumMode?: keyof typeof ChecksumMode | string;
 }
 
 /**
@@ -7021,8 +7021,8 @@ export interface GetObjectRequest {
 export class InvalidObjectState extends __BaseException {
   readonly name: "InvalidObjectState" = "InvalidObjectState";
   readonly $fault: "client" = "client";
-  StorageClass?: StorageClass | string;
-  AccessTier?: IntelligentTieringAccessTier | string;
+  StorageClass?: keyof typeof StorageClass | string;
+  AccessTier?: keyof typeof IntelligentTieringAccessTier | string;
   /**
    * @internal
    */
@@ -7076,7 +7076,7 @@ export interface GetObjectAclOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 }
 
 /**
@@ -7107,7 +7107,7 @@ export interface GetObjectAclRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -7268,7 +7268,7 @@ export interface GetObjectAttributesOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 
   /**
    * <p>An ETag is an opaque identifier assigned by a web server to a specific version of a
@@ -7292,7 +7292,7 @@ export interface GetObjectAttributesOutput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
    *             Classes</a>.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 
   /**
    * <p>The size of the object in bytes.</p>
@@ -7303,13 +7303,13 @@ export interface GetObjectAttributesOutput {
 /**
  * @public
  */
-export enum ObjectAttributes {
-  CHECKSUM = "Checksum",
-  ETAG = "ETag",
-  OBJECT_PARTS = "ObjectParts",
-  OBJECT_SIZE = "ObjectSize",
-  STORAGE_CLASS = "StorageClass",
-}
+export const ObjectAttributes = {
+  CHECKSUM: "Checksum",
+  ETAG: "ETag",
+  OBJECT_PARTS: "ObjectParts",
+  OBJECT_SIZE: "ObjectSize",
+  STORAGE_CLASS: "StorageClass",
+};
 
 /**
  * @public
@@ -7373,7 +7373,7 @@ export interface GetObjectAttributesRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -7384,7 +7384,7 @@ export interface GetObjectAttributesRequest {
    * <p>An XML header that specifies the fields at the root level that you want returned in
    *          the response. Fields that you do not specify are not returned.</p>
    */
-  ObjectAttributes: (ObjectAttributes | string)[] | undefined;
+  ObjectAttributes: (keyof typeof ObjectAttributes | string)[] | undefined;
 }
 
 /**
@@ -7395,7 +7395,7 @@ export interface ObjectLockLegalHold {
   /**
    * <p>Indicates whether the specified object has a legal hold in place.</p>
    */
-  Status?: ObjectLockLegalHoldStatus | string;
+  Status?: keyof typeof ObjectLockLegalHoldStatus | string;
 }
 
 /**
@@ -7436,7 +7436,7 @@ export interface GetObjectLegalHoldRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -7447,17 +7447,17 @@ export interface GetObjectLegalHoldRequest {
 /**
  * @public
  */
-export enum ObjectLockEnabled {
-  Enabled = "Enabled",
-}
+export const ObjectLockEnabled = {
+  Enabled: "Enabled",
+};
 
 /**
  * @public
  */
-export enum ObjectLockRetentionMode {
-  COMPLIANCE = "COMPLIANCE",
-  GOVERNANCE = "GOVERNANCE",
-}
+export const ObjectLockRetentionMode = {
+  COMPLIANCE: "COMPLIANCE",
+  GOVERNANCE: "GOVERNANCE",
+};
 
 /**
  * @public
@@ -7482,7 +7482,7 @@ export interface DefaultRetention {
    * <p>The default Object Lock retention mode you want to apply to new objects placed in the
    *          specified bucket. Must be used with either <code>Days</code> or <code>Years</code>.</p>
    */
-  Mode?: ObjectLockRetentionMode | string;
+  Mode?: keyof typeof ObjectLockRetentionMode | string;
 
   /**
    * <p>The number of days that you want to specify for the default retention period. Must be
@@ -7521,7 +7521,7 @@ export interface ObjectLockConfiguration {
    *          Enable <code>ObjectLockEnabled</code> when you apply <code>ObjectLockConfiguration</code>
    *          to a bucket. </p>
    */
-  ObjectLockEnabled?: ObjectLockEnabled | string;
+  ObjectLockEnabled?: keyof typeof ObjectLockEnabled | string;
 
   /**
    * <p>Specifies the Object Lock rule for the specified object. Enable the this rule when you apply
@@ -7568,7 +7568,7 @@ export interface ObjectLockRetention {
   /**
    * <p>Indicates the Retention mode for the specified object.</p>
    */
-  Mode?: ObjectLockRetentionMode | string;
+  Mode?: keyof typeof ObjectLockRetentionMode | string;
 
   /**
    * <p>The date on which this Object Lock Retention will expire.</p>
@@ -7614,7 +7614,7 @@ export interface GetObjectRetentionRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -7672,7 +7672,7 @@ export interface GetObjectTaggingRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 }
 
 /**
@@ -7688,7 +7688,7 @@ export interface GetObjectTorrentOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 }
 
 /**
@@ -7713,7 +7713,7 @@ export interface GetObjectTorrentRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -7849,10 +7849,10 @@ export class NotFound extends __BaseException {
 /**
  * @public
  */
-export enum ArchiveStatus {
-  ARCHIVE_ACCESS = "ARCHIVE_ACCESS",
-  DEEP_ARCHIVE_ACCESS = "DEEP_ARCHIVE_ACCESS",
-}
+export const ArchiveStatus = {
+  ARCHIVE_ACCESS: "ARCHIVE_ACCESS",
+  DEEP_ARCHIVE_ACCESS: "DEEP_ARCHIVE_ACCESS",
+};
 
 /**
  * @public
@@ -7895,7 +7895,7 @@ export interface HeadObjectOutput {
   /**
    * <p>The archive state of the head object.</p>
    */
-  ArchiveStatus?: ArchiveStatus | string;
+  ArchiveStatus?: keyof typeof ArchiveStatus | string;
 
   /**
    * <p>Creation date of the object.</p>
@@ -8003,7 +8003,7 @@ export interface HeadObjectOutput {
    *          the value of the server-side encryption algorithm used when storing this object in Amazon
    *          S3 (for example, AES256, aws:kms).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: keyof typeof ServerSideEncryption | string;
 
   /**
    * <p>A map of metadata to store with the object in S3.</p>
@@ -8040,13 +8040,13 @@ export interface HeadObjectOutput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
    *             Classes</a>.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 
   /**
    * <p>Amazon S3 can return this header if your request involves a bucket that is either a source or
@@ -8089,7 +8089,7 @@ export interface HeadObjectOutput {
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Replication</a>.</p>
    */
-  ReplicationStatus?: ReplicationStatus | string;
+  ReplicationStatus?: keyof typeof ReplicationStatus | string;
 
   /**
    * <p>The count of parts this object has. This value is only returned if you specify <code>partNumber</code>
@@ -8103,7 +8103,7 @@ export interface HeadObjectOutput {
    *          information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object
    *             Lock</a>. </p>
    */
-  ObjectLockMode?: ObjectLockMode | string;
+  ObjectLockMode?: keyof typeof ObjectLockMode | string;
 
   /**
    * <p>The date and time when the Object Lock retention period expires. This header is only
@@ -8117,7 +8117,7 @@ export interface HeadObjectOutput {
    *          header is not returned if the specified version of this object has never had a legal hold
    *          applied. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a>.</p>
    */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
+  ObjectLockLegalHoldStatus?: keyof typeof ObjectLockLegalHoldStatus | string;
 }
 
 /**
@@ -8201,7 +8201,7 @@ export interface HeadObjectRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>Part number of the object being read. This is a positive integer between 1 and 10,000.
@@ -8221,7 +8221,7 @@ export interface HeadObjectRequest {
    *           Amazon Web Services Key Management Service (Amazon Web Services KMS), you must have permission to use the
    *           <code>kms:Decrypt</code> action for the request to succeed.</p>
    */
-  ChecksumMode?: ChecksumMode | string;
+  ChecksumMode?: keyof typeof ChecksumMode | string;
 }
 
 /**
@@ -8486,9 +8486,9 @@ export interface CommonPrefix {
 /**
  * @public
  */
-export enum EncodingType {
-  url = "url",
-}
+export const EncodingType = {
+  url: "url",
+};
 
 /**
  * @public
@@ -8530,7 +8530,7 @@ export interface MultipartUpload {
   /**
    * <p>The class of storage used to store the object.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 
   /**
    * <p>Specifies the owner of the object that is part of the multipart upload. </p>
@@ -8545,7 +8545,7 @@ export interface MultipartUpload {
   /**
    * <p>The algorithm that was used to create a checksum of the object.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 }
 
 /**
@@ -8626,7 +8626,7 @@ export interface ListMultipartUploadsOutput {
    *             <code>Delimiter</code>, <code>KeyMarker</code>, <code>Prefix</code>,
    *             <code>NextKeyMarker</code>, <code>Key</code>.</p>
    */
-  EncodingType?: EncodingType | string;
+  EncodingType?: keyof typeof EncodingType | string;
 }
 
 /**
@@ -8661,7 +8661,7 @@ export interface ListMultipartUploadsRequest {
    *          characters that are not supported in XML 1.0, you can add this parameter to request that
    *          Amazon S3 encode the keys in the response.</p>
    */
-  EncodingType?: EncodingType | string;
+  EncodingType?: keyof typeof EncodingType | string;
 
   /**
    * <p>Together with upload-id-marker, this parameter specifies the multipart upload after
@@ -8706,17 +8706,17 @@ export interface ListMultipartUploadsRequest {
 /**
  * @public
  */
-export enum ObjectStorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  GLACIER_IR = "GLACIER_IR",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  OUTPOSTS = "OUTPOSTS",
-  REDUCED_REDUNDANCY = "REDUCED_REDUNDANCY",
-  STANDARD = "STANDARD",
-  STANDARD_IA = "STANDARD_IA",
-}
+export const ObjectStorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  OUTPOSTS: "OUTPOSTS",
+  REDUCED_REDUNDANCY: "REDUCED_REDUNDANCY",
+  STANDARD: "STANDARD",
+  STANDARD_IA: "STANDARD_IA",
+};
 
 /**
  * @public
@@ -8763,7 +8763,7 @@ export interface _Object {
   /**
    * <p>The algorithm that was used to create a checksum of the object.</p>
    */
-  ChecksumAlgorithm?: (ChecksumAlgorithm | string)[];
+  ChecksumAlgorithm?: (keyof typeof ChecksumAlgorithm | string)[];
 
   /**
    * <p>Size in bytes of the object</p>
@@ -8773,7 +8773,7 @@ export interface _Object {
   /**
    * <p>The class of storage used to store the object.</p>
    */
-  StorageClass?: ObjectStorageClass | string;
+  StorageClass?: keyof typeof ObjectStorageClass | string;
 
   /**
    * <p>The owner of the object</p>
@@ -8853,7 +8853,7 @@ export interface ListObjectsOutput {
   /**
    * <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
    */
-  EncodingType?: EncodingType | string;
+  EncodingType?: keyof typeof EncodingType | string;
 }
 
 /**
@@ -8882,7 +8882,7 @@ export interface ListObjectsRequest {
    *          characters that are not supported in XML 1.0, you can add this parameter to request that
    *          Amazon S3 encode the keys in the response.</p>
    */
-  EncodingType?: EncodingType | string;
+  EncodingType?: keyof typeof EncodingType | string;
 
   /**
    * <p>Marker is where you want Amazon S3 to start listing from. Amazon S3 starts listing after
@@ -8906,7 +8906,7 @@ export interface ListObjectsRequest {
    * <p>Confirms that the requester knows that she or he will be charged for the list objects
    *          request. Bucket owners need not specify this parameter in their requests.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -9004,7 +9004,7 @@ export interface ListObjectsV2Output {
    *          <p>
    *             <code>Delimiter, Prefix, Key,</code> and <code>StartAfter</code>.</p>
    */
-  EncodingType?: EncodingType | string;
+  EncodingType?: keyof typeof EncodingType | string;
 
   /**
    * <p>KeyCount is the number of keys returned with this request. KeyCount will always be less
@@ -9055,7 +9055,7 @@ export interface ListObjectsV2Request {
   /**
    * <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
    */
-  EncodingType?: EncodingType | string;
+  EncodingType?: keyof typeof EncodingType | string;
 
   /**
    * <p>Sets the maximum number of keys returned in the response. By default the action returns up
@@ -9092,7 +9092,7 @@ export interface ListObjectsV2Request {
    *          request in V2 style. Bucket owners need not specify this parameter in their
    *          requests.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -9135,9 +9135,9 @@ export interface DeleteMarkerEntry {
 /**
  * @public
  */
-export enum ObjectVersionStorageClass {
-  STANDARD = "STANDARD",
-}
+export const ObjectVersionStorageClass = {
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -9152,7 +9152,7 @@ export interface ObjectVersion {
   /**
    * <p>The algorithm that was used to create a checksum of the object.</p>
    */
-  ChecksumAlgorithm?: (ChecksumAlgorithm | string)[];
+  ChecksumAlgorithm?: (keyof typeof ChecksumAlgorithm | string)[];
 
   /**
    * <p>Size in bytes of the object.</p>
@@ -9162,7 +9162,7 @@ export interface ObjectVersion {
   /**
    * <p>The class of storage used to store the object.</p>
    */
-  StorageClass?: ObjectVersionStorageClass | string;
+  StorageClass?: keyof typeof ObjectVersionStorageClass | string;
 
   /**
    * <p>The object key.</p>
@@ -9276,7 +9276,7 @@ export interface ListObjectVersionsOutput {
    *          <p>
    *             <code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
    */
-  EncodingType?: EncodingType | string;
+  EncodingType?: keyof typeof EncodingType | string;
 }
 
 /**
@@ -9306,7 +9306,7 @@ export interface ListObjectVersionsRequest {
    *          characters that are not supported in XML 1.0, you can add this parameter to request that
    *          Amazon S3 encode the keys in the response.</p>
    */
-  EncodingType?: EncodingType | string;
+  EncodingType?: keyof typeof EncodingType | string;
 
   /**
    * <p>Specifies the key to start with when listing objects in a bucket.</p>
@@ -9489,18 +9489,18 @@ export interface ListPartsOutput {
    * <p>Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the uploaded
    *          object.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 
   /**
    * <p>The algorithm that was used to create a checksum of the object.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 }
 
 /**
@@ -9544,7 +9544,7 @@ export interface ListPartsRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -9606,7 +9606,7 @@ export interface PutBucketAccelerateConfigurationRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 }
 
 /**
@@ -9616,7 +9616,7 @@ export interface PutBucketAclRequest {
   /**
    * <p>The canned ACL to apply to the bucket.</p>
    */
-  ACL?: BucketCannedACL | string;
+  ACL?: keyof typeof BucketCannedACL | string;
 
   /**
    * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
@@ -9649,7 +9649,7 @@ export interface PutBucketAclRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the
@@ -9762,7 +9762,7 @@ export interface PutBucketCorsRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -9799,7 +9799,7 @@ export interface PutBucketEncryptionRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>Specifies the default server-side-encryption configuration.</p>
@@ -9894,7 +9894,7 @@ export interface PutBucketLifecycleConfigurationRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
@@ -9951,7 +9951,7 @@ export interface PutBucketLoggingRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -10069,7 +10069,7 @@ export interface PutBucketPolicyRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>Set this parameter to true to confirm that you want to remove your permissions to change
@@ -10116,7 +10116,7 @@ export interface PutBucketReplicationRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a
@@ -10143,7 +10143,7 @@ export interface RequestPaymentConfiguration {
   /**
    * <p>Specifies who pays for the download and request fees.</p>
    */
-  Payer: Payer | string | undefined;
+  Payer: keyof typeof Payer | string | undefined;
 }
 
 /**
@@ -10175,7 +10175,7 @@ export interface PutBucketRequestPaymentRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>Container for Payer.</p>
@@ -10227,7 +10227,7 @@ export interface PutBucketTaggingRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>Container for the <code>TagSet</code> and <code>Tag</code> elements.</p>
@@ -10243,10 +10243,10 @@ export interface PutBucketTaggingRequest {
 /**
  * @public
  */
-export enum MFADelete {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const MFADelete = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -10259,12 +10259,12 @@ export interface VersioningConfiguration {
    *          element is only returned if the bucket has been configured with MFA delete. If the bucket
    *          has never been so configured, this element is not returned.</p>
    */
-  MFADelete?: MFADelete | string;
+  MFADelete?: keyof typeof MFADelete | string;
 
   /**
    * <p>The versioning state of the bucket.</p>
    */
-  Status?: BucketVersioningStatus | string;
+  Status?: keyof typeof BucketVersioningStatus | string;
 }
 
 /**
@@ -10296,7 +10296,7 @@ export interface PutBucketVersioningRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>The concatenation of the authentication device's serial number, a space, and the value
@@ -10372,7 +10372,7 @@ export interface PutBucketWebsiteRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>Container for the request.</p>
@@ -10439,7 +10439,7 @@ export interface PutObjectOutput {
    *          or Amazon S3-managed encryption key in your PUT request, the response includes this header. It
    *          confirms the encryption algorithm that Amazon S3 used to encrypt the object.</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: keyof typeof ServerSideEncryption | string;
 
   /**
    * <p>Version of the object.</p>
@@ -10483,7 +10483,7 @@ export interface PutObjectOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 }
 
 /**
@@ -10495,7 +10495,7 @@ export interface PutObjectRequest {
    *       ACL</a>.</p>
    *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    */
-  ACL?: ObjectCannedACL | string;
+  ACL?: keyof typeof ObjectCannedACL | string;
 
   /**
    * <p>Object data.</p>
@@ -10566,7 +10566,7 @@ export interface PutObjectRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
@@ -10647,7 +10647,7 @@ export interface PutObjectRequest {
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
    *          AES256, aws:kms).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  ServerSideEncryption?: keyof typeof ServerSideEncryption | string;
 
   /**
    * <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The
@@ -10656,7 +10656,7 @@ export interface PutObjectRequest {
    *          the OUTPOSTS Storage Class. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
    *          <i>Amazon S3 User Guide</i>.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 
   /**
    * <p>If the bucket is configured as a website, redirects requests for this object to another
@@ -10729,7 +10729,7 @@ export interface PutObjectRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For
@@ -10740,7 +10740,7 @@ export interface PutObjectRequest {
   /**
    * <p>The Object Lock mode that you want to apply to this object.</p>
    */
-  ObjectLockMode?: ObjectLockMode | string;
+  ObjectLockMode?: keyof typeof ObjectLockMode | string;
 
   /**
    * <p>The date and time when you want this object's Object Lock to expire. Must be formatted
@@ -10753,7 +10753,7 @@ export interface PutObjectRequest {
    *          about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object
    *          Lock</a>.</p>
    */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
+  ObjectLockLegalHoldStatus?: keyof typeof ObjectLockLegalHoldStatus | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -10769,7 +10769,7 @@ export interface PutObjectAclOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 }
 
 /**
@@ -10779,7 +10779,7 @@ export interface PutObjectAclRequest {
   /**
    * <p>The canned ACL to apply to the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
    */
-  ACL?: ObjectCannedACL | string;
+  ACL?: keyof typeof ObjectCannedACL | string;
 
   /**
    * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
@@ -10813,7 +10813,7 @@ export interface PutObjectAclRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the
@@ -10862,7 +10862,7 @@ export interface PutObjectAclRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>VersionId used to reference a specific version of the object.</p>
@@ -10883,7 +10883,7 @@ export interface PutObjectLegalHoldOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 }
 
 /**
@@ -10915,7 +10915,7 @@ export interface PutObjectLegalHoldRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>The version ID of the object that you want to place a legal hold on.</p>
@@ -10937,7 +10937,7 @@ export interface PutObjectLegalHoldRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -10953,7 +10953,7 @@ export interface PutObjectLockConfigurationOutput {
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  RequestCharged?: keyof typeof RequestCharged | string;
 }
 
 /**
@@ -10978,7 +10978,7 @@ export interface PutObjectLockConfigurationRequest {
    *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  RequestPayer?: keyof typeof RequestPayer | string;
 
   /**
    * <p>A token to allow Object Lock to be enabled for an existing bucket.</p>
@@ -11000,7 +11000,7 @@ export interface PutObjectLockConfigurationRequest {
    *          <p>If you provide an individual checksum, Amazon S3 ignores any provided
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>

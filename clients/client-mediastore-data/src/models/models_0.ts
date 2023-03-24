@@ -235,10 +235,10 @@ export class RequestedRangeNotSatisfiableException extends __BaseException {
 /**
  * @public
  */
-export enum ItemType {
-  FOLDER = "FOLDER",
-  OBJECT = "OBJECT",
-}
+export const ItemType = {
+  FOLDER: "FOLDER",
+  OBJECT: "OBJECT",
+};
 
 /**
  * @public
@@ -253,7 +253,7 @@ export interface Item {
   /**
    * <p>The item type (folder or object).</p>
    */
-  Type?: ItemType | string;
+  Type?: keyof typeof ItemType | string;
 
   /**
    * <p>The ETag that represents a unique instance of the item.</p>
@@ -331,17 +331,17 @@ export interface ListItemsResponse {
 /**
  * @public
  */
-export enum StorageClass {
-  TEMPORAL = "TEMPORAL",
-}
+export const StorageClass = {
+  TEMPORAL: "TEMPORAL",
+};
 
 /**
  * @public
  */
-export enum UploadAvailability {
-  STANDARD = "STANDARD",
-  STREAMING = "STREAMING",
-}
+export const UploadAvailability = {
+  STANDARD: "STANDARD",
+  STREAMING: "STREAMING",
+};
 
 /**
  * @public
@@ -391,7 +391,7 @@ export interface PutObjectRequest {
    *          high-performance temporal storage class, and objects are persisted into durable storage
    *          shortly after being received.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 
   /**
    * <p>Indicates the availability of an object while it is still uploading. If the value is set to <code>streaming</code>, the object is available for
@@ -399,7 +399,7 @@ export interface PutObjectRequest {
    *             available for downloading only when it is uploaded completely. The default value for this header is <code>standard</code>.</p>
    *         <p>To use this header, you must also set the HTTP <code>Transfer-Encoding</code> header to <code>chunked</code>.</p>
    */
-  UploadAvailability?: UploadAvailability | string;
+  UploadAvailability?: keyof typeof UploadAvailability | string;
 }
 
 /**
@@ -420,7 +420,7 @@ export interface PutObjectResponse {
    * <p>The storage class where the object was persisted. The class should be
    *          “Temporal”.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 }
 
 /**

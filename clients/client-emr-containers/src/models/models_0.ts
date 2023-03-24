@@ -183,10 +183,10 @@ export interface JobDriver {
 /**
  * @public
  */
-export enum TemplateParameterDataType {
-  NUMBER = "NUMBER",
-  STRING = "STRING",
-}
+export const TemplateParameterDataType = {
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -196,7 +196,7 @@ export interface TemplateParameterConfiguration {
   /**
    * <p>The type of the job template parameter. Allowed values are: ‘STRING’, ‘NUMBER’.</p>
    */
-  type?: TemplateParameterDataType | string;
+  type?: keyof typeof TemplateParameterDataType | string;
 
   /**
    * <p>The default value for the job template parameter.</p>
@@ -269,10 +269,10 @@ export interface CloudWatchMonitoringConfiguration {
 /**
  * @public
  */
-export enum PersistentAppUI {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const PersistentAppUI = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -294,7 +294,7 @@ export interface MonitoringConfiguration {
   /**
    * <p>Monitoring configurations for the persistent application UI. </p>
    */
-  persistentAppUI?: PersistentAppUI | string;
+  persistentAppUI?: keyof typeof PersistentAppUI | string;
 
   /**
    * <p>Monitoring configurations for CloudWatch.</p>
@@ -380,9 +380,9 @@ export namespace ContainerInfo {
 /**
  * @public
  */
-export enum ContainerProviderType {
-  EKS = "EKS",
-}
+export const ContainerProviderType = {
+  EKS: "EKS",
+};
 
 /**
  * @public
@@ -392,7 +392,7 @@ export interface ContainerProvider {
   /**
    * <p>The type of the container provider. Amazon EKS is the only supported type as of now.</p>
    */
-  type: ContainerProviderType | string | undefined;
+  type: keyof typeof ContainerProviderType | string | undefined;
 
   /**
    * <p>The ID of the container cluster.</p>
@@ -538,12 +538,12 @@ export interface DescribeJobRunRequest {
 /**
  * @public
  */
-export enum FailureReason {
-  CLUSTER_UNAVAILABLE = "CLUSTER_UNAVAILABLE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  USER_ERROR = "USER_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const FailureReason = {
+  CLUSTER_UNAVAILABLE: "CLUSTER_UNAVAILABLE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  USER_ERROR: "USER_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+};
 
 /**
  * @public
@@ -570,15 +570,15 @@ export interface RetryPolicyExecution {
 /**
  * @public
  */
-export enum JobRunState {
-  CANCELLED = "CANCELLED",
-  CANCEL_PENDING = "CANCEL_PENDING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUBMITTED = "SUBMITTED",
-}
+export const JobRunState = {
+  CANCELLED: "CANCELLED",
+  CANCEL_PENDING: "CANCEL_PENDING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
@@ -624,13 +624,13 @@ export interface Certificate {
 /**
  * @public
  */
-export enum EndpointState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  TERMINATED = "TERMINATED",
-  TERMINATED_WITH_ERRORS = "TERMINATED_WITH_ERRORS",
-  TERMINATING = "TERMINATING",
-}
+export const EndpointState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  TERMINATED: "TERMINATED",
+  TERMINATED_WITH_ERRORS: "TERMINATED_WITH_ERRORS",
+  TERMINATING: "TERMINATING",
+};
 
 /**
  * @public
@@ -645,12 +645,12 @@ export interface DescribeVirtualClusterRequest {
 /**
  * @public
  */
-export enum VirtualClusterState {
-  ARRESTED = "ARRESTED",
-  RUNNING = "RUNNING",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
+export const VirtualClusterState = {
+  ARRESTED: "ARRESTED",
+  RUNNING: "RUNNING",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+};
 
 /**
  * @public
@@ -680,7 +680,7 @@ export interface VirtualCluster {
   /**
    * <p>The state of the virtual cluster.</p>
    */
-  state?: VirtualClusterState | string;
+  state?: keyof typeof VirtualClusterState | string;
 
   /**
    * <p>The container provider of the virtual cluster.</p>
@@ -735,7 +735,7 @@ export interface ListJobRunsRequest {
   /**
    * <p>The states of the job run.</p>
    */
-  states?: (JobRunState | string)[];
+  states?: (keyof typeof JobRunState | string)[];
 
   /**
    * <p>The maximum number of job runs that can be listed.</p>
@@ -800,7 +800,7 @@ export interface ListManagedEndpointsRequest {
   /**
    * <p>The states of the managed endpoints.</p>
    */
-  states?: (EndpointState | string)[];
+  states?: (keyof typeof EndpointState | string)[];
 
   /**
    * <p>The maximum number of managed endpoints that can be listed.</p>
@@ -846,7 +846,7 @@ export interface ListVirtualClustersRequest {
    * <p>The container provider type of the virtual cluster. Amazon EKS is the only supported type as of
    *          now.</p>
    */
-  containerProviderType?: ContainerProviderType | string;
+  containerProviderType?: keyof typeof ContainerProviderType | string;
 
   /**
    * <p>The date and time after which the virtual clusters are created.</p>
@@ -861,7 +861,7 @@ export interface ListVirtualClustersRequest {
   /**
    * <p>The states of the requested virtual clusters.</p>
    */
-  states?: (VirtualClusterState | string)[];
+  states?: (keyof typeof VirtualClusterState | string)[];
 
   /**
    * <p>The maximum number of virtual clusters that can be listed.</p>
@@ -1098,7 +1098,7 @@ export interface Endpoint {
   /**
    * <p>The state of the endpoint.</p>
    */
-  state?: EndpointState | string;
+  state?: keyof typeof EndpointState | string;
 
   /**
    * <p>The EMR release version to be used for the endpoint.</p>
@@ -1158,7 +1158,7 @@ export interface Endpoint {
   /**
    * <p> The reasons why the endpoint has failed. </p>
    */
-  failureReason?: FailureReason | string;
+  failureReason?: keyof typeof FailureReason | string;
 
   /**
    * <p>The tags of the endpoint. </p>
@@ -1195,7 +1195,7 @@ export interface JobRun {
   /**
    * <p>The state of the job run. </p>
    */
-  state?: JobRunState | string;
+  state?: keyof typeof JobRunState | string;
 
   /**
    * <p>The client token used to start a job run.</p>
@@ -1245,7 +1245,7 @@ export interface JobRun {
   /**
    * <p>The reasons why the job run has failed.</p>
    */
-  failureReason?: FailureReason | string;
+  failureReason?: keyof typeof FailureReason | string;
 
   /**
    * <p>The assigned tags of the job run.</p>

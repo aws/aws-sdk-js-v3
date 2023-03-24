@@ -2652,7 +2652,10 @@ const serializeAws_json1_1MergeShardsInput = (input: MergeShardsInput, context: 
   };
 };
 
-const serializeAws_json1_1MetricsNameList = (input: (MetricsName | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1MetricsNameList = (
+  input: (keyof typeof MetricsName | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3113,7 +3116,10 @@ const deserializeAws_json1_1ListTagsForStreamOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1MetricsNameList = (output: any, context: __SerdeContext): (MetricsName | string)[] => {
+const deserializeAws_json1_1MetricsNameList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof MetricsName | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -361,10 +361,10 @@ export interface MappingParameters {
 /**
  * @public
  */
-export enum RecordFormatType {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+export const RecordFormatType = {
+  CSV: "CSV",
+  JSON: "JSON",
+};
 
 /**
  * @public
@@ -376,7 +376,7 @@ export interface RecordFormat {
   /**
    * <p>The type of record format.</p>
    */
-  RecordFormatType: RecordFormatType | string | undefined;
+  RecordFormatType: keyof typeof RecordFormatType | string | undefined;
 
   /**
    * <p>When you configure application input at the time of creating or updating an application,
@@ -546,11 +546,11 @@ export interface InputProcessingConfigurationDescription {
 /**
  * @public
  */
-export enum InputStartingPosition {
-  LAST_STOPPED_POINT = "LAST_STOPPED_POINT",
-  NOW = "NOW",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const InputStartingPosition = {
+  LAST_STOPPED_POINT: "LAST_STOPPED_POINT",
+  NOW: "NOW",
+  TRIM_HORIZON: "TRIM_HORIZON",
+};
 
 /**
  * @public
@@ -580,7 +580,7 @@ export interface InputStartingPositionConfiguration {
    *             </li>
    *          </ul>
    */
-  InputStartingPosition?: InputStartingPosition | string;
+  InputStartingPosition?: keyof typeof InputStartingPosition | string;
 }
 
 /**
@@ -793,7 +793,7 @@ export interface DestinationSchema {
   /**
    * <p>Specifies the format of the records on the output stream.</p>
    */
-  RecordFormatType: RecordFormatType | string | undefined;
+  RecordFormatType: keyof typeof RecordFormatType | string | undefined;
 }
 
 /**
@@ -1344,10 +1344,10 @@ export interface CodeContent {
 /**
  * @public
  */
-export enum CodeContentType {
-  PLAINTEXT = "PLAINTEXT",
-  ZIPFILE = "ZIPFILE",
-}
+export const CodeContentType = {
+  PLAINTEXT: "PLAINTEXT",
+  ZIPFILE: "ZIPFILE",
+};
 
 /**
  * @public
@@ -1362,7 +1362,7 @@ export interface ApplicationCodeConfiguration {
   /**
    * <p>Specifies whether the code content is in text or zip format.</p>
    */
-  CodeContentType: CodeContentType | string | undefined;
+  CodeContentType: keyof typeof CodeContentType | string | undefined;
 }
 
 /**
@@ -1421,7 +1421,7 @@ export interface ApplicationCodeConfigurationDescription {
   /**
    * <p>Specifies whether the code content is in text or zip format.</p>
    */
-  CodeContentType: CodeContentType | string | undefined;
+  CodeContentType: keyof typeof CodeContentType | string | undefined;
 
   /**
    * <p>Describes details about the location and format of the application code.</p>
@@ -1479,7 +1479,7 @@ export interface ApplicationCodeConfigurationUpdate {
   /**
    * <p>Describes updates to the code content type.</p>
    */
-  CodeContentTypeUpdate?: CodeContentType | string;
+  CodeContentTypeUpdate?: keyof typeof CodeContentType | string;
 
   /**
    * <p>Describes updates to the code content of an application.</p>
@@ -1528,10 +1528,10 @@ export interface EnvironmentProperties {
 /**
  * @public
  */
-export enum ConfigurationType {
-  CUSTOM = "CUSTOM",
-  DEFAULT = "DEFAULT",
-}
+export const ConfigurationType = {
+  CUSTOM: "CUSTOM",
+  DEFAULT: "DEFAULT",
+};
 
 /**
  * @public
@@ -1566,7 +1566,7 @@ export interface CheckpointConfiguration {
    *             </ul>
    *          </note>
    */
-  ConfigurationType: ConfigurationType | string | undefined;
+  ConfigurationType: keyof typeof ConfigurationType | string | undefined;
 
   /**
    * <p>Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.</p>
@@ -1606,22 +1606,22 @@ export interface CheckpointConfiguration {
 /**
  * @public
  */
-export enum LogLevel {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  INFO = "INFO",
-  WARN = "WARN",
-}
+export const LogLevel = {
+  DEBUG: "DEBUG",
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARN: "WARN",
+};
 
 /**
  * @public
  */
-export enum MetricsLevel {
-  APPLICATION = "APPLICATION",
-  OPERATOR = "OPERATOR",
-  PARALLELISM = "PARALLELISM",
-  TASK = "TASK",
-}
+export const MetricsLevel = {
+  APPLICATION: "APPLICATION",
+  OPERATOR: "OPERATOR",
+  PARALLELISM: "PARALLELISM",
+  TASK: "TASK",
+};
 
 /**
  * @public
@@ -1633,18 +1633,18 @@ export interface MonitoringConfiguration {
    *     You must set this property to <code>CUSTOM</code> in order to set the <code>LogLevel</code> or
    *     <code>MetricsLevel</code> parameters.</p>
    */
-  ConfigurationType: ConfigurationType | string | undefined;
+  ConfigurationType: keyof typeof ConfigurationType | string | undefined;
 
   /**
    * <p>Describes the granularity of the CloudWatch Logs for an application. The <code>Parallelism</code>
    *     level is not recommended for applications with a Parallelism over 64 due to excessive costs.</p>
    */
-  MetricsLevel?: MetricsLevel | string;
+  MetricsLevel?: keyof typeof MetricsLevel | string;
 
   /**
    * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 }
 
 /**
@@ -1659,7 +1659,7 @@ export interface ParallelismConfiguration {
    * <p>Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to <code>CUSTOM</code>
    *     in order to change your application's <code>AutoScalingEnabled</code>, <code>Parallelism</code>, or <code>ParallelismPerKPU</code> properties.</p>
    */
-  ConfigurationType: ConfigurationType | string | undefined;
+  ConfigurationType: keyof typeof ConfigurationType | string | undefined;
 
   /**
    * <p>Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform. If <code>AutoScalingEnabled</code>
@@ -1761,10 +1761,10 @@ export interface CatalogConfiguration {
 /**
  * @public
  */
-export enum ArtifactType {
-  DEPENDENCY_JAR = "DEPENDENCY_JAR",
-  UDF = "UDF",
-}
+export const ArtifactType = {
+  DEPENDENCY_JAR: "DEPENDENCY_JAR",
+  UDF: "UDF",
+};
 
 /**
  * @public
@@ -1796,7 +1796,7 @@ export interface CustomArtifactConfiguration {
    * <p>
    *             <code>UDF</code> stands for user-defined functions. This type of artifact must be in an S3 bucket. A <code>DEPENDENCY_JAR</code> can be in either Maven or an S3 bucket.</p>
    */
-  ArtifactType: ArtifactType | string | undefined;
+  ArtifactType: keyof typeof ArtifactType | string | undefined;
 
   /**
    * <p>For a Kinesis Data Analytics application provides a
@@ -1848,7 +1848,7 @@ export interface ZeppelinMonitoringConfiguration {
   /**
    * <p>The verbosity of the CloudWatch Logs for an application.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: keyof typeof LogLevel | string | undefined;
 }
 
 /**
@@ -1967,7 +1967,7 @@ export interface CheckpointConfigurationDescription {
    *             </ul>
    *          </note>
    */
-  ConfigurationType?: ConfigurationType | string;
+  ConfigurationType?: keyof typeof ConfigurationType | string;
 
   /**
    * <p>Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.</p>
@@ -2009,17 +2009,17 @@ export interface MonitoringConfigurationDescription {
   /**
    * <p>Describes whether to use the default CloudWatch logging configuration for an application.</p>
    */
-  ConfigurationType?: ConfigurationType | string;
+  ConfigurationType?: keyof typeof ConfigurationType | string;
 
   /**
    * <p>Describes the granularity of the CloudWatch Logs for an application.</p>
    */
-  MetricsLevel?: MetricsLevel | string;
+  MetricsLevel?: keyof typeof MetricsLevel | string;
 
   /**
    * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 }
 
 /**
@@ -2031,7 +2031,7 @@ export interface ParallelismConfigurationDescription {
   /**
    * <p>Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. </p>
    */
-  ConfigurationType?: ConfigurationType | string;
+  ConfigurationType?: keyof typeof ConfigurationType | string;
 
   /**
    * <p>Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
@@ -2095,11 +2095,11 @@ export interface FlinkApplicationConfigurationDescription {
 /**
  * @public
  */
-export enum ApplicationRestoreType {
-  RESTORE_FROM_CUSTOM_SNAPSHOT = "RESTORE_FROM_CUSTOM_SNAPSHOT",
-  RESTORE_FROM_LATEST_SNAPSHOT = "RESTORE_FROM_LATEST_SNAPSHOT",
-  SKIP_RESTORE_FROM_SNAPSHOT = "SKIP_RESTORE_FROM_SNAPSHOT",
-}
+export const ApplicationRestoreType = {
+  RESTORE_FROM_CUSTOM_SNAPSHOT: "RESTORE_FROM_CUSTOM_SNAPSHOT",
+  RESTORE_FROM_LATEST_SNAPSHOT: "RESTORE_FROM_LATEST_SNAPSHOT",
+  SKIP_RESTORE_FROM_SNAPSHOT: "SKIP_RESTORE_FROM_SNAPSHOT",
+};
 
 /**
  * @public
@@ -2109,7 +2109,7 @@ export interface ApplicationRestoreConfiguration {
   /**
    * <p>Specifies how the application should be restored.</p>
    */
-  ApplicationRestoreType: ApplicationRestoreType | string | undefined;
+  ApplicationRestoreType: keyof typeof ApplicationRestoreType | string | undefined;
 
   /**
    * <p>The identifier of an existing snapshot of application state to use to restart an application.
@@ -2213,7 +2213,7 @@ export interface CustomArtifactConfigurationDescription {
    * <p>
    *             <code>UDF</code> stands for user-defined functions. This type of artifact must be in an S3 bucket. A <code>DEPENDENCY_JAR</code> can be in either Maven or an S3 bucket.</p>
    */
-  ArtifactType?: ArtifactType | string;
+  ArtifactType?: keyof typeof ArtifactType | string;
 
   /**
    * <p>For a Kinesis Data Analytics application provides a
@@ -2264,7 +2264,7 @@ export interface ZeppelinMonitoringConfigurationDescription {
   /**
    * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 }
 
 /**
@@ -2391,7 +2391,7 @@ export interface CheckpointConfigurationUpdate {
    *             </ul>
    *          </note>
    */
-  ConfigurationTypeUpdate?: ConfigurationType | string;
+  ConfigurationTypeUpdate?: keyof typeof ConfigurationType | string;
 
   /**
    * <p>Describes updates to whether checkpointing is enabled for an application.</p>
@@ -2435,18 +2435,18 @@ export interface MonitoringConfigurationUpdate {
    *       an application. You must set this property to <code>CUSTOM</code> in order to set the <code>LogLevel</code> or
    *     <code>MetricsLevel</code> parameters.</p>
    */
-  ConfigurationTypeUpdate?: ConfigurationType | string;
+  ConfigurationTypeUpdate?: keyof typeof ConfigurationType | string;
 
   /**
    * <p>Describes updates to the granularity of the CloudWatch Logs for an application. The <code>Parallelism</code>
    *       level is not recommended for applications with a Parallelism over 64 due to excessive costs.</p>
    */
-  MetricsLevelUpdate?: MetricsLevel | string;
+  MetricsLevelUpdate?: keyof typeof MetricsLevel | string;
 
   /**
    * <p>Describes updates to the verbosity of the CloudWatch Logs for an application.</p>
    */
-  LogLevelUpdate?: LogLevel | string;
+  LogLevelUpdate?: keyof typeof LogLevel | string;
 }
 
 /**
@@ -2459,7 +2459,7 @@ export interface ParallelismConfigurationUpdate {
    *     You must set this property to <code>CUSTOM</code>
    *     in order to change your application's <code>AutoScalingEnabled</code>, <code>Parallelism</code>, or <code>ParallelismPerKPU</code> properties.</p>
    */
-  ConfigurationTypeUpdate?: ConfigurationType | string;
+  ConfigurationTypeUpdate?: keyof typeof ConfigurationType | string;
 
   /**
    * <p>Describes updates to the initial number of parallel tasks an application can perform. If <code>AutoScalingEnabled</code> is set to True, then
@@ -2880,7 +2880,7 @@ export interface ZeppelinMonitoringConfigurationUpdate {
   /**
    * <p>Updates to the logging level for Apache Zeppelin within a Kinesis Data Analytics Studio notebook.</p>
    */
-  LogLevelUpdate: LogLevel | string | undefined;
+  LogLevelUpdate: keyof typeof LogLevel | string | undefined;
 }
 
 /**
@@ -2971,41 +2971,41 @@ export interface ApplicationMaintenanceConfigurationDescription {
 /**
  * @public
  */
-export enum ApplicationMode {
-  INTERACTIVE = "INTERACTIVE",
-  STREAMING = "STREAMING",
-}
+export const ApplicationMode = {
+  INTERACTIVE: "INTERACTIVE",
+  STREAMING: "STREAMING",
+};
 
 /**
  * @public
  */
-export enum ApplicationStatus {
-  AUTOSCALING = "AUTOSCALING",
-  DELETING = "DELETING",
-  FORCE_STOPPING = "FORCE_STOPPING",
-  MAINTENANCE = "MAINTENANCE",
-  READY = "READY",
-  ROLLED_BACK = "ROLLED_BACK",
-  ROLLING_BACK = "ROLLING_BACK",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
-}
+export const ApplicationStatus = {
+  AUTOSCALING: "AUTOSCALING",
+  DELETING: "DELETING",
+  FORCE_STOPPING: "FORCE_STOPPING",
+  MAINTENANCE: "MAINTENANCE",
+  READY: "READY",
+  ROLLED_BACK: "ROLLED_BACK",
+  ROLLING_BACK: "ROLLING_BACK",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum RuntimeEnvironment {
-  FLINK_1_11 = "FLINK-1_11",
-  FLINK_1_13 = "FLINK-1_13",
-  FLINK_1_15 = "FLINK-1_15",
-  FLINK_1_6 = "FLINK-1_6",
-  FLINK_1_8 = "FLINK-1_8",
-  SQL_1_0 = "SQL-1_0",
-  ZEPPELIN_FLINK_1_0 = "ZEPPELIN-FLINK-1_0",
-  ZEPPELIN_FLINK_2_0 = "ZEPPELIN-FLINK-2_0",
-}
+export const RuntimeEnvironment = {
+  FLINK_1_11: "FLINK-1_11",
+  FLINK_1_13: "FLINK-1_13",
+  FLINK_1_15: "FLINK-1_15",
+  FLINK_1_6: "FLINK-1_6",
+  FLINK_1_8: "FLINK-1_8",
+  SQL_1_0: "SQL-1_0",
+  ZEPPELIN_FLINK_1_0: "ZEPPELIN-FLINK-1_0",
+  ZEPPELIN_FLINK_2_0: "ZEPPELIN-FLINK-2_0",
+};
 
 /**
  * @public
@@ -3031,7 +3031,7 @@ export interface ApplicationDetail {
   /**
    * <p>The runtime environment for the application.</p>
    */
-  RuntimeEnvironment: RuntimeEnvironment | string | undefined;
+  RuntimeEnvironment: keyof typeof RuntimeEnvironment | string | undefined;
 
   /**
    * <p>Specifies the IAM role that the application uses to access external resources.</p>
@@ -3041,7 +3041,7 @@ export interface ApplicationDetail {
   /**
    * <p>The status of the application.</p>
    */
-  ApplicationStatus: ApplicationStatus | string | undefined;
+  ApplicationStatus: keyof typeof ApplicationStatus | string | undefined;
 
   /**
    * <p>Provides the current application version. Kinesis Data Analytics updates the
@@ -3099,7 +3099,7 @@ export interface ApplicationDetail {
   /**
    * <p>To create a Kinesis Data Analytics Studio notebook, you must set the mode to <code>INTERACTIVE</code>. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.</p>
    */
-  ApplicationMode?: ApplicationMode | string;
+  ApplicationMode?: keyof typeof ApplicationMode | string;
 }
 
 /**
@@ -3131,7 +3131,7 @@ export interface ApplicationSummary {
   /**
    * <p>The status of the application.</p>
    */
-  ApplicationStatus: ApplicationStatus | string | undefined;
+  ApplicationStatus: keyof typeof ApplicationStatus | string | undefined;
 
   /**
    * <p>Provides the current application version.</p>
@@ -3141,12 +3141,12 @@ export interface ApplicationSummary {
   /**
    * <p>The runtime environment for the application.</p>
    */
-  RuntimeEnvironment: RuntimeEnvironment | string | undefined;
+  RuntimeEnvironment: keyof typeof RuntimeEnvironment | string | undefined;
 
   /**
    * <p>For a Kinesis Data Analytics for Apache Flink application, the mode is <code>STREAMING</code>. For a Kinesis Data Analytics Studio notebook, it is <code>INTERACTIVE</code>.</p>
    */
-  ApplicationMode?: ApplicationMode | string;
+  ApplicationMode?: keyof typeof ApplicationMode | string;
 }
 
 /**
@@ -3162,7 +3162,7 @@ export interface ApplicationVersionSummary {
   /**
    * <p>The status of the application.</p>
    */
-  ApplicationStatus: ApplicationStatus | string | undefined;
+  ApplicationStatus: keyof typeof ApplicationStatus | string | undefined;
 }
 
 /**
@@ -3221,7 +3221,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>The runtime environment for the application.</p>
    */
-  RuntimeEnvironment: RuntimeEnvironment | string | undefined;
+  RuntimeEnvironment: keyof typeof RuntimeEnvironment | string | undefined;
 
   /**
    * <p>The IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose
@@ -3254,7 +3254,7 @@ export interface CreateApplicationRequest {
    * <p>Use the <code>STREAMING</code> mode to create a Kinesis Data Analytics For Flink application. To create a Kinesis Data Analytics Studio notebook, use the
    *     <code>INTERACTIVE</code> mode.</p>
    */
-  ApplicationMode?: ApplicationMode | string;
+  ApplicationMode?: keyof typeof ApplicationMode | string;
 }
 
 /**
@@ -3337,10 +3337,10 @@ export class UnsupportedOperationException extends __BaseException {
 /**
  * @public
  */
-export enum UrlType {
-  FLINK_DASHBOARD_URL = "FLINK_DASHBOARD_URL",
-  ZEPPELIN_UI_URL = "ZEPPELIN_UI_URL",
-}
+export const UrlType = {
+  FLINK_DASHBOARD_URL: "FLINK_DASHBOARD_URL",
+  ZEPPELIN_UI_URL: "ZEPPELIN_UI_URL",
+};
 
 /**
  * @public
@@ -3355,7 +3355,7 @@ export interface CreateApplicationPresignedUrlRequest {
    * <p>The type of the extension for which to create and return a URL. Currently, the only valid
    *             extension URL type is <code>FLINK_DASHBOARD_URL</code>. </p>
    */
-  UrlType: UrlType | string | undefined;
+  UrlType: keyof typeof UrlType | string | undefined;
 
   /**
    * <p>The duration in seconds for which the returned URL will be valid.</p>
@@ -3711,12 +3711,12 @@ export interface DescribeApplicationSnapshotRequest {
 /**
  * @public
  */
-export enum SnapshotStatus {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  READY = "READY",
-}
+export const SnapshotStatus = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  READY: "READY",
+};
 
 /**
  * @public
@@ -3731,7 +3731,7 @@ export interface SnapshotDetails {
   /**
    * <p>The status of the application snapshot.</p>
    */
-  SnapshotStatus: SnapshotStatus | string | undefined;
+  SnapshotStatus: keyof typeof SnapshotStatus | string | undefined;
 
   /**
    * <p>The current application version ID when the snapshot was created.</p>

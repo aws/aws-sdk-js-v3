@@ -6,10 +6,10 @@ import { EMRServerlessServiceException as __BaseException } from "./EMRServerles
 /**
  * @public
  */
-export enum Architecture {
-  ARM64 = "ARM64",
-  X86_64 = "X86_64",
-}
+export const Architecture = {
+  ARM64: "ARM64",
+  X86_64: "X86_64",
+};
 
 /**
  * @public
@@ -138,15 +138,15 @@ export interface NetworkConfiguration {
 /**
  * @public
  */
-export enum ApplicationState {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  STARTED = "STARTED",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  TERMINATED = "TERMINATED",
-}
+export const ApplicationState = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  STARTED: "STARTED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  TERMINATED: "TERMINATED",
+};
 
 /**
  * @public
@@ -192,7 +192,7 @@ export interface Application {
   /**
    * <p>The state of the application.</p>
    */
-  state: ApplicationState | string | undefined;
+  state: keyof typeof ApplicationState | string | undefined;
 
   /**
    * <p>The state details of the application.</p>
@@ -245,7 +245,7 @@ export interface Application {
   /**
    * <p>The CPU architecture of an application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: keyof typeof Architecture | string;
 
   /**
    * <p>The image configuration applied to all worker types.</p>
@@ -291,7 +291,7 @@ export interface ApplicationSummary {
   /**
    * <p>The state of the application.</p>
    */
-  state: ApplicationState | string | undefined;
+  state: keyof typeof ApplicationState | string | undefined;
 
   /**
    * <p>The state details of the application.</p>
@@ -311,7 +311,7 @@ export interface ApplicationSummary {
   /**
    * <p>The CPU architecture of an application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: keyof typeof Architecture | string;
 }
 
 /**
@@ -419,7 +419,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>The CPU architecture of an application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: keyof typeof Architecture | string;
 
   /**
    * <p>The image configuration for all worker types. You can either set this parameter or <code>imageConfiguration</code>
@@ -569,7 +569,7 @@ export interface ListApplicationsRequest {
    * <p>An optional filter for application states. Note that if this filter contains multiple
    *          states, the resulting list will be grouped by the state.</p>
    */
-  states?: (ApplicationState | string)[];
+  states?: (keyof typeof ApplicationState | string)[];
 }
 
 /**
@@ -684,7 +684,7 @@ export interface UpdateApplicationRequest {
   /**
    * <p>The CPU architecture of an application.</p>
    */
-  architecture?: Architecture | string;
+  architecture?: keyof typeof Architecture | string;
 
   /**
    * <p>The image configuration to be used for all worker types. You can either set this parameter or <code>imageConfiguration</code>
@@ -923,16 +923,16 @@ export namespace JobDriver {
 /**
  * @public
  */
-export enum JobRunState {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SCHEDULED = "SCHEDULED",
-  SUBMITTED = "SUBMITTED",
-  SUCCESS = "SUCCESS",
-}
+export const JobRunState = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SCHEDULED: "SCHEDULED",
+  SUBMITTED: "SUBMITTED",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -992,7 +992,7 @@ export interface ListJobRunsRequest {
    * <p>An optional filter for job run states. Note that if this filter contains multiple
    *          states, the resulting list will be grouped by the state.</p>
    */
-  states?: (JobRunState | string)[];
+  states?: (keyof typeof JobRunState | string)[];
 }
 
 /**
@@ -1043,7 +1043,7 @@ export interface JobRunSummary {
   /**
    * <p>The state of the job run.</p>
    */
-  state: JobRunState | string | undefined;
+  state: keyof typeof JobRunState | string | undefined;
 
   /**
    * <p>The state details of the job run.</p>
@@ -1252,7 +1252,7 @@ export interface JobRun {
   /**
    * <p>The state of the job run.</p>
    */
-  state: JobRunState | string | undefined;
+  state: keyof typeof JobRunState | string | undefined;
 
   /**
    * <p>The state details of the job run.</p>

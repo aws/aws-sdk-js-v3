@@ -6,12 +6,12 @@ import { ChimeSDKMeetingsServiceException as __BaseException } from "./ChimeSDKM
 /**
  * @public
  */
-export enum MediaCapabilities {
-  NONE = "None",
-  RECEIVE = "Receive",
-  SEND = "Send",
-  SEND_RECEIVE = "SendReceive",
-}
+export const MediaCapabilities = {
+  NONE: "None",
+  RECEIVE: "Receive",
+  SEND: "Send",
+  SEND_RECEIVE: "SendReceive",
+};
 
 /**
  * @public
@@ -41,17 +41,17 @@ export interface AttendeeCapabilities {
   /**
    * <p>The audio capability assigned to an attendee.</p>
    */
-  Audio: MediaCapabilities | string | undefined;
+  Audio: keyof typeof MediaCapabilities | string | undefined;
 
   /**
    * <p>The video capability assigned to an attendee.</p>
    */
-  Video: MediaCapabilities | string | undefined;
+  Video: keyof typeof MediaCapabilities | string | undefined;
 
   /**
    * <p>The content capability assigned to an attendee.</p>
    */
-  Content: MediaCapabilities | string | undefined;
+  Content: keyof typeof MediaCapabilities | string | undefined;
 }
 
 /**
@@ -129,10 +129,10 @@ export interface AttendeeIdItem {
 /**
  * @public
  */
-export enum MeetingFeatureStatus {
-  AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const MeetingFeatureStatus = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+};
 
 /**
  * @public
@@ -142,7 +142,7 @@ export interface AudioFeatures {
   /**
    * <p>Makes echo reduction available to clients who connect to the meeting.</p>
    */
-  EchoReduction?: MeetingFeatureStatus | string;
+  EchoReduction?: keyof typeof MeetingFeatureStatus | string;
 }
 
 /**
@@ -1135,49 +1135,49 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum TranscribeMedicalContentIdentificationType {
-  PHI = "PHI",
-}
+export const TranscribeMedicalContentIdentificationType = {
+  PHI: "PHI",
+};
 
 /**
  * @public
  */
-export enum TranscribeMedicalLanguageCode {
-  EN_US = "en-US",
-}
+export const TranscribeMedicalLanguageCode = {
+  EN_US: "en-US",
+};
 
 /**
  * @public
  */
-export enum TranscribeMedicalRegion {
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  AUTO = "auto",
-  CA_CENTRAL_1 = "ca-central-1",
-  EU_WEST_1 = "eu-west-1",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_WEST_2 = "us-west-2",
-}
+export const TranscribeMedicalRegion = {
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  AUTO: "auto",
+  CA_CENTRAL_1: "ca-central-1",
+  EU_WEST_1: "eu-west-1",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_WEST_2: "us-west-2",
+};
 
 /**
  * @public
  */
-export enum TranscribeMedicalSpecialty {
-  CARDIOLOGY = "CARDIOLOGY",
-  NEUROLOGY = "NEUROLOGY",
-  ONCOLOGY = "ONCOLOGY",
-  PRIMARYCARE = "PRIMARYCARE",
-  RADIOLOGY = "RADIOLOGY",
-  UROLOGY = "UROLOGY",
-}
+export const TranscribeMedicalSpecialty = {
+  CARDIOLOGY: "CARDIOLOGY",
+  NEUROLOGY: "NEUROLOGY",
+  ONCOLOGY: "ONCOLOGY",
+  PRIMARYCARE: "PRIMARYCARE",
+  RADIOLOGY: "RADIOLOGY",
+  UROLOGY: "UROLOGY",
+};
 
 /**
  * @public
  */
-export enum TranscribeMedicalType {
-  CONVERSATION = "CONVERSATION",
-  DICTATION = "DICTATION",
-}
+export const TranscribeMedicalType = {
+  CONVERSATION: "CONVERSATION",
+  DICTATION: "DICTATION",
+};
 
 /**
  * @public
@@ -1187,17 +1187,17 @@ export interface EngineTranscribeMedicalSettings {
   /**
    * <p>The language code specified for the Amazon Transcribe Medical engine.</p>
    */
-  LanguageCode: TranscribeMedicalLanguageCode | string | undefined;
+  LanguageCode: keyof typeof TranscribeMedicalLanguageCode | string | undefined;
 
   /**
    * <p>The specialty specified for the Amazon Transcribe Medical engine.</p>
    */
-  Specialty: TranscribeMedicalSpecialty | string | undefined;
+  Specialty: keyof typeof TranscribeMedicalSpecialty | string | undefined;
 
   /**
    * <p>The type of transcription.</p>
    */
-  Type: TranscribeMedicalType | string | undefined;
+  Type: keyof typeof TranscribeMedicalType | string | undefined;
 
   /**
    * <p>The name of the vocabulary passed to Amazon Transcribe Medical.</p>
@@ -1207,82 +1207,82 @@ export interface EngineTranscribeMedicalSettings {
   /**
    * <p>The AWS Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region. </p>
    */
-  Region?: TranscribeMedicalRegion | string;
+  Region?: keyof typeof TranscribeMedicalRegion | string;
 
   /**
    * <p>Set this field to <code>PHI</code> to identify personal health information in the transcription output.</p>
    */
-  ContentIdentificationType?: TranscribeMedicalContentIdentificationType | string;
+  ContentIdentificationType?: keyof typeof TranscribeMedicalContentIdentificationType | string;
 }
 
 /**
  * @public
  */
-export enum TranscribeContentIdentificationType {
-  PII = "PII",
-}
+export const TranscribeContentIdentificationType = {
+  PII: "PII",
+};
 
 /**
  * @public
  */
-export enum TranscribeContentRedactionType {
-  PII = "PII",
-}
+export const TranscribeContentRedactionType = {
+  PII: "PII",
+};
 
 /**
  * @public
  */
-export enum TranscribeLanguageCode {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  IT_IT = "it-IT",
-  JA_JP = "ja-JP",
-  KO_KR = "ko-KR",
-  PT_BR = "pt-BR",
-  ZH_CN = "zh-CN",
-}
+export const TranscribeLanguageCode = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  IT_IT: "it-IT",
+  JA_JP: "ja-JP",
+  KO_KR: "ko-KR",
+  PT_BR: "pt-BR",
+  ZH_CN: "zh-CN",
+};
 
 /**
  * @public
  */
-export enum TranscribePartialResultsStability {
-  HIGH = "high",
-  LOW = "low",
-  MEDIUM = "medium",
-}
+export const TranscribePartialResultsStability = {
+  HIGH: "high",
+  LOW: "low",
+  MEDIUM: "medium",
+};
 
 /**
  * @public
  */
-export enum TranscribeRegion {
-  AP_NORTHEAST_1 = "ap-northeast-1",
-  AP_NORTHEAST_2 = "ap-northeast-2",
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  AUTO = "auto",
-  CA_CENTRAL_1 = "ca-central-1",
-  EU_CENTRAL_1 = "eu-central-1",
-  EU_WEST_1 = "eu-west-1",
-  EU_WEST_2 = "eu-west-2",
-  SA_EAST_1 = "sa-east-1",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_GOV_WEST_1 = "us-gov-west-1",
-  US_WEST_2 = "us-west-2",
-}
+export const TranscribeRegion = {
+  AP_NORTHEAST_1: "ap-northeast-1",
+  AP_NORTHEAST_2: "ap-northeast-2",
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  AUTO: "auto",
+  CA_CENTRAL_1: "ca-central-1",
+  EU_CENTRAL_1: "eu-central-1",
+  EU_WEST_1: "eu-west-1",
+  EU_WEST_2: "eu-west-2",
+  SA_EAST_1: "sa-east-1",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_GOV_WEST_1: "us-gov-west-1",
+  US_WEST_2: "us-west-2",
+};
 
 /**
  * @public
  */
-export enum TranscribeVocabularyFilterMethod {
-  MASK = "mask",
-  REMOVE = "remove",
-  TAG = "tag",
-}
+export const TranscribeVocabularyFilterMethod = {
+  MASK: "mask",
+  REMOVE: "remove",
+  TAG: "tag",
+};
 
 /**
  * @public
@@ -1292,12 +1292,12 @@ export interface EngineTranscribeSettings {
   /**
    * <p>The language code specified for the Amazon Transcribe engine.</p>
    */
-  LanguageCode?: TranscribeLanguageCode | string;
+  LanguageCode?: keyof typeof TranscribeLanguageCode | string;
 
   /**
    * <p>The filtering method passed to Amazon Transcribe.</p>
    */
-  VocabularyFilterMethod?: TranscribeVocabularyFilterMethod | string;
+  VocabularyFilterMethod?: keyof typeof TranscribeVocabularyFilterMethod | string;
 
   /**
    * <p>The name of the vocabulary filter passed to Amazon Transcribe.</p>
@@ -1312,7 +1312,7 @@ export interface EngineTranscribeSettings {
   /**
    * <p>The AWS Region passed to Amazon Transcribe. If you don't specify a Region, Amazon Chime uses the meeting's Region.</p>
    */
-  Region?: TranscribeRegion | string;
+  Region?: keyof typeof TranscribeRegion | string;
 
   /**
    * <p>Generates partial transcription results that are less likely to change as meeting attendees speak. It does so by only allowing the last few words from the partial results to change.</p>
@@ -1322,18 +1322,18 @@ export interface EngineTranscribeSettings {
   /**
    * <p>The stabity level of a partial results transcription. Determines how stable you want the transcription results to be. A higher level means the transcription results are less likely to change.</p>
    */
-  PartialResultsStability?: TranscribePartialResultsStability | string;
+  PartialResultsStability?: keyof typeof TranscribePartialResultsStability | string;
 
   /**
    * <p>Set this field to <code>PII</code> to identify personally identifiable information in the transcription output.</p>
    */
-  ContentIdentificationType?: TranscribeContentIdentificationType | string;
+  ContentIdentificationType?: keyof typeof TranscribeContentIdentificationType | string;
 
   /**
    * <p>Set this field to <code>PII</code> to redact personally identifiable information in the transcription output. Content redaction is performed only upon complete transcription of the audio segments.</p>
    *          <p>You can’t set <code>ContentRedactionType</code> and <code>ContentIdentificationType</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
    */
-  ContentRedactionType?: TranscribeContentRedactionType | string;
+  ContentRedactionType?: keyof typeof TranscribeContentRedactionType | string;
 
   /**
    * <p>Lists the PII entity types you want to identify or redact. To specify entity types, you must enable <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>
@@ -1364,7 +1364,7 @@ export interface EngineTranscribeSettings {
   /**
    * <p>Language code for the preferred language.</p>
    */
-  PreferredLanguage?: TranscribeLanguageCode | string;
+  PreferredLanguage?: keyof typeof TranscribeLanguageCode | string;
 }
 
 /**

@@ -3701,7 +3701,10 @@ const deserializeAws_restJson1ResourceIdPreference = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext): (Resource | string)[] => {
+const deserializeAws_restJson1Resources = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Resource | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

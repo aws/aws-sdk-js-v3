@@ -282,7 +282,7 @@ export interface CreateAnalysisResponse {
   /**
    * <p>The status of the creation of the analysis. </p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The HTTP status of the request.</p>
@@ -306,7 +306,7 @@ export class LimitExceededException extends __BaseException {
   /**
    * <p>Limit exceeded.</p>
    */
-  ResourceType?: ExceptionResourceType | string;
+  ResourceType?: keyof typeof ExceptionResourceType | string;
 
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
@@ -378,7 +378,7 @@ export interface DataPointDrillUpDownOption {
   /**
    * <p>The status of the drill down options of data points.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: keyof typeof DashboardBehavior | string;
 }
 
 /**
@@ -389,7 +389,7 @@ export interface DataPointMenuLabelOption {
   /**
    * <p>The status of the data point menu options.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: keyof typeof DashboardBehavior | string;
 }
 
 /**
@@ -400,7 +400,7 @@ export interface DataPointTooltipOption {
   /**
    * <p>The status of the data point tool tip options.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: keyof typeof DashboardBehavior | string;
 }
 
 /**
@@ -411,7 +411,7 @@ export interface ExportToCSVOption {
   /**
    * <p>Availability status.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: keyof typeof DashboardBehavior | string;
 }
 
 /**
@@ -422,16 +422,16 @@ export interface ExportWithHiddenFieldsOption {
   /**
    * <p>The status of the export with hidden fields options.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: keyof typeof DashboardBehavior | string;
 }
 
 /**
  * @public
  */
-export enum DashboardUIState {
-  COLLAPSED = "COLLAPSED",
-  EXPANDED = "EXPANDED",
-}
+export const DashboardUIState = {
+  COLLAPSED: "COLLAPSED",
+  EXPANDED: "EXPANDED",
+};
 
 /**
  * @public
@@ -441,7 +441,7 @@ export interface SheetControlsOption {
   /**
    * <p>Visibility state.</p>
    */
-  VisibilityState?: DashboardUIState | string;
+  VisibilityState?: keyof typeof DashboardUIState | string;
 }
 
 /**
@@ -452,7 +452,7 @@ export interface SheetLayoutElementMaximizationOption {
   /**
    * <p>The status of the sheet layout maximization options of a dashbaord.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: keyof typeof DashboardBehavior | string;
 }
 
 /**
@@ -463,7 +463,7 @@ export interface VisualAxisSortOption {
   /**
    * <p>The availaiblity status of a visual's axis sort options.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: keyof typeof DashboardBehavior | string;
 }
 
 /**
@@ -474,7 +474,7 @@ export interface VisualMenuOption {
   /**
    * <p>The availaiblity status of a visual's menu options.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: keyof typeof DashboardBehavior | string;
 }
 
 /**
@@ -485,7 +485,7 @@ export interface ExportHiddenFieldsOption {
   /**
    * <p>The status of the export hidden fields options of a dashbaord.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: keyof typeof DashboardBehavior | string;
 }
 
 /**
@@ -768,7 +768,7 @@ export interface CreateDashboardResponse {
   /**
    * <p>The status of the dashboard creation request.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The HTTP status of the request.</p>
@@ -816,10 +816,10 @@ export interface FieldFolder {
 /**
  * @public
  */
-export enum DataSetImportMode {
-  DIRECT_QUERY = "DIRECT_QUERY",
-  SPICE = "SPICE",
-}
+export const DataSetImportMode = {
+  DIRECT_QUERY: "DIRECT_QUERY",
+  SPICE: "SPICE",
+};
 
 /**
  * @public
@@ -893,7 +893,7 @@ export interface UntagColumnOperation {
   /**
    * <p>The column tags to remove from this column.</p>
    */
-  TagNames: (ColumnTagName | string)[] | undefined;
+  TagNames: (keyof typeof ColumnTagName | string)[] | undefined;
 }
 
 /**
@@ -1065,12 +1065,12 @@ export interface JoinKeyProperties {
 /**
  * @public
  */
-export enum JoinType {
-  INNER = "INNER",
-  LEFT = "LEFT",
-  OUTER = "OUTER",
-  RIGHT = "RIGHT",
-}
+export const JoinType = {
+  INNER: "INNER",
+  LEFT: "LEFT",
+  OUTER: "OUTER",
+  RIGHT: "RIGHT",
+};
 
 /**
  * @public
@@ -1100,7 +1100,7 @@ export interface JoinInstruction {
   /**
    * <p>The type of join that it is.</p>
    */
-  Type: JoinType | string | undefined;
+  Type: keyof typeof JoinType | string | undefined;
 
   /**
    * <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
@@ -1157,15 +1157,15 @@ export interface LogicalTable {
 /**
  * @public
  */
-export enum InputColumnDataType {
-  BIT = "BIT",
-  BOOLEAN = "BOOLEAN",
-  DATETIME = "DATETIME",
-  DECIMAL = "DECIMAL",
-  INTEGER = "INTEGER",
-  JSON = "JSON",
-  STRING = "STRING",
-}
+export const InputColumnDataType = {
+  BIT: "BIT",
+  BOOLEAN: "BOOLEAN",
+  DATETIME: "DATETIME",
+  DECIMAL: "DECIMAL",
+  INTEGER: "INTEGER",
+  JSON: "JSON",
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -1180,7 +1180,7 @@ export interface InputColumn {
   /**
    * <p>The data type of the column.</p>
    */
-  Type: InputColumnDataType | string | undefined;
+  Type: keyof typeof InputColumnDataType | string | undefined;
 }
 
 /**
@@ -1243,22 +1243,22 @@ export interface RelationalTable {
 /**
  * @public
  */
-export enum FileFormat {
-  CLF = "CLF",
-  CSV = "CSV",
-  ELF = "ELF",
-  JSON = "JSON",
-  TSV = "TSV",
-  XLSX = "XLSX",
-}
+export const FileFormat = {
+  CLF: "CLF",
+  CSV: "CSV",
+  ELF: "ELF",
+  JSON: "JSON",
+  TSV: "TSV",
+  XLSX: "XLSX",
+};
 
 /**
  * @public
  */
-export enum TextQualifier {
-  DOUBLE_QUOTE = "DOUBLE_QUOTE",
-  SINGLE_QUOTE = "SINGLE_QUOTE",
-}
+export const TextQualifier = {
+  DOUBLE_QUOTE: "DOUBLE_QUOTE",
+  SINGLE_QUOTE: "SINGLE_QUOTE",
+};
 
 /**
  * @public
@@ -1268,7 +1268,7 @@ export interface UploadSettings {
   /**
    * <p>File format.</p>
    */
-  Format?: FileFormat | string;
+  Format?: keyof typeof FileFormat | string;
 
   /**
    * <p>A row number to start reading data from.</p>
@@ -1283,7 +1283,7 @@ export interface UploadSettings {
   /**
    * <p>Text qualifier.</p>
    */
-  TextQualifier?: TextQualifier | string;
+  TextQualifier?: keyof typeof TextQualifier | string;
 
   /**
    * <p>The delimiter between values in the file.</p>
@@ -1386,26 +1386,26 @@ export namespace PhysicalTable {
 /**
  * @public
  */
-export enum RowLevelPermissionFormatVersion {
-  VERSION_1 = "VERSION_1",
-  VERSION_2 = "VERSION_2",
-}
+export const RowLevelPermissionFormatVersion = {
+  VERSION_1: "VERSION_1",
+  VERSION_2: "VERSION_2",
+};
 
 /**
  * @public
  */
-export enum RowLevelPermissionPolicy {
-  DENY_ACCESS = "DENY_ACCESS",
-  GRANT_ACCESS = "GRANT_ACCESS",
-}
+export const RowLevelPermissionPolicy = {
+  DENY_ACCESS: "DENY_ACCESS",
+  GRANT_ACCESS: "GRANT_ACCESS",
+};
 
 /**
  * @public
  */
-export enum Status {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const Status = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1431,18 +1431,18 @@ export interface RowLevelPermissionDataSet {
    * <p>The type of permissions to use when interpreting the permissions for RLS. <code>DENY_ACCESS</code>
    *         is included for backward compatibility only.</p>
    */
-  PermissionPolicy: RowLevelPermissionPolicy | string | undefined;
+  PermissionPolicy: keyof typeof RowLevelPermissionPolicy | string | undefined;
 
   /**
    * <p>The user or group rules associated with the dataset that contains permissions for RLS.</p>
    *          <p>By default, <code>FormatVersion</code> is <code>VERSION_1</code>. When <code>FormatVersion</code> is <code>VERSION_1</code>, <code>UserName</code> and <code>GroupName</code> are required. When <code>FormatVersion</code> is <code>VERSION_2</code>, <code>UserARN</code> and <code>GroupARN</code> are required, and <code>Namespace</code> must not exist.</p>
    */
-  FormatVersion?: RowLevelPermissionFormatVersion | string;
+  FormatVersion?: keyof typeof RowLevelPermissionFormatVersion | string;
 
   /**
    * <p>The status of the row-level security permission dataset. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -1479,7 +1479,7 @@ export interface RowLevelPermissionTagConfiguration {
   /**
    * <p>The status of row-level security tags. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
@@ -1519,7 +1519,7 @@ export interface CreateDataSetRequest {
   /**
    * <p>Indicates whether you want to import the data into SPICE.</p>
    */
-  ImportMode: DataSetImportMode | string | undefined;
+  ImportMode: keyof typeof DataSetImportMode | string | undefined;
 
   /**
    * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
@@ -2822,34 +2822,34 @@ export interface SslProperties {
 /**
  * @public
  */
-export enum DataSourceType {
-  ADOBE_ANALYTICS = "ADOBE_ANALYTICS",
-  AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
-  AMAZON_OPENSEARCH = "AMAZON_OPENSEARCH",
-  ATHENA = "ATHENA",
-  AURORA = "AURORA",
-  AURORA_POSTGRESQL = "AURORA_POSTGRESQL",
-  AWS_IOT_ANALYTICS = "AWS_IOT_ANALYTICS",
-  DATABRICKS = "DATABRICKS",
-  EXASOL = "EXASOL",
-  GITHUB = "GITHUB",
-  JIRA = "JIRA",
-  MARIADB = "MARIADB",
-  MYSQL = "MYSQL",
-  ORACLE = "ORACLE",
-  POSTGRESQL = "POSTGRESQL",
-  PRESTO = "PRESTO",
-  REDSHIFT = "REDSHIFT",
-  S3 = "S3",
-  SALESFORCE = "SALESFORCE",
-  SERVICENOW = "SERVICENOW",
-  SNOWFLAKE = "SNOWFLAKE",
-  SPARK = "SPARK",
-  SQLSERVER = "SQLSERVER",
-  TERADATA = "TERADATA",
-  TIMESTREAM = "TIMESTREAM",
-  TWITTER = "TWITTER",
-}
+export const DataSourceType = {
+  ADOBE_ANALYTICS: "ADOBE_ANALYTICS",
+  AMAZON_ELASTICSEARCH: "AMAZON_ELASTICSEARCH",
+  AMAZON_OPENSEARCH: "AMAZON_OPENSEARCH",
+  ATHENA: "ATHENA",
+  AURORA: "AURORA",
+  AURORA_POSTGRESQL: "AURORA_POSTGRESQL",
+  AWS_IOT_ANALYTICS: "AWS_IOT_ANALYTICS",
+  DATABRICKS: "DATABRICKS",
+  EXASOL: "EXASOL",
+  GITHUB: "GITHUB",
+  JIRA: "JIRA",
+  MARIADB: "MARIADB",
+  MYSQL: "MYSQL",
+  ORACLE: "ORACLE",
+  POSTGRESQL: "POSTGRESQL",
+  PRESTO: "PRESTO",
+  REDSHIFT: "REDSHIFT",
+  S3: "S3",
+  SALESFORCE: "SALESFORCE",
+  SERVICENOW: "SERVICENOW",
+  SNOWFLAKE: "SNOWFLAKE",
+  SPARK: "SPARK",
+  SQLSERVER: "SQLSERVER",
+  TERADATA: "TERADATA",
+  TIMESTREAM: "TIMESTREAM",
+  TWITTER: "TWITTER",
+};
 
 /**
  * @public
@@ -2886,7 +2886,7 @@ export interface CreateDataSourceRequest {
    * 			list of all data sources, use <code>ListDataSources</code>.</p>
    *          <p>Use <code>AMAZON_ELASTICSEARCH</code> for Amazon OpenSearch Service.</p>
    */
-  Type: DataSourceType | string | undefined;
+  Type: keyof typeof DataSourceType | string | undefined;
 
   /**
    * <p>The parameters that Amazon QuickSight uses to connect to your underlying source.</p>
@@ -2938,7 +2938,7 @@ export interface CreateDataSourceResponse {
   /**
    * <p>The status of creating the data source.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -2954,9 +2954,9 @@ export interface CreateDataSourceResponse {
 /**
  * @public
  */
-export enum FolderType {
-  SHARED = "SHARED",
-}
+export const FolderType = {
+  SHARED: "SHARED",
+};
 
 /**
  * @public
@@ -2980,7 +2980,7 @@ export interface CreateFolderRequest {
   /**
    * <p>The type of folder. By default, <code>folderType</code> is <code>SHARED</code>.</p>
    */
-  FolderType?: FolderType | string;
+  FolderType?: keyof typeof FolderType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the parent folder.</p>
@@ -3029,11 +3029,11 @@ export interface CreateFolderResponse {
 /**
  * @public
  */
-export enum MemberType {
-  ANALYSIS = "ANALYSIS",
-  DASHBOARD = "DASHBOARD",
-  DATASET = "DATASET",
-}
+export const MemberType = {
+  ANALYSIS: "ANALYSIS",
+  DASHBOARD: "DASHBOARD",
+  DATASET: "DATASET",
+};
 
 /**
  * @public
@@ -3057,7 +3057,7 @@ export interface CreateFolderMembershipRequest {
   /**
    * <p>The type of the member, including <code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code>.</p>
    */
-  MemberType: MemberType | string | undefined;
+  MemberType: keyof typeof MemberType | string | undefined;
 }
 
 /**
@@ -3073,7 +3073,7 @@ export interface FolderMember {
   /**
    * <p>The type of asset that it is.</p>
    */
-  MemberType?: MemberType | string;
+  MemberType?: keyof typeof MemberType | string;
 }
 
 /**
@@ -3268,7 +3268,7 @@ export interface CreateIAMPolicyAssignmentRequest {
    *             </li>
    *          </ul>
    */
-  AssignmentStatus: AssignmentStatus | string | undefined;
+  AssignmentStatus: keyof typeof AssignmentStatus | string | undefined;
 
   /**
    * <p>The ARN for the IAM policy to apply to the Amazon QuickSight users and groups
@@ -3320,7 +3320,7 @@ export interface CreateIAMPolicyAssignmentResponse {
    *             </li>
    *          </ul>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: keyof typeof AssignmentStatus | string;
 
   /**
    * <p>The ARN for the IAM policy that is applied to the Amazon QuickSight users and groups specified in this assignment.</p>
@@ -3346,10 +3346,10 @@ export interface CreateIAMPolicyAssignmentResponse {
 /**
  * @public
  */
-export enum IngestionType {
-  FULL_REFRESH = "FULL_REFRESH",
-  INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH",
-}
+export const IngestionType = {
+  FULL_REFRESH: "FULL_REFRESH",
+  INCREMENTAL_REFRESH: "INCREMENTAL_REFRESH",
+};
 
 /**
  * @public
@@ -3373,20 +3373,20 @@ export interface CreateIngestionRequest {
   /**
    * <p>The type of ingestion that you want to create.</p>
    */
-  IngestionType?: IngestionType | string;
+  IngestionType?: keyof typeof IngestionType | string;
 }
 
 /**
  * @public
  */
-export enum IngestionStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-}
+export const IngestionStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INITIALIZED: "INITIALIZED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -3405,7 +3405,7 @@ export interface CreateIngestionResponse {
   /**
    * <p>The ingestion status.</p>
    */
-  IngestionStatus?: IngestionStatus | string;
+  IngestionStatus?: keyof typeof IngestionStatus | string;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -3421,9 +3421,9 @@ export interface CreateIngestionResponse {
 /**
  * @public
  */
-export enum IdentityStore {
-  QUICKSIGHT = "QUICKSIGHT",
-}
+export const IdentityStore = {
+  QUICKSIGHT: "QUICKSIGHT",
+};
 
 /**
  * @public
@@ -3443,7 +3443,7 @@ export interface CreateNamespaceRequest {
    * <p>Specifies the type of your user identity directory. Currently, this supports users
    *             with an identity type of <code>QUICKSIGHT</code>.</p>
    */
-  IdentityStore: IdentityStore | string | undefined;
+  IdentityStore: keyof typeof IdentityStore | string | undefined;
 
   /**
    * <p>The tags that you want to associate with the namespace that you're creating.</p>
@@ -3454,13 +3454,13 @@ export interface CreateNamespaceRequest {
 /**
  * @public
  */
-export enum NamespaceStatus {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  NON_RETRYABLE_FAILURE = "NON_RETRYABLE_FAILURE",
-  RETRYABLE_FAILURE = "RETRYABLE_FAILURE",
-}
+export const NamespaceStatus = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  NON_RETRYABLE_FAILURE: "NON_RETRYABLE_FAILURE",
+  RETRYABLE_FAILURE: "RETRYABLE_FAILURE",
+};
 
 /**
  * @public
@@ -3489,13 +3489,13 @@ export interface CreateNamespaceResponse {
    *             the case of a non-retryable error, refer to the error message for follow-up
    *             tasks.</p>
    */
-  CreationStatus?: NamespaceStatus | string;
+  CreationStatus?: keyof typeof NamespaceStatus | string;
 
   /**
    * <p>Specifies the type of your user identity directory. Currently, this supports users
    *             with an identity type of <code>QUICKSIGHT</code>.</p>
    */
-  IdentityStore?: IdentityStore | string;
+  IdentityStore?: keyof typeof IdentityStore | string;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -3719,7 +3719,7 @@ export interface CreateTemplateResponse {
   /**
    * <p>The template creation status.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The HTTP status of the request.</p>
@@ -4116,7 +4116,7 @@ export interface CreateThemeResponse {
   /**
    * <p>The theme creation status.</p>
    */
-  CreationStatus?: ResourceStatus | string;
+  CreationStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The HTTP status of the request.</p>
@@ -4200,18 +4200,18 @@ export interface CreateThemeAliasResponse {
 /**
  * @public
  */
-export enum DashboardErrorType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  COLUMN_GEOGRAPHIC_ROLE_MISMATCH = "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
-  COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING",
-  COLUMN_TYPE_MISMATCH = "COLUMN_TYPE_MISMATCH",
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  PARAMETER_NOT_FOUND = "PARAMETER_NOT_FOUND",
-  PARAMETER_TYPE_INVALID = "PARAMETER_TYPE_INVALID",
-  PARAMETER_VALUE_INCOMPATIBLE = "PARAMETER_VALUE_INCOMPATIBLE",
-  SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
-}
+export const DashboardErrorType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  COLUMN_GEOGRAPHIC_ROLE_MISMATCH: "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
+  COLUMN_REPLACEMENT_MISSING: "COLUMN_REPLACEMENT_MISSING",
+  COLUMN_TYPE_MISMATCH: "COLUMN_TYPE_MISMATCH",
+  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  PARAMETER_NOT_FOUND: "PARAMETER_NOT_FOUND",
+  PARAMETER_TYPE_INVALID: "PARAMETER_TYPE_INVALID",
+  PARAMETER_VALUE_INCOMPATIBLE: "PARAMETER_VALUE_INCOMPATIBLE",
+  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
+};
 
 /**
  * @public
@@ -4221,7 +4221,7 @@ export interface DashboardError {
   /**
    * <p>Type.</p>
    */
-  Type?: DashboardErrorType | string;
+  Type?: keyof typeof DashboardErrorType | string;
 
   /**
    * <p>Message.</p>
@@ -4257,7 +4257,7 @@ export interface DashboardVersion {
   /**
    * <p>The HTTP status of the request.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -4335,15 +4335,15 @@ export interface Dashboard {
 /**
  * @public
  */
-export enum DashboardFilterAttribute {
-  DASHBOARD_NAME = "DASHBOARD_NAME",
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
-  QUICKSIGHT_USER = "QUICKSIGHT_USER",
-  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
-}
+export const DashboardFilterAttribute = {
+  DASHBOARD_NAME: "DASHBOARD_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_USER: "QUICKSIGHT_USER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+};
 
 /**
  * @public
@@ -4355,7 +4355,7 @@ export interface DashboardSearchFilter {
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"DASHBOARD_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DASHBOARD_NAME</code>.</p>
    */
-  Operator: FilterOperator | string | undefined;
+  Operator: keyof typeof FilterOperator | string | undefined;
 
   /**
    * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
@@ -4388,7 +4388,7 @@ export interface DashboardSearchFilter {
    *             </li>
    *          </ul>
    */
-  Name?: DashboardFilterAttribute | string;
+  Name?: keyof typeof DashboardFilterAttribute | string;
 
   /**
    * <p>The value of the named item, in this case <code>QUICKSIGHT_USER</code>, that you want
@@ -4462,7 +4462,7 @@ export interface DashboardVersionSummary {
   /**
    * <p>The HTTP status of the request.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>Source entity ARN.</p>
@@ -4493,7 +4493,7 @@ export interface OutputColumn {
   /**
    * <p>Type.</p>
    */
-  Type?: ColumnDataType | string;
+  Type?: keyof typeof ColumnDataType | string;
 }
 
 /**
@@ -4546,7 +4546,7 @@ export interface DataSet {
   /**
    * <p>A value that indicates whether you want to import the data into SPICE.</p>
    */
-  ImportMode?: DataSetImportMode | string;
+  ImportMode?: keyof typeof DataSetImportMode | string;
 
   /**
    * <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
@@ -4591,14 +4591,14 @@ export interface DataSet {
 /**
  * @public
  */
-export enum DataSetFilterAttribute {
-  DATASET_NAME = "DATASET_NAME",
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
-  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
-}
+export const DataSetFilterAttribute = {
+  DATASET_NAME: "DATASET_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+};
 
 /**
  * @public
@@ -4610,7 +4610,7 @@ export interface DataSetSearchFilter {
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose datasets you want to search in the <code>"Value"</code> field. For example, <code>"Name":"QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east- 1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the datasets you are searching for. For example, <code>"Name":"DATASET_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASET_NAME</code>.</p>
    */
-  Operator: FilterOperator | string | undefined;
+  Operator: keyof typeof FilterOperator | string | undefined;
 
   /**
    * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
@@ -4643,7 +4643,7 @@ export interface DataSetSearchFilter {
    *             </li>
    *          </ul>
    */
-  Name: DataSetFilterAttribute | string | undefined;
+  Name: keyof typeof DataSetFilterAttribute | string | undefined;
 
   /**
    * <p>The value of the named item, in this case <code>QUICKSIGHT_OWNER</code>, that you want
@@ -4686,7 +4686,7 @@ export interface DataSetSummary {
   /**
    * <p>A value that indicates whether you want to import the data into SPICE.</p>
    */
-  ImportMode?: DataSetImportMode | string;
+  ImportMode?: keyof typeof DataSetImportMode | string;
 
   /**
    * <p>The row-level security configuration for the dataset.</p>
@@ -4707,16 +4707,16 @@ export interface DataSetSummary {
 /**
  * @public
  */
-export enum DataSourceErrorInfoType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  CONFLICT = "CONFLICT",
-  COPY_SOURCE_NOT_FOUND = "COPY_SOURCE_NOT_FOUND",
-  ENGINE_VERSION_NOT_SUPPORTED = "ENGINE_VERSION_NOT_SUPPORTED",
-  GENERIC_SQL_FAILURE = "GENERIC_SQL_FAILURE",
-  TIMEOUT = "TIMEOUT",
-  UNKNOWN = "UNKNOWN",
-  UNKNOWN_HOST = "UNKNOWN_HOST",
-}
+export const DataSourceErrorInfoType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  CONFLICT: "CONFLICT",
+  COPY_SOURCE_NOT_FOUND: "COPY_SOURCE_NOT_FOUND",
+  ENGINE_VERSION_NOT_SUPPORTED: "ENGINE_VERSION_NOT_SUPPORTED",
+  GENERIC_SQL_FAILURE: "GENERIC_SQL_FAILURE",
+  TIMEOUT: "TIMEOUT",
+  UNKNOWN: "UNKNOWN",
+  UNKNOWN_HOST: "UNKNOWN_HOST",
+};
 
 /**
  * @public
@@ -4726,7 +4726,7 @@ export interface DataSourceErrorInfo {
   /**
    * <p>Error type.</p>
    */
-  Type?: DataSourceErrorInfoType | string;
+  Type?: keyof typeof DataSourceErrorInfoType | string;
 
   /**
    * <p>Error message.</p>
@@ -4759,12 +4759,12 @@ export interface DataSource {
    * <p>The type of the data source. This type indicates which database engine the data source
    *             connects to.</p>
    */
-  Type?: DataSourceType | string;
+  Type?: keyof typeof DataSourceType | string;
 
   /**
    * <p>The HTTP status of the request.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The time that this data source was created.</p>
@@ -4822,12 +4822,12 @@ export interface DataSource {
 /**
  * @public
  */
-export enum DataSourceFilterAttribute {
-  DATASOURCE_NAME = "DATASOURCE_NAME",
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-}
+export const DataSourceFilterAttribute = {
+  DATASOURCE_NAME: "DATASOURCE_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+};
 
 /**
  * @public
@@ -4839,7 +4839,7 @@ export interface DataSourceSearchFilter {
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose data sources you want to search in the <code>"Value"</code> field. For example, <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the data sources you are searching for. For example, <code>"Name":"DATASOURCE_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASOURCE_NAME</code>.</p>
    */
-  Operator: FilterOperator | string | undefined;
+  Operator: keyof typeof FilterOperator | string | undefined;
 
   /**
    * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
@@ -4864,7 +4864,7 @@ export interface DataSourceSearchFilter {
    *             </li>
    *          </ul>
    */
-  Name: DataSourceFilterAttribute | string | undefined;
+  Name: keyof typeof DataSourceFilterAttribute | string | undefined;
 
   /**
    * <p>The value of the named item, for example <code>DIRECT_QUICKSIGHT_OWNER</code>, that you want
@@ -4897,7 +4897,7 @@ export interface DataSourceSummary {
   /**
    * <p>The type of the data source.</p>
    */
-  Type?: DataSourceType | string;
+  Type?: keyof typeof DataSourceType | string;
 
   /**
    * <p>The date and time that the data source was created. This value is expressed in MM-DD-YYYY HH:MM:SS format.</p>
@@ -5215,7 +5215,7 @@ export interface DeleteFolderMembershipRequest {
    * <p>The type of the member, including <code>DASHBOARD</code>, <code>ANALYSIS</code>, and <code>DATASET</code>
    *          </p>
    */
-  MemberType: MemberType | string | undefined;
+  MemberType: keyof typeof MemberType | string | undefined;
 }
 
 /**
@@ -5911,7 +5911,7 @@ export interface DescribeAnalysisDefinitionResponse {
    *             </li>
    *          </ul>
    */
-  ResourceStatus?: ResourceStatus | string;
+  ResourceStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The ARN of the theme of the analysis.</p>
@@ -6117,7 +6117,7 @@ export interface DescribeDashboardDefinitionResponse {
    *             </li>
    *          </ul>
    */
-  ResourceStatus?: ResourceStatus | string;
+  ResourceStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The ARN of the theme of the dashboard.</p>
@@ -6432,7 +6432,7 @@ export interface Folder {
   /**
    * <p>The type of folder it is.</p>
    */
-  FolderType?: FolderType | string;
+  FolderType?: keyof typeof FolderType | string;
 
   /**
    * <p>An array of ancestor ARN strings for the folder.</p>
@@ -6701,7 +6701,7 @@ export interface IAMPolicyAssignment {
   /**
    * <p>Assignment status.</p>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: keyof typeof AssignmentStatus | string;
 }
 
 /**
@@ -6774,52 +6774,52 @@ export interface DescribeIngestionRequest {
 /**
  * @public
  */
-export enum IngestionErrorType {
-  ACCOUNT_CAPACITY_LIMIT_EXCEEDED = "ACCOUNT_CAPACITY_LIMIT_EXCEEDED",
-  CONNECTION_FAILURE = "CONNECTION_FAILURE",
-  CURSOR_NOT_ENABLED = "CURSOR_NOT_ENABLED",
-  CUSTOMER_ERROR = "CUSTOMER_ERROR",
-  DATA_SET_DELETED = "DATA_SET_DELETED",
-  DATA_SET_NOT_SPICE = "DATA_SET_NOT_SPICE",
-  DATA_SET_SIZE_LIMIT_EXCEEDED = "DATA_SET_SIZE_LIMIT_EXCEEDED",
-  DATA_SOURCE_AUTH_FAILED = "DATA_SOURCE_AUTH_FAILED",
-  DATA_SOURCE_CONNECTION_FAILED = "DATA_SOURCE_CONNECTION_FAILED",
-  DATA_SOURCE_NOT_FOUND = "DATA_SOURCE_NOT_FOUND",
-  DATA_TOLERANCE_EXCEPTION = "DATA_TOLERANCE_EXCEPTION",
-  ELASTICSEARCH_CURSOR_NOT_ENABLED = "ELASTICSEARCH_CURSOR_NOT_ENABLED",
-  FAILURE_TO_ASSUME_ROLE = "FAILURE_TO_ASSUME_ROLE",
-  FAILURE_TO_PROCESS_JSON_FILE = "FAILURE_TO_PROCESS_JSON_FILE",
-  IAM_ROLE_NOT_AVAILABLE = "IAM_ROLE_NOT_AVAILABLE",
-  INGESTION_CANCELED = "INGESTION_CANCELED",
-  INGESTION_SUPERSEDED = "INGESTION_SUPERSEDED",
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  INVALID_DATAPREP_SYNTAX = "INVALID_DATAPREP_SYNTAX",
-  INVALID_DATA_SOURCE_CONFIG = "INVALID_DATA_SOURCE_CONFIG",
-  INVALID_DATE_FORMAT = "INVALID_DATE_FORMAT",
-  IOT_DATA_SET_FILE_EMPTY = "IOT_DATA_SET_FILE_EMPTY",
-  IOT_FILE_NOT_FOUND = "IOT_FILE_NOT_FOUND",
-  OAUTH_TOKEN_FAILURE = "OAUTH_TOKEN_FAILURE",
-  PASSWORD_AUTHENTICATION_FAILURE = "PASSWORD_AUTHENTICATION_FAILURE",
-  PERMISSION_DENIED = "PERMISSION_DENIED",
-  PERMISSION_NOT_FOUND = "PERMISSION_NOT_FOUND",
-  QUERY_TIMEOUT = "QUERY_TIMEOUT",
-  REFRESH_SUPPRESSED_BY_EDIT = "REFRESH_SUPPRESSED_BY_EDIT",
-  ROW_SIZE_LIMIT_EXCEEDED = "ROW_SIZE_LIMIT_EXCEEDED",
-  S3_FILE_INACCESSIBLE = "S3_FILE_INACCESSIBLE",
-  S3_MANIFEST_ERROR = "S3_MANIFEST_ERROR",
-  S3_UPLOADED_FILE_DELETED = "S3_UPLOADED_FILE_DELETED",
-  SOURCE_API_LIMIT_EXCEEDED_FAILURE = "SOURCE_API_LIMIT_EXCEEDED_FAILURE",
-  SOURCE_RESOURCE_LIMIT_EXCEEDED = "SOURCE_RESOURCE_LIMIT_EXCEEDED",
-  SPICE_TABLE_NOT_FOUND = "SPICE_TABLE_NOT_FOUND",
-  SQL_EXCEPTION = "SQL_EXCEPTION",
-  SQL_INVALID_PARAMETER_VALUE = "SQL_INVALID_PARAMETER_VALUE",
-  SQL_NUMERIC_OVERFLOW = "SQL_NUMERIC_OVERFLOW",
-  SQL_SCHEMA_MISMATCH_ERROR = "SQL_SCHEMA_MISMATCH_ERROR",
-  SQL_TABLE_NOT_FOUND = "SQL_TABLE_NOT_FOUND",
-  SSL_CERTIFICATE_VALIDATION_FAILURE = "SSL_CERTIFICATE_VALIDATION_FAILURE",
-  UNRESOLVABLE_HOST = "UNRESOLVABLE_HOST",
-  UNROUTABLE_HOST = "UNROUTABLE_HOST",
-}
+export const IngestionErrorType = {
+  ACCOUNT_CAPACITY_LIMIT_EXCEEDED: "ACCOUNT_CAPACITY_LIMIT_EXCEEDED",
+  CONNECTION_FAILURE: "CONNECTION_FAILURE",
+  CURSOR_NOT_ENABLED: "CURSOR_NOT_ENABLED",
+  CUSTOMER_ERROR: "CUSTOMER_ERROR",
+  DATA_SET_DELETED: "DATA_SET_DELETED",
+  DATA_SET_NOT_SPICE: "DATA_SET_NOT_SPICE",
+  DATA_SET_SIZE_LIMIT_EXCEEDED: "DATA_SET_SIZE_LIMIT_EXCEEDED",
+  DATA_SOURCE_AUTH_FAILED: "DATA_SOURCE_AUTH_FAILED",
+  DATA_SOURCE_CONNECTION_FAILED: "DATA_SOURCE_CONNECTION_FAILED",
+  DATA_SOURCE_NOT_FOUND: "DATA_SOURCE_NOT_FOUND",
+  DATA_TOLERANCE_EXCEPTION: "DATA_TOLERANCE_EXCEPTION",
+  ELASTICSEARCH_CURSOR_NOT_ENABLED: "ELASTICSEARCH_CURSOR_NOT_ENABLED",
+  FAILURE_TO_ASSUME_ROLE: "FAILURE_TO_ASSUME_ROLE",
+  FAILURE_TO_PROCESS_JSON_FILE: "FAILURE_TO_PROCESS_JSON_FILE",
+  IAM_ROLE_NOT_AVAILABLE: "IAM_ROLE_NOT_AVAILABLE",
+  INGESTION_CANCELED: "INGESTION_CANCELED",
+  INGESTION_SUPERSEDED: "INGESTION_SUPERSEDED",
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  INVALID_DATAPREP_SYNTAX: "INVALID_DATAPREP_SYNTAX",
+  INVALID_DATA_SOURCE_CONFIG: "INVALID_DATA_SOURCE_CONFIG",
+  INVALID_DATE_FORMAT: "INVALID_DATE_FORMAT",
+  IOT_DATA_SET_FILE_EMPTY: "IOT_DATA_SET_FILE_EMPTY",
+  IOT_FILE_NOT_FOUND: "IOT_FILE_NOT_FOUND",
+  OAUTH_TOKEN_FAILURE: "OAUTH_TOKEN_FAILURE",
+  PASSWORD_AUTHENTICATION_FAILURE: "PASSWORD_AUTHENTICATION_FAILURE",
+  PERMISSION_DENIED: "PERMISSION_DENIED",
+  PERMISSION_NOT_FOUND: "PERMISSION_NOT_FOUND",
+  QUERY_TIMEOUT: "QUERY_TIMEOUT",
+  REFRESH_SUPPRESSED_BY_EDIT: "REFRESH_SUPPRESSED_BY_EDIT",
+  ROW_SIZE_LIMIT_EXCEEDED: "ROW_SIZE_LIMIT_EXCEEDED",
+  S3_FILE_INACCESSIBLE: "S3_FILE_INACCESSIBLE",
+  S3_MANIFEST_ERROR: "S3_MANIFEST_ERROR",
+  S3_UPLOADED_FILE_DELETED: "S3_UPLOADED_FILE_DELETED",
+  SOURCE_API_LIMIT_EXCEEDED_FAILURE: "SOURCE_API_LIMIT_EXCEEDED_FAILURE",
+  SOURCE_RESOURCE_LIMIT_EXCEEDED: "SOURCE_RESOURCE_LIMIT_EXCEEDED",
+  SPICE_TABLE_NOT_FOUND: "SPICE_TABLE_NOT_FOUND",
+  SQL_EXCEPTION: "SQL_EXCEPTION",
+  SQL_INVALID_PARAMETER_VALUE: "SQL_INVALID_PARAMETER_VALUE",
+  SQL_NUMERIC_OVERFLOW: "SQL_NUMERIC_OVERFLOW",
+  SQL_SCHEMA_MISMATCH_ERROR: "SQL_SCHEMA_MISMATCH_ERROR",
+  SQL_TABLE_NOT_FOUND: "SQL_TABLE_NOT_FOUND",
+  SSL_CERTIFICATE_VALIDATION_FAILURE: "SSL_CERTIFICATE_VALIDATION_FAILURE",
+  UNRESOLVABLE_HOST: "UNRESOLVABLE_HOST",
+  UNROUTABLE_HOST: "UNROUTABLE_HOST",
+};
 
 /**
  * @public
@@ -6829,7 +6829,7 @@ export interface ErrorInfo {
   /**
    * <p>Error type.</p>
    */
-  Type?: IngestionErrorType | string;
+  Type?: keyof typeof IngestionErrorType | string;
 
   /**
    * <p>Error message.</p>
@@ -6857,20 +6857,20 @@ export interface QueueInfo {
 /**
  * @public
  */
-export enum IngestionRequestSource {
-  MANUAL = "MANUAL",
-  SCHEDULED = "SCHEDULED",
-}
+export const IngestionRequestSource = {
+  MANUAL: "MANUAL",
+  SCHEDULED: "SCHEDULED",
+};
 
 /**
  * @public
  */
-export enum IngestionRequestType {
-  EDIT = "EDIT",
-  FULL_REFRESH = "FULL_REFRESH",
-  INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH",
-  INITIAL_INGESTION = "INITIAL_INGESTION",
-}
+export const IngestionRequestType = {
+  EDIT: "EDIT",
+  FULL_REFRESH: "FULL_REFRESH",
+  INCREMENTAL_REFRESH: "INCREMENTAL_REFRESH",
+  INITIAL_INGESTION: "INITIAL_INGESTION",
+};
 
 /**
  * @public
@@ -6911,7 +6911,7 @@ export interface Ingestion {
   /**
    * <p>Ingestion status.</p>
    */
-  IngestionStatus: IngestionStatus | string | undefined;
+  IngestionStatus: keyof typeof IngestionStatus | string | undefined;
 
   /**
    * <p>Error information for this ingestion.</p>
@@ -6946,12 +6946,12 @@ export interface Ingestion {
   /**
    * <p>Event source for this ingestion.</p>
    */
-  RequestSource?: IngestionRequestSource | string;
+  RequestSource?: keyof typeof IngestionRequestSource | string;
 
   /**
    * <p>Type of this ingestion.</p>
    */
-  RequestType?: IngestionRequestType | string;
+  RequestType?: keyof typeof IngestionRequestType | string;
 }
 
 /**
@@ -7032,10 +7032,10 @@ export interface DescribeNamespaceRequest {
 /**
  * @public
  */
-export enum NamespaceErrorType {
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  PERMISSION_DENIED = "PERMISSION_DENIED",
-}
+export const NamespaceErrorType = {
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  PERMISSION_DENIED: "PERMISSION_DENIED",
+};
 
 /**
  * @public
@@ -7045,7 +7045,7 @@ export interface NamespaceError {
   /**
    * <p>The error type.</p>
    */
-  Type?: NamespaceErrorType | string;
+  Type?: keyof typeof NamespaceErrorType | string;
 
   /**
    * <p>The message for the error.</p>
@@ -7076,12 +7076,12 @@ export interface NamespaceInfoV2 {
   /**
    * <p>The creation status of a namespace that is not yet completely created.</p>
    */
-  CreationStatus?: NamespaceStatus | string;
+  CreationStatus?: keyof typeof NamespaceStatus | string;
 
   /**
    * <p>The identity store used for the namespace.</p>
    */
-  IdentityStore?: IdentityStore | string;
+  IdentityStore?: keyof typeof IdentityStore | string;
 
   /**
    * <p>An error that occurred when the namespace was created.</p>
@@ -7144,12 +7144,12 @@ export interface DescribeTemplateRequest {
 /**
  * @public
  */
-export enum TemplateErrorType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
-}
+export const TemplateErrorType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
+};
 
 /**
  * @public
@@ -7159,7 +7159,7 @@ export interface TemplateError {
   /**
    * <p>Type of error.</p>
    */
-  Type?: TemplateErrorType | string;
+  Type?: keyof typeof TemplateErrorType | string;
 
   /**
    * <p>Description of the error type.</p>
@@ -7232,7 +7232,7 @@ export interface TemplateVersion {
    *             </li>
    *          </ul>
    */
-  Status?: ResourceStatus | string;
+  Status?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
@@ -7458,7 +7458,7 @@ export interface DescribeTemplateDefinitionResponse {
    *             </li>
    *          </ul>
    */
-  ResourceStatus?: ResourceStatus | string;
+  ResourceStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The ARN of the theme of the template.</p>
@@ -7559,18 +7559,18 @@ export interface DescribeThemeRequest {
 /**
  * @public
  */
-export enum ThemeType {
-  ALL = "ALL",
-  CUSTOM = "CUSTOM",
-  QUICKSIGHT = "QUICKSIGHT",
-}
+export const ThemeType = {
+  ALL: "ALL",
+  CUSTOM: "CUSTOM",
+  QUICKSIGHT: "QUICKSIGHT",
+};
 
 /**
  * @public
  */
-export enum ThemeErrorType {
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-}
+export const ThemeErrorType = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+};
 
 /**
  * @public
@@ -7580,7 +7580,7 @@ export interface ThemeError {
   /**
    * <p>The type of error.</p>
    */
-  Type?: ThemeErrorType | string;
+  Type?: keyof typeof ThemeErrorType | string;
 
   /**
    * <p>The error message.</p>
@@ -7632,7 +7632,7 @@ export interface ThemeVersion {
   /**
    * <p>The status of the theme version.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: keyof typeof ResourceStatus | string;
 }
 
 /**
@@ -7674,7 +7674,7 @@ export interface Theme {
    * <p>The type of theme, based on how it was created. Valid values include:
    *             <code>QUICKSIGHT</code> and <code>CUSTOM</code>.</p>
    */
-  Type?: ThemeType | string;
+  Type?: keyof typeof ThemeType | string;
 }
 
 /**
@@ -7807,21 +7807,21 @@ export interface DescribeUserRequest {
 /**
  * @public
  */
-export enum IdentityType {
-  IAM = "IAM",
-  QUICKSIGHT = "QUICKSIGHT",
-}
+export const IdentityType = {
+  IAM: "IAM",
+  QUICKSIGHT: "QUICKSIGHT",
+};
 
 /**
  * @public
  */
-export enum UserRole {
-  ADMIN = "ADMIN",
-  AUTHOR = "AUTHOR",
-  READER = "READER",
-  RESTRICTED_AUTHOR = "RESTRICTED_AUTHOR",
-  RESTRICTED_READER = "RESTRICTED_READER",
-}
+export const UserRole = {
+  ADMIN: "ADMIN",
+  AUTHOR: "AUTHOR",
+  READER: "READER",
+  RESTRICTED_AUTHOR: "RESTRICTED_AUTHOR",
+  RESTRICTED_READER: "RESTRICTED_READER",
+};
 
 /**
  * @public
@@ -7875,12 +7875,12 @@ export interface User {
    *             </li>
    *          </ul>
    */
-  Role?: UserRole | string;
+  Role?: keyof typeof UserRole | string;
 
   /**
    * <p>The type of identity authentication used by the user.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: keyof typeof IdentityType | string;
 
   /**
    * <p>The active status of user. When you create an Amazon QuickSight user that's not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a
@@ -7976,24 +7976,24 @@ export class DomainNotWhitelistedException extends __BaseException {
 /**
  * @public
  */
-export enum EmbeddingIdentityType {
-  ANONYMOUS = "ANONYMOUS",
-  IAM = "IAM",
-  QUICKSIGHT = "QUICKSIGHT",
-}
+export const EmbeddingIdentityType = {
+  ANONYMOUS: "ANONYMOUS",
+  IAM: "IAM",
+  QUICKSIGHT: "QUICKSIGHT",
+};
 
 /**
  * @public
  */
-export enum FolderFilterAttribute {
-  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
-  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
-  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
-  FOLDER_NAME = "FOLDER_NAME",
-  PARENT_FOLDER_ARN = "PARENT_FOLDER_ARN",
-  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
-  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
-}
+export const FolderFilterAttribute = {
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  FOLDER_NAME: "FOLDER_NAME",
+  PARENT_FOLDER_ARN: "PARENT_FOLDER_ARN",
+  QUICKSIGHT_OWNER: "QUICKSIGHT_OWNER",
+  QUICKSIGHT_VIEWER_OR_OWNER: "QUICKSIGHT_VIEWER_OR_OWNER",
+};
 
 /**
  * @public
@@ -8021,7 +8021,7 @@ export interface FolderSearchFilter {
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"FOLDER_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>FOLDER_NAME</code>.</p>
    */
-  Operator?: FilterOperator | string;
+  Operator?: keyof typeof FilterOperator | string;
 
   /**
    * <p>The name of a value that you want to use in the filter. For example, <code>"Name": "QUICKSIGHT_OWNER"</code>.</p>
@@ -8057,7 +8057,7 @@ export interface FolderSearchFilter {
    *             </li>
    *          </ul>
    */
-  Name?: FolderFilterAttribute | string;
+  Name?: keyof typeof FolderFilterAttribute | string;
 
   /**
    * <p>The value of the named item (in this example, <code>PARENT_FOLDER_ARN</code>), that you want to use as a filter. For example, <code>"Value": "arn:aws:quicksight:us-east-1:1:folder/folderId"</code>.</p>
@@ -8088,7 +8088,7 @@ export interface FolderSummary {
   /**
    * <p>The type of folder.</p>
    */
-  FolderType?: FolderType | string;
+  FolderType?: keyof typeof FolderType | string;
 
   /**
    * <p>The time that the folder was created.</p>
@@ -8548,7 +8548,7 @@ export interface GetDashboardEmbedUrlRequest {
   /**
    * <p>The authentication method that the user uses to sign in.</p>
    */
-  IdentityType: EmbeddingIdentityType | string | undefined;
+  IdentityType: keyof typeof EmbeddingIdentityType | string | undefined;
 
   /**
    * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>

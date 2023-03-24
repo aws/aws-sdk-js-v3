@@ -135,17 +135,17 @@ export class LimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum S3ContinuousClassificationType {
-  FULL = "FULL",
-}
+export const S3ContinuousClassificationType = {
+  FULL: "FULL",
+};
 
 /**
  * @public
  */
-export enum S3OneTimeClassificationType {
-  FULL = "FULL",
-  NONE = "NONE",
-}
+export const S3OneTimeClassificationType = {
+  FULL: "FULL",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -157,14 +157,14 @@ export interface ClassificationType {
    * <p>(Discontinued) A one-time classification of all of the existing objects in a specified
    *       S3 bucket. </p>
    */
-  oneTime: S3OneTimeClassificationType | string | undefined;
+  oneTime: keyof typeof S3OneTimeClassificationType | string | undefined;
 
   /**
    * <p>(Discontinued) A continuous classification of the objects that are added to a specified
    *       S3 bucket. Amazon Macie Classic begins performing continuous classification after a bucket is
    *       successfully associated with Macie Classic.</p>
    */
-  continuous: S3ContinuousClassificationType | string | undefined;
+  continuous: keyof typeof S3ContinuousClassificationType | string | undefined;
 }
 
 /**
@@ -271,14 +271,14 @@ export interface ClassificationTypeUpdate {
    * <p>(Discontinued) A one-time classification of all of the existing objects in a specified
    *       S3 bucket. </p>
    */
-  oneTime?: S3OneTimeClassificationType | string;
+  oneTime?: keyof typeof S3OneTimeClassificationType | string;
 
   /**
    * <p>(Discontinued) A continuous classification of the objects that are added to a specified
    *       S3 bucket. Amazon Macie Classic begins performing continuous classification after a bucket is
    *       successfully associated with Macie Classic. </p>
    */
-  continuous?: S3ContinuousClassificationType | string;
+  continuous?: keyof typeof S3ContinuousClassificationType | string;
 }
 
 /**

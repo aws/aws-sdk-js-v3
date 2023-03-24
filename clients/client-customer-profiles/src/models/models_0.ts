@@ -255,13 +255,13 @@ export interface Batch {
 /**
  * @public
  */
-export enum SourceConnectorType {
-  MARKETO = "Marketo",
-  S3 = "S3",
-  SALESFORCE = "Salesforce",
-  SERVICENOW = "Servicenow",
-  ZENDESK = "Zendesk",
-}
+export const SourceConnectorType = {
+  MARKETO: "Marketo",
+  S3: "S3",
+  SALESFORCE: "Salesforce",
+  SERVICENOW: "Servicenow",
+  ZENDESK: "Zendesk",
+};
 
 /**
  * @public
@@ -394,7 +394,7 @@ export interface SourceFlowConfig {
   /**
    * <p>The type of connector, such as Salesforce, Marketo, and so on.</p>
    */
-  ConnectorType: SourceConnectorType | string | undefined;
+  ConnectorType: keyof typeof SourceConnectorType | string | undefined;
 
   /**
    * <p>Defines the configuration for a scheduled incremental data pull. If a valid
@@ -413,124 +413,124 @@ export interface SourceFlowConfig {
 /**
  * @public
  */
-export enum MarketoConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  DIVISION = "DIVISION",
-  GREATER_THAN = "GREATER_THAN",
-  LESS_THAN = "LESS_THAN",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const MarketoConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  DIVISION: "DIVISION",
+  GREATER_THAN: "GREATER_THAN",
+  LESS_THAN: "LESS_THAN",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum S3ConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NOT_EQUAL_TO = "NOT_EQUAL_TO",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const S3ConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum SalesforceConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NOT_EQUAL_TO = "NOT_EQUAL_TO",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const SalesforceConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum ServiceNowConnectorOperator {
-  ADDITION = "ADDITION",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  DIVISION = "DIVISION",
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NOT_EQUAL_TO = "NOT_EQUAL_TO",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const ServiceNowConnectorOperator = {
+  ADDITION: "ADDITION",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  DIVISION: "DIVISION",
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NOT_EQUAL_TO: "NOT_EQUAL_TO",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
  */
-export enum ZendeskConnectorOperator {
-  ADDITION = "ADDITION",
-  DIVISION = "DIVISION",
-  GREATER_THAN = "GREATER_THAN",
-  MASK_ALL = "MASK_ALL",
-  MASK_FIRST_N = "MASK_FIRST_N",
-  MASK_LAST_N = "MASK_LAST_N",
-  MULTIPLICATION = "MULTIPLICATION",
-  NO_OP = "NO_OP",
-  PROJECTION = "PROJECTION",
-  SUBTRACTION = "SUBTRACTION",
-  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
-  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
-  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
-  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
-}
+export const ZendeskConnectorOperator = {
+  ADDITION: "ADDITION",
+  DIVISION: "DIVISION",
+  GREATER_THAN: "GREATER_THAN",
+  MASK_ALL: "MASK_ALL",
+  MASK_FIRST_N: "MASK_FIRST_N",
+  MASK_LAST_N: "MASK_LAST_N",
+  MULTIPLICATION: "MULTIPLICATION",
+  NO_OP: "NO_OP",
+  PROJECTION: "PROJECTION",
+  SUBTRACTION: "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE: "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL: "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO: "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC: "VALIDATE_NUMERIC",
+};
 
 /**
  * @public
@@ -540,61 +540,61 @@ export interface ConnectorOperator {
   /**
    * <p>The operation to be performed on the provided Marketo source fields.</p>
    */
-  Marketo?: MarketoConnectorOperator | string;
+  Marketo?: keyof typeof MarketoConnectorOperator | string;
 
   /**
    * <p>The operation to be performed on the provided Amazon S3 source fields.</p>
    */
-  S3?: S3ConnectorOperator | string;
+  S3?: keyof typeof S3ConnectorOperator | string;
 
   /**
    * <p>The operation to be performed on the provided Salesforce source fields.</p>
    */
-  Salesforce?: SalesforceConnectorOperator | string;
+  Salesforce?: keyof typeof SalesforceConnectorOperator | string;
 
   /**
    * <p>The operation to be performed on the provided ServiceNow source fields.</p>
    */
-  ServiceNow?: ServiceNowConnectorOperator | string;
+  ServiceNow?: keyof typeof ServiceNowConnectorOperator | string;
 
   /**
    * <p>The operation to be performed on the provided Zendesk source fields.</p>
    */
-  Zendesk?: ZendeskConnectorOperator | string;
+  Zendesk?: keyof typeof ZendeskConnectorOperator | string;
 }
 
 /**
  * @public
  */
-export enum OperatorPropertiesKeys {
-  CONCAT_FORMAT = "CONCAT_FORMAT",
-  DATA_TYPE = "DATA_TYPE",
-  DESTINATION_DATA_TYPE = "DESTINATION_DATA_TYPE",
-  LOWER_BOUND = "LOWER_BOUND",
-  MASK_LENGTH = "MASK_LENGTH",
-  MASK_VALUE = "MASK_VALUE",
-  MATH_OPERATION_FIELDS_ORDER = "MATH_OPERATION_FIELDS_ORDER",
-  SOURCE_DATA_TYPE = "SOURCE_DATA_TYPE",
-  SUBFIELD_CATEGORY_MAP = "SUBFIELD_CATEGORY_MAP",
-  TRUNCATE_LENGTH = "TRUNCATE_LENGTH",
-  UPPER_BOUND = "UPPER_BOUND",
-  VALIDATION_ACTION = "VALIDATION_ACTION",
-  VALUE = "VALUE",
-  VALUES = "VALUES",
-}
+export const OperatorPropertiesKeys = {
+  CONCAT_FORMAT: "CONCAT_FORMAT",
+  DATA_TYPE: "DATA_TYPE",
+  DESTINATION_DATA_TYPE: "DESTINATION_DATA_TYPE",
+  LOWER_BOUND: "LOWER_BOUND",
+  MASK_LENGTH: "MASK_LENGTH",
+  MASK_VALUE: "MASK_VALUE",
+  MATH_OPERATION_FIELDS_ORDER: "MATH_OPERATION_FIELDS_ORDER",
+  SOURCE_DATA_TYPE: "SOURCE_DATA_TYPE",
+  SUBFIELD_CATEGORY_MAP: "SUBFIELD_CATEGORY_MAP",
+  TRUNCATE_LENGTH: "TRUNCATE_LENGTH",
+  UPPER_BOUND: "UPPER_BOUND",
+  VALIDATION_ACTION: "VALIDATION_ACTION",
+  VALUE: "VALUE",
+  VALUES: "VALUES",
+};
 
 /**
  * @public
  */
-export enum TaskType {
-  ARITHMETIC = "Arithmetic",
-  FILTER = "Filter",
-  MAP = "Map",
-  MASK = "Mask",
-  MERGE = "Merge",
-  TRUNCATE = "Truncate",
-  VALIDATE = "Validate",
-}
+export const TaskType = {
+  ARITHMETIC: "Arithmetic",
+  FILTER: "Filter",
+  MAP: "Map",
+  MASK: "Mask",
+  MERGE: "Merge",
+  TRUNCATE: "Truncate",
+  VALIDATE: "Validate",
+};
 
 /**
  * @public
@@ -627,16 +627,16 @@ export interface Task {
   /**
    * <p>Specifies the particular task implementation that Amazon AppFlow performs.</p>
    */
-  TaskType: TaskType | string | undefined;
+  TaskType: keyof typeof TaskType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum DataPullMode {
-  COMPLETE = "Complete",
-  INCREMENTAL = "Incremental",
-}
+export const DataPullMode = {
+  COMPLETE: "Complete",
+  INCREMENTAL: "Incremental",
+};
 
 /**
  * @public
@@ -654,7 +654,7 @@ export interface ScheduledTriggerProperties {
    * <p>Specifies whether a scheduled flow has an incremental data transfer or a complete data
    *          transfer for each flow run.</p>
    */
-  DataPullMode?: DataPullMode | string;
+  DataPullMode?: keyof typeof DataPullMode | string;
 
   /**
    * <p>Specifies the scheduled start time for a scheduled-trigger flow.</p>
@@ -700,11 +700,11 @@ export interface TriggerProperties {
 /**
  * @public
  */
-export enum TriggerType {
-  EVENT = "Event",
-  ONDEMAND = "OnDemand",
-  SCHEDULED = "Scheduled",
-}
+export const TriggerType = {
+  EVENT: "Event",
+  ONDEMAND: "OnDemand",
+  SCHEDULED: "Scheduled",
+};
 
 /**
  * @public
@@ -715,7 +715,7 @@ export interface TriggerConfig {
   /**
    * <p>Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.</p>
    */
-  TriggerType: TriggerType | string | undefined;
+  TriggerType: keyof typeof TriggerType | string | undefined;
 
   /**
    * <p>Specifies the configuration details of a schedule-triggered flow that you define.
@@ -791,7 +791,7 @@ export interface AppflowIntegrationWorkflowAttributes {
   /**
    * <p>Specifies the source connector type, such as Salesforce, ServiceNow, and Marketo. Indicates source of ingestion.</p>
    */
-  SourceConnectorType: SourceConnectorType | string | undefined;
+  SourceConnectorType: keyof typeof SourceConnectorType | string | undefined;
 
   /**
    * <p>The name of the AppFlow connector profile used for ingestion.</p>
@@ -828,15 +828,15 @@ export interface AppflowIntegrationWorkflowMetrics {
 /**
  * @public
  */
-export enum Status {
-  CANCELLED = "CANCELLED",
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  RETRY = "RETRY",
-  SPLIT = "SPLIT",
-}
+export const Status = {
+  CANCELLED: "CANCELLED",
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  RETRY: "RETRY",
+  SPLIT: "SPLIT",
+};
 
 /**
  * @public
@@ -851,7 +851,7 @@ export interface AppflowIntegrationWorkflowStep {
   /**
    * <p>Workflow step status for <code>APPFLOW_INTEGRATION</code> workflow.</p>
    */
-  Status: Status | string | undefined;
+  Status: keyof typeof Status | string | undefined;
 
   /**
    * <p>Message indicating execution of workflow step for <code>APPFLOW_INTEGRATION</code> workflow.</p>
@@ -887,10 +887,10 @@ export interface AppflowIntegrationWorkflowStep {
 /**
  * @public
  */
-export enum ConflictResolvingModel {
-  RECENCY = "RECENCY",
-  SOURCE = "SOURCE",
-}
+export const ConflictResolvingModel = {
+  RECENCY: "RECENCY",
+  SOURCE: "SOURCE",
+};
 
 /**
  * @public
@@ -913,7 +913,7 @@ export interface ConflictResolution {
    *             </li>
    *          </ul>
    */
-  ConflictResolvingModel: ConflictResolvingModel | string | undefined;
+  ConflictResolvingModel: keyof typeof ConflictResolvingModel | string | undefined;
 
   /**
    * <p>The <code>ObjectType</code> name that is used to resolve profile merging conflicts when
@@ -1000,15 +1000,15 @@ export interface ExportingConfig {
 /**
  * @public
  */
-export enum JobScheduleDayOfTheWeek {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
+export const JobScheduleDayOfTheWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+};
 
 /**
  * @public
@@ -1018,7 +1018,7 @@ export interface JobSchedule {
   /**
    * <p>The day when the Identity Resolution Job should run every week.</p>
    */
-  DayOfTheWeek: JobScheduleDayOfTheWeek | string | undefined;
+  DayOfTheWeek: keyof typeof JobScheduleDayOfTheWeek | string | undefined;
 
   /**
    * <p>The time when the Identity Resolution Job should run every week.</p>
@@ -1194,9 +1194,9 @@ export interface IntegrationConfig {
 /**
  * @public
  */
-export enum WorkflowType {
-  APPFLOW_INTEGRATION = "APPFLOW_INTEGRATION",
-}
+export const WorkflowType = {
+  APPFLOW_INTEGRATION: "APPFLOW_INTEGRATION",
+};
 
 /**
  * @public
@@ -1210,7 +1210,7 @@ export interface CreateIntegrationWorkflowRequest {
   /**
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType: WorkflowType | string | undefined;
+  WorkflowType: keyof typeof WorkflowType | string | undefined;
 
   /**
    * <p>Configuration data for integration workflow.</p>
@@ -1251,20 +1251,20 @@ export interface CreateIntegrationWorkflowResponse {
 /**
  * @public
  */
-export enum Gender {
-  FEMALE = "FEMALE",
-  MALE = "MALE",
-  UNSPECIFIED = "UNSPECIFIED",
-}
+export const Gender = {
+  FEMALE: "FEMALE",
+  MALE: "MALE",
+  UNSPECIFIED: "UNSPECIFIED",
+};
 
 /**
  * @public
  */
-export enum PartyType {
-  BUSINESS = "BUSINESS",
-  INDIVIDUAL = "INDIVIDUAL",
-  OTHER = "OTHER",
-}
+export const PartyType = {
+  BUSINESS: "BUSINESS",
+  INDIVIDUAL: "INDIVIDUAL",
+  OTHER: "OTHER",
+};
 
 /**
  * @public
@@ -1290,7 +1290,7 @@ export interface CreateProfileRequest {
    *
    * <p>The type of profile used to describe the customer.</p>
    */
-  PartyType?: PartyType | string;
+  PartyType?: keyof typeof PartyType | string;
 
   /**
    * <p>The name of the customer’s business.</p>
@@ -1322,7 +1322,7 @@ export interface CreateProfileRequest {
    *
    * <p>The gender with which the customer identifies. </p>
    */
-  Gender?: Gender | string;
+  Gender?: keyof typeof Gender | string;
 
   /**
    * <p>The customer’s phone number, which has not been specified as a mobile, home, or business
@@ -1807,15 +1807,15 @@ export interface JobStats {
 /**
  * @public
  */
-export enum IdentityResolutionJobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  FIND_MATCHING = "FIND_MATCHING",
-  MERGING = "MERGING",
-  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
-  PENDING = "PENDING",
-  PREPROCESSING = "PREPROCESSING",
-}
+export const IdentityResolutionJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  FIND_MATCHING: "FIND_MATCHING",
+  MERGING: "MERGING",
+  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
+  PENDING: "PENDING",
+  PREPROCESSING: "PREPROCESSING",
+};
 
 /**
  * @public
@@ -1869,7 +1869,7 @@ export interface GetIdentityResolutionJobResponse {
    *             </li>
    *          </ul>
    */
-  Status?: IdentityResolutionJobStatus | string;
+  Status?: keyof typeof IdentityResolutionJobStatus | string;
 
   /**
    * <p>The error messages that are generated when the Identity Resolution Job runs.</p>
@@ -2071,13 +2071,13 @@ export interface GetProfileObjectTypeRequest {
 /**
  * @public
  */
-export enum FieldContentType {
-  EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  NAME = "NAME",
-  NUMBER = "NUMBER",
-  PHONE_NUMBER = "PHONE_NUMBER",
-  STRING = "STRING",
-}
+export const FieldContentType = {
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  NAME: "NAME",
+  NUMBER: "NUMBER",
+  PHONE_NUMBER: "PHONE_NUMBER",
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -2099,22 +2099,22 @@ export interface ObjectTypeField {
   /**
    * <p>The content type of the field. Used for determining equality when searching.</p>
    */
-  ContentType?: FieldContentType | string;
+  ContentType?: keyof typeof FieldContentType | string;
 }
 
 /**
  * @public
  */
-export enum StandardIdentifier {
-  ASSET = "ASSET",
-  CASE = "CASE",
-  LOOKUP_ONLY = "LOOKUP_ONLY",
-  NEW_ONLY = "NEW_ONLY",
-  ORDER = "ORDER",
-  PROFILE = "PROFILE",
-  SECONDARY = "SECONDARY",
-  UNIQUE = "UNIQUE",
-}
+export const StandardIdentifier = {
+  ASSET: "ASSET",
+  CASE: "CASE",
+  LOOKUP_ONLY: "LOOKUP_ONLY",
+  NEW_ONLY: "NEW_ONLY",
+  ORDER: "ORDER",
+  PROFILE: "PROFILE",
+  SECONDARY: "SECONDARY",
+  UNIQUE: "UNIQUE",
+};
 
 /**
  * @public
@@ -2132,7 +2132,7 @@ export interface ObjectTypeKey {
    *          A NEW_ONLY key is only used if the profile does not already exist before the object is
    *          ingested, otherwise it is only used for matching objects to profiles.</p>
    */
-  StandardIdentifiers?: (StandardIdentifier | string)[];
+  StandardIdentifiers?: (keyof typeof StandardIdentifier | string)[];
 
   /**
    * <p>The reference for the key name of the fields map.</p>
@@ -2315,12 +2315,12 @@ export interface GetWorkflowResponse {
   /**
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType?: WorkflowType | string;
+  WorkflowType?: keyof typeof WorkflowType | string;
 
   /**
    * <p>Status of workflow execution.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>Workflow error messages during execution (if any).</p>
@@ -2397,7 +2397,7 @@ export interface GetWorkflowStepsResponse {
   /**
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType?: WorkflowType | string;
+  WorkflowType?: keyof typeof WorkflowType | string;
 
   /**
    * <p>List containing workflow step details.</p>
@@ -2634,7 +2634,7 @@ export interface IdentityResolutionJob {
    *             </li>
    *          </ul>
    */
-  Status?: IdentityResolutionJobStatus | string;
+  Status?: keyof typeof IdentityResolutionJobStatus | string;
 
   /**
    * <p>The timestamp of when the job was started or will be started.</p>
@@ -2960,12 +2960,12 @@ export interface ListWorkflowsRequest {
   /**
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType?: WorkflowType | string;
+  WorkflowType?: keyof typeof WorkflowType | string;
 
   /**
    * <p>Status of workflow execution.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>Retrieve workflows started after timestamp.</p>
@@ -2997,7 +2997,7 @@ export interface ListWorkflowsItem {
   /**
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType: WorkflowType | string | undefined;
+  WorkflowType: keyof typeof WorkflowType | string | undefined;
 
   /**
    * <p>Unique identifier for the workflow.</p>
@@ -3007,7 +3007,7 @@ export interface ListWorkflowsItem {
   /**
    * <p>Status of workflow execution.</p>
    */
-  Status: Status | string | undefined;
+  Status: keyof typeof Status | string | undefined;
 
   /**
    * <p>Description for workflow execution status.</p>
@@ -3455,10 +3455,10 @@ export interface PutProfileObjectTypeResponse {
 /**
  * @public
  */
-export enum LogicalOperator {
-  AND = "AND",
-  OR = "OR",
-}
+export const LogicalOperator = {
+  AND: "AND",
+  OR: "OR",
+};
 
 /**
  * @public
@@ -3522,7 +3522,7 @@ export interface SearchProfilesRequest {
    *          </ul>
    *          <p>The <code>OR</code> relationship is the default behavior if this parameter is not included in the request.</p>
    */
-  LogicalOperator?: LogicalOperator | string;
+  LogicalOperator?: keyof typeof LogicalOperator | string;
 }
 
 /**
@@ -3567,7 +3567,7 @@ export interface Profile {
    *
    * <p>The type of profile used to describe the customer.</p>
    */
-  PartyType?: PartyType | string;
+  PartyType?: keyof typeof PartyType | string;
 
   /**
    * <p>The name of the customer’s business.</p>
@@ -3599,7 +3599,7 @@ export interface Profile {
    *
    * <p>The gender with which the customer identifies. </p>
    */
-  Gender?: Gender | string;
+  Gender?: keyof typeof Gender | string;
 
   /**
    * <p>The customer's phone number, which has not been specified as a mobile, home, or business
@@ -3942,7 +3942,7 @@ export interface UpdateProfileRequest {
    *
    * <p>The type of profile used to describe the customer.</p>
    */
-  PartyType?: PartyType | string;
+  PartyType?: keyof typeof PartyType | string;
 
   /**
    * <p>The name of the customer’s business.</p>
@@ -3974,7 +3974,7 @@ export interface UpdateProfileRequest {
    *
    * <p>The gender with which the customer identifies. </p>
    */
-  Gender?: Gender | string;
+  Gender?: keyof typeof Gender | string;
 
   /**
    * <p>The customer’s phone number, which has not been specified as a mobile, home, or business

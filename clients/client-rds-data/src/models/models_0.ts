@@ -46,14 +46,14 @@ export class BadRequestException extends __BaseException {
 /**
  * @public
  */
-export enum TypeHint {
-  DATE = "DATE",
-  DECIMAL = "DECIMAL",
-  JSON = "JSON",
-  TIME = "TIME",
-  TIMESTAMP = "TIMESTAMP",
-  UUID = "UUID",
-}
+export const TypeHint = {
+  DATE: "DATE",
+  DECIMAL: "DECIMAL",
+  JSON: "JSON",
+  TIME: "TIME",
+  TIMESTAMP: "TIMESTAMP",
+  UUID: "UUID",
+};
 
 /**
  * @public
@@ -312,10 +312,10 @@ export class NotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum DecimalReturnType {
-  DOUBLE_OR_LONG = "DOUBLE_OR_LONG",
-  STRING = "STRING",
-}
+export const DecimalReturnType = {
+  DOUBLE_OR_LONG: "DOUBLE_OR_LONG",
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -373,18 +373,18 @@ export interface ResultSetMetadata {
 /**
  * @public
  */
-export enum RecordsFormatType {
-  JSON = "JSON",
-  NONE = "NONE",
-}
+export const RecordsFormatType = {
+  JSON: "JSON",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum LongReturnType {
-  LONG = "LONG",
-  STRING = "STRING",
-}
+export const LongReturnType = {
+  LONG: "LONG",
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -402,7 +402,7 @@ export interface ResultSetOptions {
    *                 We recommend converting to String, especially when working with currency values.</p>
    *         </note>
    */
-  decimalReturnType?: DecimalReturnType | string;
+  decimalReturnType?: keyof typeof DecimalReturnType | string;
 
   /**
    * <p>A value that indicates how a field of <code>LONG</code> type is represented.
@@ -411,7 +411,7 @@ export interface ResultSetOptions {
    *         precision of numeric values might cause truncation or rounding errors.
    *         </p>
    */
-  longReturnType?: LongReturnType | string;
+  longReturnType?: keyof typeof LongReturnType | string;
 }
 
 /**
@@ -754,7 +754,7 @@ export interface SqlParameter {
    *             </li>
    *          </ul>
    */
-  typeHint?: TypeHint | string;
+  typeHint?: keyof typeof TypeHint | string;
 }
 
 /**
@@ -1090,7 +1090,7 @@ export interface ExecuteStatementRequest {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API</a>
    *           in the <i>Amazon Aurora User Guide</i>.</p>
    */
-  formatRecordsAs?: RecordsFormatType | string;
+  formatRecordsAs?: keyof typeof RecordsFormatType | string;
 }
 
 /**

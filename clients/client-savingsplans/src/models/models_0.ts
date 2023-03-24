@@ -148,16 +148,16 @@ export interface DeleteQueuedSavingsPlanResponse {}
 /**
  * @public
  */
-export enum SavingsPlanRateFilterName {
-  INSTANCE_TYPE = "instanceType",
-  OPERATION = "operation",
-  PRODUCT_DESCRIPTION = "productDescription",
-  PRODUCT_TYPE = "productType",
-  REGION = "region",
-  SERVICE_CODE = "serviceCode",
-  TENANCY = "tenancy",
-  USAGE_TYPE = "usageType",
-}
+export const SavingsPlanRateFilterName = {
+  INSTANCE_TYPE: "instanceType",
+  OPERATION: "operation",
+  PRODUCT_DESCRIPTION: "productDescription",
+  PRODUCT_TYPE: "productType",
+  REGION: "region",
+  SERVICE_CODE: "serviceCode",
+  TENANCY: "tenancy",
+  USAGE_TYPE: "usageType",
+};
 
 /**
  * @public
@@ -167,7 +167,7 @@ export interface SavingsPlanRateFilter {
   /**
    * <p>The filter name.</p>
    */
-  name?: SavingsPlanRateFilterName | string;
+  name?: keyof typeof SavingsPlanRateFilterName | string;
 
   /**
    * <p>The filter values.</p>
@@ -209,23 +209,23 @@ export type CurrencyCode = "CNY" | "USD";
 /**
  * @public
  */
-export enum SavingsPlanProductType {
-  EC2 = "EC2",
-  FARGATE = "Fargate",
-  LAMBDA = "Lambda",
-  SAGEMAKER = "SageMaker",
-}
+export const SavingsPlanProductType = {
+  EC2: "EC2",
+  FARGATE: "Fargate",
+  LAMBDA: "Lambda",
+  SAGEMAKER: "SageMaker",
+};
 
 /**
  * @public
  */
-export enum SavingsPlanRatePropertyKey {
-  INSTANCE_FAMILY = "instanceFamily",
-  INSTANCE_TYPE = "instanceType",
-  PRODUCT_DESCRIPTION = "productDescription",
-  REGION = "region",
-  TENANCY = "tenancy",
-}
+export const SavingsPlanRatePropertyKey = {
+  INSTANCE_FAMILY: "instanceFamily",
+  INSTANCE_TYPE: "instanceType",
+  PRODUCT_DESCRIPTION: "productDescription",
+  REGION: "region",
+  TENANCY: "tenancy",
+};
 
 /**
  * @public
@@ -235,7 +235,7 @@ export interface SavingsPlanRateProperty {
   /**
    * <p>The property name.</p>
    */
-  name?: SavingsPlanRatePropertyKey | string;
+  name?: keyof typeof SavingsPlanRatePropertyKey | string;
 
   /**
    * <p>The property value.</p>
@@ -246,22 +246,22 @@ export interface SavingsPlanRateProperty {
 /**
  * @public
  */
-export enum SavingsPlanRateServiceCode {
-  EC2 = "AmazonEC2",
-  FARGATE = "AmazonECS",
-  FARGATE_EKS = "AmazonEKS",
-  LAMBDA = "AWSLambda",
-  SAGEMAKER = "AmazonSageMaker",
-}
+export const SavingsPlanRateServiceCode = {
+  EC2: "AmazonEC2",
+  FARGATE: "AmazonECS",
+  FARGATE_EKS: "AmazonEKS",
+  LAMBDA: "AWSLambda",
+  SAGEMAKER: "AmazonSageMaker",
+};
 
 /**
  * @public
  */
-export enum SavingsPlanRateUnit {
-  HOURS = "Hrs",
-  LAMBDA_GB_SECOND = "Lambda-GB-Second",
-  REQUEST = "Request",
-}
+export const SavingsPlanRateUnit = {
+  HOURS: "Hrs",
+  LAMBDA_GB_SECOND: "Lambda-GB-Second",
+  REQUEST: "Request",
+};
 
 /**
  * @public
@@ -276,22 +276,22 @@ export interface SavingsPlanRate {
   /**
    * <p>The currency.</p>
    */
-  currency?: CurrencyCode | string;
+  currency?: keyof typeof CurrencyCode | string;
 
   /**
    * <p>The unit.</p>
    */
-  unit?: SavingsPlanRateUnit | string;
+  unit?: keyof typeof SavingsPlanRateUnit | string;
 
   /**
    * <p>The product type.</p>
    */
-  productType?: SavingsPlanProductType | string;
+  productType?: keyof typeof SavingsPlanProductType | string;
 
   /**
    * <p>The service.</p>
    */
-  serviceCode?: SavingsPlanRateServiceCode | string;
+  serviceCode?: keyof typeof SavingsPlanRateServiceCode | string;
 
   /**
    * <p>The usage details of the line item in the billing report.</p>
@@ -333,17 +333,17 @@ export interface DescribeSavingsPlanRatesResponse {
 /**
  * @public
  */
-export enum SavingsPlansFilterName {
-  COMMITMENT = "commitment",
-  EC2_INSTANCE_FAMILY = "ec2-instance-family",
-  END = "end",
-  PAYMENT_OPTION = "payment-option",
-  REGION = "region",
-  SAVINGS_PLAN_TYPE = "savings-plan-type",
-  START = "start",
-  TERM = "term",
-  UPFRONT = "upfront",
-}
+export const SavingsPlansFilterName = {
+  COMMITMENT: "commitment",
+  EC2_INSTANCE_FAMILY: "ec2-instance-family",
+  END: "end",
+  PAYMENT_OPTION: "payment-option",
+  REGION: "region",
+  SAVINGS_PLAN_TYPE: "savings-plan-type",
+  START: "start",
+  TERM: "term",
+  UPFRONT: "upfront",
+};
 
 /**
  * @public
@@ -353,7 +353,7 @@ export interface SavingsPlanFilter {
   /**
    * <p>The filter name.</p>
    */
-  name?: SavingsPlansFilterName | string;
+  name?: keyof typeof SavingsPlansFilterName | string;
 
   /**
    * <p>The filter value.</p>
@@ -364,14 +364,14 @@ export interface SavingsPlanFilter {
 /**
  * @public
  */
-export enum SavingsPlanState {
-  ACTIVE = "active",
-  PAYMENT_FAILED = "payment-failed",
-  PAYMENT_PENDING = "payment-pending",
-  QUEUED = "queued",
-  QUEUED_DELETED = "queued-deleted",
-  RETIRED = "retired",
-}
+export const SavingsPlanState = {
+  ACTIVE: "active",
+  PAYMENT_FAILED: "payment-failed",
+  PAYMENT_PENDING: "payment-pending",
+  QUEUED: "queued",
+  QUEUED_DELETED: "queued-deleted",
+  RETIRED: "retired",
+};
 
 /**
  * @public
@@ -401,7 +401,7 @@ export interface DescribeSavingsPlansRequest {
   /**
    * <p>The states.</p>
    */
-  states?: (SavingsPlanState | string)[];
+  states?: (keyof typeof SavingsPlanState | string)[];
 
   /**
    * <p>The filters.</p>
@@ -412,20 +412,20 @@ export interface DescribeSavingsPlansRequest {
 /**
  * @public
  */
-export enum SavingsPlanPaymentOption {
-  ALL_UPFRONT = "All Upfront",
-  NO_UPFRONT = "No Upfront",
-  PARTIAL_UPFRONT = "Partial Upfront",
-}
+export const SavingsPlanPaymentOption = {
+  ALL_UPFRONT: "All Upfront",
+  NO_UPFRONT: "No Upfront",
+  PARTIAL_UPFRONT: "Partial Upfront",
+};
 
 /**
  * @public
  */
-export enum SavingsPlanType {
-  COMPUTE = "Compute",
-  EC2_INSTANCE = "EC2Instance",
-  SAGEMAKER = "SageMaker",
-}
+export const SavingsPlanType = {
+  COMPUTE: "Compute",
+  EC2_INSTANCE: "EC2Instance",
+  SAGEMAKER: "SageMaker",
+};
 
 /**
  * @public
@@ -465,7 +465,7 @@ export interface SavingsPlan {
   /**
    * <p>The state.</p>
    */
-  state?: SavingsPlanState | string;
+  state?: keyof typeof SavingsPlanState | string;
 
   /**
    * <p>The AWS Region.</p>
@@ -480,22 +480,22 @@ export interface SavingsPlan {
   /**
    * <p>The plan type.</p>
    */
-  savingsPlanType?: SavingsPlanType | string;
+  savingsPlanType?: keyof typeof SavingsPlanType | string;
 
   /**
    * <p>The payment option.</p>
    */
-  paymentOption?: SavingsPlanPaymentOption | string;
+  paymentOption?: keyof typeof SavingsPlanPaymentOption | string;
 
   /**
    * <p>The product types.</p>
    */
-  productTypes?: (SavingsPlanProductType | string)[];
+  productTypes?: (keyof typeof SavingsPlanProductType | string)[];
 
   /**
    * <p>The currency.</p>
    */
-  currency?: CurrencyCode | string;
+  currency?: keyof typeof CurrencyCode | string;
 
   /**
    * <p>The hourly commitment, in USD.</p>
@@ -542,14 +542,14 @@ export interface DescribeSavingsPlansResponse {
 /**
  * @public
  */
-export enum SavingsPlanRateFilterAttribute {
-  INSTANCE_FAMILY = "instanceFamily",
-  INSTANCE_TYPE = "instanceType",
-  PRODUCT_DESCRIPTION = "productDescription",
-  PRODUCT_ID = "productId",
-  REGION = "region",
-  TENANCY = "tenancy",
-}
+export const SavingsPlanRateFilterAttribute = {
+  INSTANCE_FAMILY: "instanceFamily",
+  INSTANCE_TYPE: "instanceType",
+  PRODUCT_DESCRIPTION: "productDescription",
+  PRODUCT_ID: "productId",
+  REGION: "region",
+  TENANCY: "tenancy",
+};
 
 /**
  * @public
@@ -559,7 +559,7 @@ export interface SavingsPlanOfferingRateFilterElement {
   /**
    * <p>The filter name.</p>
    */
-  name?: SavingsPlanRateFilterAttribute | string;
+  name?: keyof typeof SavingsPlanRateFilterAttribute | string;
 
   /**
    * <p>The filter values.</p>
@@ -579,22 +579,22 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
   /**
    * <p>The payment options.</p>
    */
-  savingsPlanPaymentOptions?: (SavingsPlanPaymentOption | string)[];
+  savingsPlanPaymentOptions?: (keyof typeof SavingsPlanPaymentOption | string)[];
 
   /**
    * <p>The plan types.</p>
    */
-  savingsPlanTypes?: (SavingsPlanType | string)[];
+  savingsPlanTypes?: (keyof typeof SavingsPlanType | string)[];
 
   /**
    * <p>The AWS products.</p>
    */
-  products?: (SavingsPlanProductType | string)[];
+  products?: (keyof typeof SavingsPlanProductType | string)[];
 
   /**
    * <p>The services.</p>
    */
-  serviceCodes?: (SavingsPlanRateServiceCode | string)[];
+  serviceCodes?: (keyof typeof SavingsPlanRateServiceCode | string)[];
 
   /**
    * <p>The usage details of the line item in the billing report.</p>
@@ -652,12 +652,12 @@ export interface ParentSavingsPlanOffering {
   /**
    * <p>The payment option.</p>
    */
-  paymentOption?: SavingsPlanPaymentOption | string;
+  paymentOption?: keyof typeof SavingsPlanPaymentOption | string;
 
   /**
    * <p>The plan type.</p>
    */
-  planType?: SavingsPlanType | string;
+  planType?: keyof typeof SavingsPlanType | string;
 
   /**
    * <p>The duration, in seconds.</p>
@@ -667,7 +667,7 @@ export interface ParentSavingsPlanOffering {
   /**
    * <p>The currency.</p>
    */
-  currency?: CurrencyCode | string;
+  currency?: keyof typeof CurrencyCode | string;
 
   /**
    * <p>The description.</p>
@@ -693,17 +693,17 @@ export interface SavingsPlanOfferingRate {
   /**
    * <p>The unit.</p>
    */
-  unit?: SavingsPlanRateUnit | string;
+  unit?: keyof typeof SavingsPlanRateUnit | string;
 
   /**
    * <p>The product type.</p>
    */
-  productType?: SavingsPlanProductType | string;
+  productType?: keyof typeof SavingsPlanProductType | string;
 
   /**
    * <p>The service.</p>
    */
-  serviceCode?: SavingsPlanRateServiceCode | string;
+  serviceCode?: keyof typeof SavingsPlanRateServiceCode | string;
 
   /**
    * <p>The usage details of the line item in the billing report.</p>
@@ -740,10 +740,10 @@ export interface DescribeSavingsPlansOfferingRatesResponse {
 /**
  * @public
  */
-export enum SavingsPlanOfferingFilterAttribute {
-  instanceFamily = "instanceFamily",
-  region = "region",
-}
+export const SavingsPlanOfferingFilterAttribute = {
+  instanceFamily: "instanceFamily",
+  region: "region",
+};
 
 /**
  * @public
@@ -753,7 +753,7 @@ export interface SavingsPlanOfferingFilterElement {
   /**
    * <p>The filter name.</p>
    */
-  name?: SavingsPlanOfferingFilterAttribute | string;
+  name?: keyof typeof SavingsPlanOfferingFilterAttribute | string;
 
   /**
    * <p>The filter values.</p>
@@ -773,17 +773,17 @@ export interface DescribeSavingsPlansOfferingsRequest {
   /**
    * <p>The payment options.</p>
    */
-  paymentOptions?: (SavingsPlanPaymentOption | string)[];
+  paymentOptions?: (keyof typeof SavingsPlanPaymentOption | string)[];
 
   /**
    * <p>The product type.</p>
    */
-  productType?: SavingsPlanProductType | string;
+  productType?: keyof typeof SavingsPlanProductType | string;
 
   /**
    * <p>The plan type.</p>
    */
-  planTypes?: (SavingsPlanType | string)[];
+  planTypes?: (keyof typeof SavingsPlanType | string)[];
 
   /**
    * <p>The durations, in seconds.</p>
@@ -793,7 +793,7 @@ export interface DescribeSavingsPlansOfferingsRequest {
   /**
    * <p>The currencies.</p>
    */
-  currencies?: (CurrencyCode | string)[];
+  currencies?: (keyof typeof CurrencyCode | string)[];
 
   /**
    * <p>The descriptions.</p>
@@ -835,10 +835,10 @@ export interface DescribeSavingsPlansOfferingsRequest {
 /**
  * @public
  */
-export enum SavingsPlanOfferingPropertyKey {
-  INSTANCE_FAMILY = "instanceFamily",
-  REGION = "region",
-}
+export const SavingsPlanOfferingPropertyKey = {
+  INSTANCE_FAMILY: "instanceFamily",
+  REGION: "region",
+};
 
 /**
  * @public
@@ -848,7 +848,7 @@ export interface SavingsPlanOfferingProperty {
   /**
    * <p>The property name.</p>
    */
-  name?: SavingsPlanOfferingPropertyKey | string;
+  name?: keyof typeof SavingsPlanOfferingPropertyKey | string;
 
   /**
    * <p>The property value.</p>
@@ -869,12 +869,12 @@ export interface SavingsPlanOffering {
   /**
    * <p>The product type.</p>
    */
-  productTypes?: (SavingsPlanProductType | string)[];
+  productTypes?: (keyof typeof SavingsPlanProductType | string)[];
 
   /**
    * <p>The plan type.</p>
    */
-  planType?: SavingsPlanType | string;
+  planType?: keyof typeof SavingsPlanType | string;
 
   /**
    * <p>The description.</p>
@@ -884,7 +884,7 @@ export interface SavingsPlanOffering {
   /**
    * <p>The payment option.</p>
    */
-  paymentOption?: SavingsPlanPaymentOption | string;
+  paymentOption?: keyof typeof SavingsPlanPaymentOption | string;
 
   /**
    * <p>The duration, in seconds.</p>
@@ -894,7 +894,7 @@ export interface SavingsPlanOffering {
   /**
    * <p>The currency.</p>
    */
-  currency?: CurrencyCode | string;
+  currency?: keyof typeof CurrencyCode | string;
 
   /**
    * <p>The service.</p>

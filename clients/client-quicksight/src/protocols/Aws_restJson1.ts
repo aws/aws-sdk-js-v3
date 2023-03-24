@@ -15514,7 +15514,10 @@ const serializeAws_restJson1ColumnTagList = (input: ColumnTag[], context: __Serd
     });
 };
 
-const serializeAws_restJson1ColumnTagNames = (input: (ColumnTagName | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1ColumnTagNames = (
+  input: (keyof typeof ColumnTagName | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -24057,7 +24060,10 @@ const deserializeAws_restJson1ColumnTagList = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_restJson1ColumnTagNames = (output: any, context: __SerdeContext): (ColumnTagName | string)[] => {
+const deserializeAws_restJson1ColumnTagNames = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof ColumnTagName | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

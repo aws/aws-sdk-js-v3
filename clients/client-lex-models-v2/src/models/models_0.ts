@@ -6,9 +6,9 @@ import { LexModelsV2ServiceException as __BaseException } from "./LexModelsV2Ser
 /**
  * @public
  */
-export enum AudioRecognitionStrategy {
-  UseSlotValuesAsCustomVocabulary = "UseSlotValuesAsCustomVocabulary",
-}
+export const AudioRecognitionStrategy = {
+  UseSlotValuesAsCustomVocabulary: "UseSlotValuesAsCustomVocabulary",
+};
 
 /**
  * @public
@@ -18,23 +18,23 @@ export interface AdvancedRecognitionSetting {
   /**
    * <p>Enables using the slot values as a custom vocabulary for recognizing user utterances.</p>
    */
-  audioRecognitionStrategy?: AudioRecognitionStrategy | string;
+  audioRecognitionStrategy?: keyof typeof AudioRecognitionStrategy | string;
 }
 
 /**
  * @public
  */
-export enum AggregatedUtterancesFilterName {
-  Utterance = "Utterance",
-}
+export const AggregatedUtterancesFilterName = {
+  Utterance: "Utterance",
+};
 
 /**
  * @public
  */
-export enum AggregatedUtterancesFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export const AggregatedUtterancesFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+};
 
 /**
  * @public
@@ -45,7 +45,7 @@ export interface AggregatedUtterancesFilter {
   /**
    * <p>The name of the field to filter the utterance list.</p>
    */
-  name: AggregatedUtterancesFilterName | string | undefined;
+  name: keyof typeof AggregatedUtterancesFilterName | string | undefined;
 
   /**
    * <p>The value to use for filtering the list of bots.</p>
@@ -59,24 +59,24 @@ export interface AggregatedUtterancesFilter {
    *          the <code>ListAggregatedUtterances</code> operation should return
    *          utterances that contain the specified value.</p>
    */
-  operator: AggregatedUtterancesFilterOperator | string | undefined;
+  operator: keyof typeof AggregatedUtterancesFilterOperator | string | undefined;
 }
 
 /**
  * @public
  */
-export enum AggregatedUtterancesSortAttribute {
-  HitCount = "HitCount",
-  MissedCount = "MissedCount",
-}
+export const AggregatedUtterancesSortAttribute = {
+  HitCount: "HitCount",
+  MissedCount: "MissedCount",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  Ascending = "Ascending",
-  Descending = "Descending",
-}
+export const SortOrder = {
+  Ascending: "Ascending",
+  Descending: "Descending",
+};
 
 /**
  * @public
@@ -86,13 +86,13 @@ export interface AggregatedUtterancesSortBy {
   /**
    * <p>The utterance attribute to sort by.</p>
    */
-  attribute: AggregatedUtterancesSortAttribute | string | undefined;
+  attribute: keyof typeof AggregatedUtterancesSortAttribute | string | undefined;
 
   /**
    * <p>Specifies whether to sort the aggregated utterances in ascending or
    *          descending order.</p>
    */
-  order: SortOrder | string | undefined;
+  order: keyof typeof SortOrder | string | undefined;
 }
 
 /**
@@ -179,10 +179,10 @@ export interface AssociatedTranscript {
 /**
  * @public
  */
-export enum AssociatedTranscriptFilterName {
-  IntentId = "IntentId",
-  SlotTypeId = "SlotTypeId",
-}
+export const AssociatedTranscriptFilterName = {
+  IntentId: "IntentId",
+  SlotTypeId: "SlotTypeId",
+};
 
 /**
  * @public
@@ -193,7 +193,7 @@ export interface AssociatedTranscriptFilter {
    * <p>The name of the field to use for filtering. The allowed names are
    *          IntentId and SlotTypeId.</p>
    */
-  name: AssociatedTranscriptFilterName | string | undefined;
+  name: keyof typeof AssociatedTranscriptFilterName | string | undefined;
 
   /**
    * <p>The values to use to filter the transcript.</p>
@@ -383,12 +383,12 @@ export interface BatchCreateCustomVocabularyItemRequest {
 /**
  * @public
  */
-export enum ErrorCode {
-  DUPLICATE_INPUT = "DUPLICATE_INPUT",
-  INTERNAL_SERVER_FAILURE = "INTERNAL_SERVER_FAILURE",
-  RESOURCE_ALREADY_EXISTS = "RESOURCE_ALREADY_EXISTS",
-  RESOURCE_DOES_NOT_EXIST = "RESOURCE_DOES_NOT_EXIST",
-}
+export const ErrorCode = {
+  DUPLICATE_INPUT: "DUPLICATE_INPUT",
+  INTERNAL_SERVER_FAILURE: "INTERNAL_SERVER_FAILURE",
+  RESOURCE_ALREADY_EXISTS: "RESOURCE_ALREADY_EXISTS",
+  RESOURCE_DOES_NOT_EXIST: "RESOURCE_DOES_NOT_EXIST",
+};
 
 /**
  * @public
@@ -412,7 +412,7 @@ export interface FailedCustomVocabularyItem {
    * <p>The unique error code for the failed custom vocabulary item
    *          from the custom vocabulary list.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: keyof typeof ErrorCode | string;
 }
 
 /**
@@ -808,12 +808,12 @@ export interface BotAliasLocaleSettings {
 /**
  * @public
  */
-export enum BotAliasStatus {
-  Available = "Available",
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Failed = "Failed",
-}
+export const BotAliasStatus = {
+  Available: "Available",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+};
 
 /**
  * @public
@@ -845,7 +845,7 @@ export interface BotAliasSummary {
    * <p>The current state of the bot alias. If the status is
    *             <code>Available</code>, the alias is ready for use.</p>
    */
-  botAliasStatus?: BotAliasStatus | string;
+  botAliasStatus?: keyof typeof BotAliasStatus | string;
 
   /**
    * <p>A timestamp of the date and time that the bot alias was
@@ -880,19 +880,19 @@ export interface BotExportSpecification {
 /**
  * @public
  */
-export enum BotFilterName {
-  BotName = "BotName",
-  BotType = "BotType",
-}
+export const BotFilterName = {
+  BotName: "BotName",
+  BotType: "BotType",
+};
 
 /**
  * @public
  */
-export enum BotFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-  NotEquals = "NE",
-}
+export const BotFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+  NotEquals: "NE",
+};
 
 /**
  * @public
@@ -903,7 +903,7 @@ export interface BotFilter {
   /**
    * <p>The name of the field to filter the list of bots.</p>
    */
-  name: BotFilterName | string | undefined;
+  name: keyof typeof BotFilterName | string | undefined;
 
   /**
    * <p>The value to use for filtering the list of bots.</p>
@@ -917,7 +917,7 @@ export interface BotFilter {
    *             <code>ListBots</code> operation should return aliases that contain
    *          the specified value.</p>
    */
-  operator: BotFilterOperator | string | undefined;
+  operator: keyof typeof BotFilterOperator | string | undefined;
 }
 
 /**
@@ -1037,17 +1037,17 @@ export interface BotLocaleExportSpecification {
 /**
  * @public
  */
-export enum BotLocaleFilterName {
-  BotLocaleName = "BotLocaleName",
-}
+export const BotLocaleFilterName = {
+  BotLocaleName: "BotLocaleName",
+};
 
 /**
  * @public
  */
-export enum BotLocaleFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export const BotLocaleFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+};
 
 /**
  * @public
@@ -1058,7 +1058,7 @@ export interface BotLocaleFilter {
   /**
    * <p>The name of the field to filter the list of bots.</p>
    */
-  name: BotLocaleFilterName | string | undefined;
+  name: keyof typeof BotLocaleFilterName | string | undefined;
 
   /**
    * <p>The value to use for filtering the list of bots.</p>
@@ -1072,7 +1072,7 @@ export interface BotLocaleFilter {
    *             <code>ListBotLocales</code> operation should return aliases that
    *          contain the specified value.</p>
    */
-  operator: BotLocaleFilterOperator | string | undefined;
+  operator: keyof typeof BotLocaleFilterOperator | string | undefined;
 }
 
 /**
@@ -1095,10 +1095,10 @@ export interface BotLocaleHistoryEvent {
 /**
  * @public
  */
-export enum VoiceEngine {
-  Neural = "neural",
-  Standard = "standard",
-}
+export const VoiceEngine = {
+  Neural: "neural",
+  Standard: "standard",
+};
 
 /**
  * @public
@@ -1120,7 +1120,7 @@ export interface VoiceSettings {
    *          <p>If you do not specify a value, the default is
    *          <code>standard</code>.</p>
    */
-  engine?: VoiceEngine | string;
+  engine?: keyof typeof VoiceEngine | string;
 }
 
 /**
@@ -1196,9 +1196,9 @@ export interface BotLocaleImportSpecification {
 /**
  * @public
  */
-export enum BotLocaleSortAttribute {
-  BotLocaleName = "BotLocaleName",
-}
+export const BotLocaleSortAttribute = {
+  BotLocaleName: "BotLocaleName",
+};
 
 /**
  * @public
@@ -1208,29 +1208,29 @@ export interface BotLocaleSortBy {
   /**
    * <p>The bot locale attribute to sort by.</p>
    */
-  attribute: BotLocaleSortAttribute | string | undefined;
+  attribute: keyof typeof BotLocaleSortAttribute | string | undefined;
 
   /**
    * <p>Specifies whether to sort the bot locales in ascending or descending
    *          order.</p>
    */
-  order: SortOrder | string | undefined;
+  order: keyof typeof SortOrder | string | undefined;
 }
 
 /**
  * @public
  */
-export enum BotLocaleStatus {
-  Building = "Building",
-  Built = "Built",
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Importing = "Importing",
-  NotBuilt = "NotBuilt",
-  Processing = "Processing",
-  ReadyExpressTesting = "ReadyExpressTesting",
-}
+export const BotLocaleStatus = {
+  Building: "Building",
+  Built: "Built",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Importing: "Importing",
+  NotBuilt: "NotBuilt",
+  Processing: "Processing",
+  ReadyExpressTesting: "ReadyExpressTesting",
+};
 
 /**
  * @public
@@ -1256,7 +1256,7 @@ export interface BotLocaleSummary {
    * <p>The current status of the bot locale. When the status is
    *             <code>Built</code> the locale is ready for use.</p>
    */
-  botLocaleStatus?: BotLocaleStatus | string;
+  botLocaleStatus?: keyof typeof BotLocaleStatus | string;
 
   /**
    * <p>A timestamp of the date and time that the bot locale was last
@@ -1372,17 +1372,17 @@ export interface BotRecommendationResults {
 /**
  * @public
  */
-export enum BotRecommendationStatus {
-  Available = "Available",
-  Deleted = "Deleted",
-  Deleting = "Deleting",
-  Downloading = "Downloading",
-  Failed = "Failed",
-  Processing = "Processing",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Updating = "Updating",
-}
+export const BotRecommendationStatus = {
+  Available: "Available",
+  Deleted: "Deleted",
+  Deleting: "Deleting",
+  Downloading: "Downloading",
+  Failed: "Failed",
+  Processing: "Processing",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Updating: "Updating",
+};
 
 /**
  * @public
@@ -1394,7 +1394,7 @@ export interface BotRecommendationSummary {
    *          <p>If the status is Failed, then the reasons for the failure are listed
    *          in the failureReasons field. </p>
    */
-  botRecommendationStatus: BotRecommendationStatus | string | undefined;
+  botRecommendationStatus: keyof typeof BotRecommendationStatus | string | undefined;
 
   /**
    * <p>The unique identifier of the bot recommendation to be
@@ -1418,9 +1418,9 @@ export interface BotRecommendationSummary {
 /**
  * @public
  */
-export enum BotSortAttribute {
-  BotName = "BotName",
-}
+export const BotSortAttribute = {
+  BotName: "BotName",
+};
 
 /**
  * @public
@@ -1430,36 +1430,36 @@ export interface BotSortBy {
   /**
    * <p>The attribute to use to sort the list of bots.</p>
    */
-  attribute: BotSortAttribute | string | undefined;
+  attribute: keyof typeof BotSortAttribute | string | undefined;
 
   /**
    * <p>The order to sort the list. You can choose ascending or
    *          descending.</p>
    */
-  order: SortOrder | string | undefined;
+  order: keyof typeof SortOrder | string | undefined;
 }
 
 /**
  * @public
  */
-export enum BotStatus {
-  Available = "Available",
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Importing = "Importing",
-  Inactive = "Inactive",
-  Updating = "Updating",
-  Versioning = "Versioning",
-}
+export const BotStatus = {
+  Available: "Available",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Importing: "Importing",
+  Inactive: "Inactive",
+  Updating: "Updating",
+  Versioning: "Versioning",
+};
 
 /**
  * @public
  */
-export enum BotType {
-  Bot = "Bot",
-  BotNetwork = "BotNetwork",
-}
+export const BotType = {
+  Bot: "Bot",
+  BotNetwork: "BotNetwork",
+};
 
 /**
  * @public
@@ -1486,7 +1486,7 @@ export interface BotSummary {
    * <p>The current status of the bot. When the status is
    *             <code>Available</code> the bot is ready for use.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: keyof typeof BotStatus | string;
 
   /**
    * <p>The latest numerical version in use for the bot.</p>
@@ -1501,7 +1501,7 @@ export interface BotSummary {
   /**
    * <p>The type of the bot.</p>
    */
-  botType?: BotType | string;
+  botType?: keyof typeof BotType | string;
 }
 
 /**
@@ -1518,9 +1518,9 @@ export interface BotVersionLocaleDetails {
 /**
  * @public
  */
-export enum BotVersionSortAttribute {
-  BotVersion = "BotVersion",
-}
+export const BotVersionSortAttribute = {
+  BotVersion: "BotVersion",
+};
 
 /**
  * @public
@@ -1530,13 +1530,13 @@ export interface BotVersionSortBy {
   /**
    * <p>The attribute to use to sort the list of versions.</p>
    */
-  attribute: BotVersionSortAttribute | string | undefined;
+  attribute: keyof typeof BotVersionSortAttribute | string | undefined;
 
   /**
    * <p>The order to sort the list. You can specify ascending or descending
    *          order.</p>
    */
-  order: SortOrder | string | undefined;
+  order: keyof typeof SortOrder | string | undefined;
 }
 
 /**
@@ -1564,7 +1564,7 @@ export interface BotVersionSummary {
    * <p>The status of the bot. When the status is available, the version of
    *          the bot is ready for use.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: keyof typeof BotStatus | string;
 
   /**
    * <p>A timestamp of the date and time that the version was
@@ -1626,7 +1626,7 @@ export interface BuildBotLocaleResponse {
    *             <code>Built</code>, the bot is ready for use and can be tested using
    *          any utterance.</p>
    */
-  botLocaleStatus?: BotLocaleStatus | string;
+  botLocaleStatus?: keyof typeof BotLocaleStatus | string;
 
   /**
    * <p>A timestamp indicating the date and time that the bot was last built
@@ -1682,9 +1682,9 @@ export class PreconditionFailedException extends __BaseException {
 /**
  * @public
  */
-export enum BuiltInIntentSortAttribute {
-  IntentSignature = "IntentSignature",
-}
+export const BuiltInIntentSortAttribute = {
+  IntentSignature: "IntentSignature",
+};
 
 /**
  * @public
@@ -1694,13 +1694,13 @@ export interface BuiltInIntentSortBy {
   /**
    * <p>The attribute to use to sort the list of built-in intents.</p>
    */
-  attribute: BuiltInIntentSortAttribute | string | undefined;
+  attribute: keyof typeof BuiltInIntentSortAttribute | string | undefined;
 
   /**
    * <p>The order to sort the list. You can specify ascending or descending
    *          order.</p>
    */
-  order: SortOrder | string | undefined;
+  order: keyof typeof SortOrder | string | undefined;
 }
 
 /**
@@ -1723,9 +1723,9 @@ export interface BuiltInIntentSummary {
 /**
  * @public
  */
-export enum BuiltInSlotTypeSortAttribute {
-  SlotTypeSignature = "SlotTypeSignature",
-}
+export const BuiltInSlotTypeSortAttribute = {
+  SlotTypeSignature: "SlotTypeSignature",
+};
 
 /**
  * @public
@@ -1736,13 +1736,13 @@ export interface BuiltInSlotTypeSortBy {
   /**
    * <p>The attribute to use to sort the list of built-in intents.</p>
    */
-  attribute: BuiltInSlotTypeSortAttribute | string | undefined;
+  attribute: keyof typeof BuiltInSlotTypeSortAttribute | string | undefined;
 
   /**
    * <p>The order to sort the list. You can choose ascending or
    *          descending.</p>
    */
-  order: SortOrder | string | undefined;
+  order: keyof typeof SortOrder | string | undefined;
 }
 
 /**
@@ -1845,17 +1845,17 @@ export interface Condition {
 /**
  * @public
  */
-export enum DialogActionType {
-  CloseIntent = "CloseIntent",
-  ConfirmIntent = "ConfirmIntent",
-  ElicitIntent = "ElicitIntent",
-  ElicitSlot = "ElicitSlot",
-  EndConversation = "EndConversation",
-  EvaluateConditional = "EvaluateConditional",
-  FulfillIntent = "FulfillIntent",
-  InvokeDialogCodeHook = "InvokeDialogCodeHook",
-  StartIntent = "StartIntent",
-}
+export const DialogActionType = {
+  CloseIntent: "CloseIntent",
+  ConfirmIntent: "ConfirmIntent",
+  ElicitIntent: "ElicitIntent",
+  ElicitSlot: "ElicitSlot",
+  EndConversation: "EndConversation",
+  EvaluateConditional: "EvaluateConditional",
+  FulfillIntent: "FulfillIntent",
+  InvokeDialogCodeHook: "InvokeDialogCodeHook",
+  StartIntent: "StartIntent",
+};
 
 /**
  * @public
@@ -1866,7 +1866,7 @@ export interface DialogAction {
   /**
    * <p>The action that the bot should execute. </p>
    */
-  type: DialogActionType | string | undefined;
+  type: keyof typeof DialogActionType | string | undefined;
 
   /**
    * <p>If the dialog action is <code>ElicitSlot</code>, defines the slot to
@@ -1883,10 +1883,10 @@ export interface DialogAction {
 /**
  * @public
  */
-export enum SlotShape {
-  List = "List",
-  Scalar = "Scalar",
-}
+export const SlotShape = {
+  List: "List",
+  Scalar: "Scalar",
+};
 
 /**
  * @public
@@ -2145,7 +2145,7 @@ export interface CreateBotRequest {
   /**
    * <p>The type of a bot to create.</p>
    */
-  botType?: BotType | string;
+  botType?: keyof typeof BotType | string;
 
   /**
    * <p>The list of bot members in a network to be created.</p>
@@ -2194,7 +2194,7 @@ export interface CreateBotResponse {
    *          changes to the <code>Available</code> status. After the bot is created,
    *          you can use the <code>DRAFT</code> version of the bot.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: keyof typeof BotStatus | string;
 
   /**
    * <p>A timestamp indicating the date and time that the bot was
@@ -2215,7 +2215,7 @@ export interface CreateBotResponse {
   /**
    * <p>The type of a bot that was created.</p>
    */
-  botType?: BotType | string;
+  botType?: keyof typeof BotType | string;
 
   /**
    * <p>The list of bots in a network that was created.</p>
@@ -2340,7 +2340,7 @@ export interface CreateBotAliasResponse {
    *             <code>DescribeBotAlias</code> operation to get the current state of
    *          an alias.</p>
    */
-  botAliasStatus?: BotAliasStatus | string;
+  botAliasStatus?: keyof typeof BotAliasStatus | string;
 
   /**
    * <p>The unique identifier of the bot that this alias applies to.</p>
@@ -2479,7 +2479,7 @@ export interface CreateBotLocaleResponse {
    *             <code>Failed</code>. If the bot was saved but not built, the status
    *          is <code>NotBuilt</code>.</p>
    */
-  botLocaleStatus?: BotLocaleStatus | string;
+  botLocaleStatus?: keyof typeof BotLocaleStatus | string;
 
   /**
    * <p>A timestamp specifying the date and time that the bot locale was
@@ -2542,7 +2542,7 @@ export interface CreateBotVersionResponse {
    *          the bot, it sets status to <code>Available</code>. If Amazon Lex can't build
    *          the bot, it sets status to <code>Failed</code>.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: keyof typeof BotStatus | string;
 
   /**
    * <p>A timestamp of the date and time that the version was
@@ -2554,10 +2554,10 @@ export interface CreateBotVersionResponse {
 /**
  * @public
  */
-export enum ImportExportFileFormat {
-  LexJson = "LexJson",
-  TSV = "TSV",
-}
+export const ImportExportFileFormat = {
+  LexJson: "LexJson",
+  TSV: "TSV",
+};
 
 /**
  * @public
@@ -2616,7 +2616,7 @@ export interface CreateExportRequest {
   /**
    * <p>The file format of the bot or bot locale definition files.</p>
    */
-  fileFormat: ImportExportFileFormat | string | undefined;
+  fileFormat: keyof typeof ImportExportFileFormat | string | undefined;
 
   /**
    * <p>An password to use to encrypt the exported archive. Using a password
@@ -2629,12 +2629,12 @@ export interface CreateExportRequest {
 /**
  * @public
  */
-export enum ExportStatus {
-  Completed = "Completed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InProgress = "InProgress",
-}
+export const ExportStatus = {
+  Completed: "Completed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InProgress: "InProgress",
+};
 
 /**
  * @public
@@ -2655,14 +2655,14 @@ export interface CreateExportResponse {
    * <p>The file format used for the bot or bot locale definition
    *          files.</p>
    */
-  fileFormat?: ImportExportFileFormat | string;
+  fileFormat?: keyof typeof ImportExportFileFormat | string;
 
   /**
    * <p>The status of the export. When the status is <code>Completed</code>,
    *          you can use the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html">DescribeExport</a> operation to get the
    *          pre-signed S3 URL link to your exported bot or bot locale.</p>
    */
-  exportStatus?: ExportStatus | string;
+  exportStatus?: keyof typeof ExportStatus | string;
 
   /**
    * <p>The date and time that the request to export a bot was
@@ -2804,22 +2804,22 @@ export interface ElicitationCodeHookInvocationSetting {
 /**
  * @public
  */
-export enum MessageSelectionStrategy {
-  Ordered = "Ordered",
-  Random = "Random",
-}
+export const MessageSelectionStrategy = {
+  Ordered: "Ordered",
+  Random: "Random",
+};
 
 /**
  * @public
  */
-export enum PromptAttempt {
-  Initial = "Initial",
-  Retry1 = "Retry1",
-  Retry2 = "Retry2",
-  Retry3 = "Retry3",
-  Retry4 = "Retry4",
-  Retry5 = "Retry5",
-}
+export const PromptAttempt = {
+  Initial: "Initial",
+  Retry1: "Retry1",
+  Retry2: "Retry2",
+  Retry3: "Retry3",
+  Retry4: "Retry4",
+  Retry5: "Retry5",
+};
 
 /**
  * @public
@@ -2885,7 +2885,7 @@ export interface PromptSpecification {
   /**
    * <p>Indicates how a message is selected from a message group among retries.</p>
    */
-  messageSelectionStrategy?: MessageSelectionStrategy | string;
+  messageSelectionStrategy?: keyof typeof MessageSelectionStrategy | string;
 
   /**
    * <p>Specifies the advanced settings on each attempt of the prompt.</p>
@@ -3006,10 +3006,10 @@ export interface CreateResourcePolicyResponse {
 /**
  * @public
  */
-export enum Effect {
-  Allow = "Allow",
-  Deny = "Deny",
-}
+export const Effect = {
+  Allow: "Allow",
+  Deny: "Deny",
+};
 
 /**
  * @public
@@ -3052,7 +3052,7 @@ export interface CreateResourcePolicyStatementRequest {
    * <p>Determines whether the statement allows or denies access to the
    *          resource.</p>
    */
-  effect: Effect | string | undefined;
+  effect: keyof typeof Effect | string | undefined;
 
   /**
    * <p>An IAM principal, such as an IAM users, IAM roles, or AWS services
@@ -3129,10 +3129,10 @@ export interface MultipleValuesSetting {
 /**
  * @public
  */
-export enum ObfuscationSettingType {
-  DefaultObfuscation = "DefaultObfuscation",
-  None = "None",
-}
+export const ObfuscationSettingType = {
+  DefaultObfuscation: "DefaultObfuscation",
+  None: "None",
+};
 
 /**
  * @public
@@ -3144,7 +3144,7 @@ export interface ObfuscationSetting {
    * <p>Value that determines whether Amazon Lex obscures slot values in
    *          conversation logs. The default is to obscure the values.</p>
    */
-  obfuscationSettingType: ObfuscationSettingType | string | undefined;
+  obfuscationSettingType: keyof typeof ObfuscationSettingType | string | undefined;
 }
 
 /**
@@ -3311,10 +3311,10 @@ export interface SubSlotSetting {
 /**
  * @public
  */
-export enum SlotConstraint {
-  Optional = "Optional",
-  Required = "Required",
-}
+export const SlotConstraint = {
+  Optional: "Optional",
+  Required: "Required",
+};
 
 /**
  * @public
@@ -3432,11 +3432,11 @@ export interface SlotValueRegexFilter {
 /**
  * @public
  */
-export enum SlotValueResolutionStrategy {
-  Concatenation = "Concatenation",
-  OriginalValue = "OriginalValue",
-  TopResolution = "TopResolution",
-}
+export const SlotValueResolutionStrategy = {
+  Concatenation: "Concatenation",
+  OriginalValue: "OriginalValue",
+  TopResolution: "TopResolution",
+};
 
 /**
  * @public
@@ -3461,7 +3461,7 @@ export interface SlotValueSelectionSetting {
    *          <p>If you don't specify the valueSelectionStrategy, the default is
    *          OriginalValue. </p>
    */
-  resolutionStrategy: SlotValueResolutionStrategy | string | undefined;
+  resolutionStrategy: keyof typeof SlotValueResolutionStrategy | string | undefined;
 
   /**
    * <p>A regular expression used to validate the value of a slot.</p>
@@ -3678,13 +3678,13 @@ export interface CustomVocabularyImportSpecification {
 /**
  * @public
  */
-export enum CustomVocabularyStatus {
-  Creating = "Creating",
-  Deleting = "Deleting",
-  Exporting = "Exporting",
-  Importing = "Importing",
-  Ready = "Ready",
-}
+export const CustomVocabularyStatus = {
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Exporting: "Exporting",
+  Importing: "Importing",
+  Ready: "Ready",
+};
 
 /**
  * @public
@@ -3738,7 +3738,7 @@ export interface DeleteBotResponse {
    * <p>The current status of the bot. The status is <code>Deleting</code>
    *          while the bot and its associated resources are being deleted.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: keyof typeof BotStatus | string;
 }
 
 /**
@@ -3788,7 +3788,7 @@ export interface DeleteBotAliasResponse {
    *          deleted, it will no longer appear in the list of aliases returned by
    *          the <code>ListBotAliases</code> operation.</p>
    */
-  botAliasStatus?: BotAliasStatus | string;
+  botAliasStatus?: keyof typeof BotAliasStatus | string;
 }
 
 /**
@@ -3837,7 +3837,7 @@ export interface DeleteBotLocaleResponse {
    *             <code>Deleting</code> status. Once the locale is deleted it no
    *          longer appears in the list of locales for the bot.</p>
    */
-  botLocaleStatus?: BotLocaleStatus | string;
+  botLocaleStatus?: keyof typeof BotLocaleStatus | string;
 }
 
 /**
@@ -3882,7 +3882,7 @@ export interface DeleteBotVersionResponse {
   /**
    * <p>The current status of the bot. </p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: keyof typeof BotStatus | string;
 }
 
 /**
@@ -3933,7 +3933,7 @@ export interface DeleteCustomVocabularyResponse {
   /**
    * <p>The status of removing the custom vocabulary.</p>
    */
-  customVocabularyStatus?: CustomVocabularyStatus | string;
+  customVocabularyStatus?: keyof typeof CustomVocabularyStatus | string;
 }
 
 /**
@@ -3961,7 +3961,7 @@ export interface DeleteExportResponse {
    *             DescribeExport</a> operation with the export identifier will
    *          fail.</p>
    */
-  exportStatus?: ExportStatus | string;
+  exportStatus?: keyof typeof ExportStatus | string;
 }
 
 /**
@@ -3977,12 +3977,12 @@ export interface DeleteImportRequest {
 /**
  * @public
  */
-export enum ImportStatus {
-  Completed = "Completed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InProgress = "InProgress",
-}
+export const ImportStatus = {
+  Completed: "Completed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InProgress: "InProgress",
+};
 
 /**
  * @public
@@ -3998,7 +3998,7 @@ export interface DeleteImportResponse {
    *          the import will no longer be returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html">ListImports</a> operation and calls to the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeImport.html">DescribeImport</a> operation with the import identifier will
    *          fail.</p>
    */
-  importStatus?: ImportStatus | string;
+  importStatus?: keyof typeof ImportStatus | string;
 }
 
 /**
@@ -4260,7 +4260,7 @@ export interface DescribeBotResponse {
    *             <code>Available</code> the bot is ready to be used in conversations
    *          with users.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: keyof typeof BotStatus | string;
 
   /**
    * <p>A timestamp of the date and time that the bot was created.</p>
@@ -4276,7 +4276,7 @@ export interface DescribeBotResponse {
   /**
    * <p>The type of the bot that was described.</p>
    */
-  botType?: BotType | string;
+  botType?: keyof typeof BotType | string;
 
   /**
    * <p>The list of bots in the network that was described.</p>
@@ -4374,7 +4374,7 @@ export interface DescribeBotAliasResponse {
    *             <code>Available</code>, the alias is ready for use with your
    *          bot.</p>
    */
-  botAliasStatus?: BotAliasStatus | string;
+  botAliasStatus?: keyof typeof BotAliasStatus | string;
 
   /**
    * <p>The identifier of the bot associated with the bot alias.</p>
@@ -4479,7 +4479,7 @@ export interface DescribeBotLocaleResponse {
    *          reasons for the failure are listed in the <code>failureReasons</code>
    *          field.</p>
    */
-  botLocaleStatus?: BotLocaleStatus | string;
+  botLocaleStatus?: keyof typeof BotLocaleStatus | string;
 
   /**
    * <p>if <code>botLocaleStatus</code> is <code>Failed</code>, Amazon Lex
@@ -4617,9 +4617,9 @@ export interface TranscriptFilter {
 /**
  * @public
  */
-export enum TranscriptFormat {
-  Lex = "Lex",
-}
+export const TranscriptFormat = {
+  Lex: "Lex",
+};
 
 /**
  * @public
@@ -4645,7 +4645,7 @@ export interface S3BucketTranscriptSource {
    * <p>The format of the transcript content. Currently, Genie only supports
    *          the Amazon Lex transcript format.</p>
    */
-  transcriptFormat: TranscriptFormat | string | undefined;
+  transcriptFormat: keyof typeof TranscriptFormat | string | undefined;
 
   /**
    * <p>The object that contains the filter which will be applied when Amazon Lex
@@ -4703,7 +4703,7 @@ export interface DescribeBotRecommendationResponse {
    *          the reasons for the failure are listed in the failureReasons field.
    *       </p>
    */
-  botRecommendationStatus?: BotRecommendationStatus | string;
+  botRecommendationStatus?: keyof typeof BotRecommendationStatus | string;
 
   /**
    * <p>The identifier of the bot recommendation being described.</p>
@@ -4808,7 +4808,7 @@ export interface DescribeBotVersionResponse {
    * <p>The current status of the bot. When the status is
    *             <code>Available</code>, the bot version is ready for use.</p>
    */
-  botStatus?: BotStatus | string;
+  botStatus?: keyof typeof BotStatus | string;
 
   /**
    * <p>If the <code>botStatus</code> is <code>Failed</code>, this contains
@@ -4830,7 +4830,7 @@ export interface DescribeBotVersionResponse {
   /**
    * <p>The type of the bot in the version that was described.</p>
    */
-  botType?: BotType | string;
+  botType?: keyof typeof BotType | string;
 
   /**
    * <p>The members of bot network in the version that was described.</p>
@@ -4882,7 +4882,7 @@ export interface DescribeCustomVocabularyMetadataResponse {
    * <p>The status of the custom vocabulary. If the status is
    *       <code>Ready</code> the custom vocabulary is ready to use.</p>
    */
-  customVocabularyStatus?: CustomVocabularyStatus | string;
+  customVocabularyStatus?: keyof typeof CustomVocabularyStatus | string;
 
   /**
    * <p>The date and time that the custom vocabulary was created.</p>
@@ -4924,13 +4924,13 @@ export interface DescribeExportResponse {
    * <p>The file format used in the files that describe the resource.
    *       </p>
    */
-  fileFormat?: ImportExportFileFormat | string;
+  fileFormat?: keyof typeof ImportExportFileFormat | string;
 
   /**
    * <p>The status of the export. When the status is <code>Complete</code>
    *          the export archive file is available for download.</p>
    */
-  exportStatus?: ExportStatus | string;
+  exportStatus?: keyof typeof ExportStatus | string;
 
   /**
    * <p>If the <code>exportStatus</code> is failed, contains one or more
@@ -4969,11 +4969,11 @@ export interface DescribeImportRequest {
 /**
  * @public
  */
-export enum MergeStrategy {
-  Append = "Append",
-  FailOnConflict = "FailOnConflict",
-  Overwrite = "Overwrite",
-}
+export const MergeStrategy = {
+  Append: "Append",
+  FailOnConflict: "FailOnConflict",
+  Overwrite: "Overwrite",
+};
 
 /**
  * @public
@@ -5030,14 +5030,14 @@ export interface DescribeImportResponse {
    *             <code>FailOnConflict</code> existing resources are not overwritten
    *          and the import fails.</p>
    */
-  mergeStrategy?: MergeStrategy | string;
+  mergeStrategy?: keyof typeof MergeStrategy | string;
 
   /**
    * <p>The status of the import process. When the status is
    *             <code>Completed</code> the resource is imported and ready for
    *          use.</p>
    */
-  importStatus?: ImportStatus | string;
+  importStatus?: keyof typeof ImportStatus | string;
 
   /**
    * <p>If the <code>importStatus</code> field is <code>Failed</code>, this
@@ -5274,17 +5274,17 @@ export interface DescribeSlotTypeResponse {
 /**
  * @public
  */
-export enum ExportFilterName {
-  ExportResourceType = "ExportResourceType",
-}
+export const ExportFilterName = {
+  ExportResourceType: "ExportResourceType",
+};
 
 /**
  * @public
  */
-export enum ExportFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export const ExportFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+};
 
 /**
  * @public
@@ -5294,7 +5294,7 @@ export interface ExportFilter {
   /**
    * <p>The name of the field to use for filtering.</p>
    */
-  name: ExportFilterName | string | undefined;
+  name: keyof typeof ExportFilterName | string | undefined;
 
   /**
    * <p>The values to use to filter the response. The values must be
@@ -5310,15 +5310,15 @@ export interface ExportFilter {
    *             <code>ListExports</code> operation should return resource types that
    *          contain the specified value.</p>
    */
-  operator: ExportFilterOperator | string | undefined;
+  operator: keyof typeof ExportFilterOperator | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ExportSortAttribute {
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-}
+export const ExportSortAttribute = {
+  LastUpdatedDateTime: "LastUpdatedDateTime",
+};
 
 /**
  * @public
@@ -5328,12 +5328,12 @@ export interface ExportSortBy {
   /**
    * <p>The export field to use for sorting.</p>
    */
-  attribute: ExportSortAttribute | string | undefined;
+  attribute: keyof typeof ExportSortAttribute | string | undefined;
 
   /**
    * <p>The order to sort the list.</p>
    */
-  order: SortOrder | string | undefined;
+  order: keyof typeof SortOrder | string | undefined;
 }
 
 /**
@@ -5355,13 +5355,13 @@ export interface ExportSummary {
   /**
    * <p>The file format used in the export files.</p>
    */
-  fileFormat?: ImportExportFileFormat | string;
+  fileFormat?: keyof typeof ImportExportFileFormat | string;
 
   /**
    * <p>The status of the export. When the status is <code>Completed</code>
    *          the export is ready to download.</p>
    */
-  exportStatus?: ExportStatus | string;
+  exportStatus?: keyof typeof ExportStatus | string;
 
   /**
    * <p>The date and time that the export was created.</p>
@@ -5377,17 +5377,17 @@ export interface ExportSummary {
 /**
  * @public
  */
-export enum ImportFilterName {
-  ImportResourceType = "ImportResourceType",
-}
+export const ImportFilterName = {
+  ImportResourceType: "ImportResourceType",
+};
 
 /**
  * @public
  */
-export enum ImportFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export const ImportFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+};
 
 /**
  * @public
@@ -5397,7 +5397,7 @@ export interface ImportFilter {
   /**
    * <p>The name of the field to use for filtering.</p>
    */
-  name: ImportFilterName | string | undefined;
+  name: keyof typeof ImportFilterName | string | undefined;
 
   /**
    * <p>The values to use to filter the response. The values must be
@@ -5413,24 +5413,24 @@ export interface ImportFilter {
    *             <code>ListImports</code> operation should return resource types that
    *          contain the specified value.</p>
    */
-  operator: ImportFilterOperator | string | undefined;
+  operator: keyof typeof ImportFilterOperator | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ImportResourceType {
-  Bot = "Bot",
-  BotLocale = "BotLocale",
-  CustomVocabulary = "CustomVocabulary",
-}
+export const ImportResourceType = {
+  Bot: "Bot",
+  BotLocale: "BotLocale",
+  CustomVocabulary: "CustomVocabulary",
+};
 
 /**
  * @public
  */
-export enum ImportSortAttribute {
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-}
+export const ImportSortAttribute = {
+  LastUpdatedDateTime: "LastUpdatedDateTime",
+};
 
 /**
  * @public
@@ -5440,12 +5440,12 @@ export interface ImportSortBy {
   /**
    * <p>The export field to use for sorting.</p>
    */
-  attribute: ImportSortAttribute | string | undefined;
+  attribute: keyof typeof ImportSortAttribute | string | undefined;
 
   /**
    * <p>The order to sort the list.</p>
    */
-  order: SortOrder | string | undefined;
+  order: keyof typeof SortOrder | string | undefined;
 }
 
 /**
@@ -5474,13 +5474,13 @@ export interface ImportSummary {
    * <p>The status of the resource. When the status is
    *             <code>Completed</code> the resource is ready to build.</p>
    */
-  importStatus?: ImportStatus | string;
+  importStatus?: keyof typeof ImportStatus | string;
 
   /**
    * <p>The strategy used to merge existing bot or bot locale definitions
    *          with the imported definition.</p>
    */
-  mergeStrategy?: MergeStrategy | string;
+  mergeStrategy?: keyof typeof MergeStrategy | string;
 
   /**
    * <p>The date and time that the import was created.</p>
@@ -5495,23 +5495,23 @@ export interface ImportSummary {
   /**
    * <p>The type of resource that was imported.</p>
    */
-  importedResourceType?: ImportResourceType | string;
+  importedResourceType?: keyof typeof ImportResourceType | string;
 }
 
 /**
  * @public
  */
-export enum IntentFilterName {
-  IntentName = "IntentName",
-}
+export const IntentFilterName = {
+  IntentName: "IntentName",
+};
 
 /**
  * @public
  */
-export enum IntentFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export const IntentFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+};
 
 /**
  * @public
@@ -5522,7 +5522,7 @@ export interface IntentFilter {
   /**
    * <p>The name of the field to use for the filter.</p>
    */
-  name: IntentFilterName | string | undefined;
+  name: keyof typeof IntentFilterName | string | undefined;
 
   /**
    * <p>The value to use for the filter.</p>
@@ -5536,16 +5536,16 @@ export interface IntentFilter {
    *             <code>ListIntents</code> operation should return aliases that
    *          contain the specified value.</p>
    */
-  operator: IntentFilterOperator | string | undefined;
+  operator: keyof typeof IntentFilterOperator | string | undefined;
 }
 
 /**
  * @public
  */
-export enum IntentSortAttribute {
-  IntentName = "IntentName",
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-}
+export const IntentSortAttribute = {
+  IntentName: "IntentName",
+  LastUpdatedDateTime: "LastUpdatedDateTime",
+};
 
 /**
  * @public
@@ -5555,13 +5555,13 @@ export interface IntentSortBy {
   /**
    * <p>The attribute to use to sort the list of intents.</p>
    */
-  attribute: IntentSortAttribute | string | undefined;
+  attribute: keyof typeof IntentSortAttribute | string | undefined;
 
   /**
    * <p>The order to sort the list. You can choose ascending or
    *          descending.</p>
    */
-  order: SortOrder | string | undefined;
+  order: keyof typeof SortOrder | string | undefined;
 }
 
 /**
@@ -5615,11 +5615,11 @@ export interface IntentSummary {
 /**
  * @public
  */
-export enum TimeDimension {
-  Days = "Days",
-  Hours = "Hours",
-  Weeks = "Weeks",
-}
+export const TimeDimension = {
+  Days: "Days",
+  Hours: "Hours",
+  Weeks: "Weeks",
+};
 
 /**
  * @public
@@ -5659,7 +5659,7 @@ export interface RelativeAggregationDuration {
    * <p>The type of time period that the <code>timeValue</code> field
    *          represents. </p>
    */
-  timeDimension: TimeDimension | string | undefined;
+  timeDimension: keyof typeof TimeDimension | string | undefined;
 
   /**
    * <p>The period of the time window to gather statistics for. The valid
@@ -6778,17 +6778,17 @@ export interface ListRecommendedIntentsResponse {
 /**
  * @public
  */
-export enum SlotFilterName {
-  SlotName = "SlotName",
-}
+export const SlotFilterName = {
+  SlotName: "SlotName",
+};
 
 /**
  * @public
  */
-export enum SlotFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export const SlotFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+};
 
 /**
  * @public
@@ -6799,7 +6799,7 @@ export interface SlotFilter {
   /**
    * <p>The name of the field to use for filtering.</p>
    */
-  name: SlotFilterName | string | undefined;
+  name: keyof typeof SlotFilterName | string | undefined;
 
   /**
    * <p>The value to use to filter the response.</p>
@@ -6813,16 +6813,16 @@ export interface SlotFilter {
    *             <code>ListSlots</code> operation should return aliases that contain
    *          the specified value.</p>
    */
-  operator: SlotFilterOperator | string | undefined;
+  operator: keyof typeof SlotFilterOperator | string | undefined;
 }
 
 /**
  * @public
  */
-export enum SlotSortAttribute {
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-  SlotName = "SlotName",
-}
+export const SlotSortAttribute = {
+  LastUpdatedDateTime: "LastUpdatedDateTime",
+  SlotName: "SlotName",
+};
 
 /**
  * @public
@@ -6832,13 +6832,13 @@ export interface SlotSortBy {
   /**
    * <p>The attribute to use to sort the list.</p>
    */
-  attribute: SlotSortAttribute | string | undefined;
+  attribute: keyof typeof SlotSortAttribute | string | undefined;
 
   /**
    * <p>The order to sort the list. You can choose ascending or
    *          descending.</p>
    */
-  order: SortOrder | string | undefined;
+  order: keyof typeof SortOrder | string | undefined;
 }
 
 /**
@@ -6924,7 +6924,7 @@ export interface SlotSummary {
    * <p>Whether the slot is required or optional. An intent is complete when
    *          all required slots are filled.</p>
    */
-  slotConstraint?: SlotConstraint | string;
+  slotConstraint?: keyof typeof SlotConstraint | string;
 
   /**
    * <p>The unique identifier for the slot type that defines the values for
@@ -6991,18 +6991,18 @@ export interface ListSlotsResponse {
 /**
  * @public
  */
-export enum SlotTypeFilterName {
-  ExternalSourceType = "ExternalSourceType",
-  SlotTypeName = "SlotTypeName",
-}
+export const SlotTypeFilterName = {
+  ExternalSourceType: "ExternalSourceType",
+  SlotTypeName: "SlotTypeName",
+};
 
 /**
  * @public
  */
-export enum SlotTypeFilterOperator {
-  Contains = "CO",
-  Equals = "EQ",
-}
+export const SlotTypeFilterOperator = {
+  Contains: "CO",
+  Equals: "EQ",
+};
 
 /**
  * @public
@@ -7013,7 +7013,7 @@ export interface SlotTypeFilter {
   /**
    * <p>The name of the field to use for filtering.</p>
    */
-  name: SlotTypeFilterName | string | undefined;
+  name: keyof typeof SlotTypeFilterName | string | undefined;
 
   /**
    * <p>The value to use to filter the response.</p>
@@ -7027,16 +7027,16 @@ export interface SlotTypeFilter {
    *             <code>ListSlotTypes</code> operation should return aliases that
    *          contain the specified value.</p>
    */
-  operator: SlotTypeFilterOperator | string | undefined;
+  operator: keyof typeof SlotTypeFilterOperator | string | undefined;
 }
 
 /**
  * @public
  */
-export enum SlotTypeSortAttribute {
-  LastUpdatedDateTime = "LastUpdatedDateTime",
-  SlotTypeName = "SlotTypeName",
-}
+export const SlotTypeSortAttribute = {
+  LastUpdatedDateTime: "LastUpdatedDateTime",
+  SlotTypeName: "SlotTypeName",
+};
 
 /**
  * @public
@@ -7046,13 +7046,13 @@ export interface SlotTypeSortBy {
   /**
    * <p>The attribute to use to sort the list of slot types.</p>
    */
-  attribute: SlotTypeSortAttribute | string | undefined;
+  attribute: keyof typeof SlotTypeSortAttribute | string | undefined;
 
   /**
    * <p>The order to sort the list. You can say ascending or
    *          descending.</p>
    */
-  order: SortOrder | string | undefined;
+  order: keyof typeof SortOrder | string | undefined;
 }
 
 /**
@@ -7112,12 +7112,12 @@ export interface ListSlotTypesRequest {
 /**
  * @public
  */
-export enum SlotTypeCategory {
-  Composite = "Composite",
-  Custom = "Custom",
-  Extended = "Extended",
-  ExternalGrammar = "ExternalGrammar",
-}
+export const SlotTypeCategory = {
+  Composite: "Composite",
+  Custom: "Custom",
+  Extended: "Extended",
+  ExternalGrammar: "ExternalGrammar",
+};
 
 /**
  * @public
@@ -7173,7 +7173,7 @@ export interface SlotTypeSummary {
    *             </li>
    *          </ul>
    */
-  slotTypeCategory?: SlotTypeCategory | string;
+  slotTypeCategory?: keyof typeof SlotTypeCategory | string;
 }
 
 /**
@@ -7238,10 +7238,10 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
-export enum SearchOrder {
-  Ascending = "Ascending",
-  Descending = "Descending",
-}
+export const SearchOrder = {
+  Ascending: "Ascending",
+  Descending: "Descending",
+};
 
 /**
  * @public
@@ -7277,7 +7277,7 @@ export interface SearchAssociatedTranscriptsRequest {
    * <p>How SearchResults are ordered. Valid values are Ascending or
    *          Descending. The default is Descending.</p>
    */
-  searchOrder?: SearchOrder | string;
+  searchOrder?: keyof typeof SearchOrder | string;
 
   /**
    * <p>A list of filter objects.</p>
@@ -7416,7 +7416,7 @@ export interface StartBotRecommendationResponse {
    *          <p>If the status is Failed, then the reasons for the failure are listed
    *          in the failureReasons field. </p>
    */
-  botRecommendationStatus?: BotRecommendationStatus | string;
+  botRecommendationStatus?: keyof typeof BotRecommendationStatus | string;
 
   /**
    * <p>The identifier of the bot recommendation that you have
@@ -7466,7 +7466,7 @@ export interface StartImportRequest {
    *             <code>FailOnConflict</code> existing resources are not overwritten
    *          and the import fails.</p>
    */
-  mergeStrategy: MergeStrategy | string | undefined;
+  mergeStrategy: keyof typeof MergeStrategy | string | undefined;
 
   /**
    * <p>The password used to encrypt the zip archive that contains the
@@ -7496,14 +7496,14 @@ export interface StartImportResponse {
    *             <code>FailOnConflict</code> existing resources are not overwritten
    *          and the import fails.</p>
    */
-  mergeStrategy?: MergeStrategy | string;
+  mergeStrategy?: keyof typeof MergeStrategy | string;
 
   /**
    * <p>The current status of the import. When the status is
    *             <code>Complete</code> the bot, bot alias, or custom vocabulary is
    *          ready to use.</p>
    */
-  importStatus?: ImportStatus | string;
+  importStatus?: keyof typeof ImportStatus | string;
 
   /**
    * <p>The date and time that the import request was created.</p>
@@ -7569,7 +7569,7 @@ export interface StopBotRecommendationResponse {
    * <p>The status of the bot recommendation. If the status is Failed,
    *          then the reasons for the failure are listed in the failureReasons field.</p>
    */
-  botRecommendationStatus?: BotRecommendationStatus | string;
+  botRecommendationStatus?: keyof typeof BotRecommendationStatus | string;
 
   /**
    * <p>The unique identifier of the bot recommendation that is being

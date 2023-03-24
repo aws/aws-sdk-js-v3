@@ -32,10 +32,10 @@ export interface ClearTimerAction {
 /**
  * @public
  */
-export enum PayloadType {
-  JSON = "JSON",
-  STRING = "STRING",
-}
+export const PayloadType = {
+  JSON: "JSON",
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -59,7 +59,7 @@ export interface Payload {
    * <p>The value of the payload type can be either <code>STRING</code> or
    *       <code>JSON</code>.</p>
    */
-  type: PayloadType | string | undefined;
+  type: keyof typeof PayloadType | string | undefined;
 }
 
 /**
@@ -1023,12 +1023,12 @@ export interface AlarmModelSummary {
 /**
  * @public
  */
-export enum AlarmModelVersionStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-}
+export const AlarmModelVersionStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -1089,7 +1089,7 @@ export interface AlarmModelVersionSummary {
    *             </li>
    *          </ul>
    */
-  status?: AlarmModelVersionStatus | string;
+  status?: keyof typeof AlarmModelVersionStatus | string;
 
   /**
    * <p>
@@ -1261,14 +1261,14 @@ export interface AlarmNotification {
 /**
  * @public
  */
-export enum ComparisonOperator {
-  EQUAL = "EQUAL",
-  GREATER = "GREATER",
-  GREATER_OR_EQUAL = "GREATER_OR_EQUAL",
-  LESS = "LESS",
-  LESS_OR_EQUAL = "LESS_OR_EQUAL",
-  NOT_EQUAL = "NOT_EQUAL",
-}
+export const ComparisonOperator = {
+  EQUAL: "EQUAL",
+  GREATER: "GREATER",
+  GREATER_OR_EQUAL: "GREATER_OR_EQUAL",
+  LESS: "LESS",
+  LESS_OR_EQUAL: "LESS_OR_EQUAL",
+  NOT_EQUAL: "NOT_EQUAL",
+};
 
 /**
  * @public
@@ -1284,7 +1284,7 @@ export interface SimpleRule {
   /**
    * <p>The comparison operator.</p>
    */
-  comparisonOperator: ComparisonOperator | string | undefined;
+  comparisonOperator: keyof typeof ComparisonOperator | string | undefined;
 
   /**
    * <p>The value on the right side of the comparison operator. You can enter a number or specify
@@ -1307,11 +1307,11 @@ export interface AlarmRule {
 /**
  * @public
  */
-export enum AnalysisResultLevel {
-  ERROR = "ERROR",
-  INFO = "INFO",
-  WARNING = "WARNING",
-}
+export const AnalysisResultLevel = {
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARNING: "WARNING",
+};
 
 /**
  * @public
@@ -1400,7 +1400,7 @@ export interface AnalysisResult {
    *             </li>
    *          </ul>
    */
-  level?: AnalysisResultLevel | string;
+  level?: keyof typeof AnalysisResultLevel | string;
 
   /**
    * <p>Contains additional information about the analysis result.</p>
@@ -1417,11 +1417,11 @@ export interface AnalysisResult {
 /**
  * @public
  */
-export enum AnalysisStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-}
+export const AnalysisStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -1568,7 +1568,7 @@ export interface CreateAlarmModelResponse {
    *             </li>
    *          </ul>
    */
-  status?: AlarmModelVersionStatus | string;
+  status?: keyof typeof AlarmModelVersionStatus | string;
 }
 
 /**
@@ -1866,10 +1866,10 @@ export interface DetectorModelDefinition {
 /**
  * @public
  */
-export enum EvaluationMethod {
-  BATCH = "BATCH",
-  SERIAL = "SERIAL",
-}
+export const EvaluationMethod = {
+  BATCH: "BATCH",
+  SERIAL: "SERIAL",
+};
 
 /**
  * @public
@@ -1913,21 +1913,21 @@ export interface CreateDetectorModelRequest {
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    */
-  evaluationMethod?: EvaluationMethod | string;
+  evaluationMethod?: keyof typeof EvaluationMethod | string;
 }
 
 /**
  * @public
  */
-export enum DetectorModelVersionStatus {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  DEPRECATED = "DEPRECATED",
-  DRAFT = "DRAFT",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-  PAUSED = "PAUSED",
-}
+export const DetectorModelVersionStatus = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  DEPRECATED: "DEPRECATED",
+  DRAFT: "DRAFT",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  PAUSED: "PAUSED",
+};
 
 /**
  * @public
@@ -1972,7 +1972,7 @@ export interface DetectorModelConfiguration {
   /**
    * <p>The status of the detector model.</p>
    */
-  status?: DetectorModelVersionStatus | string;
+  status?: keyof typeof DetectorModelVersionStatus | string;
 
   /**
    * <p>The value used to identify a detector instance. When a device or system sends input, a new
@@ -1989,7 +1989,7 @@ export interface DetectorModelConfiguration {
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    */
-  evaluationMethod?: EvaluationMethod | string;
+  evaluationMethod?: keyof typeof EvaluationMethod | string;
 }
 
 /**
@@ -2045,12 +2045,12 @@ export interface CreateInputRequest {
 /**
  * @public
  */
-export enum InputStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const InputStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -2085,7 +2085,7 @@ export interface InputConfiguration {
   /**
    * <p>The status of the input.</p>
    */
-  status: InputStatus | string | undefined;
+  status: keyof typeof InputStatus | string | undefined;
 }
 
 /**
@@ -2226,7 +2226,7 @@ export interface DescribeAlarmModelResponse {
    *             </li>
    *          </ul>
    */
-  status?: AlarmModelVersionStatus | string;
+  status?: keyof typeof AlarmModelVersionStatus | string;
 
   /**
    * <p>
@@ -2357,7 +2357,7 @@ export interface DescribeDetectorModelAnalysisResponse {
    *             </li>
    *          </ul>
    */
-  status?: AnalysisStatus | string;
+  status?: keyof typeof AnalysisStatus | string;
 }
 
 /**
@@ -2422,11 +2422,11 @@ export interface DetectorDebugOption {
 /**
  * @public
  */
-export enum LoggingLevel {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  INFO = "INFO",
-}
+export const LoggingLevel = {
+  DEBUG: "DEBUG",
+  ERROR: "ERROR",
+  INFO: "INFO",
+};
 
 /**
  * @public
@@ -2441,7 +2441,7 @@ export interface LoggingOptions {
   /**
    * <p>The logging level.</p>
    */
-  level: LoggingLevel | string | undefined;
+  level: keyof typeof LoggingLevel | string | undefined;
 
   /**
    * <p>If TRUE, logging is enabled for AWS IoT Events.</p>
@@ -2544,13 +2544,13 @@ export interface DetectorModelVersionSummary {
   /**
    * <p>The status of the detector model version.</p>
    */
-  status?: DetectorModelVersionStatus | string;
+  status?: keyof typeof DetectorModelVersionStatus | string;
 
   /**
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    */
-  evaluationMethod?: EvaluationMethod | string;
+  evaluationMethod?: keyof typeof EvaluationMethod | string;
 }
 
 /**
@@ -2696,7 +2696,7 @@ export interface InputSummary {
   /**
    * <p>The status of the input.</p>
    */
-  status?: InputStatus | string;
+  status?: keyof typeof InputStatus | string;
 }
 
 /**
@@ -3115,7 +3115,7 @@ export interface UpdateAlarmModelResponse {
    *             </li>
    *          </ul>
    */
-  status?: AlarmModelVersionStatus | string;
+  status?: keyof typeof AlarmModelVersionStatus | string;
 }
 
 /**
@@ -3146,7 +3146,7 @@ export interface UpdateDetectorModelRequest {
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    */
-  evaluationMethod?: EvaluationMethod | string;
+  evaluationMethod?: keyof typeof EvaluationMethod | string;
 }
 
 /**

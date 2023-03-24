@@ -6,20 +6,20 @@ import { AppConfigDataServiceException as __BaseException } from "./AppConfigDat
 /**
  * @public
  */
-export enum InvalidParameterProblem {
+export const InvalidParameterProblem = {
   /**
    * The parameter was corrupted and could not be understood by the service.
    */
-  CORRUPTED = "Corrupted",
+  CORRUPTED: "Corrupted",
   /**
    * The parameter was expired and can no longer be used.
    */
-  EXPIRED = "Expired",
+  EXPIRED: "Expired",
   /**
    * The client called the service before the time specified in the poll interval.
    */
-  POLL_INTERVAL_NOT_SATISFIED = "PollIntervalNotSatisfied",
-}
+  POLL_INTERVAL_NOT_SATISFIED: "PollIntervalNotSatisfied",
+};
 
 /**
  * @public
@@ -29,7 +29,7 @@ export interface InvalidParameterDetail {
   /**
    * <p>The reason the parameter is invalid.</p>
    */
-  Problem?: InvalidParameterProblem | string;
+  Problem?: keyof typeof InvalidParameterProblem | string;
 }
 
 /**
@@ -70,13 +70,13 @@ export namespace BadRequestDetails {
 /**
  * @public
  */
-export enum BadRequestReason {
+export const BadRequestReason = {
   /**
    * Indicates there was a problem with one or more of the parameters.
    * See InvalidParameters in the BadRequestDetails for more information.
    */
-  INVALID_PARAMETERS = "InvalidParameters",
-}
+  INVALID_PARAMETERS: "InvalidParameters",
+};
 
 /**
  * @public
@@ -89,7 +89,7 @@ export class BadRequestException extends __BaseException {
   /**
    * <p>Code indicating the reason the request was invalid.</p>
    */
-  Reason?: BadRequestReason | string;
+  Reason?: keyof typeof BadRequestReason | string;
 
   /**
    * <p>Details describing why the request was invalid.</p>
@@ -136,28 +136,28 @@ export class InternalServerException extends __BaseException {
 /**
  * @public
  */
-export enum ResourceType {
+export const ResourceType = {
   /**
    * Resource type value for the Application resource.
    */
-  APPLICATION = "Application",
+  APPLICATION: "Application",
   /**
    * Resource type value for the Configuration resource.
    */
-  CONFIGURATION = "Configuration",
+  CONFIGURATION: "Configuration",
   /**
    * Resource type value for the ConfigurationProfile resource.
    */
-  CONFIGURATION_PROFILE = "ConfigurationProfile",
+  CONFIGURATION_PROFILE: "ConfigurationProfile",
   /**
    * Resource type value for the Deployment resource.
    */
-  DEPLOYMENT = "Deployment",
+  DEPLOYMENT: "Deployment",
   /**
    * Resource type value for the Environment resource.
    */
-  ENVIRONMENT = "Environment",
-}
+  ENVIRONMENT: "Environment",
+};
 
 /**
  * @public
@@ -170,7 +170,7 @@ export class ResourceNotFoundException extends __BaseException {
   /**
    * <p>The type of resource that was not found.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>A map indicating which parameters in the request reference the resource that was not

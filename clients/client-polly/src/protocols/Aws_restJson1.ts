@@ -1130,7 +1130,10 @@ const serializeAws_restJson1LexiconNameList = (input: string[], context: __Serde
     });
 };
 
-const serializeAws_restJson1SpeechMarkTypeList = (input: (SpeechMarkType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1SpeechMarkTypeList = (
+  input: (keyof typeof SpeechMarkType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1138,7 +1141,7 @@ const serializeAws_restJson1SpeechMarkTypeList = (input: (SpeechMarkType | strin
     });
 };
 
-const deserializeAws_restJson1EngineList = (output: any, context: __SerdeContext): (Engine | string)[] => {
+const deserializeAws_restJson1EngineList = (output: any, context: __SerdeContext): (keyof typeof Engine | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1150,7 +1153,10 @@ const deserializeAws_restJson1EngineList = (output: any, context: __SerdeContext
   return retVal;
 };
 
-const deserializeAws_restJson1LanguageCodeList = (output: any, context: __SerdeContext): (LanguageCode | string)[] => {
+const deserializeAws_restJson1LanguageCodeList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof LanguageCode | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1218,7 +1224,7 @@ const deserializeAws_restJson1LexiconNameList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1SpeechMarkTypeList = (
   output: any,
   context: __SerdeContext
-): (SpeechMarkType | string)[] => {
+): (keyof typeof SpeechMarkType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

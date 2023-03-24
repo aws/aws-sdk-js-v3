@@ -28,21 +28,21 @@ export interface AcceptResourceShareInvitationRequest {
 /**
  * @public
  */
-export enum ResourceShareAssociationType {
-  PRINCIPAL = "PRINCIPAL",
-  RESOURCE = "RESOURCE",
-}
+export const ResourceShareAssociationType = {
+  PRINCIPAL: "PRINCIPAL",
+  RESOURCE: "RESOURCE",
+};
 
 /**
  * @public
  */
-export enum ResourceShareAssociationStatus {
-  ASSOCIATED = "ASSOCIATED",
-  ASSOCIATING = "ASSOCIATING",
-  DISASSOCIATED = "DISASSOCIATED",
-  DISASSOCIATING = "DISASSOCIATING",
-  FAILED = "FAILED",
-}
+export const ResourceShareAssociationStatus = {
+  ASSOCIATED: "ASSOCIATED",
+  ASSOCIATING: "ASSOCIATING",
+  DISASSOCIATED: "DISASSOCIATED",
+  DISASSOCIATING: "DISASSOCIATING",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
@@ -92,12 +92,12 @@ export interface ResourceShareAssociation {
   /**
    * <p>The type of entity included in this association.</p>
    */
-  associationType?: ResourceShareAssociationType | string;
+  associationType?: keyof typeof ResourceShareAssociationType | string;
 
   /**
    * <p>The current status of the association.</p>
    */
-  status?: ResourceShareAssociationStatus | string;
+  status?: keyof typeof ResourceShareAssociationStatus | string;
 
   /**
    * <p>A message about the status of the association.</p>
@@ -124,12 +124,12 @@ export interface ResourceShareAssociation {
 /**
  * @public
  */
-export enum ResourceShareInvitationStatus {
-  ACCEPTED = "ACCEPTED",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+export const ResourceShareInvitationStatus = {
+  ACCEPTED: "ACCEPTED",
+  EXPIRED: "EXPIRED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+};
 
 /**
  * @public
@@ -169,7 +169,7 @@ export interface ResourceShareInvitation {
   /**
    * <p>The current status of the invitation.</p>
    */
-  status?: ResourceShareInvitationStatus | string;
+  status?: keyof typeof ResourceShareInvitationStatus | string;
 
   /**
    * @deprecated
@@ -777,22 +777,22 @@ export interface CreateResourceShareRequest {
 /**
  * @public
  */
-export enum ResourceShareFeatureSet {
-  CREATED_FROM_POLICY = "CREATED_FROM_POLICY",
-  PROMOTING_TO_STANDARD = "PROMOTING_TO_STANDARD",
-  STANDARD = "STANDARD",
-}
+export const ResourceShareFeatureSet = {
+  CREATED_FROM_POLICY: "CREATED_FROM_POLICY",
+  PROMOTING_TO_STANDARD: "PROMOTING_TO_STANDARD",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
  */
-export enum ResourceShareStatus {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
+export const ResourceShareStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -823,7 +823,7 @@ export interface ResourceShare {
   /**
    * <p>The current status of the resource share.</p>
    */
-  status?: ResourceShareStatus | string;
+  status?: keyof typeof ResourceShareStatus | string;
 
   /**
    * <p>A message about the status of the resource share.</p>
@@ -868,7 +868,7 @@ export interface ResourceShare {
    *             </li>
    *          </ul>
    */
-  featureSet?: ResourceShareFeatureSet | string;
+  featureSet?: keyof typeof ResourceShareFeatureSet | string;
 }
 
 /**
@@ -1298,7 +1298,7 @@ export interface GetResourceShareAssociationsRequest {
    *             </li>
    *          </ul>
    */
-  associationType: ResourceShareAssociationType | string | undefined;
+  associationType: keyof typeof ResourceShareAssociationType | string | undefined;
 
   /**
    * <p>Specifies a list of <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of the resource share whose associations you want to
@@ -1325,7 +1325,7 @@ export interface GetResourceShareAssociationsRequest {
   /**
    * <p>Specifies that you want to retrieve only associations with this status.</p>
    */
-  associationStatus?: ResourceShareAssociationStatus | string;
+  associationStatus?: keyof typeof ResourceShareAssociationStatus | string;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid
@@ -1450,10 +1450,10 @@ export class InvalidMaxResultsException extends __BaseException {
 /**
  * @public
  */
-export enum ResourceOwner {
-  OTHER_ACCOUNTS = "OTHER-ACCOUNTS",
-  SELF = "SELF",
-}
+export const ResourceOwner = {
+  OTHER_ACCOUNTS: "OTHER-ACCOUNTS",
+  SELF: "SELF",
+};
 
 /**
  * @public
@@ -1486,7 +1486,7 @@ export interface GetResourceSharesRequest {
    * <p>Specifies that you want to retrieve details of only those resource shares that have this
    *             status.</p>
    */
-  resourceShareStatus?: ResourceShareStatus | string;
+  resourceShareStatus?: keyof typeof ResourceShareStatus | string;
 
   /**
    * <p>Specifies that you want to retrieve details of only those resource shares that match the
@@ -1508,7 +1508,7 @@ export interface GetResourceSharesRequest {
    *             </li>
    *          </ul>
    */
-  resourceOwner: ResourceOwner | string | undefined;
+  resourceOwner: keyof typeof ResourceOwner | string | undefined;
 
   /**
    * <p>Specifies the name of an individual resource share that you want to retrieve details
@@ -1573,11 +1573,11 @@ export interface GetResourceSharesResponse {
 /**
  * @public
  */
-export enum ResourceRegionScopeFilter {
-  ALL = "ALL",
-  GLOBAL = "GLOBAL",
-  REGIONAL = "REGIONAL",
-}
+export const ResourceRegionScopeFilter = {
+  ALL: "ALL",
+  GLOBAL: "GLOBAL",
+  REGIONAL: "REGIONAL",
+};
 
 /**
  * @public
@@ -1632,27 +1632,27 @@ export interface ListPendingInvitationResourcesRequest {
    *          </ul>
    *          <p>The default value is <code>ALL</code>.</p>
    */
-  resourceRegionScope?: ResourceRegionScopeFilter | string;
+  resourceRegionScope?: keyof typeof ResourceRegionScopeFilter | string;
 }
 
 /**
  * @public
  */
-export enum ResourceRegionScope {
-  GLOBAL = "GLOBAL",
-  REGIONAL = "REGIONAL",
-}
+export const ResourceRegionScope = {
+  GLOBAL: "GLOBAL",
+  REGIONAL: "REGIONAL",
+};
 
 /**
  * @public
  */
-export enum ResourceStatus {
-  AVAILABLE = "AVAILABLE",
-  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
-  PENDING = "PENDING",
-  UNAVAILABLE = "UNAVAILABLE",
-  ZONAL_RESOURCE_INACCESSIBLE = "ZONAL_RESOURCE_INACCESSIBLE",
-}
+export const ResourceStatus = {
+  AVAILABLE: "AVAILABLE",
+  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
+  PENDING: "PENDING",
+  UNAVAILABLE: "UNAVAILABLE",
+  ZONAL_RESOURCE_INACCESSIBLE: "ZONAL_RESOURCE_INACCESSIBLE",
+};
 
 /**
  * @public
@@ -1685,7 +1685,7 @@ export interface Resource {
   /**
    * <p>The current status of the resource.</p>
    */
-  status?: ResourceStatus | string;
+  status?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>A message about the status of the resource.</p>
@@ -1718,7 +1718,7 @@ export interface Resource {
    *             </li>
    *          </ul>
    */
-  resourceRegionScope?: ResourceRegionScope | string;
+  resourceRegionScope?: keyof typeof ResourceRegionScope | string;
 }
 
 /**
@@ -1946,7 +1946,7 @@ export interface ListPrincipalsRequest {
    *             </li>
    *          </ul>
    */
-  resourceOwner: ResourceOwner | string | undefined;
+  resourceOwner: keyof typeof ResourceOwner | string | undefined;
 
   /**
    * <p>Specifies that you want to list principal information for the resource share with the specified
@@ -2122,7 +2122,7 @@ export interface ListResourcesRequest {
    *             </li>
    *          </ul>
    */
-  resourceOwner: ResourceOwner | string | undefined;
+  resourceOwner: keyof typeof ResourceOwner | string | undefined;
 
   /**
    * <p>Specifies that you want to list only the resource shares that are associated with the specified
@@ -2193,7 +2193,7 @@ export interface ListResourcesRequest {
    *          </ul>
    *          <p>The default value is <code>ALL</code>.</p>
    */
-  resourceRegionScope?: ResourceRegionScopeFilter | string;
+  resourceRegionScope?: keyof typeof ResourceRegionScopeFilter | string;
 }
 
 /**
@@ -2315,7 +2315,7 @@ export interface ListResourceTypesRequest {
    *          </ul>
    *          <p>The default value is <code>ALL</code>.</p>
    */
-  resourceRegionScope?: ResourceRegionScopeFilter | string;
+  resourceRegionScope?: keyof typeof ResourceRegionScopeFilter | string;
 }
 
 /**
@@ -2350,7 +2350,7 @@ export interface ServiceNameAndResourceType {
    *             </li>
    *          </ul>
    */
-  resourceRegionScope?: ResourceRegionScope | string;
+  resourceRegionScope?: keyof typeof ResourceRegionScope | string;
 }
 
 /**

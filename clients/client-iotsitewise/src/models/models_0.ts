@@ -88,10 +88,10 @@ export interface Identity {
 /**
  * @public
  */
-export enum Permission {
-  ADMINISTRATOR = "ADMINISTRATOR",
-  VIEWER = "VIEWER",
-}
+export const Permission = {
+  ADMINISTRATOR: "ADMINISTRATOR",
+  VIEWER: "VIEWER",
+};
 
 /**
  * @public
@@ -156,7 +156,7 @@ export interface AccessPolicySummary {
    * <p>The permissions for the access policy. Note that a project <code>ADMINISTRATOR</code> is
    *       also known as a project owner.</p>
    */
-  permission: Permission | string | undefined;
+  permission: keyof typeof Permission | string | undefined;
 
   /**
    * <p>The date the access policy was created, in Unix epoch time.</p>
@@ -172,11 +172,11 @@ export interface AccessPolicySummary {
 /**
  * @public
  */
-export enum Quality {
-  BAD = "BAD",
-  GOOD = "GOOD",
-  UNCERTAIN = "UNCERTAIN",
-}
+export const Quality = {
+  BAD: "BAD",
+  GOOD: "GOOD",
+  UNCERTAIN: "UNCERTAIN",
+};
 
 /**
  * @public
@@ -228,7 +228,7 @@ export interface AggregatedValue {
   /**
    * <p>The quality of the aggregated data.</p>
    */
-  quality?: Quality | string;
+  quality?: keyof typeof Quality | string;
 
   /**
    * <p>The value of the aggregates.</p>
@@ -239,14 +239,14 @@ export interface AggregatedValue {
 /**
  * @public
  */
-export enum AggregateType {
-  AVERAGE = "AVERAGE",
-  COUNT = "COUNT",
-  MAXIMUM = "MAXIMUM",
-  MINIMUM = "MINIMUM",
-  STANDARD_DEVIATION = "STANDARD_DEVIATION",
-  SUM = "SUM",
-}
+export const AggregateType = {
+  AVERAGE: "AVERAGE",
+  COUNT: "COUNT",
+  MAXIMUM: "MAXIMUM",
+  MINIMUM: "MINIMUM",
+  STANDARD_DEVIATION: "STANDARD_DEVIATION",
+  SUM: "SUM",
+};
 
 /**
  * @public
@@ -272,21 +272,21 @@ export interface Alarms {
 /**
  * @public
  */
-export enum PropertyDataType {
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  INTEGER = "INTEGER",
-  STRING = "STRING",
-  STRUCT = "STRUCT",
-}
+export const PropertyDataType = {
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  INTEGER: "INTEGER",
+  STRING: "STRING",
+  STRUCT: "STRUCT",
+};
 
 /**
  * @public
  */
-export enum PropertyNotificationState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const PropertyNotificationState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -302,7 +302,7 @@ export interface PropertyNotification {
   /**
    * <p>The current notification state.</p>
    */
-  state: PropertyNotificationState | string | undefined;
+  state: keyof typeof PropertyNotificationState | string | undefined;
 }
 
 /**
@@ -336,7 +336,7 @@ export interface AssetProperty {
   /**
    * <p>The data type of the asset property.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: keyof typeof PropertyDataType | string | undefined;
 
   /**
    * <p>The data type of the structure for this property. This parameter exists on properties that
@@ -388,9 +388,9 @@ export interface AssetCompositeModel {
 /**
  * @public
  */
-export enum AssetErrorCode {
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-}
+export const AssetErrorCode = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+};
 
 /**
  * @public
@@ -405,7 +405,7 @@ export interface AssetErrorDetails {
   /**
    * <p>The error code.</p>
    */
-  code: AssetErrorCode | string | undefined;
+  code: keyof typeof AssetErrorCode | string | undefined;
 
   /**
    * <p>The error message.</p>
@@ -465,10 +465,10 @@ export interface Attribute {
 /**
  * @public
  */
-export enum ForwardingConfigState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ForwardingConfigState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -478,7 +478,7 @@ export interface ForwardingConfig {
   /**
    * <p>The forwarding state for the given property. </p>
    */
-  state: ForwardingConfigState | string | undefined;
+  state: keyof typeof ForwardingConfigState | string | undefined;
 }
 
 /**
@@ -511,10 +511,10 @@ export interface Measurement {
 /**
  * @public
  */
-export enum ComputeLocation {
-  CLOUD = "CLOUD",
-  EDGE = "EDGE",
-}
+export const ComputeLocation = {
+  CLOUD: "CLOUD",
+  EDGE: "EDGE",
+};
 
 /**
  * @public
@@ -526,7 +526,7 @@ export interface MetricProcessingConfig {
   /**
    * <p>The compute location for the given metric property. </p>
    */
-  computeLocation: ComputeLocation | string | undefined;
+  computeLocation: keyof typeof ComputeLocation | string | undefined;
 }
 
 /**
@@ -719,7 +719,7 @@ export interface TransformProcessingConfig {
   /**
    * <p>The compute location for the given transform property. </p>
    */
-  computeLocation: ComputeLocation | string | undefined;
+  computeLocation: keyof typeof ComputeLocation | string | undefined;
 
   /**
    * <p>The forwarding configuration for a given property.</p>
@@ -809,7 +809,7 @@ export interface AssetModelProperty {
   /**
    * <p>The data type of the asset model property.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: keyof typeof PropertyDataType | string | undefined;
 
   /**
    * <p>The data type of the structure for this property. This parameter exists on properties that
@@ -880,7 +880,7 @@ export interface AssetModelPropertyDefinition {
    *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to
    *       identify the type of the structure for this property.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: keyof typeof PropertyDataType | string | undefined;
 
   /**
    * <p>The data type of the structure for this property. This parameter is required on properties
@@ -992,7 +992,7 @@ export interface AssetModelPropertySummary {
   /**
    * <p>The data type of the property.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: keyof typeof PropertyDataType | string | undefined;
 
   /**
    * <p>The data type of the structure for this property. This parameter exists on properties that
@@ -1022,30 +1022,30 @@ export interface AssetModelPropertySummary {
 /**
  * @public
  */
-export enum AssetModelState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PROPAGATING = "PROPAGATING",
-  UPDATING = "UPDATING",
-}
+export const AssetModelState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PROPAGATING: "PROPAGATING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum ErrorCode {
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const ErrorCode = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+};
 
 /**
  * @public
  */
-export enum DetailedErrorCode {
-  INCOMPATIBLE_COMPUTE_LOCATION = "INCOMPATIBLE_COMPUTE_LOCATION",
-  INCOMPATIBLE_FORWARDING_CONFIGURATION = "INCOMPATIBLE_FORWARDING_CONFIGURATION",
-}
+export const DetailedErrorCode = {
+  INCOMPATIBLE_COMPUTE_LOCATION: "INCOMPATIBLE_COMPUTE_LOCATION",
+  INCOMPATIBLE_FORWARDING_CONFIGURATION: "INCOMPATIBLE_FORWARDING_CONFIGURATION",
+};
 
 /**
  * @public
@@ -1055,7 +1055,7 @@ export interface DetailedError {
   /**
    * <p>The error code. </p>
    */
-  code: DetailedErrorCode | string | undefined;
+  code: keyof typeof DetailedErrorCode | string | undefined;
 
   /**
    * <p>The error message. </p>
@@ -1071,7 +1071,7 @@ export interface ErrorDetails {
   /**
    * <p>The error code.</p>
    */
-  code: ErrorCode | string | undefined;
+  code: keyof typeof ErrorCode | string | undefined;
 
   /**
    * <p>The error message.</p>
@@ -1093,7 +1093,7 @@ export interface AssetModelStatus {
   /**
    * <p>The current state of the asset model.</p>
    */
-  state: AssetModelState | string | undefined;
+  state: keyof typeof AssetModelState | string | undefined;
 
   /**
    * <p>Contains associated error information, if any.</p>
@@ -1245,15 +1245,15 @@ export interface AssetPropertyValue {
   /**
    * <p>The quality of the asset property value.</p>
    */
-  quality?: Quality | string;
+  quality?: keyof typeof Quality | string;
 }
 
 /**
  * @public
  */
-export enum AssetRelationshipType {
-  HIERARCHY = "HIERARCHY",
-}
+export const AssetRelationshipType = {
+  HIERARCHY: "HIERARCHY",
+};
 
 /**
  * @public
@@ -1279,19 +1279,19 @@ export interface AssetRelationshipSummary {
    *             </li>
    *          </ul>
    */
-  relationshipType: AssetRelationshipType | string | undefined;
+  relationshipType: keyof typeof AssetRelationshipType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum AssetState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const AssetState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1303,7 +1303,7 @@ export interface AssetStatus {
   /**
    * <p>The current status of the asset.</p>
    */
-  state: AssetState | string | undefined;
+  state: keyof typeof AssetState | string | undefined;
 
   /**
    * <p>Contains associated error information, if any.</p>
@@ -1646,10 +1646,10 @@ export interface AssociateTimeSeriesToAssetPropertyRequest {
 /**
  * @public
  */
-export enum AuthMode {
-  IAM = "IAM",
-  SSO = "SSO",
-}
+export const AuthMode = {
+  IAM: "IAM",
+  SSO: "SSO",
+};
 
 /**
  * @public
@@ -1714,10 +1714,10 @@ export interface BatchDisassociateProjectAssetsResponse {
 /**
  * @public
  */
-export enum TimeOrdering {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const TimeOrdering = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -1761,7 +1761,7 @@ export interface BatchGetAssetPropertyAggregatesEntry {
   /**
    * <p>The data aggregating function.</p>
    */
-  aggregateTypes: (AggregateType | string)[] | undefined;
+  aggregateTypes: (keyof typeof AggregateType | string)[] | undefined;
 
   /**
    * <p>The time interval over which to aggregate data.</p>
@@ -1781,14 +1781,14 @@ export interface BatchGetAssetPropertyAggregatesEntry {
   /**
    * <p>The quality by which to filter asset data.</p>
    */
-  qualities?: (Quality | string)[];
+  qualities?: (keyof typeof Quality | string)[];
 
   /**
    * <p>The chronological sorting order of the requested information.</p>
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
    */
-  timeOrdering?: TimeOrdering | string;
+  timeOrdering?: keyof typeof TimeOrdering | string;
 }
 
 /**
@@ -1825,11 +1825,11 @@ export interface BatchGetAssetPropertyAggregatesRequest {
 /**
  * @public
  */
-export enum BatchGetAssetPropertyAggregatesErrorCode {
-  AccessDeniedException = "AccessDeniedException",
-  InvalidRequestException = "InvalidRequestException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-}
+export const BatchGetAssetPropertyAggregatesErrorCode = {
+  AccessDeniedException: "AccessDeniedException",
+  InvalidRequestException: "InvalidRequestException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+};
 
 /**
  * @public
@@ -1840,7 +1840,7 @@ export interface BatchGetAssetPropertyAggregatesErrorEntry {
   /**
    * <p>The error code.</p>
    */
-  errorCode: BatchGetAssetPropertyAggregatesErrorCode | string | undefined;
+  errorCode: keyof typeof BatchGetAssetPropertyAggregatesErrorCode | string | undefined;
 
   /**
    * <p>The associated error message.</p>
@@ -1856,10 +1856,10 @@ export interface BatchGetAssetPropertyAggregatesErrorEntry {
 /**
  * @public
  */
-export enum BatchEntryCompletionStatus {
-  ERROR = "ERROR",
-  SUCCESS = "SUCCESS",
-}
+export const BatchEntryCompletionStatus = {
+  ERROR: "ERROR",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -1870,7 +1870,7 @@ export interface BatchGetAssetPropertyAggregatesErrorInfo {
   /**
    * <p>The error code.</p>
    */
-  errorCode: BatchGetAssetPropertyAggregatesErrorCode | string | undefined;
+  errorCode: keyof typeof BatchGetAssetPropertyAggregatesErrorCode | string | undefined;
 
   /**
    * <p>The date the error occurred, in Unix epoch time.</p>
@@ -1891,7 +1891,7 @@ export interface BatchGetAssetPropertyAggregatesSkippedEntry {
   /**
    * <p>The completion status of each entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyAggregates.html">BatchGetAssetPropertyAggregates</a> API.</p>
    */
-  completionStatus: BatchEntryCompletionStatus | string | undefined;
+  completionStatus: keyof typeof BatchEntryCompletionStatus | string | undefined;
 
   /**
    * <p>The error information, such as the error code and the timestamp.</p>
@@ -2023,11 +2023,11 @@ export interface BatchGetAssetPropertyValueRequest {
 /**
  * @public
  */
-export enum BatchGetAssetPropertyValueErrorCode {
-  AccessDeniedException = "AccessDeniedException",
-  InvalidRequestException = "InvalidRequestException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-}
+export const BatchGetAssetPropertyValueErrorCode = {
+  AccessDeniedException: "AccessDeniedException",
+  InvalidRequestException: "InvalidRequestException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+};
 
 /**
  * @public
@@ -2038,7 +2038,7 @@ export interface BatchGetAssetPropertyValueErrorEntry {
   /**
    * <p>The error code.</p>
    */
-  errorCode: BatchGetAssetPropertyValueErrorCode | string | undefined;
+  errorCode: keyof typeof BatchGetAssetPropertyValueErrorCode | string | undefined;
 
   /**
    * <p>The associated error message.</p>
@@ -2059,7 +2059,7 @@ export interface BatchGetAssetPropertyValueErrorInfo {
   /**
    * <p>The error code.</p>
    */
-  errorCode: BatchGetAssetPropertyValueErrorCode | string | undefined;
+  errorCode: keyof typeof BatchGetAssetPropertyValueErrorCode | string | undefined;
 
   /**
    * <p>The date the error occurred, in Unix epoch time.</p>
@@ -2080,7 +2080,7 @@ export interface BatchGetAssetPropertyValueSkippedEntry {
   /**
    * <p>The completion status of each entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValue.html">BatchGetAssetPropertyValue</a> request.</p>
    */
-  completionStatus: BatchEntryCompletionStatus | string | undefined;
+  completionStatus: keyof typeof BatchEntryCompletionStatus | string | undefined;
 
   /**
    * <p>The error information, such as the error code and the timestamp.</p>
@@ -2185,14 +2185,14 @@ export interface BatchGetAssetPropertyValueHistoryEntry {
   /**
    * <p>The quality by which to filter asset data.</p>
    */
-  qualities?: (Quality | string)[];
+  qualities?: (keyof typeof Quality | string)[];
 
   /**
    * <p>The chronological sorting order of the requested information.</p>
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
    */
-  timeOrdering?: TimeOrdering | string;
+  timeOrdering?: keyof typeof TimeOrdering | string;
 }
 
 /**
@@ -2229,11 +2229,11 @@ export interface BatchGetAssetPropertyValueHistoryRequest {
 /**
  * @public
  */
-export enum BatchGetAssetPropertyValueHistoryErrorCode {
-  AccessDeniedException = "AccessDeniedException",
-  InvalidRequestException = "InvalidRequestException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-}
+export const BatchGetAssetPropertyValueHistoryErrorCode = {
+  AccessDeniedException: "AccessDeniedException",
+  InvalidRequestException: "InvalidRequestException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+};
 
 /**
  * @public
@@ -2244,7 +2244,7 @@ export interface BatchGetAssetPropertyValueHistoryErrorEntry {
   /**
    * <p>The error code.</p>
    */
-  errorCode: BatchGetAssetPropertyValueHistoryErrorCode | string | undefined;
+  errorCode: keyof typeof BatchGetAssetPropertyValueHistoryErrorCode | string | undefined;
 
   /**
    * <p>The associated error message.</p>
@@ -2265,7 +2265,7 @@ export interface BatchGetAssetPropertyValueHistoryErrorInfo {
   /**
    * <p>The error code.</p>
    */
-  errorCode: BatchGetAssetPropertyValueHistoryErrorCode | string | undefined;
+  errorCode: keyof typeof BatchGetAssetPropertyValueHistoryErrorCode | string | undefined;
 
   /**
    * <p>The date the error occurred, in Unix epoch time.</p>
@@ -2286,7 +2286,7 @@ export interface BatchGetAssetPropertyValueHistorySkippedEntry {
   /**
    * <p>The completion status of each entry that is associated with the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_BatchGetAssetPropertyValueHistory.html">BatchGetAssetPropertyValueHistory</a> API.</p>
    */
-  completionStatus: BatchEntryCompletionStatus | string | undefined;
+  completionStatus: keyof typeof BatchEntryCompletionStatus | string | undefined;
 
   /**
    * <p>The error information, such as the error code and the timestamp.</p>
@@ -2391,17 +2391,17 @@ export interface BatchPutAssetPropertyValueRequest {
 /**
  * @public
  */
-export enum BatchPutAssetPropertyValueErrorCode {
-  AccessDeniedException = "AccessDeniedException",
-  ConflictingOperationException = "ConflictingOperationException",
-  InternalFailureException = "InternalFailureException",
-  InvalidRequestException = "InvalidRequestException",
-  LimitExceededException = "LimitExceededException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-  ServiceUnavailableException = "ServiceUnavailableException",
-  ThrottlingException = "ThrottlingException",
-  TimestampOutOfRangeException = "TimestampOutOfRangeException",
-}
+export const BatchPutAssetPropertyValueErrorCode = {
+  AccessDeniedException: "AccessDeniedException",
+  ConflictingOperationException: "ConflictingOperationException",
+  InternalFailureException: "InternalFailureException",
+  InvalidRequestException: "InvalidRequestException",
+  LimitExceededException: "LimitExceededException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ServiceUnavailableException: "ServiceUnavailableException",
+  ThrottlingException: "ThrottlingException",
+  TimestampOutOfRangeException: "TimestampOutOfRangeException",
+};
 
 /**
  * @public
@@ -2411,7 +2411,7 @@ export interface BatchPutAssetPropertyError {
   /**
    * <p>The error code.</p>
    */
-  errorCode: BatchPutAssetPropertyValueErrorCode | string | undefined;
+  errorCode: keyof typeof BatchPutAssetPropertyValueErrorCode | string | undefined;
 
   /**
    * <p>The associated error message.</p>
@@ -2469,7 +2469,7 @@ export interface CreateAccessPolicyRequest {
   /**
    * <p>The permission level for this access policy. Note that a project <code>ADMINISTRATOR</code> is also known as a project owner.</p>
    */
-  accessPolicyPermission: Permission | string | undefined;
+  accessPolicyPermission: keyof typeof Permission | string | undefined;
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
@@ -2681,16 +2681,16 @@ export interface File {
 /**
  * @public
  */
-export enum ColumnName {
-  ALIAS = "ALIAS",
-  ASSET_ID = "ASSET_ID",
-  DATA_TYPE = "DATA_TYPE",
-  PROPERTY_ID = "PROPERTY_ID",
-  QUALITY = "QUALITY",
-  TIMESTAMP_NANO_OFFSET = "TIMESTAMP_NANO_OFFSET",
-  TIMESTAMP_SECONDS = "TIMESTAMP_SECONDS",
-  VALUE = "VALUE",
-}
+export const ColumnName = {
+  ALIAS: "ALIAS",
+  ASSET_ID: "ASSET_ID",
+  DATA_TYPE: "DATA_TYPE",
+  PROPERTY_ID: "PROPERTY_ID",
+  QUALITY: "QUALITY",
+  TIMESTAMP_NANO_OFFSET: "TIMESTAMP_NANO_OFFSET",
+  TIMESTAMP_SECONDS: "TIMESTAMP_SECONDS",
+  VALUE: "VALUE",
+};
 
 /**
  * @public
@@ -2700,7 +2700,7 @@ export interface Csv {
   /**
    * <p>The column names specified in the .csv file.</p>
    */
-  columnNames?: (ColumnName | string)[];
+  columnNames?: (keyof typeof ColumnName | string)[];
 }
 
 /**
@@ -2758,14 +2758,14 @@ export interface CreateBulkImportJobRequest {
 /**
  * @public
  */
-export enum JobStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
+export const JobStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -2812,7 +2812,7 @@ export interface CreateBulkImportJobResponse {
    *             </li>
    *          </ul>
    */
-  jobStatus: JobStatus | string | undefined;
+  jobStatus: keyof typeof JobStatus | string | undefined;
 }
 
 /**
@@ -2961,9 +2961,9 @@ export interface CreateGatewayResponse {
 /**
  * @public
  */
-export enum ImageFileType {
-  PNG = "PNG",
-}
+export const ImageFileType = {
+  PNG: "PNG",
+};
 
 /**
  * @public
@@ -2979,7 +2979,7 @@ export interface ImageFile {
   /**
    * <p>The file type of the image.</p>
    */
-  type: ImageFileType | string | undefined;
+  type: keyof typeof ImageFileType | string | undefined;
 }
 
 /**
@@ -3048,7 +3048,7 @@ export interface CreatePortalRequest {
    *          <p>Default: <code>SSO</code>
    *          </p>
    */
-  portalAuthMode?: AuthMode | string;
+  portalAuthMode?: keyof typeof AuthMode | string;
 
   /**
    * <p>The email address that sends alarm notifications.</p>
@@ -3071,11 +3071,11 @@ export interface CreatePortalRequest {
 /**
  * @public
  */
-export enum MonitorErrorCode {
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const MonitorErrorCode = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+};
 
 /**
  * @public
@@ -3085,7 +3085,7 @@ export interface MonitorErrorDetails {
   /**
    * <p>The error code.</p>
    */
-  code?: MonitorErrorCode | string;
+  code?: keyof typeof MonitorErrorCode | string;
 
   /**
    * <p>The error message.</p>
@@ -3096,13 +3096,13 @@ export interface MonitorErrorDetails {
 /**
  * @public
  */
-export enum PortalState {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const PortalState = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -3112,7 +3112,7 @@ export interface PortalStatus {
   /**
    * <p>The current state of the portal.</p>
    */
-  state: PortalState | string | undefined;
+  state: keyof typeof PortalState | string | undefined;
 
   /**
    * <p>Contains associated error information, if any.</p>
@@ -3422,7 +3422,7 @@ export interface DescribeAccessPolicyResponse {
    * <p>The access policy permission. Note that a project <code>ADMINISTRATOR</code> is also known
    *       as a project owner.</p>
    */
-  accessPolicyPermission: Permission | string | undefined;
+  accessPolicyPermission: keyof typeof Permission | string | undefined;
 
   /**
    * <p>The date the access policy was created, in Unix epoch time.</p>
@@ -3643,7 +3643,7 @@ export interface Property {
   /**
    * <p>The property data type.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: keyof typeof PropertyDataType | string | undefined;
 
   /**
    * <p>The unit (such as <code>Newtons</code> or <code>RPM</code>) of the asset property.</p>
@@ -3773,7 +3773,7 @@ export interface DescribeBulkImportJobResponse {
    *             </li>
    *          </ul>
    */
-  jobStatus: JobStatus | string | undefined;
+  jobStatus: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IAM role that allows IoT SiteWise to read Amazon S3 data.</p>
@@ -3878,7 +3878,7 @@ export interface ConfigurationErrorDetails {
   /**
    * <p>The error code.</p>
    */
-  code: ErrorCode | string | undefined;
+  code: keyof typeof ErrorCode | string | undefined;
 
   /**
    * <p>The error message.</p>
@@ -3889,11 +3889,11 @@ export interface ConfigurationErrorDetails {
 /**
  * @public
  */
-export enum ConfigurationState {
-  ACTIVE = "ACTIVE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const ConfigurationState = {
+  ACTIVE: "ACTIVE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -3903,7 +3903,7 @@ export interface ConfigurationStatus {
   /**
    * <p>The current state of the configuration.</p>
    */
-  state: ConfigurationState | string | undefined;
+  state: keyof typeof ConfigurationState | string | undefined;
 
   /**
    * <p>Contains associated error information, if any.</p>
@@ -3914,10 +3914,10 @@ export interface ConfigurationStatus {
 /**
  * @public
  */
-export enum EncryptionType {
-  KMS_BASED_ENCRYPTION = "KMS_BASED_ENCRYPTION",
-  SITEWISE_DEFAULT_ENCRYPTION = "SITEWISE_DEFAULT_ENCRYPTION",
-}
+export const EncryptionType = {
+  KMS_BASED_ENCRYPTION: "KMS_BASED_ENCRYPTION",
+  SITEWISE_DEFAULT_ENCRYPTION: "SITEWISE_DEFAULT_ENCRYPTION",
+};
 
 /**
  * @public
@@ -3926,7 +3926,7 @@ export interface DescribeDefaultEncryptionConfigurationResponse {
   /**
    * <p>The type of encryption used for the encryption configuration.</p>
    */
-  encryptionType: EncryptionType | string | undefined;
+  encryptionType: keyof typeof EncryptionType | string | undefined;
 
   /**
    * <p>The key ARN of the customer managed key used for KMS encryption if you use
@@ -3955,12 +3955,12 @@ export interface DescribeGatewayRequest {
 /**
  * @public
  */
-export enum CapabilitySyncStatus {
-  IN_SYNC = "IN_SYNC",
-  OUT_OF_SYNC = "OUT_OF_SYNC",
-  SYNC_FAILED = "SYNC_FAILED",
-  UNKNOWN = "UNKNOWN",
-}
+export const CapabilitySyncStatus = {
+  IN_SYNC: "IN_SYNC",
+  OUT_OF_SYNC: "OUT_OF_SYNC",
+  SYNC_FAILED: "SYNC_FAILED",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -3993,7 +3993,7 @@ export interface GatewayCapabilitySummary {
    *             </li>
    *          </ul>
    */
-  capabilitySyncStatus: CapabilitySyncStatus | string | undefined;
+  capabilitySyncStatus: keyof typeof CapabilitySyncStatus | string | undefined;
 }
 
 /**
@@ -4097,7 +4097,7 @@ export interface DescribeGatewayCapabilityConfigurationResponse {
    *             </li>
    *          </ul>
    */
-  capabilitySyncStatus: CapabilitySyncStatus | string | undefined;
+  capabilitySyncStatus: keyof typeof CapabilitySyncStatus | string | undefined;
 }
 
 /**
@@ -4108,11 +4108,11 @@ export interface DescribeLoggingOptionsRequest {}
 /**
  * @public
  */
-export enum LoggingLevel {
-  ERROR = "ERROR",
-  INFO = "INFO",
-  OFF = "OFF",
-}
+export const LoggingLevel = {
+  ERROR: "ERROR",
+  INFO: "INFO",
+  OFF: "OFF",
+};
 
 /**
  * @public
@@ -4122,7 +4122,7 @@ export interface LoggingOptions {
   /**
    * <p>The IoT SiteWise logging verbosity level.</p>
    */
-  level: LoggingLevel | string | undefined;
+  level: keyof typeof LoggingLevel | string | undefined;
 }
 
 /**
@@ -4237,7 +4237,7 @@ export interface DescribePortalResponse {
   /**
    * <p>The service to use to authenticate users to the portal.</p>
    */
-  portalAuthMode?: AuthMode | string;
+  portalAuthMode?: keyof typeof AuthMode | string;
 
   /**
    * <p>The email address that sends alarm notifications.</p>
@@ -4311,10 +4311,10 @@ export interface DescribeStorageConfigurationRequest {}
 /**
  * @public
  */
-export enum DisassociatedDataStorageState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DisassociatedDataStorageState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -4372,10 +4372,10 @@ export interface RetentionPeriod {
 /**
  * @public
  */
-export enum StorageType {
-  MULTI_LAYER_STORAGE = "MULTI_LAYER_STORAGE",
-  SITEWISE_DEFAULT_STORAGE = "SITEWISE_DEFAULT_STORAGE",
-}
+export const StorageType = {
+  MULTI_LAYER_STORAGE: "MULTI_LAYER_STORAGE",
+  SITEWISE_DEFAULT_STORAGE: "SITEWISE_DEFAULT_STORAGE",
+};
 
 /**
  * @public
@@ -4397,7 +4397,7 @@ export interface DescribeStorageConfigurationResponse {
    *             </li>
    *          </ul>
    */
-  storageType: StorageType | string | undefined;
+  storageType: keyof typeof StorageType | string | undefined;
 
   /**
    * <p>Contains information about the storage destination.</p>
@@ -4423,7 +4423,7 @@ export interface DescribeStorageConfigurationResponse {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a>
    *     in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  disassociatedDataStorage?: DisassociatedDataStorageState | string;
+  disassociatedDataStorage?: keyof typeof DisassociatedDataStorageState | string;
 
   /**
    * <p>How many days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>
@@ -4489,7 +4489,7 @@ export interface DescribeTimeSeriesResponse {
    * <p>The data type of the time series.</p>
    *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to identify the type of the structure for this time series.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: keyof typeof PropertyDataType | string | undefined;
 
   /**
    * <p>The data type of the structure for this time series. This parameter is required for time series
@@ -4597,7 +4597,7 @@ export interface GetAssetPropertyAggregatesRequest {
   /**
    * <p>The data aggregating function.</p>
    */
-  aggregateTypes: (AggregateType | string)[] | undefined;
+  aggregateTypes: (keyof typeof AggregateType | string)[] | undefined;
 
   /**
    * <p>The time interval over which to aggregate data.</p>
@@ -4607,7 +4607,7 @@ export interface GetAssetPropertyAggregatesRequest {
   /**
    * <p>The quality by which to filter asset data.</p>
    */
-  qualities?: (Quality | string)[];
+  qualities?: (keyof typeof Quality | string)[];
 
   /**
    * <p>The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
@@ -4624,7 +4624,7 @@ export interface GetAssetPropertyAggregatesRequest {
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
    */
-  timeOrdering?: TimeOrdering | string;
+  timeOrdering?: keyof typeof TimeOrdering | string;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
@@ -4721,14 +4721,14 @@ export interface GetAssetPropertyValueHistoryRequest {
   /**
    * <p>The quality by which to filter asset data.</p>
    */
-  qualities?: (Quality | string)[];
+  qualities?: (keyof typeof Quality | string)[];
 
   /**
    * <p>The chronological sorting order of the requested information.</p>
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
    */
-  timeOrdering?: TimeOrdering | string;
+  timeOrdering?: keyof typeof TimeOrdering | string;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
@@ -4805,7 +4805,7 @@ export interface GetInterpolatedAssetPropertyValuesRequest {
    * <p>The quality of the asset property value. You can use this parameter as a filter to choose
    *       only the asset property values that have a specific quality.</p>
    */
-  quality: Quality | string | undefined;
+  quality: keyof typeof Quality | string | undefined;
 
   /**
    * <p>The time interval in seconds over which to interpolate data. Each interval starts when the
@@ -4917,19 +4917,19 @@ export interface GetInterpolatedAssetPropertyValuesResponse {
 /**
  * @public
  */
-export enum IdentityType {
-  GROUP = "GROUP",
-  IAM = "IAM",
-  USER = "USER",
-}
+export const IdentityType = {
+  GROUP: "GROUP",
+  IAM: "IAM",
+  USER: "USER",
+};
 
 /**
  * @public
  */
-export enum ResourceType {
-  PORTAL = "PORTAL",
-  PROJECT = "PROJECT",
-}
+export const ResourceType = {
+  PORTAL: "PORTAL",
+  PROJECT: "PROJECT",
+};
 
 /**
  * @public
@@ -4939,7 +4939,7 @@ export interface ListAccessPoliciesRequest {
    * <p>The type of identity (IAM Identity Center user, IAM Identity Center group, or IAM user). This parameter is required
    *       if you specify <code>identityId</code>.</p>
    */
-  identityType?: IdentityType | string;
+  identityType?: keyof typeof IdentityType | string;
 
   /**
    * <p>The ID of the identity. This parameter is required if you specify <code>USER</code> or
@@ -4951,7 +4951,7 @@ export interface ListAccessPoliciesRequest {
    * <p>The type of resource (portal or project). This parameter is required if you specify
    *         <code>resourceId</code>.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The ID of the resource. This parameter is required if you specify
@@ -4996,10 +4996,10 @@ export interface ListAccessPoliciesResponse {
 /**
  * @public
  */
-export enum ListAssetModelPropertiesFilter {
-  ALL = "ALL",
-  BASE = "BASE",
-}
+export const ListAssetModelPropertiesFilter = {
+  ALL: "ALL",
+  BASE: "BASE",
+};
 
 /**
  * @public
@@ -5038,7 +5038,7 @@ export interface ListAssetModelPropertiesRequest {
    *          <p>Default: <code>BASE</code>
    *          </p>
    */
-  filter?: ListAssetModelPropertiesFilter | string;
+  filter?: keyof typeof ListAssetModelPropertiesFilter | string;
 }
 
 /**
@@ -5090,10 +5090,10 @@ export interface ListAssetModelsResponse {
 /**
  * @public
  */
-export enum ListAssetPropertiesFilter {
-  ALL = "ALL",
-  BASE = "BASE",
-}
+export const ListAssetPropertiesFilter = {
+  ALL: "ALL",
+  BASE: "BASE",
+};
 
 /**
  * @public
@@ -5132,7 +5132,7 @@ export interface ListAssetPropertiesRequest {
    *          <p>Default: <code>BASE</code>
    *          </p>
    */
-  filter?: ListAssetPropertiesFilter | string;
+  filter?: keyof typeof ListAssetPropertiesFilter | string;
 }
 
 /**
@@ -5153,9 +5153,9 @@ export interface ListAssetPropertiesResponse {
 /**
  * @public
  */
-export enum TraversalType {
-  PATH_TO_ROOT = "PATH_TO_ROOT",
-}
+export const TraversalType = {
+  PATH_TO_ROOT: "PATH_TO_ROOT",
+};
 
 /**
  * @public
@@ -5178,7 +5178,7 @@ export interface ListAssetRelationshipsRequest {
    *             </li>
    *          </ul>
    */
-  traversalType: TraversalType | string | undefined;
+  traversalType: keyof typeof TraversalType | string | undefined;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
@@ -5209,10 +5209,10 @@ export interface ListAssetRelationshipsResponse {
 /**
  * @public
  */
-export enum ListAssetsFilter {
-  ALL = "ALL",
-  TOP_LEVEL = "TOP_LEVEL",
-}
+export const ListAssetsFilter = {
+  ALL: "ALL",
+  TOP_LEVEL: "TOP_LEVEL",
+};
 
 /**
  * @public
@@ -5253,7 +5253,7 @@ export interface ListAssetsRequest {
    *          <p>Default: <code>ALL</code>
    *          </p>
    */
-  filter?: ListAssetsFilter | string;
+  filter?: keyof typeof ListAssetsFilter | string;
 }
 
 /**
@@ -5274,10 +5274,10 @@ export interface ListAssetsResponse {
 /**
  * @public
  */
-export enum TraversalDirection {
-  CHILD = "CHILD",
-  PARENT = "PARENT",
-}
+export const TraversalDirection = {
+  CHILD: "CHILD",
+  PARENT: "PARENT",
+};
 
 /**
  * @public
@@ -5314,7 +5314,7 @@ export interface ListAssociatedAssetsRequest {
    *          <p>Default: <code>CHILD</code>
    *          </p>
    */
-  traversalDirection?: TraversalDirection | string;
+  traversalDirection?: keyof typeof TraversalDirection | string;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
@@ -5346,15 +5346,15 @@ export interface ListAssociatedAssetsResponse {
 /**
  * @public
  */
-export enum ListBulkImportJobsFilter {
-  ALL = "ALL",
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_FAILURES = "COMPLETED_WITH_FAILURES",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
+export const ListBulkImportJobsFilter = {
+  ALL: "ALL",
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -5373,7 +5373,7 @@ export interface ListBulkImportJobsRequest {
   /**
    * <p>You can use a filter to select the bulk import jobs that you want to retrieve.</p>
    */
-  filter?: ListBulkImportJobsFilter | string;
+  filter?: keyof typeof ListBulkImportJobsFilter | string;
 }
 
 /**
@@ -5422,7 +5422,7 @@ export interface JobSummary {
    *             </li>
    *          </ul>
    */
-  status: JobStatus | string | undefined;
+  status: keyof typeof JobStatus | string | undefined;
 }
 
 /**
@@ -5805,10 +5805,10 @@ export class UnauthorizedException extends __BaseException {
 /**
  * @public
  */
-export enum ListTimeSeriesType {
-  ASSOCIATED = "ASSOCIATED",
-  DISASSOCIATED = "DISASSOCIATED",
-}
+export const ListTimeSeriesType = {
+  ASSOCIATED: "ASSOCIATED",
+  DISASSOCIATED: "DISASSOCIATED",
+};
 
 /**
  * @public
@@ -5850,7 +5850,7 @@ export interface ListTimeSeriesRequest {
    *             </li>
    *          </ul>
    */
-  timeSeriesType?: ListTimeSeriesType | string;
+  timeSeriesType?: keyof typeof ListTimeSeriesType | string;
 }
 
 /**
@@ -5882,7 +5882,7 @@ export interface TimeSeriesSummary {
    * <p>The data type of the time series.</p>
    *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to identify the type of the structure for this time series.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  dataType: keyof typeof PropertyDataType | string | undefined;
 
   /**
    * <p>The data type of the structure for this time series. This parameter is required for time series
@@ -5934,7 +5934,7 @@ export interface PutDefaultEncryptionConfigurationRequest {
   /**
    * <p>The type of encryption used for the encryption configuration.</p>
    */
-  encryptionType: EncryptionType | string | undefined;
+  encryptionType: keyof typeof EncryptionType | string | undefined;
 
   /**
    * <p>The Key ID of the customer managed key used for KMS encryption. This is required if you
@@ -5950,7 +5950,7 @@ export interface PutDefaultEncryptionConfigurationResponse {
   /**
    * <p>The type of encryption used for the encryption configuration.</p>
    */
-  encryptionType: EncryptionType | string | undefined;
+  encryptionType: keyof typeof EncryptionType | string | undefined;
 
   /**
    * <p>The Key ARN of the KMS key used for KMS encryption if you use
@@ -6001,7 +6001,7 @@ export interface PutStorageConfigurationRequest {
    *             </li>
    *          </ul>
    */
-  storageType: StorageType | string | undefined;
+  storageType: keyof typeof StorageType | string | undefined;
 
   /**
    * <p>Identifies a storage destination. If you specified <code>MULTI_LAYER_STORAGE</code> for the storage type,
@@ -6028,7 +6028,7 @@ export interface PutStorageConfigurationRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a>
    *     in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  disassociatedDataStorage?: DisassociatedDataStorageState | string;
+  disassociatedDataStorage?: keyof typeof DisassociatedDataStorageState | string;
 
   /**
    * <p>How many days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>
@@ -6056,7 +6056,7 @@ export interface PutStorageConfigurationResponse {
    *             </li>
    *          </ul>
    */
-  storageType: StorageType | string | undefined;
+  storageType: keyof typeof StorageType | string | undefined;
 
   /**
    * <p>Contains information about the storage destination.</p>
@@ -6082,7 +6082,7 @@ export interface PutStorageConfigurationResponse {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a>
    *     in the <i>IoT SiteWise User Guide</i>.</p>
    */
-  disassociatedDataStorage?: DisassociatedDataStorageState | string;
+  disassociatedDataStorage?: keyof typeof DisassociatedDataStorageState | string;
 
   /**
    * <p>How many days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>
@@ -6187,7 +6187,7 @@ export interface UpdateAccessPolicyRequest {
   /**
    * <p>The permission level for this access policy. Note that a project <code>ADMINISTRATOR</code> is also known as a project owner.</p>
    */
-  accessPolicyPermission: Permission | string | undefined;
+  accessPolicyPermission: keyof typeof Permission | string | undefined;
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
@@ -6326,7 +6326,7 @@ export interface UpdateAssetPropertyRequest {
    *       updates to a unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting with other services</a> in the <i>IoT SiteWise User Guide</i>.</p>
    *          <p>If you omit this parameter, the notification state is set to <code>DISABLED</code>.</p>
    */
-  propertyNotificationState?: PropertyNotificationState | string;
+  propertyNotificationState?: keyof typeof PropertyNotificationState | string;
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
@@ -6445,7 +6445,7 @@ export interface UpdateGatewayCapabilityConfigurationResponse {
    *          <p>After you update a capability configuration, its sync status is <code>OUT_OF_SYNC</code>
    *       until the gateway receives and applies or rejects the updated configuration.</p>
    */
-  capabilitySyncStatus: CapabilitySyncStatus | string | undefined;
+  capabilitySyncStatus: keyof typeof CapabilitySyncStatus | string | undefined;
 }
 
 /**

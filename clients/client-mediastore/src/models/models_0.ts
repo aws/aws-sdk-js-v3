@@ -6,21 +6,21 @@ import { MediaStoreServiceException as __BaseException } from "./MediaStoreServi
 /**
  * @public
  */
-export enum MethodName {
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  PUT = "PUT",
-}
+export const MethodName = {
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  PUT: "PUT",
+};
 
 /**
  * @public
  */
-export enum ContainerStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const ContainerStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -60,7 +60,7 @@ export interface Container {
    *          is creating the container, the status is <code>CREATING</code>. When the endpoint is
    *          available, the status changes to <code>ACTIVE</code>.</p>
    */
-  Status?: ContainerStatus | string;
+  Status?: keyof typeof ContainerStatus | string;
 
   /**
    * <p>The state of access logging on the container. This value is <code>false</code> by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to <code>true</code>, indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.</p>
@@ -94,10 +94,10 @@ export class ContainerInUseException extends __BaseException {
 /**
  * @public
  */
-export enum ContainerLevelMetrics {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ContainerLevelMetrics = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -143,7 +143,7 @@ export interface CorsRule {
    *          <p>Each CORS rule must contain at least one <code>AllowedMethods</code> and one
    *             <code>AllowedOrigins</code> element.</p>
    */
-  AllowedMethods?: (MethodName | string)[];
+  AllowedMethods?: (keyof typeof MethodName | string)[];
 
   /**
    * <p>Specifies which headers are allowed in a preflight <code>OPTIONS</code> request
@@ -510,7 +510,7 @@ export interface MetricPolicy {
   /**
    * <p>A setting to enable or disable metrics at the container level.</p>
    */
-  ContainerLevelMetrics: ContainerLevelMetrics | string | undefined;
+  ContainerLevelMetrics: keyof typeof ContainerLevelMetrics | string | undefined;
 
   /**
    * <p>A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas">request a quota increase</a> to allow up to 300 rules per policy.</p>

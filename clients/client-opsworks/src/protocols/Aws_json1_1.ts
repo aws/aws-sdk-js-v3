@@ -4427,13 +4427,16 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 };
 
 const serializeAws_json1_1AppAttributes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [AppAttributesKeys | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof AppAttributesKeys | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = value;
       return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_json1_1AssignInstanceRequest = (input: AssignInstanceRequest, context: __SerdeContext): any => {
@@ -5099,13 +5102,16 @@ const serializeAws_json1_1InstanceIdentity = (input: InstanceIdentity, context: 
 };
 
 const serializeAws_json1_1LayerAttributes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [LayerAttributesKeys | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof LayerAttributesKeys | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = value;
       return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_json1_1LifecycleEventConfiguration = (
@@ -5264,13 +5270,16 @@ const serializeAws_json1_1SslConfiguration = (input: SslConfiguration, context: 
 };
 
 const serializeAws_json1_1StackAttributes = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [StackAttributesKeys | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof StackAttributesKeys | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = value;
       return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_json1_1StackConfigurationManager = (
@@ -5594,7 +5603,7 @@ const deserializeAws_json1_1App = (output: any, context: __SerdeContext): App =>
 
 const deserializeAws_json1_1AppAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [AppAttributesKeys | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [keyof typeof AppAttributesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -6319,7 +6328,7 @@ const deserializeAws_json1_1Layer = (output: any, context: __SerdeContext): Laye
 
 const deserializeAws_json1_1LayerAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [LayerAttributesKeys | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [keyof typeof LayerAttributesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -6685,7 +6694,7 @@ const deserializeAws_json1_1Stack = (output: any, context: __SerdeContext): Stac
 
 const deserializeAws_json1_1StackAttributes = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [StackAttributesKeys | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [keyof typeof StackAttributesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }

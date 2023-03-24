@@ -28,12 +28,12 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum ActionType {
-  ASSIGN_CONTACT_CATEGORY = "ASSIGN_CONTACT_CATEGORY",
-  CREATE_TASK = "CREATE_TASK",
-  GENERATE_EVENTBRIDGE_EVENT = "GENERATE_EVENTBRIDGE_EVENT",
-  SEND_NOTIFICATION = "SEND_NOTIFICATION",
-}
+export const ActionType = {
+  ASSIGN_CONTACT_CATEGORY: "ASSIGN_CONTACT_CATEGORY",
+  CREATE_TASK: "CREATE_TASK",
+  GENERATE_EVENTBRIDGE_EVENT: "GENERATE_EVENTBRIDGE_EVENT",
+  SEND_NOTIFICATION: "SEND_NOTIFICATION",
+};
 
 /**
  * @public
@@ -43,46 +43,46 @@ export interface ActionSummary {
   /**
    * <p>The action type.</p>
    */
-  ActionType: ActionType | string | undefined;
+  ActionType: keyof typeof ActionType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ContactState {
-  CONNECTED = "CONNECTED",
-  CONNECTED_ONHOLD = "CONNECTED_ONHOLD",
-  CONNECTING = "CONNECTING",
-  ENDED = "ENDED",
-  ERROR = "ERROR",
-  INCOMING = "INCOMING",
-  MISSED = "MISSED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+export const ContactState = {
+  CONNECTED: "CONNECTED",
+  CONNECTED_ONHOLD: "CONNECTED_ONHOLD",
+  CONNECTING: "CONNECTING",
+  ENDED: "ENDED",
+  ERROR: "ERROR",
+  INCOMING: "INCOMING",
+  MISSED: "MISSED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+};
 
 /**
  * @public
  */
-export enum Channel {
-  CHAT = "CHAT",
-  TASK = "TASK",
-  VOICE = "VOICE",
-}
+export const Channel = {
+  CHAT: "CHAT",
+  TASK: "TASK",
+  VOICE: "VOICE",
+};
 
 /**
  * @public
  */
-export enum ContactInitiationMethod {
-  API = "API",
-  CALLBACK = "CALLBACK",
-  DISCONNECT = "DISCONNECT",
-  INBOUND = "INBOUND",
-  MONITOR = "MONITOR",
-  OUTBOUND = "OUTBOUND",
-  QUEUE_TRANSFER = "QUEUE_TRANSFER",
-  TRANSFER = "TRANSFER",
-}
+export const ContactInitiationMethod = {
+  API: "API",
+  CALLBACK: "CALLBACK",
+  DISCONNECT: "DISCONNECT",
+  INBOUND: "INBOUND",
+  MONITOR: "MONITOR",
+  OUTBOUND: "OUTBOUND",
+  QUEUE_TRANSFER: "QUEUE_TRANSFER",
+  TRANSFER: "TRANSFER",
+};
 
 /**
  * @public
@@ -114,17 +114,17 @@ export interface AgentContactReference {
   /**
    * <p>The channel of the contact.</p>
    */
-  Channel?: Channel | string;
+  Channel?: keyof typeof Channel | string;
 
   /**
    * <p>How the contact was initiated.</p>
    */
-  InitiationMethod?: ContactInitiationMethod | string;
+  InitiationMethod?: keyof typeof ContactInitiationMethod | string;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">state of the contact</a>.</p>
    */
-  AgentContactState?: ContactState | string;
+  AgentContactState?: keyof typeof ContactState | string;
 
   /**
    * <p>The epoch timestamp when the contact state started.</p>
@@ -161,19 +161,19 @@ export interface AgentInfo {
 /**
  * @public
  */
-export enum AgentStatusState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AgentStatusState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum AgentStatusType {
-  CUSTOM = "CUSTOM",
-  OFFLINE = "OFFLINE",
-  ROUTABLE = "ROUTABLE",
-}
+export const AgentStatusType = {
+  CUSTOM: "CUSTOM",
+  OFFLINE: "OFFLINE",
+  ROUTABLE: "ROUTABLE",
+};
 
 /**
  * @public
@@ -203,7 +203,7 @@ export interface AgentStatus {
   /**
    * <p>The type of agent status.</p>
    */
-  Type?: AgentStatusType | string;
+  Type?: keyof typeof AgentStatusType | string;
 
   /**
    * <p>The display order of the agent status.</p>
@@ -213,7 +213,7 @@ export interface AgentStatus {
   /**
    * <p>The state of the agent status.</p>
    */
-  State?: AgentStatusState | string;
+  State?: keyof typeof AgentStatusState | string;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
@@ -265,16 +265,16 @@ export interface AgentStatusSummary {
   /**
    * <p>The type of the agent status.</p>
    */
-  Type?: AgentStatusType | string;
+  Type?: keyof typeof AgentStatusType | string;
 }
 
 /**
  * @public
  */
-export enum MonitorCapability {
-  BARGE = "BARGE",
-  SILENT_MONITOR = "SILENT_MONITOR",
-}
+export const MonitorCapability = {
+  BARGE: "BARGE",
+  SILENT_MONITOR: "SILENT_MONITOR",
+};
 
 /**
  * @public
@@ -532,31 +532,31 @@ export class LimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum VocabularyLanguageCode {
-  AR_AE = "ar-AE",
-  DE_CH = "de-CH",
-  DE_DE = "de-DE",
-  EN_AB = "en-AB",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_IE = "en-IE",
-  EN_IN = "en-IN",
-  EN_NZ = "en-NZ",
-  EN_US = "en-US",
-  EN_WL = "en-WL",
-  EN_ZA = "en-ZA",
-  ES_ES = "es-ES",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  HI_IN = "hi-IN",
-  IT_IT = "it-IT",
-  JA_JP = "ja-JP",
-  KO_KR = "ko-KR",
-  PT_BR = "pt-BR",
-  PT_PT = "pt-PT",
-  ZH_CN = "zh-CN",
-}
+export const VocabularyLanguageCode = {
+  AR_AE: "ar-AE",
+  DE_CH: "de-CH",
+  DE_DE: "de-DE",
+  EN_AB: "en-AB",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_IE: "en-IE",
+  EN_IN: "en-IN",
+  EN_NZ: "en-NZ",
+  EN_US: "en-US",
+  EN_WL: "en-WL",
+  EN_ZA: "en-ZA",
+  ES_ES: "es-ES",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  HI_IN: "hi-IN",
+  IT_IT: "it-IT",
+  JA_JP: "ja-JP",
+  KO_KR: "ko-KR",
+  PT_BR: "pt-BR",
+  PT_PT: "pt-PT",
+  ZH_CN: "zh-CN",
+};
 
 /**
  * @public
@@ -572,7 +572,7 @@ export interface AssociateDefaultVocabularyRequest {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode: VocabularyLanguageCode | string | undefined;
+  LanguageCode: keyof typeof VocabularyLanguageCode | string | undefined;
 
   /**
    * <p>The identifier of the custom vocabulary. If this is empty, the default is set to none.</p>
@@ -588,17 +588,17 @@ export interface AssociateDefaultVocabularyResponse {}
 /**
  * @public
  */
-export enum InstanceStorageResourceType {
-  AGENT_EVENTS = "AGENT_EVENTS",
-  ATTACHMENTS = "ATTACHMENTS",
-  CALL_RECORDINGS = "CALL_RECORDINGS",
-  CHAT_TRANSCRIPTS = "CHAT_TRANSCRIPTS",
-  CONTACT_EVALUATIONS = "CONTACT_EVALUATIONS",
-  CONTACT_TRACE_RECORDS = "CONTACT_TRACE_RECORDS",
-  MEDIA_STREAMS = "MEDIA_STREAMS",
-  REAL_TIME_CONTACT_ANALYSIS_SEGMENTS = "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS",
-  SCHEDULED_REPORTS = "SCHEDULED_REPORTS",
-}
+export const InstanceStorageResourceType = {
+  AGENT_EVENTS: "AGENT_EVENTS",
+  ATTACHMENTS: "ATTACHMENTS",
+  CALL_RECORDINGS: "CALL_RECORDINGS",
+  CHAT_TRANSCRIPTS: "CHAT_TRANSCRIPTS",
+  CONTACT_EVALUATIONS: "CONTACT_EVALUATIONS",
+  CONTACT_TRACE_RECORDS: "CONTACT_TRACE_RECORDS",
+  MEDIA_STREAMS: "MEDIA_STREAMS",
+  REAL_TIME_CONTACT_ANALYSIS_SEGMENTS: "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS",
+  SCHEDULED_REPORTS: "SCHEDULED_REPORTS",
+};
 
 /**
  * @public
@@ -625,9 +625,9 @@ export interface KinesisStreamConfig {
 /**
  * @public
  */
-export enum EncryptionType {
-  KMS = "KMS",
-}
+export const EncryptionType = {
+  KMS: "KMS",
+};
 
 /**
  * @public
@@ -637,7 +637,7 @@ export interface EncryptionConfig {
   /**
    * <p>The type of encryption.</p>
    */
-  EncryptionType: EncryptionType | string | undefined;
+  EncryptionType: keyof typeof EncryptionType | string | undefined;
 
   /**
    * <p>The full ARN of the encryption key. </p>
@@ -699,12 +699,12 @@ export interface S3Config {
 /**
  * @public
  */
-export enum StorageType {
-  KINESIS_FIREHOSE = "KINESIS_FIREHOSE",
-  KINESIS_STREAM = "KINESIS_STREAM",
-  KINESIS_VIDEO_STREAM = "KINESIS_VIDEO_STREAM",
-  S3 = "S3",
-}
+export const StorageType = {
+  KINESIS_FIREHOSE: "KINESIS_FIREHOSE",
+  KINESIS_STREAM: "KINESIS_STREAM",
+  KINESIS_VIDEO_STREAM: "KINESIS_VIDEO_STREAM",
+  S3: "S3",
+};
 
 /**
  * @public
@@ -719,7 +719,7 @@ export interface InstanceStorageConfig {
   /**
    * <p>A valid storage type.</p>
    */
-  StorageType: StorageType | string | undefined;
+  StorageType: keyof typeof StorageType | string | undefined;
 
   /**
    * <p>The S3 bucket
@@ -755,7 +755,7 @@ export interface AssociateInstanceStorageConfigRequest {
   /**
    * <p>A valid resource type.</p>
    */
-  ResourceType: InstanceStorageResourceType | string | undefined;
+  ResourceType: keyof typeof InstanceStorageResourceType | string | undefined;
 
   /**
    * <p>A valid storage type.</p>
@@ -858,7 +858,7 @@ export interface RoutingProfileQueueReference {
    * <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing
    *    profile.</p>
    */
-  Channel: Channel | string | undefined;
+  Channel: keyof typeof Channel | string | undefined;
 }
 
 /**
@@ -1027,7 +1027,7 @@ export interface CreateAgentStatusRequest {
   /**
    * <p>The state of the status.</p>
    */
-  State: AgentStatusState | string | undefined;
+  State: keyof typeof AgentStatusState | string | undefined;
 
   /**
    * <p>The display order of the status.</p>
@@ -1080,17 +1080,17 @@ export class DuplicateResourceException extends __BaseException {
 /**
  * @public
  */
-export enum ContactFlowType {
-  AGENT_HOLD = "AGENT_HOLD",
-  AGENT_TRANSFER = "AGENT_TRANSFER",
-  AGENT_WHISPER = "AGENT_WHISPER",
-  CONTACT_FLOW = "CONTACT_FLOW",
-  CUSTOMER_HOLD = "CUSTOMER_HOLD",
-  CUSTOMER_QUEUE = "CUSTOMER_QUEUE",
-  CUSTOMER_WHISPER = "CUSTOMER_WHISPER",
-  OUTBOUND_WHISPER = "OUTBOUND_WHISPER",
-  QUEUE_TRANSFER = "QUEUE_TRANSFER",
-}
+export const ContactFlowType = {
+  AGENT_HOLD: "AGENT_HOLD",
+  AGENT_TRANSFER: "AGENT_TRANSFER",
+  AGENT_WHISPER: "AGENT_WHISPER",
+  CONTACT_FLOW: "CONTACT_FLOW",
+  CUSTOMER_HOLD: "CUSTOMER_HOLD",
+  CUSTOMER_QUEUE: "CUSTOMER_QUEUE",
+  CUSTOMER_WHISPER: "CUSTOMER_WHISPER",
+  OUTBOUND_WHISPER: "OUTBOUND_WHISPER",
+  QUEUE_TRANSFER: "QUEUE_TRANSFER",
+};
 
 /**
  * @public
@@ -1110,7 +1110,7 @@ export interface CreateContactFlowRequest {
    * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator
    *    Guide</i>.</p>
    */
-  Type: ContactFlowType | string | undefined;
+  Type: keyof typeof ContactFlowType | string | undefined;
 
   /**
    * <p>The description of the flow. </p>
@@ -1257,15 +1257,15 @@ export class InvalidContactFlowModuleException extends __BaseException {
 /**
  * @public
  */
-export enum HoursOfOperationDays {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
+export const HoursOfOperationDays = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+};
 
 /**
  * @public
@@ -1291,7 +1291,7 @@ export interface HoursOfOperationConfig {
   /**
    * <p>The day that the hours of operation applies to.</p>
    */
-  Day: HoursOfOperationDays | string | undefined;
+  Day: keyof typeof HoursOfOperationDays | string | undefined;
 
   /**
    * <p>The start time that your contact center opens.</p>
@@ -1357,11 +1357,11 @@ export interface CreateHoursOfOperationResponse {
 /**
  * @public
  */
-export enum DirectoryType {
-  CONNECT_MANAGED = "CONNECT_MANAGED",
-  EXISTING_DIRECTORY = "EXISTING_DIRECTORY",
-  SAML = "SAML",
-}
+export const DirectoryType = {
+  CONNECT_MANAGED: "CONNECT_MANAGED",
+  EXISTING_DIRECTORY: "EXISTING_DIRECTORY",
+  SAML: "SAML",
+};
 
 /**
  * @public
@@ -1375,7 +1375,7 @@ export interface CreateInstanceRequest {
   /**
    * <p>The type of identity management for your Amazon Connect users.</p>
    */
-  IdentityManagementType: DirectoryType | string | undefined;
+  IdentityManagementType: keyof typeof DirectoryType | string | undefined;
 
   /**
    * <p>The name for your instance.</p>
@@ -1416,22 +1416,22 @@ export interface CreateInstanceResponse {
 /**
  * @public
  */
-export enum IntegrationType {
-  CASES_DOMAIN = "CASES_DOMAIN",
-  EVENT = "EVENT",
-  PINPOINT_APP = "PINPOINT_APP",
-  VOICE_ID = "VOICE_ID",
-  WISDOM_ASSISTANT = "WISDOM_ASSISTANT",
-  WISDOM_KNOWLEDGE_BASE = "WISDOM_KNOWLEDGE_BASE",
-}
+export const IntegrationType = {
+  CASES_DOMAIN: "CASES_DOMAIN",
+  EVENT: "EVENT",
+  PINPOINT_APP: "PINPOINT_APP",
+  VOICE_ID: "VOICE_ID",
+  WISDOM_ASSISTANT: "WISDOM_ASSISTANT",
+  WISDOM_KNOWLEDGE_BASE: "WISDOM_KNOWLEDGE_BASE",
+};
 
 /**
  * @public
  */
-export enum SourceType {
-  SALESFORCE = "SALESFORCE",
-  ZENDESK = "ZENDESK",
-}
+export const SourceType = {
+  SALESFORCE: "SALESFORCE",
+  ZENDESK: "ZENDESK",
+};
 
 /**
  * @public
@@ -1445,7 +1445,7 @@ export interface CreateIntegrationAssociationRequest {
   /**
    * <p>The type of information to be ingested.</p>
    */
-  IntegrationType: IntegrationType | string | undefined;
+  IntegrationType: keyof typeof IntegrationType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the integration.</p>
@@ -1469,7 +1469,7 @@ export interface CreateIntegrationAssociationRequest {
   /**
    * <p>The type of the data source. This field is only required for the EVENT integration type.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
@@ -1604,11 +1604,11 @@ export interface QueueQuickConnectConfig {
 /**
  * @public
  */
-export enum QuickConnectType {
-  PHONE_NUMBER = "PHONE_NUMBER",
-  QUEUE = "QUEUE",
-  USER = "USER",
-}
+export const QuickConnectType = {
+  PHONE_NUMBER: "PHONE_NUMBER",
+  QUEUE: "QUEUE",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -1636,7 +1636,7 @@ export interface QuickConnectConfig {
    * <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are
    *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE). </p>
    */
-  QuickConnectType: QuickConnectType | string | undefined;
+  QuickConnectType: keyof typeof QuickConnectType | string | undefined;
 
   /**
    * <p>The user configuration. This is required only if QuickConnectType is USER.</p>
@@ -1708,7 +1708,7 @@ export interface MediaConcurrency {
   /**
    * <p>The channels that agents can handle in the Contact Control Panel (CCP).</p>
    */
-  Channel: Channel | string | undefined;
+  Channel: keyof typeof Channel | string | undefined;
 
   /**
    * <p>The number of contacts an agent can have on a channel simultaneously.</p>
@@ -1805,16 +1805,16 @@ export interface EventBridgeActionDefinition {
 /**
  * @public
  */
-export enum NotificationContentType {
-  PLAIN_TEXT = "PLAIN_TEXT",
-}
+export const NotificationContentType = {
+  PLAIN_TEXT: "PLAIN_TEXT",
+};
 
 /**
  * @public
  */
-export enum NotificationDeliveryType {
-  EMAIL = "EMAIL",
-}
+export const NotificationDeliveryType = {
+  EMAIL: "EMAIL",
+};
 
 /**
  * @public
@@ -1840,7 +1840,7 @@ export interface SendNotificationActionDefinition {
   /**
    * <p>Notification delivery method.</p>
    */
-  DeliveryMethod: NotificationDeliveryType | string | undefined;
+  DeliveryMethod: keyof typeof NotificationDeliveryType | string | undefined;
 
   /**
    * <p>The subject of the email if the delivery method is <code>EMAIL</code>.
@@ -1860,7 +1860,7 @@ export interface SendNotificationActionDefinition {
   /**
    * <p>Content type format.</p>
    */
-  ContentType: NotificationContentType | string | undefined;
+  ContentType: keyof typeof NotificationContentType | string | undefined;
 
   /**
    * <p>Notification recipient.</p>
@@ -1871,14 +1871,14 @@ export interface SendNotificationActionDefinition {
 /**
  * @public
  */
-export enum ReferenceType {
-  ATTACHMENT = "ATTACHMENT",
-  DATE = "DATE",
-  EMAIL = "EMAIL",
-  NUMBER = "NUMBER",
-  STRING = "STRING",
-  URL = "URL",
-}
+export const ReferenceType = {
+  ATTACHMENT: "ATTACHMENT",
+  DATE: "DATE",
+  EMAIL: "EMAIL",
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+  URL: "URL",
+};
 
 /**
  * @public
@@ -1896,7 +1896,7 @@ export interface Reference {
    * <p>The type of the reference. <code>DATE</code> must be of type Epoch timestamp.
    *    </p>
    */
-  Type: ReferenceType | string | undefined;
+  Type: keyof typeof ReferenceType | string | undefined;
 }
 
 /**
@@ -1938,7 +1938,7 @@ export interface RuleAction {
   /**
    * <p>The type of action that creates a rule.</p>
    */
-  ActionType: ActionType | string | undefined;
+  ActionType: keyof typeof ActionType | string | undefined;
 
   /**
    * <p>Information about the task action. This field is required if <code>TriggerEventSource</code>
@@ -1967,22 +1967,22 @@ export interface RuleAction {
 /**
  * @public
  */
-export enum RulePublishStatus {
-  DRAFT = "DRAFT",
-  PUBLISHED = "PUBLISHED",
-}
+export const RulePublishStatus = {
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+};
 
 /**
  * @public
  */
-export enum EventSourceName {
-  OnPostCallAnalysisAvailable = "OnPostCallAnalysisAvailable",
-  OnPostChatAnalysisAvailable = "OnPostChatAnalysisAvailable",
-  OnRealTimeCallAnalysisAvailable = "OnRealTimeCallAnalysisAvailable",
-  OnSalesforceCaseCreate = "OnSalesforceCaseCreate",
-  OnZendeskTicketCreate = "OnZendeskTicketCreate",
-  OnZendeskTicketStatusUpdate = "OnZendeskTicketStatusUpdate",
-}
+export const EventSourceName = {
+  OnPostCallAnalysisAvailable: "OnPostCallAnalysisAvailable",
+  OnPostChatAnalysisAvailable: "OnPostChatAnalysisAvailable",
+  OnRealTimeCallAnalysisAvailable: "OnRealTimeCallAnalysisAvailable",
+  OnSalesforceCaseCreate: "OnSalesforceCaseCreate",
+  OnZendeskTicketCreate: "OnZendeskTicketCreate",
+  OnZendeskTicketStatusUpdate: "OnZendeskTicketStatusUpdate",
+};
 
 /**
  * @public
@@ -1995,7 +1995,7 @@ export interface RuleTriggerEventSource {
   /**
    * <p>The name of the event source.</p>
    */
-  EventSourceName: EventSourceName | string | undefined;
+  EventSourceName: keyof typeof EventSourceName | string | undefined;
 
   /**
    * <p>The identifier for the integration association.</p>
@@ -2035,7 +2035,7 @@ export interface CreateRuleRequest {
   /**
    * <p>The publish status of the rule.</p>
    */
-  PublishStatus: RulePublishStatus | string | undefined;
+  PublishStatus: keyof typeof RulePublishStatus | string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -2214,20 +2214,20 @@ export interface TaskTemplateDefaults {
 /**
  * @public
  */
-export enum TaskTemplateFieldType {
-  BOOLEAN = "BOOLEAN",
-  DATE_TIME = "DATE_TIME",
-  DESCRIPTION = "DESCRIPTION",
-  EMAIL = "EMAIL",
-  NAME = "NAME",
-  NUMBER = "NUMBER",
-  QUICK_CONNECT = "QUICK_CONNECT",
-  SCHEDULED_TIME = "SCHEDULED_TIME",
-  SINGLE_SELECT = "SINGLE_SELECT",
-  TEXT = "TEXT",
-  TEXT_AREA = "TEXT_AREA",
-  URL = "URL",
-}
+export const TaskTemplateFieldType = {
+  BOOLEAN: "BOOLEAN",
+  DATE_TIME: "DATE_TIME",
+  DESCRIPTION: "DESCRIPTION",
+  EMAIL: "EMAIL",
+  NAME: "NAME",
+  NUMBER: "NUMBER",
+  QUICK_CONNECT: "QUICK_CONNECT",
+  SCHEDULED_TIME: "SCHEDULED_TIME",
+  SINGLE_SELECT: "SINGLE_SELECT",
+  TEXT: "TEXT",
+  TEXT_AREA: "TEXT_AREA",
+  URL: "URL",
+};
 
 /**
  * @public
@@ -2247,7 +2247,7 @@ export interface TaskTemplateField {
   /**
    * <p>Indicates the type of field.</p>
    */
-  Type?: TaskTemplateFieldType | string;
+  Type?: keyof typeof TaskTemplateFieldType | string;
 
   /**
    * <p>A list of options for a single select field.</p>
@@ -2258,10 +2258,10 @@ export interface TaskTemplateField {
 /**
  * @public
  */
-export enum TaskTemplateStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const TaskTemplateStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -2302,7 +2302,7 @@ export interface CreateTaskTemplateRequest {
    * Tasks can only be created from <code>ACTIVE</code> templates.
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created. </p>
    */
-  Status?: TaskTemplateStatus | string;
+  Status?: keyof typeof TaskTemplateStatus | string;
 
   /**
    * <p>Fields that are part of the template.</p>
@@ -2336,14 +2336,14 @@ export interface CreateTaskTemplateResponse {
 /**
  * @public
  */
-export enum PropertyValidationExceptionReason {
-  INVALID_FORMAT = "INVALID_FORMAT",
-  NOT_SUPPORTED = "NOT_SUPPORTED",
-  REFERENCED_RESOURCE_NOT_FOUND = "REFERENCED_RESOURCE_NOT_FOUND",
-  REQUIRED_PROPERTY_MISSING = "REQUIRED_PROPERTY_MISSING",
-  RESOURCE_NAME_ALREADY_EXISTS = "RESOURCE_NAME_ALREADY_EXISTS",
-  UNIQUE_CONSTRAINT_VIOLATED = "UNIQUE_CONSTRAINT_VIOLATED",
-}
+export const PropertyValidationExceptionReason = {
+  INVALID_FORMAT: "INVALID_FORMAT",
+  NOT_SUPPORTED: "NOT_SUPPORTED",
+  REFERENCED_RESOURCE_NOT_FOUND: "REFERENCED_RESOURCE_NOT_FOUND",
+  REQUIRED_PROPERTY_MISSING: "REQUIRED_PROPERTY_MISSING",
+  RESOURCE_NAME_ALREADY_EXISTS: "RESOURCE_NAME_ALREADY_EXISTS",
+  UNIQUE_CONSTRAINT_VIOLATED: "UNIQUE_CONSTRAINT_VIOLATED",
+};
 
 /**
  * @public
@@ -2358,7 +2358,7 @@ export interface PropertyValidationExceptionProperty {
   /**
    * <p>Why the property is not valid.</p>
    */
-  Reason: PropertyValidationExceptionReason | string | undefined;
+  Reason: keyof typeof PropertyValidationExceptionReason | string | undefined;
 
   /**
    * <p>A message describing why the property is not valid.</p>
@@ -2466,10 +2466,10 @@ export class ResourceNotReadyException extends __BaseException {
 /**
  * @public
  */
-export enum UseCaseType {
-  CONNECT_CAMPAIGNS = "CONNECT_CAMPAIGNS",
-  RULES_EVALUATION = "RULES_EVALUATION",
-}
+export const UseCaseType = {
+  CONNECT_CAMPAIGNS: "CONNECT_CAMPAIGNS",
+  RULES_EVALUATION: "RULES_EVALUATION",
+};
 
 /**
  * @public
@@ -2489,7 +2489,7 @@ export interface CreateUseCaseRequest {
    * <p>The type of use case to associate to the integration association. Each integration
    *    association can have only one of each use case type.</p>
    */
-  UseCaseType: UseCaseType | string | undefined;
+  UseCaseType: keyof typeof UseCaseType | string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
@@ -2553,10 +2553,10 @@ export interface UserIdentityInfo {
 /**
  * @public
  */
-export enum PhoneType {
-  DESK_PHONE = "DESK_PHONE",
-  SOFT_PHONE = "SOFT_PHONE",
-}
+export const PhoneType = {
+  DESK_PHONE: "DESK_PHONE",
+  SOFT_PHONE: "SOFT_PHONE",
+};
 
 /**
  * @public
@@ -2566,7 +2566,7 @@ export interface UserPhoneConfig {
   /**
    * <p>The phone type.</p>
    */
-  PhoneType: PhoneType | string | undefined;
+  PhoneType: keyof typeof PhoneType | string | undefined;
 
   /**
    * <p>The Auto accept setting.</p>
@@ -2735,7 +2735,7 @@ export interface CreateVocabularyRequest {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode: VocabularyLanguageCode | string | undefined;
+  LanguageCode: keyof typeof VocabularyLanguageCode | string | undefined;
 
   /**
    * <p>The content of the custom vocabulary in plain-text format with a table of values. Each row
@@ -2755,12 +2755,12 @@ export interface CreateVocabularyRequest {
 /**
  * @public
  */
-export enum VocabularyState {
-  ACTIVE = "ACTIVE",
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-}
+export const VocabularyState = {
+  ACTIVE: "ACTIVE",
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -2779,7 +2779,7 @@ export interface CreateVocabularyResponse {
   /**
    * <p>The current state of the custom vocabulary.</p>
    */
-  State: VocabularyState | string | undefined;
+  State: keyof typeof VocabularyState | string | undefined;
 }
 
 /**
@@ -2910,15 +2910,15 @@ export interface DeleteSecurityProfileRequest {
 /**
  * @public
  */
-export enum ResourceType {
-  CONTACT = "CONTACT",
-  CONTACT_FLOW = "CONTACT_FLOW",
-  HIERARCHY_GROUP = "HIERARCHY_GROUP",
-  HIERARCHY_LEVEL = "HIERARCHY_LEVEL",
-  INSTANCE = "INSTANCE",
-  PARTICIPANT = "PARTICIPANT",
-  USER = "USER",
-}
+export const ResourceType = {
+  CONTACT: "CONTACT",
+  CONTACT_FLOW: "CONTACT_FLOW",
+  HIERARCHY_GROUP: "HIERARCHY_GROUP",
+  HIERARCHY_LEVEL: "HIERARCHY_LEVEL",
+  INSTANCE: "INSTANCE",
+  PARTICIPANT: "PARTICIPANT",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -2931,7 +2931,7 @@ export class ResourceInUseException extends __BaseException {
   /**
    * <p>The type of resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The identifier for the resource.</p>
@@ -3072,7 +3072,7 @@ export interface DeleteVocabularyResponse {
   /**
    * <p>The current state of the custom vocabulary.</p>
    */
-  State: VocabularyState | string | undefined;
+  State: keyof typeof VocabularyState | string | undefined;
 }
 
 /**
@@ -3170,7 +3170,7 @@ export interface Contact {
   /**
    * <p>Indicates how the contact was initiated.</p>
    */
-  InitiationMethod?: ContactInitiationMethod | string;
+  InitiationMethod?: keyof typeof ContactInitiationMethod | string;
 
   /**
    * <p>The name of the contact.</p>
@@ -3185,7 +3185,7 @@ export interface Contact {
   /**
    * <p>How the contact reached your contact center.</p>
    */
-  Channel?: Channel | string;
+  Channel?: keyof typeof Channel | string;
 
   /**
    * <p>If this contact was queued, this contains information about the queue. </p>
@@ -3284,10 +3284,10 @@ export interface DescribeContactFlowRequest {
 /**
  * @public
  */
-export enum ContactFlowState {
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-}
+export const ContactFlowState = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+};
 
 /**
  * @public
@@ -3313,12 +3313,12 @@ export interface ContactFlow {
    * <p>The type of the flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a flow type</a> in the <i>Amazon Connect Administrator
    *    Guide</i>.</p>
    */
-  Type?: ContactFlowType | string;
+  Type?: keyof typeof ContactFlowType | string;
 
   /**
    * <p>The type of flow.</p>
    */
-  State?: ContactFlowState | string;
+  State?: keyof typeof ContactFlowState | string;
 
   /**
    * <p>The description of the flow.</p>
@@ -3364,18 +3364,18 @@ export interface DescribeContactFlowModuleRequest {
 /**
  * @public
  */
-export enum ContactFlowModuleState {
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-}
+export const ContactFlowModuleState = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+};
 
 /**
  * @public
  */
-export enum ContactFlowModuleStatus {
-  PUBLISHED = "PUBLISHED",
-  SAVED = "SAVED",
-}
+export const ContactFlowModuleStatus = {
+  PUBLISHED: "PUBLISHED",
+  SAVED: "SAVED",
+};
 
 /**
  * @public
@@ -3410,12 +3410,12 @@ export interface ContactFlowModule {
   /**
    * <p>The type of flow module.</p>
    */
-  State?: ContactFlowModuleState | string;
+  State?: keyof typeof ContactFlowModuleState | string;
 
   /**
    * <p>The status of the flow module.</p>
    */
-  Status?: ContactFlowModuleStatus | string;
+  Status?: keyof typeof ContactFlowModuleStatus | string;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
@@ -3512,11 +3512,11 @@ export interface DescribeInstanceRequest {
 /**
  * @public
  */
-export enum InstanceStatus {
-  ACTIVE = "ACTIVE",
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-}
+export const InstanceStatus = {
+  ACTIVE: "ACTIVE",
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -3548,7 +3548,7 @@ export interface Instance {
   /**
    * <p>The identity management type.</p>
    */
-  IdentityManagementType?: DirectoryType | string;
+  IdentityManagementType?: keyof typeof DirectoryType | string;
 
   /**
    * <p>The alias of instance.</p>
@@ -3568,7 +3568,7 @@ export interface Instance {
   /**
    * <p>The state of the instance.</p>
    */
-  InstanceStatus?: InstanceStatus | string;
+  InstanceStatus?: keyof typeof InstanceStatus | string;
 
   /**
    * <p>Relevant
@@ -3600,18 +3600,18 @@ export interface DescribeInstanceResponse {
 /**
  * @public
  */
-export enum InstanceAttributeType {
-  AUTO_RESOLVE_BEST_VOICES = "AUTO_RESOLVE_BEST_VOICES",
-  CONTACTFLOW_LOGS = "CONTACTFLOW_LOGS",
-  CONTACT_LENS = "CONTACT_LENS",
-  EARLY_MEDIA = "EARLY_MEDIA",
-  ENHANCED_CONTACT_MONITORING = "ENHANCED_CONTACT_MONITORING",
-  HIGH_VOLUME_OUTBOUND = "HIGH_VOLUME_OUTBOUND",
-  INBOUND_CALLS = "INBOUND_CALLS",
-  MULTI_PARTY_CONFERENCE = "MULTI_PARTY_CONFERENCE",
-  OUTBOUND_CALLS = "OUTBOUND_CALLS",
-  USE_CUSTOM_TTS_VOICES = "USE_CUSTOM_TTS_VOICES",
-}
+export const InstanceAttributeType = {
+  AUTO_RESOLVE_BEST_VOICES: "AUTO_RESOLVE_BEST_VOICES",
+  CONTACTFLOW_LOGS: "CONTACTFLOW_LOGS",
+  CONTACT_LENS: "CONTACT_LENS",
+  EARLY_MEDIA: "EARLY_MEDIA",
+  ENHANCED_CONTACT_MONITORING: "ENHANCED_CONTACT_MONITORING",
+  HIGH_VOLUME_OUTBOUND: "HIGH_VOLUME_OUTBOUND",
+  INBOUND_CALLS: "INBOUND_CALLS",
+  MULTI_PARTY_CONFERENCE: "MULTI_PARTY_CONFERENCE",
+  OUTBOUND_CALLS: "OUTBOUND_CALLS",
+  USE_CUSTOM_TTS_VOICES: "USE_CUSTOM_TTS_VOICES",
+};
 
 /**
  * @public
@@ -3625,7 +3625,7 @@ export interface DescribeInstanceAttributeRequest {
   /**
    * <p>The type of attribute.</p>
    */
-  AttributeType: InstanceAttributeType | string | undefined;
+  AttributeType: keyof typeof InstanceAttributeType | string | undefined;
 }
 
 /**
@@ -3636,7 +3636,7 @@ export interface Attribute {
   /**
    * <p>The type of attribute.</p>
    */
-  AttributeType?: InstanceAttributeType | string;
+  AttributeType?: keyof typeof InstanceAttributeType | string;
 
   /**
    * <p>The value of the attribute.</p>
@@ -3673,7 +3673,7 @@ export interface DescribeInstanceStorageConfigRequest {
   /**
    * <p>A valid resource type.</p>
    */
-  ResourceType: InstanceStorageResourceType | string | undefined;
+  ResourceType: keyof typeof InstanceStorageResourceType | string | undefined;
 }
 
 /**
@@ -3699,254 +3699,254 @@ export interface DescribePhoneNumberRequest {
 /**
  * @public
  */
-export enum PhoneNumberCountryCode {
-  AD = "AD",
-  AE = "AE",
-  AF = "AF",
-  AG = "AG",
-  AI = "AI",
-  AL = "AL",
-  AM = "AM",
-  AN = "AN",
-  AO = "AO",
-  AQ = "AQ",
-  AR = "AR",
-  AS = "AS",
-  AT = "AT",
-  AU = "AU",
-  AW = "AW",
-  AZ = "AZ",
-  BA = "BA",
-  BB = "BB",
-  BD = "BD",
-  BE = "BE",
-  BF = "BF",
-  BG = "BG",
-  BH = "BH",
-  BI = "BI",
-  BJ = "BJ",
-  BL = "BL",
-  BM = "BM",
-  BN = "BN",
-  BO = "BO",
-  BR = "BR",
-  BS = "BS",
-  BT = "BT",
-  BW = "BW",
-  BY = "BY",
-  BZ = "BZ",
-  CA = "CA",
-  CC = "CC",
-  CD = "CD",
-  CF = "CF",
-  CG = "CG",
-  CH = "CH",
-  CI = "CI",
-  CK = "CK",
-  CL = "CL",
-  CM = "CM",
-  CN = "CN",
-  CO = "CO",
-  CR = "CR",
-  CU = "CU",
-  CV = "CV",
-  CW = "CW",
-  CX = "CX",
-  CY = "CY",
-  CZ = "CZ",
-  DE = "DE",
-  DJ = "DJ",
-  DK = "DK",
-  DM = "DM",
-  DO = "DO",
-  DZ = "DZ",
-  EC = "EC",
-  EE = "EE",
-  EG = "EG",
-  EH = "EH",
-  ER = "ER",
-  ES = "ES",
-  ET = "ET",
-  FI = "FI",
-  FJ = "FJ",
-  FK = "FK",
-  FM = "FM",
-  FO = "FO",
-  FR = "FR",
-  GA = "GA",
-  GB = "GB",
-  GD = "GD",
-  GE = "GE",
-  GG = "GG",
-  GH = "GH",
-  GI = "GI",
-  GL = "GL",
-  GM = "GM",
-  GN = "GN",
-  GQ = "GQ",
-  GR = "GR",
-  GT = "GT",
-  GU = "GU",
-  GW = "GW",
-  GY = "GY",
-  HK = "HK",
-  HN = "HN",
-  HR = "HR",
-  HT = "HT",
-  HU = "HU",
-  ID = "ID",
-  IE = "IE",
-  IL = "IL",
-  IM = "IM",
-  IN = "IN",
-  IO = "IO",
-  IQ = "IQ",
-  IR = "IR",
-  IS = "IS",
-  IT = "IT",
-  JE = "JE",
-  JM = "JM",
-  JO = "JO",
-  JP = "JP",
-  KE = "KE",
-  KG = "KG",
-  KH = "KH",
-  KI = "KI",
-  KM = "KM",
-  KN = "KN",
-  KP = "KP",
-  KR = "KR",
-  KW = "KW",
-  KY = "KY",
-  KZ = "KZ",
-  LA = "LA",
-  LB = "LB",
-  LC = "LC",
-  LI = "LI",
-  LK = "LK",
-  LR = "LR",
-  LS = "LS",
-  LT = "LT",
-  LU = "LU",
-  LV = "LV",
-  LY = "LY",
-  MA = "MA",
-  MC = "MC",
-  MD = "MD",
-  ME = "ME",
-  MF = "MF",
-  MG = "MG",
-  MH = "MH",
-  MK = "MK",
-  ML = "ML",
-  MM = "MM",
-  MN = "MN",
-  MO = "MO",
-  MP = "MP",
-  MR = "MR",
-  MS = "MS",
-  MT = "MT",
-  MU = "MU",
-  MV = "MV",
-  MW = "MW",
-  MX = "MX",
-  MY = "MY",
-  MZ = "MZ",
-  NA = "NA",
-  NC = "NC",
-  NE = "NE",
-  NG = "NG",
-  NI = "NI",
-  NL = "NL",
-  NO = "NO",
-  NP = "NP",
-  NR = "NR",
-  NU = "NU",
-  NZ = "NZ",
-  OM = "OM",
-  PA = "PA",
-  PE = "PE",
-  PF = "PF",
-  PG = "PG",
-  PH = "PH",
-  PK = "PK",
-  PL = "PL",
-  PM = "PM",
-  PN = "PN",
-  PR = "PR",
-  PT = "PT",
-  PW = "PW",
-  PY = "PY",
-  QA = "QA",
-  RE = "RE",
-  RO = "RO",
-  RS = "RS",
-  RU = "RU",
-  RW = "RW",
-  SA = "SA",
-  SB = "SB",
-  SC = "SC",
-  SD = "SD",
-  SE = "SE",
-  SG = "SG",
-  SH = "SH",
-  SI = "SI",
-  SJ = "SJ",
-  SK = "SK",
-  SL = "SL",
-  SM = "SM",
-  SN = "SN",
-  SO = "SO",
-  SR = "SR",
-  ST = "ST",
-  SV = "SV",
-  SX = "SX",
-  SY = "SY",
-  SZ = "SZ",
-  TC = "TC",
-  TD = "TD",
-  TG = "TG",
-  TH = "TH",
-  TJ = "TJ",
-  TK = "TK",
-  TL = "TL",
-  TM = "TM",
-  TN = "TN",
-  TO = "TO",
-  TR = "TR",
-  TT = "TT",
-  TV = "TV",
-  TW = "TW",
-  TZ = "TZ",
-  UA = "UA",
-  UG = "UG",
-  US = "US",
-  UY = "UY",
-  UZ = "UZ",
-  VA = "VA",
-  VC = "VC",
-  VE = "VE",
-  VG = "VG",
-  VI = "VI",
-  VN = "VN",
-  VU = "VU",
-  WF = "WF",
-  WS = "WS",
-  YE = "YE",
-  YT = "YT",
-  ZA = "ZA",
-  ZM = "ZM",
-  ZW = "ZW",
-}
+export const PhoneNumberCountryCode = {
+  AD: "AD",
+  AE: "AE",
+  AF: "AF",
+  AG: "AG",
+  AI: "AI",
+  AL: "AL",
+  AM: "AM",
+  AN: "AN",
+  AO: "AO",
+  AQ: "AQ",
+  AR: "AR",
+  AS: "AS",
+  AT: "AT",
+  AU: "AU",
+  AW: "AW",
+  AZ: "AZ",
+  BA: "BA",
+  BB: "BB",
+  BD: "BD",
+  BE: "BE",
+  BF: "BF",
+  BG: "BG",
+  BH: "BH",
+  BI: "BI",
+  BJ: "BJ",
+  BL: "BL",
+  BM: "BM",
+  BN: "BN",
+  BO: "BO",
+  BR: "BR",
+  BS: "BS",
+  BT: "BT",
+  BW: "BW",
+  BY: "BY",
+  BZ: "BZ",
+  CA: "CA",
+  CC: "CC",
+  CD: "CD",
+  CF: "CF",
+  CG: "CG",
+  CH: "CH",
+  CI: "CI",
+  CK: "CK",
+  CL: "CL",
+  CM: "CM",
+  CN: "CN",
+  CO: "CO",
+  CR: "CR",
+  CU: "CU",
+  CV: "CV",
+  CW: "CW",
+  CX: "CX",
+  CY: "CY",
+  CZ: "CZ",
+  DE: "DE",
+  DJ: "DJ",
+  DK: "DK",
+  DM: "DM",
+  DO: "DO",
+  DZ: "DZ",
+  EC: "EC",
+  EE: "EE",
+  EG: "EG",
+  EH: "EH",
+  ER: "ER",
+  ES: "ES",
+  ET: "ET",
+  FI: "FI",
+  FJ: "FJ",
+  FK: "FK",
+  FM: "FM",
+  FO: "FO",
+  FR: "FR",
+  GA: "GA",
+  GB: "GB",
+  GD: "GD",
+  GE: "GE",
+  GG: "GG",
+  GH: "GH",
+  GI: "GI",
+  GL: "GL",
+  GM: "GM",
+  GN: "GN",
+  GQ: "GQ",
+  GR: "GR",
+  GT: "GT",
+  GU: "GU",
+  GW: "GW",
+  GY: "GY",
+  HK: "HK",
+  HN: "HN",
+  HR: "HR",
+  HT: "HT",
+  HU: "HU",
+  ID: "ID",
+  IE: "IE",
+  IL: "IL",
+  IM: "IM",
+  IN: "IN",
+  IO: "IO",
+  IQ: "IQ",
+  IR: "IR",
+  IS: "IS",
+  IT: "IT",
+  JE: "JE",
+  JM: "JM",
+  JO: "JO",
+  JP: "JP",
+  KE: "KE",
+  KG: "KG",
+  KH: "KH",
+  KI: "KI",
+  KM: "KM",
+  KN: "KN",
+  KP: "KP",
+  KR: "KR",
+  KW: "KW",
+  KY: "KY",
+  KZ: "KZ",
+  LA: "LA",
+  LB: "LB",
+  LC: "LC",
+  LI: "LI",
+  LK: "LK",
+  LR: "LR",
+  LS: "LS",
+  LT: "LT",
+  LU: "LU",
+  LV: "LV",
+  LY: "LY",
+  MA: "MA",
+  MC: "MC",
+  MD: "MD",
+  ME: "ME",
+  MF: "MF",
+  MG: "MG",
+  MH: "MH",
+  MK: "MK",
+  ML: "ML",
+  MM: "MM",
+  MN: "MN",
+  MO: "MO",
+  MP: "MP",
+  MR: "MR",
+  MS: "MS",
+  MT: "MT",
+  MU: "MU",
+  MV: "MV",
+  MW: "MW",
+  MX: "MX",
+  MY: "MY",
+  MZ: "MZ",
+  NA: "NA",
+  NC: "NC",
+  NE: "NE",
+  NG: "NG",
+  NI: "NI",
+  NL: "NL",
+  NO: "NO",
+  NP: "NP",
+  NR: "NR",
+  NU: "NU",
+  NZ: "NZ",
+  OM: "OM",
+  PA: "PA",
+  PE: "PE",
+  PF: "PF",
+  PG: "PG",
+  PH: "PH",
+  PK: "PK",
+  PL: "PL",
+  PM: "PM",
+  PN: "PN",
+  PR: "PR",
+  PT: "PT",
+  PW: "PW",
+  PY: "PY",
+  QA: "QA",
+  RE: "RE",
+  RO: "RO",
+  RS: "RS",
+  RU: "RU",
+  RW: "RW",
+  SA: "SA",
+  SB: "SB",
+  SC: "SC",
+  SD: "SD",
+  SE: "SE",
+  SG: "SG",
+  SH: "SH",
+  SI: "SI",
+  SJ: "SJ",
+  SK: "SK",
+  SL: "SL",
+  SM: "SM",
+  SN: "SN",
+  SO: "SO",
+  SR: "SR",
+  ST: "ST",
+  SV: "SV",
+  SX: "SX",
+  SY: "SY",
+  SZ: "SZ",
+  TC: "TC",
+  TD: "TD",
+  TG: "TG",
+  TH: "TH",
+  TJ: "TJ",
+  TK: "TK",
+  TL: "TL",
+  TM: "TM",
+  TN: "TN",
+  TO: "TO",
+  TR: "TR",
+  TT: "TT",
+  TV: "TV",
+  TW: "TW",
+  TZ: "TZ",
+  UA: "UA",
+  UG: "UG",
+  US: "US",
+  UY: "UY",
+  UZ: "UZ",
+  VA: "VA",
+  VC: "VC",
+  VE: "VE",
+  VG: "VG",
+  VI: "VI",
+  VN: "VN",
+  VU: "VU",
+  WF: "WF",
+  WS: "WS",
+  YE: "YE",
+  YT: "YT",
+  ZA: "ZA",
+  ZM: "ZM",
+  ZW: "ZW",
+};
 
 /**
  * @public
  */
-export enum PhoneNumberWorkflowStatus {
-  Claimed = "CLAIMED",
-  Failed = "FAILED",
-  InProgress = "IN_PROGRESS",
-}
+export const PhoneNumberWorkflowStatus = {
+  Claimed: "CLAIMED",
+  Failed: "FAILED",
+  InProgress: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -3980,7 +3980,7 @@ export interface PhoneNumberStatus {
   /**
    * <p>The status.</p>
    */
-  Status?: PhoneNumberWorkflowStatus | string;
+  Status?: keyof typeof PhoneNumberWorkflowStatus | string;
 
   /**
    * <p>The status message.</p>
@@ -3991,10 +3991,10 @@ export interface PhoneNumberStatus {
 /**
  * @public
  */
-export enum PhoneNumberType {
-  DID = "DID",
-  TOLL_FREE = "TOLL_FREE",
-}
+export const PhoneNumberType = {
+  DID: "DID",
+  TOLL_FREE: "TOLL_FREE",
+};
 
 /**
  * @public
@@ -4020,12 +4020,12 @@ export interface ClaimedPhoneNumberSummary {
   /**
    * <p>The ISO country code.</p>
    */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
+  PhoneNumberCountryCode?: keyof typeof PhoneNumberCountryCode | string;
 
   /**
    * <p>The type of phone number.</p>
    */
-  PhoneNumberType?: PhoneNumberType | string;
+  PhoneNumberType?: keyof typeof PhoneNumberType | string;
 
   /**
    * <p>The description of the phone number.</p>
@@ -4105,10 +4105,10 @@ export interface DescribeQueueRequest {
 /**
  * @public
  */
-export enum QueueStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const QueueStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -4153,7 +4153,7 @@ export interface Queue {
   /**
    * <p>The status of the queue.</p>
    */
-  Status?: QueueStatus | string;
+  Status?: keyof typeof QueueStatus | string;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
@@ -4367,7 +4367,7 @@ export interface Rule {
   /**
    * <p>The publish status of the rule.</p>
    */
-  PublishStatus: RulePublishStatus | string | undefined;
+  PublishStatus: keyof typeof RulePublishStatus | string | undefined;
 
   /**
    * <p>The timestamp for when the rule was created.</p>
@@ -4486,14 +4486,14 @@ export interface DescribeTrafficDistributionGroupRequest {
 /**
  * @public
  */
-export enum TrafficDistributionGroupStatus {
-  ACTIVE = "ACTIVE",
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  DELETION_FAILED = "DELETION_FAILED",
-  PENDING_DELETION = "PENDING_DELETION",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const TrafficDistributionGroupStatus = {
+  ACTIVE: "ACTIVE",
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  DELETION_FAILED: "DELETION_FAILED",
+  PENDING_DELETION: "PENDING_DELETION",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -4559,7 +4559,7 @@ export interface TrafficDistributionGroup {
    *             </li>
    *          </ul>
    */
-  Status?: TrafficDistributionGroupStatus | string;
+  Status?: keyof typeof TrafficDistributionGroupStatus | string;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
@@ -4884,12 +4884,12 @@ export interface Vocabulary {
    * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
    *          </p>
    */
-  LanguageCode: VocabularyLanguageCode | string | undefined;
+  LanguageCode: keyof typeof VocabularyLanguageCode | string | undefined;
 
   /**
    * <p>The current state of the custom vocabulary.</p>
    */
-  State: VocabularyState | string | undefined;
+  State: keyof typeof VocabularyState | string | undefined;
 
   /**
    * <p>The timestamp when the custom vocabulary was last modified.</p>
@@ -4980,7 +4980,7 @@ export interface DisassociateInstanceStorageConfigRequest {
   /**
    * <p>A valid resource type.</p>
    */
-  ResourceType: InstanceStorageResourceType | string | undefined;
+  ResourceType: keyof typeof InstanceStorageResourceType | string | undefined;
 }
 
 /**
@@ -5142,30 +5142,30 @@ export interface GetContactAttributesResponse {
 /**
  * @public
  */
-export enum CurrentMetricName {
-  AGENTS_AFTER_CONTACT_WORK = "AGENTS_AFTER_CONTACT_WORK",
-  AGENTS_AVAILABLE = "AGENTS_AVAILABLE",
-  AGENTS_ERROR = "AGENTS_ERROR",
-  AGENTS_NON_PRODUCTIVE = "AGENTS_NON_PRODUCTIVE",
-  AGENTS_ONLINE = "AGENTS_ONLINE",
-  AGENTS_ON_CALL = "AGENTS_ON_CALL",
-  AGENTS_ON_CONTACT = "AGENTS_ON_CONTACT",
-  AGENTS_STAFFED = "AGENTS_STAFFED",
-  CONTACTS_IN_QUEUE = "CONTACTS_IN_QUEUE",
-  CONTACTS_SCHEDULED = "CONTACTS_SCHEDULED",
-  OLDEST_CONTACT_AGE = "OLDEST_CONTACT_AGE",
-  SLOTS_ACTIVE = "SLOTS_ACTIVE",
-  SLOTS_AVAILABLE = "SLOTS_AVAILABLE",
-}
+export const CurrentMetricName = {
+  AGENTS_AFTER_CONTACT_WORK: "AGENTS_AFTER_CONTACT_WORK",
+  AGENTS_AVAILABLE: "AGENTS_AVAILABLE",
+  AGENTS_ERROR: "AGENTS_ERROR",
+  AGENTS_NON_PRODUCTIVE: "AGENTS_NON_PRODUCTIVE",
+  AGENTS_ONLINE: "AGENTS_ONLINE",
+  AGENTS_ON_CALL: "AGENTS_ON_CALL",
+  AGENTS_ON_CONTACT: "AGENTS_ON_CONTACT",
+  AGENTS_STAFFED: "AGENTS_STAFFED",
+  CONTACTS_IN_QUEUE: "CONTACTS_IN_QUEUE",
+  CONTACTS_SCHEDULED: "CONTACTS_SCHEDULED",
+  OLDEST_CONTACT_AGE: "OLDEST_CONTACT_AGE",
+  SLOTS_ACTIVE: "SLOTS_ACTIVE",
+  SLOTS_AVAILABLE: "SLOTS_AVAILABLE",
+};
 
 /**
  * @public
  */
-export enum Unit {
-  COUNT = "COUNT",
-  PERCENT = "PERCENT",
-  SECONDS = "SECONDS",
-}
+export const Unit = {
+  COUNT: "COUNT",
+  PERCENT: "PERCENT",
+  SECONDS: "SECONDS",
+};
 
 /**
  * @public
@@ -5176,12 +5176,12 @@ export interface CurrentMetric {
   /**
    * <p>The name of the metric.</p>
    */
-  Name?: CurrentMetricName | string;
+  Name?: keyof typeof CurrentMetricName | string;
 
   /**
    * <p>The unit for the metric.</p>
    */
-  Unit?: Unit | string;
+  Unit?: keyof typeof Unit | string;
 }
 
 /**
@@ -5199,7 +5199,7 @@ export interface Filters {
   /**
    * <p>The channel to use to filter the metrics.</p>
    */
-  Channels?: (Channel | string)[];
+  Channels?: (keyof typeof Channel | string)[];
 
   /**
    * <p>A list of up to 100 routing profile IDs or ARNs.</p>
@@ -5210,19 +5210,19 @@ export interface Filters {
 /**
  * @public
  */
-export enum Grouping {
-  CHANNEL = "CHANNEL",
-  QUEUE = "QUEUE",
-  ROUTING_PROFILE = "ROUTING_PROFILE",
-}
+export const Grouping = {
+  CHANNEL: "CHANNEL",
+  QUEUE: "QUEUE",
+  ROUTING_PROFILE: "ROUTING_PROFILE",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -5234,12 +5234,12 @@ export interface CurrentMetricSortCriteria {
   /**
    * <p>The current metric names.</p>
    */
-  SortByMetric?: CurrentMetricName | string;
+  SortByMetric?: keyof typeof CurrentMetricName | string;
 
   /**
    * <p>The way to sort.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -5292,7 +5292,7 @@ export interface GetCurrentMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  Groupings?: (Grouping | string)[];
+  Groupings?: (keyof typeof Grouping | string)[];
 
   /**
    * <p>The metrics to retrieve. Specify the name and unit for each metric. The following metrics
@@ -5464,7 +5464,7 @@ export interface Dimensions {
   /**
    * <p>The channel used for grouping and filters.</p>
    */
-  Channel?: Channel | string;
+  Channel?: keyof typeof Channel | string;
 
   /**
    * <p>Information about the routing profile assigned to the user.</p>
@@ -5524,7 +5524,7 @@ export interface ContactFilter {
   /**
    * <p>A list of up to 9 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
    */
-  ContactStates?: (ContactState | string)[];
+  ContactStates?: (keyof typeof ContactState | string)[];
 }
 
 /**
@@ -5832,49 +5832,49 @@ export class UserNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum HistoricalMetricName {
-  ABANDON_TIME = "ABANDON_TIME",
-  AFTER_CONTACT_WORK_TIME = "AFTER_CONTACT_WORK_TIME",
-  API_CONTACTS_HANDLED = "API_CONTACTS_HANDLED",
-  CALLBACK_CONTACTS_HANDLED = "CALLBACK_CONTACTS_HANDLED",
-  CONTACTS_ABANDONED = "CONTACTS_ABANDONED",
-  CONTACTS_AGENT_HUNG_UP_FIRST = "CONTACTS_AGENT_HUNG_UP_FIRST",
-  CONTACTS_CONSULTED = "CONTACTS_CONSULTED",
-  CONTACTS_HANDLED = "CONTACTS_HANDLED",
-  CONTACTS_HANDLED_INCOMING = "CONTACTS_HANDLED_INCOMING",
-  CONTACTS_HANDLED_OUTBOUND = "CONTACTS_HANDLED_OUTBOUND",
-  CONTACTS_HOLD_ABANDONS = "CONTACTS_HOLD_ABANDONS",
-  CONTACTS_MISSED = "CONTACTS_MISSED",
-  CONTACTS_QUEUED = "CONTACTS_QUEUED",
-  CONTACTS_TRANSFERRED_IN = "CONTACTS_TRANSFERRED_IN",
-  CONTACTS_TRANSFERRED_IN_FROM_QUEUE = "CONTACTS_TRANSFERRED_IN_FROM_QUEUE",
-  CONTACTS_TRANSFERRED_OUT = "CONTACTS_TRANSFERRED_OUT",
-  CONTACTS_TRANSFERRED_OUT_FROM_QUEUE = "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE",
-  HANDLE_TIME = "HANDLE_TIME",
-  HOLD_TIME = "HOLD_TIME",
-  INTERACTION_AND_HOLD_TIME = "INTERACTION_AND_HOLD_TIME",
-  INTERACTION_TIME = "INTERACTION_TIME",
-  OCCUPANCY = "OCCUPANCY",
-  QUEUED_TIME = "QUEUED_TIME",
-  QUEUE_ANSWER_TIME = "QUEUE_ANSWER_TIME",
-  SERVICE_LEVEL = "SERVICE_LEVEL",
-}
+export const HistoricalMetricName = {
+  ABANDON_TIME: "ABANDON_TIME",
+  AFTER_CONTACT_WORK_TIME: "AFTER_CONTACT_WORK_TIME",
+  API_CONTACTS_HANDLED: "API_CONTACTS_HANDLED",
+  CALLBACK_CONTACTS_HANDLED: "CALLBACK_CONTACTS_HANDLED",
+  CONTACTS_ABANDONED: "CONTACTS_ABANDONED",
+  CONTACTS_AGENT_HUNG_UP_FIRST: "CONTACTS_AGENT_HUNG_UP_FIRST",
+  CONTACTS_CONSULTED: "CONTACTS_CONSULTED",
+  CONTACTS_HANDLED: "CONTACTS_HANDLED",
+  CONTACTS_HANDLED_INCOMING: "CONTACTS_HANDLED_INCOMING",
+  CONTACTS_HANDLED_OUTBOUND: "CONTACTS_HANDLED_OUTBOUND",
+  CONTACTS_HOLD_ABANDONS: "CONTACTS_HOLD_ABANDONS",
+  CONTACTS_MISSED: "CONTACTS_MISSED",
+  CONTACTS_QUEUED: "CONTACTS_QUEUED",
+  CONTACTS_TRANSFERRED_IN: "CONTACTS_TRANSFERRED_IN",
+  CONTACTS_TRANSFERRED_IN_FROM_QUEUE: "CONTACTS_TRANSFERRED_IN_FROM_QUEUE",
+  CONTACTS_TRANSFERRED_OUT: "CONTACTS_TRANSFERRED_OUT",
+  CONTACTS_TRANSFERRED_OUT_FROM_QUEUE: "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE",
+  HANDLE_TIME: "HANDLE_TIME",
+  HOLD_TIME: "HOLD_TIME",
+  INTERACTION_AND_HOLD_TIME: "INTERACTION_AND_HOLD_TIME",
+  INTERACTION_TIME: "INTERACTION_TIME",
+  OCCUPANCY: "OCCUPANCY",
+  QUEUED_TIME: "QUEUED_TIME",
+  QUEUE_ANSWER_TIME: "QUEUE_ANSWER_TIME",
+  SERVICE_LEVEL: "SERVICE_LEVEL",
+};
 
 /**
  * @public
  */
-export enum Statistic {
-  AVG = "AVG",
-  MAX = "MAX",
-  SUM = "SUM",
-}
+export const Statistic = {
+  AVG: "AVG",
+  MAX: "MAX",
+  SUM: "SUM",
+};
 
 /**
  * @public
  */
-export enum Comparison {
-  LT = "LT",
-}
+export const Comparison = {
+  LT: "LT",
+};
 
 /**
  * @public
@@ -5884,7 +5884,7 @@ export interface Threshold {
   /**
    * <p>The type of comparison. Only "less than" (LT) comparisons are supported.</p>
    */
-  Comparison?: Comparison | string;
+  Comparison?: keyof typeof Comparison | string;
 
   /**
    * <p>The threshold value to compare.</p>
@@ -5901,7 +5901,7 @@ export interface HistoricalMetric {
   /**
    * <p>The name of the metric.</p>
    */
-  Name?: HistoricalMetricName | string;
+  Name?: keyof typeof HistoricalMetricName | string;
 
   /**
    * <p>The threshold for the metric, used with service level metrics.</p>
@@ -5911,12 +5911,12 @@ export interface HistoricalMetric {
   /**
    * <p>The statistic for the metric.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: keyof typeof Statistic | string;
 
   /**
    * <p>The unit for the metric.</p>
    */
-  Unit?: Unit | string;
+  Unit?: keyof typeof Unit | string;
 }
 
 /**
@@ -5962,7 +5962,7 @@ export interface GetMetricDataRequest {
    *    each queue rather than aggregated for all queues.</p>
    *          <p>If no grouping is specified, a summary of metrics for all queues is returned.</p>
    */
-  Groupings?: (Grouping | string)[];
+  Groupings?: (keyof typeof Grouping | string)[];
 
   /**
    * <p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The
@@ -6641,7 +6641,7 @@ export interface GetTaskTemplateResponse {
    * Tasks can only be created from <code>ACTIVE</code> templates.
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    */
-  Status?: TaskTemplateStatus | string;
+  Status?: keyof typeof TaskTemplateStatus | string;
 
   /**
    * <p>The timestamp when the task template was last modified.</p>
@@ -6741,7 +6741,7 @@ export interface ListAgentStatusRequest {
   /**
    * <p>Available agent status types.</p>
    */
-  AgentStatusTypes?: (AgentStatusType | string)[];
+  AgentStatusTypes?: (keyof typeof AgentStatusType | string)[];
 }
 
 /**
@@ -6798,10 +6798,10 @@ export interface ListApprovedOriginsResponse {
 /**
  * @public
  */
-export enum LexVersion {
-  V1 = "V1",
-  V2 = "V2",
-}
+export const LexVersion = {
+  V1: "V1",
+  V2: "V2",
+};
 
 /**
  * @public
@@ -6826,7 +6826,7 @@ export interface ListBotsRequest {
   /**
    * <p>The version of Amazon Lex or Amazon Lex V2.</p>
    */
-  LexVersion: LexVersion | string | undefined;
+  LexVersion: keyof typeof LexVersion | string | undefined;
 }
 
 /**

@@ -270,7 +270,7 @@ export interface SearchRequest {
    *
    *       </ul>
    */
-  queryParser?: QueryParser | string;
+  queryParser?: keyof typeof QueryParser | string;
 
   /**
    * <p>Specifies the field and expression values to include in the response. Multiple fields or expressions are specified as a comma-separated list. By default, a search response includes all
@@ -629,7 +629,7 @@ export interface UploadDocumentsRequest {
    *          <li>application/xml</li>
    *       </ul>
    */
-  contentType: ContentType | string | undefined;
+  contentType: keyof typeof ContentType | string | undefined;
 }
 
 /**

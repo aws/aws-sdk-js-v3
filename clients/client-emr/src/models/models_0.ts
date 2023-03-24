@@ -6,21 +6,21 @@ import { EMRServiceException as __BaseException } from "./EMRServiceException";
 /**
  * @public
  */
-export enum ActionOnFailure {
-  CANCEL_AND_WAIT = "CANCEL_AND_WAIT",
-  CONTINUE = "CONTINUE",
-  TERMINATE_CLUSTER = "TERMINATE_CLUSTER",
-  TERMINATE_JOB_FLOW = "TERMINATE_JOB_FLOW",
-}
+export const ActionOnFailure = {
+  CANCEL_AND_WAIT: "CANCEL_AND_WAIT",
+  CONTINUE: "CONTINUE",
+  TERMINATE_CLUSTER: "TERMINATE_CLUSTER",
+  TERMINATE_JOB_FLOW: "TERMINATE_JOB_FLOW",
+};
 
 /**
  * @public
  */
-export enum InstanceFleetType {
-  CORE = "CORE",
-  MASTER = "MASTER",
-  TASK = "TASK",
-}
+export const InstanceFleetType = {
+  CORE: "CORE",
+  MASTER: "MASTER",
+  TASK: "TASK",
+};
 
 /**
  * @public
@@ -91,24 +91,24 @@ export interface EbsConfiguration {
 /**
  * @public
  */
-export enum OnDemandProvisioningAllocationStrategy {
-  LOWEST_PRICE = "lowest-price",
-}
+export const OnDemandProvisioningAllocationStrategy = {
+  LOWEST_PRICE: "lowest-price",
+};
 
 /**
  * @public
  */
-export enum OnDemandCapacityReservationPreference {
-  NONE = "none",
-  OPEN = "open",
-}
+export const OnDemandCapacityReservationPreference = {
+  NONE: "none",
+  OPEN: "open",
+};
 
 /**
  * @public
  */
-export enum OnDemandCapacityReservationUsageStrategy {
-  USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first",
-}
+export const OnDemandCapacityReservationUsageStrategy = {
+  USE_CAPACITY_RESERVATIONS_FIRST: "use-capacity-reservations-first",
+};
 
 /**
  * @public
@@ -129,7 +129,7 @@ export interface OnDemandCapacityReservationOptions {
    *          <p>If you do not specify a value, the fleet fulfills the On-Demand capacity according to
    *          the chosen On-Demand allocation strategy.</p>
    */
-  UsageStrategy?: OnDemandCapacityReservationUsageStrategy | string;
+  UsageStrategy?: keyof typeof OnDemandCapacityReservationUsageStrategy | string;
 
   /**
    * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences
@@ -147,7 +147,7 @@ export interface OnDemandCapacityReservationOptions {
    *             </li>
    *          </ul>
    */
-  CapacityReservationPreference?: OnDemandCapacityReservationPreference | string;
+  CapacityReservationPreference?: keyof typeof OnDemandCapacityReservationPreference | string;
 
   /**
    * <p>The ARN of the Capacity Reservation resource group in which to run the instance.</p>
@@ -171,7 +171,7 @@ export interface OnDemandProvisioningSpecification {
    *          only option is <code>lowest-price</code> (the default), which launches the lowest price
    *          first.</p>
    */
-  AllocationStrategy: OnDemandProvisioningAllocationStrategy | string | undefined;
+  AllocationStrategy: keyof typeof OnDemandProvisioningAllocationStrategy | string | undefined;
 
   /**
    * <p>The launch specification for On-Demand instances in the instance fleet, which determines
@@ -183,17 +183,17 @@ export interface OnDemandProvisioningSpecification {
 /**
  * @public
  */
-export enum SpotProvisioningAllocationStrategy {
-  CAPACITY_OPTIMIZED = "capacity-optimized",
-}
+export const SpotProvisioningAllocationStrategy = {
+  CAPACITY_OPTIMIZED: "capacity-optimized",
+};
 
 /**
  * @public
  */
-export enum SpotProvisioningTimeoutAction {
-  SWITCH_TO_ON_DEMAND = "SWITCH_TO_ON_DEMAND",
-  TERMINATE_CLUSTER = "TERMINATE_CLUSTER",
-}
+export const SpotProvisioningTimeoutAction = {
+  SWITCH_TO_ON_DEMAND: "SWITCH_TO_ON_DEMAND",
+  TERMINATE_CLUSTER: "TERMINATE_CLUSTER",
+};
 
 /**
  * @public
@@ -228,7 +228,7 @@ export interface SpotProvisioningSpecification {
    *          specifies that if no Spot Instances are available, On-Demand Instances should be
    *          provisioned to fulfill any remaining Spot capacity.</p>
    */
-  TimeoutAction: SpotProvisioningTimeoutAction | string | undefined;
+  TimeoutAction: keyof typeof SpotProvisioningTimeoutAction | string | undefined;
 
   /**
    * <p>The defined duration for Spot Instances (also known as Spot blocks) in minutes. When
@@ -252,7 +252,7 @@ export interface SpotProvisioningSpecification {
    *          option is capacity-optimized (the default), which launches instances from Spot Instance
    *          pools with optimal capacity for the number of instances that are launching. </p>
    */
-  AllocationStrategy?: SpotProvisioningAllocationStrategy | string;
+  AllocationStrategy?: keyof typeof SpotProvisioningAllocationStrategy | string;
 }
 
 /**
@@ -438,19 +438,19 @@ export interface ScalingConstraints {
 /**
  * @public
  */
-export enum MarketType {
-  ON_DEMAND = "ON_DEMAND",
-  SPOT = "SPOT",
-}
+export const MarketType = {
+  ON_DEMAND: "ON_DEMAND",
+  SPOT: "SPOT",
+};
 
 /**
  * @public
  */
-export enum AdjustmentType {
-  CHANGE_IN_CAPACITY = "CHANGE_IN_CAPACITY",
-  EXACT_CAPACITY = "EXACT_CAPACITY",
-  PERCENT_CHANGE_IN_CAPACITY = "PERCENT_CHANGE_IN_CAPACITY",
-}
+export const AdjustmentType = {
+  CHANGE_IN_CAPACITY: "CHANGE_IN_CAPACITY",
+  EXACT_CAPACITY: "EXACT_CAPACITY",
+  PERCENT_CHANGE_IN_CAPACITY: "PERCENT_CHANGE_IN_CAPACITY",
+};
 
 /**
  * @public
@@ -472,7 +472,7 @@ export interface SimpleScalingPolicyConfiguration {
    *          group with the number of EC2 instances specified by <code>ScalingAdjustment</code>, which
    *          should be expressed as a positive integer.</p>
    */
-  AdjustmentType?: AdjustmentType | string;
+  AdjustmentType?: keyof typeof AdjustmentType | string;
 
   /**
    * <p>The amount by which to scale in or scale out, based on the specified
@@ -502,7 +502,7 @@ export interface ScalingAction {
    * <p>Not available for instance groups. Instance groups use the market type specified for the
    *          group.</p>
    */
-  Market?: MarketType | string;
+  Market?: keyof typeof MarketType | string;
 
   /**
    * <p>The type of adjustment the automatic scaling activity makes when triggered, and the
@@ -514,12 +514,12 @@ export interface ScalingAction {
 /**
  * @public
  */
-export enum ComparisonOperator {
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL",
-}
+export const ComparisonOperator = {
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
+};
 
 /**
  * @public
@@ -544,46 +544,46 @@ export interface MetricDimension {
 /**
  * @public
  */
-export enum Statistic {
-  AVERAGE = "AVERAGE",
-  MAXIMUM = "MAXIMUM",
-  MINIMUM = "MINIMUM",
-  SAMPLE_COUNT = "SAMPLE_COUNT",
-  SUM = "SUM",
-}
+export const Statistic = {
+  AVERAGE: "AVERAGE",
+  MAXIMUM: "MAXIMUM",
+  MINIMUM: "MINIMUM",
+  SAMPLE_COUNT: "SAMPLE_COUNT",
+  SUM: "SUM",
+};
 
 /**
  * @public
  */
-export enum Unit {
-  BITS = "BITS",
-  BITS_PER_SECOND = "BITS_PER_SECOND",
-  BYTES = "BYTES",
-  BYTES_PER_SECOND = "BYTES_PER_SECOND",
-  COUNT = "COUNT",
-  COUNT_PER_SECOND = "COUNT_PER_SECOND",
-  GIGA_BITS = "GIGA_BITS",
-  GIGA_BITS_PER_SECOND = "GIGA_BITS_PER_SECOND",
-  GIGA_BYTES = "GIGA_BYTES",
-  GIGA_BYTES_PER_SECOND = "GIGA_BYTES_PER_SECOND",
-  KILO_BITS = "KILO_BITS",
-  KILO_BITS_PER_SECOND = "KILO_BITS_PER_SECOND",
-  KILO_BYTES = "KILO_BYTES",
-  KILO_BYTES_PER_SECOND = "KILO_BYTES_PER_SECOND",
-  MEGA_BITS = "MEGA_BITS",
-  MEGA_BITS_PER_SECOND = "MEGA_BITS_PER_SECOND",
-  MEGA_BYTES = "MEGA_BYTES",
-  MEGA_BYTES_PER_SECOND = "MEGA_BYTES_PER_SECOND",
-  MICRO_SECONDS = "MICRO_SECONDS",
-  MILLI_SECONDS = "MILLI_SECONDS",
-  NONE = "NONE",
-  PERCENT = "PERCENT",
-  SECONDS = "SECONDS",
-  TERA_BITS = "TERA_BITS",
-  TERA_BITS_PER_SECOND = "TERA_BITS_PER_SECOND",
-  TERA_BYTES = "TERA_BYTES",
-  TERA_BYTES_PER_SECOND = "TERA_BYTES_PER_SECOND",
-}
+export const Unit = {
+  BITS: "BITS",
+  BITS_PER_SECOND: "BITS_PER_SECOND",
+  BYTES: "BYTES",
+  BYTES_PER_SECOND: "BYTES_PER_SECOND",
+  COUNT: "COUNT",
+  COUNT_PER_SECOND: "COUNT_PER_SECOND",
+  GIGA_BITS: "GIGA_BITS",
+  GIGA_BITS_PER_SECOND: "GIGA_BITS_PER_SECOND",
+  GIGA_BYTES: "GIGA_BYTES",
+  GIGA_BYTES_PER_SECOND: "GIGA_BYTES_PER_SECOND",
+  KILO_BITS: "KILO_BITS",
+  KILO_BITS_PER_SECOND: "KILO_BITS_PER_SECOND",
+  KILO_BYTES: "KILO_BYTES",
+  KILO_BYTES_PER_SECOND: "KILO_BYTES_PER_SECOND",
+  MEGA_BITS: "MEGA_BITS",
+  MEGA_BITS_PER_SECOND: "MEGA_BITS_PER_SECOND",
+  MEGA_BYTES: "MEGA_BYTES",
+  MEGA_BYTES_PER_SECOND: "MEGA_BYTES_PER_SECOND",
+  MICRO_SECONDS: "MICRO_SECONDS",
+  MILLI_SECONDS: "MILLI_SECONDS",
+  NONE: "NONE",
+  PERCENT: "PERCENT",
+  SECONDS: "SECONDS",
+  TERA_BITS: "TERA_BITS",
+  TERA_BITS_PER_SECOND: "TERA_BITS_PER_SECOND",
+  TERA_BYTES: "TERA_BYTES",
+  TERA_BYTES_PER_SECOND: "TERA_BYTES_PER_SECOND",
+};
 
 /**
  * @public
@@ -596,7 +596,7 @@ export interface CloudWatchAlarmDefinition {
    * <p>Determines how the metric specified by <code>MetricName</code> is compared to the value
    *          specified by <code>Threshold</code>.</p>
    */
-  ComparisonOperator: ComparisonOperator | string | undefined;
+  ComparisonOperator: keyof typeof ComparisonOperator | string | undefined;
 
   /**
    * <p>The number of periods, in five-minute increments, during which the alarm condition must
@@ -628,7 +628,7 @@ export interface CloudWatchAlarmDefinition {
    * <p>The statistic to apply to the metric associated with the alarm. The default is
    *             <code>AVERAGE</code>.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: keyof typeof Statistic | string;
 
   /**
    * <p>The value against which the specified statistic is compared.</p>
@@ -640,7 +640,7 @@ export interface CloudWatchAlarmDefinition {
    *          specified for <code>Unit</code> must correspond to the units specified in the CloudWatch
    *          metric.</p>
    */
-  Unit?: Unit | string;
+  Unit?: keyof typeof Unit | string;
 
   /**
    * <p>A CloudWatch metric dimension.</p>
@@ -715,11 +715,11 @@ export interface AutoScalingPolicy {
 /**
  * @public
  */
-export enum InstanceRoleType {
-  CORE = "CORE",
-  MASTER = "MASTER",
-  TASK = "TASK",
-}
+export const InstanceRoleType = {
+  CORE: "CORE",
+  MASTER: "MASTER",
+  TASK: "TASK",
+};
 
 /**
  * @public
@@ -855,7 +855,7 @@ export interface StepConfig {
    *          step that fails with this parameter set to <code>TERMINATE_CLUSTER</code>, the cluster does
    *          not terminate.</p>
    */
-  ActionOnFailure?: ActionOnFailure | string;
+  ActionOnFailure?: keyof typeof ActionOnFailure | string;
 
   /**
    * <p>The JAR file used for the step.</p>
@@ -984,31 +984,31 @@ export interface Application {
 /**
  * @public
  */
-export enum AuthMode {
-  IAM = "IAM",
-  SSO = "SSO",
-}
+export const AuthMode = {
+  IAM: "IAM",
+  SSO: "SSO",
+};
 
 /**
  * @public
  */
-export enum AutoScalingPolicyState {
-  ATTACHED = "ATTACHED",
-  ATTACHING = "ATTACHING",
-  DETACHED = "DETACHED",
-  DETACHING = "DETACHING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
+export const AutoScalingPolicyState = {
+  ATTACHED: "ATTACHED",
+  ATTACHING: "ATTACHING",
+  DETACHED: "DETACHED",
+  DETACHING: "DETACHING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
  */
-export enum AutoScalingPolicyStateChangeReasonCode {
-  CLEANUP_FAILURE = "CLEANUP_FAILURE",
-  PROVISION_FAILURE = "PROVISION_FAILURE",
-  USER_REQUEST = "USER_REQUEST",
-}
+export const AutoScalingPolicyStateChangeReasonCode = {
+  CLEANUP_FAILURE: "CLEANUP_FAILURE",
+  PROVISION_FAILURE: "PROVISION_FAILURE",
+  USER_REQUEST: "USER_REQUEST",
+};
 
 /**
  * @public
@@ -1021,7 +1021,7 @@ export interface AutoScalingPolicyStateChangeReason {
    *             <code>PROVISION_FAILURE</code> indicates that the status change was because the policy
    *          failed to provision. <code>CLEANUP_FAILURE</code> indicates an error.</p>
    */
-  Code?: AutoScalingPolicyStateChangeReasonCode | string;
+  Code?: keyof typeof AutoScalingPolicyStateChangeReasonCode | string;
 
   /**
    * <p>A friendly, more verbose message that accompanies an automatic scaling policy state
@@ -1039,7 +1039,7 @@ export interface AutoScalingPolicyStatus {
   /**
    * <p>Indicates the status of the automatic scaling policy.</p>
    */
-  State?: AutoScalingPolicyState | string;
+  State?: keyof typeof AutoScalingPolicyState | string;
 
   /**
    * <p>The reason for a change in status.</p>
@@ -1173,10 +1173,10 @@ export interface BootstrapActionDetail {
 /**
  * @public
  */
-export enum StepCancellationOption {
-  SEND_INTERRUPT = "SEND_INTERRUPT",
-  TERMINATE_PROCESS = "TERMINATE_PROCESS",
-}
+export const StepCancellationOption = {
+  SEND_INTERRUPT: "SEND_INTERRUPT",
+  TERMINATE_PROCESS: "TERMINATE_PROCESS",
+};
 
 /**
  * @public
@@ -1198,16 +1198,16 @@ export interface CancelStepsInput {
    * <p>The option to choose to cancel <code>RUNNING</code> steps. By default, the value is
    *             <code>SEND_INTERRUPT</code>.</p>
    */
-  StepCancellationOption?: StepCancellationOption | string;
+  StepCancellationOption?: keyof typeof StepCancellationOption | string;
 }
 
 /**
  * @public
  */
-export enum CancelStepsRequestStatus {
-  FAILED = "FAILED",
-  SUBMITTED = "SUBMITTED",
-}
+export const CancelStepsRequestStatus = {
+  FAILED: "FAILED",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
@@ -1222,7 +1222,7 @@ export interface CancelStepsInfo {
   /**
    * <p>The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.</p>
    */
-  Status?: CancelStepsRequestStatus | string;
+  Status?: keyof typeof CancelStepsRequestStatus | string;
 
   /**
    * <p>The reason for the failure if the CancelSteps request fails.</p>
@@ -1330,10 +1330,10 @@ export interface Ec2InstanceAttributes {
 /**
  * @public
  */
-export enum InstanceCollectionType {
-  INSTANCE_FLEET = "INSTANCE_FLEET",
-  INSTANCE_GROUP = "INSTANCE_GROUP",
-}
+export const InstanceCollectionType = {
+  INSTANCE_FLEET: "INSTANCE_FLEET",
+  INSTANCE_GROUP: "INSTANCE_GROUP",
+};
 
 /**
  * @public
@@ -1376,12 +1376,12 @@ export interface KerberosAttributes {
 /**
  * @public
  */
-export enum PlacementGroupStrategy {
-  CLUSTER = "CLUSTER",
-  NONE = "NONE",
-  PARTITION = "PARTITION",
-  SPREAD = "SPREAD",
-}
+export const PlacementGroupStrategy = {
+  CLUSTER: "CLUSTER",
+  NONE: "NONE",
+  PARTITION: "PARTITION",
+  SPREAD: "SPREAD",
+};
 
 /**
  * @public
@@ -1397,58 +1397,58 @@ export interface PlacementGroupConfig {
    *          <p>Starting with Amazon EMR version 5.23.0, the only supported instance role is
    *             <code>MASTER</code>.</p>
    */
-  InstanceRole: InstanceRoleType | string | undefined;
+  InstanceRole: keyof typeof InstanceRoleType | string | undefined;
 
   /**
    * <p>EC2 Placement Group strategy associated with instance role.</p>
    *          <p>Starting with Amazon EMR version 5.23.0, the only supported placement strategy
    *          is <code>SPREAD</code> for the <code>MASTER</code> instance role.</p>
    */
-  PlacementStrategy?: PlacementGroupStrategy | string;
+  PlacementStrategy?: keyof typeof PlacementGroupStrategy | string;
 }
 
 /**
  * @public
  */
-export enum RepoUpgradeOnBoot {
-  NONE = "NONE",
-  SECURITY = "SECURITY",
-}
+export const RepoUpgradeOnBoot = {
+  NONE: "NONE",
+  SECURITY: "SECURITY",
+};
 
 /**
  * @public
  */
-export enum ScaleDownBehavior {
-  TERMINATE_AT_INSTANCE_HOUR = "TERMINATE_AT_INSTANCE_HOUR",
-  TERMINATE_AT_TASK_COMPLETION = "TERMINATE_AT_TASK_COMPLETION",
-}
+export const ScaleDownBehavior = {
+  TERMINATE_AT_INSTANCE_HOUR: "TERMINATE_AT_INSTANCE_HOUR",
+  TERMINATE_AT_TASK_COMPLETION: "TERMINATE_AT_TASK_COMPLETION",
+};
 
 /**
  * @public
  */
-export enum ClusterState {
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  TERMINATED = "TERMINATED",
-  TERMINATED_WITH_ERRORS = "TERMINATED_WITH_ERRORS",
-  TERMINATING = "TERMINATING",
-  WAITING = "WAITING",
-}
+export const ClusterState = {
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  TERMINATED: "TERMINATED",
+  TERMINATED_WITH_ERRORS: "TERMINATED_WITH_ERRORS",
+  TERMINATING: "TERMINATING",
+  WAITING: "WAITING",
+};
 
 /**
  * @public
  */
-export enum ClusterStateChangeReasonCode {
-  ALL_STEPS_COMPLETED = "ALL_STEPS_COMPLETED",
-  BOOTSTRAP_FAILURE = "BOOTSTRAP_FAILURE",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INSTANCE_FLEET_TIMEOUT = "INSTANCE_FLEET_TIMEOUT",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STEP_FAILURE = "STEP_FAILURE",
-  USER_REQUEST = "USER_REQUEST",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const ClusterStateChangeReasonCode = {
+  ALL_STEPS_COMPLETED: "ALL_STEPS_COMPLETED",
+  BOOTSTRAP_FAILURE: "BOOTSTRAP_FAILURE",
+  INSTANCE_FAILURE: "INSTANCE_FAILURE",
+  INSTANCE_FLEET_TIMEOUT: "INSTANCE_FLEET_TIMEOUT",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  STEP_FAILURE: "STEP_FAILURE",
+  USER_REQUEST: "USER_REQUEST",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+};
 
 /**
  * @public
@@ -1458,7 +1458,7 @@ export interface ClusterStateChangeReason {
   /**
    * <p>The programmatic code for the state change reason.</p>
    */
-  Code?: ClusterStateChangeReasonCode | string;
+  Code?: keyof typeof ClusterStateChangeReasonCode | string;
 
   /**
    * <p>The descriptive message for the state change reason.</p>
@@ -1495,7 +1495,7 @@ export interface ClusterStatus {
   /**
    * <p>The current state of the cluster.</p>
    */
-  State?: ClusterState | string;
+  State?: keyof typeof ClusterState | string;
 
   /**
    * <p>The reason for the cluster status change.</p>
@@ -1573,11 +1573,11 @@ export interface Command {
 /**
  * @public
  */
-export enum ComputeLimitsUnitType {
-  InstanceFleetUnits = "InstanceFleetUnits",
-  Instances = "Instances",
-  VCPU = "VCPU",
-}
+export const ComputeLimitsUnitType = {
+  InstanceFleetUnits: "InstanceFleetUnits",
+  Instances: "Instances",
+  VCPU: "VCPU",
+};
 
 /**
  * @public
@@ -1589,7 +1589,7 @@ export interface ComputeLimits {
   /**
    * <p> The unit type used for specifying a managed scaling policy. </p>
    */
-  UnitType: ComputeLimitsUnitType | string | undefined;
+  UnitType: keyof typeof ComputeLimitsUnitType | string | undefined;
 
   /**
    * <p> The lower boundary of EC2 units. It is measured through vCPU cores or instances for
@@ -1674,7 +1674,7 @@ export interface CreateStudioInput {
   /**
    * <p>Specifies whether the Studio authenticates users using IAM or IAM Identity Center.</p>
    */
-  AuthMode: AuthMode | string | undefined;
+  AuthMode: keyof typeof AuthMode | string | undefined;
 
   /**
    * <p>The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the
@@ -1767,10 +1767,10 @@ export interface CreateStudioOutput {
 /**
  * @public
  */
-export enum IdentityType {
-  GROUP = "GROUP",
-  USER = "USER",
-}
+export const IdentityType = {
+  GROUP: "GROUP",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -1801,7 +1801,7 @@ export interface CreateStudioSessionMappingInput {
    * <p>Specifies whether the identity to map to the Amazon EMR Studio is a user or a
    *          group.</p>
    */
-  IdentityType: IdentityType | string | undefined;
+  IdentityType: keyof typeof IdentityType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the session policy that will be applied to the user
@@ -1914,7 +1914,7 @@ export interface DeleteStudioSessionMappingInput {
    * <p>Specifies whether the identity to delete from the Amazon EMR Studio is a user or
    *          a group.</p>
    */
-  IdentityType: IdentityType | string | undefined;
+  IdentityType: keyof typeof IdentityType | string | undefined;
 }
 
 /**
@@ -1931,16 +1931,16 @@ export interface DescribeClusterInput {
 /**
  * @public
  */
-export enum JobFlowExecutionState {
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SHUTTING_DOWN = "SHUTTING_DOWN",
-  STARTING = "STARTING",
-  TERMINATED = "TERMINATED",
-  WAITING = "WAITING",
-}
+export const JobFlowExecutionState = {
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SHUTTING_DOWN: "SHUTTING_DOWN",
+  STARTING: "STARTING",
+  TERMINATED: "TERMINATED",
+  WAITING: "WAITING",
+};
 
 /**
  * @public
@@ -1965,7 +1965,7 @@ export interface DescribeJobFlowsInput {
   /**
    * <p>Return only job flows whose state is contained in this list.</p>
    */
-  JobFlowStates?: (JobFlowExecutionState | string)[];
+  JobFlowStates?: (keyof typeof JobFlowExecutionState | string)[];
 }
 
 /**
@@ -1976,7 +1976,7 @@ export interface JobFlowExecutionStatusDetail {
   /**
    * <p>The state of the job flow.</p>
    */
-  State: JobFlowExecutionState | string | undefined;
+  State: keyof typeof JobFlowExecutionState | string | undefined;
 
   /**
    * <p>The creation date and time of the job flow.</p>
@@ -2007,19 +2007,19 @@ export interface JobFlowExecutionStatusDetail {
 /**
  * @public
  */
-export enum InstanceGroupState {
-  ARRESTED = "ARRESTED",
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  ENDED = "ENDED",
-  PROVISIONING = "PROVISIONING",
-  RECONFIGURING = "RECONFIGURING",
-  RESIZING = "RESIZING",
-  RUNNING = "RUNNING",
-  SHUTTING_DOWN = "SHUTTING_DOWN",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
+export const InstanceGroupState = {
+  ARRESTED: "ARRESTED",
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  ENDED: "ENDED",
+  PROVISIONING: "PROVISIONING",
+  RECONFIGURING: "RECONFIGURING",
+  RESIZING: "RESIZING",
+  RUNNING: "RUNNING",
+  SHUTTING_DOWN: "SHUTTING_DOWN",
+  SUSPENDED: "SUSPENDED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+};
 
 /**
  * @public
@@ -2039,12 +2039,12 @@ export interface InstanceGroupDetail {
   /**
    * <p>Market type of the EC2 instances used to create a cluster node.</p>
    */
-  Market: MarketType | string | undefined;
+  Market: keyof typeof MarketType | string | undefined;
 
   /**
    * <p>Instance group role in the cluster</p>
    */
-  InstanceRole: InstanceRoleType | string | undefined;
+  InstanceRole: keyof typeof InstanceRoleType | string | undefined;
 
   /**
    * <p>If specified, indicates that the instance group uses Spot Instances. This is the maximum
@@ -2072,7 +2072,7 @@ export interface InstanceGroupDetail {
    * <p>State of instance group. The following values are no longer supported: STARTING,
    *          TERMINATED, and FAILED.</p>
    */
-  State: InstanceGroupState | string | undefined;
+  State: keyof typeof InstanceGroupState | string | undefined;
 
   /**
    * <p>Details regarding the state of the instance group.</p>
@@ -2216,15 +2216,15 @@ export interface JobFlowInstancesDetail {
 /**
  * @public
  */
-export enum StepExecutionState {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  CONTINUE = "CONTINUE",
-  FAILED = "FAILED",
-  INTERRUPTED = "INTERRUPTED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
+export const StepExecutionState = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  CONTINUE: "CONTINUE",
+  FAILED: "FAILED",
+  INTERRUPTED: "INTERRUPTED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -2234,7 +2234,7 @@ export interface StepExecutionStatusDetail {
   /**
    * <p>The state of the step.</p>
    */
-  State: StepExecutionState | string | undefined;
+  State: keyof typeof StepExecutionState | string | undefined;
 
   /**
    * <p>The creation date and time of the step.</p>
@@ -2375,7 +2375,7 @@ export interface JobFlowDetail {
    *          instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to
    *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.</p>
    */
-  ScaleDownBehavior?: ScaleDownBehavior | string;
+  ScaleDownBehavior?: keyof typeof ScaleDownBehavior | string;
 }
 
 /**
@@ -2402,9 +2402,9 @@ export interface DescribeNotebookExecutionInput {
 /**
  * @public
  */
-export enum ExecutionEngineType {
-  EMR = "EMR",
-}
+export const ExecutionEngineType = {
+  EMR: "EMR",
+};
 
 /**
  * @public
@@ -2422,7 +2422,7 @@ export interface ExecutionEngineConfig {
    * <p>The type of execution engine. A value of <code>EMR</code> specifies an EMR
    *          cluster.</p>
    */
-  Type?: ExecutionEngineType | string;
+  Type?: keyof typeof ExecutionEngineType | string;
 
   /**
    * <p>An optional unique ID of an EC2 security group to associate with the master instance of
@@ -2436,18 +2436,18 @@ export interface ExecutionEngineConfig {
 /**
  * @public
  */
-export enum NotebookExecutionStatus {
-  FAILED = "FAILED",
-  FAILING = "FAILING",
-  FINISHED = "FINISHED",
-  FINISHING = "FINISHING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  START_PENDING = "START_PENDING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  STOP_PENDING = "STOP_PENDING",
-}
+export const NotebookExecutionStatus = {
+  FAILED: "FAILED",
+  FAILING: "FAILING",
+  FINISHED: "FINISHED",
+  FINISHING: "FINISHING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  START_PENDING: "START_PENDING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  STOP_PENDING: "STOP_PENDING",
+};
 
 /**
  * @public
@@ -2537,7 +2537,7 @@ export interface NotebookExecution {
    *             </li>
    *          </ul>
    */
-  Status?: NotebookExecutionStatus | string;
+  Status?: keyof typeof NotebookExecutionStatus | string;
 
   /**
    * <p>The timestamp when notebook execution started.</p>
@@ -2778,22 +2778,22 @@ export interface FailureDetails {
 /**
  * @public
  */
-export enum StepState {
-  CANCELLED = "CANCELLED",
-  CANCEL_PENDING = "CANCEL_PENDING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INTERRUPTED = "INTERRUPTED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
+export const StepState = {
+  CANCELLED: "CANCELLED",
+  CANCEL_PENDING: "CANCEL_PENDING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INTERRUPTED: "INTERRUPTED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
  */
-export enum StepStateChangeReasonCode {
-  NONE = "NONE",
-}
+export const StepStateChangeReasonCode = {
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -2804,7 +2804,7 @@ export interface StepStateChangeReason {
    * <p>The programmable code for the state change reason. Note: Currently, the service provides
    *          no code for the state change.</p>
    */
-  Code?: StepStateChangeReasonCode | string;
+  Code?: keyof typeof StepStateChangeReasonCode | string;
 
   /**
    * <p>The descriptive message for the state change reason.</p>
@@ -2841,7 +2841,7 @@ export interface StepStatus {
   /**
    * <p>The execution state of the cluster step.</p>
    */
-  State?: StepState | string;
+  State?: keyof typeof StepState | string;
 
   /**
    * <p>The reason for the step execution status change.</p>
@@ -2897,7 +2897,7 @@ export interface Step {
    *          step that fails with this parameter set to <code>TERMINATE_CLUSTER</code>, the cluster does
    *          not terminate.</p>
    */
-  ActionOnFailure?: ActionOnFailure | string;
+  ActionOnFailure?: keyof typeof ActionOnFailure | string;
 
   /**
    * <p>The current execution status details of the cluster step.</p>
@@ -2965,7 +2965,7 @@ export interface Studio {
   /**
    * <p>Specifies whether the Amazon EMR Studio authenticates users using IAM or IAM Identity Center.</p>
    */
-  AuthMode?: AuthMode | string;
+  AuthMode?: keyof typeof AuthMode | string;
 
   /**
    * <p>The ID of the VPC associated with the Amazon EMR Studio.</p>
@@ -3204,7 +3204,7 @@ export interface GetStudioSessionMappingInput {
   /**
    * <p>Specifies whether the identity to fetch is a user or a group.</p>
    */
-  IdentityType: IdentityType | string | undefined;
+  IdentityType: keyof typeof IdentityType | string | undefined;
 }
 
 /**
@@ -3233,7 +3233,7 @@ export interface SessionMappingDetail {
    * <p>Specifies whether the identity mapped to the Amazon EMR Studio is a user or a
    *          group.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: keyof typeof IdentityType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the session policy associated with the user or
@@ -3315,7 +3315,7 @@ export interface ListClustersInput {
    * <p>The cluster state filters to apply when listing clusters. Clusters that change state
    *          while this action runs may be not be returned as expected in the list of clusters.</p>
    */
-  ClusterStates?: (ClusterState | string)[];
+  ClusterStates?: (keyof typeof ClusterState | string)[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -3358,25 +3358,25 @@ export interface ListInstanceFleetsInput {
 /**
  * @public
  */
-export enum InstanceFleetState {
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  PROVISIONING = "PROVISIONING",
-  RESIZING = "RESIZING",
-  RUNNING = "RUNNING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
+export const InstanceFleetState = {
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  PROVISIONING: "PROVISIONING",
+  RESIZING: "RESIZING",
+  RUNNING: "RUNNING",
+  SUSPENDED: "SUSPENDED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+};
 
 /**
  * @public
  */
-export enum InstanceFleetStateChangeReasonCode {
-  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const InstanceFleetStateChangeReasonCode = {
+  CLUSTER_TERMINATED: "CLUSTER_TERMINATED",
+  INSTANCE_FAILURE: "INSTANCE_FAILURE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+};
 
 /**
  * @public
@@ -3390,7 +3390,7 @@ export interface InstanceFleetStateChangeReason {
   /**
    * <p>A code corresponding to the reason the state change occurred.</p>
    */
-  Code?: InstanceFleetStateChangeReasonCode | string;
+  Code?: keyof typeof InstanceFleetStateChangeReasonCode | string;
 
   /**
    * <p>An explanatory message.</p>
@@ -3472,7 +3472,7 @@ export interface InstanceFleetStatus {
    *             </li>
    *          </ul>
    */
-  State?: InstanceFleetState | string;
+  State?: keyof typeof InstanceFleetState | string;
 
   /**
    * <p>Provides status change reason details for the instance fleet.</p>
@@ -3505,11 +3505,11 @@ export interface ListInstanceGroupsInput {
 /**
  * @public
  */
-export enum InstanceGroupType {
-  CORE = "CORE",
-  MASTER = "MASTER",
-  TASK = "TASK",
-}
+export const InstanceGroupType = {
+  CORE: "CORE",
+  MASTER: "MASTER",
+  TASK: "TASK",
+};
 
 /**
  * @public
@@ -3556,12 +3556,12 @@ export interface ShrinkPolicy {
 /**
  * @public
  */
-export enum InstanceGroupStateChangeReasonCode {
-  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const InstanceGroupStateChangeReasonCode = {
+  CLUSTER_TERMINATED: "CLUSTER_TERMINATED",
+  INSTANCE_FAILURE: "INSTANCE_FAILURE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+};
 
 /**
  * @public
@@ -3571,7 +3571,7 @@ export interface InstanceGroupStateChangeReason {
   /**
    * <p>The programmable code for the state change reason.</p>
    */
-  Code?: InstanceGroupStateChangeReasonCode | string;
+  Code?: keyof typeof InstanceGroupStateChangeReasonCode | string;
 
   /**
    * <p>The status change reason description.</p>
@@ -3608,7 +3608,7 @@ export interface InstanceGroupStatus {
   /**
    * <p>The current state of the instance group.</p>
    */
-  State?: InstanceGroupState | string;
+  State?: keyof typeof InstanceGroupState | string;
 
   /**
    * <p>The status change reason details for the instance group.</p>
@@ -3624,13 +3624,13 @@ export interface InstanceGroupStatus {
 /**
  * @public
  */
-export enum InstanceState {
-  AWAITING_FULFILLMENT = "AWAITING_FULFILLMENT",
-  BOOTSTRAPPING = "BOOTSTRAPPING",
-  PROVISIONING = "PROVISIONING",
-  RUNNING = "RUNNING",
-  TERMINATED = "TERMINATED",
-}
+export const InstanceState = {
+  AWAITING_FULFILLMENT: "AWAITING_FULFILLMENT",
+  BOOTSTRAPPING: "BOOTSTRAPPING",
+  PROVISIONING: "PROVISIONING",
+  RUNNING: "RUNNING",
+  TERMINATED: "TERMINATED",
+};
 
 /**
  * @public
@@ -3650,7 +3650,7 @@ export interface ListInstancesInput {
   /**
    * <p>The type of instance group for which to list the instances.</p>
    */
-  InstanceGroupTypes?: (InstanceGroupType | string)[];
+  InstanceGroupTypes?: (keyof typeof InstanceGroupType | string)[];
 
   /**
    * <p>The unique identifier of the instance fleet.</p>
@@ -3660,13 +3660,13 @@ export interface ListInstancesInput {
   /**
    * <p>The node type of the instance fleet. For example MASTER, CORE, or TASK.</p>
    */
-  InstanceFleetType?: InstanceFleetType | string;
+  InstanceFleetType?: keyof typeof InstanceFleetType | string;
 
   /**
    * <p>A list of instance states that will filter the instances returned with this
    *          request.</p>
    */
-  InstanceStates?: (InstanceState | string)[];
+  InstanceStates?: (keyof typeof InstanceState | string)[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -3677,13 +3677,13 @@ export interface ListInstancesInput {
 /**
  * @public
  */
-export enum InstanceStateChangeReasonCode {
-  BOOTSTRAP_FAILURE = "BOOTSTRAP_FAILURE",
-  CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
-  INSTANCE_FAILURE = "INSTANCE_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const InstanceStateChangeReasonCode = {
+  BOOTSTRAP_FAILURE: "BOOTSTRAP_FAILURE",
+  CLUSTER_TERMINATED: "CLUSTER_TERMINATED",
+  INSTANCE_FAILURE: "INSTANCE_FAILURE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+};
 
 /**
  * @public
@@ -3693,7 +3693,7 @@ export interface InstanceStateChangeReason {
   /**
    * <p>The programmable code for the state change reason.</p>
    */
-  Code?: InstanceStateChangeReasonCode | string;
+  Code?: keyof typeof InstanceStateChangeReasonCode | string;
 
   /**
    * <p>The status change reason description.</p>
@@ -3730,7 +3730,7 @@ export interface InstanceStatus {
   /**
    * <p>The current state of the instance.</p>
    */
-  State?: InstanceState | string;
+  State?: keyof typeof InstanceState | string;
 
   /**
    * <p>The details of the status change reason for the instance.</p>
@@ -3797,7 +3797,7 @@ export interface Instance {
    * <p>The instance purchasing option. Valid values are <code>ON_DEMAND</code> or
    *             <code>SPOT</code>. </p>
    */
-  Market?: MarketType | string;
+  Market?: keyof typeof MarketType | string;
 
   /**
    * <p>The EC2 instance type, for example <code>m3.xlarge</code>.</p>
@@ -3889,7 +3889,7 @@ export interface ListNotebookExecutionsInput {
    *             </li>
    *          </ul>
    */
-  Status?: NotebookExecutionStatus | string;
+  Status?: keyof typeof NotebookExecutionStatus | string;
 
   /**
    * <p>The beginning of time range filter for listing notebook executions. The default is the
@@ -3986,7 +3986,7 @@ export interface NotebookExecutionSummary {
    *             </li>
    *          </ul>
    */
-  Status?: NotebookExecutionStatus | string;
+  Status?: keyof typeof NotebookExecutionStatus | string;
 
   /**
    * <p>The timestamp when notebook execution started.</p>
@@ -4131,7 +4131,7 @@ export interface ListStepsInput {
   /**
    * <p>The filter to limit the step list based on certain states.</p>
    */
-  StepStates?: (StepState | string)[];
+  StepStates?: (keyof typeof StepState | string)[];
 
   /**
    * <p>The filter to limit the step list based on the identifier of the steps. You can specify
@@ -4174,7 +4174,7 @@ export interface StepSummary {
    *          CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward
    *          compatibility.</p>
    */
-  ActionOnFailure?: ActionOnFailure | string;
+  ActionOnFailure?: keyof typeof ActionOnFailure | string;
 
   /**
    * <p>The current execution status details of the cluster step.</p>
@@ -4247,7 +4247,7 @@ export interface StudioSummary {
   /**
    * <p>Specifies whether the Studio authenticates users using IAM or IAM Identity Center.</p>
    */
-  AuthMode?: AuthMode | string;
+  AuthMode?: keyof typeof AuthMode | string;
 
   /**
    * <p>The time when the Amazon EMR Studio was created.</p>
@@ -4283,7 +4283,7 @@ export interface ListStudioSessionMappingsInput {
    * <p>Specifies whether to return session mappings for users or groups. If not specified, the
    *          results include session mapping details for both users and groups.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: keyof typeof IdentityType | string;
 
   /**
    * <p>The pagination token that indicates the set of results to retrieve.</p>
@@ -4318,7 +4318,7 @@ export interface SessionMappingSummary {
    * <p>Specifies whether the identity mapped to the Amazon EMR Studio is a user or a
    *          group.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: keyof typeof IdentityType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the session policy associated with the user or
@@ -4427,10 +4427,10 @@ export interface ModifyInstanceFleetInput {
 /**
  * @public
  */
-export enum ReconfigurationType {
-  MERGE = "MERGE",
-  OVERWRITE = "OVERWRITE",
-}
+export const ReconfigurationType = {
+  MERGE: "MERGE",
+  OVERWRITE: "OVERWRITE",
+};
 
 /**
  * @public
@@ -4822,7 +4822,7 @@ export interface UpdateStudioSessionMappingInput {
   /**
    * <p>Specifies whether the identity to update is a user or a group.</p>
    */
-  IdentityType: IdentityType | string | undefined;
+  IdentityType: keyof typeof IdentityType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the session policy to associate with the specified
@@ -4938,7 +4938,7 @@ export interface Cluster {
    *          indicates a uniform instance group configuration. A value of <code>INSTANCE_FLEET</code>
    *          indicates an instance fleets configuration.</p>
    */
-  InstanceCollectionType?: InstanceCollectionType | string;
+  InstanceCollectionType?: keyof typeof InstanceCollectionType | string;
 
   /**
    * <p>The path to the Amazon S3 location where logs for this cluster are
@@ -5058,7 +5058,7 @@ export interface Cluster {
    *          instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to
    *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> is available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.</p>
    */
-  ScaleDownBehavior?: ScaleDownBehavior | string;
+  ScaleDownBehavior?: keyof typeof ScaleDownBehavior | string;
 
   /**
    * <p>Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon
@@ -5077,7 +5077,7 @@ export interface Cluster {
    *          are applied from the Amazon Linux AMI package repositories when an instance boots using the
    *          AMI.</p>
    */
-  RepoUpgradeOnBoot?: RepoUpgradeOnBoot | string;
+  RepoUpgradeOnBoot?: keyof typeof RepoUpgradeOnBoot | string;
 
   /**
    * <p>Attributes for Kerberos configuration when Kerberos authentication is enabled using a
@@ -5127,12 +5127,12 @@ export interface InstanceGroupConfig {
   /**
    * <p>Market type of the EC2 instances used to create a cluster node.</p>
    */
-  Market?: MarketType | string;
+  Market?: keyof typeof MarketType | string;
 
   /**
    * <p>The role of the instance group in the cluster.</p>
    */
-  InstanceRole: InstanceRoleType | string | undefined;
+  InstanceRole: keyof typeof InstanceRoleType | string | undefined;
 
   /**
    * <p>If specified, indicates that the instance group uses Spot Instances. This is the maximum
@@ -5209,7 +5209,7 @@ export interface InstanceGroupModifyConfig {
   /**
    * <p>Type of reconfiguration requested. Valid values are MERGE and OVERWRITE.</p>
    */
-  ReconfigurationType?: ReconfigurationType | string;
+  ReconfigurationType?: keyof typeof ReconfigurationType | string;
 
   /**
    * <p>A list of new or modified configurations to apply for an instance group.</p>
@@ -5452,7 +5452,7 @@ export interface InstanceFleet {
    * <p>The node type that the instance fleet hosts. Valid values are MASTER, CORE, or TASK.
    *       </p>
    */
-  InstanceFleetType?: InstanceFleetType | string;
+  InstanceFleetType?: keyof typeof InstanceFleetType | string;
 
   /**
    * <p>The target capacity of On-Demand units for the instance fleet, which determines how many
@@ -5547,7 +5547,7 @@ export interface InstanceFleetConfig {
    * <p>The node type that the instance fleet hosts. Valid values are MASTER, CORE, and
    *          TASK.</p>
    */
-  InstanceFleetType: InstanceFleetType | string | undefined;
+  InstanceFleetType: keyof typeof InstanceFleetType | string | undefined;
 
   /**
    * <p>The target capacity of On-Demand units for the instance fleet, which determines how many
@@ -5659,12 +5659,12 @@ export interface InstanceGroup {
    * <p>The marketplace to provision instances for this group. Valid values are ON_DEMAND or
    *          SPOT.</p>
    */
-  Market?: MarketType | string;
+  Market?: keyof typeof MarketType | string;
 
   /**
    * <p>The type of the instance group. Valid values are MASTER, CORE or TASK.</p>
    */
-  InstanceGroupType?: InstanceGroupType | string;
+  InstanceGroupType?: keyof typeof InstanceGroupType | string;
 
   /**
    * <p>If specified, indicates that the instance group uses Spot Instances. This is the maximum
@@ -6106,7 +6106,7 @@ export interface RunJobFlowInput {
    *          instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to
    *          HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.</p>
    */
-  ScaleDownBehavior?: ScaleDownBehavior | string;
+  ScaleDownBehavior?: keyof typeof ScaleDownBehavior | string;
 
   /**
    * <p>Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon
@@ -6135,7 +6135,7 @@ export interface RunJobFlowInput {
    *          security updates are applied. If <code>NONE</code> is specified, no updates are applied,
    *          and all updates must be applied manually.</p>
    */
-  RepoUpgradeOnBoot?: RepoUpgradeOnBoot | string;
+  RepoUpgradeOnBoot?: keyof typeof RepoUpgradeOnBoot | string;
 
   /**
    * <p>Attributes for Kerberos configuration when Kerberos authentication is enabled using a

@@ -5847,7 +5847,7 @@ const serializeAws_restXmlJobManifest = (input: JobManifest, context: __SerdeCon
 };
 
 const serializeAws_restXmlJobManifestFieldList = (
-  input: (JobManifestFieldName | string)[],
+  input: (keyof typeof JobManifestFieldName | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -6262,7 +6262,7 @@ const serializeAws_restXmlNoncurrentVersionTransitionList = (
 };
 
 const serializeAws_restXmlObjectLambdaAllowedFeaturesList = (
-  input: (ObjectLambdaAllowedFeature | string)[],
+  input: (keyof typeof ObjectLambdaAllowedFeature | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -6353,7 +6353,7 @@ const serializeAws_restXmlObjectLambdaTransformationConfiguration = (
 };
 
 const serializeAws_restXmlObjectLambdaTransformationConfigurationActionsList = (
-  input: (ObjectLambdaTransformationConfigurationAction | string)[],
+  input: (keyof typeof ObjectLambdaTransformationConfigurationAction | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -6601,7 +6601,7 @@ const serializeAws_restXmlReplicationRules = (input: ReplicationRule[], context:
 };
 
 const serializeAws_restXmlReplicationStatusFilterList = (
-  input: (ReplicationStatus | string)[],
+  input: (keyof typeof ReplicationStatus | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -7921,7 +7921,7 @@ const deserializeAws_restXmlJobManifest = (output: any, context: __SerdeContext)
 const deserializeAws_restXmlJobManifestFieldList = (
   output: any,
   context: __SerdeContext
-): (JobManifestFieldName | string)[] => {
+): (keyof typeof JobManifestFieldName | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8443,7 +8443,7 @@ const deserializeAws_restXmlObjectLambdaAccessPointList = (
 const deserializeAws_restXmlObjectLambdaAllowedFeaturesList = (
   output: any,
   context: __SerdeContext
-): (ObjectLambdaAllowedFeature | string)[] => {
+): (keyof typeof ObjectLambdaAllowedFeature | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8523,7 +8523,7 @@ const deserializeAws_restXmlObjectLambdaTransformationConfiguration = (
 const deserializeAws_restXmlObjectLambdaTransformationConfigurationActionsList = (
   output: any,
   context: __SerdeContext
-): (ObjectLambdaTransformationConfigurationAction | string)[] => {
+): (keyof typeof ObjectLambdaTransformationConfigurationAction | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8803,7 +8803,7 @@ const deserializeAws_restXmlReplicationRules = (output: any, context: __SerdeCon
 const deserializeAws_restXmlReplicationStatusFilterList = (
   output: any,
   context: __SerdeContext
-): (ReplicationStatus | string)[] => {
+): (keyof typeof ReplicationStatus | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

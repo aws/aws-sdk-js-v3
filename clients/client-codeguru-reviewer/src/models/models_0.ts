@@ -28,18 +28,18 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AnalysisType {
-  CODE_QUALITY = "CodeQuality",
-  SECURITY = "Security",
-}
+export const AnalysisType = {
+  CODE_QUALITY: "CodeQuality",
+  SECURITY: "Security",
+};
 
 /**
  * @public
  */
-export enum EncryptionOption {
-  AoCmk = "AWS_OWNED_CMK",
-  CmCmk = "CUSTOMER_MANAGED_CMK",
-}
+export const EncryptionOption = {
+  AoCmk: "AWS_OWNED_CMK",
+  CmCmk: "CUSTOMER_MANAGED_CMK",
+};
 
 /**
  * @public
@@ -67,7 +67,7 @@ export interface KMSKeyDetails {
    *          Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed
    *             (<code>CUSTOMER_MANAGED_CMK</code>).</p>
    */
-  EncryptionOption?: EncryptionOption | string;
+  EncryptionOption?: keyof typeof EncryptionOption | string;
 }
 
 /**
@@ -205,13 +205,13 @@ export interface AssociateRepositoryRequest {
 /**
  * @public
  */
-export enum ProviderType {
-  BITBUCKET = "Bitbucket",
-  CODE_COMMIT = "CodeCommit",
-  GIT_HUB = "GitHub",
-  GIT_HUB_ENTERPRISE_SERVER = "GitHubEnterpriseServer",
-  S3_BUCKET = "S3Bucket",
-}
+export const ProviderType = {
+  BITBUCKET: "Bitbucket",
+  CODE_COMMIT: "CodeCommit",
+  GIT_HUB: "GitHub",
+  GIT_HUB_ENTERPRISE_SERVER: "GitHubEnterpriseServer",
+  S3_BUCKET: "S3Bucket",
+};
 
 /**
  * @public
@@ -267,13 +267,13 @@ export interface S3RepositoryDetails {
 /**
  * @public
  */
-export enum RepositoryAssociationState {
-  ASSOCIATED = "Associated",
-  ASSOCIATING = "Associating",
-  DISASSOCIATED = "Disassociated",
-  DISASSOCIATING = "Disassociating",
-  FAILED = "Failed",
-}
+export const RepositoryAssociationState = {
+  ASSOCIATED: "Associated",
+  ASSOCIATING: "Associating",
+  DISASSOCIATED: "Disassociated",
+  DISASSOCIATING: "Disassociating",
+  FAILED: "Failed",
+};
 
 /**
  * @public
@@ -311,7 +311,7 @@ export interface RepositoryAssociation {
   /**
    * <p>The provider type of the repository association.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: keyof typeof ProviderType | string;
 
   /**
    * <p>The state of the repository association.</p>
@@ -351,7 +351,7 @@ export interface RepositoryAssociation {
    *             </li>
    *          </ul>
    */
-  State?: RepositoryAssociationState | string;
+  State?: keyof typeof RepositoryAssociationState | string;
 
   /**
    * <p>A description of why the repository association is in the current state.</p>
@@ -591,11 +591,11 @@ export interface EventInfo {
 /**
  * @public
  */
-export enum VendorName {
-  GITHUB = "GitHub",
-  GITLAB = "GitLab",
-  NATIVE_S3 = "NativeS3",
-}
+export const VendorName = {
+  GITHUB: "GitHub",
+  GITLAB: "GitLab",
+  NATIVE_S3: "NativeS3",
+};
 
 /**
  * @public
@@ -627,7 +627,7 @@ export interface RequestMetadata {
    *             <code>ProviderType</code> is <code>S3Bucket</code> and the CI/CD repository vendor name
    *          is GitHub. For more information, see the definition for <code>ProviderType</code> in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a>.</p>
    */
-  VendorName?: VendorName | string;
+  VendorName?: keyof typeof VendorName | string;
 }
 
 /**
@@ -733,7 +733,7 @@ export interface CodeReviewType {
    * <p>They types of analysis performed during a repository analysis or a pull request review.
    *          You can specify either <code>Security</code>, <code>CodeQuality</code>, or both.</p>
    */
-  AnalysisTypes?: (AnalysisType | string)[];
+  AnalysisTypes?: (keyof typeof AnalysisType | string)[];
 }
 
 /**
@@ -769,11 +769,11 @@ export interface CreateCodeReviewRequest {
 /**
  * @public
  */
-export enum ConfigFileState {
-  ABSENT = "Absent",
-  PRESENT = "Present",
-  PRESENT_WITH_ERRORS = "PresentWithErrors",
-}
+export const ConfigFileState = {
+  ABSENT: "Absent",
+  PRESENT: "Present",
+  PRESENT_WITH_ERRORS: "PresentWithErrors",
+};
 
 /**
  * @public
@@ -807,20 +807,20 @@ export interface Metrics {
 /**
  * @public
  */
-export enum JobState {
-  COMPLETED = "Completed",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  PENDING = "Pending",
-}
+export const JobState = {
+  COMPLETED: "Completed",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  PENDING: "Pending",
+};
 
 /**
  * @public
  */
-export enum Type {
-  PULL_REQUEST = "PullRequest",
-  REPOSITORY_ANALYSIS = "RepositoryAnalysis",
-}
+export const Type = {
+  PULL_REQUEST: "PullRequest",
+  REPOSITORY_ANALYSIS: "RepositoryAnalysis",
+};
 
 /**
  * @public
@@ -855,7 +855,7 @@ export interface CodeReview {
    * <p>The type of repository that contains the reviewed code (for example, GitHub or
    *          Bitbucket).</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: keyof typeof ProviderType | string;
 
   /**
    * <p>The valid code review states are:</p>
@@ -878,7 +878,7 @@ export interface CodeReview {
    *             </li>
    *          </ul>
    */
-  State?: JobState | string;
+  State?: keyof typeof JobState | string;
 
   /**
    * <p>The reason for the state of the code review.</p>
@@ -898,7 +898,7 @@ export interface CodeReview {
   /**
    * <p>The type of code review.</p>
    */
-  Type?: Type | string;
+  Type?: keyof typeof Type | string;
 
   /**
    * <p>The pull request ID for the code review.</p>
@@ -925,14 +925,14 @@ export interface CodeReview {
    * <p>The types of analysis performed during a repository analysis or a pull request review.
    *          You can specify either <code>Security</code>, <code>CodeQuality</code>, or both.</p>
    */
-  AnalysisTypes?: (AnalysisType | string)[];
+  AnalysisTypes?: (keyof typeof AnalysisType | string)[];
 
   /**
    * <p>The state of the <code>aws-codeguru-reviewer.yml</code> configuration file that allows
    *          the configuration of the CodeGuru Reviewer analysis. The file either exists, doesn't exist, or exists
    *          with errors at the root directory of your repository.</p>
    */
-  ConfigFileState?: ConfigFileState | string;
+  ConfigFileState?: keyof typeof ConfigFileState | string;
 }
 
 /**
@@ -1019,10 +1019,10 @@ export interface DescribeRecommendationFeedbackRequest {
 /**
  * @public
  */
-export enum Reaction {
-  THUMBS_DOWN = "ThumbsDown",
-  THUMBS_UP = "ThumbsUp",
-}
+export const Reaction = {
+  THUMBS_DOWN: "ThumbsDown",
+  THUMBS_UP: "ThumbsUp",
+};
 
 /**
  * @public
@@ -1045,7 +1045,7 @@ export interface RecommendationFeedback {
    * <p>List for storing reactions. Reactions are utf-8 text code for emojis. You can send an
    *          empty list to clear off all your feedback.</p>
    */
-  Reactions?: (Reaction | string)[];
+  Reactions?: (keyof typeof Reaction | string)[];
 
   /**
    * <p>The ID of the user that made the API call.</p>
@@ -1184,7 +1184,7 @@ export interface ListCodeReviewsRequest {
    *          result. For example, <code>providerTypes=[GitHub]</code> lists code reviews from
    *          GitHub.</p>
    */
-  ProviderTypes?: (ProviderType | string)[];
+  ProviderTypes?: (keyof typeof ProviderType | string)[];
 
   /**
    * <p>List of states for filtering that needs to be applied before displaying the result. For
@@ -1209,7 +1209,7 @@ export interface ListCodeReviewsRequest {
    *             </li>
    *          </ul>
    */
-  States?: (JobState | string)[];
+  States?: (keyof typeof JobState | string)[];
 
   /**
    * <p>List of repository names for filtering that needs to be applied before displaying the
@@ -1220,7 +1220,7 @@ export interface ListCodeReviewsRequest {
   /**
    * <p>The type of code reviews to list in the response.</p>
    */
-  Type: Type | string | undefined;
+  Type: keyof typeof Type | string | undefined;
 
   /**
    * <p>The maximum number of results that are returned per call. The default is 100.</p>
@@ -1310,7 +1310,7 @@ export interface CodeReviewSummary {
   /**
    * <p>The provider type of the repository association.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: keyof typeof ProviderType | string;
 
   /**
    * <p>The state of the code review.</p>
@@ -1334,7 +1334,7 @@ export interface CodeReviewSummary {
    *             </li>
    *          </ul>
    */
-  State?: JobState | string;
+  State?: keyof typeof JobState | string;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the code review was created.</p>
@@ -1349,7 +1349,7 @@ export interface CodeReviewSummary {
   /**
    * <p>The type of the code review.</p>
    */
-  Type?: Type | string;
+  Type?: keyof typeof Type | string;
 
   /**
    * <p>The pull request ID for the code review.</p>
@@ -1435,7 +1435,7 @@ export interface RecommendationFeedbackSummary {
   /**
    * <p>List for storing reactions. Reactions are utf-8 text code for emojis.</p>
    */
-  Reactions?: (Reaction | string)[];
+  Reactions?: (keyof typeof Reaction | string)[];
 
   /**
    * <p>The ID of the user that gave the feedback.</p>
@@ -1489,19 +1489,19 @@ export interface ListRecommendationsRequest {
 /**
  * @public
  */
-export enum RecommendationCategory {
-  AWS_BEST_PRACTICES = "AWSBestPractices",
-  AWS_CLOUDFORMATION_ISSUES = "AWSCloudFormationIssues",
-  CODE_INCONSISTENCIES = "CodeInconsistencies",
-  CODE_MAINTENANCE_ISSUES = "CodeMaintenanceIssues",
-  CONCURRENCY_ISSUES = "ConcurrencyIssues",
-  DUPLICATE_CODE = "DuplicateCode",
-  INPUT_VALIDATIONS = "InputValidations",
-  JAVA_BEST_PRACTICES = "JavaBestPractices",
-  PYTHON_BEST_PRACTICES = "PythonBestPractices",
-  RESOURCE_LEAKS = "ResourceLeaks",
-  SECURITY_ISSUES = "SecurityIssues",
-}
+export const RecommendationCategory = {
+  AWS_BEST_PRACTICES: "AWSBestPractices",
+  AWS_CLOUDFORMATION_ISSUES: "AWSCloudFormationIssues",
+  CODE_INCONSISTENCIES: "CodeInconsistencies",
+  CODE_MAINTENANCE_ISSUES: "CodeMaintenanceIssues",
+  CONCURRENCY_ISSUES: "ConcurrencyIssues",
+  DUPLICATE_CODE: "DuplicateCode",
+  INPUT_VALIDATIONS: "InputValidations",
+  JAVA_BEST_PRACTICES: "JavaBestPractices",
+  PYTHON_BEST_PRACTICES: "PythonBestPractices",
+  RESOURCE_LEAKS: "ResourceLeaks",
+  SECURITY_ISSUES: "SecurityIssues",
+};
 
 /**
  * @public
@@ -1537,13 +1537,13 @@ export interface RuleMetadata {
 /**
  * @public
  */
-export enum Severity {
-  CRITICAL = "Critical",
-  HIGH = "High",
-  INFO = "Info",
-  LOW = "Low",
-  MEDIUM = "Medium",
-}
+export const Severity = {
+  CRITICAL: "Critical",
+  HIGH: "High",
+  INFO: "Info",
+  LOW: "Low",
+  MEDIUM: "Medium",
+};
 
 /**
  * @public
@@ -1582,7 +1582,7 @@ export interface RecommendationSummary {
   /**
    * <p>The type of a recommendation.</p>
    */
-  RecommendationCategory?: RecommendationCategory | string;
+  RecommendationCategory?: keyof typeof RecommendationCategory | string;
 
   /**
    * <p>Metadata about a rule. Rule metadata includes an ID, a name, a list of tags, and a short and long description. CodeGuru Reviewer uses rules to analyze code. A rule's recommendation is included in analysis results if code is detected that violates the rule.</p>
@@ -1592,7 +1592,7 @@ export interface RecommendationSummary {
   /**
    * <p>The severity of the issue in the code that generated this recommendation.</p>
    */
-  Severity?: Severity | string;
+  Severity?: keyof typeof Severity | string;
 }
 
 /**
@@ -1617,7 +1617,7 @@ export interface ListRepositoryAssociationsRequest {
   /**
    * <p>List of provider types to use as a filter.</p>
    */
-  ProviderTypes?: (ProviderType | string)[];
+  ProviderTypes?: (keyof typeof ProviderType | string)[];
 
   /**
    * <p>List of repository association states to use as a filter.</p>
@@ -1657,7 +1657,7 @@ export interface ListRepositoryAssociationsRequest {
    *             </li>
    *          </ul>
    */
-  States?: (RepositoryAssociationState | string)[];
+  States?: (keyof typeof RepositoryAssociationState | string)[];
 
   /**
    * <p>List of repository names to use as a filter.</p>
@@ -1739,7 +1739,7 @@ export interface RepositoryAssociationSummary {
   /**
    * <p>The provider type of the repository association.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: keyof typeof ProviderType | string;
 
   /**
    * <p>The state of the repository association.</p>
@@ -1779,7 +1779,7 @@ export interface RepositoryAssociationSummary {
    *             </li>
    *          </ul>
    */
-  State?: RepositoryAssociationState | string;
+  State?: keyof typeof RepositoryAssociationState | string;
 }
 
 /**
@@ -1853,7 +1853,7 @@ export interface PutRecommendationFeedbackRequest {
    * <p>List for storing reactions. Reactions are utf-8 text code for emojis. If you send an
    *          empty list it clears all your feedback.</p>
    */
-  Reactions: (Reaction | string)[] | undefined;
+  Reactions: (keyof typeof Reaction | string)[] | undefined;
 }
 
 /**

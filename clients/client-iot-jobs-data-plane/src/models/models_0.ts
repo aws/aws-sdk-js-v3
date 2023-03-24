@@ -52,16 +52,16 @@ export interface DescribeJobExecutionRequest {
 /**
  * @public
  */
-export enum JobExecutionStatus {
-  CANCELED = "CANCELED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  QUEUED = "QUEUED",
-  REJECTED = "REJECTED",
-  REMOVED = "REMOVED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const JobExecutionStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+  REJECTED: "REJECTED",
+  REMOVED: "REMOVED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -82,7 +82,7 @@ export interface JobExecution {
    * <p>The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED",
    *          "REJECTED", or "REMOVED".</p>
    */
-  status?: JobExecutionStatus | string;
+  status?: keyof typeof JobExecutionStatus | string;
 
   /**
    * <p>A collection of name/value pairs that describe the status of the job execution.</p>
@@ -383,7 +383,7 @@ export interface UpdateJobExecutionRequest {
    * <p>The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified
    *          on every update.</p>
    */
-  status: JobExecutionStatus | string | undefined;
+  status: keyof typeof JobExecutionStatus | string | undefined;
 
   /**
    * <p> Optional. A collection of name/value pairs that describe the status of the job execution. If not
@@ -437,7 +437,7 @@ export interface JobExecutionState {
    * <p>The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED",
    *          "REJECTED", or "REMOVED".</p>
    */
-  status?: JobExecutionStatus | string;
+  status?: keyof typeof JobExecutionStatus | string;
 
   /**
    * <p>A collection of name/value pairs that describe the status of the job execution.</p>

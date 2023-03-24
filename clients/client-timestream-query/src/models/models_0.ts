@@ -140,19 +140,19 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum ScalarType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DATE = "DATE",
-  DOUBLE = "DOUBLE",
-  INTEGER = "INTEGER",
-  INTERVAL_DAY_TO_SECOND = "INTERVAL_DAY_TO_SECOND",
-  INTERVAL_YEAR_TO_MONTH = "INTERVAL_YEAR_TO_MONTH",
-  TIME = "TIME",
-  TIMESTAMP = "TIMESTAMP",
-  UNKNOWN = "UNKNOWN",
-  VARCHAR = "VARCHAR",
-}
+export const ScalarType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DATE: "DATE",
+  DOUBLE: "DOUBLE",
+  INTEGER: "INTEGER",
+  INTERVAL_DAY_TO_SECOND: "INTERVAL_DAY_TO_SECOND",
+  INTERVAL_YEAR_TO_MONTH: "INTERVAL_YEAR_TO_MONTH",
+  TIME: "TIME",
+  TIMESTAMP: "TIMESTAMP",
+  UNKNOWN: "UNKNOWN",
+  VARCHAR: "VARCHAR",
+};
 
 /**
  * @public
@@ -179,10 +179,10 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum S3EncryptionOption {
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3",
-}
+export const S3EncryptionOption = {
+  SSE_KMS: "SSE_KMS",
+  SSE_S3: "SSE_S3",
+};
 
 /**
  * @public
@@ -204,7 +204,7 @@ export interface S3Configuration {
    * <p> Encryption at rest options for the error reports. If no encryption option is
    *             specified, Timestream will choose SSE_S3 as default. </p>
    */
-  EncryptionOption?: S3EncryptionOption | string;
+  EncryptionOption?: keyof typeof S3EncryptionOption | string;
 }
 
 /**
@@ -275,9 +275,9 @@ export interface Tag {
 /**
  * @public
  */
-export enum DimensionValueType {
-  VARCHAR = "VARCHAR",
-}
+export const DimensionValueType = {
+  VARCHAR: "VARCHAR",
+};
 
 /**
  * @public
@@ -293,30 +293,30 @@ export interface DimensionMapping {
   /**
    * <p>Type for the dimension. </p>
    */
-  DimensionValueType: DimensionValueType | string | undefined;
+  DimensionValueType: keyof typeof DimensionValueType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum MeasureValueType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  MULTI = "MULTI",
-  VARCHAR = "VARCHAR",
-}
+export const MeasureValueType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  MULTI: "MULTI",
+  VARCHAR: "VARCHAR",
+};
 
 /**
  * @public
  */
-export enum ScalarMeasureValueType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  TIMESTAMP = "TIMESTAMP",
-  VARCHAR = "VARCHAR",
-}
+export const ScalarMeasureValueType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  TIMESTAMP: "TIMESTAMP",
+  VARCHAR: "VARCHAR",
+};
 
 /**
  * @public
@@ -337,7 +337,7 @@ export interface MultiMeasureAttributeMapping {
   /**
    * <p>Type of the attribute to be read from the source column.</p>
    */
-  MeasureValueType: ScalarMeasureValueType | string | undefined;
+  MeasureValueType: keyof typeof ScalarMeasureValueType | string | undefined;
 }
 
 /**
@@ -368,7 +368,7 @@ export interface MixedMeasureMapping {
    * <p>Type of the value that is to be read from sourceColumn. If the mapping is for MULTI,
    *             use MeasureValueType.MULTI.</p>
    */
-  MeasureValueType: MeasureValueType | string | undefined;
+  MeasureValueType: keyof typeof MeasureValueType | string | undefined;
 
   /**
    * <p>Required when measureValueType is MULTI. Attribute mappings for MULTI value
@@ -709,12 +709,12 @@ export interface ExecutionStats {
 /**
  * @public
  */
-export enum ScheduledQueryRunStatus {
-  AUTO_TRIGGER_FAILURE = "AUTO_TRIGGER_FAILURE",
-  AUTO_TRIGGER_SUCCESS = "AUTO_TRIGGER_SUCCESS",
-  MANUAL_TRIGGER_FAILURE = "MANUAL_TRIGGER_FAILURE",
-  MANUAL_TRIGGER_SUCCESS = "MANUAL_TRIGGER_SUCCESS",
-}
+export const ScheduledQueryRunStatus = {
+  AUTO_TRIGGER_FAILURE: "AUTO_TRIGGER_FAILURE",
+  AUTO_TRIGGER_SUCCESS: "AUTO_TRIGGER_SUCCESS",
+  MANUAL_TRIGGER_FAILURE: "MANUAL_TRIGGER_FAILURE",
+  MANUAL_TRIGGER_SUCCESS: "MANUAL_TRIGGER_SUCCESS",
+};
 
 /**
  * @public
@@ -735,7 +735,7 @@ export interface ScheduledQueryRunSummary {
   /**
    * <p>The status of a scheduled query run.</p>
    */
-  RunStatus?: ScheduledQueryRunStatus | string;
+  RunStatus?: keyof typeof ScheduledQueryRunStatus | string;
 
   /**
    * <p>Runtime statistics for a scheduled run.</p>
@@ -757,10 +757,10 @@ export interface ScheduledQueryRunSummary {
 /**
  * @public
  */
-export enum ScheduledQueryState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ScheduledQueryState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -790,7 +790,7 @@ export interface ScheduledQueryDescription {
   /**
    * <p>State of the scheduled query. </p>
    */
-  State: ScheduledQueryState | string | undefined;
+  State: keyof typeof ScheduledQueryState | string | undefined;
 
   /**
    * <p>Last time the query was run.</p>
@@ -942,7 +942,7 @@ export interface ScheduledQuery {
   /**
    * <p>State of scheduled query. </p>
    */
-  State: ScheduledQueryState | string | undefined;
+  State: keyof typeof ScheduledQueryState | string | undefined;
 
   /**
    * <p>The last time the scheduled query was run.</p>
@@ -967,7 +967,7 @@ export interface ScheduledQuery {
   /**
    * <p>Status of the last scheduled query run.</p>
    */
-  LastRunStatus?: ScheduledQueryRunStatus | string;
+  LastRunStatus?: keyof typeof ScheduledQueryRunStatus | string;
 }
 
 /**
@@ -1254,7 +1254,7 @@ export interface UpdateScheduledQueryRequest {
   /**
    * <p>State of the scheduled query. </p>
    */
-  State: ScheduledQueryState | string | undefined;
+  State: keyof typeof ScheduledQueryState | string | undefined;
 }
 
 /**
@@ -1289,7 +1289,7 @@ export interface Type {
    * <p>Indicates if the column is of type string, integer, Boolean, double, timestamp, date,
    *             time. </p>
    */
-  ScalarType?: ScalarType | string;
+  ScalarType?: keyof typeof ScalarType | string;
 
   /**
    * <p>Indicates if the column is an array.</p>

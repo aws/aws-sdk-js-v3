@@ -6,11 +6,11 @@ import { CognitoIdentityProviderServiceException as __BaseException } from "./Co
 /**
  * @public
  */
-export enum RecoveryOptionNameType {
-  ADMIN_ONLY = "admin_only",
-  VERIFIED_EMAIL = "verified_email",
-  VERIFIED_PHONE_NUMBER = "verified_phone_number",
-}
+export const RecoveryOptionNameType = {
+  ADMIN_ONLY: "admin_only",
+  VERIFIED_EMAIL: "verified_email",
+  VERIFIED_PHONE_NUMBER: "verified_phone_number",
+};
 
 /**
  * @public
@@ -26,7 +26,7 @@ export interface RecoveryOptionType {
   /**
    * <p>The recovery method for a user.</p>
    */
-  Name: RecoveryOptionNameType | string | undefined;
+  Name: keyof typeof RecoveryOptionNameType | string | undefined;
 }
 
 /**
@@ -43,12 +43,12 @@ export interface AccountRecoverySettingType {
 /**
  * @public
  */
-export enum AccountTakeoverEventActionType {
-  BLOCK = "BLOCK",
-  MFA_IF_CONFIGURED = "MFA_IF_CONFIGURED",
-  MFA_REQUIRED = "MFA_REQUIRED",
-  NO_ACTION = "NO_ACTION",
-}
+export const AccountTakeoverEventActionType = {
+  BLOCK: "BLOCK",
+  MFA_IF_CONFIGURED: "MFA_IF_CONFIGURED",
+  MFA_REQUIRED: "MFA_REQUIRED",
+  NO_ACTION: "NO_ACTION",
+};
 
 /**
  * @public
@@ -84,7 +84,7 @@ export interface AccountTakeoverActionType {
    *             </li>
    *          </ul>
    */
-  EventAction: AccountTakeoverEventActionType | string | undefined;
+  EventAction: keyof typeof AccountTakeoverEventActionType | string | undefined;
 }
 
 /**
@@ -189,12 +189,12 @@ export interface AccountTakeoverRiskConfigurationType {
 /**
  * @public
  */
-export enum AttributeDataType {
-  BOOLEAN = "Boolean",
-  DATETIME = "DateTime",
-  NUMBER = "Number",
-  STRING = "String",
-}
+export const AttributeDataType = {
+  BOOLEAN: "Boolean",
+  DATETIME: "DateTime",
+  NUMBER: "Number",
+  STRING: "String",
+};
 
 /**
  * @public
@@ -241,7 +241,7 @@ export interface SchemaAttributeType {
   /**
    * <p>The attribute data type.</p>
    */
-  AttributeDataType?: AttributeDataType | string;
+  AttributeDataType?: keyof typeof AttributeDataType | string;
 
   /**
    * <note>
@@ -637,18 +637,18 @@ export class UserLambdaValidationException extends __BaseException {
 /**
  * @public
  */
-export enum DeliveryMediumType {
-  EMAIL = "EMAIL",
-  SMS = "SMS",
-}
+export const DeliveryMediumType = {
+  EMAIL: "EMAIL",
+  SMS: "SMS",
+};
 
 /**
  * @public
  */
-export enum MessageActionType {
-  RESEND = "RESEND",
-  SUPPRESS = "SUPPRESS",
-}
+export const MessageActionType = {
+  RESEND: "RESEND",
+  SUPPRESS: "SUPPRESS",
+};
 
 /**
  * @public
@@ -768,14 +768,14 @@ export interface AdminCreateUserRequest {
    *                 <code>SUPPRESS</code> to suppress sending the message. You can specify only one
    *             value.</p>
    */
-  MessageAction?: MessageActionType | string;
+  MessageAction?: keyof typeof MessageActionType | string;
 
   /**
    * <p>Specify <code>"EMAIL"</code> if email will be used to send the welcome message.
    *             Specify <code>"SMS"</code> if the phone number will be used. The default value is
    *                 <code>"SMS"</code>. You can specify more than one value.</p>
    */
-  DesiredDeliveryMediums?: (DeliveryMediumType | string)[];
+  DesiredDeliveryMediums?: (keyof typeof DeliveryMediumType | string)[];
 
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
@@ -827,7 +827,7 @@ export interface MFAOptionType {
    * <p>The delivery medium to send the MFA code. You can use this parameter to set only the
    *                 <code>SMS</code> delivery medium value.</p>
    */
-  DeliveryMedium?: DeliveryMediumType | string;
+  DeliveryMedium?: keyof typeof DeliveryMediumType | string;
 
   /**
    * <p>The attribute name of the MFA option type. The only valid value is
@@ -839,15 +839,15 @@ export interface MFAOptionType {
 /**
  * @public
  */
-export enum UserStatusType {
-  ARCHIVED = "ARCHIVED",
-  COMPROMISED = "COMPROMISED",
-  CONFIRMED = "CONFIRMED",
-  FORCE_CHANGE_PASSWORD = "FORCE_CHANGE_PASSWORD",
-  RESET_REQUIRED = "RESET_REQUIRED",
-  UNCONFIRMED = "UNCONFIRMED",
-  UNKNOWN = "UNKNOWN",
-}
+export const UserStatusType = {
+  ARCHIVED: "ARCHIVED",
+  COMPROMISED: "COMPROMISED",
+  CONFIRMED: "CONFIRMED",
+  FORCE_CHANGE_PASSWORD: "FORCE_CHANGE_PASSWORD",
+  RESET_REQUIRED: "RESET_REQUIRED",
+  UNCONFIRMED: "UNCONFIRMED",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -908,7 +908,7 @@ export interface UserType {
    *             </li>
    *          </ul>
    */
-  UserStatus?: UserStatusType | string;
+  UserStatus?: keyof typeof UserStatusType | string;
 
   /**
    * <p>The MFA options for the user.</p>
@@ -1462,7 +1462,7 @@ export interface AdminGetUserResponse {
    *             </li>
    *          </ul>
    */
-  UserStatus?: UserStatusType | string;
+  UserStatus?: keyof typeof UserStatusType | string;
 
   /**
    * <p>
@@ -1503,15 +1503,15 @@ export interface AnalyticsMetadataType {
 /**
  * @public
  */
-export enum AuthFlowType {
-  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
-  ADMIN_USER_PASSWORD_AUTH = "ADMIN_USER_PASSWORD_AUTH",
-  CUSTOM_AUTH = "CUSTOM_AUTH",
-  REFRESH_TOKEN = "REFRESH_TOKEN",
-  REFRESH_TOKEN_AUTH = "REFRESH_TOKEN_AUTH",
-  USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH",
-  USER_SRP_AUTH = "USER_SRP_AUTH",
-}
+export const AuthFlowType = {
+  ADMIN_NO_SRP_AUTH: "ADMIN_NO_SRP_AUTH",
+  ADMIN_USER_PASSWORD_AUTH: "ADMIN_USER_PASSWORD_AUTH",
+  CUSTOM_AUTH: "CUSTOM_AUTH",
+  REFRESH_TOKEN: "REFRESH_TOKEN",
+  REFRESH_TOKEN_AUTH: "REFRESH_TOKEN_AUTH",
+  USER_PASSWORD_AUTH: "USER_PASSWORD_AUTH",
+  USER_SRP_AUTH: "USER_SRP_AUTH",
+};
 
 /**
  * @public
@@ -1630,7 +1630,7 @@ export interface AdminInitiateAuthRequest {
    *             </li>
    *          </ul>
    */
-  AuthFlow: AuthFlowType | string | undefined;
+  AuthFlow: keyof typeof AuthFlowType | string | undefined;
 
   /**
    * <p>The authentication parameters. These are inputs corresponding to the
@@ -1805,18 +1805,18 @@ export interface AuthenticationResultType {
 /**
  * @public
  */
-export enum ChallengeNameType {
-  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
-  CUSTOM_CHALLENGE = "CUSTOM_CHALLENGE",
-  DEVICE_PASSWORD_VERIFIER = "DEVICE_PASSWORD_VERIFIER",
-  DEVICE_SRP_AUTH = "DEVICE_SRP_AUTH",
-  MFA_SETUP = "MFA_SETUP",
-  NEW_PASSWORD_REQUIRED = "NEW_PASSWORD_REQUIRED",
-  PASSWORD_VERIFIER = "PASSWORD_VERIFIER",
-  SELECT_MFA_TYPE = "SELECT_MFA_TYPE",
-  SMS_MFA = "SMS_MFA",
-  SOFTWARE_TOKEN_MFA = "SOFTWARE_TOKEN_MFA",
-}
+export const ChallengeNameType = {
+  ADMIN_NO_SRP_AUTH: "ADMIN_NO_SRP_AUTH",
+  CUSTOM_CHALLENGE: "CUSTOM_CHALLENGE",
+  DEVICE_PASSWORD_VERIFIER: "DEVICE_PASSWORD_VERIFIER",
+  DEVICE_SRP_AUTH: "DEVICE_SRP_AUTH",
+  MFA_SETUP: "MFA_SETUP",
+  NEW_PASSWORD_REQUIRED: "NEW_PASSWORD_REQUIRED",
+  PASSWORD_VERIFIER: "PASSWORD_VERIFIER",
+  SELECT_MFA_TYPE: "SELECT_MFA_TYPE",
+  SMS_MFA: "SMS_MFA",
+  SOFTWARE_TOKEN_MFA: "SOFTWARE_TOKEN_MFA",
+};
 
 /**
  * @public
@@ -1908,7 +1908,7 @@ export interface AdminInitiateAuthResponse {
    *             </li>
    *          </ul>
    */
-  ChallengeName?: ChallengeNameType | string;
+  ChallengeName?: keyof typeof ChallengeNameType | string;
 
   /**
    * <p>The session that should be passed both ways in challenge-response calls to the
@@ -2232,18 +2232,18 @@ export interface AdminListUserAuthEventsRequest {
 /**
  * @public
  */
-export enum ChallengeName {
-  Mfa = "Mfa",
-  Password = "Password",
-}
+export const ChallengeName = {
+  Mfa: "Mfa",
+  Password: "Password",
+};
 
 /**
  * @public
  */
-export enum ChallengeResponse {
-  Failure = "Failure",
-  Success = "Success",
-}
+export const ChallengeResponse = {
+  Failure: "Failure",
+  Success: "Success",
+};
 
 /**
  * @public
@@ -2253,12 +2253,12 @@ export interface ChallengeResponseType {
   /**
    * <p>The challenge name.</p>
    */
-  ChallengeName?: ChallengeName | string;
+  ChallengeName?: keyof typeof ChallengeName | string;
 
   /**
    * <p>The challenge response.</p>
    */
-  ChallengeResponse?: ChallengeResponse | string;
+  ChallengeResponse?: keyof typeof ChallengeResponse | string;
 }
 
 /**
@@ -2295,10 +2295,10 @@ export interface EventContextDataType {
 /**
  * @public
  */
-export enum FeedbackValueType {
-  INVALID = "Invalid",
-  VALID = "Valid",
-}
+export const FeedbackValueType = {
+  INVALID: "Invalid",
+  VALID: "Valid",
+};
 
 /**
  * @public
@@ -2308,7 +2308,7 @@ export interface EventFeedbackType {
   /**
    * <p>The event feedback value.</p>
    */
-  FeedbackValue: FeedbackValueType | string | undefined;
+  FeedbackValue: keyof typeof FeedbackValueType | string | undefined;
 
   /**
    * <p>The provider.</p>
@@ -2324,29 +2324,29 @@ export interface EventFeedbackType {
 /**
  * @public
  */
-export enum EventResponseType {
-  Fail = "Fail",
-  InProgress = "InProgress",
-  Pass = "Pass",
-}
+export const EventResponseType = {
+  Fail: "Fail",
+  InProgress: "InProgress",
+  Pass: "Pass",
+};
 
 /**
  * @public
  */
-export enum RiskDecisionType {
-  AccountTakeover = "AccountTakeover",
-  Block = "Block",
-  NoRisk = "NoRisk",
-}
+export const RiskDecisionType = {
+  AccountTakeover: "AccountTakeover",
+  Block: "Block",
+  NoRisk: "NoRisk",
+};
 
 /**
  * @public
  */
-export enum RiskLevelType {
-  High = "High",
-  Low = "Low",
-  Medium = "Medium",
-}
+export const RiskLevelType = {
+  High: "High",
+  Low: "Low",
+  Medium: "Medium",
+};
 
 /**
  * @public
@@ -2356,12 +2356,12 @@ export interface EventRiskType {
   /**
    * <p>The risk decision.</p>
    */
-  RiskDecision?: RiskDecisionType | string;
+  RiskDecision?: keyof typeof RiskDecisionType | string;
 
   /**
    * <p>The risk level.</p>
    */
-  RiskLevel?: RiskLevelType | string;
+  RiskLevel?: keyof typeof RiskLevelType | string;
 
   /**
    * <p>Indicates whether compromised credentials were detected during an authentication
@@ -2373,13 +2373,13 @@ export interface EventRiskType {
 /**
  * @public
  */
-export enum EventType {
-  ForgotPassword = "ForgotPassword",
-  PasswordChange = "PasswordChange",
-  ResendCode = "ResendCode",
-  SignIn = "SignIn",
-  SignUp = "SignUp",
-}
+export const EventType = {
+  ForgotPassword: "ForgotPassword",
+  PasswordChange: "PasswordChange",
+  ResendCode: "ResendCode",
+  SignIn: "SignIn",
+  SignUp: "SignUp",
+};
 
 /**
  * @public
@@ -2394,7 +2394,7 @@ export interface AuthEventType {
   /**
    * <p>The event type.</p>
    */
-  EventType?: EventType | string;
+  EventType?: keyof typeof EventType | string;
 
   /**
    * <p>The creation date</p>
@@ -2404,7 +2404,7 @@ export interface AuthEventType {
   /**
    * <p>The event response.</p>
    */
-  EventResponse?: EventResponseType | string;
+  EventResponse?: keyof typeof EventResponseType | string;
 
   /**
    * <p>The event risk.</p>
@@ -2585,7 +2585,7 @@ export interface AdminRespondToAuthChallengeRequest {
   /**
    * <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
    */
-  ChallengeName: ChallengeNameType | string | undefined;
+  ChallengeName: keyof typeof ChallengeNameType | string | undefined;
 
   /**
    * <p>The challenge responses. These are inputs corresponding to the value of
@@ -2743,7 +2743,7 @@ export interface AdminRespondToAuthChallengeResponse {
   /**
    * <p>The name of the challenge. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
    */
-  ChallengeName?: ChallengeNameType | string;
+  ChallengeName?: keyof typeof ChallengeNameType | string;
 
   /**
    * <p>The session that should be passed both ways in challenge-response calls to the
@@ -2985,7 +2985,7 @@ export interface AdminUpdateAuthEventFeedbackRequest {
   /**
    * <p>The authentication event feedback value.</p>
    */
-  FeedbackValue: FeedbackValueType | string | undefined;
+  FeedbackValue: keyof typeof FeedbackValueType | string | undefined;
 }
 
 /**
@@ -2996,10 +2996,10 @@ export interface AdminUpdateAuthEventFeedbackResponse {}
 /**
  * @public
  */
-export enum DeviceRememberedStatusType {
-  NOT_REMEMBERED = "not_remembered",
-  REMEMBERED = "remembered",
-}
+export const DeviceRememberedStatusType = {
+  NOT_REMEMBERED: "not_remembered",
+  REMEMBERED: "remembered",
+};
 
 /**
  * @public
@@ -3024,7 +3024,7 @@ export interface AdminUpdateDeviceStatusRequest {
   /**
    * <p>The status indicating whether a device has been remembered or not.</p>
    */
-  DeviceRememberedStatus?: DeviceRememberedStatusType | string;
+  DeviceRememberedStatus?: keyof typeof DeviceRememberedStatusType | string;
 }
 
 /**
@@ -3137,20 +3137,20 @@ export interface AdminUserGlobalSignOutResponse {}
 /**
  * @public
  */
-export enum AdvancedSecurityModeType {
-  AUDIT = "AUDIT",
-  ENFORCED = "ENFORCED",
-  OFF = "OFF",
-}
+export const AdvancedSecurityModeType = {
+  AUDIT: "AUDIT",
+  ENFORCED: "ENFORCED",
+  OFF: "OFF",
+};
 
 /**
  * @public
  */
-export enum AliasAttributeType {
-  EMAIL = "email",
-  PHONE_NUMBER = "phone_number",
-  PREFERRED_USERNAME = "preferred_username",
-}
+export const AliasAttributeType = {
+  EMAIL: "email",
+  PHONE_NUMBER: "phone_number",
+  PREFERRED_USERNAME: "preferred_username",
+};
 
 /**
  * @public
@@ -3271,10 +3271,10 @@ export class ForbiddenException extends __BaseException {
 /**
  * @public
  */
-export enum VerifiedAttributeType {
-  EMAIL = "email",
-  PHONE_NUMBER = "phone_number",
-}
+export const VerifiedAttributeType = {
+  EMAIL: "email",
+  PHONE_NUMBER: "phone_number",
+};
 
 /**
  * @public
@@ -3640,14 +3640,14 @@ export class GroupExistsException extends __BaseException {
 /**
  * @public
  */
-export enum IdentityProviderTypeType {
-  Facebook = "Facebook",
-  Google = "Google",
-  LoginWithAmazon = "LoginWithAmazon",
-  OIDC = "OIDC",
-  SAML = "SAML",
-  SignInWithApple = "SignInWithApple",
-}
+export const IdentityProviderTypeType = {
+  Facebook: "Facebook",
+  Google: "Google",
+  LoginWithAmazon: "LoginWithAmazon",
+  OIDC: "OIDC",
+  SAML: "SAML",
+  SignInWithApple: "SignInWithApple",
+};
 
 /**
  * @public
@@ -3666,7 +3666,7 @@ export interface CreateIdentityProviderRequest {
   /**
    * <p>The IdP type.</p>
    */
-  ProviderType: IdentityProviderTypeType | string | undefined;
+  ProviderType: keyof typeof IdentityProviderTypeType | string | undefined;
 
   /**
    * <p>The IdP details. The following list describes the provider detail keys for each IdP
@@ -3815,7 +3815,7 @@ export interface IdentityProviderType {
   /**
    * <p>The IdP type.</p>
    */
-  ProviderType?: IdentityProviderTypeType | string;
+  ProviderType?: keyof typeof IdentityProviderTypeType | string;
 
   /**
    * <p>The IdP details. The following list describes the provider detail keys for each IdP
@@ -4095,16 +4095,16 @@ export interface CreateUserImportJobRequest {
 /**
  * @public
  */
-export enum UserImportJobStatusType {
-  Created = "Created",
-  Expired = "Expired",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Pending = "Pending",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Succeeded = "Succeeded",
-}
+export const UserImportJobStatusType = {
+  Created: "Created",
+  Expired: "Expired",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Pending: "Pending",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Succeeded: "Succeeded",
+};
 
 /**
  * @public
@@ -4189,7 +4189,7 @@ export interface UserImportJobType {
    *             </li>
    *          </ul>
    */
-  Status?: UserImportJobStatusType | string;
+  Status?: keyof typeof UserImportJobStatusType | string;
 
   /**
    * <p>The role Amazon Resource Name (ARN) for the Amazon CloudWatch Logging role for the user import
@@ -4234,10 +4234,10 @@ export interface CreateUserImportJobResponse {
 /**
  * @public
  */
-export enum DeletionProtectionType {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const DeletionProtectionType = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -4289,10 +4289,10 @@ export interface DeviceConfigurationType {
 /**
  * @public
  */
-export enum EmailSendingAccountType {
-  COGNITO_DEFAULT = "COGNITO_DEFAULT",
-  DEVELOPER = "DEVELOPER",
-}
+export const EmailSendingAccountType = {
+  COGNITO_DEFAULT: "COGNITO_DEFAULT",
+  DEVELOPER: "DEVELOPER",
+};
 
 /**
  * @public
@@ -4372,7 +4372,7 @@ export interface EmailConfigurationType {
    *                 </dd>
    *          </dl>
    */
-  EmailSendingAccount?: EmailSendingAccountType | string;
+  EmailSendingAccount?: keyof typeof EmailSendingAccountType | string;
 
   /**
    * <p>Either the sender’s email address or the sender’s name with their email address. For
@@ -4410,9 +4410,9 @@ export interface EmailConfigurationType {
 /**
  * @public
  */
-export enum CustomEmailSenderLambdaVersionType {
-  V1_0 = "V1_0",
-}
+export const CustomEmailSenderLambdaVersionType = {
+  V1_0: "V1_0",
+};
 
 /**
  * @public
@@ -4423,7 +4423,7 @@ export interface CustomEmailLambdaVersionConfigType {
    * <p>Signature of the "request" attribute in the "event" information Amazon Cognito passes to your
    *             custom email Lambda function. The only supported value is <code>V1_0</code>.</p>
    */
-  LambdaVersion: CustomEmailSenderLambdaVersionType | string | undefined;
+  LambdaVersion: keyof typeof CustomEmailSenderLambdaVersionType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Lambda function that Amazon Cognito activates to send
@@ -4435,9 +4435,9 @@ export interface CustomEmailLambdaVersionConfigType {
 /**
  * @public
  */
-export enum CustomSMSSenderLambdaVersionType {
-  V1_0 = "V1_0",
-}
+export const CustomSMSSenderLambdaVersionType = {
+  V1_0: "V1_0",
+};
 
 /**
  * @public
@@ -4448,7 +4448,7 @@ export interface CustomSMSLambdaVersionConfigType {
    * <p>Signature of the "request" attribute in the "event" information that Amazon Cognito passes to
    *             your custom SMS Lambda function. The only supported value is <code>V1_0</code>.</p>
    */
-  LambdaVersion: CustomSMSSenderLambdaVersionType | string | undefined;
+  LambdaVersion: keyof typeof CustomSMSSenderLambdaVersionType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Lambda function that Amazon Cognito activates to send SMS
@@ -4533,11 +4533,11 @@ export interface LambdaConfigType {
 /**
  * @public
  */
-export enum UserPoolMfaType {
-  OFF = "OFF",
-  ON = "ON",
-  OPTIONAL = "OPTIONAL",
-}
+export const UserPoolMfaType = {
+  OFF: "OFF",
+  ON: "ON",
+  OPTIONAL: "OPTIONAL",
+};
 
 /**
  * @public
@@ -4662,16 +4662,16 @@ export interface UserAttributeUpdateSettingsType {
    *             operations that change attribute values can immediately update a user’s
    *                 <code>email</code> or <code>phone_number</code> attribute.</p>
    */
-  AttributesRequireVerificationBeforeUpdate?: (VerifiedAttributeType | string)[];
+  AttributesRequireVerificationBeforeUpdate?: (keyof typeof VerifiedAttributeType | string)[];
 }
 
 /**
  * @public
  */
-export enum UsernameAttributeType {
-  EMAIL = "email",
-  PHONE_NUMBER = "phone_number",
-}
+export const UsernameAttributeType = {
+  EMAIL: "email",
+  PHONE_NUMBER: "phone_number",
+};
 
 /**
  * @public
@@ -4710,16 +4710,16 @@ export interface UserPoolAddOnsType {
   /**
    * <p>The advanced security mode.</p>
    */
-  AdvancedSecurityMode: AdvancedSecurityModeType | string | undefined;
+  AdvancedSecurityMode: keyof typeof AdvancedSecurityModeType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum DefaultEmailOptionType {
-  CONFIRM_WITH_CODE = "CONFIRM_WITH_CODE",
-  CONFIRM_WITH_LINK = "CONFIRM_WITH_LINK",
-}
+export const DefaultEmailOptionType = {
+  CONFIRM_WITH_CODE: "CONFIRM_WITH_CODE",
+  CONFIRM_WITH_LINK: "CONFIRM_WITH_LINK",
+};
 
 /**
  * @public
@@ -4763,7 +4763,7 @@ export interface VerificationMessageTemplateType {
   /**
    * <p>The default email option.</p>
    */
-  DefaultEmailOption?: DefaultEmailOptionType | string;
+  DefaultEmailOption?: keyof typeof DefaultEmailOptionType | string;
 }
 
 /**
@@ -4790,7 +4790,7 @@ export interface CreateUserPoolRequest {
    *         send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
    *         <code>UpdateUserPool</code> API request.</p>
    */
-  DeletionProtection?: DeletionProtectionType | string;
+  DeletionProtection?: keyof typeof DeletionProtectionType | string;
 
   /**
    * <p>The Lambda trigger configuration information for the new user pool.</p>
@@ -4810,19 +4810,19 @@ export interface CreateUserPoolRequest {
   /**
    * <p>The attributes to be auto-verified. Possible values: <b>email</b>, <b>phone_number</b>.</p>
    */
-  AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
+  AutoVerifiedAttributes?: (keyof typeof VerifiedAttributeType | string)[];
 
   /**
    * <p>Attributes supported as an alias for this user pool. Possible values: <b>phone_number</b>, <b>email</b>, or
    *                 <b>preferred_username</b>.</p>
    */
-  AliasAttributes?: (AliasAttributeType | string)[];
+  AliasAttributes?: (keyof typeof AliasAttributeType | string)[];
 
   /**
    * <p>Specifies whether a user can use an email address or phone number as a username when
    *             they sign up.</p>
    */
-  UsernameAttributes?: (UsernameAttributeType | string)[];
+  UsernameAttributes?: (keyof typeof UsernameAttributeType | string)[];
 
   /**
    * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
@@ -4853,7 +4853,7 @@ export interface CreateUserPoolRequest {
   /**
    * <p>Specifies MFA configuration details.</p>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: keyof typeof UserPoolMfaType | string;
 
   /**
    * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
@@ -4932,10 +4932,10 @@ export interface CreateUserPoolRequest {
 /**
  * @public
  */
-export enum StatusType {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const StatusType = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -4966,7 +4966,7 @@ export interface UserPoolType {
    *         send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
    *         <code>UpdateUserPool</code> API request.</p>
    */
-  DeletionProtection?: DeletionProtectionType | string;
+  DeletionProtection?: keyof typeof DeletionProtectionType | string;
 
   /**
    * <p>The Lambda triggers associated with the user pool.</p>
@@ -4976,7 +4976,7 @@ export interface UserPoolType {
   /**
    * <p>The status of a user pool.</p>
    */
-  Status?: StatusType | string;
+  Status?: keyof typeof StatusType | string;
 
   /**
    * <p>The date the user pool was last modified.</p>
@@ -4996,18 +4996,18 @@ export interface UserPoolType {
   /**
    * <p>The attributes that are auto-verified in a user pool.</p>
    */
-  AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
+  AutoVerifiedAttributes?: (keyof typeof VerifiedAttributeType | string)[];
 
   /**
    * <p>The attributes that are aliased in a user pool.</p>
    */
-  AliasAttributes?: (AliasAttributeType | string)[];
+  AliasAttributes?: (keyof typeof AliasAttributeType | string)[];
 
   /**
    * <p>Specifies whether a user can use an email address or phone number as a username when
    *             they sign up.</p>
    */
-  UsernameAttributes?: (UsernameAttributeType | string)[];
+  UsernameAttributes?: (keyof typeof UsernameAttributeType | string)[];
 
   /**
    * <p>This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.</p>
@@ -5062,7 +5062,7 @@ export interface UserPoolType {
    *             </li>
    *          </ul>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: keyof typeof UserPoolMfaType | string;
 
   /**
    * <p>The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.</p>
@@ -5210,43 +5210,43 @@ export class UserPoolTaggingException extends __BaseException {
 /**
  * @public
  */
-export enum OAuthFlowType {
-  client_credentials = "client_credentials",
-  code = "code",
-  implicit = "implicit",
-}
+export const OAuthFlowType = {
+  client_credentials: "client_credentials",
+  code: "code",
+  implicit: "implicit",
+};
 
 /**
  * @public
  */
-export enum ExplicitAuthFlowsType {
-  ADMIN_NO_SRP_AUTH = "ADMIN_NO_SRP_AUTH",
-  ALLOW_ADMIN_USER_PASSWORD_AUTH = "ALLOW_ADMIN_USER_PASSWORD_AUTH",
-  ALLOW_CUSTOM_AUTH = "ALLOW_CUSTOM_AUTH",
-  ALLOW_REFRESH_TOKEN_AUTH = "ALLOW_REFRESH_TOKEN_AUTH",
-  ALLOW_USER_PASSWORD_AUTH = "ALLOW_USER_PASSWORD_AUTH",
-  ALLOW_USER_SRP_AUTH = "ALLOW_USER_SRP_AUTH",
-  CUSTOM_AUTH_FLOW_ONLY = "CUSTOM_AUTH_FLOW_ONLY",
-  USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH",
-}
+export const ExplicitAuthFlowsType = {
+  ADMIN_NO_SRP_AUTH: "ADMIN_NO_SRP_AUTH",
+  ALLOW_ADMIN_USER_PASSWORD_AUTH: "ALLOW_ADMIN_USER_PASSWORD_AUTH",
+  ALLOW_CUSTOM_AUTH: "ALLOW_CUSTOM_AUTH",
+  ALLOW_REFRESH_TOKEN_AUTH: "ALLOW_REFRESH_TOKEN_AUTH",
+  ALLOW_USER_PASSWORD_AUTH: "ALLOW_USER_PASSWORD_AUTH",
+  ALLOW_USER_SRP_AUTH: "ALLOW_USER_SRP_AUTH",
+  CUSTOM_AUTH_FLOW_ONLY: "CUSTOM_AUTH_FLOW_ONLY",
+  USER_PASSWORD_AUTH: "USER_PASSWORD_AUTH",
+};
 
 /**
  * @public
  */
-export enum PreventUserExistenceErrorTypes {
-  ENABLED = "ENABLED",
-  LEGACY = "LEGACY",
-}
+export const PreventUserExistenceErrorTypes = {
+  ENABLED: "ENABLED",
+  LEGACY: "LEGACY",
+};
 
 /**
  * @public
  */
-export enum TimeUnitsType {
-  DAYS = "days",
-  HOURS = "hours",
-  MINUTES = "minutes",
-  SECONDS = "seconds",
-}
+export const TimeUnitsType = {
+  DAYS: "days",
+  HOURS: "hours",
+  MINUTES: "minutes",
+  SECONDS: "seconds",
+};
 
 /**
  * @public
@@ -5259,14 +5259,14 @@ export interface TokenValidityUnitsType {
    *                 <code>days</code> for the value that you set in the <code>AccessTokenValidity</code>
    *             parameter. The default <code>AccessTokenValidity</code> time unit is hours.</p>
    */
-  AccessToken?: TimeUnitsType | string;
+  AccessToken?: keyof typeof TimeUnitsType | string;
 
   /**
    * <p>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
    *                 <code>days</code> for the value that you set in the <code>IdTokenValidity</code>
    *             parameter. The default <code>IdTokenValidity</code> time unit is hours.</p>
    */
-  IdToken?: TimeUnitsType | string;
+  IdToken?: keyof typeof TimeUnitsType | string;
 
   /**
    * <p>A time unit of <code>seconds</code>, <code>minutes</code>, <code>hours</code>, or
@@ -5274,7 +5274,7 @@ export interface TokenValidityUnitsType {
    *                 <code>RefreshTokenValidity</code> parameter. The default
    *                 <code>RefreshTokenValidity</code> time unit is days.</p>
    */
-  RefreshToken?: TimeUnitsType | string;
+  RefreshToken?: keyof typeof TimeUnitsType | string;
 }
 
 /**
@@ -5409,7 +5409,7 @@ export interface CreateUserPoolClientRequest {
    * You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>,
    * like <code>ALLOW_USER_SRP_AUTH</code>.</p>
    */
-  ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
+  ExplicitAuthFlows?: (keyof typeof ExplicitAuthFlowsType | string)[];
 
   /**
    * <p>A list of provider names for the identity providers (IdPs) that are supported on this
@@ -5491,7 +5491,7 @@ export interface CreateUserPoolClientRequest {
    *                 </dd>
    *          </dl>
    */
-  AllowedOAuthFlows?: (OAuthFlowType | string)[];
+  AllowedOAuthFlows?: (keyof typeof OAuthFlowType | string)[];
 
   /**
    * <p>The allowed OAuth scopes. Possible values provided by OAuth are <code>phone</code>,
@@ -5541,7 +5541,7 @@ export interface CreateUserPoolClientRequest {
    *             </li>
    *          </ul>
    */
-  PreventUserExistenceErrors?: PreventUserExistenceErrorTypes | string;
+  PreventUserExistenceErrors?: keyof typeof PreventUserExistenceErrorTypes | string;
 
   /**
    * <p>Activates or deactivates token revocation. For more information about revoking tokens,
@@ -5708,7 +5708,7 @@ export interface UserPoolClientType {
    * You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>,
    * like <code>ALLOW_USER_SRP_AUTH</code>.</p>
    */
-  ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
+  ExplicitAuthFlows?: (keyof typeof ExplicitAuthFlowsType | string)[];
 
   /**
    * <p>A list of provider names for the IdPs that this client supports. The following are
@@ -5788,7 +5788,7 @@ export interface UserPoolClientType {
    *                 </dd>
    *          </dl>
    */
-  AllowedOAuthFlows?: (OAuthFlowType | string)[];
+  AllowedOAuthFlows?: (keyof typeof OAuthFlowType | string)[];
 
   /**
    * <p>The OAuth scopes that your app client supports. Possible values that OAuth provides
@@ -5837,7 +5837,7 @@ export interface UserPoolClientType {
    *             </li>
    *          </ul>
    */
-  PreventUserExistenceErrors?: PreventUserExistenceErrorTypes | string;
+  PreventUserExistenceErrors?: keyof typeof PreventUserExistenceErrorTypes | string;
 
   /**
    * <p>Indicates whether token revocation is activated for the user pool client. When you
@@ -6193,10 +6193,10 @@ export interface DescribeRiskConfigurationRequest {
 /**
  * @public
  */
-export enum CompromisedCredentialsEventActionType {
-  BLOCK = "BLOCK",
-  NO_ACTION = "NO_ACTION",
-}
+export const CompromisedCredentialsEventActionType = {
+  BLOCK: "BLOCK",
+  NO_ACTION: "NO_ACTION",
+};
 
 /**
  * @public
@@ -6206,17 +6206,17 @@ export interface CompromisedCredentialsActionsType {
   /**
    * <p>The event action.</p>
    */
-  EventAction: CompromisedCredentialsEventActionType | string | undefined;
+  EventAction: keyof typeof CompromisedCredentialsEventActionType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum EventFilterType {
-  PASSWORD_CHANGE = "PASSWORD_CHANGE",
-  SIGN_IN = "SIGN_IN",
-  SIGN_UP = "SIGN_UP",
-}
+export const EventFilterType = {
+  PASSWORD_CHANGE: "PASSWORD_CHANGE",
+  SIGN_IN: "SIGN_IN",
+  SIGN_UP: "SIGN_UP",
+};
 
 /**
  * @public
@@ -6227,7 +6227,7 @@ export interface CompromisedCredentialsRiskConfigurationType {
    * <p>Perform the action for these events. The default is to perform all events if no event
    *             filter is specified.</p>
    */
-  EventFilter?: (EventFilterType | string)[];
+  EventFilter?: (keyof typeof EventFilterType | string)[];
 
   /**
    * <p>The compromised credentials risk configuration actions.</p>
@@ -6396,13 +6396,13 @@ export interface DescribeUserPoolDomainRequest {
 /**
  * @public
  */
-export enum DomainStatusType {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const DomainStatusType = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -6444,7 +6444,7 @@ export interface DomainDescriptionType {
   /**
    * <p>The domain status.</p>
    */
-  Status?: DomainStatusType | string;
+  Status?: keyof typeof DomainStatusType | string;
 
   /**
    * <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for
@@ -6569,7 +6569,7 @@ export interface CodeDeliveryDetailsType {
   /**
    * <p>The method that Amazon Cognito used to send the code.</p>
    */
-  DeliveryMedium?: DeliveryMediumType | string;
+  DeliveryMedium?: keyof typeof DeliveryMediumType | string;
 
   /**
    * <p>The name of the attribute that Amazon Cognito verifies with the code.</p>
@@ -6978,7 +6978,7 @@ export interface GetUserPoolMfaConfigResponse {
    *             </li>
    *          </ul>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: keyof typeof UserPoolMfaType | string;
 }
 
 /**
@@ -7052,7 +7052,7 @@ export interface InitiateAuthRequest {
    *         <p>
    *             <code>ADMIN_NO_SRP_AUTH</code> isn't a valid value.</p>
    */
-  AuthFlow: AuthFlowType | string | undefined;
+  AuthFlow: keyof typeof AuthFlowType | string | undefined;
 
   /**
    * <p>The authentication parameters. These are inputs corresponding to the
@@ -7248,7 +7248,7 @@ export interface InitiateAuthResponse {
    *             </li>
    *          </ul>
    */
-  ChallengeName?: ChallengeNameType | string;
+  ChallengeName?: keyof typeof ChallengeNameType | string;
 
   /**
    * <p>The session that should pass both ways in challenge-response calls to the service. If
@@ -7384,7 +7384,7 @@ export interface ProviderDescription {
   /**
    * <p>The IdP type.</p>
    */
-  ProviderType?: IdentityProviderTypeType | string;
+  ProviderType?: keyof typeof IdentityProviderTypeType | string;
 
   /**
    * <p>The date the provider was last modified.</p>
@@ -7611,7 +7611,7 @@ export interface UserPoolDescriptionType {
   /**
    * <p>The user pool status in a user pool description.</p>
    */
-  Status?: StatusType | string;
+  Status?: keyof typeof StatusType | string;
 
   /**
    * <p>The date the user pool description was last modified.</p>
@@ -7924,7 +7924,7 @@ export interface RespondToAuthChallengeRequest {
    *         <p>
    *             <code>ADMIN_NO_SRP_AUTH</code> isn't a valid value.</p>
    */
-  ChallengeName: ChallengeNameType | string | undefined;
+  ChallengeName: keyof typeof ChallengeNameType | string | undefined;
 
   /**
    * <p>The session that should be passed both ways in challenge-response calls to the
@@ -8067,7 +8067,7 @@ export interface RespondToAuthChallengeResponse {
   /**
    * <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
    */
-  ChallengeName?: ChallengeNameType | string;
+  ChallengeName?: keyof typeof ChallengeNameType | string;
 
   /**
    * <p>The session that should be passed both ways in challenge-response calls to the
@@ -8322,7 +8322,7 @@ export interface SetUserPoolMfaConfigRequest {
    *             </li>
    *          </ul>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: keyof typeof UserPoolMfaType | string;
 }
 
 /**
@@ -8357,7 +8357,7 @@ export interface SetUserPoolMfaConfigResponse {
    *             </li>
    *          </ul>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: keyof typeof UserPoolMfaType | string;
 }
 
 /**

@@ -288,11 +288,11 @@ export class ApplicationDoesNotExistException extends __BaseException {
 /**
  * @public
  */
-export enum ComputePlatform {
-  ECS = "ECS",
-  LAMBDA = "Lambda",
-  SERVER = "Server",
-}
+export const ComputePlatform = {
+  ECS: "ECS",
+  LAMBDA: "Lambda",
+  SERVER: "Server",
+};
 
 /**
  * @public
@@ -328,7 +328,7 @@ export interface ApplicationInfo {
   /**
    * <p>The destination platform type for deployment of the application (<code>Lambda</code> or <code>Server</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: keyof typeof ComputePlatform | string;
 }
 
 /**
@@ -374,11 +374,11 @@ export class ApplicationNameRequiredException extends __BaseException {
 /**
  * @public
  */
-export enum ApplicationRevisionSortBy {
-  FirstUsedTime = "firstUsedTime",
-  LastUsedTime = "lastUsedTime",
-  RegisterTime = "registerTime",
-}
+export const ApplicationRevisionSortBy = {
+  FirstUsedTime: "firstUsedTime",
+  LastUsedTime: "lastUsedTime",
+  RegisterTime: "registerTime",
+};
 
 /**
  * @public
@@ -430,11 +430,11 @@ export class ArnNotSupportedException extends __BaseException {
 /**
  * @public
  */
-export enum AutoRollbackEvent {
-  DEPLOYMENT_FAILURE = "DEPLOYMENT_FAILURE",
-  DEPLOYMENT_STOP_ON_ALARM = "DEPLOYMENT_STOP_ON_ALARM",
-  DEPLOYMENT_STOP_ON_REQUEST = "DEPLOYMENT_STOP_ON_REQUEST",
-}
+export const AutoRollbackEvent = {
+  DEPLOYMENT_FAILURE: "DEPLOYMENT_FAILURE",
+  DEPLOYMENT_STOP_ON_ALARM: "DEPLOYMENT_STOP_ON_ALARM",
+  DEPLOYMENT_STOP_ON_REQUEST: "DEPLOYMENT_STOP_ON_REQUEST",
+};
 
 /**
  * @public
@@ -451,7 +451,7 @@ export interface AutoRollbackConfiguration {
   /**
    * <p>The event type or types that trigger a rollback.</p>
    */
-  events?: (AutoRollbackEvent | string)[];
+  events?: (keyof typeof AutoRollbackEvent | string)[];
 }
 
 /**
@@ -492,23 +492,23 @@ export interface GitHubLocation {
 /**
  * @public
  */
-export enum RevisionLocationType {
-  AppSpecContent = "AppSpecContent",
-  GitHub = "GitHub",
-  S3 = "S3",
-  String = "String",
-}
+export const RevisionLocationType = {
+  AppSpecContent: "AppSpecContent",
+  GitHub: "GitHub",
+  S3: "S3",
+  String: "String",
+};
 
 /**
  * @public
  */
-export enum BundleType {
-  JSON = "JSON",
-  Tar = "tar",
-  TarGZip = "tgz",
-  YAML = "YAML",
-  Zip = "zip",
-}
+export const BundleType = {
+  JSON: "JSON",
+  Tar: "tar",
+  TarGZip: "tgz",
+  YAML: "YAML",
+  Zip: "zip",
+};
 
 /**
  * @public
@@ -544,7 +544,7 @@ export interface S3Location {
    *             </li>
    *          </ul>
    */
-  bundleType?: BundleType | string;
+  bundleType?: keyof typeof BundleType | string;
 
   /**
    * <p>A specific version of the Amazon S3 object that represents the bundled
@@ -612,7 +612,7 @@ export interface RevisionLocation {
    *             </li>
    *          </ul>
    */
-  revisionType?: RevisionLocationType | string;
+  revisionType?: keyof typeof RevisionLocationType | string;
 
   /**
    * <p>Information about the location of a revision stored in Amazon S3. </p>
@@ -850,10 +850,10 @@ export interface BatchGetDeploymentGroupsInput {
 /**
  * @public
  */
-export enum DeploymentReadyAction {
-  CONTINUE_DEPLOYMENT = "CONTINUE_DEPLOYMENT",
-  STOP_DEPLOYMENT = "STOP_DEPLOYMENT",
-}
+export const DeploymentReadyAction = {
+  CONTINUE_DEPLOYMENT: "CONTINUE_DEPLOYMENT",
+  STOP_DEPLOYMENT: "STOP_DEPLOYMENT",
+};
 
 /**
  * @public
@@ -878,7 +878,7 @@ export interface DeploymentReadyOption {
    *             </li>
    *          </ul>
    */
-  actionOnTimeout?: DeploymentReadyAction | string;
+  actionOnTimeout?: keyof typeof DeploymentReadyAction | string;
 
   /**
    * <p>The number of minutes to wait before the status of a blue/green deployment is changed
@@ -891,10 +891,10 @@ export interface DeploymentReadyOption {
 /**
  * @public
  */
-export enum GreenFleetProvisioningAction {
-  COPY_AUTO_SCALING_GROUP = "COPY_AUTO_SCALING_GROUP",
-  DISCOVER_EXISTING = "DISCOVER_EXISTING",
-}
+export const GreenFleetProvisioningAction = {
+  COPY_AUTO_SCALING_GROUP: "COPY_AUTO_SCALING_GROUP",
+  DISCOVER_EXISTING: "DISCOVER_EXISTING",
+};
 
 /**
  * @public
@@ -917,16 +917,16 @@ export interface GreenFleetProvisioningOption {
    *             </li>
    *          </ul>
    */
-  action?: GreenFleetProvisioningAction | string;
+  action?: keyof typeof GreenFleetProvisioningAction | string;
 }
 
 /**
  * @public
  */
-export enum InstanceAction {
-  KEEP_ALIVE = "KEEP_ALIVE",
-  TERMINATE = "TERMINATE",
-}
+export const InstanceAction = {
+  KEEP_ALIVE: "KEEP_ALIVE",
+  TERMINATE: "TERMINATE",
+};
 
 /**
  * @public
@@ -952,7 +952,7 @@ export interface BlueInstanceTerminationOption {
    *             </li>
    *          </ul>
    */
-  action?: InstanceAction | string;
+  action?: keyof typeof InstanceAction | string;
 
   /**
    * <p>For an Amazon EC2 deployment, the number of minutes to wait after a successful
@@ -994,18 +994,18 @@ export interface BlueGreenDeploymentConfiguration {
 /**
  * @public
  */
-export enum DeploymentOption {
-  WITHOUT_TRAFFIC_CONTROL = "WITHOUT_TRAFFIC_CONTROL",
-  WITH_TRAFFIC_CONTROL = "WITH_TRAFFIC_CONTROL",
-}
+export const DeploymentOption = {
+  WITHOUT_TRAFFIC_CONTROL: "WITHOUT_TRAFFIC_CONTROL",
+  WITH_TRAFFIC_CONTROL: "WITH_TRAFFIC_CONTROL",
+};
 
 /**
  * @public
  */
-export enum DeploymentType {
-  BLUE_GREEN = "BLUE_GREEN",
-  IN_PLACE = "IN_PLACE",
-}
+export const DeploymentType = {
+  BLUE_GREEN: "BLUE_GREEN",
+  IN_PLACE: "IN_PLACE",
+};
 
 /**
  * @public
@@ -1016,22 +1016,22 @@ export interface DeploymentStyle {
   /**
    * <p>Indicates whether to run an in-place deployment or a blue/green deployment.</p>
    */
-  deploymentType?: DeploymentType | string;
+  deploymentType?: keyof typeof DeploymentType | string;
 
   /**
    * <p>Indicates whether to route deployment traffic behind a load balancer.</p>
    */
-  deploymentOption?: DeploymentOption | string;
+  deploymentOption?: keyof typeof DeploymentOption | string;
 }
 
 /**
  * @public
  */
-export enum EC2TagFilterType {
-  KEY_AND_VALUE = "KEY_AND_VALUE",
-  KEY_ONLY = "KEY_ONLY",
-  VALUE_ONLY = "VALUE_ONLY",
-}
+export const EC2TagFilterType = {
+  KEY_AND_VALUE: "KEY_AND_VALUE",
+  KEY_ONLY: "KEY_ONLY",
+  VALUE_ONLY: "VALUE_ONLY",
+};
 
 /**
  * @public
@@ -1065,7 +1065,7 @@ export interface EC2TagFilter {
    *             </li>
    *          </ul>
    */
-  Type?: EC2TagFilterType | string;
+  Type?: keyof typeof EC2TagFilterType | string;
 }
 
 /**
@@ -1102,16 +1102,16 @@ export interface ECSService {
 /**
  * @public
  */
-export enum DeploymentStatus {
-  BAKING = "Baking",
-  CREATED = "Created",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  QUEUED = "Queued",
-  READY = "Ready",
-  STOPPED = "Stopped",
-  SUCCEEDED = "Succeeded",
-}
+export const DeploymentStatus = {
+  BAKING: "Baking",
+  CREATED: "Created",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  QUEUED: "Queued",
+  READY: "Ready",
+  STOPPED: "Stopped",
+  SUCCEEDED: "Succeeded",
+};
 
 /**
  * @public
@@ -1127,7 +1127,7 @@ export interface LastDeploymentInfo {
   /**
    * <p>The status of the most recent deployment.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>A timestamp that indicates when the most recent deployment to the deployment group was
@@ -1250,11 +1250,11 @@ export interface LoadBalancerInfo {
 /**
  * @public
  */
-export enum TagFilterType {
-  KEY_AND_VALUE = "KEY_AND_VALUE",
-  KEY_ONLY = "KEY_ONLY",
-  VALUE_ONLY = "VALUE_ONLY",
-}
+export const TagFilterType = {
+  KEY_AND_VALUE: "KEY_AND_VALUE",
+  KEY_ONLY: "KEY_ONLY",
+  VALUE_ONLY: "VALUE_ONLY",
+};
 
 /**
  * @public
@@ -1285,7 +1285,7 @@ export interface TagFilter {
    *             </li>
    *          </ul>
    */
-  Type?: TagFilterType | string;
+  Type?: keyof typeof TagFilterType | string;
 }
 
 /**
@@ -1304,26 +1304,26 @@ export interface OnPremisesTagSet {
 /**
  * @public
  */
-export enum OutdatedInstancesStrategy {
-  Ignore = "IGNORE",
-  Update = "UPDATE",
-}
+export const OutdatedInstancesStrategy = {
+  Ignore: "IGNORE",
+  Update: "UPDATE",
+};
 
 /**
  * @public
  */
-export enum TriggerEventType {
-  DEPLOYMENT_FAILURE = "DeploymentFailure",
-  DEPLOYMENT_READY = "DeploymentReady",
-  DEPLOYMENT_ROLLBACK = "DeploymentRollback",
-  DEPLOYMENT_START = "DeploymentStart",
-  DEPLOYMENT_STOP = "DeploymentStop",
-  DEPLOYMENT_SUCCESS = "DeploymentSuccess",
-  INSTANCE_FAILURE = "InstanceFailure",
-  INSTANCE_READY = "InstanceReady",
-  INSTANCE_START = "InstanceStart",
-  INSTANCE_SUCCESS = "InstanceSuccess",
-}
+export const TriggerEventType = {
+  DEPLOYMENT_FAILURE: "DeploymentFailure",
+  DEPLOYMENT_READY: "DeploymentReady",
+  DEPLOYMENT_ROLLBACK: "DeploymentRollback",
+  DEPLOYMENT_START: "DeploymentStart",
+  DEPLOYMENT_STOP: "DeploymentStop",
+  DEPLOYMENT_SUCCESS: "DeploymentSuccess",
+  INSTANCE_FAILURE: "InstanceFailure",
+  INSTANCE_READY: "InstanceReady",
+  INSTANCE_START: "InstanceStart",
+  INSTANCE_SUCCESS: "InstanceSuccess",
+};
 
 /**
  * @public
@@ -1344,7 +1344,7 @@ export interface TriggerConfig {
   /**
    * <p>The event type or types for which notifications are triggered.</p>
    */
-  triggerEvents?: (TriggerEventType | string)[];
+  triggerEvents?: (keyof typeof TriggerEventType | string)[];
 }
 
 /**
@@ -1434,7 +1434,7 @@ export interface DeploymentGroupInfo {
    *             deployment to update the new Amazon EC2 instances. This may result in instances
    *             having different revisions.</p>
    */
-  outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
+  outdatedInstancesStrategy?: keyof typeof OutdatedInstancesStrategy | string;
 
   /**
    * <p>Information about blue/green deployment options for a deployment group.</p>
@@ -1475,7 +1475,7 @@ export interface DeploymentGroupInfo {
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: keyof typeof ComputePlatform | string;
 
   /**
    * <p> The target Amazon ECS services in the deployment group. This applies only to
@@ -1582,22 +1582,22 @@ export interface BatchGetDeploymentInstancesInput {
 /**
  * @public
  */
-export enum _InstanceType {
-  BLUE = "Blue",
-  GREEN = "Green",
-}
+export const _InstanceType = {
+  BLUE: "Blue",
+  GREEN: "Green",
+};
 
 /**
  * @public
  */
-export enum LifecycleErrorCode {
-  SCRIPT_FAILED = "ScriptFailed",
-  SCRIPT_MISSING = "ScriptMissing",
-  SCRIPT_NOT_EXECUTABLE = "ScriptNotExecutable",
-  SCRIPT_TIMED_OUT = "ScriptTimedOut",
-  SUCCESS = "Success",
-  UNKNOWN_ERROR = "UnknownError",
-}
+export const LifecycleErrorCode = {
+  SCRIPT_FAILED: "ScriptFailed",
+  SCRIPT_MISSING: "ScriptMissing",
+  SCRIPT_NOT_EXECUTABLE: "ScriptNotExecutable",
+  SCRIPT_TIMED_OUT: "ScriptTimedOut",
+  SUCCESS: "Success",
+  UNKNOWN_ERROR: "UnknownError",
+};
 
 /**
  * @public
@@ -1630,7 +1630,7 @@ export interface Diagnostics {
    *             </li>
    *          </ul>
    */
-  errorCode?: LifecycleErrorCode | string;
+  errorCode?: keyof typeof LifecycleErrorCode | string;
 
   /**
    * <p>The name of the script.</p>
@@ -1653,14 +1653,14 @@ export interface Diagnostics {
 /**
  * @public
  */
-export enum LifecycleEventStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  SKIPPED = "Skipped",
-  SUCCEEDED = "Succeeded",
-  UNKNOWN = "Unknown",
-}
+export const LifecycleEventStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SKIPPED: "Skipped",
+  SUCCEEDED: "Succeeded",
+  UNKNOWN: "Unknown",
+};
 
 /**
  * @public
@@ -1712,21 +1712,21 @@ export interface LifecycleEvent {
    *             </li>
    *          </ul>
    */
-  status?: LifecycleEventStatus | string;
+  status?: keyof typeof LifecycleEventStatus | string;
 }
 
 /**
  * @public
  */
-export enum InstanceStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  READY = "Ready",
-  SKIPPED = "Skipped",
-  SUCCEEDED = "Succeeded",
-  UNKNOWN = "Unknown",
-}
+export const InstanceStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  READY: "Ready",
+  SKIPPED: "Skipped",
+  SUCCEEDED: "Succeeded",
+  UNKNOWN: "Unknown",
+};
 
 /**
  * @public
@@ -1779,7 +1779,7 @@ export interface InstanceSummary {
    *             </li>
    *          </ul>
    */
-  status?: InstanceStatus | string;
+  status?: keyof typeof InstanceStatus | string;
 
   /**
    * <p>A timestamp that indicates when the instance information was last updated.</p>
@@ -1803,7 +1803,7 @@ export interface InstanceSummary {
    *             </li>
    *          </ul>
    */
-  instanceType?: _InstanceType | string;
+  instanceType?: keyof typeof _InstanceType | string;
 }
 
 /**
@@ -1940,15 +1940,15 @@ export interface BatchGetDeploymentsInput {
 /**
  * @public
  */
-export enum DeploymentCreator {
-  Autoscaling = "autoscaling",
-  CloudFormation = "CloudFormation",
-  CloudFormationRollback = "CloudFormationRollback",
-  CodeDeploy = "CodeDeploy",
-  CodeDeployAutoUpdate = "CodeDeployAutoUpdate",
-  CodeDeployRollback = "codeDeployRollback",
-  User = "user",
-}
+export const DeploymentCreator = {
+  Autoscaling: "autoscaling",
+  CloudFormation: "CloudFormation",
+  CloudFormationRollback: "CloudFormationRollback",
+  CodeDeploy: "CodeDeploy",
+  CodeDeployAutoUpdate: "CodeDeployAutoUpdate",
+  CodeDeployRollback: "codeDeployRollback",
+  User: "user",
+};
 
 /**
  * @public
@@ -1991,42 +1991,42 @@ export interface DeploymentOverview {
 /**
  * @public
  */
-export enum ErrorCode {
-  AGENT_ISSUE = "AGENT_ISSUE",
-  ALARM_ACTIVE = "ALARM_ACTIVE",
-  APPLICATION_MISSING = "APPLICATION_MISSING",
-  AUTOSCALING_VALIDATION_ERROR = "AUTOSCALING_VALIDATION_ERROR",
-  AUTO_SCALING_CONFIGURATION = "AUTO_SCALING_CONFIGURATION",
-  AUTO_SCALING_IAM_ROLE_PERMISSIONS = "AUTO_SCALING_IAM_ROLE_PERMISSIONS",
-  CLOUDFORMATION_STACK_FAILURE = "CLOUDFORMATION_STACK_FAILURE",
-  CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND = "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND",
-  CUSTOMER_APPLICATION_UNHEALTHY = "CUSTOMER_APPLICATION_UNHEALTHY",
-  DEPLOYMENT_GROUP_MISSING = "DEPLOYMENT_GROUP_MISSING",
-  ECS_UPDATE_ERROR = "ECS_UPDATE_ERROR",
-  ELASTIC_LOAD_BALANCING_INVALID = "ELASTIC_LOAD_BALANCING_INVALID",
-  ELB_INVALID_INSTANCE = "ELB_INVALID_INSTANCE",
-  HEALTH_CONSTRAINTS = "HEALTH_CONSTRAINTS",
-  HEALTH_CONSTRAINTS_INVALID = "HEALTH_CONSTRAINTS_INVALID",
-  HOOK_EXECUTION_FAILURE = "HOOK_EXECUTION_FAILURE",
-  IAM_ROLE_MISSING = "IAM_ROLE_MISSING",
-  IAM_ROLE_PERMISSIONS = "IAM_ROLE_PERMISSIONS",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_ECS_SERVICE = "INVALID_ECS_SERVICE",
-  INVALID_LAMBDA_CONFIGURATION = "INVALID_LAMBDA_CONFIGURATION",
-  INVALID_LAMBDA_FUNCTION = "INVALID_LAMBDA_FUNCTION",
-  INVALID_REVISION = "INVALID_REVISION",
-  MANUAL_STOP = "MANUAL_STOP",
-  MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION = "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION",
-  MISSING_ELB_INFORMATION = "MISSING_ELB_INFORMATION",
-  MISSING_GITHUB_TOKEN = "MISSING_GITHUB_TOKEN",
-  NO_EC2_SUBSCRIPTION = "NO_EC2_SUBSCRIPTION",
-  NO_INSTANCES = "NO_INSTANCES",
-  OVER_MAX_INSTANCES = "OVER_MAX_INSTANCES",
-  RESOURCE_LIMIT_EXCEEDED = "RESOURCE_LIMIT_EXCEEDED",
-  REVISION_MISSING = "REVISION_MISSING",
-  THROTTLED = "THROTTLED",
-  TIMEOUT = "TIMEOUT",
-}
+export const ErrorCode = {
+  AGENT_ISSUE: "AGENT_ISSUE",
+  ALARM_ACTIVE: "ALARM_ACTIVE",
+  APPLICATION_MISSING: "APPLICATION_MISSING",
+  AUTOSCALING_VALIDATION_ERROR: "AUTOSCALING_VALIDATION_ERROR",
+  AUTO_SCALING_CONFIGURATION: "AUTO_SCALING_CONFIGURATION",
+  AUTO_SCALING_IAM_ROLE_PERMISSIONS: "AUTO_SCALING_IAM_ROLE_PERMISSIONS",
+  CLOUDFORMATION_STACK_FAILURE: "CLOUDFORMATION_STACK_FAILURE",
+  CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND: "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND",
+  CUSTOMER_APPLICATION_UNHEALTHY: "CUSTOMER_APPLICATION_UNHEALTHY",
+  DEPLOYMENT_GROUP_MISSING: "DEPLOYMENT_GROUP_MISSING",
+  ECS_UPDATE_ERROR: "ECS_UPDATE_ERROR",
+  ELASTIC_LOAD_BALANCING_INVALID: "ELASTIC_LOAD_BALANCING_INVALID",
+  ELB_INVALID_INSTANCE: "ELB_INVALID_INSTANCE",
+  HEALTH_CONSTRAINTS: "HEALTH_CONSTRAINTS",
+  HEALTH_CONSTRAINTS_INVALID: "HEALTH_CONSTRAINTS_INVALID",
+  HOOK_EXECUTION_FAILURE: "HOOK_EXECUTION_FAILURE",
+  IAM_ROLE_MISSING: "IAM_ROLE_MISSING",
+  IAM_ROLE_PERMISSIONS: "IAM_ROLE_PERMISSIONS",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_ECS_SERVICE: "INVALID_ECS_SERVICE",
+  INVALID_LAMBDA_CONFIGURATION: "INVALID_LAMBDA_CONFIGURATION",
+  INVALID_LAMBDA_FUNCTION: "INVALID_LAMBDA_FUNCTION",
+  INVALID_REVISION: "INVALID_REVISION",
+  MANUAL_STOP: "MANUAL_STOP",
+  MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION: "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION",
+  MISSING_ELB_INFORMATION: "MISSING_ELB_INFORMATION",
+  MISSING_GITHUB_TOKEN: "MISSING_GITHUB_TOKEN",
+  NO_EC2_SUBSCRIPTION: "NO_EC2_SUBSCRIPTION",
+  NO_INSTANCES: "NO_INSTANCES",
+  OVER_MAX_INSTANCES: "OVER_MAX_INSTANCES",
+  RESOURCE_LIMIT_EXCEEDED: "RESOURCE_LIMIT_EXCEEDED",
+  REVISION_MISSING: "REVISION_MISSING",
+  THROTTLED: "THROTTLED",
+  TIMEOUT: "TIMEOUT",
+};
 
 /**
  * @public
@@ -2089,7 +2089,7 @@ export interface ErrorInformation {
    *             </li>
    *          </ul>
    */
-  code?: ErrorCode | string;
+  code?: keyof typeof ErrorCode | string;
 
   /**
    * <p>An accompanying error message.</p>
@@ -2100,11 +2100,11 @@ export interface ErrorInformation {
 /**
  * @public
  */
-export enum FileExistsBehavior {
-  DISALLOW = "DISALLOW",
-  OVERWRITE = "OVERWRITE",
-  RETAIN = "RETAIN",
-}
+export const FileExistsBehavior = {
+  DISALLOW: "DISALLOW",
+  OVERWRITE: "OVERWRITE",
+  RETAIN: "RETAIN",
+};
 
 /**
  * @public
@@ -2214,7 +2214,7 @@ export interface DeploymentInfo {
   /**
    * <p>The current state of the deployment as a whole.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>Information about any error associated with this deployment.</p>
@@ -2273,7 +2273,7 @@ export interface DeploymentInfo {
    *             </li>
    *          </ul>
    */
-  creator?: DeploymentCreator | string;
+  creator?: keyof typeof DeploymentCreator | string;
 
   /**
    * <p> If true, then if an <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, or
@@ -2380,7 +2380,7 @@ export interface DeploymentInfo {
    *             </li>
    *          </ul>
    */
-  fileExistsBehavior?: FileExistsBehavior | string;
+  fileExistsBehavior?: keyof typeof FileExistsBehavior | string;
 
   /**
    * <p>Messages that contain information about the status of a deployment.</p>
@@ -2391,7 +2391,7 @@ export interface DeploymentInfo {
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: keyof typeof ComputePlatform | string;
 
   /**
    * <p>The unique ID for an external resource (for example, a CloudFormation stack
@@ -2464,15 +2464,15 @@ export interface BatchGetDeploymentTargetsInput {
 /**
  * @public
  */
-export enum TargetStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  READY = "Ready",
-  SKIPPED = "Skipped",
-  SUCCEEDED = "Succeeded",
-  UNKNOWN = "Unknown",
-}
+export const TargetStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  READY: "Ready",
+  SKIPPED: "Skipped",
+  SUCCEEDED: "Succeeded",
+  UNKNOWN: "Unknown",
+};
 
 /**
  * @public
@@ -2507,7 +2507,7 @@ export interface CloudFormationTarget {
    * <p> The status of an CloudFormation blue/green deployment's target application.
    *         </p>
    */
-  status?: TargetStatus | string;
+  status?: keyof typeof TargetStatus | string;
 
   /**
    * <p>The resource type for the CloudFormation blue/green deployment.</p>
@@ -2524,20 +2524,20 @@ export interface CloudFormationTarget {
 /**
  * @public
  */
-export enum DeploymentTargetType {
-  CLOUDFORMATION_TARGET = "CloudFormationTarget",
-  ECS_TARGET = "ECSTarget",
-  INSTANCE_TARGET = "InstanceTarget",
-  LAMBDA_TARGET = "LambdaTarget",
-}
+export const DeploymentTargetType = {
+  CLOUDFORMATION_TARGET: "CloudFormationTarget",
+  ECS_TARGET: "ECSTarget",
+  INSTANCE_TARGET: "InstanceTarget",
+  LAMBDA_TARGET: "LambdaTarget",
+};
 
 /**
  * @public
  */
-export enum TargetLabel {
-  BLUE = "Blue",
-  GREEN = "Green",
-}
+export const TargetLabel = {
+  BLUE: "Blue",
+  GREEN: "Green",
+};
 
 /**
  * @public
@@ -2614,7 +2614,7 @@ export interface ECSTaskSet {
    * <p> A label that identifies whether the ECS task set is an original target
    *                 (<code>BLUE</code>) or a replacement target (<code>GREEN</code>). </p>
    */
-  taskSetLabel?: TargetLabel | string;
+  taskSetLabel?: keyof typeof TargetLabel | string;
 }
 
 /**
@@ -2653,7 +2653,7 @@ export interface ECSTarget {
   /**
    * <p> The status an Amazon ECS deployment's target ECS application. </p>
    */
-  status?: TargetStatus | string;
+  status?: keyof typeof TargetStatus | string;
 
   /**
    * <p> The <code>ECSTaskSet</code> objects associated with the ECS target. </p>
@@ -2686,7 +2686,7 @@ export interface InstanceTarget {
   /**
    * <p> The status an EC2/On-premises deployment's target instance. </p>
    */
-  status?: TargetStatus | string;
+  status?: keyof typeof TargetStatus | string;
 
   /**
    * <p> The date and time when the target instance was updated by a deployment. </p>
@@ -2702,7 +2702,7 @@ export interface InstanceTarget {
    * <p> A label that identifies whether the instance is an original target
    *             (<code>BLUE</code>) or a replacement target (<code>GREEN</code>). </p>
    */
-  instanceLabel?: TargetLabel | string;
+  instanceLabel?: keyof typeof TargetLabel | string;
 }
 
 /**
@@ -2765,7 +2765,7 @@ export interface LambdaTarget {
    * <p> The status an Lambda deployment's target Lambda function.
    *         </p>
    */
-  status?: TargetStatus | string;
+  status?: keyof typeof TargetStatus | string;
 
   /**
    * <p> The date and time when the target Lambda function was updated by a
@@ -2795,7 +2795,7 @@ export interface DeploymentTarget {
    * <p>The deployment type that is specific to the deployment's compute platform or
    *             deployments initiated by a CloudFormation stack update.</p>
    */
-  deploymentTargetType?: DeploymentTargetType | string;
+  deploymentTargetType?: keyof typeof DeploymentTargetType | string;
 
   /**
    * <p> Information about the target for a deployment that uses the EC2/On-premises compute
@@ -3069,10 +3069,10 @@ export class BucketNameFilterRequiredException extends __BaseException {
 /**
  * @public
  */
-export enum DeploymentWaitType {
-  READY_WAIT = "READY_WAIT",
-  TERMINATION_WAIT = "TERMINATION_WAIT",
-}
+export const DeploymentWaitType = {
+  READY_WAIT: "READY_WAIT",
+  TERMINATION_WAIT: "TERMINATION_WAIT",
+};
 
 /**
  * @public
@@ -3090,7 +3090,7 @@ export interface ContinueDeploymentInput {
    *             indicates that the traffic is shifted, but the original target is not terminated.
    *         </p>
    */
-  deploymentWaitType?: DeploymentWaitType | string;
+  deploymentWaitType?: keyof typeof DeploymentWaitType | string;
 }
 
 /**
@@ -3207,7 +3207,7 @@ export interface CreateApplicationInput {
    * <p> The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: keyof typeof ComputePlatform | string;
 
   /**
    * <p> The metadata that you apply to CodeDeploy applications to help you organize and
@@ -3350,7 +3350,7 @@ export interface CreateDeploymentInput {
    *             </li>
    *          </ul>
    */
-  fileExistsBehavior?: FileExistsBehavior | string;
+  fileExistsBehavior?: keyof typeof FileExistsBehavior | string;
 
   /**
    * <p>Allows you to specify information about alarms associated with a deployment. The alarm
@@ -3771,10 +3771,10 @@ export class ThrottlingException extends __BaseException {
 /**
  * @public
  */
-export enum MinimumHealthyHostsType {
-  FLEET_PERCENT = "FLEET_PERCENT",
-  HOST_COUNT = "HOST_COUNT",
-}
+export const MinimumHealthyHostsType = {
+  FLEET_PERCENT: "FLEET_PERCENT",
+  HOST_COUNT: "HOST_COUNT",
+};
 
 /**
  * @public
@@ -3816,7 +3816,7 @@ export interface MinimumHealthyHosts {
    *                 Instance Health</a> in the <i>CodeDeploy User
    *                 Guide</i>.</p>
    */
-  type?: MinimumHealthyHostsType | string;
+  type?: keyof typeof MinimumHealthyHostsType | string;
 
   /**
    * <p>The minimum healthy instance value.</p>
@@ -3869,11 +3869,11 @@ export interface TimeBasedLinear {
 /**
  * @public
  */
-export enum TrafficRoutingType {
-  AllAtOnce = "AllAtOnce",
-  TimeBasedCanary = "TimeBasedCanary",
-  TimeBasedLinear = "TimeBasedLinear",
-}
+export const TrafficRoutingType = {
+  AllAtOnce: "AllAtOnce",
+  TimeBasedCanary: "TimeBasedCanary",
+  TimeBasedLinear: "TimeBasedLinear",
+};
 
 /**
  * @public
@@ -3886,7 +3886,7 @@ export interface TrafficRoutingConfig {
    * <p>The type of traffic shifting (<code>TimeBasedCanary</code> or
    *                 <code>TimeBasedLinear</code>) used by a deployment configuration.</p>
    */
-  type?: TrafficRoutingType | string;
+  type?: keyof typeof TrafficRoutingType | string;
 
   /**
    * <p>A configuration that shifts traffic from one version of a Lambda function
@@ -3947,7 +3947,7 @@ export interface CreateDeploymentConfigInput {
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: keyof typeof ComputePlatform | string;
 }
 
 /**
@@ -4124,7 +4124,7 @@ export interface CreateDeploymentGroupInput {
    *             deployment to update the new Amazon EC2 instances. This may result in instances
    *             having different revisions.</p>
    */
-  outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
+  outdatedInstancesStrategy?: keyof typeof OutdatedInstancesStrategy | string;
 
   /**
    * <p>Information about the type of deployment, in-place or blue/green, that you want to run
@@ -4875,7 +4875,7 @@ export interface DeploymentConfigInfo {
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: keyof typeof ComputePlatform | string;
 
   /**
    * <p>The configuration that specifies how the deployment traffic is routed. Used for
@@ -5127,19 +5127,19 @@ export class InvalidSortOrderException extends __BaseException {
 /**
  * @public
  */
-export enum ListStateFilterAction {
-  Exclude = "exclude",
-  Ignore = "ignore",
-  Include = "include",
-}
+export const ListStateFilterAction = {
+  Exclude: "exclude",
+  Ignore: "ignore",
+  Include: "include",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  Ascending = "ascending",
-  Descending = "descending",
-}
+export const SortOrder = {
+  Ascending: "ascending",
+  Descending: "descending",
+};
 
 /**
  * @public
@@ -5173,7 +5173,7 @@ export interface ListApplicationRevisionsInput {
    *         <p> If not specified or set to null, the results are returned in an arbitrary order.
    *         </p>
    */
-  sortBy?: ApplicationRevisionSortBy | string;
+  sortBy?: keyof typeof ApplicationRevisionSortBy | string;
 
   /**
    * <p> The order in which to sort the list results: </p>
@@ -5190,7 +5190,7 @@ export interface ListApplicationRevisionsInput {
    *         <p>If not specified, the results are sorted in ascending order.</p>
    *         <p>If set to null, the results are sorted in an arbitrary order.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p> An Amazon S3 bucket name to limit the search for revisions. </p>
@@ -5224,7 +5224,7 @@ export interface ListApplicationRevisionsInput {
    *             </li>
    *          </ul>
    */
-  deployed?: ListStateFilterAction | string;
+  deployed?: keyof typeof ListStateFilterAction | string;
 
   /**
    * <p>An identifier returned from the previous <code>ListApplicationRevisions</code> call.
@@ -5483,14 +5483,14 @@ export interface ListDeploymentInstancesInput {
    *             </li>
    *          </ul>
    */
-  instanceStatusFilter?: (InstanceStatus | string)[];
+  instanceStatusFilter?: (keyof typeof InstanceStatus | string)[];
 
   /**
    * <p>The set of instances in a blue/green deployment, either those in the original
    *             environment ("BLUE") or those in the replacement environment ("GREEN"), for which you
    *             want to view instance information.</p>
    */
-  instanceTypeFilter?: (_InstanceType | string)[];
+  instanceTypeFilter?: (keyof typeof _InstanceType | string)[];
 }
 
 /**
@@ -5637,7 +5637,7 @@ export interface ListDeploymentsInput {
    *             </li>
    *          </ul>
    */
-  includeOnlyStatuses?: (DeploymentStatus | string)[];
+  includeOnlyStatuses?: (keyof typeof DeploymentStatus | string)[];
 
   /**
    * <p>A time range (start and end) for returning a subset of the list of deployments.</p>
@@ -5672,10 +5672,10 @@ export interface ListDeploymentsOutput {
 /**
  * @public
  */
-export enum TargetFilterName {
-  SERVER_INSTANCE_LABEL = "ServerInstanceLabel",
-  TARGET_STATUS = "TargetStatus",
-}
+export const TargetFilterName = {
+  SERVER_INSTANCE_LABEL: "ServerInstanceLabel",
+  TARGET_STATUS: "TargetStatus",
+};
 
 /**
  * @public
@@ -5802,10 +5802,10 @@ export class InvalidTagFilterException extends __BaseException {
 /**
  * @public
  */
-export enum RegistrationStatus {
-  Deregistered = "Deregistered",
-  Registered = "Registered",
-}
+export const RegistrationStatus = {
+  Deregistered: "Deregistered",
+  Registered: "Registered",
+};
 
 /**
  * @public
@@ -5827,7 +5827,7 @@ export interface ListOnPremisesInstancesInput {
    *             </li>
    *          </ul>
    */
-  registrationStatus?: RegistrationStatus | string;
+  registrationStatus?: keyof typeof RegistrationStatus | string;
 
   /**
    * <p>The on-premises instance tags that are used to restrict the on-premises instance names
@@ -6023,7 +6023,7 @@ export interface PutLifecycleEventHookExecutionStatusInput {
    *             lifecycle statuses in general; however, only <code>Succeeded</code> and
    *                 <code>Failed</code> can be passed successfully in your API call.</p>
    */
-  status?: LifecycleEventStatus | string;
+  status?: keyof typeof LifecycleEventStatus | string;
 }
 
 /**
@@ -6293,10 +6293,10 @@ export interface StopDeploymentInput {
 /**
  * @public
  */
-export enum StopStatus {
-  PENDING = "Pending",
-  SUCCEEDED = "Succeeded",
-}
+export const StopStatus = {
+  PENDING: "Pending",
+  SUCCEEDED: "Succeeded",
+};
 
 /**
  * @public
@@ -6314,7 +6314,7 @@ export interface StopDeploymentOutput {
    *             </li>
    *          </ul>
    */
-  status?: StopStatus | string;
+  status?: keyof typeof StopStatus | string;
 
   /**
    * <p>An accompanying status message.</p>
@@ -6473,7 +6473,7 @@ export interface UpdateDeploymentGroupInput {
    *             deployment to update the new Amazon EC2 instances. This may result in instances
    *             having different revisions.</p>
    */
-  outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
+  outdatedInstancesStrategy?: keyof typeof OutdatedInstancesStrategy | string;
 
   /**
    * <p>Information about the type of deployment, either in-place or blue/green, you want to

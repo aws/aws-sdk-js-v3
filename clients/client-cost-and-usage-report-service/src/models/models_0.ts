@@ -6,11 +6,11 @@ import { CostAndUsageReportServiceServiceException as __BaseException } from "./
 /**
  * @public
  */
-export enum AdditionalArtifact {
-  ATHENA = "ATHENA",
-  QUICKSIGHT = "QUICKSIGHT",
-  REDSHIFT = "REDSHIFT",
-}
+export const AdditionalArtifact = {
+  ATHENA: "ATHENA",
+  QUICKSIGHT: "QUICKSIGHT",
+  REDSHIFT: "REDSHIFT",
+};
 
 /**
  * @public
@@ -103,75 +103,75 @@ export interface DescribeReportDefinitionsRequest {
 /**
  * @public
  */
-export enum SchemaElement {
-  RESOURCES = "RESOURCES",
-}
+export const SchemaElement = {
+  RESOURCES: "RESOURCES",
+};
 
 /**
  * @public
  */
-export enum CompressionFormat {
-  GZIP = "GZIP",
-  Parquet = "Parquet",
-  ZIP = "ZIP",
-}
+export const CompressionFormat = {
+  GZIP: "GZIP",
+  Parquet: "Parquet",
+  ZIP: "ZIP",
+};
 
 /**
  * @public
  */
-export enum ReportFormat {
-  CSV = "textORcsv",
-  Parquet = "Parquet",
-}
+export const ReportFormat = {
+  CSV: "textORcsv",
+  Parquet: "Parquet",
+};
 
 /**
  * @public
  */
-export enum ReportVersioning {
-  CREATE_NEW_REPORT = "CREATE_NEW_REPORT",
-  OVERWRITE_REPORT = "OVERWRITE_REPORT",
-}
+export const ReportVersioning = {
+  CREATE_NEW_REPORT: "CREATE_NEW_REPORT",
+  OVERWRITE_REPORT: "OVERWRITE_REPORT",
+};
 
 /**
  * @public
  */
-export enum AWSRegion {
-  BAHRAIN = "me-south-1",
-  BEIJING = "cn-north-1",
-  CANADA_CENTRAL = "ca-central-1",
-  CAPE_TOWN = "af-south-1",
-  FRANKFURT = "eu-central-1",
-  HONG_KONG = "ap-east-1",
-  IRELAND = "eu-west-1",
-  JAKARTA = "ap-southeast-3",
-  LONDON = "eu-west-2",
-  MILANO = "eu-south-1",
-  MUMBAI = "ap-south-1",
-  NINGXIA = "cn-northwest-1",
-  NORTHERN_CALIFORNIA = "us-west-1",
-  OHIO = "us-east-2",
-  OREGON = "us-west-2",
-  OSAKA = "ap-northeast-3",
-  PARIS = "eu-west-3",
-  SAO_PAULO = "sa-east-1",
-  SEOUL = "ap-northeast-2",
-  SINGAPORE = "ap-southeast-1",
-  SPAIN = "eu-south-2",
-  STOCKHOLM = "eu-north-1",
-  SYDNEY = "ap-southeast-2",
-  TOKYO = "ap-northeast-1",
-  UAE = "me-central-1",
-  US_STANDARD = "us-east-1",
-}
+export const AWSRegion = {
+  BAHRAIN: "me-south-1",
+  BEIJING: "cn-north-1",
+  CANADA_CENTRAL: "ca-central-1",
+  CAPE_TOWN: "af-south-1",
+  FRANKFURT: "eu-central-1",
+  HONG_KONG: "ap-east-1",
+  IRELAND: "eu-west-1",
+  JAKARTA: "ap-southeast-3",
+  LONDON: "eu-west-2",
+  MILANO: "eu-south-1",
+  MUMBAI: "ap-south-1",
+  NINGXIA: "cn-northwest-1",
+  NORTHERN_CALIFORNIA: "us-west-1",
+  OHIO: "us-east-2",
+  OREGON: "us-west-2",
+  OSAKA: "ap-northeast-3",
+  PARIS: "eu-west-3",
+  SAO_PAULO: "sa-east-1",
+  SEOUL: "ap-northeast-2",
+  SINGAPORE: "ap-southeast-1",
+  SPAIN: "eu-south-2",
+  STOCKHOLM: "eu-north-1",
+  SYDNEY: "ap-southeast-2",
+  TOKYO: "ap-northeast-1",
+  UAE: "me-central-1",
+  US_STANDARD: "us-east-1",
+};
 
 /**
  * @public
  */
-export enum TimeUnit {
-  DAILY = "DAILY",
-  HOURLY = "HOURLY",
-  MONTHLY = "MONTHLY",
-}
+export const TimeUnit = {
+  DAILY: "DAILY",
+  HOURLY: "HOURLY",
+  MONTHLY: "MONTHLY",
+};
 
 /**
  * @public
@@ -190,22 +190,22 @@ export interface ReportDefinition {
   /**
    * <p>The length of time covered by the report. </p>
    */
-  TimeUnit: TimeUnit | string | undefined;
+  TimeUnit: keyof typeof TimeUnit | string | undefined;
 
   /**
    * <p>The format that AWS saves the report in.</p>
    */
-  Format: ReportFormat | string | undefined;
+  Format: keyof typeof ReportFormat | string | undefined;
 
   /**
    * <p>The compression format that AWS uses for the report.</p>
    */
-  Compression: CompressionFormat | string | undefined;
+  Compression: keyof typeof CompressionFormat | string | undefined;
 
   /**
    * <p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>
    */
-  AdditionalSchemaElements: (SchemaElement | string)[] | undefined;
+  AdditionalSchemaElements: (keyof typeof SchemaElement | string)[] | undefined;
 
   /**
    * <p>The S3 bucket where AWS delivers the report.</p>
@@ -221,12 +221,12 @@ export interface ReportDefinition {
   /**
    * <p>The region of the S3 bucket that AWS delivers the report into.</p>
    */
-  S3Region: AWSRegion | string | undefined;
+  S3Region: keyof typeof AWSRegion | string | undefined;
 
   /**
    * <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
    */
-  AdditionalArtifacts?: (AdditionalArtifact | string)[];
+  AdditionalArtifacts?: (keyof typeof AdditionalArtifact | string)[];
 
   /**
    * <p>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to
@@ -238,7 +238,7 @@ export interface ReportDefinition {
    * <p>Whether you want Amazon Web Services to overwrite the previous version of each report or
    *          to deliver the report in addition to the previous versions.</p>
    */
-  ReportVersioning?: ReportVersioning | string;
+  ReportVersioning?: keyof typeof ReportVersioning | string;
 
   /**
    * <p>

@@ -26,11 +26,11 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum ChatTokenCapability {
-  DELETE_MESSAGE = "DELETE_MESSAGE",
-  DISCONNECT_USER = "DISCONNECT_USER",
-  SEND_MESSAGE = "SEND_MESSAGE",
-}
+export const ChatTokenCapability = {
+  DELETE_MESSAGE: "DELETE_MESSAGE",
+  DISCONNECT_USER: "DISCONNECT_USER",
+  SEND_MESSAGE: "SEND_MESSAGE",
+};
 
 /**
  * @public
@@ -52,7 +52,7 @@ export interface CreateChatTokenRequest {
    * <p>Set of capabilities that the user is allowed to perform in the room. Default: None (the
    *          capability to view messages is implicitly included in all requests).</p>
    */
-  capabilities?: (ChatTokenCapability | string)[];
+  capabilities?: (keyof typeof ChatTokenCapability | string)[];
 
   /**
    * <p>Session duration (in minutes), after which the session expires. Default: 60 (1
@@ -114,9 +114,9 @@ export class PendingVerification extends __BaseException {
 /**
  * @public
  */
-export enum ResourceType {
-  ROOM = "ROOM",
-}
+export const ResourceType = {
+  ROOM: "ROOM",
+};
 
 /**
  * @public
@@ -133,7 +133,7 @@ export class ResourceNotFoundException extends __BaseException {
   /**
    * <p/>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * @internal
@@ -169,11 +169,11 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+};
 
 /**
  * @public
@@ -185,7 +185,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p/>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: keyof typeof ValidationExceptionReason | string | undefined;
 
   /**
    * <p/>
@@ -222,7 +222,7 @@ export class ConflictException extends __BaseException {
   /**
    * <p/>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * @internal
@@ -373,9 +373,9 @@ export interface CreateLoggingConfigurationRequest {
 /**
  * @public
  */
-export enum CreateLoggingConfigurationState {
-  ACTIVE = "ACTIVE",
-}
+export const CreateLoggingConfigurationState = {
+  ACTIVE: "ACTIVE",
+};
 
 /**
  * @public
@@ -421,7 +421,7 @@ export interface CreateLoggingConfigurationResponse {
    * <p>The state of the logging configuration. When the state is <code>ACTIVE</code>, the
    *          configuration is ready to log chat content.</p>
    */
-  state?: CreateLoggingConfigurationState | string;
+  state?: keyof typeof CreateLoggingConfigurationState | string;
 
   /**
    * <p>Tags attached to the resource, from the request (if specified). Array of maps, each of
@@ -445,7 +445,7 @@ export class ServiceQuotaExceededException extends __BaseException {
   /**
    * <p/>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p/>
@@ -471,10 +471,10 @@ export class ServiceQuotaExceededException extends __BaseException {
 /**
  * @public
  */
-export enum FallbackResult {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const FallbackResult = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+};
 
 /**
  * @public
@@ -495,7 +495,7 @@ export interface MessageReviewHandler {
    *       connected to the room. If denied, the message is not delivered to any user. Default:
    *         <code>ALLOW</code>.</p>
    */
-  fallbackResult?: FallbackResult | string;
+  fallbackResult?: keyof typeof FallbackResult | string;
 }
 
 /**
@@ -659,7 +659,7 @@ export class ThrottlingException extends __BaseException {
   /**
    * <p/>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p/>
@@ -731,15 +731,15 @@ export interface GetLoggingConfigurationRequest {
 /**
  * @public
  */
-export enum LoggingConfigurationState {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const LoggingConfigurationState = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -786,7 +786,7 @@ export interface GetLoggingConfigurationResponse {
    * <p>The state of the logging configuration. When the state is <code>ACTIVE</code>, the
    *          configuration is ready to log chat content.</p>
    */
-  state?: LoggingConfigurationState | string;
+  state?: keyof typeof LoggingConfigurationState | string;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
@@ -927,7 +927,7 @@ export interface LoggingConfigurationSummary {
    * <p>The state of the logging configuration. When this is <code>ACTIVE</code>, the
    *       configuration is ready for logging chat content.</p>
    */
-  state?: LoggingConfigurationState | string;
+  state?: keyof typeof LoggingConfigurationState | string;
 
   /**
    * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
@@ -1205,9 +1205,9 @@ export interface UpdateLoggingConfigurationRequest {
 /**
  * @public
  */
-export enum UpdateLoggingConfigurationState {
-  ACTIVE = "ACTIVE",
-}
+export const UpdateLoggingConfigurationState = {
+  ACTIVE: "ACTIVE",
+};
 
 /**
  * @public
@@ -1254,7 +1254,7 @@ export interface UpdateLoggingConfigurationResponse {
    * <p>The state of the logging configuration. When the state is <code>ACTIVE</code>, the
    *          configuration is ready to log chat content.</p>
    */
-  state?: UpdateLoggingConfigurationState | string;
+  state?: keyof typeof UpdateLoggingConfigurationState | string;
 
   /**
    * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string

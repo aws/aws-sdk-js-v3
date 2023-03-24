@@ -5136,7 +5136,10 @@ const serializeAws_restJson1DataSourceConfigurations = (
   };
 };
 
-const serializeAws_restJson1DataSourceList = (input: (DataSource | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1DataSourceList = (
+  input: (keyof typeof DataSource | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5236,7 +5239,7 @@ const serializeAws_restJson1FindingIds = (input: string[], context: __SerdeConte
 };
 
 const serializeAws_restJson1FindingStatisticTypes = (
-  input: (FindingStatisticType | string)[],
+  input: (keyof typeof FindingStatisticType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -5462,13 +5465,16 @@ const serializeAws_restJson1ScanConditionPair = (input: ScanConditionPair, conte
 };
 
 const serializeAws_restJson1ScanCriterion = (input: Record<string, ScanCondition>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [ScanCriterionKey | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof ScanCriterionKey | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = serializeAws_restJson1ScanCondition(value, context);
       return acc;
-    }
-    acc[key] = serializeAws_restJson1ScanCondition(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1ScanEc2InstanceWithFindings = (
@@ -5513,7 +5519,10 @@ const serializeAws_restJson1UsageCriteria = (input: UsageCriteria, context: __Se
   };
 };
 
-const serializeAws_restJson1UsageFeatureList = (input: (UsageFeature | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1UsageFeatureList = (
+  input: (keyof typeof UsageFeature | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7059,7 +7068,7 @@ const deserializeAws_restJson1ScanConditionPair = (output: any, context: __Serde
 
 const deserializeAws_restJson1ScanCriterion = (output: any, context: __SerdeContext): Record<string, ScanCondition> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, ScanCondition>, [key, value]: [ScanCriterionKey | string, any]) => {
+    (acc: Record<string, ScanCondition>, [key, value]: [keyof typeof ScanCriterionKey | string, any]) => {
       if (value === null) {
         return acc;
       }

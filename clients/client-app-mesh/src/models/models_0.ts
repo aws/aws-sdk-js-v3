@@ -349,10 +349,10 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum EgressFilterType {
-  ALLOW_ALL = "ALLOW_ALL",
-  DROP_ALL = "DROP_ALL",
-}
+export const EgressFilterType = {
+  ALLOW_ALL: "ALLOW_ALL",
+  DROP_ALL: "DROP_ALL",
+};
 
 /**
  * @public
@@ -366,18 +366,18 @@ export interface EgressFilter {
    *          egress filter type to <code>ALLOW_ALL</code> to allow egress to any endpoint inside or
    *          outside of the service mesh.</p>
    */
-  type: EgressFilterType | string | undefined;
+  type: keyof typeof EgressFilterType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum IpPreference {
-  IPv4_ONLY = "IPv4_ONLY",
-  IPv4_PREFERRED = "IPv4_PREFERRED",
-  IPv6_ONLY = "IPv6_ONLY",
-  IPv6_PREFERRED = "IPv6_PREFERRED",
-}
+export const IpPreference = {
+  IPv4_ONLY: "IPv4_ONLY",
+  IPv4_PREFERRED: "IPv4_PREFERRED",
+  IPv6_ONLY: "IPv6_ONLY",
+  IPv6_PREFERRED: "IPv6_PREFERRED",
+};
 
 /**
  * @public
@@ -387,7 +387,7 @@ export interface MeshServiceDiscovery {
   /**
    * <p>The IP version to use to control traffic within the mesh.</p>
    */
-  ipPreference?: IpPreference | string;
+  ipPreference?: keyof typeof IpPreference | string;
 }
 
 /**
@@ -482,11 +482,11 @@ export interface ResourceMetadata {
 /**
  * @public
  */
-export enum MeshStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const MeshStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -496,7 +496,7 @@ export interface MeshStatus {
   /**
    * <p>The current mesh status.</p>
    */
-  status?: MeshStatusCode | string;
+  status?: keyof typeof MeshStatusCode | string;
 }
 
 /**
@@ -1155,11 +1155,11 @@ export namespace VirtualGatewayConnectionPool {
 /**
  * @public
  */
-export enum VirtualGatewayPortProtocol {
-  GRPC = "grpc",
-  HTTP = "http",
-  HTTP2 = "http2",
-}
+export const VirtualGatewayPortProtocol = {
+  GRPC: "grpc",
+  HTTP: "http",
+  HTTP2: "http2",
+};
 
 /**
  * @public
@@ -1183,7 +1183,7 @@ export interface VirtualGatewayHealthCheckPolicy {
    *          service must conform to the <a href="https://github.com/grpc/grpc/blob/master/doc/health-checking.md">GRPC Health
    *             Checking Protocol</a>.</p>
    */
-  protocol: VirtualGatewayPortProtocol | string | undefined;
+  protocol: keyof typeof VirtualGatewayPortProtocol | string | undefined;
 
   /**
    * <p>The destination port for the health check request. This port must match the port defined
@@ -1223,7 +1223,7 @@ export interface VirtualGatewayPortMapping {
   /**
    * <p>The protocol used for the port mapping.</p>
    */
-  protocol: VirtualGatewayPortProtocol | string | undefined;
+  protocol: keyof typeof VirtualGatewayPortProtocol | string | undefined;
 }
 
 /**
@@ -1307,11 +1307,11 @@ export namespace VirtualGatewayListenerTlsCertificate {
 /**
  * @public
  */
-export enum VirtualGatewayListenerTlsMode {
-  DISABLED = "DISABLED",
-  PERMISSIVE = "PERMISSIVE",
-  STRICT = "STRICT",
-}
+export const VirtualGatewayListenerTlsMode = {
+  DISABLED: "DISABLED",
+  PERMISSIVE: "PERMISSIVE",
+  STRICT: "STRICT",
+};
 
 /**
  * @public
@@ -1409,7 +1409,7 @@ export interface VirtualGatewayListenerTls {
    *             </li>
    *          </ul>
    */
-  mode: VirtualGatewayListenerTlsMode | string | undefined;
+  mode: keyof typeof VirtualGatewayListenerTlsMode | string | undefined;
 
   /**
    * <p>A reference to an object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation
@@ -1581,11 +1581,11 @@ export interface CreateVirtualGatewayInput {
 /**
  * @public
  */
-export enum VirtualGatewayStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const VirtualGatewayStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -1595,7 +1595,7 @@ export interface VirtualGatewayStatus {
   /**
    * <p>The current status.</p>
    */
-  status: VirtualGatewayStatusCode | string | undefined;
+  status: keyof typeof VirtualGatewayStatusCode | string | undefined;
 }
 
 /**
@@ -1704,10 +1704,10 @@ export interface DescribeVirtualGatewayOutput {
 /**
  * @public
  */
-export enum DefaultGatewayRouteRewrite {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DefaultGatewayRouteRewrite = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1717,7 +1717,7 @@ export interface GatewayRouteHostnameRewrite {
   /**
    * <p>The default target host name to write to.</p>
    */
-  defaultTargetHostname?: DefaultGatewayRouteRewrite | string;
+  defaultTargetHostname?: keyof typeof DefaultGatewayRouteRewrite | string;
 }
 
 /**
@@ -1993,7 +1993,7 @@ export interface HttpGatewayRoutePrefixRewrite {
   /**
    * <p>The default prefix used to replace the incoming route prefix when rewritten.</p>
    */
-  defaultPrefix?: DefaultGatewayRouteRewrite | string;
+  defaultPrefix?: keyof typeof DefaultGatewayRouteRewrite | string;
 
   /**
    * <p>The value used to replace the incoming route prefix when rewritten.</p>
@@ -2169,17 +2169,17 @@ export interface HttpGatewayRouteHeader {
 /**
  * @public
  */
-export enum HttpMethod {
-  CONNECT = "CONNECT",
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  OPTIONS = "OPTIONS",
-  PATCH = "PATCH",
-  POST = "POST",
-  PUT = "PUT",
-  TRACE = "TRACE",
-}
+export const HttpMethod = {
+  CONNECT: "CONNECT",
+  DELETE: "DELETE",
+  GET: "GET",
+  HEAD: "HEAD",
+  OPTIONS: "OPTIONS",
+  PATCH: "PATCH",
+  POST: "POST",
+  PUT: "PUT",
+  TRACE: "TRACE",
+};
 
 /**
  * @public
@@ -2252,7 +2252,7 @@ export interface HttpGatewayRouteMatch {
   /**
    * <p>The method to match on.</p>
    */
-  method?: HttpMethod | string;
+  method?: keyof typeof HttpMethod | string;
 
   /**
    * <p>The host name to match on.</p>
@@ -2364,11 +2364,11 @@ export interface CreateGatewayRouteInput {
 /**
  * @public
  */
-export enum GatewayRouteStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const GatewayRouteStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -2378,7 +2378,7 @@ export interface GatewayRouteStatus {
   /**
    * <p>The current status for the gateway route.</p>
    */
-  status: GatewayRouteStatusCode | string | undefined;
+  status: keyof typeof GatewayRouteStatusCode | string | undefined;
 }
 
 /**
@@ -3266,12 +3266,12 @@ export namespace VirtualNodeConnectionPool {
 /**
  * @public
  */
-export enum PortProtocol {
-  GRPC = "grpc",
-  HTTP = "http",
-  HTTP2 = "http2",
-  TCP = "tcp",
-}
+export const PortProtocol = {
+  GRPC: "grpc",
+  HTTP: "http",
+  HTTP2: "http2",
+  TCP: "tcp",
+};
 
 /**
  * @public
@@ -3294,7 +3294,7 @@ export interface HealthCheckPolicy {
    *          service must conform to the <a href="https://github.com/grpc/grpc/blob/master/doc/health-checking.md">GRPC Health
    *             Checking Protocol</a>.</p>
    */
-  protocol: PortProtocol | string | undefined;
+  protocol: keyof typeof PortProtocol | string | undefined;
 
   /**
    * <p>The destination port for the health check request. This port must match the port defined
@@ -3324,10 +3324,10 @@ export interface HealthCheckPolicy {
 /**
  * @public
  */
-export enum DurationUnit {
-  MS = "ms",
-  S = "s",
-}
+export const DurationUnit = {
+  MS: "ms",
+  S: "s",
+};
 
 /**
  * @public
@@ -3342,7 +3342,7 @@ export interface Duration {
   /**
    * <p>A unit of time.</p>
    */
-  unit?: DurationUnit | string;
+  unit?: keyof typeof DurationUnit | string;
 }
 
 /**
@@ -3385,7 +3385,7 @@ export interface PortMapping {
   /**
    * <p>The protocol used for the port mapping. Specify one protocol.</p>
    */
-  protocol: PortProtocol | string | undefined;
+  protocol: keyof typeof PortProtocol | string | undefined;
 }
 
 /**
@@ -3600,11 +3600,11 @@ export namespace ListenerTlsCertificate {
 /**
  * @public
  */
-export enum ListenerTlsMode {
-  DISABLED = "DISABLED",
-  PERMISSIVE = "PERMISSIVE",
-  STRICT = "STRICT",
-}
+export const ListenerTlsMode = {
+  DISABLED: "DISABLED",
+  PERMISSIVE: "PERMISSIVE",
+  STRICT: "STRICT",
+};
 
 /**
  * @public
@@ -3700,7 +3700,7 @@ export interface ListenerTls {
    *             </li>
    *          </ul>
    */
-  mode: ListenerTlsMode | string | undefined;
+  mode: keyof typeof ListenerTlsMode | string | undefined;
 
   /**
    * <p>A reference to an object that represents a listener's Transport Layer Security (TLS) certificate.</p>
@@ -3813,16 +3813,16 @@ export interface AwsCloudMapServiceDiscovery {
    *          virtual node only overrides the IP preference set for the mesh on this specific
    *          node.</p>
    */
-  ipPreference?: IpPreference | string;
+  ipPreference?: keyof typeof IpPreference | string;
 }
 
 /**
  * @public
  */
-export enum DnsResponseType {
-  ENDPOINTS = "ENDPOINTS",
-  LOADBALANCER = "LOADBALANCER",
-}
+export const DnsResponseType = {
+  ENDPOINTS: "ENDPOINTS",
+  LOADBALANCER: "LOADBALANCER",
+};
 
 /**
  * @public
@@ -3838,14 +3838,14 @@ export interface DnsServiceDiscovery {
   /**
    * <p>Specifies the DNS response type for the virtual node.</p>
    */
-  responseType?: DnsResponseType | string;
+  responseType?: keyof typeof DnsResponseType | string;
 
   /**
    * <p>The preferred IP version that this virtual node uses. Setting the IP preference on the
    *          virtual node only overrides the IP preference set for the mesh on this specific
    *          node.</p>
    */
-  ipPreference?: IpPreference | string;
+  ipPreference?: keyof typeof IpPreference | string;
 }
 
 /**
@@ -3977,11 +3977,11 @@ export interface CreateVirtualNodeInput {
 /**
  * @public
  */
-export enum VirtualNodeStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const VirtualNodeStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -3991,7 +3991,7 @@ export interface VirtualNodeStatus {
   /**
    * <p>The current status of the virtual node.</p>
    */
-  status: VirtualNodeStatusCode | string | undefined;
+  status: keyof typeof VirtualNodeStatusCode | string | undefined;
 }
 
 /**
@@ -4318,11 +4318,11 @@ export interface CreateVirtualRouterInput {
 /**
  * @public
  */
-export enum VirtualRouterStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const VirtualRouterStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -4332,7 +4332,7 @@ export interface VirtualRouterStatus {
   /**
    * <p>The current status of the virtual router.</p>
    */
-  status: VirtualRouterStatusCode | string | undefined;
+  status: keyof typeof VirtualRouterStatusCode | string | undefined;
 }
 
 /**
@@ -4737,20 +4737,20 @@ export interface GrpcRouteMatch {
 /**
  * @public
  */
-export enum GrpcRetryPolicyEvent {
-  CANCELLED = "cancelled",
-  DEADLINE_EXCEEDED = "deadline-exceeded",
-  INTERNAL = "internal",
-  RESOURCE_EXHAUSTED = "resource-exhausted",
-  UNAVAILABLE = "unavailable",
-}
+export const GrpcRetryPolicyEvent = {
+  CANCELLED: "cancelled",
+  DEADLINE_EXCEEDED: "deadline-exceeded",
+  INTERNAL: "internal",
+  RESOURCE_EXHAUSTED: "resource-exhausted",
+  UNAVAILABLE: "unavailable",
+};
 
 /**
  * @public
  */
-export enum TcpRetryPolicyEvent {
-  CONNECTION_ERROR = "connection-error",
-}
+export const TcpRetryPolicyEvent = {
+  CONNECTION_ERROR: "connection-error",
+};
 
 /**
  * @public
@@ -4798,12 +4798,12 @@ export interface GrpcRetryPolicy {
   /**
    * <p>Specify a valid value. The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.</p>
    */
-  tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
+  tcpRetryEvents?: (keyof typeof TcpRetryPolicyEvent | string)[];
 
   /**
    * <p>Specify at least one of the valid values.</p>
    */
-  grpcRetryEvents?: (GrpcRetryPolicyEvent | string)[];
+  grpcRetryEvents?: (keyof typeof GrpcRetryPolicyEvent | string)[];
 }
 
 /**
@@ -4867,10 +4867,10 @@ export interface HttpRouteHeader {
 /**
  * @public
  */
-export enum HttpScheme {
-  HTTP = "http",
-  HTTPS = "https",
-}
+export const HttpScheme = {
+  HTTP: "http",
+  HTTPS: "https",
+};
 
 /**
  * @public
@@ -4901,13 +4901,13 @@ export interface HttpRouteMatch {
   /**
    * <p>The client request method to match on. Specify only one.</p>
    */
-  method?: HttpMethod | string;
+  method?: keyof typeof HttpMethod | string;
 
   /**
    * <p>The client request scheme to match on. Specify only one. Applicable only for HTTP2
    *          routes.</p>
    */
-  scheme?: HttpScheme | string;
+  scheme?: keyof typeof HttpScheme | string;
 
   /**
    * <p>The client request headers to match on.</p>
@@ -4966,7 +4966,7 @@ export interface HttpRetryPolicy {
   /**
    * <p>Specify a valid value. The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.</p>
    */
-  tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
+  tcpRetryEvents?: (keyof typeof TcpRetryPolicyEvent | string)[];
 }
 
 /**
@@ -5121,11 +5121,11 @@ export interface CreateRouteInput {
 /**
  * @public
  */
-export enum RouteStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const RouteStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -5135,7 +5135,7 @@ export interface RouteStatus {
   /**
    * <p>The current status for the route.</p>
    */
-  status: RouteStatusCode | string | undefined;
+  status: keyof typeof RouteStatusCode | string | undefined;
 }
 
 /**
@@ -5597,11 +5597,11 @@ export interface CreateVirtualServiceInput {
 /**
  * @public
  */
-export enum VirtualServiceStatusCode {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  INACTIVE = "INACTIVE",
-}
+export const VirtualServiceStatusCode = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -5611,7 +5611,7 @@ export interface VirtualServiceStatus {
   /**
    * <p>The current status of the virtual service.</p>
    */
-  status: VirtualServiceStatusCode | string | undefined;
+  status: keyof typeof VirtualServiceStatusCode | string | undefined;
 }
 
 /**

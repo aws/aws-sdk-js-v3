@@ -168,9 +168,9 @@ export class UnauthorizedException extends __BaseException {
 /**
  * @public
  */
-export enum AuthorizationProviderType {
-  SAML = "SAML",
-}
+export const AuthorizationProviderType = {
+  SAML: "SAML",
+};
 
 /**
  * @public
@@ -184,7 +184,7 @@ export interface AssociateWebsiteAuthorizationProviderRequest {
   /**
    * <p>The authorization provider type.</p>
    */
-  AuthorizationProviderType: AuthorizationProviderType | string | undefined;
+  AuthorizationProviderType: keyof typeof AuthorizationProviderType | string | undefined;
 
   /**
    * <p>The domain name of the authorization provider. This applies only to SAML-based
@@ -352,10 +352,10 @@ export interface DescribeDeviceRequest {
 /**
  * @public
  */
-export enum DeviceStatus {
-  ACTIVE = "ACTIVE",
-  SIGNED_OUT = "SIGNED_OUT",
-}
+export const DeviceStatus = {
+  ACTIVE: "ACTIVE",
+  SIGNED_OUT: "SIGNED_OUT",
+};
 
 /**
  * @public
@@ -364,7 +364,7 @@ export interface DescribeDeviceResponse {
   /**
    * <p>The current state of the device.</p>
    */
-  Status?: DeviceStatus | string;
+  Status?: keyof typeof DeviceStatus | string;
 
   /**
    * <p>The model of the device.</p>
@@ -445,16 +445,16 @@ export interface DescribeDomainRequest {
 /**
  * @public
  */
-export enum DomainStatus {
-  ACTIVE = "ACTIVE",
-  ASSOCIATING = "ASSOCIATING",
-  DISASSOCIATED = "DISASSOCIATED",
-  DISASSOCIATING = "DISASSOCIATING",
-  FAILED_TO_ASSOCIATE = "FAILED_TO_ASSOCIATE",
-  FAILED_TO_DISASSOCIATE = "FAILED_TO_DISASSOCIATE",
-  INACTIVE = "INACTIVE",
-  PENDING_VALIDATION = "PENDING_VALIDATION",
-}
+export const DomainStatus = {
+  ACTIVE: "ACTIVE",
+  ASSOCIATING: "ASSOCIATING",
+  DISASSOCIATED: "DISASSOCIATED",
+  DISASSOCIATING: "DISASSOCIATING",
+  FAILED_TO_ASSOCIATE: "FAILED_TO_ASSOCIATE",
+  FAILED_TO_DISASSOCIATE: "FAILED_TO_DISASSOCIATE",
+  INACTIVE: "INACTIVE",
+  PENDING_VALIDATION: "PENDING_VALIDATION",
+};
 
 /**
  * @public
@@ -478,7 +478,7 @@ export interface DescribeDomainResponse {
   /**
    * <p>The current state for the domain.</p>
    */
-  DomainStatus?: DomainStatus | string;
+  DomainStatus?: keyof typeof DomainStatus | string;
 
   /**
    * <p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>
@@ -499,14 +499,14 @@ export interface DescribeFleetMetadataRequest {
 /**
  * @public
  */
-export enum FleetStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED_TO_CREATE = "FAILED_TO_CREATE",
-  FAILED_TO_DELETE = "FAILED_TO_DELETE",
-}
+export const FleetStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED_TO_CREATE: "FAILED_TO_CREATE",
+  FAILED_TO_DELETE: "FAILED_TO_DELETE",
+};
 
 /**
  * @public
@@ -546,7 +546,7 @@ export interface DescribeFleetMetadataResponse {
   /**
    * <p>The current state of the fleet.</p>
    */
-  FleetStatus?: FleetStatus | string;
+  FleetStatus?: keyof typeof FleetStatus | string;
 
   /**
    * <p>The tags attached to the resource. A tag is a key-value pair.</p>
@@ -567,9 +567,9 @@ export interface DescribeIdentityProviderConfigurationRequest {
 /**
  * @public
  */
-export enum IdentityProviderType {
-  SAML = "SAML",
-}
+export const IdentityProviderType = {
+  SAML: "SAML",
+};
 
 /**
  * @public
@@ -578,7 +578,7 @@ export interface DescribeIdentityProviderConfigurationResponse {
   /**
    * <p>The type of identity provider.</p>
    */
-  IdentityProviderType?: IdentityProviderType | string;
+  IdentityProviderType?: keyof typeof IdentityProviderType | string;
 
   /**
    * <p>The SAML metadata document uploaded to the user’s identity provider.</p>
@@ -639,7 +639,7 @@ export interface DeviceSummary {
   /**
    * <p>The status of the device.</p>
    */
-  DeviceStatus?: DeviceStatus | string;
+  DeviceStatus?: keyof typeof DeviceStatus | string;
 }
 
 /**
@@ -725,7 +725,7 @@ export interface DomainSummary {
   /**
    * <p>The status of the domain.</p>
    */
-  DomainStatus: DomainStatus | string | undefined;
+  DomainStatus: keyof typeof DomainStatus | string | undefined;
 }
 
 /**
@@ -766,7 +766,7 @@ export interface FleetSummary {
   /**
    * <p>The status of the fleet.</p>
    */
-  FleetStatus?: FleetStatus | string;
+  FleetStatus?: keyof typeof FleetStatus | string;
 
   /**
    * <p>The tags attached to the resource. A tag is a key-value pair.</p>
@@ -933,7 +933,7 @@ export interface WebsiteAuthorizationProviderSummary {
   /**
    * <p>The authorization provider type.</p>
    */
-  AuthorizationProviderType: AuthorizationProviderType | string | undefined;
+  AuthorizationProviderType: keyof typeof AuthorizationProviderType | string | undefined;
 
   /**
    * <p>The domain name of the authorization provider. This applies only to SAML-based
@@ -1253,7 +1253,7 @@ export interface UpdateIdentityProviderConfigurationRequest {
   /**
    * <p>The type of identity provider.</p>
    */
-  IdentityProviderType: IdentityProviderType | string | undefined;
+  IdentityProviderType: keyof typeof IdentityProviderType | string | undefined;
 
   /**
    * <p>The SAML metadata document provided by the customer’s identity provider. The existing

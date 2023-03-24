@@ -5995,7 +5995,7 @@ const serializeAws_json1_0DeleteTemplateSyncConfigInput = (
 };
 
 const serializeAws_json1_0EnvironmentAccountConnectionStatusList = (
-  input: (EnvironmentAccountConnectionStatus | string)[],
+  input: (keyof typeof EnvironmentAccountConnectionStatus | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -6436,7 +6436,7 @@ const serializeAws_json1_0S3ObjectSource = (input: S3ObjectSource, context: __Se
 };
 
 const serializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList = (
-  input: (ServiceTemplateSupportedComponentSourceType | string)[],
+  input: (keyof typeof ServiceTemplateSupportedComponentSourceType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -8119,7 +8119,7 @@ const deserializeAws_json1_0ServiceTemplateSummaryList = (
 const deserializeAws_json1_0ServiceTemplateSupportedComponentSourceInputList = (
   output: any,
   context: __SerdeContext
-): (ServiceTemplateSupportedComponentSourceType | string)[] => {
+): (keyof typeof ServiceTemplateSupportedComponentSourceType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

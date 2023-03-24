@@ -4175,7 +4175,7 @@ const serializeAws_restJson1GrpcRetryPolicy = (input: GrpcRetryPolicy, context: 
 };
 
 const serializeAws_restJson1GrpcRetryPolicyEvents = (
-  input: (GrpcRetryPolicyEvent | string)[],
+  input: (keyof typeof GrpcRetryPolicyEvent | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4717,7 +4717,7 @@ const serializeAws_restJson1TagRef = (input: TagRef, context: __SerdeContext): a
 };
 
 const serializeAws_restJson1TcpRetryPolicyEvents = (
-  input: (TcpRetryPolicyEvent | string)[],
+  input: (keyof typeof TcpRetryPolicyEvent | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -5642,7 +5642,7 @@ const deserializeAws_restJson1GrpcRetryPolicy = (output: any, context: __SerdeCo
 const deserializeAws_restJson1GrpcRetryPolicyEvents = (
   output: any,
   context: __SerdeContext
-): (GrpcRetryPolicyEvent | string)[] => {
+): (keyof typeof GrpcRetryPolicyEvent | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6425,7 +6425,7 @@ const deserializeAws_restJson1TagRef = (output: any, context: __SerdeContext): T
 const deserializeAws_restJson1TcpRetryPolicyEvents = (
   output: any,
   context: __SerdeContext
-): (TcpRetryPolicyEvent | string)[] => {
+): (keyof typeof TcpRetryPolicyEvent | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

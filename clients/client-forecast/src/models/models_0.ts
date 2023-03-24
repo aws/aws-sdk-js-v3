@@ -6,12 +6,12 @@ import { ForecastServiceException as __BaseException } from "./ForecastServiceEx
 /**
  * @public
  */
-export enum Operation {
-  ADD = "ADD",
-  DIVIDE = "DIVIDE",
-  MULTIPLY = "MULTIPLY",
-  SUBTRACT = "SUBTRACT",
-}
+export const Operation = {
+  ADD: "ADD",
+  DIVIDE: "DIVIDE",
+  MULTIPLY: "MULTIPLY",
+  SUBTRACT: "SUBTRACT",
+};
 
 /**
  * @public
@@ -44,7 +44,7 @@ export interface Action {
    *             </li>
    *          </ul>
    */
-  Operation: Operation | string | undefined;
+  Operation: keyof typeof Operation | string | undefined;
 
   /**
    * <p>The value that is applied for the chosen <code>Operation</code>.</p>
@@ -446,13 +446,13 @@ export interface MonitorConfig {
 /**
  * @public
  */
-export enum OptimizationMetric {
-  AverageWeightedQuantileLoss = "AverageWeightedQuantileLoss",
-  MAPE = "MAPE",
-  MASE = "MASE",
-  RMSE = "RMSE",
-  WAPE = "WAPE",
-}
+export const OptimizationMetric = {
+  AverageWeightedQuantileLoss: "AverageWeightedQuantileLoss",
+  MAPE: "MAPE",
+  MASE: "MASE",
+  RMSE: "RMSE",
+  WAPE: "WAPE",
+};
 
 /**
  * @public
@@ -509,33 +509,33 @@ export interface Tag {
 /**
  * @public
  */
-export enum DayOfWeek {
-  FRIDAY = "FRIDAY",
-  MONDAY = "MONDAY",
-  SATURDAY = "SATURDAY",
-  SUNDAY = "SUNDAY",
-  THURSDAY = "THURSDAY",
-  TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY",
-}
+export const DayOfWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+};
 
 /**
  * @public
  */
-export enum Month {
-  APRIL = "APRIL",
-  AUGUST = "AUGUST",
-  DECEMBER = "DECEMBER",
-  FEBRUARY = "FEBRUARY",
-  JANUARY = "JANUARY",
-  JULY = "JULY",
-  JUNE = "JUNE",
-  MARCH = "MARCH",
-  MAY = "MAY",
-  NOVEMBER = "NOVEMBER",
-  OCTOBER = "OCTOBER",
-  SEPTEMBER = "SEPTEMBER",
-}
+export const Month = {
+  APRIL: "APRIL",
+  AUGUST: "AUGUST",
+  DECEMBER: "DECEMBER",
+  FEBRUARY: "FEBRUARY",
+  JANUARY: "JANUARY",
+  JULY: "JULY",
+  JUNE: "JUNE",
+  MARCH: "MARCH",
+  MAY: "MAY",
+  NOVEMBER: "NOVEMBER",
+  OCTOBER: "OCTOBER",
+  SEPTEMBER: "SEPTEMBER",
+};
 
 /**
  * @public
@@ -553,7 +553,7 @@ export interface TimeAlignmentBoundary {
   /**
    * <p>The month to use for time alignment during aggregation. The month must be in uppercase.</p>
    */
-  Month?: Month | string;
+  Month?: keyof typeof Month | string;
 
   /**
    * <p>The day of the month to use for time alignment during aggregation.</p>
@@ -563,7 +563,7 @@ export interface TimeAlignmentBoundary {
   /**
    * <p>The day of week to use for time alignment during aggregation. The day must be in uppercase.</p>
    */
-  DayOfWeek?: DayOfWeek | string;
+  DayOfWeek?: keyof typeof DayOfWeek | string;
 
   /**
    * <p>The hour of day to use for time alignment during aggregation.</p>
@@ -666,7 +666,7 @@ export interface CreateAutoPredictorRequest {
   /**
    * <p>The accuracy metric used to optimize the predictor.</p>
    */
-  OptimizationMetric?: OptimizationMetric | string;
+  OptimizationMetric?: keyof typeof OptimizationMetric | string;
 
   /**
    * <p>Create an Explainability resource for the predictor.</p>
@@ -850,35 +850,35 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum DatasetType {
-  ITEM_METADATA = "ITEM_METADATA",
-  RELATED_TIME_SERIES = "RELATED_TIME_SERIES",
-  TARGET_TIME_SERIES = "TARGET_TIME_SERIES",
-}
+export const DatasetType = {
+  ITEM_METADATA: "ITEM_METADATA",
+  RELATED_TIME_SERIES: "RELATED_TIME_SERIES",
+  TARGET_TIME_SERIES: "TARGET_TIME_SERIES",
+};
 
 /**
  * @public
  */
-export enum Domain {
-  CUSTOM = "CUSTOM",
-  EC2_CAPACITY = "EC2_CAPACITY",
-  INVENTORY_PLANNING = "INVENTORY_PLANNING",
-  METRICS = "METRICS",
-  RETAIL = "RETAIL",
-  WEB_TRAFFIC = "WEB_TRAFFIC",
-  WORK_FORCE = "WORK_FORCE",
-}
+export const Domain = {
+  CUSTOM: "CUSTOM",
+  EC2_CAPACITY: "EC2_CAPACITY",
+  INVENTORY_PLANNING: "INVENTORY_PLANNING",
+  METRICS: "METRICS",
+  RETAIL: "RETAIL",
+  WEB_TRAFFIC: "WEB_TRAFFIC",
+  WORK_FORCE: "WORK_FORCE",
+};
 
 /**
  * @public
  */
-export enum AttributeType {
-  FLOAT = "float",
-  GEOLOCATION = "geolocation",
-  INTEGER = "integer",
-  STRING = "string",
-  TIMESTAMP = "timestamp",
-}
+export const AttributeType = {
+  FLOAT: "float",
+  GEOLOCATION: "geolocation",
+  INTEGER: "integer",
+  STRING: "string",
+  TIMESTAMP: "timestamp",
+};
 
 /**
  * @public
@@ -896,7 +896,7 @@ export interface SchemaAttribute {
    * <p>The data type of the field.</p>
    *          <p>For a related time series dataset, other than date, item_id, and forecast dimensions attributes, all attributes should be of numerical type (integer/float).</p>
    */
-  AttributeType?: AttributeType | string;
+  AttributeType?: keyof typeof AttributeType | string;
 }
 
 /**
@@ -929,12 +929,12 @@ export interface CreateDatasetRequest {
    *       and <code>demand</code> fields to be present in your data. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Importing
    *         datasets</a>.</p>
    */
-  Domain: Domain | string | undefined;
+  Domain: keyof typeof Domain | string | undefined;
 
   /**
    * <p>The dataset type. Valid values depend on the chosen <code>Domain</code>.</p>
    */
-  DatasetType: DatasetType | string | undefined;
+  DatasetType: keyof typeof DatasetType | string | undefined;
 
   /**
    * <p>The frequency of data collection. This parameter is required for RELATED_TIME_SERIES
@@ -1050,7 +1050,7 @@ export interface CreateDatasetGroupRequest {
    *         <code>timestamp</code>, and <code>demand</code> fields are present in your data. For more
    *       information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Dataset groups</a>.</p>
    */
-  Domain: Domain | string | undefined;
+  Domain: keyof typeof Domain | string | undefined;
 
   /**
    * <p>An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the
@@ -1152,10 +1152,10 @@ export interface DataSource {
 /**
  * @public
  */
-export enum ImportMode {
-  FULL = "FULL",
-  INCREMENTAL = "INCREMENTAL",
-}
+export const ImportMode = {
+  FULL: "FULL",
+  INCREMENTAL: "INCREMENTAL",
+};
 
 /**
  * @public
@@ -1284,7 +1284,7 @@ export interface CreateDatasetImportJobRequest {
   /**
    * <p>Specifies whether the dataset import job is a <code>FULL</code> or <code>INCREMENTAL</code> import. A <code>FULL</code> dataset import replaces all of the existing data with the newly imported data. An <code>INCREMENTAL</code> import appends the imported data to the existing data.</p>
    */
-  ImportMode?: ImportMode | string;
+  ImportMode?: keyof typeof ImportMode | string;
 }
 
 /**
@@ -1300,18 +1300,18 @@ export interface CreateDatasetImportJobResponse {
 /**
  * @public
  */
-export enum TimePointGranularity {
-  ALL = "ALL",
-  SPECIFIC = "SPECIFIC",
-}
+export const TimePointGranularity = {
+  ALL: "ALL",
+  SPECIFIC: "SPECIFIC",
+};
 
 /**
  * @public
  */
-export enum TimeSeriesGranularity {
-  ALL = "ALL",
-  SPECIFIC = "SPECIFIC",
-}
+export const TimeSeriesGranularity = {
+  ALL: "ALL",
+  SPECIFIC: "SPECIFIC",
+};
 
 /**
  * @public
@@ -1333,7 +1333,7 @@ export interface ExplainabilityConfig {
    *          <p>Specify time series by uploading a CSV or Parquet file to an Amazon S3 bucket and set the location
    *             within the <a>DataDestination</a> data type.</p>
    */
-  TimeSeriesGranularity: TimeSeriesGranularity | string | undefined;
+  TimeSeriesGranularity: keyof typeof TimeSeriesGranularity | string | undefined;
 
   /**
    * <p>To create an Explainability for all time points in your forecast horizon, use
@@ -1342,7 +1342,7 @@ export interface ExplainabilityConfig {
    *          <p>Specify time points with the <code>StartDateTime</code> and <code>EndDateTime</code>
    *             parameters within the <a>CreateExplainability</a> operation.</p>
    */
-  TimePointGranularity: TimePointGranularity | string | undefined;
+  TimePointGranularity: keyof typeof TimePointGranularity | string | undefined;
 }
 
 /**
@@ -1793,10 +1793,10 @@ export interface CreateMonitorResponse {
 /**
  * @public
  */
-export enum AutoMLOverrideStrategy {
-  AccuracyOptimized = "AccuracyOptimized",
-  LatencyOptimized = "LatencyOptimized",
-}
+export const AutoMLOverrideStrategy = {
+  AccuracyOptimized: "AccuracyOptimized",
+  LatencyOptimized: "LatencyOptimized",
+};
 
 /**
  * @public
@@ -1827,9 +1827,9 @@ export interface EvaluationParameters {
 /**
  * @public
  */
-export enum FeaturizationMethodName {
-  filling = "filling",
-}
+export const FeaturizationMethodName = {
+  filling: "filling",
+};
 
 /**
  * @public
@@ -1855,7 +1855,7 @@ export interface FeaturizationMethod {
   /**
    * <p>The name of the method. The "filling" method is the only supported method.</p>
    */
-  FeaturizationMethodName: FeaturizationMethodName | string | undefined;
+  FeaturizationMethodName: keyof typeof FeaturizationMethodName | string | undefined;
 
   /**
    * <p>The method parameters (key-value pairs), which are a map of override parameters. Specify
@@ -2061,12 +2061,12 @@ export interface CategoricalParameterRange {
 /**
  * @public
  */
-export enum ScalingType {
-  Auto = "Auto",
-  Linear = "Linear",
-  Logarithmic = "Logarithmic",
-  ReverseLogarithmic = "ReverseLogarithmic",
-}
+export const ScalingType = {
+  Auto: "Auto",
+  Linear: "Linear",
+  Logarithmic: "Logarithmic",
+  ReverseLogarithmic: "ReverseLogarithmic",
+};
 
 /**
  * @public
@@ -2120,7 +2120,7 @@ export interface ContinuousParameterRange {
    *       <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>.
    *       One of the following values:</p>
    */
-  ScalingType?: ScalingType | string;
+  ScalingType?: keyof typeof ScalingType | string;
 }
 
 /**
@@ -2174,7 +2174,7 @@ export interface IntegerParameterRange {
    *       <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>.
    *       One of the following values:</p>
    */
-  ScalingType?: ScalingType | string;
+  ScalingType?: keyof typeof ScalingType | string;
 }
 
 /**
@@ -2580,7 +2580,7 @@ export interface CreatePredictorRequest {
    *                 <code>LatencyOptimized</code>.</p>
    *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    */
-  AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
+  AutoMLOverrideStrategy?: keyof typeof AutoMLOverrideStrategy | string;
 
   /**
    * <p>Whether to perform hyperparameter optimization (HPO). HPO finds optimal hyperparameter
@@ -2686,7 +2686,7 @@ export interface CreatePredictorRequest {
   /**
    * <p>The accuracy metric used to optimize the predictor.</p>
    */
-  OptimizationMetric?: OptimizationMetric | string;
+  OptimizationMetric?: keyof typeof OptimizationMetric | string;
 }
 
 /**
@@ -2861,12 +2861,12 @@ export interface TimeSeriesReplacementsDataSource {
 /**
  * @public
  */
-export enum Condition {
-  EQUALS = "EQUALS",
-  GREATER_THAN = "GREATER_THAN",
-  LESS_THAN = "LESS_THAN",
-  NOT_EQUALS = "NOT_EQUALS",
-}
+export const Condition = {
+  EQUALS: "EQUALS",
+  GREATER_THAN: "GREATER_THAN",
+  LESS_THAN: "LESS_THAN",
+  NOT_EQUALS: "NOT_EQUALS",
+};
 
 /**
  * @public
@@ -2887,7 +2887,7 @@ export interface TimeSeriesCondition {
    * <p>The condition to apply. Valid values are <code>EQUALS</code>, <code>NOT_EQUALS</code>, <code>LESS_THAN</code> and
    *       <code>GREATER_THAN</code>.</p>
    */
-  Condition: Condition | string | undefined;
+  Condition: keyof typeof Condition | string | undefined;
 }
 
 /**
@@ -3235,10 +3235,10 @@ export interface MonitorInfo {
 /**
  * @public
  */
-export enum State {
-  Active = "Active",
-  Deleted = "Deleted",
-}
+export const State = {
+  Active: "Active",
+  Deleted: "Deleted",
+};
 
 /**
  * @public
@@ -3254,7 +3254,7 @@ export interface ReferencePredictorSummary {
   /**
    * <p>Whether the reference predictor is <code>Active</code> or <code>Deleted</code>.</p>
    */
-  State?: State | string;
+  State?: keyof typeof State | string;
 }
 
 /**
@@ -3398,7 +3398,7 @@ export interface DescribeAutoPredictorResponse {
   /**
    * <p>The accuracy metric used to optimize the predictor.</p>
    */
-  OptimizationMetric?: OptimizationMetric | string;
+  OptimizationMetric?: keyof typeof OptimizationMetric | string;
 
   /**
    * <p>Provides the status and ARN of the Predictor Explainability.</p>
@@ -3443,12 +3443,12 @@ export interface DescribeDatasetResponse {
   /**
    * <p>The domain associated with the dataset.</p>
    */
-  Domain?: Domain | string;
+  Domain?: keyof typeof Domain | string;
 
   /**
    * <p>The dataset type.</p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: keyof typeof DatasetType | string;
 
   /**
    * <p>The frequency of data collection.</p>
@@ -3557,7 +3557,7 @@ export interface DescribeDatasetGroupResponse {
   /**
    * <p>The domain associated with the dataset group.</p>
    */
-  Domain?: Domain | string;
+  Domain?: keyof typeof Domain | string;
 
   /**
    * <p>The status of the dataset group. States include:</p>
@@ -3846,7 +3846,7 @@ export interface DescribeDatasetImportJobResponse {
   /**
    * <p>The import mode of the dataset import job, FULL or INCREMENTAL.</p>
    */
-  ImportMode?: ImportMode | string;
+  ImportMode?: keyof typeof ImportMode | string;
 }
 
 /**
@@ -4578,7 +4578,7 @@ export interface DescribePredictorResponse {
    *             is specified, the AutoML strategy optimizes predictor accuracy.</p>
    *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    */
-  AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
+  AutoMLOverrideStrategy?: keyof typeof AutoMLOverrideStrategy | string;
 
   /**
    * <p>Whether the predictor is set to perform hyperparameter optimization (HPO).</p>
@@ -4717,7 +4717,7 @@ export interface DescribePredictorResponse {
   /**
    * <p>The accuracy metric used to optimize the predictor.</p>
    */
-  OptimizationMetric?: OptimizationMetric | string;
+  OptimizationMetric?: keyof typeof OptimizationMetric | string;
 }
 
 /**
@@ -5212,10 +5212,10 @@ export interface GetAccuracyMetricsRequest {
 /**
  * @public
  */
-export enum EvaluationType {
-  COMPUTED = "COMPUTED",
-  SUMMARY = "SUMMARY",
-}
+export const EvaluationType = {
+  COMPUTED: "COMPUTED",
+  SUMMARY: "SUMMARY",
+};
 
 /**
  * @public
@@ -5336,7 +5336,7 @@ export interface WindowSummary {
    *             </li>
    *          </ul>
    */
-  EvaluationType?: EvaluationType | string;
+  EvaluationType?: keyof typeof EvaluationType | string;
 
   /**
    * <p>Provides metrics used to evaluate the performance of a predictor.</p>
@@ -5386,12 +5386,12 @@ export interface GetAccuracyMetricsResponse {
    *             is specified, the AutoML strategy optimizes predictor accuracy.</p>
    *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    */
-  AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
+  AutoMLOverrideStrategy?: keyof typeof AutoMLOverrideStrategy | string;
 
   /**
    * <p>The accuracy metric used to optimize the predictor.</p>
    */
-  OptimizationMetric?: OptimizationMetric | string;
+  OptimizationMetric?: keyof typeof OptimizationMetric | string;
 }
 
 /**
@@ -5482,10 +5482,10 @@ export interface ListDatasetGroupsResponse {
 /**
  * @public
  */
-export enum FilterConditionString {
-  IS = "IS",
-  IS_NOT = "IS_NOT",
-}
+export const FilterConditionString = {
+  IS: "IS",
+  IS_NOT: "IS_NOT",
+};
 
 /**
  * @public
@@ -5510,7 +5510,7 @@ export interface Filter {
    * <p>The condition to apply. To include the objects that match the statement, specify
    *       <code>IS</code>. To exclude matching objects, specify <code>IS_NOT</code>.</p>
    */
-  Condition: FilterConditionString | string | undefined;
+  Condition: keyof typeof FilterConditionString | string | undefined;
 }
 
 /**
@@ -5658,7 +5658,7 @@ export interface DatasetImportJobSummary {
   /**
    * <p>The import mode of the dataset import job, FULL or INCREMENTAL.</p>
    */
-  ImportMode?: ImportMode | string;
+  ImportMode?: keyof typeof ImportMode | string;
 }
 
 /**
@@ -5714,12 +5714,12 @@ export interface DatasetSummary {
   /**
    * <p>The dataset type.</p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: keyof typeof DatasetType | string;
 
   /**
    * <p>The domain associated with the dataset.</p>
    */
-  Domain?: Domain | string;
+  Domain?: keyof typeof Domain | string;
 
   /**
    * <p>When the dataset was created.</p>

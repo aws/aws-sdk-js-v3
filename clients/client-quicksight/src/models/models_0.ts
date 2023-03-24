@@ -52,11 +52,11 @@ export interface AccountCustomization {
 /**
  * @public
  */
-export enum Edition {
-  ENTERPRISE = "ENTERPRISE",
-  ENTERPRISE_AND_Q = "ENTERPRISE_AND_Q",
-  STANDARD = "STANDARD",
-}
+export const Edition = {
+  ENTERPRISE: "ENTERPRISE",
+  ENTERPRISE_AND_Q: "ENTERPRISE_AND_Q",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -92,7 +92,7 @@ export interface AccountInfo {
   /**
    * <p>The edition of your Amazon QuickSight account.</p>
    */
-  Edition?: Edition | string;
+  Edition?: keyof typeof Edition | string;
 
   /**
    * <p>The email address that will be used for Amazon QuickSight to send notifications regarding your Amazon Web Services account or Amazon QuickSight subscription.</p>
@@ -126,7 +126,7 @@ export interface AccountSettings {
    * <p>The edition of Amazon QuickSight that you're currently subscribed to:
    *         Enterprise edition or Standard edition.</p>
    */
-  Edition?: Edition | string;
+  Edition?: keyof typeof Edition | string;
 
   /**
    * <p>The default Amazon QuickSight namespace for your Amazon Web Services account. </p>
@@ -168,10 +168,10 @@ export interface ActiveIAMPolicyAssignment {
 /**
  * @public
  */
-export enum DashboardBehavior {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DashboardBehavior = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -181,26 +181,26 @@ export interface AdHocFilteringOption {
   /**
    * <p>Availability status.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: keyof typeof DashboardBehavior | string;
 }
 
 /**
  * @public
  */
-export enum CategoricalAggregationFunction {
-  COUNT = "COUNT",
-  DISTINCT_COUNT = "DISTINCT_COUNT",
-}
+export const CategoricalAggregationFunction = {
+  COUNT: "COUNT",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+};
 
 /**
  * @public
  */
-export enum DateAggregationFunction {
-  COUNT = "COUNT",
-  DISTINCT_COUNT = "DISTINCT_COUNT",
-  MAX = "MAX",
-  MIN = "MIN",
-}
+export const DateAggregationFunction = {
+  COUNT: "COUNT",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+  MAX: "MAX",
+  MIN: "MIN",
+};
 
 /**
  * @public
@@ -216,19 +216,19 @@ export interface PercentileAggregation {
 /**
  * @public
  */
-export enum SimpleNumericalAggregationFunction {
-  AVERAGE = "AVERAGE",
-  COUNT = "COUNT",
-  DISTINCT_COUNT = "DISTINCT_COUNT",
-  MAX = "MAX",
-  MEDIAN = "MEDIAN",
-  MIN = "MIN",
-  STDEV = "STDEV",
-  STDEVP = "STDEVP",
-  SUM = "SUM",
-  VAR = "VAR",
-  VARP = "VARP",
-}
+export const SimpleNumericalAggregationFunction = {
+  AVERAGE: "AVERAGE",
+  COUNT: "COUNT",
+  DISTINCT_COUNT: "DISTINCT_COUNT",
+  MAX: "MAX",
+  MEDIAN: "MEDIAN",
+  MIN: "MIN",
+  STDEV: "STDEV",
+  STDEVP: "STDEVP",
+  SUM: "SUM",
+  VAR: "VAR",
+  VARP: "VARP",
+};
 
 /**
  * @public
@@ -284,7 +284,7 @@ export interface NumericalAggregationFunction {
    *             </li>
    *          </ul>
    */
-  SimpleNumericalAggregation?: SimpleNumericalAggregationFunction | string;
+  SimpleNumericalAggregation?: keyof typeof SimpleNumericalAggregationFunction | string;
 
   /**
    * <p>An aggregation based on the percentile of values in a dimension or measure.</p>
@@ -316,7 +316,7 @@ export interface AggregationFunction {
    *             </li>
    *          </ul>
    */
-  CategoricalAggregationFunction?: CategoricalAggregationFunction | string;
+  CategoricalAggregationFunction?: keyof typeof CategoricalAggregationFunction | string;
 
   /**
    * <p>Aggregation for date values.</p>
@@ -339,7 +339,7 @@ export interface AggregationFunction {
    *             </li>
    *          </ul>
    */
-  DateAggregationFunction?: DateAggregationFunction | string;
+  DateAggregationFunction?: keyof typeof DateAggregationFunction | string;
 }
 
 /**
@@ -361,10 +361,10 @@ export interface ColumnIdentifier {
 /**
  * @public
  */
-export enum SortDirection {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const SortDirection = {
+  ASC: "ASC",
+  DESC: "DESC",
+};
 
 /**
  * @public
@@ -389,7 +389,7 @@ export interface AggregationSortConfiguration {
    *             </li>
    *          </ul>
    */
-  SortDirection: SortDirection | string | undefined;
+  SortDirection: keyof typeof SortDirection | string | undefined;
 
   /**
    * <p>The function that aggregates the values in <code>Column</code>.</p>
@@ -422,18 +422,18 @@ export interface AmazonOpenSearchParameters {
 /**
  * @public
  */
-export enum AnalysisErrorType {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  COLUMN_GEOGRAPHIC_ROLE_MISMATCH = "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
-  COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING",
-  COLUMN_TYPE_MISMATCH = "COLUMN_TYPE_MISMATCH",
-  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  PARAMETER_NOT_FOUND = "PARAMETER_NOT_FOUND",
-  PARAMETER_TYPE_INVALID = "PARAMETER_TYPE_INVALID",
-  PARAMETER_VALUE_INCOMPATIBLE = "PARAMETER_VALUE_INCOMPATIBLE",
-  SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
-}
+export const AnalysisErrorType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  COLUMN_GEOGRAPHIC_ROLE_MISMATCH: "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
+  COLUMN_REPLACEMENT_MISSING: "COLUMN_REPLACEMENT_MISSING",
+  COLUMN_TYPE_MISMATCH: "COLUMN_TYPE_MISMATCH",
+  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  PARAMETER_NOT_FOUND: "PARAMETER_NOT_FOUND",
+  PARAMETER_TYPE_INVALID: "PARAMETER_TYPE_INVALID",
+  PARAMETER_VALUE_INCOMPATIBLE: "PARAMETER_VALUE_INCOMPATIBLE",
+  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
+};
 
 /**
  * @public
@@ -454,7 +454,7 @@ export interface AnalysisError {
   /**
    * <p>The type of the analysis error.</p>
    */
-  Type?: AnalysisErrorType | string;
+  Type?: keyof typeof AnalysisErrorType | string;
 
   /**
    * <p>The message associated with the analysis error.</p>
@@ -491,15 +491,15 @@ export interface Sheet {
 /**
  * @public
  */
-export enum ResourceStatus {
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL",
-  DELETED = "DELETED",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
-}
+export const ResourceStatus = {
+  CREATION_FAILED: "CREATION_FAILED",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  CREATION_SUCCESSFUL: "CREATION_SUCCESSFUL",
+  DELETED: "DELETED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL: "UPDATE_SUCCESSFUL",
+};
 
 /**
  * @public
@@ -524,7 +524,7 @@ export interface Analysis {
   /**
    * <p>Status associated with the analysis.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>Errors associated with the analysis.</p>
@@ -593,10 +593,10 @@ export interface DefaultFreeFormLayoutConfiguration {
 /**
  * @public
  */
-export enum ResizeOption {
-  FIXED = "FIXED",
-  RESPONSIVE = "RESPONSIVE",
-}
+export const ResizeOption = {
+  FIXED: "FIXED",
+  RESPONSIVE: "RESPONSIVE",
+};
 
 /**
  * @public
@@ -618,7 +618,7 @@ export interface GridLayoutScreenCanvasSizeOptions {
    *             </li>
    *          </ul>
    */
-  ResizeOption: ResizeOption | string | undefined;
+  ResizeOption: keyof typeof ResizeOption | string | undefined;
 
   /**
    * <p>The width that the view port will be optimized for when the layout renders.</p>
@@ -693,27 +693,27 @@ export interface Spacing {
 /**
  * @public
  */
-export enum PaperOrientation {
-  LANDSCAPE = "LANDSCAPE",
-  PORTRAIT = "PORTRAIT",
-}
+export const PaperOrientation = {
+  LANDSCAPE: "LANDSCAPE",
+  PORTRAIT: "PORTRAIT",
+};
 
 /**
  * @public
  */
-export enum PaperSize {
-  A0 = "A0",
-  A1 = "A1",
-  A2 = "A2",
-  A3 = "A3",
-  A4 = "A4",
-  A5 = "A5",
-  JIS_B4 = "JIS_B4",
-  JIS_B5 = "JIS_B5",
-  US_LEGAL = "US_LEGAL",
-  US_LETTER = "US_LETTER",
-  US_TABLOID_LEDGER = "US_TABLOID_LEDGER",
-}
+export const PaperSize = {
+  A0: "A0",
+  A1: "A1",
+  A2: "A2",
+  A3: "A3",
+  A4: "A4",
+  A5: "A5",
+  JIS_B4: "JIS_B4",
+  JIS_B5: "JIS_B5",
+  US_LEGAL: "US_LEGAL",
+  US_LETTER: "US_LETTER",
+  US_TABLOID_LEDGER: "US_TABLOID_LEDGER",
+};
 
 /**
  * @public
@@ -723,7 +723,7 @@ export interface SectionBasedLayoutPaperCanvasSizeOptions {
   /**
    * <p>The paper size that is used to define canvas dimensions.</p>
    */
-  PaperSize?: PaperSize | string;
+  PaperSize?: keyof typeof PaperSize | string;
 
   /**
    * <p>The paper orientation that
@@ -738,7 +738,7 @@ export interface SectionBasedLayoutPaperCanvasSizeOptions {
    *             </li>
    *          </ul>
    */
-  PaperOrientation?: PaperOrientation | string;
+  PaperOrientation?: keyof typeof PaperOrientation | string;
 
   /**
    * <p>Defines the spacing between the canvas content and the top, bottom, left, and right edges.</p>
@@ -782,10 +782,10 @@ export interface DefaultPaginatedLayoutConfiguration {
 /**
  * @public
  */
-export enum SheetContentType {
-  INTERACTIVE = "INTERACTIVE",
-  PAGINATED = "PAGINATED",
-}
+export const SheetContentType = {
+  INTERACTIVE: "INTERACTIVE",
+  PAGINATED: "PAGINATED",
+};
 
 /**
  * @public
@@ -805,7 +805,7 @@ export interface DefaultNewSheetConfiguration {
   /**
    * <p>The option that determines the sheet content type.</p>
    */
-  SheetContentType?: SheetContentType | string;
+  SheetContentType?: keyof typeof SheetContentType | string;
 }
 
 /**
@@ -865,10 +865,10 @@ export interface DecimalPlacesConfiguration {
 /**
  * @public
  */
-export enum NegativeValueDisplayMode {
-  NEGATIVE = "NEGATIVE",
-  POSITIVE = "POSITIVE",
-}
+export const NegativeValueDisplayMode = {
+  NEGATIVE: "NEGATIVE",
+  POSITIVE: "POSITIVE",
+};
 
 /**
  * @public
@@ -878,37 +878,37 @@ export interface NegativeValueConfiguration {
   /**
    * <p>Determines the display mode of the negative value configuration.</p>
    */
-  DisplayMode: NegativeValueDisplayMode | string | undefined;
+  DisplayMode: keyof typeof NegativeValueDisplayMode | string | undefined;
 }
 
 /**
  * @public
  */
-export enum NumberScale {
-  AUTO = "AUTO",
-  BILLIONS = "BILLIONS",
-  MILLIONS = "MILLIONS",
-  NONE = "NONE",
-  THOUSANDS = "THOUSANDS",
-  TRILLIONS = "TRILLIONS",
-}
+export const NumberScale = {
+  AUTO: "AUTO",
+  BILLIONS: "BILLIONS",
+  MILLIONS: "MILLIONS",
+  NONE: "NONE",
+  THOUSANDS: "THOUSANDS",
+  TRILLIONS: "TRILLIONS",
+};
 
 /**
  * @public
  */
-export enum NumericSeparatorSymbol {
-  COMMA = "COMMA",
-  DOT = "DOT",
-  SPACE = "SPACE",
-}
+export const NumericSeparatorSymbol = {
+  COMMA: "COMMA",
+  DOT: "DOT",
+  SPACE: "SPACE",
+};
 
 /**
  * @public
  */
-export enum Visibility {
-  HIDDEN = "HIDDEN",
-  VISIBLE = "VISIBLE",
-}
+export const Visibility = {
+  HIDDEN: "HIDDEN",
+  VISIBLE: "VISIBLE",
+};
 
 /**
  * @public
@@ -918,12 +918,12 @@ export interface ThousandSeparatorOptions {
   /**
    * <p>Determines the thousands separator symbol.</p>
    */
-  Symbol?: NumericSeparatorSymbol | string;
+  Symbol?: keyof typeof NumericSeparatorSymbol | string;
 
   /**
    * <p>Determines the visibility of the thousands separator.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -934,7 +934,7 @@ export interface NumericSeparatorConfiguration {
   /**
    * <p>Determines the decimal separator.</p>
    */
-  DecimalSeparator?: NumericSeparatorSymbol | string;
+  DecimalSeparator?: keyof typeof NumericSeparatorSymbol | string;
 
   /**
    * <p>The options that determine the thousands separator configuration.</p>
@@ -975,7 +975,7 @@ export interface CurrencyDisplayFormatConfiguration {
   /**
    * <p>Determines the number scale value for the currency format.</p>
    */
-  NumberScale?: NumberScale | string;
+  NumberScale?: keyof typeof NumberScale | string;
 
   /**
    * <p>The options that determine the negative value configuration.</p>
@@ -1016,7 +1016,7 @@ export interface NumberDisplayFormatConfiguration {
   /**
    * <p>Determines the number scale value of the number format.</p>
    */
-  NumberScale?: NumberScale | string;
+  NumberScale?: keyof typeof NumberScale | string;
 
   /**
    * <p>The options that determine the negative value configuration.</p>
@@ -1159,10 +1159,10 @@ export interface FormatConfiguration {
 /**
  * @public
  */
-export enum ColumnRole {
-  DIMENSION = "DIMENSION",
-  MEASURE = "MEASURE",
-}
+export const ColumnRole = {
+  DIMENSION: "DIMENSION",
+  MEASURE: "MEASURE",
+};
 
 /**
  * @public
@@ -1182,7 +1182,7 @@ export interface ColumnConfiguration {
   /**
    * <p>The role of the column.</p>
    */
-  Role?: ColumnRole | string;
+  Role?: keyof typeof ColumnRole | string;
 }
 
 /**
@@ -1204,38 +1204,38 @@ export interface DataSetIdentifierDeclaration {
 /**
  * @public
  */
-export enum CrossDatasetTypes {
-  ALL_DATASETS = "ALL_DATASETS",
-  SINGLE_DATASET = "SINGLE_DATASET",
-}
+export const CrossDatasetTypes = {
+  ALL_DATASETS: "ALL_DATASETS",
+  SINGLE_DATASET: "SINGLE_DATASET",
+};
 
 /**
  * @public
  */
-export enum CategoryFilterMatchOperator {
-  CONTAINS = "CONTAINS",
-  DOES_NOT_CONTAIN = "DOES_NOT_CONTAIN",
-  DOES_NOT_EQUAL = "DOES_NOT_EQUAL",
-  ENDS_WITH = "ENDS_WITH",
-  EQUALS = "EQUALS",
-  STARTS_WITH = "STARTS_WITH",
-}
+export const CategoryFilterMatchOperator = {
+  CONTAINS: "CONTAINS",
+  DOES_NOT_CONTAIN: "DOES_NOT_CONTAIN",
+  DOES_NOT_EQUAL: "DOES_NOT_EQUAL",
+  ENDS_WITH: "ENDS_WITH",
+  EQUALS: "EQUALS",
+  STARTS_WITH: "STARTS_WITH",
+};
 
 /**
  * @public
  */
-export enum FilterNullOption {
-  ALL_VALUES = "ALL_VALUES",
-  NON_NULLS_ONLY = "NON_NULLS_ONLY",
-  NULLS_ONLY = "NULLS_ONLY",
-}
+export const FilterNullOption = {
+  ALL_VALUES: "ALL_VALUES",
+  NON_NULLS_ONLY: "NON_NULLS_ONLY",
+  NULLS_ONLY: "NULLS_ONLY",
+};
 
 /**
  * @public
  */
-export enum CategoryFilterSelectAllOptions {
-  FILTER_ALL_VALUES = "FILTER_ALL_VALUES",
-}
+export const CategoryFilterSelectAllOptions = {
+  FILTER_ALL_VALUES: "FILTER_ALL_VALUES",
+};
 
 /**
  * @public
@@ -1245,7 +1245,7 @@ export interface CustomFilterConfiguration {
   /**
    * <p>The match operator that is used to determine if a filter should be applied.</p>
    */
-  MatchOperator: CategoryFilterMatchOperator | string | undefined;
+  MatchOperator: keyof typeof CategoryFilterMatchOperator | string | undefined;
 
   /**
    * <p>The category value for the filter.</p>
@@ -1263,7 +1263,7 @@ export interface CustomFilterConfiguration {
    *             </li>
    *          </ul>
    */
-  SelectAllOptions?: CategoryFilterSelectAllOptions | string;
+  SelectAllOptions?: keyof typeof CategoryFilterSelectAllOptions | string;
 
   /**
    * <p>The parameter whose value should be used for the filter value.</p>
@@ -1288,7 +1288,7 @@ export interface CustomFilterConfiguration {
    *             </li>
    *          </ul>
    */
-  NullOption: FilterNullOption | string | undefined;
+  NullOption: keyof typeof FilterNullOption | string | undefined;
 }
 
 /**
@@ -1299,7 +1299,7 @@ export interface CustomFilterListConfiguration {
   /**
    * <p>The match operator that is used to determine if a filter should be applied.</p>
    */
-  MatchOperator: CategoryFilterMatchOperator | string | undefined;
+  MatchOperator: keyof typeof CategoryFilterMatchOperator | string | undefined;
 
   /**
    * <p>The list of category values for the filter.</p>
@@ -1316,7 +1316,7 @@ export interface CustomFilterListConfiguration {
    *             </li>
    *          </ul>
    */
-  SelectAllOptions?: CategoryFilterSelectAllOptions | string;
+  SelectAllOptions?: keyof typeof CategoryFilterSelectAllOptions | string;
 
   /**
    * <p>This option determines how null values should be treated when filtering data.</p>
@@ -1335,7 +1335,7 @@ export interface CustomFilterListConfiguration {
    *             </li>
    *          </ul>
    */
-  NullOption: FilterNullOption | string | undefined;
+  NullOption: keyof typeof FilterNullOption | string | undefined;
 }
 
 /**
@@ -1346,7 +1346,7 @@ export interface FilterListConfiguration {
   /**
    * <p>The match operator that is used to determine if a filter should be applied.</p>
    */
-  MatchOperator: CategoryFilterMatchOperator | string | undefined;
+  MatchOperator: keyof typeof CategoryFilterMatchOperator | string | undefined;
 
   /**
    * <p>The list of category values for the filter.</p>
@@ -1363,7 +1363,7 @@ export interface FilterListConfiguration {
    *             </li>
    *          </ul>
    */
-  SelectAllOptions?: CategoryFilterSelectAllOptions | string;
+  SelectAllOptions?: keyof typeof CategoryFilterSelectAllOptions | string;
 }
 
 /**
@@ -1413,17 +1413,17 @@ export interface CategoryFilter {
 /**
  * @public
  */
-export enum NumericEqualityMatchOperator {
-  DOES_NOT_EQUAL = "DOES_NOT_EQUAL",
-  EQUALS = "EQUALS",
-}
+export const NumericEqualityMatchOperator = {
+  DOES_NOT_EQUAL: "DOES_NOT_EQUAL",
+  EQUALS: "EQUALS",
+};
 
 /**
  * @public
  */
-export enum NumericFilterSelectAllOptions {
-  FILTER_ALL_VALUES = "FILTER_ALL_VALUES",
-}
+export const NumericFilterSelectAllOptions = {
+  FILTER_ALL_VALUES: "FILTER_ALL_VALUES",
+};
 
 /**
  * @public
@@ -1455,12 +1455,12 @@ export interface NumericEqualityFilter {
    *             </li>
    *          </ul>
    */
-  SelectAllOptions?: NumericFilterSelectAllOptions | string;
+  SelectAllOptions?: keyof typeof NumericFilterSelectAllOptions | string;
 
   /**
    * <p>The match operator that is used to determine if a filter should be applied.</p>
    */
-  MatchOperator: NumericEqualityMatchOperator | string | undefined;
+  MatchOperator: keyof typeof NumericEqualityMatchOperator | string | undefined;
 
   /**
    * <p>The aggregation function of the filter.</p>
@@ -1489,7 +1489,7 @@ export interface NumericEqualityFilter {
    *             </li>
    *          </ul>
    */
-  NullOption: FilterNullOption | string | undefined;
+  NullOption: keyof typeof FilterNullOption | string | undefined;
 }
 
 /**
@@ -1553,7 +1553,7 @@ export interface NumericRangeFilter {
    *             </li>
    *          </ul>
    */
-  SelectAllOptions?: NumericFilterSelectAllOptions | string;
+  SelectAllOptions?: keyof typeof NumericFilterSelectAllOptions | string;
 
   /**
    * <p>The aggregation function of the filter.</p>
@@ -1577,15 +1577,15 @@ export interface NumericRangeFilter {
    *             </li>
    *          </ul>
    */
-  NullOption: FilterNullOption | string | undefined;
+  NullOption: keyof typeof FilterNullOption | string | undefined;
 }
 
 /**
  * @public
  */
-export enum AnchorOption {
-  NOW = "NOW",
-}
+export const AnchorOption = {
+  NOW: "NOW",
+};
 
 /**
  * @public
@@ -1602,7 +1602,7 @@ export interface AnchorDateConfiguration {
    *             </li>
    *          </ul>
    */
-  AnchorOption?: AnchorOption | string;
+  AnchorOption?: keyof typeof AnchorOption | string;
 
   /**
    * <p>The name of the parameter that is used for the anchor date configuration.</p>
@@ -1613,25 +1613,25 @@ export interface AnchorDateConfiguration {
 /**
  * @public
  */
-export enum TimeGranularity {
-  DAY = "DAY",
-  HOUR = "HOUR",
-  MILLISECOND = "MILLISECOND",
-  MINUTE = "MINUTE",
-  MONTH = "MONTH",
-  QUARTER = "QUARTER",
-  SECOND = "SECOND",
-  WEEK = "WEEK",
-  YEAR = "YEAR",
-}
+export const TimeGranularity = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  MILLISECOND: "MILLISECOND",
+  MINUTE: "MINUTE",
+  MONTH: "MONTH",
+  QUARTER: "QUARTER",
+  SECOND: "SECOND",
+  WEEK: "WEEK",
+  YEAR: "YEAR",
+};
 
 /**
  * @public
  */
-export enum WidgetStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const WidgetStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1646,7 +1646,7 @@ export interface ExcludePeriodConfiguration {
   /**
    * <p>The granularity or unit (day, month, year) of the exclude period.</p>
    */
-  Granularity: TimeGranularity | string | undefined;
+  Granularity: keyof typeof TimeGranularity | string | undefined;
 
   /**
    * <p>The status of the exclude period. Choose from the following options:</p>
@@ -1663,19 +1663,19 @@ export interface ExcludePeriodConfiguration {
    *             </li>
    *          </ul>
    */
-  Status?: WidgetStatus | string;
+  Status?: keyof typeof WidgetStatus | string;
 }
 
 /**
  * @public
  */
-export enum RelativeDateType {
-  LAST = "LAST",
-  NEXT = "NEXT",
-  NOW = "NOW",
-  PREVIOUS = "PREVIOUS",
-  THIS = "THIS",
-}
+export const RelativeDateType = {
+  LAST: "LAST",
+  NEXT: "NEXT",
+  NOW: "NOW",
+  PREVIOUS: "PREVIOUS",
+  THIS: "THIS",
+};
 
 /**
  * @public
@@ -1700,12 +1700,12 @@ export interface RelativeDatesFilter {
   /**
    * <p>The minimum granularity (period granularity) of the relative dates filter.</p>
    */
-  MinimumGranularity?: TimeGranularity | string;
+  MinimumGranularity?: keyof typeof TimeGranularity | string;
 
   /**
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity: TimeGranularity | string | undefined;
+  TimeGranularity: keyof typeof TimeGranularity | string | undefined;
 
   /**
    * <p>The range date type of the filter. Choose one of the options below:</p>
@@ -1737,7 +1737,7 @@ export interface RelativeDatesFilter {
    *             </li>
    *          </ul>
    */
-  RelativeDateType: RelativeDateType | string | undefined;
+  RelativeDateType: keyof typeof RelativeDateType | string | undefined;
 
   /**
    * <p>The date value of the filter.</p>
@@ -1766,7 +1766,7 @@ export interface RelativeDatesFilter {
    *             </li>
    *          </ul>
    */
-  NullOption: FilterNullOption | string | undefined;
+  NullOption: keyof typeof FilterNullOption | string | undefined;
 
   /**
    * <p>The configuration for the exclude period of the filter.</p>
@@ -1804,7 +1804,7 @@ export interface TimeEqualityFilter {
   /**
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity?: TimeGranularity | string;
+  TimeGranularity?: keyof typeof TimeGranularity | string;
 }
 
 /**
@@ -1897,7 +1897,7 @@ export interface TimeRangeFilter {
    *             </li>
    *          </ul>
    */
-  NullOption: FilterNullOption | string | undefined;
+  NullOption: keyof typeof FilterNullOption | string | undefined;
 
   /**
    * <p>The exclude period of the time range filter.</p>
@@ -1907,7 +1907,7 @@ export interface TimeRangeFilter {
   /**
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity?: TimeGranularity | string;
+  TimeGranularity?: keyof typeof TimeGranularity | string;
 }
 
 /**
@@ -1938,7 +1938,7 @@ export interface TopBottomFilter {
   /**
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity?: TimeGranularity | string;
+  TimeGranularity?: keyof typeof TimeGranularity | string;
 
   /**
    * <p>The parameter whose value should be used for the filter value.</p>
@@ -1993,10 +1993,10 @@ export interface Filter {
 /**
  * @public
  */
-export enum FilterVisualScope {
-  ALL_VISUALS = "ALL_VISUALS",
-  SELECTED_VISUALS = "SELECTED_VISUALS",
-}
+export const FilterVisualScope = {
+  ALL_VISUALS: "ALL_VISUALS",
+  SELECTED_VISUALS: "SELECTED_VISUALS",
+};
 
 /**
  * @public
@@ -2023,7 +2023,7 @@ export interface SheetVisualScopingConfiguration {
    *             </li>
    *          </ul>
    */
-  Scope: FilterVisualScope | string | undefined;
+  Scope: keyof typeof FilterVisualScope | string | undefined;
 
   /**
    * <p>The selected visuals that the filter is applied to.</p>
@@ -2080,7 +2080,7 @@ export interface FilterGroup {
   /**
    * <p>The status of the <code>FilterGroup</code>.</p>
    */
-  Status?: WidgetStatus | string;
+  Status?: keyof typeof WidgetStatus | string;
 
   /**
    * <p>The filter new feature which can apply filter group to all data sets. Choose one of the following options:</p>
@@ -2097,7 +2097,7 @@ export interface FilterGroup {
    *             </li>
    *          </ul>
    */
-  CrossDataset: CrossDatasetTypes | string | undefined;
+  CrossDataset: keyof typeof CrossDatasetTypes | string | undefined;
 }
 
 /**
@@ -2145,10 +2145,10 @@ export interface DateTimeDefaultValues {
 /**
  * @public
  */
-export enum ValueWhenUnsetOption {
-  NULL = "NULL",
-  RECOMMENDED_VALUE = "RECOMMENDED_VALUE",
-}
+export const ValueWhenUnsetOption = {
+  NULL: "NULL",
+  RECOMMENDED_VALUE: "RECOMMENDED_VALUE",
+};
 
 /**
  * @public
@@ -2168,7 +2168,7 @@ export interface DateTimeValueWhenUnsetConfiguration {
    *             </li>
    *          </ul>
    */
-  ValueWhenUnsetOption?: ValueWhenUnsetOption | string;
+  ValueWhenUnsetOption?: keyof typeof ValueWhenUnsetOption | string;
 
   /**
    * <p>A custom value that's used when the value of a parameter isn't set.</p>
@@ -2194,7 +2194,7 @@ export interface DateTimeParameterDeclaration {
   /**
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity?: TimeGranularity | string;
+  TimeGranularity?: keyof typeof TimeGranularity | string;
 
   /**
    * <p>The configuration that defines the default value of a <code>DateTime</code> parameter when a value has not been set.</p>
@@ -2221,10 +2221,10 @@ export interface DecimalDefaultValues {
 /**
  * @public
  */
-export enum ParameterValueType {
-  MULTI_VALUED = "MULTI_VALUED",
-  SINGLE_VALUED = "SINGLE_VALUED",
-}
+export const ParameterValueType = {
+  MULTI_VALUED: "MULTI_VALUED",
+  SINGLE_VALUED: "SINGLE_VALUED",
+};
 
 /**
  * @public
@@ -2244,7 +2244,7 @@ export interface DecimalValueWhenUnsetConfiguration {
    *             </li>
    *          </ul>
    */
-  ValueWhenUnsetOption?: ValueWhenUnsetOption | string;
+  ValueWhenUnsetOption?: keyof typeof ValueWhenUnsetOption | string;
 
   /**
    * <p>A custom value that's used when the value of a parameter isn't set.</p>
@@ -2260,7 +2260,7 @@ export interface DecimalParameterDeclaration {
   /**
    * <p>The value type determines whether the parameter is a single-value or multi-value parameter.</p>
    */
-  ParameterValueType: ParameterValueType | string | undefined;
+  ParameterValueType: keyof typeof ParameterValueType | string | undefined;
 
   /**
    * <p>The name of the parameter that is being declared.</p>
@@ -2313,7 +2313,7 @@ export interface IntegerValueWhenUnsetConfiguration {
    *             </li>
    *          </ul>
    */
-  ValueWhenUnsetOption?: ValueWhenUnsetOption | string;
+  ValueWhenUnsetOption?: keyof typeof ValueWhenUnsetOption | string;
 
   /**
    * <p>A custom value that's used when the value of a parameter isn't set.</p>
@@ -2329,7 +2329,7 @@ export interface IntegerParameterDeclaration {
   /**
    * <p>The value type determines whether the parameter is a single-value or multi-value parameter.</p>
    */
-  ParameterValueType: ParameterValueType | string | undefined;
+  ParameterValueType: keyof typeof ParameterValueType | string | undefined;
 
   /**
    * <p>The name of the parameter that is being declared.</p>
@@ -2381,7 +2381,7 @@ export interface StringValueWhenUnsetConfiguration {
    *             </li>
    *          </ul>
    */
-  ValueWhenUnsetOption?: ValueWhenUnsetOption | string;
+  ValueWhenUnsetOption?: keyof typeof ValueWhenUnsetOption | string;
 
   /**
    * <p>A custom value that's used when the value of a parameter isn't set.</p>
@@ -2397,7 +2397,7 @@ export interface StringParameterDeclaration {
   /**
    * <p>The value type determines whether the parameter is a single-value or multi-value parameter.</p>
    */
-  ParameterValueType: ParameterValueType | string | undefined;
+  ParameterValueType: keyof typeof ParameterValueType | string | undefined;
 
   /**
    * <p>The name of the parameter that is being declared.</p>
@@ -2446,21 +2446,21 @@ export interface ParameterDeclaration {
 /**
  * @public
  */
-export enum FontDecoration {
-  NONE = "NONE",
-  UNDERLINE = "UNDERLINE",
-}
+export const FontDecoration = {
+  NONE: "NONE",
+  UNDERLINE: "UNDERLINE",
+};
 
 /**
  * @public
  */
-export enum RelativeFontSize {
-  EXTRA_LARGE = "EXTRA_LARGE",
-  EXTRA_SMALL = "EXTRA_SMALL",
-  LARGE = "LARGE",
-  MEDIUM = "MEDIUM",
-  SMALL = "SMALL",
-}
+export const RelativeFontSize = {
+  EXTRA_LARGE: "EXTRA_LARGE",
+  EXTRA_SMALL: "EXTRA_SMALL",
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  SMALL: "SMALL",
+};
 
 /**
  * @public
@@ -2470,24 +2470,24 @@ export interface FontSize {
   /**
    * <p>The lexical name for the text size, proportional to its surrounding context.</p>
    */
-  Relative?: RelativeFontSize | string;
+  Relative?: keyof typeof RelativeFontSize | string;
 }
 
 /**
  * @public
  */
-export enum FontStyle {
-  ITALIC = "ITALIC",
-  NORMAL = "NORMAL",
-}
+export const FontStyle = {
+  ITALIC: "ITALIC",
+  NORMAL: "NORMAL",
+};
 
 /**
  * @public
  */
-export enum FontWeightName {
-  BOLD = "BOLD",
-  NORMAL = "NORMAL",
-}
+export const FontWeightName = {
+  BOLD: "BOLD",
+  NORMAL: "NORMAL",
+};
 
 /**
  * @public
@@ -2497,7 +2497,7 @@ export interface FontWeight {
   /**
    * <p>The lexical name for the level of boldness of the text display.</p>
    */
-  Name?: FontWeightName | string;
+  Name?: keyof typeof FontWeightName | string;
 }
 
 /**
@@ -2513,7 +2513,7 @@ export interface FontConfiguration {
   /**
    * <p>Determines the appearance of decorative lines on the text.</p>
    */
-  FontDecoration?: FontDecoration | string;
+  FontDecoration?: keyof typeof FontDecoration | string;
 
   /**
    * <p>Determines the color of the text.</p>
@@ -2528,7 +2528,7 @@ export interface FontConfiguration {
   /**
    * <p>Determines the text display face that is inherited by the given font family.</p>
    */
-  FontStyle?: FontStyle | string;
+  FontStyle?: keyof typeof FontStyle | string;
 }
 
 /**
@@ -2539,7 +2539,7 @@ export interface LabelOptions {
   /**
    * <p>Determines whether or not the label is visible.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The font configuration of the label.</p>
@@ -2571,10 +2571,10 @@ export interface DateTimePickerControlDisplayOptions {
 /**
  * @public
  */
-export enum SheetControlDateTimePickerType {
-  DATE_RANGE = "DATE_RANGE",
-  SINGLE_VALUED = "SINGLE_VALUED",
-}
+export const SheetControlDateTimePickerType = {
+  DATE_RANGE: "DATE_RANGE",
+  SINGLE_VALUED: "SINGLE_VALUED",
+};
 
 /**
  * @public
@@ -2614,7 +2614,7 @@ export interface FilterDateTimePickerControl {
    *             </li>
    *          </ul>
    */
-  Type?: SheetControlDateTimePickerType | string;
+  Type?: keyof typeof SheetControlDateTimePickerType | string;
 }
 
 /**
@@ -2652,7 +2652,7 @@ export interface ListControlSelectAllOptions {
   /**
    * <p>The visibility configuration of the <code>Select all</code> options in a list control.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -2686,10 +2686,10 @@ export interface FilterSelectableValues {
 /**
  * @public
  */
-export enum SheetControlListType {
-  MULTI_SELECT = "MULTI_SELECT",
-  SINGLE_SELECT = "SINGLE_SELECT",
-}
+export const SheetControlListType = {
+  MULTI_SELECT: "MULTI_SELECT",
+  SINGLE_SELECT: "SINGLE_SELECT",
+};
 
 /**
  * @public
@@ -2729,7 +2729,7 @@ export interface FilterDropDownControl {
    *             </li>
    *          </ul>
    */
-  Type?: SheetControlListType | string;
+  Type?: keyof typeof SheetControlListType | string;
 
   /**
    * <p>A list of selectable values that are used in a control.</p>
@@ -2750,7 +2750,7 @@ export interface ListControlSearchOptions {
   /**
    * <p>The visibility configuration of the search options in a list control.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -2812,7 +2812,7 @@ export interface FilterListControl {
    *             </li>
    *          </ul>
    */
-  Type?: SheetControlListType | string;
+  Type?: keyof typeof SheetControlListType | string;
 
   /**
    * <p>A list of selectable values that are used in a control.</p>
@@ -2881,10 +2881,10 @@ export interface SliderControlDisplayOptions {
 /**
  * @public
  */
-export enum SheetControlSliderType {
-  RANGE = "RANGE",
-  SINGLE_POINT = "SINGLE_POINT",
-}
+export const SheetControlSliderType = {
+  RANGE: "RANGE",
+  SINGLE_POINT: "SINGLE_POINT",
+};
 
 /**
  * @public
@@ -2924,7 +2924,7 @@ export interface FilterSliderControl {
    *             </li>
    *          </ul>
    */
-  Type?: SheetControlSliderType | string;
+  Type?: keyof typeof SheetControlSliderType | string;
 
   /**
    * <p>The smaller value that is displayed at the left of the slider.</p>
@@ -2950,7 +2950,7 @@ export interface TextControlPlaceholderOptions {
   /**
    * <p>The visibility configuration of the placeholder options in a text control.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -3092,7 +3092,7 @@ export interface FreeFormLayoutElementBackgroundStyle {
   /**
    * <p>The background visibility of a free-form layout element.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The background color of a free-form layout element.</p>
@@ -3108,7 +3108,7 @@ export interface FreeFormLayoutElementBorderStyle {
   /**
    * <p>The border visibility of a free-form layout element.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The border color of a free-form layout element.</p>
@@ -3119,12 +3119,12 @@ export interface FreeFormLayoutElementBorderStyle {
 /**
  * @public
  */
-export enum LayoutElementType {
-  FILTER_CONTROL = "FILTER_CONTROL",
-  PARAMETER_CONTROL = "PARAMETER_CONTROL",
-  TEXT_BOX = "TEXT_BOX",
-  VISUAL = "VISUAL",
-}
+export const LayoutElementType = {
+  FILTER_CONTROL: "FILTER_CONTROL",
+  PARAMETER_CONTROL: "PARAMETER_CONTROL",
+  TEXT_BOX: "TEXT_BOX",
+  VISUAL: "VISUAL",
+};
 
 /**
  * @public
@@ -3134,7 +3134,7 @@ export interface LoadingAnimation {
   /**
    * <p>The visibility configuration of <code>LoadingAnimation</code>.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -3157,7 +3157,7 @@ export interface SheetElementConfigurationOverrides {
    *             </li>
    *          </ul>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -3189,7 +3189,7 @@ export interface FreeFormLayoutElement {
   /**
    * <p>The type of element.</p>
    */
-  ElementType: LayoutElementType | string | undefined;
+  ElementType: keyof typeof LayoutElementType | string | undefined;
 
   /**
    * <p>The x-axis coordinate of the element.</p>
@@ -3214,7 +3214,7 @@ export interface FreeFormLayoutElement {
   /**
    * <p>The visibility of an element within a free-form layout.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The rendering rules that determine when an element should be displayed within a free-form layout.</p>
@@ -3271,7 +3271,7 @@ export interface GridLayoutElement {
   /**
    * <p>The type of element.</p>
    */
-  ElementType: LayoutElementType | string | undefined;
+  ElementType: keyof typeof LayoutElementType | string | undefined;
 
   /**
    * <p>The column index for the upper left corner of an element.</p>
@@ -3347,10 +3347,10 @@ export interface BodySectionContent {
 /**
  * @public
  */
-export enum SectionPageBreakStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const SectionPageBreakStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -3360,7 +3360,7 @@ export interface SectionAfterPageBreak {
   /**
    * <p>The option that enables or disables a page break at the end of a section.</p>
    */
-  Status?: SectionPageBreakStatus | string;
+  Status?: keyof typeof SectionPageBreakStatus | string;
 }
 
 /**
@@ -3571,7 +3571,7 @@ export interface ParameterDropDownControl {
   /**
    * <p>The type parameter name of the <code>ParameterDropDownControl</code>.</p>
    */
-  Type?: SheetControlListType | string;
+  Type?: keyof typeof SheetControlListType | string;
 
   /**
    * <p>A list of selectable values that are used in a control.</p>
@@ -3612,7 +3612,7 @@ export interface ParameterListControl {
   /**
    * <p>The type of <code>ParameterListControl</code>.</p>
    */
-  Type?: SheetControlListType | string;
+  Type?: keyof typeof SheetControlListType | string;
 
   /**
    * <p>A list of selectable values that are used in a control.</p>
@@ -3801,9 +3801,9 @@ export interface SheetTextBox {
 /**
  * @public
  */
-export enum SelectedFieldOptions {
-  ALL_FIELDS = "ALL_FIELDS",
-}
+export const SelectedFieldOptions = {
+  ALL_FIELDS: "ALL_FIELDS",
+};
 
 /**
  * @public
@@ -3826,15 +3826,15 @@ export interface FilterOperationSelectedFieldsConfiguration {
    *             </li>
    *          </ul>
    */
-  SelectedFieldOptions?: SelectedFieldOptions | string;
+  SelectedFieldOptions?: keyof typeof SelectedFieldOptions | string;
 }
 
 /**
  * @public
  */
-export enum TargetVisualOptions {
-  ALL_VISUALS = "ALL_VISUALS",
-}
+export const TargetVisualOptions = {
+  ALL_VISUALS: "ALL_VISUALS",
+};
 
 /**
  * @public
@@ -3857,7 +3857,7 @@ export interface SameSheetTargetVisualConfiguration {
    *             </li>
    *          </ul>
    */
-  TargetVisualOptions?: TargetVisualOptions | string;
+  TargetVisualOptions?: keyof typeof TargetVisualOptions | string;
 }
 
 /**
@@ -3958,9 +3958,9 @@ export interface CustomValuesConfiguration {
 /**
  * @public
  */
-export enum SelectAllValueOptions {
-  ALL_VALUES = "ALL_VALUES",
-}
+export const SelectAllValueOptions = {
+  ALL_VALUES: "ALL_VALUES",
+};
 
 /**
  * @public
@@ -3976,7 +3976,7 @@ export interface DestinationParameterValueConfiguration {
   /**
    * <p>The configuration that selects all options.</p>
    */
-  SelectAllValueOptions?: SelectAllValueOptions | string;
+  SelectAllValueOptions?: keyof typeof SelectAllValueOptions | string;
 
   /**
    * <p>The source parameter name of the destination parameter.</p>
@@ -4020,11 +4020,11 @@ export interface CustomActionSetParametersOperation {
 /**
  * @public
  */
-export enum URLTargetConfiguration {
-  NEW_TAB = "NEW_TAB",
-  NEW_WINDOW = "NEW_WINDOW",
-  SAME_TAB = "SAME_TAB",
-}
+export const URLTargetConfiguration = {
+  NEW_TAB: "NEW_TAB",
+  NEW_WINDOW: "NEW_WINDOW",
+  SAME_TAB: "SAME_TAB",
+};
 
 /**
  * @public
@@ -4054,7 +4054,7 @@ export interface CustomActionURLOperation {
    *             </li>
    *          </ul>
    */
-  URLTarget: URLTargetConfiguration | string | undefined;
+  URLTarget: keyof typeof URLTargetConfiguration | string | undefined;
 }
 
 /**
@@ -4087,10 +4087,10 @@ export interface VisualCustomActionOperation {
 /**
  * @public
  */
-export enum VisualCustomActionTrigger {
-  DATA_POINT_CLICK = "DATA_POINT_CLICK",
-  DATA_POINT_MENU = "DATA_POINT_MENU",
-}
+export const VisualCustomActionTrigger = {
+  DATA_POINT_CLICK: "DATA_POINT_CLICK",
+  DATA_POINT_MENU: "DATA_POINT_MENU",
+};
 
 /**
  * @public
@@ -4110,7 +4110,7 @@ export interface VisualCustomAction {
   /**
    * <p>The status of the <code>VisualCustomAction</code>.</p>
    */
-  Status?: WidgetStatus | string;
+  Status?: keyof typeof WidgetStatus | string;
 
   /**
    * <p>The trigger of the <code>VisualCustomAction</code>.</p>
@@ -4126,7 +4126,7 @@ export interface VisualCustomAction {
    *             </li>
    *          </ul>
    */
-  Trigger: VisualCustomActionTrigger | string | undefined;
+  Trigger: keyof typeof VisualCustomActionTrigger | string | undefined;
 
   /**
    * <p>A list of <code>VisualCustomActionOperations</code>.</p>
@@ -4138,11 +4138,11 @@ export interface VisualCustomAction {
 /**
  * @public
  */
-export enum BarsArrangement {
-  CLUSTERED = "CLUSTERED",
-  STACKED = "STACKED",
-  STACKED_PERCENT = "STACKED_PERCENT",
-}
+export const BarsArrangement = {
+  CLUSTERED: "CLUSTERED",
+  STACKED: "STACKED",
+  STACKED_PERCENT: "STACKED_PERCENT",
+};
 
 /**
  * @public
@@ -4152,7 +4152,7 @@ export interface DateAxisOptions {
   /**
    * <p>Determines whether or not missing dates are displayed.</p>
    */
-  MissingDateVisibility?: Visibility | string;
+  MissingDateVisibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -4308,7 +4308,7 @@ export interface ScrollBarOptions {
   /**
    * <p>The visibility of the data zoom scroll bar.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The visibility range for the data zoom scroll bar.</p>
@@ -4345,12 +4345,12 @@ export interface AxisDisplayOptions {
   /**
    * <p>Determines whether or not the axis line is visible.</p>
    */
-  AxisLineVisibility?: Visibility | string;
+  AxisLineVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>Determines whether or not the grid line is visible.</p>
    */
-  GridLineVisibility?: Visibility | string;
+  GridLineVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The data options for an axis.</p>
@@ -4423,12 +4423,12 @@ export interface ChartAxisLabelOptions {
    *             </li>
    *          </ul>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The visibility configuration of the sort icon on a chart's axis label.</p>
    */
-  SortIconVisibility?: Visibility | string;
+  SortIconVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The label options for a chart axis.</p>
@@ -4471,7 +4471,7 @@ export interface DataPathLabelType {
   /**
    * <p>The visibility of the data label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -4488,7 +4488,7 @@ export interface FieldLabelType {
   /**
    * <p>The visibility of the field label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -4499,7 +4499,7 @@ export interface MaximumLabelType {
   /**
    * <p>The visibility of the maximum label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -4510,7 +4510,7 @@ export interface MinimumLabelType {
   /**
    * <p>The visibility of the minimum label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -4521,7 +4521,7 @@ export interface RangeEndsLabelType {
   /**
    * <p>The visibility of the range ends label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -4559,31 +4559,31 @@ export interface DataLabelType {
 /**
  * @public
  */
-export enum DataLabelContent {
-  PERCENT = "PERCENT",
-  VALUE = "VALUE",
-  VALUE_AND_PERCENT = "VALUE_AND_PERCENT",
-}
+export const DataLabelContent = {
+  PERCENT: "PERCENT",
+  VALUE: "VALUE",
+  VALUE_AND_PERCENT: "VALUE_AND_PERCENT",
+};
 
 /**
  * @public
  */
-export enum DataLabelOverlap {
-  DISABLE_OVERLAP = "DISABLE_OVERLAP",
-  ENABLE_OVERLAP = "ENABLE_OVERLAP",
-}
+export const DataLabelOverlap = {
+  DISABLE_OVERLAP: "DISABLE_OVERLAP",
+  ENABLE_OVERLAP: "ENABLE_OVERLAP",
+};
 
 /**
  * @public
  */
-export enum DataLabelPosition {
-  BOTTOM = "BOTTOM",
-  INSIDE = "INSIDE",
-  LEFT = "LEFT",
-  OUTSIDE = "OUTSIDE",
-  RIGHT = "RIGHT",
-  TOP = "TOP",
-}
+export const DataLabelPosition = {
+  BOTTOM: "BOTTOM",
+  INSIDE: "INSIDE",
+  LEFT: "LEFT",
+  OUTSIDE: "OUTSIDE",
+  RIGHT: "RIGHT",
+  TOP: "TOP",
+};
 
 /**
  * @public
@@ -4593,17 +4593,17 @@ export interface DataLabelOptions {
   /**
    * <p>Determines the visibility of the data labels.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>Determines the visibility of the category field labels.</p>
    */
-  CategoryLabelVisibility?: Visibility | string;
+  CategoryLabelVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>Determines the visibility of the measure field labels.</p>
    */
-  MeasureLabelVisibility?: Visibility | string;
+  MeasureLabelVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The option that determines the data label type.</p>
@@ -4613,12 +4613,12 @@ export interface DataLabelOptions {
   /**
    * <p>Determines the position of the data labels.</p>
    */
-  Position?: DataLabelPosition | string;
+  Position?: keyof typeof DataLabelPosition | string;
 
   /**
    * <p>Determines the content of the data labels.</p>
    */
-  LabelContent?: DataLabelContent | string;
+  LabelContent?: keyof typeof DataLabelContent | string;
 
   /**
    * <p>Determines the font configuration of the data labels.</p>
@@ -4633,7 +4633,7 @@ export interface DataLabelOptions {
   /**
    * <p>Determines whether overlap is enabled or disabled for the data labels.</p>
    */
-  Overlap?: DataLabelOverlap | string;
+  Overlap?: keyof typeof DataLabelOverlap | string;
 }
 
 /**
@@ -4727,7 +4727,7 @@ export interface DateDimensionField {
    *             </li>
    *          </ul>
    */
-  DateGranularity?: TimeGranularity | string;
+  DateGranularity?: keyof typeof TimeGranularity | string;
 
   /**
    * <p>The custom hierarchy ID.</p>
@@ -4821,7 +4821,7 @@ export interface CategoricalMeasureField {
   /**
    * <p>The aggregation function of the measure field.</p>
    */
-  AggregationFunction?: CategoricalAggregationFunction | string;
+  AggregationFunction?: keyof typeof CategoricalAggregationFunction | string;
 
   /**
    * <p>The format configuration of the field.</p>
@@ -4847,7 +4847,7 @@ export interface DateMeasureField {
   /**
    * <p>The aggregation function of the measure field.</p>
    */
-  AggregationFunction?: DateAggregationFunction | string;
+  AggregationFunction?: keyof typeof DateAggregationFunction | string;
 
   /**
    * <p>The format configuration of the field.</p>
@@ -4949,12 +4949,12 @@ export interface BarChartFieldWells {
 /**
  * @public
  */
-export enum LegendPosition {
-  AUTO = "AUTO",
-  BOTTOM = "BOTTOM",
-  RIGHT = "RIGHT",
-  TOP = "TOP",
-}
+export const LegendPosition = {
+  AUTO: "AUTO",
+  BOTTOM: "BOTTOM",
+  RIGHT: "RIGHT",
+  TOP: "TOP",
+};
 
 /**
  * @public
@@ -4964,7 +4964,7 @@ export interface LegendOptions {
   /**
    * <p>Determines whether or not the legend is visible.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The custom title for the legend.</p>
@@ -4997,7 +4997,7 @@ export interface LegendOptions {
    *             </li>
    *          </ul>
    */
-  Position?: LegendPosition | string;
+  Position?: keyof typeof LegendPosition | string;
 
   /**
    * <p>The width of the legend. If this value is omitted, a default width is used when rendering.</p>
@@ -5014,18 +5014,18 @@ export interface LegendOptions {
 /**
  * @public
  */
-export enum BarChartOrientation {
-  HORIZONTAL = "HORIZONTAL",
-  VERTICAL = "VERTICAL",
-}
+export const BarChartOrientation = {
+  HORIZONTAL: "HORIZONTAL",
+  VERTICAL: "VERTICAL",
+};
 
 /**
  * @public
  */
-export enum AxisBinding {
-  PRIMARY_YAXIS = "PRIMARY_YAXIS",
-  SECONDARY_YAXIS = "SECONDARY_YAXIS",
-}
+export const AxisBinding = {
+  PRIMARY_YAXIS: "PRIMARY_YAXIS",
+  SECONDARY_YAXIS: "SECONDARY_YAXIS",
+};
 
 /**
  * @public
@@ -5086,7 +5086,7 @@ export interface ReferenceLineDataConfiguration {
    *             </li>
    *          </ul>
    */
-  AxisBinding?: AxisBinding | string;
+  AxisBinding?: keyof typeof AxisBinding | string;
 }
 
 /**
@@ -5103,19 +5103,19 @@ export interface ReferenceLineCustomLabelConfiguration {
 /**
  * @public
  */
-export enum ReferenceLineLabelHorizontalPosition {
-  CENTER = "CENTER",
-  LEFT = "LEFT",
-  RIGHT = "RIGHT",
-}
+export const ReferenceLineLabelHorizontalPosition = {
+  CENTER: "CENTER",
+  LEFT: "LEFT",
+  RIGHT: "RIGHT",
+};
 
 /**
  * @public
  */
-export enum ReferenceLineValueLabelRelativePosition {
-  AFTER_CUSTOM_LABEL = "AFTER_CUSTOM_LABEL",
-  BEFORE_CUSTOM_LABEL = "BEFORE_CUSTOM_LABEL",
-}
+export const ReferenceLineValueLabelRelativePosition = {
+  AFTER_CUSTOM_LABEL: "AFTER_CUSTOM_LABEL",
+  BEFORE_CUSTOM_LABEL: "BEFORE_CUSTOM_LABEL",
+};
 
 /**
  * @public
@@ -5137,7 +5137,7 @@ export interface ReferenceLineValueLabelConfiguration {
    *             </li>
    *          </ul>
    */
-  RelativePosition?: ReferenceLineValueLabelRelativePosition | string;
+  RelativePosition?: keyof typeof ReferenceLineValueLabelRelativePosition | string;
 
   /**
    * <p>The format configuration of the value label.</p>
@@ -5148,10 +5148,10 @@ export interface ReferenceLineValueLabelConfiguration {
 /**
  * @public
  */
-export enum ReferenceLineLabelVerticalPosition {
-  ABOVE = "ABOVE",
-  BELOW = "BELOW",
-}
+export const ReferenceLineLabelVerticalPosition = {
+  ABOVE: "ABOVE",
+  BELOW: "BELOW",
+};
 
 /**
  * @public
@@ -5199,7 +5199,7 @@ export interface ReferenceLineLabelConfiguration {
    *             </li>
    *          </ul>
    */
-  HorizontalPosition?: ReferenceLineLabelHorizontalPosition | string;
+  HorizontalPosition?: keyof typeof ReferenceLineLabelHorizontalPosition | string;
 
   /**
    * <p>The vertical position configuration of the label in a reference line. Choose one of the following options:</p>
@@ -5216,17 +5216,17 @@ export interface ReferenceLineLabelConfiguration {
    *             </li>
    *          </ul>
    */
-  VerticalPosition?: ReferenceLineLabelVerticalPosition | string;
+  VerticalPosition?: keyof typeof ReferenceLineLabelVerticalPosition | string;
 }
 
 /**
  * @public
  */
-export enum ReferenceLinePatternType {
-  DASHED = "DASHED",
-  DOTTED = "DOTTED",
-  SOLID = "SOLID",
-}
+export const ReferenceLinePatternType = {
+  DASHED: "DASHED",
+  DOTTED: "DOTTED",
+  SOLID: "SOLID",
+};
 
 /**
  * @public
@@ -5254,7 +5254,7 @@ export interface ReferenceLineStyleConfiguration {
    *             </li>
    *          </ul>
    */
-  Pattern?: ReferenceLinePatternType | string;
+  Pattern?: keyof typeof ReferenceLinePatternType | string;
 
   /**
    * <p>The hex color of the reference line.</p>
@@ -5282,7 +5282,7 @@ export interface ReferenceLine {
    *             </li>
    *          </ul>
    */
-  Status?: WidgetStatus | string;
+  Status?: keyof typeof WidgetStatus | string;
 
   /**
    * <p>The data configuration of the reference line.</p>
@@ -5303,21 +5303,21 @@ export interface ReferenceLine {
 /**
  * @public
  */
-export enum PanelBorderStyle {
-  DASHED = "DASHED",
-  DOTTED = "DOTTED",
-  SOLID = "SOLID",
-}
+export const PanelBorderStyle = {
+  DASHED: "DASHED",
+  DOTTED: "DOTTED",
+  SOLID: "SOLID",
+};
 
 /**
  * @public
  */
-export enum HorizontalTextAlignment {
-  AUTO = "AUTO",
-  CENTER = "CENTER",
-  LEFT = "LEFT",
-  RIGHT = "RIGHT",
-}
+export const HorizontalTextAlignment = {
+  AUTO: "AUTO",
+  CENTER: "CENTER",
+  LEFT: "LEFT",
+  RIGHT: "RIGHT",
+};
 
 /**
  * @public
@@ -5328,7 +5328,7 @@ export interface PanelTitleOptions {
   /**
    * <p>Determines whether or not panel titles are displayed.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>Configures the display properties of the given text.</p>
@@ -5338,7 +5338,7 @@ export interface PanelTitleOptions {
   /**
    * <p>Sets the horizontal text alignment of the title within each panel.</p>
    */
-  HorizontalTextAlignment?: HorizontalTextAlignment | string;
+  HorizontalTextAlignment?: keyof typeof HorizontalTextAlignment | string;
 }
 
 /**
@@ -5354,7 +5354,7 @@ export interface PanelConfiguration {
   /**
    * <p>Determines whether or not each panel displays a border.</p>
    */
-  BorderVisibility?: Visibility | string;
+  BorderVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>Sets the line thickness of panel borders.</p>
@@ -5364,7 +5364,7 @@ export interface PanelConfiguration {
   /**
    * <p>Sets the line style of panel borders.</p>
    */
-  BorderStyle?: PanelBorderStyle | string;
+  BorderStyle?: keyof typeof PanelBorderStyle | string;
 
   /**
    * <p>Sets the line color of panel borders.</p>
@@ -5374,7 +5374,7 @@ export interface PanelConfiguration {
   /**
    * <p>Determines whether or not negative space between sibling panels is rendered.</p>
    */
-  GutterVisibility?: Visibility | string;
+  GutterVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>Sets the total amount of negative space to display between sibling panels.</p>
@@ -5384,7 +5384,7 @@ export interface PanelConfiguration {
   /**
    * <p>Determines whether or not a background for each small multiples panel is rendered.</p>
    */
-  BackgroundVisibility?: Visibility | string;
+  BackgroundVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>Sets the background color for each panel.</p>
@@ -5420,10 +5420,10 @@ export interface SmallMultiplesOptions {
 /**
  * @public
  */
-export enum OtherCategories {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export const OtherCategories = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+};
 
 /**
  * @public
@@ -5452,7 +5452,7 @@ export interface ItemsLimitConfiguration {
    *             </li>
    *          </ul>
    */
-  OtherCategories?: OtherCategories | string;
+  OtherCategories?: keyof typeof OtherCategories | string;
 }
 
 /**
@@ -5468,7 +5468,7 @@ export interface ColumnSort {
   /**
    * <p>The sort direction.</p>
    */
-  Direction: SortDirection | string | undefined;
+  Direction: keyof typeof SortDirection | string | undefined;
 
   /**
    * <p>The aggregation function that is defined in the column sort.</p>
@@ -5501,7 +5501,7 @@ export interface FieldSort {
    *             </li>
    *          </ul>
    */
-  Direction: SortDirection | string | undefined;
+  Direction: keyof typeof SortDirection | string | undefined;
 }
 
 /**
@@ -5574,7 +5574,7 @@ export interface ColumnTooltipItem {
   /**
    * <p>The visibility of the tooltip item.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The aggregation function of the column tooltip item.</p>
@@ -5600,7 +5600,7 @@ export interface FieldTooltipItem {
   /**
    * <p>The visibility of the tooltip item.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -5623,10 +5623,10 @@ export interface TooltipItem {
 /**
  * @public
  */
-export enum TooltipTitleType {
-  NONE = "NONE",
-  PRIMARY_VALUE = "PRIMARY_VALUE",
-}
+export const TooltipTitleType = {
+  NONE: "NONE",
+  PRIMARY_VALUE: "PRIMARY_VALUE",
+};
 
 /**
  * @public
@@ -5636,7 +5636,7 @@ export interface FieldBasedTooltip {
   /**
    * <p>The visibility of <code>Show aggregations</code>.</p>
    */
-  AggregationVisibility?: Visibility | string;
+  AggregationVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The type for the >tooltip title. Choose one of the following options:</p>
@@ -5651,7 +5651,7 @@ export interface FieldBasedTooltip {
    *             </li>
    *          </ul>
    */
-  TooltipTitleType?: TooltipTitleType | string;
+  TooltipTitleType?: keyof typeof TooltipTitleType | string;
 
   /**
    * <p>The fields configuration in the
@@ -5663,10 +5663,10 @@ export interface FieldBasedTooltip {
 /**
  * @public
  */
-export enum SelectedTooltipType {
-  BASIC = "BASIC",
-  DETAILED = "DETAILED",
-}
+export const SelectedTooltipType = {
+  BASIC: "BASIC",
+  DETAILED: "DETAILED",
+};
 
 /**
  * @public
@@ -5676,7 +5676,7 @@ export interface TooltipOptions {
   /**
    * <p>Determines whether or not the tooltip is visible.</p>
    */
-  TooltipVisibility?: Visibility | string;
+  TooltipVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The selected type for the tooltip. Choose one of the following options:</p>
@@ -5691,7 +5691,7 @@ export interface TooltipOptions {
    *             </li>
    *          </ul>
    */
-  SelectedTooltipType?: SelectedTooltipType | string;
+  SelectedTooltipType?: keyof typeof SelectedTooltipType | string;
 
   /**
    * <p>The setup for the detailed tooltip. The tooltip setup is always saved. The display type is decided based on the tooltip type.</p>
@@ -5733,7 +5733,7 @@ export interface DataPathColor {
   /**
    * <p>The time granularity of the field that the color needs to be applied to.</p>
    */
-  TimeGranularity?: TimeGranularity | string;
+  TimeGranularity?: keyof typeof TimeGranularity | string;
 }
 
 /**
@@ -5780,12 +5780,12 @@ export interface BarChartConfiguration {
    *             </li>
    *          </ul>
    */
-  Orientation?: BarChartOrientation | string;
+  Orientation?: keyof typeof BarChartOrientation | string;
 
   /**
    * <p>Determines the arrangement of the bars. The orientation and arrangement of bars determine the type of bar that is used in the visual.</p>
    */
-  BarsArrangement?: BarsArrangement | string;
+  BarsArrangement?: keyof typeof BarsArrangement | string;
 
   /**
    * <p>The palette (chart color) display setup of the visual.</p>
@@ -5903,7 +5903,7 @@ export interface TimeRangeDrillDownFilter {
   /**
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity: TimeGranularity | string | undefined;
+  TimeGranularity: keyof typeof TimeGranularity | string | undefined;
 }
 
 /**
@@ -6033,7 +6033,7 @@ export interface VisualSubtitleLabelOptions {
   /**
    * <p>The visibility of the subtitle label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The long text format of the subtitle label, such as plain text or rich text.</p>
@@ -6066,7 +6066,7 @@ export interface VisualTitleLabelOptions {
   /**
    * <p>The visibility of the title label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The short text format of the title label, such as plain text or rich text.</p>
@@ -6135,10 +6135,10 @@ export interface BarChartVisual {
 /**
  * @public
  */
-export enum BoxPlotFillStyle {
-  SOLID = "SOLID",
-  TRANSPARENT = "TRANSPARENT",
-}
+export const BoxPlotFillStyle = {
+  SOLID: "SOLID",
+  TRANSPARENT: "TRANSPARENT",
+};
 
 /**
  * @public
@@ -6148,7 +6148,7 @@ export interface BoxPlotStyleOptions {
   /**
    * <p>The fill styles (solid, transparent) of the box plot.</p>
    */
-  FillStyle?: BoxPlotFillStyle | string;
+  FillStyle?: keyof typeof BoxPlotFillStyle | string;
 }
 
 /**
@@ -6164,12 +6164,12 @@ export interface BoxPlotOptions {
   /**
    * <p>Determines the visibility of the outlier in a box plot.</p>
    */
-  OutlierVisibility?: Visibility | string;
+  OutlierVisibility?: keyof typeof Visibility | string;
 
   /**
    * <p>Determines the visibility of all data points of the box plot.</p>
    */
-  AllDataPointsVisibility?: Visibility | string;
+  AllDataPointsVisibility?: keyof typeof Visibility | string;
 }
 
 /**
@@ -6426,7 +6426,7 @@ export interface ComboChartConfiguration {
    *             </li>
    *          </ul>
    */
-  BarsArrangement?: BarsArrangement | string;
+  BarsArrangement?: keyof typeof BarsArrangement | string;
 
   /**
    * <p>The category axis of a combo chart.</p>

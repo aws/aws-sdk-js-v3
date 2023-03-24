@@ -380,12 +380,12 @@ export interface LogDestination {
 /**
  * @public
  */
-export enum LogLevel {
-  ALL = "ALL",
-  ERROR = "ERROR",
-  FATAL = "FATAL",
-  OFF = "OFF",
-}
+export const LogLevel = {
+  ALL: "ALL",
+  ERROR: "ERROR",
+  FATAL: "FATAL",
+  OFF: "OFF",
+};
 
 /**
  * @public
@@ -396,7 +396,7 @@ export interface LoggingConfiguration {
   /**
    * <p>Defines which category of execution history events are logged.</p>
    */
-  level?: LogLevel | string;
+  level?: keyof typeof LogLevel | string;
 
   /**
    * <p>Determines whether execution data is included in your log. When set to <code>false</code>,
@@ -427,10 +427,10 @@ export interface TracingConfiguration {
 /**
  * @public
  */
-export enum StateMachineType {
-  EXPRESS = "EXPRESS",
-  STANDARD = "STANDARD",
-}
+export const StateMachineType = {
+  EXPRESS: "EXPRESS",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -478,7 +478,7 @@ export interface CreateStateMachineInput {
    *         <code>STANDARD</code>. You cannot update the <code>type</code> of a state machine once it
    *       has been created.</p>
    */
-  type?: StateMachineType | string;
+  type?: keyof typeof StateMachineType | string;
 
   /**
    * <p>Defines what execution history events are logged and where they are logged.</p>
@@ -717,11 +717,11 @@ export interface DeleteStateMachineOutput {}
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  API_DOES_NOT_SUPPORT_LABELED_ARNS = "API_DOES_NOT_SUPPORT_LABELED_ARNS",
-  CANNOT_UPDATE_COMPLETED_MAP_RUN = "CANNOT_UPDATE_COMPLETED_MAP_RUN",
-  MISSING_REQUIRED_PARAMETER = "MISSING_REQUIRED_PARAMETER",
-}
+export const ValidationExceptionReason = {
+  API_DOES_NOT_SUPPORT_LABELED_ARNS: "API_DOES_NOT_SUPPORT_LABELED_ARNS",
+  CANNOT_UPDATE_COMPLETED_MAP_RUN: "CANNOT_UPDATE_COMPLETED_MAP_RUN",
+  MISSING_REQUIRED_PARAMETER: "MISSING_REQUIRED_PARAMETER",
+};
 
 /**
  * @public
@@ -733,7 +733,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * @internal
@@ -826,13 +826,13 @@ export interface CloudWatchEventsExecutionDataDetails {
 /**
  * @public
  */
-export enum ExecutionStatus {
-  ABORTED = "ABORTED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const ExecutionStatus = {
+  ABORTED: "ABORTED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -878,7 +878,7 @@ export interface DescribeExecutionOutput {
   /**
    * <p>The current status of the execution.</p>
    */
-  status: ExecutionStatus | string | undefined;
+  status: keyof typeof ExecutionStatus | string | undefined;
 
   /**
    * <p>The date the execution is started.</p>
@@ -1060,12 +1060,12 @@ export interface MapRunItemCounts {
 /**
  * @public
  */
-export enum MapRunStatus {
-  ABORTED = "ABORTED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const MapRunStatus = {
+  ABORTED: "ABORTED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1084,7 +1084,7 @@ export interface DescribeMapRunOutput {
   /**
    * <p>The current status of the Map Run.</p>
    */
-  status: MapRunStatus | string | undefined;
+  status: keyof typeof MapRunStatus | string | undefined;
 
   /**
    * <p>The date when the Map Run was started.</p>
@@ -1158,10 +1158,10 @@ export interface DescribeStateMachineInput {
 /**
  * @public
  */
-export enum StateMachineStatus {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-}
+export const StateMachineStatus = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -1202,7 +1202,7 @@ export interface DescribeStateMachineOutput {
   /**
    * <p>The current status of the state machine.</p>
    */
-  status?: StateMachineStatus | string;
+  status?: keyof typeof StateMachineStatus | string;
 
   /**
    * <p>The Amazon States Language definition of the state machine. See <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a>.</p>
@@ -1219,7 +1219,7 @@ export interface DescribeStateMachineOutput {
    * <p>The <code>type</code> of the state machine (<code>STANDARD</code> or
    *       <code>EXPRESS</code>).</p>
    */
-  type: StateMachineType | string | undefined;
+  type: keyof typeof StateMachineType | string | undefined;
 
   /**
    * <p>The date the state machine is created.</p>
@@ -1939,67 +1939,67 @@ export interface TaskTimedOutEventDetails {
 /**
  * @public
  */
-export enum HistoryEventType {
-  ActivityFailed = "ActivityFailed",
-  ActivityScheduleFailed = "ActivityScheduleFailed",
-  ActivityScheduled = "ActivityScheduled",
-  ActivityStarted = "ActivityStarted",
-  ActivitySucceeded = "ActivitySucceeded",
-  ActivityTimedOut = "ActivityTimedOut",
-  ChoiceStateEntered = "ChoiceStateEntered",
-  ChoiceStateExited = "ChoiceStateExited",
-  ExecutionAborted = "ExecutionAborted",
-  ExecutionFailed = "ExecutionFailed",
-  ExecutionStarted = "ExecutionStarted",
-  ExecutionSucceeded = "ExecutionSucceeded",
-  ExecutionTimedOut = "ExecutionTimedOut",
-  FailStateEntered = "FailStateEntered",
-  LambdaFunctionFailed = "LambdaFunctionFailed",
-  LambdaFunctionScheduleFailed = "LambdaFunctionScheduleFailed",
-  LambdaFunctionScheduled = "LambdaFunctionScheduled",
-  LambdaFunctionStartFailed = "LambdaFunctionStartFailed",
-  LambdaFunctionStarted = "LambdaFunctionStarted",
-  LambdaFunctionSucceeded = "LambdaFunctionSucceeded",
-  LambdaFunctionTimedOut = "LambdaFunctionTimedOut",
-  MapIterationAborted = "MapIterationAborted",
-  MapIterationFailed = "MapIterationFailed",
-  MapIterationStarted = "MapIterationStarted",
-  MapIterationSucceeded = "MapIterationSucceeded",
-  MapRunAborted = "MapRunAborted",
-  MapRunFailed = "MapRunFailed",
-  MapRunStarted = "MapRunStarted",
-  MapRunSucceeded = "MapRunSucceeded",
-  MapStateAborted = "MapStateAborted",
-  MapStateEntered = "MapStateEntered",
-  MapStateExited = "MapStateExited",
-  MapStateFailed = "MapStateFailed",
-  MapStateStarted = "MapStateStarted",
-  MapStateSucceeded = "MapStateSucceeded",
-  ParallelStateAborted = "ParallelStateAborted",
-  ParallelStateEntered = "ParallelStateEntered",
-  ParallelStateExited = "ParallelStateExited",
-  ParallelStateFailed = "ParallelStateFailed",
-  ParallelStateStarted = "ParallelStateStarted",
-  ParallelStateSucceeded = "ParallelStateSucceeded",
-  PassStateEntered = "PassStateEntered",
-  PassStateExited = "PassStateExited",
-  SucceedStateEntered = "SucceedStateEntered",
-  SucceedStateExited = "SucceedStateExited",
-  TaskFailed = "TaskFailed",
-  TaskScheduled = "TaskScheduled",
-  TaskStartFailed = "TaskStartFailed",
-  TaskStarted = "TaskStarted",
-  TaskStateAborted = "TaskStateAborted",
-  TaskStateEntered = "TaskStateEntered",
-  TaskStateExited = "TaskStateExited",
-  TaskSubmitFailed = "TaskSubmitFailed",
-  TaskSubmitted = "TaskSubmitted",
-  TaskSucceeded = "TaskSucceeded",
-  TaskTimedOut = "TaskTimedOut",
-  WaitStateAborted = "WaitStateAborted",
-  WaitStateEntered = "WaitStateEntered",
-  WaitStateExited = "WaitStateExited",
-}
+export const HistoryEventType = {
+  ActivityFailed: "ActivityFailed",
+  ActivityScheduleFailed: "ActivityScheduleFailed",
+  ActivityScheduled: "ActivityScheduled",
+  ActivityStarted: "ActivityStarted",
+  ActivitySucceeded: "ActivitySucceeded",
+  ActivityTimedOut: "ActivityTimedOut",
+  ChoiceStateEntered: "ChoiceStateEntered",
+  ChoiceStateExited: "ChoiceStateExited",
+  ExecutionAborted: "ExecutionAborted",
+  ExecutionFailed: "ExecutionFailed",
+  ExecutionStarted: "ExecutionStarted",
+  ExecutionSucceeded: "ExecutionSucceeded",
+  ExecutionTimedOut: "ExecutionTimedOut",
+  FailStateEntered: "FailStateEntered",
+  LambdaFunctionFailed: "LambdaFunctionFailed",
+  LambdaFunctionScheduleFailed: "LambdaFunctionScheduleFailed",
+  LambdaFunctionScheduled: "LambdaFunctionScheduled",
+  LambdaFunctionStartFailed: "LambdaFunctionStartFailed",
+  LambdaFunctionStarted: "LambdaFunctionStarted",
+  LambdaFunctionSucceeded: "LambdaFunctionSucceeded",
+  LambdaFunctionTimedOut: "LambdaFunctionTimedOut",
+  MapIterationAborted: "MapIterationAborted",
+  MapIterationFailed: "MapIterationFailed",
+  MapIterationStarted: "MapIterationStarted",
+  MapIterationSucceeded: "MapIterationSucceeded",
+  MapRunAborted: "MapRunAborted",
+  MapRunFailed: "MapRunFailed",
+  MapRunStarted: "MapRunStarted",
+  MapRunSucceeded: "MapRunSucceeded",
+  MapStateAborted: "MapStateAborted",
+  MapStateEntered: "MapStateEntered",
+  MapStateExited: "MapStateExited",
+  MapStateFailed: "MapStateFailed",
+  MapStateStarted: "MapStateStarted",
+  MapStateSucceeded: "MapStateSucceeded",
+  ParallelStateAborted: "ParallelStateAborted",
+  ParallelStateEntered: "ParallelStateEntered",
+  ParallelStateExited: "ParallelStateExited",
+  ParallelStateFailed: "ParallelStateFailed",
+  ParallelStateStarted: "ParallelStateStarted",
+  ParallelStateSucceeded: "ParallelStateSucceeded",
+  PassStateEntered: "PassStateEntered",
+  PassStateExited: "PassStateExited",
+  SucceedStateEntered: "SucceedStateEntered",
+  SucceedStateExited: "SucceedStateExited",
+  TaskFailed: "TaskFailed",
+  TaskScheduled: "TaskScheduled",
+  TaskStartFailed: "TaskStartFailed",
+  TaskStarted: "TaskStarted",
+  TaskStateAborted: "TaskStateAborted",
+  TaskStateEntered: "TaskStateEntered",
+  TaskStateExited: "TaskStateExited",
+  TaskSubmitFailed: "TaskSubmitFailed",
+  TaskSubmitted: "TaskSubmitted",
+  TaskSucceeded: "TaskSucceeded",
+  TaskTimedOut: "TaskTimedOut",
+  WaitStateAborted: "WaitStateAborted",
+  WaitStateEntered: "WaitStateEntered",
+  WaitStateExited: "WaitStateExited",
+};
 
 /**
  * @public
@@ -2014,7 +2014,7 @@ export interface HistoryEvent {
   /**
    * <p>The type of the event.</p>
    */
-  type: HistoryEventType | string | undefined;
+  type: keyof typeof HistoryEventType | string | undefined;
 
   /**
    * <p>The id of the event. Events are numbered sequentially, starting at one.</p>
@@ -2284,7 +2284,7 @@ export interface ListExecutionsInput {
    * <p>If specified, only list the executions whose current execution status matches the given
    *       filter.</p>
    */
-  statusFilter?: ExecutionStatus | string;
+  statusFilter?: keyof typeof ExecutionStatus | string;
 
   /**
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
@@ -2351,7 +2351,7 @@ export interface ExecutionListItem {
   /**
    * <p>The current status of the execution.</p>
    */
-  status: ExecutionStatus | string | undefined;
+  status: keyof typeof ExecutionStatus | string | undefined;
 
   /**
    * <p>The date the execution started.</p>
@@ -2518,7 +2518,7 @@ export interface StateMachineListItem {
   /**
    * <p></p>
    */
-  type: StateMachineType | string | undefined;
+  type: keyof typeof StateMachineType | string | undefined;
 
   /**
    * <p>The date the state machine is created.</p>
@@ -2876,11 +2876,11 @@ export interface BillingDetails {
 /**
  * @public
  */
-export enum SyncExecutionStatus {
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const SyncExecutionStatus = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -2914,7 +2914,7 @@ export interface StartSyncExecutionOutput {
   /**
    * <p>The current status of the execution.</p>
    */
-  status: SyncExecutionStatus | string | undefined;
+  status: keyof typeof SyncExecutionStatus | string | undefined;
 
   /**
    * <p>The error code of the failure.</p>

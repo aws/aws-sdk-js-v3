@@ -9,10 +9,10 @@ import { SchemasServiceException as __BaseException } from "./SchemasServiceExce
 /**
  * @public
  */
-export enum DiscovererState {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-}
+export const DiscovererState = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -36,7 +36,7 @@ export interface DiscovererSummary {
   /**
    * <p>The state of the discoverer.</p>
    */
-  State?: DiscovererState | string;
+  State?: keyof typeof DiscovererState | string;
 
   /**
    * <p>The Status if the discoverer will discover schemas from events sent from another account.</p>
@@ -103,10 +103,10 @@ export interface SchemaSummary {
 /**
  * @public
  */
-export enum Type {
-  JSONSchemaDraft4 = "JSONSchemaDraft4",
-  OpenApi3 = "OpenApi3",
-}
+export const Type = {
+  JSONSchemaDraft4: "JSONSchemaDraft4",
+  OpenApi3: "OpenApi3",
+};
 
 /**
  * @public
@@ -130,7 +130,7 @@ export interface SchemaVersionSummary {
   /**
    * <p>The type of schema.</p>
    */
-  Type?: Type | string;
+  Type?: keyof typeof Type | string;
 }
 
 /**
@@ -150,7 +150,7 @@ export interface SearchSchemaVersionSummary {
   /**
    * <p>The type of schema.</p>
    */
-  Type?: Type | string;
+  Type?: keyof typeof Type | string;
 }
 
 /**
@@ -211,11 +211,11 @@ export class BadRequestException extends __BaseException {
 /**
  * @public
  */
-export enum CodeGenerationStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-}
+export const CodeGenerationStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -299,7 +299,7 @@ export interface CreateDiscovererResponse {
   /**
    * <p>The state of the discoverer.</p>
    */
-  State?: DiscovererState | string;
+  State?: keyof typeof DiscovererState | string;
 
   /**
    * <p>The Status if the discoverer will discover schemas from events sent from another account.</p>
@@ -509,7 +509,7 @@ export interface CreateSchemaRequest {
   /**
    * <p>The type of schema.</p>
    */
-  Type: Type | string | undefined;
+  Type: keyof typeof Type | string | undefined;
 }
 
 /**
@@ -699,7 +699,7 @@ export interface DescribeCodeBindingResponse {
   /**
    * <p>The current status of code binding generation.</p>
    */
-  Status?: CodeGenerationStatus | string;
+  Status?: keyof typeof CodeGenerationStatus | string;
 }
 
 /**
@@ -769,7 +769,7 @@ export interface DescribeDiscovererResponse {
   /**
    * <p>The state of the discoverer.</p>
    */
-  State?: DiscovererState | string;
+  State?: keyof typeof DiscovererState | string;
 
   /**
    * <p>The Status if the discoverer will discover schemas from events sent from another account.</p>
@@ -964,7 +964,7 @@ export interface GetDiscoveredSchemaRequest {
   /**
    * <p>The type of event.</p>
    */
-  Type: Type | string | undefined;
+  Type: keyof typeof Type | string | undefined;
 }
 
 /**
@@ -1273,7 +1273,7 @@ export interface PutCodeBindingResponse {
   /**
    * <p>The current status of code binding generation.</p>
    */
-  Status?: CodeGenerationStatus | string;
+  Status?: keyof typeof CodeGenerationStatus | string;
 }
 
 /**
@@ -1370,7 +1370,7 @@ export interface StartDiscovererResponse {
   /**
    * <p>The state of the discoverer.</p>
    */
-  State?: DiscovererState | string;
+  State?: keyof typeof DiscovererState | string;
 }
 
 /**
@@ -1395,7 +1395,7 @@ export interface StopDiscovererResponse {
   /**
    * <p>The state of the discoverer.</p>
    */
-  State?: DiscovererState | string;
+  State?: keyof typeof DiscovererState | string;
 }
 
 /**
@@ -1476,7 +1476,7 @@ export interface UpdateDiscovererResponse {
   /**
    * <p>The state of the discoverer.</p>
    */
-  State?: DiscovererState | string;
+  State?: keyof typeof DiscovererState | string;
 
   /**
    * <p>The Status if the discoverer will discover schemas from events sent from another account.</p>
@@ -1562,7 +1562,7 @@ export interface UpdateSchemaRequest {
   /**
    * <p>The schema type for the events schema.</p>
    */
-  Type?: Type | string;
+  Type?: keyof typeof Type | string;
 }
 
 /**

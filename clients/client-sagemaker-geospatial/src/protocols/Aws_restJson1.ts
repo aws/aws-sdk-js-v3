@@ -2445,7 +2445,7 @@ const serializeAws_restJson1TemporalStatisticsConfigInput = (
 };
 
 const serializeAws_restJson1TemporalStatisticsListInput = (
-  input: (TemporalStatistics | string)[],
+  input: (keyof typeof TemporalStatistics | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2551,7 +2551,7 @@ const serializeAws_restJson1ZonalStatisticsConfigInput = (
 };
 
 const serializeAws_restJson1ZonalStatisticsListInput = (
-  input: (ZonalStatistics | string)[],
+  input: (keyof typeof ZonalStatistics | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3278,7 +3278,7 @@ const deserializeAws_restJson1TemporalStatisticsConfigInput = (
 const deserializeAws_restJson1TemporalStatisticsListInput = (
   output: any,
   context: __SerdeContext
-): (TemporalStatistics | string)[] => {
+): (keyof typeof TemporalStatistics | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3435,7 +3435,7 @@ const deserializeAws_restJson1ZonalStatisticsConfigInput = (
 const deserializeAws_restJson1ZonalStatisticsListInput = (
   output: any,
   context: __SerdeContext
-): (ZonalStatistics | string)[] => {
+): (keyof typeof ZonalStatistics | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

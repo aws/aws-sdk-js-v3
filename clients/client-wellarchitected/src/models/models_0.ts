@@ -31,13 +31,13 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum CheckStatus {
-  ERROR = "ERROR",
-  FETCH_FAILED = "FETCH_FAILED",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  OKAY = "OKAY",
-  WARNING = "WARNING",
-}
+export const CheckStatus = {
+  ERROR: "ERROR",
+  FETCH_FAILED: "FETCH_FAILED",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  OKAY: "OKAY",
+  WARNING: "WARNING",
+};
 
 /**
  * @public
@@ -58,10 +58,10 @@ export interface ChoiceContent {
 /**
  * @public
  */
-export enum AdditionalResourceType {
-  HELPFUL_RESOURCE = "HELPFUL_RESOURCE",
-  IMPROVEMENT_PLAN = "IMPROVEMENT_PLAN",
-}
+export const AdditionalResourceType = {
+  HELPFUL_RESOURCE: "HELPFUL_RESOURCE",
+  IMPROVEMENT_PLAN: "IMPROVEMENT_PLAN",
+};
 
 /**
  * @public
@@ -71,7 +71,7 @@ export interface AdditionalResources {
   /**
    * <p>Type of additional resource.</p>
    */
-  Type?: AdditionalResourceType | string;
+  Type?: keyof typeof AdditionalResourceType | string;
 
   /**
    * <p>The URLs for additional resources, either helpful resources or improvement plans. Up to five additional URLs can be specified.</p>
@@ -82,22 +82,22 @@ export interface AdditionalResources {
 /**
  * @public
  */
-export enum ChoiceReason {
-  ARCHITECTURE_CONSTRAINTS = "ARCHITECTURE_CONSTRAINTS",
-  BUSINESS_PRIORITIES = "BUSINESS_PRIORITIES",
-  NONE = "NONE",
-  OTHER = "OTHER",
-  OUT_OF_SCOPE = "OUT_OF_SCOPE",
-}
+export const ChoiceReason = {
+  ARCHITECTURE_CONSTRAINTS: "ARCHITECTURE_CONSTRAINTS",
+  BUSINESS_PRIORITIES: "BUSINESS_PRIORITIES",
+  NONE: "NONE",
+  OTHER: "OTHER",
+  OUT_OF_SCOPE: "OUT_OF_SCOPE",
+};
 
 /**
  * @public
  */
-export enum ChoiceStatus {
-  NOT_APPLICABLE = "NOT_APPLICABLE",
-  SELECTED = "SELECTED",
-  UNSELECTED = "UNSELECTED",
-}
+export const ChoiceStatus = {
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+  SELECTED: "SELECTED",
+  UNSELECTED: "UNSELECTED",
+};
 
 /**
  * @public
@@ -112,12 +112,12 @@ export interface ChoiceAnswer {
   /**
    * <p>The status of a choice.</p>
    */
-  Status?: ChoiceStatus | string;
+  Status?: keyof typeof ChoiceStatus | string;
 
   /**
    * <p>The reason why a choice is non-applicable to a question in your workload.</p>
    */
-  Reason?: ChoiceReason | string;
+  Reason?: keyof typeof ChoiceReason | string;
 
   /**
    * <p>The notes associated with a choice.</p>
@@ -165,24 +165,24 @@ export interface Choice {
 /**
  * @public
  */
-export enum AnswerReason {
-  ARCHITECTURE_CONSTRAINTS = "ARCHITECTURE_CONSTRAINTS",
-  BUSINESS_PRIORITIES = "BUSINESS_PRIORITIES",
-  NONE = "NONE",
-  OTHER = "OTHER",
-  OUT_OF_SCOPE = "OUT_OF_SCOPE",
-}
+export const AnswerReason = {
+  ARCHITECTURE_CONSTRAINTS: "ARCHITECTURE_CONSTRAINTS",
+  BUSINESS_PRIORITIES: "BUSINESS_PRIORITIES",
+  NONE: "NONE",
+  OTHER: "OTHER",
+  OUT_OF_SCOPE: "OUT_OF_SCOPE",
+};
 
 /**
  * @public
  */
-export enum Risk {
-  HIGH = "HIGH",
-  MEDIUM = "MEDIUM",
-  NONE = "NONE",
-  NOT_APPLICABLE = "NOT_APPLICABLE",
-  UNANSWERED = "UNANSWERED",
-}
+export const Risk = {
+  HIGH: "HIGH",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+  UNANSWERED: "UNANSWERED",
+};
 
 /**
  * @public
@@ -250,7 +250,7 @@ export interface Answer {
   /**
    * <p>The risk for a given workload, lens review, pillar, or question.</p>
    */
-  Risk?: Risk | string;
+  Risk?: keyof typeof Risk | string;
 
   /**
    * <p>The notes associated with the workload.</p>
@@ -260,7 +260,7 @@ export interface Answer {
   /**
    * <p>The reason why the question is not applicable to your workload.</p>
    */
-  Reason?: AnswerReason | string;
+  Reason?: keyof typeof AnswerReason | string;
 }
 
 /**
@@ -276,12 +276,12 @@ export interface ChoiceAnswerSummary {
   /**
    * <p>The status of a choice.</p>
    */
-  Status?: ChoiceStatus | string;
+  Status?: keyof typeof ChoiceStatus | string;
 
   /**
    * <p>The reason why a choice is non-applicable to a question in your workload.</p>
    */
-  Reason?: ChoiceReason | string;
+  Reason?: keyof typeof ChoiceReason | string;
 }
 
 /**
@@ -329,12 +329,12 @@ export interface AnswerSummary {
   /**
    * <p>The risk for a given workload, lens review, pillar, or question.</p>
    */
-  Risk?: Risk | string;
+  Risk?: keyof typeof Risk | string;
 
   /**
    * <p>The reason why a choice is non-applicable to a question in your workload.</p>
    */
-  Reason?: AnswerReason | string;
+  Reason?: keyof typeof AnswerReason | string;
 }
 
 /**
@@ -509,12 +509,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+};
 
 /**
  * @public
@@ -531,7 +531,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason why the request failed validation.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>The fields that caused the error, if applicable.</p>
@@ -556,19 +556,19 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum CheckProvider {
-  TRUSTED_ADVISOR = "TRUSTED_ADVISOR",
-}
+export const CheckProvider = {
+  TRUSTED_ADVISOR: "TRUSTED_ADVISOR",
+};
 
 /**
  * @public
  */
-export enum CheckFailureReason {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  ASSUME_ROLE_ERROR = "ASSUME_ROLE_ERROR",
-  PREMIUM_SUPPORT_REQUIRED = "PREMIUM_SUPPORT_REQUIRED",
-  UNKNOWN_ERROR = "UNKNOWN_ERROR",
-}
+export const CheckFailureReason = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  ASSUME_ROLE_ERROR: "ASSUME_ROLE_ERROR",
+  PREMIUM_SUPPORT_REQUIRED: "PREMIUM_SUPPORT_REQUIRED",
+  UNKNOWN_ERROR: "UNKNOWN_ERROR",
+};
 
 /**
  * @public
@@ -593,7 +593,7 @@ export interface CheckDetail {
   /**
    * <p>Provider of the check related to the best practice.</p>
    */
-  Provider?: CheckProvider | string;
+  Provider?: keyof typeof CheckProvider | string;
 
   /**
    * <p>Well-Architected Lens ARN associated to the check.</p>
@@ -619,7 +619,7 @@ export interface CheckDetail {
   /**
    * <p>Status associated to the check.</p>
    */
-  Status?: CheckStatus | string;
+  Status?: keyof typeof CheckStatus | string;
 
   /**
    * <p>An Amazon Web Services account ID.</p>
@@ -634,7 +634,7 @@ export interface CheckDetail {
   /**
    * <p>Reason associated to the check.</p>
    */
-  Reason?: CheckFailureReason | string;
+  Reason?: keyof typeof CheckFailureReason | string;
 
   /**
    * <p>The date and time recorded.</p>
@@ -660,7 +660,7 @@ export interface CheckSummary {
   /**
    * <p>Provider of the check related to the best practice.</p>
    */
-  Provider?: CheckProvider | string;
+  Provider?: keyof typeof CheckProvider | string;
 
   /**
    * <p>Trusted Advisor check description.</p>
@@ -696,7 +696,7 @@ export interface CheckSummary {
   /**
    * <p>Status associated to the check.</p>
    */
-  Status?: CheckStatus | string;
+  Status?: keyof typeof CheckStatus | string;
 
   /**
    * <p>Account summary associated to the check.</p>
@@ -734,12 +734,12 @@ export interface ChoiceUpdate {
   /**
    * <p>The status of a choice.</p>
    */
-  Status: ChoiceStatus | string | undefined;
+  Status: keyof typeof ChoiceStatus | string | undefined;
 
   /**
    * <p>The reason why a choice is non-applicable to a question in your workload.</p>
    */
-  Reason?: ChoiceReason | string;
+  Reason?: keyof typeof ChoiceReason | string;
 
   /**
    * <p>The notes associated with a choice.</p>
@@ -943,10 +943,10 @@ export interface CreateMilestoneOutput {
 /**
  * @public
  */
-export enum TrustedAdvisorIntegrationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const TrustedAdvisorIntegrationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -956,16 +956,16 @@ export interface WorkloadDiscoveryConfig {
   /**
    * <p>Discovery integration status in respect to Trusted Advisor for the workload.</p>
    */
-  TrustedAdvisorIntegrationStatus?: TrustedAdvisorIntegrationStatus | string;
+  TrustedAdvisorIntegrationStatus?: keyof typeof TrustedAdvisorIntegrationStatus | string;
 }
 
 /**
  * @public
  */
-export enum WorkloadEnvironment {
-  PREPRODUCTION = "PREPRODUCTION",
-  PRODUCTION = "PRODUCTION",
-}
+export const WorkloadEnvironment = {
+  PREPRODUCTION: "PREPRODUCTION",
+  PRODUCTION: "PRODUCTION",
+};
 
 /**
  * @public
@@ -987,7 +987,7 @@ export interface CreateWorkloadInput {
   /**
    * <p>The environment for the workload.</p>
    */
-  Environment: WorkloadEnvironment | string | undefined;
+  Environment: keyof typeof WorkloadEnvironment | string | undefined;
 
   /**
    * <p>The list of Amazon Web Services account IDs associated with the workload.</p>
@@ -1229,10 +1229,10 @@ export interface CreateWorkloadOutput {
 /**
  * @public
  */
-export enum PermissionType {
-  CONTRIBUTOR = "CONTRIBUTOR",
-  READONLY = "READONLY",
-}
+export const PermissionType = {
+  CONTRIBUTOR: "CONTRIBUTOR",
+  READONLY: "READONLY",
+};
 
 /**
  * @public
@@ -1252,7 +1252,7 @@ export interface CreateWorkloadShareInput {
   /**
    * <p>Permission granted on a workload share.</p>
    */
-  PermissionType: PermissionType | string | undefined;
+  PermissionType: keyof typeof PermissionType | string | undefined;
 
   /**
    * <p>A unique case-sensitive string used to ensure that this request is idempotent
@@ -1288,11 +1288,11 @@ export interface CreateWorkloadShareOutput {
 /**
  * @public
  */
-export enum LensStatusType {
-  ALL = "ALL",
-  DRAFT = "DRAFT",
-  PUBLISHED = "PUBLISHED",
-}
+export const LensStatusType = {
+  ALL: "ALL",
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+};
 
 /**
  * @public
@@ -1324,7 +1324,7 @@ export interface DeleteLensInput {
   /**
    * <p>The status of the lens to be deleted.</p>
    */
-  LensStatus: LensStatusType | string | undefined;
+  LensStatus: keyof typeof LensStatusType | string | undefined;
 }
 
 /**
@@ -1418,11 +1418,11 @@ export interface DeleteWorkloadShareInput {
 /**
  * @public
  */
-export enum DifferenceStatus {
-  DELETED = "DELETED",
-  NEW = "NEW",
-  UPDATED = "UPDATED",
-}
+export const DifferenceStatus = {
+  DELETED: "DELETED",
+  NEW: "NEW",
+  UPDATED: "UPDATED",
+};
 
 /**
  * @public
@@ -1636,13 +1636,13 @@ export interface GetLensReviewInput {
 /**
  * @public
  */
-export enum LensStatus {
-  CURRENT = "CURRENT",
-  DELETED = "DELETED",
-  DEPRECATED = "DEPRECATED",
-  NOT_CURRENT = "NOT_CURRENT",
-  UNSHARED = "UNSHARED",
-}
+export const LensStatus = {
+  CURRENT: "CURRENT",
+  DELETED: "DELETED",
+  DEPRECATED: "DEPRECATED",
+  NOT_CURRENT: "NOT_CURRENT",
+  UNSHARED: "UNSHARED",
+};
 
 /**
  * @public
@@ -1703,7 +1703,7 @@ export interface LensReview {
   /**
    * <p>The status of the lens.</p>
    */
-  LensStatus?: LensStatus | string;
+  LensStatus?: keyof typeof LensStatus | string;
 
   /**
    * <p>List of pillar review summaries of lens review in a workload.</p>
@@ -1869,7 +1869,7 @@ export interface QuestionDifference {
   /**
    * <p>Indicates the type of change to the question.</p>
    */
-  DifferenceStatus?: DifferenceStatus | string;
+  DifferenceStatus?: keyof typeof DifferenceStatus | string;
 }
 
 /**
@@ -1891,7 +1891,7 @@ export interface PillarDifference {
   /**
    * <p>Indicates the type of change to the pillar.</p>
    */
-  DifferenceStatus?: DifferenceStatus | string;
+  DifferenceStatus?: keyof typeof DifferenceStatus | string;
 
   /**
    * <p>List of question differences.</p>
@@ -1969,13 +1969,13 @@ export interface GetMilestoneInput {
 /**
  * @public
  */
-export enum WorkloadImprovementStatus {
-  COMPLETE = "COMPLETE",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_APPLICABLE = "NOT_APPLICABLE",
-  NOT_STARTED = "NOT_STARTED",
-  RISK_ACKNOWLEDGED = "RISK_ACKNOWLEDGED",
-}
+export const WorkloadImprovementStatus = {
+  COMPLETE: "COMPLETE",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+  NOT_STARTED: "NOT_STARTED",
+  RISK_ACKNOWLEDGED: "RISK_ACKNOWLEDGED",
+};
 
 /**
  * @public
@@ -2007,7 +2007,7 @@ export interface Workload {
   /**
    * <p>The environment for the workload.</p>
    */
-  Environment?: WorkloadEnvironment | string;
+  Environment?: keyof typeof WorkloadEnvironment | string;
 
   /**
    * <p>The date and time recorded.</p>
@@ -2211,7 +2211,7 @@ export interface Workload {
   /**
    * <p>The improvement status for a workload.</p>
    */
-  ImprovementStatus?: WorkloadImprovementStatus | string;
+  ImprovementStatus?: keyof typeof WorkloadImprovementStatus | string;
 
   /**
    * <p>A map from risk names to the count of how questions have that rating.</p>
@@ -2362,11 +2362,11 @@ export interface ImportLensInput {
 /**
  * @public
  */
-export enum ImportLensStatus {
-  COMPLETE = "COMPLETE",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ImportLensStatus = {
+  COMPLETE: "COMPLETE",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -2380,7 +2380,7 @@ export interface ImportLensOutput {
   /**
    * <p>The status of the imported lens.</p>
    */
-  Status?: ImportLensStatus | string;
+  Status?: keyof typeof ImportLensStatus | string;
 }
 
 /**
@@ -2407,7 +2407,7 @@ export interface ImprovementSummary {
   /**
    * <p>The risk for a given workload, lens review, pillar, or question.</p>
    */
-  Risk?: Risk | string;
+  Risk?: keyof typeof Risk | string;
 
   /**
    * <p>The improvement plan URL for a question.</p>
@@ -2453,7 +2453,7 @@ export interface LensReviewSummary {
   /**
    * <p>The status of the lens.</p>
    */
-  LensStatus?: LensStatus | string;
+  LensStatus?: keyof typeof LensStatus | string;
 
   /**
    * <p>The date and time recorded.</p>
@@ -2469,16 +2469,16 @@ export interface LensReviewSummary {
 /**
  * @public
  */
-export enum ShareStatus {
-  ACCEPTED = "ACCEPTED",
-  ASSOCIATED = "ASSOCIATED",
-  ASSOCIATING = "ASSOCIATING",
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-  REVOKED = "REVOKED",
-}
+export const ShareStatus = {
+  ACCEPTED: "ACCEPTED",
+  ASSOCIATED: "ASSOCIATED",
+  ASSOCIATING: "ASSOCIATING",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+  REVOKED: "REVOKED",
+};
 
 /**
  * @public
@@ -2498,7 +2498,7 @@ export interface LensShareSummary {
   /**
    * <p>The status of a workload share.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: keyof typeof ShareStatus | string;
 
   /**
    * <p>Optional message to compliment the Status field.</p>
@@ -2509,11 +2509,11 @@ export interface LensShareSummary {
 /**
  * @public
  */
-export enum LensType {
-  AWS_OFFICIAL = "AWS_OFFICIAL",
-  CUSTOM_SELF = "CUSTOM_SELF",
-  CUSTOM_SHARED = "CUSTOM_SHARED",
-}
+export const LensType = {
+  AWS_OFFICIAL: "AWS_OFFICIAL",
+  CUSTOM_SELF: "CUSTOM_SELF",
+  CUSTOM_SHARED: "CUSTOM_SHARED",
+};
 
 /**
  * @public
@@ -2542,7 +2542,7 @@ export interface LensSummary {
   /**
    * <p>The type of the lens.</p>
    */
-  LensType?: LensType | string;
+  LensType?: keyof typeof LensType | string;
 
   /**
    * <p>The description of the lens.</p>
@@ -2572,7 +2572,7 @@ export interface LensSummary {
   /**
    * <p>The status of the lens.</p>
    */
-  LensStatus?: LensStatus | string;
+  LensStatus?: keyof typeof LensStatus | string;
 }
 
 /**
@@ -2830,12 +2830,12 @@ export interface ListLensesInput {
   /**
    * <p>The type of lenses to be returned.</p>
    */
-  LensType?: LensType | string;
+  LensType?: keyof typeof LensType | string;
 
   /**
    * <p>The status of lenses to be returned.</p>
    */
-  LensStatus?: LensStatusType | string;
+  LensStatus?: keyof typeof LensStatusType | string;
 
   /**
    * <p>The full name of the lens.</p>
@@ -3027,7 +3027,7 @@ export interface ListLensSharesInput {
   /**
    * <p>The status of a workload share.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: keyof typeof ShareStatus | string;
 }
 
 /**
@@ -3111,7 +3111,7 @@ export interface WorkloadSummary {
   /**
    * <p>The improvement status for a workload.</p>
    */
-  ImprovementStatus?: WorkloadImprovementStatus | string;
+  ImprovementStatus?: keyof typeof WorkloadImprovementStatus | string;
 }
 
 /**
@@ -3186,10 +3186,10 @@ export interface ListNotificationsInput {
 /**
  * @public
  */
-export enum NotificationType {
-  LENS_VERSION_DEPRECATED = "LENS_VERSION_DEPRECATED",
-  LENS_VERSION_UPGRADED = "LENS_VERSION_UPGRADED",
-}
+export const NotificationType = {
+  LENS_VERSION_DEPRECATED: "LENS_VERSION_DEPRECATED",
+  LENS_VERSION_UPGRADED: "LENS_VERSION_UPGRADED",
+};
 
 /**
  * @public
@@ -3199,7 +3199,7 @@ export interface NotificationSummary {
   /**
    * <p>The type of notification.</p>
    */
-  Type?: NotificationType | string;
+  Type?: keyof typeof NotificationType | string;
 
   /**
    * <p>Summary of lens upgrade.</p>
@@ -3225,10 +3225,10 @@ export interface ListNotificationsOutput {
 /**
  * @public
  */
-export enum ShareResourceType {
-  LENS = "LENS",
-  WORKLOAD = "WORKLOAD",
-}
+export const ShareResourceType = {
+  LENS: "LENS",
+  WORKLOAD: "WORKLOAD",
+};
 
 /**
  * @public
@@ -3249,7 +3249,7 @@ export interface ListShareInvitationsInput {
   /**
    * <p>The type of share invitations to be returned.</p>
    */
-  ShareResourceType?: ShareResourceType | string;
+  ShareResourceType?: keyof typeof ShareResourceType | string;
 
   /**
    * <p>The token to use to retrieve the next set of results.</p>
@@ -3285,12 +3285,12 @@ export interface ShareInvitationSummary {
   /**
    * <p>Permission granted on a workload share.</p>
    */
-  PermissionType?: PermissionType | string;
+  PermissionType?: keyof typeof PermissionType | string;
 
   /**
    * <p>The resource type of the share invitation.</p>
    */
-  ShareResourceType?: ShareResourceType | string;
+  ShareResourceType?: keyof typeof ShareResourceType | string;
 
   /**
    * <p>The name of the workload.</p>
@@ -3417,7 +3417,7 @@ export interface ListWorkloadSharesInput {
   /**
    * <p>The status of a workload share.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: keyof typeof ShareStatus | string;
 }
 
 /**
@@ -3438,12 +3438,12 @@ export interface WorkloadShareSummary {
   /**
    * <p>Permission granted on a workload share.</p>
    */
-  PermissionType?: PermissionType | string;
+  PermissionType?: keyof typeof PermissionType | string;
 
   /**
    * <p>The status of a workload share.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: keyof typeof ShareStatus | string;
 
   /**
    * <p>Optional message to compliment the Status field.</p>
@@ -3475,10 +3475,10 @@ export interface ListWorkloadSharesOutput {
 /**
  * @public
  */
-export enum OrganizationSharingStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const OrganizationSharingStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -3493,7 +3493,7 @@ export interface ShareInvitation {
   /**
    * <p>The resource type of the share invitation.</p>
    */
-  ShareResourceType?: ShareResourceType | string;
+  ShareResourceType?: keyof typeof ShareResourceType | string;
 
   /**
    * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
@@ -3518,10 +3518,10 @@ export interface ShareInvitation {
 /**
  * @public
  */
-export enum ShareInvitationAction {
-  ACCEPT = "ACCEPT",
-  REJECT = "REJECT",
-}
+export const ShareInvitationAction = {
+  ACCEPT: "ACCEPT",
+  REJECT: "REJECT",
+};
 
 /**
  * @public
@@ -3613,7 +3613,7 @@ export interface UpdateAnswerInput {
   /**
    * <p>The reason why a question is not applicable to your workload.</p>
    */
-  Reason?: AnswerReason | string;
+  Reason?: keyof typeof AnswerReason | string;
 }
 
 /**
@@ -3653,7 +3653,7 @@ export interface UpdateGlobalSettingsInput {
   /**
    * <p>The status of organization sharing settings.</p>
    */
-  OrganizationSharingStatus?: OrganizationSharingStatus | string;
+  OrganizationSharingStatus?: keyof typeof OrganizationSharingStatus | string;
 }
 
 /**
@@ -3715,7 +3715,7 @@ export interface UpdateShareInvitationInput {
   /**
    * <p>Share invitation action taken by contributor.</p>
    */
-  ShareInvitationAction: ShareInvitationAction | string | undefined;
+  ShareInvitationAction: keyof typeof ShareInvitationAction | string | undefined;
 }
 
 /**
@@ -3753,7 +3753,7 @@ export interface UpdateWorkloadInput {
   /**
    * <p>The environment for the workload.</p>
    */
-  Environment?: WorkloadEnvironment | string;
+  Environment?: keyof typeof WorkloadEnvironment | string;
 
   /**
    * <p>The list of Amazon Web Services account IDs associated with the workload.</p>
@@ -3953,7 +3953,7 @@ export interface UpdateWorkloadInput {
   /**
    * <p>The improvement status for a workload.</p>
    */
-  ImprovementStatus?: WorkloadImprovementStatus | string;
+  ImprovementStatus?: keyof typeof WorkloadImprovementStatus | string;
 
   /**
    * <p>Well-Architected discovery configuration settings to associate to the workload.</p>
@@ -3995,7 +3995,7 @@ export interface UpdateWorkloadShareInput {
   /**
    * <p>Permission granted on a workload share.</p>
    */
-  PermissionType: PermissionType | string | undefined;
+  PermissionType: keyof typeof PermissionType | string | undefined;
 }
 
 /**
@@ -4021,12 +4021,12 @@ export interface WorkloadShare {
   /**
    * <p>Permission granted on a workload share.</p>
    */
-  PermissionType?: PermissionType | string;
+  PermissionType?: keyof typeof PermissionType | string;
 
   /**
    * <p>The status of a workload share.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: keyof typeof ShareStatus | string;
 
   /**
    * <p>The name of the workload.</p>

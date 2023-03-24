@@ -7254,7 +7254,10 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AggregateTypes = (input: (AggregateType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1AggregateTypes = (
+  input: (keyof typeof AggregateType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7503,7 +7506,10 @@ const serializeAws_restJson1BatchGetAssetPropertyValueHistoryEntry = (
   };
 };
 
-const serializeAws_restJson1ColumnNames = (input: (ColumnName | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1ColumnNames = (
+  input: (keyof typeof ColumnName | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7756,7 +7762,7 @@ const serializeAws_restJson1PutAssetPropertyValueEntry = (
   };
 };
 
-const serializeAws_restJson1Qualities = (input: (Quality | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1Qualities = (input: (keyof typeof Quality | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8683,7 +8689,10 @@ const deserializeAws_restJson1BatchPutAssetPropertyErrors = (
   return retVal;
 };
 
-const deserializeAws_restJson1ColumnNames = (output: any, context: __SerdeContext): (ColumnName | string)[] => {
+const deserializeAws_restJson1ColumnNames = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof ColumnName | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -26,27 +26,27 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AccessPropertyValue {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const AccessPropertyValue = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+};
 
 /**
  * @public
  */
-export enum DedicatedTenancySupportResultEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DedicatedTenancySupportResultEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum DedicatedTenancyModificationStateEnum {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
+export const DedicatedTenancyModificationStateEnum = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -57,12 +57,12 @@ export interface AccountModification {
   /**
    * <p>The state of the modification to the configuration of BYOL.</p>
    */
-  ModificationState?: DedicatedTenancyModificationStateEnum | string;
+  ModificationState?: keyof typeof DedicatedTenancyModificationStateEnum | string;
 
   /**
    * <p>The status of BYOL (whether BYOL is being enabled or disabled).</p>
    */
-  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum | string;
+  DedicatedTenancySupport?: keyof typeof DedicatedTenancySupportResultEnum | string;
 
   /**
    * <p>The IP address range, specified as an IPv4 CIDR block, for the management network
@@ -90,10 +90,10 @@ export interface AccountModification {
 /**
  * @public
  */
-export enum Application {
-  Microsoft_Office_2016 = "Microsoft_Office_2016",
-  Microsoft_Office_2019 = "Microsoft_Office_2019",
-}
+export const Application = {
+  Microsoft_Office_2016: "Microsoft_Office_2016",
+  Microsoft_Office_2019: "Microsoft_Office_2019",
+};
 
 /**
  * @public
@@ -276,13 +276,13 @@ export class ResourceLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum AssociationStatus {
-  ASSOCIATED_WITH_OWNER_ACCOUNT = "ASSOCIATED_WITH_OWNER_ACCOUNT",
-  ASSOCIATED_WITH_SHARED_ACCOUNT = "ASSOCIATED_WITH_SHARED_ACCOUNT",
-  NOT_ASSOCIATED = "NOT_ASSOCIATED",
-  PENDING_ASSOCIATION = "PENDING_ASSOCIATION",
-  PENDING_DISASSOCIATION = "PENDING_DISASSOCIATION",
-}
+export const AssociationStatus = {
+  ASSOCIATED_WITH_OWNER_ACCOUNT: "ASSOCIATED_WITH_OWNER_ACCOUNT",
+  ASSOCIATED_WITH_SHARED_ACCOUNT: "ASSOCIATED_WITH_SHARED_ACCOUNT",
+  NOT_ASSOCIATED: "NOT_ASSOCIATED",
+  PENDING_ASSOCIATION: "PENDING_ASSOCIATION",
+  PENDING_DISASSOCIATION: "PENDING_DISASSOCIATION",
+};
 
 /**
  * @public
@@ -323,25 +323,25 @@ export interface AuthorizeIpRulesResult {}
 /**
  * @public
  */
-export enum BundleType {
-  REGULAR = "REGULAR",
-  STANDBY = "STANDBY",
-}
+export const BundleType = {
+  REGULAR: "REGULAR",
+  STANDBY: "STANDBY",
+};
 
 /**
  * @public
  */
-export enum Compute {
-  GRAPHICS = "GRAPHICS",
-  GRAPHICSPRO = "GRAPHICSPRO",
-  GRAPHICSPRO_G4DN = "GRAPHICSPRO_G4DN",
-  GRAPHICS_G4DN = "GRAPHICS_G4DN",
-  PERFORMANCE = "PERFORMANCE",
-  POWER = "POWER",
-  POWERPRO = "POWERPRO",
-  STANDARD = "STANDARD",
-  VALUE = "VALUE",
-}
+export const Compute = {
+  GRAPHICS: "GRAPHICS",
+  GRAPHICSPRO: "GRAPHICSPRO",
+  GRAPHICSPRO_G4DN: "GRAPHICSPRO_G4DN",
+  GRAPHICS_G4DN: "GRAPHICS_G4DN",
+  PERFORMANCE: "PERFORMANCE",
+  POWER: "POWER",
+  POWERPRO: "POWERPRO",
+  STANDARD: "STANDARD",
+  VALUE: "VALUE",
+};
 
 /**
  * @public
@@ -351,7 +351,7 @@ export interface ComputeType {
   /**
    * <p>The compute type.</p>
    */
-  Name?: Compute | string;
+  Name?: keyof typeof Compute | string;
 }
 
 /**
@@ -368,11 +368,11 @@ export interface RootStorage {
 /**
  * @public
  */
-export enum WorkspaceBundleState {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PENDING = "PENDING",
-}
+export const WorkspaceBundleState = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -445,21 +445,21 @@ export interface WorkspaceBundle {
   /**
    * <p>The state of the WorkSpace bundle.</p>
    */
-  State?: WorkspaceBundleState | string;
+  State?: keyof typeof WorkspaceBundleState | string;
 
   /**
    * <p>The type of WorkSpace bundle.</p>
    */
-  BundleType?: BundleType | string;
+  BundleType?: keyof typeof BundleType | string;
 }
 
 /**
  * @public
  */
-export enum CertificateBasedAuthStatusEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const CertificateBasedAuthStatusEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -470,7 +470,7 @@ export interface CertificateBasedAuthProperties {
   /**
    * <p>The status of the certificate-based authentication properties.</p>
    */
-  Status?: CertificateBasedAuthStatusEnum | string;
+  Status?: keyof typeof CertificateBasedAuthStatusEnum | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.</p>
@@ -481,30 +481,30 @@ export interface CertificateBasedAuthProperties {
 /**
  * @public
  */
-export enum ClientDeviceType {
-  DEVICE_TYPE_ANDROID = "DeviceTypeAndroid",
-  DEVICE_TYPE_IOS = "DeviceTypeIos",
-  DEVICE_TYPE_LINUX = "DeviceTypeLinux",
-  DEVICE_TYPE_OSX = "DeviceTypeOsx",
-  DEVICE_TYPE_WEB = "DeviceTypeWeb",
-  DEVICE_TYPE_WINDOWS = "DeviceTypeWindows",
-}
+export const ClientDeviceType = {
+  DEVICE_TYPE_ANDROID: "DeviceTypeAndroid",
+  DEVICE_TYPE_IOS: "DeviceTypeIos",
+  DEVICE_TYPE_LINUX: "DeviceTypeLinux",
+  DEVICE_TYPE_OSX: "DeviceTypeOsx",
+  DEVICE_TYPE_WEB: "DeviceTypeWeb",
+  DEVICE_TYPE_WINDOWS: "DeviceTypeWindows",
+};
 
 /**
  * @public
  */
-export enum LogUploadEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const LogUploadEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum ReconnectEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ReconnectEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -516,7 +516,7 @@ export interface ClientProperties {
    *          When enabled, users can choose to reconnect to their WorkSpaces without re-entering their
    *          credentials. </p>
    */
-  ReconnectEnabled?: ReconnectEnum | string;
+  ReconnectEnabled?: keyof typeof ReconnectEnum | string;
 
   /**
    * <p>Specifies whether users can upload diagnostic log files of Amazon WorkSpaces client directly to
@@ -524,7 +524,7 @@ export interface ClientProperties {
    *          When enabled, the log files will be sent to WorkSpaces automatically and will be applied to all
    *          users in the specified directory.</p>
    */
-  LogUploadEnabled?: LogUploadEnum | string;
+  LogUploadEnabled?: keyof typeof LogUploadEnum | string;
 }
 
 /**
@@ -579,7 +579,7 @@ export interface ConnectionAliasAssociation {
   /**
    * <p>The association status of the connection alias.</p>
    */
-  AssociationStatus?: AssociationStatus | string;
+  AssociationStatus?: keyof typeof AssociationStatus | string;
 
   /**
    * <p>The identifier of the Amazon Web Services account that associated the connection alias
@@ -602,11 +602,11 @@ export interface ConnectionAliasAssociation {
 /**
  * @public
  */
-export enum ConnectionAliasState {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const ConnectionAliasState = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -630,7 +630,7 @@ export interface ConnectionAlias {
   /**
    * <p>The current state of the connection alias.</p>
    */
-  State?: ConnectionAliasState | string;
+  State?: keyof typeof ConnectionAliasState | string;
 
   /**
    * <p>The identifier of the Amazon Web Services account that owns the connection alias.</p>
@@ -666,11 +666,11 @@ export interface ConnectionAliasPermission {
 /**
  * @public
  */
-export enum ConnectionState {
-  CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED",
-  UNKNOWN = "UNKNOWN",
-}
+export const ConnectionState = {
+  CONNECTED: "CONNECTED",
+  DISCONNECTED: "DISCONNECTED",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -955,25 +955,25 @@ export interface FailedCreateStandbyWorkspacesRequest {
 /**
  * @public
  */
-export enum WorkspaceState {
-  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  IMPAIRED = "IMPAIRED",
-  MAINTENANCE = "MAINTENANCE",
-  PENDING = "PENDING",
-  REBOOTING = "REBOOTING",
-  REBUILDING = "REBUILDING",
-  RESTORING = "RESTORING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-  UNHEALTHY = "UNHEALTHY",
-  UPDATING = "UPDATING",
-}
+export const WorkspaceState = {
+  ADMIN_MAINTENANCE: "ADMIN_MAINTENANCE",
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  IMPAIRED: "IMPAIRED",
+  MAINTENANCE: "MAINTENANCE",
+  PENDING: "PENDING",
+  REBOOTING: "REBOOTING",
+  REBUILDING: "REBUILDING",
+  RESTORING: "RESTORING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUSPENDED: "SUSPENDED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+  UNHEALTHY: "UNHEALTHY",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -998,7 +998,7 @@ export interface PendingCreateStandbyWorkspacesRequest {
   /**
    * <p>The operational state of the standby WorkSpace.</p>
    */
-  State?: WorkspaceState | string;
+  State?: keyof typeof WorkspaceState | string;
 
   /**
    * <p>The identifier of the standby WorkSpace.</p>
@@ -1167,10 +1167,10 @@ export interface CreateWorkspaceImageRequest {
 /**
  * @public
  */
-export enum OperatingSystemType {
-  LINUX = "LINUX",
-  WINDOWS = "WINDOWS",
-}
+export const OperatingSystemType = {
+  LINUX: "LINUX",
+  WINDOWS: "WINDOWS",
+};
 
 /**
  * @public
@@ -1180,25 +1180,25 @@ export interface OperatingSystem {
   /**
    * <p>The operating system.</p>
    */
-  Type?: OperatingSystemType | string;
+  Type?: keyof typeof OperatingSystemType | string;
 }
 
 /**
  * @public
  */
-export enum WorkspaceImageRequiredTenancy {
-  DEDICATED = "DEDICATED",
-  DEFAULT = "DEFAULT",
-}
+export const WorkspaceImageRequiredTenancy = {
+  DEDICATED: "DEDICATED",
+  DEFAULT: "DEFAULT",
+};
 
 /**
  * @public
  */
-export enum WorkspaceImageState {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PENDING = "PENDING",
-}
+export const WorkspaceImageState = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -1227,7 +1227,7 @@ export interface CreateWorkspaceImageResult {
   /**
    * <p>The availability status of the image.</p>
    */
-  State?: WorkspaceImageState | string;
+  State?: keyof typeof WorkspaceImageState | string;
 
   /**
    * <p>Specifies whether the image is running on dedicated hardware.
@@ -1236,7 +1236,7 @@ export interface CreateWorkspaceImageResult {
    *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm">
    *             Bring Your Own Windows Desktop Images.</a>.</p>
    */
-  RequiredTenancy?: WorkspaceImageRequiredTenancy | string;
+  RequiredTenancy?: keyof typeof WorkspaceImageRequiredTenancy | string;
 
   /**
    * <p>The date when the image was created.</p>
@@ -1252,19 +1252,19 @@ export interface CreateWorkspaceImageResult {
 /**
  * @public
  */
-export enum Protocol {
-  PCOIP = "PCOIP",
-  WSP = "WSP",
-}
+export const Protocol = {
+  PCOIP: "PCOIP",
+  WSP: "WSP",
+};
 
 /**
  * @public
  */
-export enum RunningMode {
-  ALWAYS_ON = "ALWAYS_ON",
-  AUTO_STOP = "AUTO_STOP",
-  MANUAL = "MANUAL",
-}
+export const RunningMode = {
+  ALWAYS_ON: "ALWAYS_ON",
+  AUTO_STOP: "AUTO_STOP",
+  MANUAL: "MANUAL",
+};
 
 /**
  * @public
@@ -1280,7 +1280,7 @@ export interface WorkspaceProperties {
    *             <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</p>
    *          </note>
    */
-  RunningMode?: RunningMode | string;
+  RunningMode?: keyof typeof RunningMode | string;
 
   /**
    * <p>The time after a user logs off when WorkSpaces are automatically stopped. Configured in
@@ -1306,7 +1306,7 @@ export interface WorkspaceProperties {
    * <p>The compute type. For more information, see <a href="http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles">Amazon WorkSpaces
    *          Bundles</a>.</p>
    */
-  ComputeTypeName?: Compute | string;
+  ComputeTypeName?: keyof typeof Compute | string;
 
   /**
    * <p>The protocol. For more information, see
@@ -1327,7 +1327,7 @@ export interface WorkspaceProperties {
    *             </ul>
    *          </note>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: (keyof typeof Protocol | string)[];
 }
 
 /**
@@ -1412,19 +1412,19 @@ export interface FailedCreateWorkspaceRequest {
 /**
  * @public
  */
-export enum ModificationResourceEnum {
-  COMPUTE_TYPE = "COMPUTE_TYPE",
-  ROOT_VOLUME = "ROOT_VOLUME",
-  USER_VOLUME = "USER_VOLUME",
-}
+export const ModificationResourceEnum = {
+  COMPUTE_TYPE: "COMPUTE_TYPE",
+  ROOT_VOLUME: "ROOT_VOLUME",
+  USER_VOLUME: "USER_VOLUME",
+};
 
 /**
  * @public
  */
-export enum ModificationStateEnum {
-  UPDATE_INITIATED = "UPDATE_INITIATED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const ModificationStateEnum = {
+  UPDATE_INITIATED: "UPDATE_INITIATED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -1434,21 +1434,21 @@ export interface ModificationState {
   /**
    * <p>The resource.</p>
    */
-  Resource?: ModificationResourceEnum | string;
+  Resource?: keyof typeof ModificationResourceEnum | string;
 
   /**
    * <p>The modification state.</p>
    */
-  State?: ModificationStateEnum | string;
+  State?: keyof typeof ModificationStateEnum | string;
 }
 
 /**
  * @public
  */
-export enum StandbyWorkspaceRelationshipType {
-  PRIMARY = "PRIMARY",
-  STANDBY = "STANDBY",
-}
+export const StandbyWorkspaceRelationshipType = {
+  PRIMARY: "PRIMARY",
+  STANDBY: "STANDBY",
+};
 
 /**
  * @public
@@ -1469,12 +1469,12 @@ export interface RelatedWorkspaceProperties {
   /**
    * <p>Indicates the state of the WorkSpace.</p>
    */
-  State?: WorkspaceState | string;
+  State?: keyof typeof WorkspaceState | string;
 
   /**
    * <p>Indicates the type of WorkSpace.</p>
    */
-  Type?: StandbyWorkspaceRelationshipType | string;
+  Type?: keyof typeof StandbyWorkspaceRelationshipType | string;
 }
 
 /**
@@ -1513,7 +1513,7 @@ export interface Workspace {
    *             has been successfully terminated.</p>
    *          </note>
    */
-  State?: WorkspaceState | string;
+  State?: keyof typeof WorkspaceState | string;
 
   /**
    * <p>The identifier of the bundle used to create the WorkSpace.</p>
@@ -1596,9 +1596,9 @@ export interface CreateWorkspacesResult {
 /**
  * @public
  */
-export enum DedicatedTenancySupportEnum {
-  ENABLED = "ENABLED",
-}
+export const DedicatedTenancySupportEnum = {
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1783,17 +1783,18 @@ export interface DefaultWorkspaceCreationProperties {
 /**
  * @public
  */
-export enum DeletableCertificateBasedAuthProperty {
-  CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN = "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN",
-}
+export const DeletableCertificateBasedAuthProperty = {
+  CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN:
+    "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN",
+};
 
 /**
  * @public
  */
-export enum DeletableSamlProperty {
-  SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME = "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME",
-  SAML_PROPERTIES_USER_ACCESS_URL = "SAML_PROPERTIES_USER_ACCESS_URL",
-}
+export const DeletableSamlProperty = {
+  SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME: "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME",
+  SAML_PROPERTIES_USER_ACCESS_URL: "SAML_PROPERTIES_USER_ACCESS_URL",
+};
 
 /**
  * @public
@@ -1808,7 +1809,7 @@ export interface DeleteClientBrandingRequest {
   /**
    * <p>The device type for which you want to delete client branding.</p>
    */
-  Platforms: (ClientDeviceType | string)[] | undefined;
+  Platforms: (keyof typeof ClientDeviceType | string)[] | undefined;
 }
 
 /**
@@ -1947,7 +1948,7 @@ export interface DescribeAccountResult {
   /**
    * <p>The status of BYOL (whether BYOL is enabled or disabled).</p>
    */
-  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum | string;
+  DedicatedTenancySupport?: keyof typeof DedicatedTenancySupportResultEnum | string;
 
   /**
    * <p>The IP address range, specified as an IPv4 CIDR block, used for the management network
@@ -2412,19 +2413,19 @@ export interface DescribeWorkspaceDirectoriesRequest {
 /**
  * @public
  */
-export enum WorkspaceDirectoryType {
-  AD_CONNECTOR = "AD_CONNECTOR",
-  SIMPLE_AD = "SIMPLE_AD",
-}
+export const WorkspaceDirectoryType = {
+  AD_CONNECTOR: "AD_CONNECTOR",
+  SIMPLE_AD: "SIMPLE_AD",
+};
 
 /**
  * @public
  */
-export enum SamlStatusEnum {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK = "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK",
-}
+export const SamlStatusEnum = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK: "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK",
+};
 
 /**
  * @public
@@ -2450,7 +2451,7 @@ export interface SamlProperties {
    *             </li>
    *          </ul>
    */
-  Status?: SamlStatusEnum | string;
+  Status?: keyof typeof SamlStatusEnum | string;
 
   /**
    * <p>The SAML 2.0 identity provider (IdP) user access URL is the URL a user would navigate to in their web browser in
@@ -2477,49 +2478,49 @@ export interface SelfservicePermissions {
   /**
    * <p>Specifies whether users can restart their WorkSpace.</p>
    */
-  RestartWorkspace?: ReconnectEnum | string;
+  RestartWorkspace?: keyof typeof ReconnectEnum | string;
 
   /**
    * <p>Specifies whether users can increase the volume size of the drives on their
    *          WorkSpace.</p>
    */
-  IncreaseVolumeSize?: ReconnectEnum | string;
+  IncreaseVolumeSize?: keyof typeof ReconnectEnum | string;
 
   /**
    * <p>Specifies whether users can change the compute type (bundle) for their WorkSpace.</p>
    */
-  ChangeComputeType?: ReconnectEnum | string;
+  ChangeComputeType?: keyof typeof ReconnectEnum | string;
 
   /**
    * <p>Specifies whether users can switch the running mode of their WorkSpace.</p>
    */
-  SwitchRunningMode?: ReconnectEnum | string;
+  SwitchRunningMode?: keyof typeof ReconnectEnum | string;
 
   /**
    * <p>Specifies whether users can rebuild the operating system of a WorkSpace to its original
    *          state.</p>
    */
-  RebuildWorkspace?: ReconnectEnum | string;
+  RebuildWorkspace?: keyof typeof ReconnectEnum | string;
 }
 
 /**
  * @public
  */
-export enum WorkspaceDirectoryState {
-  DEREGISTERED = "DEREGISTERED",
-  DEREGISTERING = "DEREGISTERING",
-  ERROR = "ERROR",
-  REGISTERED = "REGISTERED",
-  REGISTERING = "REGISTERING",
-}
+export const WorkspaceDirectoryState = {
+  DEREGISTERED: "DEREGISTERED",
+  DEREGISTERING: "DEREGISTERING",
+  ERROR: "ERROR",
+  REGISTERED: "REGISTERED",
+  REGISTERING: "REGISTERING",
+};
 
 /**
  * @public
  */
-export enum Tenancy {
-  DEDICATED = "DEDICATED",
-  SHARED = "SHARED",
-}
+export const Tenancy = {
+  DEDICATED: "DEDICATED",
+  SHARED: "SHARED",
+};
 
 /**
  * @public
@@ -2531,43 +2532,43 @@ export interface WorkspaceAccessProperties {
   /**
    * <p>Indicates whether users can use Windows clients to access their WorkSpaces.</p>
    */
-  DeviceTypeWindows?: AccessPropertyValue | string;
+  DeviceTypeWindows?: keyof typeof AccessPropertyValue | string;
 
   /**
    * <p>Indicates whether users can use macOS clients to access their WorkSpaces.</p>
    */
-  DeviceTypeOsx?: AccessPropertyValue | string;
+  DeviceTypeOsx?: keyof typeof AccessPropertyValue | string;
 
   /**
    * <p>Indicates whether users can access their WorkSpaces through a web browser.</p>
    */
-  DeviceTypeWeb?: AccessPropertyValue | string;
+  DeviceTypeWeb?: keyof typeof AccessPropertyValue | string;
 
   /**
    * <p>Indicates whether users can use iOS devices to access their WorkSpaces.</p>
    */
-  DeviceTypeIos?: AccessPropertyValue | string;
+  DeviceTypeIos?: keyof typeof AccessPropertyValue | string;
 
   /**
    * <p>Indicates whether users can use Android and Android-compatible Chrome OS devices to
    *          access their WorkSpaces.</p>
    */
-  DeviceTypeAndroid?: AccessPropertyValue | string;
+  DeviceTypeAndroid?: keyof typeof AccessPropertyValue | string;
 
   /**
    * <p>Indicates whether users can use Chromebooks to access their WorkSpaces.</p>
    */
-  DeviceTypeChromeOs?: AccessPropertyValue | string;
+  DeviceTypeChromeOs?: keyof typeof AccessPropertyValue | string;
 
   /**
    * <p>Indicates whether users can use zero client devices to access their WorkSpaces.</p>
    */
-  DeviceTypeZeroClient?: AccessPropertyValue | string;
+  DeviceTypeZeroClient?: keyof typeof AccessPropertyValue | string;
 
   /**
    * <p>Indicates whether users can use Linux clients to access their WorkSpaces.</p>
    */
-  DeviceTypeLinux?: AccessPropertyValue | string;
+  DeviceTypeLinux?: keyof typeof AccessPropertyValue | string;
 }
 
 /**
@@ -2620,7 +2621,7 @@ export interface WorkspaceDirectory {
   /**
    * <p>The directory type.</p>
    */
-  DirectoryType?: WorkspaceDirectoryType | string;
+  DirectoryType?: keyof typeof WorkspaceDirectoryType | string;
 
   /**
    * <p>The identifier of the security group that is assigned to new WorkSpaces.</p>
@@ -2635,7 +2636,7 @@ export interface WorkspaceDirectory {
    *             DescribeWorkspaceDirectories</a>. If the directory ID isn't returned, then the
    *          directory has been successfully deregistered.</p>
    */
-  State?: WorkspaceDirectoryState | string;
+  State?: keyof typeof WorkspaceDirectoryState | string;
 
   /**
    * <p>The default creation properties for all WorkSpaces in the directory.</p>
@@ -2657,7 +2658,7 @@ export interface WorkspaceDirectory {
    *          (BYOL), this value must be set to <code>DEDICATED</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring
    *             Your Own Windows Desktop Images</a>.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: keyof typeof Tenancy | string;
 
   /**
    * <p>The default self-service permissions for WorkSpaces in the directory.</p>
@@ -2753,10 +2754,10 @@ export interface DescribeWorkspaceImagePermissionsResult {
 /**
  * @public
  */
-export enum ImageType {
-  OWNED = "OWNED",
-  SHARED = "SHARED",
-}
+export const ImageType = {
+  OWNED: "OWNED",
+  SHARED: "SHARED",
+};
 
 /**
  * @public
@@ -2770,7 +2771,7 @@ export interface DescribeWorkspaceImagesRequest {
   /**
    * <p>The type (owned or shared) of the image.</p>
    */
-  ImageType?: ImageType | string;
+  ImageType?: keyof typeof ImageType | string;
 
   /**
    * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
@@ -2834,7 +2835,7 @@ export interface WorkspaceImage {
   /**
    * <p>The status of the image.</p>
    */
-  State?: WorkspaceImageState | string;
+  State?: keyof typeof WorkspaceImageState | string;
 
   /**
    * <p>Specifies whether the image is running on dedicated hardware. When Bring Your Own
@@ -2842,7 +2843,7 @@ export interface WorkspaceImage {
    *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring Your Own Windows
    *             Desktop Images</a>.</p>
    */
-  RequiredTenancy?: WorkspaceImageRequiredTenancy | string;
+  RequiredTenancy?: keyof typeof WorkspaceImageRequiredTenancy | string;
 
   /**
    * <p>The error code that is returned for the image.</p>
@@ -2978,7 +2979,7 @@ export interface WorkspaceConnectionStatus {
    * <p>The connection state of the WorkSpace. The connection state is unknown if the WorkSpace
    *          is stopped.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: keyof typeof ConnectionState | string;
 
   /**
    * <p>The timestamp of the connection status check.</p>
@@ -3272,15 +3273,15 @@ export interface ImportClientBrandingResult {
 /**
  * @public
  */
-export enum WorkspaceImageIngestionProcess {
-  BYOL_GRAPHICS = "BYOL_GRAPHICS",
-  BYOL_GRAPHICSPRO = "BYOL_GRAPHICSPRO",
-  BYOL_GRAPHICS_G4DN = "BYOL_GRAPHICS_G4DN",
-  BYOL_GRAPHICS_G4DN_BYOP = "BYOL_GRAPHICS_G4DN_BYOP",
-  BYOL_REGULAR = "BYOL_REGULAR",
-  BYOL_REGULAR_BYOP = "BYOL_REGULAR_BYOP",
-  BYOL_REGULAR_WSP = "BYOL_REGULAR_WSP",
-}
+export const WorkspaceImageIngestionProcess = {
+  BYOL_GRAPHICS: "BYOL_GRAPHICS",
+  BYOL_GRAPHICSPRO: "BYOL_GRAPHICSPRO",
+  BYOL_GRAPHICS_G4DN: "BYOL_GRAPHICS_G4DN",
+  BYOL_GRAPHICS_G4DN_BYOP: "BYOL_GRAPHICS_G4DN_BYOP",
+  BYOL_REGULAR: "BYOL_REGULAR",
+  BYOL_REGULAR_BYOP: "BYOL_REGULAR_BYOP",
+  BYOL_REGULAR_WSP: "BYOL_REGULAR_WSP",
+};
 
 /**
  * @public
@@ -3306,7 +3307,7 @@ export interface ImportWorkspaceImageRequest {
    *             allow-listed to use these values. For more information, see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</p>
    *          </note>
    */
-  IngestionProcess: WorkspaceImageIngestionProcess | string | undefined;
+  IngestionProcess: keyof typeof WorkspaceImageIngestionProcess | string | undefined;
 
   /**
    * <p>The name of the WorkSpace image.</p>
@@ -3331,7 +3332,7 @@ export interface ImportWorkspaceImageRequest {
    *             <p>Although this parameter is an array, only one item is allowed at this time.</p>
    *          </note>
    */
-  Applications?: (Application | string)[];
+  Applications?: (keyof typeof Application | string)[];
 }
 
 /**
@@ -3441,7 +3442,7 @@ export interface ModifyAccountRequest {
   /**
    * <p>The status of BYOL.</p>
    */
-  DedicatedTenancySupport?: DedicatedTenancySupportEnum | string;
+  DedicatedTenancySupport?: keyof typeof DedicatedTenancySupportEnum | string;
 
   /**
    * <p>The IP address range, specified as an IPv4 CIDR block, for the management network
@@ -3475,7 +3476,7 @@ export interface ModifyCertificateBasedAuthPropertiesRequest {
   /**
    * <p>The properties of the certificate-based authentication you want to delete.</p>
    */
-  PropertiesToDelete?: (DeletableCertificateBasedAuthProperty | string)[];
+  PropertiesToDelete?: (keyof typeof DeletableCertificateBasedAuthProperty | string)[];
 }
 
 /**
@@ -3532,7 +3533,7 @@ export interface ModifySamlPropertiesRequest {
    *             </li>
    *          </ul>
    */
-  PropertiesToDelete?: (DeletableSamlProperty | string)[];
+  PropertiesToDelete?: (keyof typeof DeletableSamlProperty | string)[];
 }
 
 /**
@@ -3714,10 +3715,10 @@ export class UnsupportedWorkspaceConfigurationException extends __BaseException 
 /**
  * @public
  */
-export enum TargetWorkspaceState {
-  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
-  AVAILABLE = "AVAILABLE",
-}
+export const TargetWorkspaceState = {
+  ADMIN_MAINTENANCE: "ADMIN_MAINTENANCE",
+  AVAILABLE: "AVAILABLE",
+};
 
 /**
  * @public
@@ -3731,7 +3732,7 @@ export interface ModifyWorkspaceStateRequest {
   /**
    * <p>The WorkSpace state.</p>
    */
-  WorkspaceState: TargetWorkspaceState | string | undefined;
+  WorkspaceState: keyof typeof TargetWorkspaceState | string | undefined;
 }
 
 /**
@@ -3843,7 +3844,7 @@ export interface RegisterWorkspaceDirectoryRequest {
    *          BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring Your Own Windows
    *             Desktop Images</a>.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: keyof typeof Tenancy | string;
 
   /**
    * <p>The tags associated with the directory.</p>

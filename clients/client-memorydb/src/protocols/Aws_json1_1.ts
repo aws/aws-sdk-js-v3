@@ -3975,7 +3975,7 @@ const serializeAws_json1_1ServiceUpdateRequest = (input: ServiceUpdateRequest, c
 };
 
 const serializeAws_json1_1ServiceUpdateStatusList = (
-  input: (ServiceUpdateStatus | string)[],
+  input: (keyof typeof ServiceUpdateStatus | string)[],
   context: __SerdeContext
 ): any => {
   return input

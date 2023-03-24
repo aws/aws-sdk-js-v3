@@ -522,7 +522,10 @@ const serializeAws_restJson1RecordIdentifiers = (input: string[], context: __Ser
     });
 };
 
-const serializeAws_restJson1TargetStores = (input: (TargetStore | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1TargetStores = (
+  input: (keyof typeof TargetStore | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

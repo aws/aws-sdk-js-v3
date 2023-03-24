@@ -6,13 +6,13 @@ import { Route53ServiceException as __BaseException } from "./Route53ServiceExce
 /**
  * @public
  */
-export enum AccountLimitType {
-  MAX_HEALTH_CHECKS_BY_OWNER = "MAX_HEALTH_CHECKS_BY_OWNER",
-  MAX_HOSTED_ZONES_BY_OWNER = "MAX_HOSTED_ZONES_BY_OWNER",
-  MAX_REUSABLE_DELEGATION_SETS_BY_OWNER = "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER",
-  MAX_TRAFFIC_POLICIES_BY_OWNER = "MAX_TRAFFIC_POLICIES_BY_OWNER",
-  MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER = "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER",
-}
+export const AccountLimitType = {
+  MAX_HEALTH_CHECKS_BY_OWNER: "MAX_HEALTH_CHECKS_BY_OWNER",
+  MAX_HOSTED_ZONES_BY_OWNER: "MAX_HOSTED_ZONES_BY_OWNER",
+  MAX_REUSABLE_DELEGATION_SETS_BY_OWNER: "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER",
+  MAX_TRAFFIC_POLICIES_BY_OWNER: "MAX_TRAFFIC_POLICIES_BY_OWNER",
+  MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER: "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER",
+};
 
 /**
  * @public
@@ -53,7 +53,7 @@ export interface AccountLimit {
    *             </li>
    *          </ul>
    */
-  Type: AccountLimitType | string | undefined;
+  Type: keyof typeof AccountLimitType | string | undefined;
 
   /**
    * <p>The current value for the limit that is specified by <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AccountLimit.html#Route53-Type-AccountLimit-Type">Type</a>.</p>
@@ -81,10 +81,10 @@ export interface ActivateKeySigningKeyRequest {
 /**
  * @public
  */
-export enum ChangeStatus {
-  INSYNC = "INSYNC",
-  PENDING = "PENDING",
-}
+export const ChangeStatus = {
+  INSYNC: "INSYNC",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -102,7 +102,7 @@ export interface ChangeInfo {
    * <p>The current state of the request. <code>PENDING</code> indicates that this request has
    * 			not yet been applied to all Amazon Route 53 DNS servers.</p>
    */
-  Status: ChangeStatus | string | undefined;
+  Status: keyof typeof ChangeStatus | string | undefined;
 
   /**
    * <p>The date and time that the change request was submitted in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 format</a> and Coordinated
@@ -255,42 +255,42 @@ export class NoSuchKeySigningKey extends __BaseException {
 /**
  * @public
  */
-export enum CloudWatchRegion {
-  af_south_1 = "af-south-1",
-  ap_east_1 = "ap-east-1",
-  ap_northeast_1 = "ap-northeast-1",
-  ap_northeast_2 = "ap-northeast-2",
-  ap_northeast_3 = "ap-northeast-3",
-  ap_south_1 = "ap-south-1",
-  ap_south_2 = "ap-south-2",
-  ap_southeast_1 = "ap-southeast-1",
-  ap_southeast_2 = "ap-southeast-2",
-  ap_southeast_3 = "ap-southeast-3",
-  ap_southeast_4 = "ap-southeast-4",
-  ca_central_1 = "ca-central-1",
-  cn_north_1 = "cn-north-1",
-  cn_northwest_1 = "cn-northwest-1",
-  eu_central_1 = "eu-central-1",
-  eu_central_2 = "eu-central-2",
-  eu_north_1 = "eu-north-1",
-  eu_south_1 = "eu-south-1",
-  eu_south_2 = "eu-south-2",
-  eu_west_1 = "eu-west-1",
-  eu_west_2 = "eu-west-2",
-  eu_west_3 = "eu-west-3",
-  me_central_1 = "me-central-1",
-  me_south_1 = "me-south-1",
-  sa_east_1 = "sa-east-1",
-  us_east_1 = "us-east-1",
-  us_east_2 = "us-east-2",
-  us_gov_east_1 = "us-gov-east-1",
-  us_gov_west_1 = "us-gov-west-1",
-  us_iso_east_1 = "us-iso-east-1",
-  us_iso_west_1 = "us-iso-west-1",
-  us_isob_east_1 = "us-isob-east-1",
-  us_west_1 = "us-west-1",
-  us_west_2 = "us-west-2",
-}
+export const CloudWatchRegion = {
+  af_south_1: "af-south-1",
+  ap_east_1: "ap-east-1",
+  ap_northeast_1: "ap-northeast-1",
+  ap_northeast_2: "ap-northeast-2",
+  ap_northeast_3: "ap-northeast-3",
+  ap_south_1: "ap-south-1",
+  ap_south_2: "ap-south-2",
+  ap_southeast_1: "ap-southeast-1",
+  ap_southeast_2: "ap-southeast-2",
+  ap_southeast_3: "ap-southeast-3",
+  ap_southeast_4: "ap-southeast-4",
+  ca_central_1: "ca-central-1",
+  cn_north_1: "cn-north-1",
+  cn_northwest_1: "cn-northwest-1",
+  eu_central_1: "eu-central-1",
+  eu_central_2: "eu-central-2",
+  eu_north_1: "eu-north-1",
+  eu_south_1: "eu-south-1",
+  eu_south_2: "eu-south-2",
+  eu_west_1: "eu-west-1",
+  eu_west_2: "eu-west-2",
+  eu_west_3: "eu-west-3",
+  me_central_1: "me-central-1",
+  me_south_1: "me-south-1",
+  sa_east_1: "sa-east-1",
+  us_east_1: "us-east-1",
+  us_east_2: "us-east-2",
+  us_gov_east_1: "us-gov-east-1",
+  us_gov_west_1: "us-gov-west-1",
+  us_iso_east_1: "us-iso-east-1",
+  us_iso_west_1: "us-iso-west-1",
+  us_isob_east_1: "us-isob-east-1",
+  us_west_1: "us-west-1",
+  us_west_2: "us-west-2",
+};
 
 /**
  * @public
@@ -306,7 +306,7 @@ export interface AlarmIdentifier {
    * 				quotas</a> in the <i>Amazon Web Services General
    * 			Reference</i>.</p>
    */
-  Region: CloudWatchRegion | string | undefined;
+  Region: keyof typeof CloudWatchRegion | string | undefined;
 
   /**
    * <p>The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use
@@ -759,41 +759,41 @@ export interface AliasTarget {
 /**
  * @public
  */
-export enum VPCRegion {
-  af_south_1 = "af-south-1",
-  ap_east_1 = "ap-east-1",
-  ap_northeast_1 = "ap-northeast-1",
-  ap_northeast_2 = "ap-northeast-2",
-  ap_northeast_3 = "ap-northeast-3",
-  ap_south_1 = "ap-south-1",
-  ap_south_2 = "ap-south-2",
-  ap_southeast_1 = "ap-southeast-1",
-  ap_southeast_2 = "ap-southeast-2",
-  ap_southeast_3 = "ap-southeast-3",
-  ap_southeast_4 = "ap-southeast-4",
-  ca_central_1 = "ca-central-1",
-  cn_north_1 = "cn-north-1",
-  eu_central_1 = "eu-central-1",
-  eu_central_2 = "eu-central-2",
-  eu_north_1 = "eu-north-1",
-  eu_south_1 = "eu-south-1",
-  eu_south_2 = "eu-south-2",
-  eu_west_1 = "eu-west-1",
-  eu_west_2 = "eu-west-2",
-  eu_west_3 = "eu-west-3",
-  me_central_1 = "me-central-1",
-  me_south_1 = "me-south-1",
-  sa_east_1 = "sa-east-1",
-  us_east_1 = "us-east-1",
-  us_east_2 = "us-east-2",
-  us_gov_east_1 = "us-gov-east-1",
-  us_gov_west_1 = "us-gov-west-1",
-  us_iso_east_1 = "us-iso-east-1",
-  us_iso_west_1 = "us-iso-west-1",
-  us_isob_east_1 = "us-isob-east-1",
-  us_west_1 = "us-west-1",
-  us_west_2 = "us-west-2",
-}
+export const VPCRegion = {
+  af_south_1: "af-south-1",
+  ap_east_1: "ap-east-1",
+  ap_northeast_1: "ap-northeast-1",
+  ap_northeast_2: "ap-northeast-2",
+  ap_northeast_3: "ap-northeast-3",
+  ap_south_1: "ap-south-1",
+  ap_south_2: "ap-south-2",
+  ap_southeast_1: "ap-southeast-1",
+  ap_southeast_2: "ap-southeast-2",
+  ap_southeast_3: "ap-southeast-3",
+  ap_southeast_4: "ap-southeast-4",
+  ca_central_1: "ca-central-1",
+  cn_north_1: "cn-north-1",
+  eu_central_1: "eu-central-1",
+  eu_central_2: "eu-central-2",
+  eu_north_1: "eu-north-1",
+  eu_south_1: "eu-south-1",
+  eu_south_2: "eu-south-2",
+  eu_west_1: "eu-west-1",
+  eu_west_2: "eu-west-2",
+  eu_west_3: "eu-west-3",
+  me_central_1: "me-central-1",
+  me_south_1: "me-south-1",
+  sa_east_1: "sa-east-1",
+  us_east_1: "us-east-1",
+  us_east_2: "us-east-2",
+  us_gov_east_1: "us-gov-east-1",
+  us_gov_west_1: "us-gov-west-1",
+  us_iso_east_1: "us-iso-east-1",
+  us_iso_west_1: "us-iso-west-1",
+  us_isob_east_1: "us-isob-east-1",
+  us_west_1: "us-west-1",
+  us_west_2: "us-west-2",
+};
 
 /**
  * @public
@@ -807,7 +807,7 @@ export interface VPC {
    * <p>(Private hosted zones only) The region that an Amazon VPC was created
    * 			in.</p>
    */
-  VPCRegion?: VPCRegion | string;
+  VPCRegion?: keyof typeof VPCRegion | string;
 
   /**
    * <p>(Private hosted zones only) The ID of an Amazon VPC. </p>
@@ -1030,10 +1030,10 @@ export class PublicZoneVPCAssociation extends __BaseException {
 /**
  * @public
  */
-export enum CidrCollectionChangeAction {
-  DELETE_IF_EXISTS = "DELETE_IF_EXISTS",
-  PUT = "PUT",
-}
+export const CidrCollectionChangeAction = {
+  DELETE_IF_EXISTS: "DELETE_IF_EXISTS",
+  PUT: "PUT",
+};
 
 /**
  * @public
@@ -1049,7 +1049,7 @@ export interface CidrCollectionChange {
   /**
    * <p>CIDR collection change action. </p>
    */
-  Action: CidrCollectionChangeAction | string | undefined;
+  Action: keyof typeof CidrCollectionChangeAction | string | undefined;
 
   /**
    * <p>List of CIDR blocks.</p>
@@ -1177,11 +1177,11 @@ export class NoSuchCidrCollectionException extends __BaseException {
 /**
  * @public
  */
-export enum ChangeAction {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPSERT = "UPSERT",
-}
+export const ChangeAction = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPSERT: "UPSERT",
+};
 
 /**
  * @public
@@ -1205,10 +1205,10 @@ export interface CidrRoutingConfig {
 /**
  * @public
  */
-export enum ResourceRecordSetFailover {
-  PRIMARY = "PRIMARY",
-  SECONDARY = "SECONDARY",
-}
+export const ResourceRecordSetFailover = {
+  PRIMARY: "PRIMARY",
+  SECONDARY: "SECONDARY",
+};
 
 /**
  * @public
@@ -1274,37 +1274,37 @@ export interface GeoLocation {
 /**
  * @public
  */
-export enum ResourceRecordSetRegion {
-  af_south_1 = "af-south-1",
-  ap_east_1 = "ap-east-1",
-  ap_northeast_1 = "ap-northeast-1",
-  ap_northeast_2 = "ap-northeast-2",
-  ap_northeast_3 = "ap-northeast-3",
-  ap_south_1 = "ap-south-1",
-  ap_south_2 = "ap-south-2",
-  ap_southeast_1 = "ap-southeast-1",
-  ap_southeast_2 = "ap-southeast-2",
-  ap_southeast_3 = "ap-southeast-3",
-  ap_southeast_4 = "ap-southeast-4",
-  ca_central_1 = "ca-central-1",
-  cn_north_1 = "cn-north-1",
-  cn_northwest_1 = "cn-northwest-1",
-  eu_central_1 = "eu-central-1",
-  eu_central_2 = "eu-central-2",
-  eu_north_1 = "eu-north-1",
-  eu_south_1 = "eu-south-1",
-  eu_south_2 = "eu-south-2",
-  eu_west_1 = "eu-west-1",
-  eu_west_2 = "eu-west-2",
-  eu_west_3 = "eu-west-3",
-  me_central_1 = "me-central-1",
-  me_south_1 = "me-south-1",
-  sa_east_1 = "sa-east-1",
-  us_east_1 = "us-east-1",
-  us_east_2 = "us-east-2",
-  us_west_1 = "us-west-1",
-  us_west_2 = "us-west-2",
-}
+export const ResourceRecordSetRegion = {
+  af_south_1: "af-south-1",
+  ap_east_1: "ap-east-1",
+  ap_northeast_1: "ap-northeast-1",
+  ap_northeast_2: "ap-northeast-2",
+  ap_northeast_3: "ap-northeast-3",
+  ap_south_1: "ap-south-1",
+  ap_south_2: "ap-south-2",
+  ap_southeast_1: "ap-southeast-1",
+  ap_southeast_2: "ap-southeast-2",
+  ap_southeast_3: "ap-southeast-3",
+  ap_southeast_4: "ap-southeast-4",
+  ca_central_1: "ca-central-1",
+  cn_north_1: "cn-north-1",
+  cn_northwest_1: "cn-northwest-1",
+  eu_central_1: "eu-central-1",
+  eu_central_2: "eu-central-2",
+  eu_north_1: "eu-north-1",
+  eu_south_1: "eu-south-1",
+  eu_south_2: "eu-south-2",
+  eu_west_1: "eu-west-1",
+  eu_west_2: "eu-west-2",
+  eu_west_3: "eu-west-3",
+  me_central_1: "me-central-1",
+  me_south_1: "me-south-1",
+  sa_east_1: "sa-east-1",
+  us_east_1: "us-east-1",
+  us_east_2: "us-east-2",
+  us_west_1: "us-west-1",
+  us_west_2: "us-west-2",
+};
 
 /**
  * @public
@@ -1334,21 +1334,21 @@ export interface ResourceRecord {
 /**
  * @public
  */
-export enum RRType {
-  A = "A",
-  AAAA = "AAAA",
-  CAA = "CAA",
-  CNAME = "CNAME",
-  DS = "DS",
-  MX = "MX",
-  NAPTR = "NAPTR",
-  NS = "NS",
-  PTR = "PTR",
-  SOA = "SOA",
-  SPF = "SPF",
-  SRV = "SRV",
-  TXT = "TXT",
-}
+export const RRType = {
+  A: "A",
+  AAAA: "AAAA",
+  CAA: "CAA",
+  CNAME: "CNAME",
+  DS: "DS",
+  MX: "MX",
+  NAPTR: "NAPTR",
+  NS: "NS",
+  PTR: "PTR",
+  SOA: "SOA",
+  SPF: "SPF",
+  SRV: "SRV",
+  TXT: "TXT",
+};
 
 /**
  * @public
@@ -1488,7 +1488,7 @@ export interface ResourceRecordSet {
    *             </li>
    *          </ul>
    */
-  Type: RRType | string | undefined;
+  Type: keyof typeof RRType | string | undefined;
 
   /**
    * <p>
@@ -1580,7 +1580,7 @@ export interface ResourceRecordSet {
    *             </li>
    *          </ul>
    */
-  Region?: ResourceRecordSetRegion | string;
+  Region?: keyof typeof ResourceRecordSetRegion | string;
 
   /**
    * <p>
@@ -1678,7 +1678,7 @@ export interface ResourceRecordSet {
    *             </li>
    *          </ul>
    */
-  Failover?: ResourceRecordSetFailover | string;
+  Failover?: keyof typeof ResourceRecordSetFailover | string;
 
   /**
    * <p>
@@ -1990,7 +1990,7 @@ export interface Change {
    *             </li>
    *          </ul>
    */
-  Action: ChangeAction | string | undefined;
+  Action: keyof typeof ChangeAction | string | undefined;
 
   /**
    * <p>Information about the resource record set to create, delete, or update.</p>
@@ -2153,10 +2153,10 @@ export interface Tag {
 /**
  * @public
  */
-export enum TagResourceType {
-  healthcheck = "healthcheck",
-  hostedzone = "hostedzone",
-}
+export const TagResourceType = {
+  healthcheck: "healthcheck",
+  hostedzone: "hostedzone",
+};
 
 /**
  * @public
@@ -2175,7 +2175,7 @@ export interface ChangeTagsForResourceRequest {
    *             </li>
    *          </ul>
    */
-  ResourceType: TagResourceType | string | undefined;
+  ResourceType: keyof typeof TagResourceType | string | undefined;
 
   /**
    * <p>The ID of the resource for which you want to add, change, or delete tags.</p>
@@ -2312,39 +2312,39 @@ export interface CreateCidrCollectionResponse {
 /**
  * @public
  */
-export enum InsufficientDataHealthStatus {
-  Healthy = "Healthy",
-  LastKnownStatus = "LastKnownStatus",
-  Unhealthy = "Unhealthy",
-}
+export const InsufficientDataHealthStatus = {
+  Healthy: "Healthy",
+  LastKnownStatus: "LastKnownStatus",
+  Unhealthy: "Unhealthy",
+};
 
 /**
  * @public
  */
-export enum HealthCheckRegion {
-  ap_northeast_1 = "ap-northeast-1",
-  ap_southeast_1 = "ap-southeast-1",
-  ap_southeast_2 = "ap-southeast-2",
-  eu_west_1 = "eu-west-1",
-  sa_east_1 = "sa-east-1",
-  us_east_1 = "us-east-1",
-  us_west_1 = "us-west-1",
-  us_west_2 = "us-west-2",
-}
+export const HealthCheckRegion = {
+  ap_northeast_1: "ap-northeast-1",
+  ap_southeast_1: "ap-southeast-1",
+  ap_southeast_2: "ap-southeast-2",
+  eu_west_1: "eu-west-1",
+  sa_east_1: "sa-east-1",
+  us_east_1: "us-east-1",
+  us_west_1: "us-west-1",
+  us_west_2: "us-west-2",
+};
 
 /**
  * @public
  */
-export enum HealthCheckType {
-  CALCULATED = "CALCULATED",
-  CLOUDWATCH_METRIC = "CLOUDWATCH_METRIC",
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  HTTPS_STR_MATCH = "HTTPS_STR_MATCH",
-  HTTP_STR_MATCH = "HTTP_STR_MATCH",
-  RECOVERY_CONTROL = "RECOVERY_CONTROL",
-  TCP = "TCP",
-}
+export const HealthCheckType = {
+  CALCULATED: "CALCULATED",
+  CLOUDWATCH_METRIC: "CLOUDWATCH_METRIC",
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  HTTPS_STR_MATCH: "HTTPS_STR_MATCH",
+  HTTP_STR_MATCH: "HTTP_STR_MATCH",
+  RECOVERY_CONTROL: "RECOVERY_CONTROL",
+  TCP: "TCP",
+};
 
 /**
  * @public
@@ -2492,7 +2492,7 @@ export interface HealthCheckConfig {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How Route 53 Determines Whether an Endpoint Is Healthy</a> in the
    * 				<i>Amazon Route 53 Developer Guide</i>.</p>
    */
-  Type: HealthCheckType | string | undefined;
+  Type: keyof typeof HealthCheckType | string | undefined;
 
   /**
    * <p>The path, if any, that you want Amazon Route 53 to request when performing health
@@ -2718,7 +2718,7 @@ export interface HealthCheckConfig {
    * 			some health checkers are always checking the endpoint (for example, if you replace three
    * 			regions with four different regions). </p>
    */
-  Regions?: (HealthCheckRegion | string)[];
+  Regions?: (keyof typeof HealthCheckRegion | string)[];
 
   /**
    * <p>A complex type that identifies the CloudWatch alarm that you want Amazon Route 53
@@ -2750,7 +2750,7 @@ export interface HealthCheckConfig {
    *             </li>
    *          </ul>
    */
-  InsufficientDataHealthStatus?: InsufficientDataHealthStatus | string;
+  InsufficientDataHealthStatus?: keyof typeof InsufficientDataHealthStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller
@@ -2805,12 +2805,12 @@ export interface CreateHealthCheckRequest {
 /**
  * @public
  */
-export enum ComparisonOperator {
-  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
-  GreaterThanThreshold = "GreaterThanThreshold",
-  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
-  LessThanThreshold = "LessThanThreshold",
-}
+export const ComparisonOperator = {
+  GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold: "GreaterThanThreshold",
+  LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
+  LessThanThreshold: "LessThanThreshold",
+};
 
 /**
  * @public
@@ -2834,13 +2834,13 @@ export interface Dimension {
 /**
  * @public
  */
-export enum Statistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
-}
+export const Statistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+};
 
 /**
  * @public
@@ -2864,7 +2864,7 @@ export interface CloudWatchAlarmConfiguration {
    * <p>For the metric that the CloudWatch alarm is associated with, the arithmetic operation
    * 			that is used for the comparison.</p>
    */
-  ComparisonOperator: ComparisonOperator | string | undefined;
+  ComparisonOperator: keyof typeof ComparisonOperator | string | undefined;
 
   /**
    * <p>For the metric that the CloudWatch alarm is associated with, the duration of one
@@ -2889,7 +2889,7 @@ export interface CloudWatchAlarmConfiguration {
    * <p>For the metric that the CloudWatch alarm is associated with, the statistic that is
    * 			applied to the metric.</p>
    */
-  Statistic: Statistic | string | undefined;
+  Statistic: keyof typeof Statistic | string | undefined;
 
   /**
    * <p>For the metric that the CloudWatch alarm is associated with, a complex type that
@@ -4004,7 +4004,7 @@ export interface TrafficPolicy {
    * <p>The DNS type of the resource record sets that Amazon Route 53 creates when you use a
    * 			traffic policy to create a traffic policy instance.</p>
    */
-  Type: RRType | string | undefined;
+  Type: keyof typeof RRType | string | undefined;
 
   /**
    * <p>The definition of a traffic policy in JSON format. You specify the JSON document to
@@ -4218,7 +4218,7 @@ export interface TrafficPolicyInstance {
    * <p>The DNS type that Amazon Route 53 assigned to all of the resource record sets that it
    * 			created for this traffic policy instance. </p>
    */
-  TrafficPolicyType: RRType | string | undefined;
+  TrafficPolicyType: keyof typeof RRType | string | undefined;
 }
 
 /**
@@ -5072,7 +5072,7 @@ export interface GetAccountLimitRequest {
    *             </li>
    *          </ul>
    */
-  Type: AccountLimitType | string | undefined;
+  Type: keyof typeof AccountLimitType | string | undefined;
 }
 
 /**
@@ -5480,7 +5480,7 @@ export interface HealthCheckObservation {
    * <p>The region of the Amazon Route 53 health checker that provided the status in
    * 				<code>StatusReport</code>.</p>
    */
-  Region?: HealthCheckRegion | string;
+  Region?: keyof typeof HealthCheckRegion | string;
 
   /**
    * <p>The IP address of the Amazon Route 53 health checker that provided the failure reason
@@ -5600,10 +5600,10 @@ export interface GetHostedZoneCountResponse {
 /**
  * @public
  */
-export enum HostedZoneLimitType {
-  MAX_RRSETS_BY_ZONE = "MAX_RRSETS_BY_ZONE",
-  MAX_VPCS_ASSOCIATED_BY_ZONE = "MAX_VPCS_ASSOCIATED_BY_ZONE",
-}
+export const HostedZoneLimitType = {
+  MAX_RRSETS_BY_ZONE: "MAX_RRSETS_BY_ZONE",
+  MAX_VPCS_ASSOCIATED_BY_ZONE: "MAX_VPCS_ASSOCIATED_BY_ZONE",
+};
 
 /**
  * @public
@@ -5627,7 +5627,7 @@ export interface GetHostedZoneLimitRequest {
    *             </li>
    *          </ul>
    */
-  Type: HostedZoneLimitType | string | undefined;
+  Type: keyof typeof HostedZoneLimitType | string | undefined;
 
   /**
    * <p>The ID of the hosted zone that you want to get a limit for.</p>
@@ -5657,7 +5657,7 @@ export interface HostedZoneLimit {
    *             </li>
    *          </ul>
    */
-  Type: HostedZoneLimitType | string | undefined;
+  Type: keyof typeof HostedZoneLimitType | string | undefined;
 
   /**
    * <p>The current value for the limit that is specified by <code>Type</code>.</p>
@@ -5756,9 +5756,9 @@ export interface GetReusableDelegationSetResponse {
 /**
  * @public
  */
-export enum ReusableDelegationSetLimitType {
-  MAX_ZONES_BY_REUSABLE_DELEGATION_SET = "MAX_ZONES_BY_REUSABLE_DELEGATION_SET",
-}
+export const ReusableDelegationSetLimitType = {
+  MAX_ZONES_BY_REUSABLE_DELEGATION_SET: "MAX_ZONES_BY_REUSABLE_DELEGATION_SET",
+};
 
 /**
  * @public
@@ -5770,7 +5770,7 @@ export interface GetReusableDelegationSetLimitRequest {
    * <p>Specify <code>MAX_ZONES_BY_REUSABLE_DELEGATION_SET</code> to get the maximum number of
    * 			hosted zones that you can associate with the specified reusable delegation set.</p>
    */
-  Type: ReusableDelegationSetLimitType | string | undefined;
+  Type: keyof typeof ReusableDelegationSetLimitType | string | undefined;
 
   /**
    * <p>The ID of the delegation set that you want to get the limit for.</p>
@@ -5789,7 +5789,7 @@ export interface ReusableDelegationSetLimit {
    * 			maximum number of hosted zones that you can associate with the specified reusable
    * 			delegation set.</p>
    */
-  Type: ReusableDelegationSetLimitType | string | undefined;
+  Type: keyof typeof ReusableDelegationSetLimitType | string | undefined;
 
   /**
    * <p>The current value for the <code>MAX_ZONES_BY_REUSABLE_DELEGATION_SET</code>
@@ -6460,7 +6460,7 @@ export interface ListHostedZonesByVPCRequest {
    * <p>For the Amazon VPC that you specified for <code>VPCId</code>, the Amazon Web Services
    * 			Region that you created the VPC in. </p>
    */
-  VPCRegion: VPCRegion | string | undefined;
+  VPCRegion: keyof typeof VPCRegion | string | undefined;
 
   /**
    * <p>(Optional) The maximum number of hosted zones that you want Amazon Route 53 to return.
@@ -6688,7 +6688,7 @@ export interface ListResourceRecordSetsRequest {
    *          <p>Constraint: Specifying <code>type</code> without specifying <code>name</code> returns
    * 			an <code>InvalidInput</code> error.</p>
    */
-  StartRecordType?: RRType | string;
+  StartRecordType?: keyof typeof RRType | string;
 
   /**
    * <p>
@@ -6737,7 +6737,7 @@ export interface ListResourceRecordSetsResponse {
    * <p>If the results were truncated, the type of the next record in the list.</p>
    *          <p>This element is present only if <code>IsTruncated</code> is true. </p>
    */
-  NextRecordType?: RRType | string;
+  NextRecordType?: keyof typeof RRType | string;
 
   /**
    * <p>
@@ -6839,7 +6839,7 @@ export interface ListTagsForResourceRequest {
    *             </li>
    *          </ul>
    */
-  ResourceType: TagResourceType | string | undefined;
+  ResourceType: keyof typeof TagResourceType | string | undefined;
 
   /**
    * <p>The ID of the resource for which you want to retrieve tags.</p>
@@ -6863,7 +6863,7 @@ export interface ResourceTagSet {
    *             </li>
    *          </ul>
    */
-  ResourceType?: TagResourceType | string;
+  ResourceType?: keyof typeof TagResourceType | string;
 
   /**
    * <p>The ID for the specified resource.</p>
@@ -6906,7 +6906,7 @@ export interface ListTagsForResourcesRequest {
    *             </li>
    *          </ul>
    */
-  ResourceType: TagResourceType | string | undefined;
+  ResourceType: keyof typeof TagResourceType | string | undefined;
 
   /**
    * <p>A complex type that contains the ResourceId element for each resource for which you
@@ -6976,7 +6976,7 @@ export interface TrafficPolicySummary {
    * <p>The DNS type of the resource record sets that Amazon Route 53 creates when you use a
    * 			traffic policy to create a traffic policy instance.</p>
    */
-  Type: RRType | string | undefined;
+  Type: keyof typeof RRType | string | undefined;
 
   /**
    * <p>The version number of the latest version of the traffic policy.</p>
@@ -7066,7 +7066,7 @@ export interface ListTrafficPolicyInstancesRequest {
    *          <p>If the value of <code>IsTruncated</code> in the previous response was
    * 				<code>false</code>, there are no more traffic policy instances to get.</p>
    */
-  TrafficPolicyInstanceTypeMarker?: RRType | string;
+  TrafficPolicyInstanceTypeMarker?: keyof typeof RRType | string;
 
   /**
    * <p>The maximum number of traffic policy instances that you want Amazon Route 53 to return
@@ -7113,7 +7113,7 @@ export interface ListTrafficPolicyInstancesResponse {
    * 			will return if you submit another <code>ListTrafficPolicyInstances</code> request.
    * 		</p>
    */
-  TrafficPolicyInstanceTypeMarker?: RRType | string;
+  TrafficPolicyInstanceTypeMarker?: keyof typeof RRType | string;
 
   /**
    * <p>A flag that indicates whether there are more traffic policy instances to be listed. If
@@ -7167,7 +7167,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneRequest {
    *          <p>If the value of <code>IsTruncated</code> in the previous response was
    * 				<code>false</code>, there are no more traffic policy instances to get.</p>
    */
-  TrafficPolicyInstanceTypeMarker?: RRType | string;
+  TrafficPolicyInstanceTypeMarker?: keyof typeof RRType | string;
 
   /**
    * <p>The maximum number of traffic policy instances to be included in the response body for
@@ -7204,7 +7204,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneResponse {
    * 			the DNS type of the resource record sets that are associated with the first traffic
    * 			policy instance in the next group of traffic policy instances.</p>
    */
-  TrafficPolicyInstanceTypeMarker?: RRType | string;
+  TrafficPolicyInstanceTypeMarker?: keyof typeof RRType | string;
 
   /**
    * <p>A flag that indicates whether there are more traffic policy instances to be listed. If
@@ -7284,7 +7284,7 @@ export interface ListTrafficPolicyInstancesByPolicyRequest {
    *          <p>If the value of <code>IsTruncated</code> in the previous response was
    * 				<code>false</code>, there are no more traffic policy instances to get.</p>
    */
-  TrafficPolicyInstanceTypeMarker?: RRType | string;
+  TrafficPolicyInstanceTypeMarker?: keyof typeof RRType | string;
 
   /**
    * <p>The maximum number of traffic policy instances to be included in the response body for
@@ -7329,7 +7329,7 @@ export interface ListTrafficPolicyInstancesByPolicyResponse {
    * 			sets that are associated with the first traffic policy instance in the next group of
    * 				<code>MaxItems</code> traffic policy instances.</p>
    */
-  TrafficPolicyInstanceTypeMarker?: RRType | string;
+  TrafficPolicyInstanceTypeMarker?: keyof typeof RRType | string;
 
   /**
    * <p>A flag that indicates whether there are more traffic policy instances to be listed. If
@@ -7501,7 +7501,7 @@ export interface TestDNSAnswerRequest {
   /**
    * <p>The type of the resource record set.</p>
    */
-  RecordType: RRType | string | undefined;
+  RecordType: keyof typeof RRType | string | undefined;
 
   /**
    * <p>If you want to simulate a request from a specific DNS resolver, specify the IP address
@@ -7562,7 +7562,7 @@ export interface TestDNSAnswerResponse {
   /**
    * <p>The type of the resource record set that you submitted a request for.</p>
    */
-  RecordType: RRType | string | undefined;
+  RecordType: keyof typeof RRType | string | undefined;
 
   /**
    * <p>A list that contains values that Amazon Route 53 returned for this resource record
@@ -7609,12 +7609,12 @@ export class HealthCheckVersionMismatch extends __BaseException {
 /**
  * @public
  */
-export enum ResettableElementName {
-  ChildHealthChecks = "ChildHealthChecks",
-  FullyQualifiedDomainName = "FullyQualifiedDomainName",
-  Regions = "Regions",
-  ResourcePath = "ResourcePath",
-}
+export const ResettableElementName = {
+  ChildHealthChecks: "ChildHealthChecks",
+  FullyQualifiedDomainName: "FullyQualifiedDomainName",
+  Regions: "Regions",
+  ResourcePath: "ResourcePath",
+};
 
 /**
  * @public
@@ -7935,7 +7935,7 @@ export interface UpdateHealthCheckRequest {
    * <p>A complex type that contains one <code>Region</code> element for each region that you
    * 			want Amazon Route 53 health checkers to check the specified endpoint from.</p>
    */
-  Regions?: (HealthCheckRegion | string)[];
+  Regions?: (keyof typeof HealthCheckRegion | string)[];
 
   /**
    * <p>A complex type that identifies the CloudWatch alarm that you want Amazon Route 53
@@ -7967,7 +7967,7 @@ export interface UpdateHealthCheckRequest {
    *             </li>
    *          </ul>
    */
-  InsufficientDataHealthStatus?: InsufficientDataHealthStatus | string;
+  InsufficientDataHealthStatus?: keyof typeof InsufficientDataHealthStatus | string;
 
   /**
    * <p>A complex type that contains one <code>ResettableElementName</code> element for each
@@ -7992,7 +7992,7 @@ export interface UpdateHealthCheckRequest {
    *             </li>
    *          </ul>
    */
-  ResetElements?: (ResettableElementName | string)[];
+  ResetElements?: (keyof typeof ResettableElementName | string)[];
 }
 
 /**

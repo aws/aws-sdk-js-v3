@@ -69,10 +69,10 @@ export interface AclConfiguration {
 /**
  * @public
  */
-export enum HighlightType {
-  STANDARD = "STANDARD",
-  THESAURUS_SYNONYM = "THESAURUS_SYNONYM",
-}
+export const HighlightType = {
+  STANDARD: "STANDARD",
+  THESAURUS_SYNONYM: "THESAURUS_SYNONYM",
+};
 
 /**
  * @public
@@ -99,7 +99,7 @@ export interface Highlight {
   /**
    * <p>The highlight type. </p>
    */
-  Type?: HighlightType | string;
+  Type?: keyof typeof HighlightType | string;
 }
 
 /**
@@ -133,9 +133,9 @@ export interface AdditionalResultAttributeValue {
 /**
  * @public
  */
-export enum AdditionalResultAttributeValueType {
-  TEXT_WITH_HIGHLIGHTS_VALUE = "TEXT_WITH_HIGHLIGHTS_VALUE",
-}
+export const AdditionalResultAttributeValueType = {
+  TEXT_WITH_HIGHLIGHTS_VALUE: "TEXT_WITH_HIGHLIGHTS_VALUE",
+};
 
 /**
  * @public
@@ -150,7 +150,7 @@ export interface AdditionalResultAttribute {
   /**
    * <p>The data type of the <code>Value</code> property.</p>
    */
-  ValueType: AdditionalResultAttributeValueType | string | undefined;
+  ValueType: keyof typeof AdditionalResultAttributeValueType | string | undefined;
 
   /**
    * <p>An object that contains the attribute value.</p>
@@ -183,11 +183,11 @@ export interface DataSourceToIndexFieldMapping {
 /**
  * @public
  */
-export enum AlfrescoEntity {
-  blog = "blog",
-  documentLibrary = "documentLibrary",
-  wiki = "wiki",
-}
+export const AlfrescoEntity = {
+  blog: "blog",
+  documentLibrary: "documentLibrary",
+  wiki: "wiki",
+};
 
 /**
  * @public
@@ -287,7 +287,7 @@ export interface AlfrescoConfiguration {
    * <p>Specify whether to index document libraries, wikis,
    *             or blogs. You can specify one or more of these options.</p>
    */
-  EntityFilter?: (AlfrescoEntity | string)[];
+  EntityFilter?: (keyof typeof AlfrescoEntity | string)[];
 
   /**
    * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
@@ -351,10 +351,10 @@ export interface AlfrescoConfiguration {
 /**
  * @public
  */
-export enum EntityType {
-  GROUP = "GROUP",
-  USER = "USER",
-}
+export const EntityType = {
+  GROUP: "GROUP",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -373,7 +373,7 @@ export interface EntityConfiguration {
    * <p>Specifies whether you are configuring a <code>User</code> or a
    *             <code>Group</code>.</p>
    */
-  EntityType: EntityType | string | undefined;
+  EntityType: keyof typeof EntityType | string | undefined;
 }
 
 /**
@@ -544,10 +544,10 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum Persona {
-  OWNER = "OWNER",
-  VIEWER = "VIEWER",
-}
+export const Persona = {
+  OWNER: "OWNER",
+  VIEWER: "VIEWER",
+};
 
 /**
  * @public
@@ -570,7 +570,7 @@ export interface EntityPersonaConfiguration {
    *             information on these personas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience">Providing
    *                 access to your search page</a>.</p>
    */
-  Persona: Persona | string | undefined;
+  Persona: keyof typeof Persona | string | undefined;
 }
 
 /**
@@ -746,10 +746,10 @@ export interface BatchDeleteDocumentRequest {
 /**
  * @public
  */
-export enum ErrorCode {
-  INTERNAL_ERROR = "InternalError",
-  INVALID_REQUEST = "InvalidRequest",
-}
+export const ErrorCode = {
+  INTERNAL_ERROR: "InternalError",
+  INVALID_REQUEST: "InvalidRequest",
+};
 
 /**
  * @public
@@ -765,7 +765,7 @@ export interface BatchDeleteDocumentResponseFailedDocument {
   /**
    * <p>The error code for why the document couldn't be removed from the index.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>An explanation for why the document couldn't be removed from the index.</p>
@@ -880,14 +880,14 @@ export interface BatchGetDocumentStatusRequest {
 /**
  * @public
  */
-export enum DocumentStatus {
-  FAILED = "FAILED",
-  INDEXED = "INDEXED",
-  NOT_FOUND = "NOT_FOUND",
-  PROCESSING = "PROCESSING",
-  UPDATED = "UPDATED",
-  UPDATE_FAILED = "UPDATE_FAILED",
-}
+export const DocumentStatus = {
+  FAILED: "FAILED",
+  INDEXED: "INDEXED",
+  NOT_FOUND: "NOT_FOUND",
+  PROCESSING: "PROCESSING",
+  UPDATED: "UPDATED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+};
 
 /**
  * @public
@@ -904,7 +904,7 @@ export interface Status {
    *          <p>If the document was submitted for deletion, the status is
    *                 <code>NOT_FOUND</code> after the document is deleted.</p>
    */
-  DocumentStatus?: DocumentStatus | string;
+  DocumentStatus?: keyof typeof DocumentStatus | string;
 
   /**
    * <p>Indicates the source of the error.</p>
@@ -932,7 +932,7 @@ export interface BatchGetDocumentStatusResponseError {
   /**
    * <p>Indicates the source of the error.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>States that the API could not get the status of a document. This could be
@@ -964,19 +964,19 @@ export interface BatchGetDocumentStatusResponse {
 /**
  * @public
  */
-export enum ConditionOperator {
-  BeginsWith = "BeginsWith",
-  Contains = "Contains",
-  Equals = "Equals",
-  Exists = "Exists",
-  GreaterThan = "GreaterThan",
-  GreaterThanOrEquals = "GreaterThanOrEquals",
-  LessThan = "LessThan",
-  LessThanOrEquals = "LessThanOrEquals",
-  NotContains = "NotContains",
-  NotEquals = "NotEquals",
-  NotExists = "NotExists",
-}
+export const ConditionOperator = {
+  BeginsWith: "BeginsWith",
+  Contains: "Contains",
+  Equals: "Equals",
+  Exists: "Exists",
+  GreaterThan: "GreaterThan",
+  GreaterThanOrEquals: "GreaterThanOrEquals",
+  LessThan: "LessThan",
+  LessThanOrEquals: "LessThanOrEquals",
+  NotContains: "NotContains",
+  NotEquals: "NotEquals",
+  NotExists: "NotExists",
+};
 
 /**
  * @public
@@ -1007,7 +1007,7 @@ export interface DocumentAttributeCondition {
    * <p>The condition operator.</p>
    *          <p>For example, you can use 'Contains' to partially match a string.</p>
    */
-  Operator: ConditionOperator | string | undefined;
+  Operator: keyof typeof ConditionOperator | string | undefined;
 
   /**
    * <p>The value used by the operator.</p>
@@ -1169,18 +1169,18 @@ export interface CustomDocumentEnrichmentConfiguration {
 /**
  * @public
  */
-export enum ReadAccessType {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const ReadAccessType = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+};
 
 /**
  * @public
  */
-export enum PrincipalType {
-  GROUP = "GROUP",
-  USER = "USER",
-}
+export const PrincipalType = {
+  GROUP: "GROUP",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -1196,12 +1196,12 @@ export interface Principal {
   /**
    * <p>The type of principal.</p>
    */
-  Type: PrincipalType | string | undefined;
+  Type: keyof typeof PrincipalType | string | undefined;
 
   /**
    * <p>Whether to allow or deny document access to the principal.</p>
    */
-  Access: ReadAccessType | string | undefined;
+  Access: keyof typeof ReadAccessType | string | undefined;
 
   /**
    * <p>The identifier of the data source the principal should access documents from.</p>
@@ -1212,20 +1212,20 @@ export interface Principal {
 /**
  * @public
  */
-export enum ContentType {
-  CSV = "CSV",
-  HTML = "HTML",
-  JSON = "JSON",
-  MD = "MD",
-  MS_EXCEL = "MS_EXCEL",
-  MS_WORD = "MS_WORD",
-  PDF = "PDF",
-  PLAIN_TEXT = "PLAIN_TEXT",
-  PPT = "PPT",
-  RTF = "RTF",
-  XML = "XML",
-  XSLT = "XSLT",
-}
+export const ContentType = {
+  CSV: "CSV",
+  HTML: "HTML",
+  JSON: "JSON",
+  MD: "MD",
+  MS_EXCEL: "MS_EXCEL",
+  MS_WORD: "MS_WORD",
+  PDF: "PDF",
+  PLAIN_TEXT: "PLAIN_TEXT",
+  PPT: "PPT",
+  RTF: "RTF",
+  XML: "XML",
+  XSLT: "XSLT",
+};
 
 /**
  * @public
@@ -1302,7 +1302,7 @@ export interface Document {
   /**
    * <p>The file type of the document in the <code>Blob</code> field.</p>
    */
-  ContentType?: ContentType | string;
+  ContentType?: keyof typeof ContentType | string;
 
   /**
    * <p>The identifier of the access control configuration that you want to apply to the
@@ -1374,7 +1374,7 @@ export interface BatchPutDocumentResponseFailedDocument {
   /**
    * <p>The type of error that caused the document to fail to be indexed.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>A description of the reason why the document could not be indexed.</p>
@@ -1619,19 +1619,19 @@ export interface BoxConfiguration {
 /**
  * @public
  */
-export enum ConfluenceAttachmentFieldName {
-  AUTHOR = "AUTHOR",
-  CONTENT_TYPE = "CONTENT_TYPE",
-  CREATED_DATE = "CREATED_DATE",
-  DISPLAY_URL = "DISPLAY_URL",
-  FILE_SIZE = "FILE_SIZE",
-  ITEM_TYPE = "ITEM_TYPE",
-  PARENT_ID = "PARENT_ID",
-  SPACE_KEY = "SPACE_KEY",
-  SPACE_NAME = "SPACE_NAME",
-  URL = "URL",
-  VERSION = "VERSION",
-}
+export const ConfluenceAttachmentFieldName = {
+  AUTHOR: "AUTHOR",
+  CONTENT_TYPE: "CONTENT_TYPE",
+  CREATED_DATE: "CREATED_DATE",
+  DISPLAY_URL: "DISPLAY_URL",
+  FILE_SIZE: "FILE_SIZE",
+  ITEM_TYPE: "ITEM_TYPE",
+  PARENT_ID: "PARENT_ID",
+  SPACE_KEY: "SPACE_KEY",
+  SPACE_NAME: "SPACE_NAME",
+  URL: "URL",
+  VERSION: "VERSION",
+};
 
 /**
  * @public
@@ -1645,7 +1645,7 @@ export interface ConfluenceAttachmentToIndexFieldMapping {
    * <p>The name of the field in the data source. </p>
    *          <p>You must first create the index field using the <code>UpdateIndex</code> API. </p>
    */
-  DataSourceFieldName?: ConfluenceAttachmentFieldName | string;
+  DataSourceFieldName?: keyof typeof ConfluenceAttachmentFieldName | string;
 
   /**
    * <p>The format for date fields in the data source. If the field specified in
@@ -1688,25 +1688,25 @@ export interface ConfluenceAttachmentConfiguration {
 /**
  * @public
  */
-export enum ConfluenceAuthenticationType {
-  HTTP_BASIC = "HTTP_BASIC",
-  PAT = "PAT",
-}
+export const ConfluenceAuthenticationType = {
+  HTTP_BASIC: "HTTP_BASIC",
+  PAT: "PAT",
+};
 
 /**
  * @public
  */
-export enum ConfluenceBlogFieldName {
-  AUTHOR = "AUTHOR",
-  DISPLAY_URL = "DISPLAY_URL",
-  ITEM_TYPE = "ITEM_TYPE",
-  LABELS = "LABELS",
-  PUBLISH_DATE = "PUBLISH_DATE",
-  SPACE_KEY = "SPACE_KEY",
-  SPACE_NAME = "SPACE_NAME",
-  URL = "URL",
-  VERSION = "VERSION",
-}
+export const ConfluenceBlogFieldName = {
+  AUTHOR: "AUTHOR",
+  DISPLAY_URL: "DISPLAY_URL",
+  ITEM_TYPE: "ITEM_TYPE",
+  LABELS: "LABELS",
+  PUBLISH_DATE: "PUBLISH_DATE",
+  SPACE_KEY: "SPACE_KEY",
+  SPACE_NAME: "SPACE_NAME",
+  URL: "URL",
+  VERSION: "VERSION",
+};
 
 /**
  * @public
@@ -1719,7 +1719,7 @@ export interface ConfluenceBlogToIndexFieldMapping {
   /**
    * <p>The name of the field in the data source. </p>
    */
-  DataSourceFieldName?: ConfluenceBlogFieldName | string;
+  DataSourceFieldName?: keyof typeof ConfluenceBlogFieldName | string;
 
   /**
    * <p>The format for date fields in the data source. If the field specified in
@@ -1757,20 +1757,20 @@ export interface ConfluenceBlogConfiguration {
 /**
  * @public
  */
-export enum ConfluencePageFieldName {
-  AUTHOR = "AUTHOR",
-  CONTENT_STATUS = "CONTENT_STATUS",
-  CREATED_DATE = "CREATED_DATE",
-  DISPLAY_URL = "DISPLAY_URL",
-  ITEM_TYPE = "ITEM_TYPE",
-  LABELS = "LABELS",
-  MODIFIED_DATE = "MODIFIED_DATE",
-  PARENT_ID = "PARENT_ID",
-  SPACE_KEY = "SPACE_KEY",
-  SPACE_NAME = "SPACE_NAME",
-  URL = "URL",
-  VERSION = "VERSION",
-}
+export const ConfluencePageFieldName = {
+  AUTHOR: "AUTHOR",
+  CONTENT_STATUS: "CONTENT_STATUS",
+  CREATED_DATE: "CREATED_DATE",
+  DISPLAY_URL: "DISPLAY_URL",
+  ITEM_TYPE: "ITEM_TYPE",
+  LABELS: "LABELS",
+  MODIFIED_DATE: "MODIFIED_DATE",
+  PARENT_ID: "PARENT_ID",
+  SPACE_KEY: "SPACE_KEY",
+  SPACE_NAME: "SPACE_NAME",
+  URL: "URL",
+  VERSION: "VERSION",
+};
 
 /**
  * @public
@@ -1783,7 +1783,7 @@ export interface ConfluencePageToIndexFieldMapping {
   /**
    * <p>The name of the field in the data source.</p>
    */
-  DataSourceFieldName?: ConfluencePageFieldName | string;
+  DataSourceFieldName?: keyof typeof ConfluencePageFieldName | string;
 
   /**
    * <p>The format for date fields in the data source. If the field specified in
@@ -1851,12 +1851,12 @@ export interface ProxyConfiguration {
 /**
  * @public
  */
-export enum ConfluenceSpaceFieldName {
-  DISPLAY_URL = "DISPLAY_URL",
-  ITEM_TYPE = "ITEM_TYPE",
-  SPACE_KEY = "SPACE_KEY",
-  URL = "URL",
-}
+export const ConfluenceSpaceFieldName = {
+  DISPLAY_URL: "DISPLAY_URL",
+  ITEM_TYPE: "ITEM_TYPE",
+  SPACE_KEY: "SPACE_KEY",
+  URL: "URL",
+};
 
 /**
  * @public
@@ -1869,7 +1869,7 @@ export interface ConfluenceSpaceToIndexFieldMapping {
   /**
    * <p>The name of the field in the data source. </p>
    */
-  DataSourceFieldName?: ConfluenceSpaceFieldName | string;
+  DataSourceFieldName?: keyof typeof ConfluenceSpaceFieldName | string;
 
   /**
    * <p>The format for date fields in the data source. If the field specified in
@@ -1938,10 +1938,10 @@ export interface ConfluenceSpaceConfiguration {
 /**
  * @public
  */
-export enum ConfluenceVersion {
-  CLOUD = "CLOUD",
-  SERVER = "SERVER",
-}
+export const ConfluenceVersion = {
+  CLOUD: "CLOUD",
+  SERVER: "SERVER",
+};
 
 /**
  * @public
@@ -1969,7 +1969,7 @@ export interface ConfluenceConfiguration {
   /**
    * <p>The version or the type of Confluence installation to connect to.</p>
    */
-  Version: ConfluenceVersion | string | undefined;
+  Version: keyof typeof ConfluenceVersion | string | undefined;
 
   /**
    * <p>Configuration information for indexing Confluence spaces.</p>
@@ -2039,7 +2039,7 @@ export interface ConfluenceConfiguration {
    *             password, or a personal access token. You can use a personal access token for Confluence
    *             Server.</p>
    */
-  AuthenticationType?: ConfluenceAuthenticationType | string;
+  AuthenticationType?: keyof typeof ConfluenceAuthenticationType | string;
 }
 
 /**
@@ -2118,20 +2118,20 @@ export interface ConnectionConfiguration {
 /**
  * @public
  */
-export enum DatabaseEngineType {
-  RDS_AURORA_MYSQL = "RDS_AURORA_MYSQL",
-  RDS_AURORA_POSTGRESQL = "RDS_AURORA_POSTGRESQL",
-  RDS_MYSQL = "RDS_MYSQL",
-  RDS_POSTGRESQL = "RDS_POSTGRESQL",
-}
+export const DatabaseEngineType = {
+  RDS_AURORA_MYSQL: "RDS_AURORA_MYSQL",
+  RDS_AURORA_POSTGRESQL: "RDS_AURORA_POSTGRESQL",
+  RDS_MYSQL: "RDS_MYSQL",
+  RDS_POSTGRESQL: "RDS_POSTGRESQL",
+};
 
 /**
  * @public
  */
-export enum QueryIdentifiersEnclosingOption {
-  DOUBLE_QUOTES = "DOUBLE_QUOTES",
-  NONE = "NONE",
-}
+export const QueryIdentifiersEnclosingOption = {
+  DOUBLE_QUOTES: "DOUBLE_QUOTES",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -2150,7 +2150,7 @@ export interface SqlConfiguration {
    *          <p>For MySQL databases, you must enable the <code>ansi_quotes</code> option when you set
    *             this field to <code>DOUBLE_QUOTES</code>.</p>
    */
-  QueryIdentifiersEnclosingOption?: QueryIdentifiersEnclosingOption | string;
+  QueryIdentifiersEnclosingOption?: keyof typeof QueryIdentifiersEnclosingOption | string;
 }
 
 /**
@@ -2161,7 +2161,7 @@ export interface DatabaseConfiguration {
   /**
    * <p>The type of database engine that runs the database.</p>
    */
-  DatabaseEngineType: DatabaseEngineType | string | undefined;
+  DatabaseEngineType: keyof typeof DatabaseEngineType | string | undefined;
 
   /**
    * <p>Configuration information that's required to connect to a database.</p>
@@ -2195,9 +2195,9 @@ export interface DatabaseConfiguration {
 /**
  * @public
  */
-export enum FsxFileSystemType {
-  WINDOWS = "WINDOWS",
-}
+export const FsxFileSystemType = {
+  WINDOWS: "WINDOWS",
+};
 
 /**
  * @public
@@ -2219,7 +2219,7 @@ export interface FsxConfiguration {
    * <p>The Amazon FSx file system type. Windows is currently the only
    *             supported type.</p>
    */
-  FileSystemType: FsxFileSystemType | string | undefined;
+  FileSystemType: keyof typeof FsxFileSystemType | string | undefined;
 
   /**
    * <p>Configuration information for an Amazon Virtual Private Cloud to connect
@@ -2385,10 +2385,10 @@ export interface SaaSConfiguration {
 /**
  * @public
  */
-export enum Type {
-  ON_PREMISE = "ON_PREMISE",
-  SAAS = "SAAS",
-}
+export const Type = {
+  ON_PREMISE: "ON_PREMISE",
+  SAAS: "SAAS",
+};
 
 /**
  * @public
@@ -2410,7 +2410,7 @@ export interface GitHubConfiguration {
    * <p>The type of GitHub service you want to connect to—GitHub Enterprise Cloud
    *             (SaaS) or GitHub Enterprise Server (on premises).</p>
    */
-  Type?: Type | string;
+  Type?: keyof typeof Type | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret that contains the
@@ -2649,11 +2649,11 @@ export interface GoogleDriveConfiguration {
 /**
  * @public
  */
-export enum IssueSubEntity {
-  ATTACHMENTS = "ATTACHMENTS",
-  COMMENTS = "COMMENTS",
-  WORKLOGS = "WORKLOGS",
-}
+export const IssueSubEntity = {
+  ATTACHMENTS: "ATTACHMENTS",
+  COMMENTS: "COMMENTS",
+  WORKLOGS: "WORKLOGS",
+};
 
 /**
  * @public
@@ -2711,7 +2711,7 @@ export interface JiraConfiguration {
    * <p>Specify whether to crawl comments, attachments, and work logs. You can specify one or
    *             more of these options.</p>
    */
-  IssueSubEntityFilter?: (IssueSubEntity | string)[];
+  IssueSubEntityFilter?: (keyof typeof IssueSubEntity | string)[];
 
   /**
    * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or
@@ -3069,10 +3069,10 @@ export interface S3DataSourceConfiguration {
 /**
  * @public
  */
-export enum SalesforceChatterFeedIncludeFilterType {
-  ACTIVE_USER = "ACTIVE_USER",
-  STANDARD_USER = "STANDARD_USER",
-}
+export const SalesforceChatterFeedIncludeFilterType = {
+  ACTIVE_USER: "ACTIVE_USER",
+  STANDARD_USER: "STANDARD_USER",
+};
 
 /**
  * @public
@@ -3104,7 +3104,7 @@ export interface SalesforceChatterFeedConfiguration {
    *             indexed. When you specify <code>STANDARD_USER</code> only documents for Salesforce
    *             standard users are documented. You can specify both.</p>
    */
-  IncludeFilterTypes?: (SalesforceChatterFeedIncludeFilterType | string)[];
+  IncludeFilterTypes?: (keyof typeof SalesforceChatterFeedIncludeFilterType | string)[];
 }
 
 /**
@@ -3141,11 +3141,11 @@ export interface SalesforceCustomKnowledgeArticleTypeConfiguration {
 /**
  * @public
  */
-export enum SalesforceKnowledgeArticleState {
-  ARCHIVED = "ARCHIVED",
-  DRAFT = "DRAFT",
-  PUBLISHED = "PUBLISHED",
-}
+export const SalesforceKnowledgeArticleState = {
+  ARCHIVED: "ARCHIVED",
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+};
 
 /**
  * @public
@@ -3183,7 +3183,7 @@ export interface SalesforceKnowledgeArticleConfiguration {
    * <p>Specifies the document states that should be included when Amazon Kendra indexes
    *             knowledge articles. You must specify at least one state.</p>
    */
-  IncludedStates: (SalesforceKnowledgeArticleState | string)[] | undefined;
+  IncludedStates: (keyof typeof SalesforceKnowledgeArticleState | string)[] | undefined;
 
   /**
    * <p>Configuration information for standard Salesforce knowledge articles.</p>
@@ -3217,25 +3217,25 @@ export interface SalesforceStandardObjectAttachmentConfiguration {
 /**
  * @public
  */
-export enum SalesforceStandardObjectName {
-  ACCOUNT = "ACCOUNT",
-  CAMPAIGN = "CAMPAIGN",
-  CASE = "CASE",
-  CONTACT = "CONTACT",
-  CONTRACT = "CONTRACT",
-  DOCUMENT = "DOCUMENT",
-  GROUP = "GROUP",
-  IDEA = "IDEA",
-  LEAD = "LEAD",
-  OPPORTUNITY = "OPPORTUNITY",
-  PARTNER = "PARTNER",
-  PRICEBOOK = "PRICEBOOK",
-  PRODUCT = "PRODUCT",
-  PROFILE = "PROFILE",
-  SOLUTION = "SOLUTION",
-  TASK = "TASK",
-  USER = "USER",
-}
+export const SalesforceStandardObjectName = {
+  ACCOUNT: "ACCOUNT",
+  CAMPAIGN: "CAMPAIGN",
+  CASE: "CASE",
+  CONTACT: "CONTACT",
+  CONTRACT: "CONTRACT",
+  DOCUMENT: "DOCUMENT",
+  GROUP: "GROUP",
+  IDEA: "IDEA",
+  LEAD: "LEAD",
+  OPPORTUNITY: "OPPORTUNITY",
+  PARTNER: "PARTNER",
+  PRICEBOOK: "PRICEBOOK",
+  PRODUCT: "PRODUCT",
+  PROFILE: "PROFILE",
+  SOLUTION: "SOLUTION",
+  TASK: "TASK",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -3245,7 +3245,7 @@ export interface SalesforceStandardObjectConfiguration {
   /**
    * <p>The name of the standard object.</p>
    */
-  Name: SalesforceStandardObjectName | string | undefined;
+  Name: keyof typeof SalesforceStandardObjectName | string | undefined;
 
   /**
    * <p>The name of the field in the standard object table that contains the document
@@ -3367,10 +3367,10 @@ export interface SalesforceConfiguration {
 /**
  * @public
  */
-export enum ServiceNowAuthenticationType {
-  HTTP_BASIC = "HTTP_BASIC",
-  OAUTH2 = "OAUTH2",
-}
+export const ServiceNowAuthenticationType = {
+  HTTP_BASIC: "HTTP_BASIC",
+  OAUTH2: "OAUTH2",
+};
 
 /**
  * @public
@@ -3492,10 +3492,10 @@ export interface ServiceNowServiceCatalogConfiguration {
 /**
  * @public
  */
-export enum ServiceNowBuildVersionType {
-  LONDON = "LONDON",
-  OTHERS = "OTHERS",
-}
+export const ServiceNowBuildVersionType = {
+  LONDON: "LONDON",
+  OTHERS: "OTHERS",
+};
 
 /**
  * @public
@@ -3523,7 +3523,7 @@ export interface ServiceNowConfiguration {
    * <p>The identifier of the release that the ServiceNow host is running. If the host is not
    *             running the <code>LONDON</code> release, use <code>OTHERS</code>.</p>
    */
-  ServiceNowBuildVersion: ServiceNowBuildVersionType | string | undefined;
+  ServiceNowBuildVersion: keyof typeof ServiceNowBuildVersionType | string | undefined;
 
   /**
    * <p>Configuration information for crawling knowledge articles in the ServiceNow
@@ -3546,26 +3546,26 @@ export interface ServiceNowConfiguration {
    *             client secret using the ServiceNow console. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html">Using a
    *                 ServiceNow data source</a>.</p>
    */
-  AuthenticationType?: ServiceNowAuthenticationType | string;
+  AuthenticationType?: keyof typeof ServiceNowAuthenticationType | string;
 }
 
 /**
  * @public
  */
-export enum SharePointOnlineAuthenticationType {
-  HTTP_BASIC = "HTTP_BASIC",
-  OAUTH2 = "OAUTH2",
-}
+export const SharePointOnlineAuthenticationType = {
+  HTTP_BASIC: "HTTP_BASIC",
+  OAUTH2: "OAUTH2",
+};
 
 /**
  * @public
  */
-export enum SharePointVersion {
-  SHAREPOINT_2013 = "SHAREPOINT_2013",
-  SHAREPOINT_2016 = "SHAREPOINT_2016",
-  SHAREPOINT_2019 = "SHAREPOINT_2019",
-  SHAREPOINT_ONLINE = "SHAREPOINT_ONLINE",
-}
+export const SharePointVersion = {
+  SHAREPOINT_2013: "SHAREPOINT_2013",
+  SHAREPOINT_2016: "SHAREPOINT_2016",
+  SHAREPOINT_2019: "SHAREPOINT_2019",
+  SHAREPOINT_ONLINE: "SHAREPOINT_ONLINE",
+};
 
 /**
  * @public
@@ -3576,7 +3576,7 @@ export interface SharePointConfiguration {
   /**
    * <p>The version of Microsoft SharePoint that you use.</p>
    */
-  SharePointVersion: SharePointVersion | string | undefined;
+  SharePointVersion: keyof typeof SharePointVersion | string | undefined;
 
   /**
    * <p>The Microsoft SharePoint site URLs for the documents you want to index.</p>
@@ -3670,7 +3670,7 @@ export interface SharePointConfiguration {
    *             password, or OAuth authentication of user name, password, client ID, and client secret.
    *             You can use OAuth authentication for SharePoint Online.</p>
    */
-  AuthenticationType?: SharePointOnlineAuthenticationType | string;
+  AuthenticationType?: keyof typeof SharePointOnlineAuthenticationType | string;
 
   /**
    * <p>Configuration information to connect to your Microsoft SharePoint site URLs via
@@ -3694,12 +3694,12 @@ export interface SharePointConfiguration {
 /**
  * @public
  */
-export enum SlackEntity {
-  DIRECT_MESSAGE = "DIRECT_MESSAGE",
-  GROUP_MESSAGE = "GROUP_MESSAGE",
-  PRIVATE_CHANNEL = "PRIVATE_CHANNEL",
-  PUBLIC_CHANNEL = "PUBLIC_CHANNEL",
-}
+export const SlackEntity = {
+  DIRECT_MESSAGE: "DIRECT_MESSAGE",
+  GROUP_MESSAGE: "GROUP_MESSAGE",
+  PRIVATE_CHANNEL: "PRIVATE_CHANNEL",
+  PUBLIC_CHANNEL: "PUBLIC_CHANNEL",
+};
 
 /**
  * @public
@@ -3740,7 +3740,7 @@ export interface SlackConfiguration {
    * <p>Specify whether to index public channels, private channels, group messages, and
    *             direct messages. You can specify one or more of these options.</p>
    */
-  SlackEntityList: (SlackEntity | string)[] | undefined;
+  SlackEntityList: (keyof typeof SlackEntity | string)[] | undefined;
 
   /**
    * <p>
@@ -3839,11 +3839,11 @@ export interface TemplateConfiguration {
 /**
  * @public
  */
-export enum WebCrawlerMode {
-  EVERYTHING = "EVERYTHING",
-  HOST_ONLY = "HOST_ONLY",
-  SUBDOMAINS = "SUBDOMAINS",
-}
+export const WebCrawlerMode = {
+  EVERYTHING: "EVERYTHING",
+  HOST_ONLY: "HOST_ONLY",
+  SUBDOMAINS: "SUBDOMAINS",
+};
 
 /**
  * @public
@@ -3887,7 +3887,7 @@ export interface SeedUrlConfiguration {
    *          </ul>
    *          <p>The default mode is set to <code>HOST_ONLY</code>.</p>
    */
-  WebCrawlerMode?: WebCrawlerMode | string;
+  WebCrawlerMode?: keyof typeof WebCrawlerMode | string;
 }
 
 /**
@@ -4248,27 +4248,27 @@ export interface Tag {
 /**
  * @public
  */
-export enum DataSourceType {
-  ALFRESCO = "ALFRESCO",
-  BOX = "BOX",
-  CONFLUENCE = "CONFLUENCE",
-  CUSTOM = "CUSTOM",
-  DATABASE = "DATABASE",
-  FSX = "FSX",
-  GITHUB = "GITHUB",
-  GOOGLEDRIVE = "GOOGLEDRIVE",
-  JIRA = "JIRA",
-  ONEDRIVE = "ONEDRIVE",
-  QUIP = "QUIP",
-  S3 = "S3",
-  SALESFORCE = "SALESFORCE",
-  SERVICENOW = "SERVICENOW",
-  SHAREPOINT = "SHAREPOINT",
-  SLACK = "SLACK",
-  TEMPLATE = "TEMPLATE",
-  WEBCRAWLER = "WEBCRAWLER",
-  WORKDOCS = "WORKDOCS",
-}
+export const DataSourceType = {
+  ALFRESCO: "ALFRESCO",
+  BOX: "BOX",
+  CONFLUENCE: "CONFLUENCE",
+  CUSTOM: "CUSTOM",
+  DATABASE: "DATABASE",
+  FSX: "FSX",
+  GITHUB: "GITHUB",
+  GOOGLEDRIVE: "GOOGLEDRIVE",
+  JIRA: "JIRA",
+  ONEDRIVE: "ONEDRIVE",
+  QUIP: "QUIP",
+  S3: "S3",
+  SALESFORCE: "SALESFORCE",
+  SERVICENOW: "SERVICENOW",
+  SHAREPOINT: "SHAREPOINT",
+  SLACK: "SLACK",
+  TEMPLATE: "TEMPLATE",
+  WEBCRAWLER: "WEBCRAWLER",
+  WORKDOCS: "WORKDOCS",
+};
 
 /**
  * @public
@@ -4287,7 +4287,7 @@ export interface CreateDataSourceRequest {
   /**
    * <p>The type of data source repository. For example, <code>SHAREPOINT</code>.</p>
    */
-  Type: DataSourceType | string | undefined;
+  Type: keyof typeof DataSourceType | string | undefined;
 
   /**
    * <p>Configuration information to connect to your data source repository.</p>
@@ -4491,11 +4491,11 @@ export interface CreateExperienceResponse {
 /**
  * @public
  */
-export enum FaqFileFormat {
-  CSV = "CSV",
-  CSV_WITH_HEADER = "CSV_WITH_HEADER",
-  JSON = "JSON",
-}
+export const FaqFileFormat = {
+  CSV: "CSV",
+  CSV_WITH_HEADER: "CSV_WITH_HEADER",
+  JSON: "JSON",
+};
 
 /**
  * @public
@@ -4542,7 +4542,7 @@ export interface CreateFaqRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html">Adding questions and
    *             answers</a>.</p>
    */
-  FileFormat?: FaqFileFormat | string;
+  FileFormat?: keyof typeof FaqFileFormat | string;
 
   /**
    * <p>A token that you provide to identify the request to create a FAQ. Multiple calls to
@@ -4574,10 +4574,10 @@ export interface CreateFaqResponse {
 /**
  * @public
  */
-export enum IndexEdition {
-  DEVELOPER_EDITION = "DEVELOPER_EDITION",
-  ENTERPRISE_EDITION = "ENTERPRISE_EDITION",
-}
+export const IndexEdition = {
+  DEVELOPER_EDITION: "DEVELOPER_EDITION",
+  ENTERPRISE_EDITION: "ENTERPRISE_EDITION",
+};
 
 /**
  * @public
@@ -4596,18 +4596,18 @@ export interface ServerSideEncryptionConfiguration {
 /**
  * @public
  */
-export enum UserContextPolicy {
-  ATTRIBUTE_FILTER = "ATTRIBUTE_FILTER",
-  USER_TOKEN = "USER_TOKEN",
-}
+export const UserContextPolicy = {
+  ATTRIBUTE_FILTER: "ATTRIBUTE_FILTER",
+  USER_TOKEN: "USER_TOKEN",
+};
 
 /**
  * @public
  */
-export enum UserGroupResolutionMode {
-  AWS_SSO = "AWS_SSO",
-  NONE = "NONE",
-}
+export const UserGroupResolutionMode = {
+  AWS_SSO: "AWS_SSO",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -4636,7 +4636,7 @@ export interface UserGroupResolutionConfiguration {
    *          must
    *          exist in an IAM Identity Center identity source in order to use this mode.</p>
    */
-  UserGroupResolutionMode: UserGroupResolutionMode | string | undefined;
+  UserGroupResolutionMode: keyof typeof UserGroupResolutionMode | string | undefined;
 }
 
 /**
@@ -4658,10 +4658,10 @@ export interface JsonTokenTypeConfiguration {
 /**
  * @public
  */
-export enum KeyLocation {
-  SECRET_MANAGER = "SECRET_MANAGER",
-  URL = "URL",
-}
+export const KeyLocation = {
+  SECRET_MANAGER: "SECRET_MANAGER",
+  URL: "URL",
+};
 
 /**
  * @public
@@ -4671,7 +4671,7 @@ export interface JwtTokenTypeConfiguration {
   /**
    * <p>The location of the key.</p>
    */
-  KeyLocation: KeyLocation | string | undefined;
+  KeyLocation: keyof typeof KeyLocation | string | undefined;
 
   /**
    * <p>The signing key URL.</p>
@@ -4738,7 +4738,7 @@ export interface CreateIndexRequest {
    *       is <code>ENTERPRISE_EDITION</code>.</p>
    *          <p>For more information on quota limits for enterprise and developer editions, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</p>
    */
-  Edition?: IndexEdition | string;
+  Edition?: keyof typeof IndexEdition | string;
 
   /**
    * <p>An Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access
@@ -4798,7 +4798,7 @@ export interface CreateIndexRequest {
    *             </dd>
    *          </dl>
    */
-  UserContextPolicy?: UserContextPolicy | string;
+  UserContextPolicy?: keyof typeof UserContextPolicy | string;
 
   /**
    * <p>Enables fetching access levels of groups and users from an IAM Identity Center (successor to Single Sign-On)
@@ -5168,13 +5168,13 @@ export interface DescribeDataSourceRequest {
 /**
  * @public
  */
-export enum DataSourceStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const DataSourceStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -5198,7 +5198,7 @@ export interface DescribeDataSourceResponse {
   /**
    * <p>The type of the data source. For example, <code>SHAREPOINT</code>.</p>
    */
-  Type?: DataSourceType | string;
+  Type?: keyof typeof DataSourceType | string;
 
   /**
    * <p>Configuration details for the data source connector. This shows how the data source is
@@ -5233,7 +5233,7 @@ export interface DescribeDataSourceResponse {
    *       the data source is ready to use. When the status is <code>FAILED</code>, the
    *         <code>ErrorMessage</code> field contains the reason that the data source failed.</p>
    */
-  Status?: DataSourceStatus | string;
+  Status?: keyof typeof DataSourceStatus | string;
 
   /**
    * <p>The schedule for Amazon Kendra to update the index.</p>
@@ -5291,9 +5291,9 @@ export interface DescribeExperienceRequest {
 /**
  * @public
  */
-export enum EndpointType {
-  HOME = "HOME",
-}
+export const EndpointType = {
+  HOME: "HOME",
+};
 
 /**
  * @public
@@ -5306,7 +5306,7 @@ export interface ExperienceEndpoint {
    *             is <code>HOME</code>, which is a unique and fully hosted URL to the home page
    *             of your Amazon Kendra experience.</p>
    */
-  EndpointType?: EndpointType | string;
+  EndpointType?: keyof typeof EndpointType | string;
 
   /**
    * <p>The endpoint of your Amazon Kendra experience.</p>
@@ -5317,12 +5317,12 @@ export interface ExperienceEndpoint {
 /**
  * @public
  */
-export enum ExperienceStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-}
+export const ExperienceStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
@@ -5378,7 +5378,7 @@ export interface DescribeExperienceResponse {
    *             status is <code>FAILED</code>, the <code>ErrorMessage</code> field contains
    *             the reason that this failed.</p>
    */
-  Status?: ExperienceStatus | string;
+  Status?: keyof typeof ExperienceStatus | string;
 
   /**
    * <p>Shows the Amazon Resource Name (ARN) of a role with permission to access
@@ -5412,13 +5412,13 @@ export interface DescribeFaqRequest {
 /**
  * @public
  */
-export enum FaqStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const FaqStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -5463,7 +5463,7 @@ export interface DescribeFaqResponse {
    * <p>The status of the FAQ. It is ready to use when the status is
    *             <code>ACTIVE</code>.</p>
    */
-  Status?: FaqStatus | string;
+  Status?: keyof typeof FaqStatus | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role that provides access to the S3 bucket
@@ -5480,7 +5480,7 @@ export interface DescribeFaqResponse {
   /**
    * <p>The file format used by the input files for the FAQ.</p>
    */
-  FileFormat?: FaqFileFormat | string;
+  FileFormat?: keyof typeof FaqFileFormat | string;
 
   /**
    * <p>The code for a language. This shows a supported language
@@ -5535,10 +5535,10 @@ export interface CapacityUnitsConfiguration {
 /**
  * @public
  */
-export enum Order {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const Order = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -5582,7 +5582,7 @@ export interface Relevance {
    *             than a priority 5 task.</p>
    *          <p>Only applies to <code>LONG</code> and <code>DOUBLE</code> fields.</p>
    */
-  RankOrder?: Order | string;
+  RankOrder?: keyof typeof Order | string;
 
   /**
    * <p>A list of values that should be given a different boost when they appear in the result
@@ -5633,12 +5633,12 @@ export interface Search {
 /**
  * @public
  */
-export enum DocumentAttributeValueType {
-  DATE_VALUE = "DATE_VALUE",
-  LONG_VALUE = "LONG_VALUE",
-  STRING_LIST_VALUE = "STRING_LIST_VALUE",
-  STRING_VALUE = "STRING_VALUE",
-}
+export const DocumentAttributeValueType = {
+  DATE_VALUE: "DATE_VALUE",
+  LONG_VALUE: "LONG_VALUE",
+  STRING_LIST_VALUE: "STRING_LIST_VALUE",
+  STRING_VALUE: "STRING_VALUE",
+};
 
 /**
  * @public
@@ -5654,7 +5654,7 @@ export interface DocumentMetadataConfiguration {
   /**
    * <p>The data type of the index field. </p>
    */
-  Type: DocumentAttributeValueType | string | undefined;
+  Type: keyof typeof DocumentAttributeValueType | string | undefined;
 
   /**
    * <p>Provides tuning parameters to determine how the field affects the search
@@ -5716,14 +5716,14 @@ export interface IndexStatistics {
 /**
  * @public
  */
-export enum IndexStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  SYSTEM_UPDATING = "SYSTEM_UPDATING",
-  UPDATING = "UPDATING",
-}
+export const IndexStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  SYSTEM_UPDATING: "SYSTEM_UPDATING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -5743,7 +5743,7 @@ export interface DescribeIndexResponse {
    * <p>The Amazon Kendra edition used for the index. You decide the edition when you create
    *       the index.</p>
    */
-  Edition?: IndexEdition | string;
+  Edition?: keyof typeof IndexEdition | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that gives Amazon Kendra permission to
@@ -5762,7 +5762,7 @@ export interface DescribeIndexResponse {
    *       for use. If the <code>Status</code> field value is <code>FAILED</code>, the
    *         <code>ErrorMessage</code> field contains a message that explains why.</p>
    */
-  Status?: IndexStatus | string;
+  Status?: keyof typeof IndexStatus | string;
 
   /**
    * <p>The description for the index.</p>
@@ -5815,7 +5815,7 @@ export interface DescribeIndexResponse {
   /**
    * <p>The user context policy for the Amazon Kendra index.</p>
    */
-  UserContextPolicy?: UserContextPolicy | string;
+  UserContextPolicy?: keyof typeof UserContextPolicy | string;
 
   /**
    * <p>Whether you have enabled the configuration for fetching access
@@ -5853,13 +5853,13 @@ export interface DescribePrincipalMappingRequest {
 /**
  * @public
  */
-export enum PrincipalMappingStatus {
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PROCESSING = "PROCESSING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const PrincipalMappingStatus = {
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -5872,7 +5872,7 @@ export interface GroupOrderingIdSummary {
    *             The status can be either <code>PROCESSING</code>, <code>SUCCEEDED</code>,
    *             <code>DELETING</code>, <code>DELETED</code>, or <code>FAILED</code>.</p>
    */
-  Status?: PrincipalMappingStatus | string;
+  Status?: keyof typeof PrincipalMappingStatus | string;
 
   /**
    * <p>The last date-time an action was updated. An action can be a
@@ -5973,14 +5973,14 @@ export interface DescribeQuerySuggestionsBlockListRequest {
 /**
  * @public
  */
-export enum QuerySuggestionsBlockListStatus {
-  ACTIVE = "ACTIVE",
-  ACTIVE_BUT_UPDATE_FAILED = "ACTIVE_BUT_UPDATE_FAILED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const QuerySuggestionsBlockListStatus = {
+  ACTIVE: "ACTIVE",
+  ACTIVE_BUT_UPDATE_FAILED: "ACTIVE_BUT_UPDATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -6010,7 +6010,7 @@ export interface DescribeQuerySuggestionsBlockListResponse {
    * <p>The current status of the block list. When the value is
    *             <code>ACTIVE</code>, the block list is ready for use.</p>
    */
-  Status?: QuerySuggestionsBlockListStatus | string;
+  Status?: keyof typeof QuerySuggestionsBlockListStatus | string;
 
   /**
    * <p>The error message containing details if there are issues processing
@@ -6072,18 +6072,18 @@ export interface DescribeQuerySuggestionsConfigRequest {
 /**
  * @public
  */
-export enum Mode {
-  ENABLED = "ENABLED",
-  LEARN_ONLY = "LEARN_ONLY",
-}
+export const Mode = {
+  ENABLED: "ENABLED",
+  LEARN_ONLY: "LEARN_ONLY",
+};
 
 /**
  * @public
  */
-export enum QuerySuggestionsStatus {
-  ACTIVE = "ACTIVE",
-  UPDATING = "UPDATING",
-}
+export const QuerySuggestionsStatus = {
+  ACTIVE: "ACTIVE",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -6097,7 +6097,7 @@ export interface DescribeQuerySuggestionsConfigResponse {
    *             the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html">UpdateQuerySuggestionsConfig</a>
    *             API.</p>
    */
-  Mode?: Mode | string;
+  Mode?: keyof typeof Mode | string;
 
   /**
    * <p>Whether the status of query suggestions settings is currently
@@ -6105,7 +6105,7 @@ export interface DescribeQuerySuggestionsConfigResponse {
    *          <p>Active means the current settings apply and Updating means your
    *             changed settings are in the process of applying.</p>
    */
-  Status?: QuerySuggestionsStatus | string;
+  Status?: keyof typeof QuerySuggestionsStatus | string;
 
   /**
    * <p>How recent your queries are in your query log time
@@ -6173,14 +6173,14 @@ export interface DescribeThesaurusRequest {
 /**
  * @public
  */
-export enum ThesaurusStatus {
-  ACTIVE = "ACTIVE",
-  ACTIVE_BUT_UPDATE_FAILED = "ACTIVE_BUT_UPDATE_FAILED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const ThesaurusStatus = {
+  ACTIVE: "ACTIVE",
+  ACTIVE_BUT_UPDATE_FAILED: "ACTIVE_BUT_UPDATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -6217,7 +6217,7 @@ export interface DescribeThesaurusResponse {
    *       thesaurus file is still active.
    *       </p>
    */
-  Status?: ThesaurusStatus | string;
+  Status?: keyof typeof ThesaurusStatus | string;
 
   /**
    * <p>When the <code>Status</code> field value is <code>FAILED</code>, the
@@ -6438,26 +6438,26 @@ export interface GetQuerySuggestionsResponse {
 /**
  * @public
  */
-export enum Interval {
-  ONE_MONTH_AGO = "ONE_MONTH_AGO",
-  ONE_WEEK_AGO = "ONE_WEEK_AGO",
-  THIS_MONTH = "THIS_MONTH",
-  THIS_WEEK = "THIS_WEEK",
-  TWO_MONTHS_AGO = "TWO_MONTHS_AGO",
-  TWO_WEEKS_AGO = "TWO_WEEKS_AGO",
-}
+export const Interval = {
+  ONE_MONTH_AGO: "ONE_MONTH_AGO",
+  ONE_WEEK_AGO: "ONE_WEEK_AGO",
+  THIS_MONTH: "THIS_MONTH",
+  THIS_WEEK: "THIS_WEEK",
+  TWO_MONTHS_AGO: "TWO_MONTHS_AGO",
+  TWO_WEEKS_AGO: "TWO_WEEKS_AGO",
+};
 
 /**
  * @public
  */
-export enum MetricType {
-  AGG_QUERY_DOC_METRICS = "AGG_QUERY_DOC_METRICS",
-  DOCS_BY_CLICK_COUNT = "DOCS_BY_CLICK_COUNT",
-  QUERIES_BY_COUNT = "QUERIES_BY_COUNT",
-  QUERIES_BY_ZERO_CLICK_RATE = "QUERIES_BY_ZERO_CLICK_RATE",
-  QUERIES_BY_ZERO_RESULT_RATE = "QUERIES_BY_ZERO_RESULT_RATE",
-  TREND_QUERY_DOC_METRICS = "TREND_QUERY_DOC_METRICS",
-}
+export const MetricType = {
+  AGG_QUERY_DOC_METRICS: "AGG_QUERY_DOC_METRICS",
+  DOCS_BY_CLICK_COUNT: "DOCS_BY_CLICK_COUNT",
+  QUERIES_BY_COUNT: "QUERIES_BY_COUNT",
+  QUERIES_BY_ZERO_CLICK_RATE: "QUERIES_BY_ZERO_CLICK_RATE",
+  QUERIES_BY_ZERO_RESULT_RATE: "QUERIES_BY_ZERO_RESULT_RATE",
+  TREND_QUERY_DOC_METRICS: "TREND_QUERY_DOC_METRICS",
+};
 
 /**
  * @public
@@ -6505,7 +6505,7 @@ export interface GetSnapshotsRequest {
    *             </li>
    *          </ul>
    */
-  Interval: Interval | string | undefined;
+  Interval: keyof typeof Interval | string | undefined;
 
   /**
    * <p>The metric you want to retrieve. You
@@ -6514,7 +6514,7 @@ export interface GetSnapshotsRequest {
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/search-analytics.html">Gaining
    *                 insights with search analytics</a>.</p>
    */
-  MetricType: MetricType | string | undefined;
+  MetricType: keyof typeof MetricType | string | undefined;
 
   /**
    * <p>If the previous response was incomplete (because there
@@ -6677,7 +6677,7 @@ export interface DataSourceSummary {
   /**
    * <p>The type of the data source.</p>
    */
-  Type?: DataSourceType | string;
+  Type?: keyof typeof DataSourceType | string;
 
   /**
    * <p>The UNIX datetime that the data source was created.</p>
@@ -6693,7 +6693,7 @@ export interface DataSourceSummary {
    * <p>The status of the data source. When the status is <code>ACTIVE</code> the data source
    *             is ready to use.</p>
    */
-  Status?: DataSourceStatus | string;
+  Status?: keyof typeof DataSourceStatus | string;
 
   /**
    * <p>The code for a language. This shows a supported language for all documents
@@ -6724,15 +6724,15 @@ export interface ListDataSourcesResponse {
 /**
  * @public
  */
-export enum DataSourceSyncJobStatus {
-  ABORTED = "ABORTED",
-  FAILED = "FAILED",
-  INCOMPLETE = "INCOMPLETE",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-  SYNCING = "SYNCING",
-  SYNCING_INDEXING = "SYNCING_INDEXING",
-}
+export const DataSourceSyncJobStatus = {
+  ABORTED: "ABORTED",
+  FAILED: "FAILED",
+  INCOMPLETE: "INCOMPLETE",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+  SYNCING: "SYNCING",
+  SYNCING_INDEXING: "SYNCING_INDEXING",
+};
 
 /**
  * @public
@@ -6770,7 +6770,7 @@ export interface ListDataSourceSyncJobsRequest {
    * <p>Only returns synchronization jobs with the <code>Status</code> field equal to the
    *       specified status.</p>
    */
-  StatusFilter?: DataSourceSyncJobStatus | string;
+  StatusFilter?: keyof typeof DataSourceSyncJobStatus | string;
 }
 
 /**
@@ -6837,7 +6837,7 @@ export interface DataSourceSyncJob {
    *             set to <code>FAILED</code>, the <code>ErrorCode</code> and <code>ErrorMessage</code>
    *             fields give you the reason for the failure.</p>
    */
-  Status?: DataSourceSyncJobStatus | string;
+  Status?: keyof typeof DataSourceSyncJobStatus | string;
 
   /**
    * <p>If the <code>Status</code> field is set to <code>ERROR</code>, the
@@ -6850,7 +6850,7 @@ export interface DataSourceSyncJob {
    * <p>If the <code>Status</code> field is set to <code>FAILED</code>, the
    *                 <code>ErrorCode</code> field indicates the reason the synchronization failed.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>If the reason that the synchronization failed is due to an error with the underlying
@@ -6932,7 +6932,7 @@ export interface PersonasSummary {
    *             these personas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience">Providing
    *                 access to your search page</a>.</p>
    */
-  Persona?: Persona | string;
+  Persona?: keyof typeof Persona | string;
 
   /**
    * <p>The date-time the summary information was created.</p>
@@ -7032,7 +7032,7 @@ export interface ExperienceEntitiesSummary {
   /**
    * <p>Shows the type as <code>User</code> or <code>Group</code>.</p>
    */
-  EntityType?: EntityType | string;
+  EntityType?: keyof typeof EntityType | string;
 
   /**
    * <p>Information about the user entity.</p>
@@ -7104,7 +7104,7 @@ export interface ExperiencesSummary {
   /**
    * <p>The processing status of your Amazon Kendra experience.</p>
    */
-  Status?: ExperienceStatus | string;
+  Status?: keyof typeof ExperienceStatus | string;
 
   /**
    * <p>The endpoint URLs for your Amazon Kendra experiences. The URLs are unique
@@ -7172,7 +7172,7 @@ export interface FaqSummary {
    * <p>The current status of the FAQ. When the status is <code>ACTIVE</code> the FAQ is ready
    *             for use.</p>
    */
-  Status?: FaqStatus | string;
+  Status?: keyof typeof FaqStatus | string;
 
   /**
    * <p>The UNIX datetime that the FAQ was added to the index.</p>
@@ -7187,7 +7187,7 @@ export interface FaqSummary {
   /**
    * <p>The file type used to create the FAQ. </p>
    */
-  FileFormat?: FaqFileFormat | string;
+  FileFormat?: keyof typeof FaqFileFormat | string;
 
   /**
    * <p>The code for a language. This shows a supported language for the FAQ document
@@ -7332,7 +7332,7 @@ export interface IndexConfigurationSummary {
    * <p>Indicates whether the index is a Enterprise Edition index or a Developer Edition
    *             index. </p>
    */
-  Edition?: IndexEdition | string;
+  Edition?: keyof typeof IndexEdition | string;
 
   /**
    * <p>The Unix timestamp when the index was created.</p>
@@ -7349,7 +7349,7 @@ export interface IndexConfigurationSummary {
    * <p>The current status of the index. When the status is <code>ACTIVE</code>, the index is
    *             ready to search.</p>
    */
-  Status: IndexStatus | string | undefined;
+  Status: keyof typeof IndexStatus | string | undefined;
 }
 
 /**
@@ -7418,7 +7418,7 @@ export interface QuerySuggestionsBlockListSummary {
   /**
    * <p>The status of the block list.</p>
    */
-  Status?: QuerySuggestionsBlockListStatus | string;
+  Status?: keyof typeof QuerySuggestionsBlockListStatus | string;
 
   /**
    * <p>The date-time summary information for a query suggestions
@@ -7544,7 +7544,7 @@ export interface ThesaurusSummary {
   /**
    * <p>The status of the thesaurus.</p>
    */
-  Status?: ThesaurusStatus | string;
+  Status?: keyof typeof ThesaurusStatus | string;
 
   /**
    * <p>The Unix datetime that the thesaurus was created.</p>
@@ -7724,19 +7724,19 @@ export interface DocumentRelevanceConfiguration {
 /**
  * @public
  */
-export enum QueryResultType {
-  ANSWER = "ANSWER",
-  DOCUMENT = "DOCUMENT",
-  QUESTION_ANSWER = "QUESTION_ANSWER",
-}
+export const QueryResultType = {
+  ANSWER: "ANSWER",
+  DOCUMENT: "DOCUMENT",
+  QUESTION_ANSWER: "QUESTION_ANSWER",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+};
 
 /**
  * @public
@@ -7792,7 +7792,7 @@ export interface SortingConfiguration {
    * <p>The order that the results should be returned in. In case of ties, the relevance
    *             assigned to the result by Amazon Kendra is used as the tie-breaker.</p>
    */
-  SortOrder: SortOrder | string | undefined;
+  SortOrder: keyof typeof SortOrder | string | undefined;
 }
 
 /**
@@ -7886,21 +7886,21 @@ export interface UserContext {
 /**
  * @public
  */
-export enum QueryResultFormat {
-  TABLE = "TABLE",
-  TEXT = "TEXT",
-}
+export const QueryResultFormat = {
+  TABLE: "TABLE",
+  TEXT: "TEXT",
+};
 
 /**
  * @public
  */
-export enum ScoreConfidence {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  VERY_HIGH = "VERY_HIGH",
-}
+export const ScoreConfidence = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  VERY_HIGH: "VERY_HIGH",
+};
 
 /**
  * @public
@@ -7912,7 +7912,7 @@ export interface ScoreAttributes {
    * <p>A relative ranking for how well the response matches the
    *          query.</p>
    */
-  ScoreConfidence?: ScoreConfidence | string;
+  ScoreConfidence?: keyof typeof ScoreConfidence | string;
 }
 
 /**
@@ -8005,7 +8005,7 @@ export interface QueryResultItem {
    * <p>The type of document within the response. For example, a response
    *          could include a question-answer that's relevant to the query.</p>
    */
-  Type?: QueryResultType | string;
+  Type?: keyof typeof QueryResultType | string;
 
   /**
    * <p>If the <code>Type</code> of document within the response is
@@ -8014,7 +8014,7 @@ export interface QueryResultItem {
    *          returned in <code>TableExcerpt</code>. If it's a text answer, a text
    *          excerpt is returned in <code>DocumentExcerpt</code>.</p>
    */
-  Format?: QueryResultFormat | string;
+  Format?: keyof typeof QueryResultFormat | string;
 
   /**
    * <p>One or more additional attributes associated with the query
@@ -8125,9 +8125,9 @@ export interface SpellCorrectedQuery {
 /**
  * @public
  */
-export enum WarningCode {
-  QUERY_LANGUAGE_INVALID_SYNTAX = "QUERY_LANGUAGE_INVALID_SYNTAX",
-}
+export const WarningCode = {
+  QUERY_LANGUAGE_INVALID_SYNTAX: "QUERY_LANGUAGE_INVALID_SYNTAX",
+};
 
 /**
  * @public
@@ -8142,7 +8142,7 @@ export interface Warning {
   /**
    * <p>The code used to show the type of warning for the query.</p>
    */
-  Code?: WarningCode | string;
+  Code?: keyof typeof WarningCode | string;
 }
 
 /**
@@ -8230,10 +8230,10 @@ export interface ClickFeedback {
 /**
  * @public
  */
-export enum RelevanceType {
-  NOT_RELEVANT = "NOT_RELEVANT",
-  RELEVANT = "RELEVANT",
-}
+export const RelevanceType = {
+  NOT_RELEVANT: "NOT_RELEVANT",
+  RELEVANT: "RELEVANT",
+};
 
 /**
  * @public
@@ -8250,7 +8250,7 @@ export interface RelevanceFeedback {
   /**
    * <p>Whether to document was relevant or not relevant to the search.</p>
    */
-  RelevanceValue: RelevanceType | string | undefined;
+  RelevanceValue: keyof typeof RelevanceType | string | undefined;
 }
 
 /**
@@ -8524,7 +8524,7 @@ export interface UpdateIndexRequest {
   /**
    * <p>The user context policy.</p>
    */
-  UserContextPolicy?: UserContextPolicy | string;
+  UserContextPolicy?: keyof typeof UserContextPolicy | string;
 
   /**
    * <p>Enables fetching access levels of groups and users from an IAM Identity Center (successor to Single Sign-On)

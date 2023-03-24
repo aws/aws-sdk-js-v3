@@ -67,13 +67,13 @@ export interface Anomaly {
 /**
  * @public
  */
-export enum ResourceType {
-  DATASET = "DATASET",
-  MODEL = "MODEL",
-  MODEL_PACKAGE_JOB = "MODEL_PACKAGE_JOB",
-  PROJECT = "PROJECT",
-  TRIAL = "TRIAL",
-}
+export const ResourceType = {
+  DATASET: "DATASET",
+  MODEL: "MODEL",
+  MODEL_PACKAGE_JOB: "MODEL_PACKAGE_JOB",
+  PROJECT: "PROJECT",
+  TRIAL: "TRIAL",
+};
 
 /**
  * @public
@@ -91,7 +91,7 @@ export class ConflictException extends __BaseException {
   /**
    * <p>The type of the resource.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: keyof typeof ResourceType | string | undefined;
   /**
    * @internal
    */
@@ -199,18 +199,18 @@ export interface CreateDatasetRequest {
 /**
  * @public
  */
-export enum DatasetStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED_ROLLBACK_COMPLETE = "UPDATE_FAILED_ROLLBACK_COMPLETE",
-  UPDATE_FAILED_ROLLBACK_IN_PROGRESS = "UPDATE_FAILED_ROLLBACK_IN_PROGRESS",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const DatasetStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED_ROLLBACK_COMPLETE: "UPDATE_FAILED_ROLLBACK_COMPLETE",
+  UPDATE_FAILED_ROLLBACK_IN_PROGRESS: "UPDATE_FAILED_ROLLBACK_IN_PROGRESS",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -231,7 +231,7 @@ export interface DatasetMetadata {
   /**
    * <p>The status for the dataset.</p>
    */
-  Status?: DatasetStatus | string;
+  Status?: keyof typeof DatasetStatus | string;
 
   /**
    * <p>The status message for the dataset.</p>
@@ -292,7 +292,7 @@ export class ResourceNotFoundException extends __BaseException {
   /**
    * <p>The type of the resource.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: keyof typeof ResourceType | string | undefined;
   /**
    * @internal
    */
@@ -326,7 +326,7 @@ export class ServiceQuotaExceededException extends __BaseException {
   /**
    * <p>The type of the resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The quota code. </p>
@@ -534,17 +534,17 @@ export interface ModelPerformance {
 /**
  * @public
  */
-export enum ModelStatus {
-  DELETING = "DELETING",
-  HOSTED = "HOSTED",
-  HOSTING_FAILED = "HOSTING_FAILED",
-  STARTING_HOSTING = "STARTING_HOSTING",
-  STOPPING_HOSTING = "STOPPING_HOSTING",
-  SYSTEM_UPDATING = "SYSTEM_UPDATING",
-  TRAINED = "TRAINED",
-  TRAINING = "TRAINING",
-  TRAINING_FAILED = "TRAINING_FAILED",
-}
+export const ModelStatus = {
+  DELETING: "DELETING",
+  HOSTED: "HOSTED",
+  HOSTING_FAILED: "HOSTING_FAILED",
+  STARTING_HOSTING: "STARTING_HOSTING",
+  STOPPING_HOSTING: "STOPPING_HOSTING",
+  SYSTEM_UPDATING: "SYSTEM_UPDATING",
+  TRAINED: "TRAINED",
+  TRAINING: "TRAINING",
+  TRAINING_FAILED: "TRAINING_FAILED",
+};
 
 /**
  * @public
@@ -574,7 +574,7 @@ export interface ModelMetadata {
   /**
    * <p>The status of the model.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: keyof typeof ModelStatus | string;
 
   /**
    * <p>The status message for the model.</p>
@@ -709,7 +709,7 @@ export interface DatasetDescription {
   /**
    * <p>The status of the dataset.</p>
    */
-  Status?: DatasetStatus | string;
+  Status?: keyof typeof DatasetStatus | string;
 
   /**
    * <p>The status message for the dataset. </p>
@@ -921,7 +921,7 @@ export interface ModelDescription {
   /**
    * <p>The status of the model.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: keyof typeof ModelStatus | string;
 
   /**
    * <p>The status message for the model.</p>
@@ -1005,31 +1005,31 @@ export interface DescribeModelPackagingJobRequest {
 /**
  * @public
  */
-export enum TargetDevice {
-  JETSON_XAVIER = "jetson_xavier",
-}
+export const TargetDevice = {
+  JETSON_XAVIER: "jetson_xavier",
+};
 
 /**
  * @public
  */
-export enum TargetPlatformAccelerator {
-  NVIDIA = "NVIDIA",
-}
+export const TargetPlatformAccelerator = {
+  NVIDIA: "NVIDIA",
+};
 
 /**
  * @public
  */
-export enum TargetPlatformArch {
-  ARM64 = "ARM64",
-  X86_64 = "X86_64",
-}
+export const TargetPlatformArch = {
+  ARM64: "ARM64",
+  X86_64: "X86_64",
+};
 
 /**
  * @public
  */
-export enum TargetPlatformOs {
-  LINUX = "LINUX",
-}
+export const TargetPlatformOs = {
+  LINUX: "LINUX",
+};
 
 /**
  * @public
@@ -1041,14 +1041,14 @@ export interface TargetPlatform {
    *          that is currently supported.
    *       </p>
    */
-  Os: TargetPlatformOs | string | undefined;
+  Os: keyof typeof TargetPlatformOs | string | undefined;
 
   /**
    * <p>The target architecture for the model. The currently supported architectures are
    *          X86_64 (64-bit version of the x86 instruction set) and ARM_64 (ARMv8 64-bit CPU).
    *       </p>
    */
-  Arch: TargetPlatformArch | string | undefined;
+  Arch: keyof typeof TargetPlatformArch | string | undefined;
 
   /**
    * <p>The target accelerator for the model. Currently, Amazon Lookout for Vision only supports NVIDIA (Nvidia graphics processing unit)
@@ -1068,7 +1068,7 @@ export interface TargetPlatform {
    *             </li>
    *          </ul>
    */
-  Accelerator?: TargetPlatformAccelerator | string;
+  Accelerator?: keyof typeof TargetPlatformAccelerator | string;
 }
 
 /**
@@ -1100,7 +1100,7 @@ export interface GreengrassConfiguration {
    *
    * </p>
    */
-  TargetDevice?: TargetDevice | string;
+  TargetDevice?: keyof typeof TargetDevice | string;
 
   /**
    * <p>The target platform for the model. If you specify <code>TargetPlatform</code>, you can't specify
@@ -1209,12 +1209,12 @@ export interface ModelPackagingOutputDetails {
 /**
  * @public
  */
-export enum ModelPackagingJobStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ModelPackagingJobStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1278,7 +1278,7 @@ export interface ModelPackagingDescription {
    * The status of the model packaging job.
    * </p>
    */
-  Status?: ModelPackagingJobStatus | string;
+  Status?: keyof typeof ModelPackagingJobStatus | string;
 
   /**
    * <p>
@@ -1602,7 +1602,7 @@ export interface ModelPackagingJobMetadata {
    * <p>The status of the model packaging job.
    * </p>
    */
-  Status?: ModelPackagingJobStatus | string;
+  Status?: keyof typeof ModelPackagingJobStatus | string;
 
   /**
    * <p>The status message for the model packaging job.
@@ -1786,13 +1786,13 @@ export interface StartModelRequest {
 /**
  * @public
  */
-export enum ModelHostingStatus {
-  HOSTED = "HOSTED",
-  HOSTING_FAILED = "HOSTING_FAILED",
-  STARTING_HOSTING = "STARTING_HOSTING",
-  STOPPING_HOSTING = "STOPPING_HOSTING",
-  SYSTEM_UPDATING = "SYSTEM_UPDATING",
-}
+export const ModelHostingStatus = {
+  HOSTED: "HOSTED",
+  HOSTING_FAILED: "HOSTING_FAILED",
+  STARTING_HOSTING: "STARTING_HOSTING",
+  STOPPING_HOSTING: "STOPPING_HOSTING",
+  SYSTEM_UPDATING: "SYSTEM_UPDATING",
+};
 
 /**
  * @public
@@ -1801,7 +1801,7 @@ export interface StartModelResponse {
   /**
    * <p>The current running status of the model.</p>
    */
-  Status?: ModelHostingStatus | string;
+  Status?: keyof typeof ModelHostingStatus | string;
 }
 
 /**
@@ -1911,7 +1911,7 @@ export interface StopModelResponse {
   /**
    * <p>The status of the model.</p>
    */
-  Status?: ModelHostingStatus | string;
+  Status?: keyof typeof ModelHostingStatus | string;
 }
 
 /**
@@ -2000,7 +2000,7 @@ export interface UpdateDatasetEntriesResponse {
   /**
    * <p>The status of the dataset update.</p>
    */
-  Status?: DatasetStatus | string;
+  Status?: keyof typeof DatasetStatus | string;
 }
 
 /**

@@ -2767,7 +2767,7 @@ const serializeAws_json1_1CustomerPolicyScopeIdList = (input: string[], context:
 
 const serializeAws_json1_1CustomerPolicyScopeMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [CustomerPolicyScopeIdType | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [keyof typeof CustomerPolicyScopeIdType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -3464,7 +3464,7 @@ const deserializeAws_json1_1CustomerPolicyScopeMap = (
   context: __SerdeContext
 ): Record<string, string[]> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string[]>, [key, value]: [CustomerPolicyScopeIdType | string, any]) => {
+    (acc: Record<string, string[]>, [key, value]: [keyof typeof CustomerPolicyScopeIdType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -3870,7 +3870,7 @@ const deserializeAws_json1_1InvalidTypeException = (output: any, context: __Serd
 
 const deserializeAws_json1_1IssueInfoMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [DependentServiceName | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [keyof typeof DependentServiceName | string, any]) => {
       if (value === null) {
         return acc;
       }

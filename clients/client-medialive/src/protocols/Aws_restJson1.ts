@@ -6458,7 +6458,10 @@ const serializeAws_restJson1__listOfFailoverCondition = (input: FailoverConditio
     });
 };
 
-const serializeAws_restJson1__listOfHlsAdMarkers = (input: (HlsAdMarkers | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1__listOfHlsAdMarkers = (
+  input: (keyof typeof HlsAdMarkers | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6606,7 +6609,7 @@ const serializeAws_restJson1__listOfPipelinePauseStateSettings = (
 };
 
 const serializeAws_restJson1__listOfRtmpAdMarkers = (
-  input: (RtmpAdMarkers | string)[],
+  input: (keyof typeof RtmpAdMarkers | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -9370,7 +9373,7 @@ const deserializeAws_restJson1__listOfFailoverCondition = (
 const deserializeAws_restJson1__listOfHlsAdMarkers = (
   output: any,
   context: __SerdeContext
-): (HlsAdMarkers | string)[] => {
+): (keyof typeof HlsAdMarkers | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -9697,7 +9700,7 @@ const deserializeAws_restJson1__listOfReservation = (output: any, context: __Ser
 const deserializeAws_restJson1__listOfRtmpAdMarkers = (
   output: any,
   context: __SerdeContext
-): (RtmpAdMarkers | string)[] => {
+): (keyof typeof RtmpAdMarkers | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

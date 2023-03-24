@@ -6,10 +6,10 @@ import { BatchServiceException as __BaseException } from "./BatchServiceExceptio
 /**
  * @public
  */
-export enum ArrayJobDependency {
-  N_TO_N = "N_TO_N",
-  SEQUENTIAL = "SEQUENTIAL",
-}
+export const ArrayJobDependency = {
+  N_TO_N: "N_TO_N",
+  SEQUENTIAL: "SEQUENTIAL",
+};
 
 /**
  * @public
@@ -65,10 +65,10 @@ export interface ArrayPropertiesSummary {
 /**
  * @public
  */
-export enum AssignPublicIp {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AssignPublicIp = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -230,11 +230,11 @@ export class ServerException extends __BaseException {
 /**
  * @public
  */
-export enum CRAllocationStrategy {
-  BEST_FIT = "BEST_FIT",
-  BEST_FIT_PROGRESSIVE = "BEST_FIT_PROGRESSIVE",
-  SPOT_CAPACITY_OPTIMIZED = "SPOT_CAPACITY_OPTIMIZED",
-}
+export const CRAllocationStrategy = {
+  BEST_FIT: "BEST_FIT",
+  BEST_FIT_PROGRESSIVE: "BEST_FIT_PROGRESSIVE",
+  SPOT_CAPACITY_OPTIMIZED: "SPOT_CAPACITY_OPTIMIZED",
+};
 
 /**
  * @public
@@ -376,12 +376,12 @@ export interface LaunchTemplateSpecification {
 /**
  * @public
  */
-export enum CRType {
-  EC2 = "EC2",
-  FARGATE = "FARGATE",
-  FARGATE_SPOT = "FARGATE_SPOT",
-  SPOT = "SPOT",
-}
+export const CRType = {
+  EC2: "EC2",
+  FARGATE: "FARGATE",
+  FARGATE_SPOT: "FARGATE_SPOT",
+  SPOT: "SPOT",
+};
 
 /**
  * @public
@@ -397,7 +397,7 @@ export interface ComputeResource {
    *     <code>spotIamFleetRole</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon EC2 spot fleet role</a> in the
    *     <i>Batch User Guide</i>.</p>
    */
-  type: CRType | string | undefined;
+  type: keyof typeof CRType | string | undefined;
 
   /**
    * <p>The allocation strategy to use for the compute resource if not enough instances of the best
@@ -441,7 +441,7 @@ export interface ComputeResource {
    *    Instances, Batch might need to exceed <code>maxvCpus</code> to meet your capacity requirements.
    *    In this event, Batch never exceeds <code>maxvCpus</code> by more than a single instance.</p>
    */
-  allocationStrategy?: CRAllocationStrategy | string;
+  allocationStrategy?: keyof typeof CRAllocationStrategy | string;
 
   /**
    * <p>The minimum number of Amazon EC2 vCPUs that an environment should maintain (even if the compute
@@ -677,18 +677,18 @@ export interface EksConfiguration {
 /**
  * @public
  */
-export enum CEState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const CEState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum CEType {
-  MANAGED = "MANAGED",
-  UNMANAGED = "UNMANAGED",
-}
+export const CEType = {
+  MANAGED: "MANAGED",
+  UNMANAGED: "UNMANAGED",
+};
 
 /**
  * @public
@@ -706,7 +706,7 @@ export interface CreateComputeEnvironmentRequest {
    *     <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the
    *     <i>Batch User Guide</i>.</p>
    */
-  type: CEType | string | undefined;
+  type: keyof typeof CEType | string | undefined;
 
   /**
    * <p>The state of the compute environment. If the state is <code>ENABLED</code>, then the
@@ -731,7 +731,7 @@ export interface CreateComputeEnvironmentRequest {
    *       value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code>
    *       instance.</p>
    */
-  state?: CEState | string;
+  state?: keyof typeof CEState | string;
 
   /**
    * <p>The maximum number of vCPUs for an unmanaged compute environment. This parameter is only used for fair share
@@ -835,10 +835,10 @@ export interface ComputeEnvironmentOrder {
 /**
  * @public
  */
-export enum JQState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const JQState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -856,7 +856,7 @@ export interface CreateJobQueueRequest {
    *    job queue state is <code>DISABLED</code>, new jobs can't be added to the queue, but jobs already in the queue can
    *    finish.</p>
    */
-  state?: JQState | string;
+  state?: keyof typeof JQState | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair
@@ -1129,22 +1129,22 @@ export interface DescribeComputeEnvironmentsRequest {
 /**
  * @public
  */
-export enum OrchestrationType {
-  ECS = "ECS",
-  EKS = "EKS",
-}
+export const OrchestrationType = {
+  ECS: "ECS",
+  EKS: "EKS",
+};
 
 /**
  * @public
  */
-export enum CEStatus {
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INVALID = "INVALID",
-  UPDATING = "UPDATING",
-  VALID = "VALID",
-}
+export const CEStatus = {
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  INVALID: "INVALID",
+  UPDATING: "UPDATING",
+  VALID: "VALID",
+};
 
 /**
  * @public
@@ -1201,7 +1201,7 @@ export interface ComputeEnvironmentDetail {
    * <p>The type of the compute environment: <code>MANAGED</code> or <code>UNMANAGED</code>. For
    *    more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute environments</a> in the <i>Batch User Guide</i>.</p>
    */
-  type?: CEType | string;
+  type?: keyof typeof CEType | string;
 
   /**
    * <p>The state of the compute environment. The valid values are <code>ENABLED</code> or
@@ -1225,13 +1225,13 @@ export interface ComputeEnvironmentDetail {
    *    value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code>
    *    instance.</p>
    */
-  state?: CEState | string;
+  state?: keyof typeof CEState | string;
 
   /**
    * <p>The current status of the compute environment (for example, <code>CREATING</code> or
    *     <code>VALID</code>).</p>
    */
-  status?: CEStatus | string;
+  status?: keyof typeof CEStatus | string;
 
   /**
    * <p>A short, human-readable string to provide additional details for the current status of the
@@ -1269,7 +1269,7 @@ export interface ComputeEnvironmentDetail {
    * <p>The orchestration type of the compute environment. The valid values are <code>ECS</code>
    *    (default) or <code>EKS</code>.</p>
    */
-  containerOrchestrationType?: OrchestrationType | string;
+  containerOrchestrationType?: keyof typeof OrchestrationType | string;
 
   /**
    * <p>Unique identifier for the compute environment.</p>
@@ -1392,11 +1392,11 @@ export interface FargatePlatformConfiguration {
 /**
  * @public
  */
-export enum DeviceCgroupPermission {
-  MKNOD = "MKNOD",
-  READ = "READ",
-  WRITE = "WRITE",
-}
+export const DeviceCgroupPermission = {
+  MKNOD: "MKNOD",
+  READ: "READ",
+  WRITE: "WRITE",
+};
 
 /**
  * @public
@@ -1423,7 +1423,7 @@ export interface Device {
    *    container has permissions for <code>read</code>, <code>write</code>, and <code>mknod</code> for
    *    the device.</p>
    */
-  permissions?: (DeviceCgroupPermission | string)[];
+  permissions?: (keyof typeof DeviceCgroupPermission | string)[];
 }
 
 /**
@@ -1573,15 +1573,15 @@ export interface LinuxParameters {
 /**
  * @public
  */
-export enum LogDriver {
-  AWSLOGS = "awslogs",
-  FLUENTD = "fluentd",
-  GELF = "gelf",
-  JOURNALD = "journald",
-  JSON_FILE = "json-file",
-  SPLUNK = "splunk",
-  SYSLOG = "syslog",
-}
+export const LogDriver = {
+  AWSLOGS: "awslogs",
+  FLUENTD: "fluentd",
+  GELF: "gelf",
+  JOURNALD: "journald",
+  JSON_FILE: "json-file",
+  SPLUNK: "splunk",
+  SYSLOG: "syslog",
+};
 
 /**
  * @public
@@ -1689,7 +1689,7 @@ export interface LogConfiguration {
    *  container instance and run the following command: <code>sudo docker version | grep "Server API version"</code>
    *          </p>
    */
-  logDriver: LogDriver | string | undefined;
+  logDriver: keyof typeof LogDriver | string | undefined;
 
   /**
    * <p>The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your
@@ -1743,17 +1743,17 @@ export interface NetworkConfiguration {
    *    internet. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Amazon ECS task networking</a> in the
    *     <i>Amazon Elastic Container Service Developer Guide</i>. The default value is "<code>DISABLED</code>".</p>
    */
-  assignPublicIp?: AssignPublicIp | string;
+  assignPublicIp?: keyof typeof AssignPublicIp | string;
 }
 
 /**
  * @public
  */
-export enum ResourceType {
-  GPU = "GPU",
-  MEMORY = "MEMORY",
-  VCPU = "VCPU",
-}
+export const ResourceType = {
+  GPU: "GPU",
+  MEMORY: "MEMORY",
+  VCPU: "VCPU",
+};
 
 /**
  * @public
@@ -1929,7 +1929,7 @@ export interface ResourceRequirement {
    * <p>The type of resource to assign to a container. The supported resources include
    *     <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
    */
-  type: ResourceType | string | undefined;
+  type: keyof typeof ResourceType | string | undefined;
 }
 
 /**
@@ -1959,10 +1959,10 @@ export interface Ulimit {
 /**
  * @public
  */
-export enum EFSAuthorizationConfigIAM {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const EFSAuthorizationConfigIAM = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1988,16 +1988,16 @@ export interface EFSAuthorizationConfig {
    *     <code>TransitEncryption</code> be <code>ENABLED</code> and that a <code>JobRoleArn</code> is
    *    specified.</p>
    */
-  iam?: EFSAuthorizationConfigIAM | string;
+  iam?: keyof typeof EFSAuthorizationConfigIAM | string;
 }
 
 /**
  * @public
  */
-export enum EFSTransitEncryption {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const EFSTransitEncryption = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -2030,7 +2030,7 @@ export interface EFSVolumeConfiguration {
    *    this parameter is omitted, the default value of <code>DISABLED</code> is used. For more
    *    information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html">Encrypting data in transit</a> in the <i>Amazon Elastic File System User Guide</i>.</p>
    */
-  transitEncryption?: EFSTransitEncryption | string;
+  transitEncryption?: keyof typeof EFSTransitEncryption | string;
 
   /**
    * <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server. If
@@ -2832,18 +2832,18 @@ export interface NodeProperties {
 /**
  * @public
  */
-export enum PlatformCapability {
-  EC2 = "EC2",
-  FARGATE = "FARGATE",
-}
+export const PlatformCapability = {
+  EC2: "EC2",
+  FARGATE: "FARGATE",
+};
 
 /**
  * @public
  */
-export enum RetryAction {
-  EXIT = "EXIT",
-  RETRY = "RETRY",
-}
+export const RetryAction = {
+  EXIT: "EXIT",
+  RETRY: "RETRY",
+};
 
 /**
  * @public
@@ -2885,7 +2885,7 @@ export interface EvaluateOnExit {
    *    (<code>onStatusReason</code>, <code>onReason</code>, and <code>onExitCode</code>) are met. The
    *    values aren't case sensitive.</p>
    */
-  action: RetryAction | string | undefined;
+  action: keyof typeof RetryAction | string | undefined;
 }
 
 /**
@@ -3023,7 +3023,7 @@ export interface JobDefinition {
    *    defaults to <code>EC2</code>. Jobs run on Fargate resources specify
    *    <code>FARGATE</code>.</p>
    */
-  platformCapabilities?: (PlatformCapability | string)[];
+  platformCapabilities?: (keyof typeof PlatformCapability | string)[];
 
   /**
    * <p>An object with various properties that are specific to Amazon EKS based jobs. Valid values are
@@ -3036,7 +3036,7 @@ export interface JobDefinition {
    * <p>The orchestration type of the compute environment. The valid values are <code>ECS</code>
    *    (default) or <code>EKS</code>.</p>
    */
-  containerOrchestrationType?: OrchestrationType | string;
+  containerOrchestrationType?: keyof typeof OrchestrationType | string;
 }
 
 /**
@@ -3092,14 +3092,14 @@ export interface DescribeJobQueuesRequest {
 /**
  * @public
  */
-export enum JQStatus {
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INVALID = "INVALID",
-  UPDATING = "UPDATING",
-  VALID = "VALID",
-}
+export const JQStatus = {
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  INVALID: "INVALID",
+  UPDATING: "UPDATING",
+  VALID: "VALID",
+};
 
 /**
  * @public
@@ -3121,7 +3121,7 @@ export interface JobQueueDetail {
    *     <code>ENABLED</code>, it can accept jobs. If the job queue state is <code>DISABLED</code>, new
    *    jobs can't be added to the queue, but jobs already in the queue can finish.</p>
    */
-  state: JQState | string | undefined;
+  state: keyof typeof JQState | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the scheduling policy. The format is
@@ -3136,7 +3136,7 @@ export interface JobQueueDetail {
    * <p>The status of the job queue (for example, <code>CREATING</code> or
    *    <code>VALID</code>).</p>
    */
-  status?: JQStatus | string;
+  status?: keyof typeof JQStatus | string;
 
   /**
    * <p>A short, human-readable string to provide additional details for the current status of the
@@ -3431,7 +3431,7 @@ export interface JobDependency {
   /**
    * <p>The type of the job dependency.</p>
    */
-  type?: ArrayJobDependency | string;
+  type?: keyof typeof ArrayJobDependency | string;
 }
 
 /**
@@ -3674,15 +3674,15 @@ export interface NodeDetails {
 /**
  * @public
  */
-export enum JobStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNABLE = "RUNNABLE",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  SUBMITTED = "SUBMITTED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const JobStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNABLE: "RUNNABLE",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  SUBMITTED: "SUBMITTED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -3717,7 +3717,7 @@ export interface JobDetail {
    *     <i>Batch User Guide</i>.</p>
    *          </note>
    */
-  status: JobStatus | string | undefined;
+  status: keyof typeof JobStatus | string | undefined;
 
   /**
    * <p>The share identifier for the job.</p>
@@ -3834,7 +3834,7 @@ export interface JobDetail {
    *    defaults to <code>EC2</code>. Jobs run on Fargate resources specify
    *    <code>FARGATE</code>.</p>
    */
-  platformCapabilities?: (PlatformCapability | string)[];
+  platformCapabilities?: (keyof typeof PlatformCapability | string)[];
 
   /**
    * <p>An object with various properties that are specific to Amazon EKS based jobs. Only one of
@@ -3964,7 +3964,7 @@ export interface ListJobsRequest {
    *    the <code>jobStatus</code> parameter is ignored and jobs with any status are returned. If you don't specify a status,
    *    only <code>RUNNING</code> jobs are returned.</p>
    */
-  jobStatus?: JobStatus | string;
+  jobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>The maximum number of results returned by <code>ListJobs</code> in paginated output. When this parameter is
@@ -4102,7 +4102,7 @@ export interface JobSummary {
   /**
    * <p>The current status for the job.</p>
    */
-  status?: JobStatus | string;
+  status?: keyof typeof JobStatus | string;
 
   /**
    * <p>A short, human-readable string to provide more details for the current status of the
@@ -4249,10 +4249,10 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
-export enum JobDefinitionType {
-  Container = "container",
-  Multinode = "multinode",
-}
+export const JobDefinitionType = {
+  Container: "container",
+  Multinode: "multinode",
+};
 
 /**
  * @public
@@ -4272,7 +4272,7 @@ export interface RegisterJobDefinitionRequest {
    *             <p>If the job is run on Fargate resources, then <code>multinode</code> isn't supported.</p>
    *          </note>
    */
-  type: JobDefinitionType | string | undefined;
+  type: keyof typeof JobDefinitionType | string | undefined;
 
   /**
    * <p>Default parameter substitution placeholders to set in the job definition. Parameters are specified as a
@@ -4355,7 +4355,7 @@ export interface RegisterJobDefinitionRequest {
    *             <p>If the job runs on Amazon EKS resources, then you must not specify <code>platformCapabilities</code>.</p>
    *          </note>
    */
-  platformCapabilities?: (PlatformCapability | string)[];
+  platformCapabilities?: (keyof typeof PlatformCapability | string)[];
 
   /**
    * <p>An object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS
@@ -4795,10 +4795,10 @@ export interface UntagResourceResponse {}
 /**
  * @public
  */
-export enum CRUpdateAllocationStrategy {
-  BEST_FIT_PROGRESSIVE = "BEST_FIT_PROGRESSIVE",
-  SPOT_CAPACITY_OPTIMIZED = "SPOT_CAPACITY_OPTIMIZED",
-}
+export const CRUpdateAllocationStrategy = {
+  BEST_FIT_PROGRESSIVE: "BEST_FIT_PROGRESSIVE",
+  SPOT_CAPACITY_OPTIMIZED: "SPOT_CAPACITY_OPTIMIZED",
+};
 
 /**
  * @public
@@ -4915,7 +4915,7 @@ export interface ComputeResourceUpdate {
    *    Instances, Batch might need to exceed <code>maxvCpus</code> to meet your capacity requirements.
    *    In this event, Batch never exceeds <code>maxvCpus</code> by more than a single instance.</p>
    */
-  allocationStrategy?: CRUpdateAllocationStrategy | string;
+  allocationStrategy?: keyof typeof CRUpdateAllocationStrategy | string;
 
   /**
    * <p>The instances types that can be launched. You can specify instance families to launch any
@@ -5084,7 +5084,7 @@ export interface ComputeResourceUpdate {
    *    infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute
    *     environments</a> in the <i>Batch User Guide</i>.</p>
    */
-  type?: CRType | string;
+  type?: keyof typeof CRType | string;
 
   /**
    * <p>The Amazon Machine Image (AMI) ID used for instances launched in the compute environment.
@@ -5142,7 +5142,7 @@ export interface UpdateComputeEnvironmentRequest {
    *       value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code>
    *       instance.</p>
    */
-  state?: CEState | string;
+  state?: keyof typeof CEState | string;
 
   /**
    * <p>The maximum number of vCPUs expected to be used for an unmanaged compute environment. Don't specify this
@@ -5220,7 +5220,7 @@ export interface UpdateJobQueueRequest {
    *    jobs. If the job queue state is <code>DISABLED</code>, new jobs can't be added to the queue, but jobs already in the
    *    queue can finish.</p>
    */
-  state?: JQState | string;
+  state?: keyof typeof JQState | string;
 
   /**
    * <p>Amazon Resource Name (ARN) of the fair share scheduling policy. Once a job queue is created, the fair share scheduling policy can

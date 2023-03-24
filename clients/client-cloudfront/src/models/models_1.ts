@@ -315,7 +315,7 @@ export interface StreamingDistributionConfig {
    * <p>A complex type that contains information about price class for this streaming
    * 			distribution.</p>
    */
-  PriceClass?: PriceClass | string;
+  PriceClass?: keyof typeof PriceClass | string;
 
   /**
    * <p>Whether the streaming distribution is enabled to accept user requests for
@@ -1270,7 +1270,7 @@ export interface DescribeFunctionRequest {
   /**
    * <p>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: keyof typeof FunctionStage | string;
 }
 
 /**
@@ -1630,7 +1630,7 @@ export interface GetFunctionRequest {
   /**
    * <p>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: keyof typeof FunctionStage | string;
 }
 
 /**
@@ -2096,7 +2096,7 @@ export interface ListCachePoliciesRequest {
    *             </li>
    *          </ul>
    */
-  Type?: CachePolicyType | string;
+  Type?: keyof typeof CachePolicyType | string;
 
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -2494,7 +2494,7 @@ export interface DistributionSummary {
    * <p>A complex type that contains information about price class for this streaming
    * 			distribution.</p>
    */
-  PriceClass: PriceClass | string | undefined;
+  PriceClass: keyof typeof PriceClass | string | undefined;
 
   /**
    * <p>Whether the distribution is enabled to accept user requests for content.</p>
@@ -2523,7 +2523,7 @@ export interface DistributionSummary {
    * 			CloudFront. The default value for new web distributions is <code>http2</code>. Viewers that
    * 			don't support <code>HTTP/2</code> will automatically use an earlier version.</p>
    */
-  HttpVersion: HttpVersion | string | undefined;
+  HttpVersion: keyof typeof HttpVersion | string | undefined;
 
   /**
    * <p>Whether CloudFront responds to IPv6 DNS requests with an IPv6 address for your
@@ -3061,7 +3061,7 @@ export interface ListFunctionsRequest {
    * <p>An optional filter to return only the functions that are in the specified stage,
    * 			either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: keyof typeof FunctionStage | string;
 }
 
 /**
@@ -3315,7 +3315,7 @@ export interface OriginAccessControlSummary {
    * <p>The signing protocol of the origin access control. The signing protocol determines how
    * 			CloudFront signs (authenticates) requests. The only valid value is <code>sigv4</code>.</p>
    */
-  SigningProtocol: OriginAccessControlSigningProtocols | string | undefined;
+  SigningProtocol: keyof typeof OriginAccessControlSigningProtocols | string | undefined;
 
   /**
    * <p>A value that specifies which requests CloudFront signs (adds authentication information to).
@@ -3341,12 +3341,12 @@ export interface OriginAccessControlSummary {
    *             </li>
    *          </ul>
    */
-  SigningBehavior: OriginAccessControlSigningBehaviors | string | undefined;
+  SigningBehavior: keyof typeof OriginAccessControlSigningBehaviors | string | undefined;
 
   /**
    * <p>The type of origin that this origin access control is for.</p>
    */
-  OriginAccessControlOriginType: OriginAccessControlOriginTypes | string | undefined;
+  OriginAccessControlOriginType: keyof typeof OriginAccessControlOriginTypes | string | undefined;
 }
 
 /**
@@ -3401,10 +3401,10 @@ export interface ListOriginAccessControlsResult {
 /**
  * @public
  */
-export enum OriginRequestPolicyType {
-  custom = "custom",
-  managed = "managed",
-}
+export const OriginRequestPolicyType = {
+  custom: "custom",
+  managed: "managed",
+};
 
 /**
  * @public
@@ -3426,7 +3426,7 @@ export interface ListOriginRequestPoliciesRequest {
    *             </li>
    *          </ul>
    */
-  Type?: OriginRequestPolicyType | string;
+  Type?: keyof typeof OriginRequestPolicyType | string;
 
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -3451,7 +3451,7 @@ export interface OriginRequestPolicySummary {
    * <p>The type of origin request policy, either <code>managed</code> (created by Amazon Web Services) or
    * 				<code>custom</code> (created in this Amazon Web Services account).</p>
    */
-  Type: OriginRequestPolicyType | string | undefined;
+  Type: keyof typeof OriginRequestPolicyType | string | undefined;
 
   /**
    * <p>The origin request policy.</p>
@@ -3656,10 +3656,10 @@ export interface ListRealtimeLogConfigsResult {
 /**
  * @public
  */
-export enum ResponseHeadersPolicyType {
-  custom = "custom",
-  managed = "managed",
-}
+export const ResponseHeadersPolicyType = {
+  custom: "custom",
+  managed: "managed",
+};
 
 /**
  * @public
@@ -3680,7 +3680,7 @@ export interface ListResponseHeadersPoliciesRequest {
    *             </li>
    *          </ul>
    */
-  Type?: ResponseHeadersPolicyType | string;
+  Type?: keyof typeof ResponseHeadersPolicyType | string;
 
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
@@ -3706,7 +3706,7 @@ export interface ResponseHeadersPolicySummary {
    * <p>The type of response headers policy, either <code>managed</code> (created by Amazon Web Services) or
    * 				<code>custom</code> (created in this Amazon Web Services account).</p>
    */
-  Type: ResponseHeadersPolicyType | string | undefined;
+  Type: keyof typeof ResponseHeadersPolicyType | string | undefined;
 
   /**
    * <p>The response headers policy.</p>
@@ -3842,7 +3842,7 @@ export interface StreamingDistributionSummary {
    * <p>A complex type that contains information about price class for this streaming
    * 			distribution.</p>
    */
-  PriceClass: PriceClass | string | undefined;
+  PriceClass: keyof typeof PriceClass | string | undefined;
 
   /**
    * <p>Whether the distribution is enabled to accept end user requests for content.</p>
@@ -4009,7 +4009,7 @@ export interface TestFunctionRequest {
    * <p>The stage of the function that you are testing, either <code>DEVELOPMENT</code> or
    * 				<code>LIVE</code>.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: keyof typeof FunctionStage | string;
 
   /**
    * <p>The event object to test the function with. For more information about the structure

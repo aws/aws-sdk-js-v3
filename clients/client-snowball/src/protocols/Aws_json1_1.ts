@@ -2075,7 +2075,7 @@ const serializeAws_json1_1JobResource = (input: JobResource, context: __SerdeCon
   };
 };
 
-const serializeAws_json1_1JobStateList = (input: (JobState | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1JobStateList = (input: (keyof typeof JobState | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2828,7 +2828,10 @@ const deserializeAws_json1_1JobResource = (output: any, context: __SerdeContext)
   } as any;
 };
 
-const deserializeAws_json1_1JobStateList = (output: any, context: __SerdeContext): (JobState | string)[] => {
+const deserializeAws_json1_1JobStateList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof JobState | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -8470,7 +8470,7 @@ const serializeAws_querySecurityGroupIdsList = (input: string[], context: __Serd
 };
 
 const serializeAws_queryServiceUpdateStatusList = (
-  input: (ServiceUpdateStatus | string)[],
+  input: (keyof typeof ServiceUpdateStatus | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -8579,7 +8579,7 @@ const serializeAws_queryTimeRangeFilter = (input: TimeRangeFilter, context: __Se
 };
 
 const serializeAws_queryUpdateActionStatusList = (
-  input: (UpdateActionStatus | string)[],
+  input: (keyof typeof UpdateActionStatus | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -10402,7 +10402,10 @@ const deserializeAws_queryModifyReplicationGroupShardConfigurationResult = (
   return contents;
 };
 
-const deserializeAws_queryNetworkTypeList = (output: any, context: __SerdeContext): (NetworkType | string)[] => {
+const deserializeAws_queryNetworkTypeList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof NetworkType | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

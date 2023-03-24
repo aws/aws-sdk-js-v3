@@ -6,10 +6,10 @@ import { ChimeSDKIdentityServiceException as __BaseException } from "./ChimeSDKI
 /**
  * @public
  */
-export enum AllowMessages {
-  ALL = "ALL",
-  NONE = "NONE",
-}
+export const AllowMessages = {
+  ALL: "ALL",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -94,9 +94,9 @@ export interface AppInstanceAdminSummary {
 /**
  * @public
  */
-export enum RespondsTo {
-  STANDARD_MESSAGES = "STANDARD_MESSAGES",
-}
+export const RespondsTo = {
+  STANDARD_MESSAGES: "STANDARD_MESSAGES",
+};
 
 /**
  * @public
@@ -106,7 +106,7 @@ export interface LexConfiguration {
   /**
    * <p>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control messages are not supported.</p>
    */
-  RespondsTo: RespondsTo | string | undefined;
+  RespondsTo: keyof typeof RespondsTo | string | undefined;
 
   /**
    * <p>The ARN of the Amazon Lex V2 bot's alias. The ARN uses this format:
@@ -242,9 +242,9 @@ export interface AppInstanceRetentionSettings {
 /**
  * @public
  */
-export enum ExpirationCriterion {
-  CREATED_TIMESTAMP = "CREATED_TIMESTAMP",
-}
+export const ExpirationCriterion = {
+  CREATED_TIMESTAMP: "CREATED_TIMESTAMP",
+};
 
 /**
  * @public
@@ -259,7 +259,7 @@ export interface ExpirationSettings {
   /**
    * <p>Specifies the conditions under which an <code>AppInstanceUser</code> will expire.</p>
    */
-  ExpirationCriterion: ExpirationCriterion | string | undefined;
+  ExpirationCriterion: keyof typeof ExpirationCriterion | string | undefined;
 }
 
 /**
@@ -317,18 +317,18 @@ export interface EndpointAttributes {
 /**
  * @public
  */
-export enum EndpointStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const EndpointStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
  */
-export enum EndpointStatusReason {
-  INVALID_DEVICE_TOKEN = "INVALID_DEVICE_TOKEN",
-  INVALID_PINPOINT_ARN = "INVALID_PINPOINT_ARN",
-}
+export const EndpointStatusReason = {
+  INVALID_DEVICE_TOKEN: "INVALID_DEVICE_TOKEN",
+  INVALID_PINPOINT_ARN: "INVALID_PINPOINT_ARN",
+};
 
 /**
  * @public
@@ -358,22 +358,22 @@ export interface EndpointState {
   /**
    * <p>Enum that indicates the Status of an <code>AppInstanceUserEndpoint</code>.</p>
    */
-  Status: EndpointStatus | string | undefined;
+  Status: keyof typeof EndpointStatus | string | undefined;
 
   /**
    * <p>The reason for the <code>EndpointStatus</code>.</p>
    */
-  StatusReason?: EndpointStatusReason | string;
+  StatusReason?: keyof typeof EndpointStatusReason | string;
 }
 
 /**
  * @public
  */
-export enum AppInstanceUserEndpointType {
-  APNS = "APNS",
-  APNS_SANDBOX = "APNS_SANDBOX",
-  GCM = "GCM",
-}
+export const AppInstanceUserEndpointType = {
+  APNS: "APNS",
+  APNS_SANDBOX: "APNS_SANDBOX",
+  GCM: "GCM",
+};
 
 /**
  * @public
@@ -398,7 +398,7 @@ export interface AppInstanceUserEndpoint {
   /**
    * <p>The type of the <code>AppInstanceUserEndpoint</code>.</p>
    */
-  Type?: AppInstanceUserEndpointType | string;
+  Type?: keyof typeof AppInstanceUserEndpointType | string;
 
   /**
    * <p>The ARN of the resource to which the endpoint belongs.</p>
@@ -424,7 +424,7 @@ export interface AppInstanceUserEndpoint {
    * <p>Boolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages.
    *          <code>NONE</code> indicates the endpoint will receive no messages.</p>
    */
-  AllowMessages?: AllowMessages | string;
+  AllowMessages?: keyof typeof AllowMessages | string;
 
   /**
    * <p>A read-only field that represents the state of an <code>AppInstanceUserEndpoint</code>. Supported values:</p>
@@ -475,13 +475,13 @@ export interface AppInstanceUserEndpointSummary {
   /**
    * <p>The type of the <code>AppInstanceUserEndpoint</code>.</p>
    */
-  Type?: AppInstanceUserEndpointType | string;
+  Type?: keyof typeof AppInstanceUserEndpointType | string;
 
   /**
    * <p>BBoolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages.
    *          <code>NONE</code> indicates the endpoint will receive no messages.</p>
    */
-  AllowMessages?: AllowMessages | string;
+  AllowMessages?: keyof typeof AllowMessages | string;
 
   /**
    * <p>A read-only field that represent the state of an <code>AppInstanceUserEndpoint</code>.</p>
@@ -513,23 +513,23 @@ export interface AppInstanceUserSummary {
 /**
  * @public
  */
-export enum ErrorCode {
-  AccessDenied = "AccessDenied",
-  BadRequest = "BadRequest",
-  Conflict = "Conflict",
-  Forbidden = "Forbidden",
-  NotFound = "NotFound",
-  PhoneNumberAssociationsExist = "PhoneNumberAssociationsExist",
-  PreconditionFailed = "PreconditionFailed",
-  ResourceLimitExceeded = "ResourceLimitExceeded",
-  ServiceFailure = "ServiceFailure",
-  ServiceUnavailable = "ServiceUnavailable",
-  Throttled = "Throttled",
-  Throttling = "Throttling",
-  Unauthorized = "Unauthorized",
-  Unprocessable = "Unprocessable",
-  VoiceConnectorGroupAssociationsExist = "VoiceConnectorGroupAssociationsExist",
-}
+export const ErrorCode = {
+  AccessDenied: "AccessDenied",
+  BadRequest: "BadRequest",
+  Conflict: "Conflict",
+  Forbidden: "Forbidden",
+  NotFound: "NotFound",
+  PhoneNumberAssociationsExist: "PhoneNumberAssociationsExist",
+  PreconditionFailed: "PreconditionFailed",
+  ResourceLimitExceeded: "ResourceLimitExceeded",
+  ServiceFailure: "ServiceFailure",
+  ServiceUnavailable: "ServiceUnavailable",
+  Throttled: "Throttled",
+  Throttling: "Throttling",
+  Unauthorized: "Unauthorized",
+  Unprocessable: "Unprocessable",
+  VoiceConnectorGroupAssociationsExist: "VoiceConnectorGroupAssociationsExist",
+};
 
 /**
  * @public
@@ -538,7 +538,7 @@ export enum ErrorCode {
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -563,7 +563,7 @@ export class BadRequestException extends __BaseException {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -638,7 +638,7 @@ export interface CreateAppInstanceResponse {
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -662,7 +662,7 @@ export class ForbiddenException extends __BaseException {
 export class ResourceLimitExceededException extends __BaseException {
   readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -686,7 +686,7 @@ export class ResourceLimitExceededException extends __BaseException {
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -710,7 +710,7 @@ export class ServiceFailureException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -734,7 +734,7 @@ export class ServiceUnavailableException extends __BaseException {
 export class ThrottledClientException extends __BaseException {
   readonly name: "ThrottledClientException" = "ThrottledClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -758,7 +758,7 @@ export class ThrottledClientException extends __BaseException {
 export class UnauthorizedClientException extends __BaseException {
   readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -1036,7 +1036,7 @@ export interface DescribeAppInstanceBotResponse {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * @internal
@@ -1426,7 +1426,7 @@ export interface RegisterAppInstanceUserEndpointRequest {
    *          </ul>
    *          <p>Populate the <code>ResourceArn</code> value of each type as <code>PinpointAppArn</code>.</p>
    */
-  Type: AppInstanceUserEndpointType | string | undefined;
+  Type: keyof typeof AppInstanceUserEndpointType | string | undefined;
 
   /**
    * <p>The ARN of the resource to which the endpoint belongs.</p>
@@ -1447,7 +1447,7 @@ export interface RegisterAppInstanceUserEndpointRequest {
    * <p>Boolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. <code>ALL</code> indicates the endpoint receives all messages.
    *          <code>NONE</code> indicates the endpoint receives no messages.</p>
    */
-  AllowMessages?: AllowMessages | string;
+  AllowMessages?: keyof typeof AllowMessages | string;
 }
 
 /**
@@ -1608,7 +1608,7 @@ export interface UpdateAppInstanceUserEndpointRequest {
    * <p>Boolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages.
    *          <code>NONE</code> indicates the endpoint will receive no messages.</p>
    */
-  AllowMessages?: AllowMessages | string;
+  AllowMessages?: keyof typeof AllowMessages | string;
 }
 
 /**

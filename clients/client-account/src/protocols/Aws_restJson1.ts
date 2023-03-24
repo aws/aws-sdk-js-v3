@@ -865,7 +865,7 @@ const serializeAws_restJson1ContactInformation = (input: ContactInformation, con
 };
 
 const serializeAws_restJson1RegionOptStatusList = (
-  input: (RegionOptStatus | string)[],
+  input: (keyof typeof RegionOptStatus | string)[],
   context: __SerdeContext
 ): any => {
   return input

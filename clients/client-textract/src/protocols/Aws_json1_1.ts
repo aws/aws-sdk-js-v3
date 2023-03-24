@@ -1386,7 +1386,7 @@ const serializeAws_json1_1AnalyzeIDRequest = (input: AnalyzeIDRequest, context: 
 };
 
 const serializeAws_json1_1ContentClassifiers = (
-  input: (ContentClassifier | string)[],
+  input: (keyof typeof ContentClassifier | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1426,7 +1426,10 @@ const serializeAws_json1_1DocumentPages = (input: Document[], context: __SerdeCo
     });
 };
 
-const serializeAws_json1_1FeatureTypes = (input: (FeatureType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1FeatureTypes = (
+  input: (keyof typeof FeatureType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1824,7 +1827,10 @@ const deserializeAws_json1_1DocumentTooLargeException = (
   } as any;
 };
 
-const deserializeAws_json1_1EntityTypes = (output: any, context: __SerdeContext): (EntityType | string)[] => {
+const deserializeAws_json1_1EntityTypes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof EntityType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

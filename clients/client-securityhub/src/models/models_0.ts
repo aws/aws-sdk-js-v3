@@ -632,10 +632,10 @@ export interface Adjustment {
 /**
  * @public
  */
-export enum AdminStatus {
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-}
+export const AdminStatus = {
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -652,7 +652,7 @@ export interface AdminAccount {
    * <p>The current status of the Security Hub administrator account. Indicates whether the account is
    *          currently enabled as a Security Hub administrator.</p>
    */
-  Status?: AdminStatus | string;
+  Status?: keyof typeof AdminStatus | string;
 }
 
 /**
@@ -673,18 +673,18 @@ export interface AssociatedStandard {
 /**
  * @public
  */
-export enum AssociationStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AssociationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum AutoEnableStandards {
-  DEFAULT = "DEFAULT",
-  NONE = "NONE",
-}
+export const AutoEnableStandards = {
+  DEFAULT: "DEFAULT",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -10534,10 +10534,10 @@ export interface AwsIamAccessKeySessionContext {
 /**
  * @public
  */
-export enum AwsIamAccessKeyStatus {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
+export const AwsIamAccessKeyStatus = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+};
 
 /**
  * @public
@@ -10557,7 +10557,7 @@ export interface AwsIamAccessKeyDetails {
   /**
    * <p>The status of the IAM access key related to a finding.</p>
    */
-  Status?: AwsIamAccessKeyStatus | string;
+  Status?: keyof typeof AwsIamAccessKeyStatus | string;
 
   /**
    * <p>Indicates when the IAM access key was created.</p>

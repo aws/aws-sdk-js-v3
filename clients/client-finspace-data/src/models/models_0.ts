@@ -26,23 +26,23 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum ApiAccess {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ApiAccess = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum ApplicationPermission {
-  AccessNotebooks = "AccessNotebooks",
-  CreateDataset = "CreateDataset",
-  GetTemporaryCredentials = "GetTemporaryCredentials",
-  ManageAttributeSets = "ManageAttributeSets",
-  ManageClusters = "ManageClusters",
-  ManageUsersAndGroups = "ManageUsersAndGroups",
-  ViewAuditData = "ViewAuditData",
-}
+export const ApplicationPermission = {
+  AccessNotebooks: "AccessNotebooks",
+  CreateDataset: "CreateDataset",
+  GetTemporaryCredentials: "GetTemporaryCredentials",
+  ManageAttributeSets: "ManageAttributeSets",
+  ManageClusters: "ManageClusters",
+  ManageUsersAndGroups: "ManageUsersAndGroups",
+  ViewAuditData: "ViewAuditData",
+};
 
 /**
  * @public
@@ -210,11 +210,11 @@ export interface AwsCredentials {
 /**
  * @public
  */
-export enum ChangeType {
-  APPEND = "APPEND",
-  MODIFY = "MODIFY",
-  REPLACE = "REPLACE",
-}
+export const ChangeType = {
+  APPEND: "APPEND",
+  MODIFY: "MODIFY",
+  REPLACE: "REPLACE",
+};
 
 /**
  * @public
@@ -251,7 +251,7 @@ export interface CreateChangesetRequest {
    *             </li>
    *          </ul>
    */
-  changeType: ChangeType | string | undefined;
+  changeType: keyof typeof ChangeType | string | undefined;
 
   /**
    * <p>Options that define the location of the data being ingested (<code>s3SourcePath</code>) and the source of the changeset (<code>sourceType</code>).</p>
@@ -360,10 +360,10 @@ export class LimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum DatasetKind {
-  NON_TABULAR = "NON_TABULAR",
-  TABULAR = "TABULAR",
-}
+export const DatasetKind = {
+  NON_TABULAR: "NON_TABULAR",
+  TABULAR: "TABULAR",
+};
 
 /**
  * @public
@@ -466,20 +466,20 @@ export interface PermissionGroupParams {
 /**
  * @public
  */
-export enum ColumnDataType {
-  BIGINT = "BIGINT",
-  BINARY = "BINARY",
-  BOOLEAN = "BOOLEAN",
-  CHAR = "CHAR",
-  DATE = "DATE",
-  DATETIME = "DATETIME",
-  DOUBLE = "DOUBLE",
-  FLOAT = "FLOAT",
-  INTEGER = "INTEGER",
-  SMALLINT = "SMALLINT",
-  STRING = "STRING",
-  TINYINT = "TINYINT",
-}
+export const ColumnDataType = {
+  BIGINT: "BIGINT",
+  BINARY: "BINARY",
+  BOOLEAN: "BOOLEAN",
+  CHAR: "CHAR",
+  DATE: "DATE",
+  DATETIME: "DATETIME",
+  DOUBLE: "DOUBLE",
+  FLOAT: "FLOAT",
+  INTEGER: "INTEGER",
+  SMALLINT: "SMALLINT",
+  STRING: "STRING",
+  TINYINT: "TINYINT",
+};
 
 /**
  * @public
@@ -517,7 +517,7 @@ export interface ColumnDefinition {
    *             </li>
    *          </ul>
    */
-  dataType?: ColumnDataType | string;
+  dataType?: keyof typeof ColumnDataType | string;
 
   /**
    * <p>The name of a column.</p>
@@ -585,7 +585,7 @@ export interface CreateDatasetRequest {
    *             </li>
    *          </ul>
    */
-  kind: DatasetKind | string | undefined;
+  kind: keyof typeof DatasetKind | string | undefined;
 
   /**
    * <p>Description of a Dataset.</p>
@@ -627,10 +627,10 @@ export interface CreateDatasetResponse {
 /**
  * @public
  */
-export enum ExportFileFormat {
-  DELIMITED_TEXT = "DELIMITED_TEXT",
-  PARQUET = "PARQUET",
-}
+export const ExportFileFormat = {
+  DELIMITED_TEXT: "DELIMITED_TEXT",
+  PARQUET: "PARQUET",
+};
 
 /**
  * @public
@@ -665,7 +665,7 @@ export interface DataViewDestinationTypeParams {
    *             </li>
    *          </ul>
    */
-  s3DestinationExportFileFormat?: ExportFileFormat | string;
+  s3DestinationExportFileFormat?: keyof typeof ExportFileFormat | string;
 
   /**
    * <p>Format Options for S3 Destination type.</p>
@@ -790,7 +790,7 @@ export interface CreatePermissionGroupRequest {
    *             </li>
    *          </ul>
    */
-  applicationPermissions: (ApplicationPermission | string)[] | undefined;
+  applicationPermissions: (keyof typeof ApplicationPermission | string)[] | undefined;
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
@@ -811,10 +811,10 @@ export interface CreatePermissionGroupResponse {
 /**
  * @public
  */
-export enum UserType {
-  APP_USER = "APP_USER",
-  SUPER_USER = "SUPER_USER",
-}
+export const UserType = {
+  APP_USER: "APP_USER",
+  SUPER_USER: "SUPER_USER",
+};
 
 /**
  * @public
@@ -838,7 +838,7 @@ export interface CreateUserRequest {
    *             </li>
    *          </ul>
    */
-  type: UserType | string | undefined;
+  type: keyof typeof UserType | string | undefined;
 
   /**
    * <p>The first name of the user that you want to register.</p>
@@ -863,7 +863,7 @@ export interface CreateUserRequest {
    *             </li>
    *          </ul>
    */
-  ApiAccess?: ApiAccess | string;
+  ApiAccess?: keyof typeof ApiAccess | string;
 
   /**
    * <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>
@@ -1037,16 +1037,16 @@ export interface GetChangesetRequest {
 /**
  * @public
  */
-export enum ErrorCategory {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  CANCELLED = "CANCELLED",
-  INTERNAL_SERVICE_EXCEPTION = "INTERNAL_SERVICE_EXCEPTION",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  SERVICE_QUOTA_EXCEEDED = "SERVICE_QUOTA_EXCEEDED",
-  THROTTLING = "THROTTLING",
-  USER_RECOVERABLE = "USER_RECOVERABLE",
-  VALIDATION = "VALIDATION",
-}
+export const ErrorCategory = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  CANCELLED: "CANCELLED",
+  INTERNAL_SERVICE_EXCEPTION: "INTERNAL_SERVICE_EXCEPTION",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  SERVICE_QUOTA_EXCEEDED: "SERVICE_QUOTA_EXCEEDED",
+  THROTTLING: "THROTTLING",
+  USER_RECOVERABLE: "USER_RECOVERABLE",
+  VALIDATION: "VALIDATION",
+};
 
 /**
  * @public
@@ -1100,19 +1100,19 @@ export interface ChangesetErrorInfo {
    *             </li>
    *          </ul>
    */
-  errorCategory?: ErrorCategory | string;
+  errorCategory?: keyof typeof ErrorCategory | string;
 }
 
 /**
  * @public
  */
-export enum IngestionStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOP_REQUESTED = "STOP_REQUESTED",
-  SUCCESS = "SUCCESS",
-}
+export const IngestionStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOP_REQUESTED: "STOP_REQUESTED",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -1151,7 +1151,7 @@ export interface GetChangesetResponse {
    *             </li>
    *          </ul>
    */
-  changeType?: ChangeType | string;
+  changeType?: keyof typeof ChangeType | string;
 
   /**
    * <p>Options that define the location of the data being ingested.</p>
@@ -1171,7 +1171,7 @@ export interface GetChangesetResponse {
   /**
    * <p>The status of Changeset creation operation.</p>
    */
-  status?: IngestionStatus | string;
+  status?: keyof typeof IngestionStatus | string;
 
   /**
    * <p>The structure with error messages.</p>
@@ -1213,12 +1213,12 @@ export interface GetDatasetRequest {
 /**
  * @public
  */
-export enum DatasetStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUCCESS = "SUCCESS",
-}
+export const DatasetStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -1253,7 +1253,7 @@ export interface GetDatasetResponse {
    *             </li>
    *          </ul>
    */
-  kind?: DatasetKind | string;
+  kind?: keyof typeof DatasetKind | string;
 
   /**
    * <p>A description of the Dataset.</p>
@@ -1301,7 +1301,7 @@ export interface GetDatasetResponse {
    *             </li>
    *          </ul>
    */
-  status?: DatasetStatus | string;
+  status?: keyof typeof DatasetStatus | string;
 }
 
 /**
@@ -1372,22 +1372,22 @@ export interface DataViewErrorInfo {
    *             </li>
    *          </ul>
    */
-  errorCategory?: ErrorCategory | string;
+  errorCategory?: keyof typeof ErrorCategory | string;
 }
 
 /**
  * @public
  */
-export enum DataViewStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  FAILED_CLEANUP_FAILED = "FAILED_CLEANUP_FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  SUCCESS = "SUCCESS",
-  TIMEOUT = "TIMEOUT",
-}
+export const DataViewStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  FAILED_CLEANUP_FAILED: "FAILED_CLEANUP_FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  SUCCESS: "SUCCESS",
+  TIMEOUT: "TIMEOUT",
+};
 
 /**
  * @public
@@ -1486,7 +1486,7 @@ export interface GetDataViewResponse {
    *             </li>
    *          </ul>
    */
-  status?: DataViewStatus | string;
+  status?: keyof typeof DataViewStatus | string;
 }
 
 /**
@@ -1548,11 +1548,11 @@ export interface GetPermissionGroupRequest {
 /**
  * @public
  */
-export enum PermissionGroupMembershipStatus {
-  ADDITION_IN_PROGRESS = "ADDITION_IN_PROGRESS",
-  ADDITION_SUCCESS = "ADDITION_SUCCESS",
-  REMOVAL_IN_PROGRESS = "REMOVAL_IN_PROGRESS",
-}
+export const PermissionGroupMembershipStatus = {
+  ADDITION_IN_PROGRESS: "ADDITION_IN_PROGRESS",
+  ADDITION_SUCCESS: "ADDITION_SUCCESS",
+  REMOVAL_IN_PROGRESS: "REMOVAL_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -1610,7 +1610,7 @@ export interface PermissionGroup {
    *             </li>
    *          </ul>
    */
-  applicationPermissions?: (ApplicationPermission | string)[];
+  applicationPermissions?: (keyof typeof ApplicationPermission | string)[];
 
   /**
    * <p>The timestamp at which the group was created in FinSpace. The value is determined as epoch time in milliseconds.
@@ -1641,7 +1641,7 @@ export interface PermissionGroup {
    *             </li>
    *          </ul>
    */
-  membershipStatus?: PermissionGroupMembershipStatus | string;
+  membershipStatus?: keyof typeof PermissionGroupMembershipStatus | string;
 }
 
 /**
@@ -1720,11 +1720,11 @@ export interface GetUserRequest {
 /**
  * @public
  */
-export enum UserStatus {
-  CREATING = "CREATING",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const UserStatus = {
+  CREATING: "CREATING",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1752,7 +1752,7 @@ export interface GetUserResponse {
    *             </li>
    *          </ul>
    */
-  status?: UserStatus | string;
+  status?: keyof typeof UserStatus | string;
 
   /**
    * <p>The first name of the user.</p>
@@ -1784,7 +1784,7 @@ export interface GetUserResponse {
    *             </li>
    *          </ul>
    */
-  type?: UserType | string;
+  type?: keyof typeof UserType | string;
 
   /**
    * <p>Indicates whether the user can use the <code>GetProgrammaticAccessCredentials</code> API to obtain credentials that can then be used to access other FinSpace Data API operations. </p>
@@ -1799,7 +1799,7 @@ export interface GetUserResponse {
    *             </li>
    *          </ul>
    */
-  apiAccess?: ApiAccess | string;
+  apiAccess?: keyof typeof ApiAccess | string;
 
   /**
    * <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>
@@ -1835,10 +1835,10 @@ export interface GetUserResponse {
 /**
  * @public
  */
-export enum LocationType {
-  INGESTION = "INGESTION",
-  SAGEMAKER = "SAGEMAKER",
-}
+export const LocationType = {
+  INGESTION: "INGESTION",
+  SAGEMAKER: "SAGEMAKER",
+};
 
 /**
  * @public
@@ -1859,7 +1859,7 @@ export interface GetWorkingLocationRequest {
    *             </li>
    *          </ul>
    */
-  locationType?: LocationType | string;
+  locationType?: keyof typeof LocationType | string;
 }
 
 /**
@@ -1943,7 +1943,7 @@ export interface ChangesetSummary {
    *             </li>
    *          </ul>
    */
-  changeType?: ChangeType | string;
+  changeType?: keyof typeof ChangeType | string;
 
   /**
    * <p>Options that define the location of the data being ingested.</p>
@@ -1985,7 +1985,7 @@ export interface ChangesetSummary {
    *             </li>
    *          </ul>
    */
-  status?: IngestionStatus | string;
+  status?: keyof typeof IngestionStatus | string;
 
   /**
    * <p>The structure with error messages.</p>
@@ -2078,7 +2078,7 @@ export interface Dataset {
    *             </li>
    *          </ul>
    */
-  kind?: DatasetKind | string;
+  kind?: keyof typeof DatasetKind | string;
 
   /**
    * <p>Description for a Dataset.</p>
@@ -2220,7 +2220,7 @@ export interface DataViewSummary {
    *             </li>
    *          </ul>
    */
-  status?: DataViewStatus | string;
+  status?: keyof typeof DataViewStatus | string;
 
   /**
    * <p>The structure with error messages.</p>
@@ -2345,7 +2345,7 @@ export interface PermissionGroupByUser {
    *             </li>
    *          </ul>
    */
-  membershipStatus?: PermissionGroupMembershipStatus | string;
+  membershipStatus?: keyof typeof PermissionGroupMembershipStatus | string;
 }
 
 /**
@@ -2405,7 +2405,7 @@ export interface User {
    *             </li>
    *          </ul>
    */
-  status?: UserStatus | string;
+  status?: keyof typeof UserStatus | string;
 
   /**
    * <p>The first name of the user.</p>
@@ -2435,7 +2435,7 @@ export interface User {
    *             </li>
    *          </ul>
    */
-  type?: UserType | string;
+  type?: keyof typeof UserType | string;
 
   /**
    * <p>Indicates whether the user can use the <code>GetProgrammaticAccessCredentials</code> API to obtain credentials that can then be used to access other FinSpace Data API operations.</p>
@@ -2450,7 +2450,7 @@ export interface User {
    *             </li>
    *          </ul>
    */
-  apiAccess?: ApiAccess | string;
+  apiAccess?: keyof typeof ApiAccess | string;
 
   /**
    * <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>
@@ -2548,7 +2548,7 @@ export interface UserByPermissionGroup {
    *             </li>
    *          </ul>
    */
-  status?: UserStatus | string;
+  status?: keyof typeof UserStatus | string;
 
   /**
    * <p>The first name of the user.</p>
@@ -2578,7 +2578,7 @@ export interface UserByPermissionGroup {
    *             </li>
    *          </ul>
    */
-  type?: UserType | string;
+  type?: keyof typeof UserType | string;
 
   /**
    * <p>Indicates whether the user can access FinSpace API operations.</p>
@@ -2593,7 +2593,7 @@ export interface UserByPermissionGroup {
    *             </li>
    *          </ul>
    */
-  apiAccess?: ApiAccess | string;
+  apiAccess?: keyof typeof ApiAccess | string;
 
   /**
    * <p>The IAM ARN identifier that is attached to FinSpace API calls.</p>
@@ -2617,7 +2617,7 @@ export interface UserByPermissionGroup {
    *             </li>
    *          </ul>
    */
-  membershipStatus?: PermissionGroupMembershipStatus | string;
+  membershipStatus?: keyof typeof PermissionGroupMembershipStatus | string;
 }
 
 /**
@@ -2802,7 +2802,7 @@ export interface UpdateDatasetRequest {
    *             </li>
    *          </ul>
    */
-  kind: DatasetKind | string | undefined;
+  kind: keyof typeof DatasetKind | string | undefined;
 
   /**
    * <p>A description for the Dataset.</p>
@@ -2886,7 +2886,7 @@ export interface UpdatePermissionGroupRequest {
    *             </li>
    *          </ul>
    */
-  applicationPermissions?: (ApplicationPermission | string)[];
+  applicationPermissions?: (keyof typeof ApplicationPermission | string)[];
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
@@ -2926,7 +2926,7 @@ export interface UpdateUserRequest {
    *             </li>
    *          </ul>
    */
-  type?: UserType | string;
+  type?: keyof typeof UserType | string;
 
   /**
    * <p>The first name of the user.</p>
@@ -2951,7 +2951,7 @@ export interface UpdateUserRequest {
    *             </li>
    *          </ul>
    */
-  apiAccess?: ApiAccess | string;
+  apiAccess?: keyof typeof ApiAccess | string;
 
   /**
    * <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>

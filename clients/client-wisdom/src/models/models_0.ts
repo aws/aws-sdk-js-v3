@@ -147,9 +147,9 @@ export namespace AssistantAssociationInputData {
 /**
  * @public
  */
-export enum AssociationType {
-  KNOWLEDGE_BASE = "KNOWLEDGE_BASE",
-}
+export const AssociationType = {
+  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
+};
 
 /**
  * @public
@@ -163,7 +163,7 @@ export interface CreateAssistantAssociationRequest {
   /**
    * <p>The type of association.</p>
    */
-  associationType: AssociationType | string | undefined;
+  associationType: keyof typeof AssociationType | string | undefined;
 
   /**
    * <p>The identifier of the associated resource.</p>
@@ -265,7 +265,7 @@ export interface AssistantAssociationData {
   /**
    * <p>The type of association.</p>
    */
-  associationType: AssociationType | string | undefined;
+  associationType: keyof typeof AssociationType | string | undefined;
 
   /**
    * <p>A union type that currently has a single argument, the knowledge base ID.</p>
@@ -449,7 +449,7 @@ export interface AssistantAssociationSummary {
   /**
    * <p>The type of association.</p>
    */
-  associationType: AssociationType | string | undefined;
+  associationType: keyof typeof AssociationType | string | undefined;
 
   /**
    * <p>The association data.</p>
@@ -492,9 +492,9 @@ export interface ServerSideEncryptionConfiguration {
 /**
  * @public
  */
-export enum AssistantType {
-  AGENT = "AGENT",
-}
+export const AssistantType = {
+  AGENT: "AGENT",
+};
 
 /**
  * @public
@@ -516,7 +516,7 @@ export interface CreateAssistantRequest {
   /**
    * <p>The type of assistant.</p>
    */
-  type: AssistantType | string | undefined;
+  type: keyof typeof AssistantType | string | undefined;
 
   /**
    * <p>The description of the assistant.</p>
@@ -537,14 +537,14 @@ export interface CreateAssistantRequest {
 /**
  * @public
  */
-export enum AssistantStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-}
+export const AssistantStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -569,12 +569,12 @@ export interface AssistantData {
   /**
    * <p>The type of assistant.</p>
    */
-  type: AssistantType | string | undefined;
+  type: keyof typeof AssistantType | string | undefined;
 
   /**
    * <p>The status of the assistant.</p>
    */
-  status: AssistantStatus | string | undefined;
+  status: keyof typeof AssistantStatus | string | undefined;
 
   /**
    * <p>The description.</p>
@@ -748,18 +748,18 @@ export interface Document {
 /**
  * @public
  */
-export enum RelevanceLevel {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const RelevanceLevel = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+};
 
 /**
  * @public
  */
-export enum RecommendationType {
-  KNOWLEDGE_CONTENT = "KNOWLEDGE_CONTENT",
-}
+export const RecommendationType = {
+  KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
+};
 
 /**
  * @public
@@ -784,12 +784,12 @@ export interface RecommendationData {
   /**
    * <p>The relevance level of the recommendation.</p>
    */
-  relevanceLevel?: RelevanceLevel | string;
+  relevanceLevel?: keyof typeof RelevanceLevel | string;
 
   /**
    * <p>The type of recommendation.</p>
    */
-  type?: RecommendationType | string;
+  type?: keyof typeof RecommendationType | string;
 }
 
 /**
@@ -842,18 +842,18 @@ export namespace RecommendationTriggerData {
 /**
  * @public
  */
-export enum RecommendationSourceType {
-  ISSUE_DETECTION = "ISSUE_DETECTION",
-  OTHER = "OTHER",
-  RULE_EVALUATION = "RULE_EVALUATION",
-}
+export const RecommendationSourceType = {
+  ISSUE_DETECTION: "ISSUE_DETECTION",
+  OTHER: "OTHER",
+  RULE_EVALUATION: "RULE_EVALUATION",
+};
 
 /**
  * @public
  */
-export enum RecommendationTriggerType {
-  QUERY = "QUERY",
-}
+export const RecommendationTriggerType = {
+  QUERY: "QUERY",
+};
 
 /**
  * @public
@@ -870,7 +870,7 @@ export interface RecommendationTrigger {
   /**
    * <p>The type of recommendation trigger.</p>
    */
-  type: RecommendationTriggerType | string | undefined;
+  type: keyof typeof RecommendationTriggerType | string | undefined;
 
   /**
    * <p>The source of the recommendation trigger.</p>
@@ -885,7 +885,7 @@ export interface RecommendationTrigger {
    *             </li>
    *          </ul>
    */
-  source: RecommendationSourceType | string | undefined;
+  source: keyof typeof RecommendationSourceType | string | undefined;
 
   /**
    * <p>A union type containing information related to the trigger.</p>
@@ -952,12 +952,12 @@ export interface AssistantSummary {
   /**
    * <p>The type of the assistant.</p>
    */
-  type: AssistantType | string | undefined;
+  type: keyof typeof AssistantType | string | undefined;
 
   /**
    * <p>The status of the assistant.</p>
    */
-  status: AssistantStatus | string | undefined;
+  status: keyof typeof AssistantStatus | string | undefined;
 
   /**
    * <p>The description of the assistant.</p>
@@ -1106,16 +1106,16 @@ export interface QueryAssistantResponse {
 /**
  * @public
  */
-export enum FilterField {
-  NAME = "NAME",
-}
+export const FilterField = {
+  NAME: "NAME",
+};
 
 /**
  * @public
  */
-export enum FilterOperator {
-  EQUALS = "EQUALS",
-}
+export const FilterOperator = {
+  EQUALS: "EQUALS",
+};
 
 /**
  * @public
@@ -1125,12 +1125,12 @@ export interface Filter {
   /**
    * <p>The field on which to filter.</p>
    */
-  field: FilterField | string | undefined;
+  field: keyof typeof FilterField | string | undefined;
 
   /**
    * <p>The operator to use for comparing the field’s value with the provided value.</p>
    */
-  operator: FilterOperator | string | undefined;
+  operator: keyof typeof FilterOperator | string | undefined;
 
   /**
    * <p>The desired field value on which to filter.</p>
@@ -1370,15 +1370,15 @@ export interface CreateContentRequest {
 /**
  * @public
  */
-export enum ContentStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  UPDATE_FAILED = "UPDATE_FAILED",
-}
+export const ContentStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  UPDATE_FAILED: "UPDATE_FAILED",
+};
 
 /**
  * @public
@@ -1428,7 +1428,7 @@ export interface ContentData {
   /**
    * <p>The status of the content.</p>
    */
-  status: ContentStatus | string | undefined;
+  status: keyof typeof ContentStatus | string | undefined;
 
   /**
    * <p>A key/value map to store attributes without affecting tagging or recommendations.
@@ -1575,7 +1575,7 @@ export interface ContentSummary {
   /**
    * <p>The status of the content.</p>
    */
-  status: ContentStatus | string | undefined;
+  status: keyof typeof ContentStatus | string | undefined;
 
   /**
    * <p>A key/value map to store attributes without affecting tagging or recommendations.
@@ -1723,10 +1723,10 @@ export interface UpdateContentResponse {
 /**
  * @public
  */
-export enum KnowledgeBaseType {
-  CUSTOM = "CUSTOM",
-  EXTERNAL = "EXTERNAL",
-}
+export const KnowledgeBaseType = {
+  CUSTOM: "CUSTOM",
+  EXTERNAL: "EXTERNAL",
+};
 
 /**
  * @public
@@ -1815,7 +1815,7 @@ export interface CreateKnowledgeBaseRequest {
    *       EXTERNAL knowledge bases support integrations with third-party systems whose content is
    *       synchronized automatically. </p>
    */
-  knowledgeBaseType: KnowledgeBaseType | string | undefined;
+  knowledgeBaseType: keyof typeof KnowledgeBaseType | string | undefined;
 
   /**
    * <p>The source of the knowledge base content. Only set this argument for EXTERNAL knowledge
@@ -1847,14 +1847,14 @@ export interface CreateKnowledgeBaseRequest {
 /**
  * @public
  */
-export enum KnowledgeBaseStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-}
+export const KnowledgeBaseStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -1879,12 +1879,12 @@ export interface KnowledgeBaseData {
   /**
    * <p>The type of knowledge base.</p>
    */
-  knowledgeBaseType: KnowledgeBaseType | string | undefined;
+  knowledgeBaseType: keyof typeof KnowledgeBaseType | string | undefined;
 
   /**
    * <p>The status of the knowledge base.</p>
    */
-  status: KnowledgeBaseStatus | string | undefined;
+  status: keyof typeof KnowledgeBaseStatus | string | undefined;
 
   /**
    * <p>An epoch timestamp indicating the most recent content modification inside the knowledge
@@ -2002,12 +2002,12 @@ export interface KnowledgeBaseSummary {
   /**
    * <p>The type of knowledge base.</p>
    */
-  knowledgeBaseType: KnowledgeBaseType | string | undefined;
+  knowledgeBaseType: keyof typeof KnowledgeBaseType | string | undefined;
 
   /**
    * <p>The status of the knowledge base summary.</p>
    */
-  status: KnowledgeBaseStatus | string | undefined;
+  status: keyof typeof KnowledgeBaseStatus | string | undefined;
 
   /**
    * <p>Configuration information about the external data source.</p>

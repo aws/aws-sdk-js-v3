@@ -40,10 +40,10 @@ export interface ContainerImage {
 /**
  * @public
  */
-export enum CompressionType {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
+export const CompressionType = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -66,7 +66,7 @@ export interface ScriptModeConfig {
   /**
    * <p>The type of compression used by the Python scripts for an Amazon Braket job.</p>
    */
-  compressionType?: CompressionType | string;
+  compressionType?: keyof typeof CompressionType | string;
 }
 
 /**
@@ -99,19 +99,19 @@ export interface GetDeviceRequest {
 /**
  * @public
  */
-export enum DeviceStatus {
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-  RETIRED = "RETIRED",
-}
+export const DeviceStatus = {
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+  RETIRED: "RETIRED",
+};
 
 /**
  * @public
  */
-export enum DeviceType {
-  QPU = "QPU",
-  SIMULATOR = "SIMULATOR",
-}
+export const DeviceType = {
+  QPU: "QPU",
+  SIMULATOR: "SIMULATOR",
+};
 
 /**
  * @public
@@ -135,12 +135,12 @@ export interface GetDeviceResponse {
   /**
    * <p>The type of the device.</p>
    */
-  deviceType: DeviceType | string | undefined;
+  deviceType: keyof typeof DeviceType | string | undefined;
 
   /**
    * <p>The status of the device.</p>
    */
-  deviceStatus: DeviceStatus | string | undefined;
+  deviceStatus: keyof typeof DeviceStatus | string | undefined;
 
   /**
    * <p>Details about the capabilities of the device.</p>
@@ -289,12 +289,12 @@ export interface DeviceSummary {
   /**
    * <p>The type of the device.</p>
    */
-  deviceType: DeviceType | string | undefined;
+  deviceType: keyof typeof DeviceType | string | undefined;
 
   /**
    * <p>The status of the device.</p>
    */
-  deviceStatus: DeviceStatus | string | undefined;
+  deviceStatus: keyof typeof DeviceStatus | string | undefined;
 }
 
 /**
@@ -328,10 +328,10 @@ export interface CancelJobRequest {
 /**
  * @public
  */
-export enum CancellationStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-}
+export const CancellationStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+};
 
 /**
  * @public
@@ -345,7 +345,7 @@ export interface CancelJobResponse {
   /**
    * <p>The status of the job cancellation request.</p>
    */
-  cancellationStatus: CancellationStatus | string | undefined;
+  cancellationStatus: keyof typeof CancellationStatus | string | undefined;
 }
 
 /**
@@ -447,47 +447,47 @@ export interface InputFileConfig {
 /**
  * @public
  */
-export enum _InstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5N_18XLARGE = "ml.c5n.18xlarge",
-  ML_C5N_2XLARGE = "ml.c5n.2xlarge",
-  ML_C5N_4XLARGE = "ml.c5n.4xlarge",
-  ML_C5N_9XLARGE = "ml.c5n.9xlarge",
-  ML_C5N_XLARGE = "ml.c5n.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_P4D_24XLARGE = "ml.p4d.24xlarge",
-}
+export const _InstanceType = {
+  ML_C4_2XLARGE: "ml.c4.2xlarge",
+  ML_C4_4XLARGE: "ml.c4.4xlarge",
+  ML_C4_8XLARGE: "ml.c4.8xlarge",
+  ML_C4_XLARGE: "ml.c4.xlarge",
+  ML_C5N_18XLARGE: "ml.c5n.18xlarge",
+  ML_C5N_2XLARGE: "ml.c5n.2xlarge",
+  ML_C5N_4XLARGE: "ml.c5n.4xlarge",
+  ML_C5N_9XLARGE: "ml.c5n.9xlarge",
+  ML_C5N_XLARGE: "ml.c5n.xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_M4_10XLARGE: "ml.m4.10xlarge",
+  ML_M4_16XLARGE: "ml.m4.16xlarge",
+  ML_M4_2XLARGE: "ml.m4.2xlarge",
+  ML_M4_4XLARGE: "ml.m4.4xlarge",
+  ML_M4_XLARGE: "ml.m4.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P2_16XLARGE: "ml.p2.16xlarge",
+  ML_P2_8XLARGE: "ml.p2.8xlarge",
+  ML_P2_XLARGE: "ml.p2.xlarge",
+  ML_P3DN_24XLARGE: "ml.p3dn.24xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+};
 
 /**
  * @public
@@ -499,7 +499,7 @@ export interface InstanceConfig {
    * <p>Configures the type resource instances to use while running an Amazon Braket hybrid
    *          job.</p>
    */
-  instanceType: _InstanceType | string | undefined;
+  instanceType: keyof typeof _InstanceType | string | undefined;
 
   /**
    * <p>The size of the storage volume, in GB, that user wants to provision.</p>
@@ -681,19 +681,19 @@ export interface GetJobRequest {
 /**
  * @public
  */
-export enum JobEventType {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  DEPRIORITIZED_DUE_TO_INACTIVITY = "DEPRIORITIZED_DUE_TO_INACTIVITY",
-  DOWNLOADING_DATA = "DOWNLOADING_DATA",
-  FAILED = "FAILED",
-  MAX_RUNTIME_EXCEEDED = "MAX_RUNTIME_EXCEEDED",
-  QUEUED_FOR_EXECUTION = "QUEUED_FOR_EXECUTION",
-  RUNNING = "RUNNING",
-  STARTING_INSTANCE = "STARTING_INSTANCE",
-  UPLOADING_RESULTS = "UPLOADING_RESULTS",
-  WAITING_FOR_PRIORITY = "WAITING_FOR_PRIORITY",
-}
+export const JobEventType = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  DEPRIORITIZED_DUE_TO_INACTIVITY: "DEPRIORITIZED_DUE_TO_INACTIVITY",
+  DOWNLOADING_DATA: "DOWNLOADING_DATA",
+  FAILED: "FAILED",
+  MAX_RUNTIME_EXCEEDED: "MAX_RUNTIME_EXCEEDED",
+  QUEUED_FOR_EXECUTION: "QUEUED_FOR_EXECUTION",
+  RUNNING: "RUNNING",
+  STARTING_INSTANCE: "STARTING_INSTANCE",
+  UPLOADING_RESULTS: "UPLOADING_RESULTS",
+  WAITING_FOR_PRIORITY: "WAITING_FOR_PRIORITY",
+};
 
 /**
  * @public
@@ -703,7 +703,7 @@ export interface JobEventDetails {
   /**
    * <p>The type of event that occurred related to the Amazon Braket job.</p>
    */
-  eventType?: JobEventType | string;
+  eventType?: keyof typeof JobEventType | string;
 
   /**
    * <p>TThe type of event that occurred related to the Amazon Braket job.</p>
@@ -719,14 +719,14 @@ export interface JobEventDetails {
 /**
  * @public
  */
-export enum JobPrimaryStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-}
+export const JobPrimaryStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -735,7 +735,7 @@ export interface GetJobResponse {
   /**
    * <p>The status of the Amazon Braket job.</p>
    */
-  status: JobPrimaryStatus | string | undefined;
+  status: keyof typeof JobPrimaryStatus | string | undefined;
 
   /**
    * <p>The ARN of the Amazon Braket job.</p>
@@ -840,15 +840,15 @@ export interface GetJobResponse {
 /**
  * @public
  */
-export enum SearchJobsFilterOperator {
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  EQUAL = "EQUAL",
-  GT = "GT",
-  GTE = "GTE",
-  LT = "LT",
-  LTE = "LTE",
-}
+export const SearchJobsFilterOperator = {
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  EQUAL: "EQUAL",
+  GT: "GT",
+  GTE: "GTE",
+  LT: "LT",
+  LTE: "LTE",
+};
 
 /**
  * @public
@@ -868,7 +868,7 @@ export interface SearchJobsFilter {
   /**
    * <p>An operator to use for the jobs filter.</p>
    */
-  operator: SearchJobsFilterOperator | string | undefined;
+  operator: keyof typeof SearchJobsFilterOperator | string | undefined;
 }
 
 /**
@@ -900,7 +900,7 @@ export interface JobSummary {
   /**
    * <p>The status of the Amazon Braket job.</p>
    */
-  status: JobPrimaryStatus | string | undefined;
+  status: keyof typeof JobPrimaryStatus | string | undefined;
 
   /**
    * <p>The ARN of the Amazon Braket job.</p>
@@ -1005,7 +1005,7 @@ export interface CancelQuantumTaskResponse {
   /**
    * <p>The status of the cancellation request.</p>
    */
-  cancellationStatus: CancellationStatus | string | undefined;
+  cancellationStatus: keyof typeof CancellationStatus | string | undefined;
 }
 
 /**
@@ -1101,15 +1101,15 @@ export interface GetQuantumTaskRequest {
 /**
  * @public
  */
-export enum QuantumTaskStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-}
+export const QuantumTaskStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -1123,7 +1123,7 @@ export interface GetQuantumTaskResponse {
   /**
    * <p>The status of the task.</p>
    */
-  status: QuantumTaskStatus | string | undefined;
+  status: keyof typeof QuantumTaskStatus | string | undefined;
 
   /**
    * <p>The reason that a task failed.</p>
@@ -1179,14 +1179,14 @@ export interface GetQuantumTaskResponse {
 /**
  * @public
  */
-export enum SearchQuantumTasksFilterOperator {
-  BETWEEN = "BETWEEN",
-  EQUAL = "EQUAL",
-  GT = "GT",
-  GTE = "GTE",
-  LT = "LT",
-  LTE = "LTE",
-}
+export const SearchQuantumTasksFilterOperator = {
+  BETWEEN: "BETWEEN",
+  EQUAL: "EQUAL",
+  GT: "GT",
+  GTE: "GTE",
+  LT: "LT",
+  LTE: "LTE",
+};
 
 /**
  * @public
@@ -1206,7 +1206,7 @@ export interface SearchQuantumTasksFilter {
   /**
    * <p>An operator to use in the filter.</p>
    */
-  operator: SearchQuantumTasksFilterOperator | string | undefined;
+  operator: keyof typeof SearchQuantumTasksFilterOperator | string | undefined;
 }
 
 /**
@@ -1243,7 +1243,7 @@ export interface QuantumTaskSummary {
   /**
    * <p>The status of the task.</p>
    */
-  status: QuantumTaskStatus | string | undefined;
+  status: keyof typeof QuantumTaskStatus | string | undefined;
 
   /**
    * <p>The ARN of the device the task ran on.</p>

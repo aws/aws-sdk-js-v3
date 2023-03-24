@@ -265,14 +265,14 @@ export class ServiceException extends __BaseException {
 /**
  * @public
  */
-export enum ThrottleReason {
-  CallerRateLimitExceeded = "CallerRateLimitExceeded",
-  ConcurrentInvocationLimitExceeded = "ConcurrentInvocationLimitExceeded",
-  ConcurrentSnapshotCreateLimitExceeded = "ConcurrentSnapshotCreateLimitExceeded",
-  FunctionInvocationRateLimitExceeded = "FunctionInvocationRateLimitExceeded",
-  ReservedFunctionConcurrentInvocationLimitExceeded = "ReservedFunctionConcurrentInvocationLimitExceeded",
-  ReservedFunctionInvocationRateLimitExceeded = "ReservedFunctionInvocationRateLimitExceeded",
-}
+export const ThrottleReason = {
+  CallerRateLimitExceeded: "CallerRateLimitExceeded",
+  ConcurrentInvocationLimitExceeded: "ConcurrentInvocationLimitExceeded",
+  ConcurrentSnapshotCreateLimitExceeded: "ConcurrentSnapshotCreateLimitExceeded",
+  FunctionInvocationRateLimitExceeded: "FunctionInvocationRateLimitExceeded",
+  ReservedFunctionConcurrentInvocationLimitExceeded: "ReservedFunctionConcurrentInvocationLimitExceeded",
+  ReservedFunctionInvocationRateLimitExceeded: "ReservedFunctionInvocationRateLimitExceeded",
+};
 
 /**
  * @public
@@ -287,7 +287,7 @@ export class TooManyRequestsException extends __BaseException {
   retryAfterSeconds?: string;
 
   Type?: string;
-  Reason?: ThrottleReason | string;
+  Reason?: keyof typeof ThrottleReason | string;
   /**
    * @internal
    */
@@ -307,10 +307,10 @@ export class TooManyRequestsException extends __BaseException {
 /**
  * @public
  */
-export enum FunctionUrlAuthType {
-  AWS_IAM = "AWS_IAM",
-  NONE = "NONE",
-}
+export const FunctionUrlAuthType = {
+  AWS_IAM: "AWS_IAM",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -399,7 +399,7 @@ export interface AddPermissionRequest {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  FunctionUrlAuthType?: FunctionUrlAuthType | string;
+  FunctionUrlAuthType?: keyof typeof FunctionUrlAuthType | string;
 }
 
 /**
@@ -488,10 +488,10 @@ export interface AmazonManagedKafkaEventSourceConfig {
 /**
  * @public
  */
-export enum Architecture {
-  arm64 = "arm64",
-  x86_64 = "x86_64",
-}
+export const Architecture = {
+  arm64: "arm64",
+  x86_64: "x86_64",
+};
 
 /**
  * @public
@@ -546,10 +546,10 @@ export interface CreateAliasRequest {
 /**
  * @public
  */
-export enum CodeSigningPolicy {
-  Enforce = "Enforce",
-  Warn = "Warn",
-}
+export const CodeSigningPolicy = {
+  Enforce: "Enforce",
+  Warn: "Warn",
+};
 
 /**
  * @public
@@ -564,7 +564,7 @@ export interface CodeSigningPolicies {
    *          <p>Default value: <code>Warn</code>
    *          </p>
    */
-  UntrustedArtifactOnDeployment?: CodeSigningPolicy | string;
+  UntrustedArtifactOnDeployment?: keyof typeof CodeSigningPolicy | string;
 }
 
 /**
@@ -674,10 +674,10 @@ export interface DestinationConfig {
 /**
  * @public
  */
-export enum FullDocument {
-  Default = "Default",
-  UpdateLookup = "UpdateLookup",
-}
+export const FullDocument = {
+  Default: "Default",
+  UpdateLookup: "UpdateLookup",
+};
 
 /**
  * @public
@@ -705,7 +705,7 @@ export interface DocumentDBEventSourceConfig {
    *       Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
    *     </p>
    */
-  FullDocument?: FullDocument | string;
+  FullDocument?: keyof typeof FullDocument | string;
 }
 
 /**
@@ -743,9 +743,9 @@ export interface FilterCriteria {
 /**
  * @public
  */
-export enum FunctionResponseType {
-  ReportBatchItemFailures = "ReportBatchItemFailures",
-}
+export const FunctionResponseType = {
+  ReportBatchItemFailures: "ReportBatchItemFailures",
+};
 
 /**
  * @public
@@ -761,9 +761,9 @@ export interface ScalingConfig {
 /**
  * @public
  */
-export enum EndPointType {
-  KAFKA_BOOTSTRAP_SERVERS = "KAFKA_BOOTSTRAP_SERVERS",
-}
+export const EndPointType = {
+  KAFKA_BOOTSTRAP_SERVERS: "KAFKA_BOOTSTRAP_SERVERS",
+};
 
 /**
  * @public
@@ -793,16 +793,16 @@ export interface SelfManagedKafkaEventSourceConfig {
 /**
  * @public
  */
-export enum SourceAccessType {
-  BASIC_AUTH = "BASIC_AUTH",
-  CLIENT_CERTIFICATE_TLS_AUTH = "CLIENT_CERTIFICATE_TLS_AUTH",
-  SASL_SCRAM_256_AUTH = "SASL_SCRAM_256_AUTH",
-  SASL_SCRAM_512_AUTH = "SASL_SCRAM_512_AUTH",
-  SERVER_ROOT_CA_CERTIFICATE = "SERVER_ROOT_CA_CERTIFICATE",
-  VIRTUAL_HOST = "VIRTUAL_HOST",
-  VPC_SECURITY_GROUP = "VPC_SECURITY_GROUP",
-  VPC_SUBNET = "VPC_SUBNET",
-}
+export const SourceAccessType = {
+  BASIC_AUTH: "BASIC_AUTH",
+  CLIENT_CERTIFICATE_TLS_AUTH: "CLIENT_CERTIFICATE_TLS_AUTH",
+  SASL_SCRAM_256_AUTH: "SASL_SCRAM_256_AUTH",
+  SASL_SCRAM_512_AUTH: "SASL_SCRAM_512_AUTH",
+  SERVER_ROOT_CA_CERTIFICATE: "SERVER_ROOT_CA_CERTIFICATE",
+  VIRTUAL_HOST: "VIRTUAL_HOST",
+  VPC_SECURITY_GROUP: "VPC_SECURITY_GROUP",
+  VPC_SUBNET: "VPC_SUBNET",
+};
 
 /**
  * @public
@@ -853,7 +853,7 @@ export interface SourceAccessConfiguration {
    *             </li>
    *          </ul>
    */
-  Type?: SourceAccessType | string;
+  Type?: keyof typeof SourceAccessType | string;
 
   /**
    * <p>The value for your chosen configuration in <code>Type</code>. For example: <code>"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"</code>.</p>
@@ -864,11 +864,11 @@ export interface SourceAccessConfiguration {
 /**
  * @public
  */
-export enum EventSourcePosition {
-  AT_TIMESTAMP = "AT_TIMESTAMP",
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const EventSourcePosition = {
+  AT_TIMESTAMP: "AT_TIMESTAMP",
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+};
 
 /**
  * @public
@@ -993,7 +993,7 @@ export interface CreateEventSourceMappingRequest {
    *       DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is supported only for
    *       Amazon Kinesis streams.</p>
    */
-  StartingPosition?: EventSourcePosition | string;
+  StartingPosition?: keyof typeof EventSourcePosition | string;
 
   /**
    * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start
@@ -1049,7 +1049,7 @@ export interface CreateEventSourceMappingRequest {
   /**
    * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
-  FunctionResponseTypes?: (FunctionResponseType | string)[];
+  FunctionResponseTypes?: (keyof typeof FunctionResponseType | string)[];
 
   /**
    * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
@@ -1086,7 +1086,7 @@ export interface EventSourceMappingConfiguration {
    * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK stream sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis
    *       streams.</p>
    */
-  StartingPosition?: EventSourcePosition | string;
+  StartingPosition?: keyof typeof EventSourcePosition | string;
 
   /**
    * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start
@@ -1204,7 +1204,7 @@ export interface EventSourceMappingConfiguration {
   /**
    * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
-  FunctionResponseTypes?: (FunctionResponseType | string)[];
+  FunctionResponseTypes?: (keyof typeof FunctionResponseType | string)[];
 
   /**
    * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
@@ -1416,52 +1416,52 @@ export interface ImageConfig {
 /**
  * @public
  */
-export enum PackageType {
-  Image = "Image",
-  Zip = "Zip",
-}
+export const PackageType = {
+  Image: "Image",
+  Zip: "Zip",
+};
 
 /**
  * @public
  */
-export enum Runtime {
-  dotnet6 = "dotnet6",
-  dotnetcore10 = "dotnetcore1.0",
-  dotnetcore20 = "dotnetcore2.0",
-  dotnetcore21 = "dotnetcore2.1",
-  dotnetcore31 = "dotnetcore3.1",
-  go1x = "go1.x",
-  java11 = "java11",
-  java8 = "java8",
-  java8al2 = "java8.al2",
-  nodejs = "nodejs",
-  nodejs10x = "nodejs10.x",
-  nodejs12x = "nodejs12.x",
-  nodejs14x = "nodejs14.x",
-  nodejs16x = "nodejs16.x",
-  nodejs18x = "nodejs18.x",
-  nodejs43 = "nodejs4.3",
-  nodejs43edge = "nodejs4.3-edge",
-  nodejs610 = "nodejs6.10",
-  nodejs810 = "nodejs8.10",
-  provided = "provided",
-  providedal2 = "provided.al2",
-  python27 = "python2.7",
-  python36 = "python3.6",
-  python37 = "python3.7",
-  python38 = "python3.8",
-  python39 = "python3.9",
-  ruby25 = "ruby2.5",
-  ruby27 = "ruby2.7",
-}
+export const Runtime = {
+  dotnet6: "dotnet6",
+  dotnetcore10: "dotnetcore1.0",
+  dotnetcore20: "dotnetcore2.0",
+  dotnetcore21: "dotnetcore2.1",
+  dotnetcore31: "dotnetcore3.1",
+  go1x: "go1.x",
+  java11: "java11",
+  java8: "java8",
+  java8al2: "java8.al2",
+  nodejs: "nodejs",
+  nodejs10x: "nodejs10.x",
+  nodejs12x: "nodejs12.x",
+  nodejs14x: "nodejs14.x",
+  nodejs16x: "nodejs16.x",
+  nodejs18x: "nodejs18.x",
+  nodejs43: "nodejs4.3",
+  nodejs43edge: "nodejs4.3-edge",
+  nodejs610: "nodejs6.10",
+  nodejs810: "nodejs8.10",
+  provided: "provided",
+  providedal2: "provided.al2",
+  python27: "python2.7",
+  python36: "python3.6",
+  python37: "python3.7",
+  python38: "python3.8",
+  python39: "python3.9",
+  ruby25: "ruby2.5",
+  ruby27: "ruby2.7",
+};
 
 /**
  * @public
  */
-export enum SnapStartApplyOn {
-  None = "None",
-  PublishedVersions = "PublishedVersions",
-}
+export const SnapStartApplyOn = {
+  None: "None",
+  PublishedVersions: "PublishedVersions",
+};
 
 /**
  * @public
@@ -1475,16 +1475,16 @@ export interface SnapStart {
   /**
    * <p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
    */
-  ApplyOn?: SnapStartApplyOn | string;
+  ApplyOn?: keyof typeof SnapStartApplyOn | string;
 }
 
 /**
  * @public
  */
-export enum TracingMode {
-  Active = "Active",
-  PassThrough = "PassThrough",
-}
+export const TracingMode = {
+  Active: "Active",
+  PassThrough: "PassThrough",
+};
 
 /**
  * @public
@@ -1495,7 +1495,7 @@ export interface TracingConfig {
   /**
    * <p>The tracing mode.</p>
    */
-  Mode?: TracingMode | string;
+  Mode?: keyof typeof TracingMode | string;
 }
 
 /**
@@ -1548,7 +1548,7 @@ export interface CreateFunctionRequest {
    * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
-  Runtime?: Runtime | string;
+  Runtime?: keyof typeof Runtime | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
@@ -1600,7 +1600,7 @@ export interface CreateFunctionRequest {
   /**
    * <p>The type of deployment package. Set to <code>Image</code> for container image and set to <code>Zip</code> for .zip file archive.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: keyof typeof PackageType | string;
 
   /**
    * <p>A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
@@ -1657,7 +1657,7 @@ export interface CreateFunctionRequest {
    * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64).
    *      The default value is <code>x86_64</code>.</p>
    */
-  Architectures?: (Architecture | string)[];
+  Architectures?: (keyof typeof Architecture | string)[];
 
   /**
    * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
@@ -1739,38 +1739,38 @@ export interface ImageConfigResponse {
 /**
  * @public
  */
-export enum LastUpdateStatus {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Successful = "Successful",
-}
+export const LastUpdateStatus = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Successful: "Successful",
+};
 
 /**
  * @public
  */
-export enum LastUpdateStatusReasonCode {
-  DisabledKMSKey = "DisabledKMSKey",
-  EFSIOError = "EFSIOError",
-  EFSMountConnectivityError = "EFSMountConnectivityError",
-  EFSMountFailure = "EFSMountFailure",
-  EFSMountTimeout = "EFSMountTimeout",
-  EniLimitExceeded = "EniLimitExceeded",
-  FunctionError = "FunctionError",
-  ImageAccessDenied = "ImageAccessDenied",
-  ImageDeleted = "ImageDeleted",
-  InsufficientRolePermissions = "InsufficientRolePermissions",
-  InternalError = "InternalError",
-  InvalidConfiguration = "InvalidConfiguration",
-  InvalidImage = "InvalidImage",
-  InvalidRuntime = "InvalidRuntime",
-  InvalidSecurityGroup = "InvalidSecurityGroup",
-  InvalidStateKMSKey = "InvalidStateKMSKey",
-  InvalidSubnet = "InvalidSubnet",
-  InvalidZipFileException = "InvalidZipFileException",
-  KMSKeyAccessDenied = "KMSKeyAccessDenied",
-  KMSKeyNotFound = "KMSKeyNotFound",
-  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses",
-}
+export const LastUpdateStatusReasonCode = {
+  DisabledKMSKey: "DisabledKMSKey",
+  EFSIOError: "EFSIOError",
+  EFSMountConnectivityError: "EFSMountConnectivityError",
+  EFSMountFailure: "EFSMountFailure",
+  EFSMountTimeout: "EFSMountTimeout",
+  EniLimitExceeded: "EniLimitExceeded",
+  FunctionError: "FunctionError",
+  ImageAccessDenied: "ImageAccessDenied",
+  ImageDeleted: "ImageDeleted",
+  InsufficientRolePermissions: "InsufficientRolePermissions",
+  InternalError: "InternalError",
+  InvalidConfiguration: "InvalidConfiguration",
+  InvalidImage: "InvalidImage",
+  InvalidRuntime: "InvalidRuntime",
+  InvalidSecurityGroup: "InvalidSecurityGroup",
+  InvalidStateKMSKey: "InvalidStateKMSKey",
+  InvalidSubnet: "InvalidSubnet",
+  InvalidZipFileException: "InvalidZipFileException",
+  KMSKeyAccessDenied: "KMSKeyAccessDenied",
+  KMSKeyNotFound: "KMSKeyNotFound",
+  SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
+};
 
 /**
  * @public
@@ -1834,10 +1834,10 @@ export interface RuntimeVersionConfig {
 /**
  * @public
  */
-export enum SnapStartOptimizationStatus {
-  Off = "Off",
-  On = "On",
-}
+export const SnapStartOptimizationStatus = {
+  Off: "Off",
+  On: "On",
+};
 
 /**
  * @public
@@ -1847,53 +1847,53 @@ export interface SnapStartResponse {
   /**
    * <p>When set to <code>PublishedVersions</code>, Lambda creates a snapshot of the execution environment when you publish a function version.</p>
    */
-  ApplyOn?: SnapStartApplyOn | string;
+  ApplyOn?: keyof typeof SnapStartApplyOn | string;
 
   /**
    * <p>When you provide a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using">qualified Amazon Resource Name (ARN)</a>, this response element indicates whether SnapStart is activated for the specified function version.</p>
    */
-  OptimizationStatus?: SnapStartOptimizationStatus | string;
+  OptimizationStatus?: keyof typeof SnapStartOptimizationStatus | string;
 }
 
 /**
  * @public
  */
-export enum State {
-  Active = "Active",
-  Failed = "Failed",
-  Inactive = "Inactive",
-  Pending = "Pending",
-}
+export const State = {
+  Active: "Active",
+  Failed: "Failed",
+  Inactive: "Inactive",
+  Pending: "Pending",
+};
 
 /**
  * @public
  */
-export enum StateReasonCode {
-  Creating = "Creating",
-  DisabledKMSKey = "DisabledKMSKey",
-  EFSIOError = "EFSIOError",
-  EFSMountConnectivityError = "EFSMountConnectivityError",
-  EFSMountFailure = "EFSMountFailure",
-  EFSMountTimeout = "EFSMountTimeout",
-  EniLimitExceeded = "EniLimitExceeded",
-  FunctionError = "FunctionError",
-  Idle = "Idle",
-  ImageAccessDenied = "ImageAccessDenied",
-  ImageDeleted = "ImageDeleted",
-  InsufficientRolePermissions = "InsufficientRolePermissions",
-  InternalError = "InternalError",
-  InvalidConfiguration = "InvalidConfiguration",
-  InvalidImage = "InvalidImage",
-  InvalidRuntime = "InvalidRuntime",
-  InvalidSecurityGroup = "InvalidSecurityGroup",
-  InvalidStateKMSKey = "InvalidStateKMSKey",
-  InvalidSubnet = "InvalidSubnet",
-  InvalidZipFileException = "InvalidZipFileException",
-  KMSKeyAccessDenied = "KMSKeyAccessDenied",
-  KMSKeyNotFound = "KMSKeyNotFound",
-  Restoring = "Restoring",
-  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses",
-}
+export const StateReasonCode = {
+  Creating: "Creating",
+  DisabledKMSKey: "DisabledKMSKey",
+  EFSIOError: "EFSIOError",
+  EFSMountConnectivityError: "EFSMountConnectivityError",
+  EFSMountFailure: "EFSMountFailure",
+  EFSMountTimeout: "EFSMountTimeout",
+  EniLimitExceeded: "EniLimitExceeded",
+  FunctionError: "FunctionError",
+  Idle: "Idle",
+  ImageAccessDenied: "ImageAccessDenied",
+  ImageDeleted: "ImageDeleted",
+  InsufficientRolePermissions: "InsufficientRolePermissions",
+  InternalError: "InternalError",
+  InvalidConfiguration: "InvalidConfiguration",
+  InvalidImage: "InvalidImage",
+  InvalidRuntime: "InvalidRuntime",
+  InvalidSecurityGroup: "InvalidSecurityGroup",
+  InvalidStateKMSKey: "InvalidStateKMSKey",
+  InvalidSubnet: "InvalidSubnet",
+  InvalidZipFileException: "InvalidZipFileException",
+  KMSKeyAccessDenied: "KMSKeyAccessDenied",
+  KMSKeyNotFound: "KMSKeyNotFound",
+  Restoring: "Restoring",
+  SubnetOutOfIPAddresses: "SubnetOutOfIPAddresses",
+};
 
 /**
  * @public
@@ -1903,7 +1903,7 @@ export interface TracingConfigResponse {
   /**
    * <p>The tracing mode.</p>
    */
-  Mode?: TracingMode | string;
+  Mode?: keyof typeof TracingMode | string;
 }
 
 /**
@@ -1945,7 +1945,7 @@ export interface FunctionConfiguration {
   /**
    * <p>The runtime environment for the Lambda function.</p>
    */
-  Runtime?: Runtime | string;
+  Runtime?: keyof typeof Runtime | string;
 
   /**
    * <p>The function's execution role.</p>
@@ -2037,7 +2037,7 @@ export interface FunctionConfiguration {
    * <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by
    *       invoking it.</p>
    */
-  State?: State | string;
+  State?: keyof typeof State | string;
 
   /**
    * <p>The reason for the function's current state.</p>
@@ -2048,13 +2048,13 @@ export interface FunctionConfiguration {
    * <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or
    *       modify the function.</p>
    */
-  StateReasonCode?: StateReasonCode | string;
+  StateReasonCode?: keyof typeof StateReasonCode | string;
 
   /**
    * <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code>
    *       after function creation completes.</p>
    */
-  LastUpdateStatus?: LastUpdateStatus | string;
+  LastUpdateStatus?: keyof typeof LastUpdateStatus | string;
 
   /**
    * <p>The reason for the last update that was performed on the function.</p>
@@ -2064,7 +2064,7 @@ export interface FunctionConfiguration {
   /**
    * <p>The reason code for the last update that was performed on the function.</p>
    */
-  LastUpdateStatusReasonCode?: LastUpdateStatusReasonCode | string;
+  LastUpdateStatusReasonCode?: keyof typeof LastUpdateStatusReasonCode | string;
 
   /**
    * <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a>.</p>
@@ -2074,7 +2074,7 @@ export interface FunctionConfiguration {
   /**
    * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: keyof typeof PackageType | string;
 
   /**
    * <p>The function's image configuration values.</p>
@@ -2095,7 +2095,7 @@ export interface FunctionConfiguration {
    * <p>The instruction set architecture that the function supports. Architecture is a string array with one of the
    *       valid values. The default architecture value is <code>x86_64</code>.</p>
    */
-  Architectures?: (Architecture | string)[];
+  Architectures?: (keyof typeof Architecture | string)[];
 
   /**
    * <p>The size of the function’s <code>/tmp</code> directory in MB. The default value is 512, but it can be any
@@ -2224,7 +2224,7 @@ export interface CreateFunctionUrlConfigRequest {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  AuthType: FunctionUrlAuthType | string | undefined;
+  AuthType: keyof typeof FunctionUrlAuthType | string | undefined;
 
   /**
    * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings
@@ -2252,7 +2252,7 @@ export interface CreateFunctionUrlConfigResponse {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  AuthType: FunctionUrlAuthType | string | undefined;
+  AuthType: keyof typeof FunctionUrlAuthType | string | undefined;
 
   /**
    * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings
@@ -3014,7 +3014,7 @@ export interface GetFunctionUrlConfigResponse {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  AuthType: FunctionUrlAuthType | string | undefined;
+  AuthType: keyof typeof FunctionUrlAuthType | string | undefined;
 
   /**
    * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings
@@ -3117,7 +3117,7 @@ export interface GetLayerVersionResponse {
   /**
    * <p>The layer's compatible runtimes.</p>
    */
-  CompatibleRuntimes?: (Runtime | string)[];
+  CompatibleRuntimes?: (keyof typeof Runtime | string)[];
 
   /**
    * <p>The layer's software license.</p>
@@ -3128,7 +3128,7 @@ export interface GetLayerVersionResponse {
    * <p>A list of compatible
    * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
    */
-  CompatibleArchitectures?: (Architecture | string)[];
+  CompatibleArchitectures?: (keyof typeof Architecture | string)[];
 }
 
 /**
@@ -3257,11 +3257,11 @@ export interface GetProvisionedConcurrencyConfigRequest {
 /**
  * @public
  */
-export enum ProvisionedConcurrencyStatusEnum {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  READY = "READY",
-}
+export const ProvisionedConcurrencyStatusEnum = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  READY: "READY",
+};
 
 /**
  * @public
@@ -3285,7 +3285,7 @@ export interface GetProvisionedConcurrencyConfigResponse {
   /**
    * <p>The status of the allocation process.</p>
    */
-  Status?: ProvisionedConcurrencyStatusEnum | string;
+  Status?: keyof typeof ProvisionedConcurrencyStatusEnum | string;
 
   /**
    * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
@@ -3358,11 +3358,11 @@ export interface GetRuntimeManagementConfigRequest {
 /**
  * @public
  */
-export enum UpdateRuntimeOn {
-  Auto = "Auto",
-  FunctionUpdate = "FunctionUpdate",
-  Manual = "Manual",
-}
+export const UpdateRuntimeOn = {
+  Auto: "Auto",
+  FunctionUpdate: "FunctionUpdate",
+  Manual: "Manual",
+};
 
 /**
  * @public
@@ -3371,7 +3371,7 @@ export interface GetRuntimeManagementConfigResponse {
   /**
    * <p>The current runtime update mode of the function.</p>
    */
-  UpdateRuntimeOn?: UpdateRuntimeOn | string;
+  UpdateRuntimeOn?: keyof typeof UpdateRuntimeOn | string;
 
   /**
    * <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>Manual</b>, the ARN is returned, otherwise <code>null</code>
@@ -3710,19 +3710,19 @@ export class InvalidZipFileException extends __BaseException {
 /**
  * @public
  */
-export enum InvocationType {
-  DryRun = "DryRun",
-  Event = "Event",
-  RequestResponse = "RequestResponse",
-}
+export const InvocationType = {
+  DryRun: "DryRun",
+  Event: "Event",
+  RequestResponse: "RequestResponse",
+};
 
 /**
  * @public
  */
-export enum LogType {
-  None = "None",
-  Tail = "Tail",
-}
+export const LogType = {
+  None: "None",
+  Tail: "Tail",
+};
 
 /**
  * @public
@@ -3773,12 +3773,12 @@ export interface InvocationRequest {
    *             </li>
    *          </ul>
    */
-  InvocationType?: InvocationType | string;
+  InvocationType?: keyof typeof InvocationType | string;
 
   /**
    * <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
    */
-  LogType?: LogType | string;
+  LogType?: keyof typeof LogType | string;
 
   /**
    * <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context
@@ -4381,9 +4381,9 @@ export interface ListFunctionEventInvokeConfigsResponse {
 /**
  * @public
  */
-export enum FunctionVersion {
-  ALL = "ALL",
-}
+export const FunctionVersion = {
+  ALL: "ALL",
+};
 
 /**
  * @public
@@ -4400,7 +4400,7 @@ export interface ListFunctionsRequest {
   /**
    * <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
    */
-  FunctionVersion?: FunctionVersion | string;
+  FunctionVersion?: keyof typeof FunctionVersion | string;
 
   /**
    * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
@@ -4541,7 +4541,7 @@ export interface FunctionUrlConfig {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  AuthType: FunctionUrlAuthType | string | undefined;
+  AuthType: keyof typeof FunctionUrlAuthType | string | undefined;
 }
 
 /**
@@ -4566,7 +4566,7 @@ export interface ListLayersRequest {
   /**
    * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
    */
-  CompatibleRuntime?: Runtime | string;
+  CompatibleRuntime?: keyof typeof Runtime | string;
 
   /**
    * <p>A pagination token returned by a previous call.</p>
@@ -4582,7 +4582,7 @@ export interface ListLayersRequest {
    * <p>The compatible
    * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
    */
-  CompatibleArchitecture?: Architecture | string;
+  CompatibleArchitecture?: keyof typeof Architecture | string;
 }
 
 /**
@@ -4614,7 +4614,7 @@ export interface LayerVersionsListItem {
   /**
    * <p>The layer's compatible runtimes.</p>
    */
-  CompatibleRuntimes?: (Runtime | string)[];
+  CompatibleRuntimes?: (keyof typeof Runtime | string)[];
 
   /**
    * <p>The layer's open-source license.</p>
@@ -4625,7 +4625,7 @@ export interface LayerVersionsListItem {
    * <p>A list of compatible
    *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
    */
-  CompatibleArchitectures?: (Architecture | string)[];
+  CompatibleArchitectures?: (keyof typeof Architecture | string)[];
 }
 
 /**
@@ -4672,7 +4672,7 @@ export interface ListLayerVersionsRequest {
   /**
    * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
    */
-  CompatibleRuntime?: Runtime | string;
+  CompatibleRuntime?: keyof typeof Runtime | string;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -4693,7 +4693,7 @@ export interface ListLayerVersionsRequest {
    * <p>The compatible
    * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
    */
-  CompatibleArchitecture?: Architecture | string;
+  CompatibleArchitecture?: keyof typeof Architecture | string;
 }
 
 /**
@@ -4778,7 +4778,7 @@ export interface ProvisionedConcurrencyConfigListItem {
   /**
    * <p>The status of the allocation process.</p>
    */
-  Status?: ProvisionedConcurrencyStatusEnum | string;
+  Status?: keyof typeof ProvisionedConcurrencyStatusEnum | string;
 
   /**
    * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
@@ -4934,7 +4934,7 @@ export interface PublishLayerVersionRequest {
    * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function
    *         runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p>
    */
-  CompatibleRuntimes?: (Runtime | string)[];
+  CompatibleRuntimes?: (keyof typeof Runtime | string)[];
 
   /**
    * <p>The layer's software license. It can be any of the following:</p>
@@ -4958,7 +4958,7 @@ export interface PublishLayerVersionRequest {
    * <p>A list of compatible
    * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
    */
-  CompatibleArchitectures?: (Architecture | string)[];
+  CompatibleArchitectures?: (keyof typeof Architecture | string)[];
 }
 
 /**
@@ -4998,7 +4998,7 @@ export interface PublishLayerVersionResponse {
   /**
    * <p>The layer's compatible runtimes.</p>
    */
-  CompatibleRuntimes?: (Runtime | string)[];
+  CompatibleRuntimes?: (keyof typeof Runtime | string)[];
 
   /**
    * <p>The layer's software license.</p>
@@ -5009,7 +5009,7 @@ export interface PublishLayerVersionResponse {
    * <p>A list of compatible
    * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
    */
-  CompatibleArchitectures?: (Architecture | string)[];
+  CompatibleArchitectures?: (keyof typeof Architecture | string)[];
 }
 
 /**
@@ -5292,7 +5292,7 @@ export interface PutProvisionedConcurrencyConfigResponse {
   /**
    * <p>The status of the allocation process.</p>
    */
-  Status?: ProvisionedConcurrencyStatusEnum | string;
+  Status?: keyof typeof ProvisionedConcurrencyStatusEnum | string;
 
   /**
    * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
@@ -5361,7 +5361,7 @@ export interface PutRuntimeManagementConfigRequest {
    *             </li>
    *          </ul>
    */
-  UpdateRuntimeOn: UpdateRuntimeOn | string | undefined;
+  UpdateRuntimeOn: keyof typeof UpdateRuntimeOn | string | undefined;
 
   /**
    * <p>The ARN of the runtime version you want the function to use.</p>
@@ -5379,7 +5379,7 @@ export interface PutRuntimeManagementConfigResponse {
   /**
    * <p>The runtime update mode.</p>
    */
-  UpdateRuntimeOn: UpdateRuntimeOn | string | undefined;
+  UpdateRuntimeOn: keyof typeof UpdateRuntimeOn | string | undefined;
 
   /**
    * <p>The ARN of the function</p>
@@ -5714,7 +5714,7 @@ export interface UpdateEventSourceMappingRequest {
   /**
    * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
-  FunctionResponseTypes?: (FunctionResponseType | string)[];
+  FunctionResponseTypes?: (keyof typeof FunctionResponseType | string)[];
 
   /**
    * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
@@ -5805,7 +5805,7 @@ export interface UpdateFunctionCodeRequest {
    * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64).
    *      The default value is <code>x86_64</code>.</p>
    */
-  Architectures?: (Architecture | string)[];
+  Architectures?: (keyof typeof Architecture | string)[];
 }
 
 /**
@@ -5882,7 +5882,7 @@ export interface UpdateFunctionConfigurationRequest {
    * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
-  Runtime?: Runtime | string;
+  Runtime?: keyof typeof Runtime | string;
 
   /**
    * <p>A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
@@ -6045,7 +6045,7 @@ export interface UpdateFunctionUrlConfigRequest {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  AuthType?: FunctionUrlAuthType | string;
+  AuthType?: keyof typeof FunctionUrlAuthType | string;
 
   /**
    * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings
@@ -6073,7 +6073,7 @@ export interface UpdateFunctionUrlConfigResponse {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  AuthType: FunctionUrlAuthType | string | undefined;
+  AuthType: keyof typeof FunctionUrlAuthType | string | undefined;
 
   /**
    * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings

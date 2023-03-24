@@ -4723,7 +4723,7 @@ const serializeAws_restXmlListWithNamespace = (input: string[], context: __Serde
 };
 
 const serializeAws_restXmlNestedMap = (
-  input: Record<string, Record<string, FooEnum | string>>,
+  input: Record<string, Record<string, keyof typeof FooEnum | string>>,
   context: __SerdeContext
 ): any => {
   return Object.keys(input)
@@ -5028,7 +5028,7 @@ const serializeAws_restXmlBooleanList = (input: boolean[], context: __SerdeConte
     });
 };
 
-const serializeAws_restXmlFooEnumList = (input: (FooEnum | string)[], context: __SerdeContext): any => {
+const serializeAws_restXmlFooEnumList = (input: (keyof typeof FooEnum | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5037,7 +5037,10 @@ const serializeAws_restXmlFooEnumList = (input: (FooEnum | string)[], context: _
     });
 };
 
-const serializeAws_restXmlFooEnumMap = (input: Record<string, FooEnum | string>, context: __SerdeContext): any => {
+const serializeAws_restXmlFooEnumMap = (
+  input: Record<string, keyof typeof FooEnum | string>,
+  context: __SerdeContext
+): any => {
   return Object.keys(input)
     .filter((key) => input[key] != null)
     .map((key) => {
@@ -5051,7 +5054,7 @@ const serializeAws_restXmlFooEnumMap = (input: Record<string, FooEnum | string>,
     });
 };
 
-const serializeAws_restXmlFooEnumSet = (input: (FooEnum | string)[], context: __SerdeContext): any => {
+const serializeAws_restXmlFooEnumSet = (input: (keyof typeof FooEnum | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5204,7 +5207,7 @@ const deserializeAws_restXmlListWithNamespace = (output: any, context: __SerdeCo
 const deserializeAws_restXmlNestedMap = (
   output: any,
   context: __SerdeContext
-): Record<string, Record<string, FooEnum | string>> => {
+): Record<string, Record<string, keyof typeof FooEnum | string>> => {
   return output.reduce((acc: any, pair: any) => {
     if (__getArrayIfSingleItem(pair["value"]["entry"]) === null) {
       return acc;
@@ -5470,7 +5473,7 @@ const deserializeAws_restXmlBooleanList = (output: any, context: __SerdeContext)
     });
 };
 
-const deserializeAws_restXmlFooEnumList = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const deserializeAws_restXmlFooEnumList = (output: any, context: __SerdeContext): (keyof typeof FooEnum | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5478,7 +5481,10 @@ const deserializeAws_restXmlFooEnumList = (output: any, context: __SerdeContext)
     });
 };
 
-const deserializeAws_restXmlFooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum | string> => {
+const deserializeAws_restXmlFooEnumMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, keyof typeof FooEnum | string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -5488,7 +5494,7 @@ const deserializeAws_restXmlFooEnumMap = (output: any, context: __SerdeContext):
   }, {});
 };
 
-const deserializeAws_restXmlFooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const deserializeAws_restXmlFooEnumSet = (output: any, context: __SerdeContext): (keyof typeof FooEnum | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

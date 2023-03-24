@@ -28,18 +28,18 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AccessorStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETED = "DELETED",
-  PENDING_DELETION = "PENDING_DELETION",
-}
+export const AccessorStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETED: "DELETED",
+  PENDING_DELETION: "PENDING_DELETION",
+};
 
 /**
  * @public
  */
-export enum AccessorType {
-  BILLING_TOKEN = "BILLING_TOKEN",
-}
+export const AccessorType = {
+  BILLING_TOKEN: "BILLING_TOKEN",
+};
 
 /**
  * @public
@@ -57,7 +57,7 @@ export interface Accessor {
    *             <p>Currently accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
    *          </note>
    */
-  Type?: AccessorType | string;
+  Type?: keyof typeof AccessorType | string;
 
   /**
    * <p>The billing token is a property of the accessor. Use this token to make Ethereum API calls to your
@@ -69,7 +69,7 @@ export interface Accessor {
   /**
    * <p>The current status of the accessor.</p>
    */
-  Status?: AccessorStatus | string;
+  Status?: keyof typeof AccessorStatus | string;
 
   /**
    * <p>The creation date and time of the accessor.</p>
@@ -106,12 +106,12 @@ export interface AccessorSummary {
    *             <p>Currently accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
    *          </note>
    */
-  Type?: AccessorType | string;
+  Type?: keyof typeof AccessorType | string;
 
   /**
    * <p>The current status of the accessor.</p>
    */
-  Status?: AccessorStatus | string;
+  Status?: keyof typeof AccessorStatus | string;
 
   /**
    * <p>The creation date and time of the accessor.</p>
@@ -129,10 +129,10 @@ export interface AccessorSummary {
 /**
  * @public
  */
-export enum ThresholdComparator {
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
-}
+export const ThresholdComparator = {
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+};
 
 /**
  * @public
@@ -153,7 +153,7 @@ export interface ApprovalThresholdPolicy {
   /**
    * <p>Determines whether the vote percentage must be greater than the <code>ThresholdPercentage</code> or must be greater than or equal to the <code>ThreholdPercentage</code> to be approved.</p>
    */
-  ThresholdComparator?: ThresholdComparator | string;
+  ThresholdComparator?: keyof typeof ThresholdComparator | string;
 }
 
 /**
@@ -175,7 +175,7 @@ export interface CreateAccessorInput {
    *             <p>Currently accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
    *          </note>
    */
-  AccessorType: AccessorType | string | undefined;
+  AccessorType: keyof typeof AccessorType | string | undefined;
 
   /**
    * <p>Tags to assign to the Accessor.</p>
@@ -552,18 +552,18 @@ export class ResourceNotReadyException extends __BaseException {
 /**
  * @public
  */
-export enum Framework {
-  ETHEREUM = "ETHEREUM",
-  HYPERLEDGER_FABRIC = "HYPERLEDGER_FABRIC",
-}
+export const Framework = {
+  ETHEREUM: "ETHEREUM",
+  HYPERLEDGER_FABRIC: "HYPERLEDGER_FABRIC",
+};
 
 /**
  * @public
  */
-export enum Edition {
-  STANDARD = "STANDARD",
-  STARTER = "STARTER",
-}
+export const Edition = {
+  STANDARD: "STANDARD",
+  STARTER: "STARTER",
+};
 
 /**
  * @public
@@ -573,7 +573,7 @@ export interface NetworkFabricConfiguration {
   /**
    * <p>The edition of Amazon Managed Blockchain that the network uses. For more information, see <a href="http://aws.amazon.com/managed-blockchain/pricing/">Amazon Managed Blockchain Pricing</a>.</p>
    */
-  Edition: Edition | string | undefined;
+  Edition: keyof typeof Edition | string | undefined;
 }
 
 /**
@@ -631,7 +631,7 @@ export interface CreateNetworkInput {
   /**
    * <p>The blockchain framework that the network uses.</p>
    */
-  Framework: Framework | string | undefined;
+  Framework: keyof typeof Framework | string | undefined;
 
   /**
    * <p>The version of the blockchain framework that the network uses.</p>
@@ -712,10 +712,10 @@ export interface NodeLogPublishingConfiguration {
 /**
  * @public
  */
-export enum StateDBType {
-  CouchDB = "CouchDB",
-  LevelDB = "LevelDB",
-}
+export const StateDBType = {
+  CouchDB: "CouchDB",
+  LevelDB: "LevelDB",
+};
 
 /**
  * @public
@@ -742,7 +742,7 @@ export interface NodeConfiguration {
    * <p>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>. When using an Amazon Managed Blockchain network with Hyperledger Fabric version 1.4 or later, the default is <code>CouchDB</code>.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
-  StateDB?: StateDBType | string;
+  StateDB?: keyof typeof StateDBType | string;
 }
 
 /**
@@ -1061,15 +1061,15 @@ export interface MemberFrameworkAttributes {
 /**
  * @public
  */
-export enum MemberStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_KEY = "INACCESSIBLE_ENCRYPTION_KEY",
-  UPDATING = "UPDATING",
-}
+export const MemberStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_KEY: "INACCESSIBLE_ENCRYPTION_KEY",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1143,7 +1143,7 @@ export interface Member {
    *             </li>
    *          </ul>
    */
-  Status?: MemberStatus | string;
+  Status?: keyof typeof MemberStatus | string;
 
   /**
    * <p>The date and time that the member was created.</p>
@@ -1230,7 +1230,7 @@ export interface NetworkFabricAttributes {
   /**
    * <p>The edition of Amazon Managed Blockchain that Hyperledger Fabric uses. For more information, see <a href="http://aws.amazon.com/managed-blockchain/pricing/">Amazon Managed Blockchain Pricing</a>.</p>
    */
-  Edition?: Edition | string;
+  Edition?: keyof typeof Edition | string;
 }
 
 /**
@@ -1252,13 +1252,13 @@ export interface NetworkFrameworkAttributes {
 /**
  * @public
  */
-export enum NetworkStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-}
+export const NetworkStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -1283,7 +1283,7 @@ export interface Network {
   /**
    * <p>The blockchain framework that the network uses.</p>
    */
-  Framework?: Framework | string;
+  Framework?: keyof typeof Framework | string;
 
   /**
    * <p>The version of the blockchain framework that the network uses.</p>
@@ -1308,7 +1308,7 @@ export interface Network {
   /**
    * <p>The current status of the network.</p>
    */
-  Status?: NetworkStatus | string;
+  Status?: keyof typeof NetworkStatus | string;
 
   /**
    * <p>The date and time that the network was created.</p>
@@ -1409,17 +1409,17 @@ export interface NodeFrameworkAttributes {
 /**
  * @public
  */
-export enum NodeStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INACCESSIBLE_ENCRYPTION_KEY = "INACCESSIBLE_ENCRYPTION_KEY",
-  UNHEALTHY = "UNHEALTHY",
-  UPDATING = "UPDATING",
-}
+export const NodeStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INACCESSIBLE_ENCRYPTION_KEY: "INACCESSIBLE_ENCRYPTION_KEY",
+  UNHEALTHY: "UNHEALTHY",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1466,7 +1466,7 @@ export interface Node {
    * <p>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
-  StateDB?: StateDBType | string;
+  StateDB?: keyof typeof StateDBType | string;
 
   /**
    * <p>The status of the node.</p>
@@ -1510,7 +1510,7 @@ export interface Node {
    *             </li>
    *          </ul>
    */
-  Status?: NodeStatus | string;
+  Status?: keyof typeof NodeStatus | string;
 
   /**
    * <p>The date and time that the node was created.</p>
@@ -1564,13 +1564,13 @@ export interface GetProposalInput {
 /**
  * @public
  */
-export enum ProposalStatus {
-  ACTION_FAILED = "ACTION_FAILED",
-  APPROVED = "APPROVED",
-  EXPIRED = "EXPIRED",
-  IN_PROGRESS = "IN_PROGRESS",
-  REJECTED = "REJECTED",
-}
+export const ProposalStatus = {
+  ACTION_FAILED: "ACTION_FAILED",
+  APPROVED: "APPROVED",
+  EXPIRED: "EXPIRED",
+  IN_PROGRESS: "IN_PROGRESS",
+  REJECTED: "REJECTED",
+};
 
 /**
  * @public
@@ -1633,7 +1633,7 @@ export interface Proposal {
    *             </li>
    *          </ul>
    */
-  Status?: ProposalStatus | string;
+  Status?: keyof typeof ProposalStatus | string;
 
   /**
    * <p>
@@ -1737,7 +1737,7 @@ export interface NetworkSummary {
   /**
    * <p>The blockchain framework that the network uses.</p>
    */
-  Framework?: Framework | string;
+  Framework?: keyof typeof Framework | string;
 
   /**
    * <p>The version of the blockchain framework that the network uses.</p>
@@ -1747,7 +1747,7 @@ export interface NetworkSummary {
   /**
    * <p>The current status of the network.</p>
    */
-  Status?: NetworkStatus | string;
+  Status?: keyof typeof NetworkStatus | string;
 
   /**
    * <p>The date and time that the network was created.</p>
@@ -1763,13 +1763,13 @@ export interface NetworkSummary {
 /**
  * @public
  */
-export enum InvitationStatus {
-  ACCEPTED = "ACCEPTED",
-  ACCEPTING = "ACCEPTING",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+export const InvitationStatus = {
+  ACCEPTED: "ACCEPTED",
+  ACCEPTING: "ACCEPTING",
+  EXPIRED: "EXPIRED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+};
 
 /**
  * @public
@@ -1817,7 +1817,7 @@ export interface Invitation {
    *             </li>
    *          </ul>
    */
-  Status?: InvitationStatus | string;
+  Status?: keyof typeof InvitationStatus | string;
 
   /**
    * <p>A summary of network configuration properties.</p>
@@ -1908,7 +1908,7 @@ export interface ListMembersInput {
   /**
    * <p>An optional status specifier. If provided, only members currently in this status are listed.</p>
    */
-  Status?: MemberStatus | string;
+  Status?: keyof typeof MemberStatus | string;
 
   /**
    * <p>An optional Boolean value. If provided, the request is limited either to
@@ -1985,7 +1985,7 @@ export interface MemberSummary {
    *             </li>
    *          </ul>
    */
-  Status?: MemberStatus | string;
+  Status?: keyof typeof MemberStatus | string;
 
   /**
    * <p>The date and time that the member was created.</p>
@@ -2030,13 +2030,13 @@ export interface ListNetworksInput {
   /**
    * <p>An optional framework specifier. If provided, only networks of this framework type are listed.</p>
    */
-  Framework?: Framework | string;
+  Framework?: keyof typeof Framework | string;
 
   /**
    * <p>An optional status specifier. If provided, only networks currently in this status are listed.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
-  Status?: NetworkStatus | string;
+  Status?: keyof typeof NetworkStatus | string;
 
   /**
    * <p>The maximum number of networks to list.</p>
@@ -2082,7 +2082,7 @@ export interface ListNodesInput {
   /**
    * <p>An optional status specifier. If provided, only nodes currently in this status are listed.</p>
    */
-  Status?: NodeStatus | string;
+  Status?: keyof typeof NodeStatus | string;
 
   /**
    * <p>The maximum number of nodes to list.</p>
@@ -2108,7 +2108,7 @@ export interface NodeSummary {
   /**
    * <p>The status of the node.</p>
    */
-  Status?: NodeStatus | string;
+  Status?: keyof typeof NodeStatus | string;
 
   /**
    * <p>The date and time that the node was created.</p>
@@ -2231,7 +2231,7 @@ export interface ProposalSummary {
    *             </li>
    *          </ul>
    */
-  Status?: ProposalStatus | string;
+  Status?: keyof typeof ProposalStatus | string;
 
   /**
    * <p>
@@ -2304,10 +2304,10 @@ export interface ListProposalVotesInput {
 /**
  * @public
  */
-export enum VoteValue {
-  NO = "NO",
-  YES = "YES",
-}
+export const VoteValue = {
+  NO: "NO",
+  YES: "YES",
+};
 
 /**
  * @public
@@ -2322,7 +2322,7 @@ export interface VoteSummary {
    *          The vote value, either <code>YES</code> or <code>NO</code>.
    *       </p>
    */
-  Vote?: VoteValue | string;
+  Vote?: keyof typeof VoteValue | string;
 
   /**
    * <p>
@@ -2518,7 +2518,7 @@ export interface VoteOnProposalInput {
    *          The value of the vote.
    *       </p>
    */
-  Vote: VoteValue | string | undefined;
+  Vote: keyof typeof VoteValue | string | undefined;
 }
 
 /**

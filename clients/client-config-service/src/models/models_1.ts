@@ -252,7 +252,7 @@ export interface OrganizationCustomPolicyRuleMetadata {
    *             </li>
    *          </ul>
    */
-  OrganizationConfigRuleTriggerTypes?: (OrganizationConfigRuleTriggerTypeNoSN | string)[];
+  OrganizationConfigRuleTriggerTypes?: (keyof typeof OrganizationConfigRuleTriggerTypeNoSN | string)[];
 
   /**
    * <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
@@ -264,7 +264,7 @@ export interface OrganizationCustomPolicyRuleMetadata {
    * 			Config Custom Policy rule is triggered when Config delivers
    * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+  MaximumExecutionFrequency?: keyof typeof MaximumExecutionFrequency | string;
 
   /**
    * <p>The type of the Amazon Web Services resource that was evaluated.</p>
@@ -1027,7 +1027,7 @@ export interface StartResourceEvaluationRequest {
   /**
    * <p>The mode of an evaluation. The valid values for this API are <code>DETECTIVE</code> and <code>PROACTIVE</code>.</p>
    */
-  EvaluationMode: EvaluationMode | string | undefined;
+  EvaluationMode: keyof typeof EvaluationMode | string | undefined;
 
   /**
    * <p>The timeout for an evaluation. The default is 900 seconds. You cannot specify a number greater than 3600. If you specify 0, Config uses the default.</p>

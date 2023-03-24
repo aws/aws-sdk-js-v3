@@ -6902,7 +6902,7 @@ const serializeAws_json1_1AggregateConformancePackComplianceSummaryFilters = (
 };
 
 const serializeAws_json1_1AggregatedSourceStatusTypeList = (
-  input: (AggregatedSourceStatusType | string)[],
+  input: (keyof typeof AggregatedSourceStatusType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -6964,7 +6964,10 @@ const serializeAws_json1_1ComplianceResourceTypes = (input: string[], context: _
     });
 };
 
-const serializeAws_json1_1ComplianceTypes = (input: (ComplianceType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1ComplianceTypes = (
+  input: (keyof typeof ComplianceType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8104,7 +8107,7 @@ const serializeAws_json1_1OrganizationConfigRuleNames = (input: string[], contex
 };
 
 const serializeAws_json1_1OrganizationConfigRuleTriggerTypeNoSNs = (
-  input: (OrganizationConfigRuleTriggerTypeNoSN | string)[],
+  input: (keyof typeof OrganizationConfigRuleTriggerTypeNoSN | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -8115,7 +8118,7 @@ const serializeAws_json1_1OrganizationConfigRuleTriggerTypeNoSNs = (
 };
 
 const serializeAws_json1_1OrganizationConfigRuleTriggerTypes = (
-  input: (OrganizationConfigRuleTriggerType | string)[],
+  input: (keyof typeof OrganizationConfigRuleTriggerType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -8608,7 +8611,10 @@ const serializeAws_json1_1ResourceKeys = (input: ResourceKey[], context: __Serde
     });
 };
 
-const serializeAws_json1_1ResourceTypeList = (input: (ResourceType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1ResourceTypeList = (
+  input: (keyof typeof ResourceType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -11460,7 +11466,7 @@ const deserializeAws_json1_1OrganizationConfigRuleStatuses = (
 const deserializeAws_json1_1OrganizationConfigRuleTriggerTypeNoSNs = (
   output: any,
   context: __SerdeContext
-): (OrganizationConfigRuleTriggerTypeNoSN | string)[] => {
+): (keyof typeof OrganizationConfigRuleTriggerTypeNoSN | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11475,7 +11481,7 @@ const deserializeAws_json1_1OrganizationConfigRuleTriggerTypeNoSNs = (
 const deserializeAws_json1_1OrganizationConfigRuleTriggerTypes = (
   output: any,
   context: __SerdeContext
-): (OrganizationConfigRuleTriggerType | string)[] => {
+): (keyof typeof OrganizationConfigRuleTriggerType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -12183,7 +12189,10 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   } as any;
 };
 
-const deserializeAws_json1_1ResourceTypeList = (output: any, context: __SerdeContext): (ResourceType | string)[] => {
+const deserializeAws_json1_1ResourceTypeList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof ResourceType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

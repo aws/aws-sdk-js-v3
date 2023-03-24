@@ -28,9 +28,9 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum BatchLoadDataFormat {
-  CSV = "CSV",
-}
+export const BatchLoadDataFormat = {
+  CSV: "CSV",
+};
 
 /**
  * @public
@@ -71,14 +71,14 @@ export interface BatchLoadProgressReport {
 /**
  * @public
  */
-export enum BatchLoadStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING_RESUME = "PENDING_RESUME",
-  PROGRESS_STOPPED = "PROGRESS_STOPPED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const BatchLoadStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING_RESUME: "PENDING_RESUME",
+  PROGRESS_STOPPED: "PROGRESS_STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -93,7 +93,7 @@ export interface BatchLoadTask {
   /**
    * <p>Status of the batch load task.</p>
    */
-  TaskStatus?: BatchLoadStatus | string;
+  TaskStatus?: keyof typeof BatchLoadStatus | string;
 
   /**
    * <p>Database name for the database into which a batch load task loads data.</p>
@@ -142,25 +142,25 @@ export interface DimensionMapping {
 /**
  * @public
  */
-export enum MeasureValueType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  MULTI = "MULTI",
-  TIMESTAMP = "TIMESTAMP",
-  VARCHAR = "VARCHAR",
-}
+export const MeasureValueType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  MULTI: "MULTI",
+  TIMESTAMP: "TIMESTAMP",
+  VARCHAR: "VARCHAR",
+};
 
 /**
  * @public
  */
-export enum ScalarMeasureValueType {
-  BIGINT = "BIGINT",
-  BOOLEAN = "BOOLEAN",
-  DOUBLE = "DOUBLE",
-  TIMESTAMP = "TIMESTAMP",
-  VARCHAR = "VARCHAR",
-}
+export const ScalarMeasureValueType = {
+  BIGINT: "BIGINT",
+  BOOLEAN: "BOOLEAN",
+  DOUBLE: "DOUBLE",
+  TIMESTAMP: "TIMESTAMP",
+  VARCHAR: "VARCHAR",
+};
 
 /**
  * @public
@@ -180,7 +180,7 @@ export interface MultiMeasureAttributeMapping {
   /**
    * <p></p>
    */
-  MeasureValueType?: ScalarMeasureValueType | string;
+  MeasureValueType?: keyof typeof ScalarMeasureValueType | string;
 }
 
 /**
@@ -206,7 +206,7 @@ export interface MixedMeasureMapping {
   /**
    * <p></p>
    */
-  MeasureValueType: MeasureValueType | string | undefined;
+  MeasureValueType: keyof typeof MeasureValueType | string | undefined;
 
   /**
    * <p></p>
@@ -233,12 +233,12 @@ export interface MultiMeasureMappings {
 /**
  * @public
  */
-export enum TimeUnit {
-  MICROSECONDS = "MICROSECONDS",
-  MILLISECONDS = "MILLISECONDS",
-  NANOSECONDS = "NANOSECONDS",
-  SECONDS = "SECONDS",
-}
+export const TimeUnit = {
+  MICROSECONDS: "MICROSECONDS",
+  MILLISECONDS: "MILLISECONDS",
+  NANOSECONDS: "NANOSECONDS",
+  SECONDS: "SECONDS",
+};
 
 /**
  * @public
@@ -255,7 +255,7 @@ export interface DataModel {
    *          milliseconds, nanoseconds, or other supported values. Default is <code>MILLISECONDS</code>.
    *       </p>
    */
-  TimeUnit?: TimeUnit | string;
+  TimeUnit?: keyof typeof TimeUnit | string;
 
   /**
    * <p>Source to target mappings for dimensions.</p>
@@ -380,16 +380,16 @@ export interface DataSourceConfiguration {
   /**
    * <p>This is currently CSV.</p>
    */
-  DataFormat: BatchLoadDataFormat | string | undefined;
+  DataFormat: keyof typeof BatchLoadDataFormat | string | undefined;
 }
 
 /**
  * @public
  */
-export enum S3EncryptionOption {
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3",
-}
+export const S3EncryptionOption = {
+  SSE_KMS: "SSE_KMS",
+  SSE_S3: "SSE_S3",
+};
 
 /**
  * @public
@@ -409,7 +409,7 @@ export interface ReportS3Configuration {
   /**
    * <p></p>
    */
-  EncryptionOption?: S3EncryptionOption | string;
+  EncryptionOption?: keyof typeof S3EncryptionOption | string;
 
   /**
    * <p></p>
@@ -477,7 +477,7 @@ export interface BatchLoadTaskDescription {
   /**
    * <p>Status of the batch load task.</p>
    */
-  TaskStatus?: BatchLoadStatus | string;
+  TaskStatus?: keyof typeof BatchLoadStatus | string;
 
   /**
    * <p></p>
@@ -817,7 +817,7 @@ export interface S3Configuration {
    * <p>The encryption option for the customer S3 location. Options are S3 server-side
    *          encryption with an S3 managed key or Amazon Web Services managed key.</p>
    */
-  EncryptionOption?: S3EncryptionOption | string;
+  EncryptionOption?: keyof typeof S3EncryptionOption | string;
 
   /**
    * <p>The KMS key ID for the customer S3 location when encrypting with an
@@ -907,11 +907,11 @@ export interface CreateTableRequest {
 /**
  * @public
  */
-export enum TableStatus {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-  RESTORING = "RESTORING",
-}
+export const TableStatus = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+  RESTORING: "RESTORING",
+};
 
 /**
  * @public
@@ -948,7 +948,7 @@ export interface Table {
    *             </li>
    *          </ul>
    */
-  TableStatus?: TableStatus | string;
+  TableStatus?: keyof typeof TableStatus | string;
 
   /**
    * <p>The retention duration for the memory store and magnetic store.</p>
@@ -1107,9 +1107,9 @@ export interface DescribeTableResponse {
 /**
  * @public
  */
-export enum DimensionValueType {
-  VARCHAR = "VARCHAR",
-}
+export const DimensionValueType = {
+  VARCHAR: "VARCHAR",
+};
 
 /**
  * @public
@@ -1135,7 +1135,7 @@ export interface Dimension {
   /**
    * <p>The data type of the dimension for the time-series data point.</p>
    */
-  DimensionValueType?: DimensionValueType | string;
+  DimensionValueType?: keyof typeof DimensionValueType | string;
 }
 
 /**
@@ -1159,7 +1159,7 @@ export interface ListBatchLoadTasksRequest {
   /**
    * <p>Status of the batch load task.</p>
    */
-  TaskStatus?: BatchLoadStatus | string;
+  TaskStatus?: keyof typeof BatchLoadStatus | string;
 }
 
 /**
@@ -1297,7 +1297,7 @@ export interface MeasureValue {
   /**
    * <p>Contains the data type of the MeasureValue for the time-series data point.</p>
    */
-  Type: MeasureValueType | string | undefined;
+  Type: keyof typeof MeasureValueType | string | undefined;
 }
 
 /**
@@ -1338,7 +1338,7 @@ export interface _Record {
    * <p> Contains the data type of the measure value for the time-series data point. Default
    *          type is <code>DOUBLE</code>. </p>
    */
-  MeasureValueType?: MeasureValueType | string;
+  MeasureValueType?: keyof typeof MeasureValueType | string;
 
   /**
    * <p> Contains the time at which the measure value for the data point was collected. The time
@@ -1353,7 +1353,7 @@ export interface _Record {
    *          milliseconds, nanoseconds, or other supported values. Default is <code>MILLISECONDS</code>.
    *       </p>
    */
-  TimeUnit?: TimeUnit | string;
+  TimeUnit?: keyof typeof TimeUnit | string;
 
   /**
    * <p>64-bit attribute used for record updates. Write requests for duplicate data with a

@@ -170,11 +170,11 @@ export interface IssueDetected {
 /**
  * @public
  */
-export enum SentimentValue {
-  NEGATIVE = "NEGATIVE",
-  NEUTRAL = "NEUTRAL",
-  POSITIVE = "POSITIVE",
-}
+export const SentimentValue = {
+  NEGATIVE: "NEGATIVE",
+  NEUTRAL: "NEUTRAL",
+  POSITIVE: "POSITIVE",
+};
 
 /**
  * @public
@@ -214,7 +214,7 @@ export interface Transcript {
   /**
    * <p>The sentiment of the detected for this piece of transcript.</p>
    */
-  Sentiment: SentimentValue | string | undefined;
+  Sentiment: keyof typeof SentimentValue | string | undefined;
 
   /**
    * <p>List of positions where issues were detected on the transcript.</p>

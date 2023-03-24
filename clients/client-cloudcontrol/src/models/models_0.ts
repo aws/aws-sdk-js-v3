@@ -39,44 +39,44 @@ export interface CancelResourceRequestInput {
 /**
  * @public
  */
-export enum HandlerErrorCode {
-  ACCESS_DENIED = "AccessDenied",
-  ALREADY_EXISTS = "AlreadyExists",
-  GENERAL_SERVICE_EXCEPTION = "GeneralServiceException",
-  INTERNAL_FAILURE = "InternalFailure",
-  INVALID_CREDENTIALS = "InvalidCredentials",
-  INVALID_REQUEST = "InvalidRequest",
-  NETWORK_FAILURE = "NetworkFailure",
-  NOT_FOUND = "NotFound",
-  NOT_STABILIZED = "NotStabilized",
-  NOT_UPDATABLE = "NotUpdatable",
-  RESOURCE_CONFLICT = "ResourceConflict",
-  SERVICE_INTERNAL_ERROR = "ServiceInternalError",
-  SERVICE_LIMIT_EXCEEDED = "ServiceLimitExceeded",
-  SERVICE_TIMEOUT = "ServiceTimeout",
-  THROTTLING = "Throttling",
-}
+export const HandlerErrorCode = {
+  ACCESS_DENIED: "AccessDenied",
+  ALREADY_EXISTS: "AlreadyExists",
+  GENERAL_SERVICE_EXCEPTION: "GeneralServiceException",
+  INTERNAL_FAILURE: "InternalFailure",
+  INVALID_CREDENTIALS: "InvalidCredentials",
+  INVALID_REQUEST: "InvalidRequest",
+  NETWORK_FAILURE: "NetworkFailure",
+  NOT_FOUND: "NotFound",
+  NOT_STABILIZED: "NotStabilized",
+  NOT_UPDATABLE: "NotUpdatable",
+  RESOURCE_CONFLICT: "ResourceConflict",
+  SERVICE_INTERNAL_ERROR: "ServiceInternalError",
+  SERVICE_LIMIT_EXCEEDED: "ServiceLimitExceeded",
+  SERVICE_TIMEOUT: "ServiceTimeout",
+  THROTTLING: "Throttling",
+};
 
 /**
  * @public
  */
-export enum Operation {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  UPDATE = "UPDATE",
-}
+export const Operation = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  UPDATE: "UPDATE",
+};
 
 /**
  * @public
  */
-export enum OperationStatus {
-  CANCEL_COMPLETE = "CANCEL_COMPLETE",
-  CANCEL_IN_PROGRESS = "CANCEL_IN_PROGRESS",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-}
+export const OperationStatus = {
+  CANCEL_COMPLETE: "CANCEL_COMPLETE",
+  CANCEL_IN_PROGRESS: "CANCEL_IN_PROGRESS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -109,7 +109,7 @@ export interface ProgressEvent {
   /**
    * <p>The resource operation type.</p>
    */
-  Operation?: Operation | string;
+  Operation?: keyof typeof Operation | string;
 
   /**
    * <p>The current status of the resource operation request.</p>
@@ -142,7 +142,7 @@ export interface ProgressEvent {
    *             </li>
    *          </ul>
    */
-  OperationStatus?: OperationStatus | string;
+  OperationStatus?: keyof typeof OperationStatus | string;
 
   /**
    * <p>When the resource operation request was initiated.</p>
@@ -165,7 +165,7 @@ export interface ProgressEvent {
    *          <p>For error code definitions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-test-contract-errors.html">Handler error codes</a> in the <i>CloudFormation Command
    *         Line Interface User Guide for Extension Development</i>.</p>
    */
-  ErrorCode?: HandlerErrorCode | string;
+  ErrorCode?: keyof typeof HandlerErrorCode | string;
 
   /**
    * <p>When to next request the status of this resource operation request.</p>
@@ -857,7 +857,7 @@ export interface ResourceRequestStatusFilter {
   /**
    * <p>The operation types to include in the filter.</p>
    */
-  Operations?: (Operation | string)[];
+  Operations?: (keyof typeof Operation | string)[];
 
   /**
    * <p>The operation statuses to include in the filter.</p>
@@ -889,7 +889,7 @@ export interface ResourceRequestStatusFilter {
    *             </li>
    *          </ul>
    */
-  OperationStatuses?: (OperationStatus | string)[];
+  OperationStatuses?: (keyof typeof OperationStatus | string)[];
 }
 
 /**

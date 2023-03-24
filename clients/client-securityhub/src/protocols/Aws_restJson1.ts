@@ -26328,7 +26328,7 @@ const deserializeAws_restJson1IntegerList = (output: any, context: __SerdeContex
 const deserializeAws_restJson1IntegrationTypeList = (
   output: any,
   context: __SerdeContext
-): (IntegrationType | string)[] => {
+): (keyof typeof IntegrationType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

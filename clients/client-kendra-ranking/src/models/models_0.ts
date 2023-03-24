@@ -300,13 +300,13 @@ export interface DescribeRescoreExecutionPlanRequest {
 /**
  * @public
  */
-export enum RescoreExecutionPlanStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const RescoreExecutionPlanStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -361,7 +361,7 @@ export interface DescribeRescoreExecutionPlanResponse {
    *             <code>FAILED</code>, the <code>ErrorMessage</code> field
    *             contains a message that explains why.</p>
    */
-  Status?: RescoreExecutionPlanStatus | string;
+  Status?: keyof typeof RescoreExecutionPlanStatus | string;
 
   /**
    * <p>When the <code>Status</code> field value is
@@ -423,7 +423,7 @@ export interface RescoreExecutionPlanSummary {
    *             the value is <code>ACTIVE</code>, the rescore execution
    *             plan is ready for use.</p>
    */
-  Status?: RescoreExecutionPlanStatus | string;
+  Status?: keyof typeof RescoreExecutionPlanStatus | string;
 }
 
 /**

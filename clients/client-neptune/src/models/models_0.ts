@@ -4713,10 +4713,10 @@ export interface DescribeDBClusterParameterGroupsMessage {
 /**
  * @public
  */
-export enum ApplyMethod {
-  immediate = "immediate",
-  pending_reboot = "pending-reboot",
-}
+export const ApplyMethod = {
+  immediate: "immediate",
+  pending_reboot: "pending-reboot",
+};
 
 /**
  * @public
@@ -4773,7 +4773,7 @@ export interface Parameter {
   /**
    * <p>Indicates when to apply parameter updates.</p>
    */
-  ApplyMethod?: ApplyMethod | string;
+  ApplyMethod?: keyof typeof ApplyMethod | string;
 }
 
 /**
@@ -5718,14 +5718,14 @@ export interface EventCategoriesMessage {
 /**
  * @public
  */
-export enum SourceType {
-  db_cluster = "db-cluster",
-  db_cluster_snapshot = "db-cluster-snapshot",
-  db_instance = "db-instance",
-  db_parameter_group = "db-parameter-group",
-  db_security_group = "db-security-group",
-  db_snapshot = "db-snapshot",
-}
+export const SourceType = {
+  db_cluster: "db-cluster",
+  db_cluster_snapshot: "db-cluster-snapshot",
+  db_instance: "db-instance",
+  db_parameter_group: "db-parameter-group",
+  db_security_group: "db-security-group",
+  db_snapshot: "db-snapshot",
+};
 
 /**
  * @public
@@ -5766,7 +5766,7 @@ export interface DescribeEventsMessage {
    * <p>The event source to retrieve events for. If no value is specified, all events are
    *       returned.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 
   /**
    * <p> The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
@@ -5832,7 +5832,7 @@ export interface Event {
   /**
    * <p>Specifies the source type for this event.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 
   /**
    * <p>Provides the text of this event.</p>

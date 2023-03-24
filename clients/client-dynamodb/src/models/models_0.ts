@@ -38,20 +38,20 @@ export interface ArchivalSummary {
 /**
  * @public
  */
-export enum AttributeAction {
-  ADD = "ADD",
-  DELETE = "DELETE",
-  PUT = "PUT",
-}
+export const AttributeAction = {
+  ADD: "ADD",
+  DELETE: "DELETE",
+  PUT: "PUT",
+};
 
 /**
  * @public
  */
-export enum ScalarAttributeType {
-  B = "B",
-  N = "N",
-  S = "S",
-}
+export const ScalarAttributeType = {
+  B: "B",
+  N: "N",
+  S: "S",
+};
 
 /**
  * @public
@@ -81,7 +81,7 @@ export interface AttributeDefinition {
    *             </li>
    *          </ul>
    */
-  AttributeType: ScalarAttributeType | string | undefined;
+  AttributeType: keyof typeof ScalarAttributeType | string | undefined;
 }
 
 /**
@@ -267,20 +267,20 @@ export interface AutoScalingSettingsUpdate {
 /**
  * @public
  */
-export enum BackupStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-}
+export const BackupStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+};
 
 /**
  * @public
  */
-export enum BackupType {
-  AWS_BACKUP = "AWS_BACKUP",
-  SYSTEM = "SYSTEM",
-  USER = "USER",
-}
+export const BackupType = {
+  AWS_BACKUP: "AWS_BACKUP",
+  SYSTEM: "SYSTEM",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -306,7 +306,7 @@ export interface BackupDetails {
   /**
    * <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED. </p>
    */
-  BackupStatus: BackupStatus | string | undefined;
+  BackupStatus: keyof typeof BackupStatus | string | undefined;
 
   /**
    * <p>BackupType:</p>
@@ -329,7 +329,7 @@ export interface BackupDetails {
    *             </li>
    *          </ul>
    */
-  BackupType: BackupType | string | undefined;
+  BackupType: keyof typeof BackupType | string | undefined;
 
   /**
    * <p>Time at which the backup was created. This is the request time of the backup. </p>
@@ -347,18 +347,18 @@ export interface BackupDetails {
 /**
  * @public
  */
-export enum BillingMode {
-  PAY_PER_REQUEST = "PAY_PER_REQUEST",
-  PROVISIONED = "PROVISIONED",
-}
+export const BillingMode = {
+  PAY_PER_REQUEST: "PAY_PER_REQUEST",
+  PROVISIONED: "PROVISIONED",
+};
 
 /**
  * @public
  */
-export enum KeyType {
-  HASH = "HASH",
-  RANGE = "RANGE",
-}
+export const KeyType = {
+  HASH: "HASH",
+  RANGE: "RANGE",
+};
 
 /**
  * @public
@@ -402,7 +402,7 @@ export interface KeySchemaElement {
    *                 value.</p>
    *          </note>
    */
-  KeyType: KeyType | string | undefined;
+  KeyType: keyof typeof KeyType | string | undefined;
 }
 
 /**
@@ -496,17 +496,17 @@ export interface SourceTableDetails {
    *             </li>
    *          </ul>
    */
-  BillingMode?: BillingMode | string;
+  BillingMode?: keyof typeof BillingMode | string;
 }
 
 /**
  * @public
  */
-export enum ProjectionType {
-  ALL = "ALL",
-  INCLUDE = "INCLUDE",
-  KEYS_ONLY = "KEYS_ONLY",
-}
+export const ProjectionType = {
+  ALL: "ALL",
+  INCLUDE: "INCLUDE",
+  KEYS_ONLY: "KEYS_ONLY",
+};
 
 /**
  * @public
@@ -536,7 +536,7 @@ export interface Projection {
    *             </li>
    *          </ul>
    */
-  ProjectionType?: ProjectionType | string;
+  ProjectionType?: keyof typeof ProjectionType | string;
 
   /**
    * <p>Represents the non-key attribute names which will be projected into the index.</p>
@@ -646,21 +646,21 @@ export interface LocalSecondaryIndexInfo {
 /**
  * @public
  */
-export enum SSEType {
-  AES256 = "AES256",
-  KMS = "KMS",
-}
+export const SSEType = {
+  AES256: "AES256",
+  KMS: "KMS",
+};
 
 /**
  * @public
  */
-export enum SSEStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  UPDATING = "UPDATING",
-}
+export const SSEStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -681,7 +681,7 @@ export interface SSEDescription {
    *             </li>
    *          </ul>
    */
-  Status?: SSEStatus | string;
+  Status?: keyof typeof SSEStatus | string;
 
   /**
    * <p>Server-side encryption type. The only supported value is:</p>
@@ -693,7 +693,7 @@ export interface SSEDescription {
    *             </li>
    *          </ul>
    */
-  SSEType?: SSEType | string;
+  SSEType?: keyof typeof SSEType | string;
 
   /**
    * <p>The KMS key ARN used for the KMS encryption.</p>
@@ -712,12 +712,12 @@ export interface SSEDescription {
 /**
  * @public
  */
-export enum StreamViewType {
-  KEYS_ONLY = "KEYS_ONLY",
-  NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES",
-  NEW_IMAGE = "NEW_IMAGE",
-  OLD_IMAGE = "OLD_IMAGE",
-}
+export const StreamViewType = {
+  KEYS_ONLY: "KEYS_ONLY",
+  NEW_AND_OLD_IMAGES: "NEW_AND_OLD_IMAGES",
+  NEW_IMAGE: "NEW_IMAGE",
+  OLD_IMAGE: "OLD_IMAGE",
+};
 
 /**
  * @public
@@ -757,18 +757,18 @@ export interface StreamSpecification {
    *             </li>
    *          </ul>
    */
-  StreamViewType?: StreamViewType | string;
+  StreamViewType?: keyof typeof StreamViewType | string;
 }
 
 /**
  * @public
  */
-export enum TimeToLiveStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-}
+export const TimeToLiveStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+};
 
 /**
  * @public
@@ -778,7 +778,7 @@ export interface TimeToLiveDescription {
   /**
    * <p> The TTL status for the table.</p>
    */
-  TimeToLiveStatus?: TimeToLiveStatus | string;
+  TimeToLiveStatus?: keyof typeof TimeToLiveStatus | string;
 
   /**
    * <p> The name of the TTL attribute for items in the table.</p>
@@ -931,7 +931,7 @@ export interface BackupSummary {
   /**
    * <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
    */
-  BackupStatus?: BackupStatus | string;
+  BackupStatus?: keyof typeof BackupStatus | string;
 
   /**
    * <p>BackupType:</p>
@@ -954,7 +954,7 @@ export interface BackupSummary {
    *             </li>
    *          </ul>
    */
-  BackupType?: BackupType | string;
+  BackupType?: keyof typeof BackupType | string;
 
   /**
    * <p>Size of the backup in bytes.</p>
@@ -965,21 +965,21 @@ export interface BackupSummary {
 /**
  * @public
  */
-export enum BackupTypeFilter {
-  ALL = "ALL",
-  AWS_BACKUP = "AWS_BACKUP",
-  SYSTEM = "SYSTEM",
-  USER = "USER",
-}
+export const BackupTypeFilter = {
+  ALL: "ALL",
+  AWS_BACKUP: "AWS_BACKUP",
+  SYSTEM: "SYSTEM",
+  USER: "USER",
+};
 
 /**
  * @public
  */
-export enum ReturnConsumedCapacity {
-  INDEXES = "INDEXES",
-  NONE = "NONE",
-  TOTAL = "TOTAL",
-}
+export const ReturnConsumedCapacity = {
+  INDEXES: "INDEXES",
+  NONE: "NONE",
+  TOTAL: "TOTAL",
+};
 
 /**
  * @public
@@ -1053,19 +1053,19 @@ export interface ConsumedCapacity {
 /**
  * @public
  */
-export enum BatchStatementErrorCodeEnum {
-  AccessDenied = "AccessDenied",
-  ConditionalCheckFailed = "ConditionalCheckFailed",
-  DuplicateItem = "DuplicateItem",
-  InternalServerError = "InternalServerError",
-  ItemCollectionSizeLimitExceeded = "ItemCollectionSizeLimitExceeded",
-  ProvisionedThroughputExceeded = "ProvisionedThroughputExceeded",
-  RequestLimitExceeded = "RequestLimitExceeded",
-  ResourceNotFound = "ResourceNotFound",
-  ThrottlingError = "ThrottlingError",
-  TransactionConflict = "TransactionConflict",
-  ValidationError = "ValidationError",
-}
+export const BatchStatementErrorCodeEnum = {
+  AccessDenied: "AccessDenied",
+  ConditionalCheckFailed: "ConditionalCheckFailed",
+  DuplicateItem: "DuplicateItem",
+  InternalServerError: "InternalServerError",
+  ItemCollectionSizeLimitExceeded: "ItemCollectionSizeLimitExceeded",
+  ProvisionedThroughputExceeded: "ProvisionedThroughputExceeded",
+  RequestLimitExceeded: "RequestLimitExceeded",
+  ResourceNotFound: "ResourceNotFound",
+  ThrottlingError: "ThrottlingError",
+  TransactionConflict: "TransactionConflict",
+  ValidationError: "ValidationError",
+};
 
 /**
  * @public
@@ -1075,7 +1075,7 @@ export interface BatchStatementError {
   /**
    * <p> The error code associated with the failed PartiQL batch statement. </p>
    */
-  Code?: BatchStatementErrorCodeEnum | string;
+  Code?: keyof typeof BatchStatementErrorCodeEnum | string;
 
   /**
    * <p> The error message associated with the PartiQL batch response. </p>
@@ -1193,10 +1193,10 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum ReturnItemCollectionMetrics {
-  NONE = "NONE",
-  SIZE = "SIZE",
-}
+export const ReturnItemCollectionMetrics = {
+  NONE: "NONE",
+  SIZE: "SIZE",
+};
 
 /**
  * @public
@@ -1248,7 +1248,7 @@ export interface BillingModeSummary {
    *             </li>
    *          </ul>
    */
-  BillingMode?: BillingMode | string;
+  BillingMode?: keyof typeof BillingMode | string;
 
   /**
    * <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write
@@ -1260,21 +1260,21 @@ export interface BillingModeSummary {
 /**
  * @public
  */
-export enum ComparisonOperator {
-  BEGINS_WITH = "BEGINS_WITH",
-  BETWEEN = "BETWEEN",
-  CONTAINS = "CONTAINS",
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  IN = "IN",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-  NOT_CONTAINS = "NOT_CONTAINS",
-  NOT_NULL = "NOT_NULL",
-  NULL = "NULL",
-}
+export const ComparisonOperator = {
+  BEGINS_WITH: "BEGINS_WITH",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  IN: "IN",
+  LE: "LE",
+  LT: "LT",
+  NE: "NE",
+  NOT_CONTAINS: "NOT_CONTAINS",
+  NOT_NULL: "NOT_NULL",
+  NULL: "NULL",
+};
 
 /**
  * @public
@@ -1299,34 +1299,34 @@ export class ConditionalCheckFailedException extends __BaseException {
 /**
  * @public
  */
-export enum ConditionalOperator {
-  AND = "AND",
-  OR = "OR",
-}
+export const ConditionalOperator = {
+  AND: "AND",
+  OR: "OR",
+};
 
 /**
  * @public
  */
-export enum ReturnValuesOnConditionCheckFailure {
-  ALL_OLD = "ALL_OLD",
-  NONE = "NONE",
-}
+export const ReturnValuesOnConditionCheckFailure = {
+  ALL_OLD: "ALL_OLD",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum ContinuousBackupsStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ContinuousBackupsStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum PointInTimeRecoveryStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const PointInTimeRecoveryStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1346,7 +1346,7 @@ export interface PointInTimeRecoveryDescription {
    *             </li>
    *          </ul>
    */
-  PointInTimeRecoveryStatus?: PointInTimeRecoveryStatus | string;
+  PointInTimeRecoveryStatus?: keyof typeof PointInTimeRecoveryStatus | string;
 
   /**
    * <p>Specifies the earliest point in time you can restore your table to. You can restore
@@ -1373,7 +1373,7 @@ export interface ContinuousBackupsDescription {
    *             <code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED,
    *             DISABLED</p>
    */
-  ContinuousBackupsStatus: ContinuousBackupsStatus | string | undefined;
+  ContinuousBackupsStatus: keyof typeof ContinuousBackupsStatus | string | undefined;
 
   /**
    * <p>The description of the point in time recovery settings applied to the table.</p>
@@ -1404,21 +1404,21 @@ export class ContinuousBackupsUnavailableException extends __BaseException {
 /**
  * @public
  */
-export enum ContributorInsightsAction {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+export const ContributorInsightsAction = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+};
 
 /**
  * @public
  */
-export enum ContributorInsightsStatus {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  FAILED = "FAILED",
-}
+export const ContributorInsightsStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
@@ -1439,7 +1439,7 @@ export interface ContributorInsightsSummary {
    * <p>Describes the current status for contributor insights for the given table and index,
    *             if applicable.</p>
    */
-  ContributorInsightsStatus?: ContributorInsightsStatus | string;
+  ContributorInsightsStatus?: keyof typeof ContributorInsightsStatus | string;
 }
 
 /**
@@ -1600,12 +1600,12 @@ export interface CreateGlobalTableInput {
 /**
  * @public
  */
-export enum GlobalTableStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const GlobalTableStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1639,23 +1639,23 @@ export interface ReplicaGlobalSecondaryIndexDescription {
 /**
  * @public
  */
-export enum ReplicaStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  CREATION_FAILED = "CREATION_FAILED",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  REGION_DISABLED = "REGION_DISABLED",
-  UPDATING = "UPDATING",
-}
+export const ReplicaStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  CREATION_FAILED: "CREATION_FAILED",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  REGION_DISABLED: "REGION_DISABLED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum TableClass {
-  STANDARD = "STANDARD",
-  STANDARD_INFREQUENT_ACCESS = "STANDARD_INFREQUENT_ACCESS",
-}
+export const TableClass = {
+  STANDARD: "STANDARD",
+  STANDARD_INFREQUENT_ACCESS: "STANDARD_INFREQUENT_ACCESS",
+};
 
 /**
  * @public
@@ -1666,7 +1666,7 @@ export interface TableClassSummary {
    * <p>The table class of the specified table. Valid values are <code>STANDARD</code> and
    *                 <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
    */
-  TableClass?: TableClass | string;
+  TableClass?: keyof typeof TableClass | string;
 
   /**
    * <p>The date and time at which the table class was last updated.</p>
@@ -1726,7 +1726,7 @@ export interface ReplicaDescription {
    *             </li>
    *          </ul>
    */
-  ReplicaStatus?: ReplicaStatus | string;
+  ReplicaStatus?: keyof typeof ReplicaStatus | string;
 
   /**
    * <p>Detailed information about the replica status.</p>
@@ -1809,7 +1809,7 @@ export interface GlobalTableDescription {
    *             </li>
    *          </ul>
    */
-  GlobalTableStatus?: GlobalTableStatus | string;
+  GlobalTableStatus?: keyof typeof GlobalTableStatus | string;
 
   /**
    * <p>The global table name.</p>
@@ -1909,7 +1909,7 @@ export interface CreateReplicationGroupMemberAction {
    * <p>Replica-specific table class. If not specified, uses the source table's table
    *             class.</p>
    */
-  TableClassOverride?: TableClass | string;
+  TableClassOverride?: keyof typeof TableClass | string;
 }
 
 /**
@@ -2034,7 +2034,7 @@ export interface SSESpecification {
    *             </li>
    *          </ul>
    */
-  SSEType?: SSEType | string;
+  SSEType?: keyof typeof SSEType | string;
 
   /**
    * <p>The KMS key that should be used for the KMS encryption.
@@ -2277,7 +2277,7 @@ export interface CreateTableInput {
    *             </li>
    *          </ul>
    */
-  BillingMode?: BillingMode | string;
+  BillingMode?: keyof typeof BillingMode | string;
 
   /**
    * <p>Represents the provisioned throughput settings for a specified table or index. The
@@ -2346,7 +2346,7 @@ export interface CreateTableInput {
    * <p>The table class of the new table. Valid values are <code>STANDARD</code> and
    *                 <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
    */
-  TableClass?: TableClass | string;
+  TableClass?: keyof typeof TableClass | string;
 
   /**
    * <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
@@ -2357,12 +2357,12 @@ export interface CreateTableInput {
 /**
  * @public
  */
-export enum IndexStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const IndexStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -2467,7 +2467,7 @@ export interface GlobalSecondaryIndexDescription {
    *             </li>
    *          </ul>
    */
-  IndexStatus?: IndexStatus | string;
+  IndexStatus?: keyof typeof IndexStatus | string;
 
   /**
    * <p>Indicates whether the index is currently backfilling. <i>Backfilling</i>
@@ -2608,15 +2608,15 @@ export interface RestoreSummary {
 /**
  * @public
  */
-export enum TableStatus {
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-  ARCHIVING = "ARCHIVING",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  UPDATING = "UPDATING",
-}
+export const TableStatus = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+  ARCHIVING: "ARCHIVING",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -2724,7 +2724,7 @@ export interface TableDescription {
    *             </li>
    *          </ul>
    */
-  TableStatus?: TableStatus | string;
+  TableStatus?: keyof typeof TableStatus | string;
 
   /**
    * <p>The date and time when the table was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
@@ -3110,13 +3110,13 @@ export interface DeleteGlobalSecondaryIndexAction {
 /**
  * @public
  */
-export enum ReturnValue {
-  ALL_NEW = "ALL_NEW",
-  ALL_OLD = "ALL_OLD",
-  NONE = "NONE",
-  UPDATED_NEW = "UPDATED_NEW",
-  UPDATED_OLD = "UPDATED_OLD",
-}
+export const ReturnValue = {
+  ALL_NEW: "ALL_NEW",
+  ALL_OLD: "ALL_OLD",
+  NONE: "NONE",
+  UPDATED_NEW: "UPDATED_NEW",
+  UPDATED_OLD: "UPDATED_OLD",
+};
 
 /**
  * @public
@@ -3278,7 +3278,7 @@ export interface DescribeContributorInsightsOutput {
   /**
    * <p>Current status of contributor insights.</p>
    */
-  ContributorInsightsStatus?: ContributorInsightsStatus | string;
+  ContributorInsightsStatus?: keyof typeof ContributorInsightsStatus | string;
 
   /**
    * <p>Timestamp of the last time the status was changed.</p>
@@ -3355,27 +3355,27 @@ export interface DescribeExportInput {
 /**
  * @public
  */
-export enum ExportFormat {
-  DYNAMODB_JSON = "DYNAMODB_JSON",
-  ION = "ION",
-}
+export const ExportFormat = {
+  DYNAMODB_JSON: "DYNAMODB_JSON",
+  ION: "ION",
+};
 
 /**
  * @public
  */
-export enum ExportStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ExportStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum S3SseAlgorithm {
-  AES256 = "AES256",
-  KMS = "KMS",
-}
+export const S3SseAlgorithm = {
+  AES256: "AES256",
+  KMS: "KMS",
+};
 
 /**
  * @public
@@ -3391,7 +3391,7 @@ export interface ExportDescription {
    * <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or
    *             FAILED.</p>
    */
-  ExportStatus?: ExportStatus | string;
+  ExportStatus?: keyof typeof ExportStatus | string;
 
   /**
    * <p>The time at which the export task began.</p>
@@ -3463,7 +3463,7 @@ export interface ExportDescription {
    *             </li>
    *          </ul>
    */
-  S3SseAlgorithm?: S3SseAlgorithm | string;
+  S3SseAlgorithm?: keyof typeof S3SseAlgorithm | string;
 
   /**
    * <p>The ID of the KMS managed key used to encrypt the S3 bucket where
@@ -3485,7 +3485,7 @@ export interface ExportDescription {
    * <p>The format of the exported data. Valid values for <code>ExportFormat</code> are
    *                 <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
    */
-  ExportFormat?: ExportFormat | string;
+  ExportFormat?: keyof typeof ExportFormat | string;
 
   /**
    * <p>The billable size of the table export.</p>
@@ -3610,7 +3610,7 @@ export interface ReplicaGlobalSecondaryIndexSettingsDescription {
    *             </li>
    *          </ul>
    */
-  IndexStatus?: IndexStatus | string;
+  IndexStatus?: keyof typeof IndexStatus | string;
 
   /**
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB
@@ -3668,7 +3668,7 @@ export interface ReplicaSettingsDescription {
    *             </li>
    *          </ul>
    */
-  ReplicaStatus?: ReplicaStatus | string;
+  ReplicaStatus?: keyof typeof ReplicaStatus | string;
 
   /**
    * <p>The read/write capacity mode of the replica.</p>
@@ -3738,31 +3738,31 @@ export interface DescribeImportInput {
 /**
  * @public
  */
-export enum ImportStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ImportStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum InputCompressionType {
-  GZIP = "GZIP",
-  NONE = "NONE",
-  ZSTD = "ZSTD",
-}
+export const InputCompressionType = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+  ZSTD: "ZSTD",
+};
 
 /**
  * @public
  */
-export enum InputFormat {
-  CSV = "CSV",
-  DYNAMODB_JSON = "DYNAMODB_JSON",
-  ION = "ION",
-}
+export const InputFormat = {
+  CSV: "CSV",
+  DYNAMODB_JSON: "DYNAMODB_JSON",
+  ION: "ION",
+};
 
 /**
  * @public
@@ -3824,7 +3824,7 @@ export interface TableCreationParameters {
    * <p> The billing mode for provisioning the table created as part of the import operation.
    *         </p>
    */
-  BillingMode?: BillingMode | string;
+  BillingMode?: keyof typeof BillingMode | string;
 
   /**
    * <p>Represents the provisioned throughput settings for a specified table or index. The
@@ -3862,7 +3862,7 @@ export interface ImportTableDescription {
   /**
    * <p> The status of the import. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: keyof typeof ImportStatus | string;
 
   /**
    * <p> The Amazon Resource Number (ARN) of the table being imported into.
@@ -3904,7 +3904,7 @@ export interface ImportTableDescription {
    * <p> The format of the source data going into the target table.
    *             </p>
    */
-  InputFormat?: InputFormat | string;
+  InputFormat?: keyof typeof InputFormat | string;
 
   /**
    * <p> The format options for the data that was imported into the target table. There is one
@@ -3916,7 +3916,7 @@ export interface ImportTableDescription {
    * <p> The compression options for the data that has been imported into the target table.
    *             The values are NONE, GZIP, or ZSTD. </p>
    */
-  InputCompressionType?: InputCompressionType | string;
+  InputCompressionType?: keyof typeof InputCompressionType | string;
 
   /**
    * <p> The parameters for the new table that is being imported into. </p>
@@ -4009,13 +4009,13 @@ export interface DescribeKinesisStreamingDestinationInput {
 /**
  * @public
  */
-export enum DestinationStatus {
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLE_FAILED = "ENABLE_FAILED",
-  ENABLING = "ENABLING",
-}
+export const DestinationStatus = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLE_FAILED: "ENABLE_FAILED",
+  ENABLING: "ENABLING",
+};
 
 /**
  * @public
@@ -4030,7 +4030,7 @@ export interface KinesisDataStreamDestination {
   /**
    * <p>The current status of replication.</p>
    */
-  DestinationStatus?: DestinationStatus | string;
+  DestinationStatus?: keyof typeof DestinationStatus | string;
 
   /**
    * <p>The human-readable string that corresponds to the replica status.</p>
@@ -4158,7 +4158,7 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
    *             </li>
    *          </ul>
    */
-  IndexStatus?: IndexStatus | string;
+  IndexStatus?: keyof typeof IndexStatus | string;
 
   /**
    * <p>Represents the auto scaling settings for a global table or global secondary
@@ -4221,7 +4221,7 @@ export interface ReplicaAutoScalingDescription {
    *             </li>
    *          </ul>
    */
-  ReplicaStatus?: ReplicaStatus | string;
+  ReplicaStatus?: keyof typeof ReplicaStatus | string;
 }
 
 /**
@@ -4255,7 +4255,7 @@ export interface TableAutoScalingDescription {
    *             </li>
    *          </ul>
    */
-  TableStatus?: TableStatus | string;
+  TableStatus?: keyof typeof TableStatus | string;
 
   /**
    * <p>Represents replicas of the global table.</p>
@@ -4325,7 +4325,7 @@ export interface KinesisStreamingDestinationOutput {
   /**
    * <p>The current status of the replication.</p>
    */
-  DestinationStatus?: DestinationStatus | string;
+  DestinationStatus?: keyof typeof DestinationStatus | string;
 }
 
 /**
@@ -4539,7 +4539,7 @@ export interface ExportTableToPointInTimeInput {
    *             </li>
    *          </ul>
    */
-  S3SseAlgorithm?: S3SseAlgorithm | string;
+  S3SseAlgorithm?: keyof typeof S3SseAlgorithm | string;
 
   /**
    * <p>The ID of the KMS managed key used to encrypt the S3 bucket where
@@ -4551,7 +4551,7 @@ export interface ExportTableToPointInTimeInput {
    * <p>The format for the exported data. Valid values for <code>ExportFormat</code> are
    *                 <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
    */
-  ExportFormat?: ExportFormat | string;
+  ExportFormat?: keyof typeof ExportFormat | string;
 }
 
 /**
@@ -4656,7 +4656,7 @@ export interface ImportTableInput {
    * <p> The format of the source data. Valid values for <code>ImportFormat</code> are
    *                 <code>CSV</code>, <code>DYNAMODB_JSON</code> or <code>ION</code>. </p>
    */
-  InputFormat: InputFormat | string | undefined;
+  InputFormat: keyof typeof InputFormat | string | undefined;
 
   /**
    * <p> Additional properties that specify how the input is formatted, </p>
@@ -4666,7 +4666,7 @@ export interface ImportTableInput {
   /**
    * <p> Type of compression to be used on the input coming from the imported table. </p>
    */
-  InputCompressionType?: InputCompressionType | string;
+  InputCompressionType?: keyof typeof InputCompressionType | string;
 
   /**
    * <p>Parameters for the table to import the data into. </p>
@@ -4741,7 +4741,7 @@ export interface ListBackupsInput {
    *             </li>
    *          </ul>
    */
-  BackupType?: BackupTypeFilter | string;
+  BackupType?: keyof typeof BackupTypeFilter | string;
 }
 
 /**
@@ -4838,7 +4838,7 @@ export interface ExportSummary {
    * <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or
    *             FAILED.</p>
    */
-  ExportStatus?: ExportStatus | string;
+  ExportStatus?: keyof typeof ExportStatus | string;
 }
 
 /**
@@ -4951,7 +4951,7 @@ export interface ImportSummary {
   /**
    * <p> The status of the import operation. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: keyof typeof ImportStatus | string;
 
   /**
    * <p> The Amazon Resource Number (ARN) of the table being imported into. </p>
@@ -4975,7 +4975,7 @@ export interface ImportSummary {
    * <p> The format of the source data. Valid values are <code>CSV</code>,
    *                 <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
    */
-  InputFormat?: InputFormat | string;
+  InputFormat?: keyof typeof InputFormat | string;
 
   /**
    * <p> The time at which this import task began. </p>
@@ -5086,12 +5086,12 @@ export interface ListTagsOfResourceOutput {
 /**
  * @public
  */
-export enum Select {
-  ALL_ATTRIBUTES = "ALL_ATTRIBUTES",
-  ALL_PROJECTED_ATTRIBUTES = "ALL_PROJECTED_ATTRIBUTES",
-  COUNT = "COUNT",
-  SPECIFIC_ATTRIBUTES = "SPECIFIC_ATTRIBUTES",
-}
+export const Select = {
+  ALL_ATTRIBUTES: "ALL_ATTRIBUTES",
+  ALL_PROJECTED_ATTRIBUTES: "ALL_PROJECTED_ATTRIBUTES",
+  COUNT: "COUNT",
+  SPECIFIC_ATTRIBUTES: "SPECIFIC_ATTRIBUTES",
+};
 
 /**
  * @public
@@ -5110,7 +5110,7 @@ export interface RestoreTableFromBackupInput {
   /**
    * <p>The billing mode of the restored table.</p>
    */
-  BillingModeOverride?: BillingMode | string;
+  BillingModeOverride?: keyof typeof BillingMode | string;
 
   /**
    * <p>List of global secondary indexes for the restored table. The indexes provided should
@@ -5222,7 +5222,7 @@ export interface RestoreTableToPointInTimeInput {
   /**
    * <p>The billing mode of the restored table.</p>
    */
-  BillingModeOverride?: BillingMode | string;
+  BillingModeOverride?: keyof typeof BillingMode | string;
 
   /**
    * <p>List of global secondary indexes for the restored table. The indexes provided should
@@ -5347,7 +5347,7 @@ export interface UpdateContributorInsightsInput {
   /**
    * <p>Represents the contributor insights action.</p>
    */
-  ContributorInsightsAction: ContributorInsightsAction | string | undefined;
+  ContributorInsightsAction: keyof typeof ContributorInsightsAction | string | undefined;
 }
 
 /**
@@ -5367,7 +5367,7 @@ export interface UpdateContributorInsightsOutput {
   /**
    * <p>The status of contributor insights</p>
    */
-  ContributorInsightsStatus?: ContributorInsightsStatus | string;
+  ContributorInsightsStatus?: keyof typeof ContributorInsightsStatus | string;
 }
 
 /**
@@ -5566,7 +5566,7 @@ export interface ReplicaSettingsUpdate {
    * <p>Replica-specific table class. If not specified, uses the source table's table
    *             class.</p>
    */
-  ReplicaTableClass?: TableClass | string;
+  ReplicaTableClass?: keyof typeof TableClass | string;
 }
 
 /**
@@ -5596,7 +5596,7 @@ export interface UpdateGlobalTableSettingsInput {
    *             </li>
    *          </ul>
    */
-  GlobalTableBillingMode?: BillingMode | string;
+  GlobalTableBillingMode?: keyof typeof BillingMode | string;
 
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a
@@ -5755,7 +5755,7 @@ export interface UpdateReplicationGroupMemberAction {
    * <p>Replica-specific table class. If not specified, uses the source table's table
    *             class.</p>
    */
-  TableClassOverride?: TableClass | string;
+  TableClassOverride?: keyof typeof TableClass | string;
 }
 
 /**
@@ -5837,7 +5837,7 @@ export interface UpdateTableInput {
    *             </li>
    *          </ul>
    */
-  BillingMode?: BillingMode | string;
+  BillingMode?: keyof typeof BillingMode | string;
 
   /**
    * <p>The new provisioned throughput settings for the specified table or index.</p>
@@ -5899,7 +5899,7 @@ export interface UpdateTableInput {
    * <p>The table class of the table to be updated. Valid values are <code>STANDARD</code> and
    *                 <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
    */
-  TableClass?: TableClass | string;
+  TableClass?: keyof typeof TableClass | string;
 
   /**
    * <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
@@ -6452,7 +6452,7 @@ export interface AttributeValueUpdate {
    *             </li>
    *          </ul>
    */
-  Action?: AttributeAction | string;
+  Action?: keyof typeof AttributeAction | string;
 }
 
 /**
@@ -6746,7 +6746,7 @@ export interface Condition {
    *                 Conditional Parameters</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ComparisonOperator: ComparisonOperator | string | undefined;
+  ComparisonOperator: keyof typeof ComparisonOperator | string | undefined;
 }
 
 /**
@@ -6815,7 +6815,7 @@ export interface ExecuteStatementInput {
    *             </li>
    *          </ul>
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+  ReturnConsumedCapacity?: keyof typeof ReturnConsumedCapacity | string;
 
   /**
    * <p>The maximum number of items to evaluate (not necessarily the number of matching
@@ -6923,7 +6923,7 @@ export interface GetItemInput {
    *             </li>
    *          </ul>
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+  ReturnConsumedCapacity?: keyof typeof ReturnConsumedCapacity | string;
 
   /**
    * <p>A string that identifies one or more attributes to retrieve from the table. These
@@ -7228,7 +7228,7 @@ export interface BatchExecuteStatementInput {
    *             </li>
    *          </ul>
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+  ReturnConsumedCapacity?: keyof typeof ReturnConsumedCapacity | string;
 }
 
 /**
@@ -7266,7 +7266,7 @@ export interface ExecuteTransactionInput {
    * <p>Determines the level of detail about either provisioned or on-demand throughput
    *             consumption that is returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+  ReturnConsumedCapacity?: keyof typeof ReturnConsumedCapacity | string;
 }
 
 /**
@@ -7703,7 +7703,7 @@ export interface BatchGetItemInput {
    *             </li>
    *          </ul>
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+  ReturnConsumedCapacity?: keyof typeof ReturnConsumedCapacity | string;
 }
 
 /**
@@ -7970,7 +7970,7 @@ export interface ExpectedAttributeValue {
    *             </li>
    *          </ul>
    */
-  ComparisonOperator?: ComparisonOperator | string;
+  ComparisonOperator?: keyof typeof ComparisonOperator | string;
 
   /**
    * <p>One or more values to evaluate against the supplied attribute. The number of values in
@@ -8002,7 +8002,7 @@ export interface TransactGetItemsInput {
    *             a value of <code>NONE</code> prevents that information from being returned. No other
    *             value is valid.</p>
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+  ReturnConsumedCapacity?: keyof typeof ReturnConsumedCapacity | string;
 }
 
 /**
@@ -8067,7 +8067,7 @@ export interface ConditionCheck {
    *                 <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and
    *             ALL_OLD.</p>
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
+  ReturnValuesOnConditionCheckFailure?: keyof typeof ReturnValuesOnConditionCheckFailure | string;
 }
 
 /**
@@ -8108,7 +8108,7 @@ export interface Delete {
    *                 <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and
    *             ALL_OLD.</p>
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
+  ReturnValuesOnConditionCheckFailure?: keyof typeof ReturnValuesOnConditionCheckFailure | string;
 }
 
 /**
@@ -8152,7 +8152,7 @@ export interface Put {
    *                 <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and
    *             ALL_OLD.</p>
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
+  ReturnValuesOnConditionCheckFailure?: keyof typeof ReturnValuesOnConditionCheckFailure | string;
 }
 
 /**
@@ -8199,7 +8199,7 @@ export interface Update {
    *                 <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE,
    *             ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.</p>
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
+  ReturnValuesOnConditionCheckFailure?: keyof typeof ReturnValuesOnConditionCheckFailure | string;
 }
 
 /**
@@ -8683,7 +8683,7 @@ export interface ScanInput {
    *                 value for <code>Select</code> will return an error.</p>
    *          </note>
    */
-  Select?: Select | string;
+  Select?: keyof typeof Select | string;
 
   /**
    * <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
@@ -8697,7 +8697,7 @@ export interface ScanInput {
    *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ConditionalOperator?: ConditionalOperator | string;
+  ConditionalOperator?: keyof typeof ConditionalOperator | string;
 
   /**
    * <p>The primary key of the first item that this operation will evaluate. Use the value
@@ -8738,7 +8738,7 @@ export interface ScanInput {
    *             </li>
    *          </ul>
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+  ReturnConsumedCapacity?: keyof typeof ReturnConsumedCapacity | string;
 
   /**
    * <p>For a parallel <code>Scan</code> request, <code>TotalSegments</code> represents the
@@ -8976,7 +8976,7 @@ export interface BatchWriteItemInput {
    *             </li>
    *          </ul>
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+  ReturnConsumedCapacity?: keyof typeof ReturnConsumedCapacity | string;
 
   /**
    * <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
@@ -8984,7 +8984,7 @@ export interface BatchWriteItemInput {
    *             during the operation are returned in the response. If set to <code>NONE</code> (the
    *             default), no statistics are returned.</p>
    */
-  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | string;
+  ReturnItemCollectionMetrics?: keyof typeof ReturnItemCollectionMetrics | string;
 }
 
 /**
@@ -9019,7 +9019,7 @@ export interface DeleteItemInput {
    *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ConditionalOperator?: ConditionalOperator | string;
+  ConditionalOperator?: keyof typeof ConditionalOperator | string;
 
   /**
    * <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared
@@ -9045,7 +9045,7 @@ export interface DeleteItemInput {
    *                     <code>NONE</code> or <code>ALL_OLD</code>.</p>
    *          </note>
    */
-  ReturnValues?: ReturnValue | string;
+  ReturnValues?: keyof typeof ReturnValue | string;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -9074,7 +9074,7 @@ export interface DeleteItemInput {
    *             </li>
    *          </ul>
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+  ReturnConsumedCapacity?: keyof typeof ReturnConsumedCapacity | string;
 
   /**
    * <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
@@ -9082,7 +9082,7 @@ export interface DeleteItemInput {
    *             during the operation are returned in the response. If set to <code>NONE</code> (the
    *             default), no statistics are returned.</p>
    */
-  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | string;
+  ReturnItemCollectionMetrics?: keyof typeof ReturnItemCollectionMetrics | string;
 
   /**
    * <p>A condition that must be satisfied in order for a conditional <code>DeleteItem</code>
@@ -9255,7 +9255,7 @@ export interface PutItemInput {
    *                     <code>NONE</code> or <code>ALL_OLD</code>.</p>
    *          </note>
    */
-  ReturnValues?: ReturnValue | string;
+  ReturnValues?: keyof typeof ReturnValue | string;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -9284,7 +9284,7 @@ export interface PutItemInput {
    *             </li>
    *          </ul>
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+  ReturnConsumedCapacity?: keyof typeof ReturnConsumedCapacity | string;
 
   /**
    * <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
@@ -9292,14 +9292,14 @@ export interface PutItemInput {
    *             during the operation are returned in the response. If set to <code>NONE</code> (the
    *             default), no statistics are returned.</p>
    */
-  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | string;
+  ReturnItemCollectionMetrics?: keyof typeof ReturnItemCollectionMetrics | string;
 
   /**
    * <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
    *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ConditionalOperator?: ConditionalOperator | string;
+  ConditionalOperator?: keyof typeof ConditionalOperator | string;
 
   /**
    * <p>A condition that must be satisfied in order for a conditional <code>PutItem</code>
@@ -9481,7 +9481,7 @@ export interface QueryInput {
    *                 value for <code>Select</code> will return an error.</p>
    *          </note>
    */
-  Select?: Select | string;
+  Select?: keyof typeof Select | string;
 
   /**
    * <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more
@@ -9532,7 +9532,7 @@ export interface QueryInput {
    *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ConditionalOperator?: ConditionalOperator | string;
+  ConditionalOperator?: keyof typeof ConditionalOperator | string;
 
   /**
    * <p>Specifies the order for index traversal: If <code>true</code> (default), the traversal
@@ -9584,7 +9584,7 @@ export interface QueryInput {
    *             </li>
    *          </ul>
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+  ReturnConsumedCapacity?: keyof typeof ReturnConsumedCapacity | string;
 
   /**
    * <p>A string that identifies one or more attributes to retrieve from the table. These
@@ -9947,7 +9947,7 @@ export interface UpdateItemInput {
    *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
-  ConditionalOperator?: ConditionalOperator | string;
+  ConditionalOperator?: keyof typeof ConditionalOperator | string;
 
   /**
    * <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appear
@@ -9986,7 +9986,7 @@ export interface UpdateItemInput {
    *             units are consumed.</p>
    *          <p>The values returned are strongly consistent.</p>
    */
-  ReturnValues?: ReturnValue | string;
+  ReturnValues?: keyof typeof ReturnValue | string;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -10015,7 +10015,7 @@ export interface UpdateItemInput {
    *             </li>
    *          </ul>
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+  ReturnConsumedCapacity?: keyof typeof ReturnConsumedCapacity | string;
 
   /**
    * <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
@@ -10023,7 +10023,7 @@ export interface UpdateItemInput {
    *             during the operation are returned in the response. If set to <code>NONE</code> (the
    *             default), no statistics are returned.</p>
    */
-  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | string;
+  ReturnItemCollectionMetrics?: keyof typeof ReturnItemCollectionMetrics | string;
 
   /**
    * <p>An expression that defines one or more attributes to be updated, the action to be
@@ -10304,7 +10304,7 @@ export interface TransactWriteItemsInput {
    *             </li>
    *          </ul>
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+  ReturnConsumedCapacity?: keyof typeof ReturnConsumedCapacity | string;
 
   /**
    * <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
@@ -10312,7 +10312,7 @@ export interface TransactWriteItemsInput {
    *             during the operation and are returned in the response. If set to <code>NONE</code> (the
    *             default), no statistics are returned. </p>
    */
-  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | string;
+  ReturnItemCollectionMetrics?: keyof typeof ReturnItemCollectionMetrics | string;
 
   /**
    * <p>Providing a <code>ClientRequestToken</code> makes the call to

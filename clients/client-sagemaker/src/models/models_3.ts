@@ -227,28 +227,28 @@ export interface LineageGroupSummary {
 /**
  * @public
  */
-export enum LineageType {
-  ACTION = "Action",
-  ARTIFACT = "Artifact",
-  CONTEXT = "Context",
-  TRIAL_COMPONENT = "TrialComponent",
-}
+export const LineageType = {
+  ACTION: "Action",
+  ARTIFACT: "Artifact",
+  CONTEXT: "Context",
+  TRIAL_COMPONENT: "TrialComponent",
+};
 
 /**
  * @public
  */
-export enum SortActionsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const SortActionsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export const SortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+};
 
 /**
  * @public
@@ -277,12 +277,12 @@ export interface ListActionsRequest {
   /**
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortActionsBy | string;
+  SortBy?: keyof typeof SortActionsBy | string;
 
   /**
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the previous call to <code>ListActions</code> didn't return the full set of actions,
@@ -349,12 +349,12 @@ export interface ListAlgorithmsInput {
    * <p>The parameter by which to sort the results. The default is
    *             <code>CreationTime</code>.</p>
    */
-  SortBy?: AlgorithmSortBy | string;
+  SortBy?: keyof typeof AlgorithmSortBy | string;
 
   /**
    * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -464,12 +464,12 @@ export interface ListAppImageConfigsRequest {
   /**
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: AppImageConfigSortKey | string;
+  SortBy?: keyof typeof AppImageConfigSortKey | string;
 
   /**
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -505,12 +505,12 @@ export interface ListAppsRequest {
   /**
    * <p>The sort order for the results. The default is Ascending.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The parameter by which to sort the results. The default is CreationTime.</p>
    */
-  SortBy?: AppSortKey | string;
+  SortBy?: keyof typeof AppSortKey | string;
 
   /**
    * <p>A parameter to search for the domain ID.</p>
@@ -547,9 +547,9 @@ export interface ListAppsResponse {
 /**
  * @public
  */
-export enum SortArtifactsBy {
-  CREATION_TIME = "CreationTime",
-}
+export const SortArtifactsBy = {
+  CREATION_TIME: "CreationTime",
+};
 
 /**
  * @public
@@ -578,12 +578,12 @@ export interface ListArtifactsRequest {
   /**
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortArtifactsBy | string;
+  SortBy?: keyof typeof SortArtifactsBy | string;
 
   /**
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the previous call to <code>ListArtifacts</code> didn't return the full set of artifacts,
@@ -615,13 +615,13 @@ export interface ListArtifactsResponse {
 /**
  * @public
  */
-export enum SortAssociationsBy {
-  CREATION_TIME = "CreationTime",
-  DESTINATION_ARN = "DestinationArn",
-  DESTINATION_TYPE = "DestinationType",
-  SOURCE_ARN = "SourceArn",
-  SOURCE_TYPE = "SourceType",
-}
+export const SortAssociationsBy = {
+  CREATION_TIME: "CreationTime",
+  DESTINATION_ARN: "DestinationArn",
+  DESTINATION_TYPE: "DestinationType",
+  SOURCE_ARN: "SourceArn",
+  SOURCE_TYPE: "SourceType",
+};
 
 /**
  * @public
@@ -650,7 +650,7 @@ export interface ListAssociationsRequest {
   /**
    * <p>A filter that returns only associations of the specified type.</p>
    */
-  AssociationType?: AssociationEdgeType | string;
+  AssociationType?: keyof typeof AssociationEdgeType | string;
 
   /**
    * <p>A filter that returns only associations created on or after the specified time.</p>
@@ -665,12 +665,12 @@ export interface ListAssociationsRequest {
   /**
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortAssociationsBy | string;
+  SortBy?: keyof typeof SortAssociationsBy | string;
 
   /**
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the previous call to <code>ListAssociations</code> didn't return the full set of associations,
@@ -731,17 +731,17 @@ export interface ListAutoMLJobsRequest {
   /**
    * <p>Request a list of jobs, using a filter for status.</p>
    */
-  StatusEquals?: AutoMLJobStatus | string;
+  StatusEquals?: keyof typeof AutoMLJobStatus | string;
 
   /**
    * <p>The sort order for the results. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: AutoMLSortOrder | string;
+  SortOrder?: keyof typeof AutoMLSortOrder | string;
 
   /**
    * <p>The parameter by which to sort the results. The default is <code>Name</code>.</p>
    */
-  SortBy?: AutoMLSortBy | string;
+  SortBy?: keyof typeof AutoMLSortBy | string;
 
   /**
    * <p>Request a list of jobs up to a specified limit.</p>
@@ -783,7 +783,7 @@ export interface ListCandidatesForAutoMLJobRequest {
   /**
    * <p>List the candidates for the job and filter by status.</p>
    */
-  StatusEquals?: CandidateStatus | string;
+  StatusEquals?: keyof typeof CandidateStatus | string;
 
   /**
    * <p>List the candidates for the job and filter by candidate name.</p>
@@ -793,13 +793,13 @@ export interface ListCandidatesForAutoMLJobRequest {
   /**
    * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: AutoMLSortOrder | string;
+  SortOrder?: keyof typeof AutoMLSortOrder | string;
 
   /**
    * <p>The parameter by which to sort the results. The default is
    *          <code>Descending</code>.</p>
    */
-  SortBy?: CandidateSortBy | string;
+  SortBy?: keyof typeof CandidateSortBy | string;
 
   /**
    * <p>List the job's candidates up to a specified limit.</p>
@@ -878,12 +878,12 @@ export interface ListCodeRepositoriesInput {
   /**
    * <p>The field to sort results by. The default is <code>Name</code>.</p>
    */
-  SortBy?: CodeRepositorySortBy | string;
+  SortBy?: keyof typeof CodeRepositorySortBy | string;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: CodeRepositorySortOrder | string;
+  SortOrder?: keyof typeof CodeRepositorySortOrder | string;
 }
 
 /**
@@ -926,11 +926,11 @@ export interface ListCodeRepositoriesOutput {
 /**
  * @public
  */
-export enum ListCompilationJobsSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const ListCompilationJobsSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+};
 
 /**
  * @public
@@ -981,17 +981,17 @@ export interface ListCompilationJobsRequest {
   /**
    * <p>A filter that retrieves model compilation jobs with a specific <a>DescribeCompilationJobResponse$CompilationJobStatus</a> status.</p>
    */
-  StatusEquals?: CompilationJobStatus | string;
+  StatusEquals?: keyof typeof CompilationJobStatus | string;
 
   /**
    * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: ListCompilationJobsSortBy | string;
+  SortBy?: keyof typeof ListCompilationJobsSortBy | string;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -1014,10 +1014,10 @@ export interface ListCompilationJobsResponse {
 /**
  * @public
  */
-export enum SortContextsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const SortContextsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+};
 
 /**
  * @public
@@ -1046,12 +1046,12 @@ export interface ListContextsRequest {
   /**
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortContextsBy | string;
+  SortBy?: keyof typeof SortContextsBy | string;
 
   /**
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the previous call to <code>ListContexts</code> didn't return the full set of contexts,
@@ -1083,10 +1083,10 @@ export interface ListContextsResponse {
 /**
  * @public
  */
-export enum MonitoringJobDefinitionSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const MonitoringJobDefinitionSortKey = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+};
 
 /**
  * @public
@@ -1101,12 +1101,12 @@ export interface ListDataQualityJobDefinitionsRequest {
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringJobDefinitionSortKey | string;
+  SortBy?: keyof typeof MonitoringJobDefinitionSortKey | string;
 
   /**
    * <p>The sort order for results. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the result of the previous <code>ListDataQualityJobDefinitions</code> request was
@@ -1186,11 +1186,11 @@ export interface ListDataQualityJobDefinitionsResponse {
 /**
  * @public
  */
-export enum ListDeviceFleetsSortBy {
-  CreationTime = "CREATION_TIME",
-  LastModifiedTime = "LAST_MODIFIED_TIME",
-  Name = "NAME",
-}
+export const ListDeviceFleetsSortBy = {
+  CreationTime: "CREATION_TIME",
+  LastModifiedTime: "LAST_MODIFIED_TIME",
+  Name: "NAME",
+};
 
 /**
  * @public
@@ -1234,12 +1234,12 @@ export interface ListDeviceFleetsRequest {
   /**
    * <p>The column to sort by.</p>
    */
-  SortBy?: ListDeviceFleetsSortBy | string;
+  SortBy?: keyof typeof ListDeviceFleetsSortBy | string;
 
   /**
    * <p>What direction to sort in.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -1337,12 +1337,12 @@ export interface ListDomainsResponse {
 /**
  * @public
  */
-export enum ListEdgeDeploymentPlansSortBy {
-  CreationTime = "CREATION_TIME",
-  DeviceFleetName = "DEVICE_FLEET_NAME",
-  LastModifiedTime = "LAST_MODIFIED_TIME",
-  Name = "NAME",
-}
+export const ListEdgeDeploymentPlansSortBy = {
+  CreationTime: "CREATION_TIME",
+  DeviceFleetName: "DEVICE_FLEET_NAME",
+  LastModifiedTime: "LAST_MODIFIED_TIME",
+  Name: "NAME",
+};
 
 /**
  * @public
@@ -1391,12 +1391,12 @@ export interface ListEdgeDeploymentPlansRequest {
   /**
    * <p>The column by which to sort the edge deployment plans. Can be one of <code>NAME</code>, <code>DEVICEFLEETNAME</code>, <code>CREATIONTIME</code>, <code>LASTMODIFIEDTIME</code>.</p>
    */
-  SortBy?: ListEdgeDeploymentPlansSortBy | string;
+  SortBy?: keyof typeof ListEdgeDeploymentPlansSortBy | string;
 
   /**
    * <p>The direction of the sorting (ascending or descending).</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -1417,13 +1417,13 @@ export interface ListEdgeDeploymentPlansResponse {
 /**
  * @public
  */
-export enum ListEdgePackagingJobsSortBy {
-  CreationTime = "CREATION_TIME",
-  EdgePackagingJobStatus = "STATUS",
-  LastModifiedTime = "LAST_MODIFIED_TIME",
-  ModelName = "MODEL_NAME",
-  Name = "NAME",
-}
+export const ListEdgePackagingJobsSortBy = {
+  CreationTime: "CREATION_TIME",
+  EdgePackagingJobStatus: "STATUS",
+  LastModifiedTime: "LAST_MODIFIED_TIME",
+  ModelName: "MODEL_NAME",
+  Name: "NAME",
+};
 
 /**
  * @public
@@ -1472,17 +1472,17 @@ export interface ListEdgePackagingJobsRequest {
   /**
    * <p>The job status to filter for.</p>
    */
-  StatusEquals?: EdgePackagingJobStatus | string;
+  StatusEquals?: keyof typeof EdgePackagingJobStatus | string;
 
   /**
    * <p>Use to specify what column to sort by.</p>
    */
-  SortBy?: ListEdgePackagingJobsSortBy | string;
+  SortBy?: keyof typeof ListEdgePackagingJobsSortBy | string;
 
   /**
    * <p>What direction to sort by.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -1503,10 +1503,10 @@ export interface ListEdgePackagingJobsResponse {
 /**
  * @public
  */
-export enum OrderKey {
-  Ascending = "Ascending",
-  Descending = "Descending",
-}
+export const OrderKey = {
+  Ascending: "Ascending",
+  Descending: "Descending",
+};
 
 /**
  * @public
@@ -1515,12 +1515,12 @@ export interface ListEndpointConfigsInput {
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: EndpointConfigSortKey | string;
+  SortBy?: keyof typeof EndpointConfigSortKey | string;
 
   /**
    * <p>The sort order for results. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: OrderKey | string;
+  SortOrder?: keyof typeof OrderKey | string;
 
   /**
    * <p>If the result of the previous <code>ListEndpointConfig</code> request was
@@ -1576,12 +1576,12 @@ export interface ListEndpointsInput {
   /**
    * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: EndpointSortKey | string;
+  SortBy?: keyof typeof EndpointSortKey | string;
 
   /**
    * <p>The sort order for results. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: OrderKey | string;
+  SortOrder?: keyof typeof OrderKey | string;
 
   /**
    * <p>If the result of a <code>ListEndpoints</code> request was truncated, the response
@@ -1629,7 +1629,7 @@ export interface ListEndpointsInput {
   /**
    * <p> A filter that returns only endpoints with the specified status.</p>
    */
-  StatusEquals?: EndpointStatus | string;
+  StatusEquals?: keyof typeof EndpointStatus | string;
 }
 
 /**
@@ -1651,10 +1651,10 @@ export interface ListEndpointsOutput {
 /**
  * @public
  */
-export enum SortExperimentsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const SortExperimentsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+};
 
 /**
  * @public
@@ -1673,12 +1673,12 @@ export interface ListExperimentsRequest {
   /**
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortExperimentsBy | string;
+  SortBy?: keyof typeof SortExperimentsBy | string;
 
   /**
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the previous call to <code>ListExperiments</code> didn't return the full set of
@@ -1721,12 +1721,12 @@ export interface ListFeatureGroupsRequest {
   /**
    * <p>A <code>FeatureGroup</code> status. Filters by <code>FeatureGroup</code> status. </p>
    */
-  FeatureGroupStatusEquals?: FeatureGroupStatus | string;
+  FeatureGroupStatusEquals?: keyof typeof FeatureGroupStatus | string;
 
   /**
    * <p>An <code>OfflineStore</code> status. Filters by <code>OfflineStore</code> status. </p>
    */
-  OfflineStoreStatusEquals?: OfflineStoreStatusValue | string;
+  OfflineStoreStatusEquals?: keyof typeof OfflineStoreStatusValue | string;
 
   /**
    * <p>Use this parameter to search for <code>FeatureGroups</code>s created after a specific
@@ -1743,12 +1743,12 @@ export interface ListFeatureGroupsRequest {
   /**
    * <p>The order in which feature groups are listed.</p>
    */
-  SortOrder?: FeatureGroupSortOrder | string;
+  SortOrder?: keyof typeof FeatureGroupSortOrder | string;
 
   /**
    * <p>The value on which the feature group list is sorted.</p>
    */
-  SortBy?: FeatureGroupSortBy | string;
+  SortBy?: keyof typeof FeatureGroupSortBy | string;
 
   /**
    * <p>The maximum number of results returned by <code>ListFeatureGroups</code>.</p>
@@ -1793,7 +1793,7 @@ export interface ListFlowDefinitionsRequest {
   /**
    * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>A token to resume pagination.</p>
@@ -1833,7 +1833,7 @@ export interface ListHubContentsRequest {
   /**
    * <p>The type of hub content to list.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: keyof typeof HubContentType | string | undefined;
 
   /**
    * <p>Only list hub content if the name contains the specified string.</p>
@@ -1858,12 +1858,12 @@ export interface ListHubContentsRequest {
   /**
    * <p>Sort hub content versions by either name or creation time.</p>
    */
-  SortBy?: HubContentSortBy | string;
+  SortBy?: keyof typeof HubContentSortBy | string;
 
   /**
    * <p>Sort hubs by ascending or descending order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The maximum amount of hub content to list.</p>
@@ -1903,7 +1903,7 @@ export interface ListHubContentVersionsRequest {
   /**
    * <p>The type of hub content to list versions of.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: keyof typeof HubContentType | string | undefined;
 
   /**
    * <p>The name of the hub content.</p>
@@ -1933,12 +1933,12 @@ export interface ListHubContentVersionsRequest {
   /**
    * <p>Sort hub content versions by either name or creation time.</p>
    */
-  SortBy?: HubContentSortBy | string;
+  SortBy?: keyof typeof HubContentSortBy | string;
 
   /**
    * <p>Sort hub content versions by ascending or descending order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The maximum number of hub content versions to list.</p>
@@ -1998,12 +1998,12 @@ export interface ListHubsRequest {
   /**
    * <p>Sort hubs by either name or creation time.</p>
    */
-  SortBy?: HubSortBy | string;
+  SortBy?: keyof typeof HubSortBy | string;
 
   /**
    * <p>Sort hubs by ascending or descending order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The maximum number of hubs to list.</p>
@@ -2048,7 +2048,7 @@ export interface ListHumanTaskUisRequest {
   /**
    * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>A token to resume pagination.</p>
@@ -2097,12 +2097,12 @@ export interface ListHyperParameterTuningJobsRequest {
   /**
    * <p>The field to sort results by. The default is <code>Name</code>.</p>
    */
-  SortBy?: HyperParameterTuningJobSortByOptions | string;
+  SortBy?: keyof typeof HyperParameterTuningJobSortByOptions | string;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>A string in the tuning job name. This filter returns only tuning jobs whose name
@@ -2137,7 +2137,7 @@ export interface ListHyperParameterTuningJobsRequest {
   /**
    * <p>A filter that returns only tuning jobs with the specified status.</p>
    */
-  StatusEquals?: HyperParameterTuningJobStatus | string;
+  StatusEquals?: keyof typeof HyperParameterTuningJobStatus | string;
 }
 
 /**
@@ -2203,12 +2203,12 @@ export interface ListImagesRequest {
   /**
    * <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
    */
-  SortBy?: ImageSortBy | string;
+  SortBy?: keyof typeof ImageSortBy | string;
 
   /**
    * <p>The sort order. The default value is <code>DESCENDING</code>.</p>
    */
-  SortOrder?: ImageSortOrder | string;
+  SortOrder?: keyof typeof ImageSortOrder | string;
 }
 
 /**
@@ -2269,12 +2269,12 @@ export interface ListImageVersionsRequest {
   /**
    * <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
    */
-  SortBy?: ImageVersionSortBy | string;
+  SortBy?: keyof typeof ImageVersionSortBy | string;
 
   /**
    * <p>The sort order. The default value is <code>DESCENDING</code>.</p>
    */
-  SortOrder?: ImageVersionSortOrder | string;
+  SortOrder?: keyof typeof ImageVersionSortOrder | string;
 }
 
 /**
@@ -2295,11 +2295,11 @@ export interface ListImageVersionsResponse {
 /**
  * @public
  */
-export enum SortInferenceExperimentsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const SortInferenceExperimentsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+};
 
 /**
  * @public
@@ -2315,14 +2315,14 @@ export interface ListInferenceExperimentsRequest {
    *            Selects inference experiments of this type. For the possible types of inference experiments, see <a>CreateInferenceExperimentRequest$Type</a>.
    *        </p>
    */
-  Type?: InferenceExperimentType | string;
+  Type?: keyof typeof InferenceExperimentType | string;
 
   /**
    * <p>
    *            Selects inference experiments which are in this status. For the possible statuses, see <a>DescribeInferenceExperimentResponse$Status</a>.
    *        </p>
    */
-  StatusEquals?: InferenceExperimentStatus | string;
+  StatusEquals?: keyof typeof InferenceExperimentStatus | string;
 
   /**
    * <p>Selects inference experiments which were created after this timestamp.</p>
@@ -2347,12 +2347,12 @@ export interface ListInferenceExperimentsRequest {
   /**
    * <p>The column by which to sort the listed inference experiments.</p>
    */
-  SortBy?: SortInferenceExperimentsBy | string;
+  SortBy?: keyof typeof SortInferenceExperimentsBy | string;
 
   /**
    * <p>The direction of sorting (ascending or descending).</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>
@@ -2385,11 +2385,11 @@ export interface ListInferenceExperimentsResponse {
 /**
  * @public
  */
-export enum ListInferenceRecommendationsJobsSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const ListInferenceRecommendationsJobsSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+};
 
 /**
  * @public
@@ -2423,17 +2423,17 @@ export interface ListInferenceRecommendationsJobsRequest {
   /**
    * <p>A filter that retrieves only inference recommendations jobs with a specific status.</p>
    */
-  StatusEquals?: RecommendationJobStatus | string;
+  StatusEquals?: keyof typeof RecommendationJobStatus | string;
 
   /**
    * <p>The parameter by which to sort the results.</p>
    */
-  SortBy?: ListInferenceRecommendationsJobsSortBy | string;
+  SortBy?: keyof typeof ListInferenceRecommendationsJobsSortBy | string;
 
   /**
    * <p>The sort order for the results.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the response to a previous <code>ListInferenceRecommendationsJobsRequest</code> request
@@ -2475,14 +2475,14 @@ export interface ListInferenceRecommendationsJobStepsRequest {
   /**
    * <p>A filter to return benchmarks of a specified status. If this field is left empty, then all benchmarks are returned.</p>
    */
-  Status?: RecommendationJobStatus | string;
+  Status?: keyof typeof RecommendationJobStatus | string;
 
   /**
    * <p>A filter to return details about the specified type of subtask.</p>
    *          <p>
    *             <code>BENCHMARK</code>: Evaluate the performance of your model on different instance types.</p>
    */
-  StepType?: RecommendationStepType | string;
+  StepType?: keyof typeof RecommendationStepType | string;
 
   /**
    * <p>The maximum number of results to return.</p>
@@ -2513,11 +2513,11 @@ export interface ListInferenceRecommendationsJobStepsResponse {
 /**
  * @public
  */
-export enum SortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const SortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+};
 
 /**
  * @public
@@ -2568,17 +2568,17 @@ export interface ListLabelingJobsRequest {
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortBy | string;
+  SortBy?: keyof typeof SortBy | string;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>A filter that retrieves only labeling jobs with a specific status.</p>
    */
-  StatusEquals?: LabelingJobStatus | string;
+  StatusEquals?: keyof typeof LabelingJobStatus | string;
 }
 
 /**
@@ -2601,9 +2601,9 @@ export interface ListLabelingJobsResponse {
 /**
  * @public
  */
-export enum ListLabelingJobsForWorkteamSortByOptions {
-  CREATION_TIME = "CreationTime",
-}
+export const ListLabelingJobsForWorkteamSortByOptions = {
+  CREATION_TIME: "CreationTime",
+};
 
 /**
  * @public
@@ -2648,12 +2648,12 @@ export interface ListLabelingJobsForWorkteamRequest {
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: ListLabelingJobsForWorkteamSortByOptions | string;
+  SortBy?: keyof typeof ListLabelingJobsForWorkteamSortByOptions | string;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -2676,10 +2676,10 @@ export interface ListLabelingJobsForWorkteamResponse {
 /**
  * @public
  */
-export enum SortLineageGroupsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const SortLineageGroupsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+};
 
 /**
  * @public
@@ -2699,12 +2699,12 @@ export interface ListLineageGroupsRequest {
    * <p>The parameter by which to sort the results. The default is
    *          <code>CreationTime</code>.</p>
    */
-  SortBy?: SortLineageGroupsBy | string;
+  SortBy?: keyof typeof SortLineageGroupsBy | string;
 
   /**
    * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
@@ -2748,13 +2748,13 @@ export interface ListModelBiasJobDefinitionsRequest {
    * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The
    *          default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringJobDefinitionSortKey | string;
+  SortBy?: keyof typeof MonitoringJobDefinitionSortKey | string;
 
   /**
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *          The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The token returned if the response is truncated. To retrieve the next set of job
@@ -2803,19 +2803,19 @@ export interface ListModelBiasJobDefinitionsResponse {
 /**
  * @public
  */
-export enum ModelCardExportJobSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const ModelCardExportJobSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+};
 
 /**
  * @public
  */
-export enum ModelCardExportJobSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export const ModelCardExportJobSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+};
 
 /**
  * @public
@@ -2849,17 +2849,17 @@ export interface ListModelCardExportJobsRequest {
   /**
    * <p>Only list model card export jobs with the specified status.</p>
    */
-  StatusEquals?: ModelCardExportJobStatus | string;
+  StatusEquals?: keyof typeof ModelCardExportJobStatus | string;
 
   /**
    * <p>Sort model card export jobs by either name or creation time. Sorts by creation time by default.</p>
    */
-  SortBy?: ModelCardExportJobSortBy | string;
+  SortBy?: keyof typeof ModelCardExportJobSortBy | string;
 
   /**
    * <p>Sort model card export jobs by ascending or descending order.</p>
    */
-  SortOrder?: ModelCardExportJobSortOrder | string;
+  SortOrder?: keyof typeof ModelCardExportJobSortOrder | string;
 
   /**
    * <p>If the response to a previous <code>ListModelCardExportJobs</code> request was
@@ -2892,7 +2892,7 @@ export interface ModelCardExportJobSummary {
   /**
    * <p>The completion status of the model card export job.</p>
    */
-  Status: ModelCardExportJobStatus | string | undefined;
+  Status: keyof typeof ModelCardExportJobStatus | string | undefined;
 
   /**
    * <p>The name of the model card that the export job exports.</p>
@@ -2934,18 +2934,18 @@ export interface ListModelCardExportJobsResponse {
 /**
  * @public
  */
-export enum ModelCardSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const ModelCardSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+};
 
 /**
  * @public
  */
-export enum ModelCardSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export const ModelCardSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+};
 
 /**
  * @public
@@ -2974,7 +2974,7 @@ export interface ListModelCardsRequest {
   /**
    * <p>Only list model cards with the specified approval status.</p>
    */
-  ModelCardStatus?: ModelCardStatus | string;
+  ModelCardStatus?: keyof typeof ModelCardStatus | string;
 
   /**
    * <p>If the response to a previous <code>ListModelCards</code> request was truncated, the
@@ -2986,12 +2986,12 @@ export interface ListModelCardsRequest {
   /**
    * <p>Sort model cards by either name or creation time. Sorts by creation time by default.</p>
    */
-  SortBy?: ModelCardSortBy | string;
+  SortBy?: keyof typeof ModelCardSortBy | string;
 
   /**
    * <p>Sort model cards by ascending or descending order.</p>
    */
-  SortOrder?: ModelCardSortOrder | string;
+  SortOrder?: keyof typeof ModelCardSortOrder | string;
 }
 
 /**
@@ -3031,7 +3031,7 @@ export interface ModelCardSummary {
    *             </li>
    *          </ul>
    */
-  ModelCardStatus: ModelCardStatus | string | undefined;
+  ModelCardStatus: keyof typeof ModelCardStatus | string | undefined;
 
   /**
    * <p>The date and time that the model card was created.</p>
@@ -3063,9 +3063,9 @@ export interface ListModelCardsResponse {
 /**
  * @public
  */
-export enum ModelCardVersionSortBy {
-  VERSION = "Version",
-}
+export const ModelCardVersionSortBy = {
+  VERSION: "Version",
+};
 
 /**
  * @public
@@ -3094,7 +3094,7 @@ export interface ListModelCardVersionsRequest {
   /**
    * <p>Only list model card versions with the specified approval status.</p>
    */
-  ModelCardStatus?: ModelCardStatus | string;
+  ModelCardStatus?: keyof typeof ModelCardStatus | string;
 
   /**
    * <p>If the response to a previous <code>ListModelCardVersions</code> request was truncated,
@@ -3106,12 +3106,12 @@ export interface ListModelCardVersionsRequest {
   /**
    * <p>Sort listed model card versions by version. Sorts by version by default.</p>
    */
-  SortBy?: ModelCardVersionSortBy | string;
+  SortBy?: keyof typeof ModelCardVersionSortBy | string;
 
   /**
    * <p>Sort model card versions by ascending or descending order.</p>
    */
-  SortOrder?: ModelCardSortOrder | string;
+  SortOrder?: keyof typeof ModelCardSortOrder | string;
 }
 
 /**
@@ -3151,7 +3151,7 @@ export interface ModelCardVersionSummary {
    *             </li>
    *          </ul>
    */
-  ModelCardStatus: ModelCardStatus | string | undefined;
+  ModelCardStatus: keyof typeof ModelCardStatus | string | undefined;
 
   /**
    * <p>A version of the model card.</p>
@@ -3198,13 +3198,13 @@ export interface ListModelExplainabilityJobDefinitionsRequest {
    * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field. The
    *          default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringJobDefinitionSortKey | string;
+  SortBy?: keyof typeof MonitoringJobDefinitionSortKey | string;
 
   /**
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *          The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The token returned if the response is truncated. To retrieve the next set of job
@@ -3254,12 +3254,12 @@ export interface ListModelExplainabilityJobDefinitionsResponse {
 /**
  * @public
  */
-export enum ModelMetadataFilterType {
-  DOMAIN = "Domain",
-  FRAMEWORK = "Framework",
-  FRAMEWORKVERSION = "FrameworkVersion",
-  TASK = "Task",
-}
+export const ModelMetadataFilterType = {
+  DOMAIN: "Domain",
+  FRAMEWORK: "Framework",
+  FRAMEWORKVERSION: "FrameworkVersion",
+  TASK: "Task",
+};
 
 /**
  * @public
@@ -3270,7 +3270,7 @@ export interface ModelMetadataFilter {
   /**
    * <p>The name of the of the model to filter by.</p>
    */
-  Name: ModelMetadataFilterType | string | undefined;
+  Name: keyof typeof ModelMetadataFilterType | string | undefined;
 
   /**
    * <p>The value to filter the model metadata.</p>
@@ -3365,10 +3365,10 @@ export interface ListModelMetadataResponse {
 /**
  * @public
  */
-export enum ModelPackageGroupSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const ModelPackageGroupSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+};
 
 /**
  * @public
@@ -3405,12 +3405,12 @@ export interface ListModelPackageGroupsInput {
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: ModelPackageGroupSortBy | string;
+  SortBy?: keyof typeof ModelPackageGroupSortBy | string;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -3441,7 +3441,7 @@ export interface ModelPackageGroupSummary {
   /**
    * <p>The status of the model group.</p>
    */
-  ModelPackageGroupStatus: ModelPackageGroupStatus | string | undefined;
+  ModelPackageGroupStatus: keyof typeof ModelPackageGroupStatus | string | undefined;
 }
 
 /**
@@ -3463,19 +3463,19 @@ export interface ListModelPackageGroupsOutput {
 /**
  * @public
  */
-export enum ModelPackageType {
-  BOTH = "Both",
-  UNVERSIONED = "Unversioned",
-  VERSIONED = "Versioned",
-}
+export const ModelPackageType = {
+  BOTH: "Both",
+  UNVERSIONED: "Unversioned",
+  VERSIONED: "Versioned",
+};
 
 /**
  * @public
  */
-export enum ModelPackageSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const ModelPackageSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+};
 
 /**
  * @public
@@ -3508,7 +3508,7 @@ export interface ListModelPackagesInput {
    * <p>A filter that returns only the model packages with the specified approval
    *             status.</p>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: keyof typeof ModelApprovalStatus | string;
 
   /**
    * <p>A filter that returns only model versions that belong to the specified model group.</p>
@@ -3534,7 +3534,7 @@ export interface ListModelPackagesInput {
    *             </li>
    *          </ul>
    */
-  ModelPackageType?: ModelPackageType | string;
+  ModelPackageType?: keyof typeof ModelPackageType | string;
 
   /**
    * <p>If the response to a previous <code>ListModelPackages</code> request was truncated,
@@ -3547,12 +3547,12 @@ export interface ListModelPackagesInput {
    * <p>The parameter by which to sort the results. The default is
    *             <code>CreationTime</code>.</p>
    */
-  SortBy?: ModelPackageSortBy | string;
+  SortBy?: keyof typeof ModelPackageSortBy | string;
 
   /**
    * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -3594,7 +3594,7 @@ export interface ModelPackageSummary {
   /**
    * <p>The overall status of the model package.</p>
    */
-  ModelPackageStatus: ModelPackageStatus | string | undefined;
+  ModelPackageStatus: keyof typeof ModelPackageStatus | string | undefined;
 
   /**
    * <p>The approval status of the model. This can be one of the following values.</p>
@@ -3614,7 +3614,7 @@ export interface ModelPackageSummary {
    *             </li>
    *          </ul>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: keyof typeof ModelApprovalStatus | string;
 }
 
 /**
@@ -3647,12 +3647,12 @@ export interface ListModelQualityJobDefinitionsRequest {
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringJobDefinitionSortKey | string;
+  SortBy?: keyof typeof MonitoringJobDefinitionSortKey | string;
 
   /**
    * <p>The sort order for results. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the result of the previous <code>ListModelQualityJobDefinitions</code> request was
@@ -3705,10 +3705,10 @@ export interface ListModelQualityJobDefinitionsResponse {
 /**
  * @public
  */
-export enum ModelSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name",
-}
+export const ModelSortKey = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+};
 
 /**
  * @public
@@ -3717,12 +3717,12 @@ export interface ListModelsInput {
   /**
    * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: ModelSortKey | string;
+  SortBy?: keyof typeof ModelSortKey | string;
 
   /**
    * <p>The sort order for results. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: OrderKey | string;
+  SortOrder?: keyof typeof OrderKey | string;
 
   /**
    * <p>If the response to a previous <code>ListModels</code> request was truncated, the
@@ -3796,18 +3796,18 @@ export interface ListModelsOutput {
 /**
  * @public
  */
-export enum MonitoringAlertHistorySortKey {
-  CreationTime = "CreationTime",
-  Status = "Status",
-}
+export const MonitoringAlertHistorySortKey = {
+  CreationTime: "CreationTime",
+  Status: "Status",
+};
 
 /**
  * @public
  */
-export enum MonitoringAlertStatus {
-  IN_ALERT = "InAlert",
-  OK = "OK",
-}
+export const MonitoringAlertStatus = {
+  IN_ALERT: "InAlert",
+  OK: "OK",
+};
 
 /**
  * @public
@@ -3826,13 +3826,13 @@ export interface ListMonitoringAlertHistoryRequest {
   /**
    * <p>The field used to sort results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringAlertHistorySortKey | string;
+  SortBy?: keyof typeof MonitoringAlertHistorySortKey | string;
 
   /**
    * <p>The sort order, whether <code>Ascending</code> or <code>Descending</code>, of the alert
    *          history. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the result of the previous <code>ListMonitoringAlertHistory</code> request was
@@ -3859,7 +3859,7 @@ export interface ListMonitoringAlertHistoryRequest {
   /**
    * <p>A filter that retrieves only alerts with a specific status.</p>
    */
-  StatusEquals?: MonitoringAlertStatus | string;
+  StatusEquals?: keyof typeof MonitoringAlertStatus | string;
 }
 
 /**
@@ -3887,7 +3887,7 @@ export interface MonitoringAlertHistorySummary {
   /**
    * <p>The current alert status of an alert.</p>
    */
-  AlertStatus: MonitoringAlertStatus | string | undefined;
+  AlertStatus: keyof typeof MonitoringAlertStatus | string | undefined;
 }
 
 /**
@@ -3976,7 +3976,7 @@ export interface MonitoringAlertSummary {
   /**
    * <p>The current status of an alert.</p>
    */
-  AlertStatus: MonitoringAlertStatus | string | undefined;
+  AlertStatus: keyof typeof MonitoringAlertStatus | string | undefined;
 
   /**
    * <p>Within <code>EvaluationPeriod</code>, how many execution failures will raise an
@@ -4016,11 +4016,11 @@ export interface ListMonitoringAlertsResponse {
 /**
  * @public
  */
-export enum MonitoringExecutionSortKey {
-  CREATION_TIME = "CreationTime",
-  SCHEDULED_TIME = "ScheduledTime",
-  STATUS = "Status",
-}
+export const MonitoringExecutionSortKey = {
+  CREATION_TIME: "CreationTime",
+  SCHEDULED_TIME: "ScheduledTime",
+  STATUS: "Status",
+};
 
 /**
  * @public
@@ -4040,13 +4040,13 @@ export interface ListMonitoringExecutionsRequest {
    * <p>Whether to sort results by <code>Status</code>, <code>CreationTime</code>,
    *             <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringExecutionSortKey | string;
+  SortBy?: keyof typeof MonitoringExecutionSortKey | string;
 
   /**
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *          The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The token returned if the response is truncated. To retrieve the next set of job
@@ -4092,7 +4092,7 @@ export interface ListMonitoringExecutionsRequest {
   /**
    * <p>A filter that retrieves only jobs with a specific status.</p>
    */
-  StatusEquals?: ExecutionStatus | string;
+  StatusEquals?: keyof typeof ExecutionStatus | string;
 
   /**
    * <p>Gets a list of the monitoring job runs of the specified monitoring job
@@ -4104,7 +4104,7 @@ export interface ListMonitoringExecutionsRequest {
    * <p>A filter that returns only the monitoring job runs of the specified monitoring
    *          type.</p>
    */
-  MonitoringTypeEquals?: MonitoringType | string;
+  MonitoringTypeEquals?: keyof typeof MonitoringType | string;
 }
 
 /**
@@ -4126,11 +4126,11 @@ export interface ListMonitoringExecutionsResponse {
 /**
  * @public
  */
-export enum MonitoringScheduleSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const MonitoringScheduleSortKey = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+};
 
 /**
  * @public
@@ -4145,13 +4145,13 @@ export interface ListMonitoringSchedulesRequest {
    * <p>Whether to sort results by <code>Status</code>, <code>CreationTime</code>,
    *             <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: MonitoringScheduleSortKey | string;
+  SortBy?: keyof typeof MonitoringScheduleSortKey | string;
 
   /**
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *          The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The token returned if the response is truncated. To retrieve the next set of job
@@ -4192,7 +4192,7 @@ export interface ListMonitoringSchedulesRequest {
   /**
    * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
    */
-  StatusEquals?: ScheduleStatus | string;
+  StatusEquals?: keyof typeof ScheduleStatus | string;
 
   /**
    * <p>Gets a list of the monitoring schedules for the specified monitoring job
@@ -4204,7 +4204,7 @@ export interface ListMonitoringSchedulesRequest {
    * <p>A filter that returns only the monitoring schedules for the specified monitoring
    *          type.</p>
    */
-  MonitoringTypeEquals?: MonitoringType | string;
+  MonitoringTypeEquals?: keyof typeof MonitoringType | string;
 }
 
 /**
@@ -4235,7 +4235,7 @@ export interface MonitoringScheduleSummary {
   /**
    * <p>The status of the monitoring schedule.</p>
    */
-  MonitoringScheduleStatus: ScheduleStatus | string | undefined;
+  MonitoringScheduleStatus: keyof typeof ScheduleStatus | string | undefined;
 
   /**
    * <p>The name of the endpoint using the monitoring schedule.</p>
@@ -4250,7 +4250,7 @@ export interface MonitoringScheduleSummary {
   /**
    * <p>The type of the monitoring job definition that the schedule is for.</p>
    */
-  MonitoringType?: MonitoringType | string;
+  MonitoringType?: keyof typeof MonitoringType | string;
 }
 
 /**
@@ -4272,19 +4272,19 @@ export interface ListMonitoringSchedulesResponse {
 /**
  * @public
  */
-export enum NotebookInstanceLifecycleConfigSortKey {
-  CREATION_TIME = "CreationTime",
-  LAST_MODIFIED_TIME = "LastModifiedTime",
-  NAME = "Name",
-}
+export const NotebookInstanceLifecycleConfigSortKey = {
+  CREATION_TIME: "CreationTime",
+  LAST_MODIFIED_TIME: "LastModifiedTime",
+  NAME: "Name",
+};
 
 /**
  * @public
  */
-export enum NotebookInstanceLifecycleConfigSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export const NotebookInstanceLifecycleConfigSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+};
 
 /**
  * @public
@@ -4305,12 +4305,12 @@ export interface ListNotebookInstanceLifecycleConfigsInput {
   /**
    * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: NotebookInstanceLifecycleConfigSortKey | string;
+  SortBy?: keyof typeof NotebookInstanceLifecycleConfigSortKey | string;
 
   /**
    * <p>The sort order for results.</p>
    */
-  SortOrder?: NotebookInstanceLifecycleConfigSortOrder | string;
+  SortOrder?: keyof typeof NotebookInstanceLifecycleConfigSortOrder | string;
 
   /**
    * <p>A string in the lifecycle configuration name. This filter returns only lifecycle
@@ -4389,19 +4389,19 @@ export interface ListNotebookInstanceLifecycleConfigsOutput {
 /**
  * @public
  */
-export enum NotebookInstanceSortKey {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const NotebookInstanceSortKey = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+};
 
 /**
  * @public
  */
-export enum NotebookInstanceSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export const NotebookInstanceSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+};
 
 /**
  * @public
@@ -4428,12 +4428,12 @@ export interface ListNotebookInstancesInput {
   /**
    * <p>The field to sort results by. The default is <code>Name</code>.</p>
    */
-  SortBy?: NotebookInstanceSortKey | string;
+  SortBy?: keyof typeof NotebookInstanceSortKey | string;
 
   /**
    * <p>The sort order for results. </p>
    */
-  SortOrder?: NotebookInstanceSortOrder | string;
+  SortOrder?: keyof typeof NotebookInstanceSortOrder | string;
 
   /**
    * <p>A string in the notebook instances' name. This filter returns only notebook
@@ -4468,7 +4468,7 @@ export interface ListNotebookInstancesInput {
   /**
    * <p>A filter that returns only notebook instances with the specified status.</p>
    */
-  StatusEquals?: NotebookInstanceStatus | string;
+  StatusEquals?: keyof typeof NotebookInstanceStatus | string;
 
   /**
    * <p>A string in the name of a notebook instances lifecycle configuration associated with
@@ -4509,7 +4509,7 @@ export interface NotebookInstanceSummary {
   /**
    * <p>The status of the notebook instance.</p>
    */
-  NotebookInstanceStatus?: NotebookInstanceStatus | string;
+  NotebookInstanceStatus?: keyof typeof NotebookInstanceStatus | string;
 
   /**
    * <p>The URL that you use to connect to the Jupyter notebook running in your notebook
@@ -4520,7 +4520,7 @@ export interface NotebookInstanceSummary {
   /**
    * <p>The type of ML compute instance that the notebook instance is running on.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>A timestamp that shows when the notebook instance was created.</p>
@@ -4582,10 +4582,10 @@ export interface ListNotebookInstancesOutput {
 /**
  * @public
  */
-export enum SortPipelineExecutionsBy {
-  CREATION_TIME = "CreationTime",
-  PIPELINE_EXECUTION_ARN = "PipelineExecutionArn",
-}
+export const SortPipelineExecutionsBy = {
+  CREATION_TIME: "CreationTime",
+  PIPELINE_EXECUTION_ARN: "PipelineExecutionArn",
+};
 
 /**
  * @public
@@ -4611,12 +4611,12 @@ export interface ListPipelineExecutionsRequest {
   /**
    * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
    */
-  SortBy?: SortPipelineExecutionsBy | string;
+  SortBy?: keyof typeof SortPipelineExecutionsBy | string;
 
   /**
    * <p>The sort order for results.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the result of the previous <code>ListPipelineExecutions</code> request was truncated,
@@ -4648,7 +4648,7 @@ export interface PipelineExecutionSummary {
   /**
    * <p>The status of the pipeline execution.</p>
    */
-  PipelineExecutionStatus?: PipelineExecutionStatus | string;
+  PipelineExecutionStatus?: keyof typeof PipelineExecutionStatus | string;
 
   /**
    * <p>The description of the pipeline execution.</p>
@@ -4707,7 +4707,7 @@ export interface ListPipelineExecutionStepsRequest {
   /**
    * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -4975,14 +4975,14 @@ export interface PipelineExecutionStepMetadata {
 /**
  * @public
  */
-export enum StepStatus {
-  EXECUTING = "Executing",
-  FAILED = "Failed",
-  STARTING = "Starting",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  SUCCEEDED = "Succeeded",
-}
+export const StepStatus = {
+  EXECUTING: "Executing",
+  FAILED: "Failed",
+  STARTING: "Starting",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  SUCCEEDED: "Succeeded",
+};
 
 /**
  * @public
@@ -5017,7 +5017,7 @@ export interface PipelineExecutionStep {
   /**
    * <p>The status of the step execution.</p>
    */
-  StepStatus?: StepStatus | string;
+  StepStatus?: keyof typeof StepStatus | string;
 
   /**
    * <p>If this pipeline execution step was cached, details on the cache hit.</p>
@@ -5117,10 +5117,10 @@ export interface ListPipelineParametersForExecutionResponse {
 /**
  * @public
  */
-export enum SortPipelinesBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const SortPipelinesBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+};
 
 /**
  * @public
@@ -5146,12 +5146,12 @@ export interface ListPipelinesRequest {
   /**
    * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
    */
-  SortBy?: SortPipelinesBy | string;
+  SortBy?: keyof typeof SortPipelinesBy | string;
 
   /**
    * <p>The sort order for results.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the result of the previous <code>ListPipelines</code> request was truncated,
@@ -5263,17 +5263,17 @@ export interface ListProcessingJobsRequest {
   /**
    * <p>A filter that retrieves only processing jobs with a specific status.</p>
    */
-  StatusEquals?: ProcessingJobStatus | string;
+  StatusEquals?: keyof typeof ProcessingJobStatus | string;
 
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortBy | string;
+  SortBy?: keyof typeof SortBy | string;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the result of the previous <code>ListProcessingJobs</code> request was truncated,
@@ -5321,7 +5321,7 @@ export interface ProcessingJobSummary {
   /**
    * <p>The status of the processing job.</p>
    */
-  ProcessingJobStatus: ProcessingJobStatus | string | undefined;
+  ProcessingJobStatus: keyof typeof ProcessingJobStatus | string | undefined;
 
   /**
    * <p>A string, up to one KB in size, that contains the reason a processing job failed, if
@@ -5356,18 +5356,18 @@ export interface ListProcessingJobsResponse {
 /**
  * @public
  */
-export enum ProjectSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const ProjectSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+};
 
 /**
  * @public
  */
-export enum ProjectSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export const ProjectSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+};
 
 /**
  * @public
@@ -5405,12 +5405,12 @@ export interface ListProjectsInput {
   /**
    * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: ProjectSortBy | string;
+  SortBy?: keyof typeof ProjectSortBy | string;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: ProjectSortOrder | string;
+  SortOrder?: keyof typeof ProjectSortOrder | string;
 }
 
 /**
@@ -5446,7 +5446,7 @@ export interface ProjectSummary {
   /**
    * <p>The status of the project.</p>
    */
-  ProjectStatus: ProjectStatus | string | undefined;
+  ProjectStatus: keyof typeof ProjectStatus | string | undefined;
 }
 
 /**
@@ -5469,10 +5469,10 @@ export interface ListProjectsOutput {
 /**
  * @public
  */
-export enum SpaceSortKey {
-  CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime",
-}
+export const SpaceSortKey = {
+  CreationTime: "CreationTime",
+  LastModifiedTime: "LastModifiedTime",
+};
 
 /**
  * @public
@@ -5492,12 +5492,12 @@ export interface ListSpacesRequest {
   /**
    * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The parameter by which to sort the results. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: SpaceSortKey | string;
+  SortBy?: keyof typeof SpaceSortKey | string;
 
   /**
    * <p>A parameter to search for the Domain ID.</p>
@@ -5528,7 +5528,7 @@ export interface SpaceDetails {
   /**
    * <p>The status.</p>
    */
-  Status?: SpaceStatus | string;
+  Status?: keyof typeof SpaceStatus | string;
 
   /**
    * <p>The creation time.</p>
@@ -5605,11 +5605,11 @@ export interface ListStageDevicesResponse {
 /**
  * @public
  */
-export enum StudioLifecycleConfigSortKey {
-  CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime",
-  Name = "Name",
-}
+export const StudioLifecycleConfigSortKey = {
+  CreationTime: "CreationTime",
+  LastModifiedTime: "LastModifiedTime",
+  Name: "Name",
+};
 
 /**
  * @public
@@ -5633,7 +5633,7 @@ export interface ListStudioLifecycleConfigsRequest {
   /**
    * <p>A parameter to search for the App Type to which the Lifecycle Configuration is attached.</p>
    */
-  AppTypeEquals?: StudioLifecycleConfigAppType | string;
+  AppTypeEquals?: keyof typeof StudioLifecycleConfigAppType | string;
 
   /**
    * <p>A filter that returns only Lifecycle Configurations created on or before the specified time.</p>
@@ -5658,12 +5658,12 @@ export interface ListStudioLifecycleConfigsRequest {
   /**
    * <p>The property used to sort results. The default value is CreationTime.</p>
    */
-  SortBy?: StudioLifecycleConfigSortKey | string;
+  SortBy?: keyof typeof StudioLifecycleConfigSortKey | string;
 
   /**
    * <p>The sort order. The default value is Descending.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -5694,7 +5694,7 @@ export interface StudioLifecycleConfigDetails {
   /**
    * <p>The App type to which the Lifecycle Configuration is attached.</p>
    */
-  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | string;
+  StudioLifecycleConfigAppType?: keyof typeof StudioLifecycleConfigAppType | string;
 }
 
 /**
@@ -5839,22 +5839,22 @@ export interface ListTrainingJobsRequest {
   /**
    * <p>A filter that retrieves only training jobs with a specific status.</p>
    */
-  StatusEquals?: TrainingJobStatus | string;
+  StatusEquals?: keyof typeof TrainingJobStatus | string;
 
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortBy | string;
+  SortBy?: keyof typeof SortBy | string;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>A filter that retrieves only training jobs with a specific warm pool status.</p>
    */
-  WarmPoolStatusEquals?: WarmPoolResourceStatus | string;
+  WarmPoolStatusEquals?: keyof typeof WarmPoolResourceStatus | string;
 }
 
 /**
@@ -5892,7 +5892,7 @@ export interface TrainingJobSummary {
   /**
    * <p>The status of the training job.</p>
    */
-  TrainingJobStatus: TrainingJobStatus | string | undefined;
+  TrainingJobStatus: keyof typeof TrainingJobStatus | string | undefined;
 
   /**
    * <p>The status of the warm pool associated with the training job.</p>
@@ -5920,12 +5920,12 @@ export interface ListTrainingJobsResponse {
 /**
  * @public
  */
-export enum TrainingJobSortByOptions {
-  CreationTime = "CreationTime",
-  FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
-  Name = "Name",
-  Status = "Status",
-}
+export const TrainingJobSortByOptions = {
+  CreationTime: "CreationTime",
+  FinalObjectiveMetricValue: "FinalObjectiveMetricValue",
+  Name: "Name",
+  Status: "Status",
+};
 
 /**
  * @public
@@ -5951,19 +5951,19 @@ export interface ListTrainingJobsForHyperParameterTuningJobRequest {
   /**
    * <p>A filter that returns only training jobs with the specified status.</p>
    */
-  StatusEquals?: TrainingJobStatus | string;
+  StatusEquals?: keyof typeof TrainingJobStatus | string;
 
   /**
    * <p>The field to sort results by. The default is <code>Name</code>.</p>
    *          <p>If the value of this field is <code>FinalObjectiveMetricValue</code>, any training
    *             jobs that did not return an objective metric are not listed.</p>
    */
-  SortBy?: TrainingJobSortByOptions | string;
+  SortBy?: keyof typeof TrainingJobSortByOptions | string;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -6019,17 +6019,17 @@ export interface ListTransformJobsRequest {
   /**
    * <p>A filter that retrieves only transform jobs with a specific status.</p>
    */
-  StatusEquals?: TransformJobStatus | string;
+  StatusEquals?: keyof typeof TransformJobStatus | string;
 
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortBy | string;
+  SortBy?: keyof typeof SortBy | string;
 
   /**
    * <p>The sort order for results. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>If the result of the previous <code>ListTransformJobs</code> request was truncated,
@@ -6086,7 +6086,7 @@ export interface TransformJobSummary {
   /**
    * <p>The status of the transform job.</p>
    */
-  TransformJobStatus: TransformJobStatus | string | undefined;
+  TransformJobStatus: keyof typeof TransformJobStatus | string | undefined;
 
   /**
    * <p>If the transform job failed,
@@ -6117,10 +6117,10 @@ export interface ListTransformJobsResponse {
 /**
  * @public
  */
-export enum SortTrialComponentsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const SortTrialComponentsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+};
 
 /**
  * @public
@@ -6160,12 +6160,12 @@ export interface ListTrialComponentsRequest {
   /**
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortTrialComponentsBy | string;
+  SortBy?: keyof typeof SortTrialComponentsBy | string;
 
   /**
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The maximum number of components to return in the response. The default value is
@@ -6273,10 +6273,10 @@ export interface ListTrialComponentsResponse {
 /**
  * @public
  */
-export enum SortTrialsBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const SortTrialsBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+};
 
 /**
  * @public
@@ -6306,12 +6306,12 @@ export interface ListTrialsRequest {
   /**
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    */
-  SortBy?: SortTrialsBy | string;
+  SortBy?: keyof typeof SortTrialsBy | string;
 
   /**
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The maximum number of trials to return in the response. The default value is 10.</p>
@@ -6381,10 +6381,10 @@ export interface ListTrialsResponse {
 /**
  * @public
  */
-export enum UserProfileSortKey {
-  CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime",
-}
+export const UserProfileSortKey = {
+  CreationTime: "CreationTime",
+  LastModifiedTime: "LastModifiedTime",
+};
 
 /**
  * @public
@@ -6404,12 +6404,12 @@ export interface ListUserProfilesRequest {
   /**
    * <p>The sort order for the results. The default is Ascending.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The parameter by which to sort the results. The default is CreationTime.</p>
    */
-  SortBy?: UserProfileSortKey | string;
+  SortBy?: keyof typeof UserProfileSortKey | string;
 
   /**
    * <p>A parameter by which to filter the results.</p>
@@ -6440,7 +6440,7 @@ export interface UserProfileDetails {
   /**
    * <p>The status.</p>
    */
-  Status?: UserProfileStatus | string;
+  Status?: keyof typeof UserProfileStatus | string;
 
   /**
    * <p>The creation time.</p>
@@ -6472,10 +6472,10 @@ export interface ListUserProfilesResponse {
 /**
  * @public
  */
-export enum ListWorkforcesSortByOptions {
-  CreateDate = "CreateDate",
-  Name = "Name",
-}
+export const ListWorkforcesSortByOptions = {
+  CreateDate: "CreateDate",
+  Name: "Name",
+};
 
 /**
  * @public
@@ -6484,12 +6484,12 @@ export interface ListWorkforcesRequest {
   /**
    * <p>Sort workforces using the workforce name or creation date.</p>
    */
-  SortBy?: ListWorkforcesSortByOptions | string;
+  SortBy?: keyof typeof ListWorkforcesSortByOptions | string;
 
   /**
    * <p>Sort workforces in ascending or descending order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>A filter you can use to search for workforces using part of the workforce name.</p>
@@ -6525,10 +6525,10 @@ export interface ListWorkforcesResponse {
 /**
  * @public
  */
-export enum ListWorkteamsSortByOptions {
-  CreateDate = "CreateDate",
-  Name = "Name",
-}
+export const ListWorkteamsSortByOptions = {
+  CreateDate: "CreateDate",
+  Name: "Name",
+};
 
 /**
  * @public
@@ -6537,12 +6537,12 @@ export interface ListWorkteamsRequest {
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    */
-  SortBy?: ListWorkteamsSortByOptions | string;
+  SortBy?: keyof typeof ListWorkteamsSortByOptions | string;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>A string in the work team's name. This filter returns only work teams whose name
@@ -6689,7 +6689,7 @@ export interface ModelCard {
    *             </li>
    *          </ul>
    */
-  ModelCardStatus?: ModelCardStatus | string;
+  ModelCardStatus?: keyof typeof ModelCardStatus | string;
 
   /**
    * <p>The security configuration used to protect model card data.</p>
@@ -6762,7 +6762,7 @@ export interface ModelDashboardEndpoint {
   /**
    * <p>The endpoint status.</p>
    */
-  EndpointStatus: EndpointStatus | string | undefined;
+  EndpointStatus: keyof typeof EndpointStatus | string | undefined;
 }
 
 /**
@@ -6809,7 +6809,7 @@ export interface TransformJob {
    *             </li>
    *          </ul>
    */
-  TransformJobStatus?: TransformJobStatus | string;
+  TransformJobStatus?: keyof typeof TransformJobStatus | string;
 
   /**
    * <p>If the transform job failed, the reason it failed.</p>
@@ -6853,7 +6853,7 @@ export interface TransformJob {
    *       A record is a single unit of input data that inference can be made on. For example, a single
    *       line in a CSV file is a record.</p>
    */
-  BatchStrategy?: BatchStrategy | string;
+  BatchStrategy?: keyof typeof BatchStrategy | string;
 
   /**
    * <p>The environment variables to set in the Docker container. We support up to 16 key and
@@ -6969,7 +6969,7 @@ export interface ModelDashboardModelCard {
   /**
    * <p>The model card status.</p>
    */
-  ModelCardStatus?: ModelCardStatus | string;
+  ModelCardStatus?: keyof typeof ModelCardStatus | string;
 
   /**
    * <p>The KMS Key ID (<code>KMSKeyId</code>) for encryption of model card information.</p>
@@ -7033,12 +7033,12 @@ export interface ModelDashboardMonitoringSchedule {
   /**
    * <p>The status of the monitoring schedule.</p>
    */
-  MonitoringScheduleStatus?: ScheduleStatus | string;
+  MonitoringScheduleStatus?: keyof typeof ScheduleStatus | string;
 
   /**
    * <p>The monitor type of a model monitor.</p>
    */
-  MonitoringType?: MonitoringType | string;
+  MonitoringType?: keyof typeof MonitoringType | string;
 
   /**
    * <p>If a monitoring job failed, provides the reason.</p>
@@ -7184,7 +7184,7 @@ export interface ModelPackage {
    *             </li>
    *          </ul>
    */
-  ModelPackageStatus?: ModelPackageStatus | string;
+  ModelPackageStatus?: keyof typeof ModelPackageStatus | string;
 
   /**
    * <p>Specifies the validation and image scan statuses of the model package.</p>
@@ -7216,7 +7216,7 @@ export interface ModelPackage {
    *             </li>
    *          </ul>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: keyof typeof ModelApprovalStatus | string;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.</p>
@@ -7349,7 +7349,7 @@ export interface ModelPackageGroup {
    *             </li>
    *          </ul>
    */
-  ModelPackageGroupStatus?: ModelPackageGroupStatus | string;
+  ModelPackageGroupStatus?: keyof typeof ModelPackageGroupStatus | string;
 
   /**
    * <p>A list of the tags associated with the model group. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
@@ -7361,11 +7361,11 @@ export interface ModelPackageGroup {
 /**
  * @public
  */
-export enum ModelVariantAction {
-  PROMOTE = "Promote",
-  REMOVE = "Remove",
-  RETAIN = "Retain",
-}
+export const ModelVariantAction = {
+  PROMOTE: "Promote",
+  REMOVE: "Remove",
+  RETAIN: "Retain",
+};
 
 /**
  * @public
@@ -7455,7 +7455,7 @@ export interface Pipeline {
   /**
    * <p>The status of the pipeline.</p>
    */
-  PipelineStatus?: PipelineStatus | string;
+  PipelineStatus?: keyof typeof PipelineStatus | string;
 
   /**
    * <p>The creation time of the pipeline.</p>
@@ -7518,7 +7518,7 @@ export interface PipelineExecution {
   /**
    * <p>The status of the pipeline status.</p>
    */
-  PipelineExecutionStatus?: PipelineExecutionStatus | string;
+  PipelineExecutionStatus?: keyof typeof PipelineExecutionStatus | string;
 
   /**
    * <p>The description of the pipeline execution.</p>
@@ -7655,7 +7655,7 @@ export interface ProcessingJob {
   /**
    * <p>The status of the processing job.</p>
    */
-  ProcessingJobStatus?: ProcessingJobStatus | string;
+  ProcessingJobStatus?: keyof typeof ProcessingJobStatus | string;
 
   /**
    * <p>A string, up to one KB in size, that contains metadata from the processing
@@ -7787,7 +7787,7 @@ export interface Project {
   /**
    * <p>The status of the project.</p>
    */
-  ProjectStatus?: ProjectStatus | string;
+  ProjectStatus?: keyof typeof ProjectStatus | string;
 
   /**
    * <p>Who created the project.</p>
@@ -7858,7 +7858,7 @@ export interface QueryFilters {
   /**
    * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by the type of the lineage entity.</p>
    */
-  LineageTypes?: (LineageType | string)[];
+  LineageTypes?: (keyof typeof LineageType | string)[];
 
   /**
    * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by created date.</p>
@@ -7900,7 +7900,7 @@ export interface QueryLineageRequest {
    * <p>Associations between lineage entities have a direction.  This parameter determines the direction from the
    *          StartArn(s) that the query traverses.</p>
    */
-  Direction?: Direction | string;
+  Direction?: keyof typeof Direction | string;
 
   /**
    * <p> Setting this value to <code>True</code> retrieves not only the entities of interest but also the
@@ -7968,7 +7968,7 @@ export interface Vertex {
   /**
    * <p>The type of resource of the lineage entity.</p>
    */
-  LineageType?: LineageType | string;
+  LineageType?: keyof typeof LineageType | string;
 }
 
 /**
@@ -8135,10 +8135,10 @@ export interface RetryPipelineExecutionResponse {
 /**
  * @public
  */
-export enum SearchSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export const SearchSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+};
 
 /**
  * @public
@@ -8209,7 +8209,7 @@ export interface TrainingJob {
    *          <p>For
    *             more detailed information, see <code>SecondaryStatus</code>. </p>
    */
-  TrainingJobStatus?: TrainingJobStatus | string;
+  TrainingJobStatus?: keyof typeof TrainingJobStatus | string;
 
   /**
    * <p> Provides detailed information about the state of the training job. For detailed
@@ -8309,7 +8309,7 @@ export interface TrainingJob {
    *             </li>
    *          </ul>
    */
-  SecondaryStatus?: SecondaryStatus | string;
+  SecondaryStatus?: keyof typeof SecondaryStatus | string;
 
   /**
    * <p>If the training job failed, the reason it failed.</p>
@@ -9101,7 +9101,7 @@ export interface StopInferenceExperimentRequest {
    *             </li>
    *          </ul>
    */
-  ModelVariantActions: Record<string, ModelVariantAction | string> | undefined;
+  ModelVariantActions: Record<string, keyof typeof ModelVariantAction | string> | undefined;
 
   /**
    * <p>
@@ -9127,7 +9127,7 @@ export interface StopInferenceExperimentRequest {
    *             </li>
    *          </ul>
    */
-  DesiredState?: InferenceExperimentStopDesiredState | string;
+  DesiredState?: keyof typeof InferenceExperimentStopDesiredState | string;
 
   /**
    * <p>The reason for stopping the experiment.</p>
@@ -9258,7 +9258,7 @@ export interface UpdateActionRequest {
   /**
    * <p>The new status for the action.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: keyof typeof ActionStatus | string;
 
   /**
    * <p>The new list of properties. Overwrites the current property list.</p>

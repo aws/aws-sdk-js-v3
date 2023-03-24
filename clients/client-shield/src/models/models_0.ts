@@ -84,10 +84,10 @@ export interface ResponseAction {
 /**
  * @public
  */
-export enum ApplicationLayerAutomaticResponseStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ApplicationLayerAutomaticResponseStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -99,7 +99,7 @@ export interface ApplicationLayerAutomaticResponseConfiguration {
   /**
    * <p>Indicates whether automatic application layer DDoS mitigation is enabled for the protection. </p>
    */
-  Status: ApplicationLayerAutomaticResponseStatus | string | undefined;
+  Status: keyof typeof ApplicationLayerAutomaticResponseStatus | string | undefined;
 
   /**
    * <p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the
@@ -183,10 +183,10 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-}
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+};
 
 /**
  * @public
@@ -198,7 +198,7 @@ export class InvalidParameterException extends __BaseException {
   /**
    * <p>Additional information about the exception.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>Fields that caused the exception.</p>
@@ -454,24 +454,24 @@ export interface SummarizedCounter {
 /**
  * @public
  */
-export enum AttackLayer {
-  APPLICATION = "APPLICATION",
-  NETWORK = "NETWORK",
-}
+export const AttackLayer = {
+  APPLICATION: "APPLICATION",
+  NETWORK: "NETWORK",
+};
 
 /**
  * @public
  */
-export enum AttackPropertyIdentifier {
-  DESTINATION_URL = "DESTINATION_URL",
-  REFERRER = "REFERRER",
-  SOURCE_ASN = "SOURCE_ASN",
-  SOURCE_COUNTRY = "SOURCE_COUNTRY",
-  SOURCE_IP_ADDRESS = "SOURCE_IP_ADDRESS",
-  SOURCE_USER_AGENT = "SOURCE_USER_AGENT",
-  WORDPRESS_PINGBACK_REFLECTOR = "WORDPRESS_PINGBACK_REFLECTOR",
-  WORDPRESS_PINGBACK_SOURCE = "WORDPRESS_PINGBACK_SOURCE",
-}
+export const AttackPropertyIdentifier = {
+  DESTINATION_URL: "DESTINATION_URL",
+  REFERRER: "REFERRER",
+  SOURCE_ASN: "SOURCE_ASN",
+  SOURCE_COUNTRY: "SOURCE_COUNTRY",
+  SOURCE_IP_ADDRESS: "SOURCE_IP_ADDRESS",
+  SOURCE_USER_AGENT: "SOURCE_USER_AGENT",
+  WORDPRESS_PINGBACK_REFLECTOR: "WORDPRESS_PINGBACK_REFLECTOR",
+  WORDPRESS_PINGBACK_SOURCE: "WORDPRESS_PINGBACK_SOURCE",
+};
 
 /**
  * @public
@@ -492,12 +492,12 @@ export interface Contributor {
 /**
  * @public
  */
-export enum Unit {
-  BITS = "BITS",
-  BYTES = "BYTES",
-  PACKETS = "PACKETS",
-  REQUESTS = "REQUESTS",
-}
+export const Unit = {
+  BITS: "BITS",
+  BYTES: "BYTES",
+  PACKETS: "PACKETS",
+  REQUESTS: "REQUESTS",
+};
 
 /**
  * @public
@@ -512,14 +512,14 @@ export interface AttackProperty {
    *            For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms">Shield metrics and alarms</a>
    *                in the <i>WAF Developer Guide</i>. </p>
    */
-  AttackLayer?: AttackLayer | string;
+  AttackLayer?: keyof typeof AttackLayer | string;
 
   /**
    * <p>Defines the Shield event property information that is provided. The
    *             <code>WORDPRESS_PINGBACK_REFLECTOR</code> and <code>WORDPRESS_PINGBACK_SOURCE</code>
    *          values are valid only for WordPress reflective pingback events.</p>
    */
-  AttackPropertyIdentifier?: AttackPropertyIdentifier | string;
+  AttackPropertyIdentifier?: keyof typeof AttackPropertyIdentifier | string;
 
   /**
    * <p>Contributor objects for the top five contributors to a Shield event. A contributor is a source of traffic that Shield Advanced identifies as responsible for some or all of an event.</p>
@@ -530,7 +530,7 @@ export interface AttackProperty {
    * <p>The unit used for the <code>Contributor</code>
    *             <code>Value</code> property. </p>
    */
-  Unit?: Unit | string;
+  Unit?: keyof typeof Unit | string;
 
   /**
    * <p>The total contributions made to this Shield event by all contributors.</p>
@@ -568,10 +568,10 @@ export interface SummarizedAttackVector {
 /**
  * @public
  */
-export enum SubResourceType {
-  IP = "IP",
-  URL = "URL",
-}
+export const SubResourceType = {
+  IP: "IP",
+  URL: "URL",
+};
 
 /**
  * @public
@@ -581,7 +581,7 @@ export interface SubResourceSummary {
   /**
    * <p>The <code>SubResource</code> type.</p>
    */
-  Type?: SubResourceType | string;
+  Type?: keyof typeof SubResourceType | string;
 
   /**
    * <p>The unique identifier (ID) of the <code>SubResource</code>.</p>
@@ -798,10 +798,10 @@ export interface AttackSummary {
 /**
  * @public
  */
-export enum AutoRenew {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AutoRenew = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -911,32 +911,32 @@ export class ResourceAlreadyExistsException extends __BaseException {
 /**
  * @public
  */
-export enum ProtectionGroupAggregation {
-  MAX = "MAX",
-  MEAN = "MEAN",
-  SUM = "SUM",
-}
+export const ProtectionGroupAggregation = {
+  MAX: "MAX",
+  MEAN: "MEAN",
+  SUM: "SUM",
+};
 
 /**
  * @public
  */
-export enum ProtectionGroupPattern {
-  ALL = "ALL",
-  ARBITRARY = "ARBITRARY",
-  BY_RESOURCE_TYPE = "BY_RESOURCE_TYPE",
-}
+export const ProtectionGroupPattern = {
+  ALL: "ALL",
+  ARBITRARY: "ARBITRARY",
+  BY_RESOURCE_TYPE: "BY_RESOURCE_TYPE",
+};
 
 /**
  * @public
  */
-export enum ProtectedResourceType {
-  APPLICATION_LOAD_BALANCER = "APPLICATION_LOAD_BALANCER",
-  CLASSIC_LOAD_BALANCER = "CLASSIC_LOAD_BALANCER",
-  CLOUDFRONT_DISTRIBUTION = "CLOUDFRONT_DISTRIBUTION",
-  ELASTIC_IP_ALLOCATION = "ELASTIC_IP_ALLOCATION",
-  GLOBAL_ACCELERATOR = "GLOBAL_ACCELERATOR",
-  ROUTE_53_HOSTED_ZONE = "ROUTE_53_HOSTED_ZONE",
-}
+export const ProtectedResourceType = {
+  APPLICATION_LOAD_BALANCER: "APPLICATION_LOAD_BALANCER",
+  CLASSIC_LOAD_BALANCER: "CLASSIC_LOAD_BALANCER",
+  CLOUDFRONT_DISTRIBUTION: "CLOUDFRONT_DISTRIBUTION",
+  ELASTIC_IP_ALLOCATION: "ELASTIC_IP_ALLOCATION",
+  GLOBAL_ACCELERATOR: "GLOBAL_ACCELERATOR",
+  ROUTE_53_HOSTED_ZONE: "ROUTE_53_HOSTED_ZONE",
+};
 
 /**
  * @public
@@ -961,18 +961,18 @@ export interface CreateProtectionGroupRequest {
    *             </li>
    *          </ul>
    */
-  Aggregation: ProtectionGroupAggregation | string | undefined;
+  Aggregation: keyof typeof ProtectionGroupAggregation | string | undefined;
 
   /**
    * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type. </p>
    */
-  Pattern: ProtectionGroupPattern | string | undefined;
+  Pattern: keyof typeof ProtectionGroupPattern | string | undefined;
 
   /**
    * <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group.
    *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    */
-  ResourceType?: ProtectedResourceType | string;
+  ResourceType?: keyof typeof ProtectedResourceType | string;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
@@ -1251,18 +1251,18 @@ export interface ProtectionGroup {
    *             </li>
    *          </ul>
    */
-  Aggregation: ProtectionGroupAggregation | string | undefined;
+  Aggregation: keyof typeof ProtectionGroupAggregation | string | undefined;
 
   /**
    * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource ARNs (Amazon Resource Names), or include all resources of a specified resource type.</p>
    */
-  Pattern: ProtectionGroupPattern | string | undefined;
+  Pattern: keyof typeof ProtectionGroupPattern | string | undefined;
 
   /**
    * <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group.
    *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    */
-  ResourceType?: ProtectedResourceType | string;
+  ResourceType?: keyof typeof ProtectedResourceType | string;
 
   /**
    * <p>The ARNs (Amazon Resource Names) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
@@ -1309,11 +1309,11 @@ export interface Limit {
 /**
  * @public
  */
-export enum ProactiveEngagementStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  PENDING = "PENDING",
-}
+export const ProactiveEngagementStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -1404,7 +1404,7 @@ export interface Subscription {
    * <p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>
    *          <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
    */
-  AutoRenew?: AutoRenew | string;
+  AutoRenew?: keyof typeof AutoRenew | string;
 
   /**
    * <p>Specifies how many protections of a given type you can create.</p>
@@ -1416,7 +1416,7 @@ export interface Subscription {
    *          <p>If <code>PENDING</code>, you have requested proactive engagement and the request is pending. The status changes to <code>ENABLED</code> when your request is fully processed.</p>
    *          <p>If <code>DISABLED</code>, the SRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>
    */
-  ProactiveEngagementStatus?: ProactiveEngagementStatus | string;
+  ProactiveEngagementStatus?: keyof typeof ProactiveEngagementStatus | string;
 
   /**
    * <p>Limits settings for your subscription. </p>
@@ -1549,10 +1549,10 @@ export interface GetSubscriptionStateRequest {}
 /**
  * @public
  */
-export enum SubscriptionState {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const SubscriptionState = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -1561,7 +1561,7 @@ export interface GetSubscriptionStateResponse {
   /**
    * <p>The status of the subscription.</p>
    */
-  SubscriptionState: SubscriptionState | string | undefined;
+  SubscriptionState: keyof typeof SubscriptionState | string | undefined;
 }
 
 /**
@@ -1659,17 +1659,17 @@ export interface InclusionProtectionGroupFilters {
   /**
    * <p>The pattern specification of the protection groups that you want to retrieve.  </p>
    */
-  Patterns?: (ProtectionGroupPattern | string)[];
+  Patterns?: (keyof typeof ProtectionGroupPattern | string)[];
 
   /**
    * <p>The resource type configuration of the protection groups that you want to retrieve. In the protection group configuration, you specify the resource type when you set the group's <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code>. </p>
    */
-  ResourceTypes?: (ProtectedResourceType | string)[];
+  ResourceTypes?: (keyof typeof ProtectedResourceType | string)[];
 
   /**
    * <p>The aggregation setting of the protection groups that you want to retrieve.  </p>
    */
-  Aggregations?: (ProtectionGroupAggregation | string)[];
+  Aggregations?: (keyof typeof ProtectionGroupAggregation | string)[];
 }
 
 /**
@@ -1739,7 +1739,7 @@ export interface InclusionProtectionFilters {
   /**
    * <p>The type of protected resource whose protections you want to retrieve.  </p>
    */
-  ResourceTypes?: (ProtectedResourceType | string)[];
+  ResourceTypes?: (keyof typeof ProtectedResourceType | string)[];
 }
 
 /**
@@ -1961,18 +1961,18 @@ export interface UpdateProtectionGroupRequest {
    *             </li>
    *          </ul>
    */
-  Aggregation: ProtectionGroupAggregation | string | undefined;
+  Aggregation: keyof typeof ProtectionGroupAggregation | string | undefined;
 
   /**
    * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.</p>
    */
-  Pattern: ProtectionGroupPattern | string | undefined;
+  Pattern: keyof typeof ProtectionGroupPattern | string | undefined;
 
   /**
    * <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group.
    *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    */
-  ResourceType?: ProtectedResourceType | string;
+  ResourceType?: keyof typeof ProtectedResourceType | string;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
@@ -1992,7 +1992,7 @@ export interface UpdateSubscriptionRequest {
   /**
    * <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
    */
-  AutoRenew?: AutoRenew | string;
+  AutoRenew?: keyof typeof AutoRenew | string;
 }
 
 /**

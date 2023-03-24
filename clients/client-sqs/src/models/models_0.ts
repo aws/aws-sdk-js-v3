@@ -930,7 +930,7 @@ export interface GetQueueAttributesRequest {
    *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
    *   in the <i>Amazon SQS Developer Guide</i>.</p>
    */
-  AttributeNames?: (QueueAttributeName | string)[];
+  AttributeNames?: (keyof typeof QueueAttributeName | string)[];
 }
 
 /**
@@ -1219,7 +1219,7 @@ export interface ReceiveMessageRequest {
    *             </li>
    *          </ul>
    */
-  AttributeNames?: (QueueAttributeName | string)[];
+  AttributeNames?: (keyof typeof QueueAttributeName | string)[];
 
   /**
    * <p>The name of the message attribute, where <i>N</i> is the index.</p>

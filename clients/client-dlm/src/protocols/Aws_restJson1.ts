@@ -940,7 +940,7 @@ const serializeAws_restJson1PolicyDetails = (input: PolicyDetails, context: __Se
 };
 
 const serializeAws_restJson1ResourceLocationList = (
-  input: (ResourceLocationValues | string)[],
+  input: (keyof typeof ResourceLocationValues | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -951,7 +951,7 @@ const serializeAws_restJson1ResourceLocationList = (
 };
 
 const serializeAws_restJson1ResourceTypeValuesList = (
-  input: (ResourceTypeValues | string)[],
+  input: (keyof typeof ResourceTypeValues | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1401,7 +1401,7 @@ const deserializeAws_restJson1PolicyIdList = (output: any, context: __SerdeConte
 const deserializeAws_restJson1ResourceLocationList = (
   output: any,
   context: __SerdeContext
-): (ResourceLocationValues | string)[] => {
+): (keyof typeof ResourceLocationValues | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1416,7 +1416,7 @@ const deserializeAws_restJson1ResourceLocationList = (
 const deserializeAws_restJson1ResourceTypeValuesList = (
   output: any,
   context: __SerdeContext
-): (ResourceTypeValues | string)[] => {
+): (keyof typeof ResourceTypeValues | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

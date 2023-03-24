@@ -6,19 +6,19 @@ import { IoTServiceException as __BaseException } from "./IoTServiceException";
 /**
  * @public
  */
-export enum AbortAction {
-  CANCEL = "CANCEL",
-}
+export const AbortAction = {
+  CANCEL: "CANCEL",
+};
 
 /**
  * @public
  */
-export enum JobExecutionFailureType {
-  ALL = "ALL",
-  FAILED = "FAILED",
-  REJECTED = "REJECTED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const JobExecutionFailureType = {
+  ALL: "ALL",
+  FAILED: "FAILED",
+  REJECTED: "REJECTED",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -28,12 +28,12 @@ export interface AbortCriteria {
   /**
    * <p>The type of job execution failures that can initiate a job abort.</p>
    */
-  failureType: JobExecutionFailureType | string | undefined;
+  failureType: keyof typeof JobExecutionFailureType | string | undefined;
 
   /**
    * <p>The type of job action to take to initiate the job abort.</p>
    */
-  action: AbortAction | string | undefined;
+  action: keyof typeof AbortAction | string | undefined;
 
   /**
    * <p>The minimum percentage of job execution failures that must occur to initiate the job abort.</p>
@@ -306,10 +306,10 @@ export interface CloudwatchMetricAction {
 /**
  * @public
  */
-export enum DynamoKeyType {
-  NUMBER = "NUMBER",
-  STRING = "STRING",
-}
+export const DynamoKeyType = {
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -361,7 +361,7 @@ export interface DynamoDBAction {
   /**
    * <p>The hash key type. Valid values are "STRING" or "NUMBER"</p>
    */
-  hashKeyType?: DynamoKeyType | string;
+  hashKeyType?: keyof typeof DynamoKeyType | string;
 
   /**
    * <p>The range key name.</p>
@@ -376,7 +376,7 @@ export interface DynamoDBAction {
   /**
    * <p>The range key type. Valid values are "STRING" or "NUMBER"</p>
    */
-  rangeKeyType?: DynamoKeyType | string;
+  rangeKeyType?: keyof typeof DynamoKeyType | string;
 
   /**
    * <p>The action payload. This name can be customized.</p>
@@ -1109,16 +1109,16 @@ export interface RepublishAction {
 /**
  * @public
  */
-export enum CannedAccessControlList {
-  AuthenticatedRead = "authenticated-read",
-  AwsExecRead = "aws-exec-read",
-  BucketOwnerFullControl = "bucket-owner-full-control",
-  BucketOwnerRead = "bucket-owner-read",
-  LogDeliveryWrite = "log-delivery-write",
-  Private = "private",
-  PublicRead = "public-read",
-  PublicReadWrite = "public-read-write",
-}
+export const CannedAccessControlList = {
+  AuthenticatedRead: "authenticated-read",
+  AwsExecRead: "aws-exec-read",
+  BucketOwnerFullControl: "bucket-owner-full-control",
+  BucketOwnerRead: "bucket-owner-read",
+  LogDeliveryWrite: "log-delivery-write",
+  Private: "private",
+  PublicRead: "public-read",
+  PublicReadWrite: "public-read-write",
+};
 
 /**
  * @public
@@ -1144,7 +1144,7 @@ export interface S3Action {
    * <p>The Amazon S3 canned ACL that controls access to the object identified by the object
    *          key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">S3 canned ACLs</a>.</p>
    */
-  cannedAcl?: CannedAccessControlList | string;
+  cannedAcl?: keyof typeof CannedAccessControlList | string;
 }
 
 /**
@@ -1170,10 +1170,10 @@ export interface SalesforceAction {
 /**
  * @public
  */
-export enum MessageFormat {
-  JSON = "JSON",
-  RAW = "RAW",
-}
+export const MessageFormat = {
+  JSON: "JSON",
+  RAW: "RAW",
+};
 
 /**
  * @public
@@ -1196,7 +1196,7 @@ export interface SnsAction {
    *          if the payload should be parsed and relevant platform-specific bits of the payload should
    *          be extracted. To read more about SNS message formats, see <a href="https://docs.aws.amazon.com/sns/latest/dg/json-formats.html">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>
    */
-  messageFormat?: MessageFormat | string;
+  messageFormat?: keyof typeof MessageFormat | string;
 }
 
 /**
@@ -1464,37 +1464,37 @@ export interface Action {
 /**
  * @public
  */
-export enum ActionType {
-  CONNECT = "CONNECT",
-  PUBLISH = "PUBLISH",
-  RECEIVE = "RECEIVE",
-  SUBSCRIBE = "SUBSCRIBE",
-}
+export const ActionType = {
+  CONNECT: "CONNECT",
+  PUBLISH: "PUBLISH",
+  RECEIVE: "RECEIVE",
+  SUBSCRIBE: "SUBSCRIBE",
+};
 
 /**
  * @public
  */
-export enum ComparisonOperator {
-  GREATER_THAN = "greater-than",
-  GREATER_THAN_EQUALS = "greater-than-equals",
-  IN_CIDR_SET = "in-cidr-set",
-  IN_PORT_SET = "in-port-set",
-  IN_SET = "in-set",
-  LESS_THAN = "less-than",
-  LESS_THAN_EQUALS = "less-than-equals",
-  NOT_IN_CIDR_SET = "not-in-cidr-set",
-  NOT_IN_PORT_SET = "not-in-port-set",
-  NOT_IN_SET = "not-in-set",
-}
+export const ComparisonOperator = {
+  GREATER_THAN: "greater-than",
+  GREATER_THAN_EQUALS: "greater-than-equals",
+  IN_CIDR_SET: "in-cidr-set",
+  IN_PORT_SET: "in-port-set",
+  IN_SET: "in-set",
+  LESS_THAN: "less-than",
+  LESS_THAN_EQUALS: "less-than-equals",
+  NOT_IN_CIDR_SET: "not-in-cidr-set",
+  NOT_IN_PORT_SET: "not-in-port-set",
+  NOT_IN_SET: "not-in-set",
+};
 
 /**
  * @public
  */
-export enum ConfidenceLevel {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const ConfidenceLevel = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+};
 
 /**
  * @public
@@ -1508,7 +1508,7 @@ export interface MachineLearningDetectionConfig {
    *             The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>.
    *         </p>
    */
-  confidenceLevel: ConfidenceLevel | string | undefined;
+  confidenceLevel: keyof typeof ConfidenceLevel | string | undefined;
 }
 
 /**
@@ -1607,7 +1607,7 @@ export interface BehaviorCriteria {
    *             </li>
    *          </ul>
    */
-  comparisonOperator?: ComparisonOperator | string;
+  comparisonOperator?: keyof typeof ComparisonOperator | string;
 
   /**
    * <p>The value to be compared with the <code>metric</code>.</p>
@@ -1655,10 +1655,10 @@ export interface BehaviorCriteria {
 /**
  * @public
  */
-export enum DimensionValueOperator {
-  IN = "IN",
-  NOT_IN = "NOT_IN",
-}
+export const DimensionValueOperator = {
+  IN: "IN",
+  NOT_IN: "NOT_IN",
+};
 
 /**
  * @public
@@ -1673,7 +1673,7 @@ export interface MetricDimension {
   /**
    * <p>Defines how the <code>dimensionValues</code> of a dimension are interpreted. For example, for dimension type TOPIC_FILTER, the <code>IN</code> operator, a message will be counted only if its topic matches one of the topic filters. With <code>NOT_IN</code> operator, a message will be counted only if it doesn't match any of the topic filters. The operator is optional: if it's not provided (is <code>null</code>), it will be interpreted as <code>IN</code>.</p>
    */
-  operator?: DimensionValueOperator | string;
+  operator?: keyof typeof DimensionValueOperator | string;
 }
 
 /**
@@ -1715,12 +1715,12 @@ export interface Behavior {
 /**
  * @public
  */
-export enum VerificationState {
-  BENIGN_POSITIVE = "BENIGN_POSITIVE",
-  FALSE_POSITIVE = "FALSE_POSITIVE",
-  TRUE_POSITIVE = "TRUE_POSITIVE",
-  UNKNOWN = "UNKNOWN",
-}
+export const VerificationState = {
+  BENIGN_POSITIVE: "BENIGN_POSITIVE",
+  FALSE_POSITIVE: "FALSE_POSITIVE",
+  TRUE_POSITIVE: "TRUE_POSITIVE",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -1734,7 +1734,7 @@ export interface ViolationEventAdditionalInfo {
    *             The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>.
    *         </p>
    */
-  confidenceLevel?: ConfidenceLevel | string;
+  confidenceLevel?: keyof typeof ConfidenceLevel | string;
 }
 
 /**
@@ -1777,7 +1777,7 @@ export interface ActiveViolation {
   /**
    * <p>The verification state of the violation (detect alarm).</p>
    */
-  verificationState?: VerificationState | string;
+  verificationState?: keyof typeof VerificationState | string;
 
   /**
    * <p>The description of the verification state of the violation.</p>
@@ -1901,11 +1901,11 @@ export interface AddThingToThingGroupResponse {}
 /**
  * @public
  */
-export enum AggregationTypeName {
-  CARDINALITY = "Cardinality",
-  PERCENTILES = "Percentiles",
-  STATISTICS = "Statistics",
-}
+export const AggregationTypeName = {
+  CARDINALITY: "Cardinality",
+  PERCENTILES: "Percentiles",
+  STATISTICS: "Statistics",
+};
 
 /**
  * @public
@@ -1915,7 +1915,7 @@ export interface AggregationType {
   /**
    * <p>The name of the aggregation type.</p>
    */
-  name: AggregationTypeName | string | undefined;
+  name: keyof typeof AggregationTypeName | string | undefined;
 
   /**
    * <p>A list of the values of aggregation types.</p>
@@ -1943,9 +1943,9 @@ export interface AlertTarget {
 /**
  * @public
  */
-export enum AlertTargetType {
-  SNS = "SNS",
-}
+export const AlertTargetType = {
+  SNS: "SNS",
+};
 
 /**
  * @public
@@ -2182,14 +2182,14 @@ export interface AuditCheckConfiguration {
 /**
  * @public
  */
-export enum AuditCheckRunStatus {
-  CANCELED = "CANCELED",
-  COMPLETED_COMPLIANT = "COMPLETED_COMPLIANT",
-  COMPLETED_NON_COMPLIANT = "COMPLETED_NON_COMPLIANT",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  WAITING_FOR_DATA_COLLECTION = "WAITING_FOR_DATA_COLLECTION",
-}
+export const AuditCheckRunStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED_COMPLIANT: "COMPLETED_COMPLIANT",
+  COMPLETED_NON_COMPLIANT: "COMPLETED_NON_COMPLIANT",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  WAITING_FOR_DATA_COLLECTION: "WAITING_FOR_DATA_COLLECTION",
+};
 
 /**
  * @public
@@ -2200,7 +2200,7 @@ export interface AuditCheckDetails {
    * <p>The completion status of this check. One of "IN_PROGRESS", "WAITING_FOR_DATA_COLLECTION",
    *         "CANCELED", "COMPLETED_COMPLIANT", "COMPLETED_NON_COMPLIANT", or "FAILED".</p>
    */
-  checkRunStatus?: AuditCheckRunStatus | string;
+  checkRunStatus?: keyof typeof AuditCheckRunStatus | string;
 
   /**
    * <p>True if the check is complete and found all resources compliant.</p>
@@ -2332,17 +2332,17 @@ export interface ResourceIdentifier {
 /**
  * @public
  */
-export enum ResourceType {
-  ACCOUNT_SETTINGS = "ACCOUNT_SETTINGS",
-  CA_CERTIFICATE = "CA_CERTIFICATE",
-  CLIENT_ID = "CLIENT_ID",
-  COGNITO_IDENTITY_POOL = "COGNITO_IDENTITY_POOL",
-  DEVICE_CERTIFICATE = "DEVICE_CERTIFICATE",
-  IAM_ROLE = "IAM_ROLE",
-  IOT_POLICY = "IOT_POLICY",
-  ISSUER_CERTIFICATE = "ISSUER_CERTIFICATE",
-  ROLE_ALIAS = "ROLE_ALIAS",
-}
+export const ResourceType = {
+  ACCOUNT_SETTINGS: "ACCOUNT_SETTINGS",
+  CA_CERTIFICATE: "CA_CERTIFICATE",
+  CLIENT_ID: "CLIENT_ID",
+  COGNITO_IDENTITY_POOL: "COGNITO_IDENTITY_POOL",
+  DEVICE_CERTIFICATE: "DEVICE_CERTIFICATE",
+  IAM_ROLE: "IAM_ROLE",
+  IOT_POLICY: "IOT_POLICY",
+  ISSUER_CERTIFICATE: "ISSUER_CERTIFICATE",
+  ROLE_ALIAS: "ROLE_ALIAS",
+};
 
 /**
  * @public
@@ -2352,7 +2352,7 @@ export interface NonCompliantResource {
   /**
    * <p>The type of the noncompliant resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>Information that identifies the noncompliant resource.</p>
@@ -2373,7 +2373,7 @@ export interface RelatedResource {
   /**
    * <p>The type of resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>Information that identifies the resource.</p>
@@ -2389,12 +2389,12 @@ export interface RelatedResource {
 /**
  * @public
  */
-export enum AuditFindingSeverity {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const AuditFindingSeverity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+};
 
 /**
  * @public
@@ -2430,7 +2430,7 @@ export interface AuditFinding {
   /**
    * <p>The severity of the result (finding).</p>
    */
-  severity?: AuditFindingSeverity | string;
+  severity?: keyof typeof AuditFindingSeverity | string;
 
   /**
    * <p>The resource that was found to be noncompliant with the
@@ -2464,24 +2464,24 @@ export interface AuditFinding {
 /**
  * @public
  */
-export enum AuditFrequency {
-  BIWEEKLY = "BIWEEKLY",
-  DAILY = "DAILY",
-  MONTHLY = "MONTHLY",
-  WEEKLY = "WEEKLY",
-}
+export const AuditFrequency = {
+  BIWEEKLY: "BIWEEKLY",
+  DAILY: "DAILY",
+  MONTHLY: "MONTHLY",
+  WEEKLY: "WEEKLY",
+};
 
 /**
  * @public
  */
-export enum AuditMitigationActionsExecutionStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SKIPPED = "SKIPPED",
-}
+export const AuditMitigationActionsExecutionStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SKIPPED: "SKIPPED",
+};
 
 /**
  * @public
@@ -2511,7 +2511,7 @@ export interface AuditMitigationActionExecutionMetadata {
   /**
    * <p>The current status of the task being executed.</p>
    */
-  status?: AuditMitigationActionsExecutionStatus | string;
+  status?: keyof typeof AuditMitigationActionsExecutionStatus | string;
 
   /**
    * <p>The date and time when the task was started.</p>
@@ -2537,12 +2537,12 @@ export interface AuditMitigationActionExecutionMetadata {
 /**
  * @public
  */
-export enum AuditMitigationActionsTaskStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const AuditMitigationActionsTaskStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -2562,7 +2562,7 @@ export interface AuditMitigationActionsTaskMetadata {
   /**
    * <p>The current state of the audit mitigation actions task.</p>
    */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
+  taskStatus?: keyof typeof AuditMitigationActionsTaskStatus | string;
 }
 
 /**
@@ -2641,9 +2641,9 @@ export interface AuditNotificationTarget {
 /**
  * @public
  */
-export enum AuditNotificationType {
-  SNS = "SNS",
-}
+export const AuditNotificationType = {
+  SNS: "SNS",
+};
 
 /**
  * @public
@@ -2688,20 +2688,20 @@ export interface AuditSuppression {
 /**
  * @public
  */
-export enum AuditTaskStatus {
-  CANCELED = "CANCELED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const AuditTaskStatus = {
+  CANCELED: "CANCELED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum AuditTaskType {
-  ON_DEMAND_AUDIT_TASK = "ON_DEMAND_AUDIT_TASK",
-  SCHEDULED_AUDIT_TASK = "SCHEDULED_AUDIT_TASK",
-}
+export const AuditTaskType = {
+  ON_DEMAND_AUDIT_TASK: "ON_DEMAND_AUDIT_TASK",
+  SCHEDULED_AUDIT_TASK: "SCHEDULED_AUDIT_TASK",
+};
 
 /**
  * @public
@@ -2717,22 +2717,22 @@ export interface AuditTaskMetadata {
    * <p>The status of this audit. One of "IN_PROGRESS", "COMPLETED",
    *         "FAILED", or "CANCELED".</p>
    */
-  taskStatus?: AuditTaskStatus | string;
+  taskStatus?: keyof typeof AuditTaskStatus | string;
 
   /**
    * <p>The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
    */
-  taskType?: AuditTaskType | string;
+  taskType?: keyof typeof AuditTaskType | string;
 }
 
 /**
  * @public
  */
-export enum AuthDecision {
-  ALLOWED = "ALLOWED",
-  EXPLICIT_DENY = "EXPLICIT_DENY",
-  IMPLICIT_DENY = "IMPLICIT_DENY",
-}
+export const AuthDecision = {
+  ALLOWED: "ALLOWED",
+  EXPLICIT_DENY: "EXPLICIT_DENY",
+  IMPLICIT_DENY: "IMPLICIT_DENY",
+};
 
 /**
  * @public
@@ -2742,7 +2742,7 @@ export interface AuthInfo {
   /**
    * <p>The type of action for which the principal is being authorized.</p>
    */
-  actionType?: ActionType | string;
+  actionType?: keyof typeof ActionType | string;
 
   /**
    * <p>The resources for which the principal is being authorized to perform the specified
@@ -2770,10 +2770,10 @@ export interface AuthorizerConfig {
 /**
  * @public
  */
-export enum AuthorizerStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const AuthorizerStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -2809,7 +2809,7 @@ export interface AuthorizerDescription {
   /**
    * <p>The status of the authorizer.</p>
    */
-  status?: AuthorizerStatus | string;
+  status?: keyof typeof AuthorizerStatus | string;
 
   /**
    * <p>The UNIX timestamp of when the authorizer was created.</p>
@@ -2917,7 +2917,7 @@ export interface AuthResult {
    *          account when determining the authorization decision. An explicit deny statement can
    *          override multiple allow statements.</p>
    */
-  authDecision?: AuthDecision | string;
+  authDecision?: keyof typeof AuthDecision | string;
 
   /**
    * <p>Contains any missing context values found while evaluating policy.</p>
@@ -2928,10 +2928,10 @@ export interface AuthResult {
 /**
  * @public
  */
-export enum AutoRegistrationStatus {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+export const AutoRegistrationStatus = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+};
 
 /**
  * @public
@@ -3302,7 +3302,7 @@ export interface CreateAuthorizerRequest {
   /**
    * <p>The status of the create authorizer request.</p>
    */
-  status?: AuthorizerStatus | string;
+  status?: keyof typeof AuthorizerStatus | string;
 
   /**
    * <p>Metadata which can be used to manage the custom authorizer.</p>
@@ -3439,12 +3439,12 @@ export interface CreateCertificateFromCsrResponse {
 /**
  * @public
  */
-export enum CustomMetricType {
-  IP_ADDRESS_LIST = "ip-address-list",
-  NUMBER = "number",
-  NUMBER_LIST = "number-list",
-  STRING_LIST = "string-list",
-}
+export const CustomMetricType = {
+  IP_ADDRESS_LIST: "ip-address-list",
+  NUMBER: "number",
+  NUMBER_LIST: "number-list",
+  STRING_LIST: "string-list",
+};
 
 /**
  * @public
@@ -3472,7 +3472,7 @@ export interface CreateCustomMetricRequest {
    *         single value.</p>
    *          </important>
    */
-  metricType: CustomMetricType | string | undefined;
+  metricType: keyof typeof CustomMetricType | string | undefined;
 
   /**
    * <p>
@@ -3514,9 +3514,9 @@ export interface CreateCustomMetricResponse {
 /**
  * @public
  */
-export enum DimensionType {
-  TOPIC_FILTER = "TOPIC_FILTER",
-}
+export const DimensionType = {
+  TOPIC_FILTER: "TOPIC_FILTER",
+};
 
 /**
  * @public
@@ -3531,7 +3531,7 @@ export interface CreateDimensionRequest {
    * <p>Specifies the type of dimension. Supported types: <code>TOPIC_FILTER.</code>
    *          </p>
    */
-  type: DimensionType | string | undefined;
+  type: keyof typeof DimensionType | string | undefined;
 
   /**
    * <p>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code> dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").</p>
@@ -3591,11 +3591,11 @@ export class CertificateValidationException extends __BaseException {
 /**
  * @public
  */
-export enum ServiceType {
-  CREDENTIAL_PROVIDER = "CREDENTIAL_PROVIDER",
-  DATA = "DATA",
-  JOBS = "JOBS",
-}
+export const ServiceType = {
+  CREDENTIAL_PROVIDER: "CREDENTIAL_PROVIDER",
+  DATA: "DATA",
+  JOBS: "JOBS",
+};
 
 /**
  * @public
@@ -3634,7 +3634,7 @@ export interface CreateDomainConfigurationRequest {
    *             <p>Amazon Web Services IoT Core currently supports only the <code>DATA</code> service type.</p>
    *          </note>
    */
-  serviceType?: ServiceType | string;
+  serviceType?: keyof typeof ServiceType | string;
 
   /**
    * <p>Metadata which can be used to manage the domain configuration.</p>
@@ -3781,35 +3781,35 @@ export class InvalidQueryException extends __BaseException {
 /**
  * @public
  */
-export enum FleetMetricUnit {
-  Bits = "Bits",
-  BitsSecond = "Bits/Second",
-  Bytes = "Bytes",
-  BytesSecond = "Bytes/Second",
-  Count = "Count",
-  CountSecond = "Count/Second",
-  Gigabits = "Gigabits",
-  GigabitsSecond = "Gigabits/Second",
-  Gigabytes = "Gigabytes",
-  GigabytesSecond = "Gigabytes/Second",
-  Kilobits = "Kilobits",
-  KilobitsSecond = "Kilobits/Second",
-  Kilobytes = "Kilobytes",
-  KilobytesSecond = "Kilobytes/Second",
-  Megabits = "Megabits",
-  MegabitsSecond = "Megabits/Second",
-  Megabytes = "Megabytes",
-  MegabytesSecond = "Megabytes/Second",
-  Microseconds = "Microseconds",
-  Milliseconds = "Milliseconds",
-  None = "None",
-  Percent = "Percent",
-  Seconds = "Seconds",
-  Terabits = "Terabits",
-  TerabitsSecond = "Terabits/Second",
-  Terabytes = "Terabytes",
-  TerabytesSecond = "Terabytes/Second",
-}
+export const FleetMetricUnit = {
+  Bits: "Bits",
+  BitsSecond: "Bits/Second",
+  Bytes: "Bytes",
+  BytesSecond: "Bytes/Second",
+  Count: "Count",
+  CountSecond: "Count/Second",
+  Gigabits: "Gigabits",
+  GigabitsSecond: "Gigabits/Second",
+  Gigabytes: "Gigabytes",
+  GigabytesSecond: "Gigabytes/Second",
+  Kilobits: "Kilobits",
+  KilobitsSecond: "Kilobits/Second",
+  Kilobytes: "Kilobytes",
+  KilobytesSecond: "Kilobytes/Second",
+  Megabits: "Megabits",
+  MegabitsSecond: "Megabits/Second",
+  Megabytes: "Megabytes",
+  MegabytesSecond: "Megabytes/Second",
+  Microseconds: "Microseconds",
+  Milliseconds: "Milliseconds",
+  None: "None",
+  Percent: "Percent",
+  Seconds: "Seconds",
+  Terabits: "Terabits",
+  TerabitsSecond: "Terabits/Second",
+  Terabytes: "Terabytes",
+  TerabytesSecond: "Terabytes/Second",
+};
 
 /**
  * @public
@@ -3859,7 +3859,7 @@ export interface CreateFleetMetricRequest {
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
    *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>. Default to null.</p>
    */
-  unit?: FleetMetricUnit | string;
+  unit?: keyof typeof FleetMetricUnit | string;
 
   /**
    * <p>Metadata, which can be used to manage the fleet metric.</p>
@@ -3925,11 +3925,11 @@ export class InvalidAggregationException extends __BaseException {
 /**
  * @public
  */
-export enum RetryableFailureType {
-  ALL = "ALL",
-  FAILED = "FAILED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const RetryableFailureType = {
+  ALL: "ALL",
+  FAILED: "FAILED",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -3940,7 +3940,7 @@ export interface RetryCriteria {
   /**
    * <p>The type of job execution failures that can initiate a job retry.</p>
    */
-  failureType: RetryableFailureType | string | undefined;
+  failureType: keyof typeof RetryableFailureType | string | undefined;
 
   /**
    * <p>The number of retries allowed for a failure type for the job.</p>
@@ -4043,11 +4043,11 @@ export interface PresignedUrlConfig {
 /**
  * @public
  */
-export enum JobEndBehavior {
-  CANCEL = "CANCEL",
-  FORCE_CANCEL = "FORCE_CANCEL",
-  STOP_ROLLOUT = "STOP_ROLLOUT",
-}
+export const JobEndBehavior = {
+  CANCEL: "CANCEL",
+  FORCE_CANCEL: "FORCE_CANCEL",
+  STOP_ROLLOUT: "STOP_ROLLOUT",
+};
 
 /**
  * @public
@@ -4095,7 +4095,7 @@ export interface SchedulingConfig {
    *                 <code>endTime</code>. If <code>endTime</code> is not selected when creating the job,
    *             then <code>endBehavior</code> does not apply.</p>
    */
-  endBehavior?: JobEndBehavior | string;
+  endBehavior?: keyof typeof JobEndBehavior | string;
 
   /**
    * <p>An optional configuration within the <code>SchedulingConfig</code> to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.</p>
@@ -4106,10 +4106,10 @@ export interface SchedulingConfig {
 /**
  * @public
  */
-export enum TargetSelection {
-  CONTINUOUS = "CONTINUOUS",
-  SNAPSHOT = "SNAPSHOT",
-}
+export const TargetSelection = {
+  CONTINUOUS: "CONTINUOUS",
+  SNAPSHOT: "SNAPSHOT",
+};
 
 /**
  * @public
@@ -4183,7 +4183,7 @@ export interface CreateJobRequest {
    *                 been created.</p>
    *          </note>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: keyof typeof TargetSelection | string;
 
   /**
    * <p>Allows you to create a staged rollout of the job.</p>
@@ -4439,13 +4439,13 @@ export interface CreateKeysAndCertificateResponse {
 /**
  * @public
  */
-export enum LogLevel {
-  DEBUG = "DEBUG",
-  DISABLED = "DISABLED",
-  ERROR = "ERROR",
-  INFO = "INFO",
-  WARN = "WARN",
-}
+export const LogLevel = {
+  DEBUG: "DEBUG",
+  DISABLED: "DISABLED",
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARN: "WARN",
+};
 
 /**
  * @public
@@ -4460,7 +4460,7 @@ export interface EnableIoTLoggingParams {
   /**
    * <p>Specifies the type of information to be logged.</p>
    */
-  logLevel: LogLevel | string | undefined;
+  logLevel: keyof typeof LogLevel | string | undefined;
 }
 
 /**
@@ -4477,9 +4477,9 @@ export interface PublishFindingToSnsParams {
 /**
  * @public
  */
-export enum PolicyTemplateName {
-  BLANK_POLICY = "BLANK_POLICY",
-}
+export const PolicyTemplateName = {
+  BLANK_POLICY: "BLANK_POLICY",
+};
 
 /**
  * @public
@@ -4489,15 +4489,15 @@ export interface ReplaceDefaultPolicyVersionParams {
   /**
    * <p>The name of the template to be applied. The only supported value is <code>BLANK_POLICY</code>.</p>
    */
-  templateName: PolicyTemplateName | string | undefined;
+  templateName: keyof typeof PolicyTemplateName | string | undefined;
 }
 
 /**
  * @public
  */
-export enum CACertificateUpdateAction {
-  DEACTIVATE = "DEACTIVATE",
-}
+export const CACertificateUpdateAction = {
+  DEACTIVATE: "DEACTIVATE",
+};
 
 /**
  * @public
@@ -4507,15 +4507,15 @@ export interface UpdateCACertificateParams {
   /**
    * <p>The action that you want to apply to the CA certificate. The only supported value is <code>DEACTIVATE</code>.</p>
    */
-  action: CACertificateUpdateAction | string | undefined;
+  action: keyof typeof CACertificateUpdateAction | string | undefined;
 }
 
 /**
  * @public
  */
-export enum DeviceCertificateUpdateAction {
-  DEACTIVATE = "DEACTIVATE",
-}
+export const DeviceCertificateUpdateAction = {
+  DEACTIVATE: "DEACTIVATE",
+};
 
 /**
  * @public
@@ -4525,7 +4525,7 @@ export interface UpdateDeviceCertificateParams {
   /**
    * <p>The action that you want to apply to the device certificate. The only supported value is <code>DEACTIVATE</code>.</p>
    */
-  action: DeviceCertificateUpdateAction | string | undefined;
+  action: keyof typeof DeviceCertificateUpdateAction | string | undefined;
 }
 
 /**
@@ -4607,19 +4607,19 @@ export interface CreateMitigationActionResponse {
 /**
  * @public
  */
-export enum AwsJobAbortCriteriaAbortAction {
-  CANCEL = "CANCEL",
-}
+export const AwsJobAbortCriteriaAbortAction = {
+  CANCEL: "CANCEL",
+};
 
 /**
  * @public
  */
-export enum AwsJobAbortCriteriaFailureType {
-  ALL = "ALL",
-  FAILED = "FAILED",
-  REJECTED = "REJECTED",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const AwsJobAbortCriteriaFailureType = {
+  ALL: "ALL",
+  FAILED: "FAILED",
+  REJECTED: "REJECTED",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -4629,12 +4629,12 @@ export interface AwsJobAbortCriteria {
   /**
    * <p>The type of job execution failures that can initiate a job abort.</p>
    */
-  failureType: AwsJobAbortCriteriaFailureType | string | undefined;
+  failureType: keyof typeof AwsJobAbortCriteriaFailureType | string | undefined;
 
   /**
    * <p>The type of job action to take to initiate the job abort.</p>
    */
-  action: AwsJobAbortCriteriaAbortAction | string | undefined;
+  action: keyof typeof AwsJobAbortCriteriaAbortAction | string | undefined;
 
   /**
    * <p>The minimum percentage of job execution failures that must occur to initiate the job abort.</p>
@@ -4987,10 +4987,10 @@ export interface OTAUpdateFile {
 /**
  * @public
  */
-export enum Protocol {
-  HTTP = "HTTP",
-  MQTT = "MQTT",
-}
+export const Protocol = {
+  HTTP: "HTTP",
+  MQTT: "MQTT",
+};
 
 /**
  * @public
@@ -5015,7 +5015,7 @@ export interface CreateOTAUpdateRequest {
    * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
    *            HTTP and MQTT are specified, the target device can choose the protocol.</p>
    */
-  protocols?: (Protocol | string)[];
+  protocols?: (keyof typeof Protocol | string)[];
 
   /**
    * <p>Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things
@@ -5024,7 +5024,7 @@ export interface CreateOTAUpdateRequest {
    *             added to a target group, even after the update was completed by all things originally in the group. Valid
    *             values: CONTINUOUS | SNAPSHOT.</p>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: keyof typeof TargetSelection | string;
 
   /**
    * <p>Configuration for the rollout of OTA updates.</p>
@@ -5074,12 +5074,12 @@ export interface CreateOTAUpdateRequest {
 /**
  * @public
  */
-export enum OTAUpdateStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_PENDING = "CREATE_PENDING",
-}
+export const OTAUpdateStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_PENDING: "CREATE_PENDING",
+};
 
 /**
  * @public
@@ -5108,7 +5108,7 @@ export interface CreateOTAUpdateResponse {
   /**
    * <p>The OTA update status.</p>
    */
-  otaUpdateStatus?: OTAUpdateStatus | string;
+  otaUpdateStatus?: keyof typeof OTAUpdateStatus | string;
 }
 
 /**
@@ -5315,10 +5315,10 @@ export interface ProvisioningHook {
 /**
  * @public
  */
-export enum TemplateType {
-  FLEET_PROVISIONING = "FLEET_PROVISIONING",
-  JITP = "JITP",
-}
+export const TemplateType = {
+  FLEET_PROVISIONING: "FLEET_PROVISIONING",
+  JITP: "JITP",
+};
 
 /**
  * @public
@@ -5375,7 +5375,7 @@ export interface CreateProvisioningTemplateRequest {
    *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
    *       </p>
    */
-  type?: TemplateType | string;
+  type?: keyof typeof TemplateType | string;
 }
 
 /**
@@ -5497,15 +5497,15 @@ export interface CreateRoleAliasResponse {
 /**
  * @public
  */
-export enum DayOfWeek {
-  FRI = "FRI",
-  MON = "MON",
-  SAT = "SAT",
-  SUN = "SUN",
-  THU = "THU",
-  TUE = "TUE",
-  WED = "WED",
-}
+export const DayOfWeek = {
+  FRI: "FRI",
+  MON: "MON",
+  SAT: "SAT",
+  SUN: "SUN",
+  THU: "THU",
+  TUE: "TUE",
+  WED: "WED",
+};
 
 /**
  * @public
@@ -5518,7 +5518,7 @@ export interface CreateScheduledAuditRequest {
    *       <code>WEEKLY</code>, <code>BIWEEKLY</code> or <code>MONTHLY</code>. The start time of each audit is
    *       determined by the system.</p>
    */
-  frequency: AuditFrequency | string | undefined;
+  frequency: keyof typeof AuditFrequency | string | undefined;
 
   /**
    * <p>The day of the month on which the scheduled audit takes place.
@@ -5540,7 +5540,7 @@ export interface CreateScheduledAuditRequest {
    *       <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>. This field is required if the <code>frequency</code>
    *       parameter is set to <code>WEEKLY</code> or <code>BIWEEKLY</code>.</p>
    */
-  dayOfWeek?: DayOfWeek | string;
+  dayOfWeek?: keyof typeof DayOfWeek | string;
 
   /**
    * <p>Which checks are performed during the scheduled audit. Checks must be enabled
@@ -6027,13 +6027,13 @@ export interface HttpUrlDestinationProperties {
 /**
  * @public
  */
-export enum TopicRuleDestinationStatus {
-  DELETING = "DELETING",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const TopicRuleDestinationStatus = {
+  DELETING: "DELETING",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -6105,7 +6105,7 @@ export interface TopicRuleDestination {
    *             </dd>
    *          </dl>
    */
-  status?: TopicRuleDestinationStatus | string;
+  status?: keyof typeof TopicRuleDestinationStatus | string;
 
   /**
    * <p>The date and time when the topic rule destination was created.</p>

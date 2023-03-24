@@ -25,15 +25,15 @@ export interface AcknowledgeJobInput {
 /**
  * @public
  */
-export enum JobStatus {
-  Created = "Created",
-  Dispatched = "Dispatched",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Queued = "Queued",
-  Succeeded = "Succeeded",
-  TimedOut = "TimedOut",
-}
+export const JobStatus = {
+  Created: "Created",
+  Dispatched: "Dispatched",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Queued: "Queued",
+  Succeeded: "Succeeded",
+  TimedOut: "TimedOut",
+};
 
 /**
  * @public
@@ -43,7 +43,7 @@ export interface AcknowledgeJobOutput {
   /**
    * <p>Whether the job worker has received the specified job.</p>
    */
-  status?: JobStatus | string;
+  status?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -137,7 +137,7 @@ export interface AcknowledgeThirdPartyJobOutput {
   /**
    * <p>The status information for the third party job, if any.</p>
    */
-  status?: JobStatus | string;
+  status?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -163,14 +163,14 @@ export class InvalidClientTokenException extends __BaseException {
 /**
  * @public
  */
-export enum ActionCategory {
-  Approval = "Approval",
-  Build = "Build",
-  Deploy = "Deploy",
-  Invoke = "Invoke",
-  Source = "Source",
-  Test = "Test",
-}
+export const ActionCategory = {
+  Approval: "Approval",
+  Build: "Build",
+  Deploy: "Deploy",
+  Invoke: "Invoke",
+  Source: "Source",
+  Test: "Test",
+};
 
 /**
  * @public
@@ -186,11 +186,11 @@ export interface ActionConfiguration {
 /**
  * @public
  */
-export enum ActionConfigurationPropertyType {
-  Boolean = "Boolean",
-  Number = "Number",
-  String = "String",
-}
+export const ActionConfigurationPropertyType = {
+  Boolean: "Boolean",
+  Number: "Number",
+  String: "String",
+};
 
 /**
  * @public
@@ -241,7 +241,7 @@ export interface ActionConfigurationProperty {
   /**
    * <p>The type of the configuration property.</p>
    */
-  type?: ActionConfigurationPropertyType | string;
+  type?: keyof typeof ActionConfigurationPropertyType | string;
 }
 
 /**
@@ -264,11 +264,11 @@ export interface ActionContext {
 /**
  * @public
  */
-export enum ActionOwner {
-  AWS = "AWS",
-  Custom = "Custom",
-  ThirdParty = "ThirdParty",
-}
+export const ActionOwner = {
+  AWS: "AWS",
+  Custom: "Custom",
+  ThirdParty: "ThirdParty",
+};
 
 /**
  * @public
@@ -300,7 +300,7 @@ export interface ActionTypeId {
    *             </li>
    *          </ul>
    */
-  category: ActionCategory | string | undefined;
+  category: keyof typeof ActionCategory | string | undefined;
 
   /**
    * <p>The creator of the action being called. There are three valid values for the
@@ -308,7 +308,7 @@ export interface ActionTypeId {
    *             structure: <code>AWS</code>, <code>ThirdParty</code>, and <code>Custom</code>. For more
    *             information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid Action Types and Providers in CodePipeline</a>.</p>
    */
-  owner: ActionOwner | string | undefined;
+  owner: keyof typeof ActionOwner | string | undefined;
 
   /**
    * <p>The provider of the service being called by the action. Valid providers are
@@ -445,12 +445,12 @@ export interface ErrorDetails {
 /**
  * @public
  */
-export enum ActionExecutionStatus {
-  Abandoned = "Abandoned",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Succeeded = "Succeeded",
-}
+export const ActionExecutionStatus = {
+  Abandoned: "Abandoned",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Succeeded: "Succeeded",
+};
 
 /**
  * @public
@@ -471,7 +471,7 @@ export interface ActionExecution {
    * <p>The status of the action, or for a completed action, the last status of the
    *             action.</p>
    */
-  status?: ActionExecutionStatus | string;
+  status?: keyof typeof ActionExecutionStatus | string;
 
   /**
    * <p>A summary of the run of the action.</p>
@@ -687,7 +687,7 @@ export interface ActionExecutionDetail {
    * <p> The status of the action execution. Status categories are <code>InProgress</code>,
    *                 <code>Succeeded</code>, and <code>Failed</code>.</p>
    */
-  status?: ActionExecutionStatus | string;
+  status?: keyof typeof ActionExecutionStatus | string;
 
   /**
    * <p>Input details for the action execution, such as role ARN, Region, and input
@@ -943,10 +943,10 @@ export interface ExecutorConfiguration {
 /**
  * @public
  */
-export enum ExecutorType {
-  JobWorker = "JobWorker",
-  Lambda = "Lambda",
-}
+export const ExecutorType = {
+  JobWorker: "JobWorker",
+  Lambda: "Lambda",
+};
 
 /**
  * @public
@@ -966,7 +966,7 @@ export interface ActionTypeExecutor {
    * <p>The integration model used to create and update the action type, <code>Lambda</code>
    *             or <code>JobWorker</code>. </p>
    */
-  type: ExecutorType | string | undefined;
+  type: keyof typeof ExecutorType | string | undefined;
 
   /**
    * <p>The policy statement that specifies the permissions in the CodePipeline customer’s
@@ -1027,7 +1027,7 @@ export interface ActionTypeIdentifier {
    *             </li>
    *          </ul>
    */
-  category: ActionCategory | string | undefined;
+  category: keyof typeof ActionCategory | string | undefined;
 
   /**
    * <p>The creator of the action type being called: <code>AWS</code> or
@@ -1229,10 +1229,10 @@ export class ApprovalAlreadyCompletedException extends __BaseException {
 /**
  * @public
  */
-export enum ApprovalStatus {
-  Approved = "Approved",
-  Rejected = "Rejected",
-}
+export const ApprovalStatus = {
+  Approved: "Approved",
+  Rejected: "Rejected",
+};
 
 /**
  * @public
@@ -1248,7 +1248,7 @@ export interface ApprovalResult {
    * <p>The response submitted by a reviewer assigned to an approval action
    *             request.</p>
    */
-  status: ApprovalStatus | string | undefined;
+  status: keyof typeof ApprovalStatus | string | undefined;
 }
 
 /**
@@ -1271,9 +1271,9 @@ export interface S3ArtifactLocation {
 /**
  * @public
  */
-export enum ArtifactLocationType {
-  S3 = "S3",
-}
+export const ArtifactLocationType = {
+  S3: "S3",
+};
 
 /**
  * @public
@@ -1283,7 +1283,7 @@ export interface ArtifactLocation {
   /**
    * <p>The type of artifact in the location.</p>
    */
-  type?: ArtifactLocationType | string;
+  type?: keyof typeof ArtifactLocationType | string;
 
   /**
    * <p>The S3 bucket that contains the artifact.</p>
@@ -1360,9 +1360,9 @@ export interface ArtifactRevision {
 /**
  * @public
  */
-export enum EncryptionKeyType {
-  KMS = "KMS",
-}
+export const EncryptionKeyType = {
+  KMS: "KMS",
+};
 
 /**
  * @public
@@ -1385,15 +1385,15 @@ export interface EncryptionKey {
    * <p>The type of encryption key, such as an AWS Key Management Service (AWS KMS) key.
    *             When creating or updating a pipeline, the value must be set to 'KMS'.</p>
    */
-  type: EncryptionKeyType | string | undefined;
+  type: keyof typeof EncryptionKeyType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ArtifactStoreType {
-  S3 = "S3",
-}
+export const ArtifactStoreType = {
+  S3: "S3",
+};
 
 /**
  * @public
@@ -1409,7 +1409,7 @@ export interface ArtifactStore {
   /**
    * <p>The type of the artifact store, such as S3.</p>
    */
-  type: ArtifactStoreType | string | undefined;
+  type: keyof typeof ArtifactStoreType | string | undefined;
 
   /**
    * <p>The S3 bucket used for storing the artifacts for a pipeline. You can specify the
@@ -1455,9 +1455,9 @@ export interface AWSSessionCredentials {
 /**
  * @public
  */
-export enum BlockerType {
-  Schedule = "Schedule",
-}
+export const BlockerType = {
+  Schedule: "Schedule",
+};
 
 /**
  * @public
@@ -1472,7 +1472,7 @@ export interface BlockerDeclaration {
   /**
    * <p>Reserved for future use.</p>
    */
-  type: BlockerType | string | undefined;
+  type: keyof typeof BlockerType | string | undefined;
 }
 
 /**
@@ -1520,7 +1520,7 @@ export interface CreateCustomActionTypeInput {
    * <p>The category of the custom action, such as a build action or a test
    *             action.</p>
    */
-  category: ActionCategory | string | undefined;
+  category: keyof typeof ActionCategory | string | undefined;
 
   /**
    * <p>The provider of the service used in the custom action, such as AWS
@@ -1863,7 +1863,7 @@ export interface DeleteCustomActionTypeInput {
    * <p>The category of the custom action that you want to delete, such as source or
    *             deploy.</p>
    */
-  category: ActionCategory | string | undefined;
+  category: keyof typeof ActionCategory | string | undefined;
 
   /**
    * <p>The provider of the service used in the custom action, such as AWS
@@ -1942,10 +1942,10 @@ export class WebhookNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum StageTransitionType {
-  Inbound = "Inbound",
-  Outbound = "Outbound",
-}
+export const StageTransitionType = {
+  Inbound: "Inbound",
+  Outbound: "Outbound",
+};
 
 /**
  * @public
@@ -1970,7 +1970,7 @@ export interface DisableStageTransitionInput {
    *             from the stage after they have been processed by the actions in that stage
    *             (outbound).</p>
    */
-  transitionType: StageTransitionType | string | undefined;
+  transitionType: keyof typeof StageTransitionType | string | undefined;
 
   /**
    * <p>The reason given to the user that a stage is disabled, such as waiting for manual
@@ -2042,7 +2042,7 @@ export interface EnableStageTransitionInput {
    *             actions in that stage (inbound) or whether already processed artifacts are allowed to
    *             transition to the next stage (outbound).</p>
    */
-  transitionType: StageTransitionType | string | undefined;
+  transitionType: keyof typeof StageTransitionType | string | undefined;
 }
 
 /**
@@ -2085,7 +2085,7 @@ export interface GetActionTypeInput {
    *             </li>
    *          </ul>
    */
-  category: ActionCategory | string | undefined;
+  category: keyof typeof ActionCategory | string | undefined;
 
   /**
    * <p>The creator of an action type that was created with any supported integration model.
@@ -2367,15 +2367,15 @@ export interface GetPipelineExecutionInput {
 /**
  * @public
  */
-export enum PipelineExecutionStatus {
-  Cancelled = "Cancelled",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Succeeded = "Succeeded",
-  Superseded = "Superseded",
-}
+export const PipelineExecutionStatus = {
+  Cancelled: "Cancelled",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Succeeded: "Succeeded",
+  Superseded: "Superseded",
+};
 
 /**
  * @public
@@ -2429,7 +2429,7 @@ export interface PipelineExecution {
    *             </li>
    *          </ul>
    */
-  status?: PipelineExecutionStatus | string;
+  status?: keyof typeof PipelineExecutionStatus | string;
 
   /**
    * <p>A summary that contains a description of the pipeline execution status.</p>
@@ -2489,14 +2489,14 @@ export interface GetPipelineStateInput {
 /**
  * @public
  */
-export enum StageExecutionStatus {
-  Cancelled = "Cancelled",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Succeeded = "Succeeded",
-}
+export const StageExecutionStatus = {
+  Cancelled: "Cancelled",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Succeeded: "Succeeded",
+};
 
 /**
  * @public
@@ -2516,7 +2516,7 @@ export interface StageExecution {
    *                 stage execution could be completed.</p>
    *         </note>
    */
-  status: StageExecutionStatus | string | undefined;
+  status: keyof typeof StageExecutionStatus | string | undefined;
 }
 
 /**
@@ -2828,7 +2828,7 @@ export interface ListActionTypesInput {
   /**
    * <p>Filters the list of action types to those created by a specified entity.</p>
    */
-  actionOwnerFilter?: ActionOwner | string;
+  actionOwnerFilter?: keyof typeof ActionOwner | string;
 
   /**
    * <p>An identifier that was returned from the previous list action types call, which can
@@ -2934,14 +2934,14 @@ export interface StopExecutionTrigger {
 /**
  * @public
  */
-export enum TriggerType {
-  CloudWatchEvent = "CloudWatchEvent",
-  CreatePipeline = "CreatePipeline",
-  PollForSourceChanges = "PollForSourceChanges",
-  PutActionRevision = "PutActionRevision",
-  StartPipelineExecution = "StartPipelineExecution",
-  Webhook = "Webhook",
-}
+export const TriggerType = {
+  CloudWatchEvent: "CloudWatchEvent",
+  CreatePipeline: "CreatePipeline",
+  PollForSourceChanges: "PollForSourceChanges",
+  PutActionRevision: "PutActionRevision",
+  StartPipelineExecution: "StartPipelineExecution",
+  Webhook: "Webhook",
+};
 
 /**
  * @public
@@ -2952,7 +2952,7 @@ export interface ExecutionTrigger {
    * <p>The type of change-detection method, command, or user interaction that started a
    *             pipeline execution.</p>
    */
-  triggerType?: TriggerType | string;
+  triggerType?: keyof typeof TriggerType | string;
 
   /**
    * <p>Detail related to the event that started a pipeline execution, such as the webhook ARN
@@ -3000,7 +3000,7 @@ export interface PipelineExecutionSummary {
    *             </li>
    *          </ul>
    */
-  status?: PipelineExecutionStatus | string;
+  status?: keyof typeof PipelineExecutionStatus | string;
 
   /**
    * <p>The date and time when the pipeline execution began, in timestamp format.</p>
@@ -3213,11 +3213,11 @@ export interface ListWebhooksInput {
 /**
  * @public
  */
-export enum WebhookAuthenticationType {
-  GITHUB_HMAC = "GITHUB_HMAC",
-  IP = "IP",
-  UNAUTHENTICATED = "UNAUTHENTICATED",
-}
+export const WebhookAuthenticationType = {
+  GITHUB_HMAC: "GITHUB_HMAC",
+  IP: "IP",
+  UNAUTHENTICATED: "UNAUTHENTICATED",
+};
 
 /**
  * @public
@@ -3313,7 +3313,7 @@ export interface WebhookDefinition {
    *             </li>
    *          </ul>
    */
-  authentication: WebhookAuthenticationType | string | undefined;
+  authentication: keyof typeof WebhookAuthenticationType | string | undefined;
 
   /**
    * <p>Properties that configure the authentication applied to incoming webhook trigger
@@ -3629,14 +3629,14 @@ export class InvalidJobStateException extends __BaseException {
 /**
  * @public
  */
-export enum FailureType {
-  ConfigurationError = "ConfigurationError",
-  JobFailed = "JobFailed",
-  PermissionError = "PermissionError",
-  RevisionOutOfSync = "RevisionOutOfSync",
-  RevisionUnavailable = "RevisionUnavailable",
-  SystemUnavailable = "SystemUnavailable",
-}
+export const FailureType = {
+  ConfigurationError: "ConfigurationError",
+  JobFailed: "JobFailed",
+  PermissionError: "PermissionError",
+  RevisionOutOfSync: "RevisionOutOfSync",
+  RevisionUnavailable: "RevisionUnavailable",
+  SystemUnavailable: "SystemUnavailable",
+};
 
 /**
  * @public
@@ -3646,7 +3646,7 @@ export interface FailureDetails {
   /**
    * <p>The type of the failure.</p>
    */
-  type: FailureType | string | undefined;
+  type: keyof typeof FailureType | string | undefined;
 
   /**
    * <p>The message about the failure.</p>
@@ -3980,9 +3980,9 @@ export class NotLatestPipelineExecutionException extends __BaseException {
 /**
  * @public
  */
-export enum StageRetryMode {
-  FAILED_ACTIONS = "FAILED_ACTIONS",
-}
+export const StageRetryMode = {
+  FAILED_ACTIONS: "FAILED_ACTIONS",
+};
 
 /**
  * @public
@@ -4009,7 +4009,7 @@ export interface RetryStageExecutionInput {
    * <p>The scope of the retry attempt. Currently, the only supported value is
    *             FAILED_ACTIONS.</p>
    */
-  retryMode: StageRetryMode | string | undefined;
+  retryMode: keyof typeof StageRetryMode | string | undefined;
 }
 
 /**

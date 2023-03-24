@@ -45,21 +45,21 @@ import {
 /**
  * @public
  */
-export enum SchemaStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  PENDING = "PENDING",
-}
+export const SchemaStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
  */
-export enum SchemaVersionStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-  FAILURE = "FAILURE",
-  PENDING = "PENDING",
-}
+export const SchemaVersionStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+  FAILURE: "FAILURE",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -93,12 +93,12 @@ export interface CreateSchemaResponse {
   /**
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat?: DataFormat | string;
+  DataFormat?: keyof typeof DataFormat | string;
 
   /**
    * <p>The schema compatibility mode.</p>
    */
-  Compatibility?: Compatibility | string;
+  Compatibility?: keyof typeof Compatibility | string;
 
   /**
    * <p>The version number of the checkpoint (the last time the compatibility mode was changed).</p>
@@ -118,7 +118,7 @@ export interface CreateSchemaResponse {
   /**
    * <p>The status of the schema. </p>
    */
-  SchemaStatus?: SchemaStatus | string;
+  SchemaStatus?: keyof typeof SchemaStatus | string;
 
   /**
    * <p>The tags for the schema.</p>
@@ -133,7 +133,7 @@ export interface CreateSchemaResponse {
   /**
    * <p>The status of the first schema version created.</p>
    */
-  SchemaVersionStatus?: SchemaVersionStatus | string;
+  SchemaVersionStatus?: keyof typeof SchemaVersionStatus | string;
 }
 
 /**
@@ -207,10 +207,10 @@ export interface CodeGenNode {
 /**
  * @public
  */
-export enum Language {
-  PYTHON = "PYTHON",
-  SCALA = "SCALA",
-}
+export const Language = {
+  PYTHON: "PYTHON",
+  SCALA: "SCALA",
+};
 
 /**
  * @public
@@ -229,7 +229,7 @@ export interface CreateScriptRequest {
   /**
    * <p>The programming language of the resulting code from the DAG.</p>
    */
-  Language?: Language | string;
+  Language?: keyof typeof Language | string;
 }
 
 /**
@@ -250,10 +250,10 @@ export interface CreateScriptResponse {
 /**
  * @public
  */
-export enum CloudWatchEncryptionMode {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-}
+export const CloudWatchEncryptionMode = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+};
 
 /**
  * @public
@@ -263,7 +263,7 @@ export interface CloudWatchEncryption {
   /**
    * <p>The encryption mode to use for CloudWatch data.</p>
    */
-  CloudWatchEncryptionMode?: CloudWatchEncryptionMode | string;
+  CloudWatchEncryptionMode?: keyof typeof CloudWatchEncryptionMode | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
@@ -274,10 +274,10 @@ export interface CloudWatchEncryption {
 /**
  * @public
  */
-export enum JobBookmarksEncryptionMode {
-  CSEKMS = "CSE-KMS",
-  DISABLED = "DISABLED",
-}
+export const JobBookmarksEncryptionMode = {
+  CSEKMS: "CSE-KMS",
+  DISABLED: "DISABLED",
+};
 
 /**
  * @public
@@ -287,7 +287,7 @@ export interface JobBookmarksEncryption {
   /**
    * <p>The encryption mode to use for job bookmarks data.</p>
    */
-  JobBookmarksEncryptionMode?: JobBookmarksEncryptionMode | string;
+  JobBookmarksEncryptionMode?: keyof typeof JobBookmarksEncryptionMode | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
@@ -298,11 +298,11 @@ export interface JobBookmarksEncryption {
 /**
  * @public
  */
-export enum S3EncryptionMode {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-  SSES3 = "SSE-S3",
-}
+export const S3EncryptionMode = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+  SSES3: "SSE-S3",
+};
 
 /**
  * @public
@@ -312,7 +312,7 @@ export interface S3Encryption {
   /**
    * <p>The encryption mode to use for Amazon S3 data.</p>
    */
-  S3EncryptionMode?: S3EncryptionMode | string;
+  S3EncryptionMode?: keyof typeof S3EncryptionMode | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.</p>
@@ -460,7 +460,7 @@ export interface CreateSessionRequest {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: keyof typeof WorkerType | string;
 
   /**
    * <p>The name of the SecurityConfiguration structure to be used with the session </p>
@@ -487,14 +487,14 @@ export interface CreateSessionRequest {
 /**
  * @public
  */
-export enum SessionStatus {
-  FAILED = "FAILED",
-  PROVISIONING = "PROVISIONING",
-  READY = "READY",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  TIMEOUT = "TIMEOUT",
-}
+export const SessionStatus = {
+  FAILED: "FAILED",
+  PROVISIONING: "PROVISIONING",
+  READY: "READY",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  TIMEOUT: "TIMEOUT",
+};
 
 /**
  * @public
@@ -514,7 +514,7 @@ export interface Session {
   /**
    * <p>The session status. </p>
    */
-  Status?: SessionStatus | string;
+  Status?: keyof typeof SessionStatus | string;
 
   /**
    * <p>The error message displayed during the session.</p>
@@ -751,7 +751,7 @@ export interface CreateTriggerRequest {
   /**
    * <p>The type of the new trigger.</p>
    */
-  Type: TriggerType | string | undefined;
+  Type: keyof typeof TriggerType | string | undefined;
 
   /**
    * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run
@@ -810,20 +810,20 @@ export interface CreateTriggerResponse {
 /**
  * @public
  */
-export enum PrincipalType {
-  GROUP = "GROUP",
-  ROLE = "ROLE",
-  USER = "USER",
-}
+export const PrincipalType = {
+  GROUP: "GROUP",
+  ROLE: "ROLE",
+  USER: "USER",
+};
 
 /**
  * @public
  */
-export enum ResourceType {
-  ARCHIVE = "ARCHIVE",
-  FILE = "FILE",
-  JAR = "JAR",
-}
+export const ResourceType = {
+  ARCHIVE: "ARCHIVE",
+  FILE: "FILE",
+  JAR: "JAR",
+};
 
 /**
  * @public
@@ -833,7 +833,7 @@ export interface ResourceUri {
   /**
    * <p>The type of the resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The URI for accessing the resource.</p>
@@ -864,7 +864,7 @@ export interface UserDefinedFunctionInput {
   /**
    * <p>The owner type.</p>
    */
-  OwnerType?: PrincipalType | string;
+  OwnerType?: keyof typeof PrincipalType | string;
 
   /**
    * <p>The resource URIs for the function.</p>
@@ -1339,10 +1339,10 @@ export interface DeleteRegistryInput {
 /**
  * @public
  */
-export enum RegistryStatus {
-  AVAILABLE = "AVAILABLE",
-  DELETING = "DELETING",
-}
+export const RegistryStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -1361,7 +1361,7 @@ export interface DeleteRegistryResponse {
   /**
    * <p>The status of the registry. A successful operation will return the <code>Deleting</code> status.</p>
    */
-  Status?: RegistryStatus | string;
+  Status?: keyof typeof RegistryStatus | string;
 }
 
 /**
@@ -1436,7 +1436,7 @@ export interface DeleteSchemaResponse {
   /**
    * <p>The status of the schema.</p>
    */
-  Status?: SchemaStatus | string;
+  Status?: keyof typeof SchemaStatus | string;
 }
 
 /**
@@ -1724,12 +1724,12 @@ export interface GetBlueprintRunRequest {
 /**
  * @public
  */
-export enum BlueprintRunState {
-  FAILED = "FAILED",
-  ROLLING_BACK = "ROLLING_BACK",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const BlueprintRunState = {
+  FAILED: "FAILED",
+  ROLLING_BACK: "ROLLING_BACK",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1768,7 +1768,7 @@ export interface BlueprintRun {
    *             </li>
    *          </ul>
    */
-  State?: BlueprintRunState | string;
+  State?: keyof typeof BlueprintRunState | string;
 
   /**
    * <p>The date and time that the blueprint run started.</p>
@@ -1937,7 +1937,7 @@ export interface CsvClassifier {
   /**
    * <p>Indicates whether the CSV file contains a header.</p>
    */
-  ContainsHeader?: CsvHeaderOption | string;
+  ContainsHeader?: keyof typeof CsvHeaderOption | string;
 
   /**
    * <p>A list of strings representing column names.</p>
@@ -2379,15 +2379,15 @@ export interface StringColumnStatisticsData {
 /**
  * @public
  */
-export enum ColumnStatisticsType {
-  BINARY = "BINARY",
-  BOOLEAN = "BOOLEAN",
-  DATE = "DATE",
-  DECIMAL = "DECIMAL",
-  DOUBLE = "DOUBLE",
-  LONG = "LONG",
-  STRING = "STRING",
-}
+export const ColumnStatisticsType = {
+  BINARY: "BINARY",
+  BOOLEAN: "BOOLEAN",
+  DATE: "DATE",
+  DECIMAL: "DECIMAL",
+  DOUBLE: "DOUBLE",
+  LONG: "LONG",
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -2397,7 +2397,7 @@ export interface ColumnStatisticsData {
   /**
    * <p>The type of column statistics data.</p>
    */
-  Type: ColumnStatisticsType | string | undefined;
+  Type: keyof typeof ColumnStatisticsType | string | undefined;
 
   /**
    * <p>Boolean column statistics data.</p>
@@ -2576,7 +2576,7 @@ export interface Connection {
   /**
    * <p>The type of the connection. Currently, SFTP is not supported.</p>
    */
-  ConnectionType?: ConnectionType | string;
+  ConnectionType?: keyof typeof ConnectionType | string;
 
   /**
    * <p>A list of criteria that can be used in selecting this connection.</p>
@@ -2798,7 +2798,7 @@ export interface GetConnectionsFilter {
   /**
    * <p>The type of connections to return. Currently, SFTP is not supported.</p>
    */
-  ConnectionType?: ConnectionType | string;
+  ConnectionType?: keyof typeof ConnectionType | string;
 }
 
 /**
@@ -3094,10 +3094,10 @@ export interface GetDatabaseResponse {
 /**
  * @public
  */
-export enum ResourceShareType {
-  ALL = "ALL",
-  FOREIGN = "FOREIGN",
-}
+export const ResourceShareType = {
+  ALL: "ALL",
+  FOREIGN: "FOREIGN",
+};
 
 /**
  * @public
@@ -3130,7 +3130,7 @@ export interface GetDatabasesRequest {
    *             </li>
    *          </ul>
    */
-  ResourceShareType?: ResourceShareType | string;
+  ResourceShareType?: keyof typeof ResourceShareType | string;
 }
 
 /**
@@ -3192,10 +3192,10 @@ export interface ConnectionPasswordEncryption {
 /**
  * @public
  */
-export enum CatalogEncryptionMode {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-}
+export const CatalogEncryptionMode = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+};
 
 /**
  * @public
@@ -3205,7 +3205,7 @@ export interface EncryptionAtRest {
   /**
    * <p>The encryption-at-rest mode for encrypting Data Catalog data.</p>
    */
-  CatalogEncryptionMode: CatalogEncryptionMode | string | undefined;
+  CatalogEncryptionMode: keyof typeof CatalogEncryptionMode | string | undefined;
 
   /**
    * <p>The ID of the KMS key to use for encryption at rest.</p>
@@ -3380,7 +3380,7 @@ export interface GetDataQualityRuleRecommendationRunResponse {
   /**
    * <p>The status for this run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: keyof typeof TaskStatusType | string;
 
   /**
    * <p>The error strings that are associated with the run.</p>
@@ -3531,7 +3531,7 @@ export interface GetDataQualityRulesetEvaluationRunResponse {
   /**
    * <p>The status for this run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: keyof typeof TaskStatusType | string;
 
   /**
    * <p>The error strings that are associated with the run.</p>
@@ -3959,13 +3959,13 @@ export interface LabelingSetGenerationTaskRunProperties {
 /**
  * @public
  */
-export enum TaskType {
-  EVALUATION = "EVALUATION",
-  EXPORT_LABELS = "EXPORT_LABELS",
-  FIND_MATCHES = "FIND_MATCHES",
-  IMPORT_LABELS = "IMPORT_LABELS",
-  LABELING_SET_GENERATION = "LABELING_SET_GENERATION",
-}
+export const TaskType = {
+  EVALUATION: "EVALUATION",
+  EXPORT_LABELS: "EXPORT_LABELS",
+  FIND_MATCHES: "FIND_MATCHES",
+  IMPORT_LABELS: "IMPORT_LABELS",
+  LABELING_SET_GENERATION: "LABELING_SET_GENERATION",
+};
 
 /**
  * @public
@@ -3975,7 +3975,7 @@ export interface TaskRunProperties {
   /**
    * <p>The type of task run.</p>
    */
-  TaskType?: TaskType | string;
+  TaskType?: keyof typeof TaskType | string;
 
   /**
    * <p>The configuration properties for an importing labels task run.</p>
@@ -4015,7 +4015,7 @@ export interface GetMLTaskRunResponse {
   /**
    * <p>The status for this task run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: keyof typeof TaskStatusType | string;
 
   /**
    * <p>The names of the log groups that are associated with the task run.</p>
@@ -4062,12 +4062,12 @@ export interface TaskRunFilterCriteria {
   /**
    * <p>The type of task run.</p>
    */
-  TaskRunType?: TaskType | string;
+  TaskRunType?: keyof typeof TaskType | string;
 
   /**
    * <p>The current status of the task run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: keyof typeof TaskStatusType | string;
 
   /**
    * <p>Filter on task runs started before this date.</p>
@@ -4083,19 +4083,19 @@ export interface TaskRunFilterCriteria {
 /**
  * @public
  */
-export enum TaskRunSortColumnType {
-  STARTED = "STARTED",
-  STATUS = "STATUS",
-  TASK_RUN_TYPE = "TASK_RUN_TYPE",
-}
+export const TaskRunSortColumnType = {
+  STARTED: "STARTED",
+  STATUS: "STATUS",
+  TASK_RUN_TYPE: "TASK_RUN_TYPE",
+};
 
 /**
  * @public
  */
-export enum SortDirectionType {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortDirectionType = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -4107,13 +4107,13 @@ export interface TaskRunSortCriteria {
    * <p>The column to be used to sort the list of task runs for the machine learning
    *       transform.</p>
    */
-  Column: TaskRunSortColumnType | string | undefined;
+  Column: keyof typeof TaskRunSortColumnType | string | undefined;
 
   /**
    * <p>The sort direction to be used to sort the list of task runs for the machine learning
    *       transform.</p>
    */
-  SortDirection: SortDirectionType | string | undefined;
+  SortDirection: keyof typeof SortDirectionType | string | undefined;
 }
 
 /**
@@ -4164,7 +4164,7 @@ export interface TaskRun {
   /**
    * <p>The current status of the requested task run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: keyof typeof TaskStatusType | string;
 
   /**
    * <p>The names of the log group for secure logging, associated with this task run.</p>
@@ -4330,7 +4330,7 @@ export interface EvaluationMetrics {
   /**
    * <p>The type of machine learning transform.</p>
    */
-  TransformType: TransformType | string | undefined;
+  TransformType: keyof typeof TransformType | string | undefined;
 
   /**
    * <p>The evaluation metrics for the find matches algorithm.</p>
@@ -4358,11 +4358,11 @@ export interface SchemaColumn {
 /**
  * @public
  */
-export enum TransformStatusType {
-  DELETING = "DELETING",
-  NOT_READY = "NOT_READY",
-  READY = "READY",
-}
+export const TransformStatusType = {
+  DELETING: "DELETING",
+  NOT_READY: "NOT_READY",
+  READY: "READY",
+};
 
 /**
  * @public
@@ -4387,7 +4387,7 @@ export interface GetMLTransformResponse {
   /**
    * <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
    */
-  Status?: TransformStatusType | string;
+  Status?: keyof typeof TransformStatusType | string;
 
   /**
    * <p>The date and time when the transform was created.</p>
@@ -4459,7 +4459,7 @@ export interface GetMLTransformResponse {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: keyof typeof WorkerType | string;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
@@ -4496,12 +4496,12 @@ export interface TransformFilterCriteria {
    * <p>The type of machine learning transform that is used to filter the machine learning
    *       transforms.</p>
    */
-  TransformType?: TransformType | string;
+  TransformType?: keyof typeof TransformType | string;
 
   /**
    * <p>Filters the list of machine learning transforms by the last known status of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
    */
-  Status?: TransformStatusType | string;
+  Status?: keyof typeof TransformStatusType | string;
 
   /**
    * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
@@ -4540,13 +4540,13 @@ export interface TransformFilterCriteria {
 /**
  * @public
  */
-export enum TransformSortColumnType {
-  CREATED = "CREATED",
-  LAST_MODIFIED = "LAST_MODIFIED",
-  NAME = "NAME",
-  STATUS = "STATUS",
-  TRANSFORM_TYPE = "TRANSFORM_TYPE",
-}
+export const TransformSortColumnType = {
+  CREATED: "CREATED",
+  LAST_MODIFIED: "LAST_MODIFIED",
+  NAME: "NAME",
+  STATUS: "STATUS",
+  TRANSFORM_TYPE: "TRANSFORM_TYPE",
+};
 
 /**
  * @public
@@ -4557,13 +4557,13 @@ export interface TransformSortCriteria {
    * <p>The column to be used in the sorting criteria that are associated with the machine
    *       learning transform.</p>
    */
-  Column: TransformSortColumnType | string | undefined;
+  Column: keyof typeof TransformSortColumnType | string | undefined;
 
   /**
    * <p>The sort direction to be used in the sorting criteria that are associated with the machine
    *       learning transform.</p>
    */
-  SortDirection: SortDirectionType | string | undefined;
+  SortDirection: keyof typeof SortDirectionType | string | undefined;
 }
 
 /**
@@ -4617,7 +4617,7 @@ export interface MLTransform {
   /**
    * <p>The current status of the machine learning transform.</p>
    */
-  Status?: TransformStatusType | string;
+  Status?: keyof typeof TransformStatusType | string;
 
   /**
    * <p>A timestamp. The time and date that this machine learning transform was created.</p>
@@ -4732,7 +4732,7 @@ export interface MLTransform {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: keyof typeof WorkerType | string;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a task of the transform runs.</p>
@@ -4837,13 +4837,13 @@ export interface GetPartitionIndexesRequest {
 /**
  * @public
  */
-export enum BackfillErrorCode {
-  ENCRYPTED_PARTITION_ERROR = "ENCRYPTED_PARTITION_ERROR",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_PARTITION_TYPE_DATA_ERROR = "INVALID_PARTITION_TYPE_DATA_ERROR",
-  MISSING_PARTITION_VALUE_ERROR = "MISSING_PARTITION_VALUE_ERROR",
-  UNSUPPORTED_PARTITION_CHARACTER_ERROR = "UNSUPPORTED_PARTITION_CHARACTER_ERROR",
-}
+export const BackfillErrorCode = {
+  ENCRYPTED_PARTITION_ERROR: "ENCRYPTED_PARTITION_ERROR",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_PARTITION_TYPE_DATA_ERROR: "INVALID_PARTITION_TYPE_DATA_ERROR",
+  MISSING_PARTITION_VALUE_ERROR: "MISSING_PARTITION_VALUE_ERROR",
+  UNSUPPORTED_PARTITION_CHARACTER_ERROR: "UNSUPPORTED_PARTITION_CHARACTER_ERROR",
+};
 
 /**
  * @public
@@ -4871,7 +4871,7 @@ export interface BackfillError {
   /**
    * <p>The error code for an error that occurred when registering partition indexes for an existing table.</p>
    */
-  Code?: BackfillErrorCode | string;
+  Code?: keyof typeof BackfillErrorCode | string;
 
   /**
    * <p>A list of a limited number of partitions in the response.</p>
@@ -4882,12 +4882,12 @@ export interface BackfillError {
 /**
  * @public
  */
-export enum PartitionIndexStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-}
+export const PartitionIndexStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
@@ -4938,7 +4938,7 @@ export interface PartitionIndexDescriptor {
    *             </li>
    *          </ul>
    */
-  IndexStatus: PartitionIndexStatus | string | undefined;
+  IndexStatus: keyof typeof PartitionIndexStatus | string | undefined;
 
   /**
    * <p>A list of errors that can occur when registering partition indexes for an existing table.</p>
@@ -5183,7 +5183,7 @@ export interface GetPlanRequest {
   /**
    * <p>The programming language of the code to perform the mapping.</p>
    */
-  Language?: Language | string;
+  Language?: keyof typeof Language | string;
 
   /**
    * <p>A map to hold additional optional key-value parameters.</p>
@@ -5248,7 +5248,7 @@ export interface GetRegistryResponse {
   /**
    * <p>The status of the registry.</p>
    */
-  Status?: RegistryStatus | string;
+  Status?: keyof typeof RegistryStatus | string;
 
   /**
    * <p>The date and time the registry was created.</p>
@@ -5405,12 +5405,12 @@ export interface GetSchemaResponse {
   /**
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat?: DataFormat | string;
+  DataFormat?: keyof typeof DataFormat | string;
 
   /**
    * <p>The compatibility mode of the schema.</p>
    */
-  Compatibility?: Compatibility | string;
+  Compatibility?: keyof typeof Compatibility | string;
 
   /**
    * <p>The version number of the checkpoint (the last time the compatibility mode was changed).</p>
@@ -5430,7 +5430,7 @@ export interface GetSchemaResponse {
   /**
    * <p>The status of the schema.</p>
    */
-  SchemaStatus?: SchemaStatus | string;
+  SchemaStatus?: keyof typeof SchemaStatus | string;
 
   /**
    * <p>The date and time the schema was created.</p>
@@ -5483,12 +5483,12 @@ export interface GetSchemaByDefinitionResponse {
   /**
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat?: DataFormat | string;
+  DataFormat?: keyof typeof DataFormat | string;
 
   /**
    * <p>The status of the schema version.</p>
    */
-  Status?: SchemaVersionStatus | string;
+  Status?: keyof typeof SchemaVersionStatus | string;
 
   /**
    * <p>The date and time the schema was created.</p>
@@ -5557,7 +5557,7 @@ export interface GetSchemaVersionResponse {
   /**
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat?: DataFormat | string;
+  DataFormat?: keyof typeof DataFormat | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
@@ -5572,7 +5572,7 @@ export interface GetSchemaVersionResponse {
   /**
    * <p>The status of the schema version. </p>
    */
-  Status?: SchemaVersionStatus | string;
+  Status?: keyof typeof SchemaVersionStatus | string;
 
   /**
    * <p>The date and time the schema version was created.</p>
@@ -5583,9 +5583,9 @@ export interface GetSchemaVersionResponse {
 /**
  * @public
  */
-export enum SchemaDiffType {
-  SYNTAX_DIFF = "SYNTAX_DIFF",
-}
+export const SchemaDiffType = {
+  SYNTAX_DIFF: "SYNTAX_DIFF",
+};
 
 /**
  * @public
@@ -5617,7 +5617,7 @@ export interface GetSchemaVersionsDiffInput {
   /**
    * <p>Refers to <code>SYNTAX_DIFF</code>, which is the currently supported diff type.</p>
    */
-  SchemaDiffType: SchemaDiffType | string | undefined;
+  SchemaDiffType: keyof typeof SchemaDiffType | string | undefined;
 }
 
 /**
@@ -5761,14 +5761,14 @@ export interface StatementOutputData {
 /**
  * @public
  */
-export enum StatementState {
-  AVAILABLE = "AVAILABLE",
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  ERROR = "ERROR",
-  RUNNING = "RUNNING",
-  WAITING = "WAITING",
-}
+export const StatementState = {
+  AVAILABLE: "AVAILABLE",
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  ERROR: "ERROR",
+  RUNNING: "RUNNING",
+  WAITING: "WAITING",
+};
 
 /**
  * @public
@@ -5788,7 +5788,7 @@ export interface StatementOutput {
   /**
    * <p>The status of the code execution output.</p>
    */
-  Status?: StatementState | string;
+  Status?: keyof typeof StatementState | string;
 
   /**
    * <p>The name of the error in the output.</p>
@@ -5824,7 +5824,7 @@ export interface Statement {
   /**
    * <p>The state while request is actioned.</p>
    */
-  State?: StatementState | string;
+  State?: keyof typeof StatementState | string;
 
   /**
    * <p>The output in JSON.</p>
@@ -6276,10 +6276,10 @@ export interface GetTriggersResponse {
 /**
  * @public
  */
-export enum PermissionType {
-  CELL_FILTER_PERMISSION = "CELL_FILTER_PERMISSION",
-  COLUMN_PERMISSION = "COLUMN_PERMISSION",
-}
+export const PermissionType = {
+  CELL_FILTER_PERMISSION: "CELL_FILTER_PERMISSION",
+  COLUMN_PERMISSION: "COLUMN_PERMISSION",
+};
 
 /**
  * @public
@@ -6313,7 +6313,7 @@ export interface GetUnfilteredPartitionMetadataRequest {
   /**
    * <p>(Required) A list of supported permission types. </p>
    */
-  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+  SupportedPermissionTypes: (keyof typeof PermissionType | string)[] | undefined;
 }
 
 /**
@@ -6490,7 +6490,7 @@ export interface GetUnfilteredPartitionsMetadataRequest {
   /**
    * <p>A list of supported permission types. </p>
    */
-  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+  SupportedPermissionTypes: (keyof typeof PermissionType | string)[] | undefined;
 
   /**
    * <p>A continuation token, if this is not the first call to retrieve
@@ -6573,7 +6573,7 @@ export interface GetUnfilteredTableMetadataRequest {
   /**
    * <p>(Required) A list of supported permission types. </p>
    */
-  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+  SupportedPermissionTypes: (keyof typeof PermissionType | string)[] | undefined;
 }
 
 /**
@@ -6668,7 +6668,7 @@ export interface UserDefinedFunction {
   /**
    * <p>The owner type.</p>
    */
-  OwnerType?: PrincipalType | string;
+  OwnerType?: keyof typeof PrincipalType | string;
 
   /**
    * <p>The time at which the function was created.</p>

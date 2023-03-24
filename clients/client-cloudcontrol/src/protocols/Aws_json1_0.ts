@@ -1113,7 +1113,7 @@ const serializeAws_json1_0ListResourcesInput = (input: ListResourcesInput, conte
   };
 };
 
-const serializeAws_json1_0Operations = (input: (Operation | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_0Operations = (input: (keyof typeof Operation | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1121,7 +1121,10 @@ const serializeAws_json1_0Operations = (input: (Operation | string)[], context: 
     });
 };
 
-const serializeAws_json1_0OperationStatuses = (input: (OperationStatus | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_0OperationStatuses = (
+  input: (keyof typeof OperationStatus | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

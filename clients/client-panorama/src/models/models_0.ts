@@ -39,37 +39,37 @@ export interface AlternateSoftwareMetadata {
 /**
  * @public
  */
-export enum ApplicationInstanceHealthStatus {
-  ERROR = "ERROR",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  RUNNING = "RUNNING",
-}
+export const ApplicationInstanceHealthStatus = {
+  ERROR: "ERROR",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
  */
-export enum DesiredState {
-  REMOVED = "REMOVED",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+export const DesiredState = {
+  REMOVED: "REMOVED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
  */
-export enum DeviceReportedStatus {
-  INSTALL_ERROR = "INSTALL_ERROR",
-  INSTALL_IN_PROGRESS = "INSTALL_IN_PROGRESS",
-  LAUNCHED = "LAUNCHED",
-  LAUNCH_ERROR = "LAUNCH_ERROR",
-  REMOVAL_FAILED = "REMOVAL_FAILED",
-  REMOVAL_IN_PROGRESS = "REMOVAL_IN_PROGRESS",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  STOP_ERROR = "STOP_ERROR",
-}
+export const DeviceReportedStatus = {
+  INSTALL_ERROR: "INSTALL_ERROR",
+  INSTALL_IN_PROGRESS: "INSTALL_IN_PROGRESS",
+  LAUNCHED: "LAUNCHED",
+  LAUNCH_ERROR: "LAUNCH_ERROR",
+  REMOVAL_FAILED: "REMOVAL_FAILED",
+  REMOVAL_IN_PROGRESS: "REMOVAL_IN_PROGRESS",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  STOP_ERROR: "STOP_ERROR",
+};
 
 /**
  * @public
@@ -79,7 +79,7 @@ export interface ReportedRuntimeContextState {
   /**
    * <p>The application's desired state.</p>
    */
-  DesiredState: DesiredState | string | undefined;
+  DesiredState: keyof typeof DesiredState | string | undefined;
 
   /**
    * <p>The device's name.</p>
@@ -89,7 +89,7 @@ export interface ReportedRuntimeContextState {
   /**
    * <p>The application's reported status.</p>
    */
-  DeviceReportedStatus: DeviceReportedStatus | string | undefined;
+  DeviceReportedStatus: keyof typeof DeviceReportedStatus | string | undefined;
 
   /**
    * <p>When the device reported the application's state.</p>
@@ -100,19 +100,19 @@ export interface ReportedRuntimeContextState {
 /**
  * @public
  */
-export enum ApplicationInstanceStatus {
-  DEPLOYMENT_ERROR = "DEPLOYMENT_ERROR",
-  DEPLOYMENT_FAILED = "DEPLOYMENT_FAILED",
-  DEPLOYMENT_IN_PROGRESS = "DEPLOYMENT_IN_PROGRESS",
-  DEPLOYMENT_PENDING = "DEPLOYMENT_PENDING",
-  DEPLOYMENT_REQUESTED = "DEPLOYMENT_REQUESTED",
-  DEPLOYMENT_SUCCEEDED = "DEPLOYMENT_SUCCEEDED",
-  REMOVAL_FAILED = "REMOVAL_FAILED",
-  REMOVAL_IN_PROGRESS = "REMOVAL_IN_PROGRESS",
-  REMOVAL_PENDING = "REMOVAL_PENDING",
-  REMOVAL_REQUESTED = "REMOVAL_REQUESTED",
-  REMOVAL_SUCCEEDED = "REMOVAL_SUCCEEDED",
-}
+export const ApplicationInstanceStatus = {
+  DEPLOYMENT_ERROR: "DEPLOYMENT_ERROR",
+  DEPLOYMENT_FAILED: "DEPLOYMENT_FAILED",
+  DEPLOYMENT_IN_PROGRESS: "DEPLOYMENT_IN_PROGRESS",
+  DEPLOYMENT_PENDING: "DEPLOYMENT_PENDING",
+  DEPLOYMENT_REQUESTED: "DEPLOYMENT_REQUESTED",
+  DEPLOYMENT_SUCCEEDED: "DEPLOYMENT_SUCCEEDED",
+  REMOVAL_FAILED: "REMOVAL_FAILED",
+  REMOVAL_IN_PROGRESS: "REMOVAL_IN_PROGRESS",
+  REMOVAL_PENDING: "REMOVAL_PENDING",
+  REMOVAL_REQUESTED: "REMOVAL_REQUESTED",
+  REMOVAL_SUCCEEDED: "REMOVAL_SUCCEEDED",
+};
 
 /**
  * @public
@@ -147,12 +147,12 @@ export interface ApplicationInstance {
   /**
    * <p>The application instance's status.</p>
    */
-  Status?: ApplicationInstanceStatus | string;
+  Status?: keyof typeof ApplicationInstanceStatus | string;
 
   /**
    * <p>The application instance's health status.</p>
    */
-  HealthStatus?: ApplicationInstanceHealthStatus | string;
+  HealthStatus?: keyof typeof ApplicationInstanceHealthStatus | string;
 
   /**
    * <p>The application instance's status description.</p>
@@ -244,10 +244,10 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum ConnectionType {
-  DHCP = "DHCP",
-  STATIC_IP = "STATIC_IP",
-}
+export const ConnectionType = {
+  DHCP: "DHCP",
+  STATIC_IP: "STATIC_IP",
+};
 
 /**
  * @public
@@ -484,12 +484,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+};
 
 /**
  * @public
@@ -502,7 +502,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason that validation failed.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>A unique ID for the error.</p>
@@ -566,10 +566,10 @@ export interface DeviceJobConfig {
 /**
  * @public
  */
-export enum JobType {
-  OTA = "OTA",
-  REBOOT = "REBOOT",
-}
+export const JobType = {
+  OTA: "OTA",
+  REBOOT: "REBOOT",
+};
 
 /**
  * @public
@@ -588,7 +588,7 @@ export interface CreateJobForDevicesRequest {
   /**
    * <p>The type of job to run.</p>
    */
-  JobType: JobType | string | undefined;
+  JobType: keyof typeof JobType | string | undefined;
 }
 
 /**
@@ -653,9 +653,9 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum JobResourceType {
-  PACKAGE = "PACKAGE",
-}
+export const JobResourceType = {
+  PACKAGE: "PACKAGE",
+};
 
 /**
  * @public
@@ -665,7 +665,7 @@ export interface JobResourceTags {
   /**
    * <p>The job's type.</p>
    */
-  ResourceType: JobResourceType | string | undefined;
+  ResourceType: keyof typeof JobResourceType | string | undefined;
 
   /**
    * <p>The job's tags.</p>
@@ -676,9 +676,9 @@ export interface JobResourceTags {
 /**
  * @public
  */
-export enum TemplateType {
-  RTSP_CAMERA_STREAM = "RTSP_CAMERA_STREAM",
-}
+export const TemplateType = {
+  RTSP_CAMERA_STREAM: "RTSP_CAMERA_STREAM",
+};
 
 /**
  * @public
@@ -687,7 +687,7 @@ export interface CreateNodeFromTemplateJobRequest {
   /**
    * <p>The type of node.</p>
    */
-  TemplateType: TemplateType | string | undefined;
+  TemplateType: keyof typeof TemplateType | string | undefined;
 
   /**
    * <p>An output package name for the node.</p>
@@ -842,10 +842,10 @@ export interface PackageImportJobInputConfig {
 /**
  * @public
  */
-export enum PackageImportJobType {
-  MARKETPLACE_NODE_PACKAGE_VERSION = "MARKETPLACE_NODE_PACKAGE_VERSION",
-  NODE_PACKAGE_VERSION = "NODE_PACKAGE_VERSION",
-}
+export const PackageImportJobType = {
+  MARKETPLACE_NODE_PACKAGE_VERSION: "MARKETPLACE_NODE_PACKAGE_VERSION",
+  NODE_PACKAGE_VERSION: "NODE_PACKAGE_VERSION",
+};
 
 /**
  * @public
@@ -886,7 +886,7 @@ export interface CreatePackageImportJobRequest {
   /**
    * <p>A job type for the package import job.</p>
    */
-  JobType: PackageImportJobType | string | undefined;
+  JobType: keyof typeof PackageImportJobType | string | undefined;
 
   /**
    * <p>An input config for the package import job.</p>
@@ -1042,12 +1042,12 @@ export interface DescribeApplicationInstanceResponse {
   /**
    * <p>The application instance's status.</p>
    */
-  Status?: ApplicationInstanceStatus | string;
+  Status?: keyof typeof ApplicationInstanceStatus | string;
 
   /**
    * <p>The application instance's health status.</p>
    */
-  HealthStatus?: ApplicationInstanceHealthStatus | string;
+  HealthStatus?: keyof typeof ApplicationInstanceHealthStatus | string;
 
   /**
    * <p>The application instance's status description.</p>
@@ -1153,19 +1153,19 @@ export interface DescribeDeviceRequest {
 /**
  * @public
  */
-export enum DeviceBrand {
-  AWS_PANORAMA = "AWS_PANORAMA",
-  LENOVO = "LENOVO",
-}
+export const DeviceBrand = {
+  AWS_PANORAMA: "AWS_PANORAMA",
+  LENOVO: "LENOVO",
+};
 
 /**
  * @public
  */
-export enum NetworkConnectionStatus {
-  CONNECTED = "CONNECTED",
-  CONNECTING = "CONNECTING",
-  NOT_CONNECTED = "NOT_CONNECTED",
-}
+export const NetworkConnectionStatus = {
+  CONNECTED: "CONNECTED",
+  CONNECTING: "CONNECTING",
+  NOT_CONNECTED: "NOT_CONNECTED",
+};
 
 /**
  * @public
@@ -1180,7 +1180,7 @@ export interface EthernetStatus {
   /**
    * <p>The device's connection status.</p>
    */
-  ConnectionStatus?: NetworkConnectionStatus | string;
+  ConnectionStatus?: keyof typeof NetworkConnectionStatus | string;
 
   /**
    * <p>The device's physical address.</p>
@@ -1196,7 +1196,7 @@ export interface NtpStatus {
   /**
    * <p>The connection's status.</p>
    */
-  ConnectionStatus?: NetworkConnectionStatus | string;
+  ConnectionStatus?: keyof typeof NetworkConnectionStatus | string;
 
   /**
    * <p>The IP address of the server.</p>
@@ -1238,42 +1238,42 @@ export interface NetworkStatus {
 /**
  * @public
  */
-export enum DeviceAggregatedStatus {
-  AWAITING_PROVISIONING = "AWAITING_PROVISIONING",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  FAILED = "FAILED",
-  LEASE_EXPIRED = "LEASE_EXPIRED",
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-  PENDING = "PENDING",
-  REBOOTING = "REBOOTING",
-  UPDATE_NEEDED = "UPDATE_NEEDED",
-}
+export const DeviceAggregatedStatus = {
+  AWAITING_PROVISIONING: "AWAITING_PROVISIONING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  LEASE_EXPIRED: "LEASE_EXPIRED",
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+  PENDING: "PENDING",
+  REBOOTING: "REBOOTING",
+  UPDATE_NEEDED: "UPDATE_NEEDED",
+};
 
 /**
  * @public
  */
-export enum DeviceConnectionStatus {
-  AWAITING_CREDENTIALS = "AWAITING_CREDENTIALS",
-  ERROR = "ERROR",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-}
+export const DeviceConnectionStatus = {
+  AWAITING_CREDENTIALS: "AWAITING_CREDENTIALS",
+  ERROR: "ERROR",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+};
 
 /**
  * @public
  */
-export enum UpdateProgress {
-  COMPLETED = "COMPLETED",
-  DOWNLOADING = "DOWNLOADING",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  REBOOTING = "REBOOTING",
-  VERIFYING = "VERIFYING",
-}
+export const UpdateProgress = {
+  COMPLETED: "COMPLETED",
+  DOWNLOADING: "DOWNLOADING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  REBOOTING: "REBOOTING",
+  VERIFYING: "VERIFYING",
+};
 
 /**
  * @public
@@ -1288,12 +1288,12 @@ export interface LatestDeviceJob {
   /**
    * <p>Status of the latest device job.</p>
    */
-  Status?: UpdateProgress | string;
+  Status?: keyof typeof UpdateProgress | string;
 
   /**
    * <p>The job's type.</p>
    */
-  JobType?: JobType | string;
+  JobType?: keyof typeof JobType | string;
 }
 
 /**
@@ -1330,7 +1330,7 @@ export interface EthernetPayload {
   /**
    * <p>How the device gets an IP address.</p>
    */
-  ConnectionType: ConnectionType | string | undefined;
+  ConnectionType: keyof typeof ConnectionType | string | undefined;
 
   /**
    * <p>Network configuration for a static IP connection.</p>
@@ -1374,22 +1374,22 @@ export interface NetworkPayload {
 /**
  * @public
  */
-export enum DeviceStatus {
-  AWAITING_PROVISIONING = "AWAITING_PROVISIONING",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const DeviceStatus = {
+  AWAITING_PROVISIONING: "AWAITING_PROVISIONING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
  */
-export enum DeviceType {
-  PANORAMA_APPLIANCE = "PANORAMA_APPLIANCE",
-  PANORAMA_APPLIANCE_DEVELOPER_KIT = "PANORAMA_APPLIANCE_DEVELOPER_KIT",
-}
+export const DeviceType = {
+  PANORAMA_APPLIANCE: "PANORAMA_APPLIANCE",
+  PANORAMA_APPLIANCE_DEVELOPER_KIT: "PANORAMA_APPLIANCE_DEVELOPER_KIT",
+};
 
 /**
  * @public
@@ -1418,12 +1418,12 @@ export interface DescribeDeviceResponse {
   /**
    * <p>The device's type.</p>
    */
-  Type?: DeviceType | string;
+  Type?: keyof typeof DeviceType | string;
 
   /**
    * <p>The device's connection status.</p>
    */
-  DeviceConnectionStatus?: DeviceConnectionStatus | string;
+  DeviceConnectionStatus?: keyof typeof DeviceConnectionStatus | string;
 
   /**
    * <p>When the device was created.</p>
@@ -1433,7 +1433,7 @@ export interface DescribeDeviceResponse {
   /**
    * <p>The device's provisioning status.</p>
    */
-  ProvisioningStatus?: DeviceStatus | string;
+  ProvisioningStatus?: keyof typeof DeviceStatus | string;
 
   /**
    * <p>The latest software version available for the device.</p>
@@ -1483,7 +1483,7 @@ export interface DescribeDeviceResponse {
   /**
    * <p>The device's maker.</p>
    */
-  Brand?: DeviceBrand | string;
+  Brand?: keyof typeof DeviceBrand | string;
 
   /**
    * <p>A device's latest job. Includes the target image version, and the job status.</p>
@@ -1493,7 +1493,7 @@ export interface DescribeDeviceResponse {
   /**
    * <p>A device's aggregated status. Including the device's connection status, provisioning status, and lease status.</p>
    */
-  DeviceAggregatedStatus?: DeviceAggregatedStatus | string;
+  DeviceAggregatedStatus?: keyof typeof DeviceAggregatedStatus | string;
 }
 
 /**
@@ -1533,7 +1533,7 @@ export interface DescribeDeviceJobResponse {
   /**
    * <p>The device's type.</p>
    */
-  DeviceType?: DeviceType | string;
+  DeviceType?: keyof typeof DeviceType | string;
 
   /**
    * <p>For an OTA job, the target version of the device software.</p>
@@ -1543,7 +1543,7 @@ export interface DescribeDeviceJobResponse {
   /**
    * <p>The job's status.</p>
    */
-  Status?: UpdateProgress | string;
+  Status?: keyof typeof UpdateProgress | string;
 
   /**
    * <p>When the job was created.</p>
@@ -1553,7 +1553,7 @@ export interface DescribeDeviceJobResponse {
   /**
    * <p>The job's type.</p>
    */
-  JobType?: JobType | string;
+  JobType?: keyof typeof JobType | string;
 }
 
 /**
@@ -1574,23 +1574,23 @@ export interface DescribeNodeRequest {
 /**
  * @public
  */
-export enum NodeCategory {
-  BUSINESS_LOGIC = "BUSINESS_LOGIC",
-  MEDIA_SINK = "MEDIA_SINK",
-  MEDIA_SOURCE = "MEDIA_SOURCE",
-  ML_MODEL = "ML_MODEL",
-}
+export const NodeCategory = {
+  BUSINESS_LOGIC: "BUSINESS_LOGIC",
+  MEDIA_SINK: "MEDIA_SINK",
+  MEDIA_SOURCE: "MEDIA_SOURCE",
+  ML_MODEL: "ML_MODEL",
+};
 
 /**
  * @public
  */
-export enum PortType {
-  BOOLEAN = "BOOLEAN",
-  FLOAT32 = "FLOAT32",
-  INT32 = "INT32",
-  MEDIA = "MEDIA",
-  STRING = "STRING",
-}
+export const PortType = {
+  BOOLEAN: "BOOLEAN",
+  FLOAT32: "FLOAT32",
+  INT32: "INT32",
+  MEDIA: "MEDIA",
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -1610,7 +1610,7 @@ export interface NodeInputPort {
   /**
    * <p>The input port's type.</p>
    */
-  Type?: PortType | string;
+  Type?: keyof typeof PortType | string;
 
   /**
    * <p>The input port's default value.</p>
@@ -1641,7 +1641,7 @@ export interface NodeOutputPort {
   /**
    * <p>The output port's type.</p>
    */
-  Type?: PortType | string;
+  Type?: keyof typeof PortType | string;
 }
 
 /**
@@ -1677,7 +1677,7 @@ export interface DescribeNodeResponse {
   /**
    * <p>The node's category.</p>
    */
-  Category: NodeCategory | string | undefined;
+  Category: keyof typeof NodeCategory | string | undefined;
 
   /**
    * <p>The account ID of the node's owner.</p>
@@ -1748,11 +1748,11 @@ export interface DescribeNodeFromTemplateJobRequest {
 /**
  * @public
  */
-export enum NodeFromTemplateJobStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const NodeFromTemplateJobStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1766,7 +1766,7 @@ export interface DescribeNodeFromTemplateJobResponse {
   /**
    * <p>The job's status.</p>
    */
-  Status: NodeFromTemplateJobStatus | string | undefined;
+  Status: keyof typeof NodeFromTemplateJobStatus | string | undefined;
 
   /**
    * <p>The job's status message.</p>
@@ -1806,7 +1806,7 @@ export interface DescribeNodeFromTemplateJobResponse {
   /**
    * <p>The job's template type.</p>
    */
-  TemplateType: TemplateType | string | undefined;
+  TemplateType: keyof typeof TemplateType | string | undefined;
 
   /**
    * <p>The job's template parameters.</p>
@@ -1929,11 +1929,11 @@ export interface PackageImportJobOutput {
 /**
  * @public
  */
-export enum PackageImportJobStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const PackageImportJobStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1952,7 +1952,7 @@ export interface DescribePackageImportJobResponse {
   /**
    * <p>The job's type.</p>
    */
-  JobType: PackageImportJobType | string | undefined;
+  JobType: keyof typeof PackageImportJobType | string | undefined;
 
   /**
    * <p>The job's input config.</p>
@@ -1982,7 +1982,7 @@ export interface DescribePackageImportJobResponse {
   /**
    * <p>The job's status.</p>
    */
-  Status: PackageImportJobStatus | string | undefined;
+  Status: keyof typeof PackageImportJobStatus | string | undefined;
 
   /**
    * <p>The job's status message.</p>
@@ -2023,12 +2023,12 @@ export interface DescribePackageVersionRequest {
 /**
  * @public
  */
-export enum PackageVersionStatus {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  REGISTER_COMPLETED = "REGISTER_COMPLETED",
-  REGISTER_PENDING = "REGISTER_PENDING",
-}
+export const PackageVersionStatus = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  REGISTER_COMPLETED: "REGISTER_COMPLETED",
+  REGISTER_PENDING: "REGISTER_PENDING",
+};
 
 /**
  * @public
@@ -2072,7 +2072,7 @@ export interface DescribePackageVersionResponse {
   /**
    * <p>The version's status.</p>
    */
-  Status: PackageVersionStatus | string | undefined;
+  Status: keyof typeof PackageVersionStatus | string | undefined;
 
   /**
    * <p>The version's status description.</p>
@@ -2108,7 +2108,7 @@ export interface Device {
   /**
    * <p>The device's provisioning status.</p>
    */
-  ProvisioningStatus?: DeviceStatus | string;
+  ProvisioningStatus?: keyof typeof DeviceStatus | string;
 
   /**
    * <p>When the device was updated.</p>
@@ -2123,7 +2123,7 @@ export interface Device {
   /**
    * <p>The device's maker.</p>
    */
-  Brand?: DeviceBrand | string;
+  Brand?: keyof typeof DeviceBrand | string;
 
   /**
    * <p>A device's current software.</p>
@@ -2143,7 +2143,7 @@ export interface Device {
   /**
    * <p>The device's type.</p>
    */
-  Type?: DeviceType | string;
+  Type?: keyof typeof DeviceType | string;
 
   /**
    * <p>A device's latest job. Includes the target image version, and the update job status.</p>
@@ -2153,7 +2153,7 @@ export interface Device {
   /**
    * <p>A device's aggregated status. Including the device's connection status, provisioning status, and lease status.</p>
    */
-  DeviceAggregatedStatus?: DeviceAggregatedStatus | string;
+  DeviceAggregatedStatus?: keyof typeof DeviceAggregatedStatus | string;
 }
 
 /**
@@ -2184,7 +2184,7 @@ export interface DeviceJob {
   /**
    * <p>The job's type.</p>
    */
-  JobType?: JobType | string;
+  JobType?: keyof typeof JobType | string;
 }
 
 /**
@@ -2266,12 +2266,12 @@ export interface ListApplicationInstanceNodeInstancesRequest {
 /**
  * @public
  */
-export enum NodeInstanceStatus {
-  ERROR = "ERROR",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  PAUSED = "PAUSED",
-  RUNNING = "RUNNING",
-}
+export const NodeInstanceStatus = {
+  ERROR: "ERROR",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  PAUSED: "PAUSED",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -2311,7 +2311,7 @@ export interface NodeInstance {
   /**
    * <p>The instance's current status.</p>
    */
-  CurrentStatus: NodeInstanceStatus | string | undefined;
+  CurrentStatus: keyof typeof NodeInstanceStatus | string | undefined;
 }
 
 /**
@@ -2332,15 +2332,15 @@ export interface ListApplicationInstanceNodeInstancesResponse {
 /**
  * @public
  */
-export enum StatusFilter {
-  DEPLOYMENT_ERROR = "DEPLOYMENT_ERROR",
-  DEPLOYMENT_FAILED = "DEPLOYMENT_FAILED",
-  DEPLOYMENT_SUCCEEDED = "DEPLOYMENT_SUCCEEDED",
-  PROCESSING_DEPLOYMENT = "PROCESSING_DEPLOYMENT",
-  PROCESSING_REMOVAL = "PROCESSING_REMOVAL",
-  REMOVAL_FAILED = "REMOVAL_FAILED",
-  REMOVAL_SUCCEEDED = "REMOVAL_SUCCEEDED",
-}
+export const StatusFilter = {
+  DEPLOYMENT_ERROR: "DEPLOYMENT_ERROR",
+  DEPLOYMENT_FAILED: "DEPLOYMENT_FAILED",
+  DEPLOYMENT_SUCCEEDED: "DEPLOYMENT_SUCCEEDED",
+  PROCESSING_DEPLOYMENT: "PROCESSING_DEPLOYMENT",
+  PROCESSING_REMOVAL: "PROCESSING_REMOVAL",
+  REMOVAL_FAILED: "REMOVAL_FAILED",
+  REMOVAL_SUCCEEDED: "REMOVAL_SUCCEEDED",
+};
 
 /**
  * @public
@@ -2354,7 +2354,7 @@ export interface ListApplicationInstancesRequest {
   /**
    * <p>Only include instances with a specific status.</p>
    */
-  StatusFilter?: StatusFilter | string;
+  StatusFilter?: keyof typeof StatusFilter | string;
 
   /**
    * <p>The maximum number of application instances to return in one page of results.</p>
@@ -2385,20 +2385,20 @@ export interface ListApplicationInstancesResponse {
 /**
  * @public
  */
-export enum ListDevicesSortBy {
-  CREATED_TIME = "CREATED_TIME",
-  DEVICE_AGGREGATED_STATUS = "DEVICE_AGGREGATED_STATUS",
-  DEVICE_ID = "DEVICE_ID",
-  NAME = "NAME",
-}
+export const ListDevicesSortBy = {
+  CREATED_TIME: "CREATED_TIME",
+  DEVICE_AGGREGATED_STATUS: "DEVICE_AGGREGATED_STATUS",
+  DEVICE_ID: "DEVICE_ID",
+  NAME: "NAME",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -2417,12 +2417,12 @@ export interface ListDevicesRequest {
   /**
    * <p>The target column to be sorted on. Default column sort is CREATED_TIME.</p>
    */
-  SortBy?: ListDevicesSortBy | string;
+  SortBy?: keyof typeof ListDevicesSortBy | string;
 
   /**
    * <p>The sorting order for the returned list. SortOrder is DESCENDING by default based on CREATED_TIME. Otherwise, SortOrder is ASCENDING.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>Filter based on device's name. Prefixes supported.</p>
@@ -2432,7 +2432,7 @@ export interface ListDevicesRequest {
   /**
    * <p>Filter based on a device's status.</p>
    */
-  DeviceAggregatedStatusFilter?: DeviceAggregatedStatus | string;
+  DeviceAggregatedStatusFilter?: keyof typeof DeviceAggregatedStatus | string;
 }
 
 /**
@@ -2513,12 +2513,12 @@ export interface NodeFromTemplateJob {
   /**
    * <p>The job's template type.</p>
    */
-  TemplateType?: TemplateType | string;
+  TemplateType?: keyof typeof TemplateType | string;
 
   /**
    * <p>The job's status.</p>
    */
-  Status?: NodeFromTemplateJobStatus | string;
+  Status?: keyof typeof NodeFromTemplateJobStatus | string;
 
   /**
    * <p>The job's status message.</p>
@@ -2558,7 +2558,7 @@ export interface ListNodesRequest {
   /**
    * <p>Search for nodes by category.</p>
    */
-  Category?: NodeCategory | string;
+  Category?: keyof typeof NodeCategory | string;
 
   /**
    * <p>Search for nodes by the account ID of the nodes' owner.</p>
@@ -2609,7 +2609,7 @@ export interface Node {
   /**
    * <p>The node's category.</p>
    */
-  Category: NodeCategory | string | undefined;
+  Category: keyof typeof NodeCategory | string | undefined;
 
   /**
    * <p>The account ID of the node's owner.</p>
@@ -2695,12 +2695,12 @@ export interface PackageImportJob {
   /**
    * <p>The job's type.</p>
    */
-  JobType?: PackageImportJobType | string;
+  JobType?: keyof typeof PackageImportJobType | string;
 
   /**
    * <p>The job's status.</p>
    */
-  Status?: PackageImportJobStatus | string;
+  Status?: keyof typeof PackageImportJobStatus | string;
 
   /**
    * <p>The job's status message.</p>
@@ -2817,10 +2817,10 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
-export enum NodeSignalValue {
-  PAUSE = "PAUSE",
-  RESUME = "RESUME",
-}
+export const NodeSignalValue = {
+  PAUSE: "PAUSE",
+  RESUME: "RESUME",
+};
 
 /**
  * @public
@@ -2835,7 +2835,7 @@ export interface NodeSignal {
   /**
    * <p>The signal value.</p>
    */
-  Signal: NodeSignalValue | string | undefined;
+  Signal: keyof typeof NodeSignalValue | string | undefined;
 }
 
 /**
@@ -2880,7 +2880,7 @@ export interface ProvisionDeviceResponse {
   /**
    * <p>The device's status.</p>
    */
-  Status: DeviceStatus | string | undefined;
+  Status: keyof typeof DeviceStatus | string | undefined;
 
   /**
    * <p>The device's configuration bundle.</p>

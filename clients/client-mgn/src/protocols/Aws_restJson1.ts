@@ -6147,7 +6147,10 @@ const serializeAws_restJson1Licensing = (input: Licensing, context: __SerdeConte
   };
 };
 
-const serializeAws_restJson1LifeCycleStates = (input: (LifeCycleState | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1LifeCycleStates = (
+  input: (keyof typeof LifeCycleState | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6258,7 +6261,10 @@ const serializeAws_restJson1ReplicationServersSecurityGroupsIDs = (input: string
     });
 };
 
-const serializeAws_restJson1ReplicationTypes = (input: (ReplicationType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1ReplicationTypes = (
+  input: (keyof typeof ReplicationType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

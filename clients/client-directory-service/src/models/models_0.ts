@@ -17,25 +17,25 @@ export interface AcceptSharedDirectoryRequest {
 /**
  * @public
  */
-export enum ShareMethod {
-  HANDSHAKE = "HANDSHAKE",
-  ORGANIZATIONS = "ORGANIZATIONS",
-}
+export const ShareMethod = {
+  HANDSHAKE: "HANDSHAKE",
+  ORGANIZATIONS: "ORGANIZATIONS",
+};
 
 /**
  * @public
  */
-export enum ShareStatus {
-  DELETED = "Deleted",
-  DELETING = "Deleting",
-  PENDING_ACCEPTANCE = "PendingAcceptance",
-  REJECTED = "Rejected",
-  REJECTING = "Rejecting",
-  REJECT_FAILED = "RejectFailed",
-  SHARED = "Shared",
-  SHARE_FAILED = "ShareFailed",
-  SHARING = "Sharing",
-}
+export const ShareStatus = {
+  DELETED: "Deleted",
+  DELETING: "Deleting",
+  PENDING_ACCEPTANCE: "PendingAcceptance",
+  REJECTED: "Rejected",
+  REJECTING: "Rejecting",
+  REJECT_FAILED: "RejectFailed",
+  SHARED: "Shared",
+  SHARE_FAILED: "ShareFailed",
+  SHARING: "Sharing",
+};
 
 /**
  * @public
@@ -59,7 +59,7 @@ export interface SharedDirectory {
    *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
    *       sending a shared directory request (<code>HANDSHAKE</code>).</p>
    */
-  ShareMethod?: ShareMethod | string;
+  ShareMethod?: keyof typeof ShareMethod | string;
 
   /**
    * <p>Identifier of the directory consumer account that has access to the shared directory
@@ -76,7 +76,7 @@ export interface SharedDirectory {
   /**
    * <p>Current directory status of the shared Managed Microsoft AD directory.</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: keyof typeof ShareStatus | string;
 
   /**
    * <p>A directory share request that is sent by the directory owner to the directory consumer.
@@ -822,22 +822,22 @@ export interface ClientCertAuthSettings {
 /**
  * @public
  */
-export enum CertificateState {
-  DEREGISTERED = "Deregistered",
-  DEREGISTERING = "Deregistering",
-  DEREGISTER_FAILED = "DeregisterFailed",
-  REGISTERED = "Registered",
-  REGISTERING = "Registering",
-  REGISTER_FAILED = "RegisterFailed",
-}
+export const CertificateState = {
+  DEREGISTERED: "Deregistered",
+  DEREGISTERING: "Deregistering",
+  DEREGISTER_FAILED: "DeregisterFailed",
+  REGISTERED: "Registered",
+  REGISTERING: "Registering",
+  REGISTER_FAILED: "RegisterFailed",
+};
 
 /**
  * @public
  */
-export enum CertificateType {
-  CLIENT_CERT_AUTH = "ClientCertAuth",
-  CLIENT_LDAPS = "ClientLDAPS",
-}
+export const CertificateType = {
+  CLIENT_CERT_AUTH: "ClientCertAuth",
+  CLIENT_LDAPS: "ClientLDAPS",
+};
 
 /**
  * @public
@@ -852,7 +852,7 @@ export interface Certificate {
   /**
    * <p>The state of the certificate.</p>
    */
-  State?: CertificateState | string;
+  State?: keyof typeof CertificateState | string;
 
   /**
    * <p>Describes a state change for the certificate.</p>
@@ -877,7 +877,7 @@ export interface Certificate {
   /**
    * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
    */
-  Type?: CertificateType | string;
+  Type?: keyof typeof CertificateType | string;
 
   /**
    * <p>A <code>ClientCertAuthSettings</code> object that contains client certificate authentication settings.</p>
@@ -965,7 +965,7 @@ export interface CertificateInfo {
   /**
    * <p>The state of the certificate.</p>
    */
-  State?: CertificateState | string;
+  State?: keyof typeof CertificateState | string;
 
   /**
    * <p>The date and time when the certificate will expire.</p>
@@ -975,7 +975,7 @@ export interface CertificateInfo {
   /**
    * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
    */
-  Type?: CertificateType | string;
+  Type?: keyof typeof CertificateType | string;
 }
 
 /**
@@ -1044,18 +1044,18 @@ export class CertificateLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum ClientAuthenticationStatus {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const ClientAuthenticationStatus = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+};
 
 /**
  * @public
  */
-export enum ClientAuthenticationType {
-  SMART_CARD = "SmartCard",
-  SMART_CARD_OR_PASSWORD = "SmartCardOrPassword",
-}
+export const ClientAuthenticationType = {
+  SMART_CARD: "SmartCard",
+  SMART_CARD_OR_PASSWORD: "SmartCardOrPassword",
+};
 
 /**
  * @public
@@ -1065,12 +1065,12 @@ export interface ClientAuthenticationSettingInfo {
   /**
    * <p>The type of client authentication for the specified directory. If no type is specified, a list of all client authentication types that are supported for the directory is retrieved. </p>
    */
-  Type?: ClientAuthenticationType | string;
+  Type?: keyof typeof ClientAuthenticationType | string;
 
   /**
    * <p>Whether the client authentication type is enabled or disabled for the specified directory.</p>
    */
-  Status?: ClientAuthenticationStatus | string;
+  Status?: keyof typeof ClientAuthenticationStatus | string;
 
   /**
    * <p>The date and time when the status of the client authentication type was last updated.</p>
@@ -1103,9 +1103,9 @@ export interface Computer {
 /**
  * @public
  */
-export enum ReplicationScope {
-  Domain = "Domain",
-}
+export const ReplicationScope = {
+  Domain: "Domain",
+};
 
 /**
  * @public
@@ -1131,7 +1131,7 @@ export interface ConditionalForwarder {
    *         <code>Domain</code>, which will replicate the conditional forwarder to all of the domain
    *       controllers for your Amazon Web Services directory.</p>
    */
-  ReplicationScope?: ReplicationScope | string;
+  ReplicationScope?: keyof typeof ReplicationScope | string;
 }
 
 /**
@@ -1177,10 +1177,10 @@ export interface DirectoryConnectSettings {
 /**
  * @public
  */
-export enum DirectorySize {
-  LARGE = "Large",
-  SMALL = "Small",
-}
+export const DirectorySize = {
+  LARGE: "Large",
+  SMALL: "Small",
+};
 
 /**
  * @public
@@ -1211,7 +1211,7 @@ export interface ConnectDirectoryRequest {
   /**
    * <p>The size of the directory.</p>
    */
-  Size: DirectorySize | string | undefined;
+  Size: keyof typeof DirectorySize | string | undefined;
 
   /**
    * <p>A <a>DirectoryConnectSettings</a> object that contains additional information
@@ -1433,7 +1433,7 @@ export interface CreateDirectoryRequest {
   /**
    * <p>The size of the directory.</p>
    */
-  Size: DirectorySize | string | undefined;
+  Size: keyof typeof DirectorySize | string | undefined;
 
   /**
    * <p>A <a>DirectoryVpcSettings</a> object that contains additional information for
@@ -1514,10 +1514,10 @@ export class InsufficientPermissionsException extends __BaseException {
 /**
  * @public
  */
-export enum DirectoryEdition {
-  ENTERPRISE = "Enterprise",
-  STANDARD = "Standard",
-}
+export const DirectoryEdition = {
+  ENTERPRISE: "Enterprise",
+  STANDARD: "Standard",
+};
 
 /**
  * @public
@@ -1559,7 +1559,7 @@ export interface CreateMicrosoftADRequest {
    * <p>Managed Microsoft AD is available in two editions: <code>Standard</code> and
    *         <code>Enterprise</code>. <code>Enterprise</code> is the default.</p>
    */
-  Edition?: DirectoryEdition | string;
+  Edition?: keyof typeof DirectoryEdition | string;
 
   /**
    * <p>The tags to be assigned to the Managed Microsoft AD directory.</p>
@@ -1641,27 +1641,27 @@ export class SnapshotLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum SelectiveAuth {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const SelectiveAuth = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+};
 
 /**
  * @public
  */
-export enum TrustDirection {
-  ONE_WAY_INCOMING = "One-Way: Incoming",
-  ONE_WAY_OUTGOING = "One-Way: Outgoing",
-  TWO_WAY = "Two-Way",
-}
+export const TrustDirection = {
+  ONE_WAY_INCOMING: "One-Way: Incoming",
+  ONE_WAY_OUTGOING: "One-Way: Outgoing",
+  TWO_WAY: "Two-Way",
+};
 
 /**
  * @public
  */
-export enum TrustType {
-  EXTERNAL = "External",
-  FOREST = "Forest",
-}
+export const TrustType = {
+  EXTERNAL: "External",
+  FOREST: "Forest",
+};
 
 /**
  * @public
@@ -1694,12 +1694,12 @@ export interface CreateTrustRequest {
   /**
    * <p>The direction of the trust relationship.</p>
    */
-  TrustDirection: TrustDirection | string | undefined;
+  TrustDirection: keyof typeof TrustDirection | string | undefined;
 
   /**
    * <p>The trust relationship type. <code>Forest</code> is the default.</p>
    */
-  TrustType?: TrustType | string;
+  TrustType?: keyof typeof TrustType | string;
 
   /**
    * <p>The IP addresses of the remote DNS server associated with RemoteDomainName.</p>
@@ -1709,7 +1709,7 @@ export interface CreateTrustRequest {
   /**
    * <p>Optional parameter to enable selective authentication for the trust.</p>
    */
-  SelectiveAuth?: SelectiveAuth | string;
+  SelectiveAuth?: keyof typeof SelectiveAuth | string;
 }
 
 /**
@@ -1915,7 +1915,7 @@ export interface DescribeClientAuthenticationSettingsRequest {
   /**
    * <p>The type of client authentication for which to retrieve information. If no type is specified, a list of all client authentication types that are supported for the specified directory is retrieved.</p>
    */
-  Type?: ClientAuthenticationType | string;
+  Type?: keyof typeof ClientAuthenticationType | string;
 
   /**
    * <p>The <i>DescribeClientAuthenticationSettingsResult.NextToken</i> value from a previous call to <a>DescribeClientAuthenticationSettings</a>. Pass null if this is the first call.</p>
@@ -2037,20 +2037,20 @@ export interface DirectoryConnectSettingsDescription {
 /**
  * @public
  */
-export enum OSVersion {
-  VERSION_2012 = "SERVER_2012",
-  VERSION_2019 = "SERVER_2019",
-}
+export const OSVersion = {
+  VERSION_2012: "SERVER_2012",
+  VERSION_2019: "SERVER_2019",
+};
 
 /**
  * @public
  */
-export enum RadiusAuthenticationProtocol {
-  CHAP = "CHAP",
-  MSCHAPV1 = "MS-CHAPv1",
-  MSCHAPV2 = "MS-CHAPv2",
-  PAP = "PAP",
-}
+export const RadiusAuthenticationProtocol = {
+  CHAP: "CHAP",
+  MSCHAPV1: "MS-CHAPv1",
+  MSCHAPV2: "MS-CHAPv2",
+  PAP: "PAP",
+};
 
 /**
  * @public
@@ -2090,7 +2090,7 @@ export interface RadiusSettings {
   /**
    * <p>The protocol specified for your RADIUS endpoints.</p>
    */
-  AuthenticationProtocol?: RadiusAuthenticationProtocol | string;
+  AuthenticationProtocol?: keyof typeof RadiusAuthenticationProtocol | string;
 
   /**
    * <p>Not currently used.</p>
@@ -2106,11 +2106,11 @@ export interface RadiusSettings {
 /**
  * @public
  */
-export enum RadiusStatus {
-  COMPLETED = "Completed",
-  CREATING = "Creating",
-  FAILED = "Failed",
-}
+export const RadiusStatus = {
+  COMPLETED: "Completed",
+  CREATING: "Creating",
+  FAILED: "Failed",
+};
 
 /**
  * @public
@@ -2174,7 +2174,7 @@ export interface OwnerDirectoryDescription {
   /**
    * <p>Information about the status of the RADIUS server.</p>
    */
-  RadiusStatus?: RadiusStatus | string;
+  RadiusStatus?: keyof typeof RadiusStatus | string;
 }
 
 /**
@@ -2198,29 +2198,29 @@ export interface RegionsInfo {
 /**
  * @public
  */
-export enum DirectoryStage {
-  ACTIVE = "Active",
-  CREATED = "Created",
-  CREATING = "Creating",
-  DELETED = "Deleted",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IMPAIRED = "Impaired",
-  INOPERABLE = "Inoperable",
-  REQUESTED = "Requested",
-  RESTOREFAILED = "RestoreFailed",
-  RESTORING = "Restoring",
-}
+export const DirectoryStage = {
+  ACTIVE: "Active",
+  CREATED: "Created",
+  CREATING: "Creating",
+  DELETED: "Deleted",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IMPAIRED: "Impaired",
+  INOPERABLE: "Inoperable",
+  REQUESTED: "Requested",
+  RESTOREFAILED: "RestoreFailed",
+  RESTORING: "Restoring",
+};
 
 /**
  * @public
  */
-export enum DirectoryType {
-  AD_CONNECTOR = "ADConnector",
-  MICROSOFT_AD = "MicrosoftAD",
-  SHARED_MICROSOFT_AD = "SharedMicrosoftAD",
-  SIMPLE_AD = "SimpleAD",
-}
+export const DirectoryType = {
+  AD_CONNECTOR: "ADConnector",
+  MICROSOFT_AD: "MicrosoftAD",
+  SHARED_MICROSOFT_AD: "SharedMicrosoftAD",
+  SIMPLE_AD: "SimpleAD",
+};
 
 /**
  * @public
@@ -2245,12 +2245,12 @@ export interface DirectoryDescription {
   /**
    * <p>The directory size.</p>
    */
-  Size?: DirectorySize | string;
+  Size?: keyof typeof DirectorySize | string;
 
   /**
    * <p>The edition associated with this directory.</p>
    */
-  Edition?: DirectoryEdition | string;
+  Edition?: keyof typeof DirectoryEdition | string;
 
   /**
    * <p>The alias for the directory. If no alias has been created for the directory, the alias is
@@ -2282,19 +2282,19 @@ export interface DirectoryDescription {
   /**
    * <p>The current stage of the directory.</p>
    */
-  Stage?: DirectoryStage | string;
+  Stage?: keyof typeof DirectoryStage | string;
 
   /**
    * <p>Current directory status of the shared Managed Microsoft AD directory.</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: keyof typeof ShareStatus | string;
 
   /**
    * <p>The method used when sharing a directory to determine whether the directory should be
    *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
    *       sending a shared directory request (<code>HANDSHAKE</code>).</p>
    */
-  ShareMethod?: ShareMethod | string;
+  ShareMethod?: keyof typeof ShareMethod | string;
 
   /**
    * <p>A directory share request that is sent by the directory owner to the directory consumer.
@@ -2316,7 +2316,7 @@ export interface DirectoryDescription {
   /**
    * <p>The directory size.</p>
    */
-  Type?: DirectoryType | string;
+  Type?: keyof typeof DirectoryType | string;
 
   /**
    * <p>A <a>DirectoryVpcSettingsDescription</a> object that contains additional
@@ -2341,7 +2341,7 @@ export interface DirectoryDescription {
   /**
    * <p>The status of the RADIUS MFA server connection.</p>
    */
-  RadiusStatus?: RadiusStatus | string;
+  RadiusStatus?: keyof typeof RadiusStatus | string;
 
   /**
    * <p>Additional information about the directory stage.</p>
@@ -2372,7 +2372,7 @@ export interface DirectoryDescription {
   /**
    * <p>The operating system (OS) version of the directory.</p>
    */
-  OsVersion?: OSVersion | string;
+  OsVersion?: keyof typeof OSVersion | string;
 }
 
 /**
@@ -2460,15 +2460,15 @@ export interface DescribeDomainControllersRequest {
 /**
  * @public
  */
-export enum DomainControllerStatus {
-  ACTIVE = "Active",
-  CREATING = "Creating",
-  DELETED = "Deleted",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IMPAIRED = "Impaired",
-  RESTORING = "Restoring",
-}
+export const DomainControllerStatus = {
+  ACTIVE: "Active",
+  CREATING: "Creating",
+  DELETED: "Deleted",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IMPAIRED: "Impaired",
+  RESTORING: "Restoring",
+};
 
 /**
  * @public
@@ -2508,7 +2508,7 @@ export interface DomainController {
   /**
    * <p>The status of the domain controller.</p>
    */
-  Status?: DomainControllerStatus | string;
+  Status?: keyof typeof DomainControllerStatus | string;
 
   /**
    * <p>A description of the domain controller state.</p>
@@ -2566,12 +2566,12 @@ export interface DescribeEventTopicsRequest {
 /**
  * @public
  */
-export enum TopicStatus {
-  DELETED = "Deleted",
-  FAILED = "Failed",
-  REGISTERED = "Registered",
-  TOPIC_NOT_FOUND = "Topic not found",
-}
+export const TopicStatus = {
+  DELETED: "Deleted",
+  FAILED: "Failed",
+  REGISTERED: "Registered",
+  TOPIC_NOT_FOUND: "Topic not found",
+};
 
 /**
  * @public
@@ -2602,7 +2602,7 @@ export interface EventTopic {
   /**
    * <p>The topic registration status.</p>
    */
-  Status?: TopicStatus | string;
+  Status?: keyof typeof TopicStatus | string;
 }
 
 /**
@@ -2620,9 +2620,9 @@ export interface DescribeEventTopicsResult {
 /**
  * @public
  */
-export enum LDAPSType {
-  CLIENT = "Client",
-}
+export const LDAPSType = {
+  CLIENT: "Client",
+};
 
 /**
  * @public
@@ -2637,7 +2637,7 @@ export interface DescribeLDAPSSettingsRequest {
    * <p>The type of LDAP security to enable. Currently only the value <code>Client</code> is
    *       supported.</p>
    */
-  Type?: LDAPSType | string;
+  Type?: keyof typeof LDAPSType | string;
 
   /**
    * <p>The type of next token used for pagination.</p>
@@ -2653,12 +2653,12 @@ export interface DescribeLDAPSSettingsRequest {
 /**
  * @public
  */
-export enum LDAPSStatus {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-  ENABLE_FAILED = "EnableFailed",
-  ENABLING = "Enabling",
-}
+export const LDAPSStatus = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+  ENABLE_FAILED: "EnableFailed",
+  ENABLING: "Enabling",
+};
 
 /**
  * @public
@@ -2668,7 +2668,7 @@ export interface LDAPSSettingInfo {
   /**
    * <p>The state of the LDAPS settings.</p>
    */
-  LDAPSStatus?: LDAPSStatus | string;
+  LDAPSStatus?: keyof typeof LDAPSStatus | string;
 
   /**
    * <p>Describes a state change for LDAPS.</p>
@@ -2721,10 +2721,10 @@ export interface DescribeRegionsRequest {
 /**
  * @public
  */
-export enum RegionType {
-  ADDITIONAL = "Additional",
-  PRIMARY = "Primary",
-}
+export const RegionType = {
+  ADDITIONAL: "Additional",
+  PRIMARY: "Primary",
+};
 
 /**
  * @public
@@ -2744,12 +2744,12 @@ export interface RegionDescription {
   /**
    * <p>Specifies whether the Region is the primary Region or an additional Region.</p>
    */
-  RegionType?: RegionType | string;
+  RegionType?: keyof typeof RegionType | string;
 
   /**
    * <p>The status of the replication process for the specified Region.</p>
    */
-  Status?: DirectoryStage | string;
+  Status?: keyof typeof DirectoryStage | string;
 
   /**
    * <p>Contains VPC information for the <a>CreateDirectory</a> or <a>CreateMicrosoftAD</a> operation.</p>
@@ -2798,13 +2798,13 @@ export interface DescribeRegionsResult {
 /**
  * @public
  */
-export enum DirectoryConfigurationStatus {
-  DEFAULT = "Default",
-  FAILED = "Failed",
-  REQUESTED = "Requested",
-  UPDATED = "Updated",
-  UPDATING = "Updating",
-}
+export const DirectoryConfigurationStatus = {
+  DEFAULT: "Default",
+  FAILED: "Failed",
+  REQUESTED: "Requested",
+  UPDATED: "Updated",
+  UPDATING: "Updating",
+};
 
 /**
  * @public
@@ -2818,7 +2818,7 @@ export interface DescribeSettingsRequest {
   /**
    * <p>The status of the directory settings for which to retrieve information.</p>
    */
-  Status?: DirectoryConfigurationStatus | string;
+  Status?: keyof typeof DirectoryConfigurationStatus | string;
 
   /**
    * <p>The <code>DescribeSettingsResult.NextToken</code> value from a previous call to <a>DescribeSettings</a>. Pass null if this is the first call.</p>
@@ -2862,12 +2862,12 @@ export interface SettingEntry {
   /**
    * <p>The overall status of the request to update the directory setting request. If the directory setting is deployed in more than one region, and the request fails in any region, the overall status is <code>Failed</code>.</p>
    */
-  RequestStatus?: DirectoryConfigurationStatus | string;
+  RequestStatus?: keyof typeof DirectoryConfigurationStatus | string;
 
   /**
    * <p>Details about the status of the request to update the directory setting. If the directory setting is deployed in more than one region, status is returned for the request in each region where the setting is deployed.</p>
    */
-  RequestDetailedStatus?: Record<string, DirectoryConfigurationStatus | string>;
+  RequestDetailedStatus?: Record<string, keyof typeof DirectoryConfigurationStatus | string>;
 
   /**
    * <p>The last status message for the directory status request.</p>
@@ -2983,19 +2983,19 @@ export interface DescribeSnapshotsRequest {
 /**
  * @public
  */
-export enum SnapshotStatus {
-  COMPLETED = "Completed",
-  CREATING = "Creating",
-  FAILED = "Failed",
-}
+export const SnapshotStatus = {
+  COMPLETED: "Completed",
+  CREATING: "Creating",
+  FAILED: "Failed",
+};
 
 /**
  * @public
  */
-export enum SnapshotType {
-  AUTO = "Auto",
-  MANUAL = "Manual",
-}
+export const SnapshotType = {
+  AUTO: "Auto",
+  MANUAL: "Manual",
+};
 
 /**
  * @public
@@ -3015,7 +3015,7 @@ export interface Snapshot {
   /**
    * <p>The snapshot type.</p>
    */
-  Type?: SnapshotType | string;
+  Type?: keyof typeof SnapshotType | string;
 
   /**
    * <p>The descriptive name of the snapshot.</p>
@@ -3025,7 +3025,7 @@ export interface Snapshot {
   /**
    * <p>The snapshot status.</p>
    */
-  Status?: SnapshotStatus | string;
+  Status?: keyof typeof SnapshotStatus | string;
 
   /**
    * <p>The date and time that the snapshot was taken.</p>
@@ -3090,19 +3090,19 @@ export interface DescribeTrustsRequest {
 /**
  * @public
  */
-export enum TrustState {
-  CREATED = "Created",
-  CREATING = "Creating",
-  DELETED = "Deleted",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  UPDATED = "Updated",
-  UPDATE_FAILED = "UpdateFailed",
-  UPDATING = "Updating",
-  VERIFIED = "Verified",
-  VERIFYING = "Verifying",
-  VERIFY_FAILED = "VerifyFailed",
-}
+export const TrustState = {
+  CREATED: "Created",
+  CREATING: "Creating",
+  DELETED: "Deleted",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  UPDATED: "Updated",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATING: "Updating",
+  VERIFIED: "Verified",
+  VERIFYING: "Verifying",
+  VERIFY_FAILED: "VerifyFailed",
+};
 
 /**
  * @public
@@ -3129,17 +3129,17 @@ export interface Trust {
   /**
    * <p>The trust relationship type. <code>Forest</code> is the default.</p>
    */
-  TrustType?: TrustType | string;
+  TrustType?: keyof typeof TrustType | string;
 
   /**
    * <p>The trust relationship direction.</p>
    */
-  TrustDirection?: TrustDirection | string;
+  TrustDirection?: keyof typeof TrustDirection | string;
 
   /**
    * <p>The trust relationship state.</p>
    */
-  TrustState?: TrustState | string;
+  TrustState?: keyof typeof TrustState | string;
 
   /**
    * <p>The date and time that the trust relationship was created.</p>
@@ -3164,7 +3164,7 @@ export interface Trust {
   /**
    * <p>Current state of selective authentication for the trust.</p>
    */
-  SelectiveAuth?: SelectiveAuth | string;
+  SelectiveAuth?: keyof typeof SelectiveAuth | string;
 }
 
 /**
@@ -3191,9 +3191,9 @@ export interface DescribeTrustsResult {
 /**
  * @public
  */
-export enum UpdateType {
-  OS = "OS",
-}
+export const UpdateType = {
+  OS: "OS",
+};
 
 /**
  * @public
@@ -3211,7 +3211,7 @@ export interface DescribeUpdateDirectoryRequest {
    *       The type of updates you want to describe for the directory.
    *     </p>
    */
-  UpdateType: UpdateType | string | undefined;
+  UpdateType: keyof typeof UpdateType | string | undefined;
 
   /**
    * <p>
@@ -3240,7 +3240,7 @@ export interface OSUpdateSettings {
    *       OS version that the directory needs to be updated to.
    *     </p>
    */
-  OSVersion?: OSVersion | string;
+  OSVersion?: keyof typeof OSVersion | string;
 }
 
 /**
@@ -3261,11 +3261,11 @@ export interface UpdateValue {
 /**
  * @public
  */
-export enum UpdateStatus {
-  UPDATED = "Updated",
-  UPDATE_FAILED = "UpdateFailed",
-  UPDATING = "Updating",
-}
+export const UpdateStatus = {
+  UPDATED: "Updated",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATING: "Updating",
+};
 
 /**
  * @public
@@ -3286,7 +3286,7 @@ export interface UpdateInfoEntry {
    *       The status of the update performed on the directory.
    *     </p>
    */
-  Status?: UpdateStatus | string;
+  Status?: keyof typeof UpdateStatus | string;
 
   /**
    * <p>
@@ -3477,7 +3477,7 @@ export interface DisableClientAuthenticationRequest {
   /**
    * <p>The type of client authentication to disable. Currently, only the parameter, <code>SmartCard</code> is supported.</p>
    */
-  Type: ClientAuthenticationType | string | undefined;
+  Type: keyof typeof ClientAuthenticationType | string | undefined;
 }
 
 /**
@@ -3529,7 +3529,7 @@ export interface DisableLDAPSRequest {
    * <p>The type of LDAP security to enable. Currently only the value <code>Client</code> is
    *       supported.</p>
    */
-  Type: LDAPSType | string | undefined;
+  Type: keyof typeof LDAPSType | string | undefined;
 }
 
 /**
@@ -3637,7 +3637,7 @@ export interface EnableClientAuthenticationRequest {
    *       Constrained Delegation for the Service User to the LDAP service in your self-managed AD.
    *     </p>
    */
-  Type: ClientAuthenticationType | string | undefined;
+  Type: keyof typeof ClientAuthenticationType | string | undefined;
 }
 
 /**
@@ -3690,7 +3690,7 @@ export interface EnableLDAPSRequest {
    * <p>The type of LDAP security to enable. Currently only the value <code>Client</code> is
    *       supported.</p>
    */
-  Type: LDAPSType | string | undefined;
+  Type: keyof typeof LDAPSType | string | undefined;
 }
 
 /**
@@ -3884,14 +3884,14 @@ export interface ListIpRoutesRequest {
 /**
  * @public
  */
-export enum IpRouteStatusMsg {
-  ADDED = "Added",
-  ADDING = "Adding",
-  ADD_FAILED = "AddFailed",
-  REMOVED = "Removed",
-  REMOVE_FAILED = "RemoveFailed",
-  REMOVING = "Removing",
-}
+export const IpRouteStatusMsg = {
+  ADDED: "Added",
+  ADDING: "Adding",
+  ADD_FAILED: "AddFailed",
+  REMOVED: "Removed",
+  REMOVE_FAILED: "RemoveFailed",
+  REMOVING: "Removing",
+};
 
 /**
  * @public
@@ -3911,7 +3911,7 @@ export interface IpRouteInfo {
   /**
    * <p>The status of the IP address block.</p>
    */
-  IpRouteStatusMsg?: IpRouteStatusMsg | string;
+  IpRouteStatusMsg?: keyof typeof IpRouteStatusMsg | string;
 
   /**
    * <p>The date and time the address block was added to the directory.</p>
@@ -4031,17 +4031,17 @@ export interface ListSchemaExtensionsRequest {
 /**
  * @public
  */
-export enum SchemaExtensionStatus {
-  CANCELLED = "Cancelled",
-  CANCEL_IN_PROGRESS = "CancelInProgress",
-  COMPLETED = "Completed",
-  CREATING_SNAPSHOT = "CreatingSnapshot",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-  REPLICATING = "Replicating",
-  ROLLBACK_IN_PROGRESS = "RollbackInProgress",
-  UPDATING_SCHEMA = "UpdatingSchema",
-}
+export const SchemaExtensionStatus = {
+  CANCELLED: "Cancelled",
+  CANCEL_IN_PROGRESS: "CancelInProgress",
+  COMPLETED: "Completed",
+  CREATING_SNAPSHOT: "CreatingSnapshot",
+  FAILED: "Failed",
+  INITIALIZING: "Initializing",
+  REPLICATING: "Replicating",
+  ROLLBACK_IN_PROGRESS: "RollbackInProgress",
+  UPDATING_SCHEMA: "UpdatingSchema",
+};
 
 /**
  * @public
@@ -4066,7 +4066,7 @@ export interface SchemaExtensionInfo {
   /**
    * <p>The current status of the schema extension.</p>
    */
-  SchemaExtensionStatus?: SchemaExtensionStatus | string;
+  SchemaExtensionStatus?: keyof typeof SchemaExtensionStatus | string;
 
   /**
    * <p>The reason for the <code>SchemaExtensionStatus</code>.</p>
@@ -4185,7 +4185,7 @@ export interface RegisterCertificateRequest {
   /**
    * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
    */
-  Type?: CertificateType | string;
+  Type?: keyof typeof CertificateType | string;
 
   /**
    * <p>A <code>ClientCertAuthSettings</code> object that contains client certificate authentication settings.</p>
@@ -4474,9 +4474,9 @@ export class OrganizationsException extends __BaseException {
 /**
  * @public
  */
-export enum TargetType {
-  ACCOUNT = "ACCOUNT",
-}
+export const TargetType = {
+  ACCOUNT: "ACCOUNT",
+};
 
 /**
  * @public
@@ -4491,7 +4491,7 @@ export interface ShareTarget {
   /**
    * <p>Type of identifier to be used in the <code>Id</code> field.</p>
    */
-  Type: TargetType | string | undefined;
+  Type: keyof typeof TargetType | string | undefined;
 }
 
 /**
@@ -4521,7 +4521,7 @@ export interface ShareDirectoryRequest {
    *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
    *       sending a directory sharing request (<code>HANDSHAKE</code>).</p>
    */
-  ShareMethod: ShareMethod | string | undefined;
+  ShareMethod: keyof typeof ShareMethod | string | undefined;
 }
 
 /**
@@ -4620,7 +4620,7 @@ export interface UnshareTarget {
   /**
    * <p>Type of identifier to be used in the <i>Id</i> field.</p>
    */
-  Type: TargetType | string | undefined;
+  Type: keyof typeof TargetType | string | undefined;
 }
 
 /**
@@ -4697,7 +4697,7 @@ export interface UpdateDirectorySetupRequest {
    *       The type of update that needs to be performed on the directory. For example, OS.
    *     </p>
    */
-  UpdateType: UpdateType | string | undefined;
+  UpdateType: keyof typeof UpdateType | string | undefined;
 
   /**
    * <p>
@@ -4914,7 +4914,7 @@ export interface UpdateTrustRequest {
   /**
    * <p>Updates selective authentication for the trust.</p>
    */
-  SelectiveAuth?: SelectiveAuth | string;
+  SelectiveAuth?: keyof typeof SelectiveAuth | string;
 }
 
 /**

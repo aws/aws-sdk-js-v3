@@ -53,14 +53,14 @@ export class ConnectionLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum StartSelectorType {
-  CONTINUATION_TOKEN = "CONTINUATION_TOKEN",
-  EARLIEST = "EARLIEST",
-  FRAGMENT_NUMBER = "FRAGMENT_NUMBER",
-  NOW = "NOW",
-  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
-}
+export const StartSelectorType = {
+  CONTINUATION_TOKEN: "CONTINUATION_TOKEN",
+  EARLIEST: "EARLIEST",
+  FRAGMENT_NUMBER: "FRAGMENT_NUMBER",
+  NOW: "NOW",
+  PRODUCER_TIMESTAMP: "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP: "SERVER_TIMESTAMP",
+};
 
 /**
  * @public
@@ -114,7 +114,7 @@ export interface StartSelector {
    *           <code>startSelector</code>.</p>
    *          </note>
    */
-  StartSelectorType: StartSelectorType | string | undefined;
+  StartSelectorType: keyof typeof StartSelectorType | string | undefined;
 
   /**
    * <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to

@@ -23,25 +23,25 @@ export interface AcceleratorCountRequest {
 /**
  * @public
  */
-export enum AcceleratorManufacturer {
-  AMAZON_WEB_SERVICES = "amazon-web-services",
-  AMD = "amd",
-  NVIDIA = "nvidia",
-  XILINX = "xilinx",
-}
+export const AcceleratorManufacturer = {
+  AMAZON_WEB_SERVICES: "amazon-web-services",
+  AMD: "amd",
+  NVIDIA: "nvidia",
+  XILINX: "xilinx",
+};
 
 /**
  * @public
  */
-export enum AcceleratorName {
-  A100 = "a100",
-  K80 = "k80",
-  M60 = "m60",
-  RADEON_PRO_V520 = "radeon-pro-v520",
-  T4 = "t4",
-  V100 = "v100",
-  VU9P = "vu9p",
-}
+export const AcceleratorName = {
+  A100: "a100",
+  K80: "k80",
+  M60: "m60",
+  RADEON_PRO_V520: "radeon-pro-v520",
+  T4: "t4",
+  V100: "v100",
+  VU9P: "vu9p",
+};
 
 /**
  * @public
@@ -63,11 +63,11 @@ export interface AcceleratorTotalMemoryMiBRequest {
 /**
  * @public
  */
-export enum AcceleratorType {
-  FPGA = "fpga",
-  GPU = "gpu",
-  INFERENCE = "inference",
-}
+export const AcceleratorType = {
+  FPGA: "fpga",
+  GPU: "gpu",
+  INFERENCE: "inference",
+};
 
 /**
  * @public
@@ -93,20 +93,20 @@ export class ActiveInstanceRefreshNotFoundFault extends __BaseException {
 /**
  * @public
  */
-export enum ScalingActivityStatusCode {
-  Cancelled = "Cancelled",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  MidLifecycleAction = "MidLifecycleAction",
-  PendingSpotBidPlacement = "PendingSpotBidPlacement",
-  PreInService = "PreInService",
-  Successful = "Successful",
-  WaitingForELBConnectionDraining = "WaitingForELBConnectionDraining",
-  WaitingForInstanceId = "WaitingForInstanceId",
-  WaitingForInstanceWarmup = "WaitingForInstanceWarmup",
-  WaitingForSpotInstanceId = "WaitingForSpotInstanceId",
-  WaitingForSpotInstanceRequestId = "WaitingForSpotInstanceRequestId",
-}
+export const ScalingActivityStatusCode = {
+  Cancelled: "Cancelled",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  MidLifecycleAction: "MidLifecycleAction",
+  PendingSpotBidPlacement: "PendingSpotBidPlacement",
+  PreInService: "PreInService",
+  Successful: "Successful",
+  WaitingForELBConnectionDraining: "WaitingForELBConnectionDraining",
+  WaitingForInstanceId: "WaitingForInstanceId",
+  WaitingForInstanceWarmup: "WaitingForInstanceWarmup",
+  WaitingForSpotInstanceId: "WaitingForSpotInstanceId",
+  WaitingForSpotInstanceRequestId: "WaitingForSpotInstanceRequestId",
+};
 
 /**
  * @public
@@ -147,7 +147,7 @@ export interface Activity {
   /**
    * <p>The current status of the activity.</p>
    */
-  StatusCode: ScalingActivityStatusCode | string | undefined;
+  StatusCode: keyof typeof ScalingActivityStatusCode | string | undefined;
 
   /**
    * <p>A friendly, more verbose description of the activity status.</p>
@@ -834,11 +834,11 @@ export interface InstancesDistribution {
 /**
  * @public
  */
-export enum BareMetal {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
+export const BareMetal = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+};
 
 /**
  * @public
@@ -860,45 +860,45 @@ export interface BaselineEbsBandwidthMbpsRequest {
 /**
  * @public
  */
-export enum BurstablePerformance {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
+export const BurstablePerformance = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+};
 
 /**
  * @public
  */
-export enum CpuManufacturer {
-  AMAZON_WEB_SERVICES = "amazon-web-services",
-  AMD = "amd",
-  INTEL = "intel",
-}
+export const CpuManufacturer = {
+  AMAZON_WEB_SERVICES: "amazon-web-services",
+  AMD: "amd",
+  INTEL: "intel",
+};
 
 /**
  * @public
  */
-export enum InstanceGeneration {
-  CURRENT = "current",
-  PREVIOUS = "previous",
-}
+export const InstanceGeneration = {
+  CURRENT: "current",
+  PREVIOUS: "previous",
+};
 
 /**
  * @public
  */
-export enum LocalStorage {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
-}
+export const LocalStorage = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+  REQUIRED: "required",
+};
 
 /**
  * @public
  */
-export enum LocalStorageType {
-  HDD = "hdd",
-  SSD = "ssd",
-}
+export const LocalStorageType = {
+  HDD: "hdd",
+  SSD: "ssd",
+};
 
 /**
  * @public
@@ -1076,7 +1076,7 @@ export interface InstanceRequirements {
    *          </note>
    *          <p>Default: Any manufacturer</p>
    */
-  CpuManufacturers?: (CpuManufacturer | string)[];
+  CpuManufacturers?: (keyof typeof CpuManufacturer | string)[];
 
   /**
    * <p>The minimum and maximum amount of memory per vCPU for an instance type, in GiB.</p>
@@ -1117,7 +1117,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any current or previous generation</p>
    */
-  InstanceGenerations?: (InstanceGeneration | string)[];
+  InstanceGenerations?: (keyof typeof InstanceGeneration | string)[];
 
   /**
    * <p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for
@@ -1157,7 +1157,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BareMetal?: BareMetal | string;
+  BareMetal?: keyof typeof BareMetal | string;
 
   /**
    * <p>Indicates whether burstable performance instance types are included, excluded, or
@@ -1166,7 +1166,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BurstablePerformance?: BurstablePerformance | string;
+  BurstablePerformance?: keyof typeof BurstablePerformance | string;
 
   /**
    * <p>Indicates whether instance types must provide On-Demand Instance hibernation
@@ -1189,7 +1189,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>included</code>
    *          </p>
    */
-  LocalStorage?: LocalStorage | string;
+  LocalStorage?: keyof typeof LocalStorage | string;
 
   /**
    * <p>Indicates the type of local storage that is required.</p>
@@ -1205,7 +1205,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any local storage type</p>
    */
-  LocalStorageTypes?: (LocalStorageType | string)[];
+  LocalStorageTypes?: (keyof typeof LocalStorageType | string)[];
 
   /**
    * <p>The minimum and maximum total local storage size for an instance type, in GB.</p>
@@ -1237,7 +1237,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any accelerator type</p>
    */
-  AcceleratorTypes?: (AcceleratorType | string)[];
+  AcceleratorTypes?: (keyof typeof AcceleratorType | string)[];
 
   /**
    * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia
@@ -1268,7 +1268,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any manufacturer</p>
    */
-  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+  AcceleratorManufacturers?: (keyof typeof AcceleratorManufacturer | string)[];
 
   /**
    * <p>Lists the accelerators that must be on an instance type.</p>
@@ -1298,7 +1298,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any accelerator</p>
    */
-  AcceleratorNames?: (AcceleratorName | string)[];
+  AcceleratorNames?: (keyof typeof AcceleratorName | string)[];
 
   /**
    * <p>The minimum and maximum total memory size for the accelerators on an instance type, in
@@ -1929,18 +1929,18 @@ export interface InstanceMonitoring {
 /**
  * @public
  */
-export enum InstanceMetadataEndpointState {
-  Disabled = "disabled",
-  Enabled = "enabled",
-}
+export const InstanceMetadataEndpointState = {
+  Disabled: "disabled",
+  Enabled: "enabled",
+};
 
 /**
  * @public
  */
-export enum InstanceMetadataHttpTokensState {
-  Optional = "optional",
-  Required = "required",
-}
+export const InstanceMetadataHttpTokensState = {
+  Optional: "optional",
+  Required: "required",
+};
 
 /**
  * @public
@@ -1961,7 +1961,7 @@ export interface InstanceMetadataOptions {
    *             always returns the version 2.0 credentials; the version 1.0 credentials are not
    *             available.</p>
    */
-  HttpTokens?: InstanceMetadataHttpTokensState | string;
+  HttpTokens?: keyof typeof InstanceMetadataHttpTokensState | string;
 
   /**
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
@@ -1978,7 +1978,7 @@ export interface InstanceMetadataOptions {
    *                 your instance metadata. </p>
    *          </note>
    */
-  HttpEndpoint?: InstanceMetadataEndpointState | string;
+  HttpEndpoint?: keyof typeof InstanceMetadataEndpointState | string;
 }
 
 /**
@@ -2616,31 +2616,31 @@ export interface EnabledMetric {
 /**
  * @public
  */
-export enum LifecycleState {
-  DETACHED = "Detached",
-  DETACHING = "Detaching",
-  ENTERING_STANDBY = "EnteringStandby",
-  IN_SERVICE = "InService",
-  PENDING = "Pending",
-  PENDING_PROCEED = "Pending:Proceed",
-  PENDING_WAIT = "Pending:Wait",
-  QUARANTINED = "Quarantined",
-  STANDBY = "Standby",
-  TERMINATED = "Terminated",
-  TERMINATING = "Terminating",
-  TERMINATING_PROCEED = "Terminating:Proceed",
-  TERMINATING_WAIT = "Terminating:Wait",
-  WARMED_HIBERNATED = "Warmed:Hibernated",
-  WARMED_PENDING = "Warmed:Pending",
-  WARMED_PENDING_PROCEED = "Warmed:Pending:Proceed",
-  WARMED_PENDING_WAIT = "Warmed:Pending:Wait",
-  WARMED_RUNNING = "Warmed:Running",
-  WARMED_STOPPED = "Warmed:Stopped",
-  WARMED_TERMINATED = "Warmed:Terminated",
-  WARMED_TERMINATING = "Warmed:Terminating",
-  WARMED_TERMINATING_PROCEED = "Warmed:Terminating:Proceed",
-  WARMED_TERMINATING_WAIT = "Warmed:Terminating:Wait",
-}
+export const LifecycleState = {
+  DETACHED: "Detached",
+  DETACHING: "Detaching",
+  ENTERING_STANDBY: "EnteringStandby",
+  IN_SERVICE: "InService",
+  PENDING: "Pending",
+  PENDING_PROCEED: "Pending:Proceed",
+  PENDING_WAIT: "Pending:Wait",
+  QUARANTINED: "Quarantined",
+  STANDBY: "Standby",
+  TERMINATED: "Terminated",
+  TERMINATING: "Terminating",
+  TERMINATING_PROCEED: "Terminating:Proceed",
+  TERMINATING_WAIT: "Terminating:Wait",
+  WARMED_HIBERNATED: "Warmed:Hibernated",
+  WARMED_PENDING: "Warmed:Pending",
+  WARMED_PENDING_PROCEED: "Warmed:Pending:Proceed",
+  WARMED_PENDING_WAIT: "Warmed:Pending:Wait",
+  WARMED_RUNNING: "Warmed:Running",
+  WARMED_STOPPED: "Warmed:Stopped",
+  WARMED_TERMINATED: "Warmed:Terminated",
+  WARMED_TERMINATING: "Warmed:Terminating",
+  WARMED_TERMINATING_PROCEED: "Warmed:Terminating:Proceed",
+  WARMED_TERMINATING_WAIT: "Warmed:Terminating:Wait",
+};
 
 /**
  * @public
@@ -2667,7 +2667,7 @@ export interface Instance {
    *             not used. For information about lifecycle states, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Instance
    *                 lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
    */
-  LifecycleState: LifecycleState | string | undefined;
+  LifecycleState: keyof typeof LifecycleState | string | undefined;
 
   /**
    * <p>The last reported health status of the instance. "Healthy" means that the instance is
@@ -2767,18 +2767,18 @@ export interface InstanceReusePolicy {
 /**
  * @public
  */
-export enum WarmPoolState {
-  Hibernated = "Hibernated",
-  Running = "Running",
-  Stopped = "Stopped",
-}
+export const WarmPoolState = {
+  Hibernated: "Hibernated",
+  Running: "Running",
+  Stopped: "Stopped",
+};
 
 /**
  * @public
  */
-export enum WarmPoolStatus {
-  PendingDelete = "PendingDelete",
-}
+export const WarmPoolStatus = {
+  PendingDelete: "PendingDelete",
+};
 
 /**
  * @public
@@ -2799,12 +2799,12 @@ export interface WarmPoolConfiguration {
   /**
    * <p>The instance state to transition to after the lifecycle actions are complete.</p>
    */
-  PoolState?: WarmPoolState | string;
+  PoolState?: keyof typeof WarmPoolState | string;
 
   /**
    * <p>The status of a warm pool that is marked for deletion.</p>
    */
-  Status?: WarmPoolStatus | string;
+  Status?: keyof typeof WarmPoolStatus | string;
 
   /**
    * <p>The instance reuse policy.</p>
@@ -3195,20 +3195,20 @@ export interface DesiredConfiguration {
 /**
  * @public
  */
-export enum ScaleInProtectedInstances {
-  Ignore = "Ignore",
-  Refresh = "Refresh",
-  Wait = "Wait",
-}
+export const ScaleInProtectedInstances = {
+  Ignore: "Ignore",
+  Refresh: "Refresh",
+  Wait: "Wait",
+};
 
 /**
  * @public
  */
-export enum StandbyInstances {
-  Ignore = "Ignore",
-  Terminate = "Terminate",
-  Wait = "Wait",
-}
+export const StandbyInstances = {
+  Ignore: "Ignore",
+  Terminate: "Terminate",
+  Wait: "Wait",
+};
 
 /**
  * @public
@@ -3313,7 +3313,7 @@ export interface RefreshPreferences {
    *             </dd>
    *          </dl>
    */
-  ScaleInProtectedInstances?: ScaleInProtectedInstances | string;
+  ScaleInProtectedInstances?: keyof typeof ScaleInProtectedInstances | string;
 
   /**
    * <p>Choose the behavior that you want Amazon EC2 Auto Scaling to use if instances in <code>Standby</code>
@@ -3336,7 +3336,7 @@ export interface RefreshPreferences {
    *             </dd>
    *          </dl>
    */
-  StandbyInstances?: StandbyInstances | string;
+  StandbyInstances?: keyof typeof StandbyInstances | string;
 }
 
 /**
@@ -3436,17 +3436,17 @@ export interface RollbackDetails {
 /**
  * @public
  */
-export enum InstanceRefreshStatus {
-  Cancelled = "Cancelled",
-  Cancelling = "Cancelling",
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Pending = "Pending",
-  RollbackFailed = "RollbackFailed",
-  RollbackInProgress = "RollbackInProgress",
-  RollbackSuccessful = "RollbackSuccessful",
-  Successful = "Successful",
-}
+export const InstanceRefreshStatus = {
+  Cancelled: "Cancelled",
+  Cancelling: "Cancelling",
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Pending: "Pending",
+  RollbackFailed: "RollbackFailed",
+  RollbackInProgress: "RollbackInProgress",
+  RollbackSuccessful: "RollbackSuccessful",
+  Successful: "Successful",
+};
 
 /**
  * @public
@@ -3509,7 +3509,7 @@ export interface InstanceRefresh {
    *             </li>
    *          </ul>
    */
-  Status?: InstanceRefreshStatus | string;
+  Status?: keyof typeof InstanceRefreshStatus | string;
 
   /**
    * <p>The explanation for the specific status assigned to this operation.</p>
@@ -4344,10 +4344,10 @@ export interface DescribePoliciesType {
 /**
  * @public
  */
-export enum PredictiveScalingMaxCapacityBreachBehavior {
-  HonorMaxCapacity = "HonorMaxCapacity",
-  IncreaseMaxCapacity = "IncreaseMaxCapacity",
-}
+export const PredictiveScalingMaxCapacityBreachBehavior = {
+  HonorMaxCapacity: "HonorMaxCapacity",
+  IncreaseMaxCapacity: "IncreaseMaxCapacity",
+};
 
 /**
  * @public
@@ -4521,12 +4521,12 @@ export interface PredictiveScalingCustomizedScalingMetric {
 /**
  * @public
  */
-export enum PredefinedLoadMetricType {
-  ALBTargetGroupRequestCount = "ALBTargetGroupRequestCount",
-  ASGTotalCPUUtilization = "ASGTotalCPUUtilization",
-  ASGTotalNetworkIn = "ASGTotalNetworkIn",
-  ASGTotalNetworkOut = "ASGTotalNetworkOut",
-}
+export const PredefinedLoadMetricType = {
+  ALBTargetGroupRequestCount: "ALBTargetGroupRequestCount",
+  ASGTotalCPUUtilization: "ASGTotalCPUUtilization",
+  ASGTotalNetworkIn: "ASGTotalNetworkIn",
+  ASGTotalNetworkOut: "ASGTotalNetworkOut",
+};
 
 /**
  * @public
@@ -4539,7 +4539,7 @@ export interface PredictiveScalingPredefinedLoadMetric {
   /**
    * <p>The metric type.</p>
    */
-  PredefinedMetricType: PredefinedLoadMetricType | string | undefined;
+  PredefinedMetricType: keyof typeof PredefinedLoadMetricType | string | undefined;
 
   /**
    * <p>A label that uniquely identifies a specific Application Load Balancer target group from which to determine
@@ -4570,12 +4570,12 @@ export interface PredictiveScalingPredefinedLoadMetric {
 /**
  * @public
  */
-export enum PredefinedMetricPairType {
-  ALBRequestCount = "ALBRequestCount",
-  ASGCPUUtilization = "ASGCPUUtilization",
-  ASGNetworkIn = "ASGNetworkIn",
-  ASGNetworkOut = "ASGNetworkOut",
-}
+export const PredefinedMetricPairType = {
+  ALBRequestCount: "ALBRequestCount",
+  ASGCPUUtilization: "ASGCPUUtilization",
+  ASGNetworkIn: "ASGNetworkIn",
+  ASGNetworkOut: "ASGNetworkOut",
+};
 
 /**
  * @public
@@ -4588,7 +4588,7 @@ export interface PredictiveScalingPredefinedMetricPair {
    *             metric type is <code>ASGCPUUtilization</code>, the Auto Scaling group's total CPU metric is used
    *             as the load metric, and the average CPU metric is used for the scaling metric.</p>
    */
-  PredefinedMetricType: PredefinedMetricPairType | string | undefined;
+  PredefinedMetricType: keyof typeof PredefinedMetricPairType | string | undefined;
 
   /**
    * <p>A label that uniquely identifies a specific Application Load Balancer target group from which to determine
@@ -4619,12 +4619,12 @@ export interface PredictiveScalingPredefinedMetricPair {
 /**
  * @public
  */
-export enum PredefinedScalingMetricType {
-  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
-  ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
-  ASGAverageNetworkIn = "ASGAverageNetworkIn",
-  ASGAverageNetworkOut = "ASGAverageNetworkOut",
-}
+export const PredefinedScalingMetricType = {
+  ALBRequestCountPerTarget: "ALBRequestCountPerTarget",
+  ASGAverageCPUUtilization: "ASGAverageCPUUtilization",
+  ASGAverageNetworkIn: "ASGAverageNetworkIn",
+  ASGAverageNetworkOut: "ASGAverageNetworkOut",
+};
 
 /**
  * @public
@@ -4637,7 +4637,7 @@ export interface PredictiveScalingPredefinedScalingMetric {
   /**
    * <p>The metric type.</p>
    */
-  PredefinedMetricType: PredefinedScalingMetricType | string | undefined;
+  PredefinedMetricType: keyof typeof PredefinedScalingMetricType | string | undefined;
 
   /**
    * <p>A label that uniquely identifies a specific Application Load Balancer target group from which to determine
@@ -4760,10 +4760,10 @@ export interface PredictiveScalingMetricSpecification {
 /**
  * @public
  */
-export enum PredictiveScalingMode {
-  ForecastAndScale = "ForecastAndScale",
-  ForecastOnly = "ForecastOnly",
-}
+export const PredictiveScalingMode = {
+  ForecastAndScale: "ForecastAndScale",
+  ForecastOnly: "ForecastOnly",
+};
 
 /**
  * @public
@@ -4783,7 +4783,7 @@ export interface PredictiveScalingConfiguration {
    * <p>The predictive scaling mode. Defaults to <code>ForecastOnly</code> if not
    *             specified.</p>
    */
-  Mode?: PredictiveScalingMode | string;
+  Mode?: keyof typeof PredictiveScalingMode | string;
 
   /**
    * <p>The amount of time, in seconds, by which the instance launch time can be advanced. For
@@ -4817,7 +4817,7 @@ export interface PredictiveScalingConfiguration {
    *             </li>
    *          </ul>
    */
-  MaxCapacityBreachBehavior?: PredictiveScalingMaxCapacityBreachBehavior | string;
+  MaxCapacityBreachBehavior?: keyof typeof PredictiveScalingMaxCapacityBreachBehavior | string;
 
   /**
    * <p>The size of the capacity buffer to use when the forecast capacity is close to or
@@ -4989,13 +4989,13 @@ export interface TargetTrackingMetricDataQuery {
 /**
  * @public
  */
-export enum MetricStatistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
-}
+export const MetricStatistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+};
 
 /**
  * @public
@@ -5048,7 +5048,7 @@ export interface CustomizedMetricSpecification {
   /**
    * <p>The statistic of the metric.</p>
    */
-  Statistic?: MetricStatistic | string;
+  Statistic?: keyof typeof MetricStatistic | string;
 
   /**
    * <p>The unit of the metric. For a complete list of the units that CloudWatch supports, see the
@@ -5067,12 +5067,12 @@ export interface CustomizedMetricSpecification {
 /**
  * @public
  */
-export enum MetricType {
-  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
-  ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
-  ASGAverageNetworkIn = "ASGAverageNetworkIn",
-  ASGAverageNetworkOut = "ASGAverageNetworkOut",
-}
+export const MetricType = {
+  ALBRequestCountPerTarget: "ALBRequestCountPerTarget",
+  ASGAverageCPUUtilization: "ASGAverageCPUUtilization",
+  ASGAverageNetworkIn: "ASGAverageNetworkIn",
+  ASGAverageNetworkOut: "ASGAverageNetworkOut",
+};
 
 /**
  * @public
@@ -5105,7 +5105,7 @@ export interface PredefinedMetricSpecification {
    *             </li>
    *          </ul>
    */
-  PredefinedMetricType: MetricType | string | undefined;
+  PredefinedMetricType: keyof typeof MetricType | string | undefined;
 
   /**
    * <p>A label that uniquely identifies a specific Application Load Balancer target group
@@ -6695,7 +6695,7 @@ export interface PutWarmPoolType {
    * <p>Sets the instance state to transition to after the lifecycle actions are complete.
    *             Default is <code>Stopped</code>.</p>
    */
-  PoolState?: WarmPoolState | string;
+  PoolState?: keyof typeof WarmPoolState | string;
 
   /**
    * <p>Indicates whether instances in the Auto Scaling group can be returned to the warm pool on
@@ -6955,9 +6955,9 @@ export interface StartInstanceRefreshAnswer {
 /**
  * @public
  */
-export enum RefreshStrategy {
-  Rolling = "Rolling",
-}
+export const RefreshStrategy = {
+  Rolling: "Rolling",
+};
 
 /**
  * @public
@@ -6972,7 +6972,7 @@ export interface StartInstanceRefreshType {
    * <p>The strategy to use for the instance refresh. The only valid value is
    *                 <code>Rolling</code>.</p>
    */
-  Strategy?: RefreshStrategy | string;
+  Strategy?: keyof typeof RefreshStrategy | string;
 
   /**
    * <p>The desired configuration. For example, the desired configuration can specify a new

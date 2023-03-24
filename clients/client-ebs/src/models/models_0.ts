@@ -7,10 +7,10 @@ import { EBSServiceException as __BaseException } from "./EBSServiceException";
 /**
  * @public
  */
-export enum AccessDeniedExceptionReason {
-  DEPENDENCY_ACCESS_DENIED = "DEPENDENCY_ACCESS_DENIED",
-  UNAUTHORIZED_ACCOUNT = "UNAUTHORIZED_ACCOUNT",
-}
+export const AccessDeniedExceptionReason = {
+  DEPENDENCY_ACCESS_DENIED: "DEPENDENCY_ACCESS_DENIED",
+  UNAUTHORIZED_ACCOUNT: "UNAUTHORIZED_ACCOUNT",
+};
 
 /**
  * @public
@@ -23,7 +23,7 @@ export class AccessDeniedException extends __BaseException {
   /**
    * <p>The reason for the exception.</p>
    */
-  Reason: AccessDeniedExceptionReason | string | undefined;
+  Reason: keyof typeof AccessDeniedExceptionReason | string | undefined;
   /**
    * @internal
    */
@@ -83,16 +83,16 @@ export interface ChangedBlock {
 /**
  * @public
  */
-export enum ChecksumAggregationMethod {
-  CHECKSUM_AGGREGATION_LINEAR = "LINEAR",
-}
+export const ChecksumAggregationMethod = {
+  CHECKSUM_AGGREGATION_LINEAR: "LINEAR",
+};
 
 /**
  * @public
  */
-export enum ChecksumAlgorithm {
-  CHECKSUM_ALGORITHM_SHA256 = "SHA256",
-}
+export const ChecksumAlgorithm = {
+  CHECKSUM_ALGORITHM_SHA256: "SHA256",
+};
 
 /**
  * @public
@@ -122,23 +122,23 @@ export interface CompleteSnapshotRequest {
    * <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
    *             is <code>SHA256</code>.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 
   /**
    * <p>The aggregation method used to generate the checksum. Currently, the only supported
    *             aggregation method is <code>LINEAR</code>.</p>
    */
-  ChecksumAggregationMethod?: ChecksumAggregationMethod | string;
+  ChecksumAggregationMethod?: keyof typeof ChecksumAggregationMethod | string;
 }
 
 /**
  * @public
  */
-export enum Status {
-  COMPLETED = "completed",
-  ERROR = "error",
-  PENDING = "pending",
-}
+export const Status = {
+  COMPLETED: "completed",
+  ERROR: "error",
+  PENDING: "pending",
+};
 
 /**
  * @public
@@ -147,7 +147,7 @@ export interface CompleteSnapshotResponse {
   /**
    * <p>The status of the snapshot.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -175,11 +175,11 @@ export class InternalServerException extends __BaseException {
 /**
  * @public
  */
-export enum RequestThrottledExceptionReason {
-  ACCOUNT_THROTTLED = "ACCOUNT_THROTTLED",
-  DEPENDENCY_REQUEST_THROTTLED = "DEPENDENCY_REQUEST_THROTTLED",
-  RESOURCE_LEVEL_THROTTLE = "RESOURCE_LEVEL_THROTTLE",
-}
+export const RequestThrottledExceptionReason = {
+  ACCOUNT_THROTTLED: "ACCOUNT_THROTTLED",
+  DEPENDENCY_REQUEST_THROTTLED: "DEPENDENCY_REQUEST_THROTTLED",
+  RESOURCE_LEVEL_THROTTLE: "RESOURCE_LEVEL_THROTTLE",
+};
 
 /**
  * @public
@@ -193,7 +193,7 @@ export class RequestThrottledException extends __BaseException {
   /**
    * <p>The reason for the exception.</p>
    */
-  Reason?: RequestThrottledExceptionReason | string;
+  Reason?: keyof typeof RequestThrottledExceptionReason | string;
   /**
    * @internal
    */
@@ -212,10 +212,10 @@ export class RequestThrottledException extends __BaseException {
 /**
  * @public
  */
-export enum ResourceNotFoundExceptionReason {
-  DEPENDENCY_RESOURCE_NOT_FOUND = "DEPENDENCY_RESOURCE_NOT_FOUND",
-  SNAPSHOT_NOT_FOUND = "SNAPSHOT_NOT_FOUND",
-}
+export const ResourceNotFoundExceptionReason = {
+  DEPENDENCY_RESOURCE_NOT_FOUND: "DEPENDENCY_RESOURCE_NOT_FOUND",
+  SNAPSHOT_NOT_FOUND: "SNAPSHOT_NOT_FOUND",
+};
 
 /**
  * @public
@@ -228,7 +228,7 @@ export class ResourceNotFoundException extends __BaseException {
   /**
    * <p>The reason for the exception.</p>
    */
-  Reason?: ResourceNotFoundExceptionReason | string;
+  Reason?: keyof typeof ResourceNotFoundExceptionReason | string;
   /**
    * @internal
    */
@@ -247,9 +247,9 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum ServiceQuotaExceededExceptionReason {
-  DEPENDENCY_SERVICE_QUOTA_EXCEEDED = "DEPENDENCY_SERVICE_QUOTA_EXCEEDED",
-}
+export const ServiceQuotaExceededExceptionReason = {
+  DEPENDENCY_SERVICE_QUOTA_EXCEEDED: "DEPENDENCY_SERVICE_QUOTA_EXCEEDED",
+};
 
 /**
  * @public
@@ -262,7 +262,7 @@ export class ServiceQuotaExceededException extends __BaseException {
   /**
    * <p>The reason for the exception.</p>
    */
-  Reason?: ServiceQuotaExceededExceptionReason | string;
+  Reason?: keyof typeof ServiceQuotaExceededExceptionReason | string;
   /**
    * @internal
    */
@@ -281,20 +281,20 @@ export class ServiceQuotaExceededException extends __BaseException {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CONFLICTING_BLOCK_UPDATE = "CONFLICTING_BLOCK_UPDATE",
-  INVALID_BLOCK = "INVALID_BLOCK",
-  INVALID_BLOCK_TOKEN = "INVALID_BLOCK_TOKEN",
-  INVALID_CONTENT_ENCODING = "INVALID_CONTENT_ENCODING",
-  INVALID_CUSTOMER_KEY = "INVALID_CUSTOMER_KEY",
-  INVALID_DEPENDENCY_REQUEST = "INVALID_DEPENDENCY_REQUEST",
-  INVALID_PAGE_TOKEN = "INVALID_PAGE_TOKEN",
-  INVALID_PARAMETER_VALUE = "INVALID_PARAMETER_VALUE",
-  INVALID_SNAPSHOT_ID = "INVALID_SNAPSHOT_ID",
-  INVALID_TAG = "INVALID_TAG",
-  INVALID_VOLUME_SIZE = "INVALID_VOLUME_SIZE",
-  UNRELATED_SNAPSHOTS = "UNRELATED_SNAPSHOTS",
-}
+export const ValidationExceptionReason = {
+  CONFLICTING_BLOCK_UPDATE: "CONFLICTING_BLOCK_UPDATE",
+  INVALID_BLOCK: "INVALID_BLOCK",
+  INVALID_BLOCK_TOKEN: "INVALID_BLOCK_TOKEN",
+  INVALID_CONTENT_ENCODING: "INVALID_CONTENT_ENCODING",
+  INVALID_CUSTOMER_KEY: "INVALID_CUSTOMER_KEY",
+  INVALID_DEPENDENCY_REQUEST: "INVALID_DEPENDENCY_REQUEST",
+  INVALID_PAGE_TOKEN: "INVALID_PAGE_TOKEN",
+  INVALID_PARAMETER_VALUE: "INVALID_PARAMETER_VALUE",
+  INVALID_SNAPSHOT_ID: "INVALID_SNAPSHOT_ID",
+  INVALID_TAG: "INVALID_TAG",
+  INVALID_VOLUME_SIZE: "INVALID_VOLUME_SIZE",
+  UNRELATED_SNAPSHOTS: "UNRELATED_SNAPSHOTS",
+};
 
 /**
  * @public
@@ -307,7 +307,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason for the validation exception.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: keyof typeof ValidationExceptionReason | string;
   /**
    * @internal
    */
@@ -424,7 +424,7 @@ export interface GetSnapshotBlockResponse {
   /**
    * <p>The algorithm used to generate the checksum for the block, such as SHA256.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 }
 
 /**
@@ -640,7 +640,7 @@ export interface PutSnapshotBlockRequest {
    * <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
    *             is <code>SHA256</code>.</p>
    */
-  ChecksumAlgorithm: ChecksumAlgorithm | string | undefined;
+  ChecksumAlgorithm: keyof typeof ChecksumAlgorithm | string | undefined;
 }
 
 /**
@@ -655,7 +655,7 @@ export interface PutSnapshotBlockResponse {
   /**
    * <p>The algorithm used by Amazon EBS to generate the checksum.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: keyof typeof ChecksumAlgorithm | string;
 }
 
 /**
@@ -815,7 +815,7 @@ export interface StartSnapshotResponse {
   /**
    * <p>The status of the snapshot.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>The timestamp when the snapshot was created.</p>

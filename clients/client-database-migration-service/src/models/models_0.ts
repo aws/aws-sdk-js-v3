@@ -539,10 +539,10 @@ export interface DmsTransferSettings {
 /**
  * @public
  */
-export enum NestingLevelValue {
-  NONE = "none",
-  ONE = "one",
-}
+export const NestingLevelValue = {
+  NONE: "none",
+  ONE: "one",
+};
 
 /**
  * @public
@@ -580,7 +580,7 @@ export interface DocDbSettings {
    *          <p>Default value is <code>"none"</code>. Specify <code>"none"</code> to use document mode.
    *          Specify <code>"one"</code> to use table mode.</p>
    */
-  NestingLevel?: NestingLevelValue | string;
+  NestingLevel?: keyof typeof NestingLevelValue | string;
 
   /**
    * <p> Specifies the document ID. Use this setting when <code>NestingLevel</code> is set to
@@ -686,18 +686,18 @@ export interface ElasticsearchSettings {
 /**
  * @public
  */
-export enum ReplicationEndpointTypeValue {
-  SOURCE = "source",
-  TARGET = "target",
-}
+export const ReplicationEndpointTypeValue = {
+  SOURCE: "source",
+  TARGET: "target",
+};
 
 /**
  * @public
  */
-export enum TargetDbType {
-  MULTIPLE_DATABASES = "multiple-databases",
-  SPECIFIC_DATABASE = "specific-database",
-}
+export const TargetDbType = {
+  MULTIPLE_DATABASES: "multiple-databases",
+  SPECIFIC_DATABASE: "specific-database",
+};
 
 /**
  * @public
@@ -741,7 +741,7 @@ export interface GcpMySQLSettings {
    *          <p>Example: <code>targetDbType=MULTIPLE_DATABASES</code>
    *          </p>
    */
-  TargetDbType?: TargetDbType | string;
+  TargetDbType?: keyof typeof TargetDbType | string;
 
   /**
    * <p>Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.</p>
@@ -893,28 +893,28 @@ export interface IBMDb2Settings {
 /**
  * @public
  */
-export enum MessageFormatValue {
-  JSON = "json",
-  JSON_UNFORMATTED = "json-unformatted",
-}
+export const MessageFormatValue = {
+  JSON: "json",
+  JSON_UNFORMATTED: "json-unformatted",
+};
 
 /**
  * @public
  */
-export enum KafkaSaslMechanism {
-  PLAIN = "plain",
-  SCRAM_SHA_512 = "scram-sha-512",
-}
+export const KafkaSaslMechanism = {
+  PLAIN: "plain",
+  SCRAM_SHA_512: "scram-sha-512",
+};
 
 /**
  * @public
  */
-export enum KafkaSecurityProtocol {
-  PLAINTEXT = "plaintext",
-  SASL_SSL = "sasl-ssl",
-  SSL_AUTHENTICATION = "ssl-authentication",
-  SSL_ENCRYPTION = "ssl-encryption",
-}
+export const KafkaSecurityProtocol = {
+  PLAINTEXT: "plaintext",
+  SASL_SSL: "sasl-ssl",
+  SSL_AUTHENTICATION: "ssl-authentication",
+  SSL_ENCRYPTION: "ssl-encryption",
+};
 
 /**
  * @public
@@ -946,7 +946,7 @@ export interface KafkaSettings {
    *             <code>JSON</code> (default) or <code>JSON_UNFORMATTED</code> (a single line with no
    *          tab).</p>
    */
-  MessageFormat?: MessageFormatValue | string;
+  MessageFormat?: keyof typeof MessageFormatValue | string;
 
   /**
    * <p>Provides detailed transaction information from the source database. This information
@@ -1001,7 +1001,7 @@ export interface KafkaSettings {
    *          <code>ssl-encryption</code>, <code>ssl-authentication</code>, and <code>sasl-ssl</code>.
    *          <code>sasl-ssl</code> requires <code>SaslUsername</code> and <code>SaslPassword</code>.</p>
    */
-  SecurityProtocol?: KafkaSecurityProtocol | string;
+  SecurityProtocol?: keyof typeof KafkaSecurityProtocol | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.</p>
@@ -1052,7 +1052,7 @@ export interface KafkaSettings {
    *          parameter to <code>PLAIN.</code>
    *          </p>
    */
-  SaslMechanism?: KafkaSaslMechanism | string;
+  SaslMechanism?: keyof typeof KafkaSaslMechanism | string;
 }
 
 /**
@@ -1071,7 +1071,7 @@ export interface KinesisSettings {
    * <p>The output format for the records created on the endpoint. The message format is
    *          <code>JSON</code> (default) or <code>JSON_UNFORMATTED</code> (a single line with no tab).</p>
    */
-  MessageFormat?: MessageFormatValue | string;
+  MessageFormat?: keyof typeof MessageFormatValue | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the IAM role
@@ -1135,21 +1135,21 @@ export interface KinesisSettings {
 /**
  * @public
  */
-export enum SafeguardPolicy {
-  EXCLUSIVE_AUTOMATIC_TRUNCATION = "exclusive-automatic-truncation",
-  RELY_ON_SQL_SERVER_REPLICATION_AGENT = "rely-on-sql-server-replication-agent",
-  SHARED_AUTOMATIC_TRUNCATION = "shared-automatic-truncation",
-}
+export const SafeguardPolicy = {
+  EXCLUSIVE_AUTOMATIC_TRUNCATION: "exclusive-automatic-truncation",
+  RELY_ON_SQL_SERVER_REPLICATION_AGENT: "rely-on-sql-server-replication-agent",
+  SHARED_AUTOMATIC_TRUNCATION: "shared-automatic-truncation",
+};
 
 /**
  * @public
  */
-export enum TlogAccessMode {
-  BackupOnly = "BackupOnly",
-  PreferBackup = "PreferBackup",
-  PreferTlog = "PreferTlog",
-  TlogOnly = "TlogOnly",
-}
+export const TlogAccessMode = {
+  BackupOnly: "BackupOnly",
+  PreferBackup: "PreferBackup",
+  PreferTlog: "PreferTlog",
+  TlogOnly: "TlogOnly",
+};
 
 /**
  * @public
@@ -1226,7 +1226,7 @@ export interface MicrosoftSQLServerSettings {
    *          time. Therefore, if you need to run parallel DMS tasks
    *          against the same database, use the default method.</p>
    */
-  SafeguardPolicy?: SafeguardPolicy | string;
+  SafeguardPolicy?: keyof typeof SafeguardPolicy | string;
 
   /**
    * <p>Fully qualified domain name of the endpoint. For an Amazon RDS SQL Server instance, this is the
@@ -1289,7 +1289,7 @@ export interface MicrosoftSQLServerSettings {
   /**
    * <p>Indicates the mode used to fetch CDC data.</p>
    */
-  TlogAccessMode?: TlogAccessMode | string;
+  TlogAccessMode?: keyof typeof TlogAccessMode | string;
 
   /**
    * <p>Forces LOB lookup on inline LOB.</p>
@@ -1300,19 +1300,19 @@ export interface MicrosoftSQLServerSettings {
 /**
  * @public
  */
-export enum AuthMechanismValue {
-  DEFAULT = "default",
-  MONGODB_CR = "mongodb_cr",
-  SCRAM_SHA_1 = "scram_sha_1",
-}
+export const AuthMechanismValue = {
+  DEFAULT: "default",
+  MONGODB_CR: "mongodb_cr",
+  SCRAM_SHA_1: "scram_sha_1",
+};
 
 /**
  * @public
  */
-export enum AuthTypeValue {
-  NO = "no",
-  PASSWORD = "password",
-}
+export const AuthTypeValue = {
+  NO: "no",
+  PASSWORD: "password",
+};
 
 /**
  * @public
@@ -1350,7 +1350,7 @@ export interface MongoDbSettings {
    *          <p>When when set to <code>"no"</code>, user name and password parameters are not used and
    *          can be empty. </p>
    */
-  AuthType?: AuthTypeValue | string;
+  AuthType?: keyof typeof AuthTypeValue | string;
 
   /**
    * <p> The authentication mechanism you use to access the MongoDB source endpoint.</p>
@@ -1359,14 +1359,14 @@ export interface MongoDbSettings {
    *             <code>"scram_sha_1"</code>. This setting isn't used when <code>AuthType</code> is
    *          set to <code>"no"</code>.</p>
    */
-  AuthMechanism?: AuthMechanismValue | string;
+  AuthMechanism?: keyof typeof AuthMechanismValue | string;
 
   /**
    * <p> Specifies either document or table mode. </p>
    *          <p>Default value is <code>"none"</code>. Specify <code>"none"</code> to use document mode.
    *          Specify <code>"one"</code> to use table mode.</p>
    */
-  NestingLevel?: NestingLevelValue | string;
+  NestingLevel?: keyof typeof NestingLevelValue | string;
 
   /**
    * <p> Specifies the document ID. Use this setting when <code>NestingLevel</code> is set to
@@ -1473,7 +1473,7 @@ export interface MySQLSettings {
    *          <p>Example: <code>targetDbType=MULTIPLE_DATABASES</code>
    *          </p>
    */
-  TargetDbType?: TargetDbType | string;
+  TargetDbType?: keyof typeof TargetDbType | string;
 
   /**
    * <p>Specifies the maximum size (in KB) of any .csv file used to
@@ -1614,11 +1614,11 @@ export interface NeptuneSettings {
 /**
  * @public
  */
-export enum CharLengthSemantics {
-  BYTE = "byte",
-  CHAR = "char",
-  DEFAULT = "default",
-}
+export const CharLengthSemantics = {
+  BYTE: "byte",
+  CHAR: "char",
+  DEFAULT: "default",
+};
 
 /**
  * @public
@@ -1810,7 +1810,7 @@ export interface OracleSettings {
    *          <p>Example: <code>charLengthSemantics=CHAR;</code>
    *          </p>
    */
-  CharLengthSemantics?: CharLengthSemantics | string;
+  CharLengthSemantics?: keyof typeof CharLengthSemantics | string;
 
   /**
    * <p>Database name for the endpoint.</p>
@@ -2017,11 +2017,11 @@ export interface OracleSettings {
 /**
  * @public
  */
-export enum PluginNameValue {
-  NO_PREFERENCE = "no-preference",
-  PGLOGICAL = "pglogical",
-  TEST_DECODING = "test-decoding",
-}
+export const PluginNameValue = {
+  NO_PREFERENCE: "no-preference",
+  PGLOGICAL: "pglogical",
+  TEST_DECODING: "test-decoding",
+};
 
 /**
  * @public
@@ -2152,7 +2152,7 @@ export interface PostgreSQLSettings {
   /**
    * <p>Specifies the plugin to use to create a replication slot.</p>
    */
-  PluginName?: PluginNameValue | string;
+  PluginName?: keyof typeof PluginNameValue | string;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
@@ -2195,19 +2195,19 @@ export interface PostgreSQLSettings {
 /**
  * @public
  */
-export enum RedisAuthTypeValue {
-  AUTH_ROLE = "auth-role",
-  AUTH_TOKEN = "auth-token",
-  NONE = "none",
-}
+export const RedisAuthTypeValue = {
+  AUTH_ROLE: "auth-role",
+  AUTH_TOKEN: "auth-token",
+  NONE: "none",
+};
 
 /**
  * @public
  */
-export enum SslSecurityProtocolValue {
-  PLAINTEXT = "plaintext",
-  SSL_ENCRYPTION = "ssl-encryption",
-}
+export const SslSecurityProtocolValue = {
+  PLAINTEXT: "plaintext",
+  SSL_ENCRYPTION: "ssl-encryption",
+};
 
 /**
  * @public
@@ -2234,7 +2234,7 @@ export interface RedisSettings {
    *          <p>The <code>plaintext</code> option doesn't provide Transport Layer Security (TLS)
    *          encryption for traffic between endpoint and database.</p>
    */
-  SslSecurityProtocol?: SslSecurityProtocolValue | string;
+  SslSecurityProtocol?: keyof typeof SslSecurityProtocolValue | string;
 
   /**
    * <p>The type of authentication to perform when connecting to a Redis target. Options include
@@ -2243,7 +2243,7 @@ export interface RedisSettings {
    *          <code>auth-role</code> option requires <code>AuthUserName</code> and <code>AuthPassword</code> values
    *          to be provided.</p>
    */
-  AuthType?: RedisAuthTypeValue | string;
+  AuthType?: keyof typeof RedisAuthTypeValue | string;
 
   /**
    * <p>The user name provided with the <code>auth-role</code> option of the
@@ -2268,10 +2268,10 @@ export interface RedisSettings {
 /**
  * @public
  */
-export enum EncryptionModeValue {
-  SSE_KMS = "sse-kms",
-  SSE_S3 = "sse-s3",
-}
+export const EncryptionModeValue = {
+  SSE_KMS: "sse-kms",
+  SSE_S3: "sse-s3",
+};
 
 /**
  * @public
@@ -2372,7 +2372,7 @@ export interface RedshiftSettings {
    *             <code>"s3:PutObject", "s3:ListBucket"</code>
    *          </p>
    */
-  EncryptionMode?: EncryptionModeValue | string;
+  EncryptionMode?: keyof typeof EncryptionModeValue | string;
 
   /**
    * <p>This setting is only valid for a full-load migration task. Set <code>ExplicitIds</code>
@@ -2527,70 +2527,70 @@ export interface RedshiftSettings {
 /**
  * @public
  */
-export enum CannedAclForObjectsValue {
-  AUTHENTICATED_READ = "authenticated-read",
-  AWS_EXEC_READ = "aws-exec-read",
-  BUCKET_OWNER_FULL_CONTROL = "bucket-owner-full-control",
-  BUCKET_OWNER_READ = "bucket-owner-read",
-  NONE = "none",
-  PRIVATE = "private",
-  PUBLIC_READ = "public-read",
-  PUBLIC_READ_WRITE = "public-read-write",
-}
+export const CannedAclForObjectsValue = {
+  AUTHENTICATED_READ: "authenticated-read",
+  AWS_EXEC_READ: "aws-exec-read",
+  BUCKET_OWNER_FULL_CONTROL: "bucket-owner-full-control",
+  BUCKET_OWNER_READ: "bucket-owner-read",
+  NONE: "none",
+  PRIVATE: "private",
+  PUBLIC_READ: "public-read",
+  PUBLIC_READ_WRITE: "public-read-write",
+};
 
 /**
  * @public
  */
-export enum CompressionTypeValue {
-  GZIP = "gzip",
-  NONE = "none",
-}
+export const CompressionTypeValue = {
+  GZIP: "gzip",
+  NONE: "none",
+};
 
 /**
  * @public
  */
-export enum DataFormatValue {
-  CSV = "csv",
-  PARQUET = "parquet",
-}
+export const DataFormatValue = {
+  CSV: "csv",
+  PARQUET: "parquet",
+};
 
 /**
  * @public
  */
-export enum DatePartitionDelimiterValue {
-  DASH = "DASH",
-  NONE = "NONE",
-  SLASH = "SLASH",
-  UNDERSCORE = "UNDERSCORE",
-}
+export const DatePartitionDelimiterValue = {
+  DASH: "DASH",
+  NONE: "NONE",
+  SLASH: "SLASH",
+  UNDERSCORE: "UNDERSCORE",
+};
 
 /**
  * @public
  */
-export enum DatePartitionSequenceValue {
-  DDMMYYYY = "DDMMYYYY",
-  MMYYYYDD = "MMYYYYDD",
-  YYYYMM = "YYYYMM",
-  YYYYMMDD = "YYYYMMDD",
-  YYYYMMDDHH = "YYYYMMDDHH",
-}
+export const DatePartitionSequenceValue = {
+  DDMMYYYY: "DDMMYYYY",
+  MMYYYYDD: "MMYYYYDD",
+  YYYYMM: "YYYYMM",
+  YYYYMMDD: "YYYYMMDD",
+  YYYYMMDDHH: "YYYYMMDDHH",
+};
 
 /**
  * @public
  */
-export enum EncodingTypeValue {
-  PLAIN = "plain",
-  PLAIN_DICTIONARY = "plain-dictionary",
-  RLE_DICTIONARY = "rle-dictionary",
-}
+export const EncodingTypeValue = {
+  PLAIN: "plain",
+  PLAIN_DICTIONARY: "plain-dictionary",
+  RLE_DICTIONARY: "rle-dictionary",
+};
 
 /**
  * @public
  */
-export enum ParquetVersionValue {
-  PARQUET_1_0 = "parquet-1-0",
-  PARQUET_2_0 = "parquet-2-0",
-}
+export const ParquetVersionValue = {
+  PARQUET_1_0: "parquet-1-0",
+  PARQUET_2_0: "parquet-2-0",
+};
 
 /**
  * @public
@@ -2642,7 +2642,7 @@ export interface S3Settings {
    *          the target files. Either set this parameter to NONE (the default) or don't use it to leave the files uncompressed.
    *          This parameter applies to both .csv and .parquet file formats. </p>
    */
-  CompressionType?: CompressionTypeValue | string;
+  CompressionType?: keyof typeof CompressionTypeValue | string;
 
   /**
    * <p>The type of server-side encryption that you want to use for your data. This encryption
@@ -2715,7 +2715,7 @@ export interface S3Settings {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionModeValue | string;
+  EncryptionMode?: keyof typeof EncryptionModeValue | string;
 
   /**
    * <p>If you are using <code>SSE_KMS</code> for the <code>EncryptionMode</code>, provide the
@@ -2745,7 +2745,7 @@ export interface S3Settings {
    *             </li>
    *          </ul>
    */
-  DataFormat?: DataFormatValue | string;
+  DataFormat?: keyof typeof DataFormatValue | string;
 
   /**
    * <p>The type of encoding you are using: </p>
@@ -2768,7 +2768,7 @@ export interface S3Settings {
    *             </li>
    *          </ul>
    */
-  EncodingType?: EncodingTypeValue | string;
+  EncodingType?: keyof typeof EncodingTypeValue | string;
 
   /**
    * <p>The maximum size of an encoded dictionary page of a column. If the dictionary page
@@ -2798,7 +2798,7 @@ export interface S3Settings {
    * <p>The version of the Apache Parquet format that you want to use: <code>parquet_1_0</code>
    *          (the default) or <code>parquet_2_0</code>.</p>
    */
-  ParquetVersion?: ParquetVersionValue | string;
+  ParquetVersion?: keyof typeof ParquetVersionValue | string;
 
   /**
    * <p>A value that enables statistics for Parquet pages and row groups. Choose
@@ -2948,13 +2948,13 @@ export interface S3Settings {
    * <p>Identifies the sequence of the date format to use during folder partitioning. The default value is
    *          <code>YYYYMMDD</code>. Use this parameter when <code>DatePartitionedEnabled</code> is set to <code>true</code>.</p>
    */
-  DatePartitionSequence?: DatePartitionSequenceValue | string;
+  DatePartitionSequence?: keyof typeof DatePartitionSequenceValue | string;
 
   /**
    * <p>Specifies a date separating delimiter to use during folder partitioning. The default value is
    *          <code>SLASH</code>. Use this parameter when <code>DatePartitionedEnabled</code> is set to <code>true</code>.</p>
    */
-  DatePartitionDelimiter?: DatePartitionDelimiterValue | string;
+  DatePartitionDelimiter?: keyof typeof DatePartitionDelimiterValue | string;
 
   /**
    * <p>This setting applies if the S3 output files during a change data capture (CDC) load are
@@ -3046,7 +3046,7 @@ export interface S3Settings {
    *          AWS_EXEC_READ, BUCKET_OWNER_READ, and
    *          BUCKET_OWNER_FULL_CONTROL.</p>
    */
-  CannedAclForObjects?: CannedAclForObjectsValue | string;
+  CannedAclForObjects?: keyof typeof CannedAclForObjectsValue | string;
 
   /**
    * <p>An optional parameter that, when set to <code>true</code> or <code>y</code>, you can use
@@ -3164,12 +3164,12 @@ export interface S3Settings {
 /**
  * @public
  */
-export enum DmsSslModeValue {
-  NONE = "none",
-  REQUIRE = "require",
-  VERIFY_CA = "verify-ca",
-  VERIFY_FULL = "verify-full",
-}
+export const DmsSslModeValue = {
+  NONE: "none",
+  REQUIRE: "require",
+  VERIFY_CA: "verify-ca",
+  VERIFY_FULL: "verify-full",
+};
 
 /**
  * @public
@@ -3242,7 +3242,7 @@ export interface CreateEndpointMessage {
   /**
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  EndpointType: ReplicationEndpointTypeValue | string | undefined;
+  EndpointType: keyof typeof ReplicationEndpointTypeValue | string | undefined;
 
   /**
    * <p>The type of engine for the endpoint. Valid values, depending on the
@@ -3315,7 +3315,7 @@ export interface CreateEndpointMessage {
    * <p>The Secure Sockets Layer (SSL) mode to use for the SSL connection. The default is <code>none</code>
    *          </p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: keyof typeof DmsSslModeValue | string;
 
   /**
    * <p> The Amazon Resource Name (ARN) for the service access role that you want to use to
@@ -3537,7 +3537,7 @@ export interface Endpoint {
   /**
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  EndpointType?: ReplicationEndpointTypeValue | string;
+  EndpointType?: keyof typeof ReplicationEndpointTypeValue | string;
 
   /**
    * <p>The database engine name. Valid values, depending on the EndpointType, include
@@ -3609,7 +3609,7 @@ export interface Endpoint {
   /**
    * <p>The SSL mode used to connect to the endpoint. The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: keyof typeof DmsSslModeValue | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) used by the service to access the IAM role.
@@ -4851,11 +4851,11 @@ export interface CreateReplicationSubnetGroupResponse {
 /**
  * @public
  */
-export enum MigrationTypeValue {
-  CDC = "cdc",
-  FULL_LOAD = "full-load",
-  FULL_LOAD_AND_CDC = "full-load-and-cdc",
-}
+export const MigrationTypeValue = {
+  CDC: "cdc",
+  FULL_LOAD: "full-load",
+  FULL_LOAD_AND_CDC: "full-load-and-cdc",
+};
 
 /**
  * @public
@@ -4898,7 +4898,7 @@ export interface CreateReplicationTaskMessage {
    * <p>The migration type. Valid values: <code>full-load</code> | <code>cdc</code> | <code>full-load-and-cdc</code>
    *          </p>
    */
-  MigrationType: MigrationTypeValue | string | undefined;
+  MigrationType: keyof typeof MigrationTypeValue | string | undefined;
 
   /**
    * <p>The table mappings for the task, in JSON format. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html">Using Table
@@ -5081,7 +5081,7 @@ export interface ReplicationTask {
   /**
    * <p>The type of migration.</p>
    */
-  MigrationType?: MigrationTypeValue | string;
+  MigrationType?: keyof typeof MigrationTypeValue | string;
 
   /**
    * <p>Table mappings specified in the task.</p>
@@ -5792,7 +5792,7 @@ export interface DescribeApplicableIndividualAssessmentsMessage {
   /**
    * <p>Name of the migration type that each provided individual assessment must support.</p>
    */
-  MigrationType?: MigrationTypeValue | string;
+  MigrationType?: keyof typeof MigrationTypeValue | string;
 
   /**
    * <p>Maximum number of records to include in the response. If more records exist than the
@@ -6013,12 +6013,12 @@ export interface DescribeEndpointSettingsMessage {
 /**
  * @public
  */
-export enum EndpointSettingTypeValue {
-  BOOLEAN = "boolean",
-  ENUM = "enum",
-  INTEGER = "integer",
-  STRING = "string",
-}
+export const EndpointSettingTypeValue = {
+  BOOLEAN: "boolean",
+  ENUM: "enum",
+  INTEGER: "integer",
+  STRING: "string",
+};
 
 /**
  * @public
@@ -6033,7 +6033,7 @@ export interface EndpointSetting {
   /**
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  Type?: EndpointSettingTypeValue | string;
+  Type?: keyof typeof EndpointSettingTypeValue | string;
 
   /**
    * <p>Enumerated values to use for this endpoint.</p>
@@ -6143,7 +6143,7 @@ export interface SupportedEndpointType {
   /**
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  EndpointType?: ReplicationEndpointTypeValue | string;
+  EndpointType?: keyof typeof ReplicationEndpointTypeValue | string;
 
   /**
    * <p>The earliest DMS engine version that supports this endpoint engine. Note that endpoint engines released with DMS versions earlier than 3.1.1 do not return a value for this parameter.</p>
@@ -6229,9 +6229,9 @@ export interface DescribeEventCategoriesResponse {
 /**
  * @public
  */
-export enum SourceType {
-  replication_instance = "replication-instance",
-}
+export const SourceType = {
+  replication_instance: "replication-instance",
+};
 
 /**
  * @public
@@ -6247,7 +6247,7 @@ export interface DescribeEventsMessage {
    * <p>The type of DMS resource that generates events.</p>
    *          <p>Valid values: replication-instance | replication-task</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 
   /**
    * <p>The start time for the events to be listed.</p>
@@ -6307,7 +6307,7 @@ export interface Event {
    * <p> The type of DMS resource that generates events. </p>
    *          <p>Valid values: replication-instance | endpoint | replication-task</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: keyof typeof SourceType | string;
 
   /**
    * <p>The event message.</p>
@@ -6435,10 +6435,10 @@ export interface DescribeFleetAdvisorCollectorsRequest {
 /**
  * @public
  */
-export enum CollectorStatus {
-  ACTIVE = "ACTIVE",
-  UNREGISTERED = "UNREGISTERED",
-}
+export const CollectorStatus = {
+  ACTIVE: "ACTIVE",
+  UNREGISTERED: "UNREGISTERED",
+};
 
 /**
  * @public
@@ -6448,7 +6448,7 @@ export interface CollectorHealthCheck {
   /**
    * <p>The status of the Fleet Advisor collector.</p>
    */
-  CollectorStatus?: CollectorStatus | string;
+  CollectorStatus?: keyof typeof CollectorStatus | string;
 
   /**
    * <p>Whether the local collector can access its Amazon S3 bucket.</p>
@@ -6486,11 +6486,11 @@ export interface InventoryData {
 /**
  * @public
  */
-export enum VersionStatus {
-  OUTDATED = "OUTDATED",
-  UNSUPPORTED = "UNSUPPORTED",
-  UP_TO_DATE = "UP_TO_DATE",
-}
+export const VersionStatus = {
+  OUTDATED: "OUTDATED",
+  UNSUPPORTED: "UNSUPPORTED",
+  UP_TO_DATE: "UP_TO_DATE",
+};
 
 /**
  * @public
@@ -6517,7 +6517,7 @@ export interface CollectorResponse {
   /**
    * <p>Whether the collector version is up to date.</p>
    */
-  VersionStatus?: VersionStatus | string;
+  VersionStatus?: keyof typeof VersionStatus | string;
 
   /**
    * <p>A summary description of the Fleet Advisor collector.</p>
@@ -7172,10 +7172,10 @@ export interface DescribeOrderableReplicationInstancesMessage {
 /**
  * @public
  */
-export enum ReleaseStatusValues {
-  BETA = "beta",
-  PROD = "prod",
-}
+export const ReleaseStatusValues = {
+  BETA: "beta",
+  PROD: "prod",
+};
 
 /**
  * @public
@@ -7240,7 +7240,7 @@ export interface OrderableReplicationInstance {
    *             <p>DMS supports the <code>ReleaseStatus</code> parameter in versions 3.1.4 and later.</p>
    *          </note>
    */
-  ReleaseStatus?: ReleaseStatusValues | string;
+  ReleaseStatus?: keyof typeof ReleaseStatusValues | string;
 }
 
 /**
@@ -7652,11 +7652,11 @@ export interface DescribeRefreshSchemasStatusMessage {
 /**
  * @public
  */
-export enum RefreshSchemasStatusTypeValue {
-  FAILED = "failed",
-  REFRESHING = "refreshing",
-  SUCCESSFUL = "successful",
-}
+export const RefreshSchemasStatusTypeValue = {
+  FAILED: "failed",
+  REFRESHING: "refreshing",
+  SUCCESSFUL: "successful",
+};
 
 /**
  * @public
@@ -7677,7 +7677,7 @@ export interface RefreshSchemasStatus {
   /**
    * <p>The status of the schema.</p>
    */
-  Status?: RefreshSchemasStatusTypeValue | string;
+  Status?: keyof typeof RefreshSchemasStatusTypeValue | string;
 
   /**
    * <p>The date the schema was last refreshed.</p>
@@ -8563,7 +8563,7 @@ export interface ModifyEndpointMessage {
   /**
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  EndpointType?: ReplicationEndpointTypeValue | string;
+  EndpointType?: keyof typeof ReplicationEndpointTypeValue | string;
 
   /**
    * <p>The database engine name. Valid values, depending on the EndpointType, include
@@ -8616,7 +8616,7 @@ export interface ModifyEndpointMessage {
   /**
    * <p>The SSL mode used to connect to the endpoint.  The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: keyof typeof DmsSslModeValue | string;
 
   /**
    * <p> The Amazon Resource Name (ARN) for the IAM role you want to use to modify
@@ -9103,7 +9103,7 @@ export interface ModifyReplicationTaskMessage {
    * <p>The migration type. Valid values: <code>full-load</code> | <code>cdc</code> | <code>full-load-and-cdc</code>
    *          </p>
    */
-  MigrationType?: MigrationTypeValue | string;
+  MigrationType?: keyof typeof MigrationTypeValue | string;
 
   /**
    * <p>When using the CLI or boto3, provide the path of the JSON file that contains the
@@ -9266,10 +9266,10 @@ export interface RefreshSchemasResponse {
 /**
  * @public
  */
-export enum ReloadOptionValue {
-  DATA_RELOAD = "data-reload",
-  VALIDATE_ONLY = "validate-only",
-}
+export const ReloadOptionValue = {
+  DATA_RELOAD: "data-reload",
+  VALIDATE_ONLY: "validate-only",
+};
 
 /**
  * @public
@@ -9308,7 +9308,7 @@ export interface ReloadTablesMessage {
    *          <p>Valid values: data-reload, validate-only</p>
    *          <p>Default value is data-reload.</p>
    */
-  ReloadOption?: ReloadOptionValue | string;
+  ReloadOption?: keyof typeof ReloadOptionValue | string;
 }
 
 /**
@@ -9382,11 +9382,11 @@ export interface StartRecommendationsRequest {
 /**
  * @public
  */
-export enum StartReplicationTaskTypeValue {
-  RELOAD_TARGET = "reload-target",
-  RESUME_PROCESSING = "resume-processing",
-  START_REPLICATION = "start-replication",
-}
+export const StartReplicationTaskTypeValue = {
+  RELOAD_TARGET: "reload-target",
+  RESUME_PROCESSING: "resume-processing",
+  START_REPLICATION: "start-replication",
+};
 
 /**
  * @public
@@ -9411,7 +9411,7 @@ export interface StartReplicationTaskMessage {
    *          use <code>reload-target</code>. Otherwise use <code>resume-processing</code>, to replicate the
    *          changes from the last stop position.</p>
    */
-  StartReplicationTaskType: StartReplicationTaskTypeValue | string | undefined;
+  StartReplicationTaskType: keyof typeof StartReplicationTaskTypeValue | string | undefined;
 
   /**
    * <p>Indicates the start time for a change data capture (CDC) operation. Use either

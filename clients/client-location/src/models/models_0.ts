@@ -39,7 +39,7 @@ export interface ApiKeyFilter {
   /**
    * <p>Filter on <code>Active</code> or <code>Expired</code> API keys.</p>
    */
-  KeyStatus?: Status | string;
+  KeyStatus?: keyof typeof Status | string;
 }
 
 /**
@@ -378,7 +378,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>A message with the reason for the validation exception error.</p>
    */
-  Reason: ValidationExceptionReason | string | undefined;
+  Reason: keyof typeof ValidationExceptionReason | string | undefined;
 
   /**
    * <p>The field where the invalid entry was detected.</p>
@@ -734,7 +734,7 @@ export interface BatchItemError {
   /**
    * <p>The error code associated with the batch request error.</p>
    */
-  Code?: BatchItemErrorCode | string;
+  Code?: keyof typeof BatchItemErrorCode | string;
 
   /**
    * <p>A message with the reason for the batch request error.</p>
@@ -1297,7 +1297,7 @@ export interface TruckDimensions {
    *          <p>Default Value: <code>Meters</code>
    *          </p>
    */
-  Unit?: DimensionUnit | string;
+  Unit?: keyof typeof DimensionUnit | string;
 }
 
 /**
@@ -1327,7 +1327,7 @@ export interface TruckWeight {
    *          <p>Default Value: <code>Kilograms</code>
    *          </p>
    */
-  Unit?: VehicleWeightUnit | string;
+  Unit?: keyof typeof VehicleWeightUnit | string;
 }
 
 /**
@@ -1472,7 +1472,7 @@ export interface CalculateRouteRequest {
    *          <p>Default Value: <code>Car</code>
    *          </p>
    */
-  TravelMode?: TravelMode | string;
+  TravelMode?: keyof typeof TravelMode | string;
 
   /**
    * <p>Specifies the desired time of departure. Uses the given time to calculate the route.
@@ -1509,7 +1509,7 @@ export interface CalculateRouteRequest {
    *          <p>Default Value: <code>Kilometers</code>
    *          </p>
    */
-  DistanceUnit?: DistanceUnit | string;
+  DistanceUnit?: keyof typeof DistanceUnit | string;
 
   /**
    * <p>Set to include the geometry details in the result for each path between a pair of
@@ -1759,7 +1759,7 @@ export interface CalculateRouteSummary {
   /**
    * <p>The unit of measurement for route distances.</p>
    */
-  DistanceUnit: DistanceUnit | string | undefined;
+  DistanceUnit: keyof typeof DistanceUnit | string | undefined;
 }
 
 /**
@@ -1887,7 +1887,7 @@ export interface CalculateRouteMatrixRequest {
    *          <p>Default Value: <code>Car</code>
    *          </p>
    */
-  TravelMode?: TravelMode | string;
+  TravelMode?: keyof typeof TravelMode | string;
 
   /**
    * <p>Specifies the desired time of departure. Uses the given time to calculate the route
@@ -1926,7 +1926,7 @@ export interface CalculateRouteMatrixRequest {
    *          <p>Default Value: <code>Kilometers</code>
    *          </p>
    */
-  DistanceUnit?: DistanceUnit | string;
+  DistanceUnit?: keyof typeof DistanceUnit | string;
 
   /**
    * <p>Specifies route preferences when traveling by <code>Car</code>, such as avoiding
@@ -2009,7 +2009,7 @@ export interface RouteMatrixEntryError {
   /**
    * <p>The type of error which occurred for the route calculation.</p>
    */
-  Code: RouteMatrixErrorCode | string | undefined;
+  Code: keyof typeof RouteMatrixErrorCode | string | undefined;
 
   /**
    * <p>A message about the error that occurred for the route calculation.</p>
@@ -2086,7 +2086,7 @@ export interface CalculateRouteMatrixSummary {
   /**
    * <p>The unit of measurement for route distances.</p>
    */
-  DistanceUnit: DistanceUnit | string | undefined;
+  DistanceUnit: keyof typeof DistanceUnit | string | undefined;
 }
 
 /**
@@ -2158,7 +2158,7 @@ export interface CreateGeofenceCollectionRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * @deprecated
@@ -2425,7 +2425,7 @@ export interface CreateMapRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * <p>An optional description for the map resource.</p>
@@ -2536,7 +2536,7 @@ export interface DataSourceConfiguration {
    *          <p>Default value: <code>SingleUse</code>
    *          </p>
    */
-  IntendedUse?: IntendedUse | string;
+  IntendedUse?: keyof typeof IntendedUse | string;
 }
 
 /**
@@ -2601,7 +2601,7 @@ export interface CreatePlaceIndexRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * <p>The optional description for the place index resource.</p>
@@ -2733,7 +2733,7 @@ export interface CreateRouteCalculatorRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * <p>The optional description for the route calculator resource.</p>
@@ -2849,7 +2849,7 @@ export interface CreateTrackerRequest {
    * <p>No longer used. If included, the only allowed value is
    *            <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * <p>A key identifier for an
@@ -2933,7 +2933,7 @@ export interface CreateTrackerRequest {
    *          </ul>
    *          <p>This field is optional. If not specified, the default value is <code>TimeBased</code>.</p>
    */
-  PositionFiltering?: PositionFiltering | string;
+  PositionFiltering?: keyof typeof PositionFiltering | string;
 }
 
 /**
@@ -3082,7 +3082,7 @@ export interface DescribeGeofenceCollectionResponse {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * @deprecated
@@ -3155,7 +3155,7 @@ export interface DescribeMapResponse {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * <p>Specifies the data provider for the associated map tiles.</p>
@@ -3227,7 +3227,7 @@ export interface DescribePlaceIndexResponse {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * <p>The optional description for the place index resource.</p>
@@ -3317,7 +3317,7 @@ export interface DescribeRouteCalculatorResponse {
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * <p>The optional description of the route calculator resource.</p>
@@ -3420,7 +3420,7 @@ export interface DescribeTrackerResponse {
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * @deprecated
@@ -3455,7 +3455,7 @@ export interface DescribeTrackerResponse {
   /**
    * <p>The position filtering method of the tracker resource.</p>
    */
-  PositionFiltering?: PositionFiltering | string;
+  PositionFiltering?: keyof typeof PositionFiltering | string;
 }
 
 /**
@@ -3714,7 +3714,7 @@ export interface ListGeofenceCollectionsResponseEntry {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * @deprecated
@@ -3919,7 +3919,7 @@ export interface UpdateGeofenceCollectionRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * @deprecated
@@ -4673,7 +4673,7 @@ export interface ListMapsResponseEntry {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * <p>The timestamp for when the map resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -4766,7 +4766,7 @@ export interface ListPlaceIndexesResponseEntry {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -4861,7 +4861,7 @@ export interface ListRouteCalculatorsResponseEntry {
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -4985,7 +4985,7 @@ export interface ListTrackersResponseEntry {
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * @deprecated
@@ -5039,7 +5039,7 @@ export interface UpdateMapRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * <p>Updates the description for the map resource.</p>
@@ -5645,7 +5645,7 @@ export interface UpdatePlaceIndexRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * <p>Updates the description for the place index resource.</p>
@@ -5702,7 +5702,7 @@ export interface UpdateRouteCalculatorRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * <p>Updates the description for the route calculator resource.</p>
@@ -5754,7 +5754,7 @@ export interface UpdateTrackerRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: keyof typeof PricingPlan | string;
 
   /**
    * @deprecated
@@ -5800,7 +5800,7 @@ export interface UpdateTrackerRequest {
    *             </li>
    *          </ul>
    */
-  PositionFiltering?: PositionFiltering | string;
+  PositionFiltering?: keyof typeof PositionFiltering | string;
 }
 
 /**

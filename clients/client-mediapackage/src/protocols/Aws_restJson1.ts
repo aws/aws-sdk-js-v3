@@ -2000,7 +2000,7 @@ const deserializeAws_restJson1UnprocessableEntityExceptionResponse = async (
 };
 
 const serializeAws_restJson1__listOf__PeriodTriggersElement = (
-  input: (__PeriodTriggersElement | string)[],
+  input: (keyof typeof __PeriodTriggersElement | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2039,7 +2039,10 @@ const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, co
   }, {});
 };
 
-const serializeAws_restJson1AdTriggers = (input: (__AdTriggersElement | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1AdTriggers = (
+  input: (keyof typeof __AdTriggersElement | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2260,7 +2263,7 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
 const deserializeAws_restJson1__listOf__PeriodTriggersElement = (
   output: any,
   context: __SerdeContext
-): (__PeriodTriggersElement | string)[] => {
+): (keyof typeof __PeriodTriggersElement | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2354,7 +2357,10 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
   }, {});
 };
 
-const deserializeAws_restJson1AdTriggers = (output: any, context: __SerdeContext): (__AdTriggersElement | string)[] => {
+const deserializeAws_restJson1AdTriggers = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof __AdTriggersElement | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

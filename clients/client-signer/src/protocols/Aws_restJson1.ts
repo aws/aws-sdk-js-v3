@@ -1859,7 +1859,7 @@ const deserializeAws_restJson1EncryptionAlgorithmOptions = (
 const deserializeAws_restJson1EncryptionAlgorithms = (
   output: any,
   context: __SerdeContext
-): (EncryptionAlgorithm | string)[] => {
+): (keyof typeof EncryptionAlgorithm | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1879,7 +1879,10 @@ const deserializeAws_restJson1HashAlgorithmOptions = (output: any, context: __Se
   } as any;
 };
 
-const deserializeAws_restJson1HashAlgorithms = (output: any, context: __SerdeContext): (HashAlgorithm | string)[] => {
+const deserializeAws_restJson1HashAlgorithms = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof HashAlgorithm | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1891,7 +1894,10 @@ const deserializeAws_restJson1HashAlgorithms = (output: any, context: __SerdeCon
   return retVal;
 };
 
-const deserializeAws_restJson1ImageFormats = (output: any, context: __SerdeContext): (ImageFormat | string)[] => {
+const deserializeAws_restJson1ImageFormats = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof ImageFormat | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -1466,7 +1466,10 @@ const serializeAws_json1_1AllowedHeaders = (input: string[], context: __SerdeCon
     });
 };
 
-const serializeAws_json1_1AllowedMethods = (input: (MethodName | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1AllowedMethods = (
+  input: (keyof typeof MethodName | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1718,7 +1721,10 @@ const deserializeAws_json1_1AllowedHeaders = (output: any, context: __SerdeConte
   return retVal;
 };
 
-const deserializeAws_json1_1AllowedMethods = (output: any, context: __SerdeContext): (MethodName | string)[] => {
+const deserializeAws_json1_1AllowedMethods = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof MethodName | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -86,23 +86,23 @@ export interface Action {
 /**
  * @public
  */
-export enum AggFunction {
-  avg = "avg",
-  count = "count",
-  countDistinct = "countDistinct",
-  first = "first",
-  kurtosis = "kurtosis",
-  last = "last",
-  max = "max",
-  min = "min",
-  skewness = "skewness",
-  stddev_pop = "stddev_pop",
-  stddev_samp = "stddev_samp",
-  sum = "sum",
-  sumDistinct = "sumDistinct",
-  var_pop = "var_pop",
-  var_samp = "var_samp",
-}
+export const AggFunction = {
+  avg: "avg",
+  count: "count",
+  countDistinct: "countDistinct",
+  first: "first",
+  kurtosis: "kurtosis",
+  last: "last",
+  max: "max",
+  min: "min",
+  skewness: "skewness",
+  stddev_pop: "stddev_pop",
+  stddev_samp: "stddev_samp",
+  sum: "sum",
+  sumDistinct: "sumDistinct",
+  var_pop: "var_pop",
+  var_samp: "var_samp",
+};
 
 /**
  * @public
@@ -119,7 +119,7 @@ export interface AggregateOperation {
    *          <p>Possible aggregation functions include: avg countDistinct, count, first, last, kurtosis, max, min, skewness,
    *       stddev_samp, stddev_pop, sum, sumDistinct, var_samp, var_pop</p>
    */
-  AggFunc: AggFunction | string | undefined;
+  AggFunc: keyof typeof AggFunction | string | undefined;
 }
 
 /**
@@ -1006,12 +1006,12 @@ export interface LastActiveDefinition {
 /**
  * @public
  */
-export enum BlueprintStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const BlueprintStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1070,7 +1070,7 @@ export interface Blueprint {
    *             </li>
    *          </ul>
    */
-  Status?: BlueprintStatus | string;
+  Status?: keyof typeof BlueprintStatus | string;
 
   /**
    * <p>An error message.</p>
@@ -1128,11 +1128,11 @@ export interface LakeFormationConfiguration {
 /**
  * @public
  */
-export enum LastCrawlStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const LastCrawlStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1142,7 +1142,7 @@ export interface LastCrawlInfo {
   /**
    * <p>Status of the last crawl.</p>
    */
-  Status?: LastCrawlStatus | string;
+  Status?: keyof typeof LastCrawlStatus | string;
 
   /**
    * <p>If an error occurred, the error information about the last crawl.</p>
@@ -1173,10 +1173,10 @@ export interface LastCrawlInfo {
 /**
  * @public
  */
-export enum CrawlerLineageSettings {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+export const CrawlerLineageSettings = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+};
 
 /**
  * @public
@@ -1194,17 +1194,17 @@ export interface LineageConfiguration {
    *             </li>
    *          </ul>
    */
-  CrawlerLineageSettings?: CrawlerLineageSettings | string;
+  CrawlerLineageSettings?: keyof typeof CrawlerLineageSettings | string;
 }
 
 /**
  * @public
  */
-export enum RecrawlBehavior {
-  CRAWL_EVENT_MODE = "CRAWL_EVENT_MODE",
-  CRAWL_EVERYTHING = "CRAWL_EVERYTHING",
-  CRAWL_NEW_FOLDERS_ONLY = "CRAWL_NEW_FOLDERS_ONLY",
-}
+export const RecrawlBehavior = {
+  CRAWL_EVENT_MODE: "CRAWL_EVENT_MODE",
+  CRAWL_EVERYTHING: "CRAWL_EVERYTHING",
+  CRAWL_NEW_FOLDERS_ONLY: "CRAWL_NEW_FOLDERS_ONLY",
+};
 
 /**
  * @public
@@ -1217,17 +1217,17 @@ export interface RecrawlPolicy {
    *          <p>A value of <code>CRAWL_NEW_FOLDERS_ONLY</code> specifies crawling only folders that were added since the last crawler run.</p>
    *          <p>A value of <code>CRAWL_EVENT_MODE</code> specifies crawling only the changes identified by Amazon S3 events.</p>
    */
-  RecrawlBehavior?: RecrawlBehavior | string;
+  RecrawlBehavior?: keyof typeof RecrawlBehavior | string;
 }
 
 /**
  * @public
  */
-export enum ScheduleState {
-  NOT_SCHEDULED = "NOT_SCHEDULED",
-  SCHEDULED = "SCHEDULED",
-  TRANSITIONING = "TRANSITIONING",
-}
+export const ScheduleState = {
+  NOT_SCHEDULED: "NOT_SCHEDULED",
+  SCHEDULED: "SCHEDULED",
+  TRANSITIONING: "TRANSITIONING",
+};
 
 /**
  * @public
@@ -1244,25 +1244,25 @@ export interface Schedule {
   /**
    * <p>The state of the schedule.</p>
    */
-  State?: ScheduleState | string;
+  State?: keyof typeof ScheduleState | string;
 }
 
 /**
  * @public
  */
-export enum DeleteBehavior {
-  DELETE_FROM_DATABASE = "DELETE_FROM_DATABASE",
-  DEPRECATE_IN_DATABASE = "DEPRECATE_IN_DATABASE",
-  LOG = "LOG",
-}
+export const DeleteBehavior = {
+  DELETE_FROM_DATABASE: "DELETE_FROM_DATABASE",
+  DEPRECATE_IN_DATABASE: "DEPRECATE_IN_DATABASE",
+  LOG: "LOG",
+};
 
 /**
  * @public
  */
-export enum UpdateBehavior {
-  LOG = "LOG",
-  UPDATE_IN_DATABASE = "UPDATE_IN_DATABASE",
-}
+export const UpdateBehavior = {
+  LOG: "LOG",
+  UPDATE_IN_DATABASE: "UPDATE_IN_DATABASE",
+};
 
 /**
  * @public
@@ -1272,22 +1272,22 @@ export interface SchemaChangePolicy {
   /**
    * <p>The update behavior when the crawler finds a changed schema.</p>
    */
-  UpdateBehavior?: UpdateBehavior | string;
+  UpdateBehavior?: keyof typeof UpdateBehavior | string;
 
   /**
    * <p>The deletion behavior when the crawler finds a deleted object.</p>
    */
-  DeleteBehavior?: DeleteBehavior | string;
+  DeleteBehavior?: keyof typeof DeleteBehavior | string;
 }
 
 /**
  * @public
  */
-export enum CrawlerState {
-  READY = "READY",
-  RUNNING = "RUNNING",
-  STOPPING = "STOPPING",
-}
+export const CrawlerState = {
+  READY: "READY",
+  RUNNING: "RUNNING",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
@@ -1372,10 +1372,10 @@ export interface DynamoDBTarget {
 /**
  * @public
  */
-export enum JdbcMetadataEntry {
-  COMMENTS = "COMMENTS",
-  RAWTYPES = "RAWTYPES",
-}
+export const JdbcMetadataEntry = {
+  COMMENTS: "COMMENTS",
+  RAWTYPES: "RAWTYPES",
+};
 
 /**
  * @public
@@ -1402,7 +1402,7 @@ export interface JdbcTarget {
    * <p>Specify a value of <code>RAWTYPES</code> or <code>COMMENTS</code> to enable additional metadata in table responses. <code>RAWTYPES</code> provides the native-level datatype. <code>COMMENTS</code> provides comments associated with a column or table in the database.</p>
    *          <p>If you do not need additional metadata, keep the field empty.</p>
    */
-  EnableAdditionalMetadata?: (JdbcMetadataEntry | string)[];
+  EnableAdditionalMetadata?: (keyof typeof JdbcMetadataEntry | string)[];
 }
 
 /**
@@ -1557,7 +1557,7 @@ export interface Crawler {
   /**
    * <p>Indicates whether the crawler is running, or whether a run is pending.</p>
    */
-  State?: CrawlerState | string;
+  State?: keyof typeof CrawlerState | string;
 
   /**
    * <p>The prefix added to the names of tables that are created.</p>
@@ -1741,11 +1741,11 @@ export interface DataSource {
 /**
  * @public
  */
-export enum DataQualityRuleResultStatus {
-  ERROR = "ERROR",
-  FAIL = "FAIL",
-  PASS = "PASS",
-}
+export const DataQualityRuleResultStatus = {
+  ERROR: "ERROR",
+  FAIL: "FAIL",
+  PASS: "PASS",
+};
 
 /**
  * @public
@@ -1770,7 +1770,7 @@ export interface DataQualityRuleResult {
   /**
    * <p>A pass or fail status for the rule.</p>
    */
-  Result?: DataQualityRuleResultStatus | string;
+  Result?: keyof typeof DataQualityRuleResultStatus | string;
 }
 
 /**
@@ -1863,12 +1863,12 @@ export interface BatchGetDevEndpointsRequest {
 /**
  * @public
  */
-export enum WorkerType {
-  G_025X = "G.025X",
-  G_1X = "G.1X",
-  G_2X = "G.2X",
-  Standard = "Standard",
-}
+export const WorkerType = {
+  G_025X: "G.025X",
+  G_1X: "G.1X",
+  G_2X: "G.2X",
+  Standard: "Standard",
+};
 
 /**
  * @public
@@ -1942,7 +1942,7 @@ export interface DevEndpoint {
    *          <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
    *             <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: keyof typeof WorkerType | string;
 
   /**
    * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
@@ -2302,11 +2302,11 @@ export interface CatalogKafkaSource {
 /**
  * @public
  */
-export enum StartingPosition {
-  EARLIEST = "earliest",
-  LATEST = "latest",
-  TRIM_HORIZON = "trim_horizon",
-}
+export const StartingPosition = {
+  EARLIEST: "earliest",
+  LATEST: "latest",
+  TRIM_HORIZON: "trim_horizon",
+};
 
 /**
  * @public
@@ -2336,7 +2336,7 @@ export interface KinesisStreamingSourceOptions {
   /**
    * <p>The starting position in the Kinesis data stream to read data from. The possible values are <code>"latest"</code>, <code>"trim_horizon"</code>, or <code>"earliest"</code>. The default value is <code>"latest"</code>.</p>
    */
-  StartingPosition?: StartingPosition | string;
+  StartingPosition?: keyof typeof StartingPosition | string;
 
   /**
    * <p>The maximum time spent in the job executor to fetch a record from the Kinesis data stream per shard, specified in milliseconds (ms). The default value is <code>1000</code>.</p>
@@ -2536,13 +2536,13 @@ export interface CustomCode {
 /**
  * @public
  */
-export enum JDBCConnectionType {
-  mysql = "mysql",
-  oracle = "oracle",
-  postgresql = "postgresql",
-  redshift = "redshift",
-  sqlserver = "sqlserver",
-}
+export const JDBCConnectionType = {
+  mysql: "mysql",
+  oracle: "oracle",
+  postgresql: "postgresql",
+  redshift: "redshift",
+  sqlserver: "sqlserver",
+};
 
 /**
  * @public
@@ -2572,7 +2572,7 @@ export interface DirectJDBCSource {
   /**
    * <p>The connection type of the JDBC source.</p>
    */
-  ConnectionType: JDBCConnectionType | string | undefined;
+  ConnectionType: keyof typeof JDBCConnectionType | string | undefined;
 
   /**
    * <p>The temp directory of the JDBC Redshift source.</p>
@@ -2767,15 +2767,15 @@ export interface DropNullFields {
 /**
  * @public
  */
-export enum ParamType {
-  BOOL = "bool",
-  COMPLEX = "complex",
-  FLOAT = "float",
-  INT = "int",
-  LIST = "list",
-  NULL = "null",
-  STR = "str",
-}
+export const ParamType = {
+  BOOL: "bool",
+  COMPLEX: "complex",
+  FLOAT: "float",
+  INT: "int",
+  LIST: "list",
+  NULL: "null",
+  STR: "str",
+};
 
 /**
  * @public
@@ -2790,7 +2790,7 @@ export interface TransformConfigParameter {
   /**
    * <p>Specifies the parameter type in the config file of the dynamic transform.</p>
    */
-  Type: ParamType | string | undefined;
+  Type: keyof typeof ParamType | string | undefined;
 
   /**
    * <p>Specifies the validation rule in the config file of the dynamic transform.</p>
@@ -2810,7 +2810,7 @@ export interface TransformConfigParameter {
   /**
    * <p>Specifies the list type of the parameter in the config file of the dynamic transform.</p>
    */
-  ListType?: ParamType | string;
+  ListType?: keyof typeof ParamType | string;
 
   /**
    * <p>Specifies whether the parameter is optional or not in the config file of the dynamic transform.</p>
@@ -2883,10 +2883,10 @@ export interface DynamoDBCatalogSource {
 /**
  * @public
  */
-export enum DQTransformOutput {
-  EvaluationResults = "EvaluationResults",
-  PrimaryInput = "PrimaryInput",
-}
+export const DQTransformOutput = {
+  EvaluationResults: "EvaluationResults",
+  PrimaryInput: "PrimaryInput",
+};
 
 /**
  * @public
@@ -2917,10 +2917,10 @@ export interface DQResultsPublishingOptions {
 /**
  * @public
  */
-export enum DQStopJobOnFailureTiming {
-  AfterDataLoad = "AfterDataLoad",
-  Immediate = "Immediate",
-}
+export const DQStopJobOnFailureTiming = {
+  AfterDataLoad: "AfterDataLoad",
+  Immediate: "Immediate",
+};
 
 /**
  * @public
@@ -2930,7 +2930,7 @@ export interface DQStopJobOnFailureOptions {
   /**
    * <p>When to stop job if your data quality evaluation fails. Options are Immediate or AfterDataLoad.</p>
    */
-  StopJobOnFailureTiming?: DQStopJobOnFailureTiming | string;
+  StopJobOnFailureTiming?: keyof typeof DQStopJobOnFailureTiming | string;
 }
 
 /**
@@ -2956,7 +2956,7 @@ export interface EvaluateDataQuality {
   /**
    * <p>The output of your data quality evaluation.</p>
    */
-  Output?: DQTransformOutput | string;
+  Output?: keyof typeof DQTransformOutput | string;
 
   /**
    * <p>Options to configure how your results are published.</p>
@@ -2998,23 +2998,23 @@ export interface FillMissingValues {
 /**
  * @public
  */
-export enum FilterOperation {
-  EQ = "EQ",
-  GT = "GT",
-  GTE = "GTE",
-  ISNULL = "ISNULL",
-  LT = "LT",
-  LTE = "LTE",
-  REGEX = "REGEX",
-}
+export const FilterOperation = {
+  EQ: "EQ",
+  GT: "GT",
+  GTE: "GTE",
+  ISNULL: "ISNULL",
+  LT: "LT",
+  LTE: "LTE",
+  REGEX: "REGEX",
+};
 
 /**
  * @public
  */
-export enum FilterValueType {
-  COLUMNEXTRACTED = "COLUMNEXTRACTED",
-  CONSTANT = "CONSTANT",
-}
+export const FilterValueType = {
+  COLUMNEXTRACTED: "COLUMNEXTRACTED",
+  CONSTANT: "CONSTANT",
+};
 
 /**
  * @public
@@ -3024,7 +3024,7 @@ export interface FilterValue {
   /**
    * <p>The type of filter value.</p>
    */
-  Type: FilterValueType | string | undefined;
+  Type: keyof typeof FilterValueType | string | undefined;
 
   /**
    * <p>The value to be associated.</p>
@@ -3040,7 +3040,7 @@ export interface FilterExpression {
   /**
    * <p>The type of operation to perform in the expression.</p>
    */
-  Operation: FilterOperation | string | undefined;
+  Operation: keyof typeof FilterOperation | string | undefined;
 
   /**
    * <p>Whether the expression is to be negated.</p>
@@ -3056,10 +3056,10 @@ export interface FilterExpression {
 /**
  * @public
  */
-export enum FilterLogicalOperator {
-  AND = "AND",
-  OR = "OR",
-}
+export const FilterLogicalOperator = {
+  AND: "AND",
+  OR: "OR",
+};
 
 /**
  * @public
@@ -3079,7 +3079,7 @@ export interface Filter {
   /**
    * <p>The operator used to filter rows by comparing the key value to a specified value.</p>
    */
-  LogicalOperator: FilterLogicalOperator | string | undefined;
+  LogicalOperator: keyof typeof FilterLogicalOperator | string | undefined;
 
   /**
    * <p>Specifies a filter expression.</p>
@@ -3137,10 +3137,10 @@ export interface GovernedCatalogSource {
 /**
  * @public
  */
-export enum UpdateCatalogBehavior {
-  LOG = "LOG",
-  UPDATE_IN_DATABASE = "UPDATE_IN_DATABASE",
-}
+export const UpdateCatalogBehavior = {
+  LOG: "LOG",
+  UPDATE_IN_DATABASE: "UPDATE_IN_DATABASE",
+};
 
 /**
  * @public
@@ -3155,7 +3155,7 @@ export interface CatalogSchemaChangePolicy {
   /**
    * <p>The update behavior when the crawler finds a changed schema.</p>
    */
-  UpdateBehavior?: UpdateCatalogBehavior | string;
+  UpdateBehavior?: keyof typeof UpdateCatalogBehavior | string;
 }
 
 /**
@@ -3197,63 +3197,63 @@ export interface GovernedCatalogTarget {
 /**
  * @public
  */
-export enum JDBCDataType {
-  ARRAY = "ARRAY",
-  BIGINT = "BIGINT",
-  BINARY = "BINARY",
-  BIT = "BIT",
-  BLOB = "BLOB",
-  BOOLEAN = "BOOLEAN",
-  CHAR = "CHAR",
-  CLOB = "CLOB",
-  DATALINK = "DATALINK",
-  DATE = "DATE",
-  DECIMAL = "DECIMAL",
-  DISTINCT = "DISTINCT",
-  DOUBLE = "DOUBLE",
-  FLOAT = "FLOAT",
-  INTEGER = "INTEGER",
-  JAVA_OBJECT = "JAVA_OBJECT",
-  LONGNVARCHAR = "LONGNVARCHAR",
-  LONGVARBINARY = "LONGVARBINARY",
-  LONGVARCHAR = "LONGVARCHAR",
-  NCHAR = "NCHAR",
-  NCLOB = "NCLOB",
-  NULL = "NULL",
-  NUMERIC = "NUMERIC",
-  NVARCHAR = "NVARCHAR",
-  OTHER = "OTHER",
-  REAL = "REAL",
-  REF = "REF",
-  REF_CURSOR = "REF_CURSOR",
-  ROWID = "ROWID",
-  SMALLINT = "SMALLINT",
-  SQLXML = "SQLXML",
-  STRUCT = "STRUCT",
-  TIME = "TIME",
-  TIMESTAMP = "TIMESTAMP",
-  TIMESTAMP_WITH_TIMEZONE = "TIMESTAMP_WITH_TIMEZONE",
-  TIME_WITH_TIMEZONE = "TIME_WITH_TIMEZONE",
-  TINYINT = "TINYINT",
-  VARBINARY = "VARBINARY",
-  VARCHAR = "VARCHAR",
-}
+export const JDBCDataType = {
+  ARRAY: "ARRAY",
+  BIGINT: "BIGINT",
+  BINARY: "BINARY",
+  BIT: "BIT",
+  BLOB: "BLOB",
+  BOOLEAN: "BOOLEAN",
+  CHAR: "CHAR",
+  CLOB: "CLOB",
+  DATALINK: "DATALINK",
+  DATE: "DATE",
+  DECIMAL: "DECIMAL",
+  DISTINCT: "DISTINCT",
+  DOUBLE: "DOUBLE",
+  FLOAT: "FLOAT",
+  INTEGER: "INTEGER",
+  JAVA_OBJECT: "JAVA_OBJECT",
+  LONGNVARCHAR: "LONGNVARCHAR",
+  LONGVARBINARY: "LONGVARBINARY",
+  LONGVARCHAR: "LONGVARCHAR",
+  NCHAR: "NCHAR",
+  NCLOB: "NCLOB",
+  NULL: "NULL",
+  NUMERIC: "NUMERIC",
+  NVARCHAR: "NVARCHAR",
+  OTHER: "OTHER",
+  REAL: "REAL",
+  REF: "REF",
+  REF_CURSOR: "REF_CURSOR",
+  ROWID: "ROWID",
+  SMALLINT: "SMALLINT",
+  SQLXML: "SQLXML",
+  STRUCT: "STRUCT",
+  TIME: "TIME",
+  TIMESTAMP: "TIMESTAMP",
+  TIMESTAMP_WITH_TIMEZONE: "TIMESTAMP_WITH_TIMEZONE",
+  TIME_WITH_TIMEZONE: "TIME_WITH_TIMEZONE",
+  TINYINT: "TINYINT",
+  VARBINARY: "VARBINARY",
+  VARCHAR: "VARCHAR",
+};
 
 /**
  * @public
  */
-export enum GlueRecordType {
-  BIGDECIMAL = "BIGDECIMAL",
-  BYTE = "BYTE",
-  DATE = "DATE",
-  DOUBLE = "DOUBLE",
-  FLOAT = "FLOAT",
-  INT = "INT",
-  LONG = "LONG",
-  SHORT = "SHORT",
-  STRING = "STRING",
-  TIMESTAMP = "TIMESTAMP",
-}
+export const GlueRecordType = {
+  BIGDECIMAL: "BIGDECIMAL",
+  BYTE: "BYTE",
+  DATE: "DATE",
+  DOUBLE: "DOUBLE",
+  FLOAT: "FLOAT",
+  INT: "INT",
+  LONG: "LONG",
+  SHORT: "SHORT",
+  STRING: "STRING",
+  TIMESTAMP: "TIMESTAMP",
+};
 
 /**
  * @public
@@ -3302,7 +3302,7 @@ export interface JDBCConnectorOptions {
   /**
    * <p>Custom data type mapping that builds a mapping from a JDBC data type to an Glue data type. For example, the option <code>"dataTypeMapping":\{"FLOAT":"STRING"\}</code> maps data fields of JDBC type <code>FLOAT</code> into the Java <code>String</code> type by calling the <code>ResultSet.getString()</code> method of the driver, and uses it to build the Glue record. The <code>ResultSet</code> object is implemented by each driver, so the behavior is specific to the driver you use. Refer to the documentation for your JDBC driver to understand how the driver performs the conversions.</p>
    */
-  DataTypeMapping?: Record<string, GlueRecordType | string>;
+  DataTypeMapping?: Record<string, keyof typeof GlueRecordType | string>;
 }
 
 /**
@@ -3416,14 +3416,14 @@ export interface JoinColumn {
 /**
  * @public
  */
-export enum JoinType {
-  EQUIJOIN = "equijoin",
-  LEFT = "left",
-  LEFT_ANTI = "leftanti",
-  LEFT_SEMI = "leftsemi",
-  OUTER = "outer",
-  RIGHT = "right",
-}
+export const JoinType = {
+  EQUIJOIN: "equijoin",
+  LEFT: "left",
+  LEFT_ANTI: "leftanti",
+  LEFT_SEMI: "leftsemi",
+  OUTER: "outer",
+  RIGHT: "right",
+};
 
 /**
  * @public
@@ -3443,7 +3443,7 @@ export interface Join {
   /**
    * <p>Specifies the type of join to be performed on the datasets.</p>
    */
-  JoinType: JoinType | string | undefined;
+  JoinType: keyof typeof JoinType | string | undefined;
 
   /**
    * <p>A list of the two columns to be joined.</p>
@@ -3621,12 +3621,12 @@ export interface OracleSQLCatalogTarget {
 /**
  * @public
  */
-export enum PiiType {
-  ColumnAudit = "ColumnAudit",
-  ColumnMasking = "ColumnMasking",
-  RowAudit = "RowAudit",
-  RowMasking = "RowMasking",
-}
+export const PiiType = {
+  ColumnAudit: "ColumnAudit",
+  ColumnMasking: "ColumnMasking",
+  RowAudit: "RowAudit",
+  RowMasking: "RowMasking",
+};
 
 /**
  * @public
@@ -3646,7 +3646,7 @@ export interface PIIDetection {
   /**
    * <p>Indicates the type of PIIDetection transform. </p>
    */
-  PiiType: PiiType | string | undefined;
+  PiiType: keyof typeof PiiType | string | undefined;
 
   /**
    * <p>Indicates the types of entities the PIIDetection transform will identify as PII data. </p>
@@ -4024,31 +4024,31 @@ export interface S3DirectSourceAdditionalOptions {
 /**
  * @public
  */
-export enum CompressionType {
-  BZIP2 = "bzip2",
-  GZIP = "gzip",
-}
+export const CompressionType = {
+  BZIP2: "bzip2",
+  GZIP: "gzip",
+};
 
 /**
  * @public
  */
-export enum QuoteChar {
-  DISABLED = "disabled",
-  QUILLEMET = "quillemet",
-  QUOTE = "quote",
-  SINGLE_QUOTE = "single_quote",
-}
+export const QuoteChar = {
+  DISABLED: "disabled",
+  QUILLEMET: "quillemet",
+  QUOTE: "quote",
+  SINGLE_QUOTE: "single_quote",
+};
 
 /**
  * @public
  */
-export enum Separator {
-  COMMA = "comma",
-  CTRLA = "ctrla",
-  PIPE = "pipe",
-  SEMICOLON = "semicolon",
-  TAB = "tab",
-}
+export const Separator = {
+  COMMA: "comma",
+  CTRLA: "ctrla",
+  PIPE: "pipe",
+  SEMICOLON: "semicolon",
+  TAB: "tab",
+};
 
 /**
  * @public
@@ -4068,7 +4068,7 @@ export interface S3CsvSource {
   /**
    * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: keyof typeof CompressionType | string;
 
   /**
    * <p>A string containing a JSON list of Unix-style glob patterns to exclude. For example, "[\"**.pdf\"]" excludes all PDF files. </p>
@@ -4108,7 +4108,7 @@ export interface S3CsvSource {
   /**
    * <p>Specifies the delimiter character. The default is a comma: ",", but any other character can be specified.</p>
    */
-  Separator: Separator | string | undefined;
+  Separator: keyof typeof Separator | string | undefined;
 
   /**
    * <p>Specifies a character to use for escaping. This option is used only when reading CSV files. The default value is <code>none</code>. If enabled, the character which immediately follows is used as-is, except for a small set of well-known escapes (<code>\n</code>, <code>\r</code>, <code>\t</code>, and <code>\0</code>).</p>
@@ -4118,7 +4118,7 @@ export interface S3CsvSource {
   /**
    * <p>Specifies the character to use for quoting. The default is a double quote: <code>'"'</code>. Set this to <code>-1</code> to turn off quoting entirely.</p>
    */
-  QuoteChar: QuoteChar | string | undefined;
+  QuoteChar: keyof typeof QuoteChar | string | undefined;
 
   /**
    * <p>A Boolean value that specifies whether a single record can span multiple lines. This can occur when a field contains a quoted new-line character. You must set this option to True if any record spans multiple lines. The default value is <code>False</code>, which allows for more aggressive file-splitting during parsing.</p>
@@ -4195,23 +4195,23 @@ export interface S3DeltaCatalogTarget {
 /**
  * @public
  */
-export enum DeltaTargetCompressionType {
-  SNAPPY = "snappy",
-  UNCOMPRESSED = "uncompressed",
-}
+export const DeltaTargetCompressionType = {
+  SNAPPY: "snappy",
+  UNCOMPRESSED: "uncompressed",
+};
 
 /**
  * @public
  */
-export enum TargetFormat {
-  AVRO = "avro",
-  CSV = "csv",
-  DELTA = "delta",
-  HUDI = "hudi",
-  JSON = "json",
-  ORC = "orc",
-  PARQUET = "parquet",
-}
+export const TargetFormat = {
+  AVRO: "avro",
+  CSV: "csv",
+  DELTA: "delta",
+  HUDI: "hudi",
+  JSON: "json",
+  ORC: "orc",
+  PARQUET: "parquet",
+};
 
 /**
  * @public
@@ -4226,7 +4226,7 @@ export interface DirectSchemaChangePolicy {
   /**
    * <p>The update behavior when the crawler finds a changed schema.</p>
    */
-  UpdateBehavior?: UpdateCatalogBehavior | string;
+  UpdateBehavior?: keyof typeof UpdateCatalogBehavior | string;
 
   /**
    * <p>Specifies the table in the database that the schema change policy applies to.</p>
@@ -4267,12 +4267,12 @@ export interface S3DeltaDirectTarget {
   /**
    * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
    */
-  Compression: DeltaTargetCompressionType | string | undefined;
+  Compression: keyof typeof DeltaTargetCompressionType | string | undefined;
 
   /**
    * <p>Specifies the data output format for the target.</p>
    */
-  Format: TargetFormat | string | undefined;
+  Format: keyof typeof TargetFormat | string | undefined;
 
   /**
    * <p>Specifies additional connection options for the connector.</p>
@@ -4349,7 +4349,7 @@ export interface S3DirectTarget {
   /**
    * <p>Specifies the data output format for the target.</p>
    */
-  Format: TargetFormat | string | undefined;
+  Format: keyof typeof TargetFormat | string | undefined;
 
   /**
    * <p>A policy that specifies update behavior for the crawler.</p>
@@ -4360,13 +4360,13 @@ export interface S3DirectTarget {
 /**
  * @public
  */
-export enum ParquetCompressionType {
-  GZIP = "gzip",
-  LZO = "lzo",
-  NONE = "none",
-  SNAPPY = "snappy",
-  UNCOMPRESSED = "uncompressed",
-}
+export const ParquetCompressionType = {
+  GZIP: "gzip",
+  LZO: "lzo",
+  NONE: "none",
+  SNAPPY: "snappy",
+  UNCOMPRESSED: "uncompressed",
+};
 
 /**
  * @public
@@ -4396,7 +4396,7 @@ export interface S3GlueParquetTarget {
   /**
    * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
    */
-  Compression?: ParquetCompressionType | string;
+  Compression?: keyof typeof ParquetCompressionType | string;
 
   /**
    * <p>A policy that specifies update behavior for the crawler.</p>
@@ -4448,12 +4448,12 @@ export interface S3HudiCatalogTarget {
 /**
  * @public
  */
-export enum HudiTargetCompressionType {
-  GZIP = "gzip",
-  LZO = "lzo",
-  SNAPPY = "snappy",
-  UNCOMPRESSED = "uncompressed",
-}
+export const HudiTargetCompressionType = {
+  GZIP: "gzip",
+  LZO: "lzo",
+  SNAPPY: "snappy",
+  UNCOMPRESSED: "uncompressed",
+};
 
 /**
  * @public
@@ -4478,7 +4478,7 @@ export interface S3HudiDirectTarget {
   /**
    * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
    */
-  Compression: HudiTargetCompressionType | string | undefined;
+  Compression: keyof typeof HudiTargetCompressionType | string | undefined;
 
   /**
    * <p>Specifies native partitioning using a sequence of keys.</p>
@@ -4488,7 +4488,7 @@ export interface S3HudiDirectTarget {
   /**
    * <p>Specifies the data output format for the target.</p>
    */
-  Format: TargetFormat | string | undefined;
+  Format: keyof typeof TargetFormat | string | undefined;
 
   /**
    * <p>Specifies additional connection options for the connector.</p>
@@ -4550,7 +4550,7 @@ export interface S3JsonSource {
   /**
    * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: keyof typeof CompressionType | string;
 
   /**
    * <p>A string containing a JSON list of Unix-style glob patterns to exclude. For example, "[\"**.pdf\"]" excludes all PDF files. </p>
@@ -4621,7 +4621,7 @@ export interface S3ParquetSource {
   /**
    * <p>Specifies how the data is compressed. This is generally not necessary if the data has a standard file extension. Possible values are <code>"gzip"</code> and <code>"bzip"</code>).</p>
    */
-  CompressionType?: ParquetCompressionType | string;
+  CompressionType?: keyof typeof ParquetCompressionType | string;
 
   /**
    * <p>A string containing a JSON list of Unix-style glob patterns to exclude. For example, "[\"**.pdf\"]" excludes all PDF files. </p>
@@ -4891,10 +4891,10 @@ export interface SplitFields {
 /**
  * @public
  */
-export enum UnionType {
-  ALL = "ALL",
-  DISTINCT = "DISTINCT",
-}
+export const UnionType = {
+  ALL: "ALL",
+  DISTINCT: "DISTINCT",
+};
 
 /**
  * @public
@@ -4916,7 +4916,7 @@ export interface Union {
    *          <p>Specify <code>ALL</code> to join all rows from data sources to the resulting DynamicFrame. The resulting union does not remove duplicate rows.</p>
    *          <p>Specify <code>DISTINCT</code> to remove duplicate rows in the resulting DynamicFrame.</p>
    */
-  UnionType: UnionType | string | undefined;
+  UnionType: keyof typeof UnionType | string | undefined;
 }
 
 /**
@@ -4957,10 +4957,10 @@ export interface ConnectionsList {
 /**
  * @public
  */
-export enum ExecutionClass {
-  FLEX = "FLEX",
-  STANDARD = "STANDARD",
-}
+export const ExecutionClass = {
+  FLEX: "FLEX",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -4978,18 +4978,18 @@ export interface ExecutionProperty {
 /**
  * @public
  */
-export enum SourceControlAuthStrategy {
-  AWS_SECRETS_MANAGER = "AWS_SECRETS_MANAGER",
-  PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN",
-}
+export const SourceControlAuthStrategy = {
+  AWS_SECRETS_MANAGER: "AWS_SECRETS_MANAGER",
+  PERSONAL_ACCESS_TOKEN: "PERSONAL_ACCESS_TOKEN",
+};
 
 /**
  * @public
  */
-export enum SourceControlProvider {
-  AWS_CODE_COMMIT = "AWS_CODE_COMMIT",
-  GITHUB = "GITHUB",
-}
+export const SourceControlProvider = {
+  AWS_CODE_COMMIT: "AWS_CODE_COMMIT",
+  GITHUB: "GITHUB",
+};
 
 /**
  * @public
@@ -4999,7 +4999,7 @@ export interface SourceControlDetails {
   /**
    * <p>The provider for the remote repository.</p>
    */
-  Provider?: SourceControlProvider | string;
+  Provider?: keyof typeof SourceControlProvider | string;
 
   /**
    * <p>The name of the remote repository that contains the job artifacts.</p>
@@ -5029,7 +5029,7 @@ export interface SourceControlDetails {
   /**
    * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
    */
-  AuthStrategy?: SourceControlAuthStrategy | string;
+  AuthStrategy?: keyof typeof SourceControlAuthStrategy | string;
 
   /**
    * <p>The value of an authorization token.</p>
@@ -5187,36 +5187,36 @@ export interface EventBatchingCondition {
 /**
  * @public
  */
-export enum CrawlState {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  ERROR = "ERROR",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const CrawlState = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
  */
-export enum LogicalOperator {
-  EQUALS = "EQUALS",
-}
+export const LogicalOperator = {
+  EQUALS: "EQUALS",
+};
 
 /**
  * @public
  */
-export enum JobRunState {
-  ERROR = "ERROR",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-  TIMEOUT = "TIMEOUT",
-  WAITING = "WAITING",
-}
+export const JobRunState = {
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+  TIMEOUT: "TIMEOUT",
+  WAITING: "WAITING",
+};
 
 /**
  * @public
@@ -5226,7 +5226,7 @@ export interface Condition {
   /**
    * <p>A logical operator.</p>
    */
-  LogicalOperator?: LogicalOperator | string;
+  LogicalOperator?: keyof typeof LogicalOperator | string;
 
   /**
    * <p>The name of the job whose <code>JobRuns</code> this condition applies to, and on which
@@ -5237,7 +5237,7 @@ export interface Condition {
   /**
    * <p>The condition state. Currently, the only job states that a trigger can listen for are <code>SUCCEEDED</code>, <code>STOPPED</code>, <code>FAILED</code>, and <code>TIMEOUT</code>. The only crawler states that a trigger can listen for are <code>SUCCEEDED</code>, <code>FAILED</code>, and <code>CANCELLED</code>.</p>
    */
-  State?: JobRunState | string;
+  State?: keyof typeof JobRunState | string;
 
   /**
    * <p>The name of the crawler to which this condition applies.</p>
@@ -5247,16 +5247,16 @@ export interface Condition {
   /**
    * <p>The state of the crawler to which this condition applies.</p>
    */
-  CrawlState?: CrawlState | string;
+  CrawlState?: keyof typeof CrawlState | string;
 }
 
 /**
  * @public
  */
-export enum Logical {
-  AND = "AND",
-  ANY = "ANY",
-}
+export const Logical = {
+  AND: "AND",
+  ANY: "ANY",
+};
 
 /**
  * @public
@@ -5267,7 +5267,7 @@ export interface Predicate {
    * <p>An optional field if only one condition is listed. If multiple conditions are listed, then
    *       this field is required.</p>
    */
-  Logical?: Logical | string;
+  Logical?: keyof typeof Logical | string;
 
   /**
    * <p>A list of the conditions that determine when the trigger will fire.</p>
@@ -5278,26 +5278,26 @@ export interface Predicate {
 /**
  * @public
  */
-export enum TriggerState {
-  ACTIVATED = "ACTIVATED",
-  ACTIVATING = "ACTIVATING",
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DEACTIVATED = "DEACTIVATED",
-  DEACTIVATING = "DEACTIVATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const TriggerState = {
+  ACTIVATED: "ACTIVATED",
+  ACTIVATING: "ACTIVATING",
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DEACTIVATED: "DEACTIVATED",
+  DEACTIVATING: "DEACTIVATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum TriggerType {
-  CONDITIONAL = "CONDITIONAL",
-  EVENT = "EVENT",
-  ON_DEMAND = "ON_DEMAND",
-  SCHEDULED = "SCHEDULED",
-}
+export const TriggerType = {
+  CONDITIONAL: "CONDITIONAL",
+  EVENT: "EVENT",
+  ON_DEMAND: "ON_DEMAND",
+  SCHEDULED: "SCHEDULED",
+};
 
 /**
  * @public
@@ -5322,12 +5322,12 @@ export interface Trigger {
   /**
    * <p>The type of trigger that this is.</p>
    */
-  Type?: TriggerType | string;
+  Type?: keyof typeof TriggerType | string;
 
   /**
    * <p>The current state of the trigger.</p>
    */
-  State?: TriggerState | string;
+  State?: keyof typeof TriggerState | string;
 
   /**
    * <p>A description of this trigger.</p>
@@ -5430,7 +5430,7 @@ export interface Crawl {
   /**
    * <p>The state of the crawler.</p>
    */
-  State?: CrawlState | string;
+  State?: keyof typeof CrawlState | string;
 
   /**
    * <p>The date and time on which the crawl started.</p>
@@ -5535,7 +5535,7 @@ export interface JobRun {
   /**
    * <p>The current state of the job run. For more information about the statuses of jobs that have terminated abnormally, see <a href="https://docs.aws.amazon.com/glue/latest/dg/job-run-statuses.html">Glue Job Run Statuses</a>.</p>
    */
-  JobRunState?: JobRunState | string;
+  JobRunState?: keyof typeof JobRunState | string;
 
   /**
    * <p>The job arguments associated with this run. For this job run, they replace the default arguments set in the job definition itself.</p>
@@ -5617,7 +5617,7 @@ export interface JobRun {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: keyof typeof WorkerType | string;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
@@ -5662,7 +5662,7 @@ export interface JobRun {
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
-  ExecutionClass?: ExecutionClass | string;
+  ExecutionClass?: keyof typeof ExecutionClass | string;
 }
 
 /**
@@ -5690,11 +5690,11 @@ export interface TriggerNodeDetails {
 /**
  * @public
  */
-export enum NodeType {
-  CRAWLER = "CRAWLER",
-  JOB = "JOB",
-  TRIGGER = "TRIGGER",
-}
+export const NodeType = {
+  CRAWLER: "CRAWLER",
+  JOB: "JOB",
+  TRIGGER: "TRIGGER",
+};
 
 /**
  * @public
@@ -5704,7 +5704,7 @@ export interface Node {
   /**
    * <p>The type of Glue component represented by the node.</p>
    */
-  Type?: NodeType | string;
+  Type?: keyof typeof NodeType | string;
 
   /**
    * <p>The name of the Glue component represented by the node.</p>
@@ -5816,13 +5816,13 @@ export interface WorkflowRunStatistics {
 /**
  * @public
  */
-export enum WorkflowRunStatus {
-  COMPLETED = "COMPLETED",
-  ERROR = "ERROR",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const WorkflowRunStatus = {
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
@@ -5862,7 +5862,7 @@ export interface WorkflowRun {
   /**
    * <p>The status of the workflow run.</p>
    */
-  Status?: WorkflowRunStatus | string;
+  Status?: keyof typeof WorkflowRunStatus | string;
 
   /**
    * <p>This error message describes any error that may have occurred in starting the workflow run. Currently the only error message is "Concurrent runs exceeded for workflow: <code>foo</code>."</p>
@@ -6145,15 +6145,15 @@ export interface CancelMLTaskRunRequest {
 /**
  * @public
  */
-export enum TaskStatusType {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-  TIMEOUT = "TIMEOUT",
-}
+export const TaskStatusType = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+  TIMEOUT: "TIMEOUT",
+};
 
 /**
  * @public
@@ -6172,7 +6172,7 @@ export interface CancelMLTaskRunResponse {
   /**
    * <p>The status for this run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: keyof typeof TaskStatusType | string;
 }
 
 /**
@@ -6228,11 +6228,11 @@ export class IllegalSessionStateException extends __BaseException {
 /**
  * @public
  */
-export enum DataFormat {
-  AVRO = "AVRO",
-  JSON = "JSON",
-  PROTOBUF = "PROTOBUF",
-}
+export const DataFormat = {
+  AVRO: "AVRO",
+  JSON: "JSON",
+  PROTOBUF: "PROTOBUF",
+};
 
 /**
  * @public
@@ -6241,7 +6241,7 @@ export interface CheckSchemaVersionValidityInput {
   /**
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat: DataFormat | string | undefined;
+  DataFormat: keyof typeof DataFormat | string | undefined;
 
   /**
    * <p>The definition of the schema that has to be validated.</p>
@@ -6302,11 +6302,11 @@ export interface CreateBlueprintResponse {
 /**
  * @public
  */
-export enum CsvHeaderOption {
-  ABSENT = "ABSENT",
-  PRESENT = "PRESENT",
-  UNKNOWN = "UNKNOWN",
-}
+export const CsvHeaderOption = {
+  ABSENT: "ABSENT",
+  PRESENT: "PRESENT",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -6331,7 +6331,7 @@ export interface CreateCsvClassifierRequest {
   /**
    * <p>Indicates whether the CSV file contains a header.</p>
    */
-  ContainsHeader?: CsvHeaderOption | string;
+  ContainsHeader?: keyof typeof CsvHeaderOption | string;
 
   /**
    * <p>A list of strings representing column names.</p>
@@ -6466,51 +6466,51 @@ export interface CreateClassifierResponse {}
 /**
  * @public
  */
-export enum ConnectionPropertyKey {
-  CONFIG_FILES = "CONFIG_FILES",
-  CONNECTION_URL = "CONNECTION_URL",
-  CONNECTOR_CLASS_NAME = "CONNECTOR_CLASS_NAME",
-  CONNECTOR_TYPE = "CONNECTOR_TYPE",
-  CONNECTOR_URL = "CONNECTOR_URL",
-  CUSTOM_JDBC_CERT = "CUSTOM_JDBC_CERT",
-  CUSTOM_JDBC_CERT_STRING = "CUSTOM_JDBC_CERT_STRING",
-  ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD = "ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD",
-  ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD = "ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD",
-  ENCRYPTED_PASSWORD = "ENCRYPTED_PASSWORD",
-  HOST = "HOST",
-  INSTANCE_ID = "INSTANCE_ID",
-  JDBC_CONNECTION_URL = "JDBC_CONNECTION_URL",
-  JDBC_DRIVER_CLASS_NAME = "JDBC_DRIVER_CLASS_NAME",
-  JDBC_DRIVER_JAR_URI = "JDBC_DRIVER_JAR_URI",
-  JDBC_ENFORCE_SSL = "JDBC_ENFORCE_SSL",
-  JDBC_ENGINE = "JDBC_ENGINE",
-  JDBC_ENGINE_VERSION = "JDBC_ENGINE_VERSION",
-  KAFKA_BOOTSTRAP_SERVERS = "KAFKA_BOOTSTRAP_SERVERS",
-  KAFKA_CLIENT_KEYSTORE = "KAFKA_CLIENT_KEYSTORE",
-  KAFKA_CLIENT_KEYSTORE_PASSWORD = "KAFKA_CLIENT_KEYSTORE_PASSWORD",
-  KAFKA_CLIENT_KEY_PASSWORD = "KAFKA_CLIENT_KEY_PASSWORD",
-  KAFKA_CUSTOM_CERT = "KAFKA_CUSTOM_CERT",
-  KAFKA_SKIP_CUSTOM_CERT_VALIDATION = "KAFKA_SKIP_CUSTOM_CERT_VALIDATION",
-  KAFKA_SSL_ENABLED = "KAFKA_SSL_ENABLED",
-  PASSWORD = "PASSWORD",
-  PORT = "PORT",
-  SECRET_ID = "SECRET_ID",
-  SKIP_CUSTOM_JDBC_CERT_VALIDATION = "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
-  USER_NAME = "USERNAME",
-}
+export const ConnectionPropertyKey = {
+  CONFIG_FILES: "CONFIG_FILES",
+  CONNECTION_URL: "CONNECTION_URL",
+  CONNECTOR_CLASS_NAME: "CONNECTOR_CLASS_NAME",
+  CONNECTOR_TYPE: "CONNECTOR_TYPE",
+  CONNECTOR_URL: "CONNECTOR_URL",
+  CUSTOM_JDBC_CERT: "CUSTOM_JDBC_CERT",
+  CUSTOM_JDBC_CERT_STRING: "CUSTOM_JDBC_CERT_STRING",
+  ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD: "ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD",
+  ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD: "ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD",
+  ENCRYPTED_PASSWORD: "ENCRYPTED_PASSWORD",
+  HOST: "HOST",
+  INSTANCE_ID: "INSTANCE_ID",
+  JDBC_CONNECTION_URL: "JDBC_CONNECTION_URL",
+  JDBC_DRIVER_CLASS_NAME: "JDBC_DRIVER_CLASS_NAME",
+  JDBC_DRIVER_JAR_URI: "JDBC_DRIVER_JAR_URI",
+  JDBC_ENFORCE_SSL: "JDBC_ENFORCE_SSL",
+  JDBC_ENGINE: "JDBC_ENGINE",
+  JDBC_ENGINE_VERSION: "JDBC_ENGINE_VERSION",
+  KAFKA_BOOTSTRAP_SERVERS: "KAFKA_BOOTSTRAP_SERVERS",
+  KAFKA_CLIENT_KEYSTORE: "KAFKA_CLIENT_KEYSTORE",
+  KAFKA_CLIENT_KEYSTORE_PASSWORD: "KAFKA_CLIENT_KEYSTORE_PASSWORD",
+  KAFKA_CLIENT_KEY_PASSWORD: "KAFKA_CLIENT_KEY_PASSWORD",
+  KAFKA_CUSTOM_CERT: "KAFKA_CUSTOM_CERT",
+  KAFKA_SKIP_CUSTOM_CERT_VALIDATION: "KAFKA_SKIP_CUSTOM_CERT_VALIDATION",
+  KAFKA_SSL_ENABLED: "KAFKA_SSL_ENABLED",
+  PASSWORD: "PASSWORD",
+  PORT: "PORT",
+  SECRET_ID: "SECRET_ID",
+  SKIP_CUSTOM_JDBC_CERT_VALIDATION: "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
+  USER_NAME: "USERNAME",
+};
 
 /**
  * @public
  */
-export enum ConnectionType {
-  CUSTOM = "CUSTOM",
-  JDBC = "JDBC",
-  KAFKA = "KAFKA",
-  MARKETPLACE = "MARKETPLACE",
-  MONGODB = "MONGODB",
-  NETWORK = "NETWORK",
-  SFTP = "SFTP",
-}
+export const ConnectionType = {
+  CUSTOM: "CUSTOM",
+  JDBC: "JDBC",
+  KAFKA: "KAFKA",
+  MARKETPLACE: "MARKETPLACE",
+  MONGODB: "MONGODB",
+  NETWORK: "NETWORK",
+  SFTP: "SFTP",
+};
 
 /**
  * @public
@@ -6641,7 +6641,7 @@ export interface ConnectionInput {
    *          <p>For more information about how optional ConnectionProperties are used to configure features in Glue, consult <a href="https://docs.aws.amazon.com/glue/latest/dg/connection-defining.html">Glue connection properties</a>.</p>
    *          <p>For more information about how optional ConnectionProperties are used to configure features in Glue Studio, consult <a href="https://docs.aws.amazon.com/glue/latest/ug/connectors-chapter.html">Using connectors and connections</a>.</p>
    */
-  ConnectionType: ConnectionType | string | undefined;
+  ConnectionType: keyof typeof ConnectionType | string | undefined;
 
   /**
    * <p>A list of criteria that can be used in selecting this connection.</p>
@@ -6867,17 +6867,17 @@ export class ConcurrentModificationException extends __BaseException {
 /**
  * @public
  */
-export enum Permission {
-  ALL = "ALL",
-  ALTER = "ALTER",
-  CREATE_DATABASE = "CREATE_DATABASE",
-  CREATE_TABLE = "CREATE_TABLE",
-  DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS",
-  DELETE = "DELETE",
-  DROP = "DROP",
-  INSERT = "INSERT",
-  SELECT = "SELECT",
-}
+export const Permission = {
+  ALL: "ALL",
+  ALTER: "ALTER",
+  CREATE_DATABASE: "CREATE_DATABASE",
+  CREATE_TABLE: "CREATE_TABLE",
+  DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
+  DELETE: "DELETE",
+  DROP: "DROP",
+  INSERT: "INSERT",
+  SELECT: "SELECT",
+};
 
 /**
  * @public
@@ -6903,7 +6903,7 @@ export interface PrincipalPermissions {
   /**
    * <p>The permissions that are granted to the principal.</p>
    */
-  Permissions?: (Permission | string)[];
+  Permissions?: (keyof typeof Permission | string)[];
 }
 
 /**
@@ -7115,7 +7115,7 @@ export interface CreateDevEndpointRequest {
    *          <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
    *             <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: keyof typeof WorkerType | string;
 
   /**
    * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
@@ -7214,7 +7214,7 @@ export interface CreateDevEndpointResponse {
   /**
    * <p>The type of predefined worker that is allocated to the development endpoint. May be a value of Standard, G.1X, or G.2X.</p>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: keyof typeof WorkerType | string;
 
   /**
    * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
@@ -7358,9 +7358,9 @@ export interface FindMatchesParameters {
 /**
  * @public
  */
-export enum TransformType {
-  FIND_MATCHES = "FIND_MATCHES",
-}
+export const TransformType = {
+  FIND_MATCHES: "FIND_MATCHES",
+};
 
 /**
  * @public
@@ -7372,7 +7372,7 @@ export interface TransformParameters {
    * <p>The type of machine learning transform.</p>
    *          <p>For information about the types of machine learning transforms, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating Machine Learning Transforms</a>.</p>
    */
-  TransformType: TransformType | string | undefined;
+  TransformType: keyof typeof TransformType | string | undefined;
 
   /**
    * <p>The parameters for the find matches algorithm.</p>
@@ -7383,10 +7383,10 @@ export interface TransformParameters {
 /**
  * @public
  */
-export enum MLUserDataEncryptionModeString {
-  DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
-}
+export const MLUserDataEncryptionModeString = {
+  DISABLED: "DISABLED",
+  SSEKMS: "SSE-KMS",
+};
 
 /**
  * @public
@@ -7404,7 +7404,7 @@ export interface MLUserDataEncryption {
    *             </li>
    *          </ul>
    */
-  MlUserDataEncryptionMode: MLUserDataEncryptionModeString | string | undefined;
+  MlUserDataEncryptionMode: keyof typeof MLUserDataEncryptionModeString | string | undefined;
 
   /**
    * <p>The ID for the customer-provided KMS key.</p>
@@ -7531,7 +7531,7 @@ export interface CreateMLTransformRequest {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: keyof typeof WorkerType | string;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
@@ -7696,16 +7696,16 @@ export interface CreateRegistryResponse {
 /**
  * @public
  */
-export enum Compatibility {
-  BACKWARD = "BACKWARD",
-  BACKWARD_ALL = "BACKWARD_ALL",
-  DISABLED = "DISABLED",
-  FORWARD = "FORWARD",
-  FORWARD_ALL = "FORWARD_ALL",
-  FULL = "FULL",
-  FULL_ALL = "FULL_ALL",
-  NONE = "NONE",
-}
+export const Compatibility = {
+  BACKWARD: "BACKWARD",
+  BACKWARD_ALL: "BACKWARD_ALL",
+  DISABLED: "DISABLED",
+  FORWARD: "FORWARD",
+  FORWARD_ALL: "FORWARD_ALL",
+  FULL: "FULL",
+  FULL_ALL: "FULL_ALL",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -7740,7 +7740,7 @@ export interface CreateSchemaInput {
   /**
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat: DataFormat | string | undefined;
+  DataFormat: keyof typeof DataFormat | string | undefined;
 
   /**
    * <p>The compatibility mode of the schema. The possible values are:</p>
@@ -7779,7 +7779,7 @@ export interface CreateSchemaInput {
    *             </li>
    *          </ul>
    */
-  Compatibility?: Compatibility | string;
+  Compatibility?: keyof typeof Compatibility | string;
 
   /**
    * <p>An optional description of the schema. If description is not provided, there will not be any automatic default value for this.</p>

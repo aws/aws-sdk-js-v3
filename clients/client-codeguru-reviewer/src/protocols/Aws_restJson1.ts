@@ -1368,7 +1368,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1AnalysisTypes = (input: (AnalysisType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1AnalysisTypes = (
+  input: (keyof typeof AnalysisType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1437,7 +1440,7 @@ const serializeAws_restJson1KMSKeyDetails = (input: KMSKeyDetails, context: __Se
   };
 };
 
-const serializeAws_restJson1Reactions = (input: (Reaction | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1Reactions = (input: (keyof typeof Reaction | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1553,7 +1556,10 @@ const serializeAws_restJson1ThirdPartySourceRepository = (
   };
 };
 
-const deserializeAws_restJson1AnalysisTypes = (output: any, context: __SerdeContext): (AnalysisType | string)[] => {
+const deserializeAws_restJson1AnalysisTypes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof AnalysisType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1695,7 +1701,10 @@ const deserializeAws_restJson1MetricsSummary = (output: any, context: __SerdeCon
   } as any;
 };
 
-const deserializeAws_restJson1Reactions = (output: any, context: __SerdeContext): (Reaction | string)[] => {
+const deserializeAws_restJson1Reactions = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Reaction | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

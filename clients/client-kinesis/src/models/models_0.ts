@@ -172,11 +172,11 @@ export interface ChildShard {
 /**
  * @public
  */
-export enum ConsumerStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const ConsumerStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -203,7 +203,7 @@ export interface Consumer {
    * <p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code>
    *             states.</p>
    */
-  ConsumerStatus: ConsumerStatus | string | undefined;
+  ConsumerStatus: keyof typeof ConsumerStatus | string | undefined;
 
   /**
    * <p></p>
@@ -236,7 +236,7 @@ export interface ConsumerDescription {
    * <p>A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code>
    *             states.</p>
    */
-  ConsumerStatus: ConsumerStatus | string | undefined;
+  ConsumerStatus: keyof typeof ConsumerStatus | string | undefined;
 
   /**
    * <p></p>
@@ -252,10 +252,10 @@ export interface ConsumerDescription {
 /**
  * @public
  */
-export enum StreamMode {
-  ON_DEMAND = "ON_DEMAND",
-  PROVISIONED = "PROVISIONED",
-}
+export const StreamMode = {
+  ON_DEMAND: "ON_DEMAND",
+  PROVISIONED: "PROVISIONED",
+};
 
 /**
  * @public
@@ -267,7 +267,7 @@ export interface StreamModeDetails {
    * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
    *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
    */
-  StreamMode: StreamMode | string | undefined;
+  StreamMode: keyof typeof StreamMode | string | undefined;
 }
 
 /**
@@ -435,24 +435,24 @@ export interface DescribeStreamInput {
 /**
  * @public
  */
-export enum EncryptionType {
-  KMS = "KMS",
-  NONE = "NONE",
-}
+export const EncryptionType = {
+  KMS: "KMS",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum MetricsName {
-  ALL = "ALL",
-  INCOMING_BYTES = "IncomingBytes",
-  INCOMING_RECORDS = "IncomingRecords",
-  ITERATOR_AGE_MILLISECONDS = "IteratorAgeMilliseconds",
-  OUTGOING_BYTES = "OutgoingBytes",
-  OUTGOING_RECORDS = "OutgoingRecords",
-  READ_PROVISIONED_THROUGHPUT_EXCEEDED = "ReadProvisionedThroughputExceeded",
-  WRITE_PROVISIONED_THROUGHPUT_EXCEEDED = "WriteProvisionedThroughputExceeded",
-}
+export const MetricsName = {
+  ALL: "ALL",
+  INCOMING_BYTES: "IncomingBytes",
+  INCOMING_RECORDS: "IncomingRecords",
+  ITERATOR_AGE_MILLISECONDS: "IteratorAgeMilliseconds",
+  OUTGOING_BYTES: "OutgoingBytes",
+  OUTGOING_RECORDS: "OutgoingRecords",
+  READ_PROVISIONED_THROUGHPUT_EXCEEDED: "ReadProvisionedThroughputExceeded",
+  WRITE_PROVISIONED_THROUGHPUT_EXCEEDED: "WriteProvisionedThroughputExceeded",
+};
 
 /**
  * @public
@@ -509,7 +509,7 @@ export interface EnhancedMetrics {
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
-  ShardLevelMetrics?: (MetricsName | string)[];
+  ShardLevelMetrics?: (keyof typeof MetricsName | string)[];
 }
 
 /**
@@ -564,12 +564,12 @@ export interface Shard {
 /**
  * @public
  */
-export enum StreamStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const StreamStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -616,7 +616,7 @@ export interface StreamDescription {
    *             </li>
    *          </ul>
    */
-  StreamStatus: StreamStatus | string | undefined;
+  StreamStatus: keyof typeof StreamStatus | string | undefined;
 
   /**
    * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
@@ -666,7 +666,7 @@ export interface StreamDescription {
    *             </li>
    *          </ul>
    */
-  EncryptionType?: EncryptionType | string;
+  EncryptionType?: keyof typeof EncryptionType | string;
 
   /**
    * <p>The GUID for the customer-managed Amazon Web Services KMS key to use for encryption.
@@ -809,7 +809,7 @@ export interface StreamDescriptionSummary {
    *             </li>
    *          </ul>
    */
-  StreamStatus: StreamStatus | string | undefined;
+  StreamStatus: keyof typeof StreamStatus | string | undefined;
 
   /**
    * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
@@ -847,7 +847,7 @@ export interface StreamDescriptionSummary {
    *             </li>
    *          </ul>
    */
-  EncryptionType?: EncryptionType | string;
+  EncryptionType?: keyof typeof EncryptionType | string;
 
   /**
    * <p>The GUID for the customer-managed Amazon Web Services KMS key to use for encryption.
@@ -965,7 +965,7 @@ export interface DisableEnhancedMonitoringInput {
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
-  ShardLevelMetrics: (MetricsName | string)[] | undefined;
+  ShardLevelMetrics: (keyof typeof MetricsName | string)[] | undefined;
 
   /**
    * <p>The ARN of the stream.</p>
@@ -987,13 +987,13 @@ export interface EnhancedMonitoringOutput {
    * <p>Represents the current state of the metrics that are in the enhanced state before the
    *             operation.</p>
    */
-  CurrentShardLevelMetrics?: (MetricsName | string)[];
+  CurrentShardLevelMetrics?: (keyof typeof MetricsName | string)[];
 
   /**
    * <p>Represents the list of all the metrics that would be in the enhanced state after the
    *             operation.</p>
    */
-  DesiredShardLevelMetrics?: (MetricsName | string)[];
+  DesiredShardLevelMetrics?: (keyof typeof MetricsName | string)[];
 
   /**
    * <p>The ARN of the stream.</p>
@@ -1061,7 +1061,7 @@ export interface EnableEnhancedMonitoringInput {
    *                 Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    */
-  ShardLevelMetrics: (MetricsName | string)[] | undefined;
+  ShardLevelMetrics: (keyof typeof MetricsName | string)[] | undefined;
 
   /**
    * <p>The ARN of the stream.</p>
@@ -1178,7 +1178,7 @@ export interface _Record {
    *             </li>
    *          </ul>
    */
-  EncryptionType?: EncryptionType | string;
+  EncryptionType?: keyof typeof EncryptionType | string;
 }
 
 /**
@@ -1369,13 +1369,13 @@ export class ProvisionedThroughputExceededException extends __BaseException {
 /**
  * @public
  */
-export enum ShardIteratorType {
-  AFTER_SEQUENCE_NUMBER = "AFTER_SEQUENCE_NUMBER",
-  AT_SEQUENCE_NUMBER = "AT_SEQUENCE_NUMBER",
-  AT_TIMESTAMP = "AT_TIMESTAMP",
-  LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON",
-}
+export const ShardIteratorType = {
+  AFTER_SEQUENCE_NUMBER: "AFTER_SEQUENCE_NUMBER",
+  AT_SEQUENCE_NUMBER: "AT_SEQUENCE_NUMBER",
+  AT_TIMESTAMP: "AT_TIMESTAMP",
+  LATEST: "LATEST",
+  TRIM_HORIZON: "TRIM_HORIZON",
+};
 
 /**
  * @public
@@ -1421,7 +1421,7 @@ export interface GetShardIteratorInput {
    *             </li>
    *          </ul>
    */
-  ShardIteratorType: ShardIteratorType | string | undefined;
+  ShardIteratorType: keyof typeof ShardIteratorType | string | undefined;
 
   /**
    * <p>The sequence number of the data record in the shard from which to start reading. Used
@@ -1505,14 +1505,14 @@ export class InternalFailureException extends __BaseException {
 /**
  * @public
  */
-export enum ShardFilterType {
-  AFTER_SHARD_ID = "AFTER_SHARD_ID",
-  AT_LATEST = "AT_LATEST",
-  AT_TIMESTAMP = "AT_TIMESTAMP",
-  AT_TRIM_HORIZON = "AT_TRIM_HORIZON",
-  FROM_TIMESTAMP = "FROM_TIMESTAMP",
-  FROM_TRIM_HORIZON = "FROM_TRIM_HORIZON",
-}
+export const ShardFilterType = {
+  AFTER_SHARD_ID: "AFTER_SHARD_ID",
+  AT_LATEST: "AT_LATEST",
+  AT_TIMESTAMP: "AT_TIMESTAMP",
+  AT_TRIM_HORIZON: "AT_TRIM_HORIZON",
+  FROM_TIMESTAMP: "FROM_TIMESTAMP",
+  FROM_TRIM_HORIZON: "FROM_TRIM_HORIZON",
+};
 
 /**
  * @public
@@ -1562,7 +1562,7 @@ export interface ShardFilter {
    *             </li>
    *          </ul>
    */
-  Type: ShardFilterType | string | undefined;
+  Type: keyof typeof ShardFilterType | string | undefined;
 
   /**
    * <p>The exclusive start <code>shardID</code> speified in the <code>ShardFilter</code>
@@ -1830,7 +1830,7 @@ export interface StreamSummary {
   /**
    * <p>The status of the stream.</p>
    */
-  StreamStatus: StreamStatus | string | undefined;
+  StreamStatus: keyof typeof StreamStatus | string | undefined;
 
   /**
    * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
@@ -2070,7 +2070,7 @@ export interface PutRecordOutput {
    *             </li>
    *          </ul>
    */
-  EncryptionType?: EncryptionType | string;
+  EncryptionType?: keyof typeof EncryptionType | string;
 }
 
 /**
@@ -2195,7 +2195,7 @@ export interface PutRecordsOutput {
    *             </li>
    *          </ul>
    */
-  EncryptionType?: EncryptionType | string;
+  EncryptionType?: keyof typeof EncryptionType | string;
 }
 
 /**
@@ -2292,7 +2292,7 @@ export interface StartStreamEncryptionInput {
   /**
    * <p>The encryption type to use. The only valid value is <code>KMS</code>.</p>
    */
-  EncryptionType: EncryptionType | string | undefined;
+  EncryptionType: keyof typeof EncryptionType | string | undefined;
 
   /**
    * <p>The GUID for the customer-managed Amazon Web Services KMS key to use for encryption.
@@ -2347,7 +2347,7 @@ export interface StopStreamEncryptionInput {
   /**
    * <p>The encryption type. The only valid value is <code>KMS</code>.</p>
    */
-  EncryptionType: EncryptionType | string | undefined;
+  EncryptionType: keyof typeof EncryptionType | string | undefined;
 
   /**
    * <p>The GUID for the customer-managed Amazon Web Services KMS key to use for encryption.
@@ -2413,7 +2413,7 @@ export interface StartingPosition {
    *             <code>LATEST</code>: Start streaming just after the most recent record in the shard,
    *             so that you always read the most recent data in the shard.</p>
    */
-  Type: ShardIteratorType | string | undefined;
+  Type: keyof typeof ShardIteratorType | string | undefined;
 
   /**
    * <p>The sequence number of the data record in the shard from which to start streaming. To
@@ -2754,9 +2754,9 @@ export interface SubscribeToShardOutput {
 /**
  * @public
  */
-export enum ScalingType {
-  UNIFORM_SCALING = "UNIFORM_SCALING",
-}
+export const ScalingType = {
+  UNIFORM_SCALING: "UNIFORM_SCALING",
+};
 
 /**
  * @public
@@ -2794,7 +2794,7 @@ export interface UpdateShardCountInput {
   /**
    * <p>The scaling type. Uniform scaling creates shards of equal size.</p>
    */
-  ScalingType: ScalingType | string | undefined;
+  ScalingType: keyof typeof ScalingType | string | undefined;
 
   /**
    * <p>The ARN of the stream.</p>

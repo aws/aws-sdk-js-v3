@@ -26,18 +26,18 @@ export interface AcceleratorEvent {
 /**
  * @public
  */
-export enum IpAddressType {
-  DUAL_STACK = "DUAL_STACK",
-  IPV4 = "IPV4",
-}
+export const IpAddressType = {
+  DUAL_STACK: "DUAL_STACK",
+  IPV4: "IPV4",
+};
 
 /**
  * @public
  */
-export enum IpAddressFamily {
-  IPv4 = "IPv4",
-  IPv6 = "IPv6",
-}
+export const IpAddressFamily = {
+  IPv4: "IPv4",
+  IPv6: "IPv6",
+};
 
 /**
  * @public
@@ -59,16 +59,16 @@ export interface IpSet {
   /**
    * <p>The types of IP addresses included in this IP set. </p>
    */
-  IpAddressFamily?: IpAddressFamily | string;
+  IpAddressFamily?: keyof typeof IpAddressFamily | string;
 }
 
 /**
  * @public
  */
-export enum AcceleratorStatus {
-  DEPLOYED = "DEPLOYED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const AcceleratorStatus = {
+  DEPLOYED: "DEPLOYED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -90,7 +90,7 @@ export interface Accelerator {
   /**
    * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>Indicates whether the accelerator is enabled. The value is true or false. The default value is true. </p>
@@ -118,7 +118,7 @@ export interface Accelerator {
   /**
    * <p>Describes the deployment status of the accelerator.</p>
    */
-  Status?: AcceleratorStatus | string;
+  Status?: keyof typeof AcceleratorStatus | string;
 
   /**
    * <p>The date and time that the accelerator was created.</p>
@@ -487,11 +487,11 @@ export interface AddEndpointsRequest {
 /**
  * @public
  */
-export enum HealthState {
-  HEALTHY = "HEALTHY",
-  INITIAL = "INITIAL",
-  UNHEALTHY = "UNHEALTHY",
-}
+export const HealthState = {
+  HEALTHY: "HEALTHY",
+  INITIAL: "INITIAL",
+  UNHEALTHY: "UNHEALTHY",
+};
 
 /**
  * @public
@@ -519,7 +519,7 @@ export interface EndpointDescription {
   /**
    * <p>The health status of the endpoint.</p>
    */
-  HealthState?: HealthState | string;
+  HealthState?: keyof typeof HealthState | string;
 
   /**
    * <p>Returns a null result.</p>
@@ -612,19 +612,19 @@ export interface ByoipCidrEvent {
 /**
  * @public
  */
-export enum ByoipCidrState {
-  ADVERTISING = "ADVERTISING",
-  DEPROVISIONED = "DEPROVISIONED",
-  FAILED_ADVERTISING = "FAILED_ADVERTISING",
-  FAILED_DEPROVISION = "FAILED_DEPROVISION",
-  FAILED_PROVISION = "FAILED_PROVISION",
-  FAILED_WITHDRAW = "FAILED_WITHDRAW",
-  PENDING_ADVERTISING = "PENDING_ADVERTISING",
-  PENDING_DEPROVISIONING = "PENDING_DEPROVISIONING",
-  PENDING_PROVISIONING = "PENDING_PROVISIONING",
-  PENDING_WITHDRAWING = "PENDING_WITHDRAWING",
-  READY = "READY",
-}
+export const ByoipCidrState = {
+  ADVERTISING: "ADVERTISING",
+  DEPROVISIONED: "DEPROVISIONED",
+  FAILED_ADVERTISING: "FAILED_ADVERTISING",
+  FAILED_DEPROVISION: "FAILED_DEPROVISION",
+  FAILED_PROVISION: "FAILED_PROVISION",
+  FAILED_WITHDRAW: "FAILED_WITHDRAW",
+  PENDING_ADVERTISING: "PENDING_ADVERTISING",
+  PENDING_DEPROVISIONING: "PENDING_DEPROVISIONING",
+  PENDING_PROVISIONING: "PENDING_PROVISIONING",
+  PENDING_WITHDRAWING: "PENDING_WITHDRAWING",
+  READY: "READY",
+};
 
 /**
  * @public
@@ -708,7 +708,7 @@ export interface ByoipCidr {
   /**
    * <p>The state of the address pool.</p>
    */
-  State?: ByoipCidrState | string;
+  State?: keyof typeof ByoipCidrState | string;
 
   /**
    * <p>A history of status changes for an IP address range that you bring to Global Accelerator
@@ -881,10 +881,10 @@ export interface CidrAuthorizationContext {
 /**
  * @public
  */
-export enum ClientAffinity {
-  NONE = "NONE",
-  SOURCE_IP = "SOURCE_IP",
-}
+export const ClientAffinity = {
+  NONE: "NONE",
+  SOURCE_IP: "SOURCE_IP",
+};
 
 /**
  * @public
@@ -915,7 +915,7 @@ export interface CreateAcceleratorRequest {
   /**
    * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose an IPv4 address
@@ -976,7 +976,7 @@ export interface CreateCustomRoutingAcceleratorRequest {
   /**
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose an IPv4 address
@@ -1017,10 +1017,10 @@ export interface CreateCustomRoutingAcceleratorRequest {
 /**
  * @public
  */
-export enum CustomRoutingAcceleratorStatus {
-  DEPLOYED = "DEPLOYED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const CustomRoutingAcceleratorStatus = {
+  DEPLOYED: "DEPLOYED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -1041,7 +1041,7 @@ export interface CustomRoutingAccelerator {
   /**
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>Indicates whether the accelerator is enabled. The value is true or false. The default value is true. </p>
@@ -1070,7 +1070,7 @@ export interface CustomRoutingAccelerator {
   /**
    * <p>Describes the deployment status of the accelerator.</p>
    */
-  Status?: CustomRoutingAcceleratorStatus | string;
+  Status?: keyof typeof CustomRoutingAcceleratorStatus | string;
 
   /**
    * <p>The date and time that the accelerator was created.</p>
@@ -1096,10 +1096,10 @@ export interface CreateCustomRoutingAcceleratorResponse {
 /**
  * @public
  */
-export enum CustomRoutingProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const CustomRoutingProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+};
 
 /**
  * @public
@@ -1120,7 +1120,7 @@ export interface CustomRoutingDestinationConfiguration {
   /**
    * <p>The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP.</p>
    */
-  Protocols: (CustomRoutingProtocol | string)[] | undefined;
+  Protocols: (keyof typeof CustomRoutingProtocol | string)[] | undefined;
 }
 
 /**
@@ -1154,10 +1154,10 @@ export interface CreateCustomRoutingEndpointGroupRequest {
 /**
  * @public
  */
-export enum Protocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const Protocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+};
 
 /**
  * @public
@@ -1178,7 +1178,7 @@ export interface CustomRoutingDestinationDescription {
   /**
    * <p>The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP.</p>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: (keyof typeof Protocol | string)[];
 }
 
 /**
@@ -1356,11 +1356,11 @@ export interface CreateCustomRoutingListenerResponse {
 /**
  * @public
  */
-export enum HealthCheckProtocol {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  TCP = "TCP",
-}
+export const HealthCheckProtocol = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  TCP: "TCP",
+};
 
 /**
  * @public
@@ -1425,7 +1425,7 @@ export interface CreateEndpointGroupRequest {
    * <p>The protocol that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
-  HealthCheckProtocol?: HealthCheckProtocol | string;
+  HealthCheckProtocol?: keyof typeof HealthCheckProtocol | string;
 
   /**
    * <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The
@@ -1503,7 +1503,7 @@ export interface EndpointGroup {
    * <p>The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
-  HealthCheckProtocol?: HealthCheckProtocol | string;
+  HealthCheckProtocol?: keyof typeof HealthCheckProtocol | string;
 
   /**
    * <p>If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the
@@ -1558,7 +1558,7 @@ export interface CreateListenerRequest {
   /**
    * <p>The protocol for connections from clients to your accelerator.</p>
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: keyof typeof Protocol | string | undefined;
 
   /**
    * <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,
@@ -1574,7 +1574,7 @@ export interface CreateListenerRequest {
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
    * 		       <p>The default value is <code>NONE</code>.</p>
    */
-  ClientAffinity?: ClientAffinity | string;
+  ClientAffinity?: keyof typeof ClientAffinity | string;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
@@ -1601,7 +1601,7 @@ export interface Listener {
   /**
    * <p>The protocol for the connections from clients to the accelerator.</p>
    */
-  Protocol?: Protocol | string;
+  Protocol?: keyof typeof Protocol | string;
 
   /**
    * <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,
@@ -1617,7 +1617,7 @@ export interface Listener {
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
    * 		       <p>The default value is <code>NONE</code>.</p>
    */
-  ClientAffinity?: ClientAffinity | string;
+  ClientAffinity?: keyof typeof ClientAffinity | string;
 }
 
 /**
@@ -1663,10 +1663,10 @@ export interface CustomRoutingAcceleratorAttributes {
 /**
  * @public
  */
-export enum CustomRoutingDestinationTrafficState {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const CustomRoutingDestinationTrafficState = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+};
 
 /**
  * @public
@@ -2005,13 +2005,13 @@ export interface DestinationPortMapping {
   /**
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if
    * 			traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination.</p>
    */
-  DestinationTrafficState?: CustomRoutingDestinationTrafficState | string;
+  DestinationTrafficState?: keyof typeof CustomRoutingDestinationTrafficState | string;
 }
 
 /**
@@ -2296,13 +2296,13 @@ export interface PortMapping {
   /**
    * <p>The protocols supported by the endpoint group.</p>
    */
-  Protocols?: (CustomRoutingProtocol | string)[];
+  Protocols?: (keyof typeof CustomRoutingProtocol | string)[];
 
   /**
    * <p>Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if
    * 			traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination.</p>
    */
-  DestinationTrafficState?: CustomRoutingDestinationTrafficState | string;
+  DestinationTrafficState?: keyof typeof CustomRoutingDestinationTrafficState | string;
 }
 
 /**
@@ -2569,7 +2569,7 @@ export interface UpdateAcceleratorRequest {
   /**
    * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
@@ -2650,7 +2650,7 @@ export interface UpdateCustomRoutingAcceleratorRequest {
   /**
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>Indicates whether an accelerator is enabled. The value is true or false. The default value is true. </p>
@@ -2775,7 +2775,7 @@ export interface UpdateEndpointGroupRequest {
    * <p>The protocol that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
-  HealthCheckProtocol?: HealthCheckProtocol | string;
+  HealthCheckProtocol?: keyof typeof HealthCheckProtocol | string;
 
   /**
    * <p>If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The
@@ -2832,7 +2832,7 @@ export interface UpdateListenerRequest {
   /**
    * <p>The updated protocol for the connections from clients to the accelerator.</p>
    */
-  Protocol?: Protocol | string;
+  Protocol?: keyof typeof Protocol | string;
 
   /**
    * <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,
@@ -2848,7 +2848,7 @@ export interface UpdateListenerRequest {
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
    * 		       <p>The default value is <code>NONE</code>.</p>
    */
-  ClientAffinity?: ClientAffinity | string;
+  ClientAffinity?: keyof typeof ClientAffinity | string;
 }
 
 /**

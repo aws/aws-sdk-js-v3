@@ -2003,7 +2003,7 @@ const deserializeAws_ec2BooleanList = (output: any, context: __SerdeContext): bo
     });
 };
 
-const deserializeAws_ec2FooEnumList = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const deserializeAws_ec2FooEnumList = (output: any, context: __SerdeContext): (keyof typeof FooEnum | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2011,7 +2011,10 @@ const deserializeAws_ec2FooEnumList = (output: any, context: __SerdeContext): (F
     });
 };
 
-const deserializeAws_ec2FooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum | string> => {
+const deserializeAws_ec2FooEnumMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, keyof typeof FooEnum | string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -2021,7 +2024,7 @@ const deserializeAws_ec2FooEnumMap = (output: any, context: __SerdeContext): Rec
   }, {});
 };
 
-const deserializeAws_ec2FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const deserializeAws_ec2FooEnumSet = (output: any, context: __SerdeContext): (keyof typeof FooEnum | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

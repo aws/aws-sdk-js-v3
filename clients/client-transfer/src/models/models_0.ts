@@ -28,59 +28,59 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AgreementStatusType {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const AgreementStatusType = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
  */
-export enum CompressionEnum {
-  DISABLED = "DISABLED",
-  ZLIB = "ZLIB",
-}
+export const CompressionEnum = {
+  DISABLED: "DISABLED",
+  ZLIB: "ZLIB",
+};
 
 /**
  * @public
  */
-export enum EncryptionAlg {
-  AES128_CBC = "AES128_CBC",
-  AES192_CBC = "AES192_CBC",
-  AES256_CBC = "AES256_CBC",
-  NONE = "NONE",
-}
+export const EncryptionAlg = {
+  AES128_CBC: "AES128_CBC",
+  AES192_CBC: "AES192_CBC",
+  AES256_CBC: "AES256_CBC",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum MdnResponse {
-  NONE = "NONE",
-  SYNC = "SYNC",
-}
+export const MdnResponse = {
+  NONE: "NONE",
+  SYNC: "SYNC",
+};
 
 /**
  * @public
  */
-export enum MdnSigningAlg {
-  DEFAULT = "DEFAULT",
-  NONE = "NONE",
-  SHA1 = "SHA1",
-  SHA256 = "SHA256",
-  SHA384 = "SHA384",
-  SHA512 = "SHA512",
-}
+export const MdnSigningAlg = {
+  DEFAULT: "DEFAULT",
+  NONE: "NONE",
+  SHA1: "SHA1",
+  SHA256: "SHA256",
+  SHA384: "SHA384",
+  SHA512: "SHA512",
+};
 
 /**
  * @public
  */
-export enum SigningAlg {
-  NONE = "NONE",
-  SHA1 = "SHA1",
-  SHA256 = "SHA256",
-  SHA384 = "SHA384",
-  SHA512 = "SHA512",
-}
+export const SigningAlg = {
+  NONE: "NONE",
+  SHA1: "SHA1",
+  SHA256: "SHA256",
+  SHA384: "SHA384",
+  SHA512: "SHA512",
+};
 
 /**
  * @public
@@ -106,7 +106,7 @@ export interface As2ConnectorConfig {
   /**
    * <p>Specifies whether the AS2 file is compressed.</p>
    */
-  Compression?: CompressionEnum | string;
+  Compression?: keyof typeof CompressionEnum | string;
 
   /**
    * <p>The algorithm that is used to encrypt the file.</p>
@@ -115,12 +115,12 @@ export interface As2ConnectorConfig {
    *         no traffic is sent in clear text.</p>
    *          </note>
    */
-  EncryptionAlgorithm?: EncryptionAlg | string;
+  EncryptionAlgorithm?: keyof typeof EncryptionAlg | string;
 
   /**
    * <p>The algorithm that is used to sign the AS2 messages sent with the connector.</p>
    */
-  SigningAlgorithm?: SigningAlg | string;
+  SigningAlgorithm?: keyof typeof SigningAlg | string;
 
   /**
    * <p>The signing algorithm for the MDN response.</p>
@@ -128,7 +128,7 @@ export interface As2ConnectorConfig {
    *             <p>If set to DEFAULT (or not set at all), the value for <code>SigningAlgorithm</code> is used.</p>
    *          </note>
    */
-  MdnSigningAlgorithm?: MdnSigningAlg | string;
+  MdnSigningAlgorithm?: keyof typeof MdnSigningAlg | string;
 
   /**
    * <p>Used  for outbound requests (from an Transfer Family server to a partner AS2 server) to determine whether
@@ -144,40 +144,40 @@ export interface As2ConnectorConfig {
    *             </li>
    *          </ul>
    */
-  MdnResponse?: MdnResponse | string;
+  MdnResponse?: keyof typeof MdnResponse | string;
 }
 
 /**
  * @public
  */
-export enum As2Transport {
-  HTTP = "HTTP",
-}
+export const As2Transport = {
+  HTTP: "HTTP",
+};
 
 /**
  * @public
  */
-export enum CertificateStatusType {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  PENDING_ROTATION = "PENDING_ROTATION",
-}
+export const CertificateStatusType = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+  PENDING_ROTATION: "PENDING_ROTATION",
+};
 
 /**
  * @public
  */
-export enum CertificateType {
-  CERTIFICATE = "CERTIFICATE",
-  CERTIFICATE_WITH_PRIVATE_KEY = "CERTIFICATE_WITH_PRIVATE_KEY",
-}
+export const CertificateType = {
+  CERTIFICATE: "CERTIFICATE",
+  CERTIFICATE_WITH_PRIVATE_KEY: "CERTIFICATE_WITH_PRIVATE_KEY",
+};
 
 /**
  * @public
  */
-export enum CertificateUsageType {
-  ENCRYPTION = "ENCRYPTION",
-  SIGNING = "SIGNING",
-}
+export const CertificateUsageType = {
+  ENCRYPTION: "ENCRYPTION",
+  SIGNING: "SIGNING",
+};
 
 /**
  * @public
@@ -268,10 +268,10 @@ export interface InputFileLocation {
 /**
  * @public
  */
-export enum OverwriteExisting {
-  FALSE = "FALSE",
-  TRUE = "TRUE",
-}
+export const OverwriteExisting = {
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+};
 
 /**
  * @public
@@ -307,7 +307,7 @@ export interface CopyStepDetails {
    * <p>A flag that indicates whether to overwrite an existing file of the same name.
    *       The default is <code>FALSE</code>.</p>
    */
-  OverwriteExisting?: OverwriteExisting | string;
+  OverwriteExisting?: keyof typeof OverwriteExisting | string;
 
   /**
    * <p>Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file
@@ -350,10 +350,10 @@ export interface HomeDirectoryMapEntry {
 /**
  * @public
  */
-export enum HomeDirectoryType {
-  LOGICAL = "LOGICAL",
-  PATH = "PATH",
-}
+export const HomeDirectoryType = {
+  LOGICAL: "LOGICAL",
+  PATH: "PATH",
+};
 
 /**
  * @public
@@ -396,7 +396,7 @@ export interface CreateAccessRequest {
    *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: keyof typeof HomeDirectoryType | string;
 
   /**
    * <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should
@@ -681,7 +681,7 @@ export interface CreateAgreementRequest {
    * <p>The status of the agreement. The agreement can be either <code>ACTIVE</code> or
    *         <code>INACTIVE</code>.</p>
    */
-  Status?: AgreementStatusType | string;
+  Status?: keyof typeof AgreementStatusType | string;
 
   /**
    * <p>Key-value pairs that can be used to group and search for agreements.</p>
@@ -777,10 +777,10 @@ export interface CreateConnectorResponse {
 /**
  * @public
  */
-export enum ProfileType {
-  LOCAL = "LOCAL",
-  PARTNER = "PARTNER",
-}
+export const ProfileType = {
+  LOCAL: "LOCAL",
+  PARTNER: "PARTNER",
+};
 
 /**
  * @public
@@ -805,7 +805,7 @@ export interface CreateProfileRequest {
    *             </li>
    *          </ul>
    */
-  ProfileType: ProfileType | string | undefined;
+  ProfileType: keyof typeof ProfileType | string | undefined;
 
   /**
    * <p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>
@@ -831,10 +831,10 @@ export interface CreateProfileResponse {
 /**
  * @public
  */
-export enum Domain {
-  EFS = "EFS",
-  S3 = "S3",
-}
+export const Domain = {
+  EFS: "EFS",
+  S3: "S3",
+};
 
 /**
  * @public
@@ -912,11 +912,11 @@ export interface EndpointDetails {
 /**
  * @public
  */
-export enum EndpointType {
-  PUBLIC = "PUBLIC",
-  VPC = "VPC",
-  VPC_ENDPOINT = "VPC_ENDPOINT",
-}
+export const EndpointType = {
+  PUBLIC: "PUBLIC",
+  VPC: "VPC",
+  VPC_ENDPOINT: "VPC_ENDPOINT",
+};
 
 /**
  * @public
@@ -950,29 +950,29 @@ export interface IdentityProviderDetails {
 /**
  * @public
  */
-export enum IdentityProviderType {
-  API_GATEWAY = "API_GATEWAY",
-  AWS_DIRECTORY_SERVICE = "AWS_DIRECTORY_SERVICE",
-  AWS_LAMBDA = "AWS_LAMBDA",
-  SERVICE_MANAGED = "SERVICE_MANAGED",
-}
+export const IdentityProviderType = {
+  API_GATEWAY: "API_GATEWAY",
+  AWS_DIRECTORY_SERVICE: "AWS_DIRECTORY_SERVICE",
+  AWS_LAMBDA: "AWS_LAMBDA",
+  SERVICE_MANAGED: "SERVICE_MANAGED",
+};
 
 /**
  * @public
  */
-export enum SetStatOption {
-  DEFAULT = "DEFAULT",
-  ENABLE_NO_OP = "ENABLE_NO_OP",
-}
+export const SetStatOption = {
+  DEFAULT: "DEFAULT",
+  ENABLE_NO_OP: "ENABLE_NO_OP",
+};
 
 /**
  * @public
  */
-export enum TlsSessionResumptionMode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ENFORCED = "ENFORCED",
-}
+export const TlsSessionResumptionMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ENFORCED: "ENFORCED",
+};
 
 /**
  * @public
@@ -1038,7 +1038,7 @@ export interface ProtocolDetails {
    *             </li>
    *          </ul>
    */
-  TlsSessionResumptionMode?: TlsSessionResumptionMode | string;
+  TlsSessionResumptionMode?: keyof typeof TlsSessionResumptionMode | string;
 
   /**
    * <p>Use the <code>SetStatOption</code> to ignore the error that is generated when the client attempts to use <code>SETSTAT</code> on a file you are uploading to an S3 bucket.</p>
@@ -1052,23 +1052,23 @@ export interface ProtocolDetails {
    *             <p>If you want to preserve the original timestamp for your file, and modify other file attributes using <code>SETSTAT</code>, you can use Amazon EFS as backend storage with Transfer Family.</p>
    *          </note>
    */
-  SetStatOption?: SetStatOption | string;
+  SetStatOption?: keyof typeof SetStatOption | string;
 
   /**
    * <p>Indicates the transport method for the AS2 messages. Currently, only HTTP is supported.</p>
    */
-  As2Transports?: (As2Transport | string)[];
+  As2Transports?: (keyof typeof As2Transport | string)[];
 }
 
 /**
  * @public
  */
-export enum Protocol {
-  AS2 = "AS2",
-  FTP = "FTP",
-  FTPS = "FTPS",
-  SFTP = "SFTP",
-}
+export const Protocol = {
+  AS2: "AS2",
+  FTP: "FTP",
+  FTPS: "FTPS",
+  SFTP: "SFTP",
+};
 
 /**
  * @public
@@ -1161,7 +1161,7 @@ export interface CreateServerRequest {
    *             <p>After the server is created, the domain cannot be changed.</p>
    *          </note>
    */
-  Domain?: Domain | string;
+  Domain?: keyof typeof Domain | string;
 
   /**
    * <p>The virtual private cloud (VPC) endpoint settings that are configured for your server.
@@ -1192,7 +1192,7 @@ export interface CreateServerRequest {
    *           <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p>
    *          </note>
    */
-  EndpointType?: EndpointType | string;
+  EndpointType?: keyof typeof EndpointType | string;
 
   /**
    * <p>The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled server. You can add multiple host keys, in case you want
@@ -1242,7 +1242,7 @@ export interface CreateServerRequest {
    *       If you choose this value, you must specify the ARN for the Lambda function in the <code>Function</code> parameter
    *       or the <code>IdentityProviderDetails</code> data type.</p>
    */
-  IdentityProviderType?: IdentityProviderType | string;
+  IdentityProviderType?: keyof typeof IdentityProviderType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn
@@ -1321,7 +1321,7 @@ export interface CreateServerRequest {
    *             </ul>
    *          </note>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: (keyof typeof Protocol | string)[];
 
   /**
    * <p>The protocol settings that are configured for your server.</p>
@@ -1397,7 +1397,7 @@ export interface CreateUserRequest {
    *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: keyof typeof HomeDirectoryType | string;
 
   /**
    * <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should
@@ -1557,9 +1557,9 @@ export interface CustomStepDetails {
 /**
  * @public
  */
-export enum EncryptionType {
-  PGP = "PGP",
-}
+export const EncryptionType = {
+  PGP: "PGP",
+};
 
 /**
  * @public
@@ -1574,7 +1574,7 @@ export interface DecryptStepDetails {
   /**
    * <p>The type of encryption used. Currently, this value must be <code>PGP</code>.</p>
    */
-  Type: EncryptionType | string | undefined;
+  Type: keyof typeof EncryptionType | string | undefined;
 
   /**
    * <p>Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file
@@ -1596,7 +1596,7 @@ export interface DecryptStepDetails {
    * <p>A flag that indicates whether to overwrite an existing file of the same name.
    *       The default is <code>FALSE</code>.</p>
    */
-  OverwriteExisting?: OverwriteExisting | string;
+  OverwriteExisting?: keyof typeof OverwriteExisting | string;
 
   /**
    * <p>Specifies the location for the file that's being processed.</p>
@@ -1683,13 +1683,13 @@ export interface TagStepDetails {
 /**
  * @public
  */
-export enum WorkflowStepType {
-  COPY = "COPY",
-  CUSTOM = "CUSTOM",
-  DECRYPT = "DECRYPT",
-  DELETE = "DELETE",
-  TAG = "TAG",
-}
+export const WorkflowStepType = {
+  COPY: "COPY",
+  CUSTOM: "CUSTOM",
+  DECRYPT: "DECRYPT",
+  DELETE: "DELETE",
+  TAG: "TAG",
+};
 
 /**
  * @public
@@ -1733,7 +1733,7 @@ export interface WorkflowStep {
    *             </li>
    *          </ul>
    */
-  Type?: WorkflowStepType | string;
+  Type?: keyof typeof WorkflowStepType | string;
 
   /**
    * <p>Details for a step that performs a file copy.</p>
@@ -1884,10 +1884,10 @@ export interface CreateWorkflowResponse {
 /**
  * @public
  */
-export enum CustomStepStatus {
-  FAILURE = "FAILURE",
-  SUCCESS = "SUCCESS",
-}
+export const CustomStepStatus = {
+  FAILURE: "FAILURE",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -2087,7 +2087,7 @@ export interface DescribedAccess {
    *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: keyof typeof HomeDirectoryType | string;
 
   /**
    * <p>A session policy for your user so that you can use the same Identity and Access Management (IAM) role across multiple users. This policy scopes down a user's
@@ -2182,7 +2182,7 @@ export interface DescribedAgreement {
    * <p>The current status of the agreement, either <code>ACTIVE</code> or
    *       <code>INACTIVE</code>.</p>
    */
-  Status?: AgreementStatusType | string;
+  Status?: keyof typeof AgreementStatusType | string;
 
   /**
    * <p>A system-assigned unique identifier for a server instance. This identifier indicates the
@@ -2265,14 +2265,14 @@ export interface DescribedCertificate {
   /**
    * <p>Specifies whether this certificate is used for signing or encryption.</p>
    */
-  Usage?: CertificateUsageType | string;
+  Usage?: keyof typeof CertificateUsageType | string;
 
   /**
    * <p>The certificate can be either <code>ACTIVE</code>, <code>PENDING_ROTATION</code>, or
    *         <code>INACTIVE</code>. <code>PENDING_ROTATION</code> means that this certificate will
    *       replace the current certificate when it expires.</p>
    */
-  Status?: CertificateStatusType | string;
+  Status?: keyof typeof CertificateStatusType | string;
 
   /**
    * <p>The file name for the certificate.</p>
@@ -2313,7 +2313,7 @@ export interface DescribedCertificate {
   /**
    * <p>If a private key has been specified for the certificate, its type is <code>CERTIFICATE_WITH_PRIVATE_KEY</code>. If there is no private key, the type is <code>CERTIFICATE</code>.</p>
    */
-  Type?: CertificateType | string;
+  Type?: keyof typeof CertificateType | string;
 
   /**
    * <p>The name or description that's used to identity the certificate. </p>
@@ -2473,16 +2473,16 @@ export interface LoggingConfiguration {
 /**
  * @public
  */
-export enum ExecutionErrorType {
-  ALREADY_EXISTS = "ALREADY_EXISTS",
-  BAD_REQUEST = "BAD_REQUEST",
-  CUSTOM_STEP_FAILED = "CUSTOM_STEP_FAILED",
-  INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
-  NOT_FOUND = "NOT_FOUND",
-  PERMISSION_DENIED = "PERMISSION_DENIED",
-  THROTTLED = "THROTTLED",
-  TIMEOUT = "TIMEOUT",
-}
+export const ExecutionErrorType = {
+  ALREADY_EXISTS: "ALREADY_EXISTS",
+  BAD_REQUEST: "BAD_REQUEST",
+  CUSTOM_STEP_FAILED: "CUSTOM_STEP_FAILED",
+  INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+  NOT_FOUND: "NOT_FOUND",
+  PERMISSION_DENIED: "PERMISSION_DENIED",
+  THROTTLED: "THROTTLED",
+  TIMEOUT: "TIMEOUT",
+};
 
 /**
  * @public
@@ -2534,7 +2534,7 @@ export interface ExecutionError {
    *             </li>
    *          </ul>
    */
-  Type: ExecutionErrorType | string | undefined;
+  Type: keyof typeof ExecutionErrorType | string | undefined;
 
   /**
    * <p>Specifies the descriptive message that corresponds to the <code>ErrorType</code>.</p>
@@ -2582,7 +2582,7 @@ export interface ExecutionStepResult {
    *             </li>
    *          </ul>
    */
-  StepType?: WorkflowStepType | string;
+  StepType?: keyof typeof WorkflowStepType | string;
 
   /**
    * <p>The values for the key/value pair applied as a tag to the file. Only applicable if the step type is <code>TAG</code>.</p>
@@ -2647,12 +2647,12 @@ export interface ServiceMetadata {
 /**
  * @public
  */
-export enum ExecutionStatus {
-  COMPLETED = "COMPLETED",
-  EXCEPTION = "EXCEPTION",
-  HANDLING_EXCEPTION = "HANDLING_EXCEPTION",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ExecutionStatus = {
+  COMPLETED: "COMPLETED",
+  EXCEPTION: "EXCEPTION",
+  HANDLING_EXCEPTION: "HANDLING_EXCEPTION",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -2699,7 +2699,7 @@ export interface DescribedExecution {
    * <p>The status is one of the execution. Can be in progress, completed, exception encountered, or handling the exception.
    *       </p>
    */
-  Status?: ExecutionStatus | string;
+  Status?: keyof typeof ExecutionStatus | string;
 
   /**
    * <p>A structure that describes the execution results. This includes a list of the steps along with the details of each step,
@@ -2796,7 +2796,7 @@ export interface DescribedProfile {
    * <p>Indicates whether to list only <code>LOCAL</code> type profiles or only <code>PARTNER</code> type profiles.
    *    If not supplied in the request, the command lists all types of profiles.</p>
    */
-  ProfileType?: ProfileType | string;
+  ProfileType?: keyof typeof ProfileType | string;
 
   /**
    * <p>The <code>As2Id</code> is the <i>AS2-name</i>, as defined in the
@@ -2863,14 +2863,14 @@ export interface DescribedSecurityPolicy {
 /**
  * @public
  */
-export enum State {
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-  STARTING = "STARTING",
-  START_FAILED = "START_FAILED",
-  STOPPING = "STOPPING",
-  STOP_FAILED = "STOP_FAILED",
-}
+export const State = {
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+  STARTING: "STARTING",
+  START_FAILED: "START_FAILED",
+  STOPPING: "STOPPING",
+  STOP_FAILED: "STOP_FAILED",
+};
 
 /**
  * @public
@@ -2921,7 +2921,7 @@ export interface DescribedServer {
   /**
    * <p>Specifies the domain of the storage system that is used for file transfers.</p>
    */
-  Domain?: Domain | string;
+  Domain?: keyof typeof Domain | string;
 
   /**
    * <p>The virtual private cloud (VPC) endpoint settings that are configured for your server.
@@ -2936,7 +2936,7 @@ export interface DescribedServer {
    * <p>Defines the type of endpoint that your server is connected to. If your server is connected
    *       to a VPC endpoint, your server isn't accessible over the public internet.</p>
    */
-  EndpointType?: EndpointType | string;
+  EndpointType?: keyof typeof EndpointType | string;
 
   /**
    * <p>Specifies the Base64-encoded SHA256 fingerprint of the server's host key. This value
@@ -2967,7 +2967,7 @@ export interface DescribedServer {
    *       If you choose this value, you must specify the ARN for the Lambda function in the <code>Function</code> parameter
    *       or the <code>IdentityProviderDetails</code> data type.</p>
    */
-  IdentityProviderType?: IdentityProviderType | string;
+  IdentityProviderType?: keyof typeof IdentityProviderType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn
@@ -3046,7 +3046,7 @@ export interface DescribedServer {
    *             </ul>
    *          </note>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: (keyof typeof Protocol | string)[];
 
   /**
    * <p>Specifies the name of the security policy that is attached to the server.</p>
@@ -3068,7 +3068,7 @@ export interface DescribedServer {
    *       of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error
    *       condition.</p>
    */
-  State?: State | string;
+  State?: keyof typeof State | string;
 
   /**
    * <p>Specifies the key-value pairs that you can use to search for and group servers that were
@@ -3158,7 +3158,7 @@ export interface DescribedUser {
    *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: keyof typeof HomeDirectoryType | string;
 
   /**
    * <p>A session policy for your user so that you can use the same Identity and Access Management (IAM) role across multiple users. This policy scopes down a user's
@@ -3416,7 +3416,7 @@ export interface ImportCertificateRequest {
   /**
    * <p>Specifies whether this certificate is used for signing or encryption.</p>
    */
-  Usage: CertificateUsageType | string | undefined;
+  Usage: keyof typeof CertificateUsageType | string | undefined;
 
   /**
    * <ul>
@@ -3629,7 +3629,7 @@ export interface ListedAccess {
    *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: keyof typeof HomeDirectoryType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that controls your users' access to your Amazon S3
@@ -3725,7 +3725,7 @@ export interface ListedAgreement {
   /**
    * <p>The agreement can be either <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
    */
-  Status?: AgreementStatusType | string;
+  Status?: keyof typeof AgreementStatusType | string;
 
   /**
    * <p>The unique identifier for the agreement.</p>
@@ -3795,14 +3795,14 @@ export interface ListedCertificate {
   /**
    * <p>Specifies whether this certificate is used for signing or encryption.</p>
    */
-  Usage?: CertificateUsageType | string;
+  Usage?: keyof typeof CertificateUsageType | string;
 
   /**
    * <p>The certificate can be either <code>ACTIVE</code>, <code>PENDING_ROTATION</code>, or
    *         <code>INACTIVE</code>. <code>PENDING_ROTATION</code> means that this certificate will
    *       replace the current certificate when it expires.</p>
    */
-  Status?: CertificateStatusType | string;
+  Status?: keyof typeof CertificateStatusType | string;
 
   /**
    * <p>An optional date that specifies when the certificate becomes active.</p>
@@ -3819,7 +3819,7 @@ export interface ListedCertificate {
    *       type is <code>CERTIFICATE_WITH_PRIVATE_KEY</code>. If there is no private key, the type is
    *         <code>CERTIFICATE</code>.</p>
    */
-  Type?: CertificateType | string;
+  Type?: keyof typeof CertificateType | string;
 
   /**
    * <p>The name or short description that's used to identify the certificate.</p>
@@ -3923,7 +3923,7 @@ export interface ListedExecution {
   /**
    * <p>The status is one of the execution. Can be in progress, completed, exception encountered, or handling the exception.</p>
    */
-  Status?: ExecutionStatus | string;
+  Status?: keyof typeof ExecutionStatus | string;
 }
 
 /**
@@ -4017,7 +4017,7 @@ export interface ListedProfile {
    * <p>Indicates whether to list only <code>LOCAL</code> type profiles or only <code>PARTNER</code> type profiles.
    *    If not supplied in the request, the command lists all types of profiles.</p>
    */
-  ProfileType?: ProfileType | string;
+  ProfileType?: keyof typeof ProfileType | string;
 }
 
 /**
@@ -4033,7 +4033,7 @@ export interface ListedServer {
   /**
    * <p>Specifies the domain of the storage system that is used for file transfers.</p>
    */
-  Domain?: Domain | string;
+  Domain?: keyof typeof Domain | string;
 
   /**
    * <p>The mode of authentication for a server. The default value is
@@ -4050,13 +4050,13 @@ export interface ListedServer {
    *       If you choose this value, you must specify the ARN for the Lambda function in the <code>Function</code> parameter
    *       or the <code>IdentityProviderDetails</code> data type.</p>
    */
-  IdentityProviderType?: IdentityProviderType | string;
+  IdentityProviderType?: keyof typeof IdentityProviderType | string;
 
   /**
    * <p>Specifies the type of VPC endpoint that your server is connected to. If your server is
    *       connected to a VPC endpoint, your server isn't accessible over the public internet.</p>
    */
-  EndpointType?: EndpointType | string;
+  EndpointType?: keyof typeof EndpointType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn
@@ -4080,7 +4080,7 @@ export interface ListedServer {
    *       of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error
    *       condition.</p>
    */
-  State?: State | string;
+  State?: keyof typeof State | string;
 
   /**
    * <p>Specifies the number of users that are assigned to a server you specified with the
@@ -4112,7 +4112,7 @@ export interface ListedUser {
    *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: keyof typeof HomeDirectoryType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that controls your users' access to your Amazon S3
@@ -4311,7 +4311,7 @@ export interface ListProfilesRequest {
    * <p>Indicates whether to list only <code>LOCAL</code> type profiles or only <code>PARTNER</code> type profiles.
    *    If not supplied in the request, the command lists all types of profiles.</p>
    */
-  ProfileType?: ProfileType | string;
+  ProfileType?: keyof typeof ProfileType | string;
 }
 
 /**
@@ -4556,7 +4556,7 @@ export interface SendWorkflowStepStateRequest {
   /**
    * <p>Indicates whether the specified step succeeded or failed.</p>
    */
-  Status: CustomStepStatus | string | undefined;
+  Status: keyof typeof CustomStepStatus | string | undefined;
 }
 
 /**
@@ -4654,7 +4654,7 @@ export interface TestIdentityProviderRequest {
    *             </li>
    *          </ul>
    */
-  ServerProtocol?: Protocol | string;
+  ServerProtocol?: keyof typeof Protocol | string;
 
   /**
    * <p>The source IP address of the user account to be tested.</p>
@@ -4733,7 +4733,7 @@ export interface UpdateAccessRequest {
    *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: keyof typeof HomeDirectoryType | string;
 
   /**
    * <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should
@@ -4852,7 +4852,7 @@ export interface UpdateAgreementRequest {
    * <p>You can update the status for the agreement, either activating an inactive agreement or
    *       the reverse.</p>
    */
-  Status?: AgreementStatusType | string;
+  Status?: keyof typeof AgreementStatusType | string;
 
   /**
    * <p>A unique identifier for the AS2 local profile.</p>
@@ -5144,7 +5144,7 @@ export interface UpdateServerRequest {
    *           <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p>
    *          </note>
    */
-  EndpointType?: EndpointType | string;
+  EndpointType?: keyof typeof EndpointType | string;
 
   /**
    * <p>The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled server. You can add multiple host keys, in case you want
@@ -5253,7 +5253,7 @@ export interface UpdateServerRequest {
    *             </ul>
    *          </note>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: (keyof typeof Protocol | string)[];
 
   /**
    * <p>Specifies the name of the security policy that is attached to the server.</p>
@@ -5306,7 +5306,7 @@ export interface UpdateUserRequest {
    *     protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for
    *     how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  HomeDirectoryType?: keyof typeof HomeDirectoryType | string;
 
   /**
    * <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should

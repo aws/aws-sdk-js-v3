@@ -295,10 +295,10 @@ export interface DimensionGroup {
 /**
  * @public
  */
-export enum ServiceType {
-  DOCDB = "DOCDB",
-  RDS = "RDS",
-}
+export const ServiceType = {
+  DOCDB: "DOCDB",
+  RDS: "RDS",
+};
 
 /**
  * @public
@@ -319,7 +319,7 @@ export interface DescribeDimensionKeysRequest {
    *             </li>
    *          </ul>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: keyof typeof ServiceType | string | undefined;
 
   /**
    * <p>An immutable, Amazon Web Services Region-unique identifier for a data source. Performance Insights gathers metrics from
@@ -594,11 +594,11 @@ export class NotAuthorizedException extends __BaseException {
 /**
  * @public
  */
-export enum DetailStatus {
-  AVAILABLE = "AVAILABLE",
-  PROCESSING = "PROCESSING",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const DetailStatus = {
+  AVAILABLE: "AVAILABLE",
+  PROCESSING: "PROCESSING",
+  UNAVAILABLE: "UNAVAILABLE",
+};
 
 /**
  * @public
@@ -681,20 +681,20 @@ export interface DimensionKeyDetail {
    *             </li>
    *          </ul>
    */
-  Status?: DetailStatus | string;
+  Status?: keyof typeof DetailStatus | string;
 }
 
 /**
  * @public
  */
-export enum FeatureStatus {
-  DISABLED = "DISABLED",
-  DISABLED_PENDING_REBOOT = "DISABLED_PENDING_REBOOT",
-  ENABLED = "ENABLED",
-  ENABLED_PENDING_REBOOT = "ENABLED_PENDING_REBOOT",
-  UNKNOWN = "UNKNOWN",
-  UNSUPPORTED = "UNSUPPORTED",
-}
+export const FeatureStatus = {
+  DISABLED: "DISABLED",
+  DISABLED_PENDING_REBOOT: "DISABLED_PENDING_REBOOT",
+  ENABLED: "ENABLED",
+  ENABLED_PENDING_REBOOT: "ENABLED_PENDING_REBOOT",
+  UNKNOWN: "UNKNOWN",
+  UNSUPPORTED: "UNSUPPORTED",
+};
 
 /**
  * @public
@@ -731,7 +731,7 @@ export interface FeatureMetadata {
    *             </li>
    *          </ul>
    */
-  Status?: FeatureStatus | string;
+  Status?: keyof typeof FeatureStatus | string;
 }
 
 /**
@@ -741,7 +741,7 @@ export interface GetDimensionKeyDetailsRequest {
   /**
    * <p>The Amazon Web Services service for which Performance Insights returns data. The only valid value is <code>RDS</code>.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: keyof typeof ServiceType | string | undefined;
 
   /**
    * <p>The ID for a data source from which to gather dimension data. This ID must be immutable and
@@ -819,7 +819,7 @@ export interface GetResourceMetadataRequest {
   /**
    * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: keyof typeof ServiceType | string | undefined;
 
   /**
    * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region.
@@ -908,10 +908,10 @@ export interface MetricQuery {
 /**
  * @public
  */
-export enum PeriodAlignment {
-  END_TIME = "END_TIME",
-  START_TIME = "START_TIME",
-}
+export const PeriodAlignment = {
+  END_TIME: "END_TIME",
+  START_TIME: "START_TIME",
+};
 
 /**
  * @public
@@ -932,7 +932,7 @@ export interface GetResourceMetricsRequest {
    *             </li>
    *          </ul>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: keyof typeof ServiceType | string | undefined;
 
   /**
    * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source. In the
@@ -1012,7 +1012,7 @@ export interface GetResourceMetricsRequest {
   /**
    * <p>The returned timestamp which is the start or end time of the time periods. The default value is <code>END_TIME</code>.</p>
    */
-  PeriodAlignment?: PeriodAlignment | string;
+  PeriodAlignment?: keyof typeof PeriodAlignment | string;
 }
 
 /**
@@ -1113,7 +1113,7 @@ export interface ListAvailableResourceDimensionsRequest {
   /**
    * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: keyof typeof ServiceType | string | undefined;
 
   /**
    * <p>An immutable identifier for a data source that is unique within an Amazon Web Services Region. Performance Insights gathers
@@ -1181,7 +1181,7 @@ export interface ListAvailableResourceMetricsRequest {
   /**
    * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: keyof typeof ServiceType | string | undefined;
 
   /**
    * <p>An immutable identifier for a data source that is unique within an Amazon Web Services Region. Performance Insights gathers

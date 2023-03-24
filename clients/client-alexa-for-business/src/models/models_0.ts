@@ -362,11 +362,11 @@ export interface CreateAddressBookResponse {
 /**
  * @public
  */
-export enum BusinessReportInterval {
-  ONE_DAY = "ONE_DAY",
-  ONE_WEEK = "ONE_WEEK",
-  THIRTY_DAYS = "THIRTY_DAYS",
-}
+export const BusinessReportInterval = {
+  ONE_DAY: "ONE_DAY",
+  ONE_WEEK: "ONE_WEEK",
+  THIRTY_DAYS: "THIRTY_DAYS",
+};
 
 /**
  * @public
@@ -376,16 +376,16 @@ export interface BusinessReportContentRange {
   /**
    * <p>The interval of the content range.</p>
    */
-  Interval: BusinessReportInterval | string | undefined;
+  Interval: keyof typeof BusinessReportInterval | string | undefined;
 }
 
 /**
  * @public
  */
-export enum BusinessReportFormat {
-  CSV = "CSV",
-  CSV_ZIP = "CSV_ZIP",
-}
+export const BusinessReportFormat = {
+  CSV: "CSV",
+  CSV_ZIP: "CSV_ZIP",
+};
 
 /**
  * @public
@@ -422,7 +422,7 @@ export interface CreateBusinessReportScheduleRequest {
    * <p>The format of the generated report (individual CSV files or zipped files of
    *          individual files).</p>
    */
-  Format: BusinessReportFormat | string | undefined;
+  Format: keyof typeof BusinessReportFormat | string | undefined;
 
   /**
    * <p>The content range of the reports.</p>
@@ -459,27 +459,27 @@ export interface CreateBusinessReportScheduleResponse {
 /**
  * @public
  */
-export enum ConferenceProviderType {
-  BLUEJEANS = "BLUEJEANS",
-  CHIME = "CHIME",
-  CUSTOM = "CUSTOM",
-  FUZE = "FUZE",
-  GOOGLE_HANGOUTS = "GOOGLE_HANGOUTS",
-  POLYCOM = "POLYCOM",
-  RINGCENTRAL = "RINGCENTRAL",
-  SKYPE_FOR_BUSINESS = "SKYPE_FOR_BUSINESS",
-  WEBEX = "WEBEX",
-  ZOOM = "ZOOM",
-}
+export const ConferenceProviderType = {
+  BLUEJEANS: "BLUEJEANS",
+  CHIME: "CHIME",
+  CUSTOM: "CUSTOM",
+  FUZE: "FUZE",
+  GOOGLE_HANGOUTS: "GOOGLE_HANGOUTS",
+  POLYCOM: "POLYCOM",
+  RINGCENTRAL: "RINGCENTRAL",
+  SKYPE_FOR_BUSINESS: "SKYPE_FOR_BUSINESS",
+  WEBEX: "WEBEX",
+  ZOOM: "ZOOM",
+};
 
 /**
  * @public
  */
-export enum CommsProtocol {
-  H323 = "H323",
-  SIP = "SIP",
-  SIPS = "SIPS",
-}
+export const CommsProtocol = {
+  H323: "H323",
+  SIP: "SIP",
+  SIPS: "SIPS",
+};
 
 /**
  * @public
@@ -494,17 +494,17 @@ export interface IPDialIn {
   /**
    * <p>The protocol, including SIP, SIPS, and H323.</p>
    */
-  CommsProtocol: CommsProtocol | string | undefined;
+  CommsProtocol: keyof typeof CommsProtocol | string | undefined;
 }
 
 /**
  * @public
  */
-export enum RequirePin {
-  NO = "NO",
-  OPTIONAL = "OPTIONAL",
-  YES = "YES",
-}
+export const RequirePin = {
+  NO: "NO",
+  OPTIONAL: "OPTIONAL",
+  YES: "YES",
+};
 
 /**
  * @public
@@ -527,7 +527,7 @@ export interface MeetingSetting {
   /**
    * <p>The values that indicate whether the pin is always required.</p>
    */
-  RequirePin: RequirePin | string | undefined;
+  RequirePin: keyof typeof RequirePin | string | undefined;
 }
 
 /**
@@ -568,7 +568,7 @@ export interface CreateConferenceProviderRequest {
   /**
    * <p>Represents a type within a list of predefined types.</p>
    */
-  ConferenceProviderType: ConferenceProviderType | string | undefined;
+  ConferenceProviderType: keyof typeof ConferenceProviderType | string | undefined;
 
   /**
    * <p>The IP endpoint and protocol for calling.</p>
@@ -609,11 +609,11 @@ export interface CreateConferenceProviderResponse {
 /**
  * @public
  */
-export enum PhoneNumberType {
-  HOME = "HOME",
-  MOBILE = "MOBILE",
-  WORK = "WORK",
-}
+export const PhoneNumberType = {
+  HOME: "HOME",
+  MOBILE: "MOBILE",
+  WORK: "WORK",
+};
 
 /**
  * @public
@@ -628,15 +628,15 @@ export interface PhoneNumber {
   /**
    * <p>The type of the phone number.</p>
    */
-  Type: PhoneNumberType | string | undefined;
+  Type: keyof typeof PhoneNumberType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum SipType {
-  WORK = "WORK",
-}
+export const SipType = {
+  WORK: "WORK",
+};
 
 /**
  * @public
@@ -651,7 +651,7 @@ export interface SipAddress {
   /**
    * <p>The type of the SIP address.</p>
    */
-  Type: SipType | string | undefined;
+  Type: keyof typeof SipType | string | undefined;
 }
 
 /**
@@ -752,20 +752,20 @@ export interface CreateGatewayGroupResponse {
 /**
  * @public
  */
-export enum NetworkEapMethod {
-  EAP_TLS = "EAP_TLS",
-}
+export const NetworkEapMethod = {
+  EAP_TLS: "EAP_TLS",
+};
 
 /**
  * @public
  */
-export enum NetworkSecurityType {
-  OPEN = "OPEN",
-  WEP = "WEP",
-  WPA2_ENTERPRISE = "WPA2_ENTERPRISE",
-  WPA2_PSK = "WPA2_PSK",
-  WPA_PSK = "WPA_PSK",
-}
+export const NetworkSecurityType = {
+  OPEN: "OPEN",
+  WEP: "WEP",
+  WPA2_ENTERPRISE: "WPA2_ENTERPRISE",
+  WPA2_PSK: "WPA2_PSK",
+  WPA_PSK: "WPA_PSK",
+};
 
 /**
  * @public
@@ -790,13 +790,13 @@ export interface CreateNetworkProfileRequest {
    * <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK,
    *          WEP, or OPEN.</p>
    */
-  SecurityType: NetworkSecurityType | string | undefined;
+  SecurityType: keyof typeof NetworkSecurityType | string | undefined;
 
   /**
    * <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is
    *          supported.</p>
    */
-  EapMethod?: NetworkEapMethod | string;
+  EapMethod?: keyof typeof NetworkEapMethod | string;
 
   /**
    * <p>The current password of the Wi-Fi network.</p>
@@ -890,20 +890,20 @@ export class InvalidServiceLinkedRoleStateException extends __BaseException {
 /**
  * @public
  */
-export enum DistanceUnit {
-  IMPERIAL = "IMPERIAL",
-  METRIC = "METRIC",
-}
+export const DistanceUnit = {
+  IMPERIAL: "IMPERIAL",
+  METRIC: "METRIC",
+};
 
 /**
  * @public
  */
-export enum EndOfMeetingReminderType {
-  ANNOUNCEMENT_TIME_CHECK = "ANNOUNCEMENT_TIME_CHECK",
-  ANNOUNCEMENT_VARIABLE_TIME_LEFT = "ANNOUNCEMENT_VARIABLE_TIME_LEFT",
-  CHIME = "CHIME",
-  KNOCK = "KNOCK",
-}
+export const EndOfMeetingReminderType = {
+  ANNOUNCEMENT_TIME_CHECK: "ANNOUNCEMENT_TIME_CHECK",
+  ANNOUNCEMENT_VARIABLE_TIME_LEFT: "ANNOUNCEMENT_VARIABLE_TIME_LEFT",
+  CHIME: "CHIME",
+  KNOCK: "KNOCK",
+};
 
 /**
  * @public
@@ -920,7 +920,7 @@ export interface CreateEndOfMeetingReminder {
   /**
    * <p>The type of sound that users hear during the end of meeting reminder. </p>
    */
-  ReminderType: EndOfMeetingReminderType | string | undefined;
+  ReminderType: keyof typeof EndOfMeetingReminderType | string | undefined;
 
   /**
    * <p>Whether an end of meeting reminder is enabled or not.</p>
@@ -994,20 +994,20 @@ export interface CreateMeetingRoomConfiguration {
 /**
  * @public
  */
-export enum TemperatureUnit {
-  CELSIUS = "CELSIUS",
-  FAHRENHEIT = "FAHRENHEIT",
-}
+export const TemperatureUnit = {
+  CELSIUS: "CELSIUS",
+  FAHRENHEIT: "FAHRENHEIT",
+};
 
 /**
  * @public
  */
-export enum WakeWord {
-  ALEXA = "ALEXA",
-  AMAZON = "AMAZON",
-  COMPUTER = "COMPUTER",
-  ECHO = "ECHO",
-}
+export const WakeWord = {
+  ALEXA: "ALEXA",
+  AMAZON: "AMAZON",
+  COMPUTER: "COMPUTER",
+  ECHO: "ECHO",
+};
 
 /**
  * @public
@@ -1031,17 +1031,17 @@ export interface CreateProfileRequest {
   /**
    * <p>The distance unit to be used by devices in the profile.</p>
    */
-  DistanceUnit: DistanceUnit | string | undefined;
+  DistanceUnit: keyof typeof DistanceUnit | string | undefined;
 
   /**
    * <p>The temperature unit to be used by devices in the profile.</p>
    */
-  TemperatureUnit: TemperatureUnit | string | undefined;
+  TemperatureUnit: keyof typeof TemperatureUnit | string | undefined;
 
   /**
    * <p>A wake word for Alexa, Echo, Amazon, or a computer.</p>
    */
-  WakeWord: WakeWord | string | undefined;
+  WakeWord: keyof typeof WakeWord | string | undefined;
 
   /**
    * <p>The locale of the room profile. (This is currently only available to a limited preview audience.)</p>
@@ -1327,9 +1327,9 @@ export interface DeleteDeviceResponse {}
 /**
  * @public
  */
-export enum DeviceUsageType {
-  VOICE = "VOICE",
-}
+export const DeviceUsageType = {
+  VOICE: "VOICE",
+};
 
 /**
  * @public
@@ -1343,7 +1343,7 @@ export interface DeleteDeviceUsageDataRequest {
   /**
    * <p>The type of usage data to delete.</p>
    */
-  DeviceUsageType: DeviceUsageType | string | undefined;
+  DeviceUsageType: keyof typeof DeviceUsageType | string | undefined;
 }
 
 /**
@@ -1694,7 +1694,7 @@ export interface ConferenceProvider {
   /**
    * <p>The type of conference providers.</p>
    */
-  Type?: ConferenceProviderType | string;
+  Type?: keyof typeof ConferenceProviderType | string;
 
   /**
    * <p>The IP endpoint and protocol for calling.</p>
@@ -1798,58 +1798,58 @@ export interface GetDeviceRequest {
 /**
  * @public
  */
-export enum DeviceStatus {
-  DEREGISTERED = "DEREGISTERED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  READY = "READY",
-  WAS_OFFLINE = "WAS_OFFLINE",
-}
+export const DeviceStatus = {
+  DEREGISTERED: "DEREGISTERED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  READY: "READY",
+  WAS_OFFLINE: "WAS_OFFLINE",
+};
 
 /**
  * @public
  */
-export enum ConnectionStatus {
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-}
+export const ConnectionStatus = {
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+};
 
 /**
  * @public
  */
-export enum DeviceStatusDetailCode {
-  ASSOCIATION_REJECTION = "ASSOCIATION_REJECTION",
-  AUTHENTICATION_FAILURE = "AUTHENTICATION_FAILURE",
-  CERTIFICATE_AUTHORITY_ACCESS_DENIED = "CERTIFICATE_AUTHORITY_ACCESS_DENIED",
-  CERTIFICATE_ISSUING_LIMIT_EXCEEDED = "CERTIFICATE_ISSUING_LIMIT_EXCEEDED",
-  CREDENTIALS_ACCESS_FAILURE = "CREDENTIALS_ACCESS_FAILURE",
-  DEVICE_SOFTWARE_UPDATE_NEEDED = "DEVICE_SOFTWARE_UPDATE_NEEDED",
-  DEVICE_WAS_OFFLINE = "DEVICE_WAS_OFFLINE",
-  DHCP_FAILURE = "DHCP_FAILURE",
-  DNS_FAILURE = "DNS_FAILURE",
-  INTERNET_UNAVAILABLE = "INTERNET_UNAVAILABLE",
-  INVALID_CERTIFICATE_AUTHORITY = "INVALID_CERTIFICATE_AUTHORITY",
-  INVALID_PASSWORD_STATE = "INVALID_PASSWORD_STATE",
-  NETWORK_PROFILE_NOT_FOUND = "NETWORK_PROFILE_NOT_FOUND",
-  PASSWORD_MANAGER_ACCESS_DENIED = "PASSWORD_MANAGER_ACCESS_DENIED",
-  PASSWORD_NOT_FOUND = "PASSWORD_NOT_FOUND",
-  TLS_VERSION_MISMATCH = "TLS_VERSION_MISMATCH",
-  UNKNOWN_FAILURE = "UNKNOWN_FAILURE",
-}
+export const DeviceStatusDetailCode = {
+  ASSOCIATION_REJECTION: "ASSOCIATION_REJECTION",
+  AUTHENTICATION_FAILURE: "AUTHENTICATION_FAILURE",
+  CERTIFICATE_AUTHORITY_ACCESS_DENIED: "CERTIFICATE_AUTHORITY_ACCESS_DENIED",
+  CERTIFICATE_ISSUING_LIMIT_EXCEEDED: "CERTIFICATE_ISSUING_LIMIT_EXCEEDED",
+  CREDENTIALS_ACCESS_FAILURE: "CREDENTIALS_ACCESS_FAILURE",
+  DEVICE_SOFTWARE_UPDATE_NEEDED: "DEVICE_SOFTWARE_UPDATE_NEEDED",
+  DEVICE_WAS_OFFLINE: "DEVICE_WAS_OFFLINE",
+  DHCP_FAILURE: "DHCP_FAILURE",
+  DNS_FAILURE: "DNS_FAILURE",
+  INTERNET_UNAVAILABLE: "INTERNET_UNAVAILABLE",
+  INVALID_CERTIFICATE_AUTHORITY: "INVALID_CERTIFICATE_AUTHORITY",
+  INVALID_PASSWORD_STATE: "INVALID_PASSWORD_STATE",
+  NETWORK_PROFILE_NOT_FOUND: "NETWORK_PROFILE_NOT_FOUND",
+  PASSWORD_MANAGER_ACCESS_DENIED: "PASSWORD_MANAGER_ACCESS_DENIED",
+  PASSWORD_NOT_FOUND: "PASSWORD_NOT_FOUND",
+  TLS_VERSION_MISMATCH: "TLS_VERSION_MISMATCH",
+  UNKNOWN_FAILURE: "UNKNOWN_FAILURE",
+};
 
 /**
  * @public
  */
-export enum Feature {
-  ALL = "ALL",
-  BLUETOOTH = "BLUETOOTH",
-  LISTS = "LISTS",
-  NETWORK_PROFILE = "NETWORK_PROFILE",
-  NOTIFICATIONS = "NOTIFICATIONS",
-  SETTINGS = "SETTINGS",
-  SKILLS = "SKILLS",
-  VOLUME = "VOLUME",
-}
+export const Feature = {
+  ALL: "ALL",
+  BLUETOOTH: "BLUETOOTH",
+  LISTS: "LISTS",
+  NETWORK_PROFILE: "NETWORK_PROFILE",
+  NOTIFICATIONS: "NOTIFICATIONS",
+  SETTINGS: "SETTINGS",
+  SKILLS: "SKILLS",
+  VOLUME: "VOLUME",
+};
 
 /**
  * @public
@@ -1859,12 +1859,12 @@ export interface DeviceStatusDetail {
   /**
    * <p>The list of available features on the device.</p>
    */
-  Feature?: Feature | string;
+  Feature?: keyof typeof Feature | string;
 
   /**
    * <p>The device status detail code.</p>
    */
-  Code?: DeviceStatusDetailCode | string;
+  Code?: keyof typeof DeviceStatusDetailCode | string;
 }
 
 /**
@@ -1880,7 +1880,7 @@ export interface DeviceStatusInfo {
   /**
    * <p>The latest available information about the connection status of a device. </p>
    */
-  ConnectionStatus?: ConnectionStatus | string;
+  ConnectionStatus?: keyof typeof ConnectionStatus | string;
 
   /**
    * <p>The time (in epoch) when the device connection status changed.</p>
@@ -1953,7 +1953,7 @@ export interface Device {
    * <p>The status of a device. If the status is not READY, check the DeviceStatusInfo value
    *          for details.</p>
    */
-  DeviceStatus?: DeviceStatus | string;
+  DeviceStatus?: keyof typeof DeviceStatus | string;
 
   /**
    * <p>Detailed information about a device's status.</p>
@@ -2135,13 +2135,13 @@ export interface NetworkProfile {
    * <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK,
    *          WEP, or OPEN.</p>
    */
-  SecurityType?: NetworkSecurityType | string;
+  SecurityType?: keyof typeof NetworkSecurityType | string;
 
   /**
    * <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is
    *          supported. </p>
    */
-  EapMethod?: NetworkEapMethod | string;
+  EapMethod?: keyof typeof NetworkEapMethod | string;
 
   /**
    * <p>The current password of the Wi-Fi network.</p>
@@ -2224,7 +2224,7 @@ export interface EndOfMeetingReminder {
   /**
    * <p>The type of sound that users hear during the end of meeting reminder. </p>
    */
-  ReminderType?: EndOfMeetingReminderType | string;
+  ReminderType?: keyof typeof EndOfMeetingReminderType | string;
 
   /**
    * <p>Whether an end of meeting reminder is enabled or not.</p>
@@ -2331,17 +2331,17 @@ export interface Profile {
   /**
    * <p>The distance unit of a room profile.</p>
    */
-  DistanceUnit?: DistanceUnit | string;
+  DistanceUnit?: keyof typeof DistanceUnit | string;
 
   /**
    * <p>The temperature unit of a room profile.</p>
    */
-  TemperatureUnit?: TemperatureUnit | string;
+  TemperatureUnit?: keyof typeof TemperatureUnit | string;
 
   /**
    * <p>The wake word of a room profile.</p>
    */
-  WakeWord?: WakeWord | string;
+  WakeWord?: keyof typeof WakeWord | string;
 
   /**
    * <p>The locale of a room profile. (This is currently available only to a limited preview
@@ -2548,11 +2548,11 @@ export interface ListBusinessReportSchedulesRequest {
 /**
  * @public
  */
-export enum BusinessReportFailureCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  NO_SUCH_BUCKET = "NO_SUCH_BUCKET",
-}
+export const BusinessReportFailureCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  NO_SUCH_BUCKET: "NO_SUCH_BUCKET",
+};
 
 /**
  * @public
@@ -2573,11 +2573,11 @@ export interface BusinessReportS3Location {
 /**
  * @public
  */
-export enum BusinessReportStatus {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const BusinessReportStatus = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2588,12 +2588,12 @@ export interface BusinessReport {
    * <p>The status of the report generation execution (RUNNING, SUCCEEDED, or
    *          FAILED).</p>
    */
-  Status?: BusinessReportStatus | string;
+  Status?: keyof typeof BusinessReportStatus | string;
 
   /**
    * <p>The failure code.</p>
    */
-  FailureCode?: BusinessReportFailureCode | string;
+  FailureCode?: keyof typeof BusinessReportFailureCode | string;
 
   /**
    * <p>The S3 location of the output reports.</p>
@@ -2640,7 +2640,7 @@ export interface BusinessReportSchedule {
    * <p>The format of the generated report (individual CSV files or zipped files of
    *          individual files).</p>
    */
-  Format?: BusinessReportFormat | string;
+  Format?: keyof typeof BusinessReportFormat | string;
 
   /**
    * <p>The content range of the reports.</p>
@@ -2708,10 +2708,10 @@ export interface ListConferenceProvidersResponse {
 /**
  * @public
  */
-export enum DeviceEventType {
-  CONNECTION_STATUS = "CONNECTION_STATUS",
-  DEVICE_STATUS = "DEVICE_STATUS",
-}
+export const DeviceEventType = {
+  CONNECTION_STATUS: "CONNECTION_STATUS",
+  DEVICE_STATUS: "DEVICE_STATUS",
+};
 
 /**
  * @public
@@ -2728,7 +2728,7 @@ export interface ListDeviceEventsRequest {
    *          returns a list of device events for that EventType in reverse chronological order.
    *       </p>
    */
-  EventType?: DeviceEventType | string;
+  EventType?: keyof typeof DeviceEventType | string;
 
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -2754,7 +2754,7 @@ export interface DeviceEvent {
   /**
    * <p>The type of device event.</p>
    */
-  Type?: DeviceEventType | string;
+  Type?: keyof typeof DeviceEventType | string;
 
   /**
    * <p>The value of the event.</p>
@@ -2903,19 +2903,19 @@ export interface ListGatewaysResponse {
 /**
  * @public
  */
-export enum EnablementTypeFilter {
-  ENABLED = "ENABLED",
-  PENDING = "PENDING",
-}
+export const EnablementTypeFilter = {
+  ENABLED: "ENABLED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
  */
-export enum SkillTypeFilter {
-  ALL = "ALL",
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+export const SkillTypeFilter = {
+  ALL: "ALL",
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+};
 
 /**
  * @public
@@ -2929,12 +2929,12 @@ export interface ListSkillsRequest {
   /**
    * <p>Whether the skill is enabled under the user's account.</p>
    */
-  EnablementType?: EnablementTypeFilter | string;
+  EnablementType?: keyof typeof EnablementTypeFilter | string;
 
   /**
    * <p>Whether the skill is publicly available or is a private skill.</p>
    */
-  SkillType?: SkillTypeFilter | string;
+  SkillType?: keyof typeof SkillTypeFilter | string;
 
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -2954,18 +2954,18 @@ export interface ListSkillsRequest {
 /**
  * @public
  */
-export enum EnablementType {
-  ENABLED = "ENABLED",
-  PENDING = "PENDING",
-}
+export const EnablementType = {
+  ENABLED: "ENABLED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
  */
-export enum SkillType {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+export const SkillType = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+};
 
 /**
  * @public
@@ -2991,12 +2991,12 @@ export interface SkillSummary {
    * <p>Whether the skill is enabled under the user's account, or if it requires linking to be
    *          used.</p>
    */
-  EnablementType?: EnablementType | string;
+  EnablementType?: keyof typeof EnablementType | string;
 
   /**
    * <p>Whether the skill is publicly available or is a private skill.</p>
    */
-  SkillType?: SkillType | string;
+  SkillType?: keyof typeof SkillType | string;
 }
 
 /**
@@ -3602,10 +3602,10 @@ export interface Filter {
 /**
  * @public
  */
-export enum SortValue {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const SortValue = {
+  ASC: "ASC",
+  DESC: "DESC",
+};
 
 /**
  * @public
@@ -3620,7 +3620,7 @@ export interface Sort {
   /**
    * <p>The sort value of a sort object.</p>
    */
-  Value: SortValue | string | undefined;
+  Value: keyof typeof SortValue | string | undefined;
 }
 
 /**
@@ -3841,7 +3841,7 @@ export interface DeviceData {
   /**
    * <p>The status of a device.</p>
    */
-  DeviceStatus?: DeviceStatus | string;
+  DeviceStatus?: keyof typeof DeviceStatus | string;
 
   /**
    * <p>The ARN of the network profile associated with a device.</p>
@@ -3954,13 +3954,13 @@ export interface NetworkProfileData {
    * <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK,
    *          WEP, or OPEN.</p>
    */
-  SecurityType?: NetworkSecurityType | string;
+  SecurityType?: keyof typeof NetworkSecurityType | string;
 
   /**
    * <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is
    *          supported.</p>
    */
-  EapMethod?: NetworkEapMethod | string;
+  EapMethod?: keyof typeof NetworkEapMethod | string;
 
   /**
    * <p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager
@@ -4056,17 +4056,17 @@ export interface ProfileData {
   /**
    * <p>The distance unit of a room profile.</p>
    */
-  DistanceUnit?: DistanceUnit | string;
+  DistanceUnit?: keyof typeof DistanceUnit | string;
 
   /**
    * <p>The temperature unit of a room profile.</p>
    */
-  TemperatureUnit?: TemperatureUnit | string;
+  TemperatureUnit?: keyof typeof TemperatureUnit | string;
 
   /**
    * <p>The wake word of a room profile.</p>
    */
-  WakeWord?: WakeWord | string;
+  WakeWord?: keyof typeof WakeWord | string;
 
   /**
    * <p>The locale of a room profile. (This is currently available only to a limited preview
@@ -4290,13 +4290,13 @@ export interface SearchUsersRequest {
 /**
  * @public
  */
-export enum EnrollmentStatus {
-  DEREGISTERING = "DEREGISTERING",
-  DISASSOCIATING = "DISASSOCIATING",
-  INITIALIZED = "INITIALIZED",
-  PENDING = "PENDING",
-  REGISTERED = "REGISTERED",
-}
+export const EnrollmentStatus = {
+  DEREGISTERING: "DEREGISTERING",
+  DISASSOCIATING: "DISASSOCIATING",
+  INITIALIZED: "INITIALIZED",
+  PENDING: "PENDING",
+  REGISTERED: "REGISTERED",
+};
 
 /**
  * @public
@@ -4326,7 +4326,7 @@ export interface UserData {
   /**
    * <p>The enrollment status of a user.</p>
    */
-  EnrollmentStatus?: EnrollmentStatus | string;
+  EnrollmentStatus?: keyof typeof EnrollmentStatus | string;
 
   /**
    * <p>The enrollment ARN of a user.</p>
@@ -4357,9 +4357,9 @@ export interface SearchUsersResponse {
 /**
  * @public
  */
-export enum Locale {
-  en_US = "en-US",
-}
+export const Locale = {
+  en_US: "en-US",
+};
 
 /**
  * @public
@@ -4378,7 +4378,7 @@ export interface Audio {
   /**
    * <p>The locale of the audio message. Currently, en-US is supported.</p>
    */
-  Locale: Locale | string | undefined;
+  Locale: keyof typeof Locale | string | undefined;
 
   /**
    * <p>The location of the audio file. Currently, S3 URLs are supported. Only S3 locations
@@ -4395,7 +4395,7 @@ export interface Ssml {
   /**
    * <p>The locale of the SSML message. Currently, en-US is supported.</p>
    */
-  Locale: Locale | string | undefined;
+  Locale: keyof typeof Locale | string | undefined;
 
   /**
    * <p>The value of the SSML message in the correct SSML format. The audio tag is not supported.</p>
@@ -4411,7 +4411,7 @@ export interface Text {
   /**
    * <p>The locale of the text message. Currently, en-US is supported.</p>
    */
-  Locale: Locale | string | undefined;
+  Locale: keyof typeof Locale | string | undefined;
 
   /**
    * <p>The value of the text message.</p>
@@ -4531,7 +4531,7 @@ export interface StartDeviceSyncRequest {
   /**
    * <p>Request structure to start the device sync. Required.</p>
    */
-  Features: (Feature | string)[] | undefined;
+  Features: (keyof typeof Feature | string)[] | undefined;
 }
 
 /**
@@ -4666,7 +4666,7 @@ export interface UpdateBusinessReportScheduleRequest {
    * <p>The format of the generated report (individual CSV files or zipped files of
    *          individual files).</p>
    */
-  Format?: BusinessReportFormat | string;
+  Format?: keyof typeof BusinessReportFormat | string;
 
   /**
    * <p>The name identifier of the schedule.</p>
@@ -4696,7 +4696,7 @@ export interface UpdateConferenceProviderRequest {
   /**
    * <p>The type of the conference provider.</p>
    */
-  ConferenceProviderType: ConferenceProviderType | string | undefined;
+  ConferenceProviderType: keyof typeof ConferenceProviderType | string | undefined;
 
   /**
    * <p>The IP endpoint and protocol for calling.</p>
@@ -4907,7 +4907,7 @@ export interface UpdateEndOfMeetingReminder {
   /**
    * <p>The type of sound that users hear during the end of meeting reminder. </p>
    */
-  ReminderType?: EndOfMeetingReminderType | string;
+  ReminderType?: keyof typeof EndOfMeetingReminderType | string;
 
   /**
    * <p>Whether an end of meeting reminder is enabled or not.</p>
@@ -5011,17 +5011,17 @@ export interface UpdateProfileRequest {
   /**
    * <p>The updated distance unit for the room profile.</p>
    */
-  DistanceUnit?: DistanceUnit | string;
+  DistanceUnit?: keyof typeof DistanceUnit | string;
 
   /**
    * <p>The updated temperature unit for the room profile.</p>
    */
-  TemperatureUnit?: TemperatureUnit | string;
+  TemperatureUnit?: keyof typeof TemperatureUnit | string;
 
   /**
    * <p>The updated wake word for the room profile.</p>
    */
-  WakeWord?: WakeWord | string;
+  WakeWord?: keyof typeof WakeWord | string;
 
   /**
    * <p>The updated locale for the room profile. (This is currently only available to a limited preview audience.)</p>

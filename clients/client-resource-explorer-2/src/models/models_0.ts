@@ -358,28 +358,28 @@ export interface CreateIndexInput {
 /**
  * @public
  */
-export enum IndexState {
+export const IndexState = {
   /**
    * Index is active.
    */
-  ACTIVE = "ACTIVE",
+  ACTIVE: "ACTIVE",
   /**
    * Resource Explorer is creating the index.
    */
-  CREATING = "CREATING",
+  CREATING: "CREATING",
   /**
    * Resource Explorer successfully deleted the index.
    */
-  DELETED = "DELETED",
+  DELETED: "DELETED",
   /**
    * Resource Explorer is deleting the index.
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * Resource Explorer is switching the index type between local and aggregator.
    */
-  UPDATING = "UPDATING",
-}
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -402,7 +402,7 @@ export interface CreateIndexOutput {
    *                 populates the index.</p>
    *          </note>
    */
-  State?: IndexState | string;
+  State?: keyof typeof IndexState | string;
 
   /**
    * <p>The date and timestamp when the index was created.</p>
@@ -436,7 +436,7 @@ export interface DeleteIndexOutput {
   /**
    * <p>Indicates the current state of the index. </p>
    */
-  State?: IndexState | string;
+  State?: keyof typeof IndexState | string;
 
   /**
    * <p>The date and time when you last updated this index.</p>
@@ -447,16 +447,16 @@ export interface DeleteIndexOutput {
 /**
  * @public
  */
-export enum IndexType {
+export const IndexType = {
   /**
    * aggregator index
    */
-  AGGREGATOR = "AGGREGATOR",
+  AGGREGATOR: "AGGREGATOR",
   /**
    * local index
    */
-  LOCAL = "LOCAL",
-}
+  LOCAL: "LOCAL",
+};
 
 /**
  * @public
@@ -467,7 +467,7 @@ export interface ListIndexesInput {
    *                 <code>LOCAL</code> or <code>AGGREGATOR</code>.</p>
    *          <p>Use this option to discover the aggregator index for your account.</p>
    */
-  Type?: IndexType | string;
+  Type?: keyof typeof IndexType | string;
 
   /**
    * <p>If specified, limits the response to only information about the index in the specified
@@ -542,7 +542,7 @@ export interface Index {
    *             </li>
    *          </ul>
    */
-  Type?: IndexType | string;
+  Type?: keyof typeof IndexType | string;
 }
 
 /**
@@ -610,7 +610,7 @@ export interface UpdateIndexTypeInput {
    *                 <code>AGGREGATOR</code>, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on cross-Region
    *                 search</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
    */
-  Type: IndexType | string | undefined;
+  Type: keyof typeof IndexType | string | undefined;
 }
 
 /**
@@ -625,13 +625,13 @@ export interface UpdateIndexTypeOutput {
   /**
    * <p>Specifies the type of the specified index after the operation completes.</p>
    */
-  Type?: IndexType | string;
+  Type?: keyof typeof IndexType | string;
 
   /**
    * <p>Indicates the state of the request to update the index. This operation is
    *             asynchronous. Call the <a>GetIndex</a> operation to check for changes.</p>
    */
-  State?: IndexState | string;
+  State?: keyof typeof IndexState | string;
 
   /**
    * <p>The date and timestamp when the index was last updated.</p>
@@ -861,12 +861,12 @@ export interface GetIndexOutput {
    *             how it differs from a local index, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on cross-Region search
    *                 by creating an aggregator index</a>.</p>
    */
-  Type?: IndexType | string;
+  Type?: keyof typeof IndexType | string;
 
   /**
    * <p>The current state of the index in this Amazon Web Services Region.</p>
    */
-  State?: IndexState | string;
+  State?: keyof typeof IndexState | string;
 
   /**
    * <p>This response value is present only if this index is

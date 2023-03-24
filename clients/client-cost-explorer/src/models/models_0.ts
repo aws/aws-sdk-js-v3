@@ -6,10 +6,10 @@ import { CostExplorerServiceException as __BaseException } from "./CostExplorerS
 /**
  * @public
  */
-export enum AccountScope {
-  LINKED = "LINKED",
-  PAYER = "PAYER",
-}
+export const AccountScope = {
+  LINKED: "LINKED",
+  PAYER: "PAYER",
+};
 
 /**
  * @public
@@ -30,11 +30,11 @@ export interface AnomalyScore {
 /**
  * @public
  */
-export enum AnomalyFeedbackType {
-  NO = "NO",
-  PLANNED_ACTIVITY = "PLANNED_ACTIVITY",
-  YES = "YES",
-}
+export const AnomalyFeedbackType = {
+  NO: "NO",
+  PLANNED_ACTIVITY: "PLANNED_ACTIVITY",
+  YES: "YES",
+};
 
 /**
  * @public
@@ -157,7 +157,7 @@ export interface Anomaly {
   /**
    * <p>The feedback value. </p>
    */
-  Feedback?: AnomalyFeedbackType | string;
+  Feedback?: keyof typeof AnomalyFeedbackType | string;
 }
 
 /**
@@ -179,23 +179,23 @@ export interface AnomalyDateInterval {
 /**
  * @public
  */
-export enum MonitorDimension {
-  SERVICE = "SERVICE",
-}
+export const MonitorDimension = {
+  SERVICE: "SERVICE",
+};
 
 /**
  * @public
  */
-export enum MatchOption {
-  ABSENT = "ABSENT",
-  CASE_INSENSITIVE = "CASE_INSENSITIVE",
-  CASE_SENSITIVE = "CASE_SENSITIVE",
-  CONTAINS = "CONTAINS",
-  ENDS_WITH = "ENDS_WITH",
-  EQUALS = "EQUALS",
-  GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
-  STARTS_WITH = "STARTS_WITH",
-}
+export const MatchOption = {
+  ABSENT: "ABSENT",
+  CASE_INSENSITIVE: "CASE_INSENSITIVE",
+  CASE_SENSITIVE: "CASE_SENSITIVE",
+  CONTAINS: "CONTAINS",
+  ENDS_WITH: "ENDS_WITH",
+  EQUALS: "EQUALS",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  STARTS_WITH: "STARTS_WITH",
+};
 
 /**
  * @public
@@ -225,48 +225,48 @@ export interface CostCategoryValues {
    *                 <code>MatchOptions</code> is <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.
    *         </p>
    */
-  MatchOptions?: (MatchOption | string)[];
+  MatchOptions?: (keyof typeof MatchOption | string)[];
 }
 
 /**
  * @public
  */
-export enum Dimension {
-  AGREEMENT_END_DATE_TIME_AFTER = "AGREEMENT_END_DATE_TIME_AFTER",
-  AGREEMENT_END_DATE_TIME_BEFORE = "AGREEMENT_END_DATE_TIME_BEFORE",
-  ANOMALY_TOTAL_IMPACT_ABSOLUTE = "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-  ANOMALY_TOTAL_IMPACT_PERCENTAGE = "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-  AZ = "AZ",
-  BILLING_ENTITY = "BILLING_ENTITY",
-  CACHE_ENGINE = "CACHE_ENGINE",
-  DATABASE_ENGINE = "DATABASE_ENGINE",
-  DEPLOYMENT_OPTION = "DEPLOYMENT_OPTION",
-  INSTANCE_TYPE = "INSTANCE_TYPE",
-  INSTANCE_TYPE_FAMILY = "INSTANCE_TYPE_FAMILY",
-  INVOICING_ENTITY = "INVOICING_ENTITY",
-  LEGAL_ENTITY_NAME = "LEGAL_ENTITY_NAME",
-  LINKED_ACCOUNT = "LINKED_ACCOUNT",
-  LINKED_ACCOUNT_NAME = "LINKED_ACCOUNT_NAME",
-  OPERATING_SYSTEM = "OPERATING_SYSTEM",
-  OPERATION = "OPERATION",
-  PAYMENT_OPTION = "PAYMENT_OPTION",
-  PLATFORM = "PLATFORM",
-  PURCHASE_TYPE = "PURCHASE_TYPE",
-  RECORD_TYPE = "RECORD_TYPE",
-  REGION = "REGION",
-  RESERVATION_ID = "RESERVATION_ID",
-  RESOURCE_ID = "RESOURCE_ID",
-  RIGHTSIZING_TYPE = "RIGHTSIZING_TYPE",
-  SAVINGS_PLANS_TYPE = "SAVINGS_PLANS_TYPE",
-  SAVINGS_PLAN_ARN = "SAVINGS_PLAN_ARN",
-  SCOPE = "SCOPE",
-  SERVICE = "SERVICE",
-  SERVICE_CODE = "SERVICE_CODE",
-  SUBSCRIPTION_ID = "SUBSCRIPTION_ID",
-  TENANCY = "TENANCY",
-  USAGE_TYPE = "USAGE_TYPE",
-  USAGE_TYPE_GROUP = "USAGE_TYPE_GROUP",
-}
+export const Dimension = {
+  AGREEMENT_END_DATE_TIME_AFTER: "AGREEMENT_END_DATE_TIME_AFTER",
+  AGREEMENT_END_DATE_TIME_BEFORE: "AGREEMENT_END_DATE_TIME_BEFORE",
+  ANOMALY_TOTAL_IMPACT_ABSOLUTE: "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+  ANOMALY_TOTAL_IMPACT_PERCENTAGE: "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+  AZ: "AZ",
+  BILLING_ENTITY: "BILLING_ENTITY",
+  CACHE_ENGINE: "CACHE_ENGINE",
+  DATABASE_ENGINE: "DATABASE_ENGINE",
+  DEPLOYMENT_OPTION: "DEPLOYMENT_OPTION",
+  INSTANCE_TYPE: "INSTANCE_TYPE",
+  INSTANCE_TYPE_FAMILY: "INSTANCE_TYPE_FAMILY",
+  INVOICING_ENTITY: "INVOICING_ENTITY",
+  LEGAL_ENTITY_NAME: "LEGAL_ENTITY_NAME",
+  LINKED_ACCOUNT: "LINKED_ACCOUNT",
+  LINKED_ACCOUNT_NAME: "LINKED_ACCOUNT_NAME",
+  OPERATING_SYSTEM: "OPERATING_SYSTEM",
+  OPERATION: "OPERATION",
+  PAYMENT_OPTION: "PAYMENT_OPTION",
+  PLATFORM: "PLATFORM",
+  PURCHASE_TYPE: "PURCHASE_TYPE",
+  RECORD_TYPE: "RECORD_TYPE",
+  REGION: "REGION",
+  RESERVATION_ID: "RESERVATION_ID",
+  RESOURCE_ID: "RESOURCE_ID",
+  RIGHTSIZING_TYPE: "RIGHTSIZING_TYPE",
+  SAVINGS_PLANS_TYPE: "SAVINGS_PLANS_TYPE",
+  SAVINGS_PLAN_ARN: "SAVINGS_PLAN_ARN",
+  SCOPE: "SCOPE",
+  SERVICE: "SERVICE",
+  SERVICE_CODE: "SERVICE_CODE",
+  SUBSCRIPTION_ID: "SUBSCRIPTION_ID",
+  TENANCY: "TENANCY",
+  USAGE_TYPE: "USAGE_TYPE",
+  USAGE_TYPE_GROUP: "USAGE_TYPE_GROUP",
+};
 
 /**
  * @public
@@ -286,7 +286,7 @@ export interface DimensionValues {
    *             <code>ANOMALY_TOTAL_IMPACT_ABSOLUTE</code> and
    *                 <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code> can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html">AnomalySubscriptions</a>.</p>
    */
-  Key?: Dimension | string;
+  Key?: keyof typeof Dimension | string;
 
   /**
    * <p>The metadata values that you can use to filter and group your results. You can use
@@ -303,7 +303,7 @@ export interface DimensionValues {
    *          <p>The default values for <code>MatchOptions</code> are <code>EQUALS</code> and
    *                 <code>CASE_SENSITIVE</code>.</p>
    */
-  MatchOptions?: (MatchOption | string)[];
+  MatchOptions?: (keyof typeof MatchOption | string)[];
 }
 
 /**
@@ -334,41 +334,41 @@ export interface TagValues {
    *                 <code>MatchOptions</code> are <code>EQUALS</code> and
    *             <code>CASE_SENSITIVE</code>.</p>
    */
-  MatchOptions?: (MatchOption | string)[];
+  MatchOptions?: (keyof typeof MatchOption | string)[];
 }
 
 /**
  * @public
  */
-export enum MonitorType {
-  CUSTOM = "CUSTOM",
-  DIMENSIONAL = "DIMENSIONAL",
-}
+export const MonitorType = {
+  CUSTOM: "CUSTOM",
+  DIMENSIONAL: "DIMENSIONAL",
+};
 
 /**
  * @public
  */
-export enum AnomalySubscriptionFrequency {
-  DAILY = "DAILY",
-  IMMEDIATE = "IMMEDIATE",
-  WEEKLY = "WEEKLY",
-}
+export const AnomalySubscriptionFrequency = {
+  DAILY: "DAILY",
+  IMMEDIATE: "IMMEDIATE",
+  WEEKLY: "WEEKLY",
+};
 
 /**
  * @public
  */
-export enum SubscriberStatus {
-  CONFIRMED = "CONFIRMED",
-  DECLINED = "DECLINED",
-}
+export const SubscriberStatus = {
+  CONFIRMED: "CONFIRMED",
+  DECLINED: "DECLINED",
+};
 
 /**
  * @public
  */
-export enum SubscriberType {
-  EMAIL = "EMAIL",
-  SNS = "SNS",
-}
+export const SubscriberType = {
+  EMAIL: "EMAIL",
+  SNS: "SNS",
+};
 
 /**
  * @public
@@ -384,12 +384,12 @@ export interface Subscriber {
   /**
    * <p>The notification delivery channel. </p>
    */
-  Type?: SubscriberType | string;
+  Type?: keyof typeof SubscriberType | string;
 
   /**
    * <p>Indicates if the subscriber accepts the notifications. </p>
    */
-  Status?: SubscriberStatus | string;
+  Status?: keyof typeof SubscriberStatus | string;
 }
 
 /**
@@ -485,10 +485,10 @@ export class UnknownMonitorException extends __BaseException {
 /**
  * @public
  */
-export enum CostCategoryInheritedValueDimensionName {
-  LINKED_ACCOUNT_NAME = "LINKED_ACCOUNT_NAME",
-  TAG = "TAG",
-}
+export const CostCategoryInheritedValueDimensionName = {
+  LINKED_ACCOUNT_NAME: "LINKED_ACCOUNT_NAME",
+  TAG: "TAG",
+};
 
 /**
  * @public
@@ -508,7 +508,7 @@ export interface CostCategoryInheritedValueDimension {
    *             account name. If you specify <code>TAG</code>, the cost category value is based on the
    *             value of the specified tag key.</p>
    */
-  DimensionName?: CostCategoryInheritedValueDimensionName | string;
+  DimensionName?: keyof typeof CostCategoryInheritedValueDimensionName | string;
 
   /**
    * <p>The key to extract cost category values.</p>
@@ -519,33 +519,33 @@ export interface CostCategoryInheritedValueDimension {
 /**
  * @public
  */
-export enum CostCategoryRuleType {
-  INHERITED_VALUE = "INHERITED_VALUE",
-  REGULAR = "REGULAR",
-}
+export const CostCategoryRuleType = {
+  INHERITED_VALUE: "INHERITED_VALUE",
+  REGULAR: "REGULAR",
+};
 
 /**
  * @public
  */
-export enum CostCategoryRuleVersion {
-  CostCategoryExpressionV1 = "CostCategoryExpression.v1",
-}
+export const CostCategoryRuleVersion = {
+  CostCategoryExpressionV1: "CostCategoryExpression.v1",
+};
 
 /**
  * @public
  */
-export enum CostCategorySplitChargeMethod {
-  EVEN = "EVEN",
-  FIXED = "FIXED",
-  PROPORTIONAL = "PROPORTIONAL",
-}
+export const CostCategorySplitChargeMethod = {
+  EVEN: "EVEN",
+  FIXED: "FIXED",
+  PROPORTIONAL: "PROPORTIONAL",
+};
 
 /**
  * @public
  */
-export enum CostCategorySplitChargeRuleParameterType {
-  ALLOCATION_PERCENTAGES = "ALLOCATION_PERCENTAGES",
-}
+export const CostCategorySplitChargeRuleParameterType = {
+  ALLOCATION_PERCENTAGES: "ALLOCATION_PERCENTAGES",
+};
 
 /**
  * @public
@@ -555,7 +555,7 @@ export interface CostCategorySplitChargeRuleParameter {
   /**
    * <p>The parameter type. </p>
    */
-  Type: CostCategorySplitChargeRuleParameterType | string | undefined;
+  Type: keyof typeof CostCategorySplitChargeRuleParameterType | string | undefined;
 
   /**
    * <p>The parameter values. </p>
@@ -592,7 +592,7 @@ export interface CostCategorySplitChargeRule {
    *             allocation percentage.</p>
    *          <p>><code>Even</code> - Allocates costs evenly across all targets.</p>
    */
-  Method: CostCategorySplitChargeMethod | string | undefined;
+  Method: keyof typeof CostCategorySplitChargeMethod | string | undefined;
 
   /**
    * <p>The parameters for a split charge method. This is only required for the
@@ -759,17 +759,17 @@ export interface DescribeCostCategoryDefinitionRequest {
 /**
  * @public
  */
-export enum CostCategoryStatusComponent {
-  COST_EXPLORER = "COST_EXPLORER",
-}
+export const CostCategoryStatusComponent = {
+  COST_EXPLORER: "COST_EXPLORER",
+};
 
 /**
  * @public
  */
-export enum CostCategoryStatus {
-  APPLIED = "APPLIED",
-  PROCESSING = "PROCESSING",
-}
+export const CostCategoryStatus = {
+  APPLIED: "APPLIED",
+  PROCESSING: "PROCESSING",
+};
 
 /**
  * @public
@@ -780,25 +780,25 @@ export interface CostCategoryProcessingStatus {
   /**
    * <p>The Cost Management product name of the applied status. </p>
    */
-  Component?: CostCategoryStatusComponent | string;
+  Component?: keyof typeof CostCategoryStatusComponent | string;
 
   /**
    * <p>The process status for a specific cost category. </p>
    */
-  Status?: CostCategoryStatus | string;
+  Status?: keyof typeof CostCategoryStatus | string;
 }
 
 /**
  * @public
  */
-export enum NumericOperator {
-  BETWEEN = "BETWEEN",
-  EQUAL = "EQUAL",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL",
-}
+export const NumericOperator = {
+  BETWEEN: "BETWEEN",
+  EQUAL: "EQUAL",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
+};
 
 /**
  * @public
@@ -808,7 +808,7 @@ export interface TotalImpactFilter {
   /**
    * <p>The comparing value that's used in the filter. </p>
    */
-  NumericOperator: NumericOperator | string | undefined;
+  NumericOperator: keyof typeof NumericOperator | string | undefined;
 
   /**
    * <p>The lower bound dollar value that's used in the filter. </p>
@@ -840,7 +840,7 @@ export interface GetAnomaliesRequest {
   /**
    * <p>Filters anomaly results by the feedback field on the anomaly object. </p>
    */
-  Feedback?: AnomalyFeedbackType | string;
+  Feedback?: keyof typeof AnomalyFeedbackType | string;
 
   /**
    * <p>Filters anomaly results by the total impact field on the anomaly object. For example, you
@@ -993,20 +993,20 @@ export class DataUnavailableException extends __BaseException {
 /**
  * @public
  */
-export enum Granularity {
-  DAILY = "DAILY",
-  HOURLY = "HOURLY",
-  MONTHLY = "MONTHLY",
-}
+export const Granularity = {
+  DAILY: "DAILY",
+  HOURLY: "HOURLY",
+  MONTHLY: "MONTHLY",
+};
 
 /**
  * @public
  */
-export enum GroupDefinitionType {
-  COST_CATEGORY = "COST_CATEGORY",
-  DIMENSION = "DIMENSION",
-  TAG = "TAG",
-}
+export const GroupDefinitionType = {
+  COST_CATEGORY: "COST_CATEGORY",
+  DIMENSION: "DIMENSION",
+  TAG: "TAG",
+};
 
 /**
  * @public
@@ -1017,7 +1017,7 @@ export interface GroupDefinition {
   /**
    * <p>The string that represents the type of group.</p>
    */
-  Type?: GroupDefinitionType | string;
+  Type?: keyof typeof GroupDefinitionType | string;
 
   /**
    * <p>The string that represents a key for a specified group.</p>
@@ -1203,10 +1203,10 @@ export interface GetCostAndUsageWithResourcesResponse {
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -1221,7 +1221,7 @@ export interface SortDefinition {
   /**
    * <p>The order that's used to sort the data.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -1260,15 +1260,15 @@ export interface GetCostCategoriesResponse {
 /**
  * @public
  */
-export enum Metric {
-  AMORTIZED_COST = "AMORTIZED_COST",
-  BLENDED_COST = "BLENDED_COST",
-  NET_AMORTIZED_COST = "NET_AMORTIZED_COST",
-  NET_UNBLENDED_COST = "NET_UNBLENDED_COST",
-  NORMALIZED_USAGE_AMOUNT = "NORMALIZED_USAGE_AMOUNT",
-  UNBLENDED_COST = "UNBLENDED_COST",
-  USAGE_QUANTITY = "USAGE_QUANTITY",
-}
+export const Metric = {
+  AMORTIZED_COST: "AMORTIZED_COST",
+  BLENDED_COST: "BLENDED_COST",
+  NET_AMORTIZED_COST: "NET_AMORTIZED_COST",
+  NET_UNBLENDED_COST: "NET_UNBLENDED_COST",
+  NORMALIZED_USAGE_AMOUNT: "NORMALIZED_USAGE_AMOUNT",
+  UNBLENDED_COST: "UNBLENDED_COST",
+  USAGE_QUANTITY: "USAGE_QUANTITY",
+};
 
 /**
  * @public
@@ -1315,11 +1315,11 @@ export interface GetCostForecastResponse {
 /**
  * @public
  */
-export enum Context {
-  COST_AND_USAGE = "COST_AND_USAGE",
-  RESERVATIONS = "RESERVATIONS",
-  SAVINGS_PLANS = "SAVINGS_PLANS",
-}
+export const Context = {
+  COST_AND_USAGE: "COST_AND_USAGE",
+  RESERVATIONS: "RESERVATIONS",
+  SAVINGS_PLANS: "SAVINGS_PLANS",
+};
 
 /**
  * @public
@@ -1632,31 +1632,31 @@ export interface GetReservationCoverageResponse {
 /**
  * @public
  */
-export enum LookbackPeriodInDays {
-  SEVEN_DAYS = "SEVEN_DAYS",
-  SIXTY_DAYS = "SIXTY_DAYS",
-  THIRTY_DAYS = "THIRTY_DAYS",
-}
+export const LookbackPeriodInDays = {
+  SEVEN_DAYS: "SEVEN_DAYS",
+  SIXTY_DAYS: "SIXTY_DAYS",
+  THIRTY_DAYS: "THIRTY_DAYS",
+};
 
 /**
  * @public
  */
-export enum PaymentOption {
-  ALL_UPFRONT = "ALL_UPFRONT",
-  HEAVY_UTILIZATION = "HEAVY_UTILIZATION",
-  LIGHT_UTILIZATION = "LIGHT_UTILIZATION",
-  MEDIUM_UTILIZATION = "MEDIUM_UTILIZATION",
-  NO_UPFRONT = "NO_UPFRONT",
-  PARTIAL_UPFRONT = "PARTIAL_UPFRONT",
-}
+export const PaymentOption = {
+  ALL_UPFRONT: "ALL_UPFRONT",
+  HEAVY_UTILIZATION: "HEAVY_UTILIZATION",
+  LIGHT_UTILIZATION: "LIGHT_UTILIZATION",
+  MEDIUM_UTILIZATION: "MEDIUM_UTILIZATION",
+  NO_UPFRONT: "NO_UPFRONT",
+  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
+};
 
 /**
  * @public
  */
-export enum OfferingClass {
-  CONVERTIBLE = "CONVERTIBLE",
-  STANDARD = "STANDARD",
-}
+export const OfferingClass = {
+  CONVERTIBLE: "CONVERTIBLE",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -1668,7 +1668,7 @@ export interface EC2Specification {
    * <p>Indicates whether you want a recommendation for standard or convertible
    *             reservations.</p>
    */
-  OfferingClass?: OfferingClass | string;
+  OfferingClass?: keyof typeof OfferingClass | string;
 }
 
 /**
@@ -1686,10 +1686,10 @@ export interface ServiceSpecification {
 /**
  * @public
  */
-export enum TermInYears {
-  ONE_YEAR = "ONE_YEAR",
-  THREE_YEARS = "THREE_YEARS",
-}
+export const TermInYears = {
+  ONE_YEAR: "ONE_YEAR",
+  THREE_YEARS: "THREE_YEARS",
+};
 
 /**
  * @public
@@ -2100,24 +2100,24 @@ export interface ReservationPurchaseRecommendation {
    *             for. For example, you can purchase this reservation for an entire organization in
    *                 Amazon Web Services Organizations.</p>
    */
-  AccountScope?: AccountScope | string;
+  AccountScope?: keyof typeof AccountScope | string;
 
   /**
    * <p>How many days of previous usage that Amazon Web Services considers when making this
    *             recommendation.</p>
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays | string;
+  LookbackPeriodInDays?: keyof typeof LookbackPeriodInDays | string;
 
   /**
    * <p>The term of the reservation that you want recommendations for, in years.</p>
    */
-  TermInYears?: TermInYears | string;
+  TermInYears?: keyof typeof TermInYears | string;
 
   /**
    * <p>The payment option for the reservation (for example, <code>AllUpfront</code> or
    *                 <code>NoUpfront</code>).</p>
    */
-  PaymentOption?: PaymentOption | string;
+  PaymentOption?: keyof typeof PaymentOption | string;
 
   /**
    * <p>Hardware specifications for the service that you want recommendations for.</p>
@@ -2330,10 +2330,10 @@ export interface GetReservationUtilizationResponse {
 /**
  * @public
  */
-export enum RecommendationTarget {
-  CROSS_INSTANCE_FAMILY = "CROSS_INSTANCE_FAMILY",
-  SAME_INSTANCE_FAMILY = "SAME_INSTANCE_FAMILY",
-}
+export const RecommendationTarget = {
+  CROSS_INSTANCE_FAMILY: "CROSS_INSTANCE_FAMILY",
+  SAME_INSTANCE_FAMILY: "SAME_INSTANCE_FAMILY",
+};
 
 /**
  * @public
@@ -2350,7 +2350,7 @@ export interface RightsizingRecommendationConfiguration {
    *             for instances across other families. The default value is
    *                 <code>SAME_INSTANCE_FAMILY</code>. </p>
    */
-  RecommendationTarget: RecommendationTarget | string | undefined;
+  RecommendationTarget: keyof typeof RecommendationTarget | string | undefined;
 
   /**
    * <p>The option to consider RI or Savings Plans discount benefits in your savings
@@ -2378,7 +2378,7 @@ export interface RightsizingRecommendationMetadata {
    * <p>The number of days of previous usage that Amazon Web Services considers when making
    *             this recommendation.</p>
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays | string;
+  LookbackPeriodInDays?: keyof typeof LookbackPeriodInDays | string;
 
   /**
    * <p>Additional metadata that might be applicable to the recommendation.</p>
@@ -2650,35 +2650,35 @@ export interface CurrentInstance {
 /**
  * @public
  */
-export enum FindingReasonCode {
-  CPU_OVER_PROVISIONED = "CPU_OVER_PROVISIONED",
-  CPU_UNDER_PROVISIONED = "CPU_UNDER_PROVISIONED",
-  DISK_IOPS_OVER_PROVISIONED = "DISK_IOPS_OVER_PROVISIONED",
-  DISK_IOPS_UNDER_PROVISIONED = "DISK_IOPS_UNDER_PROVISIONED",
-  DISK_THROUGHPUT_OVER_PROVISIONED = "DISK_THROUGHPUT_OVER_PROVISIONED",
-  DISK_THROUGHPUT_UNDER_PROVISIONED = "DISK_THROUGHPUT_UNDER_PROVISIONED",
-  EBS_IOPS_OVER_PROVISIONED = "EBS_IOPS_OVER_PROVISIONED",
-  EBS_IOPS_UNDER_PROVISIONED = "EBS_IOPS_UNDER_PROVISIONED",
-  EBS_THROUGHPUT_OVER_PROVISIONED = "EBS_THROUGHPUT_OVER_PROVISIONED",
-  EBS_THROUGHPUT_UNDER_PROVISIONED = "EBS_THROUGHPUT_UNDER_PROVISIONED",
-  MEMORY_OVER_PROVISIONED = "MEMORY_OVER_PROVISIONED",
-  MEMORY_UNDER_PROVISIONED = "MEMORY_UNDER_PROVISIONED",
-  NETWORK_BANDWIDTH_OVER_PROVISIONED = "NETWORK_BANDWIDTH_OVER_PROVISIONED",
-  NETWORK_BANDWIDTH_UNDER_PROVISIONED = "NETWORK_BANDWIDTH_UNDER_PROVISIONED",
-  NETWORK_PPS_OVER_PROVISIONED = "NETWORK_PPS_OVER_PROVISIONED",
-  NETWORK_PPS_UNDER_PROVISIONED = "NETWORK_PPS_UNDER_PROVISIONED",
-}
+export const FindingReasonCode = {
+  CPU_OVER_PROVISIONED: "CPU_OVER_PROVISIONED",
+  CPU_UNDER_PROVISIONED: "CPU_UNDER_PROVISIONED",
+  DISK_IOPS_OVER_PROVISIONED: "DISK_IOPS_OVER_PROVISIONED",
+  DISK_IOPS_UNDER_PROVISIONED: "DISK_IOPS_UNDER_PROVISIONED",
+  DISK_THROUGHPUT_OVER_PROVISIONED: "DISK_THROUGHPUT_OVER_PROVISIONED",
+  DISK_THROUGHPUT_UNDER_PROVISIONED: "DISK_THROUGHPUT_UNDER_PROVISIONED",
+  EBS_IOPS_OVER_PROVISIONED: "EBS_IOPS_OVER_PROVISIONED",
+  EBS_IOPS_UNDER_PROVISIONED: "EBS_IOPS_UNDER_PROVISIONED",
+  EBS_THROUGHPUT_OVER_PROVISIONED: "EBS_THROUGHPUT_OVER_PROVISIONED",
+  EBS_THROUGHPUT_UNDER_PROVISIONED: "EBS_THROUGHPUT_UNDER_PROVISIONED",
+  MEMORY_OVER_PROVISIONED: "MEMORY_OVER_PROVISIONED",
+  MEMORY_UNDER_PROVISIONED: "MEMORY_UNDER_PROVISIONED",
+  NETWORK_BANDWIDTH_OVER_PROVISIONED: "NETWORK_BANDWIDTH_OVER_PROVISIONED",
+  NETWORK_BANDWIDTH_UNDER_PROVISIONED: "NETWORK_BANDWIDTH_UNDER_PROVISIONED",
+  NETWORK_PPS_OVER_PROVISIONED: "NETWORK_PPS_OVER_PROVISIONED",
+  NETWORK_PPS_UNDER_PROVISIONED: "NETWORK_PPS_UNDER_PROVISIONED",
+};
 
 /**
  * @public
  */
-export enum PlatformDifference {
-  HYPERVISOR = "HYPERVISOR",
-  INSTANCE_STORE_AVAILABILITY = "INSTANCE_STORE_AVAILABILITY",
-  NETWORK_INTERFACE = "NETWORK_INTERFACE",
-  STORAGE_INTERFACE = "STORAGE_INTERFACE",
-  VIRTUALIZATION_TYPE = "VIRTUALIZATION_TYPE",
-}
+export const PlatformDifference = {
+  HYPERVISOR: "HYPERVISOR",
+  INSTANCE_STORE_AVAILABILITY: "INSTANCE_STORE_AVAILABILITY",
+  NETWORK_INTERFACE: "NETWORK_INTERFACE",
+  STORAGE_INTERFACE: "STORAGE_INTERFACE",
+  VIRTUALIZATION_TYPE: "VIRTUALIZATION_TYPE",
+};
 
 /**
  * @public
@@ -2721,7 +2721,7 @@ export interface TargetInstance {
    * <p>Explains the actions that you might need to take to successfully migrate your
    *             workloads from the current instance type to the recommended instance type. </p>
    */
-  PlatformDifferences?: (PlatformDifference | string)[];
+  PlatformDifferences?: (keyof typeof PlatformDifference | string)[];
 }
 
 /**
@@ -2739,10 +2739,10 @@ export interface ModifyRecommendationDetail {
 /**
  * @public
  */
-export enum RightsizingType {
-  MODIFY = "MODIFY",
-  TERMINATE = "TERMINATE",
-}
+export const RightsizingType = {
+  MODIFY: "MODIFY",
+  TERMINATE: "TERMINATE",
+};
 
 /**
  * @public
@@ -2780,7 +2780,7 @@ export interface RightsizingRecommendation {
   /**
    * <p>A recommendation to either terminate or modify the resource.</p>
    */
-  RightsizingType?: RightsizingType | string;
+  RightsizingType?: keyof typeof RightsizingType | string;
 
   /**
    * <p>The details for the modification recommendations. </p>
@@ -2796,7 +2796,7 @@ export interface RightsizingRecommendation {
    * <p>The list of possible reasons why the recommendation is generated, such as under- or
    *             over-utilization of specific metrics (for example, CPU, Memory, Network). </p>
    */
-  FindingReasonCodes?: (FindingReasonCode | string)[];
+  FindingReasonCodes?: (keyof typeof FindingReasonCode | string)[];
 }
 
 /**
@@ -2930,11 +2930,11 @@ export interface GetSavingsPlansCoverageResponse {
 /**
  * @public
  */
-export enum SupportedSavingsPlansType {
-  COMPUTE_SP = "COMPUTE_SP",
-  EC2_INSTANCE_SP = "EC2_INSTANCE_SP",
-  SAGEMAKER_SP = "SAGEMAKER_SP",
-}
+export const SupportedSavingsPlansType = {
+  COMPUTE_SP: "COMPUTE_SP",
+  EC2_INSTANCE_SP: "EC2_INSTANCE_SP",
+  SAGEMAKER_SP: "SAGEMAKER_SP",
+};
 
 /**
  * @public
@@ -3162,28 +3162,28 @@ export interface SavingsPlansPurchaseRecommendation {
    *             the value is set to <code>PAYER</code>. If the value is <code>LINKED</code>,
    *             recommendations are calculated for individual member accounts only.</p>
    */
-  AccountScope?: AccountScope | string;
+  AccountScope?: keyof typeof AccountScope | string;
 
   /**
    * <p>The requested Savings Plans recommendation type.</p>
    */
-  SavingsPlansType?: SupportedSavingsPlansType | string;
+  SavingsPlansType?: keyof typeof SupportedSavingsPlansType | string;
 
   /**
    * <p>The Savings Plans recommendation term in years. It's used to generate the
    *             recommendation.</p>
    */
-  TermInYears?: TermInYears | string;
+  TermInYears?: keyof typeof TermInYears | string;
 
   /**
    * <p>The payment option that's used to generate the recommendation.</p>
    */
-  PaymentOption?: PaymentOption | string;
+  PaymentOption?: keyof typeof PaymentOption | string;
 
   /**
    * <p>The lookback period in days that's used to generate the recommendation.</p>
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays | string;
+  LookbackPeriodInDays?: keyof typeof LookbackPeriodInDays | string;
 
   /**
    * <p>Details for the Savings Plans that we recommend that you purchase to cover existing
@@ -3368,12 +3368,12 @@ export interface GetSavingsPlansUtilizationResponse {
 /**
  * @public
  */
-export enum SavingsPlansDataType {
-  AMORTIZED_COMMITMENT = "AMORTIZED_COMMITMENT",
-  ATTRIBUTES = "ATTRIBUTES",
-  SAVINGS = "SAVINGS",
-  UTILIZATION = "UTILIZATION",
-}
+export const SavingsPlansDataType = {
+  AMORTIZED_COMMITMENT: "AMORTIZED_COMMITMENT",
+  ATTRIBUTES: "ATTRIBUTES",
+  SAVINGS: "SAVINGS",
+  UTILIZATION: "UTILIZATION",
+};
 
 /**
  * @public
@@ -3508,18 +3508,18 @@ export class UnresolvableUsageUnitException extends __BaseException {
 /**
  * @public
  */
-export enum CostAllocationTagStatus {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
+export const CostAllocationTagStatus = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+};
 
 /**
  * @public
  */
-export enum CostAllocationTagType {
-  AWS_GENERATED = "AWSGenerated",
-  USER_DEFINED = "UserDefined",
-}
+export const CostAllocationTagType = {
+  AWS_GENERATED: "AWSGenerated",
+  USER_DEFINED: "UserDefined",
+};
 
 /**
  * @public
@@ -3528,7 +3528,7 @@ export interface ListCostAllocationTagsRequest {
   /**
    * <p>The status of cost allocation tag keys that are returned for this request. </p>
    */
-  Status?: CostAllocationTagStatus | string;
+  Status?: keyof typeof CostAllocationTagStatus | string;
 
   /**
    * <p>The list of cost allocation tag keys that are returned for this request. </p>
@@ -3542,7 +3542,7 @@ export interface ListCostAllocationTagsRequest {
    *         <code>UserDefined</code> type tags are tags that you define, create, and apply to resources.
    *     </p>
    */
-  Type?: CostAllocationTagType | string;
+  Type?: keyof typeof CostAllocationTagType | string;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
@@ -3575,12 +3575,12 @@ export interface CostAllocationTag {
    *             cost allocation purposes. <code>UserDefined</code> type tags are tags that you define,
    *             create, and apply to resources. </p>
    */
-  Type: CostAllocationTagType | string | undefined;
+  Type: keyof typeof CostAllocationTagType | string | undefined;
 
   /**
    * <p>The status of a cost allocation tag. </p>
    */
-  Status: CostAllocationTagStatus | string | undefined;
+  Status: keyof typeof CostAllocationTagStatus | string | undefined;
 }
 
 /**
@@ -3691,11 +3691,11 @@ export interface ListCostCategoryDefinitionsResponse {
 /**
  * @public
  */
-export enum GenerationStatus {
-  FAILED = "FAILED",
-  PROCESSING = "PROCESSING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const GenerationStatus = {
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -3704,7 +3704,7 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationRequest {
   /**
    * <p>The status of the recommendation generation.</p>
    */
-  GenerationStatus?: GenerationStatus | string;
+  GenerationStatus?: keyof typeof GenerationStatus | string;
 
   /**
    * <p>The IDs for each specific recommendation.</p>
@@ -3736,7 +3736,7 @@ export interface GenerationSummary {
    * <p>Indicates whether the recommendation generation succeeded, is processing, or
    *             failed.</p>
    */
-  GenerationStatus?: GenerationStatus | string;
+  GenerationStatus?: keyof typeof GenerationStatus | string;
 
   /**
    * <p>Indicates the start time of the recommendation generation.</p>
@@ -3804,7 +3804,7 @@ export interface ProvideAnomalyFeedbackRequest {
    * <p>Describes whether the cost anomaly was a planned activity or you considered it an anomaly.
    *     </p>
    */
-  Feedback: AnomalyFeedbackType | string | undefined;
+  Feedback: keyof typeof AnomalyFeedbackType | string | undefined;
 }
 
 /**
@@ -4014,7 +4014,7 @@ export interface CostAllocationTagStatusEntry {
   /**
    * <p>The status of a cost allocation tag. </p>
    */
-  Status: CostAllocationTagStatus | string | undefined;
+  Status: keyof typeof CostAllocationTagStatus | string | undefined;
 }
 
 /**
@@ -4269,12 +4269,12 @@ export interface AnomalyMonitor {
   /**
    * <p>The possible type values. </p>
    */
-  MonitorType: MonitorType | string | undefined;
+  MonitorType: keyof typeof MonitorType | string | undefined;
 
   /**
    * <p>The dimensions to evaluate. </p>
    */
-  MonitorDimension?: MonitorDimension | string;
+  MonitorDimension?: keyof typeof MonitorDimension | string;
 
   /**
    * <p>Use <code>Expression</code> to filter in various Cost Explorer APIs.</p>
@@ -4451,7 +4451,7 @@ export interface AnomalySubscription {
   /**
    * <p>The frequency that anomaly reports are sent over email. </p>
    */
-  Frequency: AnomalySubscriptionFrequency | string | undefined;
+  Frequency: keyof typeof AnomalySubscriptionFrequency | string | undefined;
 
   /**
    * <p>The name for the subscription. </p>
@@ -4550,7 +4550,7 @@ export interface CostCategoryRule {
    *             key. First, choose an inherited value rule type, and then choose the tag dimension and
    *             specify the tag key to use.</p>
    */
-  Type?: CostCategoryRuleType | string;
+  Type?: keyof typeof CostCategoryRuleType | string;
 }
 
 /**
@@ -4572,7 +4572,7 @@ export interface GetCostAndUsageRequest {
    *       response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code> or
    *         <code>DAILY</code>, or <code>HOURLY</code>. </p>
    */
-  Granularity: Granularity | string | undefined;
+  Granularity: keyof typeof Granularity | string | undefined;
 
   /**
    * <p>Filters Amazon Web Services costs by different dimensions. For example, you can specify
@@ -4649,7 +4649,7 @@ export interface GetCostAndUsageWithResourcesRequest {
    *       response object doesn't include the <code>Granularity</code>, <code>MONTHLY</code>,
    *         <code>DAILY</code>, or <code>HOURLY</code>. </p>
    */
-  Granularity: Granularity | string | undefined;
+  Granularity: keyof typeof Granularity | string | undefined;
 
   /**
    * <p>Filters Amazon Web Services costs by different dimensions. For example, you can specify
@@ -4949,7 +4949,7 @@ export interface GetCostForecastRequest {
    *             </li>
    *          </ul>
    */
-  Metric: Metric | string | undefined;
+  Metric: keyof typeof Metric | string | undefined;
 
   /**
    * <p>How granular you want the forecast to be. You can get 3 months of <code>DAILY</code>
@@ -4957,7 +4957,7 @@ export interface GetCostForecastRequest {
    *          <p>The <code>GetCostForecast</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    */
-  Granularity: Granularity | string | undefined;
+  Granularity: keyof typeof Granularity | string | undefined;
 
   /**
    * <p>The filters that you want to use to filter your forecast. The
@@ -5114,7 +5114,7 @@ export interface GetDimensionValuesRequest {
    *         <code>Context</code>. For more information, see <code>Context</code>.
    *         <code>LINK_ACCOUNT_NAME</code> and <code>SERVICE_CODE</code> can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html">CostCategoryRule</a>. </p>
    */
-  Dimension: Dimension | string | undefined;
+  Dimension: keyof typeof Dimension | string | undefined;
 
   /**
    * <p>The context for the call to <code>GetDimensionValues</code>. This can be
@@ -5295,7 +5295,7 @@ export interface GetDimensionValuesRequest {
    *             </li>
    *          </ul>
    */
-  Context?: Context | string;
+  Context?: keyof typeof Context | string;
 
   /**
    * <p>Use <code>Expression</code> to filter in various Cost Explorer APIs.</p>
@@ -5552,7 +5552,7 @@ export interface GetReservationCoverageRequest {
    *          <p>The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    */
-  Granularity?: Granularity | string;
+  Granularity?: keyof typeof Granularity | string;
 
   /**
    * <p>Filters utilization data by dimensions. You can filter by the following
@@ -5833,23 +5833,23 @@ export interface GetReservationPurchaseRecommendationRequest {
    *       is set to <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations are
    *       calculated for individual member accounts only.</p>
    */
-  AccountScope?: AccountScope | string;
+  AccountScope?: keyof typeof AccountScope | string;
 
   /**
    * <p>The number of previous days that you want Amazon Web Services to consider when it
    *       calculates your recommendations.</p>
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays | string;
+  LookbackPeriodInDays?: keyof typeof LookbackPeriodInDays | string;
 
   /**
    * <p>The reservation term that you want recommendations for.</p>
    */
-  TermInYears?: TermInYears | string;
+  TermInYears?: keyof typeof TermInYears | string;
 
   /**
    * <p>The reservation purchase option that you want recommendations for.</p>
    */
-  PaymentOption?: PaymentOption | string;
+  PaymentOption?: keyof typeof PaymentOption | string;
 
   /**
    * <p>The hardware specifications for the service instances that you want recommendations
@@ -5897,7 +5897,7 @@ export interface GetReservationUtilizationRequest {
    *          <p>The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    */
-  Granularity?: Granularity | string;
+  Granularity?: keyof typeof Granularity | string;
 
   /**
    * <p>Filters utilization data by dimensions. You can filter by the following
@@ -6234,7 +6234,7 @@ export interface GetSavingsPlansCoverageRequest {
    *          <p>The <code>GetSavingsPlansCoverage</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    */
-  Granularity?: Granularity | string;
+  Granularity?: keyof typeof Granularity | string;
 
   /**
    * <p>Filters Savings Plans coverage data by dimensions. You can filter data for Savings Plans
@@ -6340,17 +6340,17 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
   /**
    * <p>The Savings Plans recommendation type that's requested.</p>
    */
-  SavingsPlansType: SupportedSavingsPlansType | string | undefined;
+  SavingsPlansType: keyof typeof SupportedSavingsPlansType | string | undefined;
 
   /**
    * <p>The savings plan recommendation term that's used to generate these recommendations.</p>
    */
-  TermInYears: TermInYears | string | undefined;
+  TermInYears: keyof typeof TermInYears | string | undefined;
 
   /**
    * <p>The payment option that's used to generate these recommendations.</p>
    */
-  PaymentOption: PaymentOption | string | undefined;
+  PaymentOption: keyof typeof PaymentOption | string | undefined;
 
   /**
    * <p>The account scope that you want your recommendations for. Amazon Web Services calculates
@@ -6358,7 +6358,7 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
    *         <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations are calculated for
    *       individual member accounts only.</p>
    */
-  AccountScope?: AccountScope | string;
+  AccountScope?: keyof typeof AccountScope | string;
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
@@ -6374,7 +6374,7 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
   /**
    * <p>The lookback period that's used to generate the recommendation.</p>
    */
-  LookbackPeriodInDays: LookbackPeriodInDays | string | undefined;
+  LookbackPeriodInDays: keyof typeof LookbackPeriodInDays | string | undefined;
 
   /**
    * <p>You can filter your recommendations by Account ID with the <code>LINKED_ACCOUNT</code>
@@ -6441,7 +6441,7 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
   /**
    * <p>The data type.</p>
    */
-  DataType?: (SavingsPlansDataType | string)[];
+  DataType?: (keyof typeof SavingsPlansDataType | string)[];
 
   /**
    * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
@@ -6518,7 +6518,7 @@ export interface GetSavingsPlansUtilizationRequest {
    *          <p>The <code>GetSavingsPlansUtilization</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    */
-  Granularity?: Granularity | string;
+  Granularity?: keyof typeof Granularity | string;
 
   /**
    * <p>Filters Savings Plans utilization coverage data for active Savings Plans dimensions. You
@@ -6835,7 +6835,7 @@ export interface GetUsageForecastRequest {
    *             </li>
    *          </ul>
    */
-  Metric: Metric | string | undefined;
+  Metric: keyof typeof Metric | string | undefined;
 
   /**
    * <p>How granular you want the forecast to be. You can get 3 months of <code>DAILY</code>
@@ -6843,7 +6843,7 @@ export interface GetUsageForecastRequest {
    *          <p>The <code>GetUsageForecast</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    */
-  Granularity: Granularity | string | undefined;
+  Granularity: keyof typeof Granularity | string | undefined;
 
   /**
    * <p>The filters that you want to use to filter your forecast. The
@@ -7000,7 +7000,7 @@ export interface UpdateAnomalySubscriptionRequest {
   /**
    * <p>The update to the frequency value that subscribers receive notifications. </p>
    */
-  Frequency?: AnomalySubscriptionFrequency | string;
+  Frequency?: keyof typeof AnomalySubscriptionFrequency | string;
 
   /**
    * <p>A list of cost anomaly monitor ARNs. </p>
@@ -7182,7 +7182,7 @@ export interface CostCategory {
   /**
    * <p>The rule schema version in this particular Cost Category.</p>
    */
-  RuleVersion: CostCategoryRuleVersion | string | undefined;
+  RuleVersion: keyof typeof CostCategoryRuleVersion | string | undefined;
 
   /**
    * <p>The rules are processed in order. If there are multiple rules that match the line
@@ -7227,7 +7227,7 @@ export interface CreateCostCategoryDefinitionRequest {
   /**
    * <p>The rule schema version in this particular Cost Category.</p>
    */
-  RuleVersion: CostCategoryRuleVersion | string | undefined;
+  RuleVersion: keyof typeof CostCategoryRuleVersion | string | undefined;
 
   /**
    * <p>The Cost Category rules used to categorize costs. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule</a>.</p>
@@ -7335,7 +7335,7 @@ export interface UpdateCostCategoryDefinitionRequest {
   /**
    * <p>The rule schema version in this particular Cost Category.</p>
    */
-  RuleVersion: CostCategoryRuleVersion | string | undefined;
+  RuleVersion: keyof typeof CostCategoryRuleVersion | string | undefined;
 
   /**
    * <p>The <code>Expression</code> object used to categorize costs. For more information, see

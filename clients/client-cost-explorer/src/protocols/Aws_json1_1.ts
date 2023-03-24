@@ -3259,7 +3259,10 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
-const serializeAws_json1_1MatchOptions = (input: (MatchOption | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1MatchOptions = (
+  input: (keyof typeof MatchOption | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3335,7 +3338,7 @@ const serializeAws_json1_1RightsizingRecommendationConfiguration = (
 };
 
 const serializeAws_json1_1SavingsPlansDataTypes = (
-  input: (SavingsPlansDataType | string)[],
+  input: (keyof typeof SavingsPlansDataType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4180,7 +4183,7 @@ const deserializeAws_json1_1Expressions = (output: any, context: __SerdeContext)
 const deserializeAws_json1_1FindingReasonCodes = (
   output: any,
   context: __SerdeContext
-): (FindingReasonCode | string)[] => {
+): (keyof typeof FindingReasonCode | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4663,7 +4666,10 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1MatchOptions = (output: any, context: __SerdeContext): (MatchOption | string)[] => {
+const deserializeAws_json1_1MatchOptions = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof MatchOption | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4731,7 +4737,7 @@ const deserializeAws_json1_1NetworkResourceUtilization = (
 const deserializeAws_json1_1PlatformDifferences = (
   output: any,
   context: __SerdeContext
-): (PlatformDifference | string)[] => {
+): (keyof typeof PlatformDifference | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

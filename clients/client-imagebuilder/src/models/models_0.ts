@@ -57,19 +57,19 @@ export interface AdditionalInstanceConfiguration {
 /**
  * @public
  */
-export enum ImageStatus {
-  AVAILABLE = "AVAILABLE",
-  BUILDING = "BUILDING",
-  CANCELLED = "CANCELLED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DEPRECATED = "DEPRECATED",
-  DISTRIBUTING = "DISTRIBUTING",
-  FAILED = "FAILED",
-  INTEGRATING = "INTEGRATING",
-  PENDING = "PENDING",
-  TESTING = "TESTING",
-}
+export const ImageStatus = {
+  AVAILABLE: "AVAILABLE",
+  BUILDING: "BUILDING",
+  CANCELLED: "CANCELLED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DEPRECATED: "DEPRECATED",
+  DISTRIBUTING: "DISTRIBUTING",
+  FAILED: "FAILED",
+  INTEGRATING: "INTEGRATING",
+  PENDING: "PENDING",
+  TESTING: "TESTING",
+};
 
 /**
  * @public
@@ -79,7 +79,7 @@ export interface ImageState {
   /**
    * <p>The status of the image.</p>
    */
-  status?: ImageStatus | string;
+  status?: keyof typeof ImageStatus | string;
 
   /**
    * <p>The reason for the image's status.</p>
@@ -195,11 +195,11 @@ export interface AmiDistributionConfiguration {
 /**
  * @public
  */
-export enum BuildType {
-  IMPORT = "IMPORT",
-  SCHEDULED = "SCHEDULED",
-  USER_INITIATED = "USER_INITIATED",
-}
+export const BuildType = {
+  IMPORT: "IMPORT",
+  SCHEDULED: "SCHEDULED",
+  USER_INITIATED: "USER_INITIATED",
+};
 
 /**
  * @public
@@ -431,17 +431,17 @@ export interface ComponentParameterDetail {
 /**
  * @public
  */
-export enum Platform {
-  LINUX = "Linux",
-  WINDOWS = "Windows",
-}
+export const Platform = {
+  LINUX: "Linux",
+  WINDOWS: "Windows",
+};
 
 /**
  * @public
  */
-export enum ComponentStatus {
-  DEPRECATED = "DEPRECATED",
-}
+export const ComponentStatus = {
+  DEPRECATED: "DEPRECATED",
+};
 
 /**
  * @public
@@ -452,7 +452,7 @@ export interface ComponentState {
   /**
    * <p>The current state of the component.</p>
    */
-  status?: ComponentStatus | string;
+  status?: keyof typeof ComponentStatus | string;
 
   /**
    * <p>Describes how or why the component changed state.</p>
@@ -463,10 +463,10 @@ export interface ComponentState {
 /**
  * @public
  */
-export enum ComponentType {
-  BUILD = "BUILD",
-  TEST = "TEST",
-}
+export const ComponentType = {
+  BUILD: "BUILD",
+  TEST: "TEST",
+};
 
 /**
  * @public
@@ -502,12 +502,12 @@ export interface Component {
    * <p>The component type specifies whether Image Builder uses the component to build the image or only
    * 			to test it.</p>
    */
-  type?: ComponentType | string;
+  type?: keyof typeof ComponentType | string;
 
   /**
    * <p>The operating system platform of the component.</p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 
   /**
    * <p>The operating system (OS) version supported by the component. If the OS information is
@@ -606,9 +606,9 @@ export interface ComponentConfiguration {
 /**
  * @public
  */
-export enum ComponentFormat {
-  SHELL = "SHELL",
-}
+export const ComponentFormat = {
+  SHELL: "SHELL",
+};
 
 /**
  * @public
@@ -633,7 +633,7 @@ export interface ComponentSummary {
   /**
    * <p>The operating system platform of the component.</p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 
   /**
    * <p>The operating system (OS) version that the component supports. If the OS information is
@@ -651,7 +651,7 @@ export interface ComponentSummary {
    * <p>The component type specifies whether Image Builder uses the component to build the image or only
    * 			to test it.</p>
    */
-  type?: ComponentType | string;
+  type?: keyof typeof ComponentType | string;
 
   /**
    * <p>The owner of the component.</p>
@@ -752,7 +752,7 @@ export interface ComponentVersion {
   /**
    * <p>The platform of the component.</p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 
   /**
    * <p>he operating system (OS) version supported by the component. If the OS information is
@@ -765,7 +765,7 @@ export interface ComponentVersion {
    * <p>The type of the component denotes whether the component is used to build the image or only
    * 			to test it.</p>
    */
-  type?: ComponentType | string;
+  type?: keyof typeof ComponentType | string;
 
   /**
    * <p>The owner of the component.</p>
@@ -797,9 +797,9 @@ export interface Container {
 /**
  * @public
  */
-export enum ContainerRepositoryService {
-  ECR = "ECR",
-}
+export const ContainerRepositoryService = {
+  ECR: "ECR",
+};
 
 /**
  * @public
@@ -809,7 +809,7 @@ export interface TargetContainerRepository {
   /**
    * <p>Specifies the service in which this image was registered.</p>
    */
-  service: ContainerRepositoryService | string | undefined;
+  service: keyof typeof ContainerRepositoryService | string | undefined;
 
   /**
    * <p>The name of the container repository where the output container image is stored. This name is prefixed by the repository location.</p>
@@ -841,22 +841,22 @@ export interface ContainerDistributionConfiguration {
 /**
  * @public
  */
-export enum ContainerType {
-  DOCKER = "DOCKER",
-}
+export const ContainerType = {
+  DOCKER: "DOCKER",
+};
 
 /**
  * @public
  */
-export enum EbsVolumeType {
-  GP2 = "gp2",
-  GP3 = "gp3",
-  IO1 = "io1",
-  IO2 = "io2",
-  SC1 = "sc1",
-  ST1 = "st1",
-  STANDARD = "standard",
-}
+export const EbsVolumeType = {
+  GP2: "gp2",
+  GP3: "gp3",
+  IO1: "io1",
+  IO2: "io2",
+  SC1: "sc1",
+  ST1: "st1",
+  STANDARD: "standard",
+};
 
 /**
  * @public
@@ -896,7 +896,7 @@ export interface EbsInstanceBlockDeviceSpecification {
   /**
    * <p>Use to override the device's volume type.</p>
    */
-  volumeType?: EbsVolumeType | string;
+  volumeType?: keyof typeof EbsVolumeType | string;
 
   /**
    * <p>
@@ -979,7 +979,7 @@ export interface ContainerRecipe {
   /**
    * <p>Specifies the type of container, such as Docker.</p>
    */
-  containerType?: ContainerType | string;
+  containerType?: keyof typeof ContainerType | string;
 
   /**
    * <p>The name of the container recipe.</p>
@@ -994,7 +994,7 @@ export interface ContainerRecipe {
   /**
    * <p>The system platform for the container, such as Windows or Linux.</p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 
   /**
    * <p>The owner of the container recipe.</p>
@@ -1088,7 +1088,7 @@ export interface ContainerRecipeSummary {
   /**
    * <p>Specifies the type of container, such as "Docker".</p>
    */
-  containerType?: ContainerType | string;
+  containerType?: keyof typeof ContainerType | string;
 
   /**
    * <p>The name of the container recipe.</p>
@@ -1098,7 +1098,7 @@ export interface ContainerRecipeSummary {
   /**
    * <p>The system platform for the container, such as Windows or Linux.</p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 
   /**
    * <p>The owner of the container recipe.</p>
@@ -1161,7 +1161,7 @@ export interface CreateComponentRequest {
   /**
    * <p>The operating system platform of the component.</p>
    */
-  platform: Platform | string | undefined;
+  platform: keyof typeof Platform | string | undefined;
 
   /**
    * <p> The operating system (OS) version supported by the component. If the OS information is
@@ -1291,7 +1291,7 @@ export interface CreateContainerRecipeRequest {
   /**
    * <p>The type of container to create.</p>
    */
-  containerType: ContainerType | string | undefined;
+  containerType: keyof typeof ContainerType | string | undefined;
 
   /**
    * <p>The name of the container recipe.</p>
@@ -1344,7 +1344,7 @@ export interface CreateContainerRecipeRequest {
   /**
    * <p>Specifies the operating system platform when you use a custom base image.</p>
    */
-  platformOverride?: Platform | string;
+  platformOverride?: keyof typeof Platform | string;
 
   /**
    * <p>Specifies the operating system version for the base image.</p>
@@ -1522,11 +1522,11 @@ export interface LaunchTemplateConfiguration {
 /**
  * @public
  */
-export enum DiskImageFormat {
-  RAW = "RAW",
-  VHD = "VHD",
-  VMDK = "VMDK",
-}
+export const DiskImageFormat = {
+  RAW: "RAW",
+  VHD: "VHD",
+  VMDK: "VMDK",
+};
 
 /**
  * @public
@@ -1561,7 +1561,7 @@ export interface S3ExportConfiguration {
    *             </li>
    *          </ul>
    */
-  diskImageFormat: DiskImageFormat | string | undefined;
+  diskImageFormat: keyof typeof DiskImageFormat | string | undefined;
 
   /**
    * <p>The S3 bucket in which to store the output disk images for your VM.</p>
@@ -1765,10 +1765,10 @@ export interface CreateImageResponse {
 /**
  * @public
  */
-export enum PipelineExecutionStartCondition {
-  EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE = "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
-  EXPRESSION_MATCH_ONLY = "EXPRESSION_MATCH_ONLY",
-}
+export const PipelineExecutionStartCondition = {
+  EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE: "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
+  EXPRESSION_MATCH_ONLY: "EXPRESSION_MATCH_ONLY",
+};
 
 /**
  * @public
@@ -1801,16 +1801,16 @@ export interface Schedule {
    * 			version syntax, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a> in the <i> EC2 Image Builder API
    * 					Reference</i>.</p>
    */
-  pipelineExecutionStartCondition?: PipelineExecutionStartCondition | string;
+  pipelineExecutionStartCondition?: keyof typeof PipelineExecutionStartCondition | string;
 }
 
 /**
  * @public
  */
-export enum PipelineStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const PipelineStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -1869,7 +1869,7 @@ export interface CreateImagePipelineRequest {
   /**
    * <p> The status of the image pipeline.</p>
    */
-  status?: PipelineStatus | string;
+  status?: keyof typeof PipelineStatus | string;
 
   /**
    * <p> The tags of the image pipeline.</p>
@@ -2634,10 +2634,10 @@ export interface GetImageRequest {
 /**
  * @public
  */
-export enum ImageType {
-  AMI = "AMI",
-  DOCKER = "DOCKER",
-}
+export const ImageType = {
+  AMI: "AMI",
+  DOCKER: "DOCKER",
+};
 
 /**
  * @public
@@ -2653,7 +2653,7 @@ export interface ImageRecipe {
    * <p>Specifies which type of image is created by the recipe - an AMI or a
    * 			container image.</p>
    */
-  type?: ImageType | string;
+  type?: keyof typeof ImageType | string;
 
   /**
    * <p>The name of the image recipe.</p>
@@ -2668,7 +2668,7 @@ export interface ImageRecipe {
   /**
    * <p>The platform of the image recipe.</p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 
   /**
    * <p>The owner of the image recipe.</p>
@@ -2723,12 +2723,12 @@ export interface ImageRecipe {
 /**
  * @public
  */
-export enum ImageSource {
-  AMAZON_MANAGED = "AMAZON_MANAGED",
-  AWS_MARKETPLACE = "AWS_MARKETPLACE",
-  CUSTOM = "CUSTOM",
-  IMPORTED = "IMPORTED",
-}
+export const ImageSource = {
+  AMAZON_MANAGED: "AMAZON_MANAGED",
+  AWS_MARKETPLACE: "AWS_MARKETPLACE",
+  CUSTOM: "CUSTOM",
+  IMPORTED: "IMPORTED",
+};
 
 /**
  * @public
@@ -2869,7 +2869,7 @@ export interface Image {
   /**
    * <p>Specifies whether this image produces an AMI or a container image.</p>
    */
-  type?: ImageType | string;
+  type?: keyof typeof ImageType | string;
 
   /**
    * <p>The name of the image.</p>
@@ -2901,7 +2901,7 @@ export interface Image {
   /**
    * <p>The image operating system platform, such as Linux or Windows.</p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 
   /**
    * <p>Indicates whether Image Builder collects additional information about the image, such as the
@@ -2993,12 +2993,12 @@ export interface Image {
    *             </li>
    *          </ul>
    */
-  buildType?: BuildType | string;
+  buildType?: keyof typeof BuildType | string;
 
   /**
    * <p>The origin of the base image that Image Builder used to build this image.</p>
    */
-  imageSource?: ImageSource | string;
+  imageSource?: keyof typeof ImageSource | string;
 }
 
 /**
@@ -3049,7 +3049,7 @@ export interface ImagePipeline {
   /**
    * <p>The platform of the image pipeline.</p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 
   /**
    * <p> Collects additional information about the image being created, including the operating
@@ -3094,7 +3094,7 @@ export interface ImagePipeline {
   /**
    * <p>The status of the image pipeline.</p>
    */
-  status?: PipelineStatus | string;
+  status?: keyof typeof PipelineStatus | string;
 
   /**
    * <p>The date on which this image pipeline was created.</p>
@@ -3278,17 +3278,17 @@ export interface ImportComponentRequest {
    * <p>The type of the component denotes whether the component is used to build the image, or only
    * 			to test it.</p>
    */
-  type: ComponentType | string | undefined;
+  type: keyof typeof ComponentType | string | undefined;
 
   /**
    * <p>The format of the resource that you want to import as a component.</p>
    */
-  format: ComponentFormat | string | undefined;
+  format: keyof typeof ComponentFormat | string | undefined;
 
   /**
    * <p>The platform of the component.</p>
    */
-  platform: Platform | string | undefined;
+  platform: keyof typeof Platform | string | undefined;
 
   /**
    * <p>The data of the component. Used to specify the data inline. Either <code>data</code> or
@@ -3375,7 +3375,7 @@ export interface ImportVmImageRequest {
   /**
    * <p>The operating system platform for the imported VM.</p>
    */
-  platform: Platform | string | undefined;
+  platform: keyof typeof Platform | string | undefined;
 
   /**
    * <p>The operating system version for the imported VM.</p>
@@ -3490,12 +3490,12 @@ export interface ListComponentBuildVersionsResponse {
 /**
  * @public
  */
-export enum Ownership {
-  AMAZON = "Amazon",
-  SELF = "Self",
-  SHARED = "Shared",
-  THIRDPARTY = "ThirdParty",
-}
+export const Ownership = {
+  AMAZON: "Amazon",
+  SELF: "Self",
+  SHARED: "Shared",
+  THIRDPARTY: "ThirdParty",
+};
 
 /**
  * @public
@@ -3507,7 +3507,7 @@ export interface ListComponentsRequest {
    * 			you can specify components that Amazon manages, third party components, or components that
    * 			other accounts have shared with you.</p>
    */
-  owner?: Ownership | string;
+  owner?: keyof typeof Ownership | string;
 
   /**
    * <p>Use the following filters to streamline results:</p>
@@ -3596,7 +3596,7 @@ export interface ListContainerRecipesRequest {
   /**
    * <p>Returns container recipes belonging to the specified owner, that have been shared with you. You can omit this field to return container recipes belonging to your account.</p>
    */
-  owner?: Ownership | string;
+  owner?: keyof typeof Ownership | string;
 
   /**
    * <p>Use the following filters to streamline results:</p>
@@ -3770,7 +3770,7 @@ export interface ImageSummary {
   /**
    * <p>Specifies whether this image produces an AMI or a container image.</p>
    */
-  type?: ImageType | string;
+  type?: keyof typeof ImageType | string;
 
   /**
    * <p>The version of the image.</p>
@@ -3780,7 +3780,7 @@ export interface ImageSummary {
   /**
    * <p>The image operating system platform, such as Linux or Windows.</p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 
   /**
    * <p>The operating system version of the instances that launch from this image. For
@@ -3834,12 +3834,12 @@ export interface ImageSummary {
    *             </li>
    *          </ul>
    */
-  buildType?: BuildType | string;
+  buildType?: keyof typeof BuildType | string;
 
   /**
    * <p>The origin of the base image that Image Builder used to build this image.</p>
    */
-  imageSource?: ImageSource | string;
+  imageSource?: keyof typeof ImageSource | string;
 }
 
 /**
@@ -4065,7 +4065,7 @@ export interface ListImageRecipesRequest {
    * 			view image recipes owned by yourself, by Amazon, or those image recipes that have been shared
    * 			with you by other customers.</p>
    */
-  owner?: Ownership | string;
+  owner?: keyof typeof Ownership | string;
 
   /**
    * <p>Use the following filters to streamline results:</p>
@@ -4119,7 +4119,7 @@ export interface ImageRecipeSummary {
   /**
    * <p>The platform of the image recipe.</p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 
   /**
    * <p>The owner of the image recipe.</p>
@@ -4174,7 +4174,7 @@ export interface ListImagesRequest {
    * 			owned by yourself, by Amazon, or those images that have been shared with you by other
    * 			customers.</p>
    */
-  owner?: Ownership | string;
+  owner?: keyof typeof Ownership | string;
 
   /**
    * <p>Use the following filters to streamline results:</p>
@@ -4264,7 +4264,7 @@ export interface ImageVersion {
   /**
    * <p>Specifies whether this image produces an AMI or a container image.</p>
    */
-  type?: ImageType | string;
+  type?: keyof typeof ImageType | string;
 
   /**
    * <p>Details for a specific version of an Image Builder image. This version follows the semantic version syntax.</p>
@@ -4291,7 +4291,7 @@ export interface ImageVersion {
   /**
    * <p>The operating system platform of the image version, for example "Windows" or "Linux".</p>
    */
-  platform?: Platform | string;
+  platform?: keyof typeof Platform | string;
 
   /**
    * <p>The operating system version of the Amazon EC2 build instance. For example, Amazon Linux 2, Ubuntu 18, or
@@ -4330,12 +4330,12 @@ export interface ImageVersion {
    *             </li>
    *          </ul>
    */
-  buildType?: BuildType | string;
+  buildType?: keyof typeof BuildType | string;
 
   /**
    * <p>The origin of the base image that Image Builder used to build this image.</p>
    */
-  imageSource?: ImageSource | string;
+  imageSource?: keyof typeof ImageSource | string;
 }
 
 /**
@@ -4822,7 +4822,7 @@ export interface UpdateImagePipelineRequest {
   /**
    * <p>The status of the image pipeline.</p>
    */
-  status?: PipelineStatus | string;
+  status?: keyof typeof PipelineStatus | string;
 
   /**
    * <p>The idempotency token used to make this request idempotent.</p>

@@ -4983,13 +4983,16 @@ const serializeAws_restJson1LogPublishingOptions = (
   input: Record<string, LogPublishingOption>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [LogType | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof LogType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = serializeAws_restJson1LogPublishingOption(value, context);
       return acc;
-    }
-    acc[key] = serializeAws_restJson1LogPublishingOption(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1MasterUserOptions = (input: MasterUserOptions, context: __SerdeContext): any => {
@@ -5943,7 +5946,7 @@ const deserializeAws_restJson1LogPublishingOptions = (
   context: __SerdeContext
 ): Record<string, LogPublishingOption> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, LogPublishingOption>, [key, value]: [LogType | string, any]) => {
+    (acc: Record<string, LogPublishingOption>, [key, value]: [keyof typeof LogType | string, any]) => {
       if (value === null) {
         return acc;
       }

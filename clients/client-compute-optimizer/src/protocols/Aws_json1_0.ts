@@ -1908,7 +1908,7 @@ const serializeAws_json1_0AutoScalingGroupArns = (input: string[], context: __Se
 };
 
 const serializeAws_json1_0CpuVendorArchitectures = (
-  input: (CpuVendorArchitecture | string)[],
+  input: (keyof typeof CpuVendorArchitecture | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1998,7 +1998,7 @@ const serializeAws_json1_0EnrollmentFilters = (input: EnrollmentFilter[], contex
 };
 
 const serializeAws_json1_0ExportableAutoScalingGroupFields = (
-  input: (ExportableAutoScalingGroupField | string)[],
+  input: (keyof typeof ExportableAutoScalingGroupField | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2009,7 +2009,7 @@ const serializeAws_json1_0ExportableAutoScalingGroupFields = (
 };
 
 const serializeAws_json1_0ExportableECSServiceFields = (
-  input: (ExportableECSServiceField | string)[],
+  input: (keyof typeof ExportableECSServiceField | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2020,7 +2020,7 @@ const serializeAws_json1_0ExportableECSServiceFields = (
 };
 
 const serializeAws_json1_0ExportableInstanceFields = (
-  input: (ExportableInstanceField | string)[],
+  input: (keyof typeof ExportableInstanceField | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2031,7 +2031,7 @@ const serializeAws_json1_0ExportableInstanceFields = (
 };
 
 const serializeAws_json1_0ExportableLambdaFunctionFields = (
-  input: (ExportableLambdaFunctionField | string)[],
+  input: (keyof typeof ExportableLambdaFunctionField | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2042,7 +2042,7 @@ const serializeAws_json1_0ExportableLambdaFunctionFields = (
 };
 
 const serializeAws_json1_0ExportableVolumeFields = (
-  input: (ExportableVolumeField | string)[],
+  input: (keyof typeof ExportableVolumeField | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2436,7 +2436,7 @@ const serializeAws_json1_0PutRecommendationPreferencesRequest = (
 };
 
 const serializeAws_json1_0RecommendationPreferenceNames = (
-  input: (RecommendationPreferenceName | string)[],
+  input: (keyof typeof RecommendationPreferenceName | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2694,7 +2694,7 @@ const deserializeAws_json1_0ContainerRecommendations = (
 const deserializeAws_json1_0CpuVendorArchitectures = (
   output: any,
   context: __SerdeContext
-): (CpuVendorArchitecture | string)[] => {
+): (keyof typeof CpuVendorArchitecture | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2855,7 +2855,7 @@ const deserializeAws_json1_0ECSServiceRecommendation = (
 const deserializeAws_json1_0ECSServiceRecommendationFindingReasonCodes = (
   output: any,
   context: __SerdeContext
-): (ECSServiceRecommendationFindingReasonCode | string)[] => {
+): (keyof typeof ECSServiceRecommendationFindingReasonCode | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3262,7 +3262,7 @@ const deserializeAws_json1_0GetRecommendationSummariesResponse = (
 const deserializeAws_json1_0InferredWorkloadTypes = (
   output: any,
   context: __SerdeContext
-): (InferredWorkloadType | string)[] => {
+): (keyof typeof InferredWorkloadType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3317,7 +3317,7 @@ const deserializeAws_json1_0InstanceRecommendation = (output: any, context: __Se
 const deserializeAws_json1_0InstanceRecommendationFindingReasonCodes = (
   output: any,
   context: __SerdeContext
-): (InstanceRecommendationFindingReasonCode | string)[] => {
+): (keyof typeof InstanceRecommendationFindingReasonCode | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3483,7 +3483,7 @@ const deserializeAws_json1_0LambdaFunctionRecommendation = (
 const deserializeAws_json1_0LambdaFunctionRecommendationFindingReasonCodes = (
   output: any,
   context: __SerdeContext
-): (LambdaFunctionRecommendationFindingReasonCode | string)[] => {
+): (keyof typeof LambdaFunctionRecommendationFindingReasonCode | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3582,7 +3582,7 @@ const deserializeAws_json1_0OptInRequiredException = (output: any, context: __Se
 const deserializeAws_json1_0PlatformDifferences = (
   output: any,
   context: __SerdeContext
-): (PlatformDifference | string)[] => {
+): (keyof typeof PlatformDifference | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

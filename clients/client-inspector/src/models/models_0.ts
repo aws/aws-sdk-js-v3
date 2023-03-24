@@ -6,16 +6,16 @@ import { InspectorServiceException as __BaseException } from "./InspectorService
 /**
  * @public
  */
-export enum AccessDeniedErrorCode {
-  ACCESS_DENIED_TO_ASSESSMENT_RUN = "ACCESS_DENIED_TO_ASSESSMENT_RUN",
-  ACCESS_DENIED_TO_ASSESSMENT_TARGET = "ACCESS_DENIED_TO_ASSESSMENT_TARGET",
-  ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE = "ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE",
-  ACCESS_DENIED_TO_FINDING = "ACCESS_DENIED_TO_FINDING",
-  ACCESS_DENIED_TO_IAM_ROLE = "ACCESS_DENIED_TO_IAM_ROLE",
-  ACCESS_DENIED_TO_RESOURCE_GROUP = "ACCESS_DENIED_TO_RESOURCE_GROUP",
-  ACCESS_DENIED_TO_RULES_PACKAGE = "ACCESS_DENIED_TO_RULES_PACKAGE",
-  ACCESS_DENIED_TO_SNS_TOPIC = "ACCESS_DENIED_TO_SNS_TOPIC",
-}
+export const AccessDeniedErrorCode = {
+  ACCESS_DENIED_TO_ASSESSMENT_RUN: "ACCESS_DENIED_TO_ASSESSMENT_RUN",
+  ACCESS_DENIED_TO_ASSESSMENT_TARGET: "ACCESS_DENIED_TO_ASSESSMENT_TARGET",
+  ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE: "ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE",
+  ACCESS_DENIED_TO_FINDING: "ACCESS_DENIED_TO_FINDING",
+  ACCESS_DENIED_TO_IAM_ROLE: "ACCESS_DENIED_TO_IAM_ROLE",
+  ACCESS_DENIED_TO_RESOURCE_GROUP: "ACCESS_DENIED_TO_RESOURCE_GROUP",
+  ACCESS_DENIED_TO_RULES_PACKAGE: "ACCESS_DENIED_TO_RULES_PACKAGE",
+  ACCESS_DENIED_TO_SNS_TOPIC: "ACCESS_DENIED_TO_SNS_TOPIC",
+};
 
 /**
  * @public
@@ -27,7 +27,7 @@ export class AccessDeniedException extends __BaseException {
   /**
    * <p>Code that indicates the type of error that is generated.</p>
    */
-  errorCode: AccessDeniedErrorCode | string | undefined;
+  errorCode: keyof typeof AccessDeniedErrorCode | string | undefined;
 
   /**
    * <p>You can immediately retry your request.</p>
@@ -84,14 +84,14 @@ export interface AddAttributesToFindingsRequest {
 /**
  * @public
  */
-export enum FailedItemErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  DUPLICATE_ARN = "DUPLICATE_ARN",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  INVALID_ARN = "INVALID_ARN",
-  ITEM_DOES_NOT_EXIST = "ITEM_DOES_NOT_EXIST",
-  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
-}
+export const FailedItemErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  DUPLICATE_ARN: "DUPLICATE_ARN",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_ARN: "INVALID_ARN",
+  ITEM_DOES_NOT_EXIST: "ITEM_DOES_NOT_EXIST",
+  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
+};
 
 /**
  * @public
@@ -101,7 +101,7 @@ export interface FailedItemDetails {
   /**
    * <p>The status code of a failed item.</p>
    */
-  failureCode: FailedItemErrorCode | string | undefined;
+  failureCode: keyof typeof FailedItemErrorCode | string | undefined;
 
   /**
    * <p>Indicates whether you can immediately retry a request for this item for a specified
@@ -150,62 +150,62 @@ export class InternalException extends __BaseException {
 /**
  * @public
  */
-export enum InvalidInputErrorCode {
-  ASSESSMENT_TARGET_NAME_ALREADY_TAKEN = "ASSESSMENT_TARGET_NAME_ALREADY_TAKEN",
-  ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN = "ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN",
-  INVALID_AGENT_ID = "INVALID_AGENT_ID",
-  INVALID_ASSESSMENT_RUN_ARN = "INVALID_ASSESSMENT_RUN_ARN",
-  INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE = "INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE",
-  INVALID_ASSESSMENT_RUN_DURATION_RANGE = "INVALID_ASSESSMENT_RUN_DURATION_RANGE",
-  INVALID_ASSESSMENT_RUN_START_TIME_RANGE = "INVALID_ASSESSMENT_RUN_START_TIME_RANGE",
-  INVALID_ASSESSMENT_RUN_STATE = "INVALID_ASSESSMENT_RUN_STATE",
-  INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE = "INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE",
-  INVALID_ASSESSMENT_TARGET_ARN = "INVALID_ASSESSMENT_TARGET_ARN",
-  INVALID_ASSESSMENT_TARGET_NAME = "INVALID_ASSESSMENT_TARGET_NAME",
-  INVALID_ASSESSMENT_TARGET_NAME_PATTERN = "INVALID_ASSESSMENT_TARGET_NAME_PATTERN",
-  INVALID_ASSESSMENT_TEMPLATE_ARN = "INVALID_ASSESSMENT_TEMPLATE_ARN",
-  INVALID_ASSESSMENT_TEMPLATE_DURATION = "INVALID_ASSESSMENT_TEMPLATE_DURATION",
-  INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE = "INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE",
-  INVALID_ASSESSMENT_TEMPLATE_NAME = "INVALID_ASSESSMENT_TEMPLATE_NAME",
-  INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN = "INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN",
-  INVALID_ATTRIBUTE = "INVALID_ATTRIBUTE",
-  INVALID_AUTO_SCALING_GROUP = "INVALID_AUTO_SCALING_GROUP",
-  INVALID_EVENT = "INVALID_EVENT",
-  INVALID_FINDING_ARN = "INVALID_FINDING_ARN",
-  INVALID_IAM_ROLE_ARN = "INVALID_IAM_ROLE_ARN",
-  INVALID_LOCALE = "INVALID_LOCALE",
-  INVALID_MAX_RESULTS = "INVALID_MAX_RESULTS",
-  INVALID_NUMBER_OF_AGENT_IDS = "INVALID_NUMBER_OF_AGENT_IDS",
-  INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS = "INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS",
-  INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES = "INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES",
-  INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS = "INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS",
-  INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS = "INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS",
-  INVALID_NUMBER_OF_ATTRIBUTES = "INVALID_NUMBER_OF_ATTRIBUTES",
-  INVALID_NUMBER_OF_AUTO_SCALING_GROUPS = "INVALID_NUMBER_OF_AUTO_SCALING_GROUPS",
-  INVALID_NUMBER_OF_FINDING_ARNS = "INVALID_NUMBER_OF_FINDING_ARNS",
-  INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS = "INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS",
-  INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS = "INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS",
-  INVALID_NUMBER_OF_RULES_PACKAGE_ARNS = "INVALID_NUMBER_OF_RULES_PACKAGE_ARNS",
-  INVALID_NUMBER_OF_RULE_NAMES = "INVALID_NUMBER_OF_RULE_NAMES",
-  INVALID_NUMBER_OF_SEVERITIES = "INVALID_NUMBER_OF_SEVERITIES",
-  INVALID_NUMBER_OF_TAGS = "INVALID_NUMBER_OF_TAGS",
-  INVALID_NUMBER_OF_USER_ATTRIBUTES = "INVALID_NUMBER_OF_USER_ATTRIBUTES",
-  INVALID_PAGINATION_TOKEN = "INVALID_PAGINATION_TOKEN",
-  INVALID_RESOURCE_ARN = "INVALID_RESOURCE_ARN",
-  INVALID_RESOURCE_GROUP_ARN = "INVALID_RESOURCE_GROUP_ARN",
-  INVALID_RESOURCE_GROUP_TAG_KEY = "INVALID_RESOURCE_GROUP_TAG_KEY",
-  INVALID_RESOURCE_GROUP_TAG_VALUE = "INVALID_RESOURCE_GROUP_TAG_VALUE",
-  INVALID_RULES_PACKAGE_ARN = "INVALID_RULES_PACKAGE_ARN",
-  INVALID_RULE_NAME = "INVALID_RULE_NAME",
-  INVALID_SEVERITY = "INVALID_SEVERITY",
-  INVALID_SNS_TOPIC_ARN = "INVALID_SNS_TOPIC_ARN",
-  INVALID_TAG = "INVALID_TAG",
-  INVALID_TAG_KEY = "INVALID_TAG_KEY",
-  INVALID_TAG_VALUE = "INVALID_TAG_VALUE",
-  INVALID_USER_ATTRIBUTE = "INVALID_USER_ATTRIBUTE",
-  INVALID_USER_ATTRIBUTE_KEY = "INVALID_USER_ATTRIBUTE_KEY",
-  INVALID_USER_ATTRIBUTE_VALUE = "INVALID_USER_ATTRIBUTE_VALUE",
-}
+export const InvalidInputErrorCode = {
+  ASSESSMENT_TARGET_NAME_ALREADY_TAKEN: "ASSESSMENT_TARGET_NAME_ALREADY_TAKEN",
+  ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN: "ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN",
+  INVALID_AGENT_ID: "INVALID_AGENT_ID",
+  INVALID_ASSESSMENT_RUN_ARN: "INVALID_ASSESSMENT_RUN_ARN",
+  INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE: "INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE",
+  INVALID_ASSESSMENT_RUN_DURATION_RANGE: "INVALID_ASSESSMENT_RUN_DURATION_RANGE",
+  INVALID_ASSESSMENT_RUN_START_TIME_RANGE: "INVALID_ASSESSMENT_RUN_START_TIME_RANGE",
+  INVALID_ASSESSMENT_RUN_STATE: "INVALID_ASSESSMENT_RUN_STATE",
+  INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE: "INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE",
+  INVALID_ASSESSMENT_TARGET_ARN: "INVALID_ASSESSMENT_TARGET_ARN",
+  INVALID_ASSESSMENT_TARGET_NAME: "INVALID_ASSESSMENT_TARGET_NAME",
+  INVALID_ASSESSMENT_TARGET_NAME_PATTERN: "INVALID_ASSESSMENT_TARGET_NAME_PATTERN",
+  INVALID_ASSESSMENT_TEMPLATE_ARN: "INVALID_ASSESSMENT_TEMPLATE_ARN",
+  INVALID_ASSESSMENT_TEMPLATE_DURATION: "INVALID_ASSESSMENT_TEMPLATE_DURATION",
+  INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE: "INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE",
+  INVALID_ASSESSMENT_TEMPLATE_NAME: "INVALID_ASSESSMENT_TEMPLATE_NAME",
+  INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN: "INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN",
+  INVALID_ATTRIBUTE: "INVALID_ATTRIBUTE",
+  INVALID_AUTO_SCALING_GROUP: "INVALID_AUTO_SCALING_GROUP",
+  INVALID_EVENT: "INVALID_EVENT",
+  INVALID_FINDING_ARN: "INVALID_FINDING_ARN",
+  INVALID_IAM_ROLE_ARN: "INVALID_IAM_ROLE_ARN",
+  INVALID_LOCALE: "INVALID_LOCALE",
+  INVALID_MAX_RESULTS: "INVALID_MAX_RESULTS",
+  INVALID_NUMBER_OF_AGENT_IDS: "INVALID_NUMBER_OF_AGENT_IDS",
+  INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS: "INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS",
+  INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES: "INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES",
+  INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS: "INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS",
+  INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS: "INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS",
+  INVALID_NUMBER_OF_ATTRIBUTES: "INVALID_NUMBER_OF_ATTRIBUTES",
+  INVALID_NUMBER_OF_AUTO_SCALING_GROUPS: "INVALID_NUMBER_OF_AUTO_SCALING_GROUPS",
+  INVALID_NUMBER_OF_FINDING_ARNS: "INVALID_NUMBER_OF_FINDING_ARNS",
+  INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS: "INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS",
+  INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS: "INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS",
+  INVALID_NUMBER_OF_RULES_PACKAGE_ARNS: "INVALID_NUMBER_OF_RULES_PACKAGE_ARNS",
+  INVALID_NUMBER_OF_RULE_NAMES: "INVALID_NUMBER_OF_RULE_NAMES",
+  INVALID_NUMBER_OF_SEVERITIES: "INVALID_NUMBER_OF_SEVERITIES",
+  INVALID_NUMBER_OF_TAGS: "INVALID_NUMBER_OF_TAGS",
+  INVALID_NUMBER_OF_USER_ATTRIBUTES: "INVALID_NUMBER_OF_USER_ATTRIBUTES",
+  INVALID_PAGINATION_TOKEN: "INVALID_PAGINATION_TOKEN",
+  INVALID_RESOURCE_ARN: "INVALID_RESOURCE_ARN",
+  INVALID_RESOURCE_GROUP_ARN: "INVALID_RESOURCE_GROUP_ARN",
+  INVALID_RESOURCE_GROUP_TAG_KEY: "INVALID_RESOURCE_GROUP_TAG_KEY",
+  INVALID_RESOURCE_GROUP_TAG_VALUE: "INVALID_RESOURCE_GROUP_TAG_VALUE",
+  INVALID_RULES_PACKAGE_ARN: "INVALID_RULES_PACKAGE_ARN",
+  INVALID_RULE_NAME: "INVALID_RULE_NAME",
+  INVALID_SEVERITY: "INVALID_SEVERITY",
+  INVALID_SNS_TOPIC_ARN: "INVALID_SNS_TOPIC_ARN",
+  INVALID_TAG: "INVALID_TAG",
+  INVALID_TAG_KEY: "INVALID_TAG_KEY",
+  INVALID_TAG_VALUE: "INVALID_TAG_VALUE",
+  INVALID_USER_ATTRIBUTE: "INVALID_USER_ATTRIBUTE",
+  INVALID_USER_ATTRIBUTE_KEY: "INVALID_USER_ATTRIBUTE_KEY",
+  INVALID_USER_ATTRIBUTE_VALUE: "INVALID_USER_ATTRIBUTE_VALUE",
+};
 
 /**
  * @public
@@ -218,7 +218,7 @@ export class InvalidInputException extends __BaseException {
   /**
    * <p>Code that indicates the type of error that is generated.</p>
    */
-  errorCode: InvalidInputErrorCode | string | undefined;
+  errorCode: keyof typeof InvalidInputErrorCode | string | undefined;
 
   /**
    * <p>You can immediately retry your request.</p>
@@ -243,16 +243,16 @@ export class InvalidInputException extends __BaseException {
 /**
  * @public
  */
-export enum NoSuchEntityErrorCode {
-  ASSESSMENT_RUN_DOES_NOT_EXIST = "ASSESSMENT_RUN_DOES_NOT_EXIST",
-  ASSESSMENT_TARGET_DOES_NOT_EXIST = "ASSESSMENT_TARGET_DOES_NOT_EXIST",
-  ASSESSMENT_TEMPLATE_DOES_NOT_EXIST = "ASSESSMENT_TEMPLATE_DOES_NOT_EXIST",
-  FINDING_DOES_NOT_EXIST = "FINDING_DOES_NOT_EXIST",
-  IAM_ROLE_DOES_NOT_EXIST = "IAM_ROLE_DOES_NOT_EXIST",
-  RESOURCE_GROUP_DOES_NOT_EXIST = "RESOURCE_GROUP_DOES_NOT_EXIST",
-  RULES_PACKAGE_DOES_NOT_EXIST = "RULES_PACKAGE_DOES_NOT_EXIST",
-  SNS_TOPIC_DOES_NOT_EXIST = "SNS_TOPIC_DOES_NOT_EXIST",
-}
+export const NoSuchEntityErrorCode = {
+  ASSESSMENT_RUN_DOES_NOT_EXIST: "ASSESSMENT_RUN_DOES_NOT_EXIST",
+  ASSESSMENT_TARGET_DOES_NOT_EXIST: "ASSESSMENT_TARGET_DOES_NOT_EXIST",
+  ASSESSMENT_TEMPLATE_DOES_NOT_EXIST: "ASSESSMENT_TEMPLATE_DOES_NOT_EXIST",
+  FINDING_DOES_NOT_EXIST: "FINDING_DOES_NOT_EXIST",
+  IAM_ROLE_DOES_NOT_EXIST: "IAM_ROLE_DOES_NOT_EXIST",
+  RESOURCE_GROUP_DOES_NOT_EXIST: "RESOURCE_GROUP_DOES_NOT_EXIST",
+  RULES_PACKAGE_DOES_NOT_EXIST: "RULES_PACKAGE_DOES_NOT_EXIST",
+  SNS_TOPIC_DOES_NOT_EXIST: "SNS_TOPIC_DOES_NOT_EXIST",
+};
 
 /**
  * @public
@@ -265,7 +265,7 @@ export class NoSuchEntityException extends __BaseException {
   /**
    * <p>Code that indicates the type of error that is generated.</p>
    */
-  errorCode: NoSuchEntityErrorCode | string | undefined;
+  errorCode: keyof typeof NoSuchEntityErrorCode | string | undefined;
 
   /**
    * <p>You can immediately retry your request.</p>
@@ -335,23 +335,23 @@ export interface AgentAlreadyRunningAssessment {
 /**
  * @public
  */
-export enum AgentHealthCode {
-  IDLE = "IDLE",
-  RUNNING = "RUNNING",
-  SHUTDOWN = "SHUTDOWN",
-  THROTTLED = "THROTTLED",
-  UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
-}
+export const AgentHealthCode = {
+  IDLE: "IDLE",
+  RUNNING: "RUNNING",
+  SHUTDOWN: "SHUTDOWN",
+  THROTTLED: "THROTTLED",
+  UNHEALTHY: "UNHEALTHY",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
  */
-export enum AgentHealth {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
-}
+export const AgentHealth = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -362,12 +362,12 @@ export interface AgentFilter {
   /**
    * <p>The current health state of the agent. Values can be set to <b>HEALTHY</b> or <b>UNHEALTHY</b>.</p>
    */
-  agentHealths: (AgentHealth | string)[] | undefined;
+  agentHealths: (keyof typeof AgentHealth | string)[] | undefined;
 
   /**
    * <p>The detailed health state of the agent. Values can be set to <b>IDLE</b>, <b>RUNNING</b>, <b>SHUTDOWN</b>, <b>UNHEALTHY</b>, <b>THROTTLED</b>, and <b>UNKNOWN</b>. </p>
    */
-  agentHealthCodes: (AgentHealthCode | string)[] | undefined;
+  agentHealthCodes: (keyof typeof AgentHealthCode | string)[] | undefined;
 }
 
 /**
@@ -394,7 +394,7 @@ export interface AgentPreview {
   /**
    * <p>The health status of the Amazon Inspector Agent.</p>
    */
-  agentHealth?: AgentHealth | string;
+  agentHealth?: keyof typeof AgentHealth | string;
 
   /**
    * <p>The version of the Amazon Inspector Agent.</p>
@@ -462,34 +462,34 @@ export class AgentsAlreadyRunningAssessmentException extends __BaseException {
 /**
  * @public
  */
-export enum Severity {
-  HIGH = "High",
-  INFORMATIONAL = "Informational",
-  LOW = "Low",
-  MEDIUM = "Medium",
-  UNDEFINED = "Undefined",
-}
+export const Severity = {
+  HIGH: "High",
+  INFORMATIONAL: "Informational",
+  LOW: "Low",
+  MEDIUM: "Medium",
+  UNDEFINED: "Undefined",
+};
 
 /**
  * @public
  */
-export enum InspectorEvent {
-  ASSESSMENT_RUN_COMPLETED = "ASSESSMENT_RUN_COMPLETED",
-  ASSESSMENT_RUN_STARTED = "ASSESSMENT_RUN_STARTED",
-  ASSESSMENT_RUN_STATE_CHANGED = "ASSESSMENT_RUN_STATE_CHANGED",
-  FINDING_REPORTED = "FINDING_REPORTED",
-  OTHER = "OTHER",
-}
+export const InspectorEvent = {
+  ASSESSMENT_RUN_COMPLETED: "ASSESSMENT_RUN_COMPLETED",
+  ASSESSMENT_RUN_STARTED: "ASSESSMENT_RUN_STARTED",
+  ASSESSMENT_RUN_STATE_CHANGED: "ASSESSMENT_RUN_STATE_CHANGED",
+  FINDING_REPORTED: "FINDING_REPORTED",
+  OTHER: "OTHER",
+};
 
 /**
  * @public
  */
-export enum AssessmentRunNotificationSnsStatusCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  SUCCESS = "SUCCESS",
-  TOPIC_DOES_NOT_EXIST = "TOPIC_DOES_NOT_EXIST",
-}
+export const AssessmentRunNotificationSnsStatusCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  SUCCESS: "SUCCESS",
+  TOPIC_DOES_NOT_EXIST: "TOPIC_DOES_NOT_EXIST",
+};
 
 /**
  * @public
@@ -505,7 +505,7 @@ export interface AssessmentRunNotification {
   /**
    * <p>The event for which a notification is sent.</p>
    */
-  event: InspectorEvent | string | undefined;
+  event: keyof typeof InspectorEvent | string | undefined;
 
   /**
    * <p>The message included in the notification.</p>
@@ -526,27 +526,27 @@ export interface AssessmentRunNotification {
   /**
    * <p>The status code of the SNS notification.</p>
    */
-  snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode | string;
+  snsPublishStatusCode?: keyof typeof AssessmentRunNotificationSnsStatusCode | string;
 }
 
 /**
  * @public
  */
-export enum AssessmentRunState {
-  CANCELED = "CANCELED",
-  COLLECTING_DATA = "COLLECTING_DATA",
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  CREATED = "CREATED",
-  DATA_COLLECTED = "DATA_COLLECTED",
-  ERROR = "ERROR",
-  EVALUATING_RULES = "EVALUATING_RULES",
-  FAILED = "FAILED",
-  START_DATA_COLLECTION_IN_PROGRESS = "START_DATA_COLLECTION_IN_PROGRESS",
-  START_DATA_COLLECTION_PENDING = "START_DATA_COLLECTION_PENDING",
-  START_EVALUATING_RULES_PENDING = "START_EVALUATING_RULES_PENDING",
-  STOP_DATA_COLLECTION_PENDING = "STOP_DATA_COLLECTION_PENDING",
-}
+export const AssessmentRunState = {
+  CANCELED: "CANCELED",
+  COLLECTING_DATA: "COLLECTING_DATA",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  CREATED: "CREATED",
+  DATA_COLLECTED: "DATA_COLLECTED",
+  ERROR: "ERROR",
+  EVALUATING_RULES: "EVALUATING_RULES",
+  FAILED: "FAILED",
+  START_DATA_COLLECTION_IN_PROGRESS: "START_DATA_COLLECTION_IN_PROGRESS",
+  START_DATA_COLLECTION_PENDING: "START_DATA_COLLECTION_PENDING",
+  START_EVALUATING_RULES_PENDING: "START_EVALUATING_RULES_PENDING",
+  STOP_DATA_COLLECTION_PENDING: "STOP_DATA_COLLECTION_PENDING",
+};
 
 /**
  * @public
@@ -562,7 +562,7 @@ export interface AssessmentRunStateChange {
   /**
    * <p>The assessment run state.</p>
    */
-  state: AssessmentRunState | string | undefined;
+  state: keyof typeof AssessmentRunState | string | undefined;
 }
 
 /**
@@ -592,7 +592,7 @@ export interface AssessmentRun {
   /**
    * <p>The state of the assessment run.</p>
    */
-  state: AssessmentRunState | string | undefined;
+  state: keyof typeof AssessmentRunState | string | undefined;
 
   /**
    * <p>The duration of the assessment run.</p>
@@ -695,12 +695,12 @@ export interface AssessmentRunAgent {
   /**
    * <p>The current health state of the agent.</p>
    */
-  agentHealth: AgentHealth | string | undefined;
+  agentHealth: keyof typeof AgentHealth | string | undefined;
 
   /**
    * <p>The detailed health state of the agent.</p>
    */
-  agentHealthCode: AgentHealthCode | string | undefined;
+  agentHealthCode: keyof typeof AgentHealthCode | string | undefined;
 
   /**
    * <p>The description for the agent health code.</p>
@@ -773,7 +773,7 @@ export interface AssessmentRunFilter {
    *          property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data
    *          type.</p>
    */
-  states?: (AssessmentRunState | string)[];
+  states?: (keyof typeof AssessmentRunState | string)[];
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
@@ -1150,9 +1150,9 @@ export interface AssetAttributes {
 /**
  * @public
  */
-export enum AssetType {
-  EC2_INSTANCE = "ec2-instance",
-}
+export const AssetType = {
+  EC2_INSTANCE: "ec2-instance",
+};
 
 /**
  * @public
@@ -1185,10 +1185,10 @@ export interface CreateAssessmentTargetResponse {
 /**
  * @public
  */
-export enum InvalidCrossAccountRoleErrorCode {
-  ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP = "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP",
-  ROLE_DOES_NOT_HAVE_CORRECT_POLICY = "ROLE_DOES_NOT_HAVE_CORRECT_POLICY",
-}
+export const InvalidCrossAccountRoleErrorCode = {
+  ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP: "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP",
+  ROLE_DOES_NOT_HAVE_CORRECT_POLICY: "ROLE_DOES_NOT_HAVE_CORRECT_POLICY",
+};
 
 /**
  * @public
@@ -1201,7 +1201,7 @@ export class InvalidCrossAccountRoleException extends __BaseException {
   /**
    * <p>Code that indicates the type of error that is generated.</p>
    */
-  errorCode: InvalidCrossAccountRoleErrorCode | string | undefined;
+  errorCode: keyof typeof InvalidCrossAccountRoleErrorCode | string | undefined;
 
   /**
    * <p>You can immediately retry your request.</p>
@@ -1226,13 +1226,13 @@ export class InvalidCrossAccountRoleException extends __BaseException {
 /**
  * @public
  */
-export enum LimitExceededErrorCode {
-  ASSESSMENT_RUN_LIMIT_EXCEEDED = "ASSESSMENT_RUN_LIMIT_EXCEEDED",
-  ASSESSMENT_TARGET_LIMIT_EXCEEDED = "ASSESSMENT_TARGET_LIMIT_EXCEEDED",
-  ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED = "ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED",
-  EVENT_SUBSCRIPTION_LIMIT_EXCEEDED = "EVENT_SUBSCRIPTION_LIMIT_EXCEEDED",
-  RESOURCE_GROUP_LIMIT_EXCEEDED = "RESOURCE_GROUP_LIMIT_EXCEEDED",
-}
+export const LimitExceededErrorCode = {
+  ASSESSMENT_RUN_LIMIT_EXCEEDED: "ASSESSMENT_RUN_LIMIT_EXCEEDED",
+  ASSESSMENT_TARGET_LIMIT_EXCEEDED: "ASSESSMENT_TARGET_LIMIT_EXCEEDED",
+  ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED: "ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED",
+  EVENT_SUBSCRIPTION_LIMIT_EXCEEDED: "EVENT_SUBSCRIPTION_LIMIT_EXCEEDED",
+  RESOURCE_GROUP_LIMIT_EXCEEDED: "RESOURCE_GROUP_LIMIT_EXCEEDED",
+};
 
 /**
  * @public
@@ -1245,7 +1245,7 @@ export class LimitExceededException extends __BaseException {
   /**
    * <p>Code that indicates the type of error that is generated.</p>
    */
-  errorCode: LimitExceededErrorCode | string | undefined;
+  errorCode: keyof typeof LimitExceededErrorCode | string | undefined;
 
   /**
    * <p>You can immediately retry your request.</p>
@@ -1528,9 +1528,9 @@ export interface DescribeCrossAccountAccessRoleResponse {
 /**
  * @public
  */
-export enum Locale {
-  EN_US = "EN_US",
-}
+export const Locale = {
+  EN_US: "EN_US",
+};
 
 /**
  * @public
@@ -1545,16 +1545,16 @@ export interface DescribeExclusionsRequest {
    * <p>The locale into which you want to translate the exclusion's title, description, and
    *          recommendation.</p>
    */
-  locale?: Locale | string;
+  locale?: keyof typeof Locale | string;
 }
 
 /**
  * @public
  */
-export enum ScopeType {
-  INSTANCE_ID = "INSTANCE_ID",
-  RULES_PACKAGE_ARN = "RULES_PACKAGE_ARN",
-}
+export const ScopeType = {
+  INSTANCE_ID: "INSTANCE_ID",
+  RULES_PACKAGE_ARN: "RULES_PACKAGE_ARN",
+};
 
 /**
  * @public
@@ -1565,7 +1565,7 @@ export interface Scope {
   /**
    * <p>The type of the scope.</p>
    */
-  key?: ScopeType | string;
+  key?: keyof typeof ScopeType | string;
 
   /**
    * <p>The resource identifier for the specified scope type.</p>
@@ -1638,7 +1638,7 @@ export interface DescribeFindingsRequest {
    * <p>The locale into which you want to translate a finding description, recommendation,
    *          and the short description that identifies the finding.</p>
    */
-  locale?: Locale | string;
+  locale?: keyof typeof Locale | string;
 }
 
 /**
@@ -1691,7 +1691,7 @@ export interface Finding {
   /**
    * <p>The type of the host from which the finding is generated.</p>
    */
-  assetType?: AssetType | string;
+  assetType?: keyof typeof AssetType | string;
 
   /**
    * <p>A collection of attributes of the host from which the finding is generated.</p>
@@ -1722,7 +1722,7 @@ export interface Finding {
    * <p>The finding severity. Values can be set to High, Medium, Low, and
    *          Informational.</p>
    */
-  severity?: Severity | string;
+  severity?: keyof typeof Severity | string;
 
   /**
    * <p>The numeric value of the finding severity.</p>
@@ -1839,7 +1839,7 @@ export interface DescribeRulesPackagesRequest {
   /**
    * <p>The locale that you want to translate a rules package description into.</p>
    */
-  locale?: Locale | string;
+  locale?: keyof typeof Locale | string;
 }
 
 /**
@@ -1899,7 +1899,7 @@ export interface EventSubscription {
    * <p>The event for which Amazon Simple Notification Service (SNS) notifications are
    *          sent.</p>
    */
-  event: InspectorEvent | string | undefined;
+  event: keyof typeof InspectorEvent | string | undefined;
 
   /**
    * <p>The time at which <a>SubscribeToEvent</a> is called.</p>
@@ -1968,7 +1968,7 @@ export interface FindingFilter {
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>severity</b> property of the <a>Finding</a> data type.</p>
    */
-  severities?: (Severity | string)[];
+  severities?: (keyof typeof Severity | string)[];
 
   /**
    * <p>For a record to match a filter, one of the values that is specified for this data
@@ -1999,18 +1999,18 @@ export interface FindingFilter {
 /**
  * @public
  */
-export enum ReportFileFormat {
-  HTML = "HTML",
-  PDF = "PDF",
-}
+export const ReportFileFormat = {
+  HTML: "HTML",
+  PDF: "PDF",
+};
 
 /**
  * @public
  */
-export enum ReportType {
-  FINDING = "FINDING",
-  FULL = "FULL",
-}
+export const ReportType = {
+  FINDING: "FINDING",
+  FULL: "FULL",
+};
 
 /**
  * @public
@@ -2026,24 +2026,24 @@ export interface GetAssessmentReportRequest {
    * <p>Specifies the file format (html or pdf) of the assessment report that you want to
    *          generate.</p>
    */
-  reportFileFormat: ReportFileFormat | string | undefined;
+  reportFileFormat: keyof typeof ReportFileFormat | string | undefined;
 
   /**
    * <p>Specifies the type of the assessment report that you want to generate. There are two
    *          types of assessment reports: a finding report and a full report. For more information, see
    *             <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html">Assessment Reports</a>. </p>
    */
-  reportType: ReportType | string | undefined;
+  reportType: keyof typeof ReportType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ReportStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  WORK_IN_PROGRESS = "WORK_IN_PROGRESS",
-}
+export const ReportStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  WORK_IN_PROGRESS: "WORK_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -2052,7 +2052,7 @@ export interface GetAssessmentReportResponse {
   /**
    * <p>Specifies the status of the request to generate an assessment report. </p>
    */
-  status: ReportStatus | string | undefined;
+  status: keyof typeof ReportStatus | string | undefined;
 
   /**
    * <p>Specifies the URL where you can find the generated assessment report. This parameter
@@ -2120,16 +2120,16 @@ export interface GetExclusionsPreviewRequest {
    * <p>The locale into which you want to translate the exclusion's title, description, and
    *          recommendation.</p>
    */
-  locale?: Locale | string;
+  locale?: keyof typeof Locale | string;
 }
 
 /**
  * @public
  */
-export enum PreviewStatus {
-  COMPLETED = "COMPLETED",
-  WORK_IN_PROGRESS = "WORK_IN_PROGRESS",
-}
+export const PreviewStatus = {
+  COMPLETED: "COMPLETED",
+  WORK_IN_PROGRESS: "WORK_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -2138,7 +2138,7 @@ export interface GetExclusionsPreviewResponse {
   /**
    * <p>Specifies the status of the request to generate an exclusions preview.</p>
    */
-  previewStatus: PreviewStatus | string | undefined;
+  previewStatus: keyof typeof PreviewStatus | string | undefined;
 
   /**
    * <p>Information about the exclusions included in the preview.</p>
@@ -2723,10 +2723,10 @@ export interface StartAssessmentRunResponse {
 /**
  * @public
  */
-export enum StopAction {
-  SKIP_EVALUATION = "SKIP_EVALUATION",
-  START_EVALUATION = "START_EVALUATION",
-}
+export const StopAction = {
+  SKIP_EVALUATION: "SKIP_EVALUATION",
+  START_EVALUATION: "START_EVALUATION",
+};
 
 /**
  * @public
@@ -2743,7 +2743,7 @@ export interface StopAssessmentRunRequest {
    *          the results evaluation and the findings generation process. SKIP_EVALUATION cancels the
    *          assessment run immediately, after which no findings are generated.</p>
    */
-  stopAction?: StopAction | string;
+  stopAction?: keyof typeof StopAction | string;
 }
 
 /**
@@ -2759,7 +2759,7 @@ export interface SubscribeToEventRequest {
   /**
    * <p>The event for which you want to receive SNS notifications.</p>
    */
-  event: InspectorEvent | string | undefined;
+  event: keyof typeof InspectorEvent | string | undefined;
 
   /**
    * <p>The ARN of the SNS topic to which the SNS notifications are sent.</p>
@@ -2780,7 +2780,7 @@ export interface UnsubscribeFromEventRequest {
   /**
    * <p>The event for which you want to stop receiving SNS notifications.</p>
    */
-  event: InspectorEvent | string | undefined;
+  event: keyof typeof InspectorEvent | string | undefined;
 
   /**
    * <p>The ARN of the SNS topic to which SNS notifications are sent.</p>

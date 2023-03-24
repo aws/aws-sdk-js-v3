@@ -4408,7 +4408,7 @@ const deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse = asyn
 };
 
 const serializeAws_restJson1AdditionalResponseFieldsList = (
-  input: (AdditionalResponseFieldType | string)[],
+  input: (keyof typeof AdditionalResponseFieldType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4489,7 +4489,7 @@ const serializeAws_restJson1SearchAncestorIdList = (input: string[], context: __
 };
 
 const serializeAws_restJson1SearchCollectionTypeList = (
-  input: (SearchCollectionType | string)[],
+  input: (keyof typeof SearchCollectionType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4500,7 +4500,7 @@ const serializeAws_restJson1SearchCollectionTypeList = (
 };
 
 const serializeAws_restJson1SearchContentCategoryTypeList = (
-  input: (ContentCategoryType | string)[],
+  input: (keyof typeof ContentCategoryType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4519,7 +4519,7 @@ const serializeAws_restJson1SearchLabelList = (input: string[], context: __Serde
 };
 
 const serializeAws_restJson1SearchPrincipalRoleList = (
-  input: (PrincipalRoleType | string)[],
+  input: (keyof typeof PrincipalRoleType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4545,7 +4545,7 @@ const serializeAws_restJson1SearchPrincipalTypeList = (input: SearchPrincipalTyp
 };
 
 const serializeAws_restJson1SearchQueryScopeTypeList = (
-  input: (SearchQueryScopeType | string)[],
+  input: (keyof typeof SearchQueryScopeType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4556,7 +4556,7 @@ const serializeAws_restJson1SearchQueryScopeTypeList = (
 };
 
 const serializeAws_restJson1SearchResourceTypeList = (
-  input: (SearchResourceType | string)[],
+  input: (keyof typeof SearchResourceType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4613,7 +4613,7 @@ const serializeAws_restJson1StorageRuleType = (input: StorageRuleType, context: 
 };
 
 const serializeAws_restJson1TextLocaleTypeList = (
-  input: (LanguageCodeType | string)[],
+  input: (keyof typeof LanguageCodeType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4737,7 +4737,7 @@ const deserializeAws_restJson1DocumentMetadataList = (output: any, context: __Se
 
 const deserializeAws_restJson1DocumentSourceUrlMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [DocumentSourceType | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [keyof typeof DocumentSourceType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -4753,7 +4753,7 @@ const deserializeAws_restJson1DocumentThumbnailUrlMap = (
   context: __SerdeContext
 ): Record<string, string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, string>, [key, value]: [DocumentThumbnailType | string, any]) => {
+    (acc: Record<string, string>, [key, value]: [keyof typeof DocumentThumbnailType | string, any]) => {
       if (value === null) {
         return acc;
       }

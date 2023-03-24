@@ -294,9 +294,9 @@ export interface GetPriceListFileUrlResponse {
 /**
  * @public
  */
-export enum FilterType {
-  TERM_MATCH = "TERM_MATCH",
-}
+export const FilterType = {
+  TERM_MATCH: "TERM_MATCH",
+};
 
 /**
  * @public
@@ -308,7 +308,7 @@ export interface Filter {
    *          <p>Valid values are: <code>TERM_MATCH</code>. <code>TERM_MATCH</code> returns only
    *          products that match both the given filter field and the given value.</p>
    */
-  Type: FilterType | string | undefined;
+  Type: keyof typeof FilterType | string | undefined;
 
   /**
    * <p>The product metadata field that you want to filter on. You can filter by just the

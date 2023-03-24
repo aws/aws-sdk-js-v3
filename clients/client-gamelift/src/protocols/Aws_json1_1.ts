@@ -8232,7 +8232,10 @@ const serializeAws_json1_1FilterConfiguration = (input: FilterConfiguration, con
   };
 };
 
-const serializeAws_json1_1FleetActionList = (input: (FleetAction | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1FleetActionList = (
+  input: (keyof typeof FleetAction | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8264,7 +8267,7 @@ const serializeAws_json1_1GamePropertyList = (input: GameProperty[], context: __
 };
 
 const serializeAws_json1_1GameServerGroupActions = (
-  input: (GameServerGroupAction | string)[],
+  input: (keyof typeof GameServerGroupAction | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -8506,7 +8509,10 @@ const serializeAws_json1_1LocationConfigurationList = (
     });
 };
 
-const serializeAws_json1_1LocationFilterList = (input: (LocationFilter | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1LocationFilterList = (
+  input: (keyof typeof LocationFilter | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8671,7 +8677,10 @@ const serializeAws_json1_1PriorityConfiguration = (input: PriorityConfiguration,
   };
 };
 
-const serializeAws_json1_1PriorityTypeList = (input: (PriorityType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1PriorityTypeList = (
+  input: (keyof typeof PriorityType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -9925,7 +9934,10 @@ const deserializeAws_json1_1FilterConfiguration = (output: any, context: __Serde
   } as any;
 };
 
-const deserializeAws_json1_1FleetActionList = (output: any, context: __SerdeContext): (FleetAction | string)[] => {
+const deserializeAws_json1_1FleetActionList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof FleetAction | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -10142,7 +10154,7 @@ const deserializeAws_json1_1GameServerGroup = (output: any, context: __SerdeCont
 const deserializeAws_json1_1GameServerGroupActions = (
   output: any,
   context: __SerdeContext
-): (GameServerGroupAction | string)[] => {
+): (keyof typeof GameServerGroupAction | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -11043,7 +11055,10 @@ const deserializeAws_json1_1PriorityConfiguration = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1PriorityTypeList = (output: any, context: __SerdeContext): (PriorityType | string)[] => {
+const deserializeAws_json1_1PriorityTypeList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof PriorityType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

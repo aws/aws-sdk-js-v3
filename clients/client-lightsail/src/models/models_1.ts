@@ -102,7 +102,7 @@ export interface ResourceBudgetEstimate {
   /**
    * <p>The type of resource the budget will track.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The cost estimate for the specified budget.</p>
@@ -369,7 +369,7 @@ export interface GetDistributionMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: DistributionMetricName | string | undefined;
+  metricName: keyof typeof DistributionMetricName | string | undefined;
 
   /**
    * <p>The start of the time interval for which to get metric data.</p>
@@ -415,7 +415,7 @@ export interface GetDistributionMetricDataRequest {
    *          <p>Valid units depend on the metric data being requested. For the valid units with each
    *       available metric, see the <code>metricName</code> parameter.</p>
    */
-  unit: MetricUnit | string | undefined;
+  unit: keyof typeof MetricUnit | string | undefined;
 
   /**
    * <p>The statistic for the metric.</p>
@@ -450,7 +450,7 @@ export interface GetDistributionMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: (keyof typeof MetricStatistic | string)[] | undefined;
 }
 
 /**
@@ -460,7 +460,7 @@ export interface GetDistributionMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
    */
-  metricName?: DistributionMetricName | string;
+  metricName?: keyof typeof DistributionMetricName | string;
 
   /**
    * <p>An array of objects that describe the metric data returned.</p>
@@ -623,34 +623,34 @@ export interface InstanceHardware {
 /**
  * @public
  */
-export enum HttpEndpoint {
-  disabled = "disabled",
-  enabled = "enabled",
-}
+export const HttpEndpoint = {
+  disabled: "disabled",
+  enabled: "enabled",
+};
 
 /**
  * @public
  */
-export enum HttpProtocolIpv6 {
-  disabled = "disabled",
-  enabled = "enabled",
-}
+export const HttpProtocolIpv6 = {
+  disabled: "disabled",
+  enabled: "enabled",
+};
 
 /**
  * @public
  */
-export enum HttpTokens {
-  optional = "optional",
-  required = "required",
-}
+export const HttpTokens = {
+  optional: "optional",
+  required: "required",
+};
 
 /**
  * @public
  */
-export enum InstanceMetadataState {
-  applied = "applied",
-  pending = "pending",
-}
+export const InstanceMetadataState = {
+  applied: "applied",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -673,7 +673,7 @@ export interface InstanceMetadataOptions {
    *             </li>
    *          </ul>
    */
-  state?: InstanceMetadataState | string;
+  state?: keyof typeof InstanceMetadataState | string;
 
   /**
    * <p>The state of token usage for your instance metadata requests.</p>
@@ -692,14 +692,14 @@ export interface InstanceMetadataOptions {
    *           <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-health-metrics">Viewing instance metrics in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
    *          </important>
    */
-  httpTokens?: HttpTokens | string;
+  httpTokens?: keyof typeof HttpTokens | string;
 
   /**
    * <p>Indicates whether the HTTP metadata endpoint on your instances is enabled or
    *       disabled.</p>
    *          <p>If the value is <code>disabled</code>, you cannot access your instance metadata.</p>
    */
-  httpEndpoint?: HttpEndpoint | string;
+  httpEndpoint?: keyof typeof HttpEndpoint | string;
 
   /**
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. A larger number
@@ -711,7 +711,7 @@ export interface InstanceMetadataOptions {
    * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or
    *       disabled.</p>
    */
-  httpProtocolIpv6?: HttpProtocolIpv6 | string;
+  httpProtocolIpv6?: keyof typeof HttpProtocolIpv6 | string;
 }
 
 /**
@@ -729,10 +729,10 @@ export interface MonthlyTransfer {
 /**
  * @public
  */
-export enum PortAccessType {
-  Private = "Private",
-  Public = "Public",
-}
+export const PortAccessType = {
+  Private: "Private",
+  Public: "Public",
+};
 
 /**
  * @public
@@ -822,7 +822,7 @@ export interface InstancePortInfo {
    *             </li>
    *          </ul>
    */
-  protocol?: NetworkProtocol | string;
+  protocol?: keyof typeof NetworkProtocol | string;
 
   /**
    * <p>The location from which access is allowed. For example, <code>Anywhere (0.0.0.0/0)</code>,
@@ -833,7 +833,7 @@ export interface InstancePortInfo {
   /**
    * <p>The type of access (<code>Public</code> or <code>Private</code>).</p>
    */
-  accessType?: PortAccessType | string;
+  accessType?: keyof typeof PortAccessType | string;
 
   /**
    * <p>The common name of the port information.</p>
@@ -846,7 +846,7 @@ export interface InstancePortInfo {
    *             <p>Lightsail currently supports only <code>inbound</code> access direction.</p>
    *          </note>
    */
-  accessDirection?: AccessDirection | string;
+  accessDirection?: keyof typeof AccessDirection | string;
 
   /**
    * <p>The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to
@@ -951,7 +951,7 @@ export interface Instance {
   /**
    * <p>The type of resource (usually <code>Instance</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -1004,7 +1004,7 @@ export interface Instance {
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>The size of the vCPU and the amount of RAM for the instance.</p>
@@ -1052,10 +1052,10 @@ export interface GetInstanceResult {
 /**
  * @public
  */
-export enum InstanceAccessProtocol {
-  rdp = "rdp",
-  ssh = "ssh",
-}
+export const InstanceAccessProtocol = {
+  rdp: "rdp",
+  ssh: "ssh",
+};
 
 /**
  * @public
@@ -1069,7 +1069,7 @@ export interface GetInstanceAccessDetailsRequest {
   /**
    * <p>The protocol to use to connect to your instance. Defaults to <code>ssh</code>.</p>
    */
-  protocol?: InstanceAccessProtocol | string;
+  protocol?: keyof typeof InstanceAccessProtocol | string;
 }
 
 /**
@@ -1232,7 +1232,7 @@ export interface InstanceAccessDetails {
   /**
    * <p>The protocol for these Amazon Lightsail instance access details.</p>
    */
-  protocol?: InstanceAccessProtocol | string;
+  protocol?: keyof typeof InstanceAccessProtocol | string;
 
   /**
    * <p>The name of this Amazon Lightsail instance.</p>
@@ -1264,17 +1264,17 @@ export interface GetInstanceAccessDetailsResult {
 /**
  * @public
  */
-export enum InstanceMetricName {
-  BurstCapacityPercentage = "BurstCapacityPercentage",
-  BurstCapacityTime = "BurstCapacityTime",
-  CPUUtilization = "CPUUtilization",
-  MetadataNoToken = "MetadataNoToken",
-  NetworkIn = "NetworkIn",
-  NetworkOut = "NetworkOut",
-  StatusCheckFailed = "StatusCheckFailed",
-  StatusCheckFailed_Instance = "StatusCheckFailed_Instance",
-  StatusCheckFailed_System = "StatusCheckFailed_System",
-}
+export const InstanceMetricName = {
+  BurstCapacityPercentage: "BurstCapacityPercentage",
+  BurstCapacityTime: "BurstCapacityTime",
+  CPUUtilization: "CPUUtilization",
+  MetadataNoToken: "MetadataNoToken",
+  NetworkIn: "NetworkIn",
+  NetworkOut: "NetworkOut",
+  StatusCheckFailed: "StatusCheckFailed",
+  StatusCheckFailed_Instance: "StatusCheckFailed_Instance",
+  StatusCheckFailed_System: "StatusCheckFailed_System",
+};
 
 /**
  * @public
@@ -1423,7 +1423,7 @@ export interface GetInstanceMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: InstanceMetricName | string | undefined;
+  metricName: keyof typeof InstanceMetricName | string | undefined;
 
   /**
    * <p>The granularity, in seconds, of the returned data points.</p>
@@ -1449,7 +1449,7 @@ export interface GetInstanceMetricDataRequest {
    *       requested. For the valid units to specify with each available metric, see the
    *         <code>metricName</code> parameter.</p>
    */
-  unit: MetricUnit | string | undefined;
+  unit: keyof typeof MetricUnit | string | undefined;
 
   /**
    * <p>The statistic for the metric.</p>
@@ -1484,7 +1484,7 @@ export interface GetInstanceMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: (keyof typeof MetricStatistic | string)[] | undefined;
 }
 
 /**
@@ -1494,7 +1494,7 @@ export interface GetInstanceMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
    */
-  metricName?: InstanceMetricName | string;
+  metricName?: keyof typeof InstanceMetricName | string;
 
   /**
    * <p>An array of objects that describe the metric data returned.</p>
@@ -1515,10 +1515,10 @@ export interface GetInstancePortStatesRequest {
 /**
  * @public
  */
-export enum PortState {
-  Closed = "closed",
-  Open = "open",
-}
+export const PortState = {
+  Closed: "closed",
+  Open: "open",
+};
 
 /**
  * @public
@@ -1609,7 +1609,7 @@ export interface InstancePortState {
    *             </li>
    *          </ul>
    */
-  protocol?: NetworkProtocol | string;
+  protocol?: keyof typeof NetworkProtocol | string;
 
   /**
    * <p>Specifies whether the instance port is <code>open</code> or <code>closed</code>.</p>
@@ -1617,7 +1617,7 @@ export interface InstancePortState {
    *             <p>The port state for Lightsail instances is always <code>open</code>.</p>
    *          </note>
    */
-  state?: PortState | string;
+  state?: keyof typeof PortState | string;
 
   /**
    * <p>The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to
@@ -1708,11 +1708,11 @@ export interface GetInstanceSnapshotRequest {
 /**
  * @public
  */
-export enum InstanceSnapshotState {
-  Available = "available",
-  Error = "error",
-  Pending = "pending",
-}
+export const InstanceSnapshotState = {
+  Available: "available",
+  Error: "error",
+  Pending: "pending",
+};
 
 /**
  * @public
@@ -1750,7 +1750,7 @@ export interface InstanceSnapshot {
   /**
    * <p>The type of resource (usually <code>InstanceSnapshot</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -1761,7 +1761,7 @@ export interface InstanceSnapshot {
   /**
    * <p>The state the snapshot is in.</p>
    */
-  state?: InstanceSnapshotState | string;
+  state?: keyof typeof InstanceSnapshotState | string;
 
   /**
    * <p>The progress of the snapshot.</p>
@@ -1945,42 +1945,42 @@ export interface GetLoadBalancerRequest {
 /**
  * @public
  */
-export enum LoadBalancerAttributeName {
-  HealthCheckPath = "HealthCheckPath",
-  HttpsRedirectionEnabled = "HttpsRedirectionEnabled",
-  SessionStickinessEnabled = "SessionStickinessEnabled",
-  SessionStickiness_LB_CookieDurationSeconds = "SessionStickiness_LB_CookieDurationSeconds",
-  TlsPolicyName = "TlsPolicyName",
-}
+export const LoadBalancerAttributeName = {
+  HealthCheckPath: "HealthCheckPath",
+  HttpsRedirectionEnabled: "HttpsRedirectionEnabled",
+  SessionStickinessEnabled: "SessionStickinessEnabled",
+  SessionStickiness_LB_CookieDurationSeconds: "SessionStickiness_LB_CookieDurationSeconds",
+  TlsPolicyName: "TlsPolicyName",
+};
 
 /**
  * @public
  */
-export enum InstanceHealthState {
-  Draining = "draining",
-  Healthy = "healthy",
-  Initial = "initial",
-  Unavailable = "unavailable",
-  Unhealthy = "unhealthy",
-  Unused = "unused",
-}
+export const InstanceHealthState = {
+  Draining: "draining",
+  Healthy: "healthy",
+  Initial: "initial",
+  Unavailable: "unavailable",
+  Unhealthy: "unhealthy",
+  Unused: "unused",
+};
 
 /**
  * @public
  */
-export enum InstanceHealthReason {
-  InstanceDeregistrationInProgress = "Instance.DeregistrationInProgress",
-  InstanceFailedHealthChecks = "Instance.FailedHealthChecks",
-  InstanceInvalidState = "Instance.InvalidState",
-  InstanceIpUnusable = "Instance.IpUnusable",
-  InstanceNotInUse = "Instance.NotInUse",
-  InstanceNotRegistered = "Instance.NotRegistered",
-  InstanceResponseCodeMismatch = "Instance.ResponseCodeMismatch",
-  InstanceTimeout = "Instance.Timeout",
-  LbInitialHealthChecking = "Lb.InitialHealthChecking",
-  LbInternalError = "Lb.InternalError",
-  LbRegistrationInProgress = "Lb.RegistrationInProgress",
-}
+export const InstanceHealthReason = {
+  InstanceDeregistrationInProgress: "Instance.DeregistrationInProgress",
+  InstanceFailedHealthChecks: "Instance.FailedHealthChecks",
+  InstanceInvalidState: "Instance.InvalidState",
+  InstanceIpUnusable: "Instance.IpUnusable",
+  InstanceNotInUse: "Instance.NotInUse",
+  InstanceNotRegistered: "Instance.NotRegistered",
+  InstanceResponseCodeMismatch: "Instance.ResponseCodeMismatch",
+  InstanceTimeout: "Instance.Timeout",
+  LbInitialHealthChecking: "Lb.InitialHealthChecking",
+  LbInternalError: "Lb.InternalError",
+  LbRegistrationInProgress: "Lb.RegistrationInProgress",
+};
 
 /**
  * @public
@@ -1996,7 +1996,7 @@ export interface InstanceHealthSummary {
   /**
    * <p>Describes the overall instance health. Valid values are below.</p>
    */
-  instanceHealth?: InstanceHealthState | string;
+  instanceHealth?: keyof typeof InstanceHealthState | string;
 
   /**
    * <p>More information about the instance health. If the <code>instanceHealth</code> is
@@ -2121,27 +2121,27 @@ export interface InstanceHealthSummary {
    *             </li>
    *          </ul>
    */
-  instanceHealthReason?: InstanceHealthReason | string;
+  instanceHealthReason?: keyof typeof InstanceHealthReason | string;
 }
 
 /**
  * @public
  */
-export enum LoadBalancerProtocol {
-  HTTP = "HTTP",
-  HTTP_HTTPS = "HTTP_HTTPS",
-}
+export const LoadBalancerProtocol = {
+  HTTP: "HTTP",
+  HTTP_HTTPS: "HTTP_HTTPS",
+};
 
 /**
  * @public
  */
-export enum LoadBalancerState {
-  Active = "active",
-  ActiveImpaired = "active_impaired",
-  Failed = "failed",
-  Provisioning = "provisioning",
-  Unknown = "unknown",
-}
+export const LoadBalancerState = {
+  Active: "active",
+  ActiveImpaired: "active_impaired",
+  Failed: "failed",
+  Provisioning: "provisioning",
+  Unknown: "unknown",
+};
 
 /**
  * @public
@@ -2196,7 +2196,7 @@ export interface LoadBalancer {
   /**
    * <p>The resource type (e.g., <code>LoadBalancer</code>.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -2212,14 +2212,14 @@ export interface LoadBalancer {
   /**
    * <p>The status of your load balancer. Valid values are below.</p>
    */
-  state?: LoadBalancerState | string;
+  state?: keyof typeof LoadBalancerState | string;
 
   /**
    * <p>The protocol you have enabled for your load balancer. Valid values are below.</p>
    *          <p>You can't just have <code>HTTP_HTTPS</code>, but you can have just
    *       <code>HTTP</code>.</p>
    */
-  protocol?: LoadBalancerProtocol | string;
+  protocol?: keyof typeof LoadBalancerProtocol | string;
 
   /**
    * <p>An array of public port settings for your load balancer. For HTTP, use port 80. For HTTPS,
@@ -2263,7 +2263,7 @@ export interface LoadBalancer {
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>A Boolean value that indicates whether HTTPS redirection is enabled for the load
@@ -2290,20 +2290,20 @@ export interface GetLoadBalancerResult {
 /**
  * @public
  */
-export enum LoadBalancerMetricName {
-  ClientTLSNegotiationErrorCount = "ClientTLSNegotiationErrorCount",
-  HTTPCode_Instance_2XX_Count = "HTTPCode_Instance_2XX_Count",
-  HTTPCode_Instance_3XX_Count = "HTTPCode_Instance_3XX_Count",
-  HTTPCode_Instance_4XX_Count = "HTTPCode_Instance_4XX_Count",
-  HTTPCode_Instance_5XX_Count = "HTTPCode_Instance_5XX_Count",
-  HTTPCode_LB_4XX_Count = "HTTPCode_LB_4XX_Count",
-  HTTPCode_LB_5XX_Count = "HTTPCode_LB_5XX_Count",
-  HealthyHostCount = "HealthyHostCount",
-  InstanceResponseTime = "InstanceResponseTime",
-  RejectedConnectionCount = "RejectedConnectionCount",
-  RequestCount = "RequestCount",
-  UnhealthyHostCount = "UnhealthyHostCount",
-}
+export const LoadBalancerMetricName = {
+  ClientTLSNegotiationErrorCount: "ClientTLSNegotiationErrorCount",
+  HTTPCode_Instance_2XX_Count: "HTTPCode_Instance_2XX_Count",
+  HTTPCode_Instance_3XX_Count: "HTTPCode_Instance_3XX_Count",
+  HTTPCode_Instance_4XX_Count: "HTTPCode_Instance_4XX_Count",
+  HTTPCode_Instance_5XX_Count: "HTTPCode_Instance_5XX_Count",
+  HTTPCode_LB_4XX_Count: "HTTPCode_LB_4XX_Count",
+  HTTPCode_LB_5XX_Count: "HTTPCode_LB_5XX_Count",
+  HealthyHostCount: "HealthyHostCount",
+  InstanceResponseTime: "InstanceResponseTime",
+  RejectedConnectionCount: "RejectedConnectionCount",
+  RequestCount: "RequestCount",
+  UnhealthyHostCount: "UnhealthyHostCount",
+};
 
 /**
  * @public
@@ -2485,7 +2485,7 @@ export interface GetLoadBalancerMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: LoadBalancerMetricName | string | undefined;
+  metricName: keyof typeof LoadBalancerMetricName | string | undefined;
 
   /**
    * <p>The granularity, in seconds, of the returned data points.</p>
@@ -2507,7 +2507,7 @@ export interface GetLoadBalancerMetricDataRequest {
    *       requested. For the valid units with each available metric, see the <code>metricName</code>
    *       parameter.</p>
    */
-  unit: MetricUnit | string | undefined;
+  unit: keyof typeof MetricUnit | string | undefined;
 
   /**
    * <p>The statistic for the metric.</p>
@@ -2542,7 +2542,7 @@ export interface GetLoadBalancerMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: (keyof typeof MetricStatistic | string)[] | undefined;
 }
 
 /**
@@ -2552,7 +2552,7 @@ export interface GetLoadBalancerMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
    */
-  metricName?: LoadBalancerMetricName | string;
+  metricName?: keyof typeof LoadBalancerMetricName | string;
 
   /**
    * <p>An array of objects that describe the metric data returned.</p>
@@ -2604,11 +2604,11 @@ export interface GetLoadBalancerTlsCertificatesRequest {
 /**
  * @public
  */
-export enum LoadBalancerTlsCertificateDnsRecordCreationStateCode {
-  Failed = "FAILED",
-  Started = "STARTED",
-  Succeeded = "SUCCEEDED",
-}
+export const LoadBalancerTlsCertificateDnsRecordCreationStateCode = {
+  Failed: "FAILED",
+  Started: "STARTED",
+  Succeeded: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2635,7 +2635,7 @@ export interface LoadBalancerTlsCertificateDnsRecordCreationState {
    *             </li>
    *          </ul>
    */
-  code?: LoadBalancerTlsCertificateDnsRecordCreationStateCode | string;
+  code?: keyof typeof LoadBalancerTlsCertificateDnsRecordCreationStateCode | string;
 
   /**
    * <p>The message that describes the reason for the status code.</p>
@@ -2646,11 +2646,11 @@ export interface LoadBalancerTlsCertificateDnsRecordCreationState {
 /**
  * @public
  */
-export enum LoadBalancerTlsCertificateDomainStatus {
-  Failed = "FAILED",
-  PendingValidation = "PENDING_VALIDATION",
-  Success = "SUCCESS",
-}
+export const LoadBalancerTlsCertificateDomainStatus = {
+  Failed: "FAILED",
+  PendingValidation: "PENDING_VALIDATION",
+  Success: "SUCCESS",
+};
 
 /**
  * @public
@@ -2677,7 +2677,7 @@ export interface LoadBalancerTlsCertificateDomainValidationRecord {
   /**
    * <p>The validation status. Valid values are listed below.</p>
    */
-  validationStatus?: LoadBalancerTlsCertificateDomainStatus | string;
+  validationStatus?: keyof typeof LoadBalancerTlsCertificateDomainStatus | string;
 
   /**
    * <p>The domain name against which your SSL/TLS certificate was validated.</p>
@@ -2695,13 +2695,13 @@ export interface LoadBalancerTlsCertificateDomainValidationRecord {
 /**
  * @public
  */
-export enum LoadBalancerTlsCertificateFailureReason {
-  AdditionalVerificationRequired = "ADDITIONAL_VERIFICATION_REQUIRED",
-  DomainNotAllowed = "DOMAIN_NOT_ALLOWED",
-  InvalidPublicDomain = "INVALID_PUBLIC_DOMAIN",
-  NoAvailableContacts = "NO_AVAILABLE_CONTACTS",
-  Other = "OTHER",
-}
+export const LoadBalancerTlsCertificateFailureReason = {
+  AdditionalVerificationRequired: "ADDITIONAL_VERIFICATION_REQUIRED",
+  DomainNotAllowed: "DOMAIN_NOT_ALLOWED",
+  InvalidPublicDomain: "INVALID_PUBLIC_DOMAIN",
+  NoAvailableContacts: "NO_AVAILABLE_CONTACTS",
+  Other: "OTHER",
+};
 
 /**
  * @public
@@ -2717,18 +2717,18 @@ export interface LoadBalancerTlsCertificateDomainValidationOption {
   /**
    * <p>The status of the domain validation. Valid values are listed below.</p>
    */
-  validationStatus?: LoadBalancerTlsCertificateDomainStatus | string;
+  validationStatus?: keyof typeof LoadBalancerTlsCertificateDomainStatus | string;
 }
 
 /**
  * @public
  */
-export enum LoadBalancerTlsCertificateRenewalStatus {
-  Failed = "FAILED",
-  PendingAutoRenewal = "PENDING_AUTO_RENEWAL",
-  PendingValidation = "PENDING_VALIDATION",
-  Success = "SUCCESS",
-}
+export const LoadBalancerTlsCertificateRenewalStatus = {
+  Failed: "FAILED",
+  PendingAutoRenewal: "PENDING_AUTO_RENEWAL",
+  PendingValidation: "PENDING_VALIDATION",
+  Success: "SUCCESS",
+};
 
 /**
  * @public
@@ -2816,7 +2816,7 @@ export interface LoadBalancerTlsCertificateRenewalSummary {
    *             </li>
    *          </ul>
    */
-  renewalStatus?: LoadBalancerTlsCertificateRenewalStatus | string;
+  renewalStatus?: keyof typeof LoadBalancerTlsCertificateRenewalStatus | string;
 
   /**
    * <p>Contains information about the validation of each domain name in the certificate, as it
@@ -2829,32 +2829,32 @@ export interface LoadBalancerTlsCertificateRenewalSummary {
 /**
  * @public
  */
-export enum LoadBalancerTlsCertificateRevocationReason {
-  AACompromise = "A_A_COMPROMISE",
-  AffiliationChanged = "AFFILIATION_CHANGED",
-  CaCompromise = "CA_COMPROMISE",
-  CertificateHold = "CERTIFICATE_HOLD",
-  CessationOfOperation = "CESSATION_OF_OPERATION",
-  KeyCompromise = "KEY_COMPROMISE",
-  PrivilegeWithdrawn = "PRIVILEGE_WITHDRAWN",
-  RemoveFromCrl = "REMOVE_FROM_CRL",
-  Superceded = "SUPERCEDED",
-  Unspecified = "UNSPECIFIED",
-}
+export const LoadBalancerTlsCertificateRevocationReason = {
+  AACompromise: "A_A_COMPROMISE",
+  AffiliationChanged: "AFFILIATION_CHANGED",
+  CaCompromise: "CA_COMPROMISE",
+  CertificateHold: "CERTIFICATE_HOLD",
+  CessationOfOperation: "CESSATION_OF_OPERATION",
+  KeyCompromise: "KEY_COMPROMISE",
+  PrivilegeWithdrawn: "PRIVILEGE_WITHDRAWN",
+  RemoveFromCrl: "REMOVE_FROM_CRL",
+  Superceded: "SUPERCEDED",
+  Unspecified: "UNSPECIFIED",
+};
 
 /**
  * @public
  */
-export enum LoadBalancerTlsCertificateStatus {
-  Expired = "EXPIRED",
-  Failed = "FAILED",
-  Inactive = "INACTIVE",
-  Issued = "ISSUED",
-  PendingValidation = "PENDING_VALIDATION",
-  Revoked = "REVOKED",
-  Unknown = "UNKNOWN",
-  ValidationTimedOut = "VALIDATION_TIMED_OUT",
-}
+export const LoadBalancerTlsCertificateStatus = {
+  Expired: "EXPIRED",
+  Failed: "FAILED",
+  Inactive: "INACTIVE",
+  Issued: "ISSUED",
+  PendingValidation: "PENDING_VALIDATION",
+  Revoked: "REVOKED",
+  Unknown: "UNKNOWN",
+  ValidationTimedOut: "VALIDATION_TIMED_OUT",
+};
 
 /**
  * @public
@@ -2962,7 +2962,7 @@ export interface LoadBalancerTlsCertificate {
    *             </li>
    *          </ul>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -2984,7 +2984,7 @@ export interface LoadBalancerTlsCertificate {
   /**
    * <p>The validation status of the SSL/TLS certificate. Valid values are below.</p>
    */
-  status?: LoadBalancerTlsCertificateStatus | string;
+  status?: keyof typeof LoadBalancerTlsCertificateStatus | string;
 
   /**
    * <p>The domain name for your SSL/TLS certificate.</p>
@@ -3062,7 +3062,7 @@ export interface LoadBalancerTlsCertificate {
    *             </li>
    *          </ul>
    */
-  failureReason?: LoadBalancerTlsCertificateFailureReason | string;
+  failureReason?: keyof typeof LoadBalancerTlsCertificateFailureReason | string;
 
   /**
    * <p>The time when the SSL/TLS certificate was issued.</p>
@@ -3099,7 +3099,7 @@ export interface LoadBalancerTlsCertificate {
    * <p>The reason the certificate was revoked. This value is present only when the certificate
    *       status is <code>REVOKED</code>.</p>
    */
-  revocationReason?: LoadBalancerTlsCertificateRevocationReason | string;
+  revocationReason?: keyof typeof LoadBalancerTlsCertificateRevocationReason | string;
 
   /**
    * <p>The timestamp when the certificate was revoked. This value is present only when the
@@ -3352,7 +3352,7 @@ export interface Region {
   /**
    * <p>The region name (e.g., <code>us-east-2</code>).</p>
    */
-  name?: RegionName | string;
+  name?: keyof typeof RegionName | string;
 
   /**
    * <p>The Availability Zones. Follows the format <code>us-east-2a</code>
@@ -3502,7 +3502,7 @@ export interface RelationalDatabase {
    * <p>The Lightsail resource type for the database (for example,
    *         <code>RelationalDatabase</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -3642,9 +3642,9 @@ export interface GetRelationalDatabaseBlueprintsRequest {
 /**
  * @public
  */
-export enum RelationalDatabaseEngine {
-  MYSQL = "mysql",
-}
+export const RelationalDatabaseEngine = {
+  MYSQL: "mysql",
+};
 
 /**
  * @public
@@ -3660,7 +3660,7 @@ export interface RelationalDatabaseBlueprint {
   /**
    * <p>The database software of the database blueprint (for example, <code>MySQL</code>).</p>
    */
-  engine?: RelationalDatabaseEngine | string;
+  engine?: keyof typeof RelationalDatabaseEngine | string;
 
   /**
    * <p>The database engine version for the database blueprint (for example,
@@ -3994,11 +3994,11 @@ export interface GetRelationalDatabaseLogStreamsResult {
 /**
  * @public
  */
-export enum RelationalDatabasePasswordVersion {
-  CURRENT = "CURRENT",
-  PENDING = "PENDING",
-  PREVIOUS = "PREVIOUS",
-}
+export const RelationalDatabasePasswordVersion = {
+  CURRENT: "CURRENT",
+  PENDING: "PENDING",
+  PREVIOUS: "PREVIOUS",
+};
 
 /**
  * @public
@@ -4019,7 +4019,7 @@ export interface GetRelationalDatabaseMasterUserPasswordRequest {
    *          <p>Default: <code>CURRENT</code>
    *          </p>
    */
-  passwordVersion?: RelationalDatabasePasswordVersion | string;
+  passwordVersion?: keyof typeof RelationalDatabasePasswordVersion | string;
 }
 
 /**
@@ -4040,14 +4040,14 @@ export interface GetRelationalDatabaseMasterUserPasswordResult {
 /**
  * @public
  */
-export enum RelationalDatabaseMetricName {
-  CPUUtilization = "CPUUtilization",
-  DatabaseConnections = "DatabaseConnections",
-  DiskQueueDepth = "DiskQueueDepth",
-  FreeStorageSpace = "FreeStorageSpace",
-  NetworkReceiveThroughput = "NetworkReceiveThroughput",
-  NetworkTransmitThroughput = "NetworkTransmitThroughput",
-}
+export const RelationalDatabaseMetricName = {
+  CPUUtilization: "CPUUtilization",
+  DatabaseConnections: "DatabaseConnections",
+  DiskQueueDepth: "DiskQueueDepth",
+  FreeStorageSpace: "FreeStorageSpace",
+  NetworkReceiveThroughput: "NetworkReceiveThroughput",
+  NetworkTransmitThroughput: "NetworkTransmitThroughput",
+};
 
 /**
  * @public
@@ -4137,7 +4137,7 @@ export interface GetRelationalDatabaseMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: RelationalDatabaseMetricName | string | undefined;
+  metricName: keyof typeof RelationalDatabaseMetricName | string | undefined;
 
   /**
    * <p>The granularity, in seconds, of the returned data points.</p>
@@ -4183,7 +4183,7 @@ export interface GetRelationalDatabaseMetricDataRequest {
    *       requested. For the valid units with each available metric, see the <code>metricName</code>
    *       parameter.</p>
    */
-  unit: MetricUnit | string | undefined;
+  unit: keyof typeof MetricUnit | string | undefined;
 
   /**
    * <p>The statistic for the metric.</p>
@@ -4218,7 +4218,7 @@ export interface GetRelationalDatabaseMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: (keyof typeof MetricStatistic | string)[] | undefined;
 }
 
 /**
@@ -4228,7 +4228,7 @@ export interface GetRelationalDatabaseMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
    */
-  metricName?: RelationalDatabaseMetricName | string;
+  metricName?: keyof typeof RelationalDatabaseMetricName | string;
 
   /**
    * <p>An array of objects that describe the metric data returned.</p>
@@ -4396,7 +4396,7 @@ export interface RelationalDatabaseSnapshot {
   /**
    * <p>The Lightsail resource type.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -4537,7 +4537,7 @@ export interface StaticIp {
   /**
    * <p>The resource type (usually <code>StaticIp</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The static IP address.</p>
@@ -4725,7 +4725,7 @@ export interface PutAlarmRequest {
    *          </ul>
    *          <p>For more information about these metrics, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-resource-health-metrics#available-metrics">Metrics available in Lightsail</a>.</p>
    */
-  metricName: MetricName | string | undefined;
+  metricName: keyof typeof MetricName | string | undefined;
 
   /**
    * <p>The name of the Lightsail resource that will be monitored.</p>
@@ -4738,7 +4738,7 @@ export interface PutAlarmRequest {
    * <p>The arithmetic operation to use when comparing the specified statistic to the threshold.
    *       The specified statistic value is used as the first operand.</p>
    */
-  comparisonOperator: ComparisonOperator | string | undefined;
+  comparisonOperator: keyof typeof ComparisonOperator | string | undefined;
 
   /**
    * <p>The value against which the specified statistic is compared.</p>
@@ -4794,7 +4794,7 @@ export interface PutAlarmRequest {
    *          <p>If <code>treatMissingData</code> is not specified, the default behavior of
    *         <code>missing</code> is used.</p>
    */
-  treatMissingData?: TreatMissingData | string;
+  treatMissingData?: keyof typeof TreatMissingData | string;
 
   /**
    * <p>The contact protocols to use for the alarm, such as <code>Email</code>, <code>SMS</code>
@@ -4807,7 +4807,7 @@ export interface PutAlarmRequest {
    *          <p>Use the <code>CreateContactMethod</code> action to configure a contact protocol in an
    *         Amazon Web Services Region.</p>
    */
-  contactProtocols?: (ContactProtocol | string)[];
+  contactProtocols?: (keyof typeof ContactProtocol | string)[];
 
   /**
    * <p>The alarm states that trigger a notification.</p>
@@ -4847,7 +4847,7 @@ export interface PutAlarmRequest {
    *          <p>The notification trigger defaults to <code>ALARM</code> if you don't specify this
    *       parameter.</p>
    */
-  notificationTriggers?: (AlarmState | string)[];
+  notificationTriggers?: (keyof typeof AlarmState | string)[];
 
   /**
    * <p>Indicates whether the alarm is enabled.</p>
@@ -5049,7 +5049,7 @@ export interface SendContactMethodVerificationRequest {
    * <p>The protocol to verify, such as <code>Email</code> or <code>SMS</code> (text
    *       messaging).</p>
    */
-  protocol: ContactMethodVerificationProtocol | string | undefined;
+  protocol: keyof typeof ContactMethodVerificationProtocol | string | undefined;
 }
 
 /**
@@ -5077,7 +5077,7 @@ export interface SetIpAddressTypeRequest {
    *           <code>us-east-1</code> to create, view, or edit distributions.</p>
    *          </note>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>The name of the resource for which to set the IP address type.</p>
@@ -5089,7 +5089,7 @@ export interface SetIpAddressTypeRequest {
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
-  ipAddressType: IpAddressType | string | undefined;
+  ipAddressType: keyof typeof IpAddressType | string | undefined;
 }
 
 /**
@@ -5106,10 +5106,10 @@ export interface SetIpAddressTypeResult {
 /**
  * @public
  */
-export enum ResourceBucketAccess {
-  Allow = "allow",
-  Deny = "deny",
-}
+export const ResourceBucketAccess = {
+  Allow: "allow",
+  Deny: "deny",
+};
 
 /**
  * @public
@@ -5141,7 +5141,7 @@ export interface SetResourceAccessForBucketRequest {
    *             </li>
    *          </ul>
    */
-  access: ResourceBucketAccess | string | undefined;
+  access: keyof typeof ResourceBucketAccess | string | undefined;
 }
 
 /**
@@ -5355,7 +5355,7 @@ export interface TestAlarmRequest {
    *             </li>
    *          </ul>
    */
-  state: AlarmState | string | undefined;
+  state: keyof typeof AlarmState | string | undefined;
 }
 
 /**
@@ -5523,7 +5523,7 @@ export interface UpdateContainerServiceRequest {
    *          <p>Use the <code>GetContainerServicePowers</code> action to view the specifications of each
    *       power option.</p>
    */
-  power?: ContainerServicePowerName | string;
+  power?: keyof typeof ContainerServicePowerName | string;
 
   /**
    * <p>The scale for the container service.</p>
@@ -5709,7 +5709,7 @@ export interface UpdateInstanceMetadataOptionsRequest {
    *       instance metadata retrieval requests. In this state, retrieving the IAM role credential always
    *       returns the version 2.0 credentials. The version 1.0 credentials are not available.</p>
    */
-  httpTokens?: HttpTokens | string;
+  httpTokens?: keyof typeof HttpTokens | string;
 
   /**
    * <p>Enables or disables the HTTP metadata endpoint on your instances. If this parameter is not
@@ -5717,7 +5717,7 @@ export interface UpdateInstanceMetadataOptionsRequest {
    *          <p>If you specify a value of <code>disabled</code>, you cannot access your instance
    *       metadata.</p>
    */
-  httpEndpoint?: HttpEndpoint | string;
+  httpEndpoint?: keyof typeof HttpEndpoint | string;
 
   /**
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. A larger number
@@ -5733,7 +5733,7 @@ export interface UpdateInstanceMetadataOptionsRequest {
    *             <p>This parameter is available only for instances in the Europe (Stockholm) Amazon Web Services Region (<code>eu-north-1</code>).</p>
    *          </note>
    */
-  httpProtocolIpv6?: HttpProtocolIpv6 | string;
+  httpProtocolIpv6?: keyof typeof HttpProtocolIpv6 | string;
 }
 
 /**
@@ -5760,7 +5760,7 @@ export interface UpdateLoadBalancerAttributeRequest {
   /**
    * <p>The name of the attribute you want to update.</p>
    */
-  attributeName: LoadBalancerAttributeName | string | undefined;
+  attributeName: keyof typeof LoadBalancerAttributeName | string | undefined;
 
   /**
    * <p>The value that you want to specify for the attribute name.</p>

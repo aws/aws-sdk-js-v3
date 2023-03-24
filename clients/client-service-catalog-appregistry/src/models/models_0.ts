@@ -254,10 +254,10 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum ResourceType {
-  CFN_STACK = "CFN_STACK",
-  RESOURCE_TAG_VALUE = "RESOURCE_TAG_VALUE",
-}
+export const ResourceType = {
+  CFN_STACK: "CFN_STACK",
+  RESOURCE_TAG_VALUE: "RESOURCE_TAG_VALUE",
+};
 
 /**
  * @public
@@ -271,7 +271,7 @@ export interface AssociateResourceRequest {
   /**
    * <p>The type of resource of which the application will be associated.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>The name or ID of the resource of which the application will be associated.</p>
@@ -568,7 +568,7 @@ export interface DisassociateResourceRequest {
   /**
    * <p>The type of the resource that is being disassociated.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>The name or ID of the resource.</p>
@@ -604,14 +604,14 @@ export interface GetApplicationRequest {
 /**
  * @public
  */
-export enum ResourceGroupState {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const ResourceGroupState = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -633,7 +633,7 @@ export interface ResourceGroup {
    *          <p>
    *             <code>UPDATE_FAILED</code> if the resource group could not update successfully.</p>
    */
-  state?: ResourceGroupState | string;
+  state?: keyof typeof ResourceGroupState | string;
 
   /**
    * <p>The Amazon resource name (ARN) of the resource group.</p>
@@ -726,7 +726,7 @@ export interface GetAssociatedResourceRequest {
   /**
    * <p>The type of resource associated with the application.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>The name or ID of the resource associated with the application.</p>
@@ -972,7 +972,7 @@ export interface ResourceInfo {
    *       about the Service Catalog App Registry resource type.
    *     </p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>
@@ -1104,7 +1104,7 @@ export interface SyncResourceRequest {
   /**
    * <p>The type of resource of which the application will be associated.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>An entity you can work with and specify with a name or ID. Examples include an Amazon EC2 instance, an Amazon Web Services CloudFormation stack, or an Amazon S3 bucket.</p>
@@ -1115,10 +1115,10 @@ export interface SyncResourceRequest {
 /**
  * @public
  */
-export enum SyncAction {
-  NO_ACTION = "NO_ACTION",
-  START_SYNC = "START_SYNC",
-}
+export const SyncAction = {
+  NO_ACTION: "NO_ACTION",
+  START_SYNC: "START_SYNC",
+};
 
 /**
  * @public
@@ -1137,7 +1137,7 @@ export interface SyncResourceResponse {
   /**
    * <p>The results of the output if an application is associated with an ARN value, which could be <code>syncStarted</code> or None.</p>
    */
-  actionTaken?: SyncAction | string;
+  actionTaken?: keyof typeof SyncAction | string;
 }
 
 /**

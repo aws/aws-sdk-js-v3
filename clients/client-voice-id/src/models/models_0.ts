@@ -40,15 +40,15 @@ export interface AuthenticationConfiguration {
 /**
  * @public
  */
-export enum AuthenticationDecision {
-  ACCEPT = "ACCEPT",
-  NOT_ENOUGH_SPEECH = "NOT_ENOUGH_SPEECH",
-  REJECT = "REJECT",
-  SPEAKER_EXPIRED = "SPEAKER_EXPIRED",
-  SPEAKER_ID_NOT_PROVIDED = "SPEAKER_ID_NOT_PROVIDED",
-  SPEAKER_NOT_ENROLLED = "SPEAKER_NOT_ENROLLED",
-  SPEAKER_OPTED_OUT = "SPEAKER_OPTED_OUT",
-}
+export const AuthenticationDecision = {
+  ACCEPT: "ACCEPT",
+  NOT_ENOUGH_SPEECH: "NOT_ENOUGH_SPEECH",
+  REJECT: "REJECT",
+  SPEAKER_EXPIRED: "SPEAKER_EXPIRED",
+  SPEAKER_ID_NOT_PROVIDED: "SPEAKER_ID_NOT_PROVIDED",
+  SPEAKER_NOT_ENROLLED: "SPEAKER_NOT_ENROLLED",
+  SPEAKER_OPTED_OUT: "SPEAKER_OPTED_OUT",
+};
 
 /**
  * @public
@@ -93,7 +93,7 @@ export interface AuthenticationResult {
    * <p>The authentication decision produced by Voice ID, processed against the current
    *             session state and streamed audio of the speaker.</p>
    */
-  Decision?: AuthenticationDecision | string;
+  Decision?: keyof typeof AuthenticationDecision | string;
 
   /**
    * <p>The authentication score for the speaker whose authentication result is produced. This
@@ -112,16 +112,16 @@ export interface AuthenticationResult {
 /**
  * @public
  */
-export enum ConflictType {
-  ANOTHER_ACTIVE_STREAM = "ANOTHER_ACTIVE_STREAM",
-  CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT = "CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT",
-  CONCURRENT_CHANGES = "CONCURRENT_CHANGES",
-  DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES = "DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES",
-  DOMAIN_NOT_ACTIVE = "DOMAIN_NOT_ACTIVE",
-  ENROLLMENT_ALREADY_EXISTS = "ENROLLMENT_ALREADY_EXISTS",
-  SPEAKER_NOT_SET = "SPEAKER_NOT_SET",
-  SPEAKER_OPTED_OUT = "SPEAKER_OPTED_OUT",
-}
+export const ConflictType = {
+  ANOTHER_ACTIVE_STREAM: "ANOTHER_ACTIVE_STREAM",
+  CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT: "CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT",
+  CONCURRENT_CHANGES: "CONCURRENT_CHANGES",
+  DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES: "DOMAIN_LOCKED_FROM_ENCRYPTION_UPDATES",
+  DOMAIN_NOT_ACTIVE: "DOMAIN_NOT_ACTIVE",
+  ENROLLMENT_ALREADY_EXISTS: "ENROLLMENT_ALREADY_EXISTS",
+  SPEAKER_NOT_SET: "SPEAKER_NOT_SET",
+  SPEAKER_OPTED_OUT: "SPEAKER_OPTED_OUT",
+};
 
 /**
  * @public
@@ -167,7 +167,7 @@ export class ConflictException extends __BaseException {
    *             </li>
    *          </ul>
    */
-  ConflictType?: ConflictType | string;
+  ConflictType?: keyof typeof ConflictType | string;
   /**
    * @internal
    */
@@ -250,20 +250,20 @@ export interface CreateDomainRequest {
 /**
  * @public
  */
-export enum DomainStatus {
-  ACTIVE = "ACTIVE",
-  PENDING = "PENDING",
-  SUSPENDED = "SUSPENDED",
-}
+export const DomainStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+  SUSPENDED: "SUSPENDED",
+};
 
 /**
  * @public
  */
-export enum ServerSideEncryptionUpdateStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ServerSideEncryptionUpdateStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -285,7 +285,7 @@ export interface ServerSideEncryptionUpdateDetails {
    *             made accessible, and then an UpdateDomain call with the existing server-side encryption
    *             configuration will re-attempt this update process.</p>
    */
-  UpdateStatus?: ServerSideEncryptionUpdateStatus | string;
+  UpdateStatus?: keyof typeof ServerSideEncryptionUpdateStatus | string;
 
   /**
    * <p>Message explaining the current UpdateStatus. When the UpdateStatus is FAILED, this
@@ -322,7 +322,7 @@ export interface Domain {
   /**
    * <p>The current status of the domain.</p>
    */
-  DomainStatus?: DomainStatus | string;
+  DomainStatus?: keyof typeof DomainStatus | string;
 
   /**
    * <p>The server-side encryption configuration containing the KMS key
@@ -383,14 +383,14 @@ export class InternalServerException extends __BaseException {
 /**
  * @public
  */
-export enum ResourceType {
-  BATCH_JOB = "BATCH_JOB",
-  COMPLIANCE_CONSENT = "COMPLIANCE_CONSENT",
-  DOMAIN = "DOMAIN",
-  FRAUDSTER = "FRAUDSTER",
-  SESSION = "SESSION",
-  SPEAKER = "SPEAKER",
-}
+export const ResourceType = {
+  BATCH_JOB: "BATCH_JOB",
+  COMPLIANCE_CONSENT: "COMPLIANCE_CONSENT",
+  DOMAIN: "DOMAIN",
+  FRAUDSTER: "FRAUDSTER",
+  SESSION: "SESSION",
+  SPEAKER: "SPEAKER",
+};
 
 /**
  * @public
@@ -406,7 +406,7 @@ export class ResourceNotFoundException extends __BaseException {
    *                 <code>BATCH_JOB</code>, <code>COMPLIANCE_CONSENT</code>, <code>DOMAIN</code>,
    *                 <code>FRAUDSTER</code>, <code>SESSION</code> and <code>SPEAKER</code>.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
   /**
    * @internal
    */
@@ -656,13 +656,13 @@ export interface JobProgress {
 /**
  * @public
  */
-export enum FraudsterRegistrationJobStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const FraudsterRegistrationJobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
@@ -689,10 +689,10 @@ export interface OutputDataConfig {
 /**
  * @public
  */
-export enum DuplicateRegistrationAction {
-  REGISTER_AS_NEW = "REGISTER_AS_NEW",
-  SKIP = "SKIP",
-}
+export const DuplicateRegistrationAction = {
+  REGISTER_AS_NEW: "REGISTER_AS_NEW",
+  SKIP: "SKIP",
+};
 
 /**
  * @public
@@ -707,7 +707,7 @@ export interface RegistrationConfig {
    *             to <code>REGISTER_AS_NEW</code> always registers a new fraudster into the specified
    *             domain.</p>
    */
-  DuplicateRegistrationAction?: DuplicateRegistrationAction | string;
+  DuplicateRegistrationAction?: keyof typeof DuplicateRegistrationAction | string;
 
   /**
    * <p>The minimum similarity score between the new and old fraudsters in order to consider
@@ -734,7 +734,7 @@ export interface FraudsterRegistrationJob {
   /**
    * <p>The current status of the fraudster registration job.</p>
    */
-  JobStatus?: FraudsterRegistrationJobStatus | string;
+  JobStatus?: keyof typeof FraudsterRegistrationJobStatus | string;
 
   /**
    * <p>The identifier of the domain containing the fraudster registration job.</p>
@@ -821,12 +821,12 @@ export interface DescribeSpeakerRequest {
 /**
  * @public
  */
-export enum SpeakerStatus {
-  ENROLLED = "ENROLLED",
-  EXPIRED = "EXPIRED",
-  OPTED_OUT = "OPTED_OUT",
-  PENDING = "PENDING",
-}
+export const SpeakerStatus = {
+  ENROLLED: "ENROLLED",
+  EXPIRED: "EXPIRED",
+  OPTED_OUT: "OPTED_OUT",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -851,7 +851,7 @@ export interface Speaker {
   /**
    * <p>The current status of the speaker.</p>
    */
-  Status?: SpeakerStatus | string;
+  Status?: keyof typeof SpeakerStatus | string;
 
   /**
    * <p>A timestamp showing when the speaker is created. </p>
@@ -898,18 +898,18 @@ export interface DescribeSpeakerEnrollmentJobRequest {
 /**
  * @public
  */
-export enum ExistingEnrollmentAction {
-  OVERWRITE = "OVERWRITE",
-  SKIP = "SKIP",
-}
+export const ExistingEnrollmentAction = {
+  OVERWRITE: "OVERWRITE",
+  SKIP: "SKIP",
+};
 
 /**
  * @public
  */
-export enum FraudDetectionAction {
-  FAIL = "FAIL",
-  IGNORE = "IGNORE",
-}
+export const FraudDetectionAction = {
+  FAIL: "FAIL",
+  IGNORE: "IGNORE",
+};
 
 /**
  * @public
@@ -924,7 +924,7 @@ export interface EnrollmentJobFraudDetectionConfig {
    *             this value to <code>IGNORE</code> results in the speaker being enrolled even if they are
    *             flagged by the fraud detection system.</p>
    */
-  FraudDetectionAction?: FraudDetectionAction | string;
+  FraudDetectionAction?: keyof typeof FraudDetectionAction | string;
 
   /**
    * <p>Threshold value for determining whether the speaker is a high risk to be fraudulent.
@@ -946,7 +946,7 @@ export interface EnrollmentConfig {
    *             voice prints and enrollment audio stored for that speaker with new data generated from
    *             the latest audio.</p>
    */
-  ExistingEnrollmentAction?: ExistingEnrollmentAction | string;
+  ExistingEnrollmentAction?: keyof typeof ExistingEnrollmentAction | string;
 
   /**
    * <p>The fraud detection configuration to use for the speaker enrollment job.</p>
@@ -957,13 +957,13 @@ export interface EnrollmentConfig {
 /**
  * @public
  */
-export enum SpeakerEnrollmentJobStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
+export const SpeakerEnrollmentJobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
@@ -983,7 +983,7 @@ export interface SpeakerEnrollmentJob {
   /**
    * <p>The current status of the speaker enrollment job.</p>
    */
-  JobStatus?: SpeakerEnrollmentJobStatus | string;
+  JobStatus?: keyof typeof SpeakerEnrollmentJobStatus | string;
 
   /**
    * <p>The identifier of the domain that contains the speaker enrollment job.</p>
@@ -1097,7 +1097,7 @@ export interface DomainSummary {
   /**
    * <p>The current status of the domain.</p>
    */
-  DomainStatus?: DomainStatus | string;
+  DomainStatus?: keyof typeof DomainStatus | string;
 
   /**
    * <p>The server-side encryption configuration containing the KMS key
@@ -1215,19 +1215,19 @@ export interface FraudDetectionConfiguration {
 /**
  * @public
  */
-export enum FraudDetectionDecision {
-  HIGH_RISK = "HIGH_RISK",
-  LOW_RISK = "LOW_RISK",
-  NOT_ENOUGH_SPEECH = "NOT_ENOUGH_SPEECH",
-}
+export const FraudDetectionDecision = {
+  HIGH_RISK: "HIGH_RISK",
+  LOW_RISK: "LOW_RISK",
+  NOT_ENOUGH_SPEECH: "NOT_ENOUGH_SPEECH",
+};
 
 /**
  * @public
  */
-export enum FraudDetectionReason {
-  KNOWN_FRAUDSTER = "KNOWN_FRAUDSTER",
-  VOICE_SPOOFING = "VOICE_SPOOFING",
-}
+export const FraudDetectionReason = {
+  KNOWN_FRAUDSTER: "KNOWN_FRAUDSTER",
+  VOICE_SPOOFING: "VOICE_SPOOFING",
+};
 
 /**
  * @public
@@ -1313,14 +1313,14 @@ export interface FraudDetectionResult {
    * <p>The fraud detection decision produced by Voice ID, processed against the current
    *             session state and streamed audio of the speaker.</p>
    */
-  Decision?: FraudDetectionDecision | string;
+  Decision?: keyof typeof FraudDetectionDecision | string;
 
   /**
    * <p>The reason speaker was flagged by the fraud detection system. This is only be
    *             populated if fraud detection Decision is <code>HIGH_RISK</code>, and the following
    *             possible values: <code>KNOWN_FRAUDSTER</code> and <code>VOICE_SPOOFING</code>.</p>
    */
-  Reasons?: (FraudDetectionReason | string)[];
+  Reasons?: (keyof typeof FraudDetectionReason | string)[];
 
   /**
    * <p>Details about each risk analyzed for this speaker. Currently, this contains
@@ -1332,11 +1332,11 @@ export interface FraudDetectionResult {
 /**
  * @public
  */
-export enum StreamingStatus {
-  ENDED = "ENDED",
-  ONGOING = "ONGOING",
-  PENDING_CONFIGURATION = "PENDING_CONFIGURATION",
-}
+export const StreamingStatus = {
+  ENDED: "ENDED",
+  ONGOING: "ONGOING",
+  PENDING_CONFIGURATION: "PENDING_CONFIGURATION",
+};
 
 /**
  * @public
@@ -1368,7 +1368,7 @@ export interface EvaluateSessionResponse {
    *             streamed session did not have enough speech to perform evaluation, and a new streaming
    *             session is needed to try again.</p>
    */
-  StreamingStatus?: StreamingStatus | string;
+  StreamingStatus?: keyof typeof StreamingStatus | string;
 
   /**
    * <p>Details resulting from the authentication process, such as authentication decision and
@@ -1401,7 +1401,7 @@ export interface FraudsterRegistrationJobSummary {
   /**
    * <p>The current status of the fraudster registration job.</p>
    */
-  JobStatus?: FraudsterRegistrationJobStatus | string;
+  JobStatus?: keyof typeof FraudsterRegistrationJobStatus | string;
 
   /**
    * <p>The identifier of the domain containing the fraudster registration job.</p>
@@ -1446,7 +1446,7 @@ export interface ListFraudsterRegistrationJobsRequest {
   /**
    * <p>Provides the status of your fraudster registration job.</p>
    */
-  JobStatus?: FraudsterRegistrationJobStatus | string;
+  JobStatus?: keyof typeof FraudsterRegistrationJobStatus | string;
 
   /**
    * <p>The maximum number of results that are returned per call. You can use
@@ -1494,7 +1494,7 @@ export interface ListSpeakerEnrollmentJobsRequest {
   /**
    * <p>Provides the status of your speaker enrollment Job.</p>
    */
-  JobStatus?: SpeakerEnrollmentJobStatus | string;
+  JobStatus?: keyof typeof SpeakerEnrollmentJobStatus | string;
 
   /**
    * <p>The maximum number of results that are returned per call. You can use
@@ -1530,7 +1530,7 @@ export interface SpeakerEnrollmentJobSummary {
   /**
    * <p>The current status of the speaker enrollment job.</p>
    */
-  JobStatus?: SpeakerEnrollmentJobStatus | string;
+  JobStatus?: keyof typeof SpeakerEnrollmentJobStatus | string;
 
   /**
    * <p>The identifier of the domain that contains the speaker enrollment job.</p>
@@ -1629,7 +1629,7 @@ export interface SpeakerSummary {
   /**
    * <p>The current status of the speaker.</p>
    */
-  Status?: SpeakerStatus | string;
+  Status?: keyof typeof SpeakerStatus | string;
 
   /**
    * <p>A timestamp showing the speaker's creation time. </p>

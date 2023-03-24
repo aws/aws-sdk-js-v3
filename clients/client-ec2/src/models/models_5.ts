@@ -188,12 +188,12 @@ export interface DescribeVolumesModificationsRequest {
 /**
  * @public
  */
-export enum VolumeModificationState {
-  completed = "completed",
-  failed = "failed",
-  modifying = "modifying",
-  optimizing = "optimizing",
-}
+export const VolumeModificationState = {
+  completed: "completed",
+  failed: "failed",
+  modifying: "modifying",
+  optimizing: "optimizing",
+};
 
 /**
  * @public
@@ -210,7 +210,7 @@ export interface VolumeModification {
    * <p>The current modification state. The modification state is null for unmodified
    *       volumes.</p>
    */
-  ModificationState?: VolumeModificationState | string;
+  ModificationState?: keyof typeof VolumeModificationState | string;
 
   /**
    * <p>A status message about the modification progress or failure.</p>
@@ -230,7 +230,7 @@ export interface VolumeModification {
   /**
    * <p>The target EBS volume type of the volume.</p>
    */
-  TargetVolumeType?: VolumeType | string;
+  TargetVolumeType?: keyof typeof VolumeType | string;
 
   /**
    * <p>The target throughput of the volume, in MiB/s.</p>
@@ -255,7 +255,7 @@ export interface VolumeModification {
   /**
    * <p>The original EBS volume type of the volume.</p>
    */
-  OriginalVolumeType?: VolumeType | string;
+  OriginalVolumeType?: keyof typeof VolumeType | string;
 
   /**
    * <p>The original throughput of the volume, in MiB/s.</p>
@@ -479,10 +479,10 @@ export interface VolumeStatusEvent {
 /**
  * @public
  */
-export enum VolumeStatusName {
-  io_enabled = "io-enabled",
-  io_performance = "io-performance",
-}
+export const VolumeStatusName = {
+  io_enabled: "io-enabled",
+  io_performance: "io-performance",
+};
 
 /**
  * @public
@@ -492,7 +492,7 @@ export interface VolumeStatusDetails {
   /**
    * <p>The name of the volume status.</p>
    */
-  Name?: VolumeStatusName | string;
+  Name?: keyof typeof VolumeStatusName | string;
 
   /**
    * <p>The intended status of the volume status.</p>
@@ -503,11 +503,11 @@ export interface VolumeStatusDetails {
 /**
  * @public
  */
-export enum VolumeStatusInfoStatus {
-  impaired = "impaired",
-  insufficient_data = "insufficient-data",
-  ok = "ok",
-}
+export const VolumeStatusInfoStatus = {
+  impaired: "impaired",
+  insufficient_data: "insufficient-data",
+  ok: "ok",
+};
 
 /**
  * @public
@@ -522,7 +522,7 @@ export interface VolumeStatusInfo {
   /**
    * <p>The status of the volume.</p>
    */
-  Status?: VolumeStatusInfoStatus | string;
+  Status?: keyof typeof VolumeStatusInfoStatus | string;
 }
 
 /**
@@ -585,11 +585,11 @@ export interface DescribeVolumeStatusResult {
 /**
  * @public
  */
-export enum VpcAttributeName {
-  enableDnsHostnames = "enableDnsHostnames",
-  enableDnsSupport = "enableDnsSupport",
-  enableNetworkAddressUsageMetrics = "enableNetworkAddressUsageMetrics",
-}
+export const VpcAttributeName = {
+  enableDnsHostnames: "enableDnsHostnames",
+  enableDnsSupport: "enableDnsSupport",
+  enableNetworkAddressUsageMetrics: "enableNetworkAddressUsageMetrics",
+};
 
 /**
  * @public
@@ -598,7 +598,7 @@ export interface DescribeVpcAttributeRequest {
   /**
    * <p>The VPC attribute.</p>
    */
-  Attribute: VpcAttributeName | string | undefined;
+  Attribute: keyof typeof VpcAttributeName | string | undefined;
 
   /**
    * <p>The ID of the VPC.</p>
@@ -927,7 +927,7 @@ export interface VpcEndpointConnection {
   /**
    * <p>The state of the VPC endpoint.</p>
    */
-  VpcEndpointState?: State | string;
+  VpcEndpointState?: keyof typeof State | string;
 
   /**
    * <p>The date and time that the VPC endpoint was created.</p>
@@ -952,7 +952,7 @@ export interface VpcEndpointConnection {
   /**
    * <p>The IP address type for the endpoint.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>The ID of the VPC endpoint connection.</p>
@@ -1343,7 +1343,7 @@ export interface ServiceDetail {
   /**
    * <p>The payer responsibility.</p>
    */
-  PayerResponsibility?: PayerResponsibility | string;
+  PayerResponsibility?: keyof typeof PayerResponsibility | string;
 
   /**
    * <p>The tags assigned to the service.</p>
@@ -1354,12 +1354,12 @@ export interface ServiceDetail {
    * <p>The verification state of the VPC endpoint service.</p>
    *          <p>Consumers of the endpoint service cannot use the private name when the state is not <code>verified</code>.</p>
    */
-  PrivateDnsNameVerificationState?: DnsNameState | string;
+  PrivateDnsNameVerificationState?: keyof typeof DnsNameState | string;
 
   /**
    * <p>The supported IP address types.</p>
    */
-  SupportedIpAddressTypes?: (ServiceConnectivityType | string)[];
+  SupportedIpAddressTypes?: (keyof typeof ServiceConnectivityType | string)[];
 }
 
 /**
@@ -2037,12 +2037,12 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionRequest {
   /**
    * <p>The metric used for the disabled subscription.</p>
    */
-  Metric?: MetricType | string;
+  Metric?: keyof typeof MetricType | string;
 
   /**
    * <p>The statistic used for the disabled subscription. </p>
    */
-  Statistic?: StatisticType | string;
+  Statistic?: keyof typeof StatisticType | string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2120,7 +2120,7 @@ export interface DisableFastLaunchResult {
    * <p>The pre-provisioning resource type that must be cleaned after turning off faster launching
    * 			for the Windows AMI. Supported values include: <code>snapshot</code>.</p>
    */
-  ResourceType?: FastLaunchResourceType | string;
+  ResourceType?: keyof typeof FastLaunchResourceType | string;
 
   /**
    * <p>Parameters that were used for faster launching for the Windows AMI before
@@ -2147,7 +2147,7 @@ export interface DisableFastLaunchResult {
   /**
    * <p>The current state of faster launching for the specified Windows AMI.</p>
    */
-  State?: FastLaunchStateCode | string;
+  State?: keyof typeof FastLaunchStateCode | string;
 
   /**
    * <p>The reason that the state changed for faster launching for the Windows AMI.</p>
@@ -2200,7 +2200,7 @@ export interface DisableFastSnapshotRestoreSuccessItem {
   /**
    * <p>The state of fast snapshot restores for the snapshot.</p>
    */
-  State?: FastSnapshotRestoreStateCode | string;
+  State?: keyof typeof FastSnapshotRestoreStateCode | string;
 
   /**
    * <p>The reason for the state transition. The possible values are as follows:</p>
@@ -2424,12 +2424,12 @@ export interface DisableTransitGatewayRouteTablePropagationRequest {
 /**
  * @public
  */
-export enum TransitGatewayPropagationState {
-  disabled = "disabled",
-  disabling = "disabling",
-  enabled = "enabled",
-  enabling = "enabling",
-}
+export const TransitGatewayPropagationState = {
+  disabled: "disabled",
+  disabling: "disabling",
+  enabled: "enabled",
+  enabling: "enabling",
+};
 
 /**
  * @public
@@ -2449,7 +2449,7 @@ export interface TransitGatewayPropagation {
   /**
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: keyof typeof TransitGatewayAttachmentResourceType | string;
 
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -2459,7 +2459,7 @@ export interface TransitGatewayPropagation {
   /**
    * <p>The state.</p>
    */
-  State?: TransitGatewayPropagationState | string;
+  State?: keyof typeof TransitGatewayPropagationState | string;
 
   /**
    * <p>The ID of the transit gateway route table announcement.</p>
@@ -3041,12 +3041,12 @@ export interface EnableAwsNetworkPerformanceMetricSubscriptionRequest {
   /**
    * <p>The metric used for the enabled subscription.</p>
    */
-  Metric?: MetricType | string;
+  Metric?: keyof typeof MetricType | string;
 
   /**
    * <p>The statistic used for the enabled subscription.</p>
    */
-  Statistic?: StatisticType | string;
+  Statistic?: keyof typeof StatisticType | string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3180,7 +3180,7 @@ export interface EnableFastLaunchResult {
   /**
    * <p>The type of resource that was defined for pre-provisioning the Windows AMI for faster launching.</p>
    */
-  ResourceType?: FastLaunchResourceType | string;
+  ResourceType?: keyof typeof FastLaunchResourceType | string;
 
   /**
    * <p>Settings to create and manage the pre-provisioned snapshots that Amazon EC2 uses for faster
@@ -3208,7 +3208,7 @@ export interface EnableFastLaunchResult {
   /**
    * <p>The current state of faster launching for the specified Windows AMI.</p>
    */
-  State?: FastLaunchStateCode | string;
+  State?: keyof typeof FastLaunchStateCode | string;
 
   /**
    * <p>The reason that the state changed for faster launching for the Windows AMI.</p>
@@ -3262,7 +3262,7 @@ export interface EnableFastSnapshotRestoreSuccessItem {
   /**
    * <p>The state of fast snapshot restores.</p>
    */
-  State?: FastSnapshotRestoreStateCode | string;
+  State?: keyof typeof FastSnapshotRestoreStateCode | string;
 
   /**
    * <p>The reason for the state transition. The possible values are as follows:</p>
@@ -3634,10 +3634,10 @@ export interface ExportClientVpnClientCertificateRevocationListRequest {
 /**
  * @public
  */
-export enum ClientCertificateRevocationListStatusCode {
-  active = "active",
-  pending = "pending",
-}
+export const ClientCertificateRevocationListStatusCode = {
+  active: "active",
+  pending: "pending",
+};
 
 /**
  * @public
@@ -3647,7 +3647,7 @@ export interface ClientCertificateRevocationListStatus {
   /**
    * <p>The state of the client certificate revocation list.</p>
    */
-  Code?: ClientCertificateRevocationListStatusCode | string;
+  Code?: keyof typeof ClientCertificateRevocationListStatusCode | string;
 
   /**
    * <p>A message about the status of the client certificate revocation list, if applicable.</p>
@@ -3728,7 +3728,7 @@ export interface ExportImageRequest {
   /**
    * <p>The disk image format.</p>
    */
-  DiskImageFormat: DiskImageFormat | string | undefined;
+  DiskImageFormat: keyof typeof DiskImageFormat | string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3771,7 +3771,7 @@ export interface ExportImageResult {
   /**
    * <p>The disk image format for the exported image.</p>
    */
-  DiskImageFormat?: DiskImageFormat | string;
+  DiskImageFormat?: keyof typeof DiskImageFormat | string;
 
   /**
    * <p>The ID of the export image task.</p>
@@ -4029,17 +4029,17 @@ export interface DataQuery {
   /**
    * <p>The metric, <code>aggregation-latency</code>, indicating that network latency is aggregated for the query. This is the only supported metric.</p>
    */
-  Metric?: MetricType | string;
+  Metric?: keyof typeof MetricType | string;
 
   /**
    * <p>The metric data aggregation period, <code>p50</code>, between the specified <code>startDate</code> and <code>endDate</code>. For example, a metric of <code>five_minutes</code> is the median of all the data points gathered within those five minutes. <code>p50</code> is the only supported metric.</p>
    */
-  Statistic?: StatisticType | string;
+  Statistic?: keyof typeof StatisticType | string;
 
   /**
    * <p>The aggregation period used for the data query.</p>
    */
-  Period?: PeriodType | string;
+  Period?: keyof typeof PeriodType | string;
 }
 
 /**
@@ -4127,17 +4127,17 @@ export interface DataResponse {
   /**
    * <p>The metric used for the network performance request. Only <code>aggregate-latency</code> is supported, which shows network latency during a specified period. </p>
    */
-  Metric?: MetricType | string;
+  Metric?: keyof typeof MetricType | string;
 
   /**
    * <p>The statistic used for the network performance request.</p>
    */
-  Statistic?: StatisticType | string;
+  Statistic?: keyof typeof StatisticType | string;
 
   /**
    * <p>The period used for the network performance request.</p>
    */
-  Period?: PeriodType | string;
+  Period?: keyof typeof PeriodType | string;
 
   /**
    * <p>A list of <code>MetricPoint</code> objects.</p>
@@ -4261,7 +4261,7 @@ export interface GetCapacityReservationUsageResult {
    *             </li>
    *          </ul>
    */
-  State?: CapacityReservationState | string;
+  State?: keyof typeof CapacityReservationState | string;
 
   /**
    * <p>Information about the Capacity Reservation usage.</p>
@@ -4451,12 +4451,12 @@ export interface GetConsoleScreenshotResult {
 /**
  * @public
  */
-export enum UnlimitedSupportedInstanceFamily {
-  t2 = "t2",
-  t3 = "t3",
-  t3a = "t3a",
-  t4g = "t4g",
-}
+export const UnlimitedSupportedInstanceFamily = {
+  t2: "t2",
+  t3: "t3",
+  t3a: "t3a",
+  t4g: "t4g",
+};
 
 /**
  * @public
@@ -4472,7 +4472,7 @@ export interface GetDefaultCreditSpecificationRequest {
   /**
    * <p>The instance family.</p>
    */
-  InstanceFamily: UnlimitedSupportedInstanceFamily | string | undefined;
+  InstanceFamily: keyof typeof UnlimitedSupportedInstanceFamily | string | undefined;
 }
 
 /**
@@ -4484,7 +4484,7 @@ export interface InstanceFamilyCreditSpecification {
   /**
    * <p>The instance family.</p>
    */
-  InstanceFamily?: UnlimitedSupportedInstanceFamily | string;
+  InstanceFamily?: keyof typeof UnlimitedSupportedInstanceFamily | string;
 
   /**
    * <p>The default credit option for CPU usage of the instance family. Valid values are
@@ -4550,12 +4550,12 @@ export interface GetEbsEncryptionByDefaultResult {
 /**
  * @public
  */
-export enum PartitionLoadFrequency {
-  DAILY = "daily",
-  MONTHLY = "monthly",
-  NONE = "none",
-  WEEKLY = "weekly",
-}
+export const PartitionLoadFrequency = {
+  DAILY: "daily",
+  MONTHLY: "monthly",
+  NONE: "none",
+  WEEKLY: "weekly",
+};
 
 /**
  * @public
@@ -4570,7 +4570,7 @@ export interface AthenaIntegration {
   /**
    * <p>The schedule for adding new partitions to the table.</p>
    */
-  PartitionLoadFrequency: PartitionLoadFrequency | string | undefined;
+  PartitionLoadFrequency: keyof typeof PartitionLoadFrequency | string | undefined;
 
   /**
    * <p>The start date for the partition.</p>
@@ -4712,7 +4712,7 @@ export interface Purchase {
    *             amounts are specified. At this time, the only supported currency is
    *             <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: keyof typeof CurrencyCodeValues | string;
 
   /**
    * <p>The duration of the reservation's term in seconds.</p>
@@ -4743,7 +4743,7 @@ export interface Purchase {
   /**
    * <p>The payment option for the reservation.</p>
    */
-  PaymentOption?: PaymentOption | string;
+  PaymentOption?: keyof typeof PaymentOption | string;
 
   /**
    * <p>The upfront price of the reservation.</p>
@@ -4760,7 +4760,7 @@ export interface GetHostReservationPurchasePreviewResult {
    *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
    *             supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: keyof typeof CurrencyCodeValues | string;
 
   /**
    * <p>The purchase information of the Dedicated Host reservation and the Dedicated Hosts
@@ -4793,12 +4793,12 @@ export interface GetInstanceTypesFromInstanceRequirementsRequest {
   /**
    * <p>The processor architecture type.</p>
    */
-  ArchitectureTypes: (ArchitectureType | string)[] | undefined;
+  ArchitectureTypes: (keyof typeof ArchitectureType | string)[] | undefined;
 
   /**
    * <p>The virtualization type.</p>
    */
-  VirtualizationTypes: (VirtualizationType | string)[] | undefined;
+  VirtualizationTypes: (keyof typeof VirtualizationType | string)[] | undefined;
 
   /**
    * <p>The attributes required for the instance types.</p>
@@ -4928,32 +4928,32 @@ export interface GetIpamAddressHistoryRequest {
 /**
  * @public
  */
-export enum IpamComplianceStatus {
-  compliant = "compliant",
-  ignored = "ignored",
-  noncompliant = "noncompliant",
-  unmanaged = "unmanaged",
-}
+export const IpamComplianceStatus = {
+  compliant: "compliant",
+  ignored: "ignored",
+  noncompliant: "noncompliant",
+  unmanaged: "unmanaged",
+};
 
 /**
  * @public
  */
-export enum IpamOverlapStatus {
-  ignored = "ignored",
-  nonoverlapping = "nonoverlapping",
-  overlapping = "overlapping",
-}
+export const IpamOverlapStatus = {
+  ignored: "ignored",
+  nonoverlapping: "nonoverlapping",
+  overlapping: "overlapping",
+};
 
 /**
  * @public
  */
-export enum IpamAddressHistoryResourceType {
-  eip = "eip",
-  instance = "instance",
-  network_interface = "network-interface",
-  subnet = "subnet",
-  vpc = "vpc",
-}
+export const IpamAddressHistoryResourceType = {
+  eip: "eip",
+  instance: "instance",
+  network_interface: "network-interface",
+  subnet: "subnet",
+  vpc: "vpc",
+};
 
 /**
  * @public
@@ -4974,7 +4974,7 @@ export interface IpamAddressHistoryRecord {
   /**
    * <p>The type of the resource.</p>
    */
-  ResourceType?: IpamAddressHistoryResourceType | string;
+  ResourceType?: keyof typeof IpamAddressHistoryResourceType | string;
 
   /**
    * <p>The ID of the resource.</p>
@@ -4994,12 +4994,12 @@ export interface IpamAddressHistoryRecord {
   /**
    * <p>The compliance status of a resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  ResourceComplianceStatus?: IpamComplianceStatus | string;
+  ResourceComplianceStatus?: keyof typeof IpamComplianceStatus | string;
 
   /**
    * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  ResourceOverlapStatus?: IpamOverlapStatus | string;
+  ResourceOverlapStatus?: keyof typeof IpamOverlapStatus | string;
 
   /**
    * <p>The VPC ID of the resource.</p>
@@ -5072,11 +5072,11 @@ export interface GetIpamDiscoveredAccountsRequest {
 /**
  * @public
  */
-export enum IpamDiscoveryFailureCode {
-  assume_role_failure = "assume-role-failure",
-  throttling_failure = "throttling-failure",
-  unauthorized_failure = "unauthorized-failure",
-}
+export const IpamDiscoveryFailureCode = {
+  assume_role_failure: "assume-role-failure",
+  throttling_failure: "throttling-failure",
+  unauthorized_failure: "unauthorized-failure",
+};
 
 /**
  * @public
@@ -5111,7 +5111,7 @@ export interface IpamDiscoveryFailureReason {
    *             </li>
    *          </ul>
    */
-  Code?: IpamDiscoveryFailureCode | string;
+  Code?: keyof typeof IpamDiscoveryFailureCode | string;
 
   /**
    * <p>The discovery failure message.</p>
@@ -5206,13 +5206,13 @@ export interface GetIpamDiscoveredResourceCidrsRequest {
 /**
  * @public
  */
-export enum IpamResourceType {
-  eip = "eip",
-  ipv6_pool = "ipv6-pool",
-  public_ipv4_pool = "public-ipv4-pool",
-  subnet = "subnet",
-  vpc = "vpc",
-}
+export const IpamResourceType = {
+  eip: "eip",
+  ipv6_pool: "ipv6-pool",
+  public_ipv4_pool: "public-ipv4-pool",
+  subnet: "subnet",
+  vpc: "vpc",
+};
 
 /**
  * @public
@@ -5247,7 +5247,7 @@ export interface IpamDiscoveredResourceCidr {
   /**
    * <p>The resource type.</p>
    */
-  ResourceType?: IpamResourceType | string;
+  ResourceType?: keyof typeof IpamResourceType | string;
 
   /**
    * <p>The resource tags.</p>
@@ -5442,7 +5442,7 @@ export interface GetIpamResourceCidrsRequest {
   /**
    * <p>The resource type.</p>
    */
-  ResourceType?: IpamResourceType | string;
+  ResourceType?: keyof typeof IpamResourceType | string;
 
   /**
    * <p>The resource tag.</p>
@@ -5458,11 +5458,11 @@ export interface GetIpamResourceCidrsRequest {
 /**
  * @public
  */
-export enum IpamManagementState {
-  ignored = "ignored",
-  managed = "managed",
-  unmanaged = "unmanaged",
-}
+export const IpamManagementState = {
+  ignored: "ignored",
+  managed: "managed",
+  unmanaged: "unmanaged",
+};
 
 /**
  * @public
@@ -5512,7 +5512,7 @@ export interface IpamResourceCidr {
   /**
    * <p>The type of IPAM resource.</p>
    */
-  ResourceType?: IpamResourceType | string;
+  ResourceType?: keyof typeof IpamResourceType | string;
 
   /**
    * <p>The tags for an IPAM resource.</p>
@@ -5541,17 +5541,17 @@ export interface IpamResourceCidr {
   /**
    * <p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  ComplianceStatus?: IpamComplianceStatus | string;
+  ComplianceStatus?: keyof typeof IpamComplianceStatus | string;
 
   /**
    * <p>The management state of the resource. For more information about management states, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  ManagementState?: IpamManagementState | string;
+  ManagementState?: keyof typeof IpamManagementState | string;
 
   /**
    * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  OverlapStatus?: IpamOverlapStatus | string;
+  OverlapStatus?: keyof typeof IpamOverlapStatus | string;
 
   /**
    * <p>The ID of a VPC.</p>
@@ -5765,7 +5765,7 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsResult {
   /**
    * <p>The status of Network Access Scope Analysis.</p>
    */
-  AnalysisStatus?: AnalysisStatus | string;
+  AnalysisStatus?: keyof typeof AnalysisStatus | string;
 
   /**
    * <p>The findings associated with Network Access Scope Analysis.</p>
@@ -6023,12 +6023,12 @@ export interface InstanceRequirementsWithMetadataRequest {
   /**
    * <p>The architecture type.</p>
    */
-  ArchitectureTypes?: (ArchitectureType | string)[];
+  ArchitectureTypes?: (keyof typeof ArchitectureType | string)[];
 
   /**
    * <p>The virtualization type.</p>
    */
-  VirtualizationTypes?: (VirtualizationType | string)[];
+  VirtualizationTypes?: (keyof typeof VirtualizationType | string)[];
 
   /**
    * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
@@ -6060,7 +6060,7 @@ export interface GetSpotPlacementScoresRequest {
    * <p>The unit for the target capacity.</p>
    *          <p>Default: <code>units</code> (translates to number of instances)</p>
    */
-  TargetCapacityUnitType?: TargetCapacityUnitType | string;
+  TargetCapacityUnitType?: keyof typeof TargetCapacityUnitType | string;
 
   /**
    * <p>Specify <code>true</code> so that the response returns a list of scored Availability Zones.
@@ -6286,7 +6286,7 @@ export interface TransitGatewayAttachmentPropagation {
   /**
    * <p>The state of the propagation route table.</p>
    */
-  State?: TransitGatewayPropagationState | string;
+  State?: keyof typeof TransitGatewayPropagationState | string;
 }
 
 /**
@@ -6379,7 +6379,7 @@ export interface TransitGatewayMulticastDomainAssociation {
   /**
    * <p>The type of resource, for example a VPC attachment.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: keyof typeof TransitGatewayAttachmentResourceType | string;
 
   /**
    * <p> The ID of the Amazon Web Services account that owns the transit gateway multicast domain association resource.</p>
@@ -6718,12 +6718,12 @@ export interface TransitGatewayRouteTableAssociation {
   /**
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: keyof typeof TransitGatewayAttachmentResourceType | string;
 
   /**
    * <p>The state of the association.</p>
    */
-  State?: TransitGatewayAssociationState | string;
+  State?: keyof typeof TransitGatewayAssociationState | string;
 }
 
 /**
@@ -6808,12 +6808,12 @@ export interface TransitGatewayRouteTablePropagation {
   /**
    * <p>The type of resource. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: keyof typeof TransitGatewayAttachmentResourceType | string;
 
   /**
    * <p>The state of the resource.</p>
    */
-  State?: TransitGatewayPropagationState | string;
+  State?: keyof typeof TransitGatewayPropagationState | string;
 
   /**
    * <p>The ID of the transit gateway route table announcement.</p>
@@ -7269,7 +7269,7 @@ export interface ImportImageRequest {
   /**
    * <p>The boot mode of the virtual machine.</p>
    */
-  BootMode?: BootModeValues | string;
+  BootMode?: keyof typeof BootModeValues | string;
 }
 
 /**
@@ -7370,7 +7370,7 @@ export interface DiskImageDetail {
   /**
    * <p>The disk image format.</p>
    */
-  Format: DiskImageFormat | string | undefined;
+  Format: keyof typeof DiskImageFormat | string | undefined;
 
   /**
    * <p>A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL.
@@ -7439,7 +7439,7 @@ export interface ImportInstanceLaunchSpecification {
   /**
    * <p>The architecture of the instance.</p>
    */
-  Architecture?: ArchitectureValues | string;
+  Architecture?: keyof typeof ArchitectureValues | string;
 
   /**
    * <p>The security group IDs.</p>
@@ -7455,13 +7455,13 @@ export interface ImportInstanceLaunchSpecification {
    * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the
    *    operating system command for system shutdown).</p>
    */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+  InstanceInitiatedShutdownBehavior?: keyof typeof ShutdownBehavior | string;
 
   /**
    * <p>The instance type. For more information about the instance types that you can import, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types">Instance Types</a> in the
    *    VM Import/Export User Guide.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>Indicates whether monitoring is enabled.</p>
@@ -7518,7 +7518,7 @@ export interface ImportInstanceRequest {
   /**
    * <p>The instance operating system.</p>
    */
-  Platform: PlatformValues | string | undefined;
+  Platform: keyof typeof PlatformValues | string | undefined;
 }
 
 /**

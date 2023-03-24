@@ -46,14 +46,14 @@ export class AccessPointAlreadyExists extends __BaseException {
 /**
  * @public
  */
-export enum LifeCycleState {
-  AVAILABLE = "available",
-  CREATING = "creating",
-  DELETED = "deleted",
-  DELETING = "deleting",
-  ERROR = "error",
-  UPDATING = "updating",
-}
+export const LifeCycleState = {
+  AVAILABLE: "available",
+  CREATING: "creating",
+  DELETED: "deleted",
+  DELETING: "deleting",
+  ERROR: "error",
+  UPDATING: "updating",
+};
 
 /**
  * @public
@@ -209,7 +209,7 @@ export interface AccessPointDescription {
   /**
    * <p>Identifies the lifecycle phase of the access point.</p>
    */
-  LifeCycleState?: LifeCycleState | string;
+  LifeCycleState?: keyof typeof LifeCycleState | string;
 }
 
 /**
@@ -327,12 +327,12 @@ export class AvailabilityZonesMismatch extends __BaseException {
 /**
  * @public
  */
-export enum Status {
-  DISABLED = "DISABLED",
-  DISABLING = "DISABLING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-}
+export const Status = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+};
 
 /**
  * @public
@@ -370,7 +370,7 @@ export interface BackupPolicy {
    *             </li>
    *          </ul>
    */
-  Status: Status | string | undefined;
+  Status: keyof typeof Status | string | undefined;
 }
 
 /**
@@ -614,19 +614,19 @@ export class ThrottlingException extends __BaseException {
 /**
  * @public
  */
-export enum PerformanceMode {
-  GENERAL_PURPOSE = "generalPurpose",
-  MAX_IO = "maxIO",
-}
+export const PerformanceMode = {
+  GENERAL_PURPOSE: "generalPurpose",
+  MAX_IO: "maxIO",
+};
 
 /**
  * @public
  */
-export enum ThroughputMode {
-  BURSTING = "bursting",
-  ELASTIC = "elastic",
-  PROVISIONED = "provisioned",
-}
+export const ThroughputMode = {
+  BURSTING: "bursting",
+  ELASTIC: "elastic",
+  PROVISIONED: "provisioned",
+};
 
 /**
  * @public
@@ -648,7 +648,7 @@ export interface CreateFileSystemRequest {
    *             <p>The <code>maxIO</code> mode is not supported on file systems using One Zone storage classes.</p>
    *          </note>
    */
-  PerformanceMode?: PerformanceMode | string;
+  PerformanceMode?: keyof typeof PerformanceMode | string;
 
   /**
    * <p>A Boolean value that, if true, creates an encrypted file system. When creating an
@@ -701,7 +701,7 @@ export interface CreateFileSystemRequest {
    *         Guide</i>. </p>
    *          <p>Default is <code>bursting</code>.</p>
    */
-  ThroughputMode?: ThroughputMode | string;
+  ThroughputMode?: keyof typeof ThroughputMode | string;
 
   /**
    * <p>The throughput, measured in
@@ -862,7 +862,7 @@ export interface FileSystemDescription {
   /**
    * <p>The lifecycle phase of the file system.</p>
    */
-  LifeCycleState: LifeCycleState | string | undefined;
+  LifeCycleState: keyof typeof LifeCycleState | string | undefined;
 
   /**
    * <p>You can add tags to a file system, including a <code>Name</code> tag. For more
@@ -892,7 +892,7 @@ export interface FileSystemDescription {
   /**
    * <p>The performance mode of the file system.</p>
    */
-  PerformanceMode: PerformanceMode | string | undefined;
+  PerformanceMode: keyof typeof PerformanceMode | string | undefined;
 
   /**
    * <p>A Boolean value that, if true, indicates that the file system is encrypted.</p>
@@ -910,7 +910,7 @@ export interface FileSystemDescription {
    *       in the <i>Amazon EFS User Guide</i>.
    *     </p>
    */
-  ThroughputMode?: ThroughputMode | string;
+  ThroughputMode?: keyof typeof ThroughputMode | string;
 
   /**
    * <p>The amount of provisioned throughput, measured in MiB/s, for the file system. Valid for
@@ -1219,7 +1219,7 @@ export interface MountTargetDescription {
   /**
    * <p>Lifecycle state of the mount target.</p>
    */
-  LifeCycleState: LifeCycleState | string | undefined;
+  LifeCycleState: keyof typeof LifeCycleState | string | undefined;
 
   /**
    * <p>Address at which the file system can be mounted by using the mount target.</p>
@@ -1502,12 +1502,12 @@ export interface CreateReplicationConfigurationRequest {
 /**
  * @public
  */
-export enum ReplicationStatus {
-  DELETING = "DELETING",
-  ENABLED = "ENABLED",
-  ENABLING = "ENABLING",
-  ERROR = "ERROR",
-}
+export const ReplicationStatus = {
+  DELETING: "DELETING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  ERROR: "ERROR",
+};
 
 /**
  * @public
@@ -1520,7 +1520,7 @@ export interface Destination {
    *       failed state and is unrecoverable. To access the file system data, restore a backup of the
    *       failed file system to a new file system.</p>
    */
-  Status: ReplicationStatus | string | undefined;
+  Status: keyof typeof ReplicationStatus | string | undefined;
 
   /**
    * <p>The ID of the destination Amazon EFS file system.</p>
@@ -1911,18 +1911,18 @@ export interface DescribeAccountPreferencesRequest {
 /**
  * @public
  */
-export enum ResourceIdType {
-  LongId = "LONG_ID",
-  ShortId = "SHORT_ID",
-}
+export const ResourceIdType = {
+  LongId: "LONG_ID",
+  ShortId: "SHORT_ID",
+};
 
 /**
  * @public
  */
-export enum Resource {
-  FileSystem = "FILE_SYSTEM",
-  MountTarget = "MOUNT_TARGET",
-}
+export const Resource = {
+  FileSystem: "FILE_SYSTEM",
+  MountTarget: "MOUNT_TARGET",
+};
 
 /**
  * @public
@@ -1932,12 +1932,12 @@ export interface ResourceIdPreference {
   /**
    * <p>Identifies the EFS resource ID preference, either <code>LONG_ID</code> (17 characters) or <code>SHORT_ID</code> (8 characters).</p>
    */
-  ResourceIdType?: ResourceIdType | string;
+  ResourceIdType?: keyof typeof ResourceIdType | string;
 
   /**
    * <p>Identifies the Amazon EFS resources to which the ID preference setting applies, <code>FILE_SYSTEM</code> and <code>MOUNT_TARGET</code>.</p>
    */
-  Resources?: (Resource | string)[];
+  Resources?: (keyof typeof Resource | string)[];
 }
 
 /**
@@ -2094,21 +2094,21 @@ export interface DescribeLifecycleConfigurationRequest {
 /**
  * @public
  */
-export enum TransitionToIARules {
-  AFTER_14_DAYS = "AFTER_14_DAYS",
-  AFTER_1_DAY = "AFTER_1_DAY",
-  AFTER_30_DAYS = "AFTER_30_DAYS",
-  AFTER_60_DAYS = "AFTER_60_DAYS",
-  AFTER_7_DAYS = "AFTER_7_DAYS",
-  AFTER_90_DAYS = "AFTER_90_DAYS",
-}
+export const TransitionToIARules = {
+  AFTER_14_DAYS: "AFTER_14_DAYS",
+  AFTER_1_DAY: "AFTER_1_DAY",
+  AFTER_30_DAYS: "AFTER_30_DAYS",
+  AFTER_60_DAYS: "AFTER_60_DAYS",
+  AFTER_7_DAYS: "AFTER_7_DAYS",
+  AFTER_90_DAYS: "AFTER_90_DAYS",
+};
 
 /**
  * @public
  */
-export enum TransitionToPrimaryStorageClassRules {
-  AFTER_1_ACCESS = "AFTER_1_ACCESS",
-}
+export const TransitionToPrimaryStorageClassRules = {
+  AFTER_1_ACCESS: "AFTER_1_ACCESS",
+};
 
 /**
  * @public
@@ -2133,14 +2133,14 @@ export interface LifecyclePolicy {
    *       operations such as listing the contents of a directory don't count as file access
    *       events.</p>
    */
-  TransitionToIA?: TransitionToIARules | string;
+  TransitionToIA?: keyof typeof TransitionToIARules | string;
 
   /**
    * <p>Describes when to transition a file from IA storage to primary storage. Metadata
    *       operations such as listing the contents of a directory don't count as file access
    *       events.</p>
    */
-  TransitionToPrimaryStorageClass?: TransitionToPrimaryStorageClassRules | string;
+  TransitionToPrimaryStorageClass?: keyof typeof TransitionToPrimaryStorageClassRules | string;
 }
 
 /**
@@ -2470,7 +2470,7 @@ export interface PutAccountPreferencesRequest {
    *         use short IDs for file system and mount target resources.</p>
    *          </note>
    */
-  ResourceIdType: ResourceIdType | string | undefined;
+  ResourceIdType: keyof typeof ResourceIdType | string | undefined;
 }
 
 /**
@@ -2646,7 +2646,7 @@ export interface UpdateFileSystemRequest {
    *       request. If you are changing the <code>ThroughputMode</code> to <code>provisioned</code>,
    *       you must also set a value for <code>ProvisionedThroughputInMibps</code>.</p>
    */
-  ThroughputMode?: ThroughputMode | string;
+  ThroughputMode?: keyof typeof ThroughputMode | string;
 
   /**
    * <p>(Optional) Sets the amount of provisioned throughput, in MiB/s, for the file

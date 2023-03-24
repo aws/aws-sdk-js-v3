@@ -21853,13 +21853,16 @@ const serializeAws_restJson1AlertTarget = (input: AlertTarget, context: __SerdeC
 };
 
 const serializeAws_restJson1AlertTargets = (input: Record<string, AlertTarget>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [AlertTargetType | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof AlertTargetType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = serializeAws_restJson1AlertTarget(value, context);
       return acc;
-    }
-    acc[key] = serializeAws_restJson1AlertTarget(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1AssetPropertyTimestamp = (input: AssetPropertyTimestamp, context: __SerdeContext): any => {
@@ -22004,7 +22007,7 @@ const serializeAws_restJson1AuditNotificationTargetConfigurations = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [AuditNotificationType | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [keyof typeof AuditNotificationType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -22347,13 +22350,16 @@ const serializeAws_restJson1EventConfigurations = (
   input: Record<string, Configuration>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [EventType | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof EventType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = serializeAws_restJson1Configuration(value, context);
       return acc;
-    }
-    acc[key] = serializeAws_restJson1Configuration(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1ExponentialRolloutRate = (input: ExponentialRolloutRate, context: __SerdeContext): any => {
@@ -22827,7 +22833,7 @@ const serializeAws_restJson1PresignedUrlConfig = (input: PresignedUrlConfig, con
   };
 };
 
-const serializeAws_restJson1Protocols = (input: (Protocol | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1Protocols = (input: (keyof typeof Protocol | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -23604,7 +23610,7 @@ const deserializeAws_restJson1AlertTarget = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1AlertTargets = (output: any, context: __SerdeContext): Record<string, AlertTarget> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, AlertTarget>, [key, value]: [AlertTargetType | string, any]) => {
+    (acc: Record<string, AlertTarget>, [key, value]: [keyof typeof AlertTargetType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -23918,7 +23924,10 @@ const deserializeAws_restJson1AuditNotificationTargetConfigurations = (
   context: __SerdeContext
 ): Record<string, AuditNotificationTarget> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, AuditNotificationTarget>, [key, value]: [AuditNotificationType | string, any]) => {
+    (
+      acc: Record<string, AuditNotificationTarget>,
+      [key, value]: [keyof typeof AuditNotificationType | string, any]
+    ) => {
       if (value === null) {
         return acc;
       }
@@ -24750,7 +24759,7 @@ const deserializeAws_restJson1EventConfigurations = (
   context: __SerdeContext
 ): Record<string, Configuration> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, Configuration>, [key, value]: [EventType | string, any]) => {
+    (acc: Record<string, Configuration>, [key, value]: [keyof typeof EventType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -25880,7 +25889,10 @@ const deserializeAws_restJson1ProcessingTargetNameList = (output: any, context: 
   return retVal;
 };
 
-const deserializeAws_restJson1Protocols = (output: any, context: __SerdeContext): (Protocol | string)[] => {
+const deserializeAws_restJson1Protocols = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Protocol | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

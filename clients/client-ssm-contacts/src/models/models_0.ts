@@ -6,18 +6,18 @@ import { SSMContactsServiceException as __BaseException } from "./SSMContactsSer
 /**
  * @public
  */
-export enum AcceptCodeValidation {
-  ENFORCE = "ENFORCE",
-  IGNORE = "IGNORE",
-}
+export const AcceptCodeValidation = {
+  ENFORCE: "ENFORCE",
+  IGNORE: "IGNORE",
+};
 
 /**
  * @public
  */
-export enum AcceptType {
-  DELIVERED = "DELIVERED",
-  READ = "READ",
-}
+export const AcceptType = {
+  DELIVERED: "DELIVERED",
+  READ: "READ",
+};
 
 /**
  * @public
@@ -36,7 +36,7 @@ export interface AcceptPageRequest {
   /**
    * <p>The type indicates if the page was <code>DELIVERED</code> or <code>READ</code>.</p>
    */
-  AcceptType: AcceptType | string | undefined;
+  AcceptType: keyof typeof AcceptType | string | undefined;
 
   /**
    * <p>Information provided by the user when the user acknowledges the page.</p>
@@ -58,7 +58,7 @@ export interface AcceptPageRequest {
    *             <code>AcceptCode</code> validation. Ignoring <code>AcceptCode</code> validation causes
    *          Incident Manager to accept any value entered for the <code>AcceptCode</code>.</p>
    */
-  AcceptCodeValidation?: AcceptCodeValidation | string;
+  AcceptCodeValidation?: keyof typeof AcceptCodeValidation | string;
 }
 
 /**
@@ -207,12 +207,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  OTHER = "OTHER",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  OTHER: "OTHER",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+};
 
 /**
  * @public
@@ -226,7 +226,7 @@ export class ValidationException extends __BaseException {
   /**
    * Reason the request failed validation
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * The fields that caused the error
@@ -271,10 +271,10 @@ export interface ActivateContactChannelResult {}
 /**
  * @public
  */
-export enum ActivationStatus {
-  ACTIVATED = "ACTIVATED",
-  NOT_ACTIVATED = "NOT_ACTIVATED",
-}
+export const ActivationStatus = {
+  ACTIVATED: "ACTIVATED",
+  NOT_ACTIVATED: "NOT_ACTIVATED",
+};
 
 /**
  * @public
@@ -297,11 +297,11 @@ export interface ChannelTargetInfo {
 /**
  * @public
  */
-export enum ChannelType {
-  EMAIL = "EMAIL",
-  SMS = "SMS",
-  VOICE = "VOICE",
-}
+export const ChannelType = {
+  EMAIL: "EMAIL",
+  SMS: "SMS",
+  VOICE: "VOICE",
+};
 
 /**
  * @public
@@ -339,10 +339,10 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum ContactType {
-  ESCALATION = "ESCALATION",
-  PERSONAL = "PERSONAL",
-}
+export const ContactType = {
+  ESCALATION: "ESCALATION",
+  PERSONAL: "PERSONAL",
+};
 
 /**
  * @public
@@ -369,7 +369,7 @@ export interface Contact {
    * <p>Refers to the type of contact. A single contact is type <code>PERSONAL</code> and an
    *          escalation plan is type <code>ESCALATION</code>.</p>
    */
-  Type: ContactType | string | undefined;
+  Type: keyof typeof ContactType | string | undefined;
 }
 
 /**
@@ -429,7 +429,7 @@ export interface ContactChannel {
    *             </li>
    *          </ul>
    */
-  Type?: ChannelType | string;
+  Type?: keyof typeof ChannelType | string;
 
   /**
    * <p>The details that Incident Manager uses when trying to engage the contact channel.</p>
@@ -440,7 +440,7 @@ export interface ContactChannel {
    * <p>A Boolean value describing if the contact channel has been activated or not. If the
    *          contact channel isn't activated, Incident Manager can't engage the contact through it. </p>
    */
-  ActivationStatus: ActivationStatus | string | undefined;
+  ActivationStatus: keyof typeof ActivationStatus | string | undefined;
 }
 
 /**
@@ -545,7 +545,7 @@ export interface CreateContactRequest {
    * <p>To create an escalation plan use <code>ESCALATION</code>. To create a contact use
    *             <code>PERSONAL</code>.</p>
    */
-  Type: ContactType | string | undefined;
+  Type: keyof typeof ContactType | string | undefined;
 
   /**
    * <p>A list of stages. A contact has an engagement plan with stages that contact specified
@@ -677,7 +677,7 @@ export interface CreateContactChannelRequest {
    *             </li>
    *          </ul>
    */
-  Type: ChannelType | string | undefined;
+  Type: keyof typeof ChannelType | string | undefined;
 
   /**
    * <p>The details that Incident Manager uses when trying to engage the contact channel. The format
@@ -983,7 +983,7 @@ export interface GetContactResult {
   /**
    * <p>The type of contact, either <code>PERSONAL</code> or <code>ESCALATION</code>. </p>
    */
-  Type: ContactType | string | undefined;
+  Type: keyof typeof ContactType | string | undefined;
 
   /**
    * <p>Details about the specific timing or stages and targets of the escalation plan or
@@ -1025,7 +1025,7 @@ export interface GetContactChannelResult {
    * <p>The type of contact channel. The type is <code>SMS</code>, <code>VOICE</code>, or
    *             <code>EMAIL</code>.</p>
    */
-  Type: ChannelType | string | undefined;
+  Type: keyof typeof ChannelType | string | undefined;
 
   /**
    * <p>The details that Incident Manager uses when trying to engage the contact channel. </p>
@@ -1035,7 +1035,7 @@ export interface GetContactChannelResult {
   /**
    * <p>A Boolean value indicating if the contact channel has been activated or not.</p>
    */
-  ActivationStatus?: ActivationStatus | string;
+  ActivationStatus?: keyof typeof ActivationStatus | string;
 }
 
 /**
@@ -1121,7 +1121,7 @@ export interface ListContactsRequest {
    * <p>The type of contact. A contact is type <code>PERSONAL</code> and an escalation plan is
    *          type <code>ESCALATION</code>.</p>
    */
-  Type?: ContactType | string;
+  Type?: keyof typeof ContactType | string;
 }
 
 /**
@@ -1219,13 +1219,13 @@ export interface ListPageReceiptsRequest {
 /**
  * @public
  */
-export enum ReceiptType {
-  DELIVERED = "DELIVERED",
-  ERROR = "ERROR",
-  READ = "READ",
-  SENT = "SENT",
-  STOP = "STOP",
-}
+export const ReceiptType = {
+  DELIVERED: "DELIVERED",
+  ERROR: "ERROR",
+  READ: "READ",
+  SENT: "SENT",
+  STOP: "STOP",
+};
 
 /**
  * @public
@@ -1241,7 +1241,7 @@ export interface Receipt {
    * <p>The type follows the engagement cycle, <code>SENT</code>, <code>DELIVERED</code>, and
    *             <code>READ</code>.</p>
    */
-  ReceiptType: ReceiptType | string | undefined;
+  ReceiptType: keyof typeof ReceiptType | string | undefined;
 
   /**
    * <p>Information provided during the page acknowledgement.</p>

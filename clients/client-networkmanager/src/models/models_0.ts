@@ -20,12 +20,12 @@ export interface AcceptAttachmentRequest {
 /**
  * @public
  */
-export enum AttachmentType {
-  CONNECT = "CONNECT",
-  SITE_TO_SITE_VPN = "SITE_TO_SITE_VPN",
-  TRANSIT_GATEWAY_ROUTE_TABLE = "TRANSIT_GATEWAY_ROUTE_TABLE",
-  VPC = "VPC",
-}
+export const AttachmentType = {
+  CONNECT: "CONNECT",
+  SITE_TO_SITE_VPN: "SITE_TO_SITE_VPN",
+  TRANSIT_GATEWAY_ROUTE_TABLE: "TRANSIT_GATEWAY_ROUTE_TABLE",
+  VPC: "VPC",
+};
 
 /**
  * @public
@@ -69,17 +69,17 @@ export interface ProposedSegmentChange {
 /**
  * @public
  */
-export enum AttachmentState {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING_ATTACHMENT_ACCEPTANCE = "PENDING_ATTACHMENT_ACCEPTANCE",
-  PENDING_NETWORK_UPDATE = "PENDING_NETWORK_UPDATE",
-  PENDING_TAG_ACCEPTANCE = "PENDING_TAG_ACCEPTANCE",
-  REJECTED = "REJECTED",
-  UPDATING = "UPDATING",
-}
+export const AttachmentState = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING_ATTACHMENT_ACCEPTANCE: "PENDING_ATTACHMENT_ACCEPTANCE",
+  PENDING_NETWORK_UPDATE: "PENDING_NETWORK_UPDATE",
+  PENDING_TAG_ACCEPTANCE: "PENDING_TAG_ACCEPTANCE",
+  REJECTED: "REJECTED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -109,12 +109,12 @@ export interface Attachment {
   /**
    * <p>The type of attachment.</p>
    */
-  AttachmentType?: AttachmentType | string;
+  AttachmentType?: keyof typeof AttachmentType | string;
 
   /**
    * <p>The state of the attachment.</p>
    */
-  State?: AttachmentState | string;
+  State?: keyof typeof AttachmentState | string;
 
   /**
    * <p>The Region where the edge is located.</p>
@@ -335,12 +335,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CannotParse",
-  FIELD_VALIDATION_FAILED = "FieldValidationFailed",
-  OTHER = "Other",
-  UNKNOWN_OPERATION = "UnknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CannotParse",
+  FIELD_VALIDATION_FAILED: "FieldValidationFailed",
+  OTHER: "Other",
+  UNKNOWN_OPERATION: "UnknownOperation",
+};
 
 /**
  * @public
@@ -353,7 +353,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason for the error.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>The fields that caused the error, if applicable.</p>
@@ -419,12 +419,12 @@ export interface AssociateConnectPeerRequest {
 /**
  * @public
  */
-export enum ConnectPeerAssociationState {
-  available = "AVAILABLE",
-  deleted = "DELETED",
-  deleting = "DELETING",
-  pending = "PENDING",
-}
+export const ConnectPeerAssociationState = {
+  available: "AVAILABLE",
+  deleted: "DELETED",
+  deleting: "DELETING",
+  pending: "PENDING",
+};
 
 /**
  * @public
@@ -454,7 +454,7 @@ export interface ConnectPeerAssociation {
   /**
    * <p>The state of the Connect peer association.</p>
    */
-  State?: ConnectPeerAssociationState | string;
+  State?: keyof typeof ConnectPeerAssociationState | string;
 }
 
 /**
@@ -544,12 +544,12 @@ export interface AssociateCustomerGatewayRequest {
 /**
  * @public
  */
-export enum CustomerGatewayAssociationState {
-  available = "AVAILABLE",
-  deleted = "DELETED",
-  deleting = "DELETING",
-  pending = "PENDING",
-}
+export const CustomerGatewayAssociationState = {
+  available: "AVAILABLE",
+  deleted: "DELETED",
+  deleting: "DELETING",
+  pending: "PENDING",
+};
 
 /**
  * @public
@@ -579,7 +579,7 @@ export interface CustomerGatewayAssociation {
   /**
    * <p>The association state.</p>
    */
-  State?: CustomerGatewayAssociationState | string;
+  State?: keyof typeof CustomerGatewayAssociationState | string;
 }
 
 /**
@@ -615,12 +615,12 @@ export interface AssociateLinkRequest {
 /**
  * @public
  */
-export enum LinkAssociationState {
-  available = "AVAILABLE",
-  deleted = "DELETED",
-  deleting = "DELETING",
-  pending = "PENDING",
-}
+export const LinkAssociationState = {
+  available: "AVAILABLE",
+  deleted: "DELETED",
+  deleting: "DELETING",
+  pending: "PENDING",
+};
 
 /**
  * @public
@@ -645,7 +645,7 @@ export interface LinkAssociation {
   /**
    * <p>The state of the association.</p>
    */
-  LinkAssociationState?: LinkAssociationState | string;
+  LinkAssociationState?: keyof typeof LinkAssociationState | string;
 }
 
 /**
@@ -686,12 +686,12 @@ export interface AssociateTransitGatewayConnectPeerRequest {
 /**
  * @public
  */
-export enum TransitGatewayConnectPeerAssociationState {
-  available = "AVAILABLE",
-  deleted = "DELETED",
-  deleting = "DELETING",
-  pending = "PENDING",
-}
+export const TransitGatewayConnectPeerAssociationState = {
+  available: "AVAILABLE",
+  deleted: "DELETED",
+  deleting: "DELETING",
+  pending: "PENDING",
+};
 
 /**
  * @public
@@ -721,7 +721,7 @@ export interface TransitGatewayConnectPeerAssociation {
   /**
    * <p>The state of the association.</p>
    */
-  State?: TransitGatewayConnectPeerAssociationState | string;
+  State?: keyof typeof TransitGatewayConnectPeerAssociationState | string;
 }
 
 /**
@@ -781,55 +781,55 @@ export interface BgpOptions {
 /**
  * @public
  */
-export enum ChangeAction {
-  ADD = "ADD",
-  MODIFY = "MODIFY",
-  REMOVE = "REMOVE",
-}
+export const ChangeAction = {
+  ADD: "ADD",
+  MODIFY: "MODIFY",
+  REMOVE: "REMOVE",
+};
 
 /**
  * @public
  */
-export enum ChangeSetState {
-  EXECUTING = "EXECUTING",
-  EXECUTION_SUCCEEDED = "EXECUTION_SUCCEEDED",
-  FAILED_GENERATION = "FAILED_GENERATION",
-  OUT_OF_DATE = "OUT_OF_DATE",
-  PENDING_GENERATION = "PENDING_GENERATION",
-  READY_TO_EXECUTE = "READY_TO_EXECUTE",
-}
+export const ChangeSetState = {
+  EXECUTING: "EXECUTING",
+  EXECUTION_SUCCEEDED: "EXECUTION_SUCCEEDED",
+  FAILED_GENERATION: "FAILED_GENERATION",
+  OUT_OF_DATE: "OUT_OF_DATE",
+  PENDING_GENERATION: "PENDING_GENERATION",
+  READY_TO_EXECUTE: "READY_TO_EXECUTE",
+};
 
 /**
  * @public
  */
-export enum ChangeStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ChangeStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+};
 
 /**
  * @public
  */
-export enum ChangeType {
-  ATTACHMENT_MAPPING = "ATTACHMENT_MAPPING",
-  ATTACHMENT_POLICIES_CONFIGURATION = "ATTACHMENT_POLICIES_CONFIGURATION",
-  ATTACHMENT_ROUTE_PROPAGATION = "ATTACHMENT_ROUTE_PROPAGATION",
-  ATTACHMENT_ROUTE_STATIC = "ATTACHMENT_ROUTE_STATIC",
-  CORE_NETWORK_CONFIGURATION = "CORE_NETWORK_CONFIGURATION",
-  CORE_NETWORK_EDGE = "CORE_NETWORK_EDGE",
-  CORE_NETWORK_SEGMENT = "CORE_NETWORK_SEGMENT",
-  SEGMENTS_CONFIGURATION = "SEGMENTS_CONFIGURATION",
-  SEGMENT_ACTIONS_CONFIGURATION = "SEGMENT_ACTIONS_CONFIGURATION",
-}
+export const ChangeType = {
+  ATTACHMENT_MAPPING: "ATTACHMENT_MAPPING",
+  ATTACHMENT_POLICIES_CONFIGURATION: "ATTACHMENT_POLICIES_CONFIGURATION",
+  ATTACHMENT_ROUTE_PROPAGATION: "ATTACHMENT_ROUTE_PROPAGATION",
+  ATTACHMENT_ROUTE_STATIC: "ATTACHMENT_ROUTE_STATIC",
+  CORE_NETWORK_CONFIGURATION: "CORE_NETWORK_CONFIGURATION",
+  CORE_NETWORK_EDGE: "CORE_NETWORK_EDGE",
+  CORE_NETWORK_SEGMENT: "CORE_NETWORK_SEGMENT",
+  SEGMENTS_CONFIGURATION: "SEGMENTS_CONFIGURATION",
+  SEGMENT_ACTIONS_CONFIGURATION: "SEGMENT_ACTIONS_CONFIGURATION",
+};
 
 /**
  * @public
  */
-export enum TunnelProtocol {
-  GRE = "GRE",
-}
+export const TunnelProtocol = {
+  GRE: "GRE",
+};
 
 /**
  * @public
@@ -839,7 +839,7 @@ export interface ConnectAttachmentOptions {
   /**
    * <p>The protocol used for the attachment connection.</p>
    */
-  Protocol?: TunnelProtocol | string;
+  Protocol?: keyof typeof TunnelProtocol | string;
 }
 
 /**
@@ -866,12 +866,12 @@ export interface ConnectAttachment {
 /**
  * @public
  */
-export enum ConnectionState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING",
-}
+export const ConnectionState = {
+  available: "AVAILABLE",
+  deleting: "DELETING",
+  pending: "PENDING",
+  updating: "UPDATING",
+};
 
 /**
  * @public
@@ -926,7 +926,7 @@ export interface Connection {
   /**
    * <p>The state of the connection.</p>
    */
-  State?: ConnectionState | string;
+  State?: keyof typeof ConnectionState | string;
 
   /**
    * <p>The tags for the connection.</p>
@@ -937,18 +937,18 @@ export interface Connection {
 /**
  * @public
  */
-export enum ConnectionStatus {
-  DOWN = "DOWN",
-  UP = "UP",
-}
+export const ConnectionStatus = {
+  DOWN: "DOWN",
+  UP: "UP",
+};
 
 /**
  * @public
  */
-export enum ConnectionType {
-  BGP = "BGP",
-  IPSEC = "IPSEC",
-}
+export const ConnectionType = {
+  BGP: "BGP",
+  IPSEC: "IPSEC",
+};
 
 /**
  * @public
@@ -958,12 +958,12 @@ export interface ConnectionHealth {
   /**
    * <p>The connection type.</p>
    */
-  Type?: ConnectionType | string;
+  Type?: keyof typeof ConnectionType | string;
 
   /**
    * <p>The connection status.</p>
    */
-  Status?: ConnectionStatus | string;
+  Status?: keyof typeof ConnectionStatus | string;
 
   /**
    * <p>The time the status was last updated.</p>
@@ -1020,7 +1020,7 @@ export interface ConnectPeerConfiguration {
   /**
    * <p>The protocol used for a Connect peer configuration.</p>
    */
-  Protocol?: TunnelProtocol | string;
+  Protocol?: keyof typeof TunnelProtocol | string;
 
   /**
    * <p>The Connect peer BGP configurations.</p>
@@ -1031,12 +1031,12 @@ export interface ConnectPeerConfiguration {
 /**
  * @public
  */
-export enum ConnectPeerState {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-}
+export const ConnectPeerState = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
@@ -1066,7 +1066,7 @@ export interface ConnectPeer {
   /**
    * <p>The state of the Connect peer.</p>
    */
-  State?: ConnectPeerState | string;
+  State?: keyof typeof ConnectPeerState | string;
 
   /**
    * <p>The timestamp when the Connect peer was created.</p>
@@ -1112,7 +1112,7 @@ export interface ConnectPeerSummary {
   /**
    * <p>The state of a Connect peer.</p>
    */
-  ConnectPeerState?: ConnectPeerState | string;
+  ConnectPeerState?: keyof typeof ConnectPeerState | string;
 
   /**
    * <p>The timestamp when a Connect peer was created.</p>
@@ -1170,12 +1170,12 @@ export interface CoreNetworkSegment {
 /**
  * @public
  */
-export enum CoreNetworkState {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const CoreNetworkState = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1210,7 +1210,7 @@ export interface CoreNetwork {
   /**
    * <p>The current state of a core network.</p>
    */
-  State?: CoreNetworkState | string;
+  State?: keyof typeof CoreNetworkState | string;
 
   /**
    * <p>The segments within a core network.</p>
@@ -1277,12 +1277,12 @@ export interface CoreNetworkChange {
   /**
    * <p>The type of change.</p>
    */
-  Type?: ChangeType | string;
+  Type?: keyof typeof ChangeType | string;
 
   /**
    * <p>The action to take for a core network.</p>
    */
-  Action?: ChangeAction | string;
+  Action?: keyof typeof ChangeAction | string;
 
   /**
    * <p>The resource identifier.</p>
@@ -1339,12 +1339,12 @@ export interface CoreNetworkChangeEvent {
   /**
    * <p>Describes the type of change event. </p>
    */
-  Type?: ChangeType | string;
+  Type?: keyof typeof ChangeType | string;
 
   /**
    * <p>The action taken for the change event.</p>
    */
-  Action?: ChangeAction | string;
+  Action?: keyof typeof ChangeAction | string;
 
   /**
    * <p>Uniquely identifies the path for a change within the changeset. For example, the <code>IdentifierPath</code> for a core network segment change might be <code>"CORE_NETWORK_SEGMENT/us-east-1/devsegment"</code>.</p>
@@ -1359,7 +1359,7 @@ export interface CoreNetworkChangeEvent {
   /**
    * <p>The status of the core network change event.</p>
    */
-  Status?: ChangeStatus | string;
+  Status?: keyof typeof ChangeStatus | string;
 
   /**
    * <p>Details of the change event.</p>
@@ -1370,10 +1370,10 @@ export interface CoreNetworkChangeEvent {
 /**
  * @public
  */
-export enum CoreNetworkPolicyAlias {
-  LATEST = "LATEST",
-  LIVE = "LIVE",
-}
+export const CoreNetworkPolicyAlias = {
+  LATEST: "LATEST",
+  LIVE: "LIVE",
+};
 
 /**
  * @public
@@ -1414,7 +1414,7 @@ export interface CoreNetworkPolicy {
   /**
    * <p>Whether a core network policy is the current LIVE policy or the most recently submitted policy.</p>
    */
-  Alias?: CoreNetworkPolicyAlias | string;
+  Alias?: keyof typeof CoreNetworkPolicyAlias | string;
 
   /**
    * <p>The description of a core network policy.</p>
@@ -1429,7 +1429,7 @@ export interface CoreNetworkPolicy {
   /**
    * <p>The state of a core network policy.</p>
    */
-  ChangeSetState?: ChangeSetState | string;
+  ChangeSetState?: keyof typeof ChangeSetState | string;
 
   /**
    * <p>Describes any errors in a core network policy.</p>
@@ -1487,7 +1487,7 @@ export interface CoreNetworkPolicyVersion {
   /**
    * <p>Whether a core network policy is the current policy or the most recently submitted policy.</p>
    */
-  Alias?: CoreNetworkPolicyAlias | string;
+  Alias?: keyof typeof CoreNetworkPolicyAlias | string;
 
   /**
    * <p>The description of a core network policy version.</p>
@@ -1502,7 +1502,7 @@ export interface CoreNetworkPolicyVersion {
   /**
    * <p>The status of the policy version change set.</p>
    */
-  ChangeSetState?: ChangeSetState | string;
+  ChangeSetState?: keyof typeof ChangeSetState | string;
 }
 
 /**
@@ -1554,7 +1554,7 @@ export interface CoreNetworkSummary {
   /**
    * <p>The state of a core network.</p>
    */
-  State?: CoreNetworkState | string;
+  State?: keyof typeof CoreNetworkState | string;
 
   /**
    * <p>The description of a core network.</p>
@@ -1836,12 +1836,12 @@ export interface CreateDeviceRequest {
 /**
  * @public
  */
-export enum DeviceState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING",
-}
+export const DeviceState = {
+  available: "AVAILABLE",
+  deleting: "DELETING",
+  pending: "PENDING",
+  updating: "UPDATING",
+};
 
 /**
  * @public
@@ -1911,7 +1911,7 @@ export interface Device {
   /**
    * <p>The device state.</p>
    */
-  State?: DeviceState | string;
+  State?: keyof typeof DeviceState | string;
 
   /**
    * <p>The tags for the device.</p>
@@ -1948,12 +1948,12 @@ export interface CreateGlobalNetworkRequest {
 /**
  * @public
  */
-export enum GlobalNetworkState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING",
-}
+export const GlobalNetworkState = {
+  available: "AVAILABLE",
+  deleting: "DELETING",
+  pending: "PENDING",
+  updating: "UPDATING",
+};
 
 /**
  * @public
@@ -1983,7 +1983,7 @@ export interface GlobalNetwork {
   /**
    * <p>The state of the global network.</p>
    */
-  State?: GlobalNetworkState | string;
+  State?: keyof typeof GlobalNetworkState | string;
 
   /**
    * <p>The tags for the global network.</p>
@@ -2047,12 +2047,12 @@ export interface CreateLinkRequest {
 /**
  * @public
  */
-export enum LinkState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING",
-}
+export const LinkState = {
+  available: "AVAILABLE",
+  deleting: "DELETING",
+  pending: "PENDING",
+  updating: "UPDATING",
+};
 
 /**
  * @public
@@ -2107,7 +2107,7 @@ export interface Link {
   /**
    * <p>The state of the link.</p>
    */
-  State?: LinkState | string;
+  State?: keyof typeof LinkState | string;
 
   /**
    * <p>The tags for the link.</p>
@@ -2168,12 +2168,12 @@ export interface CreateSiteRequest {
 /**
  * @public
  */
-export enum SiteState {
-  available = "AVAILABLE",
-  deleting = "DELETING",
-  pending = "PENDING",
-  updating = "UPDATING",
-}
+export const SiteState = {
+  available: "AVAILABLE",
+  deleting: "DELETING",
+  pending: "PENDING",
+  updating: "UPDATING",
+};
 
 /**
  * @public
@@ -2213,7 +2213,7 @@ export interface Site {
   /**
    * <p>The state of the site.</p>
    */
-  State?: SiteState | string;
+  State?: keyof typeof SiteState | string;
 
   /**
    * <p>The tags for the site.</p>
@@ -2310,19 +2310,19 @@ export interface CreateTransitGatewayPeeringRequest {
 /**
  * @public
  */
-export enum PeeringType {
-  TRANSIT_GATEWAY = "TRANSIT_GATEWAY",
-}
+export const PeeringType = {
+  TRANSIT_GATEWAY: "TRANSIT_GATEWAY",
+};
 
 /**
  * @public
  */
-export enum PeeringState {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-}
+export const PeeringState = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
@@ -2352,12 +2352,12 @@ export interface Peering {
   /**
    * <p>The type of peering. This will be <code>TRANSIT_GATEWAY</code>.</p>
    */
-  PeeringType?: PeeringType | string;
+  PeeringType?: keyof typeof PeeringType | string;
 
   /**
    * <p>The current state of the peering connection. </p>
    */
-  State?: PeeringState | string;
+  State?: keyof typeof PeeringState | string;
 
   /**
    * <p>The edge location for the peer.</p>
@@ -2807,13 +2807,13 @@ export interface DeregisterTransitGatewayRequest {
 /**
  * @public
  */
-export enum TransitGatewayRegistrationState {
-  available = "AVAILABLE",
-  deleted = "DELETED",
-  deleting = "DELETING",
-  failed = "FAILED",
-  pending = "PENDING",
-}
+export const TransitGatewayRegistrationState = {
+  available: "AVAILABLE",
+  deleted: "DELETED",
+  deleting: "DELETING",
+  failed: "FAILED",
+  pending: "PENDING",
+};
 
 /**
  * @public
@@ -2823,7 +2823,7 @@ export interface TransitGatewayRegistrationStateReason {
   /**
    * <p>The code for the state reason.</p>
    */
-  Code?: TransitGatewayRegistrationState | string;
+  Code?: keyof typeof TransitGatewayRegistrationState | string;
 
   /**
    * <p>The message for the state reason.</p>
@@ -3264,7 +3264,7 @@ export interface GetCoreNetworkPolicyRequest {
   /**
    * <p>The alias of a core network policy </p>
    */
-  Alias?: CoreNetworkPolicyAlias | string;
+  Alias?: keyof typeof CoreNetworkPolicyAlias | string;
 }
 
 /**
@@ -4040,18 +4040,18 @@ export interface RouteTableIdentifier {
 /**
  * @public
  */
-export enum RouteState {
-  ACTIVE = "ACTIVE",
-  BLACKHOLE = "BLACKHOLE",
-}
+export const RouteState = {
+  ACTIVE: "ACTIVE",
+  BLACKHOLE: "BLACKHOLE",
+};
 
 /**
  * @public
  */
-export enum RouteType {
-  PROPAGATED = "PROPAGATED",
-  STATIC = "STATIC",
-}
+export const RouteType = {
+  PROPAGATED: "PROPAGATED",
+  STATIC: "STATIC",
+};
 
 /**
  * @public
@@ -4095,12 +4095,12 @@ export interface GetNetworkRoutesRequest {
   /**
    * <p>The route states.</p>
    */
-  States?: (RouteState | string)[];
+  States?: (keyof typeof RouteState | string)[];
 
   /**
    * <p>The route types.</p>
    */
-  Types?: (RouteType | string)[];
+  Types?: (keyof typeof RouteType | string)[];
 
   /**
    * <p>Filter by route table destination. Possible Values: TRANSIT_GATEWAY_ATTACHMENT_ID, RESOURCE_ID, or RESOURCE_TYPE.</p>
@@ -4167,21 +4167,21 @@ export interface NetworkRoute {
   /**
    * <p>The route state. The possible values are <code>active</code> and <code>blackhole</code>.</p>
    */
-  State?: RouteState | string;
+  State?: keyof typeof RouteState | string;
 
   /**
    * <p>The route type. The possible values are <code>propagated</code> and <code>static</code>.</p>
    */
-  Type?: RouteType | string;
+  Type?: keyof typeof RouteType | string;
 }
 
 /**
  * @public
  */
-export enum RouteTableType {
-  CORE_NETWORK_SEGMENT = "CORE_NETWORK_SEGMENT",
-  TRANSIT_GATEWAY_ROUTE_TABLE = "TRANSIT_GATEWAY_ROUTE_TABLE",
-}
+export const RouteTableType = {
+  CORE_NETWORK_SEGMENT: "CORE_NETWORK_SEGMENT",
+  TRANSIT_GATEWAY_ROUTE_TABLE: "TRANSIT_GATEWAY_ROUTE_TABLE",
+};
 
 /**
  * @public
@@ -4200,7 +4200,7 @@ export interface GetNetworkRoutesResponse {
   /**
    * <p>The route table type.</p>
    */
-  RouteTableType?: RouteTableType | string;
+  RouteTableType?: keyof typeof RouteTableType | string;
 
   /**
    * <p>The route table creation time.</p>
@@ -4462,27 +4462,27 @@ export interface RouteAnalysisEndpointOptions {
 /**
  * @public
  */
-export enum RouteAnalysisCompletionReasonCode {
-  BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND = "BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND",
-  CYCLIC_PATH_DETECTED = "CYCLIC_PATH_DETECTED",
-  INACTIVE_ROUTE_FOR_DESTINATION_FOUND = "INACTIVE_ROUTE_FOR_DESTINATION_FOUND",
-  MAX_HOPS_EXCEEDED = "MAX_HOPS_EXCEEDED",
-  NO_DESTINATION_ARN_PROVIDED = "NO_DESTINATION_ARN_PROVIDED",
-  POSSIBLE_MIDDLEBOX = "POSSIBLE_MIDDLEBOX",
-  ROUTE_NOT_FOUND = "ROUTE_NOT_FOUND",
-  TRANSIT_GATEWAY_ATTACHMENT = "TRANSIT_GATEWAY_ATTACHMENT_ATTACH_ARN_NO_MATCH",
-  TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND = "TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND",
-  TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY = "TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY",
-  TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND = "TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND",
-}
+export const RouteAnalysisCompletionReasonCode = {
+  BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND: "BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND",
+  CYCLIC_PATH_DETECTED: "CYCLIC_PATH_DETECTED",
+  INACTIVE_ROUTE_FOR_DESTINATION_FOUND: "INACTIVE_ROUTE_FOR_DESTINATION_FOUND",
+  MAX_HOPS_EXCEEDED: "MAX_HOPS_EXCEEDED",
+  NO_DESTINATION_ARN_PROVIDED: "NO_DESTINATION_ARN_PROVIDED",
+  POSSIBLE_MIDDLEBOX: "POSSIBLE_MIDDLEBOX",
+  ROUTE_NOT_FOUND: "ROUTE_NOT_FOUND",
+  TRANSIT_GATEWAY_ATTACHMENT: "TRANSIT_GATEWAY_ATTACHMENT_ATTACH_ARN_NO_MATCH",
+  TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND: "TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND",
+  TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY: "TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY",
+  TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND: "TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND",
+};
 
 /**
  * @public
  */
-export enum RouteAnalysisCompletionResultCode {
-  CONNECTED = "CONNECTED",
-  NOT_CONNECTED = "NOT_CONNECTED",
-}
+export const RouteAnalysisCompletionResultCode = {
+  CONNECTED: "CONNECTED",
+  NOT_CONNECTED: "NOT_CONNECTED",
+};
 
 /**
  * @public
@@ -4493,7 +4493,7 @@ export interface RouteAnalysisCompletion {
    * <p>The result of the analysis. If the status is <code>NOT_CONNECTED</code>, check the
    *             reason code.</p>
    */
-  ResultCode?: RouteAnalysisCompletionResultCode | string;
+  ResultCode?: keyof typeof RouteAnalysisCompletionResultCode | string;
 
   /**
    * <p>The reason code. Available only if a connection is not found.</p>
@@ -4536,7 +4536,7 @@ export interface RouteAnalysisCompletion {
    *             </li>
    *          </ul>
    */
-  ReasonCode?: RouteAnalysisCompletionReasonCode | string;
+  ReasonCode?: keyof typeof RouteAnalysisCompletionReasonCode | string;
 
   /**
    * <p>Additional information about the path. Available only if a connection is not found.</p>
@@ -4620,11 +4620,11 @@ export interface RouteAnalysisPath {
 /**
  * @public
  */
-export enum RouteAnalysisStatus {
-  completed = "COMPLETED",
-  failed = "FAILED",
-  running = "RUNNING",
-}
+export const RouteAnalysisStatus = {
+  completed: "COMPLETED",
+  failed: "FAILED",
+  running: "RUNNING",
+};
 
 /**
  * @public
@@ -4654,7 +4654,7 @@ export interface RouteAnalysis {
   /**
    * <p>The status of the route analysis.</p>
    */
-  Status?: RouteAnalysisStatus | string;
+  Status?: keyof typeof RouteAnalysisStatus | string;
 
   /**
    * <p>The source.</p>
@@ -4911,7 +4911,7 @@ export interface ListAttachmentsRequest {
   /**
    * <p>The type of attachment.</p>
    */
-  AttachmentType?: AttachmentType | string;
+  AttachmentType?: keyof typeof AttachmentType | string;
 
   /**
    * <p>The Region where the edge is located.</p>
@@ -4921,7 +4921,7 @@ export interface ListAttachmentsRequest {
   /**
    * <p>The state of the attachment.</p>
    */
-  State?: AttachmentState | string;
+  State?: keyof typeof AttachmentState | string;
 
   /**
    * <p>The maximum number of results to return.</p>
@@ -5122,7 +5122,7 @@ export interface ListPeeringsRequest {
   /**
    * <p>Returns a list of a peering requests.</p>
    */
-  PeeringType?: PeeringType | string;
+  PeeringType?: keyof typeof PeeringType | string;
 
   /**
    * <p>Returns a list edge locations for the </p>
@@ -5132,7 +5132,7 @@ export interface ListPeeringsRequest {
   /**
    * <p>Returns a list of the peering request states.</p>
    */
-  State?: PeeringState | string;
+  State?: keyof typeof PeeringState | string;
 
   /**
    * <p>The maximum number of results to return.</p>

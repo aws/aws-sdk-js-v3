@@ -10965,7 +10965,7 @@ const serializeAws_json1_1RepositoryTrigger = (input: RepositoryTrigger, context
 };
 
 const serializeAws_json1_1RepositoryTriggerEventList = (
-  input: (RepositoryTriggerEventEnum | string)[],
+  input: (keyof typeof RepositoryTriggerEventEnum | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -13479,7 +13479,10 @@ const deserializeAws_json1_1MergeOptionRequiredException = (
   } as any;
 };
 
-const deserializeAws_json1_1MergeOptions = (output: any, context: __SerdeContext): (MergeOptionTypeEnum | string)[] => {
+const deserializeAws_json1_1MergeOptions = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof MergeOptionTypeEnum | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -14226,7 +14229,7 @@ const deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredException = (
 const deserializeAws_json1_1RepositoryTriggerEventList = (
   output: any,
   context: __SerdeContext
-): (RepositoryTriggerEventEnum | string)[] => {
+): (keyof typeof RepositoryTriggerEventEnum | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

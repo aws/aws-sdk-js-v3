@@ -13,13 +13,13 @@ export interface GreetingStruct {
 /**
  * @public
  */
-export enum FooEnum {
-  BAR = "Bar",
-  BAZ = "Baz",
-  FOO = "Foo",
-  ONE = "1",
-  ZERO = "0",
-}
+export const FooEnum = {
+  BAR: "Bar",
+  BAZ: "Baz",
+  FOO: "Foo",
+  ONE: "1",
+  ZERO: "0",
+};
 
 export enum IntegerEnum {
   A = 1,
@@ -47,8 +47,8 @@ export interface AllQueryStringTypesInput {
   queryBooleanList?: boolean[];
   queryTimestamp?: Date;
   queryTimestampList?: Date[];
-  queryEnum?: FooEnum | string;
-  queryEnumList?: (FooEnum | string)[];
+  queryEnum?: keyof typeof FooEnum | string;
+  queryEnumList?: (keyof typeof FooEnum | string)[];
   queryIntegerEnum?: IntegerEnum | number;
   queryIntegerEnumList?: (IntegerEnum | number)[];
   queryParamsMapOfStrings?: Record<string, string>;
@@ -151,7 +151,7 @@ export interface HostLabelInput {
  * @public
  */
 export interface FlattenedXmlMapInputOutput {
-  myMap?: Record<string, FooEnum | string>;
+  myMap?: Record<string, keyof typeof FooEnum | string>;
 }
 
 /**
@@ -368,16 +368,16 @@ export interface InputAndOutputWithHeadersIO {
   headerIntegerList?: number[];
   headerBooleanList?: boolean[];
   headerTimestampList?: Date[];
-  headerEnum?: FooEnum | string;
-  headerEnumList?: (FooEnum | string)[];
+  headerEnum?: keyof typeof FooEnum | string;
+  headerEnumList?: (keyof typeof FooEnum | string)[];
 }
 
 /**
  * @public
  */
 export interface NestedXmlMapsInputOutput {
-  nestedMap?: Record<string, Record<string, FooEnum | string>>;
-  flatNestedMap?: Record<string, Record<string, FooEnum | string>>;
+  nestedMap?: Record<string, Record<string, keyof typeof FooEnum | string>>;
+  flatNestedMap?: Record<string, Record<string, keyof typeof FooEnum | string>>;
 }
 
 /**
@@ -493,7 +493,7 @@ export interface XmlListsInputOutput {
   integerList?: number[];
   booleanList?: boolean[];
   timestampList?: Date[];
-  enumList?: (FooEnum | string)[];
+  enumList?: (keyof typeof FooEnum | string)[];
   intEnumList?: (IntegerEnum | number)[];
   /**
    * A list of lists of strings.
@@ -527,12 +527,12 @@ export interface XmlEmptyStringsInputOutput {
  * @public
  */
 export interface XmlEnumsInputOutput {
-  fooEnum1?: FooEnum | string;
-  fooEnum2?: FooEnum | string;
-  fooEnum3?: FooEnum | string;
-  fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: Record<string, FooEnum | string>;
+  fooEnum1?: keyof typeof FooEnum | string;
+  fooEnum2?: keyof typeof FooEnum | string;
+  fooEnum3?: keyof typeof FooEnum | string;
+  fooEnumList?: (keyof typeof FooEnum | string)[];
+  fooEnumSet?: (keyof typeof FooEnum | string)[];
+  fooEnumMap?: Record<string, keyof typeof FooEnum | string>;
 }
 
 /**

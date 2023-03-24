@@ -133,19 +133,19 @@ export interface S3Location {
 /**
  * @public
  */
-export enum Format {
-  CSV = "CSV",
-  PARQUET = "PARQUET",
-}
+export const Format = {
+  CSV: "CSV",
+  PARQUET: "PARQUET",
+};
 
 /**
  * @public
  */
-export enum ReportFrequency {
-  ALL = "ALL",
-  DAILY = "DAILY",
-  MONTHLY = "MONTHLY",
-}
+export const ReportFrequency = {
+  ALL: "ALL",
+  DAILY: "DAILY",
+  MONTHLY: "MONTHLY",
+};
 
 /**
  * @public
@@ -164,12 +164,12 @@ export interface GetReportDefinitionResult {
   /**
    * <p>Cadence used to generate the report.</p>
    */
-  reportFrequency: ReportFrequency | string | undefined;
+  reportFrequency: keyof typeof ReportFrequency | string | undefined;
 
   /**
    * <p>Format of the generated report.</p>
    */
-  format: Format | string | undefined;
+  format: keyof typeof Format | string | undefined;
 
   /**
    * <p>Amazon Simple Storage Service (Amazon S3) location where the report is uploaded.</p>
@@ -190,12 +190,12 @@ export interface GetReportDefinitionResult {
 /**
  * @public
  */
-export enum S3BucketRegion {
-  AF_SOUTH_1 = "af-south-1",
-  AP_EAST_1 = "ap-east-1",
-  EU_SOUTH_1 = "eu-south-1",
-  ME_SOUTH_1 = "me-south-1",
-}
+export const S3BucketRegion = {
+  AF_SOUTH_1: "af-south-1",
+  AP_EAST_1: "ap-east-1",
+  EU_SOUTH_1: "eu-south-1",
+  ME_SOUTH_1: "me-south-1",
+};
 
 /**
  * @public
@@ -218,7 +218,7 @@ export interface SourceS3Location {
    *         For more infomration about Regions that are disabled by default, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">
    *           Enabling a Region</a> in the <i>AWS General Reference guide</i>.</p>
    */
-  region?: S3BucketRegion | string;
+  region?: keyof typeof S3BucketRegion | string;
 }
 
 /**
@@ -274,12 +274,12 @@ export interface ReportDefinition {
   /**
    * <p>The cadence at which the report is generated.</p>
    */
-  reportFrequency?: ReportFrequency | string;
+  reportFrequency?: keyof typeof ReportFrequency | string;
 
   /**
    * <p>The format used for the generated reports.</p>
    */
-  format?: Format | string;
+  format?: keyof typeof Format | string;
 
   /**
    * <p>The location in Amazon Simple Storage Service (Amazon S3) the reports should be saved to.</p>
@@ -330,12 +330,12 @@ export interface PutReportDefinitionRequest {
   /**
    * <p>Required. The cadence to generate the report.</p>
    */
-  reportFrequency: ReportFrequency | string | undefined;
+  reportFrequency: keyof typeof ReportFrequency | string | undefined;
 
   /**
    * <p>Required. The format to use for the generated report.</p>
    */
-  format: Format | string | undefined;
+  format: keyof typeof Format | string | undefined;
 
   /**
    * <p>Required. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the
@@ -391,12 +391,12 @@ export interface UpdateReportDefinitionRequest {
   /**
    * <p>Required. The cadence to generate the report.</p>
    */
-  reportFrequency: ReportFrequency | string | undefined;
+  reportFrequency: keyof typeof ReportFrequency | string | undefined;
 
   /**
    * <p>Required. The format to use for the generated report.</p>
    */
-  format: Format | string | undefined;
+  format: keyof typeof Format | string | undefined;
 
   /**
    * <p>Required. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the

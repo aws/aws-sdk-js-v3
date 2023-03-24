@@ -126,10 +126,10 @@ export class InvalidRequestException extends __BaseException {
 /**
  * @public
  */
-export enum ClientVersion {
-  FIVE_ONE = "5.1",
-  FIVE_THREE = "5.3",
-}
+export const ClientVersion = {
+  FIVE_ONE: "5.1",
+  FIVE_THREE: "5.3",
+};
 
 /**
  * @public
@@ -156,9 +156,9 @@ export interface CreateHapgResponse {
 /**
  * @public
  */
-export enum SubscriptionType {
-  PRODUCTION = "PRODUCTION",
-}
+export const SubscriptionType = {
+  PRODUCTION: "PRODUCTION",
+};
 
 /**
  * @public
@@ -208,7 +208,7 @@ export interface CreateHsmRequest {
    *             </li>
    *          </ul>
    */
-  SubscriptionType: SubscriptionType | string | undefined;
+  SubscriptionType: keyof typeof SubscriptionType | string | undefined;
 
   /**
    * <p>A user-defined token to ensure idempotence. Subsequent calls to this operation with the
@@ -340,11 +340,11 @@ export interface DescribeHapgRequest {
 /**
  * @public
  */
-export enum CloudHsmObjectState {
-  DEGRADED = "DEGRADED",
-  READY = "READY",
-  UPDATING = "UPDATING",
-}
+export const CloudHsmObjectState = {
+  DEGRADED: "DEGRADED",
+  READY: "READY",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -395,7 +395,7 @@ export interface DescribeHapgResponse {
   /**
    * <p>The state of the high-availability partition group.</p>
    */
-  State?: CloudHsmObjectState | string;
+  State?: keyof typeof CloudHsmObjectState | string;
 }
 
 /**
@@ -419,15 +419,15 @@ export interface DescribeHsmRequest {
 /**
  * @public
  */
-export enum HsmStatus {
-  DEGRADED = "DEGRADED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-  UPDATING = "UPDATING",
-}
+export const HsmStatus = {
+  DEGRADED: "DEGRADED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUSPENDED: "SUSPENDED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -442,7 +442,7 @@ export interface DescribeHsmResponse {
   /**
    * <p>The status of the HSM.</p>
    */
-  Status?: HsmStatus | string;
+  Status?: keyof typeof HsmStatus | string;
 
   /**
    * <p>Contains additional information about the status of the HSM.</p>
@@ -479,7 +479,7 @@ export interface DescribeHsmResponse {
    *             </li>
    *          </ul>
    */
-  SubscriptionType?: SubscriptionType | string;
+  SubscriptionType?: keyof typeof SubscriptionType | string;
 
   /**
    * <p>The subscription start date.</p>
@@ -609,7 +609,7 @@ export interface GetConfigRequest {
   /**
    * <p>The client version.</p>
    */
-  ClientVersion: ClientVersion | string | undefined;
+  ClientVersion: keyof typeof ClientVersion | string | undefined;
 
   /**
    * <p>A list of ARNs that identify the high-availability partition groups that are associated

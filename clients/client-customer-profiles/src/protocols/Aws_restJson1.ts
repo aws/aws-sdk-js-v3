@@ -4057,7 +4057,7 @@ const serializeAws_restJson1SourceFlowConfig = (input: SourceFlowConfig, context
 };
 
 const serializeAws_restJson1StandardIdentifierList = (
-  input: (StandardIdentifier | string)[],
+  input: (keyof typeof StandardIdentifier | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4095,7 +4095,7 @@ const serializeAws_restJson1Task = (input: Task, context: __SerdeContext): any =
 
 const serializeAws_restJson1TaskPropertiesMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [OperatorPropertiesKeys | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [keyof typeof OperatorPropertiesKeys | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -4726,7 +4726,7 @@ const deserializeAws_restJson1S3ExportingLocation = (output: any, context: __Ser
 const deserializeAws_restJson1StandardIdentifierList = (
   output: any,
   context: __SerdeContext
-): (StandardIdentifier | string)[] => {
+): (keyof typeof StandardIdentifier | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

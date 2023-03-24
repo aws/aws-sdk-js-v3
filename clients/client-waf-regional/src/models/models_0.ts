@@ -6,11 +6,11 @@ import { WAFRegionalServiceException as __BaseException } from "./WAFRegionalSer
 /**
  * @public
  */
-export enum WafActionType {
-  ALLOW = "ALLOW",
-  BLOCK = "BLOCK",
-  COUNT = "COUNT",
-}
+export const WafActionType = {
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+  COUNT: "COUNT",
+};
 
 /**
  * @public
@@ -46,7 +46,7 @@ export interface WafAction {
    *             </li>
    *          </ul>
    */
-  Type: WafActionType | string | undefined;
+  Type: keyof typeof WafActionType | string | undefined;
 }
 
 /**
@@ -73,10 +73,10 @@ export interface ExcludedRule {
 /**
  * @public
  */
-export enum WafOverrideActionType {
-  COUNT = "COUNT",
-  NONE = "NONE",
-}
+export const WafOverrideActionType = {
+  COUNT: "COUNT",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -95,17 +95,17 @@ export interface WafOverrideAction {
    * <p>
    *             <code>COUNT</code> overrides the action specified by the individual rule within a <code>RuleGroup</code> . If set to <code>NONE</code>, the rule's action will take place.</p>
    */
-  Type: WafOverrideActionType | string | undefined;
+  Type: keyof typeof WafOverrideActionType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum WafRuleType {
-  GROUP = "GROUP",
-  RATE_BASED = "RATE_BASED",
-  REGULAR = "REGULAR",
-}
+export const WafRuleType = {
+  GROUP: "GROUP",
+  RATE_BASED: "RATE_BASED",
+  REGULAR: "REGULAR",
+};
 
 /**
  * @public
@@ -179,7 +179,7 @@ export interface ActivatedRule {
    * <p>The rule type, either <code>REGULAR</code>, as defined by <a>Rule</a>, <code>RATE_BASED</code>, as defined by <a>RateBasedRule</a>, or <code>GROUP</code>, as defined by <a>RuleGroup</a>. The default is REGULAR. Although this field is optional, be aware that if you try to add a RATE_BASED rule to a web ACL without setting the type, the  <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule with the specified ID, which does not exist.
    * 			</p>
    */
-  Type?: WafRuleType | string;
+  Type?: keyof typeof WafRuleType | string;
 
   /**
    * <p>An array of rules to exclude from a rule group. This is applicable only when the <code>ActivatedRule</code> refers to a <code>RuleGroup</code>.</p>
@@ -303,36 +303,36 @@ export class WAFInvalidAccountException extends __BaseException {
 /**
  * @public
  */
-export enum ParameterExceptionField {
-  BYTE_MATCH_FIELD_TYPE = "BYTE_MATCH_FIELD_TYPE",
-  BYTE_MATCH_POSITIONAL_CONSTRAINT = "BYTE_MATCH_POSITIONAL_CONSTRAINT",
-  BYTE_MATCH_TEXT_TRANSFORMATION = "BYTE_MATCH_TEXT_TRANSFORMATION",
-  CHANGE_ACTION = "CHANGE_ACTION",
-  GEO_MATCH_LOCATION_TYPE = "GEO_MATCH_LOCATION_TYPE",
-  GEO_MATCH_LOCATION_VALUE = "GEO_MATCH_LOCATION_VALUE",
-  IPSET_TYPE = "IPSET_TYPE",
-  NEXT_MARKER = "NEXT_MARKER",
-  PREDICATE_TYPE = "PREDICATE_TYPE",
-  RATE_KEY = "RATE_KEY",
-  RESOURCE_ARN = "RESOURCE_ARN",
-  RULE_TYPE = "RULE_TYPE",
-  SIZE_CONSTRAINT_COMPARISON_OPERATOR = "SIZE_CONSTRAINT_COMPARISON_OPERATOR",
-  SQL_INJECTION_MATCH_FIELD_TYPE = "SQL_INJECTION_MATCH_FIELD_TYPE",
-  TAGS = "TAGS",
-  TAG_KEYS = "TAG_KEYS",
-  WAF_ACTION = "WAF_ACTION",
-  WAF_OVERRIDE_ACTION = "WAF_OVERRIDE_ACTION",
-}
+export const ParameterExceptionField = {
+  BYTE_MATCH_FIELD_TYPE: "BYTE_MATCH_FIELD_TYPE",
+  BYTE_MATCH_POSITIONAL_CONSTRAINT: "BYTE_MATCH_POSITIONAL_CONSTRAINT",
+  BYTE_MATCH_TEXT_TRANSFORMATION: "BYTE_MATCH_TEXT_TRANSFORMATION",
+  CHANGE_ACTION: "CHANGE_ACTION",
+  GEO_MATCH_LOCATION_TYPE: "GEO_MATCH_LOCATION_TYPE",
+  GEO_MATCH_LOCATION_VALUE: "GEO_MATCH_LOCATION_VALUE",
+  IPSET_TYPE: "IPSET_TYPE",
+  NEXT_MARKER: "NEXT_MARKER",
+  PREDICATE_TYPE: "PREDICATE_TYPE",
+  RATE_KEY: "RATE_KEY",
+  RESOURCE_ARN: "RESOURCE_ARN",
+  RULE_TYPE: "RULE_TYPE",
+  SIZE_CONSTRAINT_COMPARISON_OPERATOR: "SIZE_CONSTRAINT_COMPARISON_OPERATOR",
+  SQL_INJECTION_MATCH_FIELD_TYPE: "SQL_INJECTION_MATCH_FIELD_TYPE",
+  TAGS: "TAGS",
+  TAG_KEYS: "TAG_KEYS",
+  WAF_ACTION: "WAF_ACTION",
+  WAF_OVERRIDE_ACTION: "WAF_OVERRIDE_ACTION",
+};
 
 /**
  * @public
  */
-export enum ParameterExceptionReason {
-  ILLEGAL_ARGUMENT = "ILLEGAL_ARGUMENT",
-  ILLEGAL_COMBINATION = "ILLEGAL_COMBINATION",
-  INVALID_OPTION = "INVALID_OPTION",
-  INVALID_TAG_KEY = "INVALID_TAG_KEY",
-}
+export const ParameterExceptionReason = {
+  ILLEGAL_ARGUMENT: "ILLEGAL_ARGUMENT",
+  ILLEGAL_COMBINATION: "ILLEGAL_COMBINATION",
+  INVALID_OPTION: "INVALID_OPTION",
+  INVALID_TAG_KEY: "INVALID_TAG_KEY",
+};
 
 /**
  * @public
@@ -378,9 +378,9 @@ export enum ParameterExceptionReason {
 export class WAFInvalidParameterException extends __BaseException {
   readonly name: "WAFInvalidParameterException" = "WAFInvalidParameterException";
   readonly $fault: "client" = "client";
-  field?: ParameterExceptionField | string;
+  field?: keyof typeof ParameterExceptionField | string;
   parameter?: string;
-  reason?: ParameterExceptionReason | string;
+  reason?: keyof typeof ParameterExceptionReason | string;
   /**
    * @internal
    */
@@ -457,15 +457,15 @@ export interface CreateByteMatchSetRequest {
 /**
  * @public
  */
-export enum MatchFieldType {
-  ALL_QUERY_ARGS = "ALL_QUERY_ARGS",
-  BODY = "BODY",
-  HEADER = "HEADER",
-  METHOD = "METHOD",
-  QUERY_STRING = "QUERY_STRING",
-  SINGLE_QUERY_ARG = "SINGLE_QUERY_ARG",
-  URI = "URI",
-}
+export const MatchFieldType = {
+  ALL_QUERY_ARGS: "ALL_QUERY_ARGS",
+  BODY: "BODY",
+  HEADER: "HEADER",
+  METHOD: "METHOD",
+  QUERY_STRING: "QUERY_STRING",
+  SINGLE_QUERY_ARG: "SINGLE_QUERY_ARG",
+  URI: "URI",
+};
 
 /**
  * @public
@@ -521,7 +521,7 @@ export interface FieldToMatch {
    * 		          </li>
    *          </ul>
    */
-  Type: MatchFieldType | string | undefined;
+  Type: keyof typeof MatchFieldType | string | undefined;
 
   /**
    * <p>When the value of <code>Type</code> is <code>HEADER</code>, enter the name of the header that you want AWS WAF to search,
@@ -536,25 +536,25 @@ export interface FieldToMatch {
 /**
  * @public
  */
-export enum PositionalConstraint {
-  CONTAINS = "CONTAINS",
-  CONTAINS_WORD = "CONTAINS_WORD",
-  ENDS_WITH = "ENDS_WITH",
-  EXACTLY = "EXACTLY",
-  STARTS_WITH = "STARTS_WITH",
-}
+export const PositionalConstraint = {
+  CONTAINS: "CONTAINS",
+  CONTAINS_WORD: "CONTAINS_WORD",
+  ENDS_WITH: "ENDS_WITH",
+  EXACTLY: "EXACTLY",
+  STARTS_WITH: "STARTS_WITH",
+};
 
 /**
  * @public
  */
-export enum TextTransformation {
-  CMD_LINE = "CMD_LINE",
-  COMPRESS_WHITE_SPACE = "COMPRESS_WHITE_SPACE",
-  HTML_ENTITY_DECODE = "HTML_ENTITY_DECODE",
-  LOWERCASE = "LOWERCASE",
-  NONE = "NONE",
-  URL_DECODE = "URL_DECODE",
-}
+export const TextTransformation = {
+  CMD_LINE: "CMD_LINE",
+  COMPRESS_WHITE_SPACE: "COMPRESS_WHITE_SPACE",
+  HTML_ENTITY_DECODE: "HTML_ENTITY_DECODE",
+  LOWERCASE: "LOWERCASE",
+  NONE: "NONE",
+  URL_DECODE: "URL_DECODE",
+};
 
 /**
  * @public
@@ -737,7 +737,7 @@ export interface ByteMatchTuple {
    *          </p>
    * 		       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>
    */
-  TextTransformation: TextTransformation | string | undefined;
+  TextTransformation: keyof typeof TextTransformation | string | undefined;
 
   /**
    * <p>Within the portion of a web request that you want to search (for example, in the query string, if any), specify where you want AWS WAF to search. Valid values include the following:</p>
@@ -786,7 +786,7 @@ export interface ByteMatchTuple {
    *          </p>
    * 		       <p>The value of <code>TargetString</code> must appear at the end of the specified part of the web request.</p>
    */
-  PositionalConstraint: PositionalConstraint | string | undefined;
+  PositionalConstraint: keyof typeof PositionalConstraint | string | undefined;
 }
 
 /**
@@ -924,264 +924,264 @@ export interface CreateGeoMatchSetRequest {
 /**
  * @public
  */
-export enum GeoMatchConstraintType {
-  Country = "Country",
-}
+export const GeoMatchConstraintType = {
+  Country: "Country",
+};
 
 /**
  * @public
  */
-export enum GeoMatchConstraintValue {
-  AD = "AD",
-  AE = "AE",
-  AF = "AF",
-  AG = "AG",
-  AI = "AI",
-  AL = "AL",
-  AM = "AM",
-  AO = "AO",
-  AQ = "AQ",
-  AR = "AR",
-  AS = "AS",
-  AT = "AT",
-  AU = "AU",
-  AW = "AW",
-  AX = "AX",
-  AZ = "AZ",
-  BA = "BA",
-  BB = "BB",
-  BD = "BD",
-  BE = "BE",
-  BF = "BF",
-  BG = "BG",
-  BH = "BH",
-  BI = "BI",
-  BJ = "BJ",
-  BL = "BL",
-  BM = "BM",
-  BN = "BN",
-  BO = "BO",
-  BQ = "BQ",
-  BR = "BR",
-  BS = "BS",
-  BT = "BT",
-  BV = "BV",
-  BW = "BW",
-  BY = "BY",
-  BZ = "BZ",
-  CA = "CA",
-  CC = "CC",
-  CD = "CD",
-  CF = "CF",
-  CG = "CG",
-  CH = "CH",
-  CI = "CI",
-  CK = "CK",
-  CL = "CL",
-  CM = "CM",
-  CN = "CN",
-  CO = "CO",
-  CR = "CR",
-  CU = "CU",
-  CV = "CV",
-  CW = "CW",
-  CX = "CX",
-  CY = "CY",
-  CZ = "CZ",
-  DE = "DE",
-  DJ = "DJ",
-  DK = "DK",
-  DM = "DM",
-  DO = "DO",
-  DZ = "DZ",
-  EC = "EC",
-  EE = "EE",
-  EG = "EG",
-  EH = "EH",
-  ER = "ER",
-  ES = "ES",
-  ET = "ET",
-  FI = "FI",
-  FJ = "FJ",
-  FK = "FK",
-  FM = "FM",
-  FO = "FO",
-  FR = "FR",
-  GA = "GA",
-  GB = "GB",
-  GD = "GD",
-  GE = "GE",
-  GF = "GF",
-  GG = "GG",
-  GH = "GH",
-  GI = "GI",
-  GL = "GL",
-  GM = "GM",
-  GN = "GN",
-  GP = "GP",
-  GQ = "GQ",
-  GR = "GR",
-  GS = "GS",
-  GT = "GT",
-  GU = "GU",
-  GW = "GW",
-  GY = "GY",
-  HK = "HK",
-  HM = "HM",
-  HN = "HN",
-  HR = "HR",
-  HT = "HT",
-  HU = "HU",
-  ID = "ID",
-  IE = "IE",
-  IL = "IL",
-  IM = "IM",
-  IN = "IN",
-  IO = "IO",
-  IQ = "IQ",
-  IR = "IR",
-  IS = "IS",
-  IT = "IT",
-  JE = "JE",
-  JM = "JM",
-  JO = "JO",
-  JP = "JP",
-  KE = "KE",
-  KG = "KG",
-  KH = "KH",
-  KI = "KI",
-  KM = "KM",
-  KN = "KN",
-  KP = "KP",
-  KR = "KR",
-  KW = "KW",
-  KY = "KY",
-  KZ = "KZ",
-  LA = "LA",
-  LB = "LB",
-  LC = "LC",
-  LI = "LI",
-  LK = "LK",
-  LR = "LR",
-  LS = "LS",
-  LT = "LT",
-  LU = "LU",
-  LV = "LV",
-  LY = "LY",
-  MA = "MA",
-  MC = "MC",
-  MD = "MD",
-  ME = "ME",
-  MF = "MF",
-  MG = "MG",
-  MH = "MH",
-  MK = "MK",
-  ML = "ML",
-  MM = "MM",
-  MN = "MN",
-  MO = "MO",
-  MP = "MP",
-  MQ = "MQ",
-  MR = "MR",
-  MS = "MS",
-  MT = "MT",
-  MU = "MU",
-  MV = "MV",
-  MW = "MW",
-  MX = "MX",
-  MY = "MY",
-  MZ = "MZ",
-  NA = "NA",
-  NC = "NC",
-  NE = "NE",
-  NF = "NF",
-  NG = "NG",
-  NI = "NI",
-  NL = "NL",
-  NO = "NO",
-  NP = "NP",
-  NR = "NR",
-  NU = "NU",
-  NZ = "NZ",
-  OM = "OM",
-  PA = "PA",
-  PE = "PE",
-  PF = "PF",
-  PG = "PG",
-  PH = "PH",
-  PK = "PK",
-  PL = "PL",
-  PM = "PM",
-  PN = "PN",
-  PR = "PR",
-  PS = "PS",
-  PT = "PT",
-  PW = "PW",
-  PY = "PY",
-  QA = "QA",
-  RE = "RE",
-  RO = "RO",
-  RS = "RS",
-  RU = "RU",
-  RW = "RW",
-  SA = "SA",
-  SB = "SB",
-  SC = "SC",
-  SD = "SD",
-  SE = "SE",
-  SG = "SG",
-  SH = "SH",
-  SI = "SI",
-  SJ = "SJ",
-  SK = "SK",
-  SL = "SL",
-  SM = "SM",
-  SN = "SN",
-  SO = "SO",
-  SR = "SR",
-  SS = "SS",
-  ST = "ST",
-  SV = "SV",
-  SX = "SX",
-  SY = "SY",
-  SZ = "SZ",
-  TC = "TC",
-  TD = "TD",
-  TF = "TF",
-  TG = "TG",
-  TH = "TH",
-  TJ = "TJ",
-  TK = "TK",
-  TL = "TL",
-  TM = "TM",
-  TN = "TN",
-  TO = "TO",
-  TR = "TR",
-  TT = "TT",
-  TV = "TV",
-  TW = "TW",
-  TZ = "TZ",
-  UA = "UA",
-  UG = "UG",
-  UM = "UM",
-  US = "US",
-  UY = "UY",
-  UZ = "UZ",
-  VA = "VA",
-  VC = "VC",
-  VE = "VE",
-  VG = "VG",
-  VI = "VI",
-  VN = "VN",
-  VU = "VU",
-  WF = "WF",
-  WS = "WS",
-  YE = "YE",
-  YT = "YT",
-  ZA = "ZA",
-  ZM = "ZM",
-  ZW = "ZW",
-}
+export const GeoMatchConstraintValue = {
+  AD: "AD",
+  AE: "AE",
+  AF: "AF",
+  AG: "AG",
+  AI: "AI",
+  AL: "AL",
+  AM: "AM",
+  AO: "AO",
+  AQ: "AQ",
+  AR: "AR",
+  AS: "AS",
+  AT: "AT",
+  AU: "AU",
+  AW: "AW",
+  AX: "AX",
+  AZ: "AZ",
+  BA: "BA",
+  BB: "BB",
+  BD: "BD",
+  BE: "BE",
+  BF: "BF",
+  BG: "BG",
+  BH: "BH",
+  BI: "BI",
+  BJ: "BJ",
+  BL: "BL",
+  BM: "BM",
+  BN: "BN",
+  BO: "BO",
+  BQ: "BQ",
+  BR: "BR",
+  BS: "BS",
+  BT: "BT",
+  BV: "BV",
+  BW: "BW",
+  BY: "BY",
+  BZ: "BZ",
+  CA: "CA",
+  CC: "CC",
+  CD: "CD",
+  CF: "CF",
+  CG: "CG",
+  CH: "CH",
+  CI: "CI",
+  CK: "CK",
+  CL: "CL",
+  CM: "CM",
+  CN: "CN",
+  CO: "CO",
+  CR: "CR",
+  CU: "CU",
+  CV: "CV",
+  CW: "CW",
+  CX: "CX",
+  CY: "CY",
+  CZ: "CZ",
+  DE: "DE",
+  DJ: "DJ",
+  DK: "DK",
+  DM: "DM",
+  DO: "DO",
+  DZ: "DZ",
+  EC: "EC",
+  EE: "EE",
+  EG: "EG",
+  EH: "EH",
+  ER: "ER",
+  ES: "ES",
+  ET: "ET",
+  FI: "FI",
+  FJ: "FJ",
+  FK: "FK",
+  FM: "FM",
+  FO: "FO",
+  FR: "FR",
+  GA: "GA",
+  GB: "GB",
+  GD: "GD",
+  GE: "GE",
+  GF: "GF",
+  GG: "GG",
+  GH: "GH",
+  GI: "GI",
+  GL: "GL",
+  GM: "GM",
+  GN: "GN",
+  GP: "GP",
+  GQ: "GQ",
+  GR: "GR",
+  GS: "GS",
+  GT: "GT",
+  GU: "GU",
+  GW: "GW",
+  GY: "GY",
+  HK: "HK",
+  HM: "HM",
+  HN: "HN",
+  HR: "HR",
+  HT: "HT",
+  HU: "HU",
+  ID: "ID",
+  IE: "IE",
+  IL: "IL",
+  IM: "IM",
+  IN: "IN",
+  IO: "IO",
+  IQ: "IQ",
+  IR: "IR",
+  IS: "IS",
+  IT: "IT",
+  JE: "JE",
+  JM: "JM",
+  JO: "JO",
+  JP: "JP",
+  KE: "KE",
+  KG: "KG",
+  KH: "KH",
+  KI: "KI",
+  KM: "KM",
+  KN: "KN",
+  KP: "KP",
+  KR: "KR",
+  KW: "KW",
+  KY: "KY",
+  KZ: "KZ",
+  LA: "LA",
+  LB: "LB",
+  LC: "LC",
+  LI: "LI",
+  LK: "LK",
+  LR: "LR",
+  LS: "LS",
+  LT: "LT",
+  LU: "LU",
+  LV: "LV",
+  LY: "LY",
+  MA: "MA",
+  MC: "MC",
+  MD: "MD",
+  ME: "ME",
+  MF: "MF",
+  MG: "MG",
+  MH: "MH",
+  MK: "MK",
+  ML: "ML",
+  MM: "MM",
+  MN: "MN",
+  MO: "MO",
+  MP: "MP",
+  MQ: "MQ",
+  MR: "MR",
+  MS: "MS",
+  MT: "MT",
+  MU: "MU",
+  MV: "MV",
+  MW: "MW",
+  MX: "MX",
+  MY: "MY",
+  MZ: "MZ",
+  NA: "NA",
+  NC: "NC",
+  NE: "NE",
+  NF: "NF",
+  NG: "NG",
+  NI: "NI",
+  NL: "NL",
+  NO: "NO",
+  NP: "NP",
+  NR: "NR",
+  NU: "NU",
+  NZ: "NZ",
+  OM: "OM",
+  PA: "PA",
+  PE: "PE",
+  PF: "PF",
+  PG: "PG",
+  PH: "PH",
+  PK: "PK",
+  PL: "PL",
+  PM: "PM",
+  PN: "PN",
+  PR: "PR",
+  PS: "PS",
+  PT: "PT",
+  PW: "PW",
+  PY: "PY",
+  QA: "QA",
+  RE: "RE",
+  RO: "RO",
+  RS: "RS",
+  RU: "RU",
+  RW: "RW",
+  SA: "SA",
+  SB: "SB",
+  SC: "SC",
+  SD: "SD",
+  SE: "SE",
+  SG: "SG",
+  SH: "SH",
+  SI: "SI",
+  SJ: "SJ",
+  SK: "SK",
+  SL: "SL",
+  SM: "SM",
+  SN: "SN",
+  SO: "SO",
+  SR: "SR",
+  SS: "SS",
+  ST: "ST",
+  SV: "SV",
+  SX: "SX",
+  SY: "SY",
+  SZ: "SZ",
+  TC: "TC",
+  TD: "TD",
+  TF: "TF",
+  TG: "TG",
+  TH: "TH",
+  TJ: "TJ",
+  TK: "TK",
+  TL: "TL",
+  TM: "TM",
+  TN: "TN",
+  TO: "TO",
+  TR: "TR",
+  TT: "TT",
+  TV: "TV",
+  TW: "TW",
+  TZ: "TZ",
+  UA: "UA",
+  UG: "UG",
+  UM: "UM",
+  US: "US",
+  UY: "UY",
+  UZ: "UZ",
+  VA: "VA",
+  VC: "VC",
+  VE: "VE",
+  VG: "VG",
+  VI: "VI",
+  VN: "VN",
+  VU: "VU",
+  WF: "WF",
+  WS: "WS",
+  YE: "YE",
+  YT: "YT",
+  ZA: "ZA",
+  ZM: "ZM",
+  ZW: "ZW",
+};
 
 /**
  * @public
@@ -1199,12 +1199,12 @@ export interface GeoMatchConstraint {
   /**
    * <p>The type of geographical area you want AWS WAF to search for. Currently <code>Country</code> is the only valid value.</p>
    */
-  Type: GeoMatchConstraintType | string | undefined;
+  Type: keyof typeof GeoMatchConstraintType | string | undefined;
 
   /**
    * <p>The country that you want AWS WAF to search for.</p>
    */
-  Value: GeoMatchConstraintValue | string | undefined;
+  Value: keyof typeof GeoMatchConstraintValue | string | undefined;
 }
 
 /**
@@ -1273,10 +1273,10 @@ export interface CreateIPSetRequest {
 /**
  * @public
  */
-export enum IPSetDescriptorType {
-  IPV4 = "IPV4",
-  IPV6 = "IPV6",
-}
+export const IPSetDescriptorType = {
+  IPV4: "IPV4",
+  IPV6: "IPV6",
+};
 
 /**
  * @public
@@ -1294,7 +1294,7 @@ export interface IPSetDescriptor {
   /**
    * <p>Specify <code>IPV4</code> or <code>IPV6</code>.</p>
    */
-  Type: IPSetDescriptorType | string | undefined;
+  Type: keyof typeof IPSetDescriptorType | string | undefined;
 
   /**
    * <p>Specify an IPv4 address by using CIDR notation. For example:</p>
@@ -1382,9 +1382,9 @@ export interface CreateIPSetResponse {
 /**
  * @public
  */
-export enum RateKey {
-  IP = "IP",
-}
+export const RateKey = {
+  IP: "IP",
+};
 
 /**
  * @public
@@ -1436,7 +1436,7 @@ export interface CreateRateBasedRuleRequest {
    *          address are subject to the <code>RateLimit</code> that is specified in
    *          the <code>RateBasedRule</code>.</p>
    */
-  RateKey: RateKey | string | undefined;
+  RateKey: keyof typeof RateKey | string | undefined;
 
   /**
    * <p>The maximum number of requests, which have an identical value in the field that is
@@ -1462,15 +1462,15 @@ export interface CreateRateBasedRuleRequest {
 /**
  * @public
  */
-export enum PredicateType {
-  BYTE_MATCH = "ByteMatch",
-  GEO_MATCH = "GeoMatch",
-  IP_MATCH = "IPMatch",
-  REGEX_MATCH = "RegexMatch",
-  SIZE_CONSTRAINT = "SizeConstraint",
-  SQL_INJECTION_MATCH = "SqlInjectionMatch",
-  XSS_MATCH = "XssMatch",
-}
+export const PredicateType = {
+  BYTE_MATCH: "ByteMatch",
+  GEO_MATCH: "GeoMatch",
+  IP_MATCH: "IPMatch",
+  REGEX_MATCH: "RegexMatch",
+  SIZE_CONSTRAINT: "SizeConstraint",
+  SQL_INJECTION_MATCH: "SqlInjectionMatch",
+  XSS_MATCH: "XssMatch",
+};
 
 /**
  * @public
@@ -1502,7 +1502,7 @@ export interface Predicate {
   /**
    * <p>The type of predicate in a <code>Rule</code>, such as <code>ByteMatch</code> or <code>IPSet</code>.</p>
    */
-  Type: PredicateType | string | undefined;
+  Type: keyof typeof PredicateType | string | undefined;
 
   /**
    * <p>A unique identifier for a predicate in a <code>Rule</code>, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>.
@@ -1575,7 +1575,7 @@ export interface RateBasedRule {
    *          address are subject to the <code>RateLimit</code> that is specified in the
    *             <code>RateBasedRule</code>.</p>
    */
-  RateKey: RateKey | string | undefined;
+  RateKey: keyof typeof RateKey | string | undefined;
 
   /**
    * <p>The maximum number of requests, which have an identical value in the field specified
@@ -1803,7 +1803,7 @@ export interface RegexMatchTuple {
    *          </p>
    * 		       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>
    */
-  TextTransformation: TextTransformation | string | undefined;
+  TextTransformation: keyof typeof TextTransformation | string | undefined;
 
   /**
    * <p>The <code>RegexPatternSetId</code> for a <code>RegexPatternSet</code>. You use <code>RegexPatternSetId</code> to get information about a
@@ -2151,14 +2151,14 @@ export interface CreateSizeConstraintSetRequest {
 /**
  * @public
  */
-export enum ComparisonOperator {
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-}
+export const ComparisonOperator = {
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  LE: "LE",
+  LT: "LT",
+  NE: "NE",
+};
 
 /**
  * @public
@@ -2276,7 +2276,7 @@ export interface SizeConstraint {
    *          </p>
    * 		       <p>Use this option to decode a URL-encoded value.</p>
    */
-  TextTransformation: TextTransformation | string | undefined;
+  TextTransformation: keyof typeof TextTransformation | string | undefined;
 
   /**
    * <p>The type of comparison you want AWS WAF to perform. AWS WAF uses this in combination with the provided <code>Size</code> and <code>FieldToMatch</code>
@@ -2302,7 +2302,7 @@ export interface SizeConstraint {
    *             <b>GT</b>: Used to test if the <code>Size</code> is strictly greater than the size of the <code>FieldToMatch</code>
    *          </p>
    */
-  ComparisonOperator: ComparisonOperator | string | undefined;
+  ComparisonOperator: keyof typeof ComparisonOperator | string | undefined;
 
   /**
    * <p>The size in bytes that you want AWS WAF to compare against the size of the specified <code>FieldToMatch</code>. AWS WAF uses this in combination
@@ -2499,7 +2499,7 @@ export interface SqlInjectionMatchTuple {
    *          </p>
    * 		       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>
    */
-  TextTransformation: TextTransformation | string | undefined;
+  TextTransformation: keyof typeof TextTransformation | string | undefined;
 }
 
 /**
@@ -2710,15 +2710,15 @@ export interface CreateWebACLMigrationStackResponse {
 /**
  * @public
  */
-export enum MigrationErrorType {
-  ENTITY_NOT_FOUND = "ENTITY_NOT_FOUND",
-  ENTITY_NOT_SUPPORTED = "ENTITY_NOT_SUPPORTED",
-  S3_BUCKET_INVALID_REGION = "S3_BUCKET_INVALID_REGION",
-  S3_BUCKET_NOT_ACCESSIBLE = "S3_BUCKET_NOT_ACCESSIBLE",
-  S3_BUCKET_NOT_FOUND = "S3_BUCKET_NOT_FOUND",
-  S3_BUCKET_NO_PERMISSION = "S3_BUCKET_NO_PERMISSION",
-  S3_INTERNAL_ERROR = "S3_INTERNAL_ERROR",
-}
+export const MigrationErrorType = {
+  ENTITY_NOT_FOUND: "ENTITY_NOT_FOUND",
+  ENTITY_NOT_SUPPORTED: "ENTITY_NOT_SUPPORTED",
+  S3_BUCKET_INVALID_REGION: "S3_BUCKET_INVALID_REGION",
+  S3_BUCKET_NOT_ACCESSIBLE: "S3_BUCKET_NOT_ACCESSIBLE",
+  S3_BUCKET_NOT_FOUND: "S3_BUCKET_NOT_FOUND",
+  S3_BUCKET_NO_PERMISSION: "S3_BUCKET_NO_PERMISSION",
+  S3_INTERNAL_ERROR: "S3_INTERNAL_ERROR",
+};
 
 /**
  * @public
@@ -2757,7 +2757,7 @@ export enum MigrationErrorType {
 export class WAFEntityMigrationException extends __BaseException {
   readonly name: "WAFEntityMigrationException" = "WAFEntityMigrationException";
   readonly $fault: "client" = "client";
-  MigrationErrorType?: MigrationErrorType | string;
+  MigrationErrorType?: keyof typeof MigrationErrorType | string;
   MigrationErrorReason?: string;
   /**
    * @internal
@@ -2944,7 +2944,7 @@ export interface XssMatchTuple {
    *          </p>
    * 		       <p>Specify <code>NONE</code> if you don't want to perform any text transformations.</p>
    */
-  TextTransformation: TextTransformation | string | undefined;
+  TextTransformation: keyof typeof TextTransformation | string | undefined;
 }
 
 /**
@@ -3524,11 +3524,11 @@ export interface GetChangeTokenStatusRequest {
 /**
  * @public
  */
-export enum ChangeTokenStatus {
-  INSYNC = "INSYNC",
-  PENDING = "PENDING",
-  PROVISIONED = "PROVISIONED",
-}
+export const ChangeTokenStatus = {
+  INSYNC: "INSYNC",
+  PENDING: "PENDING",
+  PROVISIONED: "PROVISIONED",
+};
 
 /**
  * @public
@@ -3537,7 +3537,7 @@ export interface GetChangeTokenStatusResponse {
   /**
    * <p>The status of the change token.</p>
    */
-  ChangeTokenStatus?: ChangeTokenStatus | string;
+  ChangeTokenStatus?: keyof typeof ChangeTokenStatus | string;
 }
 
 /**
@@ -4751,10 +4751,10 @@ export interface ListRegexPatternSetsResponse {
 /**
  * @public
  */
-export enum ResourceType {
-  API_GATEWAY = "API_GATEWAY",
-  APPLICATION_LOAD_BALANCER = "APPLICATION_LOAD_BALANCER",
-}
+export const ResourceType = {
+  API_GATEWAY: "API_GATEWAY",
+  APPLICATION_LOAD_BALANCER: "APPLICATION_LOAD_BALANCER",
+};
 
 /**
  * @public
@@ -4768,7 +4768,7 @@ export interface ListResourcesForWebACLRequest {
   /**
    * <p>The type of resource to list, either an application load balancer or Amazon API Gateway.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 }
 
 /**
@@ -5410,10 +5410,10 @@ export interface UntagResourceResponse {}
 /**
  * @public
  */
-export enum ChangeAction {
-  DELETE = "DELETE",
-  INSERT = "INSERT",
-}
+export const ChangeAction = {
+  DELETE: "DELETE",
+  INSERT: "INSERT",
+};
 
 /**
  * @public
@@ -5432,7 +5432,7 @@ export interface ByteMatchSetUpdate {
   /**
    * <p>Specifies whether to insert or delete a <a>ByteMatchTuple</a>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: keyof typeof ChangeAction | string | undefined;
 
   /**
    * <p>Information about the part of a web request that you want AWS WAF to inspect and the value that you want AWS WAF to search for.
@@ -5544,7 +5544,7 @@ export interface GeoMatchSetUpdate {
   /**
    * <p>Specifies whether to insert or delete a country with <a>UpdateGeoMatchSet</a>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: keyof typeof ChangeAction | string | undefined;
 
   /**
    * <p>The country from which web requests originate that you want AWS WAF to search for.</p>
@@ -5614,7 +5614,7 @@ export interface IPSetUpdate {
   /**
    * <p>Specifies whether to insert or delete an IP address with <a>UpdateIPSet</a>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: keyof typeof ChangeAction | string | undefined;
 
   /**
    * <p>The IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR notation) that web requests originate from.</p>
@@ -5686,7 +5686,7 @@ export interface RuleUpdate {
    * <p>Specify <code>INSERT</code> to add a <code>Predicate</code> to a <code>Rule</code>. Use <code>DELETE</code> to remove a
    * 			<code>Predicate</code> from a <code>Rule</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: keyof typeof ChangeAction | string | undefined;
 
   /**
    * <p>The ID of the <code>Predicate</code> (such as an <code>IPSet</code>) that you want to add to a <code>Rule</code>.</p>
@@ -5753,7 +5753,7 @@ export interface RegexMatchSetUpdate {
   /**
    * <p>Specifies whether to insert or delete a <a>RegexMatchTuple</a>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: keyof typeof ChangeAction | string | undefined;
 
   /**
    * <p>Information about the part of a web request that you want AWS WAF to inspect and the identifier of the regular expression (regex) pattern that you want AWS WAF to search for.
@@ -5813,7 +5813,7 @@ export interface RegexPatternSetUpdate {
   /**
    * <p>Specifies whether to insert or delete a <code>RegexPatternString</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: keyof typeof ChangeAction | string | undefined;
 
   /**
    * <p>Specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as <code>B[a@]dB[o0]t</code>.</p>
@@ -5941,7 +5941,7 @@ export interface RuleGroupUpdate {
    * <p>Specify <code>INSERT</code> to add an <code>ActivatedRule</code> to a <code>RuleGroup</code>. Use <code>DELETE</code> to remove an
    *          <code>ActivatedRule</code> from a <code>RuleGroup</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: keyof typeof ChangeAction | string | undefined;
 
   /**
    * <p>The <code>ActivatedRule</code> object specifies a <code>Rule</code> that you want to insert or delete,
@@ -6005,7 +6005,7 @@ export interface SizeConstraintSetUpdate {
    * <p>Specify <code>INSERT</code> to add a <a>SizeConstraintSetUpdate</a> to a <a>SizeConstraintSet</a>.
    * 			Use <code>DELETE</code> to remove a <code>SizeConstraintSetUpdate</code> from a <code>SizeConstraintSet</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: keyof typeof ChangeAction | string | undefined;
 
   /**
    * <p>Specifies a constraint on the size of a part of the web request. AWS WAF uses the <code>Size</code>, <code>ComparisonOperator</code>, and <code>FieldToMatch</code> to build
@@ -6085,7 +6085,7 @@ export interface SqlInjectionMatchSetUpdate {
    * <p>Specify <code>INSERT</code> to add a <a>SqlInjectionMatchSetUpdate</a> to a <a>SqlInjectionMatchSet</a>.
    * 			Use <code>DELETE</code> to remove a <code>SqlInjectionMatchSetUpdate</code> from a <code>SqlInjectionMatchSet</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: keyof typeof ChangeAction | string | undefined;
 
   /**
    * <p>Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.</p>
@@ -6161,7 +6161,7 @@ export interface WebACLUpdate {
   /**
    * <p>Specifies whether to insert a <code>Rule</code> into or delete a <code>Rule</code> from a <code>WebACL</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: keyof typeof ChangeAction | string | undefined;
 
   /**
    * <p>The <code>ActivatedRule</code> object in an <a>UpdateWebACL</a> request specifies a <code>Rule</code> that you want to insert or delete,
@@ -6274,7 +6274,7 @@ export interface XssMatchSetUpdate {
    *             <code>DELETE</code> to remove an
    *          <code>XssMatchSetUpdate</code> from an <code>XssMatchSet</code>.</p>
    */
-  Action: ChangeAction | string | undefined;
+  Action: keyof typeof ChangeAction | string | undefined;
 
   /**
    * <p>Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.</p>

@@ -108,11 +108,11 @@ export interface ApproveAssignmentResponse {}
 /**
  * @public
  */
-export enum AssignmentStatus {
-  Approved = "Approved",
-  Rejected = "Rejected",
-  Submitted = "Submitted",
-}
+export const AssignmentStatus = {
+  Approved: "Approved",
+  Rejected: "Rejected",
+  Submitted: "Submitted",
+};
 
 /**
  * @public
@@ -140,7 +140,7 @@ export interface Assignment {
   /**
    * <p> The status of the assignment.</p>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  AssignmentStatus?: keyof typeof AssignmentStatus | string;
 
   /**
    * <p> If results have been submitted, AutoApprovalTime is the date
@@ -274,18 +274,18 @@ export interface BonusPayment {
 /**
  * @public
  */
-export enum Comparator {
-  DoesNotExist = "DoesNotExist",
-  EqualTo = "EqualTo",
-  Exists = "Exists",
-  GreaterThan = "GreaterThan",
-  GreaterThanOrEqualTo = "GreaterThanOrEqualTo",
-  In = "In",
-  LessThan = "LessThan",
-  LessThanOrEqualTo = "LessThanOrEqualTo",
-  NotEqualTo = "NotEqualTo",
-  NotIn = "NotIn",
-}
+export const Comparator = {
+  DoesNotExist: "DoesNotExist",
+  EqualTo: "EqualTo",
+  Exists: "Exists",
+  GreaterThan: "GreaterThan",
+  GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
+  In: "In",
+  LessThan: "LessThan",
+  LessThanOrEqualTo: "LessThanOrEqualTo",
+  NotEqualTo: "NotEqualTo",
+  NotIn: "NotIn",
+};
 
 /**
  * @public
@@ -413,11 +413,11 @@ export interface HITLayoutParameter {
 /**
  * @public
  */
-export enum HITAccessActions {
-  Accept = "Accept",
-  DiscoverPreviewAndAccept = "DiscoverPreviewAndAccept",
-  PreviewAndAccept = "PreviewAndAccept",
-}
+export const HITAccessActions = {
+  Accept: "Accept",
+  DiscoverPreviewAndAccept: "DiscoverPreviewAndAccept",
+  PreviewAndAccept: "PreviewAndAccept",
+};
 
 /**
  * @public
@@ -470,7 +470,7 @@ export interface QualificationRequirement {
    *             regardless of its value.
    *         </p>
    */
-  Comparator: Comparator | string | undefined;
+  Comparator: keyof typeof Comparator | string | undefined;
 
   /**
    * <p> The integer value to compare against the Qualification's
@@ -531,7 +531,7 @@ export interface QualificationRequirement {
    *             <code>RequiredToPreview</code> field.
    *         </p>
    */
-  ActionsGuarded?: HITAccessActions | string;
+  ActionsGuarded?: keyof typeof HITAccessActions | string;
 }
 
 /**
@@ -711,23 +711,23 @@ export interface CreateHITRequest {
 /**
  * @public
  */
-export enum HITReviewStatus {
-  MarkedForReview = "MarkedForReview",
-  NotReviewed = "NotReviewed",
-  ReviewedAppropriate = "ReviewedAppropriate",
-  ReviewedInappropriate = "ReviewedInappropriate",
-}
+export const HITReviewStatus = {
+  MarkedForReview: "MarkedForReview",
+  NotReviewed: "NotReviewed",
+  ReviewedAppropriate: "ReviewedAppropriate",
+  ReviewedInappropriate: "ReviewedInappropriate",
+};
 
 /**
  * @public
  */
-export enum HITStatus {
-  Assignable = "Assignable",
-  Disposed = "Disposed",
-  Reviewable = "Reviewable",
-  Reviewing = "Reviewing",
-  Unassignable = "Unassignable",
-}
+export const HITStatus = {
+  Assignable: "Assignable",
+  Disposed: "Disposed",
+  Reviewable: "Reviewable",
+  Reviewing: "Reviewing",
+  Unassignable: "Unassignable",
+};
 
 /**
  * @public
@@ -790,7 +790,7 @@ export interface HIT {
    *             Assignable | Unassignable | Reviewable | Reviewing | Disposed.
    *         </p>
    */
-  HITStatus?: HITStatus | string;
+  HITStatus?: keyof typeof HITStatus | string;
 
   /**
    * <p>The number of times the HIT can be accepted and completed
@@ -848,7 +848,7 @@ export interface HIT {
    *             NotReviewed | MarkedForReview | ReviewedAppropriate |
    *             ReviewedInappropriate.</p>
    */
-  HITReviewStatus?: HITReviewStatus | string;
+  HITReviewStatus?: keyof typeof HITReviewStatus | string;
 
   /**
    * <p> The number of assignments for this HIT that are being
@@ -1093,10 +1093,10 @@ export interface CreateHITWithHITTypeResponse {
 /**
  * @public
  */
-export enum QualificationTypeStatus {
-  Active = "Active",
-  Inactive = "Inactive",
-}
+export const QualificationTypeStatus = {
+  Active: "Active",
+  Inactive: "Inactive",
+};
 
 /**
  * @public
@@ -1128,7 +1128,7 @@ export interface CreateQualificationTypeRequest {
    * <p>The initial status of the Qualification type.</p>
    *         <p>Constraints: Valid values are: Active | Inactive</p>
    */
-  QualificationTypeStatus: QualificationTypeStatus | string | undefined;
+  QualificationTypeStatus: keyof typeof QualificationTypeStatus | string | undefined;
 
   /**
    * <p>The number of seconds that a Worker must wait after
@@ -1246,7 +1246,7 @@ export interface QualificationType {
    *             type. Valid values are Active | Inactive.
    *         </p>
    */
-  QualificationTypeStatus?: QualificationTypeStatus | string;
+  QualificationTypeStatus?: keyof typeof QualificationTypeStatus | string;
 
   /**
    * <p> The questions for a Qualification test associated with this
@@ -1417,20 +1417,20 @@ export interface DisassociateQualificationFromWorkerResponse {}
 /**
  * @public
  */
-export enum EventType {
-  AssignmentAbandoned = "AssignmentAbandoned",
-  AssignmentAccepted = "AssignmentAccepted",
-  AssignmentApproved = "AssignmentApproved",
-  AssignmentRejected = "AssignmentRejected",
-  AssignmentReturned = "AssignmentReturned",
-  AssignmentSubmitted = "AssignmentSubmitted",
-  HITCreated = "HITCreated",
-  HITDisposed = "HITDisposed",
-  HITExpired = "HITExpired",
-  HITExtended = "HITExtended",
-  HITReviewable = "HITReviewable",
-  Ping = "Ping",
-}
+export const EventType = {
+  AssignmentAbandoned: "AssignmentAbandoned",
+  AssignmentAccepted: "AssignmentAccepted",
+  AssignmentApproved: "AssignmentApproved",
+  AssignmentRejected: "AssignmentRejected",
+  AssignmentReturned: "AssignmentReturned",
+  AssignmentSubmitted: "AssignmentSubmitted",
+  HITCreated: "HITCreated",
+  HITDisposed: "HITDisposed",
+  HITExpired: "HITExpired",
+  HITExtended: "HITExtended",
+  HITReviewable: "HITReviewable",
+  Ping: "Ping",
+};
 
 /**
  * @public
@@ -1547,10 +1547,10 @@ export interface GetQualificationScoreRequest {
 /**
  * @public
  */
-export enum QualificationStatus {
-  Granted = "Granted",
-  Revoked = "Revoked",
-}
+export const QualificationStatus = {
+  Granted: "Granted",
+  Revoked: "Revoked",
+};
 
 /**
  * @public
@@ -1594,7 +1594,7 @@ export interface Qualification {
    * <p> The status of the Qualification. Valid values are Granted |
    *             Revoked.</p>
    */
-  Status?: QualificationStatus | string;
+  Status?: keyof typeof QualificationStatus | string;
 }
 
 /**
@@ -1649,7 +1649,7 @@ export interface ListAssignmentsForHITRequest {
    * <p>The status of the assignments to return: Submitted | Approved
    *             | Rejected</p>
    */
-  AssignmentStatuses?: (AssignmentStatus | string)[];
+  AssignmentStatuses?: (keyof typeof AssignmentStatus | string)[];
 }
 
 /**
@@ -2001,10 +2001,10 @@ export interface ListQualificationTypesResponse {
 /**
  * @public
  */
-export enum ReviewableHITStatus {
-  Reviewable = "Reviewable",
-  Reviewing = "Reviewing",
-}
+export const ReviewableHITStatus = {
+  Reviewable: "Reviewable",
+  Reviewing: "Reviewing",
+};
 
 /**
  * @public
@@ -2024,7 +2024,7 @@ export interface ListReviewableHITsRequest {
    *             Reviewable is the default value.
    *         </p>
    */
-  Status?: ReviewableHITStatus | string;
+  Status?: keyof typeof ReviewableHITStatus | string;
 
   /**
    * <p>Pagination Token</p>
@@ -2067,10 +2067,10 @@ export interface ListReviewableHITsResponse {
 /**
  * @public
  */
-export enum ReviewPolicyLevel {
-  Assignment = "Assignment",
-  HIT = "HIT",
-}
+export const ReviewPolicyLevel = {
+  Assignment: "Assignment",
+  HIT: "HIT",
+};
 
 /**
  * @public
@@ -2088,7 +2088,7 @@ export interface ListReviewPolicyResultsForHITRequest {
    *             For a list of all the described policies, see Review Policies.
    *         </p>
    */
-  PolicyLevels?: (ReviewPolicyLevel | string)[];
+  PolicyLevels?: (keyof typeof ReviewPolicyLevel | string)[];
 
   /**
    * <p>
@@ -2119,12 +2119,12 @@ export interface ListReviewPolicyResultsForHITRequest {
 /**
  * @public
  */
-export enum ReviewActionStatus {
-  Cancelled = "Cancelled",
-  Failed = "Failed",
-  Intended = "Intended",
-  Succeeded = "Succeeded",
-}
+export const ReviewActionStatus = {
+  Cancelled: "Cancelled",
+  Failed: "Failed",
+  Intended: "Intended",
+  Succeeded: "Succeeded",
+};
 
 /**
  * @public
@@ -2162,7 +2162,7 @@ export interface ReviewActionDetail {
    *             FAILED, or CANCELLED.
    *         </p>
    */
-  Status?: ReviewActionStatus | string;
+  Status?: keyof typeof ReviewActionStatus | string;
 
   /**
    * <p> The date when the action was completed.</p>
@@ -2374,7 +2374,7 @@ export interface ListWorkersWithQualificationTypeRequest {
    *             Can be <code>Granted | Revoked</code>.
    *         </p>
    */
-  Status?: QualificationStatus | string;
+  Status?: keyof typeof QualificationStatus | string;
 
   /**
    * <p>Pagination Token</p>
@@ -2442,10 +2442,10 @@ export interface NotifyWorkersRequest {
 /**
  * @public
  */
-export enum NotifyWorkersFailureCode {
-  HardFailure = "HardFailure",
-  SoftFailure = "SoftFailure",
-}
+export const NotifyWorkersFailureCode = {
+  HardFailure: "HardFailure",
+  SoftFailure: "SoftFailure",
+};
 
 /**
  * @public
@@ -2458,7 +2458,7 @@ export interface NotifyWorkersFailureStatus {
    * <p> Encoded value for the failure type.
    *         </p>
    */
-  NotifyWorkersFailureCode?: NotifyWorkersFailureCode | string;
+  NotifyWorkersFailureCode?: keyof typeof NotifyWorkersFailureCode | string;
 
   /**
    * <p> A message detailing the reason the Worker could not be
@@ -2583,11 +2583,11 @@ export interface SendBonusResponse {}
 /**
  * @public
  */
-export enum NotificationTransport {
-  Email = "Email",
-  SNS = "SNS",
-  SQS = "SQS",
-}
+export const NotificationTransport = {
+  Email: "Email",
+  SNS: "SNS",
+  SQS: "SQS",
+};
 
 /**
  * @public
@@ -2618,7 +2618,7 @@ export interface NotificationSpecification {
    *             notification. Valid Values: Email | SQS | SNS.
    *         </p>
    */
-  Transport: NotificationTransport | string | undefined;
+  Transport: keyof typeof NotificationTransport | string | undefined;
 
   /**
    * <p>The version of the Notification API to use. Valid value is
@@ -2635,7 +2635,7 @@ export interface NotificationSpecification {
    *             the SendTestEventNotification operation.
    *         </p>
    */
-  EventTypes: (EventType | string)[] | undefined;
+  EventTypes: (keyof typeof EventType | string)[] | undefined;
 }
 
 /**
@@ -2659,7 +2659,7 @@ export interface SendTestEventNotificationRequest {
    *             The notification specification does not filter out the test event.
    *         </p>
    */
-  TestEventType: EventType | string | undefined;
+  TestEventType: keyof typeof EventType | string | undefined;
 }
 
 /**
@@ -2798,7 +2798,7 @@ export interface UpdateQualificationTypeRequest {
   /**
    * <p>The new status of the Qualification type - Active | Inactive</p>
    */
-  QualificationTypeStatus?: QualificationTypeStatus | string;
+  QualificationTypeStatus?: keyof typeof QualificationTypeStatus | string;
 
   /**
    * <p>The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, <code>TestDurationInSeconds</code> must also be specified.</p>

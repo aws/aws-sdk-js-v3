@@ -248,7 +248,7 @@ export interface UpdateDomainRequest {
    *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
    *             provided.</p>
    */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
+  AppSecurityGroupManagement?: keyof typeof AppSecurityGroupManagement | string;
 }
 
 /**
@@ -264,11 +264,11 @@ export interface UpdateDomainResponse {
 /**
  * @public
  */
-export enum VariantPropertyType {
-  DataCaptureConfig = "DataCaptureConfig",
-  DesiredInstanceCount = "DesiredInstanceCount",
-  DesiredWeight = "DesiredWeight",
-}
+export const VariantPropertyType = {
+  DataCaptureConfig: "DataCaptureConfig",
+  DesiredInstanceCount: "DesiredInstanceCount",
+  DesiredWeight: "DesiredWeight",
+};
 
 /**
  * @public
@@ -298,7 +298,7 @@ export interface VariantProperty {
    *             </li>
    *          </ul>
    */
-  VariantPropertyType: VariantPropertyType | string | undefined;
+  VariantPropertyType: keyof typeof VariantPropertyType | string | undefined;
 }
 
 /**
@@ -597,7 +597,7 @@ export interface UpdateImageVersionRequest {
    *             </li>
    *          </ul>
    */
-  VendorGuidance?: VendorGuidance | string;
+  VendorGuidance?: keyof typeof VendorGuidance | string;
 
   /**
    * <p>Indicates SageMaker job type compatibility.</p>
@@ -616,7 +616,7 @@ export interface UpdateImageVersionRequest {
    *             </li>
    *          </ul>
    */
-  JobType?: JobType | string;
+  JobType?: keyof typeof JobType | string;
 
   /**
    * <p>The machine learning framework vended in the image version.</p>
@@ -641,7 +641,7 @@ export interface UpdateImageVersionRequest {
    *             </li>
    *          </ul>
    */
-  Processor?: Processor | string;
+  Processor?: keyof typeof Processor | string;
 
   /**
    * <p>Indicates Horovod compatibility.</p>
@@ -758,7 +758,7 @@ export interface UpdateModelCardRequest {
    *             </li>
    *          </ul>
    */
-  ModelCardStatus?: ModelCardStatus | string;
+  ModelCardStatus?: keyof typeof ModelCardStatus | string;
 }
 
 /**
@@ -783,7 +783,7 @@ export interface UpdateModelPackageInput {
   /**
    * <p>The approval status of the model.</p>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: keyof typeof ModelApprovalStatus | string;
 
   /**
    * <p>A description for the approval status of the model.</p>
@@ -901,7 +901,7 @@ export interface UpdateNotebookInstanceInput {
   /**
    * <p>The Amazon ML compute instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access the
@@ -964,7 +964,7 @@ export interface UpdateNotebookInstanceInput {
    *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
    *                 SageMaker</a>.</p>
    */
-  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
+  AcceleratorTypes?: (keyof typeof NotebookInstanceAcceleratorType | string)[];
 
   /**
    * <p>A list of the Elastic Inference (EI) instance types to remove from this notebook
@@ -998,7 +998,7 @@ export interface UpdateNotebookInstanceInput {
    *                 permissions.</p>
    *          </note>
    */
-  RootAccess?: RootAccess | string;
+  RootAccess?: keyof typeof RootAccess | string;
 
   /**
    * <p>Information on the IMDS configuration of the notebook instance</p>
@@ -1530,7 +1530,7 @@ export interface SearchExpression {
    *       true for the entire search expression to be true, specify <code>Or</code>. The default
    *       value is <code>And</code>.</p>
    */
-  Operator?: BooleanOperator | string;
+  Operator?: keyof typeof BooleanOperator | string;
 }
 
 /**
@@ -1540,7 +1540,7 @@ export interface SearchRequest {
   /**
    * <p>The name of the SageMaker resource to search for.</p>
    */
-  Resource: ResourceType | string | undefined;
+  Resource: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>A Boolean conditional statement. Resources must satisfy this condition to be
@@ -1561,7 +1561,7 @@ export interface SearchRequest {
    * <p>How <code>SearchResults</code> are ordered. Valid values are <code>Ascending</code> or
    *       <code>Descending</code>. The default is <code>Descending</code>.</p>
    */
-  SortOrder?: SearchSortOrder | string;
+  SortOrder?: keyof typeof SearchSortOrder | string;
 
   /**
    * <p>If more than <code>MaxResults</code> resources match the specified

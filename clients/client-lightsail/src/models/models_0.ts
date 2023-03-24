@@ -33,10 +33,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AccessDirection {
-  inbound = "inbound",
-  outbound = "outbound",
-}
+export const AccessDirection = {
+  inbound: "inbound",
+  outbound: "outbound",
+};
 
 /**
  * @public
@@ -69,10 +69,10 @@ export interface AccessKeyLastUsed {
 /**
  * @public
  */
-export enum StatusType {
-  Active = "Active",
-  Inactive = "Inactive",
-}
+export const StatusType = {
+  Active: "Active",
+  Inactive: "Inactive",
+};
 
 /**
  * @public
@@ -106,7 +106,7 @@ export interface AccessKey {
    *          <p>A status of <code>Active</code> means that the key is valid, while <code>Inactive</code>
    *       means it is not.</p>
    */
-  status?: StatusType | string;
+  status?: keyof typeof StatusType | string;
 
   /**
    * <p>The timestamp when the access key was created.</p>
@@ -143,10 +143,10 @@ export interface ResourceReceivingAccess {
 /**
  * @public
  */
-export enum AccessType {
-  Private = "private",
-  Public = "public",
-}
+export const AccessType = {
+  Private: "private",
+  Public: "public",
+};
 
 /**
  * @public
@@ -181,7 +181,7 @@ export interface AccessRules {
    *             </li>
    *          </ul>
    */
-  getObject?: AccessType | string;
+  getObject?: keyof typeof AccessType | string;
 
   /**
    * <p>A Boolean value that indicates whether the access control list (ACL) permissions that are
@@ -197,22 +197,22 @@ export interface AccessRules {
 /**
  * @public
  */
-export enum BPAStatusMessage {
-  DEFAULTED_FOR_SLR_MISSING = "DEFAULTED_FOR_SLR_MISSING",
-  DEFAULTED_FOR_SLR_MISSING_ON_HOLD = "DEFAULTED_FOR_SLR_MISSING_ON_HOLD",
-  SYNC_ON_HOLD = "SYNC_ON_HOLD",
-  Unknown = "Unknown",
-}
+export const BPAStatusMessage = {
+  DEFAULTED_FOR_SLR_MISSING: "DEFAULTED_FOR_SLR_MISSING",
+  DEFAULTED_FOR_SLR_MISSING_ON_HOLD: "DEFAULTED_FOR_SLR_MISSING_ON_HOLD",
+  SYNC_ON_HOLD: "SYNC_ON_HOLD",
+  Unknown: "Unknown",
+};
 
 /**
  * @public
  */
-export enum AccountLevelBpaSyncStatus {
-  Defaulted = "Defaulted",
-  Failed = "Failed",
-  InSync = "InSync",
-  NeverSynced = "NeverSynced",
-}
+export const AccountLevelBpaSyncStatus = {
+  Defaulted: "Defaulted",
+  Failed: "Failed",
+  InSync: "InSync",
+  NeverSynced: "NeverSynced",
+};
 
 /**
  * @public
@@ -260,7 +260,7 @@ export interface AccountLevelBpaSync {
    *         those statuses.</p>
    *          </note>
    */
-  status?: AccountLevelBpaSyncStatus | string;
+  status?: keyof typeof AccountLevelBpaSyncStatus | string;
 
   /**
    * <p>The timestamp of when the account-level BPA configuration was last synchronized. This
@@ -307,7 +307,7 @@ export interface AccountLevelBpaSync {
    *             </li>
    *          </ul>
    */
-  message?: BPAStatusMessage | string;
+  message?: keyof typeof BPAStatusMessage | string;
 
   /**
    * <p>A Boolean value that indicates whether account-level block public access is affecting your
@@ -396,10 +396,10 @@ export interface AddOn {
 /**
  * @public
  */
-export enum AddOnType {
-  AutoSnapshot = "AutoSnapshot",
-  StopInstanceOnIdle = "StopInstanceOnIdle",
-}
+export const AddOnType = {
+  AutoSnapshot: "AutoSnapshot",
+  StopInstanceOnIdle: "StopInstanceOnIdle",
+};
 
 /**
  * @public
@@ -490,7 +490,7 @@ export interface AddOnRequest {
   /**
    * <p>The add-on type.</p>
    */
-  addOnType: AddOnType | string | undefined;
+  addOnType: keyof typeof AddOnType | string | undefined;
 
   /**
    * <p>An object that represents additional parameters when enabling or modifying the automatic
@@ -511,41 +511,41 @@ export interface AddOnRequest {
 /**
  * @public
  */
-export enum ComparisonOperator {
-  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
-  GreaterThanThreshold = "GreaterThanThreshold",
-  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
-  LessThanThreshold = "LessThanThreshold",
-}
+export const ComparisonOperator = {
+  GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold: "GreaterThanThreshold",
+  LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
+  LessThanThreshold: "LessThanThreshold",
+};
 
 /**
  * @public
  */
-export enum ContactProtocol {
-  Email = "Email",
-  SMS = "SMS",
-}
+export const ContactProtocol = {
+  Email: "Email",
+  SMS: "SMS",
+};
 
 /**
  * @public
  */
-export enum RegionName {
-  AP_NORTHEAST_1 = "ap-northeast-1",
-  AP_NORTHEAST_2 = "ap-northeast-2",
-  AP_SOUTHEAST_1 = "ap-southeast-1",
-  AP_SOUTHEAST_2 = "ap-southeast-2",
-  AP_SOUTH_1 = "ap-south-1",
-  CA_CENTRAL_1 = "ca-central-1",
-  EU_CENTRAL_1 = "eu-central-1",
-  EU_NORTH_1 = "eu-north-1",
-  EU_WEST_1 = "eu-west-1",
-  EU_WEST_2 = "eu-west-2",
-  EU_WEST_3 = "eu-west-3",
-  US_EAST_1 = "us-east-1",
-  US_EAST_2 = "us-east-2",
-  US_WEST_1 = "us-west-1",
-  US_WEST_2 = "us-west-2",
-}
+export const RegionName = {
+  AP_NORTHEAST_1: "ap-northeast-1",
+  AP_NORTHEAST_2: "ap-northeast-2",
+  AP_SOUTHEAST_1: "ap-southeast-1",
+  AP_SOUTHEAST_2: "ap-southeast-2",
+  AP_SOUTH_1: "ap-south-1",
+  CA_CENTRAL_1: "ca-central-1",
+  EU_CENTRAL_1: "eu-central-1",
+  EU_NORTH_1: "eu-north-1",
+  EU_WEST_1: "eu-west-1",
+  EU_WEST_2: "eu-west-2",
+  EU_WEST_3: "eu-west-3",
+  US_EAST_1: "us-east-1",
+  US_EAST_2: "us-east-2",
+  US_WEST_1: "us-west-1",
+  US_WEST_2: "us-west-2",
+};
 
 /**
  * @public
@@ -560,65 +560,65 @@ export interface ResourceLocation {
   /**
    * <p>The Amazon Web Services Region name.</p>
    */
-  regionName?: RegionName | string;
+  regionName?: keyof typeof RegionName | string;
 }
 
 /**
  * @public
  */
-export enum MetricName {
-  BurstCapacityPercentage = "BurstCapacityPercentage",
-  BurstCapacityTime = "BurstCapacityTime",
-  CPUUtilization = "CPUUtilization",
-  ClientTLSNegotiationErrorCount = "ClientTLSNegotiationErrorCount",
-  DatabaseConnections = "DatabaseConnections",
-  DiskQueueDepth = "DiskQueueDepth",
-  FreeStorageSpace = "FreeStorageSpace",
-  HTTPCode_Instance_2XX_Count = "HTTPCode_Instance_2XX_Count",
-  HTTPCode_Instance_3XX_Count = "HTTPCode_Instance_3XX_Count",
-  HTTPCode_Instance_4XX_Count = "HTTPCode_Instance_4XX_Count",
-  HTTPCode_Instance_5XX_Count = "HTTPCode_Instance_5XX_Count",
-  HTTPCode_LB_4XX_Count = "HTTPCode_LB_4XX_Count",
-  HTTPCode_LB_5XX_Count = "HTTPCode_LB_5XX_Count",
-  HealthyHostCount = "HealthyHostCount",
-  InstanceResponseTime = "InstanceResponseTime",
-  NetworkIn = "NetworkIn",
-  NetworkOut = "NetworkOut",
-  NetworkReceiveThroughput = "NetworkReceiveThroughput",
-  NetworkTransmitThroughput = "NetworkTransmitThroughput",
-  RejectedConnectionCount = "RejectedConnectionCount",
-  RequestCount = "RequestCount",
-  StatusCheckFailed = "StatusCheckFailed",
-  StatusCheckFailed_Instance = "StatusCheckFailed_Instance",
-  StatusCheckFailed_System = "StatusCheckFailed_System",
-  UnhealthyHostCount = "UnhealthyHostCount",
-}
+export const MetricName = {
+  BurstCapacityPercentage: "BurstCapacityPercentage",
+  BurstCapacityTime: "BurstCapacityTime",
+  CPUUtilization: "CPUUtilization",
+  ClientTLSNegotiationErrorCount: "ClientTLSNegotiationErrorCount",
+  DatabaseConnections: "DatabaseConnections",
+  DiskQueueDepth: "DiskQueueDepth",
+  FreeStorageSpace: "FreeStorageSpace",
+  HTTPCode_Instance_2XX_Count: "HTTPCode_Instance_2XX_Count",
+  HTTPCode_Instance_3XX_Count: "HTTPCode_Instance_3XX_Count",
+  HTTPCode_Instance_4XX_Count: "HTTPCode_Instance_4XX_Count",
+  HTTPCode_Instance_5XX_Count: "HTTPCode_Instance_5XX_Count",
+  HTTPCode_LB_4XX_Count: "HTTPCode_LB_4XX_Count",
+  HTTPCode_LB_5XX_Count: "HTTPCode_LB_5XX_Count",
+  HealthyHostCount: "HealthyHostCount",
+  InstanceResponseTime: "InstanceResponseTime",
+  NetworkIn: "NetworkIn",
+  NetworkOut: "NetworkOut",
+  NetworkReceiveThroughput: "NetworkReceiveThroughput",
+  NetworkTransmitThroughput: "NetworkTransmitThroughput",
+  RejectedConnectionCount: "RejectedConnectionCount",
+  RequestCount: "RequestCount",
+  StatusCheckFailed: "StatusCheckFailed",
+  StatusCheckFailed_Instance: "StatusCheckFailed_Instance",
+  StatusCheckFailed_System: "StatusCheckFailed_System",
+  UnhealthyHostCount: "UnhealthyHostCount",
+};
 
 /**
  * @public
  */
-export enum ResourceType {
-  Alarm = "Alarm",
-  Bucket = "Bucket",
-  Certificate = "Certificate",
-  CloudFormationStackRecord = "CloudFormationStackRecord",
-  ContactMethod = "ContactMethod",
-  ContainerService = "ContainerService",
-  Disk = "Disk",
-  DiskSnapshot = "DiskSnapshot",
-  Distribution = "Distribution",
-  Domain = "Domain",
-  ExportSnapshotRecord = "ExportSnapshotRecord",
-  Instance = "Instance",
-  InstanceSnapshot = "InstanceSnapshot",
-  KeyPair = "KeyPair",
-  LoadBalancer = "LoadBalancer",
-  LoadBalancerTlsCertificate = "LoadBalancerTlsCertificate",
-  PeeredVpc = "PeeredVpc",
-  RelationalDatabase = "RelationalDatabase",
-  RelationalDatabaseSnapshot = "RelationalDatabaseSnapshot",
-  StaticIp = "StaticIp",
-}
+export const ResourceType = {
+  Alarm: "Alarm",
+  Bucket: "Bucket",
+  Certificate: "Certificate",
+  CloudFormationStackRecord: "CloudFormationStackRecord",
+  ContactMethod: "ContactMethod",
+  ContainerService: "ContainerService",
+  Disk: "Disk",
+  DiskSnapshot: "DiskSnapshot",
+  Distribution: "Distribution",
+  Domain: "Domain",
+  ExportSnapshotRecord: "ExportSnapshotRecord",
+  Instance: "Instance",
+  InstanceSnapshot: "InstanceSnapshot",
+  KeyPair: "KeyPair",
+  LoadBalancer: "LoadBalancer",
+  LoadBalancerTlsCertificate: "LoadBalancerTlsCertificate",
+  PeeredVpc: "PeeredVpc",
+  RelationalDatabase: "RelationalDatabase",
+  RelationalDatabaseSnapshot: "RelationalDatabaseSnapshot",
+  StaticIp: "StaticIp",
+};
 
 /**
  * @public
@@ -643,71 +643,71 @@ export interface MonitoredResourceInfo {
    *          <p>Instances, load balancers, and relational databases are the only Lightsail resources
    *       that can currently be monitored by alarms.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 }
 
 /**
  * @public
  */
-export enum AlarmState {
-  ALARM = "ALARM",
-  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
-  OK = "OK",
-}
+export const AlarmState = {
+  ALARM: "ALARM",
+  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
+  OK: "OK",
+};
 
 /**
  * @public
  */
-export enum MetricStatistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
-}
+export const MetricStatistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+};
 
 /**
  * @public
  */
-export enum TreatMissingData {
-  Breaching = "breaching",
-  Ignore = "ignore",
-  Missing = "missing",
-  NotBreaching = "notBreaching",
-}
+export const TreatMissingData = {
+  Breaching: "breaching",
+  Ignore: "ignore",
+  Missing: "missing",
+  NotBreaching: "notBreaching",
+};
 
 /**
  * @public
  */
-export enum MetricUnit {
-  Bits = "Bits",
-  BitsSecond = "Bits/Second",
-  Bytes = "Bytes",
-  BytesSecond = "Bytes/Second",
-  Count = "Count",
-  CountSecond = "Count/Second",
-  Gigabits = "Gigabits",
-  GigabitsSecond = "Gigabits/Second",
-  Gigabytes = "Gigabytes",
-  GigabytesSecond = "Gigabytes/Second",
-  Kilobits = "Kilobits",
-  KilobitsSecond = "Kilobits/Second",
-  Kilobytes = "Kilobytes",
-  KilobytesSecond = "Kilobytes/Second",
-  Megabits = "Megabits",
-  MegabitsSecond = "Megabits/Second",
-  Megabytes = "Megabytes",
-  MegabytesSecond = "Megabytes/Second",
-  Microseconds = "Microseconds",
-  Milliseconds = "Milliseconds",
-  None = "None",
-  Percent = "Percent",
-  Seconds = "Seconds",
-  Terabits = "Terabits",
-  TerabitsSecond = "Terabits/Second",
-  Terabytes = "Terabytes",
-  TerabytesSecond = "Terabytes/Second",
-}
+export const MetricUnit = {
+  Bits: "Bits",
+  BitsSecond: "Bits/Second",
+  Bytes: "Bytes",
+  BytesSecond: "Bytes/Second",
+  Count: "Count",
+  CountSecond: "Count/Second",
+  Gigabits: "Gigabits",
+  GigabitsSecond: "Gigabits/Second",
+  Gigabytes: "Gigabytes",
+  GigabytesSecond: "Gigabytes/Second",
+  Kilobits: "Kilobits",
+  KilobitsSecond: "Kilobits/Second",
+  Kilobytes: "Kilobytes",
+  KilobytesSecond: "Kilobytes/Second",
+  Megabits: "Megabits",
+  MegabitsSecond: "Megabits/Second",
+  Megabytes: "Megabytes",
+  MegabytesSecond: "Megabytes/Second",
+  Microseconds: "Microseconds",
+  Milliseconds: "Milliseconds",
+  None: "None",
+  Percent: "Percent",
+  Seconds: "Seconds",
+  Terabits: "Terabits",
+  TerabitsSecond: "Terabits/Second",
+  Terabytes: "Terabytes",
+  TerabytesSecond: "Terabytes/Second",
+};
 
 /**
  * @public
@@ -739,7 +739,7 @@ export interface Alarm {
   /**
    * <p>The Lightsail resource type (e.g., <code>Alarm</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The support code. Include this code in your email to support when you have questions about
@@ -756,7 +756,7 @@ export interface Alarm {
   /**
    * <p>The arithmetic operation used when comparing the specified statistic and threshold.</p>
    */
-  comparisonOperator?: ComparisonOperator | string;
+  comparisonOperator?: keyof typeof ComparisonOperator | string;
 
   /**
    * <p>The number of periods over which data is compared to the specified threshold.</p>
@@ -805,7 +805,7 @@ export interface Alarm {
    *             </li>
    *          </ul>
    */
-  treatMissingData?: TreatMissingData | string;
+  treatMissingData?: keyof typeof TreatMissingData | string;
 
   /**
    * <p>The statistic for the metric associated with the alarm.</p>
@@ -840,12 +840,12 @@ export interface Alarm {
    *             </li>
    *          </ul>
    */
-  statistic?: MetricStatistic | string;
+  statistic?: keyof typeof MetricStatistic | string;
 
   /**
    * <p>The name of the metric associated with the alarm.</p>
    */
-  metricName?: MetricName | string;
+  metricName?: keyof typeof MetricName | string;
 
   /**
    * <p>The current state of the alarm.</p>
@@ -867,23 +867,23 @@ export interface Alarm {
    *             </li>
    *          </ul>
    */
-  state?: AlarmState | string;
+  state?: keyof typeof AlarmState | string;
 
   /**
    * <p>The unit of the metric associated with the alarm.</p>
    */
-  unit?: MetricUnit | string;
+  unit?: keyof typeof MetricUnit | string;
 
   /**
    * <p>The contact protocols for the alarm, such as <code>Email</code>, <code>SMS</code> (text
    *       messaging), or both.</p>
    */
-  contactProtocols?: (ContactProtocol | string)[];
+  contactProtocols?: (keyof typeof ContactProtocol | string)[];
 
   /**
    * <p>The alarm states that trigger a notification.</p>
    */
-  notificationTriggers?: (AlarmState | string)[];
+  notificationTriggers?: (keyof typeof AlarmState | string)[];
 
   /**
    * <p>Indicates whether the alarm is enabled.</p>
@@ -904,101 +904,101 @@ export interface AllocateStaticIpRequest {
 /**
  * @public
  */
-export enum OperationType {
-  AllocateStaticIp = "AllocateStaticIp",
-  AttachCertificateToDistribution = "AttachCertificateToDistribution",
-  AttachDisk = "AttachDisk",
-  AttachInstancesToLoadBalancer = "AttachInstancesToLoadBalancer",
-  AttachLoadBalancerTlsCertificate = "AttachLoadBalancerTlsCertificate",
-  AttachStaticIp = "AttachStaticIp",
-  CloseInstancePublicPorts = "CloseInstancePublicPorts",
-  CreateBucket = "CreateBucket",
-  CreateBucketAccessKey = "CreateBucketAccessKey",
-  CreateCertificate = "CreateCertificate",
-  CreateContactMethod = "CreateContactMethod",
-  CreateContainerService = "CreateContainerService",
-  CreateContainerServiceDeployment = "CreateContainerServiceDeployment",
-  CreateContainerServiceRegistryLogin = "CreateContainerServiceRegistryLogin",
-  CreateDisk = "CreateDisk",
-  CreateDiskFromSnapshot = "CreateDiskFromSnapshot",
-  CreateDiskSnapshot = "CreateDiskSnapshot",
-  CreateDistribution = "CreateDistribution",
-  CreateDomain = "CreateDomain",
-  CreateInstance = "CreateInstance",
-  CreateInstanceSnapshot = "CreateInstanceSnapshot",
-  CreateInstancesFromSnapshot = "CreateInstancesFromSnapshot",
-  CreateLoadBalancer = "CreateLoadBalancer",
-  CreateLoadBalancerTlsCertificate = "CreateLoadBalancerTlsCertificate",
-  CreateRelationalDatabase = "CreateRelationalDatabase",
-  CreateRelationalDatabaseFromSnapshot = "CreateRelationalDatabaseFromSnapshot",
-  CreateRelationalDatabaseSnapshot = "CreateRelationalDatabaseSnapshot",
-  DeleteAlarm = "DeleteAlarm",
-  DeleteBucket = "DeleteBucket",
-  DeleteBucketAccessKey = "DeleteBucketAccessKey",
-  DeleteCertificate = "DeleteCertificate",
-  DeleteContactMethod = "DeleteContactMethod",
-  DeleteContainerImage = "DeleteContainerImage",
-  DeleteContainerService = "DeleteContainerService",
-  DeleteDisk = "DeleteDisk",
-  DeleteDiskSnapshot = "DeleteDiskSnapshot",
-  DeleteDistribution = "DeleteDistribution",
-  DeleteDomain = "DeleteDomain",
-  DeleteDomainEntry = "DeleteDomainEntry",
-  DeleteInstance = "DeleteInstance",
-  DeleteInstanceSnapshot = "DeleteInstanceSnapshot",
-  DeleteKnownHostKeys = "DeleteKnownHostKeys",
-  DeleteLoadBalancer = "DeleteLoadBalancer",
-  DeleteLoadBalancerTlsCertificate = "DeleteLoadBalancerTlsCertificate",
-  DeleteRelationalDatabase = "DeleteRelationalDatabase",
-  DeleteRelationalDatabaseSnapshot = "DeleteRelationalDatabaseSnapshot",
-  DetachCertificateFromDistribution = "DetachCertificateFromDistribution",
-  DetachDisk = "DetachDisk",
-  DetachInstancesFromLoadBalancer = "DetachInstancesFromLoadBalancer",
-  DetachStaticIp = "DetachStaticIp",
-  DisableAddOn = "DisableAddOn",
-  EnableAddOn = "EnableAddOn",
-  GetAlarms = "GetAlarms",
-  GetContactMethods = "GetContactMethods",
-  OpenInstancePublicPorts = "OpenInstancePublicPorts",
-  PutAlarm = "PutAlarm",
-  PutInstancePublicPorts = "PutInstancePublicPorts",
-  RebootInstance = "RebootInstance",
-  RebootRelationalDatabase = "RebootRelationalDatabase",
-  RegisterContainerImage = "RegisterContainerImage",
-  ReleaseStaticIp = "ReleaseStaticIp",
-  ResetDistributionCache = "ResetDistributionCache",
-  SendContactMethodVerification = "SendContactMethodVerification",
-  SetIpAddressType = "SetIpAddressType",
-  SetResourceAccessForBucket = "SetResourceAccessForBucket",
-  StartGUISession = "StartGUISession",
-  StartInstance = "StartInstance",
-  StartRelationalDatabase = "StartRelationalDatabase",
-  StopGUISession = "StopGUISession",
-  StopInstance = "StopInstance",
-  StopRelationalDatabase = "StopRelationalDatabase",
-  TestAlarm = "TestAlarm",
-  UpdateBucket = "UpdateBucket",
-  UpdateBucketBundle = "UpdateBucketBundle",
-  UpdateContainerService = "UpdateContainerService",
-  UpdateDistribution = "UpdateDistribution",
-  UpdateDistributionBundle = "UpdateDistributionBundle",
-  UpdateDomainEntry = "UpdateDomainEntry",
-  UpdateInstanceMetadataOptions = "UpdateInstanceMetadataOptions",
-  UpdateLoadBalancerAttribute = "UpdateLoadBalancerAttribute",
-  UpdateRelationalDatabase = "UpdateRelationalDatabase",
-  UpdateRelationalDatabaseParameters = "UpdateRelationalDatabaseParameters",
-}
+export const OperationType = {
+  AllocateStaticIp: "AllocateStaticIp",
+  AttachCertificateToDistribution: "AttachCertificateToDistribution",
+  AttachDisk: "AttachDisk",
+  AttachInstancesToLoadBalancer: "AttachInstancesToLoadBalancer",
+  AttachLoadBalancerTlsCertificate: "AttachLoadBalancerTlsCertificate",
+  AttachStaticIp: "AttachStaticIp",
+  CloseInstancePublicPorts: "CloseInstancePublicPorts",
+  CreateBucket: "CreateBucket",
+  CreateBucketAccessKey: "CreateBucketAccessKey",
+  CreateCertificate: "CreateCertificate",
+  CreateContactMethod: "CreateContactMethod",
+  CreateContainerService: "CreateContainerService",
+  CreateContainerServiceDeployment: "CreateContainerServiceDeployment",
+  CreateContainerServiceRegistryLogin: "CreateContainerServiceRegistryLogin",
+  CreateDisk: "CreateDisk",
+  CreateDiskFromSnapshot: "CreateDiskFromSnapshot",
+  CreateDiskSnapshot: "CreateDiskSnapshot",
+  CreateDistribution: "CreateDistribution",
+  CreateDomain: "CreateDomain",
+  CreateInstance: "CreateInstance",
+  CreateInstanceSnapshot: "CreateInstanceSnapshot",
+  CreateInstancesFromSnapshot: "CreateInstancesFromSnapshot",
+  CreateLoadBalancer: "CreateLoadBalancer",
+  CreateLoadBalancerTlsCertificate: "CreateLoadBalancerTlsCertificate",
+  CreateRelationalDatabase: "CreateRelationalDatabase",
+  CreateRelationalDatabaseFromSnapshot: "CreateRelationalDatabaseFromSnapshot",
+  CreateRelationalDatabaseSnapshot: "CreateRelationalDatabaseSnapshot",
+  DeleteAlarm: "DeleteAlarm",
+  DeleteBucket: "DeleteBucket",
+  DeleteBucketAccessKey: "DeleteBucketAccessKey",
+  DeleteCertificate: "DeleteCertificate",
+  DeleteContactMethod: "DeleteContactMethod",
+  DeleteContainerImage: "DeleteContainerImage",
+  DeleteContainerService: "DeleteContainerService",
+  DeleteDisk: "DeleteDisk",
+  DeleteDiskSnapshot: "DeleteDiskSnapshot",
+  DeleteDistribution: "DeleteDistribution",
+  DeleteDomain: "DeleteDomain",
+  DeleteDomainEntry: "DeleteDomainEntry",
+  DeleteInstance: "DeleteInstance",
+  DeleteInstanceSnapshot: "DeleteInstanceSnapshot",
+  DeleteKnownHostKeys: "DeleteKnownHostKeys",
+  DeleteLoadBalancer: "DeleteLoadBalancer",
+  DeleteLoadBalancerTlsCertificate: "DeleteLoadBalancerTlsCertificate",
+  DeleteRelationalDatabase: "DeleteRelationalDatabase",
+  DeleteRelationalDatabaseSnapshot: "DeleteRelationalDatabaseSnapshot",
+  DetachCertificateFromDistribution: "DetachCertificateFromDistribution",
+  DetachDisk: "DetachDisk",
+  DetachInstancesFromLoadBalancer: "DetachInstancesFromLoadBalancer",
+  DetachStaticIp: "DetachStaticIp",
+  DisableAddOn: "DisableAddOn",
+  EnableAddOn: "EnableAddOn",
+  GetAlarms: "GetAlarms",
+  GetContactMethods: "GetContactMethods",
+  OpenInstancePublicPorts: "OpenInstancePublicPorts",
+  PutAlarm: "PutAlarm",
+  PutInstancePublicPorts: "PutInstancePublicPorts",
+  RebootInstance: "RebootInstance",
+  RebootRelationalDatabase: "RebootRelationalDatabase",
+  RegisterContainerImage: "RegisterContainerImage",
+  ReleaseStaticIp: "ReleaseStaticIp",
+  ResetDistributionCache: "ResetDistributionCache",
+  SendContactMethodVerification: "SendContactMethodVerification",
+  SetIpAddressType: "SetIpAddressType",
+  SetResourceAccessForBucket: "SetResourceAccessForBucket",
+  StartGUISession: "StartGUISession",
+  StartInstance: "StartInstance",
+  StartRelationalDatabase: "StartRelationalDatabase",
+  StopGUISession: "StopGUISession",
+  StopInstance: "StopInstance",
+  StopRelationalDatabase: "StopRelationalDatabase",
+  TestAlarm: "TestAlarm",
+  UpdateBucket: "UpdateBucket",
+  UpdateBucketBundle: "UpdateBucketBundle",
+  UpdateContainerService: "UpdateContainerService",
+  UpdateDistribution: "UpdateDistribution",
+  UpdateDistributionBundle: "UpdateDistributionBundle",
+  UpdateDomainEntry: "UpdateDomainEntry",
+  UpdateInstanceMetadataOptions: "UpdateInstanceMetadataOptions",
+  UpdateLoadBalancerAttribute: "UpdateLoadBalancerAttribute",
+  UpdateRelationalDatabase: "UpdateRelationalDatabase",
+  UpdateRelationalDatabaseParameters: "UpdateRelationalDatabaseParameters",
+};
 
 /**
  * @public
  */
-export enum OperationStatus {
-  Completed = "Completed",
-  Failed = "Failed",
-  NotStarted = "NotStarted",
-  Started = "Started",
-  Succeeded = "Succeeded",
-}
+export const OperationStatus = {
+  Completed: "Completed",
+  Failed: "Failed",
+  NotStarted: "NotStarted",
+  Started: "Started",
+  Succeeded: "Succeeded",
+};
 
 /**
  * @public
@@ -1018,7 +1018,7 @@ export interface Operation {
   /**
    * <p>The resource type. </p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The timestamp when the operation was initialized (e.g.,
@@ -1044,12 +1044,12 @@ export interface Operation {
   /**
    * <p>The type of operation. </p>
    */
-  operationType?: OperationType | string;
+  operationType?: keyof typeof OperationType | string;
 
   /**
    * <p>The status of the operation. </p>
    */
-  status?: OperationStatus | string;
+  status?: keyof typeof OperationStatus | string;
 
   /**
    * <p>The timestamp when the status was changed (e.g., <code>1479816991.349</code>).</p>
@@ -1218,9 +1218,9 @@ export class UnauthenticatedException extends __BaseException {
 /**
  * @public
  */
-export enum AppCategory {
-  LfR = "LfR",
-}
+export const AppCategory = {
+  LfR: "LfR",
+};
 
 /**
  * @public
@@ -1425,22 +1425,22 @@ export interface AttachStaticIpResult {
 /**
  * @public
  */
-export enum AutoMountStatus {
-  Failed = "Failed",
-  Mounted = "Mounted",
-  NotMounted = "NotMounted",
-  Pending = "Pending",
-}
+export const AutoMountStatus = {
+  Failed: "Failed",
+  Mounted: "Mounted",
+  NotMounted: "NotMounted",
+  Pending: "Pending",
+};
 
 /**
  * @public
  */
-export enum AutoSnapshotStatus {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  NOT_FOUND = "NotFound",
-  SUCCESS = "Success",
-}
+export const AutoSnapshotStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  NOT_FOUND: "NotFound",
+  SUCCESS: "Success",
+};
 
 /**
  * @public
@@ -1460,7 +1460,7 @@ export interface AutoSnapshotDetails {
   /**
    * <p>The status of the automatic snapshot.</p>
    */
-  status?: AutoSnapshotStatus | string;
+  status?: keyof typeof AutoSnapshotStatus | string;
 
   /**
    * <p>An array of objects that describe the block storage disks attached to the instance when
@@ -1490,26 +1490,26 @@ export interface AvailabilityZone {
 /**
  * @public
  */
-export enum BehaviorEnum {
-  CacheSetting = "cache",
-  DontCacheSetting = "dont-cache",
-}
+export const BehaviorEnum = {
+  CacheSetting: "cache",
+  DontCacheSetting: "dont-cache",
+};
 
 /**
  * @public
  */
-export enum InstancePlatform {
-  LinuxUnix = "LINUX_UNIX",
-  Windows = "WINDOWS",
-}
+export const InstancePlatform = {
+  LinuxUnix: "LINUX_UNIX",
+  Windows: "WINDOWS",
+};
 
 /**
  * @public
  */
-export enum BlueprintType {
-  app = "app",
-  os = "os",
-}
+export const BlueprintType = {
+  app: "app",
+  os: "os",
+};
 
 /**
  * @public
@@ -1535,7 +1535,7 @@ export interface Blueprint {
   /**
    * <p>The type of the blueprint (e.g., <code>os</code> or <code>app</code>).</p>
    */
-  type?: BlueprintType | string;
+  type?: keyof typeof BlueprintType | string;
 
   /**
    * <p>The description of the blueprint.</p>
@@ -1583,7 +1583,7 @@ export interface Blueprint {
    * <p>The operating system platform (either Linux/Unix-based or Windows Server-based) of the
    *       blueprint.</p>
    */
-  platform?: InstancePlatform | string;
+  platform?: keyof typeof InstancePlatform | string;
 
   /**
    * <p>Virtual computer blueprints that are supported by Lightsail for Research.</p>
@@ -1591,7 +1591,7 @@ export interface Blueprint {
    *             <p>This parameter only applies to Lightsail for Research resources.</p>
    *          </important>
    */
-  appCategory?: AppCategory | string;
+  appCategory?: keyof typeof AppCategory | string;
 }
 
 /**
@@ -1843,10 +1843,10 @@ export interface BucketBundle {
 /**
  * @public
  */
-export enum BucketMetricName {
-  BucketSizeBytes = "BucketSizeBytes",
-  NumberOfObjects = "NumberOfObjects",
-}
+export const BucketMetricName = {
+  BucketSizeBytes: "BucketSizeBytes",
+  NumberOfObjects: "NumberOfObjects",
+};
 
 /**
  * @public
@@ -1914,7 +1914,7 @@ export interface Bundle {
    *         <code>WINDOWS</code> platform. <code>LINUX_UNIX</code> blueprints require a
    *         <code>LINUX_UNIX</code> bundle.</p>
    */
-  supportedPlatforms?: (InstancePlatform | string)[];
+  supportedPlatforms?: (keyof typeof InstancePlatform | string)[];
 
   /**
    * <p>Virtual computer blueprints that are supported by a Lightsail for Research bundle.</p>
@@ -1922,7 +1922,7 @@ export interface Bundle {
    *             <p>This parameter only applies to Lightsail for Research resources.</p>
    *          </important>
    */
-  supportedAppCategories?: (AppCategory | string)[];
+  supportedAppCategories?: (keyof typeof AppCategory | string)[];
 }
 
 /**
@@ -1958,7 +1958,7 @@ export interface CacheBehavior {
    *             </li>
    *          </ul>
    */
-  behavior?: BehaviorEnum | string;
+  behavior?: keyof typeof BehaviorEnum | string;
 }
 
 /**
@@ -2042,17 +2042,17 @@ export interface CacheBehaviorPerPath {
    *             </li>
    *          </ul>
    */
-  behavior?: BehaviorEnum | string;
+  behavior?: keyof typeof BehaviorEnum | string;
 }
 
 /**
  * @public
  */
-export enum ForwardValues {
-  all = "all",
-  allowList = "allow-list",
-  none = "none",
-}
+export const ForwardValues = {
+  all: "all",
+  allowList: "allow-list",
+  none: "none",
+};
 
 /**
  * @public
@@ -2068,7 +2068,7 @@ export interface CookieObject {
    *         <code>all</code>, <code>none</code>, or <code>allow-list</code> to forward only the cookies
    *       specified in the <code>cookiesAllowList</code> parameter.</p>
    */
-  option?: ForwardValues | string;
+  option?: keyof typeof ForwardValues | string;
 
   /**
    * <p>The specific cookies to forward to your distribution's origin.</p>
@@ -2079,23 +2079,23 @@ export interface CookieObject {
 /**
  * @public
  */
-export enum HeaderEnum {
-  accept = "Accept",
-  acceptCharset = "Accept-Charset",
-  acceptDatetime = "Accept-Datetime",
-  acceptEncoding = "Accept-Encoding",
-  acceptLanguage = "Accept-Language",
-  authorization = "Authorization",
-  cloudFrontForwardedProto = "CloudFront-Forwarded-Proto",
-  cloudFrontIsDesktopViewer = "CloudFront-Is-Desktop-Viewer",
-  cloudFrontIsMobileViewer = "CloudFront-Is-Mobile-Viewer",
-  cloudFrontIsSmartTVViewer = "CloudFront-Is-SmartTV-Viewer",
-  cloudFrontIsTabletViewer = "CloudFront-Is-Tablet-Viewer",
-  cloudFrontViewerCountry = "CloudFront-Viewer-Country",
-  host = "Host",
-  origin = "Origin",
-  referer = "Referer",
-}
+export const HeaderEnum = {
+  accept: "Accept",
+  acceptCharset: "Accept-Charset",
+  acceptDatetime: "Accept-Datetime",
+  acceptEncoding: "Accept-Encoding",
+  acceptLanguage: "Accept-Language",
+  authorization: "Authorization",
+  cloudFrontForwardedProto: "CloudFront-Forwarded-Proto",
+  cloudFrontIsDesktopViewer: "CloudFront-Is-Desktop-Viewer",
+  cloudFrontIsMobileViewer: "CloudFront-Is-Mobile-Viewer",
+  cloudFrontIsSmartTVViewer: "CloudFront-Is-SmartTV-Viewer",
+  cloudFrontIsTabletViewer: "CloudFront-Is-Tablet-Viewer",
+  cloudFrontViewerCountry: "CloudFront-Viewer-Country",
+  host: "Host",
+  origin: "Origin",
+  referer: "Referer",
+};
 
 /**
  * @public
@@ -2138,12 +2138,12 @@ export interface HeaderObject {
    *             </li>
    *          </ul>
    */
-  option?: ForwardValues | string;
+  option?: keyof typeof ForwardValues | string;
 
   /**
    * <p>The specific headers to forward to your distribution's origin.</p>
    */
-  headersAllowList?: (HeaderEnum | string)[];
+  headersAllowList?: (keyof typeof HeaderEnum | string)[];
 }
 
 /**
@@ -2277,11 +2277,11 @@ export interface CacheSettings {
 /**
  * @public
  */
-export enum DnsRecordCreationStateCode {
-  Failed = "FAILED",
-  Started = "STARTED",
-  Succeeded = "SUCCEEDED",
-}
+export const DnsRecordCreationStateCode = {
+  Failed: "FAILED",
+  Started: "STARTED",
+  Succeeded: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2317,7 +2317,7 @@ export interface DnsRecordCreationState {
    *             </li>
    *          </ul>
    */
-  code?: DnsRecordCreationStateCode | string;
+  code?: keyof typeof DnsRecordCreationStateCode | string;
 
   /**
    * <p>The message that describes the reason for the status code.</p>
@@ -2350,11 +2350,11 @@ export interface ResourceRecord {
 /**
  * @public
  */
-export enum CertificateDomainValidationStatus {
-  Failed = "FAILED",
-  PendingValidation = "PENDING_VALIDATION",
-  Success = "SUCCESS",
-}
+export const CertificateDomainValidationStatus = {
+  Failed: "FAILED",
+  PendingValidation: "PENDING_VALIDATION",
+  Success: "SUCCESS",
+};
 
 /**
  * @public
@@ -2384,18 +2384,18 @@ export interface DomainValidationRecord {
   /**
    * <p>The validation status of the record.</p>
    */
-  validationStatus?: CertificateDomainValidationStatus | string;
+  validationStatus?: keyof typeof CertificateDomainValidationStatus | string;
 }
 
 /**
  * @public
  */
-export enum RenewalStatus {
-  Failed = "Failed",
-  PendingAutoRenewal = "PendingAutoRenewal",
-  PendingValidation = "PendingValidation",
-  Success = "Success",
-}
+export const RenewalStatus = {
+  Failed: "Failed",
+  PendingAutoRenewal: "PendingAutoRenewal",
+  PendingValidation: "PendingValidation",
+  Success: "Success",
+};
 
 /**
  * @public
@@ -2448,7 +2448,7 @@ export interface RenewalSummary {
    *             </li>
    *          </ul>
    */
-  renewalStatus?: RenewalStatus | string;
+  renewalStatus?: keyof typeof RenewalStatus | string;
 
   /**
    * <p>The reason for the renewal status of the certificate.</p>
@@ -2464,15 +2464,15 @@ export interface RenewalSummary {
 /**
  * @public
  */
-export enum CertificateStatus {
-  Expired = "EXPIRED",
-  Failed = "FAILED",
-  Inactive = "INACTIVE",
-  Issued = "ISSUED",
-  PendingValidation = "PENDING_VALIDATION",
-  Revoked = "REVOKED",
-  ValidationTimedOut = "VALIDATION_TIMED_OUT",
-}
+export const CertificateStatus = {
+  Expired: "EXPIRED",
+  Failed: "FAILED",
+  Inactive: "INACTIVE",
+  Issued: "ISSUED",
+  PendingValidation: "PENDING_VALIDATION",
+  Revoked: "REVOKED",
+  ValidationTimedOut: "VALIDATION_TIMED_OUT",
+};
 
 /**
  * @public
@@ -2502,7 +2502,7 @@ export interface Certificate {
   /**
    * <p>The validation status of the certificate.</p>
    */
-  status?: CertificateStatus | string;
+  status?: keyof typeof CertificateStatus | string;
 
   /**
    * <p>The serial number of the certificate.</p>
@@ -2695,12 +2695,12 @@ export interface CertificateSummary {
 /**
  * @public
  */
-export enum NetworkProtocol {
-  ALL = "all",
-  ICMP = "icmp",
-  TCP = "tcp",
-  UDP = "udp",
-}
+export const NetworkProtocol = {
+  ALL: "all",
+  ICMP: "icmp",
+  TCP: "tcp",
+  UDP: "udp",
+};
 
 /**
  * @public
@@ -2791,7 +2791,7 @@ export interface PortInfo {
    *             </li>
    *          </ul>
    */
-  protocol?: NetworkProtocol | string;
+  protocol?: keyof typeof NetworkProtocol | string;
 
   /**
    * <p>The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to
@@ -2883,9 +2883,9 @@ export interface DestinationInfo {
 /**
  * @public
  */
-export enum CloudFormationStackRecordSourceType {
-  ExportSnapshotRecord = "ExportSnapshotRecord",
-}
+export const CloudFormationStackRecordSourceType = {
+  ExportSnapshotRecord: "ExportSnapshotRecord",
+};
 
 /**
  * @public
@@ -2896,7 +2896,7 @@ export interface CloudFormationStackRecordSourceInfo {
   /**
    * <p>The Lightsail resource type (e.g., <code>ExportSnapshotRecord</code>).</p>
    */
-  resourceType?: CloudFormationStackRecordSourceType | string;
+  resourceType?: keyof typeof CloudFormationStackRecordSourceType | string;
 
   /**
    * <p>The name of the record.</p>
@@ -2912,11 +2912,11 @@ export interface CloudFormationStackRecordSourceInfo {
 /**
  * @public
  */
-export enum RecordState {
-  Failed = "Failed",
-  Started = "Started",
-  Succeeded = "Succeeded",
-}
+export const RecordState = {
+  Failed: "Failed",
+  Started: "Started",
+  Succeeded: "Succeeded",
+};
 
 /**
  * @public
@@ -2951,12 +2951,12 @@ export interface CloudFormationStackRecord {
   /**
    * <p>The Lightsail resource type (e.g., <code>CloudFormationStackRecord</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The current state of the CloudFormation stack record.</p>
    */
-  state?: RecordState | string;
+  state?: keyof typeof RecordState | string;
 
   /**
    * <p>A list of objects describing the source of the CloudFormation stack record.</p>
@@ -2973,11 +2973,11 @@ export interface CloudFormationStackRecord {
 /**
  * @public
  */
-export enum ContactMethodStatus {
-  Invalid = "Invalid",
-  PendingVerification = "PendingVerification",
-  Valid = "Valid",
-}
+export const ContactMethodStatus = {
+  Invalid: "Invalid",
+  PendingVerification: "PendingVerification",
+  Valid: "Valid",
+};
 
 /**
  * @public
@@ -3011,12 +3011,12 @@ export interface ContactMethod {
    *             </li>
    *          </ul>
    */
-  status?: ContactMethodStatus | string;
+  status?: keyof typeof ContactMethodStatus | string;
 
   /**
    * <p>The protocol of the contact method, such as email or SMS (text messaging).</p>
    */
-  protocol?: ContactProtocol | string;
+  protocol?: keyof typeof ContactProtocol | string;
 
   /**
    * <p>The name of the contact method.</p>
@@ -3041,7 +3041,7 @@ export interface ContactMethod {
   /**
    * <p>The Lightsail resource type (e.g., <code>ContactMethod</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The support code. Include this code in your email to support when you have questions about
@@ -3054,19 +3054,19 @@ export interface ContactMethod {
 /**
  * @public
  */
-export enum ContactMethodVerificationProtocol {
-  Email = "Email",
-}
+export const ContactMethodVerificationProtocol = {
+  Email: "Email",
+};
 
 /**
  * @public
  */
-export enum ContainerServiceProtocol {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const ContainerServiceProtocol = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  TCP: "TCP",
+  UDP: "UDP",
+};
 
 /**
  * @public
@@ -3103,7 +3103,7 @@ export interface Container {
   /**
    * <p>The open firewall ports of the container.</p>
    */
-  ports?: Record<string, ContainerServiceProtocol | string>;
+  ports?: Record<string, keyof typeof ContainerServiceProtocol | string>;
 }
 
 /**
@@ -3198,12 +3198,12 @@ export interface ContainerServiceEndpoint {
 /**
  * @public
  */
-export enum ContainerServiceDeploymentState {
-  ACTIVATING = "ACTIVATING",
-  ACTIVE = "ACTIVE",
-  FAILED = "FAILED",
-  INACTIVE = "INACTIVE",
-}
+export const ContainerServiceDeploymentState = {
+  ACTIVATING: "ACTIVATING",
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -3245,7 +3245,7 @@ export interface ContainerServiceDeployment {
    *             </li>
    *          </ul>
    */
-  state?: ContainerServiceDeploymentState | string;
+  state?: keyof typeof ContainerServiceDeploymentState | string;
 
   /**
    * <p>An object that describes the configuration for the containers of the deployment.</p>
@@ -3266,14 +3266,14 @@ export interface ContainerServiceDeployment {
 /**
  * @public
  */
-export enum ContainerServicePowerName {
-  large = "large",
-  medium = "medium",
-  micro = "micro",
-  nano = "nano",
-  small = "small",
-  xlarge = "xlarge",
-}
+export const ContainerServicePowerName = {
+  large: "large",
+  medium: "medium",
+  micro: "micro",
+  nano: "nano",
+  small: "small",
+  xlarge: "xlarge",
+};
 
 /**
  * @public
@@ -3316,30 +3316,30 @@ export interface PrivateRegistryAccess {
 /**
  * @public
  */
-export enum ContainerServiceState {
-  DELETING = "DELETING",
-  DEPLOYING = "DEPLOYING",
-  DISABLED = "DISABLED",
-  PENDING = "PENDING",
-  READY = "READY",
-  RUNNING = "RUNNING",
-  UPDATING = "UPDATING",
-}
+export const ContainerServiceState = {
+  DELETING: "DELETING",
+  DEPLOYING: "DEPLOYING",
+  DISABLED: "DISABLED",
+  PENDING: "PENDING",
+  READY: "READY",
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum ContainerServiceStateDetailCode {
-  ACTIVATING_DEPLOYMENT = "ACTIVATING_DEPLOYMENT",
-  CERTIFICATE_LIMIT_EXCEEDED = "CERTIFICATE_LIMIT_EXCEEDED",
-  CREATING_DEPLOYMENT = "CREATING_DEPLOYMENT",
-  CREATING_NETWORK_INFRASTRUCTURE = "CREATING_NETWORK_INFRASTRUCTURE",
-  CREATING_SYSTEM_RESOURCES = "CREATING_SYSTEM_RESOURCES",
-  EVALUATING_HEALTH_CHECK = "EVALUATING_HEALTH_CHECK",
-  PROVISIONING_CERTIFICATE = "PROVISIONING_CERTIFICATE",
-  PROVISIONING_SERVICE = "PROVISIONING_SERVICE",
-  UNKNOWN_ERROR = "UNKNOWN_ERROR",
-}
+export const ContainerServiceStateDetailCode = {
+  ACTIVATING_DEPLOYMENT: "ACTIVATING_DEPLOYMENT",
+  CERTIFICATE_LIMIT_EXCEEDED: "CERTIFICATE_LIMIT_EXCEEDED",
+  CREATING_DEPLOYMENT: "CREATING_DEPLOYMENT",
+  CREATING_NETWORK_INFRASTRUCTURE: "CREATING_NETWORK_INFRASTRUCTURE",
+  CREATING_SYSTEM_RESOURCES: "CREATING_SYSTEM_RESOURCES",
+  EVALUATING_HEALTH_CHECK: "EVALUATING_HEALTH_CHECK",
+  PROVISIONING_CERTIFICATE: "PROVISIONING_CERTIFICATE",
+  PROVISIONING_SERVICE: "PROVISIONING_SERVICE",
+  UNKNOWN_ERROR: "UNKNOWN_ERROR",
+};
 
 /**
  * @public
@@ -3409,7 +3409,7 @@ export interface ContainerServiceStateDetail {
    *             </li>
    *          </ul>
    */
-  code?: ContainerServiceStateDetailCode | string;
+  code?: keyof typeof ContainerServiceStateDetailCode | string;
 
   /**
    * <p>A message that provides more information for the state code.</p>
@@ -3450,7 +3450,7 @@ export interface ContainerService {
    * <p>The Lightsail resource type of the container service (i.e.,
    *         <code>ContainerService</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -3463,7 +3463,7 @@ export interface ContainerService {
    *          <p>The power specifies the amount of RAM, the number of vCPUs, and the base price of the
    *       container service.</p>
    */
-  power?: ContainerServicePowerName | string;
+  power?: keyof typeof ContainerServicePowerName | string;
 
   /**
    * <p>The ID of the power of the container service.</p>
@@ -3509,7 +3509,7 @@ export interface ContainerService {
    *             </li>
    *          </ul>
    */
-  state?: ContainerServiceState | string;
+  state?: keyof typeof ContainerServiceState | string;
 
   /**
    * <p>An object that describes the current state of the container service.</p>
@@ -3669,10 +3669,10 @@ export interface ContainerServiceLogEvent {
 /**
  * @public
  */
-export enum ContainerServiceMetricName {
-  CPUUtilization = "CPUUtilization",
-  MemoryUtilization = "MemoryUtilization",
-}
+export const ContainerServiceMetricName = {
+  CPUUtilization: "CPUUtilization",
+  MemoryUtilization: "MemoryUtilization",
+};
 
 /**
  * @public
@@ -3834,7 +3834,7 @@ export interface CopySnapshotRequest {
    * <p>The Amazon Web Services Region where the source manual or automatic snapshot is
    *       located.</p>
    */
-  sourceRegion: RegionName | string | undefined;
+  sourceRegion: keyof typeof RegionName | string | undefined;
 }
 
 /**
@@ -3851,20 +3851,20 @@ export interface CopySnapshotResult {
 /**
  * @public
  */
-export enum Currency {
-  USD = "USD",
-}
+export const Currency = {
+  USD: "USD",
+};
 
 /**
  * @public
  */
-export enum PricingUnit {
-  Bundles = "Bundles",
-  GB = "GB",
-  GBMo = "GB-Mo",
-  Hrs = "Hrs",
-  Queries = "Queries",
-}
+export const PricingUnit = {
+  Bundles: "Bundles",
+  GB: "GB",
+  GBMo: "GB-Mo",
+  Hrs: "Hrs",
+  Queries: "Queries",
+};
 
 /**
  * @public
@@ -3895,7 +3895,7 @@ export interface EstimateByTime {
   /**
    * <p>The unit of measurement that's used for the cost estimate.</p>
    */
-  pricingUnit?: PricingUnit | string;
+  pricingUnit?: keyof typeof PricingUnit | string;
 
   /**
    * <p>The number of pricing units used to calculate the total number of hours. For example, 1
@@ -3906,7 +3906,7 @@ export interface EstimateByTime {
   /**
    * <p>The currency of the estimate in USD.</p>
    */
-  currency?: Currency | string;
+  currency?: keyof typeof Currency | string;
 
   /**
    * <p>The period of time, in days, that an estimate covers. The period has a start date and an end date. The start date must come before the end date.</p>
@@ -4060,12 +4060,12 @@ export interface CreateCertificateResult {
 /**
  * @public
  */
-export enum PortInfoSourceType {
-  Closed = "CLOSED",
-  Default = "DEFAULT",
-  Instance = "INSTANCE",
-  None = "NONE",
-}
+export const PortInfoSourceType = {
+  Closed: "CLOSED",
+  Default: "DEFAULT",
+  Instance: "INSTANCE",
+  None: "NONE",
+};
 
 /**
  * @public
@@ -4124,7 +4124,7 @@ export interface InstanceEntry {
    *         instance.</p>
    *          </note>
    */
-  portInfoSource: PortInfoSourceType | string | undefined;
+  portInfoSource: keyof typeof PortInfoSourceType | string | undefined;
 
   /**
    * <p>A launch script you can create that configures a server with additional user data. For
@@ -4200,7 +4200,7 @@ export interface CreateContactMethodRequest {
    *         Guide</i>.</p>
    *          <p>For more information about notifications in Amazon Lightsail, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
    */
-  protocol: ContactProtocol | string | undefined;
+  protocol: keyof typeof ContactProtocol | string | undefined;
 
   /**
    * <p>The destination of the contact method, such as an email address or a mobile phone
@@ -4283,7 +4283,7 @@ export interface CreateContainerServiceRequest {
    *          <p>Use the <code>GetContainerServicePowers</code> action to get a list of power options that
    *       you can specify using this parameter, and their base monthly cost.</p>
    */
-  power: ContainerServicePowerName | string | undefined;
+  power: keyof typeof ContainerServicePowerName | string | undefined;
 
   /**
    * <p>The scale specification for the container service.</p>
@@ -4611,18 +4611,18 @@ export interface CreateDiskSnapshotResult {
 /**
  * @public
  */
-export enum IpAddressType {
-  DUALSTACK = "dualstack",
-  IPV4 = "ipv4",
-}
+export const IpAddressType = {
+  DUALSTACK: "dualstack",
+  IPV4: "ipv4",
+};
 
 /**
  * @public
  */
-export enum OriginProtocolPolicyEnum {
-  HTTPOnly = "http-only",
-  HTTPSOnly = "https-only",
-}
+export const OriginProtocolPolicyEnum = {
+  HTTPOnly: "http-only",
+  HTTPSOnly: "https-only",
+};
 
 /**
  * @public
@@ -4641,13 +4641,13 @@ export interface InputOrigin {
   /**
    * <p>The AWS Region name of the origin resource.</p>
    */
-  regionName?: RegionName | string;
+  regionName?: keyof typeof RegionName | string;
 
   /**
    * <p>The protocol that your Amazon Lightsail distribution uses when establishing a connection
    *       with your origin to pull content.</p>
    */
-  protocolPolicy?: OriginProtocolPolicyEnum | string;
+  protocolPolicy?: keyof typeof OriginProtocolPolicyEnum | string;
 }
 
 /**
@@ -4696,7 +4696,7 @@ export interface CreateDistributionRequest {
    *       IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>The tag keys and optional values to add to the distribution during create.</p>
@@ -4722,18 +4722,18 @@ export interface Origin {
   /**
    * <p>The resource type of the origin resource (e.g., <i>Instance</i>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The AWS Region name of the origin resource.</p>
    */
-  regionName?: RegionName | string;
+  regionName?: keyof typeof RegionName | string;
 
   /**
    * <p>The protocol that your Amazon Lightsail distribution uses when establishing a connection
    *       with your origin to pull content.</p>
    */
-  protocolPolicy?: OriginProtocolPolicyEnum | string;
+  protocolPolicy?: keyof typeof OriginProtocolPolicyEnum | string;
 }
 
 /**
@@ -4777,7 +4777,7 @@ export interface LightsailDistribution {
   /**
    * <p>The Lightsail resource type (e.g., <code>Distribution</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The alternate domain names of the distribution.</p>
@@ -4849,7 +4849,7 @@ export interface LightsailDistribution {
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -5062,18 +5062,18 @@ export interface Session {
 /**
  * @public
  */
-export enum Status {
-  FailedInstanceCreation = "failedInstanceCreation",
-  FailedStartingGUISession = "failedStartingGUISession",
-  FailedStoppingGUISession = "failedStoppingGUISession",
-  NotStarted = "notStarted",
-  SettingUpInstance = "settingUpInstance",
-  StartExpired = "startExpired",
-  Started = "started",
-  Starting = "starting",
-  Stopped = "stopped",
-  Stopping = "stopping",
-}
+export const Status = {
+  FailedInstanceCreation: "failedInstanceCreation",
+  FailedStartingGUISession: "failedStartingGUISession",
+  FailedStoppingGUISession: "failedStoppingGUISession",
+  NotStarted: "notStarted",
+  SettingUpInstance: "settingUpInstance",
+  StartExpired: "startExpired",
+  Started: "started",
+  Starting: "starting",
+  Stopped: "stopped",
+  Stopping: "stopping",
+};
 
 /**
  * @public
@@ -5087,7 +5087,7 @@ export interface CreateGUISessionAccessDetailsResult {
   /**
    * <p>The status of the operation.</p>
    */
-  status?: Status | string;
+  status?: keyof typeof Status | string;
 
   /**
    * <p>The percentage of completion for the operation.</p>
@@ -5191,7 +5191,7 @@ export interface CreateInstancesRequest {
    *       IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: keyof typeof IpAddressType | string;
 }
 
 /**
@@ -5283,7 +5283,7 @@ export interface CreateInstancesFromSnapshotRequest {
    *       IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>The name of the source instance from which the source automatic snapshot was
@@ -5438,7 +5438,7 @@ export interface KeyPair {
   /**
    * <p>The resource type (usually <code>KeyPair</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -5536,7 +5536,7 @@ export interface CreateLoadBalancerRequest {
    *       IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: keyof typeof IpAddressType | string;
 
   /**
    * <p>The name of the TLS policy to apply to the load balancer.</p>
@@ -6148,7 +6148,7 @@ export interface DeleteContactMethodRequest {
    *         protocol.</p>
    *          </note>
    */
-  protocol: ContactProtocol | string | undefined;
+  protocol: keyof typeof ContactProtocol | string | undefined;
 }
 
 /**
@@ -6649,7 +6649,7 @@ export interface DisableAddOnRequest {
   /**
    * <p>The add-on type to disable.</p>
    */
-  addOnType: AddOnType | string | undefined;
+  addOnType: keyof typeof AddOnType | string | undefined;
 
   /**
    * <p>The name of the source resource for which to disable the add-on.</p>
@@ -6671,13 +6671,13 @@ export interface DisableAddOnResult {
 /**
  * @public
  */
-export enum DiskState {
-  Available = "available",
-  Error = "error",
-  InUse = "in-use",
-  Pending = "pending",
-  Unknown = "unknown",
-}
+export const DiskState = {
+  Available: "available",
+  Error: "error",
+  InUse: "in-use",
+  Pending: "pending",
+  Unknown: "unknown",
+};
 
 /**
  * @public
@@ -6714,7 +6714,7 @@ export interface Disk {
   /**
    * <p>The Lightsail resource type (e.g., <code>Disk</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -6751,7 +6751,7 @@ export interface Disk {
   /**
    * <p>Describes the status of the disk.</p>
    */
-  state?: DiskState | string;
+  state?: keyof typeof DiskState | string;
 
   /**
    * <p>The resources to which the disk is attached.</p>
@@ -6792,7 +6792,7 @@ export interface Disk {
    *             <p>This parameter only applies to Lightsail for Research resources.</p>
    *          </important>
    */
-  autoMountStatus?: AutoMountStatus | string;
+  autoMountStatus?: keyof typeof AutoMountStatus | string;
 }
 
 /**
@@ -6825,12 +6825,12 @@ export interface DiskInfo {
 /**
  * @public
  */
-export enum DiskSnapshotState {
-  Completed = "completed",
-  Error = "error",
-  Pending = "pending",
-  Unknown = "unknown",
-}
+export const DiskSnapshotState = {
+  Completed: "completed",
+  Error: "error",
+  Pending: "pending",
+  Unknown: "unknown",
+};
 
 /**
  * @public
@@ -6867,7 +6867,7 @@ export interface DiskSnapshot {
   /**
    * <p>The Lightsail resource type (e.g., <code>DiskSnapshot</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -6883,7 +6883,7 @@ export interface DiskSnapshot {
   /**
    * <p>The status of the disk snapshot operation.</p>
    */
-  state?: DiskSnapshotState | string;
+  state?: keyof typeof DiskSnapshotState | string;
 
   /**
    * <p>The progress of the snapshot.</p>
@@ -6966,24 +6966,24 @@ export interface DistributionBundle {
 /**
  * @public
  */
-export enum DistributionMetricName {
-  BytesDownloaded = "BytesDownloaded",
-  BytesUploaded = "BytesUploaded",
-  Http4xxErrorRate = "Http4xxErrorRate",
-  Http5xxErrorRate = "Http5xxErrorRate",
-  Requests = "Requests",
-  TotalErrorRate = "TotalErrorRate",
-}
+export const DistributionMetricName = {
+  BytesDownloaded: "BytesDownloaded",
+  BytesUploaded: "BytesUploaded",
+  Http4xxErrorRate: "Http4xxErrorRate",
+  Http5xxErrorRate: "Http5xxErrorRate",
+  Requests: "Requests",
+  TotalErrorRate: "TotalErrorRate",
+};
 
 /**
  * @public
  */
-export enum NameServersUpdateStateCode {
-  Failed = "FAILED",
-  Pending = "PENDING",
-  Started = "STARTED",
-  Succeeded = "SUCCEEDED",
-}
+export const NameServersUpdateStateCode = {
+  Failed: "FAILED",
+  Pending: "PENDING",
+  Started: "STARTED",
+  Succeeded: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -7015,7 +7015,7 @@ export interface NameServersUpdateState {
    *             </li>
    *          </ul>
    */
-  code?: NameServersUpdateStateCode | string;
+  code?: keyof typeof NameServersUpdateStateCode | string;
 
   /**
    * <p>The message that describes the reason for the status code.</p>
@@ -7026,12 +7026,12 @@ export interface NameServersUpdateState {
 /**
  * @public
  */
-export enum R53HostedZoneDeletionStateCode {
-  Failed = "FAILED",
-  Pending = "PENDING",
-  Started = "STARTED",
-  Succeeded = "SUCCEEDED",
-}
+export const R53HostedZoneDeletionStateCode = {
+  Failed: "FAILED",
+  Pending: "PENDING",
+  Started: "STARTED",
+  Succeeded: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -7061,7 +7061,7 @@ export interface R53HostedZoneDeletionState {
    *             </li>
    *          </ul>
    */
-  code?: R53HostedZoneDeletionStateCode | string;
+  code?: keyof typeof R53HostedZoneDeletionStateCode | string;
 
   /**
    * <p>The message that describes the reason for the status code.</p>
@@ -7147,7 +7147,7 @@ export interface Domain {
   /**
    * <p>The resource type. </p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -7264,10 +7264,10 @@ export interface InstanceSnapshotInfo {
 /**
  * @public
  */
-export enum ExportSnapshotRecordSourceType {
-  DiskSnapshot = "DiskSnapshot",
-  InstanceSnapshot = "InstanceSnapshot",
-}
+export const ExportSnapshotRecordSourceType = {
+  DiskSnapshot: "DiskSnapshot",
+  InstanceSnapshot: "InstanceSnapshot",
+};
 
 /**
  * @public
@@ -7278,7 +7278,7 @@ export interface ExportSnapshotRecordSourceInfo {
    * <p>The Lightsail resource type (e.g., <code>InstanceSnapshot</code> or
    *         <code>DiskSnapshot</code>).</p>
    */
-  resourceType?: ExportSnapshotRecordSourceType | string;
+  resourceType?: keyof typeof ExportSnapshotRecordSourceType | string;
 
   /**
    * <p>The date when the source instance or disk snapshot was created.</p>
@@ -7344,12 +7344,12 @@ export interface ExportSnapshotRecord {
   /**
    * <p>The Lightsail resource type (e.g., <code>ExportSnapshotRecord</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The state of the export snapshot record.</p>
    */
-  state?: RecordState | string;
+  state?: keyof typeof RecordState | string;
 
   /**
    * <p>A list of objects describing the source of the export snapshot record.</p>
@@ -7460,7 +7460,7 @@ export interface GetAutoSnapshotsResult {
   /**
    * <p>The resource type (e.g., <code>Instance</code> or <code>Disk</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>An array of objects that describe the automatic snapshots that are available for the
@@ -7493,7 +7493,7 @@ export interface GetBlueprintsRequest {
    *             <p>You must use this parameter to view Lightsail for Research blueprints.</p>
    *          </important>
    */
-  appCategory?: AppCategory | string;
+  appCategory?: keyof typeof AppCategory | string;
 }
 
 /**
@@ -7597,7 +7597,7 @@ export interface GetBucketMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: BucketMetricName | string | undefined;
+  metricName: keyof typeof BucketMetricName | string | undefined;
 
   /**
    * <p>The timestamp indicating the earliest data to be returned.</p>
@@ -7652,14 +7652,14 @@ export interface GetBucketMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: (keyof typeof MetricStatistic | string)[] | undefined;
 
   /**
    * <p>The unit for the metric data request.</p>
    *          <p>Valid units depend on the metric data being requested. For the valid units with each
    *       available metric, see the <code>metricName</code> parameter.</p>
    */
-  unit: MetricUnit | string | undefined;
+  unit: keyof typeof MetricUnit | string | undefined;
 }
 
 /**
@@ -7700,7 +7700,7 @@ export interface MetricDatapoint {
   /**
    * <p>The unit. </p>
    */
-  unit?: MetricUnit | string;
+  unit?: keyof typeof MetricUnit | string;
 }
 
 /**
@@ -7710,7 +7710,7 @@ export interface GetBucketMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
    */
-  metricName?: BucketMetricName | string;
+  metricName?: keyof typeof BucketMetricName | string;
 
   /**
    * <p>An array of objects that describe the metric data returned.</p>
@@ -7794,7 +7794,7 @@ export interface GetBundlesRequest {
    *             <p>You must use this parameter to view Lightsail for Research bundles.</p>
    *          </important>
    */
-  appCategory?: AppCategory | string;
+  appCategory?: keyof typeof AppCategory | string;
 }
 
 /**
@@ -7826,7 +7826,7 @@ export interface GetCertificatesRequest {
    *          <p>When omitted, the response includes all of your certificates in the Amazon Web Services
    *       Region where the request is made, regardless of their current status.</p>
    */
-  certificateStatuses?: (CertificateStatus | string)[];
+  certificateStatuses?: (keyof typeof CertificateStatus | string)[];
 
   /**
    * <p>Indicates whether to include detailed information about the certificates in the
@@ -7896,7 +7896,7 @@ export interface GetContactMethodsRequest {
    *          <p>Specify a protocol in your request to return information about a specific contact method
    *       protocol.</p>
    */
-  protocols?: (ContactProtocol | string)[];
+  protocols?: (keyof typeof ContactProtocol | string)[];
 }
 
 /**
@@ -8105,7 +8105,7 @@ export interface GetContainerServiceMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: ContainerServiceMetricName | string | undefined;
+  metricName: keyof typeof ContainerServiceMetricName | string | undefined;
 
   /**
    * <p>The start time of the time period.</p>
@@ -8158,7 +8158,7 @@ export interface GetContainerServiceMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: (keyof typeof MetricStatistic | string)[] | undefined;
 }
 
 /**
@@ -8168,7 +8168,7 @@ export interface GetContainerServiceMetricDataResult {
   /**
    * <p>The name of the metric returned. </p>
    */
-  metricName?: ContainerServiceMetricName | string;
+  metricName?: keyof typeof ContainerServiceMetricName | string;
 
   /**
    * <p>An array of objects that describe the metric data returned.</p>

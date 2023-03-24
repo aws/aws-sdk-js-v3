@@ -7594,13 +7594,16 @@ const deserializeAws_json1_1Projects = (output: any, context: __SerdeContext): P
 };
 
 const deserializeAws_json1_1PurchasedDevicesMap = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [DevicePlatform | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, number>, [key, value]: [keyof typeof DevicePlatform | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectInt32(value) as any;
       return acc;
-    }
-    acc[key] = __expectInt32(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_json1_1PurchaseOfferingResult = (output: any, context: __SerdeContext): PurchaseOfferingResult => {
@@ -8112,7 +8115,7 @@ const deserializeAws_json1_1UniqueProblemsByExecutionResultMap = (
   context: __SerdeContext
 ): Record<string, UniqueProblem[]> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, UniqueProblem[]>, [key, value]: [ExecutionResult | string, any]) => {
+    (acc: Record<string, UniqueProblem[]>, [key, value]: [keyof typeof ExecutionResult | string, any]) => {
       if (value === null) {
         return acc;
       }

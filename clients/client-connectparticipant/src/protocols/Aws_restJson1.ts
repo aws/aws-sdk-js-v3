@@ -807,7 +807,10 @@ const serializeAws_restJson1AttachmentIdList = (input: string[], context: __Serd
     });
 };
 
-const serializeAws_restJson1ConnectionTypeList = (input: (ConnectionType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1ConnectionTypeList = (
+  input: (keyof typeof ConnectionType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

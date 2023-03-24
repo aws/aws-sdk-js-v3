@@ -28,36 +28,36 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum ActionCategory {
-  BACKUP = "BACKUP",
-  CONFIGURATION = "CONFIGURATION",
-  DISASTER_RECOVERY = "DISASTER_RECOVERY",
-  LICENSE_AND_SUBSCRIPTION = "LICENSE_AND_SUBSCRIPTION",
-  NETWORKING = "NETWORKING",
-  OBSERVABILITY = "OBSERVABILITY",
-  OPERATING_SYSTEM = "OPERATING_SYSTEM",
-  OTHER = "OTHER",
-  SECURITY = "SECURITY",
-  VALIDATION = "VALIDATION",
-}
+export const ActionCategory = {
+  BACKUP: "BACKUP",
+  CONFIGURATION: "CONFIGURATION",
+  DISASTER_RECOVERY: "DISASTER_RECOVERY",
+  LICENSE_AND_SUBSCRIPTION: "LICENSE_AND_SUBSCRIPTION",
+  NETWORKING: "NETWORKING",
+  OBSERVABILITY: "OBSERVABILITY",
+  OPERATING_SYSTEM: "OPERATING_SYSTEM",
+  OTHER: "OTHER",
+  SECURITY: "SECURITY",
+  VALIDATION: "VALIDATION",
+};
 
 /**
  * @public
  */
-export enum ApplicationHealthStatus {
-  ERROR = "ERROR",
-  HEALTHY = "HEALTHY",
-  LAGGING = "LAGGING",
-}
+export const ApplicationHealthStatus = {
+  ERROR: "ERROR",
+  HEALTHY: "HEALTHY",
+  LAGGING: "LAGGING",
+};
 
 /**
  * @public
  */
-export enum ApplicationProgressStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const ApplicationProgressStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+};
 
 /**
  * @public
@@ -72,12 +72,12 @@ export interface ApplicationAggregatedStatus {
   /**
    * <p>Application aggregated status health status.</p>
    */
-  healthStatus?: ApplicationHealthStatus | string;
+  healthStatus?: keyof typeof ApplicationHealthStatus | string;
 
   /**
    * <p>Application aggregated status progress status.</p>
    */
-  progressStatus?: ApplicationProgressStatus | string;
+  progressStatus?: keyof typeof ApplicationProgressStatus | string;
 
   /**
    * <p>Application aggregated status total source servers amount.</p>
@@ -568,12 +568,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+};
 
 /**
  * @public
@@ -586,7 +586,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>Validate exception reason.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>Validate exception field list.</p>
@@ -644,12 +644,12 @@ export interface ListExportsRequest {
 /**
  * @public
  */
-export enum ExportStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  STARTED = "STARTED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ExportStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -710,7 +710,7 @@ export interface ExportTask {
   /**
    * <p>Export task status.</p>
    */
-  status?: ExportStatus | string;
+  status?: keyof typeof ExportStatus | string;
 
   /**
    * <p>Export task progress percentage.</p>
@@ -831,10 +831,10 @@ export interface ImportErrorData {
 /**
  * @public
  */
-export enum ImportErrorType {
-  PROCESSING_ERROR = "PROCESSING_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR",
-}
+export const ImportErrorType = {
+  PROCESSING_ERROR: "PROCESSING_ERROR",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+};
 
 /**
  * @public
@@ -849,7 +849,7 @@ export interface ImportTaskError {
   /**
    * <p>Import task error type.</p>
    */
-  errorType?: ImportErrorType | string;
+  errorType?: keyof typeof ImportErrorType | string;
 
   /**
    * <p>Import task error data.</p>
@@ -929,12 +929,12 @@ export interface S3BucketSource {
 /**
  * @public
  */
-export enum ImportStatus {
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  STARTED = "STARTED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ImportStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1033,7 +1033,7 @@ export interface ImportTask {
   /**
    * <p>Import task status.</p>
    */
-  status?: ImportStatus | string;
+  status?: keyof typeof ImportStatus | string;
 
   /**
    * <p>Import task progress percentage.</p>
@@ -1137,24 +1137,24 @@ export interface DescribeJobLogItemsRequest {
 /**
  * @public
  */
-export enum JobLogEvent {
-  CLEANUP_END = "CLEANUP_END",
-  CLEANUP_FAIL = "CLEANUP_FAIL",
-  CLEANUP_START = "CLEANUP_START",
-  CONVERSION_END = "CONVERSION_END",
-  CONVERSION_FAIL = "CONVERSION_FAIL",
-  CONVERSION_START = "CONVERSION_START",
-  JOB_CANCEL = "JOB_CANCEL",
-  JOB_END = "JOB_END",
-  JOB_START = "JOB_START",
-  LAUNCH_FAILED = "LAUNCH_FAILED",
-  LAUNCH_START = "LAUNCH_START",
-  SERVER_SKIPPED = "SERVER_SKIPPED",
-  SNAPSHOT_END = "SNAPSHOT_END",
-  SNAPSHOT_FAIL = "SNAPSHOT_FAIL",
-  SNAPSHOT_START = "SNAPSHOT_START",
-  USING_PREVIOUS_SNAPSHOT = "USING_PREVIOUS_SNAPSHOT",
-}
+export const JobLogEvent = {
+  CLEANUP_END: "CLEANUP_END",
+  CLEANUP_FAIL: "CLEANUP_FAIL",
+  CLEANUP_START: "CLEANUP_START",
+  CONVERSION_END: "CONVERSION_END",
+  CONVERSION_FAIL: "CONVERSION_FAIL",
+  CONVERSION_START: "CONVERSION_START",
+  JOB_CANCEL: "JOB_CANCEL",
+  JOB_END: "JOB_END",
+  JOB_START: "JOB_START",
+  LAUNCH_FAILED: "LAUNCH_FAILED",
+  LAUNCH_START: "LAUNCH_START",
+  SERVER_SKIPPED: "SERVER_SKIPPED",
+  SNAPSHOT_END: "SNAPSHOT_END",
+  SNAPSHOT_FAIL: "SNAPSHOT_FAIL",
+  SNAPSHOT_START: "SNAPSHOT_START",
+  USING_PREVIOUS_SNAPSHOT: "USING_PREVIOUS_SNAPSHOT",
+};
 
 /**
  * @public
@@ -1195,7 +1195,7 @@ export interface JobLog {
   /**
    * <p>Job log event.</p>
    */
-  event?: JobLogEvent | string;
+  event?: keyof typeof JobLogEvent | string;
 
   /**
    * <p>Job event data</p>
@@ -1262,32 +1262,32 @@ export interface DescribeJobsRequest {
 /**
  * @public
  */
-export enum InitiatedBy {
-  DIAGNOSTIC = "DIAGNOSTIC",
-  START_CUTOVER = "START_CUTOVER",
-  START_TEST = "START_TEST",
-  TERMINATE = "TERMINATE",
-}
+export const InitiatedBy = {
+  DIAGNOSTIC: "DIAGNOSTIC",
+  START_CUTOVER: "START_CUTOVER",
+  START_TEST: "START_TEST",
+  TERMINATE: "TERMINATE",
+};
 
 /**
  * @public
  */
-export enum LaunchStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  LAUNCHED = "LAUNCHED",
-  PENDING = "PENDING",
-  TERMINATED = "TERMINATED",
-}
+export const LaunchStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  LAUNCHED: "LAUNCHED",
+  PENDING: "PENDING",
+  TERMINATED: "TERMINATED",
+};
 
 /**
  * @public
  */
-export enum PostLaunchActionExecutionStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export const PostLaunchActionExecutionStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -1326,9 +1326,9 @@ export namespace SsmExternalParameter {
 /**
  * @public
  */
-export enum SsmParameterStoreParameterType {
-  STRING = "STRING",
-}
+export const SsmParameterStoreParameterType = {
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -1338,7 +1338,7 @@ export interface SsmParameterStoreParameter {
   /**
    * <p>AWS Systems Manager Parameter Store parameter type.</p>
    */
-  parameterType: SsmParameterStoreParameterType | string | undefined;
+  parameterType: keyof typeof SsmParameterStoreParameterType | string | undefined;
 
   /**
    * <p>AWS Systems Manager Parameter Store parameter name.</p>
@@ -1385,10 +1385,10 @@ export interface SsmDocument {
 /**
  * @public
  */
-export enum SsmDocumentType {
-  AUTOMATION = "AUTOMATION",
-  COMMAND = "COMMAND",
-}
+export const SsmDocumentType = {
+  AUTOMATION: "AUTOMATION",
+  COMMAND: "COMMAND",
+};
 
 /**
  * @public
@@ -1403,7 +1403,7 @@ export interface JobPostLaunchActionsLaunchStatus {
   /**
    * <p>AWS Systems Manager Document type.</p>
    */
-  ssmDocumentType?: SsmDocumentType | string;
+  ssmDocumentType?: keyof typeof SsmDocumentType | string;
 
   /**
    * <p>AWS Systems Manager Document's execution ID of the of the Job Post Launch Actions.</p>
@@ -1413,7 +1413,7 @@ export interface JobPostLaunchActionsLaunchStatus {
   /**
    * <p>AWS Systems Manager Document's execution status.</p>
    */
-  executionStatus?: PostLaunchActionExecutionStatus | string;
+  executionStatus?: keyof typeof PostLaunchActionExecutionStatus | string;
 
   /**
    * <p>AWS Systems Manager Document's failure reason.</p>
@@ -1450,7 +1450,7 @@ export interface ParticipatingServer {
   /**
    * <p>Participating server launch status.</p>
    */
-  launchStatus?: LaunchStatus | string;
+  launchStatus?: keyof typeof LaunchStatus | string;
 
   /**
    * <p>Participating server's launched ec2 instance ID.</p>
@@ -1466,19 +1466,19 @@ export interface ParticipatingServer {
 /**
  * @public
  */
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  PENDING = "PENDING",
-  STARTED = "STARTED",
-}
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+};
 
 /**
  * @public
  */
-export enum JobType {
-  LAUNCH = "LAUNCH",
-  TERMINATE = "TERMINATE",
-}
+export const JobType = {
+  LAUNCH: "LAUNCH",
+  TERMINATE: "TERMINATE",
+};
 
 /**
  * @public
@@ -1498,12 +1498,12 @@ export interface Job {
   /**
    * <p>Job type.</p>
    */
-  type?: JobType | string;
+  type?: keyof typeof JobType | string;
 
   /**
    * <p>Job initiated by field.</p>
    */
-  initiatedBy?: InitiatedBy | string;
+  initiatedBy?: keyof typeof InitiatedBy | string;
 
   /**
    * <p>Job creation time.</p>
@@ -1518,7 +1518,7 @@ export interface Job {
   /**
    * <p>Job status.</p>
    */
-  status?: JobStatus | string;
+  status?: keyof typeof JobStatus | string;
 
   /**
    * <p>Servers participating in a specific Job.</p>
@@ -1549,23 +1549,23 @@ export interface DescribeJobsResponse {
 /**
  * @public
  */
-export enum BootMode {
-  LEGACY_BIOS = "LEGACY_BIOS",
-  UEFI = "UEFI",
-}
+export const BootMode = {
+  LEGACY_BIOS: "LEGACY_BIOS",
+  UEFI: "UEFI",
+};
 
 /**
  * @public
  */
-export enum VolumeType {
-  gp2 = "gp2",
-  gp3 = "gp3",
-  io1 = "io1",
-  io2 = "io2",
-  sc1 = "sc1",
-  st1 = "st1",
-  standard = "standard",
-}
+export const VolumeType = {
+  gp2: "gp2",
+  gp3: "gp3",
+  io1: "io1",
+  io2: "io2",
+  sc1: "sc1",
+  st1: "st1",
+  standard: "standard",
+};
 
 /**
  * @public
@@ -1575,7 +1575,7 @@ export interface LaunchTemplateDiskConf {
   /**
    * <p>Launch template disk volume type configuration.</p>
    */
-  volumeType?: VolumeType | string;
+  volumeType?: keyof typeof VolumeType | string;
 
   /**
    * <p>Launch template disk iops configuration.</p>
@@ -1591,10 +1591,10 @@ export interface LaunchTemplateDiskConf {
 /**
  * @public
  */
-export enum LaunchDisposition {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-}
+export const LaunchDisposition = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -1610,11 +1610,11 @@ export interface Licensing {
 /**
  * @public
  */
-export enum PostLaunchActionsDeploymentType {
-  CUTOVER_ONLY = "CUTOVER_ONLY",
-  TEST_AND_CUTOVER = "TEST_AND_CUTOVER",
-  TEST_ONLY = "TEST_ONLY",
-}
+export const PostLaunchActionsDeploymentType = {
+  CUTOVER_ONLY: "CUTOVER_ONLY",
+  TEST_AND_CUTOVER: "TEST_AND_CUTOVER",
+  TEST_ONLY: "TEST_ONLY",
+};
 
 /**
  * @public
@@ -1624,7 +1624,7 @@ export interface PostLaunchActions {
   /**
    * <p>Deployment type in which AWS Systems Manager Documents will be executed.</p>
    */
-  deployment?: PostLaunchActionsDeploymentType | string;
+  deployment?: keyof typeof PostLaunchActionsDeploymentType | string;
 
   /**
    * <p>AWS Systems Manager Command's logs S3 log bucket.</p>
@@ -1650,10 +1650,10 @@ export interface PostLaunchActions {
 /**
  * @public
  */
-export enum TargetInstanceTypeRightSizingMethod {
-  BASIC = "BASIC",
-  NONE = "NONE",
-}
+export const TargetInstanceTypeRightSizingMethod = {
+  BASIC: "BASIC",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -1682,12 +1682,12 @@ export interface CreateLaunchConfigurationTemplateRequest {
   /**
    * <p>Launch disposition.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: keyof typeof LaunchDisposition | string;
 
   /**
    * <p>Target instance type right-sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: keyof typeof TargetInstanceTypeRightSizingMethod | string;
 
   /**
    * <p>Copy private Ip.</p>
@@ -1712,7 +1712,7 @@ export interface CreateLaunchConfigurationTemplateRequest {
   /**
    * <p>Launch configuration template boot mode.</p>
    */
-  bootMode?: BootMode | string;
+  bootMode?: keyof typeof BootMode | string;
 
   /**
    * <p>Small volume maximum size.</p>
@@ -1772,12 +1772,12 @@ export interface LaunchConfigurationTemplate {
   /**
    * <p>Launch disposition.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: keyof typeof LaunchDisposition | string;
 
   /**
    * <p>Target instance type right-sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: keyof typeof TargetInstanceTypeRightSizingMethod | string;
 
   /**
    * <p>Copy private Ip.</p>
@@ -1802,7 +1802,7 @@ export interface LaunchConfigurationTemplate {
   /**
    * <p>Launch configuration template boot mode.</p>
    */
-  bootMode?: BootMode | string;
+  bootMode?: keyof typeof BootMode | string;
 
   /**
    * <p>Small volume maximum size.</p>
@@ -1973,7 +1973,7 @@ export interface TemplateActionDocument {
   /**
    * <p>Template post migration custom action category.</p>
    */
-  category?: ActionCategory | string;
+  category?: keyof typeof ActionCategory | string;
 }
 
 /**
@@ -2063,7 +2063,7 @@ export interface PutTemplateActionRequest {
   /**
    * <p>Template post migration custom action category.</p>
    */
-  category?: ActionCategory | string;
+  category?: keyof typeof ActionCategory | string;
 }
 
 /**
@@ -2113,12 +2113,12 @@ export interface UpdateLaunchConfigurationTemplateRequest {
   /**
    * <p>Launch disposition.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: keyof typeof LaunchDisposition | string;
 
   /**
    * <p>Target instance type right-sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: keyof typeof TargetInstanceTypeRightSizingMethod | string;
 
   /**
    * <p>Copy private Ip.</p>
@@ -2143,7 +2143,7 @@ export interface UpdateLaunchConfigurationTemplateRequest {
   /**
    * <p>Launch configuration template boot mode.</p>
    */
-  bootMode?: BootMode | string;
+  bootMode?: keyof typeof BootMode | string;
 
   /**
    * <p>Small volume maximum size.</p>
@@ -2248,27 +2248,27 @@ export class ThrottlingException extends __BaseException {
 /**
  * @public
  */
-export enum ReplicationConfigurationDataPlaneRouting {
-  PRIVATE_IP = "PRIVATE_IP",
-  PUBLIC_IP = "PUBLIC_IP",
-}
+export const ReplicationConfigurationDataPlaneRouting = {
+  PRIVATE_IP: "PRIVATE_IP",
+  PUBLIC_IP: "PUBLIC_IP",
+};
 
 /**
  * @public
  */
-export enum ReplicationConfigurationDefaultLargeStagingDiskType {
-  GP2 = "GP2",
-  GP3 = "GP3",
-  ST1 = "ST1",
-}
+export const ReplicationConfigurationDefaultLargeStagingDiskType = {
+  GP2: "GP2",
+  GP3: "GP3",
+  ST1: "ST1",
+};
 
 /**
  * @public
  */
-export enum ReplicationConfigurationEbsEncryption {
-  CUSTOM = "CUSTOM",
-  DEFAULT = "DEFAULT",
-}
+export const ReplicationConfigurationEbsEncryption = {
+  CUSTOM: "CUSTOM",
+  DEFAULT: "DEFAULT",
+};
 
 /**
  * @public
@@ -2302,12 +2302,12 @@ export interface CreateReplicationConfigurationTemplateRequest {
   /**
    * <p>Request to configure the default large staging disk EBS volume type during Replication Settings template creation.</p>
    */
-  defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskType | string | undefined;
+  defaultLargeStagingDiskType: keyof typeof ReplicationConfigurationDefaultLargeStagingDiskType | string | undefined;
 
   /**
    * <p>Request to configure EBS encryption during Replication Settings template creation.</p>
    */
-  ebsEncryption: ReplicationConfigurationEbsEncryption | string | undefined;
+  ebsEncryption: keyof typeof ReplicationConfigurationEbsEncryption | string | undefined;
 
   /**
    * <p>Request to configure an EBS encryption key during Replication Settings template creation.</p>
@@ -2322,7 +2322,7 @@ export interface CreateReplicationConfigurationTemplateRequest {
   /**
    * <p>Request to configure  data plane routing during Replication Settings template creation.</p>
    */
-  dataPlaneRouting: ReplicationConfigurationDataPlaneRouting | string | undefined;
+  dataPlaneRouting: keyof typeof ReplicationConfigurationDataPlaneRouting | string | undefined;
 
   /**
    * <p>Request to create Public IP during Replication Settings template creation.</p>
@@ -2382,12 +2382,12 @@ export interface ReplicationConfigurationTemplate {
   /**
    * <p>Replication Configuration template use default large Staging Disk type.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: keyof typeof ReplicationConfigurationDefaultLargeStagingDiskType | string;
 
   /**
    * <p>Replication Configuration template EBS encryption.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: keyof typeof ReplicationConfigurationEbsEncryption | string;
 
   /**
    * <p>Replication Configuration template EBS encryption key ARN.</p>
@@ -2402,7 +2402,7 @@ export interface ReplicationConfigurationTemplate {
   /**
    * <p>Replication Configuration template data plane routing.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: keyof typeof ReplicationConfigurationDataPlaneRouting | string;
 
   /**
    * <p>Replication Configuration template create Public IP.</p>
@@ -2512,12 +2512,12 @@ export interface UpdateReplicationConfigurationTemplateRequest {
   /**
    * <p>Update replication configuration template use default large Staging Disk type request.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: keyof typeof ReplicationConfigurationDefaultLargeStagingDiskType | string;
 
   /**
    * <p>Update replication configuration template EBS encryption request.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: keyof typeof ReplicationConfigurationEbsEncryption | string;
 
   /**
    * <p>Update replication configuration template EBS encryption key ARN request.</p>
@@ -2532,7 +2532,7 @@ export interface UpdateReplicationConfigurationTemplateRequest {
   /**
    * <p>Update replication configuration template data plane routing request.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: keyof typeof ReplicationConfigurationDataPlaneRouting | string;
 
   /**
    * <p>Update replication configuration template create Public IP request.</p>
@@ -2548,11 +2548,11 @@ export interface UpdateReplicationConfigurationTemplateRequest {
 /**
  * @public
  */
-export enum ChangeServerLifeCycleStateSourceServerLifecycleState {
-  CUTOVER = "CUTOVER",
-  READY_FOR_CUTOVER = "READY_FOR_CUTOVER",
-  READY_FOR_TEST = "READY_FOR_TEST",
-}
+export const ChangeServerLifeCycleStateSourceServerLifecycleState = {
+  CUTOVER: "CUTOVER",
+  READY_FOR_CUTOVER: "READY_FOR_CUTOVER",
+  READY_FOR_TEST: "READY_FOR_TEST",
+};
 
 /**
  * @public
@@ -2562,7 +2562,7 @@ export interface ChangeServerLifeCycleStateSourceServerLifecycle {
   /**
    * <p>The request to change the source server migration lifecycle state.</p>
    */
-  state: ChangeServerLifeCycleStateSourceServerLifecycleState | string | undefined;
+  state: keyof typeof ChangeServerLifeCycleStateSourceServerLifecycleState | string | undefined;
 }
 
 /**
@@ -2583,24 +2583,24 @@ export interface ChangeServerLifeCycleStateRequest {
 /**
  * @public
  */
-export enum DataReplicationErrorString {
-  AGENT_NOT_SEEN = "AGENT_NOT_SEEN",
-  FAILED_TO_ATTACH_STAGING_DISKS = "FAILED_TO_ATTACH_STAGING_DISKS",
-  FAILED_TO_AUTHENTICATE_WITH_SERVICE = "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
-  FAILED_TO_BOOT_REPLICATION_SERVER = "FAILED_TO_BOOT_REPLICATION_SERVER",
-  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER = "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
-  FAILED_TO_CREATE_SECURITY_GROUP = "FAILED_TO_CREATE_SECURITY_GROUP",
-  FAILED_TO_CREATE_STAGING_DISKS = "FAILED_TO_CREATE_STAGING_DISKS",
-  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE = "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
-  FAILED_TO_LAUNCH_REPLICATION_SERVER = "FAILED_TO_LAUNCH_REPLICATION_SERVER",
-  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT = "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
-  FAILED_TO_START_DATA_TRANSFER = "FAILED_TO_START_DATA_TRANSFER",
-  LAST_SNAPSHOT_JOB_FAILED = "LAST_SNAPSHOT_JOB_FAILED",
-  NOT_CONVERGING = "NOT_CONVERGING",
-  SNAPSHOTS_FAILURE = "SNAPSHOTS_FAILURE",
-  UNSTABLE_NETWORK = "UNSTABLE_NETWORK",
-  UNSUPPORTED_VM_CONFIGURATION = "UNSUPPORTED_VM_CONFIGURATION",
-}
+export const DataReplicationErrorString = {
+  AGENT_NOT_SEEN: "AGENT_NOT_SEEN",
+  FAILED_TO_ATTACH_STAGING_DISKS: "FAILED_TO_ATTACH_STAGING_DISKS",
+  FAILED_TO_AUTHENTICATE_WITH_SERVICE: "FAILED_TO_AUTHENTICATE_WITH_SERVICE",
+  FAILED_TO_BOOT_REPLICATION_SERVER: "FAILED_TO_BOOT_REPLICATION_SERVER",
+  FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER: "FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER",
+  FAILED_TO_CREATE_SECURITY_GROUP: "FAILED_TO_CREATE_SECURITY_GROUP",
+  FAILED_TO_CREATE_STAGING_DISKS: "FAILED_TO_CREATE_STAGING_DISKS",
+  FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE: "FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE",
+  FAILED_TO_LAUNCH_REPLICATION_SERVER: "FAILED_TO_LAUNCH_REPLICATION_SERVER",
+  FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT: "FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT",
+  FAILED_TO_START_DATA_TRANSFER: "FAILED_TO_START_DATA_TRANSFER",
+  LAST_SNAPSHOT_JOB_FAILED: "LAST_SNAPSHOT_JOB_FAILED",
+  NOT_CONVERGING: "NOT_CONVERGING",
+  SNAPSHOTS_FAILURE: "SNAPSHOTS_FAILURE",
+  UNSTABLE_NETWORK: "UNSTABLE_NETWORK",
+  UNSUPPORTED_VM_CONFIGURATION: "UNSUPPORTED_VM_CONFIGURATION",
+};
 
 /**
  * @public
@@ -2610,7 +2610,7 @@ export interface DataReplicationError {
   /**
    * <p>Error in data replication.</p>
    */
-  error?: DataReplicationErrorString | string;
+  error?: keyof typeof DataReplicationErrorString | string;
 
   /**
    * <p>Error in data replication.</p>
@@ -2621,30 +2621,30 @@ export interface DataReplicationError {
 /**
  * @public
  */
-export enum DataReplicationInitiationStepName {
-  ATTACH_STAGING_DISKS = "ATTACH_STAGING_DISKS",
-  AUTHENTICATE_WITH_SERVICE = "AUTHENTICATE_WITH_SERVICE",
-  BOOT_REPLICATION_SERVER = "BOOT_REPLICATION_SERVER",
-  CONNECT_AGENT_TO_REPLICATION_SERVER = "CONNECT_AGENT_TO_REPLICATION_SERVER",
-  CREATE_SECURITY_GROUP = "CREATE_SECURITY_GROUP",
-  CREATE_STAGING_DISKS = "CREATE_STAGING_DISKS",
-  DOWNLOAD_REPLICATION_SOFTWARE = "DOWNLOAD_REPLICATION_SOFTWARE",
-  LAUNCH_REPLICATION_SERVER = "LAUNCH_REPLICATION_SERVER",
-  PAIR_REPLICATION_SERVER_WITH_AGENT = "PAIR_REPLICATION_SERVER_WITH_AGENT",
-  START_DATA_TRANSFER = "START_DATA_TRANSFER",
-  WAIT = "WAIT",
-}
+export const DataReplicationInitiationStepName = {
+  ATTACH_STAGING_DISKS: "ATTACH_STAGING_DISKS",
+  AUTHENTICATE_WITH_SERVICE: "AUTHENTICATE_WITH_SERVICE",
+  BOOT_REPLICATION_SERVER: "BOOT_REPLICATION_SERVER",
+  CONNECT_AGENT_TO_REPLICATION_SERVER: "CONNECT_AGENT_TO_REPLICATION_SERVER",
+  CREATE_SECURITY_GROUP: "CREATE_SECURITY_GROUP",
+  CREATE_STAGING_DISKS: "CREATE_STAGING_DISKS",
+  DOWNLOAD_REPLICATION_SOFTWARE: "DOWNLOAD_REPLICATION_SOFTWARE",
+  LAUNCH_REPLICATION_SERVER: "LAUNCH_REPLICATION_SERVER",
+  PAIR_REPLICATION_SERVER_WITH_AGENT: "PAIR_REPLICATION_SERVER_WITH_AGENT",
+  START_DATA_TRANSFER: "START_DATA_TRANSFER",
+  WAIT: "WAIT",
+};
 
 /**
  * @public
  */
-export enum DataReplicationInitiationStepStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  SKIPPED = "SKIPPED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const DataReplicationInitiationStepStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  SKIPPED: "SKIPPED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2654,12 +2654,12 @@ export interface DataReplicationInitiationStep {
   /**
    * <p>Request to query data initiation step name.</p>
    */
-  name?: DataReplicationInitiationStepName | string;
+  name?: keyof typeof DataReplicationInitiationStepName | string;
 
   /**
    * <p>Request to query data initiation status.</p>
    */
-  status?: DataReplicationInitiationStepStatus | string;
+  status?: keyof typeof DataReplicationInitiationStepStatus | string;
 }
 
 /**
@@ -2686,20 +2686,20 @@ export interface DataReplicationInitiation {
 /**
  * @public
  */
-export enum DataReplicationState {
-  BACKLOG = "BACKLOG",
-  CONTINUOUS = "CONTINUOUS",
-  CREATING_SNAPSHOT = "CREATING_SNAPSHOT",
-  DISCONNECTED = "DISCONNECTED",
-  INITIAL_SYNC = "INITIAL_SYNC",
-  INITIATING = "INITIATING",
-  PAUSED = "PAUSED",
-  PENDING_SNAPSHOT_SHIPPING = "PENDING_SNAPSHOT_SHIPPING",
-  RESCAN = "RESCAN",
-  SHIPPING_SNAPSHOT = "SHIPPING_SNAPSHOT",
-  STALLED = "STALLED",
-  STOPPED = "STOPPED",
-}
+export const DataReplicationState = {
+  BACKLOG: "BACKLOG",
+  CONTINUOUS: "CONTINUOUS",
+  CREATING_SNAPSHOT: "CREATING_SNAPSHOT",
+  DISCONNECTED: "DISCONNECTED",
+  INITIAL_SYNC: "INITIAL_SYNC",
+  INITIATING: "INITIATING",
+  PAUSED: "PAUSED",
+  PENDING_SNAPSHOT_SHIPPING: "PENDING_SNAPSHOT_SHIPPING",
+  RESCAN: "RESCAN",
+  SHIPPING_SNAPSHOT: "SHIPPING_SNAPSHOT",
+  STALLED: "STALLED",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -2755,7 +2755,7 @@ export interface DataReplicationInfo {
   /**
    * <p>Request to query the data replication state.</p>
    */
-  dataReplicationState?: DataReplicationState | string;
+  dataReplicationState?: keyof typeof DataReplicationState | string;
 
   /**
    * <p>Request to query whether data replication has been initiated.</p>
@@ -2776,12 +2776,12 @@ export interface DataReplicationInfo {
 /**
  * @public
  */
-export enum FirstBoot {
-  STOPPED = "STOPPED",
-  SUCCEEDED = "SUCCEEDED",
-  UNKNOWN = "UNKNOWN",
-  WAITING = "WAITING",
-}
+export const FirstBoot = {
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+  UNKNOWN: "UNKNOWN",
+  WAITING: "WAITING",
+};
 
 /**
  * @public
@@ -2801,7 +2801,7 @@ export interface LaunchedInstance {
   /**
    * <p>Launched instance first boot.</p>
    */
-  firstBoot?: FirstBoot | string;
+  firstBoot?: keyof typeof FirstBoot | string;
 }
 
 /**
@@ -2925,18 +2925,18 @@ export interface LifeCycleLastTest {
 /**
  * @public
  */
-export enum LifeCycleState {
-  CUTOVER = "CUTOVER",
-  CUTTING_OVER = "CUTTING_OVER",
-  DISCONNECTED = "DISCONNECTED",
-  DISCOVERED = "DISCOVERED",
-  NOT_READY = "NOT_READY",
-  PENDING_INSTALLATION = "PENDING_INSTALLATION",
-  READY_FOR_CUTOVER = "READY_FOR_CUTOVER",
-  READY_FOR_TEST = "READY_FOR_TEST",
-  STOPPED = "STOPPED",
-  TESTING = "TESTING",
-}
+export const LifeCycleState = {
+  CUTOVER: "CUTOVER",
+  CUTTING_OVER: "CUTTING_OVER",
+  DISCONNECTED: "DISCONNECTED",
+  DISCOVERED: "DISCOVERED",
+  NOT_READY: "NOT_READY",
+  PENDING_INSTALLATION: "PENDING_INSTALLATION",
+  READY_FOR_CUTOVER: "READY_FOR_CUTOVER",
+  READY_FOR_TEST: "READY_FOR_TEST",
+  STOPPED: "STOPPED",
+  TESTING: "TESTING",
+};
 
 /**
  * @public
@@ -2976,16 +2976,16 @@ export interface LifeCycle {
   /**
    * <p>Lifecycle state.</p>
    */
-  state?: LifeCycleState | string;
+  state?: keyof typeof LifeCycleState | string;
 }
 
 /**
  * @public
  */
-export enum ReplicationType {
-  AGENT_BASED = "AGENT_BASED",
-  SNAPSHOT_SHIPPING = "SNAPSHOT_SHIPPING",
-}
+export const ReplicationType = {
+  AGENT_BASED: "AGENT_BASED",
+  SNAPSHOT_SHIPPING: "SNAPSHOT_SHIPPING",
+};
 
 /**
  * @public
@@ -3175,7 +3175,7 @@ export interface SourceServer {
   /**
    * <p>Source server replication type.</p>
    */
-  replicationType?: ReplicationType | string;
+  replicationType?: keyof typeof ReplicationType | string;
 
   /**
    * <p>Source server vCenter client id.</p>
@@ -3231,12 +3231,12 @@ export interface DescribeSourceServersRequestFilters {
   /**
    * <p>Request to filter Source Servers list by replication type.</p>
    */
-  replicationTypes?: (ReplicationType | string)[];
+  replicationTypes?: (keyof typeof ReplicationType | string)[];
 
   /**
    * <p>Request to filter Source Servers list by life cycle states.</p>
    */
-  lifeCycleStates?: (LifeCycleState | string)[];
+  lifeCycleStates?: (keyof typeof LifeCycleState | string)[];
 
   /**
    * <p>Request to filter Source Servers list by application IDs.</p>
@@ -3331,12 +3331,12 @@ export interface LaunchConfiguration {
   /**
    * <p>Launch disposition for launch configuration.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: keyof typeof LaunchDisposition | string;
 
   /**
    * <p>Launch configuration Target instance type right sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: keyof typeof TargetInstanceTypeRightSizingMethod | string;
 
   /**
    * <p>Copy Private IP during Launch Configuration.</p>
@@ -3356,7 +3356,7 @@ export interface LaunchConfiguration {
   /**
    * <p>Launch configuration boot mode.</p>
    */
-  bootMode?: BootMode | string;
+  bootMode?: keyof typeof BootMode | string;
 
   /**
    * <p>Post Launch Actions to executed on the Test or Cutover instance.</p>
@@ -3387,16 +3387,16 @@ export interface GetReplicationConfigurationRequest {
 /**
  * @public
  */
-export enum ReplicationConfigurationReplicatedDiskStagingDiskType {
-  AUTO = "AUTO",
-  GP2 = "GP2",
-  GP3 = "GP3",
-  IO1 = "IO1",
-  IO2 = "IO2",
-  SC1 = "SC1",
-  ST1 = "ST1",
-  STANDARD = "STANDARD",
-}
+export const ReplicationConfigurationReplicatedDiskStagingDiskType = {
+  AUTO: "AUTO",
+  GP2: "GP2",
+  GP3: "GP3",
+  IO1: "IO1",
+  IO2: "IO2",
+  SC1: "SC1",
+  ST1: "ST1",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -3416,7 +3416,7 @@ export interface ReplicationConfigurationReplicatedDisk {
   /**
    * <p>Replication Configuration replicated disk staging disk type.</p>
    */
-  stagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
+  stagingDiskType?: keyof typeof ReplicationConfigurationReplicatedDiskStagingDiskType | string;
 
   /**
    * <p>Replication Configuration replicated disk IOPs.</p>
@@ -3471,7 +3471,7 @@ export interface ReplicationConfiguration {
   /**
    * <p>Replication Configuration use default large Staging Disks.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: keyof typeof ReplicationConfigurationDefaultLargeStagingDiskType | string;
 
   /**
    * <p>Replication Configuration replicated disks.</p>
@@ -3481,7 +3481,7 @@ export interface ReplicationConfiguration {
   /**
    * <p>Replication Configuration EBS encryption.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: keyof typeof ReplicationConfigurationEbsEncryption | string;
 
   /**
    * <p>Replication Configuration EBS encryption key ARN.</p>
@@ -3496,7 +3496,7 @@ export interface ReplicationConfiguration {
   /**
    * <p>Replication Configuration data plane routing.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: keyof typeof ReplicationConfigurationDataPlaneRouting | string;
 
   /**
    * <p>Replication Configuration create Public IP.</p>
@@ -3607,7 +3607,7 @@ export interface SourceServerActionDocument {
   /**
    * <p>Source server post migration custom action category.</p>
    */
-  category?: ActionCategory | string;
+  category?: keyof typeof ActionCategory | string;
 }
 
 /**
@@ -3702,7 +3702,7 @@ export interface PutSourceServerActionRequest {
   /**
    * <p>Source server post migration custom action category.</p>
    */
-  category?: ActionCategory | string;
+  category?: keyof typeof ActionCategory | string;
 }
 
 /**
@@ -3837,12 +3837,12 @@ export interface UpdateLaunchConfigurationRequest {
   /**
    * <p>Update Launch configuration launch disposition request.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: keyof typeof LaunchDisposition | string;
 
   /**
    * <p>Update Launch configuration Target instance right sizing request.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: keyof typeof TargetInstanceTypeRightSizingMethod | string;
 
   /**
    * <p>Update Launch configuration copy Private IP request.</p>
@@ -3862,7 +3862,7 @@ export interface UpdateLaunchConfigurationRequest {
   /**
    * <p>Update Launch configuration boot mode request.</p>
    */
-  bootMode?: BootMode | string;
+  bootMode?: keyof typeof BootMode | string;
 
   /**
    * <p>Post Launch Actions to executed on the Test or Cutover instance.</p>
@@ -3922,7 +3922,7 @@ export interface UpdateReplicationConfigurationRequest {
   /**
    * <p>Update replication configuration use default large Staging Disk type request.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: keyof typeof ReplicationConfigurationDefaultLargeStagingDiskType | string;
 
   /**
    * <p>Update replication configuration replicated disks request.</p>
@@ -3932,7 +3932,7 @@ export interface UpdateReplicationConfigurationRequest {
   /**
    * <p>Update replication configuration EBS encryption request.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: keyof typeof ReplicationConfigurationEbsEncryption | string;
 
   /**
    * <p>Update replication configuration EBS encryption key ARN request.</p>
@@ -3947,7 +3947,7 @@ export interface UpdateReplicationConfigurationRequest {
   /**
    * <p>Update replication configuration data plane routing request.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: keyof typeof ReplicationConfigurationDataPlaneRouting | string;
 
   /**
    * <p>Update replication configuration create Public IP request.</p>
@@ -3972,7 +3972,7 @@ export interface UpdateSourceServerReplicationTypeRequest {
   /**
    * <p>Replication type to which to update source server.</p>
    */
-  replicationType: ReplicationType | string | undefined;
+  replicationType: keyof typeof ReplicationType | string | undefined;
 }
 
 /**
@@ -4104,20 +4104,20 @@ export interface ArchiveWaveRequest {
 /**
  * @public
  */
-export enum WaveHealthStatus {
-  ERROR = "ERROR",
-  HEALTHY = "HEALTHY",
-  LAGGING = "LAGGING",
-}
+export const WaveHealthStatus = {
+  ERROR: "ERROR",
+  HEALTHY: "HEALTHY",
+  LAGGING: "LAGGING",
+};
 
 /**
  * @public
  */
-export enum WaveProgressStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const WaveProgressStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+};
 
 /**
  * @public
@@ -4137,12 +4137,12 @@ export interface WaveAggregatedStatus {
   /**
    * <p>Wave aggregated status health status.</p>
    */
-  healthStatus?: WaveHealthStatus | string;
+  healthStatus?: keyof typeof WaveHealthStatus | string;
 
   /**
    * <p>Wave aggregated status progress status.</p>
    */
-  progressStatus?: WaveProgressStatus | string;
+  progressStatus?: keyof typeof WaveProgressStatus | string;
 
   /**
    * <p>Wave aggregated status total applications amount.</p>

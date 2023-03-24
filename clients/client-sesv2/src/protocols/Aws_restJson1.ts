@@ -7614,13 +7614,16 @@ const serializeAws_restJson1Destination = (input: Destination, context: __SerdeC
 };
 
 const serializeAws_restJson1Dimensions = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [MetricDimensionName | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof MetricDimensionName | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = value;
       return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1DkimSigningAttributes = (input: DkimSigningAttributes, context: __SerdeContext): any => {
@@ -7711,7 +7714,7 @@ const serializeAws_restJson1EventDestinationDefinition = (
   };
 };
 
-const serializeAws_restJson1EventTypes = (input: (EventType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1EventTypes = (input: (keyof typeof EventType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7799,7 +7802,7 @@ const serializeAws_restJson1ListRecommendationsFilter = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [ListRecommendationsFilterKey | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [keyof typeof ListRecommendationsFilterKey | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -7892,7 +7895,7 @@ const serializeAws_restJson1SuppressionListDestination = (
 };
 
 const serializeAws_restJson1SuppressionListReasons = (
-  input: (SuppressionListReason | string)[],
+  input: (keyof typeof SuppressionListReason | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -8515,7 +8518,10 @@ const deserializeAws_restJson1EventDestinations = (output: any, context: __Serde
   return retVal;
 };
 
-const deserializeAws_restJson1EventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
+const deserializeAws_restJson1EventTypes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof EventType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8962,7 +8968,7 @@ const deserializeAws_restJson1SuppressionListDestination = (
 const deserializeAws_restJson1SuppressionListReasons = (
   output: any,
   context: __SerdeContext
-): (SuppressionListReason | string)[] => {
+): (keyof typeof SuppressionListReason | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

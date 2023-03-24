@@ -396,9 +396,9 @@ export interface ListCasesForContactResponse {
 /**
  * @public
  */
-export enum CommentBodyTextType {
-  PLAINTEXT = "Text/Plain",
-}
+export const CommentBodyTextType = {
+  PLAINTEXT: "Text/Plain",
+};
 
 /**
  * @public
@@ -413,7 +413,7 @@ export interface CommentContent {
   /**
    * <p>Type of the text in the box of a <code>Comment</code> on a case.</p>
    */
-  contentType: CommentBodyTextType | string | undefined;
+  contentType: keyof typeof CommentBodyTextType | string | undefined;
 }
 
 /**
@@ -480,10 +480,10 @@ export namespace RelatedItemInputContent {
 /**
  * @public
  */
-export enum RelatedItemType {
-  COMMENT = "Comment",
-  CONTACT = "Contact",
-}
+export const RelatedItemType = {
+  COMMENT: "Comment",
+  CONTACT: "Contact",
+};
 
 /**
  * @public
@@ -502,7 +502,7 @@ export interface CreateRelatedItemRequest {
   /**
    * <p>The type of a related item.</p>
    */
-  type: RelatedItemType | string | undefined;
+  type: keyof typeof RelatedItemType | string | undefined;
 
   /**
    * <p>The content of a related item to be created.</p>
@@ -734,7 +734,7 @@ export interface SearchRelatedItemsResponseItem {
   /**
    * <p>Type of a related item.</p>
    */
-  type: RelatedItemType | string | undefined;
+  type: keyof typeof RelatedItemType | string | undefined;
 
   /**
    * <p>Time at which a related item was associated with a case.</p>
@@ -896,10 +896,10 @@ export namespace FieldFilter {
 /**
  * @public
  */
-export enum Order {
-  ASCENDING = "Asc",
-  DESCENDING = "Desc",
-}
+export const Order = {
+  ASCENDING: "Asc",
+  DESCENDING: "Desc",
+};
 
 /**
  * @public
@@ -914,7 +914,7 @@ export interface Sort {
   /**
    * <p>A structured set of sort terms</p>
    */
-  sortOrder: Order | string | undefined;
+  sortOrder: keyof typeof Order | string | undefined;
 }
 
 /**
@@ -999,11 +999,11 @@ export interface CreateDomainRequest {
 /**
  * @public
  */
-export enum DomainStatus {
-  ACTIVE = "Active",
-  CREATION_FAILED = "CreationFailed",
-  CREATION_IN_PROGRESS = "CreationInProgress",
-}
+export const DomainStatus = {
+  ACTIVE: "Active",
+  CREATION_FAILED: "CreationFailed",
+  CREATION_IN_PROGRESS: "CreationInProgress",
+};
 
 /**
  * @public
@@ -1022,7 +1022,7 @@ export interface CreateDomainResponse {
   /**
    * <p>The status of the domain.</p>
    */
-  domainStatus: DomainStatus | string | undefined;
+  domainStatus: keyof typeof DomainStatus | string | undefined;
 }
 
 /**
@@ -1155,7 +1155,7 @@ export interface GetDomainResponse {
   /**
    * <p>The status of the Cases domain.</p>
    */
-  domainStatus: DomainStatus | string | undefined;
+  domainStatus: keyof typeof DomainStatus | string | undefined;
 
   /**
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
@@ -1275,21 +1275,21 @@ export interface FieldError {
 /**
  * @public
  */
-export enum FieldNamespace {
-  CUSTOM = "Custom",
-  SYSTEM = "System",
-}
+export const FieldNamespace = {
+  CUSTOM: "Custom",
+  SYSTEM: "System",
+};
 
 /**
  * @public
  */
-export enum FieldType {
-  BOOLEAN = "Boolean",
-  DATE_TIME = "DateTime",
-  NUMBER = "Number",
-  SINGLE_SELECT = "SingleSelect",
-  TEXT = "Text",
-}
+export const FieldType = {
+  BOOLEAN: "Boolean",
+  DATE_TIME: "DateTime",
+  NUMBER: "Number",
+  SINGLE_SELECT: "SingleSelect",
+  TEXT: "Text",
+};
 
 /**
  * @public
@@ -1319,12 +1319,12 @@ export interface GetFieldResponse {
   /**
    * <p>Type of the field.</p>
    */
-  type: FieldType | string | undefined;
+  type: keyof typeof FieldType | string | undefined;
 
   /**
    * <p>Namespace of the field.</p>
    */
-  namespace: FieldNamespace | string | undefined;
+  namespace: keyof typeof FieldNamespace | string | undefined;
 
   /**
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
@@ -1439,7 +1439,7 @@ export interface CreateFieldRequest {
   /**
    * <p>Defines the data type, some system constraints, and default display of the field.</p>
    */
-  type: FieldType | string | undefined;
+  type: keyof typeof FieldType | string | undefined;
 
   /**
    * <p>The description of the field.</p>
@@ -1553,12 +1553,12 @@ export interface FieldSummary {
   /**
    * <p>The type of a field.</p>
    */
-  type: FieldType | string | undefined;
+  type: keyof typeof FieldType | string | undefined;
 
   /**
    * <p>The namespace of a field.</p>
    */
-  namespace: FieldNamespace | string | undefined;
+  namespace: keyof typeof FieldNamespace | string | undefined;
 }
 
 /**
@@ -1961,10 +1961,10 @@ export interface RequiredField {
 /**
  * @public
  */
-export enum TemplateStatus {
-  ACTIVE = "Active",
-  INACTIVE = "Inactive",
-}
+export const TemplateStatus = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+};
 
 /**
  * @public
@@ -1999,7 +1999,7 @@ export interface CreateTemplateRequest {
   /**
    * <p>The status of the template.</p>
    */
-  status?: TemplateStatus | string;
+  status?: keyof typeof TemplateStatus | string;
 }
 
 /**
@@ -2075,7 +2075,7 @@ export interface GetTemplateResponse {
   /**
    * <p>The status of the template.</p>
    */
-  status: TemplateStatus | string | undefined;
+  status: keyof typeof TemplateStatus | string | undefined;
 }
 
 /**
@@ -2101,7 +2101,7 @@ export interface ListTemplatesRequest {
   /**
    * <p>A list of status values to filter on.</p>
    */
-  status?: (TemplateStatus | string)[];
+  status?: (keyof typeof TemplateStatus | string)[];
 }
 
 /**
@@ -2127,7 +2127,7 @@ export interface TemplateSummary {
   /**
    * <p>The status of the template.</p>
    */
-  status: TemplateStatus | string | undefined;
+  status: keyof typeof TemplateStatus | string | undefined;
 }
 
 /**
@@ -2183,7 +2183,7 @@ export interface UpdateTemplateRequest {
   /**
    * <p>The status of the template.</p>
    */
-  status?: TemplateStatus | string;
+  status?: keyof typeof TemplateStatus | string;
 }
 
 /**

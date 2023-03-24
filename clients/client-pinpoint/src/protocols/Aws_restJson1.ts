@@ -12140,7 +12140,7 @@ const serializeAws_restJson1JourneyStateRequest = (input: JourneyStateRequest, c
 };
 
 const serializeAws_restJson1ListOf__EndpointTypesElement = (
-  input: (__EndpointTypesElement | string)[],
+  input: (keyof typeof __EndpointTypesElement | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -12358,13 +12358,16 @@ const serializeAws_restJson1MapOfListOfOpenHoursRules = (
   input: Record<string, OpenHoursRule[]>,
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [DayOfWeek | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof DayOfWeek | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = serializeAws_restJson1ListOfOpenHoursRules(value, context);
       return acc;
-    }
-    acc[key] = serializeAws_restJson1ListOfOpenHoursRules(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1MapOfMetricDimension = (
@@ -14145,7 +14148,7 @@ const deserializeAws_restJson1JourneysResponse = (output: any, context: __SerdeC
 const deserializeAws_restJson1ListOf__EndpointTypesElement = (
   output: any,
   context: __SerdeContext
-): (__EndpointTypesElement | string)[] => {
+): (keyof typeof __EndpointTypesElement | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -14611,7 +14614,7 @@ const deserializeAws_restJson1MapOfListOfOpenHoursRules = (
   context: __SerdeContext
 ): Record<string, OpenHoursRule[]> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, OpenHoursRule[]>, [key, value]: [DayOfWeek | string, any]) => {
+    (acc: Record<string, OpenHoursRule[]>, [key, value]: [keyof typeof DayOfWeek | string, any]) => {
       if (value === null) {
         return acc;
       }

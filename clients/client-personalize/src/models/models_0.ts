@@ -627,11 +627,11 @@ export interface CreateDatasetResponse {
 /**
  * @public
  */
-export enum IngestionMode {
-  ALL = "ALL",
-  BULK = "BULK",
-  PUT = "PUT",
-}
+export const IngestionMode = {
+  ALL: "ALL",
+  BULK: "BULK",
+  PUT: "PUT",
+};
 
 /**
  * @public
@@ -667,7 +667,7 @@ export interface CreateDatasetExportJobRequest {
    *         <code>ALL</code> for both types. The default value is <code>PUT</code>.
    *     </p>
    */
-  ingestionMode?: IngestionMode | string;
+  ingestionMode?: keyof typeof IngestionMode | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM service role that has
@@ -699,10 +699,10 @@ export interface CreateDatasetExportJobResponse {
 /**
  * @public
  */
-export enum Domain {
-  ECOMMERCE = "ECOMMERCE",
-  VIDEO_ON_DEMAND = "VIDEO_ON_DEMAND",
-}
+export const Domain = {
+  ECOMMERCE: "ECOMMERCE",
+  VIDEO_ON_DEMAND: "VIDEO_ON_DEMAND",
+};
 
 /**
  * @public
@@ -733,7 +733,7 @@ export interface CreateDatasetGroupRequest {
    *       don't specify a domain, you create a Custom dataset group with solution
    *       versions that you deploy with a campaign. </p>
    */
-  domain?: Domain | string;
+  domain?: keyof typeof Domain | string;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the dataset group.</p>
@@ -753,7 +753,7 @@ export interface CreateDatasetGroupResponse {
   /**
    * <p>The domain for the new Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: keyof typeof Domain | string;
 }
 
 /**
@@ -775,10 +775,10 @@ export interface DataSource {
 /**
  * @public
  */
-export enum ImportMode {
-  FULL = "FULL",
-  INCREMENTAL = "INCREMENTAL",
-}
+export const ImportMode = {
+  FULL: "FULL",
+  INCREMENTAL: "INCREMENTAL",
+};
 
 /**
  * @public
@@ -826,7 +826,7 @@ export interface CreateDatasetImportJobRequest {
    *             </li>
    *          </ul>
    */
-  importMode?: ImportMode | string;
+  importMode?: keyof typeof ImportMode | string;
 
   /**
    * <p>If you created a metric attribution, specify whether to publish metrics for this import job to Amazon S3</p>
@@ -1072,7 +1072,7 @@ export interface CreateSchemaRequest {
    * <p>The domain for the schema. If you are creating a schema for a dataset in a Domain dataset group, specify
    *     the domain you chose when you created the Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: keyof typeof Domain | string;
 }
 
 /**
@@ -1263,12 +1263,12 @@ export interface HPOConfig {
 /**
  * @public
  */
-export enum ObjectiveSensitivity {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
+export const ObjectiveSensitivity = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+};
 
 /**
  * @public
@@ -1284,7 +1284,7 @@ export interface OptimizationObjective {
   /**
    * <p>Specifies how Amazon Personalize balances the importance of your optimization objective versus relevance.</p>
    */
-  objectiveSensitivity?: ObjectiveSensitivity | string;
+  objectiveSensitivity?: keyof typeof ObjectiveSensitivity | string;
 }
 
 /**
@@ -1404,10 +1404,10 @@ export interface CreateSolutionResponse {
 /**
  * @public
  */
-export enum TrainingMode {
-  FULL = "FULL",
-  UPDATE = "UPDATE",
-}
+export const TrainingMode = {
+  FULL: "FULL",
+  UPDATE: "UPDATE",
+};
 
 /**
  * @public
@@ -1439,7 +1439,7 @@ export interface CreateSolutionVersionRequest {
    *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a> recipe.</p>
    *          </important>
    */
-  trainingMode?: TrainingMode | string;
+  trainingMode?: keyof typeof TrainingMode | string;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the solution version.</p>
@@ -2048,7 +2048,7 @@ export interface DatasetExportJob {
    *       console, PutEvents, PutUsers and PutItems operations), or <code>ALL</code>
    *       for both types. The default value is <code>PUT</code>. </p>
    */
-  ingestionMode?: IngestionMode | string;
+  ingestionMode?: keyof typeof IngestionMode | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM service role that has
@@ -2198,7 +2198,7 @@ export interface DatasetGroup {
   /**
    * <p>The domain of a Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: keyof typeof Domain | string;
 }
 
 /**
@@ -2294,7 +2294,7 @@ export interface DatasetImportJob {
    * <p>The import mode used by the dataset import job to import new
    *       records.</p>
    */
-  importMode?: ImportMode | string;
+  importMode?: keyof typeof ImportMode | string;
 
   /**
    * <p>Whether the job publishes metrics to Amazon S3 for a metric attribution.</p>
@@ -2874,7 +2874,7 @@ export interface DatasetSchema {
   /**
    * <p>The domain of a schema that you created for a dataset in a Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: keyof typeof Domain | string;
 }
 
 /**
@@ -3140,7 +3140,7 @@ export interface SolutionVersion {
    *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a> recipe.</p>
    *          </important>
    */
-  trainingMode?: TrainingMode | string;
+  trainingMode?: keyof typeof TrainingMode | string;
 
   /**
    * <p>If hyperparameter optimization was performed, contains the hyperparameter values of the
@@ -3671,7 +3671,7 @@ export interface DatasetGroupSummary {
   /**
    * <p>The domain of a Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: keyof typeof Domain | string;
 }
 
 /**
@@ -3761,7 +3761,7 @@ export interface DatasetImportJobSummary {
    *       data</a>.
    *     </p>
    */
-  importMode?: ImportMode | string;
+  importMode?: keyof typeof ImportMode | string;
 }
 
 /**
@@ -4142,9 +4142,9 @@ export interface ListMetricAttributionsResponse {
 /**
  * @public
  */
-export enum RecipeProvider {
-  SERVICE = "SERVICE",
-}
+export const RecipeProvider = {
+  SERVICE: "SERVICE",
+};
 
 /**
  * @public
@@ -4153,7 +4153,7 @@ export interface ListRecipesRequest {
   /**
    * <p>The default is <code>SERVICE</code>.</p>
    */
-  recipeProvider?: RecipeProvider | string;
+  recipeProvider?: keyof typeof RecipeProvider | string;
 
   /**
    * <p>A token returned from the previous call to <code>ListRecipes</code> for getting
@@ -4172,7 +4172,7 @@ export interface ListRecipesRequest {
    *       for this domain are included in the response. If you don't specify a domain, all recipes are returned.
    *     </p>
    */
-  domain?: Domain | string;
+  domain?: keyof typeof Domain | string;
 }
 
 /**
@@ -4209,7 +4209,7 @@ export interface RecipeSummary {
   /**
    * <p>The domain of the recipe (if the recipe is a Domain dataset group use case).</p>
    */
-  domain?: Domain | string;
+  domain?: keyof typeof Domain | string;
 }
 
 /**
@@ -4366,7 +4366,7 @@ export interface DatasetSchemaSummary {
   /**
    * <p>The domain of a schema that you created for a dataset in a Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: keyof typeof Domain | string;
 }
 
 /**

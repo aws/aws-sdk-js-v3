@@ -54,7 +54,7 @@ export interface SortProperty {
   /**
    * <p>The direction of the sort, either ascending or descending.</p>
    */
-  direction: SortDirection | string | undefined;
+  direction: keyof typeof SortDirection | string | undefined;
 }
 
 /**
@@ -317,12 +317,12 @@ export interface ListComponentsResponse {
 /**
  * @public
  */
-export enum TokenProviders {
+export const TokenProviders = {
   /**
    * The figma token provider.
    */
-  FIGMA = "figma",
-}
+  FIGMA: "figma",
+};
 
 /**
  * @public
@@ -347,7 +347,7 @@ export interface ExchangeCodeForTokenRequest {
   /**
    * <p>The third-party provider for the token. The only valid value is <code>figma</code>.</p>
    */
-  provider: TokenProviders | string | undefined;
+  provider: keyof typeof TokenProviders | string | undefined;
 
   /**
    * <p>Describes the configuration of the request.</p>
@@ -379,9 +379,9 @@ export interface ExchangeCodeForTokenResponse {
 /**
  * @public
  */
-export enum FixedPosition {
-  FIRST = "first",
-}
+export const FixedPosition = {
+  FIRST: "first",
+};
 
 /**
  * @public
@@ -401,7 +401,7 @@ export namespace FieldPosition {
    * <p>The field position is fixed and doesn't change in relation to other fields.</p>
    */
   export interface FixedMember {
-    fixed: FixedPosition | string;
+    fixed: keyof typeof FixedPosition | string;
     rightOf?: never;
     below?: never;
     $unknown?: never;
@@ -435,7 +435,7 @@ export namespace FieldPosition {
   }
 
   export interface Visitor<T> {
-    fixed: (value: FixedPosition | string) => T;
+    fixed: (value: keyof typeof FixedPosition | string) => T;
     rightOf: (value: string) => T;
     below: (value: string) => T;
     _: (name: string, value: any) => T;
@@ -473,11 +473,11 @@ export interface FormButton {
 /**
  * @public
  */
-export enum FormButtonsPosition {
-  BOTTOM = "bottom",
-  TOP = "top",
-  TOP_AND_BOTTOM = "top_and_bottom",
-}
+export const FormButtonsPosition = {
+  BOTTOM: "bottom",
+  TOP: "top",
+  TOP_AND_BOTTOM: "top_and_bottom",
+};
 
 /**
  * @public
@@ -487,7 +487,7 @@ export interface FormCTA {
   /**
    * <p>The position of the button.</p>
    */
-  position?: FormButtonsPosition | string;
+  position?: keyof typeof FormButtonsPosition | string;
 
   /**
    * <p>Displays a clear button.</p>
@@ -508,16 +508,16 @@ export interface FormCTA {
 /**
  * @public
  */
-export enum FormDataSourceType {
+export const FormDataSourceType = {
   /**
    * Will use passed in hooks to use when creating a form from scratch
    */
-  CUSTOM = "Custom",
+  CUSTOM: "Custom",
   /**
    * Will use a provided Amplify DataStore enabled API
    */
-  DATASTORE = "DataStore",
-}
+  DATASTORE: "DataStore",
+};
 
 /**
  * @public
@@ -527,7 +527,7 @@ export interface FormDataTypeConfig {
   /**
    * <p>The data source type, either an Amplify DataStore model or a custom data type.</p>
    */
-  dataSourceType: FormDataSourceType | string | undefined;
+  dataSourceType: keyof typeof FormDataSourceType | string | undefined;
 
   /**
    * <p>The unique name of the data type you are using as the data source for the form.</p>
@@ -718,10 +718,10 @@ export interface FieldConfig {
 /**
  * @public
  */
-export enum FormActionType {
-  CREATE = "create",
-  UPDATE = "update",
-}
+export const FormActionType = {
+  CREATE: "create",
+  UPDATE: "update",
+};
 
 /**
  * @public
@@ -850,7 +850,7 @@ export interface CreateFormData {
   /**
    * <p>Specifies whether to perform a create or update action on the form.</p>
    */
-  formActionType: FormActionType | string | undefined;
+  formActionType: keyof typeof FormActionType | string | undefined;
 
   /**
    * <p>The configuration information for the form's fields.</p>
@@ -940,7 +940,7 @@ export interface Form {
   /**
    * <p>The operation to perform on the specified form.</p>
    */
-  formActionType: FormActionType | string | undefined;
+  formActionType: keyof typeof FormActionType | string | undefined;
 
   /**
    * <p>Stores the configuration for the form's style.</p>
@@ -1122,7 +1122,7 @@ export interface FormSummary {
   /**
    * <p>The type of operation to perform on the form.</p>
    */
-  formActionType: FormActionType | string | undefined;
+  formActionType: keyof typeof FormActionType | string | undefined;
 
   /**
    * <p>The ID of the form.</p>
@@ -1168,7 +1168,7 @@ export interface UpdateFormData {
   /**
    * <p>Specifies whether to perform a create or update action on the form.</p>
    */
-  formActionType?: FormActionType | string;
+  formActionType?: keyof typeof FormActionType | string;
 
   /**
    * <p>The configuration information for the form's fields.</p>
@@ -1338,7 +1338,7 @@ export interface RefreshTokenRequest {
   /**
    * <p>The third-party provider for the token. The only valid value is <code>figma</code>.</p>
    */
-  provider: TokenProviders | string | undefined;
+  provider: keyof typeof TokenProviders | string | undefined;
 
   /**
    * <p>Information about the refresh token request.</p>

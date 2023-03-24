@@ -6,23 +6,23 @@ import { MediaPackageServiceException as __BaseException } from "./MediaPackageS
 /**
  * @public
  */
-export enum __AdTriggersElement {
-  BREAK = "BREAK",
-  DISTRIBUTOR_ADVERTISEMENT = "DISTRIBUTOR_ADVERTISEMENT",
-  DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
-  DISTRIBUTOR_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_PLACEMENT_OPPORTUNITY",
-  PROVIDER_ADVERTISEMENT = "PROVIDER_ADVERTISEMENT",
-  PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY = "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
-  PROVIDER_PLACEMENT_OPPORTUNITY = "PROVIDER_PLACEMENT_OPPORTUNITY",
-  SPLICE_INSERT = "SPLICE_INSERT",
-}
+export const __AdTriggersElement = {
+  BREAK: "BREAK",
+  DISTRIBUTOR_ADVERTISEMENT: "DISTRIBUTOR_ADVERTISEMENT",
+  DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY: "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY",
+  DISTRIBUTOR_PLACEMENT_OPPORTUNITY: "DISTRIBUTOR_PLACEMENT_OPPORTUNITY",
+  PROVIDER_ADVERTISEMENT: "PROVIDER_ADVERTISEMENT",
+  PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY: "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
+  PROVIDER_PLACEMENT_OPPORTUNITY: "PROVIDER_PLACEMENT_OPPORTUNITY",
+  SPLICE_INSERT: "SPLICE_INSERT",
+};
 
 /**
  * @public
  */
-export enum __PeriodTriggersElement {
-  ADS = "ADS",
-}
+export const __PeriodTriggersElement = {
+  ADS: "ADS",
+};
 
 /**
  * @public
@@ -153,11 +153,11 @@ export interface S3Destination {
 /**
  * @public
  */
-export enum Status {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const Status = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -211,37 +211,37 @@ export interface HarvestJob {
    * HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
    * include an explanation of why the HarvestJob failed.
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
  * @public
  */
-export enum AdMarkers {
-  DATERANGE = "DATERANGE",
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-  SCTE35_ENHANCED = "SCTE35_ENHANCED",
-}
+export const AdMarkers = {
+  DATERANGE: "DATERANGE",
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+  SCTE35_ENHANCED: "SCTE35_ENHANCED",
+};
 
 /**
  * @public
  */
-export enum AdsOnDeliveryRestrictions {
-  BOTH = "BOTH",
-  NONE = "NONE",
-  RESTRICTED = "RESTRICTED",
-  UNRESTRICTED = "UNRESTRICTED",
-}
+export const AdsOnDeliveryRestrictions = {
+  BOTH: "BOTH",
+  NONE: "NONE",
+  RESTRICTED: "RESTRICTED",
+  UNRESTRICTED: "UNRESTRICTED",
+};
 
 /**
  * @public
  */
-export enum PlaylistType {
-  EVENT = "EVENT",
-  NONE = "NONE",
-  VOD = "VOD",
-}
+export const PlaylistType = {
+  EVENT: "EVENT",
+  NONE: "NONE",
+  VOD: "VOD",
+};
 
 /**
  * @public
@@ -259,7 +259,7 @@ export interface HlsManifest {
    * in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
    * that is greater than 0.
    */
-  AdMarkers?: AdMarkers | string;
+  AdMarkers?: keyof typeof AdMarkers | string;
 
   /**
    * The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
@@ -281,7 +281,7 @@ export interface HlsManifest {
    * When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
    * entry will be included in the media playlist.
    */
-  PlaylistType?: PlaylistType | string;
+  PlaylistType?: keyof typeof PlaylistType | string;
 
   /**
    * Time window (in seconds) contained in each parent manifest.
@@ -311,7 +311,7 @@ export interface HlsManifest {
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: (__AdTriggersElement | string)[];
+  AdTriggers?: (keyof typeof __AdTriggersElement | string)[];
 
   /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
@@ -323,7 +323,7 @@ export interface HlsManifest {
    * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
    * and are always treated as ads if specified in AdTriggers.
    */
-  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
+  AdsOnDeliveryRestrictions?: keyof typeof AdsOnDeliveryRestrictions | string;
 }
 
 /**
@@ -342,14 +342,14 @@ export interface HlsManifestCreateOrUpdateParameters {
    * in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
    * that is greater than 0.
    */
-  AdMarkers?: AdMarkers | string;
+  AdMarkers?: keyof typeof AdMarkers | string;
 
   /**
    * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: (__AdTriggersElement | string)[];
+  AdTriggers?: (keyof typeof __AdTriggersElement | string)[];
 
   /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
@@ -361,7 +361,7 @@ export interface HlsManifestCreateOrUpdateParameters {
    * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
    * and are always treated as ads if specified in AdTriggers.
    */
-  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
+  AdsOnDeliveryRestrictions?: keyof typeof AdsOnDeliveryRestrictions | string;
 
   /**
    * The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
@@ -383,7 +383,7 @@ export interface HlsManifestCreateOrUpdateParameters {
    * When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
    * entry will be included in the media playlist.
    */
-  PlaylistType?: PlaylistType | string;
+  PlaylistType?: keyof typeof PlaylistType | string;
 
   /**
    * Time window (in seconds) contained in each parent manifest.
@@ -423,37 +423,37 @@ export interface Authorization {
 /**
  * @public
  */
-export enum CmafEncryptionMethod {
-  AES_CTR = "AES_CTR",
-  SAMPLE_AES = "SAMPLE_AES",
-}
+export const CmafEncryptionMethod = {
+  AES_CTR: "AES_CTR",
+  SAMPLE_AES: "SAMPLE_AES",
+};
 
 /**
  * @public
  */
-export enum PresetSpeke20Audio {
-  PRESET_AUDIO_1 = "PRESET-AUDIO-1",
-  PRESET_AUDIO_2 = "PRESET-AUDIO-2",
-  PRESET_AUDIO_3 = "PRESET-AUDIO-3",
-  SHARED = "SHARED",
-  UNENCRYPTED = "UNENCRYPTED",
-}
+export const PresetSpeke20Audio = {
+  PRESET_AUDIO_1: "PRESET-AUDIO-1",
+  PRESET_AUDIO_2: "PRESET-AUDIO-2",
+  PRESET_AUDIO_3: "PRESET-AUDIO-3",
+  SHARED: "SHARED",
+  UNENCRYPTED: "UNENCRYPTED",
+};
 
 /**
  * @public
  */
-export enum PresetSpeke20Video {
-  PRESET_VIDEO_1 = "PRESET-VIDEO-1",
-  PRESET_VIDEO_2 = "PRESET-VIDEO-2",
-  PRESET_VIDEO_3 = "PRESET-VIDEO-3",
-  PRESET_VIDEO_4 = "PRESET-VIDEO-4",
-  PRESET_VIDEO_5 = "PRESET-VIDEO-5",
-  PRESET_VIDEO_6 = "PRESET-VIDEO-6",
-  PRESET_VIDEO_7 = "PRESET-VIDEO-7",
-  PRESET_VIDEO_8 = "PRESET-VIDEO-8",
-  SHARED = "SHARED",
-  UNENCRYPTED = "UNENCRYPTED",
-}
+export const PresetSpeke20Video = {
+  PRESET_VIDEO_1: "PRESET-VIDEO-1",
+  PRESET_VIDEO_2: "PRESET-VIDEO-2",
+  PRESET_VIDEO_3: "PRESET-VIDEO-3",
+  PRESET_VIDEO_4: "PRESET-VIDEO-4",
+  PRESET_VIDEO_5: "PRESET-VIDEO-5",
+  PRESET_VIDEO_6: "PRESET-VIDEO-6",
+  PRESET_VIDEO_7: "PRESET-VIDEO-7",
+  PRESET_VIDEO_8: "PRESET-VIDEO-8",
+  SHARED: "SHARED",
+  UNENCRYPTED: "UNENCRYPTED",
+};
 
 /**
  * @public
@@ -468,12 +468,12 @@ export interface EncryptionContractConfiguration {
   /**
    * A collection of audio encryption presets.
    */
-  PresetSpeke20Audio: PresetSpeke20Audio | string | undefined;
+  PresetSpeke20Audio: keyof typeof PresetSpeke20Audio | string | undefined;
 
   /**
    * A collection of video encryption presets.
    */
-  PresetSpeke20Video: PresetSpeke20Video | string | undefined;
+  PresetSpeke20Video: keyof typeof PresetSpeke20Video | string | undefined;
 }
 
 /**
@@ -533,7 +533,7 @@ export interface CmafEncryption {
   /**
    * The encryption method to use.
    */
-  EncryptionMethod?: CmafEncryptionMethod | string;
+  EncryptionMethod?: keyof typeof CmafEncryptionMethod | string;
 
   /**
    * Time (in seconds) between each encryption key rotation.
@@ -549,11 +549,11 @@ export interface CmafEncryption {
 /**
  * @public
  */
-export enum StreamOrder {
-  ORIGINAL = "ORIGINAL",
-  VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING",
-  VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING",
-}
+export const StreamOrder = {
+  ORIGINAL: "ORIGINAL",
+  VIDEO_BITRATE_ASCENDING: "VIDEO_BITRATE_ASCENDING",
+  VIDEO_BITRATE_DESCENDING: "VIDEO_BITRATE_DESCENDING",
+};
 
 /**
  * @public
@@ -573,7 +573,7 @@ export interface StreamSelection {
   /**
    * A directive that determines the order of streams in the output.
    */
-  StreamOrder?: StreamOrder | string;
+  StreamOrder?: keyof typeof StreamOrder | string;
 }
 
 /**
@@ -627,39 +627,39 @@ export interface DashEncryption {
 /**
  * @public
  */
-export enum ManifestLayout {
-  COMPACT = "COMPACT",
-  FULL = "FULL",
-}
+export const ManifestLayout = {
+  COMPACT: "COMPACT",
+  FULL: "FULL",
+};
 
 /**
  * @public
  */
-export enum Profile {
-  DVB_DASH_2014 = "DVB_DASH_2014",
-  HBBTV_1_5 = "HBBTV_1_5",
-  HYBRIDCAST = "HYBRIDCAST",
-  NONE = "NONE",
-}
+export const Profile = {
+  DVB_DASH_2014: "DVB_DASH_2014",
+  HBBTV_1_5: "HBBTV_1_5",
+  HYBRIDCAST: "HYBRIDCAST",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum SegmentTemplateFormat {
-  NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION",
-  NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE",
-  TIME_WITH_TIMELINE = "TIME_WITH_TIMELINE",
-}
+export const SegmentTemplateFormat = {
+  NUMBER_WITH_DURATION: "NUMBER_WITH_DURATION",
+  NUMBER_WITH_TIMELINE: "NUMBER_WITH_TIMELINE",
+  TIME_WITH_TIMELINE: "TIME_WITH_TIMELINE",
+};
 
 /**
  * @public
  */
-export enum UtcTiming {
-  HTTP_HEAD = "HTTP-HEAD",
-  HTTP_ISO = "HTTP-ISO",
-  HTTP_XSDATE = "HTTP-XSDATE",
-  NONE = "NONE",
-}
+export const UtcTiming = {
+  HTTP_HEAD: "HTTP-HEAD",
+  HTTP_ISO: "HTTP-ISO",
+  HTTP_XSDATE: "HTTP-XSDATE",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -671,7 +671,7 @@ export interface DashPackage {
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: (__AdTriggersElement | string)[];
+  AdTriggers?: (keyof typeof __AdTriggersElement | string)[];
 
   /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
@@ -683,7 +683,7 @@ export interface DashPackage {
    * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
    * and are always treated as ads if specified in AdTriggers.
    */
-  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
+  AdsOnDeliveryRestrictions?: keyof typeof AdsOnDeliveryRestrictions | string;
 
   /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
@@ -698,7 +698,7 @@ export interface DashPackage {
   /**
    * Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
    */
-  ManifestLayout?: ManifestLayout | string;
+  ManifestLayout?: keyof typeof ManifestLayout | string;
 
   /**
    * Time window (in seconds) contained in each manifest.
@@ -721,12 +721,12 @@ export interface DashPackage {
    * be partitioned into more than one period. If the list contains "ADS", new periods will be created where
    * the Channel source contains SCTE-35 ad markers.
    */
-  PeriodTriggers?: (__PeriodTriggersElement | string)[];
+  PeriodTriggers?: (keyof typeof __PeriodTriggersElement | string)[];
 
   /**
    * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled. When set to "DVB-DASH_2014", DVB-DASH 2014 compliant output is enabled.
    */
-  Profile?: Profile | string;
+  Profile?: keyof typeof Profile | string;
 
   /**
    * Duration (in seconds) of each segment. Actual segments will be
@@ -737,7 +737,7 @@ export interface DashPackage {
   /**
    * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
    */
-  SegmentTemplateFormat?: SegmentTemplateFormat | string;
+  SegmentTemplateFormat?: keyof typeof SegmentTemplateFormat | string;
 
   /**
    * A StreamSelection configuration.
@@ -752,7 +752,7 @@ export interface DashPackage {
   /**
    * Determines the type of UTCTiming included in the Media Presentation Description (MPD)
    */
-  UtcTiming?: UtcTiming | string;
+  UtcTiming?: keyof typeof UtcTiming | string;
 
   /**
    * Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
@@ -763,10 +763,10 @@ export interface DashPackage {
 /**
  * @public
  */
-export enum EncryptionMethod {
-  AES_128 = "AES_128",
-  SAMPLE_AES = "SAMPLE_AES",
-}
+export const EncryptionMethod = {
+  AES_128: "AES_128",
+  SAMPLE_AES: "SAMPLE_AES",
+};
 
 /**
  * @public
@@ -782,7 +782,7 @@ export interface HlsEncryption {
   /**
    * The encryption method to use.
    */
-  EncryptionMethod?: EncryptionMethod | string;
+  EncryptionMethod?: keyof typeof EncryptionMethod | string;
 
   /**
    * Interval (in seconds) between each encryption key rotation.
@@ -816,14 +816,14 @@ export interface HlsPackage {
    * in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
    * that is greater than 0.
    */
-  AdMarkers?: AdMarkers | string;
+  AdMarkers?: keyof typeof AdMarkers | string;
 
   /**
    * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
    * ad markers are output.  Specify multiple items to create ad markers for all of the included
    * message types.
    */
-  AdTriggers?: (__AdTriggersElement | string)[];
+  AdTriggers?: (keyof typeof __AdTriggersElement | string)[];
 
   /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
@@ -835,7 +835,7 @@ export interface HlsPackage {
    * AdTriggers will be treated as ads.  Note that Splice Insert messages do not have these flags
    * and are always treated as ads if specified in AdTriggers.
    */
-  AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
+  AdsOnDeliveryRestrictions?: keyof typeof AdsOnDeliveryRestrictions | string;
 
   /**
    * An HTTP Live Streaming (HLS) encryption configuration.
@@ -857,7 +857,7 @@ export interface HlsPackage {
    * When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
    * entry will be included in the media playlist.
    */
-  PlaylistType?: PlaylistType | string;
+  PlaylistType?: keyof typeof PlaylistType | string;
 
   /**
    * Time window (in seconds) contained in each parent manifest.
@@ -934,10 +934,10 @@ export interface MssPackage {
 /**
  * @public
  */
-export enum Origination {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const Origination = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+};
 
 /**
  * @public
@@ -1004,7 +1004,7 @@ export interface OriginEndpoint {
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  Origination?: Origination | string;
+  Origination?: keyof typeof Origination | string;
 
   /**
    * Maximum duration (seconds) of content to retain for startover playback.
@@ -1415,7 +1415,7 @@ export interface CreateHarvestJobResponse {
    * HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
    * include an explanation of why the HarvestJob failed.
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -1475,7 +1475,7 @@ export interface CreateOriginEndpointRequest {
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  Origination?: Origination | string;
+  Origination?: keyof typeof Origination | string;
 
   /**
    * Maximum duration (seconds) of content to retain for startover playback.
@@ -1564,7 +1564,7 @@ export interface CreateOriginEndpointResponse {
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  Origination?: Origination | string;
+  Origination?: keyof typeof Origination | string;
 
   /**
    * Maximum duration (seconds) of content to retain for startover playback.
@@ -1740,7 +1740,7 @@ export interface DescribeHarvestJobResponse {
    * HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
    * include an explanation of why the HarvestJob failed.
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -1817,7 +1817,7 @@ export interface DescribeOriginEndpointResponse {
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  Origination?: Origination | string;
+  Origination?: keyof typeof Origination | string;
 
   /**
    * Maximum duration (seconds) of content to retain for startover playback.
@@ -2211,7 +2211,7 @@ export interface UpdateOriginEndpointRequest {
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  Origination?: Origination | string;
+  Origination?: keyof typeof Origination | string;
 
   /**
    * Maximum duration (in seconds) of content to retain for startover playback.
@@ -2295,7 +2295,7 @@ export interface UpdateOriginEndpointResponse {
    * may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
    * requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
    */
-  Origination?: Origination | string;
+  Origination?: keyof typeof Origination | string;
 
   /**
    * Maximum duration (seconds) of content to retain for startover playback.

@@ -89,9 +89,9 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum EncryptionKeyType {
-  KMS = "KMS",
-}
+export const EncryptionKeyType = {
+  KMS: "KMS",
+};
 
 /**
  * @public
@@ -101,7 +101,7 @@ export interface EncryptionKey {
   /**
    * <p>The type of encryption key used by Amazon Translate to encrypt this object.</p>
    */
-  Type: EncryptionKeyType | string | undefined;
+  Type: keyof typeof EncryptionKeyType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the encryption key being used to encrypt this object.</p>
@@ -112,11 +112,11 @@ export interface EncryptionKey {
 /**
  * @public
  */
-export enum ParallelDataFormat {
-  CSV = "CSV",
-  TMX = "TMX",
-  TSV = "TSV",
-}
+export const ParallelDataFormat = {
+  CSV: "CSV",
+  TMX: "TMX",
+  TSV: "TSV",
+};
 
 /**
  * @public
@@ -132,7 +132,7 @@ export interface ParallelDataConfig {
   /**
    * <p>The format of the parallel data input file.</p>
    */
-  Format: ParallelDataFormat | string | undefined;
+  Format: keyof typeof ParallelDataFormat | string | undefined;
 }
 
 /**
@@ -195,13 +195,13 @@ export interface CreateParallelDataRequest {
 /**
  * @public
  */
-export enum ParallelDataStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const ParallelDataStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -216,7 +216,7 @@ export interface CreateParallelDataResponse {
    * <p>The status of the parallel data resource. When the resource is ready for you to use, the
    *       status is <code>ACTIVE</code>.</p>
    */
-  Status?: ParallelDataStatus | string;
+  Status?: keyof typeof ParallelDataStatus | string;
 }
 
 /**
@@ -377,7 +377,7 @@ export interface DeleteParallelDataResponse {
   /**
    * <p>The status of the parallel data deletion.</p>
    */
-  Status?: ParallelDataStatus | string;
+  Status?: keyof typeof ParallelDataStatus | string;
 }
 
 /**
@@ -509,15 +509,15 @@ export interface JobDetails {
 /**
  * @public
  */
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  COMPLETED_WITH_ERROR = "COMPLETED_WITH_ERROR",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-  STOP_REQUESTED = "STOP_REQUESTED",
-  SUBMITTED = "SUBMITTED",
-}
+export const JobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERROR: "COMPLETED_WITH_ERROR",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  STOPPED: "STOPPED",
+  STOP_REQUESTED: "STOP_REQUESTED",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
@@ -539,17 +539,17 @@ export interface OutputDataConfig {
 /**
  * @public
  */
-export enum Formality {
-  FORMAL = "FORMAL",
-  INFORMAL = "INFORMAL",
-}
+export const Formality = {
+  FORMAL: "FORMAL",
+  INFORMAL: "INFORMAL",
+};
 
 /**
  * @public
  */
-export enum Profanity {
-  MASK = "MASK",
-}
+export const Profanity = {
+  MASK: "MASK",
+};
 
 /**
  * @public
@@ -569,7 +569,7 @@ export interface TranslationSettings {
    *          <p>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages">Supported languages</a>
    *       in the Amazon Translate Developer Guide.</p>
    */
-  Formality?: Formality | string;
+  Formality?: keyof typeof Formality | string;
 
   /**
    * <p>Enable the profanity setting if you want Amazon Translate to mask profane words and
@@ -585,7 +585,7 @@ export interface TranslationSettings {
    *       translation job won't mask profanity for any target
    *       language.</p>
    */
-  Profanity?: Profanity | string;
+  Profanity?: keyof typeof Profanity | string;
 }
 
 /**
@@ -606,7 +606,7 @@ export interface TextTranslationJobProperties {
   /**
    * <p>The status of the translation job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>The number of documents successfully and unsuccessfully processed during the translation
@@ -749,7 +749,7 @@ export interface ParallelDataProperties {
    * <p>The status of the parallel data resource. When the parallel data is ready for you to use,
    *       the status is <code>ACTIVE</code>.</p>
    */
-  Status?: ParallelDataStatus | string;
+  Status?: keyof typeof ParallelDataStatus | string;
 
   /**
    * <p>The source language of the translations in the parallel data file.</p>
@@ -815,7 +815,7 @@ export interface ParallelDataProperties {
   /**
    * <p>The status of the most recent update attempt for the parallel data resource.</p>
    */
-  LatestUpdateAttemptStatus?: ParallelDataStatus | string;
+  LatestUpdateAttemptStatus?: keyof typeof ParallelDataStatus | string;
 
   /**
    * <p>The time that the most recent update was attempted.</p>
@@ -869,11 +869,11 @@ export interface GetParallelDataResponse {
 /**
  * @public
  */
-export enum TerminologyDataFormat {
-  CSV = "CSV",
-  TMX = "TMX",
-  TSV = "TSV",
-}
+export const TerminologyDataFormat = {
+  CSV: "CSV",
+  TMX: "TMX",
+  TSV: "TSV",
+};
 
 /**
  * @public
@@ -892,7 +892,7 @@ export interface GetTerminologyRequest {
    *       you must specify the same format as the input file that was imported to create it. Otherwise,
    *       Amazon Translate throws an error.</p>
    */
-  TerminologyDataFormat?: TerminologyDataFormat | string;
+  TerminologyDataFormat?: keyof typeof TerminologyDataFormat | string;
 }
 
 /**
@@ -926,10 +926,10 @@ export interface TerminologyDataLocation {
 /**
  * @public
  */
-export enum Directionality {
-  MULTI = "MULTI",
-  UNI = "UNI",
-}
+export const Directionality = {
+  MULTI: "MULTI",
+  UNI: "UNI",
+};
 
 /**
  * @public
@@ -1003,7 +1003,7 @@ export interface TerminologyProperties {
    *             </dd>
    *          </dl>
    */
-  Directionality?: Directionality | string;
+  Directionality?: keyof typeof Directionality | string;
 
   /**
    * <p>Additional information from Amazon Translate about the terminology resource.</p>
@@ -1019,7 +1019,7 @@ export interface TerminologyProperties {
   /**
    * <p>The format of the custom terminology input file.</p>
    */
-  Format?: TerminologyDataFormat | string;
+  Format?: keyof typeof TerminologyDataFormat | string;
 }
 
 /**
@@ -1060,9 +1060,9 @@ export interface GetTerminologyResponse {
 /**
  * @public
  */
-export enum MergeStrategy {
-  OVERWRITE = "OVERWRITE",
-}
+export const MergeStrategy = {
+  OVERWRITE: "OVERWRITE",
+};
 
 /**
  * @public
@@ -1081,7 +1081,7 @@ export interface TerminologyData {
   /**
    * <p>The data format of the custom terminology.</p>
    */
-  Format: TerminologyDataFormat | string | undefined;
+  Format: keyof typeof TerminologyDataFormat | string | undefined;
 
   /**
    * <p>The directionality of your terminology resource indicates whether it has one source
@@ -1104,7 +1104,7 @@ export interface TerminologyData {
    *          <p>When you create a custom terminology resource without specifying the directionality, it
    *       behaves as uni-directional terminology, although this parameter will have a null value.</p>
    */
-  Directionality?: Directionality | string;
+  Directionality?: keyof typeof Directionality | string;
 }
 
 /**
@@ -1121,7 +1121,7 @@ export interface ImportTerminologyRequest {
    *       merge strategy is supported. In this case, the imported terminology will overwrite an existing
    *       terminology of the same name.</p>
    */
-  MergeStrategy: MergeStrategy | string | undefined;
+  MergeStrategy: keyof typeof MergeStrategy | string | undefined;
 
   /**
    * <p>The description of the custom terminology being imported.</p>
@@ -1168,18 +1168,18 @@ export interface ImportTerminologyResponse {
 /**
  * @public
  */
-export enum DisplayLanguageCode {
-  DE = "de",
-  EN = "en",
-  ES = "es",
-  FR = "fr",
-  IT = "it",
-  JA = "ja",
-  KO = "ko",
-  PT = "pt",
-  ZH = "zh",
-  ZH_TW = "zh-TW",
-}
+export const DisplayLanguageCode = {
+  DE: "de",
+  EN: "en",
+  ES: "es",
+  FR: "fr",
+  IT: "it",
+  JA: "ja",
+  KO: "ko",
+  PT: "pt",
+  ZH: "zh",
+  ZH_TW: "zh-TW",
+};
 
 /**
  * @public
@@ -1189,7 +1189,7 @@ export interface ListLanguagesRequest {
    * <p>The language code for the language to use to display the language names in the response.
    *       The language code is <code>en</code> by default. </p>
    */
-  DisplayLanguageCode?: DisplayLanguageCode | string;
+  DisplayLanguageCode?: keyof typeof DisplayLanguageCode | string;
 
   /**
    * <p>Include the NextToken value to fetch the next group of supported languages. </p>
@@ -1230,7 +1230,7 @@ export interface ListLanguagesResponse {
   /**
    * <p>The language code passed in with the request.</p>
    */
-  DisplayLanguageCode?: DisplayLanguageCode | string;
+  DisplayLanguageCode?: keyof typeof DisplayLanguageCode | string;
 
   /**
    * <p> If the response does not include all remaining results, use the NextToken
@@ -1389,7 +1389,7 @@ export interface TextTranslationJobFilter {
   /**
    * <p>Filters the list of jobs based by job status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing and
@@ -1578,7 +1578,7 @@ export interface StartTextTranslationJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -1638,7 +1638,7 @@ export interface StopTextTranslationJobResponse {
    * <p>The status of the designated job. Upon successful completion, the job's status will be
    *         <code>STOPPED</code>.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -1877,13 +1877,13 @@ export interface UpdateParallelDataResponse {
    *       request is accepted only if this status is either <code>ACTIVE</code> or
    *       <code>FAILED</code>.</p>
    */
-  Status?: ParallelDataStatus | string;
+  Status?: keyof typeof ParallelDataStatus | string;
 
   /**
    * <p>The status of the parallel data update attempt. When the updated parallel data resource is
    *       ready for you to use, the status is <code>ACTIVE</code>.</p>
    */
-  LatestUpdateAttemptStatus?: ParallelDataStatus | string;
+  LatestUpdateAttemptStatus?: keyof typeof ParallelDataStatus | string;
 
   /**
    * <p>The time that the most recent update was attempted.</p>

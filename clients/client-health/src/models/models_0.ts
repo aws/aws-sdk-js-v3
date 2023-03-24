@@ -6,11 +6,11 @@ import { HealthServiceException as __BaseException } from "./HealthServiceExcept
 /**
  * @public
  */
-export enum EntityStatusCode {
-  IMPAIRED = "IMPAIRED",
-  UNIMPAIRED = "UNIMPAIRED",
-  UNKNOWN = "UNKNOWN",
-}
+export const EntityStatusCode = {
+  IMPAIRED: "IMPAIRED",
+  UNIMPAIRED: "UNIMPAIRED",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -60,7 +60,7 @@ export interface AffectedEntity {
    * <p>The most recent status of the entity affected by the event. The possible values are
    *             <code>IMPAIRED</code>, <code>UNIMPAIRED</code>, and <code>UNKNOWN</code>.</p>
    */
-  statusCode?: EntityStatusCode | string;
+  statusCode?: keyof typeof EntityStatusCode | string;
 
   /**
    * <p>A map of entity tags attached to the affected entity.</p>
@@ -104,11 +104,11 @@ export interface DescribeAffectedAccountsForOrganizationRequest {
 /**
  * @public
  */
-export enum EventScopeCode {
-  ACCOUNT_SPECIFIC = "ACCOUNT_SPECIFIC",
-  NONE = "NONE",
-  PUBLIC = "PUBLIC",
-}
+export const EventScopeCode = {
+  ACCOUNT_SPECIFIC: "ACCOUNT_SPECIFIC",
+  NONE: "NONE",
+  PUBLIC: "PUBLIC",
+};
 
 /**
  * @public
@@ -140,7 +140,7 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
    *             </li>
    *          </ul>
    */
-  eventScopeCode?: EventScopeCode | string;
+  eventScopeCode?: keyof typeof EventScopeCode | string;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -231,7 +231,7 @@ export interface EntityFilter {
    * <p>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or
    *             <code>UNKNOWN</code>).</p>
    */
-  statusCodes?: (EntityStatusCode | string)[];
+  statusCodes?: (keyof typeof EntityStatusCode | string)[];
 }
 
 /**
@@ -461,28 +461,28 @@ export interface DescribeEntityAggregatesResponse {
 /**
  * @public
  */
-export enum EventAggregateField {
-  EventTypeCategory = "eventTypeCategory",
-}
+export const EventAggregateField = {
+  EventTypeCategory: "eventTypeCategory",
+};
 
 /**
  * @public
  */
-export enum EventStatusCode {
-  CLOSED = "closed",
-  OPEN = "open",
-  UPCOMING = "upcoming",
-}
+export const EventStatusCode = {
+  CLOSED: "closed",
+  OPEN: "open",
+  UPCOMING: "upcoming",
+};
 
 /**
  * @public
  */
-export enum EventTypeCategory {
-  ACCOUNT_NOTIFICATION = "accountNotification",
-  INVESTIGATION = "investigation",
-  ISSUE = "issue",
-  SCHEDULED_CHANGE = "scheduledChange",
-}
+export const EventTypeCategory = {
+  ACCOUNT_NOTIFICATION: "accountNotification",
+  INVESTIGATION: "investigation",
+  ISSUE: "issue",
+  SCHEDULED_CHANGE: "scheduledChange",
+};
 
 /**
  * @public
@@ -548,7 +548,7 @@ export interface EventFilter {
    * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
    * the <code>investigation</code> value isn't supported at this time.</p>
    */
-  eventTypeCategories?: (EventTypeCategory | string)[];
+  eventTypeCategories?: (keyof typeof EventTypeCategory | string)[];
 
   /**
    * <p>A map of entity tags attached to the affected entity.</p>
@@ -561,7 +561,7 @@ export interface EventFilter {
   /**
    * <p>A list of event status codes.</p>
    */
-  eventStatusCodes?: (EventStatusCode | string)[];
+  eventStatusCodes?: (keyof typeof EventStatusCode | string)[];
 }
 
 /**
@@ -576,7 +576,7 @@ export interface DescribeEventAggregatesRequest {
   /**
    * <p>The only currently supported value is <code>eventTypeCategory</code>.</p>
    */
-  aggregateField: EventAggregateField | string | undefined;
+  aggregateField: keyof typeof EventAggregateField | string | undefined;
 
   /**
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
@@ -722,7 +722,7 @@ export interface Event {
    * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
    * the <code>investigation</code> value isn't supported at this time.</p>
    */
-  eventTypeCategory?: EventTypeCategory | string;
+  eventTypeCategory?: keyof typeof EventTypeCategory | string;
 
   /**
    * <p>The Amazon Web Services Region name of the event.</p>
@@ -753,7 +753,7 @@ export interface Event {
    * <p>The most recent status of the event. Possible values are <code>open</code>,
    *             <code>closed</code>, and <code>upcoming</code>.</p>
    */
-  statusCode?: EventStatusCode | string;
+  statusCode?: keyof typeof EventStatusCode | string;
 
   /**
    * <p>This parameter specifies if the Health event is a public Amazon Web Services service event or an account-specific event.</p>
@@ -776,7 +776,7 @@ export interface Event {
    *             </li>
    *          </ul>
    */
-  eventScopeCode?: EventScopeCode | string;
+  eventScopeCode?: keyof typeof EventScopeCode | string;
 }
 
 /**
@@ -1074,12 +1074,12 @@ export interface OrganizationEventFilter {
    * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
    * the <code>investigation</code> value isn't supported at this time.</p>
    */
-  eventTypeCategories?: (EventTypeCategory | string)[];
+  eventTypeCategories?: (keyof typeof EventTypeCategory | string)[];
 
   /**
    * <p>A list of event status codes.</p>
    */
-  eventStatusCodes?: (EventStatusCode | string)[];
+  eventStatusCodes?: (keyof typeof EventStatusCode | string)[];
 }
 
 /**
@@ -1144,7 +1144,7 @@ export interface OrganizationEvent {
    * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
    * the <code>investigation</code> value isn't supported at this time.</p>
    */
-  eventTypeCategory?: EventTypeCategory | string;
+  eventTypeCategory?: keyof typeof EventTypeCategory | string;
 
   /**
    * <p>This parameter specifies if the Health event is a public Amazon Web Services service event or an account-specific event.</p>
@@ -1167,7 +1167,7 @@ export interface OrganizationEvent {
    *             </li>
    *          </ul>
    */
-  eventScopeCode?: EventScopeCode | string;
+  eventScopeCode?: keyof typeof EventScopeCode | string;
 
   /**
    * <p>The Amazon Web Services Region name of the event.</p>
@@ -1193,7 +1193,7 @@ export interface OrganizationEvent {
    * <p>The most recent status of the event. Possible values are <code>open</code>,
    *             <code>closed</code>, and <code>upcoming</code>.</p>
    */
-  statusCode?: EventStatusCode | string;
+  statusCode?: keyof typeof EventStatusCode | string;
 }
 
 /**
@@ -1235,7 +1235,7 @@ export interface EventTypeFilter {
    * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
    * the <code>investigation</code> value isn't supported at this time.</p>
    */
-  eventTypeCategories?: (EventTypeCategory | string)[];
+  eventTypeCategories?: (keyof typeof EventTypeCategory | string)[];
 }
 
 /**
@@ -1296,7 +1296,7 @@ export interface EventType {
    * <code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>. Currently,
    * the <code>investigation</code> value isn't supported at this time.</p>
    */
-  category?: EventTypeCategory | string;
+  category?: keyof typeof EventTypeCategory | string;
 }
 
 /**

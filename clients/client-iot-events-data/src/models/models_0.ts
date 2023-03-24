@@ -44,13 +44,13 @@ export interface AcknowledgeAlarmActionRequest {
 /**
  * @public
  */
-export enum CustomerActionName {
-  ACKNOWLEDGE = "ACKNOWLEDGE",
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-  RESET = "RESET",
-  SNOOZE = "SNOOZE",
-}
+export const CustomerActionName = {
+  ACKNOWLEDGE: "ACKNOWLEDGE",
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+  RESET: "RESET",
+  SNOOZE: "SNOOZE",
+};
 
 /**
  * @public
@@ -132,7 +132,7 @@ export interface CustomerAction {
    *          </ul>
    *          <p>For more information, see the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_AlarmState.html">AlarmState</a> API.</p>
    */
-  actionName?: CustomerActionName | string;
+  actionName?: keyof typeof CustomerActionName | string;
 
   /**
    * <p>Contains the configuration information of a snooze action.</p>
@@ -163,14 +163,14 @@ export interface CustomerAction {
 /**
  * @public
  */
-export enum ComparisonOperator {
-  EQUAL = "EQUAL",
-  GREATER = "GREATER",
-  GREATER_OR_EQUAL = "GREATER_OR_EQUAL",
-  LESS = "LESS",
-  LESS_OR_EQUAL = "LESS_OR_EQUAL",
-  NOT_EQUAL = "NOT_EQUAL",
-}
+export const ComparisonOperator = {
+  EQUAL: "EQUAL",
+  GREATER: "GREATER",
+  GREATER_OR_EQUAL: "GREATER_OR_EQUAL",
+  LESS: "LESS",
+  LESS_OR_EQUAL: "LESS_OR_EQUAL",
+  NOT_EQUAL: "NOT_EQUAL",
+};
 
 /**
  * @public
@@ -185,7 +185,7 @@ export interface SimpleRuleEvaluation {
   /**
    * <p>The comparison operator.</p>
    */
-  operator?: ComparisonOperator | string;
+  operator?: keyof typeof ComparisonOperator | string;
 
   /**
    * <p>The threshold value, on the right side of the comparison operator.</p>
@@ -207,28 +207,28 @@ export interface RuleEvaluation {
 /**
  * @public
  */
-export enum AlarmStateName {
-  ACKNOWLEDGED = "ACKNOWLEDGED",
-  ACTIVE = "ACTIVE",
-  DISABLED = "DISABLED",
-  LATCHED = "LATCHED",
-  NORMAL = "NORMAL",
-  SNOOZE_DISABLED = "SNOOZE_DISABLED",
-}
+export const AlarmStateName = {
+  ACKNOWLEDGED: "ACKNOWLEDGED",
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+  LATCHED: "LATCHED",
+  NORMAL: "NORMAL",
+  SNOOZE_DISABLED: "SNOOZE_DISABLED",
+};
 
 /**
  * @public
  */
-export enum EventType {
-  STATE_CHANGE = "STATE_CHANGE",
-}
+export const EventType = {
+  STATE_CHANGE: "STATE_CHANGE",
+};
 
 /**
  * @public
  */
-export enum TriggerType {
-  SNOOZE_TIMEOUT = "SNOOZE_TIMEOUT",
-}
+export const TriggerType = {
+  SNOOZE_TIMEOUT: "SNOOZE_TIMEOUT",
+};
 
 /**
  * @public
@@ -239,7 +239,7 @@ export interface StateChangeConfiguration {
    * <p>The trigger type. If the value is <code>SNOOZE_TIMEOUT</code>, the snooze duration ends
    *       and the alarm automatically changes to the <code>NORMAL</code> state.</p>
    */
-  triggerType?: TriggerType | string;
+  triggerType?: keyof typeof TriggerType | string;
 }
 
 /**
@@ -251,7 +251,7 @@ export interface SystemEvent {
    * <p>The event type. If the value is <code>STATE_CHANGE</code>, the event contains information
    *       about alarm state changes.</p>
    */
-  eventType?: EventType | string;
+  eventType?: keyof typeof EventType | string;
 
   /**
    * <p>Contains the configuration information of alarm state changes.</p>
@@ -302,7 +302,7 @@ export interface AlarmState {
    * 	           </li>
    *          </ul>
    */
-  stateName?: AlarmStateName | string;
+  stateName?: keyof typeof AlarmStateName | string;
 
   /**
    * <p>Information needed to evaluate data.</p>
@@ -421,7 +421,7 @@ export interface AlarmSummary {
    * 	           </li>
    *          </ul>
    */
-  stateName?: AlarmStateName | string;
+  stateName?: keyof typeof AlarmStateName | string;
 
   /**
    * <p>The time the alarm was created, in the Unix epoch format.</p>
@@ -447,13 +447,13 @@ export interface BatchAcknowledgeAlarmRequest {
 /**
  * @public
  */
-export enum ErrorCode {
-  InternalFailureException = "InternalFailureException",
-  InvalidRequestException = "InvalidRequestException",
-  ResourceNotFoundException = "ResourceNotFoundException",
-  ServiceUnavailableException = "ServiceUnavailableException",
-  ThrottlingException = "ThrottlingException",
-}
+export const ErrorCode = {
+  InternalFailureException: "InternalFailureException",
+  InvalidRequestException: "InvalidRequestException",
+  ResourceNotFoundException: "ResourceNotFoundException",
+  ServiceUnavailableException: "ServiceUnavailableException",
+  ThrottlingException: "ThrottlingException",
+};
 
 /**
  * @public
@@ -495,7 +495,7 @@ export interface BatchAlarmActionErrorEntry {
   /**
    * <p>The error code.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>A message that describes the error.</p>
@@ -638,7 +638,7 @@ export interface BatchDeleteDetectorErrorEntry {
   /**
    * <p>The error code.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>A message that describes the error.</p>
@@ -817,7 +817,7 @@ export interface BatchPutMessageErrorEntry {
   /**
    * <p>The error code.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>A message that describes the error.</p>
@@ -1043,7 +1043,7 @@ export interface BatchUpdateDetectorErrorEntry {
   /**
    * <p>The error code.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>A message that describes the error.</p>

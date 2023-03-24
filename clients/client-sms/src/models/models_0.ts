@@ -6,61 +6,61 @@ import { SMSServiceException as __BaseException } from "./SMSServiceException";
 /**
  * @public
  */
-export enum AppLaunchConfigurationStatus {
-  Configured = "CONFIGURED",
-  NotConfigured = "NOT_CONFIGURED",
-}
+export const AppLaunchConfigurationStatus = {
+  Configured: "CONFIGURED",
+  NotConfigured: "NOT_CONFIGURED",
+};
 
 /**
  * @public
  */
-export enum AppLaunchStatus {
-  ConfigurationInProgress = "CONFIGURATION_IN_PROGRESS",
-  ConfigurationInvalid = "CONFIGURATION_INVALID",
-  DeltaLaunchFailed = "DELTA_LAUNCH_FAILED",
-  DeltaLaunchInProgress = "DELTA_LAUNCH_IN_PROGRESS",
-  LaunchFailed = "LAUNCH_FAILED",
-  LaunchInProgress = "LAUNCH_IN_PROGRESS",
-  LaunchPending = "LAUNCH_PENDING",
-  Launched = "LAUNCHED",
-  PartiallyLaunched = "PARTIALLY_LAUNCHED",
-  ReadyForConfiguration = "READY_FOR_CONFIGURATION",
-  ReadyForLaunch = "READY_FOR_LAUNCH",
-  TerminateFailed = "TERMINATE_FAILED",
-  TerminateInProgress = "TERMINATE_IN_PROGRESS",
-  Terminated = "TERMINATED",
-  ValidationInProgress = "VALIDATION_IN_PROGRESS",
-}
+export const AppLaunchStatus = {
+  ConfigurationInProgress: "CONFIGURATION_IN_PROGRESS",
+  ConfigurationInvalid: "CONFIGURATION_INVALID",
+  DeltaLaunchFailed: "DELTA_LAUNCH_FAILED",
+  DeltaLaunchInProgress: "DELTA_LAUNCH_IN_PROGRESS",
+  LaunchFailed: "LAUNCH_FAILED",
+  LaunchInProgress: "LAUNCH_IN_PROGRESS",
+  LaunchPending: "LAUNCH_PENDING",
+  Launched: "LAUNCHED",
+  PartiallyLaunched: "PARTIALLY_LAUNCHED",
+  ReadyForConfiguration: "READY_FOR_CONFIGURATION",
+  ReadyForLaunch: "READY_FOR_LAUNCH",
+  TerminateFailed: "TERMINATE_FAILED",
+  TerminateInProgress: "TERMINATE_IN_PROGRESS",
+  Terminated: "TERMINATED",
+  ValidationInProgress: "VALIDATION_IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum AppReplicationConfigurationStatus {
-  Configured = "CONFIGURED",
-  NotConfigured = "NOT_CONFIGURED",
-}
+export const AppReplicationConfigurationStatus = {
+  Configured: "CONFIGURED",
+  NotConfigured: "NOT_CONFIGURED",
+};
 
 /**
  * @public
  */
-export enum AppReplicationStatus {
-  ConfigurationInProgress = "CONFIGURATION_IN_PROGRESS",
-  ConfigurationInvalid = "CONFIGURATION_INVALID",
-  DeltaReplicated = "DELTA_REPLICATED",
-  DeltaReplicationFailed = "DELTA_REPLICATION_FAILED",
-  DeltaReplicationInProgress = "DELTA_REPLICATION_IN_PROGRESS",
-  PartiallyReplicated = "PARTIALLY_REPLICATED",
-  ReadyForConfiguration = "READY_FOR_CONFIGURATION",
-  ReadyForReplication = "READY_FOR_REPLICATION",
-  Replicated = "REPLICATED",
-  ReplicationFailed = "REPLICATION_FAILED",
-  ReplicationInProgress = "REPLICATION_IN_PROGRESS",
-  ReplicationPending = "REPLICATION_PENDING",
-  ReplicationStopFailed = "REPLICATION_STOP_FAILED",
-  ReplicationStopped = "REPLICATION_STOPPED",
-  ReplicationStopping = "REPLICATION_STOPPING",
-  ValidationInProgress = "VALIDATION_IN_PROGRESS",
-}
+export const AppReplicationStatus = {
+  ConfigurationInProgress: "CONFIGURATION_IN_PROGRESS",
+  ConfigurationInvalid: "CONFIGURATION_INVALID",
+  DeltaReplicated: "DELTA_REPLICATED",
+  DeltaReplicationFailed: "DELTA_REPLICATION_FAILED",
+  DeltaReplicationInProgress: "DELTA_REPLICATION_IN_PROGRESS",
+  PartiallyReplicated: "PARTIALLY_REPLICATED",
+  ReadyForConfiguration: "READY_FOR_CONFIGURATION",
+  ReadyForReplication: "READY_FOR_REPLICATION",
+  Replicated: "REPLICATED",
+  ReplicationFailed: "REPLICATION_FAILED",
+  ReplicationInProgress: "REPLICATION_IN_PROGRESS",
+  ReplicationPending: "REPLICATION_PENDING",
+  ReplicationStopFailed: "REPLICATION_STOP_FAILED",
+  ReplicationStopped: "REPLICATION_STOPPED",
+  ReplicationStopping: "REPLICATION_STOPPING",
+  ValidationInProgress: "VALIDATION_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -86,14 +86,14 @@ export interface LaunchDetails {
 /**
  * @public
  */
-export enum AppStatus {
-  Active = "ACTIVE",
-  Creating = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  Deleted = "DELETED",
-  Deleting = "DELETING",
-  Updating = "UPDATING",
-}
+export const AppStatus = {
+  Active: "ACTIVE",
+  Creating: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  Deleted: "DELETED",
+  Deleting: "DELETING",
+  Updating: "UPDATING",
+};
 
 /**
  * @public
@@ -123,7 +123,7 @@ export interface AppSummary {
   /**
    * <p>Status of the application.</p>
    */
-  status?: AppStatus | string;
+  status?: keyof typeof AppStatus | string;
 
   /**
    * <p>A message related to the status of the application</p>
@@ -133,12 +133,12 @@ export interface AppSummary {
   /**
    * <p>Status of the replication configuration.</p>
    */
-  replicationConfigurationStatus?: AppReplicationConfigurationStatus | string;
+  replicationConfigurationStatus?: keyof typeof AppReplicationConfigurationStatus | string;
 
   /**
    * <p>The replication status of the application.</p>
    */
-  replicationStatus?: AppReplicationStatus | string;
+  replicationStatus?: keyof typeof AppReplicationStatus | string;
 
   /**
    * <p>A message related to the replication status of the application.</p>
@@ -153,12 +153,12 @@ export interface AppSummary {
   /**
    * <p>Status of the launch configuration.</p>
    */
-  launchConfigurationStatus?: AppLaunchConfigurationStatus | string;
+  launchConfigurationStatus?: keyof typeof AppLaunchConfigurationStatus | string;
 
   /**
    * <p>The launch status of the application.</p>
    */
-  launchStatus?: AppLaunchStatus | string;
+  launchStatus?: keyof typeof AppLaunchStatus | string;
 
   /**
    * <p>A message related to the launch status of the application.</p>
@@ -199,17 +199,17 @@ export interface AppSummary {
 /**
  * @public
  */
-export enum AppValidationStrategy {
-  SSM = "SSM",
-}
+export const AppValidationStrategy = {
+  SSM: "SSM",
+};
 
 /**
  * @public
  */
-export enum ScriptType {
-  POWERSHELL_SCRIPT = "POWERSHELL_SCRIPT",
-  SHELL_SCRIPT = "SHELL_SCRIPT",
-}
+export const ScriptType = {
+  POWERSHELL_SCRIPT: "POWERSHELL_SCRIPT",
+  SHELL_SCRIPT: "SHELL_SCRIPT",
+};
 
 /**
  * @public
@@ -256,7 +256,7 @@ export interface SSMValidationParameters {
   /**
    * <p>The type of validation script.</p>
    */
-  scriptType?: ScriptType | string;
+  scriptType?: keyof typeof ScriptType | string;
 
   /**
    * <p>The command to run the validation script.</p>
@@ -292,7 +292,7 @@ export interface AppValidationConfiguration {
   /**
    * <p>The validation strategy.</p>
    */
-  appValidationStrategy?: AppValidationStrategy | string;
+  appValidationStrategy?: keyof typeof AppValidationStrategy | string;
 
   /**
    * <p>The validation parameters.</p>
@@ -325,18 +325,18 @@ export interface AppValidationOutput {
 /**
  * @public
  */
-export enum ServerType {
-  VirtualMachine = "VIRTUAL_MACHINE",
-}
+export const ServerType = {
+  VirtualMachine: "VIRTUAL_MACHINE",
+};
 
 /**
  * @public
  */
-export enum VmManagerType {
-  hyperVManager = "HYPERV-MANAGER",
-  scvmm = "SCVMM",
-  vSphere = "VSPHERE",
-}
+export const VmManagerType = {
+  hyperVManager: "HYPERV-MANAGER",
+  scvmm: "SCVMM",
+  vSphere: "VSPHERE",
+};
 
 /**
  * @public
@@ -377,7 +377,7 @@ export interface VmServer {
   /**
    * <p>The type of VM management product.</p>
    */
-  vmManagerType?: VmManagerType | string;
+  vmManagerType?: keyof typeof VmManagerType | string;
 
   /**
    * <p>The VM folder path in the vCenter Server virtual machine inventory tree.</p>
@@ -398,7 +398,7 @@ export interface Server {
   /**
    * <p>The type of server.</p>
    */
-  serverType?: ServerType | string;
+  serverType?: keyof typeof ServerType | string;
 
   /**
    * <p>Information about the VM server.</p>
@@ -613,10 +613,10 @@ export class UnauthorizedOperationException extends __BaseException {
 /**
  * @public
  */
-export enum LicenseType {
-  AWS = "AWS",
-  BYOL = "BYOL",
-}
+export const LicenseType = {
+  AWS: "AWS",
+  BYOL: "BYOL",
+};
 
 /**
  * @public
@@ -646,7 +646,7 @@ export interface CreateReplicationJobRequest {
    * <p>The license type to be used for the AMI created by a successful replication
    *             run.</p>
    */
-  licenseType?: LicenseType | string;
+  licenseType?: keyof typeof LicenseType | string;
 
   /**
    * <p>The name of the IAM role to be used by the Server Migration Service.</p>
@@ -917,10 +917,10 @@ export interface DisassociateConnectorResponse {}
 /**
  * @public
  */
-export enum OutputFormat {
-  JSON = "JSON",
-  YAML = "YAML",
-}
+export const OutputFormat = {
+  JSON: "JSON",
+  YAML: "YAML",
+};
 
 /**
  * @public
@@ -934,7 +934,7 @@ export interface GenerateChangeSetRequest {
   /**
    * <p>The format for the change set.</p>
    */
-  changesetFormat?: OutputFormat | string;
+  changesetFormat?: keyof typeof OutputFormat | string;
 }
 
 /**
@@ -959,7 +959,7 @@ export interface GenerateTemplateRequest {
   /**
    * <p>The format for generating the CloudFormation template.</p>
    */
-  templateFormat?: OutputFormat | string;
+  templateFormat?: keyof typeof OutputFormat | string;
 }
 
 /**
@@ -1087,7 +1087,7 @@ export interface ServerLaunchConfiguration {
   /**
    * <p>The type of configuration script.</p>
    */
-  configureScriptType?: ScriptType | string;
+  configureScriptType?: keyof typeof ScriptType | string;
 }
 
 /**
@@ -1171,7 +1171,7 @@ export interface ServerReplicationParameters {
   /**
    * <p>The license type for creating a replication job for the server.</p>
    */
-  licenseType?: LicenseType | string;
+  licenseType?: keyof typeof LicenseType | string;
 
   /**
    * <p>The number of recent AMIs to keep when creating a replication job for this server.</p>
@@ -1263,9 +1263,9 @@ export interface GetAppValidationConfigurationRequest {
 /**
  * @public
  */
-export enum ServerValidationStrategy {
-  USERDATA = "USERDATA",
-}
+export const ServerValidationStrategy = {
+  USERDATA: "USERDATA",
+};
 
 /**
  * @public
@@ -1280,7 +1280,7 @@ export interface UserDataValidationParameters {
   /**
    * <p>The type of validation script.</p>
    */
-  scriptType?: ScriptType | string;
+  scriptType?: keyof typeof ScriptType | string;
 }
 
 /**
@@ -1306,7 +1306,7 @@ export interface ServerValidationConfiguration {
   /**
    * <p>The validation strategy.</p>
    */
-  serverValidationStrategy?: ServerValidationStrategy | string;
+  serverValidationStrategy?: keyof typeof ServerValidationStrategy | string;
 
   /**
    * <p>The validation parameters.</p>
@@ -1369,13 +1369,13 @@ export interface ServerValidationOutput {
 /**
  * @public
  */
-export enum ValidationStatus {
-  Failed = "FAILED",
-  InProgress = "IN_PROGRESS",
-  Pending = "PENDING",
-  ReadyForValidation = "READY_FOR_VALIDATION",
-  Succeeded = "SUCCEEDED",
-}
+export const ValidationStatus = {
+  Failed: "FAILED",
+  InProgress: "IN_PROGRESS",
+  Pending: "PENDING",
+  ReadyForValidation: "READY_FOR_VALIDATION",
+  Succeeded: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1395,7 +1395,7 @@ export interface ValidationOutput {
   /**
    * <p>The status of the validation.</p>
    */
-  status?: ValidationStatus | string;
+  status?: keyof typeof ValidationStatus | string;
 
   /**
    * <p>The status message.</p>
@@ -1448,21 +1448,21 @@ export interface GetConnectorsRequest {
 /**
  * @public
  */
-export enum ConnectorCapability {
-  hyperVManager = "HYPERV-MANAGER",
-  scvmm = "SCVMM",
-  smsOptimized = "SMS_OPTIMIZED",
-  snapshotBatching = "SNAPSHOT_BATCHING",
-  vSphere = "VSPHERE",
-}
+export const ConnectorCapability = {
+  hyperVManager: "HYPERV-MANAGER",
+  scvmm: "SCVMM",
+  smsOptimized: "SMS_OPTIMIZED",
+  snapshotBatching: "SNAPSHOT_BATCHING",
+  vSphere: "VSPHERE",
+};
 
 /**
  * @public
  */
-export enum ConnectorStatus {
-  Healthy = "HEALTHY",
-  Unhealthy = "UNHEALTHY",
-}
+export const ConnectorStatus = {
+  Healthy: "HEALTHY",
+  Unhealthy: "UNHEALTHY",
+};
 
 /**
  * @public
@@ -1482,12 +1482,12 @@ export interface Connector {
   /**
    * <p>The status of the connector.</p>
    */
-  status?: ConnectorStatus | string;
+  status?: keyof typeof ConnectorStatus | string;
 
   /**
    * <p>The capabilities of the connector.</p>
    */
-  capabilityList?: (ConnectorCapability | string)[];
+  capabilityList?: (keyof typeof ConnectorCapability | string)[];
 
   /**
    * <p>The name of the VM manager.</p>
@@ -1497,7 +1497,7 @@ export interface Connector {
   /**
    * <p>The VM management product.</p>
    */
-  vmManagerType?: VmManagerType | string;
+  vmManagerType?: keyof typeof VmManagerType | string;
 
   /**
    * <p>The ID of the VM manager.</p>
@@ -1577,23 +1577,23 @@ export interface ReplicationRunStageDetails {
 /**
  * @public
  */
-export enum ReplicationRunState {
-  Active = "ACTIVE",
-  Completed = "COMPLETED",
-  Deleted = "DELETED",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Missed = "MISSED",
-  Pending = "PENDING",
-}
+export const ReplicationRunState = {
+  Active: "ACTIVE",
+  Completed: "COMPLETED",
+  Deleted: "DELETED",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  Missed: "MISSED",
+  Pending: "PENDING",
+};
 
 /**
  * @public
  */
-export enum ReplicationRunType {
-  Automatic = "AUTOMATIC",
-  OnDemand = "ON_DEMAND",
-}
+export const ReplicationRunType = {
+  Automatic: "AUTOMATIC",
+  OnDemand: "ON_DEMAND",
+};
 
 /**
  * @public
@@ -1608,12 +1608,12 @@ export interface ReplicationRun {
   /**
    * <p>The state of the replication run.</p>
    */
-  state?: ReplicationRunState | string;
+  state?: keyof typeof ReplicationRunState | string;
 
   /**
    * <p>The type of replication run.</p>
    */
-  type?: ReplicationRunType | string;
+  type?: keyof typeof ReplicationRunType | string;
 
   /**
    * <p>Details about the current stage of the replication run.</p>
@@ -1677,16 +1677,16 @@ export interface ReplicationRun {
 /**
  * @public
  */
-export enum ReplicationJobState {
-  Active = "ACTIVE",
-  Completed = "COMPLETED",
-  Deleted = "DELETED",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  Failing = "FAILING",
-  PausedOnFailure = "PAUSED_ON_FAILURE",
-  Pending = "PENDING",
-}
+export const ReplicationJobState = {
+  Active: "ACTIVE",
+  Completed: "COMPLETED",
+  Deleted: "DELETED",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  Failing: "FAILING",
+  PausedOnFailure: "PAUSED_ON_FAILURE",
+  Pending: "PENDING",
+};
 
 /**
  * @public
@@ -1706,7 +1706,7 @@ export interface ReplicationJob {
   /**
    * <p>The type of server.</p>
    */
-  serverType?: ServerType | string;
+  serverType?: keyof typeof ServerType | string;
 
   /**
    * <p>Information about the VM server.</p>
@@ -1737,7 +1737,7 @@ export interface ReplicationJob {
    * <p>The license type to be used for the AMI created by a successful replication
    *             run.</p>
    */
-  licenseType?: LicenseType | string;
+  licenseType?: keyof typeof LicenseType | string;
 
   /**
    * <p>The name of the IAM role to be used by Server Migration Service.</p>
@@ -1752,7 +1752,7 @@ export interface ReplicationJob {
   /**
    * <p>The state of the replication job.</p>
    */
-  state?: ReplicationJobState | string;
+  state?: keyof typeof ReplicationJobState | string;
 
   /**
    * <p>The description of the current status of the replication job.</p>
@@ -1887,13 +1887,13 @@ export interface GetServersRequest {
 /**
  * @public
  */
-export enum ServerCatalogStatus {
-  Available = "AVAILABLE",
-  Deleted = "DELETED",
-  Expired = "EXPIRED",
-  Importing = "IMPORTING",
-  NotImported = "NOT_IMPORTED",
-}
+export const ServerCatalogStatus = {
+  Available: "AVAILABLE",
+  Deleted: "DELETED",
+  Expired: "EXPIRED",
+  Importing: "IMPORTING",
+  NotImported: "NOT_IMPORTED",
+};
 
 /**
  * @public
@@ -1907,7 +1907,7 @@ export interface GetServersResponse {
   /**
    * <p>The status of the server catalog.</p>
    */
-  serverCatalogStatus?: ServerCatalogStatus | string;
+  serverCatalogStatus?: keyof typeof ServerCatalogStatus | string;
 
   /**
    * <p>Information about the servers.</p>
@@ -2014,7 +2014,7 @@ export interface NotificationContext {
   /**
    * <p>The status of the validation.</p>
    */
-  status?: ValidationStatus | string;
+  status?: keyof typeof ValidationStatus | string;
 
   /**
    * <p>The status message.</p>
@@ -2328,7 +2328,7 @@ export interface UpdateReplicationJobRequest {
    * <p>The license type to be used for the AMI created by a successful replication
    *             run.</p>
    */
-  licenseType?: LicenseType | string;
+  licenseType?: keyof typeof LicenseType | string;
 
   /**
    * <p>The name of the IAM role to be used by Server Migration Service.</p>

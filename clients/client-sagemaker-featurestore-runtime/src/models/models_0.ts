@@ -215,10 +215,10 @@ export class ValidationError extends __BaseException {
 /**
  * @public
  */
-export enum TargetStore {
-  OFFLINE_STORE = "OfflineStore",
-  ONLINE_STORE = "OnlineStore",
-}
+export const TargetStore = {
+  OFFLINE_STORE: "OfflineStore",
+  ONLINE_STORE: "OnlineStore",
+};
 
 /**
  * @public
@@ -244,7 +244,7 @@ export interface DeleteRecordRequest {
   /**
    * <p>A list of stores from which you're deleting the record. By default, Feature Store deletes the record from all of the stores that you're using for the <code>FeatureGroup</code>.</p>
    */
-  TargetStores?: (TargetStore | string)[];
+  TargetStores?: (keyof typeof TargetStore | string)[];
 }
 
 /**
@@ -330,5 +330,5 @@ export interface PutRecordRequest {
   /**
    * <p>A list of stores to which you're adding the record. By default, Feature Store adds the record to all of the stores that you're using for the <code>FeatureGroup</code>.</p>
    */
-  TargetStores?: (TargetStore | string)[];
+  TargetStores?: (keyof typeof TargetStore | string)[];
 }

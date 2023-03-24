@@ -2032,7 +2032,7 @@ const serializeAws_restJson1AwsManagedResources = (input: AwsManagedResources, c
 };
 
 const serializeAws_restJson1AwsManagedTargetDestinations = (
-  input: (AwsManagedTargetDestination | string)[],
+  input: (keyof typeof AwsManagedTargetDestination | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2108,7 +2108,7 @@ const serializeAws_restJson1Heterogeneous = (input: Heterogeneous, context: __Se
 };
 
 const serializeAws_restJson1HeterogeneousTargetDatabaseEngines = (
-  input: (HeterogeneousTargetDatabaseEngine | string)[],
+  input: (keyof typeof HeterogeneousTargetDatabaseEngine | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2127,7 +2127,7 @@ const serializeAws_restJson1Homogeneous = (input: Homogeneous, context: __SerdeC
 };
 
 const serializeAws_restJson1HomogeneousTargetDatabaseEngines = (
-  input: (HomogeneousTargetDatabaseEngine | string)[],
+  input: (keyof typeof HomogeneousTargetDatabaseEngine | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2170,7 +2170,7 @@ const serializeAws_restJson1NoManagementPreference = (input: NoManagementPrefere
 };
 
 const serializeAws_restJson1NoPreferenceTargetDestinations = (
-  input: (NoPreferenceTargetDestination | string)[],
+  input: (keyof typeof NoPreferenceTargetDestination | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2200,7 +2200,7 @@ const serializeAws_restJson1SelfManageResources = (input: SelfManageResources, c
 };
 
 const serializeAws_restJson1SelfManageTargetDestinations = (
-  input: (SelfManageTargetDestination | string)[],
+  input: (keyof typeof SelfManageTargetDestination | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2237,7 +2237,7 @@ const serializeAws_restJson1StrategyOption = (input: StrategyOption, context: __
 };
 
 const serializeAws_restJson1TargetDatabaseEngines = (
-  input: (TargetDatabaseEngine | string)[],
+  input: (keyof typeof TargetDatabaseEngine | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2569,7 +2569,7 @@ const deserializeAws_restJson1AwsManagedResources = (output: any, context: __Ser
 const deserializeAws_restJson1AwsManagedTargetDestinations = (
   output: any,
   context: __SerdeContext
-): (AwsManagedTargetDestination | string)[] => {
+): (keyof typeof AwsManagedTargetDestination | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2715,7 +2715,7 @@ const deserializeAws_restJson1Heterogeneous = (output: any, context: __SerdeCont
 const deserializeAws_restJson1HeterogeneousTargetDatabaseEngines = (
   output: any,
   context: __SerdeContext
-): (HeterogeneousTargetDatabaseEngine | string)[] => {
+): (keyof typeof HeterogeneousTargetDatabaseEngine | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2739,7 +2739,7 @@ const deserializeAws_restJson1Homogeneous = (output: any, context: __SerdeContex
 const deserializeAws_restJson1HomogeneousTargetDatabaseEngines = (
   output: any,
   context: __SerdeContext
-): (HomogeneousTargetDatabaseEngine | string)[] => {
+): (keyof typeof HomogeneousTargetDatabaseEngine | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -2966,7 +2966,7 @@ const deserializeAws_restJson1NoManagementPreference = (
 const deserializeAws_restJson1NoPreferenceTargetDestinations = (
   output: any,
   context: __SerdeContext
-): (NoPreferenceTargetDestination | string)[] => {
+): (keyof typeof NoPreferenceTargetDestination | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3112,7 +3112,7 @@ const deserializeAws_restJson1SelfManageResources = (output: any, context: __Ser
 const deserializeAws_restJson1SelfManageTargetDestinations = (
   output: any,
   context: __SerdeContext
-): (SelfManageTargetDestination | string)[] => {
+): (keyof typeof SelfManageTargetDestination | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3261,7 +3261,7 @@ const deserializeAws_restJson1SystemInfo = (output: any, context: __SerdeContext
 const deserializeAws_restJson1TargetDatabaseEngines = (
   output: any,
   context: __SerdeContext
-): (TargetDatabaseEngine | string)[] => {
+): (keyof typeof TargetDatabaseEngine | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

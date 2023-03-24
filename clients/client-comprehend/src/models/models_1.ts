@@ -28,7 +28,7 @@ export interface StopTargetedSentimentDetectionJobResponse {
    *       <code>STOPPED</code> if the job was previously stopped with the
    *       <code>StopSentimentDetectionJob</code> operation.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: keyof typeof JobStatus | string;
 }
 
 /**

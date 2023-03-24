@@ -75,10 +75,10 @@ export class AlreadyExistsException extends __BaseException {
 /**
  * @public
  */
-export enum BehaviorOnMXFailure {
-  RejectMessage = "RejectMessage",
-  UseDefaultValue = "UseDefaultValue",
-}
+export const BehaviorOnMXFailure = {
+  RejectMessage: "RejectMessage",
+  UseDefaultValue: "UseDefaultValue",
+};
 
 /**
  * @public
@@ -163,25 +163,25 @@ export interface BounceAction {
 /**
  * @public
  */
-export enum BounceType {
-  ContentRejected = "ContentRejected",
-  DoesNotExist = "DoesNotExist",
-  ExceededQuota = "ExceededQuota",
-  MessageTooLarge = "MessageTooLarge",
-  TemporaryFailure = "TemporaryFailure",
-  Undefined = "Undefined",
-}
+export const BounceType = {
+  ContentRejected: "ContentRejected",
+  DoesNotExist: "DoesNotExist",
+  ExceededQuota: "ExceededQuota",
+  MessageTooLarge: "MessageTooLarge",
+  TemporaryFailure: "TemporaryFailure",
+  Undefined: "Undefined",
+};
 
 /**
  * @public
  */
-export enum DsnAction {
-  DELAYED = "delayed",
-  DELIVERED = "delivered",
-  EXPANDED = "expanded",
-  FAILED = "failed",
-  RELAYED = "relayed",
-}
+export const DsnAction = {
+  DELAYED: "delayed",
+  DELIVERED: "delivered",
+  EXPANDED: "expanded",
+  FAILED: "failed",
+  RELAYED: "relayed",
+};
 
 /**
  * @public
@@ -230,7 +230,7 @@ export interface RecipientDsnFields {
    * <p>The action performed by the reporting mail transfer agent (MTA) as a result of its
    *             attempt to deliver the message to the recipient address. This is required by <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>.</p>
    */
-  Action: DsnAction | string | undefined;
+  Action: keyof typeof DsnAction | string | undefined;
 
   /**
    * <p>The MTA to which the remote MTA attempted to deliver the message, formatted as
@@ -289,7 +289,7 @@ export interface BouncedRecipientInfo {
    * <p>The reason for the bounce. You must provide either this parameter or
    *                 <code>RecipientDsnFields</code>.</p>
    */
-  BounceType?: BounceType | string;
+  BounceType?: keyof typeof BounceType | string;
 
   /**
    * <p>Recipient-related DSN fields, most of which would normally be filled in automatically
@@ -404,22 +404,22 @@ export interface BulkEmailDestination {
 /**
  * @public
  */
-export enum BulkEmailStatus {
-  AccountDailyQuotaExceeded = "AccountDailyQuotaExceeded",
-  AccountSendingPaused = "AccountSendingPaused",
-  AccountSuspended = "AccountSuspended",
-  AccountThrottled = "AccountThrottled",
-  ConfigurationSetDoesNotExist = "ConfigurationSetDoesNotExist",
-  ConfigurationSetSendingPaused = "ConfigurationSetSendingPaused",
-  Failed = "Failed",
-  InvalidParameterValue = "InvalidParameterValue",
-  InvalidSendingPoolName = "InvalidSendingPoolName",
-  MailFromDomainNotVerified = "MailFromDomainNotVerified",
-  MessageRejected = "MessageRejected",
-  Success = "Success",
-  TemplateDoesNotExist = "TemplateDoesNotExist",
-  TransientFailure = "TransientFailure",
-}
+export const BulkEmailStatus = {
+  AccountDailyQuotaExceeded: "AccountDailyQuotaExceeded",
+  AccountSendingPaused: "AccountSendingPaused",
+  AccountSuspended: "AccountSuspended",
+  AccountThrottled: "AccountThrottled",
+  ConfigurationSetDoesNotExist: "ConfigurationSetDoesNotExist",
+  ConfigurationSetSendingPaused: "ConfigurationSetSendingPaused",
+  Failed: "Failed",
+  InvalidParameterValue: "InvalidParameterValue",
+  InvalidSendingPoolName: "InvalidSendingPoolName",
+  MailFromDomainNotVerified: "MailFromDomainNotVerified",
+  MessageRejected: "MessageRejected",
+  Success: "Success",
+  TemplateDoesNotExist: "TemplateDoesNotExist",
+  TransientFailure: "TransientFailure",
+};
 
 /**
  * @public
@@ -507,7 +507,7 @@ export interface BulkEmailDestinationStatus {
    *             </li>
    *          </ul>
    */
-  Status?: BulkEmailStatus | string;
+  Status?: keyof typeof BulkEmailStatus | string;
 
   /**
    * <p>A description of an error that prevented a message being sent using the
@@ -635,11 +635,11 @@ export class RuleSetDoesNotExistException extends __BaseException {
 /**
  * @public
  */
-export enum DimensionValueSource {
-  EMAIL_HEADER = "emailHeader",
-  LINK_TAG = "linkTag",
-  MESSAGE_TAG = "messageTag",
-}
+export const DimensionValueSource = {
+  EMAIL_HEADER: "emailHeader",
+  LINK_TAG: "linkTag",
+  MESSAGE_TAG: "messageTag",
+};
 
 /**
  * @public
@@ -671,7 +671,7 @@ export interface CloudWatchDimensionConfiguration {
    *             <code>messageTag</code>. If you want Amazon SES to use your own email headers, choose
    *                 <code>emailHeader</code>.</p>
    */
-  DimensionValueSource: DimensionValueSource | string | undefined;
+  DimensionValueSource: keyof typeof DimensionValueSource | string | undefined;
 
   /**
    * <p>The default value of the dimension that is published to Amazon CloudWatch if you do not provide
@@ -759,12 +759,12 @@ export class ConfigurationSetAlreadyExistsException extends __BaseException {
 /**
  * @public
  */
-export enum ConfigurationSetAttribute {
-  DELIVERY_OPTIONS = "deliveryOptions",
-  EVENT_DESTINATIONS = "eventDestinations",
-  REPUTATION_OPTIONS = "reputationOptions",
-  TRACKING_OPTIONS = "trackingOptions",
-}
+export const ConfigurationSetAttribute = {
+  DELIVERY_OPTIONS: "deliveryOptions",
+  EVENT_DESTINATIONS: "eventDestinations",
+  REPUTATION_OPTIONS: "reputationOptions",
+  TRACKING_OPTIONS: "trackingOptions",
+};
 
 /**
  * @public
@@ -885,16 +885,16 @@ export interface KinesisFirehoseDestination {
 /**
  * @public
  */
-export enum EventType {
-  BOUNCE = "bounce",
-  CLICK = "click",
-  COMPLAINT = "complaint",
-  DELIVERY = "delivery",
-  OPEN = "open",
-  REJECT = "reject",
-  RENDERING_FAILURE = "renderingFailure",
-  SEND = "send",
-}
+export const EventType = {
+  BOUNCE: "bounce",
+  CLICK: "click",
+  COMPLAINT: "complaint",
+  DELIVERY: "delivery",
+  OPEN: "open",
+  REJECT: "reject",
+  RENDERING_FAILURE: "renderingFailure",
+  SEND: "send",
+};
 
 /**
  * @public
@@ -952,7 +952,7 @@ export interface EventDestination {
   /**
    * <p>The type of email sending events to publish to the event destination.</p>
    */
-  MatchingEventTypes: (EventType | string)[] | undefined;
+  MatchingEventTypes: (keyof typeof EventType | string)[] | undefined;
 
   /**
    * <p>An object that contains the delivery stream ARN and the IAM role ARN associated with
@@ -1356,10 +1356,10 @@ export class FromEmailAddressNotVerifiedException extends __BaseException {
 /**
  * @public
  */
-export enum ReceiptFilterPolicy {
-  Allow = "Allow",
-  Block = "Block",
-}
+export const ReceiptFilterPolicy = {
+  Allow: "Allow",
+  Block: "Block",
+};
 
 /**
  * @public
@@ -1372,7 +1372,7 @@ export interface ReceiptIpFilter {
    * <p>Indicates whether to block or allow incoming mail from the specified IP
    *             addresses.</p>
    */
-  Policy: ReceiptFilterPolicy | string | undefined;
+  Policy: keyof typeof ReceiptFilterPolicy | string | undefined;
 
   /**
    * <p>A single IP address or a range of IP addresses that you want to block or allow,
@@ -1478,7 +1478,7 @@ export interface LambdaAction {
    *                 such as whether to stop the receipt rule or the receipt rule set.</p>
    *         </important>
    */
-  InvocationType?: InvocationType | string;
+  InvocationType?: keyof typeof InvocationType | string;
 }
 
 /**
@@ -1555,10 +1555,10 @@ export interface S3Action {
 /**
  * @public
  */
-export enum SNSActionEncoding {
-  Base64 = "Base64",
-  UTF8 = "UTF-8",
-}
+export const SNSActionEncoding = {
+  Base64: "Base64",
+  UTF8: "UTF-8",
+};
 
 /**
  * @public
@@ -1594,15 +1594,15 @@ export interface SNSAction {
    *             different encoding format. Base64 preserves all special characters. The default value is
    *             UTF-8.</p>
    */
-  Encoding?: SNSActionEncoding | string;
+  Encoding?: keyof typeof SNSActionEncoding | string;
 }
 
 /**
  * @public
  */
-export enum StopScope {
-  RULE_SET = "RuleSet",
-}
+export const StopScope = {
+  RULE_SET: "RuleSet",
+};
 
 /**
  * @public
@@ -1615,7 +1615,7 @@ export interface StopAction {
   /**
    * <p>The scope of the StopAction. The only acceptable value is <code>RuleSet</code>.</p>
    */
-  Scope: StopScope | string | undefined;
+  Scope: keyof typeof StopScope | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is
@@ -1706,10 +1706,10 @@ export interface ReceiptAction {
 /**
  * @public
  */
-export enum TlsPolicy {
-  Optional = "Optional",
-  Require = "Require",
-}
+export const TlsPolicy = {
+  Optional: "Optional",
+  Require: "Require",
+};
 
 /**
  * @public
@@ -1751,7 +1751,7 @@ export interface ReceiptRule {
    *                 <code>Require</code>, Amazon SES will bounce emails that are not received over TLS. The
    *             default is <code>Optional</code>.</p>
    */
-  TlsPolicy?: TlsPolicy | string;
+  TlsPolicy?: keyof typeof TlsPolicy | string;
 
   /**
    * <p>The recipient domains and email addresses that the receipt rule applies to. If this
@@ -2023,12 +2023,12 @@ export class InvalidTemplateException extends __BaseException {
 /**
  * @public
  */
-export enum CustomMailFromStatus {
-  Failed = "Failed",
-  Pending = "Pending",
-  Success = "Success",
-  TemporaryFailure = "TemporaryFailure",
-}
+export const CustomMailFromStatus = {
+  Failed: "Failed",
+  Pending: "Pending",
+  Success: "Success",
+  TemporaryFailure: "TemporaryFailure",
+};
 
 /**
  * @public
@@ -2377,7 +2377,7 @@ export interface DeliveryOptions {
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
-  TlsPolicy?: TlsPolicy | string;
+  TlsPolicy?: keyof typeof TlsPolicy | string;
 }
 
 /**
@@ -2455,7 +2455,7 @@ export interface DescribeConfigurationSetRequest {
   /**
    * <p>A list of configuration set attributes to return.</p>
    */
-  ConfigurationSetAttributeNames?: (ConfigurationSetAttribute | string)[];
+  ConfigurationSetAttributeNames?: (keyof typeof ConfigurationSetAttribute | string)[];
 }
 
 /**
@@ -2609,7 +2609,7 @@ export interface IdentityDkimAttributes {
    *             published in the domain name's DNS. (This only applies to domain identities, not email
    *             address identities.)</p>
    */
-  DkimVerificationStatus: VerificationStatus | string | undefined;
+  DkimVerificationStatus: keyof typeof VerificationStatus | string | undefined;
 
   /**
    * <p>A set of character strings that represent the domain's identity. Using these tokens,
@@ -2746,7 +2746,7 @@ export interface IdentityMailFromDomainAttributes {
    *             states indicate that Amazon SES takes the action described by
    *                 <code>BehaviorOnMXFailure</code>.</p>
    */
-  MailFromDomainStatus: CustomMailFromStatus | string | undefined;
+  MailFromDomainStatus: keyof typeof CustomMailFromStatus | string | undefined;
 
   /**
    * <p>The action that Amazon SES takes if it cannot successfully read the required MX record when
@@ -2758,7 +2758,7 @@ export interface IdentityMailFromDomainAttributes {
    *         <p>The custom MAIL FROM setup states that result in this behavior are
    *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>.</p>
    */
-  BehaviorOnMXFailure: BehaviorOnMXFailure | string | undefined;
+  BehaviorOnMXFailure: keyof typeof BehaviorOnMXFailure | string | undefined;
 }
 
 /**
@@ -2918,7 +2918,7 @@ export interface IdentityVerificationAttributes {
    * <p>The verification status of the identity: "Pending", "Success", "Failed", or
    *             "TemporaryFailure".</p>
    */
-  VerificationStatus: VerificationStatus | string | undefined;
+  VerificationStatus: keyof typeof VerificationStatus | string | undefined;
 
   /**
    * <p>The verification token for a domain identity. Null for email address
@@ -3219,7 +3219,7 @@ export interface ListIdentitiesRequest {
    * <p>The type of the identities to list. Possible values are "EmailAddress" and "Domain".
    *             If this parameter is omitted, then all identities will be listed.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: keyof typeof IdentityType | string;
 
   /**
    * <p>The token to use for pagination.</p>
@@ -4349,7 +4349,7 @@ export interface SetIdentityHeadersInNotificationsEnabledRequest {
   /**
    * <p>The notification type for which to enable or disable headers in notifications. </p>
    */
-  NotificationType: NotificationType | string | undefined;
+  NotificationType: keyof typeof NotificationType | string | undefined;
 
   /**
    * <p>Sets whether Amazon SES includes the original email headers in Amazon SNS notifications of the
@@ -4402,7 +4402,7 @@ export interface SetIdentityMailFromDomainRequest {
    *             FROM domain setup is in the <code>Pending</code>, <code>Failed</code>, and
    *                 <code>TemporaryFailure</code> states.</p>
    */
-  BehaviorOnMXFailure?: BehaviorOnMXFailure | string;
+  BehaviorOnMXFailure?: keyof typeof BehaviorOnMXFailure | string;
 }
 
 /**
@@ -4435,7 +4435,7 @@ export interface SetIdentityNotificationTopicRequest {
   /**
    * <p>The type of notifications that will be published to the specified Amazon SNS topic.</p>
    */
-  NotificationType: NotificationType | string | undefined;
+  NotificationType: keyof typeof NotificationType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from

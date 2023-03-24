@@ -49,22 +49,22 @@ export interface SimulationAppPortMapping {
 /**
  * @public
  */
-export enum ClockStatus {
-  STARTED = "STARTED",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UNKNOWN = "UNKNOWN",
-}
+export const ClockStatus = {
+  STARTED: "STARTED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
  */
-export enum ClockTargetStatus {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-  UNKNOWN = "UNKNOWN",
-}
+export const ClockTargetStatus = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -263,23 +263,23 @@ export interface LaunchOverrides {
 /**
  * @public
  */
-export enum SimulationAppStatus {
-  ERROR = "ERROR",
-  STARTED = "STARTED",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UNKNOWN = "UNKNOWN",
-}
+export const SimulationAppStatus = {
+  ERROR: "ERROR",
+  STARTED: "STARTED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
  */
-export enum SimulationAppTargetStatus {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-  UNKNOWN = "UNKNOWN",
-}
+export const SimulationAppTargetStatus = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -303,12 +303,12 @@ export interface DescribeAppOutput {
   /**
    * <p>The current lifecycle state of the custom app.</p>
    */
-  Status?: SimulationAppStatus | string;
+  Status?: keyof typeof SimulationAppStatus | string;
 
   /**
    * <p>The desired lifecycle state of the custom app.</p>
    */
-  TargetStatus?: SimulationAppTargetStatus | string;
+  TargetStatus?: keyof typeof SimulationAppTargetStatus | string;
 
   /**
    * <p>Options that apply when the app starts. These optiAons override default behavior.</p>
@@ -344,23 +344,23 @@ export interface SimulationClock {
   /**
    * <p>The current status of the simulation clock.</p>
    */
-  Status?: ClockStatus | string;
+  Status?: keyof typeof ClockStatus | string;
 
   /**
    * <p>The desired status of the simulation clock.</p>
    */
-  TargetStatus?: ClockTargetStatus | string;
+  TargetStatus?: keyof typeof ClockTargetStatus | string;
 }
 
 /**
  * @public
  */
-export enum LifecycleManagementStrategy {
-  ByRequest = "ByRequest",
-  BySpatialSubdivision = "BySpatialSubdivision",
-  PerWorker = "PerWorker",
-  Unknown = "Unknown",
-}
+export const LifecycleManagementStrategy = {
+  ByRequest: "ByRequest",
+  BySpatialSubdivision: "BySpatialSubdivision",
+  PerWorker: "PerWorker",
+  Unknown: "Unknown",
+};
 
 /**
  * @public
@@ -401,7 +401,7 @@ export interface Domain {
    *             <p>The lifecycle types will change when the service is released for general availability (GA).</p>
    *          </note>
    */
-  Lifecycle?: LifecycleManagementStrategy | string;
+  Lifecycle?: keyof typeof LifecycleManagementStrategy | string;
 }
 
 /**
@@ -475,26 +475,26 @@ export interface S3Location {
 /**
  * @public
  */
-export enum SimulationStatus {
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  STARTED = "STARTED",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UNKNOWN = "UNKNOWN",
-}
+export const SimulationStatus = {
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  STARTED: "STARTED",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
  */
-export enum SimulationTargetStatus {
-  DELETED = "DELETED",
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-  UNKNOWN = "UNKNOWN",
-}
+export const SimulationTargetStatus = {
+  DELETED: "DELETED",
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -539,12 +539,12 @@ export interface DescribeSimulationOutput {
   /**
    * <p>The current lifecycle state of the simulation.</p>
    */
-  Status?: SimulationStatus | string;
+  Status?: keyof typeof SimulationStatus | string;
 
   /**
    * <p>The desired lifecycle state of the simulation.</p>
    */
-  TargetStatus?: SimulationTargetStatus | string;
+  TargetStatus?: keyof typeof SimulationTargetStatus | string;
 
   /**
    * <p>The location of the simulation schema in Amazon Simple Storage Service (Amazon S3).
@@ -632,12 +632,12 @@ export interface SimulationAppMetadata {
   /**
    * <p>The current status of the app.</p>
    */
-  Status?: SimulationAppStatus | string;
+  Status?: keyof typeof SimulationAppStatus | string;
 
   /**
    * <p>The desired status of the app.</p>
    */
-  TargetStatus?: SimulationAppTargetStatus | string;
+  TargetStatus?: keyof typeof SimulationAppTargetStatus | string;
 }
 
 /**
@@ -703,12 +703,12 @@ export interface SimulationMetadata {
   /**
    * <p>The current status of the simulation.</p>
    */
-  Status?: SimulationStatus | string;
+  Status?: keyof typeof SimulationStatus | string;
 
   /**
    * <p>The desired status of the simulation.</p>
    */
-  TargetStatus?: SimulationTargetStatus | string;
+  TargetStatus?: keyof typeof SimulationTargetStatus | string;
 }
 
 /**

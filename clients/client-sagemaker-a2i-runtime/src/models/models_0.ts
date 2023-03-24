@@ -135,13 +135,13 @@ export interface HumanLoopOutput {
 /**
  * @public
  */
-export enum HumanLoopStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const HumanLoopStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+};
 
 /**
  * @public
@@ -169,7 +169,7 @@ export interface DescribeHumanLoopResponse {
   /**
    * <p>The status of the human loop. </p>
    */
-  HumanLoopStatus: HumanLoopStatus | string | undefined;
+  HumanLoopStatus: keyof typeof HumanLoopStatus | string | undefined;
 
   /**
    * <p>The name of the human loop. The name must be lowercase, unique within the Region in your
@@ -196,10 +196,10 @@ export interface DescribeHumanLoopResponse {
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export const SortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+};
 
 /**
  * @public
@@ -224,7 +224,7 @@ export interface ListHumanLoopsRequest {
    * <p>Optional. The order for displaying results. Valid values: <code>Ascending</code> and
    *         <code>Descending</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>A token to display the next page of results.</p>
@@ -252,7 +252,7 @@ export interface HumanLoopSummary {
   /**
    * <p>The status of the human loop. </p>
    */
-  HumanLoopStatus?: HumanLoopStatus | string;
+  HumanLoopStatus?: keyof typeof HumanLoopStatus | string;
 
   /**
    * <p>When Amazon Augmented AI created the human loop.</p>
@@ -340,10 +340,10 @@ export class ServiceQuotaExceededException extends __BaseException {
 /**
  * @public
  */
-export enum ContentClassifier {
-  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
-}
+export const ContentClassifier = {
+  FREE_OF_ADULT_CONTENT: "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: "FreeOfPersonallyIdentifiableInformation",
+};
 
 /**
  * @public
@@ -354,7 +354,7 @@ export interface HumanLoopDataAttributes {
    * <p>Declares that your content is free of personally identifiable information or adult content.</p>
    *          <p>Amazon SageMaker can restrict the Amazon Mechanical Turk workers who can view your task based on this information.</p>
    */
-  ContentClassifiers: (ContentClassifier | string)[] | undefined;
+  ContentClassifiers: (keyof typeof ContentClassifier | string)[] | undefined;
 }
 
 /**

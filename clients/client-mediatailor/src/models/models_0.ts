@@ -6,10 +6,10 @@ import { MediaTailorServiceException as __BaseException } from "./MediaTailorSer
 /**
  * @public
  */
-export enum MessageType {
-  SPLICE_INSERT = "SPLICE_INSERT",
-  TIME_SIGNAL = "TIME_SIGNAL",
-}
+export const MessageType = {
+  SPLICE_INSERT: "SPLICE_INSERT",
+  TIME_SIGNAL: "TIME_SIGNAL",
+};
 
 /**
  * @public
@@ -123,7 +123,7 @@ export interface AdBreak {
   /**
    * <p>The SCTE-35 ad insertion type. Accepted value: <code>SPLICE_INSERT</code>, <code>TIME_SIGNAL</code>.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: keyof typeof MessageType | string;
 
   /**
    * <p>How long (in milliseconds) after the beginning of the program that an ad starts. This value must fall within 100ms of a segment boundary, otherwise the ad break will be skipped.</p>
@@ -182,9 +182,9 @@ export interface Alert {
 /**
  * @public
  */
-export enum Operator {
-  EQUALS = "EQUALS",
-}
+export const Operator = {
+  EQUALS: "EQUALS",
+};
 
 /**
  * @public
@@ -202,15 +202,15 @@ export interface AvailMatchingCriteria {
   /**
    * <p>For the <code>DynamicVariable</code> specified in <code>AvailMatchingCriteria</code>, the Operator that is used for the comparison.</p>
    */
-  Operator: Operator | string | undefined;
+  Operator: keyof typeof Operator | string | undefined;
 }
 
 /**
  * @public
  */
-export enum LogType {
-  AS_RUN = "AS_RUN",
-}
+export const LogType = {
+  AS_RUN: "AS_RUN",
+};
 
 /**
  * @public
@@ -220,7 +220,7 @@ export interface LogConfigurationForChannel {
   /**
    * <p>The log types.</p>
    */
-  LogTypes?: (LogType | string)[];
+  LogTypes?: (keyof typeof LogType | string)[];
 }
 
 /**
@@ -361,10 +361,10 @@ export interface Channel {
 /**
  * @public
  */
-export enum Type {
-  DASH = "DASH",
-  HLS = "HLS",
-}
+export const Type = {
+  DASH: "DASH",
+  HLS: "HLS",
+};
 
 /**
  * @public
@@ -384,7 +384,7 @@ export interface HttpPackageConfiguration {
   /**
    * <p>The streaming protocol for this package configuration. Supported values are <code>HLS</code> and <code>DASH</code>.</p>
    */
-  Type: Type | string | undefined;
+  Type: keyof typeof Type | string | undefined;
 }
 
 /**
@@ -431,10 +431,10 @@ export interface LiveSource {
 /**
  * @public
  */
-export enum Mode {
-  BEHIND_LIVE_EDGE = "BEHIND_LIVE_EDGE",
-  OFF = "OFF",
-}
+export const Mode = {
+  BEHIND_LIVE_EDGE: "BEHIND_LIVE_EDGE",
+  OFF: "OFF",
+};
 
 /**
  * @public
@@ -444,7 +444,7 @@ export interface AvailSuppression {
   /**
    * <p>Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to <code>BEHIND_LIVE_EDGE</code>, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.</p>
    */
-  Mode?: Mode | string;
+  Mode?: keyof typeof Mode | string;
 
   /**
    * <p>A live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync with the live edge, and MediaTailor won't fill any ad breaks on or behind the live edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill ad breaks on or behind 45 minutes behind the live edge.</p>
@@ -487,10 +487,10 @@ export interface CdnConfiguration {
 /**
  * @public
  */
-export enum OriginManifestType {
-  MULTI_PERIOD = "MULTI_PERIOD",
-  SINGLE_PERIOD = "SINGLE_PERIOD",
-}
+export const OriginManifestType = {
+  MULTI_PERIOD: "MULTI_PERIOD",
+  SINGLE_PERIOD: "SINGLE_PERIOD",
+};
 
 /**
  * @public
@@ -510,7 +510,7 @@ export interface DashConfiguration {
   /**
    * <p>The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to <code>SINGLE_PERIOD</code>. The default setting is <code>MULTI_PERIOD</code>. For multi-period manifests, omit this setting or set it to <code>MULTI_PERIOD</code>.</p>
    */
-  OriginManifestType?: OriginManifestType | string;
+  OriginManifestType?: keyof typeof OriginManifestType | string;
 }
 
 /**
@@ -786,10 +786,10 @@ export interface ScheduleAdBreak {
 /**
  * @public
  */
-export enum ScheduleEntryType {
-  FILLER_SLATE = "FILLER_SLATE",
-  PROGRAM = "PROGRAM",
-}
+export const ScheduleEntryType = {
+  FILLER_SLATE: "FILLER_SLATE",
+  PROGRAM: "PROGRAM",
+};
 
 /**
  * @public
@@ -834,7 +834,7 @@ export interface ScheduleEntry {
   /**
    * <p>The type of schedule entry.</p>
    */
-  ScheduleEntryType?: ScheduleEntryType | string;
+  ScheduleEntryType?: keyof typeof ScheduleEntryType | string;
 
   /**
    * <p>The name of the source location.</p>
@@ -866,10 +866,10 @@ export interface SegmentDeliveryConfiguration {
 /**
  * @public
  */
-export enum AccessType {
-  S3_SIGV4 = "S3_SIGV4",
-  SECRETS_MANAGER_ACCESS_TOKEN = "SECRETS_MANAGER_ACCESS_TOKEN",
-}
+export const AccessType = {
+  S3_SIGV4: "S3_SIGV4",
+  SECRETS_MANAGER_ACCESS_TOKEN: "SECRETS_MANAGER_ACCESS_TOKEN",
+};
 
 /**
  * @public
@@ -906,7 +906,7 @@ export interface AccessConfiguration {
    *          <p>• The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.</p>
    *          <p>• The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.</p>
    */
-  AccessType?: AccessType | string;
+  AccessType?: keyof typeof AccessType | string;
 
   /**
    * <p>AWS Secrets Manager access token configuration parameters.</p>
@@ -1117,7 +1117,7 @@ export interface ConfigureLogsForChannelRequest {
   /**
    * <p>The types of logs to collect.</p>
    */
-  LogTypes: (LogType | string)[] | undefined;
+  LogTypes: (keyof typeof LogType | string)[] | undefined;
 }
 
 /**
@@ -1132,7 +1132,7 @@ export interface ConfigureLogsForChannelResponse {
   /**
    * <p>The types of logs collected.</p>
    */
-  LogTypes?: (LogType | string)[];
+  LogTypes?: (keyof typeof LogType | string)[];
 }
 
 /**
@@ -1164,18 +1164,18 @@ export interface RequestOutputItem {
 /**
  * @public
  */
-export enum PlaybackMode {
-  LINEAR = "LINEAR",
-  LOOP = "LOOP",
-}
+export const PlaybackMode = {
+  LINEAR: "LINEAR",
+  LOOP: "LOOP",
+};
 
 /**
  * @public
  */
-export enum Tier {
-  BASIC = "BASIC",
-  STANDARD = "STANDARD",
-}
+export const Tier = {
+  BASIC: "BASIC",
+  STANDARD: "STANDARD",
+};
 
 /**
  * @public
@@ -1205,7 +1205,7 @@ export interface CreateChannelRequest {
    *          <p>
    *             <code>LOOP</code> - The programs in the schedule play back-to-back in an endless loop. When the last program in the schedule stops playing, playback loops back to the first program in the schedule.</p>
    */
-  PlaybackMode: PlaybackMode | string | undefined;
+  PlaybackMode: keyof typeof PlaybackMode | string | undefined;
 
   /**
    * <p>The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
@@ -1215,16 +1215,16 @@ export interface CreateChannelRequest {
   /**
    * <p>The tier of the channel.</p>
    */
-  Tier?: Tier | string;
+  Tier?: keyof typeof Tier | string;
 }
 
 /**
  * @public
  */
-export enum ChannelState {
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+export const ChannelState = {
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -1243,7 +1243,7 @@ export interface CreateChannelResponse {
   /**
    * <p>Indicates whether the channel is in a running state or not.</p>
    */
-  ChannelState?: ChannelState | string;
+  ChannelState?: keyof typeof ChannelState | string;
 
   /**
    * <p>The timestamp of when the channel was created.</p>
@@ -1323,7 +1323,7 @@ export interface DescribeChannelResponse {
   /**
    * <p>Indicates whether the channel is in a running state or not.</p>
    */
-  ChannelState?: ChannelState | string;
+  ChannelState?: keyof typeof ChannelState | string;
 
   /**
    * <p>The timestamp of when the channel was created.</p>
@@ -1453,10 +1453,10 @@ export interface ClipRange {
 /**
  * @public
  */
-export enum RelativePosition {
-  AFTER_PROGRAM = "AFTER_PROGRAM",
-  BEFORE_PROGRAM = "BEFORE_PROGRAM",
-}
+export const RelativePosition = {
+  AFTER_PROGRAM: "AFTER_PROGRAM",
+  BEFORE_PROGRAM: "BEFORE_PROGRAM",
+};
 
 /**
  * @public
@@ -1471,7 +1471,7 @@ export interface Transition {
   /**
    * <p>The position where this program will be inserted relative to the <code>RelativePosition</code>.</p>
    */
-  RelativePosition: RelativePosition | string | undefined;
+  RelativePosition: keyof typeof RelativePosition | string | undefined;
 
   /**
    * <p>The name of the program that this program will be inserted next to, as defined by <code>RelativePosition</code>.</p>
@@ -1894,7 +1894,7 @@ export interface UpdateChannelResponse {
   /**
    * <p>Returns the state whether the channel is running or not.</p>
    */
-  ChannelState?: ChannelState | string;
+  ChannelState?: keyof typeof ChannelState | string;
 
   /**
    * <p>The timestamp of when the channel was created.</p>
@@ -2264,7 +2264,7 @@ export interface DashConfigurationForPut {
   /**
    * <p>The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to <code>SINGLE_PERIOD</code>. The default setting is <code>MULTI_PERIOD</code>. For multi-period manifests, omit this setting or set it to <code>MULTI_PERIOD</code>.</p>
    */
-  OriginManifestType?: OriginManifestType | string;
+  OriginManifestType?: keyof typeof OriginManifestType | string;
 }
 
 /**

@@ -354,7 +354,7 @@ export interface AnalysisOptions {
   /**
    * <p>The level of algorithmic stemming to perform: <code>none</code>, <code>minimal</code>, <code>light</code>, or <code>full</code>. The available levels vary depending on the language. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings" target="_blank">Language Specific Text Processing Settings</a> in the <i>Amazon CloudSearch Developer Guide</i> </p>
    */
-  AlgorithmicStemming?: AlgorithmicStemming | string;
+  AlgorithmicStemming?: keyof typeof AlgorithmicStemming | string;
 }
 
 /**
@@ -411,7 +411,7 @@ export interface AnalysisScheme {
   /**
    * <p>An <a href="http://tools.ietf.org/html/rfc4646" target="_blank">IETF RFC 4646</a> language code or <code>mul</code>  for multiple languages.</p>
    */
-  AnalysisSchemeLanguage: AnalysisSchemeLanguage | string | undefined;
+  AnalysisSchemeLanguage: keyof typeof AnalysisSchemeLanguage | string | undefined;
 
   /**
    * <p>Synonyms, stopwords, and stemming options for an analysis scheme. Includes tokenization dictionary for Japanese.</p>
@@ -468,7 +468,7 @@ export interface OptionStatus {
    *     <li><code>FailedToValidate</code>: the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.</li>
    *   </ul>
    */
-  State: OptionState | string | undefined;
+  State: keyof typeof OptionState | string | undefined;
 
   /**
    * <p>Indicates that the option will be deleted once processing is complete.</p>
@@ -1059,7 +1059,7 @@ export interface IndexField {
   /**
    * <p>The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html" target="_blank">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    */
-  IndexFieldType: IndexFieldType | string | undefined;
+  IndexFieldType: keyof typeof IndexFieldType | string | undefined;
 
   /**
    * <p>Options for a 64-bit signed integer field.  Present if <code>IndexFieldType</code> specifies the field is of type <code>int</code>. All options are enabled by default.</p>
@@ -1179,7 +1179,7 @@ export interface DocumentSuggesterOptions {
   /**
    * <p>The level of fuzziness allowed when suggesting matches for a string: <code>none</code>, <code>low</code>, or <code>high</code>. With none, the specified string is treated as an exact prefix. With low, suggestions must differ from the specified string by no more than one character. With high, suggestions can differ by up to two characters. The default is none. </p>
    */
-  FuzzyMatching?: SuggesterFuzzyMatching | string;
+  FuzzyMatching?: keyof typeof SuggesterFuzzyMatching | string;
 
   /**
    * <p>An expression that computes a score for each suggestion to control how they are sorted. The scores are rounded to the nearest
@@ -1507,10 +1507,10 @@ export interface DescribeDomainEndpointOptionsRequest {
 /**
  * @public
  */
-export enum TLSSecurityPolicy {
-  POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
-  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07",
-}
+export const TLSSecurityPolicy = {
+  POLICY_MIN_TLS_1_0_2019_07: "Policy-Min-TLS-1-0-2019-07",
+  POLICY_MIN_TLS_1_2_2019_07: "Policy-Min-TLS-1-2-2019-07",
+};
 
 /**
  * @public
@@ -1525,7 +1525,7 @@ export interface DomainEndpointOptions {
   /**
    * <p>The minimum required TLS version</p>
    */
-  TLSSecurityPolicy?: TLSSecurityPolicy | string;
+  TLSSecurityPolicy?: keyof typeof TLSSecurityPolicy | string;
 }
 
 /**
@@ -1683,7 +1683,7 @@ export interface ScalingParameters {
   /**
    * <p>The instance type that you want to preconfigure for your domain. For example, <code>search.m1.small</code>.</p>
    */
-  DesiredInstanceType?: PartitionInstanceType | string;
+  DesiredInstanceType?: keyof typeof PartitionInstanceType | string;
 
   /**
    * <p>The number of replicas you want to preconfigure for each index partition.</p>

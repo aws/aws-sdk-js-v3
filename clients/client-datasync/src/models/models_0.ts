@@ -6,10 +6,10 @@ import { DataSyncServiceException as __BaseException } from "./DataSyncServiceEx
 /**
  * @public
  */
-export enum AgentStatus {
-  OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
-}
+export const AgentStatus = {
+  OFFLINE: "OFFLINE",
+  ONLINE: "ONLINE",
+};
 
 /**
  * @public
@@ -30,16 +30,16 @@ export interface AgentListEntry {
   /**
    * <p>The status of an agent. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/understand-agent-statuses.html">DataSync agent statuses</a>.</p>
    */
-  Status?: AgentStatus | string;
+  Status?: keyof typeof AgentStatus | string;
 }
 
 /**
  * @public
  */
-export enum Atime {
-  BEST_EFFORT = "BEST_EFFORT",
-  NONE = "NONE",
-}
+export const Atime = {
+  BEST_EFFORT: "BEST_EFFORT",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -225,10 +225,10 @@ export interface Ec2Config {
 /**
  * @public
  */
-export enum EfsInTransitEncryption {
-  NONE = "NONE",
-  TLS1_2 = "TLS1_2",
-}
+export const EfsInTransitEncryption = {
+  NONE: "NONE",
+  TLS1_2: "TLS1_2",
+};
 
 /**
  * @public
@@ -279,7 +279,7 @@ export interface CreateLocationEfsRequest {
    *       role using <code>FileSystemAccessRoleArn</code>, you must set this parameter to
    *         <code>TLS1_2</code>.</p>
    */
-  InTransitEncryption?: EfsInTransitEncryption | string;
+  InTransitEncryption?: keyof typeof EfsInTransitEncryption | string;
 }
 
 /**
@@ -333,12 +333,12 @@ export interface CreateLocationFsxLustreResponse {
 /**
  * @public
  */
-export enum NfsVersion {
-  AUTOMATIC = "AUTOMATIC",
-  NFS3 = "NFS3",
-  NFS4_0 = "NFS4_0",
-  NFS4_1 = "NFS4_1",
-}
+export const NfsVersion = {
+  AUTOMATIC: "AUTOMATIC",
+  NFS3: "NFS3",
+  NFS4_0: "NFS4_0",
+  NFS4_1: "NFS4_1",
+};
 
 /**
  * @public
@@ -374,7 +374,7 @@ export interface NfsMountOptions {
    *             <p>DataSync currently only supports NFS version 3 with Amazon FSx for NetApp ONTAP locations.</p>
    *          </note>
    */
-  Version?: NfsVersion | string;
+  Version?: keyof typeof NfsVersion | string;
 }
 
 /**
@@ -391,13 +391,13 @@ export interface FsxProtocolNfs {
 /**
  * @public
  */
-export enum SmbVersion {
-  AUTOMATIC = "AUTOMATIC",
-  SMB1 = "SMB1",
-  SMB2 = "SMB2",
-  SMB2_0 = "SMB2_0",
-  SMB3 = "SMB3",
-}
+export const SmbVersion = {
+  AUTOMATIC: "AUTOMATIC",
+  SMB1: "SMB1",
+  SMB2: "SMB2",
+  SMB2_0: "SMB2_0",
+  SMB3: "SMB3",
+};
 
 /**
  * @public
@@ -441,7 +441,7 @@ export interface SmbMountOptions {
    *             </li>
    *          </ul>
    */
-  Version?: SmbVersion | string;
+  Version?: keyof typeof SmbVersion | string;
 }
 
 /**
@@ -705,10 +705,10 @@ export interface CreateLocationFsxWindowsResponse {
 /**
  * @public
  */
-export enum HdfsAuthenticationType {
-  KERBEROS = "KERBEROS",
-  SIMPLE = "SIMPLE",
-}
+export const HdfsAuthenticationType = {
+  KERBEROS: "KERBEROS",
+  SIMPLE: "SIMPLE",
+};
 
 /**
  * @public
@@ -734,22 +734,22 @@ export interface HdfsNameNode {
 /**
  * @public
  */
-export enum HdfsDataTransferProtection {
-  AUTHENTICATION = "AUTHENTICATION",
-  DISABLED = "DISABLED",
-  INTEGRITY = "INTEGRITY",
-  PRIVACY = "PRIVACY",
-}
+export const HdfsDataTransferProtection = {
+  AUTHENTICATION: "AUTHENTICATION",
+  DISABLED: "DISABLED",
+  INTEGRITY: "INTEGRITY",
+  PRIVACY: "PRIVACY",
+};
 
 /**
  * @public
  */
-export enum HdfsRpcProtection {
-  AUTHENTICATION = "AUTHENTICATION",
-  DISABLED = "DISABLED",
-  INTEGRITY = "INTEGRITY",
-  PRIVACY = "PRIVACY",
-}
+export const HdfsRpcProtection = {
+  AUTHENTICATION: "AUTHENTICATION",
+  DISABLED: "DISABLED",
+  INTEGRITY: "INTEGRITY",
+  PRIVACY: "PRIVACY",
+};
 
 /**
  * @public
@@ -763,14 +763,14 @@ export interface QopConfiguration {
    *       your <code>hadoop.rpc.protection</code> setting in your <code>core-site.xml</code> file on
    *       your Hadoop cluster.</p>
    */
-  RpcProtection?: HdfsRpcProtection | string;
+  RpcProtection?: keyof typeof HdfsRpcProtection | string;
 
   /**
    * <p>The data transfer protection setting configured on the HDFS cluster. This setting
    *       corresponds to your <code>dfs.data.transfer.protection</code> setting in the
    *         <code>hdfs-site.xml</code> file on your Hadoop cluster.</p>
    */
-  DataTransferProtection?: HdfsDataTransferProtection | string;
+  DataTransferProtection?: keyof typeof HdfsDataTransferProtection | string;
 }
 
 /**
@@ -821,7 +821,7 @@ export interface CreateLocationHdfsRequest {
   /**
    * <p>The type of authentication used to determine the identity of the user. </p>
    */
-  AuthenticationType: HdfsAuthenticationType | string | undefined;
+  AuthenticationType: keyof typeof HdfsAuthenticationType | string | undefined;
 
   /**
    * <p>The user name used to identify the client on the host operating system. </p>
@@ -972,10 +972,10 @@ export interface CreateLocationNfsResponse {
 /**
  * @public
  */
-export enum ObjectStorageServerProtocol {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-}
+export const ObjectStorageServerProtocol = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+};
 
 /**
  * @public
@@ -996,7 +996,7 @@ export interface CreateLocationObjectStorageRequest {
   /**
    * <p>Specifies the protocol that your object storage server uses to communicate.</p>
    */
-  ServerProtocol?: ObjectStorageServerProtocol | string;
+  ServerProtocol?: keyof typeof ObjectStorageServerProtocol | string;
 
   /**
    * <p>Specifies the object prefix for your object storage server. If this is a source location, DataSync only copies objects with this prefix. If this is a destination location, DataSync writes all objects with this prefix. </p>
@@ -1065,16 +1065,16 @@ export interface S3Config {
 /**
  * @public
  */
-export enum S3StorageClass {
-  DEEP_ARCHIVE = "DEEP_ARCHIVE",
-  GLACIER = "GLACIER",
-  GLACIER_INSTANT_RETRIEVAL = "GLACIER_INSTANT_RETRIEVAL",
-  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
-  ONEZONE_IA = "ONEZONE_IA",
-  OUTPOSTS = "OUTPOSTS",
-  STANDARD = "STANDARD",
-  STANDARD_IA = "STANDARD_IA",
-}
+export const S3StorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  GLACIER_INSTANT_RETRIEVAL: "GLACIER_INSTANT_RETRIEVAL",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  OUTPOSTS: "OUTPOSTS",
+  STANDARD: "STANDARD",
+  STANDARD_IA: "STANDARD_IA",
+};
 
 /**
  * @public
@@ -1100,7 +1100,7 @@ export interface CreateLocationS3Request {
    *          <p>For more information about S3 storage classes, see <a href="http://aws.amazon.com/s3/storage-classes/">Amazon S3 Storage Classes</a>. Some storage classes have behaviors that
    *       can affect your S3 storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when working with S3 storage classes in DataSync</a>.</p>
    */
-  S3StorageClass?: S3StorageClass | string;
+  S3StorageClass?: keyof typeof S3StorageClass | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role used to access
@@ -1215,9 +1215,9 @@ export interface CreateLocationSmbResponse {
 /**
  * @public
  */
-export enum FilterType {
-  SIMPLE_PATTERN = "SIMPLE_PATTERN",
-}
+export const FilterType = {
+  SIMPLE_PATTERN: "SIMPLE_PATTERN",
+};
 
 /**
  * @public
@@ -1229,7 +1229,7 @@ export interface FilterRule {
    * <p>The type of filter rule to apply. DataSync only supports the SIMPLE_PATTERN rule
    *       type.</p>
    */
-  FilterType?: FilterType | string;
+  FilterType?: keyof typeof FilterType | string;
 
   /**
    * <p>A single filter string that consists of the patterns to include or exclude. The patterns
@@ -1244,113 +1244,113 @@ export interface FilterRule {
 /**
  * @public
  */
-export enum Gid {
-  BOTH = "BOTH",
-  INT_VALUE = "INT_VALUE",
-  NAME = "NAME",
-  NONE = "NONE",
-}
+export const Gid = {
+  BOTH: "BOTH",
+  INT_VALUE: "INT_VALUE",
+  NAME: "NAME",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum LogLevel {
-  BASIC = "BASIC",
-  OFF = "OFF",
-  TRANSFER = "TRANSFER",
-}
+export const LogLevel = {
+  BASIC: "BASIC",
+  OFF: "OFF",
+  TRANSFER: "TRANSFER",
+};
 
 /**
  * @public
  */
-export enum Mtime {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE",
-}
+export const Mtime = {
+  NONE: "NONE",
+  PRESERVE: "PRESERVE",
+};
 
 /**
  * @public
  */
-export enum ObjectTags {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE",
-}
+export const ObjectTags = {
+  NONE: "NONE",
+  PRESERVE: "PRESERVE",
+};
 
 /**
  * @public
  */
-export enum OverwriteMode {
-  ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
-}
+export const OverwriteMode = {
+  ALWAYS: "ALWAYS",
+  NEVER: "NEVER",
+};
 
 /**
  * @public
  */
-export enum PosixPermissions {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE",
-}
+export const PosixPermissions = {
+  NONE: "NONE",
+  PRESERVE: "PRESERVE",
+};
 
 /**
  * @public
  */
-export enum PreserveDeletedFiles {
-  PRESERVE = "PRESERVE",
-  REMOVE = "REMOVE",
-}
+export const PreserveDeletedFiles = {
+  PRESERVE: "PRESERVE",
+  REMOVE: "REMOVE",
+};
 
 /**
  * @public
  */
-export enum PreserveDevices {
-  NONE = "NONE",
-  PRESERVE = "PRESERVE",
-}
+export const PreserveDevices = {
+  NONE: "NONE",
+  PRESERVE: "PRESERVE",
+};
 
 /**
  * @public
  */
-export enum SmbSecurityDescriptorCopyFlags {
-  NONE = "NONE",
-  OWNER_DACL = "OWNER_DACL",
-  OWNER_DACL_SACL = "OWNER_DACL_SACL",
-}
+export const SmbSecurityDescriptorCopyFlags = {
+  NONE: "NONE",
+  OWNER_DACL: "OWNER_DACL",
+  OWNER_DACL_SACL: "OWNER_DACL_SACL",
+};
 
 /**
  * @public
  */
-export enum TaskQueueing {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const TaskQueueing = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum TransferMode {
-  ALL = "ALL",
-  CHANGED = "CHANGED",
-}
+export const TransferMode = {
+  ALL: "ALL",
+  CHANGED: "CHANGED",
+};
 
 /**
  * @public
  */
-export enum Uid {
-  BOTH = "BOTH",
-  INT_VALUE = "INT_VALUE",
-  NAME = "NAME",
-  NONE = "NONE",
-}
+export const Uid = {
+  BOTH: "BOTH",
+  INT_VALUE: "INT_VALUE",
+  NAME: "NAME",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum VerifyMode {
-  NONE = "NONE",
-  ONLY_FILES_TRANSFERRED = "ONLY_FILES_TRANSFERRED",
-  POINT_IN_TIME_CONSISTENT = "POINT_IN_TIME_CONSISTENT",
-}
+export const VerifyMode = {
+  NONE: "NONE",
+  ONLY_FILES_TRANSFERRED: "ONLY_FILES_TRANSFERRED",
+  POINT_IN_TIME_CONSISTENT: "POINT_IN_TIME_CONSISTENT",
+};
 
 /**
  * @public
@@ -1387,7 +1387,7 @@ export interface Options {
    *       the transfer. All data transmissions are still integrity-checked with checksum verification
    *       during the transfer.</p>
    */
-  VerifyMode?: VerifyMode | string;
+  VerifyMode?: keyof typeof VerifyMode | string;
 
   /**
    * <p>Specifies whether data at the destination location should be overwritten or preserved. If
@@ -1399,7 +1399,7 @@ export interface Options {
    *       storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
    *         when working with Amazon S3 storage classes in DataSync</a>.</p>
    */
-  OverwriteMode?: OverwriteMode | string;
+  OverwriteMode?: keyof typeof OverwriteMode | string;
 
   /**
    * <p>Specifies whether to preserve metadata indicating the last time a file was read or
@@ -1423,7 +1423,7 @@ export interface Options {
    *           <code>NONE</code>. </p>
    *          </note>
    */
-  Atime?: Atime | string;
+  Atime?: keyof typeof Atime | string;
 
   /**
    * <p>Specifies whether to preserve metadata indicating the last time that a file was written
@@ -1442,7 +1442,7 @@ export interface Options {
    *         to <code>NONE</code>. </p>
    *          </note>
    */
-  Mtime?: Mtime | string;
+  Mtime?: keyof typeof Mtime | string;
 
   /**
    * <p>Specifies the POSIX user ID (UID) of the file's owner.</p>
@@ -1454,7 +1454,7 @@ export interface Options {
    *          <p>
    *             <code>NONE</code>: Ignore UID and GID. </p>
    */
-  Uid?: Uid | string;
+  Uid?: keyof typeof Uid | string;
 
   /**
    * <p>Specifies the POSIX group ID (GID) of the file's owners.</p>
@@ -1466,7 +1466,7 @@ export interface Options {
    *          <p>
    *             <code>NONE</code>: Ignore UID and GID.</p>
    */
-  Gid?: Gid | string;
+  Gid?: keyof typeof Gid | string;
 
   /**
    * <p>Specifies whether files in the destination location that don't exist in the source
@@ -1486,7 +1486,7 @@ export interface Options {
    *           <code>TransferMode</code> to <code>ALL</code>. When you transfer all data, DataSync doesn't scan your destination location and doesn't know what to delete.</p>
    *          </note>
    */
-  PreserveDeletedFiles?: PreserveDeletedFiles | string;
+  PreserveDeletedFiles?: keyof typeof PreserveDeletedFiles | string;
 
   /**
    * <p>Specifies whether DataSync should preserve the metadata of block and
@@ -1505,7 +1505,7 @@ export interface Options {
    *             <code>PRESERVE</code>: Preserve character and block device metadata. This option
    *       currently isn't supported for Amazon EFS. </p>
    */
-  PreserveDevices?: PreserveDevices | string;
+  PreserveDevices?: keyof typeof PreserveDevices | string;
 
   /**
    * <p>Specifies which users or groups can access a file for a specific purpose such as reading,
@@ -1521,7 +1521,7 @@ export interface Options {
    *             <p>DataSync can preserve extant permissions of a source location.</p>
    *          </note>
    */
-  PosixPermissions?: PosixPermissions | string;
+  PosixPermissions?: keyof typeof PosixPermissions | string;
 
   /**
    * <p>Limits the bandwidth used by a DataSync task. For example, if you want
@@ -1537,7 +1537,7 @@ export interface Options {
    *       series. For more information, see
    *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#queue-task-execution">Queueing task executions</a>.</p>
    */
-  TaskQueueing?: TaskQueueing | string;
+  TaskQueueing?: keyof typeof TaskQueueing | string;
 
   /**
    * <p>Specifies the type of logs that DataSync publishes to a Amazon CloudWatch Logs log
@@ -1547,7 +1547,7 @@ export interface Options {
    *         <code>TRANSFER</code> publishes logs for every file or object that is transferred and
    *       integrity checked.</p>
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 
   /**
    * <p>Determines whether DataSync transfers only the data and metadata that differ
@@ -1560,7 +1560,7 @@ export interface Options {
    *             <code>ALL</code>: DataSync copies all source location content to the destination
    *       (without comparing what's in the destination).</p>
    */
-  TransferMode?: TransferMode | string;
+  TransferMode?: keyof typeof TransferMode | string;
 
   /**
    * <p>Specifies which components of the SMB security descriptor are copied from source to
@@ -1606,7 +1606,7 @@ export interface Options {
    *       objects are owned by the user that was provided for accessing the destination location. DACLs
    *       and SACLs are set based on the destination server’s configuration. </p>
    */
-  SecurityDescriptorCopyFlags?: SmbSecurityDescriptorCopyFlags | string;
+  SecurityDescriptorCopyFlags?: keyof typeof SmbSecurityDescriptorCopyFlags | string;
 
   /**
    * <p>Specifies whether object tags are preserved when transferring between object storage
@@ -1615,7 +1615,7 @@ export interface Options {
    *          <p>Default Value: <code>PRESERVE</code>
    *          </p>
    */
-  ObjectTags?: ObjectTags | string;
+  ObjectTags?: keyof typeof ObjectTags | string;
 }
 
 /**
@@ -1766,11 +1766,11 @@ export interface DescribeAgentRequest {
 /**
  * @public
  */
-export enum EndpointType {
-  FIPS = "FIPS",
-  PRIVATE_LINK = "PRIVATE_LINK",
-  PUBLIC = "PUBLIC",
-}
+export const EndpointType = {
+  FIPS: "FIPS",
+  PRIVATE_LINK: "PRIVATE_LINK",
+  PUBLIC: "PUBLIC",
+};
 
 /**
  * @public
@@ -1827,7 +1827,7 @@ export interface DescribeAgentResponse {
    *       the issue that caused the unhealthy state is resolved, the agent returns to ONLINE
    *       status.</p>
    */
-  Status?: AgentStatus | string;
+  Status?: keyof typeof AgentStatus | string;
 
   /**
    * <p>The time that the agent last connected to DataSync.</p>
@@ -1843,7 +1843,7 @@ export interface DescribeAgentResponse {
    * <p>The type of endpoint that your agent is connected to. If the endpoint is a VPC endpoint,
    *       the agent is not accessible over the public internet. </p>
    */
-  EndpointType?: EndpointType | string;
+  EndpointType?: keyof typeof EndpointType | string;
 
   /**
    * <p>The subnet and the security group that DataSync used to access a VPC endpoint.</p>
@@ -1901,7 +1901,7 @@ export interface DescribeLocationEfsResponse {
    * <p>Describes whether DataSync uses Transport Layer Security (TLS) encryption when
    *       copying data to or from the Amazon EFS file system.</p>
    */
-  InTransitEncryption?: EfsInTransitEncryption | string;
+  InTransitEncryption?: keyof typeof EfsInTransitEncryption | string;
 }
 
 /**
@@ -2138,7 +2138,7 @@ export interface DescribeLocationHdfsResponse {
   /**
    * <p>The type of authentication used to determine the identity of the user. </p>
    */
-  AuthenticationType?: HdfsAuthenticationType | string;
+  AuthenticationType?: keyof typeof HdfsAuthenticationType | string;
 
   /**
    * <p>The user name used to identify the client on the host operating system. This parameter is
@@ -2247,7 +2247,7 @@ export interface DescribeLocationObjectStorageResponse {
   /**
    * <p>The protocol that your object storage system uses to communicate.</p>
    */
-  ServerProtocol?: ObjectStorageServerProtocol | string;
+  ServerProtocol?: keyof typeof ObjectStorageServerProtocol | string;
 
   /**
    * <p>The ARNs of the DataSync agents that can securely connect with your location.</p>
@@ -2298,7 +2298,7 @@ export interface DescribeLocationS3Response {
    *       classes have behaviors that can affect your S3 storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when
    *         working with S3 storage classes in DataSync</a>.</p>
    */
-  S3StorageClass?: S3StorageClass | string;
+  S3StorageClass?: keyof typeof S3StorageClass | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role used to access
@@ -2389,13 +2389,13 @@ export interface DescribeTaskRequest {
 /**
  * @public
  */
-export enum TaskStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const TaskStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  UNAVAILABLE: "UNAVAILABLE",
+};
 
 /**
  * @public
@@ -2412,7 +2412,7 @@ export interface DescribeTaskResponse {
    *          <p>For detailed information about task execution statuses, see Understanding
    *       Task Statuses in the <i>DataSync User Guide</i>.</p>
    */
-  Status?: TaskStatus | string;
+  Status?: keyof typeof TaskStatus | string;
 
   /**
    * <p>The name of the task that was described.</p>
@@ -2505,11 +2505,11 @@ export interface DescribeTaskExecutionRequest {
 /**
  * @public
  */
-export enum PhaseStatus {
-  ERROR = "ERROR",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-}
+export const PhaseStatus = {
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -2527,7 +2527,7 @@ export interface TaskExecutionResultDetail {
   /**
    * <p>The status of the PREPARING phase.</p>
    */
-  PrepareStatus?: PhaseStatus | string;
+  PrepareStatus?: keyof typeof PhaseStatus | string;
 
   /**
    * <p>The total time in milliseconds that DataSync took to transfer the file from the source to the destination location.</p>
@@ -2543,7 +2543,7 @@ export interface TaskExecutionResultDetail {
   /**
    * <p>The status of the TRANSFERRING phase.</p>
    */
-  TransferStatus?: PhaseStatus | string;
+  TransferStatus?: keyof typeof PhaseStatus | string;
 
   /**
    * <p>The total time in milliseconds that DataSync spent in the VERIFYING
@@ -2554,7 +2554,7 @@ export interface TaskExecutionResultDetail {
   /**
    * <p>The status of the VERIFYING phase.</p>
    */
-  VerifyStatus?: PhaseStatus | string;
+  VerifyStatus?: keyof typeof PhaseStatus | string;
 
   /**
    * <p>Errors that DataSync encountered during execution of the task. You can use this
@@ -2572,15 +2572,15 @@ export interface TaskExecutionResultDetail {
 /**
  * @public
  */
-export enum TaskExecutionStatus {
-  ERROR = "ERROR",
-  LAUNCHING = "LAUNCHING",
-  PREPARING = "PREPARING",
-  QUEUED = "QUEUED",
-  SUCCESS = "SUCCESS",
-  TRANSFERRING = "TRANSFERRING",
-  VERIFYING = "VERIFYING",
-}
+export const TaskExecutionStatus = {
+  ERROR: "ERROR",
+  LAUNCHING: "LAUNCHING",
+  PREPARING: "PREPARING",
+  QUEUED: "QUEUED",
+  SUCCESS: "SUCCESS",
+  TRANSFERRING: "TRANSFERRING",
+  VERIFYING: "VERIFYING",
+};
 
 /**
  * @public
@@ -2604,7 +2604,7 @@ export interface DescribeTaskExecutionResponse {
    *       Task Statuses in the <i>DataSync User Guide.</i>
    *          </p>
    */
-  Status?: TaskExecutionStatus | string;
+  Status?: keyof typeof TaskExecutionStatus | string;
 
   /**
    * <p>Configures your DataSync task settings. These options include how DataSync handles files, objects, and their associated metadata. You also can specify how
@@ -2721,27 +2721,27 @@ export interface ListAgentsResponse {
 /**
  * @public
  */
-export enum LocationFilterName {
-  CreationTime = "CreationTime",
-  LocationType = "LocationType",
-  LocationUri = "LocationUri",
-}
+export const LocationFilterName = {
+  CreationTime: "CreationTime",
+  LocationType: "LocationType",
+  LocationUri: "LocationUri",
+};
 
 /**
  * @public
  */
-export enum Operator {
-  BEGINS_WITH = "BeginsWith",
-  CONTAINS = "Contains",
-  EQ = "Equals",
-  GE = "GreaterThanOrEqual",
-  GT = "GreaterThan",
-  IN = "In",
-  LE = "LessThanOrEqual",
-  LT = "LessThan",
-  NE = "NotEquals",
-  NOT_CONTAINS = "NotContains",
-}
+export const Operator = {
+  BEGINS_WITH: "BeginsWith",
+  CONTAINS: "Contains",
+  EQ: "Equals",
+  GE: "GreaterThanOrEqual",
+  GT: "GreaterThan",
+  IN: "In",
+  LE: "LessThanOrEqual",
+  LT: "LessThan",
+  NE: "NotEquals",
+  NOT_CONTAINS: "NotContains",
+};
 
 /**
  * @public
@@ -2757,7 +2757,7 @@ export interface LocationFilter {
    * <p>The name of the filter being used. Each API call supports a list of filters that are available
    *       for it (for example, <code>LocationType</code> for <code>ListLocations</code>).</p>
    */
-  Name: LocationFilterName | string | undefined;
+  Name: keyof typeof LocationFilterName | string | undefined;
 
   /**
    * <p>The values that you want to filter for. For example, you might want to display only Amazon S3
@@ -2769,7 +2769,7 @@ export interface LocationFilter {
    * <p>The operator that is used to compare filter values (for example, <code>Equals</code> or
    *       <code>Contains</code>).</p>
    */
-  Operator: Operator | string | undefined;
+  Operator: keyof typeof Operator | string | undefined;
 }
 
 /**
@@ -2924,7 +2924,7 @@ export interface TaskExecutionListEntry {
   /**
    * <p>The status of a task execution.</p>
    */
-  Status?: TaskExecutionStatus | string;
+  Status?: keyof typeof TaskExecutionStatus | string;
 }
 
 /**
@@ -2947,10 +2947,10 @@ export interface ListTaskExecutionsResponse {
 /**
  * @public
  */
-export enum TaskFilterName {
-  CreationTime = "CreationTime",
-  LocationId = "LocationId",
-}
+export const TaskFilterName = {
+  CreationTime: "CreationTime",
+  LocationId: "LocationId",
+};
 
 /**
  * @public
@@ -2965,7 +2965,7 @@ export interface TaskFilter {
    * <p>The name of the filter being used. Each API call supports a list of filters that are available
    *       for it. For example, <code>LocationId</code> for <code>ListTasks</code>.</p>
    */
-  Name: TaskFilterName | string | undefined;
+  Name: keyof typeof TaskFilterName | string | undefined;
 
   /**
    * <p>The values that you want to filter for. For example, you might want to display only tasks
@@ -2977,7 +2977,7 @@ export interface TaskFilter {
    * <p>The operator that is used to compare filter values (for example, <code>Equals</code> or
    *       <code>Contains</code>).</p>
    */
-  Operator: Operator | string | undefined;
+  Operator: keyof typeof Operator | string | undefined;
 }
 
 /**
@@ -3021,7 +3021,7 @@ export interface TaskListEntry {
   /**
    * <p>The status of the task.</p>
    */
-  Status?: TaskStatus | string;
+  Status?: keyof typeof TaskStatus | string;
 
   /**
    * <p>The name of the task.</p>
@@ -3209,7 +3209,7 @@ export interface UpdateLocationHdfsRequest {
   /**
    * <p>The type of authentication used to determine the identity of the user. </p>
    */
-  AuthenticationType?: HdfsAuthenticationType | string;
+  AuthenticationType?: keyof typeof HdfsAuthenticationType | string;
 
   /**
    * <p>The user name used to identify the client on the host operating system.</p>
@@ -3313,7 +3313,7 @@ export interface UpdateLocationObjectStorageRequest {
   /**
    * <p>Specifies the protocol that your object storage server uses to communicate.</p>
    */
-  ServerProtocol?: ObjectStorageServerProtocol | string;
+  ServerProtocol?: keyof typeof ObjectStorageServerProtocol | string;
 
   /**
    * <p>Specifies the object prefix for your object storage server. If this is a source location,

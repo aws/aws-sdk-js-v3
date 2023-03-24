@@ -116,11 +116,11 @@ export interface CreateDatasetRequest {
 /**
  * @public
  */
-export enum DatasetStatus {
-  ACTIVE = "ACTIVE",
-  CREATED = "CREATED",
-  INGESTION_IN_PROGRESS = "INGESTION_IN_PROGRESS",
-}
+export const DatasetStatus = {
+  ACTIVE: "ACTIVE",
+  CREATED: "CREATED",
+  INGESTION_IN_PROGRESS: "INGESTION_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -139,7 +139,7 @@ export interface CreateDatasetResponse {
   /**
    * <p>Indicates the status of the <code>CreateDataset</code> operation. </p>
    */
-  Status?: DatasetStatus | string;
+  Status?: keyof typeof DatasetStatus | string;
 }
 
 /**
@@ -330,13 +330,13 @@ export interface InferenceOutputConfiguration {
 /**
  * @public
  */
-export enum DataUploadFrequency {
-  PT10M = "PT10M",
-  PT15M = "PT15M",
-  PT1H = "PT1H",
-  PT30M = "PT30M",
-  PT5M = "PT5M",
-}
+export const DataUploadFrequency = {
+  PT10M: "PT10M",
+  PT15M: "PT15M",
+  PT1H: "PT1H",
+  PT30M: "PT30M",
+  PT5M: "PT5M",
+};
 
 /**
  * @public
@@ -369,7 +369,7 @@ export interface CreateInferenceSchedulerRequest {
    *          minutes. This frequency also determines how often Amazon Lookout for Equipment runs inference on your data.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/understanding-inference-process.html">Understanding the inference process</a>.</p>
    */
-  DataUploadFrequency: DataUploadFrequency | string | undefined;
+  DataUploadFrequency: keyof typeof DataUploadFrequency | string | undefined;
 
   /**
    * <p>Specifies configuration information for the input data for the inference scheduler,
@@ -410,12 +410,12 @@ export interface CreateInferenceSchedulerRequest {
 /**
  * @public
  */
-export enum InferenceSchedulerStatus {
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const InferenceSchedulerStatus = {
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
@@ -434,7 +434,7 @@ export interface CreateInferenceSchedulerResponse {
   /**
    * <p>Indicates the status of the <code>CreateInferenceScheduler</code> operation. </p>
    */
-  Status?: InferenceSchedulerStatus | string;
+  Status?: keyof typeof InferenceSchedulerStatus | string;
 }
 
 /**
@@ -463,11 +463,11 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum LabelRating {
-  ANOMALY = "ANOMALY",
-  NEUTRAL = "NEUTRAL",
-  NO_ANOMALY = "NO_ANOMALY",
-}
+export const LabelRating = {
+  ANOMALY: "ANOMALY",
+  NEUTRAL: "NEUTRAL",
+  NO_ANOMALY: "NO_ANOMALY",
+};
 
 /**
  * @public
@@ -500,7 +500,7 @@ export interface CreateLabelRequest {
    * Indicates whether a labeled event represents an anomaly.
    * </p>
    */
-  Rating: LabelRating | string | undefined;
+  Rating: keyof typeof LabelRating | string | undefined;
 
   /**
    * <p>
@@ -603,19 +603,19 @@ export interface CreateLabelGroupResponse {
 /**
  * @public
  */
-export enum TargetSamplingRate {
-  PT10M = "PT10M",
-  PT10S = "PT10S",
-  PT15M = "PT15M",
-  PT15S = "PT15S",
-  PT1H = "PT1H",
-  PT1M = "PT1M",
-  PT1S = "PT1S",
-  PT30M = "PT30M",
-  PT30S = "PT30S",
-  PT5M = "PT5M",
-  PT5S = "PT5S",
-}
+export const TargetSamplingRate = {
+  PT10M: "PT10M",
+  PT10S: "PT10S",
+  PT15M: "PT15M",
+  PT15S: "PT15S",
+  PT1H: "PT1H",
+  PT1M: "PT1M",
+  PT1S: "PT1S",
+  PT30M: "PT30M",
+  PT30S: "PT30S",
+  PT5M: "PT5M",
+  PT5S: "PT5S",
+};
 
 /**
  * @public
@@ -642,7 +642,7 @@ export interface DataPreProcessingConfiguration {
    *          and the value for a 1 hour rate is <i>PT1H</i>
    *          </p>
    */
-  TargetSamplingRate?: TargetSamplingRate | string;
+  TargetSamplingRate?: keyof typeof TargetSamplingRate | string;
 }
 
 /**
@@ -778,11 +778,11 @@ export interface CreateModelRequest {
 /**
  * @public
  */
-export enum ModelStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export const ModelStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -796,7 +796,7 @@ export interface CreateModelResponse {
   /**
    * <p>Indicates the status of the <code>CreateModel</code> operation. </p>
    */
-  Status?: ModelStatus | string;
+  Status?: keyof typeof ModelStatus | string;
 }
 
 /**
@@ -1087,11 +1087,11 @@ export interface IngestionInputConfiguration {
 /**
  * @public
  */
-export enum IngestionJobStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export const IngestionJobStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -1128,7 +1128,7 @@ export interface DescribeDataIngestionJobResponse {
   /**
    * <p>Indicates the status of the <code>DataIngestionJob</code> operation. </p>
    */
-  Status?: IngestionJobStatus | string;
+  Status?: keyof typeof IngestionJobStatus | string;
 
   /**
    * <p>Specifies the reason for failure when a data ingestion job has failed. </p>
@@ -1209,7 +1209,7 @@ export interface DescribeDatasetResponse {
   /**
    * <p>Indicates the status of the dataset. </p>
    */
-  Status?: DatasetStatus | string;
+  Status?: keyof typeof DatasetStatus | string;
 
   /**
    * <p>A JSON description of the data that is in each time series dataset, including names,
@@ -1275,10 +1275,10 @@ export interface DescribeInferenceSchedulerRequest {
 /**
  * @public
  */
-export enum LatestInferenceResult {
-  ANOMALOUS = "ANOMALOUS",
-  NORMAL = "NORMAL",
-}
+export const LatestInferenceResult = {
+  ANOMALOUS: "ANOMALOUS",
+  NORMAL: "NORMAL",
+};
 
 /**
  * @public
@@ -1308,7 +1308,7 @@ export interface DescribeInferenceSchedulerResponse {
   /**
    * <p>Indicates the status of the inference scheduler. </p>
    */
-  Status?: InferenceSchedulerStatus | string;
+  Status?: keyof typeof InferenceSchedulerStatus | string;
 
   /**
    * <p> A period of time (in minutes) by which inference on the data is delayed after the data
@@ -1328,7 +1328,7 @@ export interface DescribeInferenceSchedulerResponse {
    *          5 minutes. This frequency also determines how often Amazon Lookout for Equipment starts a
    *          scheduled inference on your data. In this example, it starts once every 5 minutes. </p>
    */
-  DataUploadFrequency?: DataUploadFrequency | string;
+  DataUploadFrequency?: keyof typeof DataUploadFrequency | string;
 
   /**
    * <p>Specifies the time at which the inference scheduler was created. </p>
@@ -1368,7 +1368,7 @@ export interface DescribeInferenceSchedulerResponse {
    * <p>Indicates whether the latest execution for the inference scheduler was Anomalous
    *          (anomalous events found) or Normal (no anomalous events found).</p>
    */
-  LatestInferenceResult?: LatestInferenceResult | string;
+  LatestInferenceResult?: keyof typeof LatestInferenceResult | string;
 }
 
 /**
@@ -1434,7 +1434,7 @@ export interface DescribeLabelResponse {
    * Indicates whether a labeled event represents an anomaly.
    * </p>
    */
-  Rating?: LabelRating | string;
+  Rating?: keyof typeof LabelRating | string;
 
   /**
    * <p>
@@ -1612,7 +1612,7 @@ export interface DescribeModelResponse {
    * <p>Specifies the current status of the model being described. Status describes the status
    *          of the most recent action of the model. </p>
    */
-  Status?: ModelStatus | string;
+  Status?: keyof typeof ModelStatus | string;
 
   /**
    * <p>Indicates the time at which the training of the ML model began. </p>
@@ -1685,7 +1685,7 @@ export interface ListDataIngestionJobsRequest {
   /**
    * <p>Indicates the status of the data ingestion job. </p>
    */
-  Status?: IngestionJobStatus | string;
+  Status?: keyof typeof IngestionJobStatus | string;
 }
 
 /**
@@ -1718,7 +1718,7 @@ export interface DataIngestionJobSummary {
   /**
    * <p>Indicates the status of the data ingestion job. </p>
    */
-  Status?: IngestionJobStatus | string;
+  Status?: keyof typeof IngestionJobStatus | string;
 }
 
 /**
@@ -1778,7 +1778,7 @@ export interface DatasetSummary {
   /**
    * <p>Indicates the status of the dataset. </p>
    */
-  Status?: DatasetStatus | string;
+  Status?: keyof typeof DatasetStatus | string;
 
   /**
    * <p>The time at which the dataset was created in Amazon Lookout for Equipment. </p>
@@ -1895,11 +1895,11 @@ export interface ListInferenceEventsResponse {
 /**
  * @public
  */
-export enum InferenceExecutionStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export const InferenceExecutionStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -1936,7 +1936,7 @@ export interface ListInferenceExecutionsRequest {
   /**
    * <p>The status of the inference execution. </p>
    */
-  Status?: InferenceExecutionStatus | string;
+  Status?: keyof typeof InferenceExecutionStatus | string;
 }
 
 /**
@@ -2006,7 +2006,7 @@ export interface InferenceExecutionSummary {
   /**
    * <p>Indicates the status of the inference execution. </p>
    */
-  Status?: InferenceExecutionStatus | string;
+  Status?: keyof typeof InferenceExecutionStatus | string;
 
   /**
    * <p> Specifies the reason for failure when an inference execution has failed. </p>
@@ -2060,7 +2060,7 @@ export interface ListInferenceSchedulersRequest {
   /**
    * <p>Specifies the current status of the inference schedulers to list.</p>
    */
-  Status?: InferenceSchedulerStatus | string;
+  Status?: keyof typeof InferenceSchedulerStatus | string;
 }
 
 /**
@@ -2092,7 +2092,7 @@ export interface InferenceSchedulerSummary {
   /**
    * <p>Indicates the status of the inference scheduler. </p>
    */
-  Status?: InferenceSchedulerStatus | string;
+  Status?: keyof typeof InferenceSchedulerStatus | string;
 
   /**
    * <p>A period of time (in minutes) by which inference on the data is delayed after the data
@@ -2112,13 +2112,13 @@ export interface InferenceSchedulerSummary {
    *          This frequency also determines how often Amazon Lookout for Equipment starts a scheduled
    *          inference on your data. In this example, it starts once every 5 minutes. </p>
    */
-  DataUploadFrequency?: DataUploadFrequency | string;
+  DataUploadFrequency?: keyof typeof DataUploadFrequency | string;
 
   /**
    * <p>Indicates whether the latest execution for the inference scheduler was Anomalous
    *          (anomalous events found) or Normal (no anomalous events found).</p>
    */
-  LatestInferenceResult?: LatestInferenceResult | string;
+  LatestInferenceResult?: keyof typeof LatestInferenceResult | string;
 }
 
 /**
@@ -2320,7 +2320,7 @@ export interface LabelSummary {
    * Indicates whether a labeled event represents an anomaly.
    * </p>
    */
-  Rating?: LabelRating | string;
+  Rating?: keyof typeof LabelRating | string;
 
   /**
    * <p>
@@ -2382,7 +2382,7 @@ export interface ListModelsRequest {
   /**
    * <p>The status of the ML model. </p>
    */
-  Status?: ModelStatus | string;
+  Status?: keyof typeof ModelStatus | string;
 
   /**
    * <p>The beginning of the name of the ML models being listed. </p>
@@ -2424,7 +2424,7 @@ export interface ModelSummary {
   /**
    * <p>Indicates the status of the ML model. </p>
    */
-  Status?: ModelStatus | string;
+  Status?: keyof typeof ModelStatus | string;
 
   /**
    * <p>The time at which the specific model was created. </p>
@@ -2480,10 +2480,10 @@ export interface ListSensorStatisticsRequest {
 /**
  * @public
  */
-export enum StatisticalIssueStatus {
-  NO_ISSUE_DETECTED = "NO_ISSUE_DETECTED",
-  POTENTIAL_ISSUE_DETECTED = "POTENTIAL_ISSUE_DETECTED",
-}
+export const StatisticalIssueStatus = {
+  NO_ISSUE_DETECTED: "NO_ISSUE_DETECTED",
+  POTENTIAL_ISSUE_DETECTED: "POTENTIAL_ISSUE_DETECTED",
+};
 
 /**
  * @public
@@ -2494,7 +2494,7 @@ export interface CategoricalValues {
    * <p> Indicates whether there is a potential data issue related to categorical values.
    *       </p>
    */
-  Status: StatisticalIssueStatus | string | undefined;
+  Status: keyof typeof StatisticalIssueStatus | string | undefined;
 
   /**
    * <p> Indicates the number of categories in the data. </p>
@@ -2528,7 +2528,7 @@ export interface LargeTimestampGaps {
    * <p> Indicates whether there is a potential data issue related to large gaps in timestamps.
    *       </p>
    */
-  Status: StatisticalIssueStatus | string | undefined;
+  Status: keyof typeof StatisticalIssueStatus | string | undefined;
 
   /**
    * <p> Indicates the number of large timestamp gaps, if there are any. </p>
@@ -2544,11 +2544,11 @@ export interface LargeTimestampGaps {
 /**
  * @public
  */
-export enum Monotonicity {
-  DECREASING = "DECREASING",
-  INCREASING = "INCREASING",
-  STATIC = "STATIC",
-}
+export const Monotonicity = {
+  DECREASING: "DECREASING",
+  INCREASING: "INCREASING",
+  STATIC: "STATIC",
+};
 
 /**
  * @public
@@ -2559,12 +2559,12 @@ export interface MonotonicValues {
    * <p> Indicates whether there is a potential data issue related to having monotonic values.
    *       </p>
    */
-  Status: StatisticalIssueStatus | string | undefined;
+  Status: keyof typeof StatisticalIssueStatus | string | undefined;
 
   /**
    * <p> Indicates the monotonicity of values. Can be INCREASING, DECREASING, or STATIC. </p>
    */
-  Monotonicity?: Monotonicity | string;
+  Monotonicity?: keyof typeof Monotonicity | string;
 }
 
 /**
@@ -2576,7 +2576,7 @@ export interface MultipleOperatingModes {
    * <p> Indicates whether there is a potential data issue related to having multiple operating
    *          modes. </p>
    */
-  Status: StatisticalIssueStatus | string | undefined;
+  Status: keyof typeof StatisticalIssueStatus | string | undefined;
 }
 
 /**
@@ -2742,7 +2742,7 @@ export interface StartDataIngestionJobResponse {
   /**
    * <p>Indicates the status of the <code>StartDataIngestionJob</code> operation. </p>
    */
-  Status?: IngestionJobStatus | string;
+  Status?: keyof typeof IngestionJobStatus | string;
 }
 
 /**
@@ -2783,7 +2783,7 @@ export interface StartInferenceSchedulerResponse {
   /**
    * <p>Indicates the status of the inference scheduler. </p>
    */
-  Status?: InferenceSchedulerStatus | string;
+  Status?: keyof typeof InferenceSchedulerStatus | string;
 }
 
 /**
@@ -2824,7 +2824,7 @@ export interface StopInferenceSchedulerResponse {
   /**
    * <p>Indicates the status of the inference scheduler. </p>
    */
-  Status?: InferenceSchedulerStatus | string;
+  Status?: keyof typeof InferenceSchedulerStatus | string;
 }
 
 /**
@@ -2897,7 +2897,7 @@ export interface UpdateInferenceSchedulerRequest {
    *          minutes. This frequency also determines how often Amazon Lookout for Equipment starts a
    *          scheduled inference on your data. In this example, it starts once every 5 minutes. </p>
    */
-  DataUploadFrequency?: DataUploadFrequency | string;
+  DataUploadFrequency?: keyof typeof DataUploadFrequency | string;
 
   /**
    * <p> Specifies information for the input data for the inference scheduler, including

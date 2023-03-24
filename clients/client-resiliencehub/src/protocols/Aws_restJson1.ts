@@ -4939,13 +4939,16 @@ const serializeAws_restJson1ArnList = (input: string[], context: __SerdeContext)
 };
 
 const serializeAws_restJson1DisruptionPolicy = (input: Record<string, FailurePolicy>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [DisruptionType | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof DisruptionType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = serializeAws_restJson1FailurePolicy(value, context);
       return acc;
-    }
-    acc[key] = serializeAws_restJson1FailurePolicy(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1EksNamespaceList = (input: string[], context: __SerdeContext): any => {
@@ -5024,7 +5027,7 @@ const serializeAws_restJson1RecommendationIdList = (input: string[], context: __
 };
 
 const serializeAws_restJson1RenderRecommendationTypeList = (
-  input: (RenderRecommendationType | string)[],
+  input: (keyof typeof RenderRecommendationType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -5375,7 +5378,7 @@ const deserializeAws_restJson1AssessmentCompliance = (
   context: __SerdeContext
 ): Record<string, DisruptionCompliance> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, DisruptionCompliance>, [key, value]: [DisruptionType | string, any]) => {
+    (acc: Record<string, DisruptionCompliance>, [key, value]: [keyof typeof DisruptionType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -5495,7 +5498,7 @@ const deserializeAws_restJson1DisruptionPolicy = (
   context: __SerdeContext
 ): Record<string, FailurePolicy> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, FailurePolicy>, [key, value]: [DisruptionType | string, any]) => {
+    (acc: Record<string, FailurePolicy>, [key, value]: [keyof typeof DisruptionType | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -5510,13 +5513,16 @@ const deserializeAws_restJson1DisruptionResiliencyScore = (
   output: any,
   context: __SerdeContext
 ): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [DisruptionType | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, number>, [key, value]: [keyof typeof DisruptionType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __limitedParseDouble(value) as any;
       return acc;
-    }
-    acc[key] = __limitedParseDouble(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1EksNamespaceList = (output: any, context: __SerdeContext): string[] => {
@@ -5628,7 +5634,10 @@ const deserializeAws_restJson1RecommendationCompliance = (
   context: __SerdeContext
 ): Record<string, RecommendationDisruptionCompliance> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, RecommendationDisruptionCompliance>, [key, value]: [DisruptionType | string, any]) => {
+    (
+      acc: Record<string, RecommendationDisruptionCompliance>,
+      [key, value]: [keyof typeof DisruptionType | string, any]
+    ) => {
       if (value === null) {
         return acc;
       }
@@ -5736,7 +5745,7 @@ const deserializeAws_restJson1RecommendationTemplateList = (
 const deserializeAws_restJson1RenderRecommendationTypeList = (
   output: any,
   context: __SerdeContext
-): (RenderRecommendationType | string)[] => {
+): (keyof typeof RenderRecommendationType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

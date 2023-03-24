@@ -6,12 +6,12 @@ import { CloudHSMV2ServiceException as __BaseException } from "./CloudHSMV2Servi
 /**
  * @public
  */
-export enum BackupState {
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETED = "DELETED",
-  PENDING_DELETION = "PENDING_DELETION",
-  READY = "READY",
-}
+export const BackupState = {
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETED: "DELETED",
+  PENDING_DELETION: "PENDING_DELETION",
+  READY: "READY",
+};
 
 /**
  * @public
@@ -47,7 +47,7 @@ export interface Backup {
   /**
    * <p>The state of the backup.</p>
    */
-  BackupState?: BackupState | string;
+  BackupState?: keyof typeof BackupState | string;
 
   /**
    * <p>The identifier (ID) of the cluster that was backed up.</p>
@@ -102,16 +102,16 @@ export interface Backup {
 /**
  * @public
  */
-export enum BackupPolicy {
-  DEFAULT = "DEFAULT",
-}
+export const BackupPolicy = {
+  DEFAULT: "DEFAULT",
+};
 
 /**
  * @public
  */
-export enum BackupRetentionType {
-  DAYS = "DAYS",
-}
+export const BackupRetentionType = {
+  DAYS: "DAYS",
+};
 
 /**
  * @public
@@ -122,7 +122,7 @@ export interface BackupRetentionPolicy {
    * <p>The type of backup retention policy. For the <code>DAYS</code> type, the value is
    *             the number of days to retain backups.</p>
    */
-  Type?: BackupRetentionType | string;
+  Type?: keyof typeof BackupRetentionType | string;
 
   /**
    * <p>Use a value between 7 - 379.</p>
@@ -404,13 +404,13 @@ export interface Certificates {
 /**
  * @public
  */
-export enum HsmState {
-  ACTIVE = "ACTIVE",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DEGRADED = "DEGRADED",
-  DELETED = "DELETED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-}
+export const HsmState = {
+  ACTIVE: "ACTIVE",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DEGRADED: "DEGRADED",
+  DELETED: "DELETED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -451,7 +451,7 @@ export interface Hsm {
   /**
    * <p>The HSM's state.</p>
    */
-  State?: HsmState | string;
+  State?: keyof typeof HsmState | string;
 
   /**
    * <p>A description of the HSM's state.</p>
@@ -462,17 +462,17 @@ export interface Hsm {
 /**
  * @public
  */
-export enum ClusterState {
-  ACTIVE = "ACTIVE",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DEGRADED = "DEGRADED",
-  DELETED = "DELETED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  INITIALIZED = "INITIALIZED",
-  INITIALIZE_IN_PROGRESS = "INITIALIZE_IN_PROGRESS",
-  UNINITIALIZED = "UNINITIALIZED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const ClusterState = {
+  ACTIVE: "ACTIVE",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DEGRADED: "DEGRADED",
+  DELETED: "DELETED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  INITIALIZED: "INITIALIZED",
+  INITIALIZE_IN_PROGRESS: "INITIALIZE_IN_PROGRESS",
+  UNINITIALIZED: "UNINITIALIZED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -482,7 +482,7 @@ export interface Cluster {
   /**
    * <p>The cluster's backup policy.</p>
    */
-  BackupPolicy?: BackupPolicy | string;
+  BackupPolicy?: keyof typeof BackupPolicy | string;
 
   /**
    * <p>A policy that defines how the service retains backups.</p>
@@ -528,7 +528,7 @@ export interface Cluster {
   /**
    * <p>The cluster's state.</p>
    */
-  State?: ClusterState | string;
+  State?: keyof typeof ClusterState | string;
 
   /**
    * <p>A description of the cluster's state.</p>
@@ -813,7 +813,7 @@ export interface InitializeClusterResponse {
   /**
    * <p>The cluster's state.</p>
    */
-  State?: ClusterState | string;
+  State?: keyof typeof ClusterState | string;
 
   /**
    * <p>A description of the cluster's state.</p>

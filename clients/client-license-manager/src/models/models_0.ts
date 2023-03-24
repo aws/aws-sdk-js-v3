@@ -16,17 +16,17 @@ export interface AcceptGrantRequest {
 /**
  * @public
  */
-export enum GrantStatus {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  FAILED_WORKFLOW = "FAILED_WORKFLOW",
-  PENDING_ACCEPT = "PENDING_ACCEPT",
-  PENDING_DELETE = "PENDING_DELETE",
-  PENDING_WORKFLOW = "PENDING_WORKFLOW",
-  REJECTED = "REJECTED",
-  WORKFLOW_COMPLETED = "WORKFLOW_COMPLETED",
-}
+export const GrantStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  FAILED_WORKFLOW: "FAILED_WORKFLOW",
+  PENDING_ACCEPT: "PENDING_ACCEPT",
+  PENDING_DELETE: "PENDING_DELETE",
+  PENDING_WORKFLOW: "PENDING_WORKFLOW",
+  REJECTED: "REJECTED",
+  WORKFLOW_COMPLETED: "WORKFLOW_COMPLETED",
+};
 
 /**
  * @public
@@ -40,7 +40,7 @@ export interface AcceptGrantResponse {
   /**
    * <p>Grant status.</p>
    */
-  Status?: GrantStatus | string;
+  Status?: keyof typeof GrantStatus | string;
 
   /**
    * <p>Grant version.</p>
@@ -206,15 +206,15 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum AllowedOperation {
-  CHECKOUT_BORROW_LICENSE = "CheckoutBorrowLicense",
-  CHECKOUT_LICENSE = "CheckoutLicense",
-  CHECK_IN_LICENSE = "CheckInLicense",
-  CREATE_GRANT = "CreateGrant",
-  CREATE_TOKEN = "CreateToken",
-  EXTEND_CONSUMPTION_LICENSE = "ExtendConsumptionLicense",
-  LIST_PURCHASED_LICENSES = "ListPurchasedLicenses",
-}
+export const AllowedOperation = {
+  CHECKOUT_BORROW_LICENSE: "CheckoutBorrowLicense",
+  CHECKOUT_LICENSE: "CheckoutLicense",
+  CHECK_IN_LICENSE: "CheckInLicense",
+  CREATE_GRANT: "CreateGrant",
+  CREATE_TOKEN: "CreateToken",
+  EXTEND_CONSUMPTION_LICENSE: "ExtendConsumptionLicense",
+  LIST_PURCHASED_LICENSES: "ListPurchasedLicenses",
+};
 
 /**
  * @public
@@ -310,42 +310,42 @@ export interface Metadata {
 /**
  * @public
  */
-export enum DigitalSignatureMethod {
-  JWT_PS384 = "JWT_PS384",
-}
+export const DigitalSignatureMethod = {
+  JWT_PS384: "JWT_PS384",
+};
 
 /**
  * @public
  */
-export enum EntitlementDataUnit {
-  BITS = "Bits",
-  BITS_PER_SECOND = "Bits/Second",
-  BYTES = "Bytes",
-  BYTES_PER_SECOND = "Bytes/Second",
-  COUNT = "Count",
-  COUNT_PER_SECOND = "Count/Second",
-  GIGABITS = "Gigabits",
-  GIGABITS_PER_SECOND = "Gigabits/Second",
-  GIGABYTES = "Gigabytes",
-  GIGABYTES_PER_SECOND = "Gigabytes/Second",
-  KILOBITS = "Kilobits",
-  KILOBITS_PER_SECOND = "Kilobits/Second",
-  KILOBYTES = "Kilobytes",
-  KILOBYTES_PER_SECOND = "Kilobytes/Second",
-  MEGABITS = "Megabits",
-  MEGABITS_PER_SECOND = "Megabits/Second",
-  MEGABYTES = "Megabytes",
-  MEGABYTES_PER_SECOND = "Megabytes/Second",
-  MICROSECONDS = "Microseconds",
-  MILLISECONDS = "Milliseconds",
-  NONE = "None",
-  PERCENT = "Percent",
-  SECONDS = "Seconds",
-  TERABITS = "Terabits",
-  TERABITS_PER_SECOND = "Terabits/Second",
-  TERABYTES = "Terabytes",
-  TERABYTES_PER_SECOND = "Terabytes/Second",
-}
+export const EntitlementDataUnit = {
+  BITS: "Bits",
+  BITS_PER_SECOND: "Bits/Second",
+  BYTES: "Bytes",
+  BYTES_PER_SECOND: "Bytes/Second",
+  COUNT: "Count",
+  COUNT_PER_SECOND: "Count/Second",
+  GIGABITS: "Gigabits",
+  GIGABITS_PER_SECOND: "Gigabits/Second",
+  GIGABYTES: "Gigabytes",
+  GIGABYTES_PER_SECOND: "Gigabytes/Second",
+  KILOBITS: "Kilobits",
+  KILOBITS_PER_SECOND: "Kilobits/Second",
+  KILOBYTES: "Kilobytes",
+  KILOBYTES_PER_SECOND: "Kilobytes/Second",
+  MEGABITS: "Megabits",
+  MEGABITS_PER_SECOND: "Megabits/Second",
+  MEGABYTES: "Megabytes",
+  MEGABYTES_PER_SECOND: "Megabytes/Second",
+  MICROSECONDS: "Microseconds",
+  MILLISECONDS: "Milliseconds",
+  NONE: "None",
+  PERCENT: "Percent",
+  SECONDS: "Seconds",
+  TERABITS: "Terabits",
+  TERABITS_PER_SECOND: "Terabits/Second",
+  TERABYTES: "Terabytes",
+  TERABYTES_PER_SECOND: "Terabytes/Second",
+};
 
 /**
  * @public
@@ -365,7 +365,7 @@ export interface EntitlementData {
   /**
    * <p>Entitlement data unit.</p>
    */
-  Unit: EntitlementDataUnit | string | undefined;
+  Unit: keyof typeof EntitlementDataUnit | string | undefined;
 }
 
 /**
@@ -386,7 +386,7 @@ export interface CheckoutBorrowLicenseRequest {
    * <p>Digital signature method. The possible value is JSON Web Signature (JWS) algorithm PS384.
    *          For more information, see <a href="https://tools.ietf.org/html/rfc7518#section-3.5">RFC 7518 Digital Signature with RSASSA-PSS</a>.</p>
    */
-  DigitalSignatureMethod: DigitalSignatureMethod | string | undefined;
+  DigitalSignatureMethod: keyof typeof DigitalSignatureMethod | string | undefined;
 
   /**
    * <p>Node ID.</p>
@@ -542,10 +542,10 @@ export class UnsupportedDigitalSignatureMethodException extends __BaseException 
 /**
  * @public
  */
-export enum CheckoutType {
-  PERPETUAL = "PERPETUAL",
-  PROVISIONAL = "PROVISIONAL",
-}
+export const CheckoutType = {
+  PERPETUAL: "PERPETUAL",
+  PROVISIONAL: "PROVISIONAL",
+};
 
 /**
  * @public
@@ -559,7 +559,7 @@ export interface CheckoutLicenseRequest {
   /**
    * <p>Checkout type.</p>
    */
-  CheckoutType: CheckoutType | string | undefined;
+  CheckoutType: keyof typeof CheckoutType | string | undefined;
 
   /**
    * <p>Key fingerprint identifying the license.</p>
@@ -594,7 +594,7 @@ export interface CheckoutLicenseResponse {
   /**
    * <p>Checkout type.</p>
    */
-  CheckoutType?: CheckoutType | string;
+  CheckoutType?: keyof typeof CheckoutType | string;
 
   /**
    * <p>License consumption token.</p>
@@ -664,7 +664,7 @@ export interface CreateGrantRequest {
   /**
    * <p>Allowed operations for the grant.</p>
    */
-  AllowedOperations: (AllowedOperation | string)[] | undefined;
+  AllowedOperations: (keyof typeof AllowedOperation | string)[] | undefined;
 }
 
 /**
@@ -679,7 +679,7 @@ export interface CreateGrantResponse {
   /**
    * <p>Grant status.</p>
    */
-  Status?: GrantStatus | string;
+  Status?: keyof typeof GrantStatus | string;
 
   /**
    * <p>Grant version.</p>
@@ -709,12 +709,12 @@ export interface CreateGrantVersionRequest {
   /**
    * <p>Allowed operations for the grant.</p>
    */
-  AllowedOperations?: (AllowedOperation | string)[];
+  AllowedOperations?: (keyof typeof AllowedOperation | string)[];
 
   /**
    * <p>Grant status.</p>
    */
-  Status?: GrantStatus | string;
+  Status?: keyof typeof GrantStatus | string;
 
   /**
    * <p>Grant status reason.</p>
@@ -739,7 +739,7 @@ export interface CreateGrantVersionResponse {
   /**
    * <p>Grant status.</p>
    */
-  Status?: GrantStatus | string;
+  Status?: keyof typeof GrantStatus | string;
 
   /**
    * <p>New version of the grant.</p>
@@ -777,11 +777,11 @@ export interface ProvisionalConfiguration {
 /**
  * @public
  */
-export enum RenewType {
-  MONTHLY = "Monthly",
-  NONE = "None",
-  WEEKLY = "Weekly",
-}
+export const RenewType = {
+  MONTHLY: "Monthly",
+  NONE: "None",
+  WEEKLY: "Weekly",
+};
 
 /**
  * @public
@@ -791,7 +791,7 @@ export interface ConsumptionConfiguration {
   /**
    * <p>Renewal frequency.</p>
    */
-  RenewType?: RenewType | string;
+  RenewType?: keyof typeof RenewType | string;
 
   /**
    * <p>Details about a provisional configuration.</p>
@@ -807,35 +807,35 @@ export interface ConsumptionConfiguration {
 /**
  * @public
  */
-export enum EntitlementUnit {
-  BITS = "Bits",
-  BITS_PER_SECOND = "Bits/Second",
-  BYTES = "Bytes",
-  BYTES_PER_SECOND = "Bytes/Second",
-  COUNT = "Count",
-  COUNT_PER_SECOND = "Count/Second",
-  GIGABITS = "Gigabits",
-  GIGABITS_PER_SECOND = "Gigabits/Second",
-  GIGABYTES = "Gigabytes",
-  GIGABYTES_PER_SECOND = "Gigabytes/Second",
-  KILOBITS = "Kilobits",
-  KILOBITS_PER_SECOND = "Kilobits/Second",
-  KILOBYTES = "Kilobytes",
-  KILOBYTES_PER_SECOND = "Kilobytes/Second",
-  MEGABITS = "Megabits",
-  MEGABITS_PER_SECOND = "Megabits/Second",
-  MEGABYTES = "Megabytes",
-  MEGABYTES_PER_SECOND = "Megabytes/Second",
-  MICROSECONDS = "Microseconds",
-  MILLISECONDS = "Milliseconds",
-  NONE = "None",
-  PERCENT = "Percent",
-  SECONDS = "Seconds",
-  TERABITS = "Terabits",
-  TERABITS_PER_SECOND = "Terabits/Second",
-  TERABYTES = "Terabytes",
-  TERABYTES_PER_SECOND = "Terabytes/Second",
-}
+export const EntitlementUnit = {
+  BITS: "Bits",
+  BITS_PER_SECOND: "Bits/Second",
+  BYTES: "Bytes",
+  BYTES_PER_SECOND: "Bytes/Second",
+  COUNT: "Count",
+  COUNT_PER_SECOND: "Count/Second",
+  GIGABITS: "Gigabits",
+  GIGABITS_PER_SECOND: "Gigabits/Second",
+  GIGABYTES: "Gigabytes",
+  GIGABYTES_PER_SECOND: "Gigabytes/Second",
+  KILOBITS: "Kilobits",
+  KILOBITS_PER_SECOND: "Kilobits/Second",
+  KILOBYTES: "Kilobytes",
+  KILOBYTES_PER_SECOND: "Kilobytes/Second",
+  MEGABITS: "Megabits",
+  MEGABITS_PER_SECOND: "Megabits/Second",
+  MEGABYTES: "Megabytes",
+  MEGABYTES_PER_SECOND: "Megabytes/Second",
+  MICROSECONDS: "Microseconds",
+  MILLISECONDS: "Milliseconds",
+  NONE: "None",
+  PERCENT: "Percent",
+  SECONDS: "Seconds",
+  TERABITS: "Terabits",
+  TERABITS_PER_SECOND: "Terabits/Second",
+  TERABYTES: "Terabytes",
+  TERABYTES_PER_SECOND: "Terabytes/Second",
+};
 
 /**
  * @public
@@ -865,7 +865,7 @@ export interface Entitlement {
   /**
    * <p>Entitlement unit.</p>
    */
-  Unit: EntitlementUnit | string | undefined;
+  Unit: keyof typeof EntitlementUnit | string | undefined;
 
   /**
    * <p>Indicates whether check-ins are allowed.</p>
@@ -971,15 +971,15 @@ export interface CreateLicenseRequest {
 /**
  * @public
  */
-export enum LicenseStatus {
-  AVAILABLE = "AVAILABLE",
-  DEACTIVATED = "DEACTIVATED",
-  DELETED = "DELETED",
-  EXPIRED = "EXPIRED",
-  PENDING_AVAILABLE = "PENDING_AVAILABLE",
-  PENDING_DELETE = "PENDING_DELETE",
-  SUSPENDED = "SUSPENDED",
-}
+export const LicenseStatus = {
+  AVAILABLE: "AVAILABLE",
+  DEACTIVATED: "DEACTIVATED",
+  DELETED: "DELETED",
+  EXPIRED: "EXPIRED",
+  PENDING_AVAILABLE: "PENDING_AVAILABLE",
+  PENDING_DELETE: "PENDING_DELETE",
+  SUSPENDED: "SUSPENDED",
+};
 
 /**
  * @public
@@ -993,7 +993,7 @@ export interface CreateLicenseResponse {
   /**
    * <p>License status.</p>
    */
-  Status?: LicenseStatus | string;
+  Status?: keyof typeof LicenseStatus | string;
 
   /**
    * <p>License version.</p>
@@ -1004,12 +1004,12 @@ export interface CreateLicenseResponse {
 /**
  * @public
  */
-export enum LicenseCountingType {
-  CORE = "Core",
-  INSTANCE = "Instance",
-  SOCKET = "Socket",
-  VCPU = "vCPU",
-}
+export const LicenseCountingType = {
+  CORE: "Core",
+  INSTANCE: "Instance",
+  SOCKET: "Socket",
+  VCPU: "vCPU",
+};
 
 /**
  * @public
@@ -1150,7 +1150,7 @@ export interface CreateLicenseConfigurationRequest {
   /**
    * <p>Dimension used to track the license inventory.</p>
    */
-  LicenseCountingType: LicenseCountingType | string | undefined;
+  LicenseCountingType: keyof typeof LicenseCountingType | string | undefined;
 
   /**
    * <p>Number of licenses managed by the license configuration.</p>
@@ -1289,11 +1289,11 @@ export interface ReportContext {
 /**
  * @public
  */
-export enum ReportFrequencyType {
-  DAY = "DAY",
-  MONTH = "MONTH",
-  WEEK = "WEEK",
-}
+export const ReportFrequencyType = {
+  DAY: "DAY",
+  MONTH: "MONTH",
+  WEEK: "WEEK",
+};
 
 /**
  * @public
@@ -1309,16 +1309,16 @@ export interface ReportFrequency {
   /**
    * <p>Time period between each report. The period can be daily, weekly, or monthly.</p>
    */
-  period?: ReportFrequencyType | string;
+  period?: keyof typeof ReportFrequencyType | string;
 }
 
 /**
  * @public
  */
-export enum ReportType {
-  LICENSE_CONFIGURATION_SUMMARY_REPORT = "LicenseConfigurationSummaryReport",
-  LICENSE_CONFIGURATION_USAGE_REPORT = "LicenseConfigurationUsageReport",
-}
+export const ReportType = {
+  LICENSE_CONFIGURATION_SUMMARY_REPORT: "LicenseConfigurationSummaryReport",
+  LICENSE_CONFIGURATION_USAGE_REPORT: "LicenseConfigurationUsageReport",
+};
 
 /**
  * @public
@@ -1340,7 +1340,7 @@ export interface CreateLicenseManagerReportGeneratorRequest {
    *             </li>
    *          </ul>
    */
-  Type: (ReportType | string)[] | undefined;
+  Type: (keyof typeof ReportType | string)[] | undefined;
 
   /**
    * <p>Defines the type of license configuration the report generator tracks.</p>
@@ -1432,7 +1432,7 @@ export interface CreateLicenseVersionRequest {
   /**
    * <p>License status.</p>
    */
-  Status: LicenseStatus | string | undefined;
+  Status: keyof typeof LicenseStatus | string | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -1462,7 +1462,7 @@ export interface CreateLicenseVersionResponse {
   /**
    * <p>License status.</p>
    */
-  Status?: LicenseStatus | string;
+  Status?: keyof typeof LicenseStatus | string;
 }
 
 /**
@@ -1501,9 +1501,9 @@ export interface CreateTokenRequest {
 /**
  * @public
  */
-export enum TokenType {
-  REFRESH_TOKEN = "REFRESH_TOKEN",
-}
+export const TokenType = {
+  REFRESH_TOKEN: "REFRESH_TOKEN",
+};
 
 /**
  * @public
@@ -1517,7 +1517,7 @@ export interface CreateTokenResponse {
   /**
    * <p>Token type.</p>
    */
-  TokenType?: TokenType | string;
+  TokenType?: keyof typeof TokenType | string;
 
   /**
    * <p>Refresh token, encoded as a JWT token.</p>
@@ -1557,7 +1557,7 @@ export interface DeleteGrantResponse {
   /**
    * <p>Grant status.</p>
    */
-  Status?: GrantStatus | string;
+  Status?: keyof typeof GrantStatus | string;
 
   /**
    * <p>Grant version.</p>
@@ -1583,10 +1583,10 @@ export interface DeleteLicenseRequest {
 /**
  * @public
  */
-export enum LicenseDeletionStatus {
-  DELETED = "DELETED",
-  PENDING_DELETE = "PENDING_DELETE",
-}
+export const LicenseDeletionStatus = {
+  DELETED: "DELETED",
+  PENDING_DELETE: "PENDING_DELETE",
+};
 
 /**
  * @public
@@ -1595,7 +1595,7 @@ export interface DeleteLicenseResponse {
   /**
    * <p>License status.</p>
    */
-  Status?: LicenseDeletionStatus | string;
+  Status?: keyof typeof LicenseDeletionStatus | string;
 
   /**
    * <p>Date when the license is deleted.</p>
@@ -1756,7 +1756,7 @@ export interface Grant {
   /**
    * <p>Grant status.</p>
    */
-  GrantStatus: GrantStatus | string | undefined;
+  GrantStatus: keyof typeof GrantStatus | string | undefined;
 
   /**
    * <p>Grant status reason.</p>
@@ -1771,7 +1771,7 @@ export interface Grant {
   /**
    * <p>Granted operations.</p>
    */
-  GrantedOperations: (AllowedOperation | string)[] | undefined;
+  GrantedOperations: (keyof typeof AllowedOperation | string)[] | undefined;
 }
 
 /**
@@ -1859,7 +1859,7 @@ export interface License {
   /**
    * <p>License status.</p>
    */
-  Status?: LicenseStatus | string;
+  Status?: keyof typeof LicenseStatus | string;
 
   /**
    * <p>Date and time range during which the license is valid, in ISO8601-UTC format.</p>
@@ -1920,13 +1920,13 @@ export interface GetLicenseConfigurationRequest {
 /**
  * @public
  */
-export enum ResourceType {
-  EC2_AMI = "EC2_AMI",
-  EC2_HOST = "EC2_HOST",
-  EC2_INSTANCE = "EC2_INSTANCE",
-  RDS = "RDS",
-  SYSTEMS_MANAGER_MANAGED_INSTANCE = "SYSTEMS_MANAGER_MANAGED_INSTANCE",
-}
+export const ResourceType = {
+  EC2_AMI: "EC2_AMI",
+  EC2_HOST: "EC2_HOST",
+  EC2_INSTANCE: "EC2_INSTANCE",
+  RDS: "RDS",
+  SYSTEMS_MANAGER_MANAGED_INSTANCE: "SYSTEMS_MANAGER_MANAGED_INSTANCE",
+};
 
 /**
  * @public
@@ -1936,7 +1936,7 @@ export interface ConsumedLicenseSummary {
   /**
    * <p>Resource type of the resource consuming a license.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>Number of licenses consumed by the resource.</p>
@@ -1952,7 +1952,7 @@ export interface ManagedResourceSummary {
   /**
    * <p>Type of resource associated with a license.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>Number of resources associated with licenses.</p>
@@ -1987,7 +1987,7 @@ export interface GetLicenseConfigurationResponse {
   /**
    * <p>Dimension for which the licenses are counted.</p>
    */
-  LicenseCountingType?: LicenseCountingType | string;
+  LicenseCountingType?: keyof typeof LicenseCountingType | string;
 
   /**
    * <p>License rules.</p>
@@ -2063,11 +2063,11 @@ export interface GetLicenseConversionTaskRequest {
 /**
  * @public
  */
-export enum LicenseConversionTaskStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const LicenseConversionTaskStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2101,7 +2101,7 @@ export interface GetLicenseConversionTaskResponse {
   /**
    * <p>Status of the license type conversion task.</p>
    */
-  Status?: LicenseConversionTaskStatus | string;
+  Status?: keyof typeof LicenseConversionTaskStatus | string;
 
   /**
    * <p>Time at which the license type conversion task was started .</p>
@@ -2158,7 +2158,7 @@ export interface ReportGenerator {
   /**
    * <p>Type of reports that are generated.</p>
    */
-  ReportType?: (ReportType | string)[];
+  ReportType?: (keyof typeof ReportType | string)[];
 
   /**
    * <p>License configuration type for this generator.</p>
@@ -2259,7 +2259,7 @@ export interface EntitlementUsage {
   /**
    * <p>Entitlement usage unit.</p>
    */
-  Unit: EntitlementDataUnit | string | undefined;
+  Unit: keyof typeof EntitlementDataUnit | string | undefined;
 }
 
 /**
@@ -2387,7 +2387,7 @@ export interface LicenseConfigurationAssociation {
   /**
    * <p>Type of server resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>ID of the Amazon Web Services account that owns the resource consuming licenses.</p>
@@ -2538,7 +2538,7 @@ export interface LicenseOperationFailure {
   /**
    * <p>Resource type.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>Error message.</p>
@@ -2662,7 +2662,7 @@ export interface LicenseConfiguration {
   /**
    * <p>Dimension to use to track the license inventory.</p>
    */
-  LicenseCountingType?: LicenseCountingType | string;
+  LicenseCountingType?: keyof typeof LicenseCountingType | string;
 
   /**
    * <p>License rules.</p>
@@ -2786,7 +2786,7 @@ export interface LicenseConversionTask {
   /**
    * <p>The status of the conversion task.</p>
    */
-  Status?: LicenseConversionTaskStatus | string;
+  Status?: keyof typeof LicenseConversionTaskStatus | string;
 
   /**
    * <p>The status message for the conversion task.</p>
@@ -3188,16 +3188,16 @@ export interface ListReceivedLicensesRequest {
 /**
  * @public
  */
-export enum ReceivedStatus {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  FAILED_WORKFLOW = "FAILED_WORKFLOW",
-  PENDING_ACCEPT = "PENDING_ACCEPT",
-  PENDING_WORKFLOW = "PENDING_WORKFLOW",
-  REJECTED = "REJECTED",
-  WORKFLOW_COMPLETED = "WORKFLOW_COMPLETED",
-}
+export const ReceivedStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  FAILED_WORKFLOW: "FAILED_WORKFLOW",
+  PENDING_ACCEPT: "PENDING_ACCEPT",
+  PENDING_WORKFLOW: "PENDING_WORKFLOW",
+  REJECTED: "REJECTED",
+  WORKFLOW_COMPLETED: "WORKFLOW_COMPLETED",
+};
 
 /**
  * @public
@@ -3207,7 +3207,7 @@ export interface ReceivedMetadata {
   /**
    * <p>Received status.</p>
    */
-  ReceivedStatus?: ReceivedStatus | string;
+  ReceivedStatus?: keyof typeof ReceivedStatus | string;
 
   /**
    * <p>Received status reason.</p>
@@ -3217,7 +3217,7 @@ export interface ReceivedMetadata {
   /**
    * <p>Allowed operations.</p>
    */
-  AllowedOperations?: (AllowedOperation | string)[];
+  AllowedOperations?: (keyof typeof AllowedOperation | string)[];
 }
 
 /**
@@ -3258,7 +3258,7 @@ export interface GrantedLicense {
   /**
    * <p>Granted license status.</p>
    */
-  Status?: LicenseStatus | string;
+  Status?: keyof typeof LicenseStatus | string;
 
   /**
    * <p>Date and time range during which the granted license is valid, in ISO8601-UTC format.</p>
@@ -3390,12 +3390,12 @@ export class FailedDependencyException extends __BaseException {
 /**
  * @public
  */
-export enum InventoryFilterCondition {
-  BEGINS_WITH = "BEGINS_WITH",
-  CONTAINS = "CONTAINS",
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-}
+export const InventoryFilterCondition = {
+  BEGINS_WITH: "BEGINS_WITH",
+  CONTAINS: "CONTAINS",
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+};
 
 /**
  * @public
@@ -3410,7 +3410,7 @@ export interface InventoryFilter {
   /**
    * <p>Condition of the filter.</p>
    */
-  Condition: InventoryFilterCondition | string | undefined;
+  Condition: keyof typeof InventoryFilterCondition | string | undefined;
 
   /**
    * <p>Value of the filter.</p>
@@ -3489,7 +3489,7 @@ export interface ResourceInventory {
   /**
    * <p>Type of resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>Amazon Resource Name (ARN) of the resource.</p>
@@ -3691,7 +3691,7 @@ export interface LicenseConfigurationUsage {
   /**
    * <p>Type of resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>Status of the resource.</p>
@@ -3751,7 +3751,7 @@ export interface RejectGrantResponse {
   /**
    * <p>Grant status.</p>
    */
-  Status?: GrantStatus | string;
+  Status?: keyof typeof GrantStatus | string;
 
   /**
    * <p>Grant version.</p>
@@ -3802,10 +3802,10 @@ export interface UntagResourceResponse {}
 /**
  * @public
  */
-export enum LicenseConfigurationStatus {
-  AVAILABLE = "AVAILABLE",
-  DISABLED = "DISABLED",
-}
+export const LicenseConfigurationStatus = {
+  AVAILABLE: "AVAILABLE",
+  DISABLED: "DISABLED",
+};
 
 /**
  * @public
@@ -3819,7 +3819,7 @@ export interface UpdateLicenseConfigurationRequest {
   /**
    * <p>New status of the license configuration.</p>
    */
-  LicenseConfigurationStatus?: LicenseConfigurationStatus | string;
+  LicenseConfigurationStatus?: keyof typeof LicenseConfigurationStatus | string;
 
   /**
    * <p>New license rule. The only rule that you can add after you create a license
@@ -3888,7 +3888,7 @@ export interface UpdateLicenseManagerReportGeneratorRequest {
    *             </li>
    *          </ul>
    */
-  Type: (ReportType | string)[] | undefined;
+  Type: (keyof typeof ReportType | string)[] | undefined;
 
   /**
    * <p>The report context.</p>

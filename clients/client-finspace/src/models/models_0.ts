@@ -26,10 +26,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum FederationMode {
-  FEDERATED = "FEDERATED",
-  LOCAL = "LOCAL",
-}
+export const FederationMode = {
+  FEDERATED: "FEDERATED",
+  LOCAL: "LOCAL",
+};
 
 /**
  * @public
@@ -129,7 +129,7 @@ export interface CreateEnvironmentRequest {
    *             </li>
    *          </ul>
    */
-  federationMode?: FederationMode | string;
+  federationMode?: keyof typeof FederationMode | string;
 
   /**
    * <p>Configuration information when authentication mode is FEDERATED.</p>
@@ -327,18 +327,18 @@ export interface GetEnvironmentRequest {
 /**
  * @public
  */
-export enum EnvironmentStatus {
-  CREATED = "CREATED",
-  CREATE_REQUESTED = "CREATE_REQUESTED",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DELETE_REQUESTED = "DELETE_REQUESTED",
-  DELETING = "DELETING",
-  FAILED_CREATION = "FAILED_CREATION",
-  FAILED_DELETION = "FAILED_DELETION",
-  RETRY_DELETION = "RETRY_DELETION",
-  SUSPENDED = "SUSPENDED",
-}
+export const EnvironmentStatus = {
+  CREATED: "CREATED",
+  CREATE_REQUESTED: "CREATE_REQUESTED",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETE_REQUESTED: "DELETE_REQUESTED",
+  DELETING: "DELETING",
+  FAILED_CREATION: "FAILED_CREATION",
+  FAILED_DELETION: "FAILED_DELETION",
+  RETRY_DELETION: "RETRY_DELETION",
+  SUSPENDED: "SUSPENDED",
+};
 
 /**
  * @public
@@ -363,7 +363,7 @@ export interface Environment {
   /**
    * <p>The current status of creation of the FinSpace environment.</p>
    */
-  status?: EnvironmentStatus | string;
+  status?: keyof typeof EnvironmentStatus | string;
 
   /**
    * <p>The sign-in url for the web application of your FinSpace environment.</p>
@@ -399,7 +399,7 @@ export interface Environment {
   /**
    * <p>The authentication mode for the environment.</p>
    */
-  federationMode?: FederationMode | string;
+  federationMode?: keyof typeof FederationMode | string;
 
   /**
    * <p>Configuration information when authentication mode is FEDERATED.</p>
@@ -563,7 +563,7 @@ export interface UpdateEnvironmentRequest {
    *             </li>
    *          </ul>
    */
-  federationMode?: FederationMode | string;
+  federationMode?: keyof typeof FederationMode | string;
 
   /**
    * <p>Configuration information when authentication mode is FEDERATED.</p>

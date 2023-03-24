@@ -369,12 +369,12 @@ export interface CreatePublicDnsNamespaceResponse {
 /**
  * @public
  */
-export enum RecordType {
-  A = "A",
-  AAAA = "AAAA",
-  CNAME = "CNAME",
-  SRV = "SRV",
-}
+export const RecordType = {
+  A: "A",
+  AAAA: "AAAA",
+  CNAME: "CNAME",
+  SRV: "SRV",
+};
 
 /**
  * @public
@@ -520,7 +520,7 @@ export interface DnsRecord {
    *             </dd>
    *          </dl>
    */
-  Type: RecordType | string | undefined;
+  Type: keyof typeof RecordType | string | undefined;
 
   /**
    * <p>The amount of time, in seconds, that you want DNS resolvers to cache the settings for this
@@ -539,10 +539,10 @@ export interface DnsRecord {
 /**
  * @public
  */
-export enum RoutingPolicy {
-  MULTIVALUE = "MULTIVALUE",
-  WEIGHTED = "WEIGHTED",
-}
+export const RoutingPolicy = {
+  MULTIVALUE: "MULTIVALUE",
+  WEIGHTED: "WEIGHTED",
+};
 
 /**
  * @public
@@ -605,7 +605,7 @@ export interface DnsConfig {
    *             </dd>
    *          </dl>
    */
-  RoutingPolicy?: RoutingPolicy | string;
+  RoutingPolicy?: keyof typeof RoutingPolicy | string;
 
   /**
    * <p>An array that contains one <code>DnsRecord</code> object for each Route 53 DNS record that you
@@ -617,11 +617,11 @@ export interface DnsConfig {
 /**
  * @public
  */
-export enum HealthCheckType {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  TCP = "TCP",
-}
+export const HealthCheckType = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+  TCP: "TCP",
+};
 
 /**
  * @public
@@ -724,7 +724,7 @@ export interface HealthCheckConfig {
    *     Determines Whether an Endpoint Is Healthy</a> in the
    *    <i>Route 53 Developer Guide</i>.</p>
    */
-  Type: HealthCheckType | string | undefined;
+  Type: keyof typeof HealthCheckType | string | undefined;
 
   /**
    * <p>The path that you want Route 53 to request when performing health checks. The path can be any
@@ -826,9 +826,9 @@ export interface HealthCheckCustomConfig {
 /**
  * @public
  */
-export enum ServiceTypeOption {
-  HTTP = "HTTP",
-}
+export const ServiceTypeOption = {
+  HTTP: "HTTP",
+};
 
 /**
  * @public
@@ -924,17 +924,17 @@ export interface CreateServiceRequest {
    *     <code>DiscoverInstances</code> API operation. No DNS records is registered for the service
    *    instances. The only valid value is <code>HTTP</code>.</p>
    */
-  Type?: ServiceTypeOption | string;
+  Type?: keyof typeof ServiceTypeOption | string;
 }
 
 /**
  * @public
  */
-export enum ServiceType {
-  DNS = "DNS",
-  DNS_HTTP = "DNS_HTTP",
-  HTTP = "HTTP",
-}
+export const ServiceType = {
+  DNS: "DNS",
+  DNS_HTTP: "DNS_HTTP",
+  HTTP: "HTTP",
+};
 
 /**
  * @public
@@ -1002,7 +1002,7 @@ export interface Service {
    *             </dd>
    *          </dl>
    */
-  Type?: ServiceType | string;
+  Type?: keyof typeof ServiceType | string;
 
   /**
    * <p>
@@ -1128,10 +1128,10 @@ export class CustomHealthNotFound extends __BaseException {
 /**
  * @public
  */
-export enum CustomHealthStatus {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-}
+export const CustomHealthStatus = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+};
 
 /**
  * @public
@@ -1266,12 +1266,12 @@ export class InstanceNotFound extends __BaseException {
 /**
  * @public
  */
-export enum HealthStatusFilter {
-  ALL = "ALL",
-  HEALTHY = "HEALTHY",
-  HEALTHY_OR_ELSE_ALL = "HEALTHY_OR_ELSE_ALL",
-  UNHEALTHY = "UNHEALTHY",
-}
+export const HealthStatusFilter = {
+  ALL: "ALL",
+  HEALTHY: "HEALTHY",
+  HEALTHY_OR_ELSE_ALL: "HEALTHY_OR_ELSE_ALL",
+  UNHEALTHY: "UNHEALTHY",
+};
 
 /**
  * @public
@@ -1337,17 +1337,17 @@ export interface DiscoverInstancesRequest {
    *             </dd>
    *          </dl>
    */
-  HealthStatus?: HealthStatusFilter | string;
+  HealthStatus?: keyof typeof HealthStatusFilter | string;
 }
 
 /**
  * @public
  */
-export enum HealthStatus {
-  HEALTHY = "HEALTHY",
-  UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
-}
+export const HealthStatus = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -1382,7 +1382,7 @@ export interface HttpInstanceSummary {
    * <p>If you configured health checking in the service, the current health status of the service
    *    instance.</p>
    */
-  HealthStatus?: HealthStatus | string;
+  HealthStatus?: keyof typeof HealthStatus | string;
 
   /**
    * <p>If you included any attributes when you registered the instance, the values of those
@@ -1459,12 +1459,12 @@ export interface DnsProperties {
 /**
  * @public
  */
-export enum FilterCondition {
-  BEGINS_WITH = "BEGINS_WITH",
-  BETWEEN = "BETWEEN",
-  EQ = "EQ",
-  IN = "IN",
-}
+export const FilterCondition = {
+  BEGINS_WITH: "BEGINS_WITH",
+  BETWEEN: "BETWEEN",
+  EQ: "EQ",
+  IN: "IN",
+};
 
 /**
  * @public
@@ -1682,7 +1682,7 @@ export interface GetInstancesHealthStatusResponse {
    * <p>A complex type that contains the IDs and the health status of the instances that you
    *    specified in the <code>GetInstancesHealthStatus</code> request.</p>
    */
-  Status?: Record<string, HealthStatus | string>;
+  Status?: Record<string, keyof typeof HealthStatus | string>;
 
   /**
    * <p>If more than <code>MaxResults</code> instances match the specified criteria, you can submit
@@ -1733,11 +1733,11 @@ export interface NamespaceProperties {
 /**
  * @public
  */
-export enum NamespaceType {
-  DNS_PRIVATE = "DNS_PRIVATE",
-  DNS_PUBLIC = "DNS_PUBLIC",
-  HTTP = "HTTP",
-}
+export const NamespaceType = {
+  DNS_PRIVATE: "DNS_PRIVATE",
+  DNS_PUBLIC: "DNS_PUBLIC",
+  HTTP: "HTTP",
+};
 
 /**
  * @public
@@ -1780,7 +1780,7 @@ export interface Namespace {
    *             </dd>
    *          </dl>
    */
-  Type?: NamespaceType | string;
+  Type?: keyof typeof NamespaceType | string;
 
   /**
    * <p>The description that you specify for the namespace when you create it.</p>
@@ -1835,33 +1835,33 @@ export interface GetOperationRequest {
 /**
  * @public
  */
-export enum OperationStatus {
-  FAIL = "FAIL",
-  PENDING = "PENDING",
-  SUBMITTED = "SUBMITTED",
-  SUCCESS = "SUCCESS",
-}
+export const OperationStatus = {
+  FAIL: "FAIL",
+  PENDING: "PENDING",
+  SUBMITTED: "SUBMITTED",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
  */
-export enum OperationTargetType {
-  INSTANCE = "INSTANCE",
-  NAMESPACE = "NAMESPACE",
-  SERVICE = "SERVICE",
-}
+export const OperationTargetType = {
+  INSTANCE: "INSTANCE",
+  NAMESPACE: "NAMESPACE",
+  SERVICE: "SERVICE",
+};
 
 /**
  * @public
  */
-export enum OperationType {
-  CREATE_NAMESPACE = "CREATE_NAMESPACE",
-  DELETE_NAMESPACE = "DELETE_NAMESPACE",
-  DEREGISTER_INSTANCE = "DEREGISTER_INSTANCE",
-  REGISTER_INSTANCE = "REGISTER_INSTANCE",
-  UPDATE_NAMESPACE = "UPDATE_NAMESPACE",
-  UPDATE_SERVICE = "UPDATE_SERVICE",
-}
+export const OperationType = {
+  CREATE_NAMESPACE: "CREATE_NAMESPACE",
+  DELETE_NAMESPACE: "DELETE_NAMESPACE",
+  DEREGISTER_INSTANCE: "DEREGISTER_INSTANCE",
+  REGISTER_INSTANCE: "REGISTER_INSTANCE",
+  UPDATE_NAMESPACE: "UPDATE_NAMESPACE",
+  UPDATE_SERVICE: "UPDATE_SERVICE",
+};
 
 /**
  * @public
@@ -1876,7 +1876,7 @@ export interface Operation {
   /**
    * <p>The name of the operation that's associated with the specified ID.</p>
    */
-  Type?: OperationType | string;
+  Type?: keyof typeof OperationType | string;
 
   /**
    * <p>The status of the operation. Values include the following:</p>
@@ -1899,7 +1899,7 @@ export interface Operation {
    *             </dd>
    *          </dl>
    */
-  Status?: OperationStatus | string;
+  Status?: keyof typeof OperationStatus | string;
 
   /**
    * <p>If the value of <code>Status</code> is <code>FAIL</code>, the reason that the operation
@@ -2164,11 +2164,11 @@ export interface ListInstancesResponse {
 /**
  * @public
  */
-export enum NamespaceFilterName {
-  HTTP_NAME = "HTTP_NAME",
-  NAME = "NAME",
-  TYPE = "TYPE",
-}
+export const NamespaceFilterName = {
+  HTTP_NAME: "HTTP_NAME",
+  NAME: "NAME",
+  TYPE: "TYPE",
+};
 
 /**
  * @public
@@ -2193,7 +2193,7 @@ export interface NamespaceFilter {
    *             </li>
    *          </ul>
    */
-  Name: NamespaceFilterName | string | undefined;
+  Name: keyof typeof NamespaceFilterName | string | undefined;
 
   /**
    * <p>Specify the values that are applicable to the value that you specify for
@@ -2237,7 +2237,7 @@ export interface NamespaceFilter {
    *             </li>
    *          </ul>
    */
-  Condition?: FilterCondition | string;
+  Condition?: keyof typeof FilterCondition | string;
 }
 
 /**
@@ -2297,7 +2297,7 @@ export interface NamespaceSummary {
   /**
    * <p>The type of the namespace, either public or private.</p>
    */
-  Type?: NamespaceType | string;
+  Type?: keyof typeof NamespaceType | string;
 
   /**
    * <p>A description for the namespace.</p>
@@ -2347,13 +2347,13 @@ export interface ListNamespacesResponse {
 /**
  * @public
  */
-export enum OperationFilterName {
-  NAMESPACE_ID = "NAMESPACE_ID",
-  SERVICE_ID = "SERVICE_ID",
-  STATUS = "STATUS",
-  TYPE = "TYPE",
-  UPDATE_DATE = "UPDATE_DATE",
-}
+export const OperationFilterName = {
+  NAMESPACE_ID: "NAMESPACE_ID",
+  SERVICE_ID: "SERVICE_ID",
+  STATUS: "STATUS",
+  TYPE: "TYPE",
+  UPDATE_DATE: "UPDATE_DATE",
+};
 
 /**
  * @public
@@ -2390,7 +2390,7 @@ export interface OperationFilter {
    *             </li>
    *          </ul>
    */
-  Name: OperationFilterName | string | undefined;
+  Name: keyof typeof OperationFilterName | string | undefined;
 
   /**
    * <p>Specify values that are applicable to the value that you specify for <code>Name</code>: </p>
@@ -2451,7 +2451,7 @@ export interface OperationFilter {
    *             </li>
    *          </ul>
    */
-  Condition?: FilterCondition | string;
+  Condition?: keyof typeof FilterCondition | string;
 }
 
 /**
@@ -2522,7 +2522,7 @@ export interface OperationSummary {
    *             </li>
    *          </ul>
    */
-  Status?: OperationStatus | string;
+  Status?: keyof typeof OperationStatus | string;
 }
 
 /**
@@ -2551,9 +2551,9 @@ export interface ListOperationsResponse {
 /**
  * @public
  */
-export enum ServiceFilterName {
-  NAMESPACE_ID = "NAMESPACE_ID",
-}
+export const ServiceFilterName = {
+  NAMESPACE_ID: "NAMESPACE_ID",
+};
 
 /**
  * @public
@@ -2564,7 +2564,7 @@ export interface ServiceFilter {
   /**
    * <p>Specify <code>NAMESPACE_ID</code>.</p>
    */
-  Name: ServiceFilterName | string | undefined;
+  Name: keyof typeof ServiceFilterName | string | undefined;
 
   /**
    * <p>The values that are applicable to the value that you specify for <code>Condition</code> to
@@ -2583,7 +2583,7 @@ export interface ServiceFilter {
    *             </li>
    *          </ul>
    */
-  Condition?: FilterCondition | string;
+  Condition?: keyof typeof FilterCondition | string;
 }
 
 /**
@@ -2659,7 +2659,7 @@ export interface ServiceSummary {
    *             </dd>
    *          </dl>
    */
-  Type?: ServiceType | string;
+  Type?: keyof typeof ServiceType | string;
 
   /**
    * <p>The description that you specify when you create the service.</p>
@@ -3158,7 +3158,7 @@ export interface UpdateInstanceCustomHealthStatusRequest {
   /**
    * <p>The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.</p>
    */
-  Status: CustomHealthStatus | string | undefined;
+  Status: keyof typeof CustomHealthStatus | string | undefined;
 }
 
 /**

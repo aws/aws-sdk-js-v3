@@ -6686,7 +6686,10 @@ const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: 
   };
 };
 
-const serializeAws_json1_1PermissionValues = (input: (PermissionType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1PermissionValues = (
+  input: (keyof typeof PermissionType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8355,7 +8358,10 @@ const deserializeAws_json1_1Permissions = (output: any, context: __SerdeContext)
   return retVal;
 };
 
-const deserializeAws_json1_1PermissionValues = (output: any, context: __SerdeContext): (PermissionType | string)[] => {
+const deserializeAws_json1_1PermissionValues = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof PermissionType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

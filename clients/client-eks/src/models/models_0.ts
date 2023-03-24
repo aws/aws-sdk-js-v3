@@ -29,16 +29,16 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AddonIssueCode {
-  ACCESS_DENIED = "AccessDenied",
-  ADMISSION_REQUEST_DENIED = "AdmissionRequestDenied",
-  CLUSTER_UNREACHABLE = "ClusterUnreachable",
-  CONFIGURATION_CONFLICT = "ConfigurationConflict",
-  INSUFFICIENT_NUMBER_OF_REPLICAS = "InsufficientNumberOfReplicas",
-  INTERNAL_FAILURE = "InternalFailure",
-  K8S_RESOURCE_NOT_FOUND = "K8sResourceNotFound",
-  UNSUPPORTED_ADDON_MODIFICATION = "UnsupportedAddonModification",
-}
+export const AddonIssueCode = {
+  ACCESS_DENIED: "AccessDenied",
+  ADMISSION_REQUEST_DENIED: "AdmissionRequestDenied",
+  CLUSTER_UNREACHABLE: "ClusterUnreachable",
+  CONFIGURATION_CONFLICT: "ConfigurationConflict",
+  INSUFFICIENT_NUMBER_OF_REPLICAS: "InsufficientNumberOfReplicas",
+  INTERNAL_FAILURE: "InternalFailure",
+  K8S_RESOURCE_NOT_FOUND: "K8sResourceNotFound",
+  UNSUPPORTED_ADDON_MODIFICATION: "UnsupportedAddonModification",
+};
 
 /**
  * @public
@@ -48,7 +48,7 @@ export interface AddonIssue {
   /**
    * <p>A code that describes the type of issue.</p>
    */
-  code?: AddonIssueCode | string;
+  code?: keyof typeof AddonIssueCode | string;
 
   /**
    * <p>A message that provides details about the issue and what might cause it.</p>
@@ -91,16 +91,16 @@ export interface MarketplaceInformation {
 /**
  * @public
  */
-export enum AddonStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DEGRADED = "DEGRADED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const AddonStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DEGRADED: "DEGRADED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -121,7 +121,7 @@ export interface Addon {
   /**
    * <p>The status of the add-on.</p>
    */
-  status?: AddonStatus | string;
+  status?: keyof typeof AddonStatus | string;
 
   /**
    * <p>The version of the add-on.</p>
@@ -269,20 +269,20 @@ export interface AddonInfo {
 /**
  * @public
  */
-export enum AMITypes {
-  AL2_ARM_64 = "AL2_ARM_64",
-  AL2_x86_64 = "AL2_x86_64",
-  AL2_x86_64_GPU = "AL2_x86_64_GPU",
-  BOTTLEROCKET_ARM_64 = "BOTTLEROCKET_ARM_64",
-  BOTTLEROCKET_ARM_64_NVIDIA = "BOTTLEROCKET_ARM_64_NVIDIA",
-  BOTTLEROCKET_x86_64 = "BOTTLEROCKET_x86_64",
-  BOTTLEROCKET_x86_64_NVIDIA = "BOTTLEROCKET_x86_64_NVIDIA",
-  CUSTOM = "CUSTOM",
-  WINDOWS_CORE_2019_x86_64 = "WINDOWS_CORE_2019_x86_64",
-  WINDOWS_CORE_2022_x86_64 = "WINDOWS_CORE_2022_x86_64",
-  WINDOWS_FULL_2019_x86_64 = "WINDOWS_FULL_2019_x86_64",
-  WINDOWS_FULL_2022_x86_64 = "WINDOWS_FULL_2022_x86_64",
-}
+export const AMITypes = {
+  AL2_ARM_64: "AL2_ARM_64",
+  AL2_x86_64: "AL2_x86_64",
+  AL2_x86_64_GPU: "AL2_x86_64_GPU",
+  BOTTLEROCKET_ARM_64: "BOTTLEROCKET_ARM_64",
+  BOTTLEROCKET_ARM_64_NVIDIA: "BOTTLEROCKET_ARM_64_NVIDIA",
+  BOTTLEROCKET_x86_64: "BOTTLEROCKET_x86_64",
+  BOTTLEROCKET_x86_64_NVIDIA: "BOTTLEROCKET_x86_64_NVIDIA",
+  CUSTOM: "CUSTOM",
+  WINDOWS_CORE_2019_x86_64: "WINDOWS_CORE_2019_x86_64",
+  WINDOWS_CORE_2022_x86_64: "WINDOWS_CORE_2022_x86_64",
+  WINDOWS_FULL_2019_x86_64: "WINDOWS_FULL_2019_x86_64",
+  WINDOWS_FULL_2022_x86_64: "WINDOWS_FULL_2022_x86_64",
+};
 
 /**
  * @public
@@ -339,25 +339,25 @@ export interface AssociateEncryptionConfigRequest {
 /**
  * @public
  */
-export enum ErrorCode {
-  ACCESS_DENIED = "AccessDenied",
-  ADMISSION_REQUEST_DENIED = "AdmissionRequestDenied",
-  CLUSTER_UNREACHABLE = "ClusterUnreachable",
-  CONFIGURATION_CONFLICT = "ConfigurationConflict",
-  ENI_LIMIT_REACHED = "EniLimitReached",
-  INSUFFICIENT_FREE_ADDRESSES = "InsufficientFreeAddresses",
-  INSUFFICIENT_NUMBER_OF_REPLICAS = "InsufficientNumberOfReplicas",
-  IP_NOT_AVAILABLE = "IpNotAvailable",
-  K8S_RESOURCE_NOT_FOUND = "K8sResourceNotFound",
-  NODE_CREATION_FAILURE = "NodeCreationFailure",
-  OPERATION_NOT_PERMITTED = "OperationNotPermitted",
-  POD_EVICTION_FAILURE = "PodEvictionFailure",
-  SECURITY_GROUP_NOT_FOUND = "SecurityGroupNotFound",
-  SUBNET_NOT_FOUND = "SubnetNotFound",
-  UNKNOWN = "Unknown",
-  UNSUPPORTED_ADDON_MODIFICATION = "UnsupportedAddonModification",
-  VPC_ID_NOT_FOUND = "VpcIdNotFound",
-}
+export const ErrorCode = {
+  ACCESS_DENIED: "AccessDenied",
+  ADMISSION_REQUEST_DENIED: "AdmissionRequestDenied",
+  CLUSTER_UNREACHABLE: "ClusterUnreachable",
+  CONFIGURATION_CONFLICT: "ConfigurationConflict",
+  ENI_LIMIT_REACHED: "EniLimitReached",
+  INSUFFICIENT_FREE_ADDRESSES: "InsufficientFreeAddresses",
+  INSUFFICIENT_NUMBER_OF_REPLICAS: "InsufficientNumberOfReplicas",
+  IP_NOT_AVAILABLE: "IpNotAvailable",
+  K8S_RESOURCE_NOT_FOUND: "K8sResourceNotFound",
+  NODE_CREATION_FAILURE: "NodeCreationFailure",
+  OPERATION_NOT_PERMITTED: "OperationNotPermitted",
+  POD_EVICTION_FAILURE: "PodEvictionFailure",
+  SECURITY_GROUP_NOT_FOUND: "SecurityGroupNotFound",
+  SUBNET_NOT_FOUND: "SubnetNotFound",
+  UNKNOWN: "Unknown",
+  UNSUPPORTED_ADDON_MODIFICATION: "UnsupportedAddonModification",
+  VPC_ID_NOT_FOUND: "VpcIdNotFound",
+};
 
 /**
  * @public
@@ -405,7 +405,7 @@ export interface ErrorDetail {
    *             </li>
    *          </ul>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>A more complete description of the error.</p>
@@ -421,31 +421,31 @@ export interface ErrorDetail {
 /**
  * @public
  */
-export enum UpdateParamType {
-  ADDON_VERSION = "AddonVersion",
-  CLUSTER_LOGGING = "ClusterLogging",
-  DESIRED_SIZE = "DesiredSize",
-  ENCRYPTION_CONFIG = "EncryptionConfig",
-  ENDPOINT_PRIVATE_ACCESS = "EndpointPrivateAccess",
-  ENDPOINT_PUBLIC_ACCESS = "EndpointPublicAccess",
-  IDENTITY_PROVIDER_CONFIG = "IdentityProviderConfig",
-  LABELS_TO_ADD = "LabelsToAdd",
-  LABELS_TO_REMOVE = "LabelsToRemove",
-  LAUNCH_TEMPLATE_NAME = "LaunchTemplateName",
-  LAUNCH_TEMPLATE_VERSION = "LaunchTemplateVersion",
-  MAX_SIZE = "MaxSize",
-  MAX_UNAVAILABLE = "MaxUnavailable",
-  MAX_UNAVAILABLE_PERCENTAGE = "MaxUnavailablePercentage",
-  MIN_SIZE = "MinSize",
-  PLATFORM_VERSION = "PlatformVersion",
-  PUBLIC_ACCESS_CIDRS = "PublicAccessCidrs",
-  RELEASE_VERSION = "ReleaseVersion",
-  RESOLVE_CONFLICTS = "ResolveConflicts",
-  SERVICE_ACCOUNT_ROLE_ARN = "ServiceAccountRoleArn",
-  TAINTS_TO_ADD = "TaintsToAdd",
-  TAINTS_TO_REMOVE = "TaintsToRemove",
-  VERSION = "Version",
-}
+export const UpdateParamType = {
+  ADDON_VERSION: "AddonVersion",
+  CLUSTER_LOGGING: "ClusterLogging",
+  DESIRED_SIZE: "DesiredSize",
+  ENCRYPTION_CONFIG: "EncryptionConfig",
+  ENDPOINT_PRIVATE_ACCESS: "EndpointPrivateAccess",
+  ENDPOINT_PUBLIC_ACCESS: "EndpointPublicAccess",
+  IDENTITY_PROVIDER_CONFIG: "IdentityProviderConfig",
+  LABELS_TO_ADD: "LabelsToAdd",
+  LABELS_TO_REMOVE: "LabelsToRemove",
+  LAUNCH_TEMPLATE_NAME: "LaunchTemplateName",
+  LAUNCH_TEMPLATE_VERSION: "LaunchTemplateVersion",
+  MAX_SIZE: "MaxSize",
+  MAX_UNAVAILABLE: "MaxUnavailable",
+  MAX_UNAVAILABLE_PERCENTAGE: "MaxUnavailablePercentage",
+  MIN_SIZE: "MinSize",
+  PLATFORM_VERSION: "PlatformVersion",
+  PUBLIC_ACCESS_CIDRS: "PublicAccessCidrs",
+  RELEASE_VERSION: "ReleaseVersion",
+  RESOLVE_CONFLICTS: "ResolveConflicts",
+  SERVICE_ACCOUNT_ROLE_ARN: "ServiceAccountRoleArn",
+  TAINTS_TO_ADD: "TaintsToAdd",
+  TAINTS_TO_REMOVE: "TaintsToRemove",
+  VERSION: "Version",
+};
 
 /**
  * @public
@@ -455,7 +455,7 @@ export interface UpdateParam {
   /**
    * <p>The keys associated with an update request.</p>
    */
-  type?: UpdateParamType | string;
+  type?: keyof typeof UpdateParamType | string;
 
   /**
    * <p>The value of the keys submitted as part of an update request.</p>
@@ -466,26 +466,26 @@ export interface UpdateParam {
 /**
  * @public
  */
-export enum UpdateStatus {
-  CANCELLED = "Cancelled",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  SUCCESSFUL = "Successful",
-}
+export const UpdateStatus = {
+  CANCELLED: "Cancelled",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  SUCCESSFUL: "Successful",
+};
 
 /**
  * @public
  */
-export enum UpdateType {
-  ADDON_UPDATE = "AddonUpdate",
-  ASSOCIATE_ENCRYPTION_CONFIG = "AssociateEncryptionConfig",
-  ASSOCIATE_IDENTITY_PROVIDER_CONFIG = "AssociateIdentityProviderConfig",
-  CONFIG_UPDATE = "ConfigUpdate",
-  DISASSOCIATE_IDENTITY_PROVIDER_CONFIG = "DisassociateIdentityProviderConfig",
-  ENDPOINT_ACCESS_UPDATE = "EndpointAccessUpdate",
-  LOGGING_UPDATE = "LoggingUpdate",
-  VERSION_UPDATE = "VersionUpdate",
-}
+export const UpdateType = {
+  ADDON_UPDATE: "AddonUpdate",
+  ASSOCIATE_ENCRYPTION_CONFIG: "AssociateEncryptionConfig",
+  ASSOCIATE_IDENTITY_PROVIDER_CONFIG: "AssociateIdentityProviderConfig",
+  CONFIG_UPDATE: "ConfigUpdate",
+  DISASSOCIATE_IDENTITY_PROVIDER_CONFIG: "DisassociateIdentityProviderConfig",
+  ENDPOINT_ACCESS_UPDATE: "EndpointAccessUpdate",
+  LOGGING_UPDATE: "LoggingUpdate",
+  VERSION_UPDATE: "VersionUpdate",
+};
 
 /**
  * @public
@@ -500,12 +500,12 @@ export interface Update {
   /**
    * <p>The current status of the update.</p>
    */
-  status?: UpdateStatus | string;
+  status?: keyof typeof UpdateStatus | string;
 
   /**
    * <p>The type of the update.</p>
    */
-  type?: UpdateType | string;
+  type?: keyof typeof UpdateType | string;
 
   /**
    * <p>A key-value map that contains the parameters associated with the update.</p>
@@ -885,11 +885,11 @@ export interface AutoScalingGroup {
 /**
  * @public
  */
-export enum ResolveConflicts {
-  NONE = "NONE",
-  OVERWRITE = "OVERWRITE",
-  PRESERVE = "PRESERVE",
-}
+export const ResolveConflicts = {
+  NONE: "NONE",
+  OVERWRITE: "OVERWRITE",
+  PRESERVE: "PRESERVE",
+};
 
 /**
  * @public
@@ -953,7 +953,7 @@ export interface CreateAddonRequest {
    *             cluster, the Amazon EKS add-on is installed. Amazon EKS sets all values
    *             to default values, regardless of the option that you specify.</p>
    */
-  resolveConflicts?: ResolveConflicts | string;
+  resolveConflicts?: keyof typeof ResolveConflicts | string;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -990,10 +990,10 @@ export interface CreateAddonResponse {
 /**
  * @public
  */
-export enum IpFamily {
-  IPV4 = "ipv4",
-  IPV6 = "ipv6",
-}
+export const IpFamily = {
+  IPV4: "ipv4",
+  IPV6: "ipv6",
+};
 
 /**
  * @public
@@ -1041,19 +1041,19 @@ export interface KubernetesNetworkConfigRequest {
    *             <code>(fc00::/7)</code>. You can't specify a custom <code>IPv6</code> CIDR block. Pod addresses are assigned from
    *             the subnet's <code>IPv6</code> CIDR.</p>
    */
-  ipFamily?: IpFamily | string;
+  ipFamily?: keyof typeof IpFamily | string;
 }
 
 /**
  * @public
  */
-export enum LogType {
-  API = "api",
-  AUDIT = "audit",
-  AUTHENTICATOR = "authenticator",
-  CONTROLLER_MANAGER = "controllerManager",
-  SCHEDULER = "scheduler",
-}
+export const LogType = {
+  API: "api",
+  AUDIT: "audit",
+  AUTHENTICATOR: "authenticator",
+  CONTROLLER_MANAGER: "controllerManager",
+  SCHEDULER: "scheduler",
+};
 
 /**
  * @public
@@ -1064,7 +1064,7 @@ export interface LogSetup {
   /**
    * <p>The available cluster control plane log types.</p>
    */
-  types?: (LogType | string)[];
+  types?: (keyof typeof LogType | string)[];
 
   /**
    * <p>If a log type is enabled, that log type exports its control plane logs to CloudWatch Logs. If a log type isn't enabled, that log type doesn't export its control
@@ -1333,14 +1333,14 @@ export interface ConnectorConfigResponse {
 /**
  * @public
  */
-export enum ClusterIssueCode {
-  ACCESS_DENIED = "AccessDenied",
-  CLUSTER_UNREACHABLE = "ClusterUnreachable",
-  CONFIGURATION_CONFLICT = "ConfigurationConflict",
-  INTERNAL_FAILURE = "InternalFailure",
-  RESOURCE_LIMIT_EXCEEDED = "ResourceLimitExceeded",
-  RESOURCE_NOT_FOUND = "ResourceNotFound",
-}
+export const ClusterIssueCode = {
+  ACCESS_DENIED: "AccessDenied",
+  CLUSTER_UNREACHABLE: "ClusterUnreachable",
+  CONFIGURATION_CONFLICT: "ConfigurationConflict",
+  INTERNAL_FAILURE: "InternalFailure",
+  RESOURCE_LIMIT_EXCEEDED: "ResourceLimitExceeded",
+  RESOURCE_NOT_FOUND: "ResourceNotFound",
+};
 
 /**
  * @public
@@ -1352,7 +1352,7 @@ export interface ClusterIssue {
   /**
    * <p>The error code of the issue.</p>
    */
-  code?: ClusterIssueCode | string;
+  code?: keyof typeof ClusterIssueCode | string;
 
   /**
    * <p>A description of the issue.</p>
@@ -1435,7 +1435,7 @@ export interface KubernetesNetworkConfigResponse {
    *             version 1.10.1 or later of the Amazon VPC CNI add-on and specified <code>ipv6</code> when you
    *             created the cluster. </p>
    */
-  ipFamily?: IpFamily | string;
+  ipFamily?: keyof typeof IpFamily | string;
 }
 
 /**
@@ -1546,14 +1546,14 @@ export interface VpcConfigResponse {
 /**
  * @public
  */
-export enum ClusterStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  UPDATING = "UPDATING",
-}
+export const ClusterStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -1618,7 +1618,7 @@ export interface Cluster {
   /**
    * <p>The current status of the cluster.</p>
    */
-  status?: ClusterStatus | string;
+  status?: keyof typeof ClusterStatus | string;
 
   /**
    * <p>The <code>certificate-authority-data</code> for your cluster.</p>
@@ -1854,13 +1854,13 @@ export interface CreateFargateProfileRequest {
 /**
  * @public
  */
-export enum FargateProfileStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+export const FargateProfileStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -1909,7 +1909,7 @@ export interface FargateProfile {
   /**
    * <p>The current status of the Fargate profile.</p>
    */
-  status?: FargateProfileStatus | string;
+  status?: keyof typeof FargateProfileStatus | string;
 
   /**
    * <p>The metadata applied to the Fargate profile to assist with
@@ -1934,10 +1934,10 @@ export interface CreateFargateProfileResponse {
 /**
  * @public
  */
-export enum CapacityTypes {
-  ON_DEMAND = "ON_DEMAND",
-  SPOT = "SPOT",
-}
+export const CapacityTypes = {
+  ON_DEMAND: "ON_DEMAND",
+  SPOT: "SPOT",
+};
 
 /**
  * @public
@@ -2054,11 +2054,11 @@ export interface NodegroupScalingConfig {
 /**
  * @public
  */
-export enum TaintEffect {
-  NO_EXECUTE = "NO_EXECUTE",
-  NO_SCHEDULE = "NO_SCHEDULE",
-  PREFER_NO_SCHEDULE = "PREFER_NO_SCHEDULE",
-}
+export const TaintEffect = {
+  NO_EXECUTE: "NO_EXECUTE",
+  NO_SCHEDULE: "NO_SCHEDULE",
+  PREFER_NO_SCHEDULE: "PREFER_NO_SCHEDULE",
+};
 
 /**
  * @public
@@ -2078,7 +2078,7 @@ export interface Taint {
   /**
    * <p>The effect of the taint.</p>
    */
-  effect?: TaintEffect | string;
+  effect?: keyof typeof TaintEffect | string;
 }
 
 /**
@@ -2161,7 +2161,7 @@ export interface CreateNodegroupRequest {
    *             the <code>aws-auth</code>
    *             <code>ConfigMap</code>. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
-  amiType?: AMITypes | string;
+  amiType?: keyof typeof AMITypes | string;
 
   /**
    * <p>The remote access configuration to use with your node group.
@@ -2231,7 +2231,7 @@ export interface CreateNodegroupRequest {
   /**
    * <p>The capacity type for your node group.</p>
    */
-  capacityType?: CapacityTypes | string;
+  capacityType?: keyof typeof CapacityTypes | string;
 
   /**
    * <p>The Kubernetes version to use for your managed nodes. By default, the Kubernetes
@@ -2257,27 +2257,27 @@ export interface CreateNodegroupRequest {
 /**
  * @public
  */
-export enum NodegroupIssueCode {
-  ACCESS_DENIED = "AccessDenied",
-  ASG_INSTANCE_LAUNCH_FAILURES = "AsgInstanceLaunchFailures",
-  AUTO_SCALING_GROUP_INVALID_CONFIGURATION = "AutoScalingGroupInvalidConfiguration",
-  AUTO_SCALING_GROUP_NOT_FOUND = "AutoScalingGroupNotFound",
-  CLUSTER_UNREACHABLE = "ClusterUnreachable",
-  EC2_LAUNCH_TEMPLATE_NOT_FOUND = "Ec2LaunchTemplateNotFound",
-  EC2_LAUNCH_TEMPLATE_VERSION_MISMATCH = "Ec2LaunchTemplateVersionMismatch",
-  EC2_SECURITY_GROUP_DELETION_FAILURE = "Ec2SecurityGroupDeletionFailure",
-  EC2_SECURITY_GROUP_NOT_FOUND = "Ec2SecurityGroupNotFound",
-  EC2_SUBNET_INVALID_CONFIGURATION = "Ec2SubnetInvalidConfiguration",
-  EC2_SUBNET_MISSING_IPV6_ASSIGNMENT = "Ec2SubnetMissingIpv6Assignment",
-  EC2_SUBNET_NOT_FOUND = "Ec2SubnetNotFound",
-  IAM_INSTANCE_PROFILE_NOT_FOUND = "IamInstanceProfileNotFound",
-  IAM_LIMIT_EXCEEDED = "IamLimitExceeded",
-  IAM_NODE_ROLE_NOT_FOUND = "IamNodeRoleNotFound",
-  INSTANCE_LIMIT_EXCEEDED = "InstanceLimitExceeded",
-  INSUFFICIENT_FREE_ADDRESSES = "InsufficientFreeAddresses",
-  INTERNAL_FAILURE = "InternalFailure",
-  NODE_CREATION_FAILURE = "NodeCreationFailure",
-}
+export const NodegroupIssueCode = {
+  ACCESS_DENIED: "AccessDenied",
+  ASG_INSTANCE_LAUNCH_FAILURES: "AsgInstanceLaunchFailures",
+  AUTO_SCALING_GROUP_INVALID_CONFIGURATION: "AutoScalingGroupInvalidConfiguration",
+  AUTO_SCALING_GROUP_NOT_FOUND: "AutoScalingGroupNotFound",
+  CLUSTER_UNREACHABLE: "ClusterUnreachable",
+  EC2_LAUNCH_TEMPLATE_NOT_FOUND: "Ec2LaunchTemplateNotFound",
+  EC2_LAUNCH_TEMPLATE_VERSION_MISMATCH: "Ec2LaunchTemplateVersionMismatch",
+  EC2_SECURITY_GROUP_DELETION_FAILURE: "Ec2SecurityGroupDeletionFailure",
+  EC2_SECURITY_GROUP_NOT_FOUND: "Ec2SecurityGroupNotFound",
+  EC2_SUBNET_INVALID_CONFIGURATION: "Ec2SubnetInvalidConfiguration",
+  EC2_SUBNET_MISSING_IPV6_ASSIGNMENT: "Ec2SubnetMissingIpv6Assignment",
+  EC2_SUBNET_NOT_FOUND: "Ec2SubnetNotFound",
+  IAM_INSTANCE_PROFILE_NOT_FOUND: "IamInstanceProfileNotFound",
+  IAM_LIMIT_EXCEEDED: "IamLimitExceeded",
+  IAM_NODE_ROLE_NOT_FOUND: "IamNodeRoleNotFound",
+  INSTANCE_LIMIT_EXCEEDED: "InstanceLimitExceeded",
+  INSUFFICIENT_FREE_ADDRESSES: "InsufficientFreeAddresses",
+  INTERNAL_FAILURE: "InternalFailure",
+  NODE_CREATION_FAILURE: "NodeCreationFailure",
+};
 
 /**
  * @public
@@ -2386,7 +2386,7 @@ export interface Issue {
    *             </li>
    *          </ul>
    */
-  code?: NodegroupIssueCode | string;
+  code?: keyof typeof NodegroupIssueCode | string;
 
   /**
    * <p>The error message associated with the issue.</p>
@@ -2431,15 +2431,15 @@ export interface NodegroupResources {
 /**
  * @public
  */
-export enum NodegroupStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DEGRADED = "DEGRADED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATING = "UPDATING",
-}
+export const NodegroupStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DEGRADED: "DEGRADED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -2489,12 +2489,12 @@ export interface Nodegroup {
   /**
    * <p>The current status of the managed node group.</p>
    */
-  status?: NodegroupStatus | string;
+  status?: keyof typeof NodegroupStatus | string;
 
   /**
    * <p>The capacity type of your managed node group.</p>
    */
-  capacityType?: CapacityTypes | string;
+  capacityType?: keyof typeof CapacityTypes | string;
 
   /**
    * <p>The scaling configuration details for the Auto Scaling group that is associated with
@@ -2527,7 +2527,7 @@ export interface Nodegroup {
    *                 <code>CUSTOM</code>. For node groups that weren't deployed using a launch template,
    *             this is the AMI type that was specified in the node group configuration.</p>
    */
-  amiType?: AMITypes | string;
+  amiType?: keyof typeof AMITypes | string;
 
   /**
    * <p>The IAM role associated with your node group. The Amazon EKS
@@ -2954,11 +2954,11 @@ export interface DescribeIdentityProviderConfigRequest {
 /**
  * @public
  */
-export enum ConfigStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-}
+export const ConfigStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -3034,7 +3034,7 @@ export interface OidcIdentityProviderConfig {
   /**
    * <p>The status of the OIDC identity provider.</p>
    */
-  status?: ConfigStatus | string;
+  status?: keyof typeof ConfigStatus | string;
 }
 
 /**
@@ -3542,17 +3542,17 @@ export interface ListUpdatesResponse {
 /**
  * @public
  */
-export enum ConnectorConfigProvider {
-  AKS = "AKS",
-  ANTHOS = "ANTHOS",
-  EC2 = "EC2",
-  EKS_ANYWHERE = "EKS_ANYWHERE",
-  GKE = "GKE",
-  OPENSHIFT = "OPENSHIFT",
-  OTHER = "OTHER",
-  RANCHER = "RANCHER",
-  TANZU = "TANZU",
-}
+export const ConnectorConfigProvider = {
+  AKS: "AKS",
+  ANTHOS: "ANTHOS",
+  EC2: "EC2",
+  EKS_ANYWHERE: "EKS_ANYWHERE",
+  GKE: "GKE",
+  OPENSHIFT: "OPENSHIFT",
+  OTHER: "OTHER",
+  RANCHER: "RANCHER",
+  TANZU: "TANZU",
+};
 
 /**
  * @public
@@ -3568,7 +3568,7 @@ export interface ConnectorConfigRequest {
   /**
    * <p>The cloud provider for the target cluster to connect.</p>
    */
-  provider: ConnectorConfigProvider | string | undefined;
+  provider: keyof typeof ConnectorConfigProvider | string | undefined;
 }
 
 /**
@@ -3733,7 +3733,7 @@ export interface UpdateAddonRequest {
    *             </li>
    *          </ul>
    */
-  resolveConflicts?: ResolveConflicts | string;
+  resolveConflicts?: keyof typeof ResolveConflicts | string;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the

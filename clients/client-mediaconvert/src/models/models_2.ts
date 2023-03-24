@@ -51,10 +51,10 @@ export interface GetPolicyRequest {}
 /**
  * @public
  */
-export enum InputPolicy {
-  ALLOWED = "ALLOWED",
-  DISALLOWED = "DISALLOWED",
-}
+export const InputPolicy = {
+  ALLOWED: "ALLOWED",
+  DISALLOWED: "DISALLOWED",
+};
 
 /**
  * @public
@@ -64,17 +64,17 @@ export interface Policy {
   /**
    * Allow or disallow jobs that specify HTTP inputs.
    */
-  HttpInputs?: InputPolicy | string;
+  HttpInputs?: keyof typeof InputPolicy | string;
 
   /**
    * Allow or disallow jobs that specify HTTPS inputs.
    */
-  HttpsInputs?: InputPolicy | string;
+  HttpsInputs?: keyof typeof InputPolicy | string;
 
   /**
    * Allow or disallow jobs that specify Amazon S3 inputs.
    */
-  S3Inputs?: InputPolicy | string;
+  S3Inputs?: keyof typeof InputPolicy | string;
 }
 
 /**
@@ -130,19 +130,19 @@ export interface GetQueueResponse {
 /**
  * @public
  */
-export enum JobTemplateListBy {
-  CREATION_DATE = "CREATION_DATE",
-  NAME = "NAME",
-  SYSTEM = "SYSTEM",
-}
+export const JobTemplateListBy = {
+  CREATION_DATE: "CREATION_DATE",
+  NAME: "NAME",
+  SYSTEM: "SYSTEM",
+};
 
 /**
  * @public
  */
-export enum Order {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const Order = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -161,7 +161,7 @@ export interface ListJobsRequest {
   /**
    * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
    */
-  Order?: Order | string;
+  Order?: keyof typeof Order | string;
 
   /**
    * Optional. Provide a queue name to get back only jobs from that queue.
@@ -171,7 +171,7 @@ export interface ListJobsRequest {
   /**
    * Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
    */
-  Status?: JobStatus | string;
+  Status?: keyof typeof JobStatus | string;
 }
 
 /**
@@ -201,7 +201,7 @@ export interface ListJobTemplatesRequest {
   /**
    * Optional. When you request a list of job templates, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
    */
-  ListBy?: JobTemplateListBy | string;
+  ListBy?: keyof typeof JobTemplateListBy | string;
 
   /**
    * Optional. Number of job templates, up to twenty, that will be returned at one time.
@@ -216,7 +216,7 @@ export interface ListJobTemplatesRequest {
   /**
    * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
    */
-  Order?: Order | string;
+  Order?: keyof typeof Order | string;
 }
 
 /**
@@ -237,11 +237,11 @@ export interface ListJobTemplatesResponse {
 /**
  * @public
  */
-export enum PresetListBy {
-  CREATION_DATE = "CREATION_DATE",
-  NAME = "NAME",
-  SYSTEM = "SYSTEM",
-}
+export const PresetListBy = {
+  CREATION_DATE: "CREATION_DATE",
+  NAME: "NAME",
+  SYSTEM: "SYSTEM",
+};
 
 /**
  * @public
@@ -255,7 +255,7 @@ export interface ListPresetsRequest {
   /**
    * Optional. When you request a list of presets, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
    */
-  ListBy?: PresetListBy | string;
+  ListBy?: keyof typeof PresetListBy | string;
 
   /**
    * Optional. Number of presets, up to twenty, that will be returned at one time
@@ -270,7 +270,7 @@ export interface ListPresetsRequest {
   /**
    * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
    */
-  Order?: Order | string;
+  Order?: keyof typeof Order | string;
 }
 
 /**
@@ -291,10 +291,10 @@ export interface ListPresetsResponse {
 /**
  * @public
  */
-export enum QueueListBy {
-  CREATION_DATE = "CREATION_DATE",
-  NAME = "NAME",
-}
+export const QueueListBy = {
+  CREATION_DATE: "CREATION_DATE",
+  NAME: "NAME",
+};
 
 /**
  * @public
@@ -303,7 +303,7 @@ export interface ListQueuesRequest {
   /**
    * Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.
    */
-  ListBy?: QueueListBy | string;
+  ListBy?: keyof typeof QueueListBy | string;
 
   /**
    * Optional. Number of queues, up to twenty, that will be returned at one time.
@@ -318,7 +318,7 @@ export interface ListQueuesRequest {
   /**
    * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
    */
-  Order?: Order | string;
+  Order?: keyof typeof Order | string;
 }
 
 /**
@@ -479,7 +479,7 @@ export interface UpdateJobTemplateRequest {
   /**
    * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
    */
-  StatusUpdateInterval?: StatusUpdateInterval | string;
+  StatusUpdateInterval?: keyof typeof StatusUpdateInterval | string;
 }
 
 /**
@@ -549,7 +549,7 @@ export interface UpdateQueueRequest {
   /**
    * Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
    */
-  Status?: QueueStatus | string;
+  Status?: keyof typeof QueueStatus | string;
 }
 
 /**

@@ -46,10 +46,10 @@ export interface BatchCheckLayerAvailabilityRequest {
 /**
  * @public
  */
-export enum LayerFailureCode {
-  InvalidLayerDigest = "InvalidLayerDigest",
-  MissingLayerDigest = "MissingLayerDigest",
-}
+export const LayerFailureCode = {
+  InvalidLayerDigest: "InvalidLayerDigest",
+  MissingLayerDigest: "MissingLayerDigest",
+};
 
 /**
  * @public
@@ -64,7 +64,7 @@ export interface LayerFailure {
   /**
    * <p>The failure code that's associated with the failure.</p>
    */
-  failureCode?: LayerFailureCode | string;
+  failureCode?: keyof typeof LayerFailureCode | string;
 
   /**
    * <p>The reason for the failure.</p>
@@ -75,10 +75,10 @@ export interface LayerFailure {
 /**
  * @public
  */
-export enum LayerAvailability {
-  AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const LayerAvailability = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+};
 
 /**
  * @public
@@ -93,7 +93,7 @@ export interface Layer {
   /**
    * <p>The availability status of the image layer.</p>
    */
-  layerAvailability?: LayerAvailability | string;
+  layerAvailability?: keyof typeof LayerAvailability | string;
 
   /**
    * <p>The size, in bytes, of the image layer.</p>
@@ -268,15 +268,15 @@ export interface BatchDeleteImageRequest {
 /**
  * @public
  */
-export enum ImageFailureCode {
-  ImageNotFound = "ImageNotFound",
-  ImageReferencedByManifestList = "ImageReferencedByManifestList",
-  ImageTagDoesNotMatchDigest = "ImageTagDoesNotMatchDigest",
-  InvalidImageDigest = "InvalidImageDigest",
-  InvalidImageTag = "InvalidImageTag",
-  KmsError = "KmsError",
-  MissingDigestAndTag = "MissingDigestAndTag",
-}
+export const ImageFailureCode = {
+  ImageNotFound: "ImageNotFound",
+  ImageReferencedByManifestList: "ImageReferencedByManifestList",
+  ImageTagDoesNotMatchDigest: "ImageTagDoesNotMatchDigest",
+  InvalidImageDigest: "InvalidImageDigest",
+  InvalidImageTag: "InvalidImageTag",
+  KmsError: "KmsError",
+  MissingDigestAndTag: "MissingDigestAndTag",
+};
 
 /**
  * @public
@@ -291,7 +291,7 @@ export interface ImageFailure {
   /**
    * <p>The code that's associated with the failure.</p>
    */
-  failureCode?: ImageFailureCode | string;
+  failureCode?: keyof typeof ImageFailureCode | string;
 
   /**
    * <p>The reason for the failure.</p>
@@ -1195,11 +1195,11 @@ export interface DescribeRegistriesRequest {
 /**
  * @public
  */
-export enum RegistryAliasStatus {
-  ACTIVE = "ACTIVE",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+export const RegistryAliasStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+};
 
 /**
  * @public
@@ -1217,7 +1217,7 @@ export interface RegistryAlias {
   /**
    * <p>The status of the registry alias.</p>
    */
-  status: RegistryAliasStatus | string | undefined;
+  status: keyof typeof RegistryAliasStatus | string | undefined;
 
   /**
    * <p>Indicates whether the registry alias is the primary alias for the registry. If true, the

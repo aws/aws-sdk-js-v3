@@ -6,10 +6,10 @@ import { SyntheticsServiceException as __BaseException } from "./SyntheticsServi
 /**
  * @public
  */
-export enum EncryptionMode {
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3",
-}
+export const EncryptionMode = {
+  SSE_KMS: "SSE_KMS",
+  SSE_S3: "SSE_S3",
+};
 
 /**
  * @public
@@ -28,7 +28,7 @@ export interface S3EncryptionConfig {
    *             Amazon Web Services-managed KMS key is used.
    *         </p>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: keyof typeof EncryptionMode | string;
 
   /**
    * <p>The ARN of the customer-managed KMS key to use, if you specify <code>SSE-KMS</code>
@@ -316,35 +316,35 @@ export interface CanaryScheduleOutput {
 /**
  * @public
  */
-export enum CanaryState {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  ERROR = "ERROR",
-  READY = "READY",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
-}
+export const CanaryState = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  READY: "READY",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum CanaryStateReasonCode {
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_PENDING = "CREATE_PENDING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  INVALID_PERMISSIONS = "INVALID_PERMISSIONS",
-  ROLLBACK_COMPLETE = "ROLLBACK_COMPLETE",
-  ROLLBACK_FAILED = "ROLLBACK_FAILED",
-  SYNC_DELETE_IN_PROGRESS = "SYNC_DELETE_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_PENDING = "UPDATE_PENDING",
-}
+export const CanaryStateReasonCode = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_PENDING: "CREATE_PENDING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  INVALID_PERMISSIONS: "INVALID_PERMISSIONS",
+  ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  SYNC_DELETE_IN_PROGRESS: "SYNC_DELETE_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_PENDING: "UPDATE_PENDING",
+};
 
 /**
  * @public
@@ -354,7 +354,7 @@ export interface CanaryStatus {
   /**
    * <p>The current state of the canary.</p>
    */
-  State?: CanaryState | string;
+  State?: keyof typeof CanaryState | string;
 
   /**
    * <p>If the canary has insufficient permissions to run, this field provides more details.</p>
@@ -364,7 +364,7 @@ export interface CanaryStatus {
   /**
    * <p>If the canary cannot run or has failed, this field displays the reason.</p>
    */
-  StateReasonCode?: CanaryStateReasonCode | string;
+  StateReasonCode?: keyof typeof CanaryStateReasonCode | string;
 }
 
 /**
@@ -543,19 +543,19 @@ export interface Canary {
 /**
  * @public
  */
-export enum CanaryRunState {
-  FAILED = "FAILED",
-  PASSED = "PASSED",
-  RUNNING = "RUNNING",
-}
+export const CanaryRunState = {
+  FAILED: "FAILED",
+  PASSED: "PASSED",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
  */
-export enum CanaryRunStateReasonCode {
-  CANARY_FAILURE = "CANARY_FAILURE",
-  EXECUTION_FAILURE = "EXECUTION_FAILURE",
-}
+export const CanaryRunStateReasonCode = {
+  CANARY_FAILURE: "CANARY_FAILURE",
+  EXECUTION_FAILURE: "EXECUTION_FAILURE",
+};
 
 /**
  * @public
@@ -565,7 +565,7 @@ export interface CanaryRunStatus {
   /**
    * <p>The current state of the run.</p>
    */
-  State?: CanaryRunState | string;
+  State?: keyof typeof CanaryRunState | string;
 
   /**
    * <p>If run of the canary failed, this field contains the reason for the error.</p>
@@ -577,7 +577,7 @@ export interface CanaryRunStatus {
    *          canary code. If this value is <code>EXECUTION_FAILURE</code>, an exception occurred in
    *          CloudWatch Synthetics.</p>
    */
-  StateReasonCode?: CanaryRunStateReasonCode | string;
+  StateReasonCode?: keyof typeof CanaryRunStateReasonCode | string;
 }
 
 /**

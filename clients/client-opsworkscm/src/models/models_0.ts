@@ -209,20 +209,20 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum BackupType {
-  AUTOMATED = "AUTOMATED",
-  MANUAL = "MANUAL",
-}
+export const BackupType = {
+  AUTOMATED: "AUTOMATED",
+  MANUAL: "MANUAL",
+};
 
 /**
  * @public
  */
-export enum BackupStatus {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  OK = "OK",
-}
+export const BackupStatus = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  OK: "OK",
+};
 
 /**
  * @public
@@ -248,7 +248,7 @@ export interface Backup {
    *       The backup type. Valid values are <code>automated</code> or <code>manual</code>.
    *     </p>
    */
-  BackupType?: BackupType | string;
+  BackupType?: keyof typeof BackupType | string;
 
   /**
    * <p>
@@ -371,7 +371,7 @@ export interface Backup {
    * <p>The status of a backup while in progress.
    *     </p>
    */
-  Status?: BackupStatus | string;
+  Status?: keyof typeof BackupStatus | string;
 
   /**
    * <p>
@@ -783,29 +783,29 @@ export interface CreateServerRequest {
 /**
  * @public
  */
-export enum MaintenanceStatus {
-  FAILED = "FAILED",
-  SUCCESS = "SUCCESS",
-}
+export const MaintenanceStatus = {
+  FAILED: "FAILED",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
  */
-export enum ServerStatus {
-  BACKING_UP = "BACKING_UP",
-  CONNECTION_LOST = "CONNECTION_LOST",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  HEALTHY = "HEALTHY",
-  MODIFYING = "MODIFYING",
-  RESTORING = "RESTORING",
-  RUNNING = "RUNNING",
-  SETUP = "SETUP",
-  TERMINATED = "TERMINATED",
-  UNDER_MAINTENANCE = "UNDER_MAINTENANCE",
-  UNHEALTHY = "UNHEALTHY",
-}
+export const ServerStatus = {
+  BACKING_UP: "BACKING_UP",
+  CONNECTION_LOST: "CONNECTION_LOST",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  HEALTHY: "HEALTHY",
+  MODIFYING: "MODIFYING",
+  RESTORING: "RESTORING",
+  RUNNING: "RUNNING",
+  SETUP: "SETUP",
+  TERMINATED: "TERMINATED",
+  UNDER_MAINTENANCE: "UNDER_MAINTENANCE",
+  UNHEALTHY: "UNHEALTHY",
+};
 
 /**
  * @public
@@ -948,7 +948,7 @@ export interface Server {
    * <p>The status of the most recent server maintenance run. Shows <code>SUCCESS</code> or <code>FAILED</code>.
    *     </p>
    */
-  MaintenanceStatus?: MaintenanceStatus | string;
+  MaintenanceStatus?: keyof typeof MaintenanceStatus | string;
 
   /**
    * <p>The preferred maintenance period specified for the server.
@@ -982,7 +982,7 @@ export interface Server {
    *       as well as the server's health state.
    *     </p>
    */
-  Status?: ServerStatus | string;
+  Status?: keyof typeof ServerStatus | string;
 
   /**
    * <p>
@@ -1266,11 +1266,11 @@ export interface DescribeNodeAssociationStatusRequest {
 /**
  * @public
  */
-export enum NodeAssociationStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export const NodeAssociationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -1300,7 +1300,7 @@ export interface DescribeNodeAssociationStatusResponse {
    *             </li>
    *          </ul>
    */
-  NodeAssociationStatus?: NodeAssociationStatus | string;
+  NodeAssociationStatus?: keyof typeof NodeAssociationStatus | string;
 
   /**
    * <p>Attributes specific to the node association.

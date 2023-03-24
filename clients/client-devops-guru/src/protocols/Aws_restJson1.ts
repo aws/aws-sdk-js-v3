@@ -3039,7 +3039,10 @@ const serializeAws_restJson1InsightFeedback = (input: InsightFeedback, context: 
   };
 };
 
-const serializeAws_restJson1InsightSeverities = (input: (InsightSeverity | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1InsightSeverities = (
+  input: (keyof typeof InsightSeverity | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3047,7 +3050,10 @@ const serializeAws_restJson1InsightSeverities = (input: (InsightSeverity | strin
     });
 };
 
-const serializeAws_restJson1InsightStatuses = (input: (InsightStatus | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1InsightStatuses = (
+  input: (keyof typeof InsightStatus | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3189,7 +3195,7 @@ const serializeAws_restJson1NotificationFilterConfig = (
 };
 
 const serializeAws_restJson1NotificationMessageTypes = (
-  input: (NotificationMessageType | string)[],
+  input: (keyof typeof NotificationMessageType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3226,7 +3232,7 @@ const serializeAws_restJson1ResourceCollection = (input: ResourceCollection, con
 };
 
 const serializeAws_restJson1ResourceTypeFilters = (
-  input: (ResourceTypeFilter | string)[],
+  input: (keyof typeof ResourceTypeFilter | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3281,7 +3287,10 @@ const serializeAws_restJson1ServiceCollection = (input: ServiceCollection, conte
   };
 };
 
-const serializeAws_restJson1ServiceNames = (input: (ServiceName | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1ServiceNames = (
+  input: (keyof typeof ServiceName | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3836,7 +3845,7 @@ const deserializeAws_restJson1InsightHealth = (output: any, context: __SerdeCont
 const deserializeAws_restJson1InsightSeverities = (
   output: any,
   context: __SerdeContext
-): (InsightSeverity | string)[] => {
+): (keyof typeof InsightSeverity | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3984,7 +3993,7 @@ const deserializeAws_restJson1NotificationFilterConfig = (
 const deserializeAws_restJson1NotificationMessageTypes = (
   output: any,
   context: __SerdeContext
-): (NotificationMessageType | string)[] => {
+): (keyof typeof NotificationMessageType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4857,7 +4866,10 @@ const deserializeAws_restJson1ServiceIntegrationConfig = (
   } as any;
 };
 
-const deserializeAws_restJson1ServiceNames = (output: any, context: __SerdeContext): (ServiceName | string)[] => {
+const deserializeAws_restJson1ServiceNames = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof ServiceName | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -153,14 +153,14 @@ export interface AllowDenyList {
 /**
  * @public
  */
-export enum AsyncJobStatus {
-  CANCELED = "CANCELED",
-  CANCEL_IN_PROGRESS = "CANCEL_IN_PROGRESS",
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  IN_PROGRESS_INITIALIZING = "IN_PROGRESS_INITIALIZING",
-}
+export const AsyncJobStatus = {
+  CANCELED: "CANCELED",
+  CANCEL_IN_PROGRESS: "CANCEL_IN_PROGRESS",
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  IN_PROGRESS_INITIALIZING: "IN_PROGRESS_INITIALIZING",
+};
 
 /**
  * @public
@@ -436,21 +436,21 @@ export interface BatchGetVariableError {
 /**
  * @public
  */
-export enum DataSource {
-  EVENT = "EVENT",
-  EXTERNAL_MODEL_SCORE = "EXTERNAL_MODEL_SCORE",
-  MODEL_SCORE = "MODEL_SCORE",
-}
+export const DataSource = {
+  EVENT: "EVENT",
+  EXTERNAL_MODEL_SCORE: "EXTERNAL_MODEL_SCORE",
+  MODEL_SCORE: "MODEL_SCORE",
+};
 
 /**
  * @public
  */
-export enum DataType {
-  BOOLEAN = "BOOLEAN",
-  FLOAT = "FLOAT",
-  INTEGER = "INTEGER",
-  STRING = "STRING",
-}
+export const DataType = {
+  BOOLEAN: "BOOLEAN",
+  FLOAT: "FLOAT",
+  INTEGER: "INTEGER",
+  STRING: "STRING",
+};
 
 /**
  * @public
@@ -465,12 +465,12 @@ export interface Variable {
   /**
    * <p>The data type of the variable. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
    */
-  dataType?: DataType | string;
+  dataType?: keyof typeof DataType | string;
 
   /**
    * <p>The data source of the variable.</p>
    */
-  dataSource?: DataSource | string;
+  dataSource?: keyof typeof DataSource | string;
 
   /**
    * <p>The default value of the variable.</p>
@@ -670,11 +670,11 @@ export interface CreateBatchPredictionJobResult {}
 /**
  * @public
  */
-export enum ModelTypeEnum {
-  ACCOUNT_TAKEOVER_INSIGHTS = "ACCOUNT_TAKEOVER_INSIGHTS",
-  ONLINE_FRAUD_INSIGHTS = "ONLINE_FRAUD_INSIGHTS",
-  TRANSACTION_FRAUD_INSIGHTS = "TRANSACTION_FRAUD_INSIGHTS",
-}
+export const ModelTypeEnum = {
+  ACCOUNT_TAKEOVER_INSIGHTS: "ACCOUNT_TAKEOVER_INSIGHTS",
+  ONLINE_FRAUD_INSIGHTS: "ONLINE_FRAUD_INSIGHTS",
+  TRANSACTION_FRAUD_INSIGHTS: "TRANSACTION_FRAUD_INSIGHTS",
+};
 
 /**
  * @public
@@ -689,7 +689,7 @@ export interface ModelVersion {
   /**
    * <p>The model type.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: keyof typeof ModelTypeEnum | string | undefined;
 
   /**
    * <p>The model version number.</p>
@@ -705,10 +705,10 @@ export interface ModelVersion {
 /**
  * @public
  */
-export enum RuleExecutionMode {
-  ALL_MATCHED = "ALL_MATCHED",
-  FIRST_MATCHED = "FIRST_MATCHED",
-}
+export const RuleExecutionMode = {
+  ALL_MATCHED: "ALL_MATCHED",
+  FIRST_MATCHED: "FIRST_MATCHED",
+};
 
 /**
  * @public
@@ -767,7 +767,7 @@ export interface CreateDetectorVersionRequest {
    *          <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. </p>
    *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
    */
-  ruleExecutionMode?: RuleExecutionMode | string;
+  ruleExecutionMode?: keyof typeof RuleExecutionMode | string;
 
   /**
    * <p>A collection of key and value pairs.</p>
@@ -778,11 +778,11 @@ export interface CreateDetectorVersionRequest {
 /**
  * @public
  */
-export enum DetectorVersionStatus {
-  ACTIVE = "ACTIVE",
-  DRAFT = "DRAFT",
-  INACTIVE = "INACTIVE",
-}
+export const DetectorVersionStatus = {
+  ACTIVE: "ACTIVE",
+  DRAFT: "DRAFT",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -801,7 +801,7 @@ export interface CreateDetectorVersionResult {
   /**
    * <p>The status of the detector version.</p>
    */
-  status?: DetectorVersionStatus | string;
+  status?: keyof typeof DetectorVersionStatus | string;
 }
 
 /**
@@ -862,7 +862,7 @@ export interface CreateModelRequest {
   /**
    * <p>The model type. </p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: keyof typeof ModelTypeEnum | string | undefined;
 
   /**
    * <p>The model description. </p>
@@ -931,12 +931,12 @@ export interface IngestedEventsDetail {
 /**
  * @public
  */
-export enum UnlabeledEventsTreatment {
-  AUTO = "AUTO",
-  FRAUD = "FRAUD",
-  IGNORE = "IGNORE",
-  LEGIT = "LEGIT",
-}
+export const UnlabeledEventsTreatment = {
+  AUTO: "AUTO",
+  FRAUD: "FRAUD",
+  IGNORE: "IGNORE",
+  LEGIT: "LEGIT",
+};
 
 /**
  * @public
@@ -967,7 +967,7 @@ export interface LabelSchema {
    *          </ul>
    *          <p>By default, Amazon Fraud Detector ignores the unlabeled data.</p>
    */
-  unlabeledEventsTreatment?: UnlabeledEventsTreatment | string;
+  unlabeledEventsTreatment?: keyof typeof UnlabeledEventsTreatment | string;
 }
 
 /**
@@ -989,10 +989,10 @@ export interface TrainingDataSchema {
 /**
  * @public
  */
-export enum TrainingDataSourceEnum {
-  EXTERNAL_EVENTS = "EXTERNAL_EVENTS",
-  INGESTED_EVENTS = "INGESTED_EVENTS",
-}
+export const TrainingDataSourceEnum = {
+  EXTERNAL_EVENTS: "EXTERNAL_EVENTS",
+  INGESTED_EVENTS: "INGESTED_EVENTS",
+};
 
 /**
  * @public
@@ -1006,12 +1006,12 @@ export interface CreateModelVersionRequest {
   /**
    * <p>The model type.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: keyof typeof ModelTypeEnum | string | undefined;
 
   /**
    * <p>The training data source location in Amazon S3. </p>
    */
-  trainingDataSource: TrainingDataSourceEnum | string | undefined;
+  trainingDataSource: keyof typeof TrainingDataSourceEnum | string | undefined;
 
   /**
    * <p>The training data schema.</p>
@@ -1046,7 +1046,7 @@ export interface CreateModelVersionResult {
   /**
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: keyof typeof ModelTypeEnum | string;
 
   /**
    * <p>The model version number of the model version created.</p>
@@ -1062,9 +1062,9 @@ export interface CreateModelVersionResult {
 /**
  * @public
  */
-export enum Language {
-  DETECTORPL = "DETECTORPL",
-}
+export const Language = {
+  DETECTORPL: "DETECTORPL",
+};
 
 /**
  * @public
@@ -1093,7 +1093,7 @@ export interface CreateRuleRequest {
   /**
    * <p>The language of the rule.</p>
    */
-  language: Language | string | undefined;
+  language: keyof typeof Language | string | undefined;
 
   /**
    * <p>The outcome or outcomes returned when the rule expression matches.</p>
@@ -1128,12 +1128,12 @@ export interface CreateVariableRequest {
   /**
    * <p>The data type.</p>
    */
-  dataType: DataType | string | undefined;
+  dataType: keyof typeof DataType | string | undefined;
 
   /**
    * <p>The source of the data.</p>
    */
-  dataSource: DataSource | string | undefined;
+  dataSource: keyof typeof DataSource | string | undefined;
 
   /**
    * <p>The default value for the variable when no value is received.</p>
@@ -1388,7 +1388,7 @@ export interface DeleteModelRequest {
   /**
    * <p>The model type of the model to delete.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: keyof typeof ModelTypeEnum | string | undefined;
 }
 
 /**
@@ -1408,7 +1408,7 @@ export interface DeleteModelVersionRequest {
   /**
    * <p>The model type of the model version to delete.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: keyof typeof ModelTypeEnum | string | undefined;
 
   /**
    * <p>The model version number of the model version to delete.</p>
@@ -1499,7 +1499,7 @@ export interface DetectorVersionSummary {
   /**
    * <p>The detector version status. </p>
    */
-  status?: DetectorVersionStatus | string;
+  status?: keyof typeof DetectorVersionStatus | string;
 
   /**
    * <p>The detector version description. </p>
@@ -1554,7 +1554,7 @@ export interface DescribeModelVersionsRequest {
   /**
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: keyof typeof ModelTypeEnum | string;
 
   /**
    * <p>The next token from the previous results.</p>
@@ -1989,7 +1989,7 @@ export interface ModelVersionDetail {
   /**
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: keyof typeof ModelTypeEnum | string;
 
   /**
    * <p>The model version number.</p>
@@ -2004,7 +2004,7 @@ export interface ModelVersionDetail {
   /**
    * <p>The model version training data source.</p>
    */
-  trainingDataSource?: TrainingDataSourceEnum | string;
+  trainingDataSource?: keyof typeof TrainingDataSourceEnum | string;
 
   /**
    * <p>The training data schema.</p>
@@ -2097,7 +2097,7 @@ export interface BatchImport {
   /**
    * <p>The status of the batch import job.</p>
    */
-  status?: AsyncJobStatus | string;
+  status?: keyof typeof AsyncJobStatus | string;
 
   /**
    * <p>The reason batch import job failed.</p>
@@ -2203,7 +2203,7 @@ export interface BatchPrediction {
   /**
    * <p>The batch prediction status.</p>
    */
-  status?: AsyncJobStatus | string;
+  status?: keyof typeof AsyncJobStatus | string;
 
   /**
    * <p>The reason a batch prediction job failed.</p>
@@ -2308,7 +2308,7 @@ export interface GetDeleteEventsByEventTypeStatusResult {
   /**
    * <p>The deletion status.</p>
    */
-  eventsDeletionStatus?: AsyncJobStatus | string;
+  eventsDeletionStatus?: keyof typeof AsyncJobStatus | string;
 }
 
 /**
@@ -2434,7 +2434,7 @@ export interface GetDetectorVersionResult {
   /**
    * <p>The status of the detector version.</p>
    */
-  status?: DetectorVersionStatus | string;
+  status?: keyof typeof DetectorVersionStatus | string;
 
   /**
    * <p>The timestamp when the detector version was last updated.
@@ -2454,7 +2454,7 @@ export interface GetDetectorVersionResult {
    *          <p>
    *             <code>ALL_MATCHED</code> indicates that Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
    */
-  ruleExecutionMode?: RuleExecutionMode | string;
+  ruleExecutionMode?: keyof typeof RuleExecutionMode | string;
 
   /**
    * <p>The detector version ARN.</p>
@@ -2689,9 +2689,9 @@ export interface GetEventPredictionRequest {
 /**
  * @public
  */
-export enum ModelSource {
-  SAGEMAKER = "SAGEMAKER",
-}
+export const ModelSource = {
+  SAGEMAKER: "SAGEMAKER",
+};
 
 /**
  * @public
@@ -2706,7 +2706,7 @@ export interface ExternalModelSummary {
   /**
    * <p>The source of the model.</p>
    */
-  modelSource?: ModelSource | string;
+  modelSource?: keyof typeof ModelSource | string;
 }
 
 /**
@@ -3166,7 +3166,7 @@ export interface GetEventPredictionMetadataResult {
    * The execution mode of the rule used for evaluating variable values.
    * </p>
    */
-  ruleExecutionMode?: RuleExecutionMode | string;
+  ruleExecutionMode?: keyof typeof RuleExecutionMode | string;
 
   /**
    * <p>
@@ -3218,10 +3218,10 @@ export interface GetEventTypesRequest {
 /**
  * @public
  */
-export enum EventIngestion {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const EventIngestion = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -3288,7 +3288,7 @@ export interface EventType {
   /**
    * <p>If <code>Enabled</code>, Amazon Fraud Detector stores event data when you generate a prediction and uses that data to update calculated variables in near real-time. Amazon Fraud Detector uses this data, known as <code>INGESTED_EVENTS</code>, to train your model and  improve fraud predictions.</p>
    */
-  eventIngestion?: EventIngestion | string;
+  eventIngestion?: keyof typeof EventIngestion | string;
 
   /**
    * <p>Data about the stored events.</p>
@@ -3349,10 +3349,10 @@ export interface GetExternalModelsRequest {
 /**
  * @public
  */
-export enum ModelInputDataFormat {
-  CSV = "TEXT_CSV",
-  JSON = "APPLICATION_JSON",
-}
+export const ModelInputDataFormat = {
+  CSV: "TEXT_CSV",
+  JSON: "APPLICATION_JSON",
+};
 
 /**
  * @public
@@ -3368,7 +3368,7 @@ export interface ModelInputConfiguration {
    * <p> The format of the model input configuration. The format differs depending on if it is
    *             passed through to SageMaker or constructed by Amazon Fraud Detector.</p>
    */
-  format?: ModelInputDataFormat | string;
+  format?: keyof typeof ModelInputDataFormat | string;
 
   /**
    * <p>The event variables.</p>
@@ -3393,18 +3393,18 @@ export interface ModelInputConfiguration {
 /**
  * @public
  */
-export enum ModelEndpointStatus {
-  ASSOCIATED = "ASSOCIATED",
-  DISSOCIATED = "DISSOCIATED",
-}
+export const ModelEndpointStatus = {
+  ASSOCIATED: "ASSOCIATED",
+  DISSOCIATED: "DISSOCIATED",
+};
 
 /**
  * @public
  */
-export enum ModelOutputDataFormat {
-  CSV = "TEXT_CSV",
-  JSONLINES = "APPLICATION_JSONLINES",
-}
+export const ModelOutputDataFormat = {
+  CSV: "TEXT_CSV",
+  JSONLINES: "APPLICATION_JSONLINES",
+};
 
 /**
  * @public
@@ -3414,7 +3414,7 @@ export interface ModelOutputConfiguration {
   /**
    * <p>The format of the model output configuration.</p>
    */
-  format: ModelOutputDataFormat | string | undefined;
+  format: keyof typeof ModelOutputDataFormat | string | undefined;
 
   /**
    * <p>A map of JSON keys in response from SageMaker to the Amazon Fraud Detector variables. </p>
@@ -3440,7 +3440,7 @@ export interface ExternalModel {
   /**
    * <p>The source of the model.</p>
    */
-  modelSource?: ModelSource | string;
+  modelSource?: keyof typeof ModelSource | string;
 
   /**
    * <p>The role used to invoke the model. </p>
@@ -3460,7 +3460,7 @@ export interface ExternalModel {
   /**
    * <p>The Amazon Fraud Detector status for the external model endpoint</p>
    */
-  modelEndpointStatus?: ModelEndpointStatus | string;
+  modelEndpointStatus?: keyof typeof ModelEndpointStatus | string;
 
   /**
    * <p>Timestamp of when the model was last updated.</p>
@@ -3682,7 +3682,7 @@ export interface GetModelsRequest {
   /**
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: keyof typeof ModelTypeEnum | string;
 
   /**
    * <p>The next token for the subsequent request.</p>
@@ -3708,7 +3708,7 @@ export interface Model {
   /**
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: keyof typeof ModelTypeEnum | string;
 
   /**
    * <p>The model description.</p>
@@ -3763,7 +3763,7 @@ export interface GetModelVersionRequest {
   /**
    * <p>The model type.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: keyof typeof ModelTypeEnum | string | undefined;
 
   /**
    * <p>The model version number.</p>
@@ -3783,7 +3783,7 @@ export interface GetModelVersionResult {
   /**
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: keyof typeof ModelTypeEnum | string;
 
   /**
    * <p>The model version number.</p>
@@ -3793,7 +3793,7 @@ export interface GetModelVersionResult {
   /**
    * <p>The training data source.</p>
    */
-  trainingDataSource?: TrainingDataSourceEnum | string;
+  trainingDataSource?: keyof typeof TrainingDataSourceEnum | string;
 
   /**
    * <p>The training data schema.</p>
@@ -4001,7 +4001,7 @@ export interface RuleDetail {
   /**
    * <p>The rule language.</p>
    */
-  language?: Language | string;
+  language?: keyof typeof Language | string;
 
   /**
    * <p>The rule outcomes.</p>
@@ -4356,7 +4356,7 @@ export interface PutEventTypeRequest {
   /**
    * <p>Specifies if ingenstion is enabled or disabled.</p>
    */
-  eventIngestion?: EventIngestion | string;
+  eventIngestion?: keyof typeof EventIngestion | string;
 
   /**
    * <p>A collection of key and value pairs.</p>
@@ -4381,7 +4381,7 @@ export interface PutExternalModelRequest {
   /**
    * <p>The source of the model.</p>
    */
-  modelSource: ModelSource | string | undefined;
+  modelSource: keyof typeof ModelSource | string | undefined;
 
   /**
    * <p>The IAM role used to invoke the model endpoint.</p>
@@ -4401,7 +4401,7 @@ export interface PutExternalModelRequest {
   /**
    * <p>The model endpoint’s status in Amazon Fraud Detector.</p>
    */
-  modelEndpointStatus: ModelEndpointStatus | string | undefined;
+  modelEndpointStatus: keyof typeof ModelEndpointStatus | string | undefined;
 
   /**
    * <p>A collection of key and value pairs.</p>
@@ -4605,7 +4605,7 @@ export interface UpdateDetectorVersionRequest {
    *          <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
    *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
    */
-  ruleExecutionMode?: RuleExecutionMode | string;
+  ruleExecutionMode?: keyof typeof RuleExecutionMode | string;
 }
 
 /**
@@ -4657,7 +4657,7 @@ export interface UpdateDetectorVersionStatusRequest {
    *          <p>The only supported values are <code>ACTIVE</code> and <code>INACTIVE</code>
    *          </p>
    */
-  status: DetectorVersionStatus | string | undefined;
+  status: keyof typeof DetectorVersionStatus | string | undefined;
 }
 
 /**
@@ -4698,11 +4698,11 @@ export interface UpdateEventLabelResult {}
 /**
  * @public
  */
-export enum ListUpdateMode {
-  APPEND = "APPEND",
-  REMOVE = "REMOVE",
-  REPLACE = "REPLACE",
-}
+export const ListUpdateMode = {
+  APPEND: "APPEND",
+  REMOVE: "REMOVE",
+  REPLACE: "REPLACE",
+};
 
 /**
  * @public
@@ -4746,7 +4746,7 @@ export interface UpdateListRequest {
    *             </li>
    *          </ul>
    */
-  updateMode?: ListUpdateMode | string;
+  updateMode?: keyof typeof ListUpdateMode | string;
 
   /**
    * <p>
@@ -4776,7 +4776,7 @@ export interface UpdateModelRequest {
   /**
    * <p>The model type.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: keyof typeof ModelTypeEnum | string | undefined;
 
   /**
    * <p>The new model description.</p>
@@ -4801,7 +4801,7 @@ export interface UpdateModelVersionRequest {
   /**
    * <p>The model type.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: keyof typeof ModelTypeEnum | string | undefined;
 
   /**
    * <p>The major version number.</p>
@@ -4836,7 +4836,7 @@ export interface UpdateModelVersionResult {
   /**
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: keyof typeof ModelTypeEnum | string;
 
   /**
    * <p>The model version number of the model version updated.</p>
@@ -4852,11 +4852,11 @@ export interface UpdateModelVersionResult {
 /**
  * @public
  */
-export enum ModelVersionStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  TRAINING_CANCELLED = "TRAINING_CANCELLED",
-}
+export const ModelVersionStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+  TRAINING_CANCELLED: "TRAINING_CANCELLED",
+};
 
 /**
  * @public
@@ -4870,7 +4870,7 @@ export interface UpdateModelVersionStatusRequest {
   /**
    * <p>The model type.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: keyof typeof ModelTypeEnum | string | undefined;
 
   /**
    * <p>The model version number.</p>
@@ -4880,7 +4880,7 @@ export interface UpdateModelVersionStatusRequest {
   /**
    * <p>The model version status.</p>
    */
-  status: ModelVersionStatus | string | undefined;
+  status: keyof typeof ModelVersionStatus | string | undefined;
 }
 
 /**
@@ -4930,7 +4930,7 @@ export interface UpdateRuleVersionRequest {
   /**
    * <p>The language.</p>
    */
-  language: Language | string | undefined;
+  language: keyof typeof Language | string | undefined;
 
   /**
    * <p>The outcomes.</p>

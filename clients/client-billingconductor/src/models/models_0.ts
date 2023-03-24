@@ -105,13 +105,13 @@ export interface AssociateAccountsOutput {
 /**
  * @public
  */
-export enum ConflictExceptionReason {
-  PRICING_PLAN_ATTACHED_TO_BILLING_GROUP_DELETE_CONFLICT = "PRICING_PLAN_ATTACHED_TO_BILLING_GROUP_DELETE_CONFLICT",
-  PRICING_RULE_ATTACHED_TO_PRICING_PLAN_DELETE_CONFLICT = "PRICING_RULE_ATTACHED_TO_PRICING_PLAN_DELETE_CONFLICT",
-  PRICING_RULE_IN_PRICING_PLAN_CONFLICT = "PRICING_RULE_IN_PRICING_PLAN_CONFLICT",
-  RESOURCE_NAME_CONFLICT = "RESOURCE_NAME_CONFLICT",
-  WRITE_CONFLICT_RETRY = "WRITE_CONFLICT_RETRY",
-}
+export const ConflictExceptionReason = {
+  PRICING_PLAN_ATTACHED_TO_BILLING_GROUP_DELETE_CONFLICT: "PRICING_PLAN_ATTACHED_TO_BILLING_GROUP_DELETE_CONFLICT",
+  PRICING_RULE_ATTACHED_TO_PRICING_PLAN_DELETE_CONFLICT: "PRICING_RULE_ATTACHED_TO_PRICING_PLAN_DELETE_CONFLICT",
+  PRICING_RULE_IN_PRICING_PLAN_CONFLICT: "PRICING_RULE_IN_PRICING_PLAN_CONFLICT",
+  RESOURCE_NAME_CONFLICT: "RESOURCE_NAME_CONFLICT",
+  WRITE_CONFLICT_RETRY: "WRITE_CONFLICT_RETRY",
+};
 
 /**
  * @public
@@ -138,7 +138,7 @@ export class ConflictException extends __BaseException {
    * <p>Reason for the inconsistent state.
    *     </p>
    */
-  Reason?: ConflictExceptionReason | string;
+  Reason?: keyof typeof ConflictExceptionReason | string;
   /**
    * @internal
    */
@@ -322,65 +322,65 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  ACCOUNTS_ALREADY_ASSOCIATED = "ACCOUNTS_ALREADY_ASSOCIATED",
-  ACCOUNTS_NOT_ASSOCIATED = "ACCOUNTS_NOT_ASSOCIATED",
-  CANNOT_PARSE = "CANNOT_PARSE",
-  CUSTOM_LINE_ITEM_ASSOCIATION_EXISTS = "CUSTOM_LINE_ITEM_ASSOCIATION_EXISTS",
-  DUPLICATE_ACCOUNT = "DUPLICATE_ACCOUNT",
-  DUPLICATE_PRICINGRULE_ARNS = "DUPLICATE_PRICINGRULE_ARNS",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  ILLEGAL_ACCOUNTS = "ILLEGAL_ACCOUNTS",
-  ILLEGAL_BILLING_ENTITY = "ILLEGAL_BILLING_ENTITY",
-  ILLEGAL_BILLING_PERIOD = "ILLEGAL_BILLING_PERIOD",
-  ILLEGAL_BILLING_PERIOD_RANGE = "ILLEGAL_BILLING_PERIOD_RANGE",
-  ILLEGAL_CHARGE_DETAILS = "ILLEGAL_CHARGE_DETAILS",
-  ILLEGAL_CHILD_ASSOCIATE_RESOURCE = "ILLEGAL_CHILD_ASSOCIATE_RESOURCE",
-  ILLEGAL_CUSTOMLINEITEM = "ILLEGAL_CUSTOMLINEITEM",
-  ILLEGAL_CUSTOMLINEITEM_MODIFICATION = "ILLEGAL_CUSTOMLINEITEM_MODIFICATION",
-  ILLEGAL_CUSTOMLINEITEM_UPDATE = "ILLEGAL_CUSTOMLINEITEM_UPDATE",
-  ILLEGAL_ENDED_BILLINGGROUP = "ILLEGAL_ENDED_BILLINGGROUP",
-  ILLEGAL_EXPRESSION = "ILLEGAL_EXPRESSION",
-  ILLEGAL_MODIFIER_PERCENTAGE = "ILLEGAL_MODIFIER_PERCENTAGE",
-  ILLEGAL_OPERATION = "ILLEGAL_OPERATION",
-  ILLEGAL_PRIMARY_ACCOUNT = "ILLEGAL_PRIMARY_ACCOUNT",
-  ILLEGAL_RESOURCE_ARNS = "ILLEGAL_RESOURCE_ARNS",
-  ILLEGAL_SCOPE = "ILLEGAL_SCOPE",
-  ILLEGAL_SERVICE = "ILLEGAL_SERVICE",
-  ILLEGAL_TIERING_INPUT = "ILLEGAL_TIERING_INPUT",
-  ILLEGAL_TYPE = "ILLEGAL_TYPE",
-  ILLEGAL_UPDATE_CHARGE_DETAILS = "ILLEGAL_UPDATE_CHARGE_DETAILS",
-  ILLEGAL_USAGE_TYPE = "ILLEGAL_USAGE_TYPE",
-  INVALID_ARN = "INVALID_ARN",
-  INVALID_BILLINGVIEW_ARN = "INVALID_BILLINGVIEW_ARN",
-  INVALID_BILLING_GROUP = "INVALID_BILLING_GROUP",
-  INVALID_BILLING_GROUP_STATUS = "INVALID_BILLING_GROUP_STATUS",
-  INVALID_BILLING_PERIOD_FOR_OPERATION = "INVALID_BILLING_PERIOD_FOR_OPERATION",
-  INVALID_FILTER = "INVALID_FILTER",
-  INVALID_SKU_COMBO = "INVALID_SKU_COMBO",
-  INVALID_TIME_RANGE = "INVALID_TIME_RANGE",
-  MISMATCHED_BILLINGGROUP_ARN = "MISMATCHED_BILLINGGROUP_ARN",
-  MISMATCHED_BILLINGVIEW_ARN = "MISMATCHED_BILLINGVIEW_ARN",
-  MISMATCHED_CUSTOMLINEITEM_ARN = "MISMATCHED_CUSTOMLINEITEM_ARN",
-  MISMATCHED_PRICINGPLAN_ARN = "MISMATCHED_PRICINGPLAN_ARN",
-  MISMATCHED_PRICINGRULE_ARN = "MISMATCHED_PRICINGRULE_ARN",
-  MISSING_BILLINGGROUP = "MISSING_BILLINGGROUP",
-  MISSING_CUSTOMLINEITEM = "MISSING_CUSTOMLINEITEM",
-  MISSING_LINKED_ACCOUNT_IDS = "MISSING_LINKED_ACCOUNT_IDS",
-  MISSING_PRICINGPLAN = "MISSING_PRICINGPLAN",
-  MISSING_PRICING_PLAN_ARN = "MISSING_PRICING_PLAN_ARN",
-  MULTIPLE_LINKED_ACCOUNT_IDS = "MULTIPLE_LINKED_ACCOUNT_IDS",
-  MULTIPLE_PRICING_PLAN_ARN = "MULTIPLE_PRICING_PLAN_ARN",
-  OTHER = "OTHER",
-  PRICINGRULES_ALREADY_ASSOCIATED = "PRICINGRULES_ALREADY_ASSOCIATED",
-  PRICINGRULES_NOT_ASSOCIATED = "PRICINGRULES_NOT_ASSOCIATED",
-  PRICINGRULES_NOT_EXIST = "PRICINGRULES_NOT_EXIST",
-  PRIMARY_CANNOT_DISASSOCIATE = "PRIMARY_CANNOT_DISASSOCIATE",
-  PRIMARY_NOT_ASSOCIATED = "PRIMARY_NOT_ASSOCIATED",
-  TOO_MANY_ACCOUNTS_IN_REQUEST = "TOO_MANY_ACCOUNTS_IN_REQUEST",
-  TOO_MANY_CUSTOMLINEITEMS_IN_REQUEST = "TOO_MANY_CUSTOMLINEITEMS_IN_REQUEST",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  ACCOUNTS_ALREADY_ASSOCIATED: "ACCOUNTS_ALREADY_ASSOCIATED",
+  ACCOUNTS_NOT_ASSOCIATED: "ACCOUNTS_NOT_ASSOCIATED",
+  CANNOT_PARSE: "CANNOT_PARSE",
+  CUSTOM_LINE_ITEM_ASSOCIATION_EXISTS: "CUSTOM_LINE_ITEM_ASSOCIATION_EXISTS",
+  DUPLICATE_ACCOUNT: "DUPLICATE_ACCOUNT",
+  DUPLICATE_PRICINGRULE_ARNS: "DUPLICATE_PRICINGRULE_ARNS",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  ILLEGAL_ACCOUNTS: "ILLEGAL_ACCOUNTS",
+  ILLEGAL_BILLING_ENTITY: "ILLEGAL_BILLING_ENTITY",
+  ILLEGAL_BILLING_PERIOD: "ILLEGAL_BILLING_PERIOD",
+  ILLEGAL_BILLING_PERIOD_RANGE: "ILLEGAL_BILLING_PERIOD_RANGE",
+  ILLEGAL_CHARGE_DETAILS: "ILLEGAL_CHARGE_DETAILS",
+  ILLEGAL_CHILD_ASSOCIATE_RESOURCE: "ILLEGAL_CHILD_ASSOCIATE_RESOURCE",
+  ILLEGAL_CUSTOMLINEITEM: "ILLEGAL_CUSTOMLINEITEM",
+  ILLEGAL_CUSTOMLINEITEM_MODIFICATION: "ILLEGAL_CUSTOMLINEITEM_MODIFICATION",
+  ILLEGAL_CUSTOMLINEITEM_UPDATE: "ILLEGAL_CUSTOMLINEITEM_UPDATE",
+  ILLEGAL_ENDED_BILLINGGROUP: "ILLEGAL_ENDED_BILLINGGROUP",
+  ILLEGAL_EXPRESSION: "ILLEGAL_EXPRESSION",
+  ILLEGAL_MODIFIER_PERCENTAGE: "ILLEGAL_MODIFIER_PERCENTAGE",
+  ILLEGAL_OPERATION: "ILLEGAL_OPERATION",
+  ILLEGAL_PRIMARY_ACCOUNT: "ILLEGAL_PRIMARY_ACCOUNT",
+  ILLEGAL_RESOURCE_ARNS: "ILLEGAL_RESOURCE_ARNS",
+  ILLEGAL_SCOPE: "ILLEGAL_SCOPE",
+  ILLEGAL_SERVICE: "ILLEGAL_SERVICE",
+  ILLEGAL_TIERING_INPUT: "ILLEGAL_TIERING_INPUT",
+  ILLEGAL_TYPE: "ILLEGAL_TYPE",
+  ILLEGAL_UPDATE_CHARGE_DETAILS: "ILLEGAL_UPDATE_CHARGE_DETAILS",
+  ILLEGAL_USAGE_TYPE: "ILLEGAL_USAGE_TYPE",
+  INVALID_ARN: "INVALID_ARN",
+  INVALID_BILLINGVIEW_ARN: "INVALID_BILLINGVIEW_ARN",
+  INVALID_BILLING_GROUP: "INVALID_BILLING_GROUP",
+  INVALID_BILLING_GROUP_STATUS: "INVALID_BILLING_GROUP_STATUS",
+  INVALID_BILLING_PERIOD_FOR_OPERATION: "INVALID_BILLING_PERIOD_FOR_OPERATION",
+  INVALID_FILTER: "INVALID_FILTER",
+  INVALID_SKU_COMBO: "INVALID_SKU_COMBO",
+  INVALID_TIME_RANGE: "INVALID_TIME_RANGE",
+  MISMATCHED_BILLINGGROUP_ARN: "MISMATCHED_BILLINGGROUP_ARN",
+  MISMATCHED_BILLINGVIEW_ARN: "MISMATCHED_BILLINGVIEW_ARN",
+  MISMATCHED_CUSTOMLINEITEM_ARN: "MISMATCHED_CUSTOMLINEITEM_ARN",
+  MISMATCHED_PRICINGPLAN_ARN: "MISMATCHED_PRICINGPLAN_ARN",
+  MISMATCHED_PRICINGRULE_ARN: "MISMATCHED_PRICINGRULE_ARN",
+  MISSING_BILLINGGROUP: "MISSING_BILLINGGROUP",
+  MISSING_CUSTOMLINEITEM: "MISSING_CUSTOMLINEITEM",
+  MISSING_LINKED_ACCOUNT_IDS: "MISSING_LINKED_ACCOUNT_IDS",
+  MISSING_PRICINGPLAN: "MISSING_PRICINGPLAN",
+  MISSING_PRICING_PLAN_ARN: "MISSING_PRICING_PLAN_ARN",
+  MULTIPLE_LINKED_ACCOUNT_IDS: "MULTIPLE_LINKED_ACCOUNT_IDS",
+  MULTIPLE_PRICING_PLAN_ARN: "MULTIPLE_PRICING_PLAN_ARN",
+  OTHER: "OTHER",
+  PRICINGRULES_ALREADY_ASSOCIATED: "PRICINGRULES_ALREADY_ASSOCIATED",
+  PRICINGRULES_NOT_ASSOCIATED: "PRICINGRULES_NOT_ASSOCIATED",
+  PRICINGRULES_NOT_EXIST: "PRICINGRULES_NOT_EXIST",
+  PRIMARY_CANNOT_DISASSOCIATE: "PRIMARY_CANNOT_DISASSOCIATE",
+  PRIMARY_NOT_ASSOCIATED: "PRIMARY_NOT_ASSOCIATED",
+  TOO_MANY_ACCOUNTS_IN_REQUEST: "TOO_MANY_ACCOUNTS_IN_REQUEST",
+  TOO_MANY_CUSTOMLINEITEMS_IN_REQUEST: "TOO_MANY_CUSTOMLINEITEMS_IN_REQUEST",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+};
 
 /**
  * @public
@@ -394,7 +394,7 @@ export class ValidationException extends __BaseException {
    * <p>The reason the request's validation failed.
    *     </p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>The fields that caused the error, if applicable.
@@ -451,13 +451,13 @@ export interface AssociatePricingRulesOutput {
 /**
  * @public
  */
-export enum AssociateResourceErrorReason {
-  ILLEGAL_CUSTOMLINEITEM = "ILLEGAL_CUSTOMLINEITEM",
-  INTERNAL_SERVER_EXCEPTION = "INTERNAL_SERVER_EXCEPTION",
-  INVALID_ARN = "INVALID_ARN",
-  INVALID_BILLING_PERIOD_RANGE = "INVALID_BILLING_PERIOD_RANGE",
-  SERVICE_LIMIT_EXCEEDED = "SERVICE_LIMIT_EXCEEDED",
-}
+export const AssociateResourceErrorReason = {
+  ILLEGAL_CUSTOMLINEITEM: "ILLEGAL_CUSTOMLINEITEM",
+  INTERNAL_SERVER_EXCEPTION: "INTERNAL_SERVER_EXCEPTION",
+  INVALID_ARN: "INVALID_ARN",
+  INVALID_BILLING_PERIOD_RANGE: "INVALID_BILLING_PERIOD_RANGE",
+  SERVICE_LIMIT_EXCEEDED: "SERVICE_LIMIT_EXCEEDED",
+};
 
 /**
  * @public
@@ -474,7 +474,7 @@ export interface AssociateResourceError {
   /**
    * <p> A static error code that's used to classify the type of failure. </p>
    */
-  Reason?: AssociateResourceErrorReason | string;
+  Reason?: keyof typeof AssociateResourceErrorReason | string;
 }
 
 /**
@@ -622,10 +622,10 @@ export interface DisassociateAccountsOutput {
 /**
  * @public
  */
-export enum BillingGroupStatus {
-  ACTIVE = "ACTIVE",
-  PRIMARY_ACCOUNT_MISSING = "PRIMARY_ACCOUNT_MISSING",
-}
+export const BillingGroupStatus = {
+  ACTIVE: "ACTIVE",
+  PRIMARY_ACCOUNT_MISSING: "PRIMARY_ACCOUNT_MISSING",
+};
 
 /**
  * @public
@@ -648,7 +648,7 @@ export interface ListBillingGroupsFilter {
    *       A list of billing groups to retrieve their current status for a specific time range
    *     </p>
    */
-  Statuses?: (BillingGroupStatus | string)[];
+  Statuses?: (keyof typeof BillingGroupStatus | string)[];
 }
 
 /**
@@ -736,7 +736,7 @@ export interface BillingGroupListElement {
    * <p>The billing group status. Only one of the valid values can be used.
    *     </p>
    */
-  Status?: BillingGroupStatus | string;
+  Status?: keyof typeof BillingGroupStatus | string;
 
   /**
    * <p>The reason why the billing group is in its current status.
@@ -781,7 +781,7 @@ export interface UpdateBillingGroupInput {
    * <p>The status of the billing group. Only one of the valid values can be used.
    *     </p>
    */
-  Status?: BillingGroupStatus | string;
+  Status?: keyof typeof BillingGroupStatus | string;
 
   /**
    * <p>
@@ -852,7 +852,7 @@ export interface UpdateBillingGroupOutput {
    *       The status of the billing group. Only one of the valid values can be used.
    *     </p>
    */
-  Status?: BillingGroupStatus | string;
+  Status?: keyof typeof BillingGroupStatus | string;
 
   /**
    * <p>
@@ -1034,10 +1034,10 @@ export interface CustomLineItemPercentageChargeDetails {
 /**
  * @public
  */
-export enum CustomLineItemType {
-  CREDIT = "CREDIT",
-  FEE = "FEE",
-}
+export const CustomLineItemType = {
+  CREDIT: "CREDIT",
+  FEE: "FEE",
+};
 
 /**
  * @public
@@ -1065,7 +1065,7 @@ export interface CustomLineItemChargeDetails {
    *       The type of the custom line item that indicates whether the charge is a fee or credit.
    *     </p>
    */
-  Type: CustomLineItemType | string | undefined;
+  Type: keyof typeof CustomLineItemType | string | undefined;
 }
 
 /**
@@ -1273,16 +1273,16 @@ export interface ListCustomLineItemChargeDetails {
    *       The type of the custom line item that indicates whether the charge is a <code>fee</code> or <code>credit</code>.
    *     </p>
    */
-  Type: CustomLineItemType | string | undefined;
+  Type: keyof typeof CustomLineItemType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum CurrencyCode {
-  CNY = "CNY",
-  USD = "USD",
-}
+export const CurrencyCode = {
+  CNY: "CNY",
+  USD: "USD",
+};
 
 /**
  * @public
@@ -1315,7 +1315,7 @@ export interface CustomLineItemListElement {
    *       The custom line item's charge value currency. Only one of the valid values can be used.
    *     </p>
    */
-  CurrencyCode?: CurrencyCode | string;
+  CurrencyCode?: keyof typeof CurrencyCode | string;
 
   /**
    * <p>
@@ -1448,7 +1448,7 @@ export interface CustomLineItemVersionListElement {
   /**
    * <p>The charge value currency of the custom line item.</p>
    */
-  CurrencyCode?: CurrencyCode | string;
+  CurrencyCode?: keyof typeof CurrencyCode | string;
 
   /**
    * <p>The description of the custom line item.</p>
@@ -1523,10 +1523,10 @@ export interface ListCustomLineItemVersionsOutput {
 /**
  * @public
  */
-export enum CustomLineItemRelationship {
-  CHILD = "CHILD",
-  PARENT = "PARENT",
-}
+export const CustomLineItemRelationship = {
+  CHILD: "CHILD",
+  PARENT: "PARENT",
+};
 
 /**
  * @public
@@ -1540,7 +1540,7 @@ export interface ListResourcesAssociatedToCustomLineItemFilter {
    *       The type of relationship between the custom line item and the associated resource.
    *     </p>
    */
-  Relationship?: CustomLineItemRelationship | string;
+  Relationship?: keyof typeof CustomLineItemRelationship | string;
 }
 
 /**
@@ -1600,7 +1600,7 @@ export interface ListResourcesAssociatedToCustomLineItemResponseElement {
    *       The type of relationship between the custom line item and the associated resource.
    *     </p>
    */
-  Relationship?: CustomLineItemRelationship | string;
+  Relationship?: keyof typeof CustomLineItemRelationship | string;
 
   /**
    * <p>The end billing period of the associated resource.</p>
@@ -2314,12 +2314,12 @@ export interface UpdatePricingPlanOutput {
 /**
  * @public
  */
-export enum PricingRuleScope {
-  BILLING_ENTITY = "BILLING_ENTITY",
-  GLOBAL = "GLOBAL",
-  SERVICE = "SERVICE",
-  SKU = "SKU",
-}
+export const PricingRuleScope = {
+  BILLING_ENTITY: "BILLING_ENTITY",
+  GLOBAL: "GLOBAL",
+  SERVICE: "SERVICE",
+  SKU: "SKU",
+};
 
 /**
  * @public
@@ -2354,11 +2354,11 @@ export interface CreateTieringInput {
 /**
  * @public
  */
-export enum PricingRuleType {
-  DISCOUNT = "DISCOUNT",
-  MARKUP = "MARKUP",
-  TIERING = "TIERING",
-}
+export const PricingRuleType = {
+  DISCOUNT: "DISCOUNT",
+  MARKUP: "MARKUP",
+  TIERING: "TIERING",
+};
 
 /**
  * @public
@@ -2388,14 +2388,14 @@ export interface CreatePricingRuleInput {
    * <p> The scope of pricing rule that indicates if it's globally applicable, or it's
    *       service-specific. </p>
    */
-  Scope: PricingRuleScope | string | undefined;
+  Scope: keyof typeof PricingRuleScope | string | undefined;
 
   /**
    * <p>
    *       The type of pricing rule.
    *     </p>
    */
-  Type: PricingRuleType | string | undefined;
+  Type: keyof typeof PricingRuleType | string | undefined;
 
   /**
    * <p> A percentage modifier that's applied on the public pricing rates. </p>
@@ -2584,14 +2584,14 @@ export interface PricingRuleListElement {
    *       The scope of pricing rule that indicates if it is globally applicable, or if it is service-specific.
    *     </p>
    */
-  Scope?: PricingRuleScope | string;
+  Scope?: keyof typeof PricingRuleScope | string;
 
   /**
    * <p>
    *       The type of pricing rule.
    *     </p>
    */
-  Type?: PricingRuleType | string;
+  Type?: keyof typeof PricingRuleType | string;
 
   /**
    * <p>
@@ -2804,7 +2804,7 @@ export interface UpdatePricingRuleInput {
    *       The new pricing rule type.
    *     </p>
    */
-  Type?: PricingRuleType | string;
+  Type?: keyof typeof PricingRuleType | string;
 
   /**
    * <p>
@@ -2848,14 +2848,14 @@ export interface UpdatePricingRuleOutput {
    * <p> The scope of pricing rule that indicates if it's globally applicable, or it's
    *       service-specific. </p>
    */
-  Scope?: PricingRuleScope | string;
+  Scope?: keyof typeof PricingRuleScope | string;
 
   /**
    * <p>
    *       The new pricing rule type.
    *     </p>
    */
-  Type?: PricingRuleType | string;
+  Type?: keyof typeof PricingRuleType | string;
 
   /**
    * <p>

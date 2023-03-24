@@ -98,7 +98,7 @@ export interface AcceleratorTypeOffering {
    *             availability-zone-id: defines that the offering is at the availability zone level, defined by the availability zone id.
    *         </p>
    */
-  locationType?: LocationType | string;
+  locationType?: keyof typeof LocationType | string;
 
   /**
    * <p>
@@ -143,7 +143,7 @@ export interface DescribeAcceleratorOfferingsRequest {
    *             availability-zone-id: will return the accelerator type offering at the availability zone level returning the availability zone id.
    *         </p>
    */
-  locationType: LocationType | string | undefined;
+  locationType: keyof typeof LocationType | string | undefined;
 
   /**
    * <p>

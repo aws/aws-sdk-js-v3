@@ -2644,7 +2644,10 @@ const serializeAws_json1_1NameserverList = (input: Nameserver[], context: __Serd
     });
 };
 
-const serializeAws_json1_1OperationStatusList = (input: (OperationStatus | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1OperationStatusList = (
+  input: (keyof typeof OperationStatus | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2652,7 +2655,10 @@ const serializeAws_json1_1OperationStatusList = (input: (OperationStatus | strin
     });
 };
 
-const serializeAws_json1_1OperationTypeList = (input: (OperationType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1OperationTypeList = (
+  input: (keyof typeof OperationType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

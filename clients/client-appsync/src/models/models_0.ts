@@ -26,13 +26,13 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AuthenticationType {
-  AMAZON_COGNITO_USER_POOLS = "AMAZON_COGNITO_USER_POOLS",
-  API_KEY = "API_KEY",
-  AWS_IAM = "AWS_IAM",
-  AWS_LAMBDA = "AWS_LAMBDA",
-  OPENID_CONNECT = "OPENID_CONNECT",
-}
+export const AuthenticationType = {
+  AMAZON_COGNITO_USER_POOLS: "AMAZON_COGNITO_USER_POOLS",
+  API_KEY: "API_KEY",
+  AWS_IAM: "AWS_IAM",
+  AWS_LAMBDA: "AWS_LAMBDA",
+  OPENID_CONNECT: "OPENID_CONNECT",
+};
 
 /**
  * @public
@@ -128,7 +128,7 @@ export interface AdditionalAuthenticationProvider {
    * <p>The authentication type: API key, Identity and Access Management (IAM), OpenID Connect (OIDC),
    *             Amazon Cognito user pools, or Lambda.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: keyof typeof AuthenticationType | string;
 
   /**
    * <p>The OIDC configuration.</p>
@@ -149,11 +149,11 @@ export interface AdditionalAuthenticationProvider {
 /**
  * @public
  */
-export enum AssociationStatus {
-  Failed = "FAILED",
-  Processing = "PROCESSING",
-  Success = "SUCCESS",
-}
+export const AssociationStatus = {
+  Failed: "FAILED",
+  Processing: "PROCESSING",
+  Success: "SUCCESS",
+};
 
 /**
  * @public
@@ -190,7 +190,7 @@ export interface ApiAssociation {
    *             </li>
    *          </ul>
    */
-  associationStatus?: AssociationStatus | string;
+  associationStatus?: keyof typeof AssociationStatus | string;
 
   /**
    * <p>Details about the last deployment status.</p>
@@ -201,42 +201,42 @@ export interface ApiAssociation {
 /**
  * @public
  */
-export enum ApiCachingBehavior {
-  FULL_REQUEST_CACHING = "FULL_REQUEST_CACHING",
-  PER_RESOLVER_CACHING = "PER_RESOLVER_CACHING",
-}
+export const ApiCachingBehavior = {
+  FULL_REQUEST_CACHING: "FULL_REQUEST_CACHING",
+  PER_RESOLVER_CACHING: "PER_RESOLVER_CACHING",
+};
 
 /**
  * @public
  */
-export enum ApiCacheStatus {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MODIFYING = "MODIFYING",
-}
+export const ApiCacheStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MODIFYING: "MODIFYING",
+};
 
 /**
  * @public
  */
-export enum ApiCacheType {
-  LARGE = "LARGE",
-  LARGE_12X = "LARGE_12X",
-  LARGE_2X = "LARGE_2X",
-  LARGE_4X = "LARGE_4X",
-  LARGE_8X = "LARGE_8X",
-  MEDIUM = "MEDIUM",
-  R4_2XLARGE = "R4_2XLARGE",
-  R4_4XLARGE = "R4_4XLARGE",
-  R4_8XLARGE = "R4_8XLARGE",
-  R4_LARGE = "R4_LARGE",
-  R4_XLARGE = "R4_XLARGE",
-  SMALL = "SMALL",
-  T2_MEDIUM = "T2_MEDIUM",
-  T2_SMALL = "T2_SMALL",
-  XLARGE = "XLARGE",
-}
+export const ApiCacheType = {
+  LARGE: "LARGE",
+  LARGE_12X: "LARGE_12X",
+  LARGE_2X: "LARGE_2X",
+  LARGE_4X: "LARGE_4X",
+  LARGE_8X: "LARGE_8X",
+  MEDIUM: "MEDIUM",
+  R4_2XLARGE: "R4_2XLARGE",
+  R4_4XLARGE: "R4_4XLARGE",
+  R4_8XLARGE: "R4_8XLARGE",
+  R4_LARGE: "R4_LARGE",
+  R4_XLARGE: "R4_XLARGE",
+  SMALL: "SMALL",
+  T2_MEDIUM: "T2_MEDIUM",
+  T2_SMALL: "T2_SMALL",
+  XLARGE: "XLARGE",
+};
 
 /**
  * @public
@@ -263,7 +263,7 @@ export interface ApiCache {
    *             </li>
    *          </ul>
    */
-  apiCachingBehavior?: ApiCachingBehavior | string;
+  apiCachingBehavior?: keyof typeof ApiCachingBehavior | string;
 
   /**
    * <p>Transit encryption flag when connecting to cache. You cannot update this setting after creation.</p>
@@ -351,7 +351,7 @@ export interface ApiCache {
    *             </li>
    *          </ul>
    */
-  type?: ApiCacheType | string;
+  type?: keyof typeof ApiCacheType | string;
 
   /**
    * <p>The cache instance status.</p>
@@ -378,7 +378,7 @@ export interface ApiCache {
    *             </li>
    *          </ul>
    */
-  status?: ApiCacheStatus | string;
+  status?: keyof typeof ApiCacheStatus | string;
 }
 
 /**
@@ -533,9 +533,9 @@ export class ApiLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum RuntimeName {
-  APPSYNC_JS = "APPSYNC_JS",
-}
+export const RuntimeName = {
+  APPSYNC_JS: "APPSYNC_JS",
+};
 
 /**
  * @public
@@ -547,7 +547,7 @@ export interface AppSyncRuntime {
    * <p>The <code>name</code> of the runtime to use. Currently, the only allowed value is
    *          <code>APPSYNC_JS</code>.</p>
    */
-  name: RuntimeName | string | undefined;
+  name: keyof typeof RuntimeName | string | undefined;
 
   /**
    * <p>The <code>version</code> of the runtime to use. Currently, the only allowed version is
@@ -640,9 +640,9 @@ export interface BadRequestDetail {
 /**
  * @public
  */
-export enum BadRequestReason {
-  CODE_ERROR = "CODE_ERROR",
-}
+export const BadRequestReason = {
+  CODE_ERROR: "CODE_ERROR",
+};
 
 /**
  * @public
@@ -656,7 +656,7 @@ export class BadRequestException extends __BaseException {
    * <p>Provides context for the cause of the bad request. The only supported value is
    *          <code>CODE_ERROR</code>.</p>
    */
-  reason?: BadRequestReason | string;
+  reason?: keyof typeof BadRequestReason | string;
 
   /**
    * <p>Provides further details for the reason behind the bad request. For reason type <code>CODE_ERROR</code>, the
@@ -722,9 +722,9 @@ export class NotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum AuthorizationType {
-  AWS_IAM = "AWS_IAM",
-}
+export const AuthorizationType = {
+  AWS_IAM: "AWS_IAM",
+};
 
 /**
  * @public
@@ -757,7 +757,7 @@ export interface AuthorizationConfig {
    *             </li>
    *          </ul>
    */
-  authorizationType: AuthorizationType | string | undefined;
+  authorizationType: keyof typeof AuthorizationType | string | undefined;
 
   /**
    * <p>The Identity and Access Management (IAM) settings.</p>
@@ -826,7 +826,7 @@ export interface CreateApiCacheRequest {
    *             </li>
    *          </ul>
    */
-  apiCachingBehavior: ApiCachingBehavior | string | undefined;
+  apiCachingBehavior: keyof typeof ApiCachingBehavior | string | undefined;
 
   /**
    * <p>The cache instance type. Valid values are </p>
@@ -904,7 +904,7 @@ export interface CreateApiCacheRequest {
    *             </li>
    *          </ul>
    */
-  type: ApiCacheType | string | undefined;
+  type: keyof typeof ApiCacheType | string | undefined;
 }
 
 /**
@@ -1151,9 +1151,9 @@ export interface RdsHttpEndpointConfig {
 /**
  * @public
  */
-export enum RelationalDatabaseSourceType {
-  RDS_HTTP_ENDPOINT = "RDS_HTTP_ENDPOINT",
-}
+export const RelationalDatabaseSourceType = {
+  RDS_HTTP_ENDPOINT: "RDS_HTTP_ENDPOINT",
+};
 
 /**
  * @public
@@ -1170,7 +1170,7 @@ export interface RelationalDatabaseDataSourceConfig {
    *             </li>
    *          </ul>
    */
-  relationalDatabaseSourceType?: RelationalDatabaseSourceType | string;
+  relationalDatabaseSourceType?: keyof typeof RelationalDatabaseSourceType | string;
 
   /**
    * <p>Amazon RDS HTTP endpoint settings.</p>
@@ -1181,16 +1181,16 @@ export interface RelationalDatabaseDataSourceConfig {
 /**
  * @public
  */
-export enum DataSourceType {
-  AMAZON_DYNAMODB = "AMAZON_DYNAMODB",
-  AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH",
-  AMAZON_EVENTBRIDGE = "AMAZON_EVENTBRIDGE",
-  AMAZON_OPENSEARCH_SERVICE = "AMAZON_OPENSEARCH_SERVICE",
-  AWS_LAMBDA = "AWS_LAMBDA",
-  HTTP = "HTTP",
-  NONE = "NONE",
-  RELATIONAL_DATABASE = "RELATIONAL_DATABASE",
-}
+export const DataSourceType = {
+  AMAZON_DYNAMODB: "AMAZON_DYNAMODB",
+  AMAZON_ELASTICSEARCH: "AMAZON_ELASTICSEARCH",
+  AMAZON_EVENTBRIDGE: "AMAZON_EVENTBRIDGE",
+  AMAZON_OPENSEARCH_SERVICE: "AMAZON_OPENSEARCH_SERVICE",
+  AWS_LAMBDA: "AWS_LAMBDA",
+  HTTP: "HTTP",
+  NONE: "NONE",
+  RELATIONAL_DATABASE: "RELATIONAL_DATABASE",
+};
 
 /**
  * @public
@@ -1214,7 +1214,7 @@ export interface CreateDataSourceRequest {
   /**
    * <p>The type of the <code>DataSource</code>.</p>
    */
-  type: DataSourceType | string | undefined;
+  type: keyof typeof DataSourceType | string | undefined;
 
   /**
    * <p>The Identity and Access Management (IAM) service role Amazon Resource Name (ARN) for the data source.
@@ -1324,7 +1324,7 @@ export interface DataSource {
    *             </li>
    *          </ul>
    */
-  type?: DataSourceType | string;
+  type?: keyof typeof DataSourceType | string;
 
   /**
    * <p>The Identity and Access Management (IAM) service role Amazon Resource Name (ARN) for the data source.
@@ -1442,20 +1442,20 @@ export interface CreateDomainNameResponse {
 /**
  * @public
  */
-export enum ConflictDetectionType {
-  NONE = "NONE",
-  VERSION = "VERSION",
-}
+export const ConflictDetectionType = {
+  NONE: "NONE",
+  VERSION: "VERSION",
+};
 
 /**
  * @public
  */
-export enum ConflictHandlerType {
-  AUTOMERGE = "AUTOMERGE",
-  LAMBDA = "LAMBDA",
-  NONE = "NONE",
-  OPTIMISTIC_CONCURRENCY = "OPTIMISTIC_CONCURRENCY",
-}
+export const ConflictHandlerType = {
+  AUTOMERGE: "AUTOMERGE",
+  LAMBDA: "LAMBDA",
+  NONE: "NONE",
+  OPTIMISTIC_CONCURRENCY: "OPTIMISTIC_CONCURRENCY",
+};
 
 /**
  * @public
@@ -1496,7 +1496,7 @@ export interface SyncConfig {
    *             </li>
    *          </ul>
    */
-  conflictHandler?: ConflictHandlerType | string;
+  conflictHandler?: keyof typeof ConflictHandlerType | string;
 
   /**
    * <p>The Conflict Detection strategy to use.</p>
@@ -1513,7 +1513,7 @@ export interface SyncConfig {
    *             </li>
    *          </ul>
    */
-  conflictDetection?: ConflictDetectionType | string;
+  conflictDetection?: keyof typeof ConflictDetectionType | string;
 
   /**
    * <p>The <code>LambdaConflictHandlerConfig</code> when configuring <code>LAMBDA</code> as the Conflict
@@ -1674,11 +1674,11 @@ export interface CreateFunctionResponse {
 /**
  * @public
  */
-export enum FieldLogLevel {
-  ALL = "ALL",
-  ERROR = "ERROR",
-  NONE = "NONE",
-}
+export const FieldLogLevel = {
+  ALL: "ALL",
+  ERROR: "ERROR",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -1723,7 +1723,7 @@ export interface LogConfig {
    *             </li>
    *          </ul>
    */
-  fieldLogLevel: FieldLogLevel | string | undefined;
+  fieldLogLevel: keyof typeof FieldLogLevel | string | undefined;
 
   /**
    * <p>The service role that AppSync assumes to publish to CloudWatch logs in your
@@ -1741,10 +1741,10 @@ export interface LogConfig {
 /**
  * @public
  */
-export enum DefaultAction {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
-}
+export const DefaultAction = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+};
 
 /**
  * @public
@@ -1765,7 +1765,7 @@ export interface UserPoolConfig {
    * <p>The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool
    *          authentication doesn't match the Amazon Cognito user pool configuration.</p>
    */
-  defaultAction: DefaultAction | string | undefined;
+  defaultAction: keyof typeof DefaultAction | string | undefined;
 
   /**
    * <p>A regular expression for validating the incoming Amazon Cognito user pool app client ID. If this value
@@ -1792,7 +1792,7 @@ export interface CreateGraphqlApiRequest {
    * <p>The authentication type: API key, Identity and Access Management (IAM), OpenID Connect (OIDC),
    *             Amazon Cognito user pools, or Lambda.</p>
    */
-  authenticationType: AuthenticationType | string | undefined;
+  authenticationType: keyof typeof AuthenticationType | string | undefined;
 
   /**
    * <p>The Amazon Cognito user pool configuration.</p>
@@ -1843,7 +1843,7 @@ export interface GraphqlApi {
   /**
    * <p>The authentication type.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: keyof typeof AuthenticationType | string;
 
   /**
    * <p>The Amazon CloudWatch Logs configuration.</p>
@@ -1929,10 +1929,10 @@ export interface CachingConfig {
 /**
  * @public
  */
-export enum ResolverKind {
-  PIPELINE = "PIPELINE",
-  UNIT = "UNIT",
-}
+export const ResolverKind = {
+  PIPELINE: "PIPELINE",
+  UNIT: "UNIT",
+};
 
 /**
  * @public
@@ -1999,7 +1999,7 @@ export interface CreateResolverRequest {
    *             </li>
    *          </ul>
    */
-  kind?: ResolverKind | string;
+  kind?: keyof typeof ResolverKind | string;
 
   /**
    * <p>The <code>PipelineConfig</code>.</p>
@@ -2085,7 +2085,7 @@ export interface Resolver {
    *             </li>
    *          </ul>
    */
-  kind?: ResolverKind | string;
+  kind?: keyof typeof ResolverKind | string;
 
   /**
    * <p>The <code>PipelineConfig</code>.</p>
@@ -2133,10 +2133,10 @@ export interface CreateResolverResponse {
 /**
  * @public
  */
-export enum TypeDefinitionFormat {
-  JSON = "JSON",
-  SDL = "SDL",
-}
+export const TypeDefinitionFormat = {
+  JSON: "JSON",
+  SDL: "SDL",
+};
 
 /**
  * @public
@@ -2157,7 +2157,7 @@ export interface CreateTypeRequest {
   /**
    * <p>The type format: SDL or JSON.</p>
    */
-  format: TypeDefinitionFormat | string | undefined;
+  format: keyof typeof TypeDefinitionFormat | string | undefined;
 }
 
 /**
@@ -2188,7 +2188,7 @@ export interface Type {
   /**
    * <p>The type format: SDL or JSON.</p>
    */
-  format?: TypeDefinitionFormat | string;
+  format?: keyof typeof TypeDefinitionFormat | string;
 }
 
 /**
@@ -2636,10 +2636,10 @@ export interface GetGraphqlApiResponse {
 /**
  * @public
  */
-export enum OutputType {
-  JSON = "JSON",
-  SDL = "SDL",
-}
+export const OutputType = {
+  JSON: "JSON",
+  SDL: "SDL",
+};
 
 /**
  * @public
@@ -2653,7 +2653,7 @@ export interface GetIntrospectionSchemaRequest {
   /**
    * <p>The schema format: SDL or JSON.</p>
    */
-  format: OutputType | string | undefined;
+  format: keyof typeof OutputType | string | undefined;
 
   /**
    * <p>A flag that specifies whether the schema introspection should contain directives.</p>
@@ -2736,14 +2736,14 @@ export interface GetSchemaCreationStatusRequest {
 /**
  * @public
  */
-export enum SchemaStatus {
-  Active = "ACTIVE",
-  Deleting = "DELETING",
-  Failed = "FAILED",
-  NotApplicable = "NOT_APPLICABLE",
-  Processing = "PROCESSING",
-  Success = "SUCCESS",
-}
+export const SchemaStatus = {
+  Active: "ACTIVE",
+  Deleting: "DELETING",
+  Failed: "FAILED",
+  NotApplicable: "NOT_APPLICABLE",
+  Processing: "PROCESSING",
+  Success: "SUCCESS",
+};
 
 /**
  * @public
@@ -2753,7 +2753,7 @@ export interface GetSchemaCreationStatusResponse {
    * <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the
    *          ACTIVE state, you can add data.</p>
    */
-  status?: SchemaStatus | string;
+  status?: keyof typeof SchemaStatus | string;
 
   /**
    * <p>Detailed information about the status of the schema creation operation.</p>
@@ -2778,7 +2778,7 @@ export interface GetTypeRequest {
   /**
    * <p>The type format: SDL or JSON.</p>
    */
-  format: TypeDefinitionFormat | string | undefined;
+  format: keyof typeof TypeDefinitionFormat | string | undefined;
 }
 
 /**
@@ -3079,7 +3079,7 @@ export interface ListTypesRequest {
   /**
    * <p>The type format: SDL or JSON.</p>
    */
-  format: TypeDefinitionFormat | string | undefined;
+  format: keyof typeof TypeDefinitionFormat | string | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which you can use to return the
@@ -3132,7 +3132,7 @@ export interface StartSchemaCreationResponse {
    * <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the
    *          ACTIVE state, you can add data.</p>
    */
-  status?: SchemaStatus | string;
+  status?: keyof typeof SchemaStatus | string;
 }
 
 /**
@@ -3205,7 +3205,7 @@ export interface UpdateApiCacheRequest {
    *             </li>
    *          </ul>
    */
-  apiCachingBehavior: ApiCachingBehavior | string | undefined;
+  apiCachingBehavior: keyof typeof ApiCachingBehavior | string | undefined;
 
   /**
    * <p>The cache instance type. Valid values are </p>
@@ -3283,7 +3283,7 @@ export interface UpdateApiCacheRequest {
    *             </li>
    *          </ul>
    */
-  type: ApiCacheType | string | undefined;
+  type: keyof typeof ApiCacheType | string | undefined;
 }
 
 /**
@@ -3355,7 +3355,7 @@ export interface UpdateDataSourceRequest {
   /**
    * <p>The new data source type.</p>
    */
-  type: DataSourceType | string | undefined;
+  type: keyof typeof DataSourceType | string | undefined;
 
   /**
    * <p>The new service role Amazon Resource Name (ARN) for the data source.</p>
@@ -3540,7 +3540,7 @@ export interface UpdateGraphqlApiRequest {
   /**
    * <p>The new authentication type for the <code>GraphqlApi</code> object.</p>
    */
-  authenticationType?: AuthenticationType | string;
+  authenticationType?: keyof typeof AuthenticationType | string;
 
   /**
    * <p>The new Amazon Cognito user pool configuration for the <code>~GraphqlApi</code> object.</p>
@@ -3632,7 +3632,7 @@ export interface UpdateResolverRequest {
    *             </li>
    *          </ul>
    */
-  kind?: ResolverKind | string;
+  kind?: keyof typeof ResolverKind | string;
 
   /**
    * <p>The <code>PipelineConfig</code>.</p>
@@ -3699,7 +3699,7 @@ export interface UpdateTypeRequest {
   /**
    * <p>The new type format: SDL or JSON.</p>
    */
-  format: TypeDefinitionFormat | string | undefined;
+  format: keyof typeof TypeDefinitionFormat | string | undefined;
 }
 
 /**

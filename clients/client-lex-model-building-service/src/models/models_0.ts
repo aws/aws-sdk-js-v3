@@ -91,11 +91,11 @@ export interface CreateBotVersionRequest {
 /**
  * @public
  */
-export enum ContentType {
-  CUSTOM_PAYLOAD = "CustomPayload",
-  PLAIN_TEXT = "PlainText",
-  SSML = "SSML",
-}
+export const ContentType = {
+  CUSTOM_PAYLOAD: "CustomPayload",
+  PLAIN_TEXT: "PlainText",
+  SSML: "SSML",
+};
 
 /**
  * @public
@@ -106,7 +106,7 @@ export interface Message {
   /**
    * <p>The content type of the message string.</p>
    */
-  contentType: ContentType | string | undefined;
+  contentType: keyof typeof ContentType | string | undefined;
 
   /**
    * <p>The text of the message.</p>
@@ -188,32 +188,32 @@ export interface Intent {
 /**
  * @public
  */
-export enum Locale {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_IN = "en-IN",
-  EN_US = "en-US",
-  ES_419 = "es-419",
-  ES_ES = "es-ES",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  IT_IT = "it-IT",
-  JA_JP = "ja-JP",
-  KO_KR = "ko-KR",
-}
+export const Locale = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_IN: "en-IN",
+  EN_US: "en-US",
+  ES_419: "es-419",
+  ES_ES: "es-ES",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  IT_IT: "it-IT",
+  JA_JP: "ja-JP",
+  KO_KR: "ko-KR",
+};
 
 /**
  * @public
  */
-export enum Status {
-  BUILDING = "BUILDING",
-  FAILED = "FAILED",
-  NOT_BUILT = "NOT_BUILT",
-  READY = "READY",
-  READY_BASIC_TESTING = "READY_BASIC_TESTING",
-}
+export const Status = {
+  BUILDING: "BUILDING",
+  FAILED: "FAILED",
+  NOT_BUILT: "NOT_BUILT",
+  READY: "READY",
+  READY_BASIC_TESTING: "READY_BASIC_TESTING",
+};
 
 /**
  * @public
@@ -255,7 +255,7 @@ export interface CreateBotVersionResponse {
    *         <code>FAILED</code>. Amazon Lex returns the reason for the failure in the
    *         <code>failureReason</code> response element. </p>
    */
-  status?: Status | string;
+  status?: keyof typeof Status | string;
 
   /**
    * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
@@ -300,7 +300,7 @@ export interface CreateBotVersionResponse {
   /**
    * <p> Specifies the target locale for the bot. </p>
    */
-  locale?: Locale | string;
+  locale?: keyof typeof Locale | string;
 
   /**
    * <p>For each Amazon Lex bot created with the Amazon Lex Model Building Service,
@@ -494,10 +494,10 @@ export interface FollowUpPrompt {
 /**
  * @public
  */
-export enum FulfillmentActivityType {
-  CODE_HOOK = "CodeHook",
-  RETURN_INTENT = "ReturnIntent",
-}
+export const FulfillmentActivityType = {
+  CODE_HOOK: "CodeHook",
+  RETURN_INTENT: "ReturnIntent",
+};
 
 /**
  * @public
@@ -532,7 +532,7 @@ export interface FulfillmentActivity {
    *       function or by returning the slot data to the client application.
    *     </p>
    */
-  type: FulfillmentActivityType | string | undefined;
+  type: keyof typeof FulfillmentActivityType | string | undefined;
 
   /**
    * <p> A description of the Lambda function that is run to fulfill the
@@ -666,18 +666,18 @@ export interface SlotDefaultValueSpec {
 /**
  * @public
  */
-export enum ObfuscationSetting {
-  DEFAULT_OBFUSCATION = "DEFAULT_OBFUSCATION",
-  NONE = "NONE",
-}
+export const ObfuscationSetting = {
+  DEFAULT_OBFUSCATION: "DEFAULT_OBFUSCATION",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum SlotConstraint {
-  OPTIONAL = "Optional",
-  REQUIRED = "Required",
-}
+export const SlotConstraint = {
+  OPTIONAL: "Optional",
+  REQUIRED: "Required",
+};
 
 /**
  * @public
@@ -697,7 +697,7 @@ export interface Slot {
   /**
    * <p>Specifies whether the slot is required or optional. </p>
    */
-  slotConstraint: SlotConstraint | string | undefined;
+  slotConstraint: keyof typeof SlotConstraint | string | undefined;
 
   /**
    * <p>The type of the slot, either a custom slot type that you defined or
@@ -748,7 +748,7 @@ export interface Slot {
    *       information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html"> Slot Obfuscation </a>.
    *     </p>
    */
-  obfuscationSetting?: ObfuscationSetting | string;
+  obfuscationSetting?: keyof typeof ObfuscationSetting | string;
 
   /**
    * <p>A list of default values for the slot. Default values are used when
@@ -968,10 +968,10 @@ export interface SlotTypeConfiguration {
 /**
  * @public
  */
-export enum SlotValueSelectionStrategy {
-  ORIGINAL_VALUE = "ORIGINAL_VALUE",
-  TOP_RESOLUTION = "TOP_RESOLUTION",
-}
+export const SlotValueSelectionStrategy = {
+  ORIGINAL_VALUE: "ORIGINAL_VALUE",
+  TOP_RESOLUTION: "TOP_RESOLUTION",
+};
 
 /**
  * @public
@@ -1019,7 +1019,7 @@ export interface CreateSlotTypeVersionResponse {
    * <p>The strategy that Amazon Lex uses to determine the value of the slot.
    *       For more information, see <a>PutSlotType</a>.</p>
    */
-  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
+  valueSelectionStrategy?: keyof typeof SlotValueSelectionStrategy | string;
 
   /**
    * <p>The built-in slot type used a the parent of the slot type.</p>
@@ -1066,12 +1066,12 @@ export interface ResourceReference {
 /**
  * @public
  */
-export enum ReferenceType {
-  BOT = "Bot",
-  BOTALIAS = "BotAlias",
-  BOTCHANNEL = "BotChannel",
-  INTENT = "Intent",
-}
+export const ReferenceType = {
+  BOT: "Bot",
+  BOTALIAS: "BotAlias",
+  BOTCHANNEL: "BotChannel",
+  INTENT: "Intent",
+};
 
 /**
  * @public
@@ -1095,7 +1095,7 @@ export enum ReferenceType {
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
   readonly $fault: "client" = "client";
-  referenceType?: ReferenceType | string;
+  referenceType?: keyof typeof ReferenceType | string;
   /**
    * <p>Describes the resource that refers to the resource that you are
    *       attempting to delete. This object is returned as part of the
@@ -1326,7 +1326,7 @@ export interface GetBotResponse {
    *          <p>If the bot was saved but not built, the status is
    *         <code>NOT_BUILT</code>.</p>
    */
-  status?: Status | string;
+  status?: keyof typeof Status | string;
 
   /**
    * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex explains why
@@ -1372,7 +1372,7 @@ export interface GetBotResponse {
   /**
    * <p> The target locale for the bot. </p>
    */
-  locale?: Locale | string;
+  locale?: keyof typeof Locale | string;
 
   /**
    * <p>For each Amazon Lex bot created with the Amazon Lex Model Building Service,
@@ -1429,18 +1429,18 @@ export interface GetBotAliasRequest {
 /**
  * @public
  */
-export enum Destination {
-  CLOUDWATCH_LOGS = "CLOUDWATCH_LOGS",
-  S3 = "S3",
-}
+export const Destination = {
+  CLOUDWATCH_LOGS: "CLOUDWATCH_LOGS",
+  S3: "S3",
+};
 
 /**
  * @public
  */
-export enum LogType {
-  AUDIO = "AUDIO",
-  TEXT = "TEXT",
-}
+export const LogType = {
+  AUDIO: "AUDIO",
+  TEXT: "TEXT",
+};
 
 /**
  * @public
@@ -1450,12 +1450,12 @@ export interface LogSettingsResponse {
   /**
    * <p>The type of logging that is enabled.</p>
    */
-  logType?: LogType | string;
+  logType?: keyof typeof LogType | string;
 
   /**
    * <p>The destination where logs are delivered.</p>
    */
-  destination?: Destination | string;
+  destination?: keyof typeof Destination | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the key used to encrypt audio logs
@@ -1667,21 +1667,21 @@ export interface GetBotChannelAssociationRequest {
 /**
  * @public
  */
-export enum ChannelStatus {
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ChannelStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum ChannelType {
-  FACEBOOK = "Facebook",
-  KIK = "Kik",
-  SLACK = "Slack",
-  TWILIO_SMS = "Twilio-Sms",
-}
+export const ChannelType = {
+  FACEBOOK: "Facebook",
+  KIK: "Kik",
+  SLACK: "Slack",
+  TWILIO_SMS: "Twilio-Sms",
+};
 
 /**
  * @public
@@ -1719,7 +1719,7 @@ export interface GetBotChannelAssociationResponse {
   /**
    * <p>The type of the messaging platform.</p>
    */
-  type?: ChannelType | string;
+  type?: keyof typeof ChannelType | string;
 
   /**
    * <p>Provides information that the messaging platform needs to
@@ -1748,7 +1748,7 @@ export interface GetBotChannelAssociationResponse {
    *             </li>
    *          </ul>
    */
-  status?: ChannelStatus | string;
+  status?: keyof typeof ChannelStatus | string;
 
   /**
    * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
@@ -1840,7 +1840,7 @@ export interface BotChannelAssociation {
    *       being established between the Amazon Lex bot and the external messaging
    *       platform.</p>
    */
-  type?: ChannelType | string;
+  type?: keyof typeof ChannelType | string;
 
   /**
    * <p>Provides information necessary to communicate with the messaging
@@ -1869,7 +1869,7 @@ export interface BotChannelAssociation {
    *             </li>
    *          </ul>
    */
-  status?: ChannelStatus | string;
+  status?: keyof typeof ChannelStatus | string;
 
   /**
    * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
@@ -1942,7 +1942,7 @@ export interface BotMetadata {
   /**
    * <p>The status of the bot.</p>
    */
-  status?: Status | string;
+  status?: keyof typeof Status | string;
 
   /**
    * <p>The date that the bot was updated. When you create a bot, the
@@ -2061,7 +2061,7 @@ export interface GetBuiltinIntentResponse {
   /**
    * <p>A list of locales that the intent supports.</p>
    */
-  supportedLocales?: (Locale | string)[];
+  supportedLocales?: (keyof typeof Locale | string)[];
 
   /**
    * <p>An array of <code>BuiltinIntentSlot</code> objects, one entry for
@@ -2077,7 +2077,7 @@ export interface GetBuiltinIntentsRequest {
   /**
    * <p>A list of locales that the intent supports.</p>
    */
-  locale?: Locale | string;
+  locale?: keyof typeof Locale | string;
 
   /**
    * <p>Substring to match in built-in intent signatures. An intent will be
@@ -2119,7 +2119,7 @@ export interface BuiltinIntentMetadata {
    * <p>A list of identifiers for the locales that the intent
    *       supports.</p>
    */
-  supportedLocales?: (Locale | string)[];
+  supportedLocales?: (keyof typeof Locale | string)[];
 }
 
 /**
@@ -2148,7 +2148,7 @@ export interface GetBuiltinSlotTypesRequest {
   /**
    * <p>A list of locales that the slot type supports.</p>
    */
-  locale?: Locale | string;
+  locale?: keyof typeof Locale | string;
 
   /**
    * <p>Substring to match in built-in slot type signatures. A slot type
@@ -2187,7 +2187,7 @@ export interface BuiltinSlotTypeMetadata {
   /**
    * <p>A list of target locales for the slot. </p>
    */
-  supportedLocales?: (Locale | string)[];
+  supportedLocales?: (keyof typeof Locale | string)[];
 }
 
 /**
@@ -2211,19 +2211,19 @@ export interface GetBuiltinSlotTypesResponse {
 /**
  * @public
  */
-export enum ExportType {
-  ALEXA_SKILLS_KIT = "ALEXA_SKILLS_KIT",
-  LEX = "LEX",
-}
+export const ExportType = {
+  ALEXA_SKILLS_KIT: "ALEXA_SKILLS_KIT",
+  LEX: "LEX",
+};
 
 /**
  * @public
  */
-export enum ResourceType {
-  BOT = "BOT",
-  INTENT = "INTENT",
-  SLOT_TYPE = "SLOT_TYPE",
-}
+export const ResourceType = {
+  BOT: "BOT",
+  INTENT: "INTENT",
+  SLOT_TYPE: "SLOT_TYPE",
+};
 
 /**
  * @public
@@ -2242,22 +2242,22 @@ export interface GetExportRequest {
   /**
    * <p>The type of resource to export. </p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>The format of the exported data.</p>
    */
-  exportType: ExportType | string | undefined;
+  exportType: keyof typeof ExportType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ExportStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  READY = "READY",
-}
+export const ExportStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  READY: "READY",
+};
 
 /**
  * @public
@@ -2276,12 +2276,12 @@ export interface GetExportResponse {
   /**
    * <p>The type of the exported resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The format of the exported data.</p>
    */
-  exportType?: ExportType | string;
+  exportType?: keyof typeof ExportType | string;
 
   /**
    * <p>The status of the export. </p>
@@ -2301,7 +2301,7 @@ export interface GetExportResponse {
    *             </li>
    *          </ul>
    */
-  exportStatus?: ExportStatus | string;
+  exportStatus?: keyof typeof ExportStatus | string;
 
   /**
    * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
@@ -2331,19 +2331,19 @@ export interface GetImportRequest {
 /**
  * @public
  */
-export enum ImportStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ImportStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum MergeStrategy {
-  FAIL_ON_CONFLICT = "FAIL_ON_CONFLICT",
-  OVERWRITE_LATEST = "OVERWRITE_LATEST",
-}
+export const MergeStrategy = {
+  FAIL_ON_CONFLICT: "FAIL_ON_CONFLICT",
+  OVERWRITE_LATEST: "OVERWRITE_LATEST",
+};
 
 /**
  * @public
@@ -2357,13 +2357,13 @@ export interface GetImportResponse {
   /**
    * <p>The type of resource imported.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The action taken when there was a conflict between an existing
    *       resource and a resource in the import file.</p>
    */
-  mergeStrategy?: MergeStrategy | string;
+  mergeStrategy?: keyof typeof MergeStrategy | string;
 
   /**
    * <p>The identifier for the specific import job.</p>
@@ -2375,7 +2375,7 @@ export interface GetImportResponse {
    *       you can get the reason for the failure from the <code>failureReason</code>
    *       field.</p>
    */
-  importStatus?: ImportStatus | string;
+  importStatus?: keyof typeof ImportStatus | string;
 
   /**
    * <p>A string that describes why an import job failed to
@@ -2649,10 +2649,10 @@ export interface GetMigrationRequest {
 /**
  * @public
  */
-export enum MigrationAlertType {
-  ERROR = "ERROR",
-  WARN = "WARN",
-}
+export const MigrationAlertType = {
+  ERROR: "ERROR",
+  WARN: "WARN",
+};
 
 /**
  * @public
@@ -2677,7 +2677,7 @@ export interface MigrationAlert {
    *             </li>
    *          </ul>
    */
-  type?: MigrationAlertType | string;
+  type?: keyof typeof MigrationAlertType | string;
 
   /**
    * <p>A message that describes why the alert was issued.</p>
@@ -2699,19 +2699,19 @@ export interface MigrationAlert {
 /**
  * @public
  */
-export enum MigrationStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const MigrationStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum MigrationStrategy {
-  CREATE_NEW = "CREATE_NEW",
-  UPDATE_EXISTING = "UPDATE_EXISTING",
-}
+export const MigrationStrategy = {
+  CREATE_NEW: "CREATE_NEW",
+  UPDATE_EXISTING: "UPDATE_EXISTING",
+};
 
 /**
  * @public
@@ -2737,7 +2737,7 @@ export interface GetMigrationResponse {
   /**
    * <p>The locale of the Amazon Lex V1 bot migrated to Amazon Lex V2.</p>
    */
-  v1BotLocale?: Locale | string;
+  v1BotLocale?: keyof typeof Locale | string;
 
   /**
    * <p>The unique identifier of the Amazon Lex V2 bot that the Amazon Lex V1 is being
@@ -2756,7 +2756,7 @@ export interface GetMigrationResponse {
    *       in Amazon Lex V2. There may be alerts and warnings that need to be resolved to
    *       complete the migration.</p>
    */
-  migrationStatus?: MigrationStatus | string;
+  migrationStatus?: keyof typeof MigrationStatus | string;
 
   /**
    * <p>The strategy used to conduct the migration.</p>
@@ -2775,7 +2775,7 @@ export interface GetMigrationResponse {
    *             </li>
    *          </ul>
    */
-  migrationStrategy?: MigrationStrategy | string;
+  migrationStrategy?: keyof typeof MigrationStrategy | string;
 
   /**
    * <p>The date and time that the migration started.</p>
@@ -2795,18 +2795,18 @@ export interface GetMigrationResponse {
 /**
  * @public
  */
-export enum MigrationSortAttribute {
-  MIGRATION_DATE_TIME = "MIGRATION_DATE_TIME",
-  V1_BOT_NAME = "V1_BOT_NAME",
-}
+export const MigrationSortAttribute = {
+  MIGRATION_DATE_TIME: "MIGRATION_DATE_TIME",
+  V1_BOT_NAME: "V1_BOT_NAME",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -2817,12 +2817,12 @@ export interface GetMigrationsRequest {
    *       Amazon Lex V1 bot name or the date and time that the migration was
    *       started.</p>
    */
-  sortByAttribute?: MigrationSortAttribute | string;
+  sortByAttribute?: keyof typeof MigrationSortAttribute | string;
 
   /**
    * <p>The order so sort the list.</p>
    */
-  sortByOrder?: SortOrder | string;
+  sortByOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>Filters the list to contain only bots whose name contains the
@@ -2833,7 +2833,7 @@ export interface GetMigrationsRequest {
   /**
    * <p>Filters the list to contain only migrations in the specified state.</p>
    */
-  migrationStatusEquals?: MigrationStatus | string;
+  migrationStatusEquals?: keyof typeof MigrationStatus | string;
 
   /**
    * <p>The maximum number of migrations to return in the response. The
@@ -2873,7 +2873,7 @@ export interface MigrationSummary {
   /**
    * <p>The locale of the Amazon Lex V1 bot that is the source of the migration.</p>
    */
-  v1BotLocale?: Locale | string;
+  v1BotLocale?: keyof typeof Locale | string;
 
   /**
    * <p>The unique identifier of the Amazon Lex V2 that is the destination of the migration.</p>
@@ -2890,12 +2890,12 @@ export interface MigrationSummary {
    *     the bot is available in Amazon Lex V2. There may be alerts and warnings that
    *     need to be resolved to complete the migration.</p>
    */
-  migrationStatus?: MigrationStatus | string;
+  migrationStatus?: keyof typeof MigrationStatus | string;
 
   /**
    * <p>The strategy used to conduct the migration.</p>
    */
-  migrationStrategy?: MigrationStrategy | string;
+  migrationStrategy?: keyof typeof MigrationStrategy | string;
 
   /**
    * <p>The date and time that the migration started.</p>
@@ -2984,7 +2984,7 @@ export interface GetSlotTypeResponse {
    * <p>The strategy that Amazon Lex uses to determine the value of the slot.
    *       For more information, see <a>PutSlotType</a>.</p>
    */
-  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
+  valueSelectionStrategy?: keyof typeof SlotValueSelectionStrategy | string;
 
   /**
    * <p>The built-in slot type used as a parent for the slot type.</p>
@@ -3123,10 +3123,10 @@ export interface GetSlotTypeVersionsResponse {
 /**
  * @public
  */
-export enum StatusType {
-  DETECTED = "Detected",
-  MISSED = "Missed",
-}
+export const StatusType = {
+  DETECTED: "Detected",
+  MISSED: "Missed",
+};
 
 /**
  * @public
@@ -3149,7 +3149,7 @@ export interface GetUtterancesViewRequest {
    *         <code>Detected</code>. To return utterances that were not recognized,
    *       use <code>Missed</code>.</p>
    */
-  statusType: StatusType | string | undefined;
+  statusType: keyof typeof StatusType | string | undefined;
 }
 
 /**
@@ -3270,10 +3270,10 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
-export enum ProcessBehavior {
-  BUILD = "BUILD",
-  SAVE = "SAVE",
-}
+export const ProcessBehavior = {
+  BUILD: "BUILD",
+  SAVE: "SAVE",
+};
 
 /**
  * @public
@@ -3492,7 +3492,7 @@ export interface PutBotRequest {
    *          <p>If you don't specify this value, the default value is
    *         <code>BUILD</code>.</p>
    */
-  processBehavior?: ProcessBehavior | string;
+  processBehavior?: keyof typeof ProcessBehavior | string;
 
   /**
    * <p> Specifies the target locale for the bot. Any intent used in the
@@ -3500,7 +3500,7 @@ export interface PutBotRequest {
    *
    *          <p>The default is <code>en-US</code>.</p>
    */
-  locale: Locale | string | undefined;
+  locale: keyof typeof Locale | string | undefined;
 
   /**
    * <p>For each Amazon Lex bot created with the Amazon Lex Model Building Service,
@@ -3623,7 +3623,7 @@ export interface PutBotResponse {
    *          <p>When the bot is in the <code>READY</code> state you can test and
    *       publish the bot.</p>
    */
-  status?: Status | string;
+  status?: keyof typeof Status | string;
 
   /**
    * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
@@ -3668,7 +3668,7 @@ export interface PutBotResponse {
   /**
    * <p> The target locale for the bot. </p>
    */
-  locale?: Locale | string;
+  locale?: keyof typeof Locale | string;
 
   /**
    * <p>For each Amazon Lex bot created with the Amazon Lex Model Building Service,
@@ -3735,14 +3735,14 @@ export interface LogSettingsRequest {
    * <p>The type of logging to enable. Text logs are delivered to a CloudWatch
    *       Logs log group. Audio logs are delivered to an S3 bucket.</p>
    */
-  logType: LogType | string | undefined;
+  logType: keyof typeof LogType | string | undefined;
 
   /**
    * <p>Where the logs will be delivered. Text logs are delivered to a
    *       CloudWatch Logs log group. Audio logs are delivered to an S3
    *       bucket.</p>
    */
-  destination: Destination | string | undefined;
+  destination: keyof typeof Destination | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS KMS customer managed key for
@@ -4271,7 +4271,7 @@ export interface PutSlotTypeRequest {
    *          <p>If you don't specify the <code>valueSelectionStrategy</code>, the
    *       default is <code>ORIGINAL_VALUE</code>.</p>
    */
-  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
+  valueSelectionStrategy?: keyof typeof SlotValueSelectionStrategy | string;
 
   /**
    * <p>When set to <code>true</code> a new numbered version of the slot
@@ -4344,7 +4344,7 @@ export interface PutSlotTypeResponse {
    * <p>The slot resolution strategy that Amazon Lex uses to determine the value
    *       of the slot. For more information, see <a>PutSlotType</a>.</p>
    */
-  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
+  valueSelectionStrategy?: keyof typeof SlotValueSelectionStrategy | string;
 
   /**
    * <p>
@@ -4390,7 +4390,7 @@ export interface StartImportRequest {
    *             </li>
    *          </ul>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>Specifies the action that the <code>StartImport</code> operation
@@ -4410,7 +4410,7 @@ export interface StartImportRequest {
    *             </li>
    *          </ul>
    */
-  mergeStrategy: MergeStrategy | string | undefined;
+  mergeStrategy: keyof typeof MergeStrategy | string | undefined;
 
   /**
    * <p>A list of tags to add to the imported bot. You can only add tags when
@@ -4431,12 +4431,12 @@ export interface StartImportResponse {
   /**
    * <p>The type of resource to import.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>The action to take when there is a merge conflict.</p>
    */
-  mergeStrategy?: MergeStrategy | string;
+  mergeStrategy?: keyof typeof MergeStrategy | string;
 
   /**
    * <p>The identifier for the specific import job.</p>
@@ -4448,7 +4448,7 @@ export interface StartImportResponse {
    *       you can get the reason for the failure using the <code>GetImport</code>
    *       operation.</p>
    */
-  importStatus?: ImportStatus | string;
+  importStatus?: keyof typeof ImportStatus | string;
 
   /**
    * <p>A list of tags added to the imported bot.</p>
@@ -4515,7 +4515,7 @@ export interface StartMigrationRequest {
    *             </li>
    *          </ul>
    */
-  migrationStrategy: MigrationStrategy | string | undefined;
+  migrationStrategy: keyof typeof MigrationStrategy | string | undefined;
 }
 
 /**
@@ -4535,7 +4535,7 @@ export interface StartMigrationResponse {
   /**
    * <p>The locale used for the Amazon Lex V1 bot. </p>
    */
-  v1BotLocale?: Locale | string;
+  v1BotLocale?: keyof typeof Locale | string;
 
   /**
    * <p>The unique identifier for the Amazon Lex V2 bot. </p>
@@ -4555,7 +4555,7 @@ export interface StartMigrationResponse {
   /**
    * <p>The strategy used to conduct the migration.</p>
    */
-  migrationStrategy?: MigrationStrategy | string;
+  migrationStrategy?: keyof typeof MigrationStrategy | string;
 
   /**
    * <p>The date and time that the migration started.</p>

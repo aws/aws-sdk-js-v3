@@ -3081,7 +3081,7 @@ const serializeAws_restJson1ListOfAssetSourceEntry = (input: AssetSourceEntry[],
 };
 
 const serializeAws_restJson1ListOfDatabaseLFTagPolicyPermissions = (
-  input: (DatabaseLFTagPolicyPermission | string)[],
+  input: (keyof typeof DatabaseLFTagPolicyPermission | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3138,7 +3138,7 @@ const serializeAws_restJson1ListOfRevisionDestinationEntry = (
 };
 
 const serializeAws_restJson1ListOfTableTagPolicyLFPermissions = (
-  input: (TableTagPolicyLFPermission | string)[],
+  input: (keyof typeof TableTagPolicyLFPermission | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3758,7 +3758,7 @@ const deserializeAws_restJson1ListOfAssetSourceEntry = (output: any, context: __
 const deserializeAws_restJson1ListOfDatabaseLFTagPolicyPermissions = (
   output: any,
   context: __SerdeContext
-): (DatabaseLFTagPolicyPermission | string)[] => {
+): (keyof typeof DatabaseLFTagPolicyPermission | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3833,7 +3833,7 @@ const deserializeAws_restJson1ListOfKmsKeysToGrant = (output: any, context: __Se
 const deserializeAws_restJson1ListOfLFPermissions = (
   output: any,
   context: __SerdeContext
-): (LFPermission | string)[] => {
+): (keyof typeof LFPermission | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -3914,7 +3914,7 @@ const deserializeAws_restJson1ListOfRevisionEntry = (output: any, context: __Ser
 const deserializeAws_restJson1ListOfTableTagPolicyLFPermissions = (
   output: any,
   context: __SerdeContext
-): (TableTagPolicyLFPermission | string)[] => {
+): (keyof typeof TableTagPolicyLFPermission | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

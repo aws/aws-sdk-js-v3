@@ -254,21 +254,21 @@ export interface ChangeSummary {
 /**
  * @public
  */
-export enum FailureCode {
-  ClientError = "CLIENT_ERROR",
-  ServerFault = "SERVER_FAULT",
-}
+export const FailureCode = {
+  ClientError: "CLIENT_ERROR",
+  ServerFault: "SERVER_FAULT",
+};
 
 /**
  * @public
  */
-export enum ChangeStatus {
-  APPLYING = "APPLYING",
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  PREPARING = "PREPARING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ChangeStatus = {
+  APPLYING: "APPLYING",
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  PREPARING: "PREPARING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -307,7 +307,7 @@ export interface DescribeChangeSetResponse {
   /**
    * <p>The status of the change request.</p>
    */
-  Status?: ChangeStatus | string;
+  Status?: keyof typeof ChangeStatus | string;
 
   /**
    * <p>Returned if the change set is in <code>FAILED</code> status. Can be either
@@ -315,7 +315,7 @@ export interface DescribeChangeSetResponse {
    *             the <code>ErrorDetailList</code>), or <code>SERVER_FAULT</code>, which means that there
    *             is a problem in the system, and you should retry your request.</p>
    */
-  FailureCode?: FailureCode | string;
+  FailureCode?: keyof typeof FailureCode | string;
 
   /**
    * <p>Returned if there is a failure on the change set, but that failure is not related to
@@ -465,10 +465,10 @@ export interface Filter {
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -489,7 +489,7 @@ export interface Sort {
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The
    *             default value is <code>DESCENDING</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -564,7 +564,7 @@ export interface ChangeSetSummaryListItem {
   /**
    * <p>The current status of the change set.</p>
    */
-  Status?: ChangeStatus | string;
+  Status?: keyof typeof ChangeStatus | string;
 
   /**
    * <p>This object is a list of entity IDs (string) that are a part of a change set. The
@@ -579,7 +579,7 @@ export interface ChangeSetSummaryListItem {
    *                 <code>SERVER_FAULT</code>, which means that there is a problem in the system, and
    *             you should retry your request.</p>
    */
-  FailureCode?: FailureCode | string;
+  FailureCode?: keyof typeof FailureCode | string;
 }
 
 /**

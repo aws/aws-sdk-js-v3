@@ -2980,7 +2980,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1ApplicationPermissionList = (
-  input: (ApplicationPermission | string)[],
+  input: (keyof typeof ApplicationPermission | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3132,7 +3132,7 @@ const serializeAws_restJson1SourceParams = (input: Record<string, string>, conte
 const deserializeAws_restJson1ApplicationPermissionList = (
   output: any,
   context: __SerdeContext
-): (ApplicationPermission | string)[] => {
+): (keyof typeof ApplicationPermission | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

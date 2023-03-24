@@ -6,28 +6,28 @@ import { CloudWatchServiceException as __BaseException } from "./CloudWatchServi
 /**
  * @public
  */
-export enum ActionsSuppressedBy {
-  Alarm = "Alarm",
-  ExtensionPeriod = "ExtensionPeriod",
-  WaitPeriod = "WaitPeriod",
-}
+export const ActionsSuppressedBy = {
+  Alarm: "Alarm",
+  ExtensionPeriod: "ExtensionPeriod",
+  WaitPeriod: "WaitPeriod",
+};
 
 /**
  * @public
  */
-export enum AlarmType {
-  CompositeAlarm = "CompositeAlarm",
-  MetricAlarm = "MetricAlarm",
-}
+export const AlarmType = {
+  CompositeAlarm: "CompositeAlarm",
+  MetricAlarm: "MetricAlarm",
+};
 
 /**
  * @public
  */
-export enum HistoryItemType {
-  Action = "Action",
-  ConfigurationUpdate = "ConfigurationUpdate",
-  StateUpdate = "StateUpdate",
-}
+export const HistoryItemType = {
+  Action: "Action",
+  ConfigurationUpdate: "ConfigurationUpdate",
+  StateUpdate: "StateUpdate",
+};
 
 /**
  * @public
@@ -42,7 +42,7 @@ export interface AlarmHistoryItem {
   /**
    * <p>The type of alarm, either metric alarm or composite alarm.</p>
    */
-  AlarmType?: AlarmType | string;
+  AlarmType?: keyof typeof AlarmType | string;
 
   /**
    * <p>The time stamp for the alarm history item.</p>
@@ -52,7 +52,7 @@ export interface AlarmHistoryItem {
   /**
    * <p>The type of alarm history item.</p>
    */
-  HistoryItemType?: HistoryItemType | string;
+  HistoryItemType?: keyof typeof HistoryItemType | string;
 
   /**
    * <p>A summary of the alarm history, in text format.</p>
@@ -155,35 +155,35 @@ export interface Metric {
 /**
  * @public
  */
-export enum StandardUnit {
-  Bits = "Bits",
-  Bits_Second = "Bits/Second",
-  Bytes = "Bytes",
-  Bytes_Second = "Bytes/Second",
-  Count = "Count",
-  Count_Second = "Count/Second",
-  Gigabits = "Gigabits",
-  Gigabits_Second = "Gigabits/Second",
-  Gigabytes = "Gigabytes",
-  Gigabytes_Second = "Gigabytes/Second",
-  Kilobits = "Kilobits",
-  Kilobits_Second = "Kilobits/Second",
-  Kilobytes = "Kilobytes",
-  Kilobytes_Second = "Kilobytes/Second",
-  Megabits = "Megabits",
-  Megabits_Second = "Megabits/Second",
-  Megabytes = "Megabytes",
-  Megabytes_Second = "Megabytes/Second",
-  Microseconds = "Microseconds",
-  Milliseconds = "Milliseconds",
-  None = "None",
-  Percent = "Percent",
-  Seconds = "Seconds",
-  Terabits = "Terabits",
-  Terabits_Second = "Terabits/Second",
-  Terabytes = "Terabytes",
-  Terabytes_Second = "Terabytes/Second",
-}
+export const StandardUnit = {
+  Bits: "Bits",
+  Bits_Second: "Bits/Second",
+  Bytes: "Bytes",
+  Bytes_Second: "Bytes/Second",
+  Count: "Count",
+  Count_Second: "Count/Second",
+  Gigabits: "Gigabits",
+  Gigabits_Second: "Gigabits/Second",
+  Gigabytes: "Gigabytes",
+  Gigabytes_Second: "Gigabytes/Second",
+  Kilobits: "Kilobits",
+  Kilobits_Second: "Kilobits/Second",
+  Kilobytes: "Kilobytes",
+  Kilobytes_Second: "Kilobytes/Second",
+  Megabits: "Megabits",
+  Megabits_Second: "Megabits/Second",
+  Megabytes: "Megabytes",
+  Megabytes_Second: "Megabytes/Second",
+  Microseconds: "Microseconds",
+  Milliseconds: "Milliseconds",
+  None: "None",
+  Percent: "Percent",
+  Seconds: "Seconds",
+  Terabits: "Terabits",
+  Terabits_Second: "Terabits/Second",
+  Terabytes: "Terabytes",
+  Terabytes_Second: "Terabytes/Second",
+};
 
 /**
  * @public
@@ -227,7 +227,7 @@ export interface MetricStat {
    * 			when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified.
    * 			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: keyof typeof StandardUnit | string;
 }
 
 /**
@@ -382,11 +382,11 @@ export interface SingleMetricAnomalyDetector {
 /**
  * @public
  */
-export enum AnomalyDetectorStateValue {
-  PENDING_TRAINING = "PENDING_TRAINING",
-  TRAINED = "TRAINED",
-  TRAINED_INSUFFICIENT_DATA = "TRAINED_INSUFFICIENT_DATA",
-}
+export const AnomalyDetectorStateValue = {
+  PENDING_TRAINING: "PENDING_TRAINING",
+  TRAINED: "TRAINED",
+  TRAINED_INSUFFICIENT_DATA: "TRAINED_INSUFFICIENT_DATA",
+};
 
 /**
  * @public
@@ -435,7 +435,7 @@ export interface AnomalyDetector {
    * <p>The current status of the anomaly detector's training. The possible values are <code>TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA</code>
    *          </p>
    */
-  StateValue?: AnomalyDetectorStateValue | string;
+  StateValue?: keyof typeof AnomalyDetectorStateValue | string;
 
   /**
    * <p>The CloudWatch metric and statistic for this anomaly detector.</p>
@@ -451,10 +451,10 @@ export interface AnomalyDetector {
 /**
  * @public
  */
-export enum AnomalyDetectorType {
-  METRIC_MATH = "METRIC_MATH",
-  SINGLE_METRIC = "SINGLE_METRIC",
-}
+export const AnomalyDetectorType = {
+  METRIC_MATH: "METRIC_MATH",
+  SINGLE_METRIC: "SINGLE_METRIC",
+};
 
 /**
  * @public
@@ -486,24 +486,24 @@ export interface PartialFailure {
 /**
  * @public
  */
-export enum ComparisonOperator {
-  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
-  GreaterThanThreshold = "GreaterThanThreshold",
-  GreaterThanUpperThreshold = "GreaterThanUpperThreshold",
-  LessThanLowerOrGreaterThanUpperThreshold = "LessThanLowerOrGreaterThanUpperThreshold",
-  LessThanLowerThreshold = "LessThanLowerThreshold",
-  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
-  LessThanThreshold = "LessThanThreshold",
-}
+export const ComparisonOperator = {
+  GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold: "GreaterThanThreshold",
+  GreaterThanUpperThreshold: "GreaterThanUpperThreshold",
+  LessThanLowerOrGreaterThanUpperThreshold: "LessThanLowerOrGreaterThanUpperThreshold",
+  LessThanLowerThreshold: "LessThanLowerThreshold",
+  LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
+  LessThanThreshold: "LessThanThreshold",
+};
 
 /**
  * @public
  */
-export enum StateValue {
-  ALARM = "ALARM",
-  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
-  OK = "OK",
-}
+export const StateValue = {
+  ALARM: "ALARM",
+  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
+  OK: "OK",
+};
 
 /**
  * @public
@@ -573,7 +573,7 @@ export interface CompositeAlarm {
   /**
    * <p>The state value for the alarm.</p>
    */
-  StateValue?: StateValue | string;
+  StateValue?: keyof typeof StateValue | string;
 
   /**
    * <p>
@@ -615,7 +615,7 @@ export interface CompositeAlarm {
    * 			the composite alarm performs its actions.
    * 		</p>
    */
-  ActionsSuppressedBy?: ActionsSuppressedBy | string;
+  ActionsSuppressedBy?: keyof typeof ActionsSuppressedBy | string;
 
   /**
    * <p>
@@ -823,7 +823,7 @@ export interface Datapoint {
   /**
    * <p>The standard unit for the data point.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: keyof typeof StandardUnit | string;
 
   /**
    * <p>The percentile statistic for the data point.</p>
@@ -1130,10 +1130,10 @@ export interface DeleteMetricStreamOutput {}
 /**
  * @public
  */
-export enum ScanBy {
-  TIMESTAMP_ASCENDING = "TimestampAscending",
-  TIMESTAMP_DESCENDING = "TimestampDescending",
-}
+export const ScanBy = {
+  TIMESTAMP_ASCENDING: "TimestampAscending",
+  TIMESTAMP_DESCENDING: "TimestampDescending",
+};
 
 /**
  * @public
@@ -1148,12 +1148,12 @@ export interface DescribeAlarmHistoryInput {
    * <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter,
    * 			only metric alarms are returned.</p>
    */
-  AlarmTypes?: (AlarmType | string)[];
+  AlarmTypes?: (keyof typeof AlarmType | string)[];
 
   /**
    * <p>The type of alarm histories to retrieve.</p>
    */
-  HistoryItemType?: HistoryItemType | string;
+  HistoryItemType?: keyof typeof HistoryItemType | string;
 
   /**
    * <p>The starting date to retrieve alarm history.</p>
@@ -1180,7 +1180,7 @@ export interface DescribeAlarmHistoryInput {
    * <p>Specified whether to return the newest or oldest alarm history first. Specify <code>TimestampDescending</code> to have the newest
    * 		event history returned first, and specify <code>TimestampAscending</code> to have the oldest history returned first.</p>
    */
-  ScanBy?: ScanBy | string;
+  ScanBy?: keyof typeof ScanBy | string;
 }
 
 /**
@@ -1239,7 +1239,7 @@ export interface DescribeAlarmsInput {
    * <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter,
    * 		only metric alarms are returned.</p>
    */
-  AlarmTypes?: (AlarmType | string)[];
+  AlarmTypes?: (keyof typeof AlarmType | string)[];
 
   /**
    * <p>If you use this parameter and specify the name of a composite alarm, the operation returns
@@ -1283,7 +1283,7 @@ export interface DescribeAlarmsInput {
   /**
    * <p>Specify this parameter to receive information only about alarms that are currently in the state that you specify.</p>
    */
-  StateValue?: StateValue | string;
+  StateValue?: keyof typeof StateValue | string;
 
   /**
    * <p>Use this parameter to filter the results of the operation to only those alarms that
@@ -1307,20 +1307,20 @@ export interface DescribeAlarmsInput {
 /**
  * @public
  */
-export enum EvaluationState {
-  PARTIAL_DATA = "PARTIAL_DATA",
-}
+export const EvaluationState = {
+  PARTIAL_DATA: "PARTIAL_DATA",
+};
 
 /**
  * @public
  */
-export enum Statistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
-}
+export const Statistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+};
 
 /**
  * @public
@@ -1373,7 +1373,7 @@ export interface MetricAlarm {
   /**
    * <p>The state value for the alarm.</p>
    */
-  StateValue?: StateValue | string;
+  StateValue?: keyof typeof StateValue | string;
 
   /**
    * <p>An explanation for the alarm state, in text format.</p>
@@ -1406,7 +1406,7 @@ export interface MetricAlarm {
    * <p>The statistic for the metric associated with the alarm, other than percentile.
    * 		    For percentile statistics, use <code>ExtendedStatistic</code>.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: keyof typeof Statistic | string;
 
   /**
    * <p>The percentile statistic for the metric associated with the alarm. Specify a value between
@@ -1427,7 +1427,7 @@ export interface MetricAlarm {
   /**
    * <p>The unit of the metric associated with the alarm.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: keyof typeof StandardUnit | string;
 
   /**
    * <p>The number of periods over which data is compared to the specified threshold.</p>
@@ -1448,7 +1448,7 @@ export interface MetricAlarm {
    * <p>The arithmetic operation to use when comparing the specified
    * 			statistic and threshold. The specified statistic value is used as the first operand.</p>
    */
-  ComparisonOperator?: ComparisonOperator | string;
+  ComparisonOperator?: keyof typeof ComparisonOperator | string;
 
   /**
    * <p>Sets how this alarm is to handle missing data points. The valid values
@@ -1493,7 +1493,7 @@ export interface MetricAlarm {
    * 	more information, see
    * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create alarms on Metrics Insights queries</a>.</p>
    */
-  EvaluationState?: EvaluationState | string;
+  EvaluationState?: keyof typeof EvaluationState | string;
 
   /**
    * <p>The date and time that the alarm's <code>StateValue</code> most recently changed.</p>
@@ -1539,7 +1539,7 @@ export interface DescribeAlarmsForMetricInput {
    * <p>The statistic for the metric, other than percentiles.
    * 		    For percentile statistics, use <code>ExtendedStatistics</code>.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: keyof typeof Statistic | string;
 
   /**
    * <p>The percentile statistic for the metric. Specify a value between
@@ -1561,7 +1561,7 @@ export interface DescribeAlarmsForMetricInput {
   /**
    * <p>The unit for the metric.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: keyof typeof StandardUnit | string;
 }
 
 /**
@@ -1615,7 +1615,7 @@ export interface DescribeAnomalyDetectorsInput {
    * <p>The anomaly detector types to request when using <code>DescribeAnomalyDetectorsInput</code>.
    * 			If empty, defaults to <code>SINGLE_METRIC</code>.</p>
    */
-  AnomalyDetectorTypes?: (AnomalyDetectorType | string)[];
+  AnomalyDetectorTypes?: (keyof typeof AnomalyDetectorType | string)[];
 }
 
 /**
@@ -2141,7 +2141,7 @@ export interface GetMetricDataInput {
    * 			when the <code>MaxDatapoints</code> limit is reached. <code>TimestampAscending</code> returns the oldest data first and paginates
    * 			when the <code>MaxDatapoints</code> limit is reached.</p>
    */
-  ScanBy?: ScanBy | string;
+  ScanBy?: keyof typeof ScanBy | string;
 
   /**
    * <p>The maximum number of data points the request should return before paginating. If you omit
@@ -2181,12 +2181,12 @@ export interface MessageData {
 /**
  * @public
  */
-export enum StatusCode {
-  COMPLETE = "Complete",
-  FORBIDDEN = "Forbidden",
-  INTERNAL_ERROR = "InternalError",
-  PARTIAL_DATA = "PartialData",
-}
+export const StatusCode = {
+  COMPLETE: "Complete",
+  FORBIDDEN: "Forbidden",
+  INTERNAL_ERROR: "InternalError",
+  PARTIAL_DATA: "PartialData",
+};
 
 /**
  * @public
@@ -2226,7 +2226,7 @@ export interface MetricDataResult {
    * 			<code>NextToken</code> is not returned if you are performing a math expression. <code>InternalError</code>
    * 			indicates that an error occurred. Retry your request using <code>NextToken</code>, if present.</p>
    */
-  StatusCode?: StatusCode | string;
+  StatusCode?: keyof typeof StatusCode | string;
 
   /**
    * <p>A list of messages with additional information about the data returned.</p>
@@ -2347,7 +2347,7 @@ export interface GetMetricStatisticsInput {
    * 		    use <code>ExtendedStatistics</code>. When calling <code>GetMetricStatistics</code>, you must
    * 		specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both.</p>
    */
-  Statistics?: (Statistic | string)[];
+  Statistics?: (keyof typeof Statistic | string)[];
 
   /**
    * <p>The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>, you must
@@ -2362,7 +2362,7 @@ export interface GetMetricStatisticsInput {
    * 			when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified.
    * 			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: keyof typeof StandardUnit | string;
 }
 
 /**
@@ -2405,10 +2405,10 @@ export interface MetricStreamFilter {
 /**
  * @public
  */
-export enum MetricStreamOutputFormat {
-  JSON = "json",
-  OPEN_TELEMETRY_0_7 = "opentelemetry0.7",
-}
+export const MetricStreamOutputFormat = {
+  JSON: "json",
+  OPEN_TELEMETRY_0_7: "opentelemetry0.7",
+};
 
 /**
  * @public
@@ -2523,7 +2523,7 @@ export interface GetMetricStreamOutput {
    * 			For more information about metric stream output formats,
    * 			see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html">Metric streams output formats</a>.</p>
    */
-  OutputFormat?: MetricStreamOutputFormat | string;
+  OutputFormat?: keyof typeof MetricStreamOutputFormat | string;
 
   /**
    * <p>Each entry in this array displays information about one or more metrics that include additional statistics
@@ -2781,9 +2781,9 @@ export interface ListManagedInsightRulesOutput {
 /**
  * @public
  */
-export enum RecentlyActive {
-  PT3H = "PT3H",
-}
+export const RecentlyActive = {
+  PT3H: "PT3H",
+};
 
 /**
  * @public
@@ -2822,7 +2822,7 @@ export interface ListMetricsInput {
    * 		is a low probability that the returned results include metrics with last published
    * 		data as much as 40 minutes more than the specified time interval.</p>
    */
-  RecentlyActive?: RecentlyActive | string;
+  RecentlyActive?: keyof typeof RecentlyActive | string;
 
   /**
    * <p>If you are using this operation in a monitoring account,
@@ -2917,7 +2917,7 @@ export interface MetricStreamEntry {
    * 			<code>json</code>
    * 			and <code>opentelemetry0.7</code>.</p>
    */
-  OutputFormat?: MetricStreamOutputFormat | string;
+  OutputFormat?: keyof typeof MetricStreamOutputFormat | string;
 }
 
 /**
@@ -3571,7 +3571,7 @@ export interface PutMetricAlarmInput {
    * 			a <code>MetricName</code>, you must
    * 		specify either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: keyof typeof Statistic | string;
 
   /**
    * <p>The percentile statistic for the metric specified in <code>MetricName</code>. Specify a value
@@ -3622,7 +3622,7 @@ export interface PutMetricAlarmInput {
    * 			specify an incorrect unit that is not published for this metric. Doing so
    * 			causes the alarm to be stuck in the <code>INSUFFICIENT DATA</code> state.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: keyof typeof StandardUnit | string;
 
   /**
    * <p>The number of periods over which data is compared to the specified threshold. If you are
@@ -3656,7 +3656,7 @@ export interface PutMetricAlarmInput {
    * 			<code>LessThanLowerThreshold</code>, and <code>GreaterThanUpperThreshold</code>
    * 		are used only for alarms based on anomaly detection models.</p>
    */
-  ComparisonOperator: ComparisonOperator | string | undefined;
+  ComparisonOperator: keyof typeof ComparisonOperator | string | undefined;
 
   /**
    * <p> Sets how this alarm is to handle missing data points. If <code>TreatMissingData</code> is omitted, the default behavior of <code>missing</code> is used.
@@ -3803,7 +3803,7 @@ export interface MetricDatum {
    *          <p>In
    * 		a <code>Get</code> operation, this displays the unit that is used for the metric.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: keyof typeof StandardUnit | string;
 
   /**
    * <p>Valid values are 1 and 60. Setting this to 1 specifies this metric as a high-resolution metric, so that CloudWatch stores the metric with
@@ -3893,7 +3893,7 @@ export interface PutMetricStreamInput {
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html">
    * 				Metric streams output formats</a>.</p>
    */
-  OutputFormat: MetricStreamOutputFormat | string | undefined;
+  OutputFormat: keyof typeof MetricStreamOutputFormat | string | undefined;
 
   /**
    * <p>A list of key-value pairs to associate with the metric stream. You can associate as
@@ -3973,7 +3973,7 @@ export interface SetAlarmStateInput {
   /**
    * <p>The value of the state.</p>
    */
-  StateValue: StateValue | string | undefined;
+  StateValue: keyof typeof StateValue | string | undefined;
 
   /**
    * <p>The reason that this alarm is set to this specific state, in text format.</p>

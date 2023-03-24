@@ -185,11 +185,11 @@ export interface AbortVaultLockInput {
 /**
  * @public
  */
-export enum Type {
-  AmazonCustomerByEmail = "AmazonCustomerByEmail",
-  CanonicalUser = "CanonicalUser",
-  Group = "Group",
-}
+export const Type = {
+  AmazonCustomerByEmail: "AmazonCustomerByEmail",
+  CanonicalUser: "CanonicalUser",
+  Group: "Group",
+};
 
 /**
  * @public
@@ -199,7 +199,7 @@ export interface Grantee {
   /**
    * <p>Type of grantee</p>
    */
-  Type: Type | string | undefined;
+  Type: keyof typeof Type | string | undefined;
 
   /**
    * <p>Screen name of the grantee.</p>
@@ -225,13 +225,13 @@ export interface Grantee {
 /**
  * @public
  */
-export enum Permission {
-  FULL_CONTROL = "FULL_CONTROL",
-  READ = "READ",
-  READ_ACP = "READ_ACP",
-  WRITE = "WRITE",
-  WRITE_ACP = "WRITE_ACP",
-}
+export const Permission = {
+  FULL_CONTROL: "FULL_CONTROL",
+  READ: "READ",
+  READ_ACP: "READ_ACP",
+  WRITE: "WRITE",
+  WRITE_ACP: "WRITE_ACP",
+};
 
 /**
  * @public
@@ -246,17 +246,17 @@ export interface Grant {
   /**
    * <p>Specifies the permission given to the grantee. </p>
    */
-  Permission?: Permission | string;
+  Permission?: keyof typeof Permission | string;
 }
 
 /**
  * @public
  */
-export enum ActionCode {
-  ArchiveRetrieval = "ArchiveRetrieval",
-  InventoryRetrieval = "InventoryRetrieval",
-  Select = "Select",
-}
+export const ActionCode = {
+  ArchiveRetrieval: "ArchiveRetrieval",
+  InventoryRetrieval: "InventoryRetrieval",
+  Select: "Select",
+};
 
 /**
  * @public
@@ -343,15 +343,15 @@ export interface ArchiveCreationOutput {
 /**
  * @public
  */
-export enum CannedACL {
-  AuthenticatedRead = "authenticated-read",
-  AwsExecRead = "aws-exec-read",
-  BucketOwnerFullControl = "bucket-owner-full-control",
-  BucketOwnerRead = "bucket-owner-read",
-  Private = "private",
-  PublicRead = "public-read",
-  PublicReadWrite = "public-read-write",
-}
+export const CannedACL = {
+  AuthenticatedRead: "authenticated-read",
+  AwsExecRead: "aws-exec-read",
+  BucketOwnerFullControl: "bucket-owner-full-control",
+  BucketOwnerRead: "bucket-owner-read",
+  Private: "private",
+  PublicRead: "public-read",
+  PublicReadWrite: "public-read-write",
+};
 
 /**
  * @public
@@ -454,11 +454,11 @@ export interface CreateVaultOutput {
 /**
  * @public
  */
-export enum FileHeaderInfo {
-  Ignore = "IGNORE",
-  None = "NONE",
-  Use = "USE",
-}
+export const FileHeaderInfo = {
+  Ignore: "IGNORE",
+  None: "NONE",
+  Use: "USE",
+};
 
 /**
  * @public
@@ -469,7 +469,7 @@ export interface CSVInput {
    * <p>Describes the first line of input. Valid values are <code>None</code>,
    *                 <code>Ignore</code>, and <code>Use</code>.</p>
    */
-  FileHeaderInfo?: FileHeaderInfo | string;
+  FileHeaderInfo?: keyof typeof FileHeaderInfo | string;
 
   /**
    * <p>A single character used to indicate that a row should be ignored when the character is
@@ -503,10 +503,10 @@ export interface CSVInput {
 /**
  * @public
  */
-export enum QuoteFields {
-  Always = "ALWAYS",
-  AsNeeded = "ASNEEDED",
-}
+export const QuoteFields = {
+  Always: "ALWAYS",
+  AsNeeded: "ASNEEDED",
+};
 
 /**
  * @public
@@ -518,7 +518,7 @@ export interface CSVOutput {
    * <p>A value that indicates whether all output fields should be contained within quotation
    *             marks.</p>
    */
-  QuoteFields?: QuoteFields | string;
+  QuoteFields?: keyof typeof QuoteFields | string;
 
   /**
    * <p>A single character used for escaping the quotation-mark character inside an already
@@ -730,10 +730,10 @@ export interface InventoryRetrievalJobDescription {
 /**
  * @public
  */
-export enum EncryptionType {
-  KMS = "aws:kms",
-  S3 = "AES256",
-}
+export const EncryptionType = {
+  KMS: "aws:kms",
+  S3: "AES256",
+};
 
 /**
  * @public
@@ -744,7 +744,7 @@ export interface Encryption {
    * <p>The server-side encryption algorithm used when storing job results in Amazon S3, for
    *             example <code>AES256</code> or <code>aws:kms</code>.</p>
    */
-  EncryptionType?: EncryptionType | string;
+  EncryptionType?: keyof typeof EncryptionType | string;
 
   /**
    * <p>The AWS KMS key ID to use for object encryption. All GET and PUT requests for an
@@ -763,11 +763,11 @@ export interface Encryption {
 /**
  * @public
  */
-export enum StorageClass {
-  ReducedRedundancy = "REDUCED_REDUNDANCY",
-  Standard = "STANDARD",
-  StandardInfrequentAccess = "STANDARD_IA",
-}
+export const StorageClass = {
+  ReducedRedundancy: "REDUCED_REDUNDANCY",
+  Standard: "STANDARD",
+  StandardInfrequentAccess: "STANDARD_IA",
+};
 
 /**
  * @public
@@ -792,7 +792,7 @@ export interface S3Location {
   /**
    * <p>The canned access control list (ACL) to apply to the job results.</p>
    */
-  CannedACL?: CannedACL | string;
+  CannedACL?: keyof typeof CannedACL | string;
 
   /**
    * <p>A list of grants that control access to the staged results.</p>
@@ -812,7 +812,7 @@ export interface S3Location {
   /**
    * <p>The storage class used to store the job results.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 }
 
 /**
@@ -829,9 +829,9 @@ export interface OutputLocation {
 /**
  * @public
  */
-export enum ExpressionType {
-  SQL = "SQL",
-}
+export const ExpressionType = {
+  SQL: "SQL",
+};
 
 /**
  * @public
@@ -868,7 +868,7 @@ export interface SelectParameters {
   /**
    * <p>The type of the provided expression, for example <code>SQL</code>.</p>
    */
-  ExpressionType?: ExpressionType | string;
+  ExpressionType?: keyof typeof ExpressionType | string;
 
   /**
    * <p>The expression that is used to select the object.</p>
@@ -884,11 +884,11 @@ export interface SelectParameters {
 /**
  * @public
  */
-export enum StatusCode {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Succeeded = "Succeeded",
-}
+export const StatusCode = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Succeeded: "Succeeded",
+};
 
 /**
  * @public
@@ -910,7 +910,7 @@ export interface GlacierJobDescription {
    *                 <code>InventoryRetrieval</code>, or
    *             <code>Select</code>. </p>
    */
-  Action?: ActionCode | string;
+  Action?: keyof typeof ActionCode | string;
 
   /**
    * <p>The archive ID requested for a select job or archive retrieval. Otherwise, this
@@ -940,7 +940,7 @@ export interface GlacierJobDescription {
    * <p>The status code can be <code>InProgress</code>, <code>Succeeded</code>, or
    *                 <code>Failed</code>, and indicates the status of the job.</p>
    */
-  StatusCode?: StatusCode | string;
+  StatusCode?: keyof typeof StatusCode | string;
 
   /**
    * <p>A friendly message that describes the job status.</p>

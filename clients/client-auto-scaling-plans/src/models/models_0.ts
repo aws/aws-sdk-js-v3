@@ -77,13 +77,13 @@ export interface MetricDimension {
 /**
  * @public
  */
-export enum MetricStatistic {
-  Average = "Average",
-  Maximum = "Maximum",
-  Minimum = "Minimum",
-  SampleCount = "SampleCount",
-  Sum = "Sum",
-}
+export const MetricStatistic = {
+  Average: "Average",
+  Maximum: "Maximum",
+  Minimum: "Minimum",
+  SampleCount: "SampleCount",
+  Sum: "Sum",
+};
 
 /**
  * @public
@@ -133,7 +133,7 @@ export interface CustomizedLoadMetricSpecification {
   /**
    * <p>The statistic of the metric. The only valid value is <code>Sum</code>.</p>
    */
-  Statistic: MetricStatistic | string | undefined;
+  Statistic: keyof typeof MetricStatistic | string | undefined;
 
   /**
    * <p>The unit of the metric.</p>
@@ -144,12 +144,12 @@ export interface CustomizedLoadMetricSpecification {
 /**
  * @public
  */
-export enum LoadMetricType {
-  ALBTargetGroupRequestCount = "ALBTargetGroupRequestCount",
-  ASGTotalCPUUtilization = "ASGTotalCPUUtilization",
-  ASGTotalNetworkIn = "ASGTotalNetworkIn",
-  ASGTotalNetworkOut = "ASGTotalNetworkOut",
-}
+export const LoadMetricType = {
+  ALBTargetGroupRequestCount: "ALBTargetGroupRequestCount",
+  ASGTotalCPUUtilization: "ASGTotalCPUUtilization",
+  ASGTotalNetworkIn: "ASGTotalNetworkIn",
+  ASGTotalNetworkOut: "ASGTotalNetworkOut",
+};
 
 /**
  * @public
@@ -163,7 +163,7 @@ export interface PredefinedLoadMetricSpecification {
   /**
    * <p>The metric type.</p>
    */
-  PredefinedLoadMetricType: LoadMetricType | string | undefined;
+  PredefinedLoadMetricType: keyof typeof LoadMetricType | string | undefined;
 
   /**
    * <p>Identifies the resource associated with the metric type. You can't specify a resource
@@ -195,52 +195,52 @@ export interface PredefinedLoadMetricSpecification {
 /**
  * @public
  */
-export enum PredictiveScalingMaxCapacityBehavior {
-  SetForecastCapacityToMaxCapacity = "SetForecastCapacityToMaxCapacity",
-  SetMaxCapacityAboveForecastCapacity = "SetMaxCapacityAboveForecastCapacity",
-  SetMaxCapacityToForecastCapacity = "SetMaxCapacityToForecastCapacity",
-}
+export const PredictiveScalingMaxCapacityBehavior = {
+  SetForecastCapacityToMaxCapacity: "SetForecastCapacityToMaxCapacity",
+  SetMaxCapacityAboveForecastCapacity: "SetMaxCapacityAboveForecastCapacity",
+  SetMaxCapacityToForecastCapacity: "SetMaxCapacityToForecastCapacity",
+};
 
 /**
  * @public
  */
-export enum PredictiveScalingMode {
-  ForecastAndScale = "ForecastAndScale",
-  ForecastOnly = "ForecastOnly",
-}
+export const PredictiveScalingMode = {
+  ForecastAndScale: "ForecastAndScale",
+  ForecastOnly: "ForecastOnly",
+};
 
 /**
  * @public
  */
-export enum ScalableDimension {
-  AutoScalingGroupDesiredCapacity = "autoscaling:autoScalingGroup:DesiredCapacity",
-  DynamoDBIndexReadCapacityUnits = "dynamodb:index:ReadCapacityUnits",
-  DynamoDBIndexWriteCapacityUnits = "dynamodb:index:WriteCapacityUnits",
-  DynamoDBTableReadCapacityUnits = "dynamodb:table:ReadCapacityUnits",
-  DynamoDBTableWriteCapacityUnits = "dynamodb:table:WriteCapacityUnits",
-  EC2SpotFleetRequestTargetCapacity = "ec2:spot-fleet-request:TargetCapacity",
-  ECSServiceDesiredCount = "ecs:service:DesiredCount",
-  RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount",
-}
+export const ScalableDimension = {
+  AutoScalingGroupDesiredCapacity: "autoscaling:autoScalingGroup:DesiredCapacity",
+  DynamoDBIndexReadCapacityUnits: "dynamodb:index:ReadCapacityUnits",
+  DynamoDBIndexWriteCapacityUnits: "dynamodb:index:WriteCapacityUnits",
+  DynamoDBTableReadCapacityUnits: "dynamodb:table:ReadCapacityUnits",
+  DynamoDBTableWriteCapacityUnits: "dynamodb:table:WriteCapacityUnits",
+  EC2SpotFleetRequestTargetCapacity: "ec2:spot-fleet-request:TargetCapacity",
+  ECSServiceDesiredCount: "ecs:service:DesiredCount",
+  RDSClusterReadReplicaCount: "rds:cluster:ReadReplicaCount",
+};
 
 /**
  * @public
  */
-export enum ScalingPolicyUpdateBehavior {
-  KeepExternalPolicies = "KeepExternalPolicies",
-  ReplaceExternalPolicies = "ReplaceExternalPolicies",
-}
+export const ScalingPolicyUpdateBehavior = {
+  KeepExternalPolicies: "KeepExternalPolicies",
+  ReplaceExternalPolicies: "ReplaceExternalPolicies",
+};
 
 /**
  * @public
  */
-export enum ServiceNamespace {
-  AUTOSCALING = "autoscaling",
-  DYNAMODB = "dynamodb",
-  EC2 = "ec2",
-  ECS = "ecs",
-  RDS = "rds",
-}
+export const ServiceNamespace = {
+  AUTOSCALING: "autoscaling",
+  DYNAMODB: "dynamodb",
+  EC2: "ec2",
+  ECS: "ecs",
+  RDS: "rds",
+};
 
 /**
  * @public
@@ -285,7 +285,7 @@ export interface CustomizedScalingMetricSpecification {
   /**
    * <p>The statistic of the metric.</p>
    */
-  Statistic: MetricStatistic | string | undefined;
+  Statistic: keyof typeof MetricStatistic | string | undefined;
 
   /**
    * <p>The unit of the metric. </p>
@@ -296,21 +296,21 @@ export interface CustomizedScalingMetricSpecification {
 /**
  * @public
  */
-export enum ScalingMetricType {
-  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
-  ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
-  ASGAverageNetworkIn = "ASGAverageNetworkIn",
-  ASGAverageNetworkOut = "ASGAverageNetworkOut",
-  DynamoDBReadCapacityUtilization = "DynamoDBReadCapacityUtilization",
-  DynamoDBWriteCapacityUtilization = "DynamoDBWriteCapacityUtilization",
-  EC2SpotFleetRequestAverageCPUUtilization = "EC2SpotFleetRequestAverageCPUUtilization",
-  EC2SpotFleetRequestAverageNetworkIn = "EC2SpotFleetRequestAverageNetworkIn",
-  EC2SpotFleetRequestAverageNetworkOut = "EC2SpotFleetRequestAverageNetworkOut",
-  ECSServiceAverageCPUUtilization = "ECSServiceAverageCPUUtilization",
-  ECSServiceAverageMemoryUtilization = "ECSServiceAverageMemoryUtilization",
-  RDSReaderAverageCPUUtilization = "RDSReaderAverageCPUUtilization",
-  RDSReaderAverageDatabaseConnections = "RDSReaderAverageDatabaseConnections",
-}
+export const ScalingMetricType = {
+  ALBRequestCountPerTarget: "ALBRequestCountPerTarget",
+  ASGAverageCPUUtilization: "ASGAverageCPUUtilization",
+  ASGAverageNetworkIn: "ASGAverageNetworkIn",
+  ASGAverageNetworkOut: "ASGAverageNetworkOut",
+  DynamoDBReadCapacityUtilization: "DynamoDBReadCapacityUtilization",
+  DynamoDBWriteCapacityUtilization: "DynamoDBWriteCapacityUtilization",
+  EC2SpotFleetRequestAverageCPUUtilization: "EC2SpotFleetRequestAverageCPUUtilization",
+  EC2SpotFleetRequestAverageNetworkIn: "EC2SpotFleetRequestAverageNetworkIn",
+  EC2SpotFleetRequestAverageNetworkOut: "EC2SpotFleetRequestAverageNetworkOut",
+  ECSServiceAverageCPUUtilization: "ECSServiceAverageCPUUtilization",
+  ECSServiceAverageMemoryUtilization: "ECSServiceAverageMemoryUtilization",
+  RDSReaderAverageCPUUtilization: "RDSReaderAverageCPUUtilization",
+  RDSReaderAverageDatabaseConnections: "RDSReaderAverageDatabaseConnections",
+};
 
 /**
  * @public
@@ -322,7 +322,7 @@ export interface PredefinedScalingMetricSpecification {
    * <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
    *          Auto Scaling groups, Spot Fleet requests, and ECS services.</p>
    */
-  PredefinedScalingMetricType: ScalingMetricType | string | undefined;
+  PredefinedScalingMetricType: keyof typeof ScalingMetricType | string | undefined;
 
   /**
    * <p>Identifies the resource associated with the metric type. You can't specify a resource
@@ -441,7 +441,7 @@ export interface ScalingInstruction {
   /**
    * <p>The namespace of the AWS service.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The ID of the resource. This string consists of the resource type and unique
@@ -512,7 +512,7 @@ export interface ScalingInstruction {
    *            </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: keyof typeof ScalableDimension | string | undefined;
 
   /**
    * <p>The minimum capacity of the resource. </p>
@@ -585,7 +585,7 @@ export interface ScalingInstruction {
    *          </ul>
    *          <p>Only valid when configuring predictive scaling.</p>
    */
-  PredictiveScalingMaxCapacityBehavior?: PredictiveScalingMaxCapacityBehavior | string;
+  PredictiveScalingMaxCapacityBehavior?: keyof typeof PredictiveScalingMaxCapacityBehavior | string;
 
   /**
    * <p>The size of the capacity buffer to use when the forecast capacity is close to or exceeds
@@ -604,7 +604,7 @@ export interface ScalingInstruction {
    *          Otherwise, AWS Auto Scaling forecasts capacity but does not create any scheduled scaling actions
    *          based on the capacity forecast. </p>
    */
-  PredictiveScalingMode?: PredictiveScalingMode | string;
+  PredictiveScalingMode?: keyof typeof PredictiveScalingMode | string;
 
   /**
    * <p>Controls whether a resource's externally created scaling policies are kept or replaced. </p>
@@ -616,7 +616,7 @@ export interface ScalingInstruction {
    *          50. If there are more than 50 policies to be replaced, AWS Auto Scaling keeps all existing policies
    *          and does not create new ones.</p>
    */
-  ScalingPolicyUpdateBehavior?: ScalingPolicyUpdateBehavior | string;
+  ScalingPolicyUpdateBehavior?: keyof typeof ScalingPolicyUpdateBehavior | string;
 
   /**
    * <p>Controls whether dynamic scaling by AWS Auto Scaling is disabled. When dynamic scaling is
@@ -802,9 +802,9 @@ export interface DescribeScalingPlanResourcesRequest {
 /**
  * @public
  */
-export enum PolicyType {
-  TargetTrackingScaling = "TargetTrackingScaling",
-}
+export const PolicyType = {
+  TargetTrackingScaling: "TargetTrackingScaling",
+};
 
 /**
  * @public
@@ -819,7 +819,7 @@ export interface ScalingPolicy {
   /**
    * <p>The type of scaling policy.</p>
    */
-  PolicyType: PolicyType | string | undefined;
+  PolicyType: keyof typeof PolicyType | string | undefined;
 
   /**
    * <p>The target tracking scaling policy. Includes support for predefined or customized
@@ -831,11 +831,11 @@ export interface ScalingPolicy {
 /**
  * @public
  */
-export enum ScalingStatusCode {
-  Active = "Active",
-  Inactive = "Inactive",
-  PartiallyActive = "PartiallyActive",
-}
+export const ScalingStatusCode = {
+  Active: "Active",
+  Inactive: "Inactive",
+  PartiallyActive: "PartiallyActive",
+};
 
 /**
  * @public
@@ -855,7 +855,7 @@ export interface ScalingPlanResource {
   /**
    * <p>The namespace of the AWS service.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The ID of the resource. This string consists of the resource type and unique
@@ -926,7 +926,7 @@ export interface ScalingPlanResource {
    *            </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: keyof typeof ScalableDimension | string | undefined;
 
   /**
    * <p>The scaling policies.</p>
@@ -954,7 +954,7 @@ export interface ScalingPlanResource {
    *             </li>
    *          </ul>
    */
-  ScalingStatusCode: ScalingStatusCode | string | undefined;
+  ScalingStatusCode: keyof typeof ScalingStatusCode | string | undefined;
 
   /**
    * <p>A simple message about the current scaling status of the resource.</p>
@@ -1041,16 +1041,16 @@ export interface DescribeScalingPlansRequest {
 /**
  * @public
  */
-export enum ScalingPlanStatusCode {
-  Active = "Active",
-  ActiveWithProblems = "ActiveWithProblems",
-  CreationFailed = "CreationFailed",
-  CreationInProgress = "CreationInProgress",
-  DeletionFailed = "DeletionFailed",
-  DeletionInProgress = "DeletionInProgress",
-  UpdateFailed = "UpdateFailed",
-  UpdateInProgress = "UpdateInProgress",
-}
+export const ScalingPlanStatusCode = {
+  Active: "Active",
+  ActiveWithProblems: "ActiveWithProblems",
+  CreationFailed: "CreationFailed",
+  CreationInProgress: "CreationInProgress",
+  DeletionFailed: "DeletionFailed",
+  DeletionInProgress: "DeletionInProgress",
+  UpdateFailed: "UpdateFailed",
+  UpdateInProgress: "UpdateInProgress",
+};
 
 /**
  * @public
@@ -1116,7 +1116,7 @@ export interface ScalingPlan {
    *             </li>
    *          </ul>
    */
-  StatusCode: ScalingPlanStatusCode | string | undefined;
+  StatusCode: keyof typeof ScalingPlanStatusCode | string | undefined;
 
   /**
    * <p>A simple message about the current status of the scaling plan.</p>
@@ -1153,12 +1153,12 @@ export interface DescribeScalingPlansResponse {
 /**
  * @public
  */
-export enum ForecastDataType {
-  CapacityForecast = "CapacityForecast",
-  LoadForecast = "LoadForecast",
-  ScheduledActionMaxCapacity = "ScheduledActionMaxCapacity",
-  ScheduledActionMinCapacity = "ScheduledActionMinCapacity",
-}
+export const ForecastDataType = {
+  CapacityForecast: "CapacityForecast",
+  LoadForecast: "LoadForecast",
+  ScheduledActionMaxCapacity: "ScheduledActionMaxCapacity",
+  ScheduledActionMinCapacity: "ScheduledActionMinCapacity",
+};
 
 /**
  * @public
@@ -1179,7 +1179,7 @@ export interface GetScalingPlanResourceForecastDataRequest {
    * <p>The namespace of the AWS service. The only valid value is <code>autoscaling</code>.
    *       </p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: keyof typeof ServiceNamespace | string | undefined;
 
   /**
    * <p>The ID of the resource. This string consists of a prefix (<code>autoScalingGroup</code>)
@@ -1192,7 +1192,7 @@ export interface GetScalingPlanResourceForecastDataRequest {
    * <p>The scalable dimension for the resource. The only valid value is
    *             <code>autoscaling:autoScalingGroup:DesiredCapacity</code>. </p>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: keyof typeof ScalableDimension | string | undefined;
 
   /**
    * <p>The type of forecast data to get.</p>
@@ -1219,7 +1219,7 @@ export interface GetScalingPlanResourceForecastDataRequest {
    *             </li>
    *          </ul>
    */
-  ForecastDataType: ForecastDataType | string | undefined;
+  ForecastDataType: keyof typeof ForecastDataType | string | undefined;
 
   /**
    * <p>The inclusive start time of the time range for the forecast data to get. The date and

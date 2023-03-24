@@ -67,52 +67,52 @@ export class ServiceFailureException extends __BaseException {
 /**
  * @public
  */
-export enum Engine {
-  NEURAL = "neural",
-  STANDARD = "standard",
-}
+export const Engine = {
+  NEURAL: "neural",
+  STANDARD: "standard",
+};
 
 /**
  * @public
  */
-export enum LanguageCode {
-  ar_AE = "ar-AE",
-  arb = "arb",
-  ca_ES = "ca-ES",
-  cmn_CN = "cmn-CN",
-  cy_GB = "cy-GB",
-  da_DK = "da-DK",
-  de_AT = "de-AT",
-  de_DE = "de-DE",
-  en_AU = "en-AU",
-  en_GB = "en-GB",
-  en_GB_WLS = "en-GB-WLS",
-  en_IN = "en-IN",
-  en_NZ = "en-NZ",
-  en_US = "en-US",
-  en_ZA = "en-ZA",
-  es_ES = "es-ES",
-  es_MX = "es-MX",
-  es_US = "es-US",
-  fi_FI = "fi-FI",
-  fr_CA = "fr-CA",
-  fr_FR = "fr-FR",
-  hi_IN = "hi-IN",
-  is_IS = "is-IS",
-  it_IT = "it-IT",
-  ja_JP = "ja-JP",
-  ko_KR = "ko-KR",
-  nb_NO = "nb-NO",
-  nl_NL = "nl-NL",
-  pl_PL = "pl-PL",
-  pt_BR = "pt-BR",
-  pt_PT = "pt-PT",
-  ro_RO = "ro-RO",
-  ru_RU = "ru-RU",
-  sv_SE = "sv-SE",
-  tr_TR = "tr-TR",
-  yue_CN = "yue-CN",
-}
+export const LanguageCode = {
+  ar_AE: "ar-AE",
+  arb: "arb",
+  ca_ES: "ca-ES",
+  cmn_CN: "cmn-CN",
+  cy_GB: "cy-GB",
+  da_DK: "da-DK",
+  de_AT: "de-AT",
+  de_DE: "de-DE",
+  en_AU: "en-AU",
+  en_GB: "en-GB",
+  en_GB_WLS: "en-GB-WLS",
+  en_IN: "en-IN",
+  en_NZ: "en-NZ",
+  en_US: "en-US",
+  en_ZA: "en-ZA",
+  es_ES: "es-ES",
+  es_MX: "es-MX",
+  es_US: "es-US",
+  fi_FI: "fi-FI",
+  fr_CA: "fr-CA",
+  fr_FR: "fr-FR",
+  hi_IN: "hi-IN",
+  is_IS: "is-IS",
+  it_IT: "it-IT",
+  ja_JP: "ja-JP",
+  ko_KR: "ko-KR",
+  nb_NO: "nb-NO",
+  nl_NL: "nl-NL",
+  pl_PL: "pl-PL",
+  pt_BR: "pt-BR",
+  pt_PT: "pt-PT",
+  ro_RO: "ro-RO",
+  ru_RU: "ru-RU",
+  sv_SE: "sv-SE",
+  tr_TR: "tr-TR",
+  yue_CN: "yue-CN",
+};
 
 /**
  * @public
@@ -122,7 +122,7 @@ export interface DescribeVoicesInput {
    * <p>Specifies the engine (<code>standard</code> or <code>neural</code>)
    *       used by Amazon Polly when processing input text for speech synthesis. </p>
    */
-  Engine?: Engine | string;
+  Engine?: keyof typeof Engine | string;
 
   /**
    * <p> The language identification tag (ISO 639 code for the language
@@ -130,7 +130,7 @@ export interface DescribeVoicesInput {
    *       you don't specify this optional parameter, all available voices are
    *       returned. </p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>Boolean value indicating whether to return any bilingual voices that
@@ -153,104 +153,104 @@ export interface DescribeVoicesInput {
 /**
  * @public
  */
-export enum Gender {
-  Female = "Female",
-  Male = "Male",
-}
+export const Gender = {
+  Female: "Female",
+  Male: "Male",
+};
 
 /**
  * @public
  */
-export enum VoiceId {
-  Aditi = "Aditi",
-  Adriano = "Adriano",
-  Amy = "Amy",
-  Andres = "Andres",
-  Aria = "Aria",
-  Arlet = "Arlet",
-  Arthur = "Arthur",
-  Astrid = "Astrid",
-  Ayanda = "Ayanda",
-  Bianca = "Bianca",
-  Brian = "Brian",
-  Camila = "Camila",
-  Carla = "Carla",
-  Carmen = "Carmen",
-  Celine = "Celine",
-  Chantal = "Chantal",
-  Conchita = "Conchita",
-  Cristiano = "Cristiano",
-  Daniel = "Daniel",
-  Dora = "Dora",
-  Elin = "Elin",
-  Emma = "Emma",
-  Enrique = "Enrique",
-  Ewa = "Ewa",
-  Filiz = "Filiz",
-  Gabrielle = "Gabrielle",
-  Geraint = "Geraint",
-  Giorgio = "Giorgio",
-  Gwyneth = "Gwyneth",
-  Hala = "Hala",
-  Hannah = "Hannah",
-  Hans = "Hans",
-  Hiujin = "Hiujin",
-  Ida = "Ida",
-  Ines = "Ines",
-  Ivy = "Ivy",
-  Jacek = "Jacek",
-  Jan = "Jan",
-  Joanna = "Joanna",
-  Joey = "Joey",
-  Justin = "Justin",
-  Kajal = "Kajal",
-  Karl = "Karl",
-  Kazuha = "Kazuha",
-  Kendra = "Kendra",
-  Kevin = "Kevin",
-  Kimberly = "Kimberly",
-  Laura = "Laura",
-  Lea = "Lea",
-  Liam = "Liam",
-  Liv = "Liv",
-  Lotte = "Lotte",
-  Lucia = "Lucia",
-  Lupe = "Lupe",
-  Mads = "Mads",
-  Maja = "Maja",
-  Marlene = "Marlene",
-  Mathieu = "Mathieu",
-  Matthew = "Matthew",
-  Maxim = "Maxim",
-  Mia = "Mia",
-  Miguel = "Miguel",
-  Mizuki = "Mizuki",
-  Naja = "Naja",
-  Nicole = "Nicole",
-  Ola = "Ola",
-  Olivia = "Olivia",
-  Pedro = "Pedro",
-  Penelope = "Penelope",
-  Raveena = "Raveena",
-  Remi = "Remi",
-  Ricardo = "Ricardo",
-  Ruben = "Ruben",
-  Russell = "Russell",
-  Ruth = "Ruth",
-  Salli = "Salli",
-  Seoyeon = "Seoyeon",
-  Sergio = "Sergio",
-  Stephen = "Stephen",
-  Suvi = "Suvi",
-  Takumi = "Takumi",
-  Tatyana = "Tatyana",
-  Thiago = "Thiago",
-  Tomoko = "Tomoko",
-  Vicki = "Vicki",
-  Vitoria = "Vitoria",
-  Zeina = "Zeina",
-  Zhiyu = "Zhiyu",
-}
+export const VoiceId = {
+  Aditi: "Aditi",
+  Adriano: "Adriano",
+  Amy: "Amy",
+  Andres: "Andres",
+  Aria: "Aria",
+  Arlet: "Arlet",
+  Arthur: "Arthur",
+  Astrid: "Astrid",
+  Ayanda: "Ayanda",
+  Bianca: "Bianca",
+  Brian: "Brian",
+  Camila: "Camila",
+  Carla: "Carla",
+  Carmen: "Carmen",
+  Celine: "Celine",
+  Chantal: "Chantal",
+  Conchita: "Conchita",
+  Cristiano: "Cristiano",
+  Daniel: "Daniel",
+  Dora: "Dora",
+  Elin: "Elin",
+  Emma: "Emma",
+  Enrique: "Enrique",
+  Ewa: "Ewa",
+  Filiz: "Filiz",
+  Gabrielle: "Gabrielle",
+  Geraint: "Geraint",
+  Giorgio: "Giorgio",
+  Gwyneth: "Gwyneth",
+  Hala: "Hala",
+  Hannah: "Hannah",
+  Hans: "Hans",
+  Hiujin: "Hiujin",
+  Ida: "Ida",
+  Ines: "Ines",
+  Ivy: "Ivy",
+  Jacek: "Jacek",
+  Jan: "Jan",
+  Joanna: "Joanna",
+  Joey: "Joey",
+  Justin: "Justin",
+  Kajal: "Kajal",
+  Karl: "Karl",
+  Kazuha: "Kazuha",
+  Kendra: "Kendra",
+  Kevin: "Kevin",
+  Kimberly: "Kimberly",
+  Laura: "Laura",
+  Lea: "Lea",
+  Liam: "Liam",
+  Liv: "Liv",
+  Lotte: "Lotte",
+  Lucia: "Lucia",
+  Lupe: "Lupe",
+  Mads: "Mads",
+  Maja: "Maja",
+  Marlene: "Marlene",
+  Mathieu: "Mathieu",
+  Matthew: "Matthew",
+  Maxim: "Maxim",
+  Mia: "Mia",
+  Miguel: "Miguel",
+  Mizuki: "Mizuki",
+  Naja: "Naja",
+  Nicole: "Nicole",
+  Ola: "Ola",
+  Olivia: "Olivia",
+  Pedro: "Pedro",
+  Penelope: "Penelope",
+  Raveena: "Raveena",
+  Remi: "Remi",
+  Ricardo: "Ricardo",
+  Ruben: "Ruben",
+  Russell: "Russell",
+  Ruth: "Ruth",
+  Salli: "Salli",
+  Seoyeon: "Seoyeon",
+  Sergio: "Sergio",
+  Stephen: "Stephen",
+  Suvi: "Suvi",
+  Takumi: "Takumi",
+  Tatyana: "Tatyana",
+  Thiago: "Thiago",
+  Tomoko: "Tomoko",
+  Vicki: "Vicki",
+  Vitoria: "Vitoria",
+  Zeina: "Zeina",
+  Zhiyu: "Zhiyu",
+};
 
 /**
  * @public
@@ -260,18 +260,18 @@ export interface Voice {
   /**
    * <p>Gender of the voice.</p>
    */
-  Gender?: Gender | string;
+  Gender?: keyof typeof Gender | string;
 
   /**
    * <p>Amazon Polly assigned voice ID. This is the ID that you specify when
    *       calling the <code>SynthesizeSpeech</code> operation.</p>
    */
-  Id?: VoiceId | string;
+  Id?: keyof typeof VoiceId | string;
 
   /**
    * <p>Language code of the voice.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>Human readable name of the language in English.</p>
@@ -293,13 +293,13 @@ export interface Voice {
    *       fluent in both Indian English and Hindi, this parameter would show the
    *       code <code>hi-IN</code>.</p>
    */
-  AdditionalLanguageCodes?: (LanguageCode | string)[];
+  AdditionalLanguageCodes?: (keyof typeof LanguageCode | string)[];
 
   /**
    * <p>Specifies which engines (<code>standard</code> or <code>neural</code>)
    *       that are supported by a given voice.</p>
    */
-  SupportedEngines?: (Engine | string)[];
+  SupportedEngines?: (keyof typeof Engine | string)[];
 }
 
 /**
@@ -408,7 +408,7 @@ export interface LexiconAttributes {
    *       language code such as "en" would be applied to all English languages
    *       (en-GB, en-US, en-AUS, en-WLS, and so on.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>Date lexicon was last modified (a timestamp value).</p>
@@ -462,40 +462,40 @@ export interface GetSpeechSynthesisTaskInput {
 /**
  * @public
  */
-export enum OutputFormat {
-  JSON = "json",
-  MP3 = "mp3",
-  OGG_VORBIS = "ogg_vorbis",
-  PCM = "pcm",
-}
+export const OutputFormat = {
+  JSON: "json",
+  MP3: "mp3",
+  OGG_VORBIS: "ogg_vorbis",
+  PCM: "pcm",
+};
 
 /**
  * @public
  */
-export enum SpeechMarkType {
-  SENTENCE = "sentence",
-  SSML = "ssml",
-  VISEME = "viseme",
-  WORD = "word",
-}
+export const SpeechMarkType = {
+  SENTENCE: "sentence",
+  SSML: "ssml",
+  VISEME: "viseme",
+  WORD: "word",
+};
 
 /**
  * @public
  */
-export enum TaskStatus {
-  COMPLETED = "completed",
-  FAILED = "failed",
-  IN_PROGRESS = "inProgress",
-  SCHEDULED = "scheduled",
-}
+export const TaskStatus = {
+  COMPLETED: "completed",
+  FAILED: "failed",
+  IN_PROGRESS: "inProgress",
+  SCHEDULED: "scheduled",
+};
 
 /**
  * @public
  */
-export enum TextType {
-  SSML = "ssml",
-  TEXT = "text",
-}
+export const TextType = {
+  SSML: "ssml",
+  TEXT: "text",
+};
 
 /**
  * @public
@@ -509,7 +509,7 @@ export interface SynthesisTask {
    *       voice that is not supported for the engine selected will result in an
    *       error.</p>
    */
-  Engine?: Engine | string;
+  Engine?: keyof typeof Engine | string;
 
   /**
    * <p>The Amazon Polly generated identifier for a speech synthesis task.</p>
@@ -519,7 +519,7 @@ export interface SynthesisTask {
   /**
    * <p>Current status of the individual speech synthesis task.</p>
    */
-  TaskStatus?: TaskStatus | string;
+  TaskStatus?: keyof typeof TaskStatus | string;
 
   /**
    * <p>Reason for the current status of a specific speech synthesis task,
@@ -560,7 +560,7 @@ export interface SynthesisTask {
    *       stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will
    *       be json. </p>
    */
-  OutputFormat?: OutputFormat | string;
+  OutputFormat?: keyof typeof OutputFormat | string;
 
   /**
    * <p>The audio frequency specified in Hz.</p>
@@ -575,18 +575,18 @@ export interface SynthesisTask {
   /**
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: (SpeechMarkType | string)[];
+  SpeechMarkTypes?: (keyof typeof SpeechMarkType | string)[];
 
   /**
    * <p>Specifies whether the input text is plain text or SSML. The default
    *       value is plain text. </p>
    */
-  TextType?: TextType | string;
+  TextType?: keyof typeof TextType | string;
 
   /**
    * <p>Voice ID to use for the synthesis. </p>
    */
-  VoiceId?: VoiceId | string;
+  VoiceId?: keyof typeof VoiceId | string;
 
   /**
    * <p>Optional language code for a synthesis task. This is only necessary if
@@ -598,7 +598,7 @@ export interface SynthesisTask {
    *       parameter. For example, if no language code is specified, Aditi will use
    *       Indian English rather than Hindi.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 }
 
 /**
@@ -887,7 +887,7 @@ export interface ListSpeechSynthesisTasksInput {
    * <p>Status of the speech synthesis tasks returned in a List
    *       operation</p>
    */
-  Status?: TaskStatus | string;
+  Status?: keyof typeof TaskStatus | string;
 }
 
 /**
@@ -1068,7 +1068,7 @@ export interface StartSpeechSynthesisTaskInput {
    *       voice that is not supported for the engine selected will result in an
    *       error.</p>
    */
-  Engine?: Engine | string;
+  Engine?: keyof typeof Engine | string;
 
   /**
    * <p>Optional language code for the Speech Synthesis request. This is only
@@ -1080,7 +1080,7 @@ export interface StartSpeechSynthesisTaskInput {
    *       parameter. For example, if no language code is specified, Aditi will use
    *       Indian English rather than Hindi.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>List of one or more pronunciation lexicon names you want the service
@@ -1094,7 +1094,7 @@ export interface StartSpeechSynthesisTaskInput {
    *       stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will
    *       be json. </p>
    */
-  OutputFormat: OutputFormat | string | undefined;
+  OutputFormat: keyof typeof OutputFormat | string | undefined;
 
   /**
    * <p>Amazon S3 bucket name to which the output file will be saved.</p>
@@ -1125,7 +1125,7 @@ export interface StartSpeechSynthesisTaskInput {
   /**
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: (SpeechMarkType | string)[];
+  SpeechMarkTypes?: (keyof typeof SpeechMarkType | string)[];
 
   /**
    * <p>The input text to synthesize. If you specify ssml as the TextType,
@@ -1137,12 +1137,12 @@ export interface StartSpeechSynthesisTaskInput {
    * <p>Specifies whether the input text is plain text or SSML. The default
    *       value is plain text. </p>
    */
-  TextType?: TextType | string;
+  TextType?: keyof typeof TextType | string;
 
   /**
    * <p>Voice ID to use for the synthesis. </p>
    */
-  VoiceId: VoiceId | string | undefined;
+  VoiceId: keyof typeof VoiceId | string | undefined;
 }
 
 /**
@@ -1210,7 +1210,7 @@ export interface SynthesizeSpeechInput {
    *       set to <code>standard</code> and an NTTS-only voice is selected, this will
    *       result in an error. </p>
    */
-  Engine?: Engine | string;
+  Engine?: keyof typeof Engine | string;
 
   /**
    * <p>Optional language code for the Synthesize Speech request. This is only
@@ -1222,7 +1222,7 @@ export interface SynthesizeSpeechInput {
    *       parameter. For example, if no language code is specified, Aditi will use
    *       Indian English rather than Hindi.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: keyof typeof LanguageCode | string;
 
   /**
    * <p>List of one or more pronunciation lexicon names you want the
@@ -1239,7 +1239,7 @@ export interface SynthesizeSpeechInput {
    *          <p>When pcm is used, the content returned is audio/pcm in a signed
    *       16-bit, 1 channel (mono), little-endian format. </p>
    */
-  OutputFormat: OutputFormat | string | undefined;
+  OutputFormat: keyof typeof OutputFormat | string | undefined;
 
   /**
    * <p>The audio frequency specified in Hz.</p>
@@ -1254,7 +1254,7 @@ export interface SynthesizeSpeechInput {
   /**
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: (SpeechMarkType | string)[];
+  SpeechMarkTypes?: (keyof typeof SpeechMarkType | string)[];
 
   /**
    * <p> Input text to synthesize. If you specify <code>ssml</code> as the
@@ -1268,13 +1268,13 @@ export interface SynthesizeSpeechInput {
    *       default value is plain text. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/ssml.html">Using
    *         SSML</a>.</p>
    */
-  TextType?: TextType | string;
+  TextType?: keyof typeof TextType | string;
 
   /**
    * <p> Voice ID to use for the synthesis. You can get a list of available
    *       voice IDs by calling the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation. </p>
    */
-  VoiceId: VoiceId | string | undefined;
+  VoiceId: keyof typeof VoiceId | string | undefined;
 }
 
 /**

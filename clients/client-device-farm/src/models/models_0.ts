@@ -23,10 +23,10 @@ export interface TrialMinutes {
 /**
  * @public
  */
-export enum DevicePlatform {
-  ANDROID = "ANDROID",
-  IOS = "IOS",
-}
+export const DevicePlatform = {
+  ANDROID: "ANDROID",
+  IOS: "IOS",
+};
 
 /**
  * @public
@@ -106,36 +106,36 @@ export class ArgumentException extends __BaseException {
 /**
  * @public
  */
-export enum ArtifactType {
-  APPIUM_JAVA_OUTPUT = "APPIUM_JAVA_OUTPUT",
-  APPIUM_JAVA_XML_OUTPUT = "APPIUM_JAVA_XML_OUTPUT",
-  APPIUM_PYTHON_OUTPUT = "APPIUM_PYTHON_OUTPUT",
-  APPIUM_PYTHON_XML_OUTPUT = "APPIUM_PYTHON_XML_OUTPUT",
-  APPIUM_SERVER_OUTPUT = "APPIUM_SERVER_OUTPUT",
-  APPLICATION_CRASH_REPORT = "APPLICATION_CRASH_REPORT",
-  AUTOMATION_OUTPUT = "AUTOMATION_OUTPUT",
-  CALABASH_JAVA_XML_OUTPUT = "CALABASH_JAVA_XML_OUTPUT",
-  CALABASH_JSON_OUTPUT = "CALABASH_JSON_OUTPUT",
-  CALABASH_PRETTY_OUTPUT = "CALABASH_PRETTY_OUTPUT",
-  CALABASH_STANDARD_OUTPUT = "CALABASH_STANDARD_OUTPUT",
-  CUSTOMER_ARTIFACT = "CUSTOMER_ARTIFACT",
-  CUSTOMER_ARTIFACT_LOG = "CUSTOMER_ARTIFACT_LOG",
-  DEVICE_LOG = "DEVICE_LOG",
-  EXERCISER_MONKEY_OUTPUT = "EXERCISER_MONKEY_OUTPUT",
-  EXPLORER_EVENT_LOG = "EXPLORER_EVENT_LOG",
-  EXPLORER_SUMMARY_LOG = "EXPLORER_SUMMARY_LOG",
-  INSTRUMENTATION_OUTPUT = "INSTRUMENTATION_OUTPUT",
-  MESSAGE_LOG = "MESSAGE_LOG",
-  RESULT_LOG = "RESULT_LOG",
-  SCREENSHOT = "SCREENSHOT",
-  SERVICE_LOG = "SERVICE_LOG",
-  TESTSPEC_OUTPUT = "TESTSPEC_OUTPUT",
-  UNKNOWN = "UNKNOWN",
-  VIDEO = "VIDEO",
-  VIDEO_LOG = "VIDEO_LOG",
-  WEBKIT_LOG = "WEBKIT_LOG",
-  XCTEST_LOG = "XCTEST_LOG",
-}
+export const ArtifactType = {
+  APPIUM_JAVA_OUTPUT: "APPIUM_JAVA_OUTPUT",
+  APPIUM_JAVA_XML_OUTPUT: "APPIUM_JAVA_XML_OUTPUT",
+  APPIUM_PYTHON_OUTPUT: "APPIUM_PYTHON_OUTPUT",
+  APPIUM_PYTHON_XML_OUTPUT: "APPIUM_PYTHON_XML_OUTPUT",
+  APPIUM_SERVER_OUTPUT: "APPIUM_SERVER_OUTPUT",
+  APPLICATION_CRASH_REPORT: "APPLICATION_CRASH_REPORT",
+  AUTOMATION_OUTPUT: "AUTOMATION_OUTPUT",
+  CALABASH_JAVA_XML_OUTPUT: "CALABASH_JAVA_XML_OUTPUT",
+  CALABASH_JSON_OUTPUT: "CALABASH_JSON_OUTPUT",
+  CALABASH_PRETTY_OUTPUT: "CALABASH_PRETTY_OUTPUT",
+  CALABASH_STANDARD_OUTPUT: "CALABASH_STANDARD_OUTPUT",
+  CUSTOMER_ARTIFACT: "CUSTOMER_ARTIFACT",
+  CUSTOMER_ARTIFACT_LOG: "CUSTOMER_ARTIFACT_LOG",
+  DEVICE_LOG: "DEVICE_LOG",
+  EXERCISER_MONKEY_OUTPUT: "EXERCISER_MONKEY_OUTPUT",
+  EXPLORER_EVENT_LOG: "EXPLORER_EVENT_LOG",
+  EXPLORER_SUMMARY_LOG: "EXPLORER_SUMMARY_LOG",
+  INSTRUMENTATION_OUTPUT: "INSTRUMENTATION_OUTPUT",
+  MESSAGE_LOG: "MESSAGE_LOG",
+  RESULT_LOG: "RESULT_LOG",
+  SCREENSHOT: "SCREENSHOT",
+  SERVICE_LOG: "SERVICE_LOG",
+  TESTSPEC_OUTPUT: "TESTSPEC_OUTPUT",
+  UNKNOWN: "UNKNOWN",
+  VIDEO: "VIDEO",
+  VIDEO_LOG: "VIDEO_LOG",
+  WEBKIT_LOG: "WEBKIT_LOG",
+  XCTEST_LOG: "XCTEST_LOG",
+};
 
 /**
  * @public
@@ -243,7 +243,7 @@ export interface Artifact {
    *             </li>
    *          </ul>
    */
-  type?: ArtifactType | string;
+  type?: keyof typeof ArtifactType | string;
 
   /**
    * <p>The artifact's file extension.</p>
@@ -260,19 +260,19 @@ export interface Artifact {
 /**
  * @public
  */
-export enum ArtifactCategory {
-  FILE = "FILE",
-  LOG = "LOG",
-  SCREENSHOT = "SCREENSHOT",
-}
+export const ArtifactCategory = {
+  FILE: "FILE",
+  LOG: "LOG",
+  SCREENSHOT: "SCREENSHOT",
+};
 
 /**
  * @public
  */
-export enum BillingMethod {
-  METERED = "METERED",
-  UNMETERED = "UNMETERED",
-}
+export const BillingMethod = {
+  METERED: "METERED",
+  UNMETERED: "UNMETERED",
+};
 
 /**
  * @public
@@ -361,35 +361,35 @@ export interface CPU {
 /**
  * @public
  */
-export enum DeviceAttribute {
-  APPIUM_VERSION = "APPIUM_VERSION",
-  ARN = "ARN",
-  AVAILABILITY = "AVAILABILITY",
-  FLEET_TYPE = "FLEET_TYPE",
-  FORM_FACTOR = "FORM_FACTOR",
-  INSTANCE_ARN = "INSTANCE_ARN",
-  INSTANCE_LABELS = "INSTANCE_LABELS",
-  MANUFACTURER = "MANUFACTURER",
-  MODEL = "MODEL",
-  OS_VERSION = "OS_VERSION",
-  PLATFORM = "PLATFORM",
-  REMOTE_ACCESS_ENABLED = "REMOTE_ACCESS_ENABLED",
-  REMOTE_DEBUG_ENABLED = "REMOTE_DEBUG_ENABLED",
-}
+export const DeviceAttribute = {
+  APPIUM_VERSION: "APPIUM_VERSION",
+  ARN: "ARN",
+  AVAILABILITY: "AVAILABILITY",
+  FLEET_TYPE: "FLEET_TYPE",
+  FORM_FACTOR: "FORM_FACTOR",
+  INSTANCE_ARN: "INSTANCE_ARN",
+  INSTANCE_LABELS: "INSTANCE_LABELS",
+  MANUFACTURER: "MANUFACTURER",
+  MODEL: "MODEL",
+  OS_VERSION: "OS_VERSION",
+  PLATFORM: "PLATFORM",
+  REMOTE_ACCESS_ENABLED: "REMOTE_ACCESS_ENABLED",
+  REMOTE_DEBUG_ENABLED: "REMOTE_DEBUG_ENABLED",
+};
 
 /**
  * @public
  */
-export enum RuleOperator {
-  CONTAINS = "CONTAINS",
-  EQUALS = "EQUALS",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUALS = "GREATER_THAN_OR_EQUALS",
-  IN = "IN",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUALS = "LESS_THAN_OR_EQUALS",
-  NOT_IN = "NOT_IN",
-}
+export const RuleOperator = {
+  CONTAINS: "CONTAINS",
+  EQUALS: "EQUALS",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUALS: "GREATER_THAN_OR_EQUALS",
+  IN: "IN",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUALS: "LESS_THAN_OR_EQUALS",
+  NOT_IN: "NOT_IN",
+};
 
 /**
  * @public
@@ -497,14 +497,14 @@ export interface Rule {
    *                 </dd>
    *          </dl>
    */
-  attribute?: DeviceAttribute | string;
+  attribute?: keyof typeof DeviceAttribute | string;
 
   /**
    * <p>Specifies how Device Farm compares the rule's attribute to the value. For the
    *             operators that are supported by each attribute, see the attribute
    *             descriptions.</p>
    */
-  operator?: RuleOperator | string;
+  operator?: keyof typeof RuleOperator | string;
 
   /**
    * <p>The rule's value.</p>
@@ -551,10 +551,10 @@ export interface CreateDevicePoolRequest {
 /**
  * @public
  */
-export enum DevicePoolType {
-  CURATED = "CURATED",
-  PRIVATE = "PRIVATE",
-}
+export const DevicePoolType = {
+  CURATED: "CURATED",
+  PRIVATE: "PRIVATE",
+};
 
 /**
  * @public
@@ -590,7 +590,7 @@ export interface DevicePool {
    *             </li>
    *          </ul>
    */
-  type?: DevicePoolType | string;
+  type?: keyof typeof DevicePoolType | string;
 
   /**
    * <p>Information about the device pool's rules.</p>
@@ -768,10 +768,10 @@ export interface CreateInstanceProfileResult {
 /**
  * @public
  */
-export enum NetworkProfileType {
-  CURATED = "CURATED",
-  PRIVATE = "PRIVATE",
-}
+export const NetworkProfileType = {
+  CURATED: "CURATED",
+  PRIVATE: "PRIVATE",
+};
 
 /**
  * @public
@@ -796,7 +796,7 @@ export interface CreateNetworkProfileRequest {
   /**
    * <p>The type of network profile to create. Valid values are listed here.</p>
    */
-  type?: NetworkProfileType | string;
+  type?: keyof typeof NetworkProfileType | string;
 
   /**
    * <p>The data throughput rate in bits per second, as an integer from 0 to
@@ -869,7 +869,7 @@ export interface NetworkProfile {
   /**
    * <p>The type of network profile. Valid values are listed here.</p>
    */
-  type?: NetworkProfileType | string;
+  type?: keyof typeof NetworkProfileType | string;
 
   /**
    * <p>The data throughput rate in bits per second, as an integer from 0 to
@@ -1048,7 +1048,7 @@ export interface CreateRemoteAccessSessionConfiguration {
   /**
    * <p>The billing method for the remote access session.</p>
    */
-  billingMethod?: BillingMethod | string;
+  billingMethod?: keyof typeof BillingMethod | string;
 
   /**
    * <p>An array of ARNs included in the VPC endpoint configuration.</p>
@@ -1059,11 +1059,11 @@ export interface CreateRemoteAccessSessionConfiguration {
 /**
  * @public
  */
-export enum InteractionMode {
-  INTERACTIVE = "INTERACTIVE",
-  NO_VIDEO = "NO_VIDEO",
-  VIDEO_ONLY = "VIDEO_ONLY",
-}
+export const InteractionMode = {
+  INTERACTIVE: "INTERACTIVE",
+  NO_VIDEO: "NO_VIDEO",
+  VIDEO_ONLY: "VIDEO_ONLY",
+};
 
 /**
  * @public
@@ -1154,7 +1154,7 @@ export interface CreateRemoteAccessSessionRequest {
    *             </li>
    *          </ul>
    */
-  interactionMode?: InteractionMode | string;
+  interactionMode?: keyof typeof InteractionMode | string;
 
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
@@ -1168,30 +1168,30 @@ export interface CreateRemoteAccessSessionRequest {
 /**
  * @public
  */
-export enum DeviceAvailability {
-  AVAILABLE = "AVAILABLE",
-  BUSY = "BUSY",
-  HIGHLY_AVAILABLE = "HIGHLY_AVAILABLE",
-  TEMPORARY_NOT_AVAILABLE = "TEMPORARY_NOT_AVAILABLE",
-}
+export const DeviceAvailability = {
+  AVAILABLE: "AVAILABLE",
+  BUSY: "BUSY",
+  HIGHLY_AVAILABLE: "HIGHLY_AVAILABLE",
+  TEMPORARY_NOT_AVAILABLE: "TEMPORARY_NOT_AVAILABLE",
+};
 
 /**
  * @public
  */
-export enum DeviceFormFactor {
-  PHONE = "PHONE",
-  TABLET = "TABLET",
-}
+export const DeviceFormFactor = {
+  PHONE: "PHONE",
+  TABLET: "TABLET",
+};
 
 /**
  * @public
  */
-export enum InstanceStatus {
-  AVAILABLE = "AVAILABLE",
-  IN_USE = "IN_USE",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  PREPARING = "PREPARING",
-}
+export const InstanceStatus = {
+  AVAILABLE: "AVAILABLE",
+  IN_USE: "IN_USE",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  PREPARING: "PREPARING",
+};
 
 /**
  * @public
@@ -1216,7 +1216,7 @@ export interface DeviceInstance {
   /**
    * <p>The status of the device instance. Valid values are listed here.</p>
    */
-  status?: InstanceStatus | string;
+  status?: keyof typeof InstanceStatus | string;
 
   /**
    * <p>Unique device identifier for the device instance.</p>
@@ -1288,7 +1288,7 @@ export interface Device {
    *             </li>
    *          </ul>
    */
-  formFactor?: DeviceFormFactor | string;
+  formFactor?: keyof typeof DeviceFormFactor | string;
 
   /**
    * <p>The device's platform.</p>
@@ -1302,7 +1302,7 @@ export interface Device {
    *             </li>
    *          </ul>
    */
-  platform?: DevicePlatform | string;
+  platform?: keyof typeof DevicePlatform | string;
 
   /**
    * <p>The device's operating system type.</p>
@@ -1376,7 +1376,7 @@ export interface Device {
   /**
    * <p>Indicates how likely a device is available for a test run. Currently available in the <a>ListDevices</a> and GetDevice API methods.</p>
    */
-  availability?: DeviceAvailability | string;
+  availability?: keyof typeof DeviceAvailability | string;
 }
 
 /**
@@ -1407,30 +1407,30 @@ export interface DeviceMinutes {
 /**
  * @public
  */
-export enum ExecutionResult {
-  ERRORED = "ERRORED",
-  FAILED = "FAILED",
-  PASSED = "PASSED",
-  PENDING = "PENDING",
-  SKIPPED = "SKIPPED",
-  STOPPED = "STOPPED",
-  WARNED = "WARNED",
-}
+export const ExecutionResult = {
+  ERRORED: "ERRORED",
+  FAILED: "FAILED",
+  PASSED: "PASSED",
+  PENDING: "PENDING",
+  SKIPPED: "SKIPPED",
+  STOPPED: "STOPPED",
+  WARNED: "WARNED",
+};
 
 /**
  * @public
  */
-export enum ExecutionStatus {
-  COMPLETED = "COMPLETED",
-  PENDING = "PENDING",
-  PENDING_CONCURRNECY = "PENDING_CONCURRENCY",
-  PENDING_DEVICE = "PENDING_DEVICE",
-  PREPARING = "PREPARING",
-  PROCESSING = "PROCESSING",
-  RUNNING = "RUNNING",
-  SCHEDULING = "SCHEDULING",
-  STOPPING = "STOPPING",
-}
+export const ExecutionStatus = {
+  COMPLETED: "COMPLETED",
+  PENDING: "PENDING",
+  PENDING_CONCURRNECY: "PENDING_CONCURRENCY",
+  PENDING_DEVICE: "PENDING_DEVICE",
+  PREPARING: "PREPARING",
+  PROCESSING: "PROCESSING",
+  RUNNING: "RUNNING",
+  SCHEDULING: "SCHEDULING",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
@@ -1484,7 +1484,7 @@ export interface RemoteAccessSession {
    *             </li>
    *          </ul>
    */
-  status?: ExecutionStatus | string;
+  status?: keyof typeof ExecutionStatus | string;
 
   /**
    * <p>The result of the remote access session. Can be any of the following:</p>
@@ -1512,7 +1512,7 @@ export interface RemoteAccessSession {
    *             </li>
    *          </ul>
    */
-  result?: ExecutionResult | string;
+  result?: keyof typeof ExecutionResult | string;
 
   /**
    * <p>A message about the remote access session.</p>
@@ -1579,7 +1579,7 @@ export interface RemoteAccessSession {
    *                 <code>UNMETERED</code>. For more information about metered devices, see <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology">AWS Device Farm
    *                 terminology</a>.</p>
    */
-  billingMethod?: BillingMethod | string;
+  billingMethod?: keyof typeof BillingMethod | string;
 
   /**
    * <p>The number of minutes a device is used in a remote access session (including setup
@@ -1619,7 +1619,7 @@ export interface RemoteAccessSession {
    *             </li>
    *          </ul>
    */
-  interactionMode?: InteractionMode | string;
+  interactionMode?: keyof typeof InteractionMode | string;
 
   /**
    * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
@@ -1786,40 +1786,40 @@ export interface CreateTestGridUrlResult {
 /**
  * @public
  */
-export enum UploadType {
-  ANDROID_APP = "ANDROID_APP",
-  APPIUM_JAVA_JUNIT_TEST_PACKAGE = "APPIUM_JAVA_JUNIT_TEST_PACKAGE",
-  APPIUM_JAVA_JUNIT_TEST_SPEC = "APPIUM_JAVA_JUNIT_TEST_SPEC",
-  APPIUM_JAVA_TESTNG_TEST_PACKAGE = "APPIUM_JAVA_TESTNG_TEST_PACKAGE",
-  APPIUM_JAVA_TESTNG_TEST_SPEC = "APPIUM_JAVA_TESTNG_TEST_SPEC",
-  APPIUM_NODE_TEST_PACKAGE = "APPIUM_NODE_TEST_PACKAGE",
-  APPIUM_NODE_TEST_SPEC = "APPIUM_NODE_TEST_SPEC",
-  APPIUM_PYTHON_TEST_PACKAGE = "APPIUM_PYTHON_TEST_PACKAGE",
-  APPIUM_PYTHON_TEST_SPEC = "APPIUM_PYTHON_TEST_SPEC",
-  APPIUM_RUBY_TEST_PACKAGE = "APPIUM_RUBY_TEST_PACKAGE",
-  APPIUM_RUBY_TEST_SPEC = "APPIUM_RUBY_TEST_SPEC",
-  APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE = "APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE",
-  APPIUM_WEB_JAVA_JUNIT_TEST_SPEC = "APPIUM_WEB_JAVA_JUNIT_TEST_SPEC",
-  APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE = "APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE",
-  APPIUM_WEB_JAVA_TESTNG_TEST_SPEC = "APPIUM_WEB_JAVA_TESTNG_TEST_SPEC",
-  APPIUM_WEB_NODE_TEST_PACKAGE = "APPIUM_WEB_NODE_TEST_PACKAGE",
-  APPIUM_WEB_NODE_TEST_SPEC = "APPIUM_WEB_NODE_TEST_SPEC",
-  APPIUM_WEB_PYTHON_TEST_PACKAGE = "APPIUM_WEB_PYTHON_TEST_PACKAGE",
-  APPIUM_WEB_PYTHON_TEST_SPEC = "APPIUM_WEB_PYTHON_TEST_SPEC",
-  APPIUM_WEB_RUBY_TEST_PACKAGE = "APPIUM_WEB_RUBY_TEST_PACKAGE",
-  APPIUM_WEB_RUBY_TEST_SPEC = "APPIUM_WEB_RUBY_TEST_SPEC",
-  CALABASH_TEST_PACKAGE = "CALABASH_TEST_PACKAGE",
-  EXTERNAL_DATA = "EXTERNAL_DATA",
-  INSTRUMENTATION_TEST_PACKAGE = "INSTRUMENTATION_TEST_PACKAGE",
-  INSTRUMENTATION_TEST_SPEC = "INSTRUMENTATION_TEST_SPEC",
-  IOS_APP = "IOS_APP",
-  UIAUTOMATION_TEST_PACKAGE = "UIAUTOMATION_TEST_PACKAGE",
-  UIAUTOMATOR_TEST_PACKAGE = "UIAUTOMATOR_TEST_PACKAGE",
-  WEB_APP = "WEB_APP",
-  XCTEST_TEST_PACKAGE = "XCTEST_TEST_PACKAGE",
-  XCTEST_UI_TEST_PACKAGE = "XCTEST_UI_TEST_PACKAGE",
-  XCTEST_UI_TEST_SPEC = "XCTEST_UI_TEST_SPEC",
-}
+export const UploadType = {
+  ANDROID_APP: "ANDROID_APP",
+  APPIUM_JAVA_JUNIT_TEST_PACKAGE: "APPIUM_JAVA_JUNIT_TEST_PACKAGE",
+  APPIUM_JAVA_JUNIT_TEST_SPEC: "APPIUM_JAVA_JUNIT_TEST_SPEC",
+  APPIUM_JAVA_TESTNG_TEST_PACKAGE: "APPIUM_JAVA_TESTNG_TEST_PACKAGE",
+  APPIUM_JAVA_TESTNG_TEST_SPEC: "APPIUM_JAVA_TESTNG_TEST_SPEC",
+  APPIUM_NODE_TEST_PACKAGE: "APPIUM_NODE_TEST_PACKAGE",
+  APPIUM_NODE_TEST_SPEC: "APPIUM_NODE_TEST_SPEC",
+  APPIUM_PYTHON_TEST_PACKAGE: "APPIUM_PYTHON_TEST_PACKAGE",
+  APPIUM_PYTHON_TEST_SPEC: "APPIUM_PYTHON_TEST_SPEC",
+  APPIUM_RUBY_TEST_PACKAGE: "APPIUM_RUBY_TEST_PACKAGE",
+  APPIUM_RUBY_TEST_SPEC: "APPIUM_RUBY_TEST_SPEC",
+  APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: "APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE",
+  APPIUM_WEB_JAVA_JUNIT_TEST_SPEC: "APPIUM_WEB_JAVA_JUNIT_TEST_SPEC",
+  APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: "APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE",
+  APPIUM_WEB_JAVA_TESTNG_TEST_SPEC: "APPIUM_WEB_JAVA_TESTNG_TEST_SPEC",
+  APPIUM_WEB_NODE_TEST_PACKAGE: "APPIUM_WEB_NODE_TEST_PACKAGE",
+  APPIUM_WEB_NODE_TEST_SPEC: "APPIUM_WEB_NODE_TEST_SPEC",
+  APPIUM_WEB_PYTHON_TEST_PACKAGE: "APPIUM_WEB_PYTHON_TEST_PACKAGE",
+  APPIUM_WEB_PYTHON_TEST_SPEC: "APPIUM_WEB_PYTHON_TEST_SPEC",
+  APPIUM_WEB_RUBY_TEST_PACKAGE: "APPIUM_WEB_RUBY_TEST_PACKAGE",
+  APPIUM_WEB_RUBY_TEST_SPEC: "APPIUM_WEB_RUBY_TEST_SPEC",
+  CALABASH_TEST_PACKAGE: "CALABASH_TEST_PACKAGE",
+  EXTERNAL_DATA: "EXTERNAL_DATA",
+  INSTRUMENTATION_TEST_PACKAGE: "INSTRUMENTATION_TEST_PACKAGE",
+  INSTRUMENTATION_TEST_SPEC: "INSTRUMENTATION_TEST_SPEC",
+  IOS_APP: "IOS_APP",
+  UIAUTOMATION_TEST_PACKAGE: "UIAUTOMATION_TEST_PACKAGE",
+  UIAUTOMATOR_TEST_PACKAGE: "UIAUTOMATOR_TEST_PACKAGE",
+  WEB_APP: "WEB_APP",
+  XCTEST_TEST_PACKAGE: "XCTEST_TEST_PACKAGE",
+  XCTEST_UI_TEST_PACKAGE: "XCTEST_UI_TEST_PACKAGE",
+  XCTEST_UI_TEST_SPEC: "XCTEST_UI_TEST_SPEC",
+};
 
 /**
  * @public
@@ -1943,7 +1943,7 @@ export interface CreateUploadRequest {
    *         <p> If you call <code>CreateUpload</code> with <code>WEB_APP</code> specified, AWS
    *             Device Farm throws an <code>ArgumentException</code> error.</p>
    */
-  type: UploadType | string | undefined;
+  type: keyof typeof UploadType | string | undefined;
 
   /**
    * <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
@@ -1954,20 +1954,20 @@ export interface CreateUploadRequest {
 /**
  * @public
  */
-export enum UploadCategory {
-  CURATED = "CURATED",
-  PRIVATE = "PRIVATE",
-}
+export const UploadCategory = {
+  CURATED: "CURATED",
+  PRIVATE: "PRIVATE",
+};
 
 /**
  * @public
  */
-export enum UploadStatus {
-  FAILED = "FAILED",
-  INITIALIZED = "INITIALIZED",
-  PROCESSING = "PROCESSING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const UploadStatus = {
+  FAILED: "FAILED",
+  INITIALIZED: "INITIALIZED",
+  PROCESSING: "PROCESSING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2092,7 +2092,7 @@ export interface Upload {
    *             </li>
    *          </ul>
    */
-  type?: UploadType | string;
+  type?: keyof typeof UploadType | string;
 
   /**
    * <p>The upload's status.</p>
@@ -2112,7 +2112,7 @@ export interface Upload {
    *             </li>
    *          </ul>
    */
-  status?: UploadStatus | string;
+  status?: keyof typeof UploadStatus | string;
 
   /**
    * <p>The presigned Amazon S3 URL that was used to store a file using a PUT request.</p>
@@ -2147,7 +2147,7 @@ export interface Upload {
    *             </li>
    *          </ul>
    */
-  category?: UploadCategory | string;
+  category?: keyof typeof UploadCategory | string;
 }
 
 /**
@@ -2234,9 +2234,9 @@ export interface CreateVPCEConfigurationResult {
 /**
  * @public
  */
-export enum CurrencyCode {
-  USD = "USD",
-}
+export const CurrencyCode = {
+  USD: "USD",
+};
 
 /**
  * @public
@@ -2622,35 +2622,35 @@ export interface ScheduleRunConfiguration {
    *                 make use of them. Otherwise, your run counts against your metered time.</p>
    *         </note>
    */
-  billingMethod?: BillingMethod | string;
+  billingMethod?: keyof typeof BillingMethod | string;
 }
 
 /**
  * @public
  */
-export enum TestType {
-  APPIUM_JAVA_JUNIT = "APPIUM_JAVA_JUNIT",
-  APPIUM_JAVA_TESTNG = "APPIUM_JAVA_TESTNG",
-  APPIUM_NODE = "APPIUM_NODE",
-  APPIUM_PYTHON = "APPIUM_PYTHON",
-  APPIUM_RUBY = "APPIUM_RUBY",
-  APPIUM_WEB_JAVA_JUNIT = "APPIUM_WEB_JAVA_JUNIT",
-  APPIUM_WEB_JAVA_TESTNG = "APPIUM_WEB_JAVA_TESTNG",
-  APPIUM_WEB_NODE = "APPIUM_WEB_NODE",
-  APPIUM_WEB_PYTHON = "APPIUM_WEB_PYTHON",
-  APPIUM_WEB_RUBY = "APPIUM_WEB_RUBY",
-  BUILTIN_EXPLORER = "BUILTIN_EXPLORER",
-  BUILTIN_FUZZ = "BUILTIN_FUZZ",
-  CALABASH = "CALABASH",
-  INSTRUMENTATION = "INSTRUMENTATION",
-  REMOTE_ACCESS_RECORD = "REMOTE_ACCESS_RECORD",
-  REMOTE_ACCESS_REPLAY = "REMOTE_ACCESS_REPLAY",
-  UIAUTOMATION = "UIAUTOMATION",
-  UIAUTOMATOR = "UIAUTOMATOR",
-  WEB_PERFORMANCE_PROFILE = "WEB_PERFORMANCE_PROFILE",
-  XCTEST = "XCTEST",
-  XCTEST_UI = "XCTEST_UI",
-}
+export const TestType = {
+  APPIUM_JAVA_JUNIT: "APPIUM_JAVA_JUNIT",
+  APPIUM_JAVA_TESTNG: "APPIUM_JAVA_TESTNG",
+  APPIUM_NODE: "APPIUM_NODE",
+  APPIUM_PYTHON: "APPIUM_PYTHON",
+  APPIUM_RUBY: "APPIUM_RUBY",
+  APPIUM_WEB_JAVA_JUNIT: "APPIUM_WEB_JAVA_JUNIT",
+  APPIUM_WEB_JAVA_TESTNG: "APPIUM_WEB_JAVA_TESTNG",
+  APPIUM_WEB_NODE: "APPIUM_WEB_NODE",
+  APPIUM_WEB_PYTHON: "APPIUM_WEB_PYTHON",
+  APPIUM_WEB_RUBY: "APPIUM_WEB_RUBY",
+  BUILTIN_EXPLORER: "BUILTIN_EXPLORER",
+  BUILTIN_FUZZ: "BUILTIN_FUZZ",
+  CALABASH: "CALABASH",
+  INSTRUMENTATION: "INSTRUMENTATION",
+  REMOTE_ACCESS_RECORD: "REMOTE_ACCESS_RECORD",
+  REMOTE_ACCESS_REPLAY: "REMOTE_ACCESS_REPLAY",
+  UIAUTOMATION: "UIAUTOMATION",
+  UIAUTOMATOR: "UIAUTOMATOR",
+  WEB_PERFORMANCE_PROFILE: "WEB_PERFORMANCE_PROFILE",
+  XCTEST: "XCTEST",
+  XCTEST_UI: "XCTEST_UI",
+};
 
 /**
  * @public
@@ -2720,7 +2720,7 @@ export interface ScheduleRunTest {
    *             </li>
    *          </ul>
    */
-  type: TestType | string | undefined;
+  type: keyof typeof TestType | string | undefined;
 
   /**
    * <p>The ARN of the uploaded test to be run.</p>
@@ -2953,7 +2953,7 @@ export interface GetDevicePoolCompatibilityRequest {
    *             </li>
    *          </ul>
    */
-  testType?: TestType | string;
+  testType?: keyof typeof TestType | string;
 
   /**
    * <p>Information about the uploaded test to be run against the device pool.</p>
@@ -3000,7 +3000,7 @@ export interface IncompatibilityMessage {
    *             </li>
    *          </ul>
    */
-  type?: DeviceAttribute | string;
+  type?: keyof typeof DeviceAttribute | string;
 }
 
 /**
@@ -3147,7 +3147,7 @@ export interface Job {
    *             </li>
    *          </ul>
    */
-  type?: TestType | string;
+  type?: keyof typeof TestType | string;
 
   /**
    * <p>When the job was created.</p>
@@ -3187,7 +3187,7 @@ export interface Job {
    *             </li>
    *          </ul>
    */
-  status?: ExecutionStatus | string;
+  status?: keyof typeof ExecutionStatus | string;
 
   /**
    * <p>The job's result.</p>
@@ -3216,7 +3216,7 @@ export interface Job {
    *             </li>
    *          </ul>
    */
-  result?: ExecutionResult | string;
+  result?: keyof typeof ExecutionResult | string;
 
   /**
    * <p>The job's start time.</p>
@@ -3321,15 +3321,15 @@ export interface MonetaryAmount {
   /**
    * <p>The currency code of a monetary amount. For example, <code>USD</code> means U.S. dollars.</p>
    */
-  currencyCode?: CurrencyCode | string;
+  currencyCode?: keyof typeof CurrencyCode | string;
 }
 
 /**
  * @public
  */
-export enum RecurringChargeFrequency {
-  MONTHLY = "MONTHLY",
-}
+export const RecurringChargeFrequency = {
+  MONTHLY: "MONTHLY",
+};
 
 /**
  * @public
@@ -3344,15 +3344,15 @@ export interface RecurringCharge {
   /**
    * <p>The frequency in which charges recur.</p>
    */
-  frequency?: RecurringChargeFrequency | string;
+  frequency?: keyof typeof RecurringChargeFrequency | string;
 }
 
 /**
  * @public
  */
-export enum OfferingType {
-  RECURRING = "RECURRING",
-}
+export const OfferingType = {
+  RECURRING: "RECURRING",
+};
 
 /**
  * @public
@@ -3372,12 +3372,12 @@ export interface Offering {
   /**
    * <p>The type of offering (for example, <code>RECURRING</code>) for a device.</p>
    */
-  type?: OfferingType | string;
+  type?: keyof typeof OfferingType | string;
 
   /**
    * <p>The platform of the device (for example, <code>ANDROID</code> or <code>IOS</code>).</p>
    */
-  platform?: DevicePlatform | string;
+  platform?: keyof typeof DevicePlatform | string;
 
   /**
    * <p>Specifies whether there are recurring charges for the offering.</p>
@@ -3388,11 +3388,11 @@ export interface Offering {
 /**
  * @public
  */
-export enum OfferingTransactionType {
-  PURCHASE = "PURCHASE",
-  RENEW = "RENEW",
-  SYSTEM = "SYSTEM",
-}
+export const OfferingTransactionType = {
+  PURCHASE: "PURCHASE",
+  RENEW: "RENEW",
+  SYSTEM: "SYSTEM",
+};
 
 /**
  * @public
@@ -3402,7 +3402,7 @@ export interface OfferingStatus {
   /**
    * <p>The type specified for the offering status.</p>
    */
-  type?: OfferingTransactionType | string;
+  type?: keyof typeof OfferingTransactionType | string;
 
   /**
    * <p>Represents the metadata of an offering status.</p>
@@ -3525,20 +3525,20 @@ export interface GetRunRequest {
 /**
  * @public
  */
-export enum DeviceFilterAttribute {
-  ARN = "ARN",
-  AVAILABILITY = "AVAILABILITY",
-  FLEET_TYPE = "FLEET_TYPE",
-  FORM_FACTOR = "FORM_FACTOR",
-  INSTANCE_ARN = "INSTANCE_ARN",
-  INSTANCE_LABELS = "INSTANCE_LABELS",
-  MANUFACTURER = "MANUFACTURER",
-  MODEL = "MODEL",
-  OS_VERSION = "OS_VERSION",
-  PLATFORM = "PLATFORM",
-  REMOTE_ACCESS_ENABLED = "REMOTE_ACCESS_ENABLED",
-  REMOTE_DEBUG_ENABLED = "REMOTE_DEBUG_ENABLED",
-}
+export const DeviceFilterAttribute = {
+  ARN: "ARN",
+  AVAILABILITY: "AVAILABILITY",
+  FLEET_TYPE: "FLEET_TYPE",
+  FORM_FACTOR: "FORM_FACTOR",
+  INSTANCE_ARN: "INSTANCE_ARN",
+  INSTANCE_LABELS: "INSTANCE_LABELS",
+  MANUFACTURER: "MANUFACTURER",
+  MODEL: "MODEL",
+  OS_VERSION: "OS_VERSION",
+  PLATFORM: "PLATFORM",
+  REMOTE_ACCESS_ENABLED: "REMOTE_ACCESS_ENABLED",
+  REMOTE_DEBUG_ENABLED: "REMOTE_DEBUG_ENABLED",
+};
 
 /**
  * @public
@@ -3640,13 +3640,13 @@ export interface DeviceFilter {
    *                 </dd>
    *          </dl>
    */
-  attribute: DeviceFilterAttribute | string | undefined;
+  attribute: keyof typeof DeviceFilterAttribute | string | undefined;
 
   /**
    * <p>Specifies how Device Farm compares the filter's attribute to the value. See the attribute
    *             descriptions.</p>
    */
-  operator: RuleOperator | string | undefined;
+  operator: keyof typeof RuleOperator | string | undefined;
 
   /**
    * <p>An array of one or more filter values used in a device filter.</p>
@@ -3710,10 +3710,10 @@ export interface DeviceSelectionResult {
 /**
  * @public
  */
-export enum ExecutionResultCode {
-  PARSING_FAILED = "PARSING_FAILED",
-  VPC_ENDPOINT_SETUP_FAILED = "VPC_ENDPOINT_SETUP_FAILED",
-}
+export const ExecutionResultCode = {
+  PARSING_FAILED: "PARSING_FAILED",
+  VPC_ENDPOINT_SETUP_FAILED: "VPC_ENDPOINT_SETUP_FAILED",
+};
 
 /**
  * @public
@@ -3795,7 +3795,7 @@ export interface Run {
    *             </li>
    *          </ul>
    */
-  type?: TestType | string;
+  type?: keyof typeof TestType | string;
 
   /**
    * <p>The run's platform.</p>
@@ -3809,7 +3809,7 @@ export interface Run {
    *             </li>
    *          </ul>
    */
-  platform?: DevicePlatform | string;
+  platform?: keyof typeof DevicePlatform | string;
 
   /**
    * <p>When the run was created.</p>
@@ -3849,7 +3849,7 @@ export interface Run {
    *             </li>
    *          </ul>
    */
-  status?: ExecutionStatus | string;
+  status?: keyof typeof ExecutionStatus | string;
 
   /**
    * <p>The run's result.</p>
@@ -3878,7 +3878,7 @@ export interface Run {
    *             </li>
    *          </ul>
    */
-  result?: ExecutionResult | string;
+  result?: keyof typeof ExecutionResult | string;
 
   /**
    * <p>The run's start time.</p>
@@ -3919,7 +3919,7 @@ export interface Run {
    *                 Otherwise, the run is counted toward metered device minutes.</p>
    *         </note>
    */
-  billingMethod?: BillingMethod | string;
+  billingMethod?: keyof typeof BillingMethod | string;
 
   /**
    * <p>Represents the total (metered or unmetered) minutes used by the test run.</p>
@@ -3942,7 +3942,7 @@ export interface Run {
    * <p>Supporting field for the result field. Set only if <code>result</code> is <code>SKIPPED</code>.
    *                 <code>PARSING_FAILED</code> if the result is skipped because of test package parsing failure.</p>
    */
-  resultCode?: ExecutionResultCode | string;
+  resultCode?: keyof typeof ExecutionResultCode | string;
 
   /**
    * <p>For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same
@@ -4121,7 +4121,7 @@ export interface Suite {
    *             </li>
    *          </ul>
    */
-  type?: TestType | string;
+  type?: keyof typeof TestType | string;
 
   /**
    * <p>When the suite was created.</p>
@@ -4161,7 +4161,7 @@ export interface Suite {
    *             </li>
    *          </ul>
    */
-  status?: ExecutionStatus | string;
+  status?: keyof typeof ExecutionStatus | string;
 
   /**
    * <p>The suite's result.</p>
@@ -4190,7 +4190,7 @@ export interface Suite {
    *             </li>
    *          </ul>
    */
-  result?: ExecutionResult | string;
+  result?: keyof typeof ExecutionResult | string;
 
   /**
    * <p>The suite's start time.</p>
@@ -4320,7 +4320,7 @@ export interface Test {
    *             </li>
    *          </ul>
    */
-  type?: TestType | string;
+  type?: keyof typeof TestType | string;
 
   /**
    * <p>When the test was created.</p>
@@ -4360,7 +4360,7 @@ export interface Test {
    *             </li>
    *          </ul>
    */
-  status?: ExecutionStatus | string;
+  status?: keyof typeof ExecutionStatus | string;
 
   /**
    * <p>The test's result.</p>
@@ -4389,7 +4389,7 @@ export interface Test {
    *             </li>
    *          </ul>
    */
-  result?: ExecutionResult | string;
+  result?: keyof typeof ExecutionResult | string;
 
   /**
    * <p>The test's start time.</p>
@@ -4471,11 +4471,11 @@ export interface GetTestGridSessionRequest {
 /**
  * @public
  */
-export enum TestGridSessionStatus {
-  ACTIVE = "ACTIVE",
-  CLOSED = "CLOSED",
-  ERRORED = "ERRORED",
-}
+export const TestGridSessionStatus = {
+  ACTIVE: "ACTIVE",
+  CLOSED: "CLOSED",
+  ERRORED: "ERRORED",
+};
 
 /**
  * @public
@@ -4491,7 +4491,7 @@ export interface TestGridSession {
   /**
    * <p>The state of the session.</p>
    */
-  status?: TestGridSessionStatus | string;
+  status?: keyof typeof TestGridSessionStatus | string;
 
   /**
    * <p>The time that the session was started.</p>
@@ -4623,7 +4623,7 @@ export interface ListArtifactsRequest {
    *             </li>
    *          </ul>
    */
-  type: ArtifactCategory | string | undefined;
+  type: keyof typeof ArtifactCategory | string | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
@@ -4706,7 +4706,7 @@ export interface ListDevicePoolsRequest {
    *             </li>
    *          </ul>
    */
-  type?: DevicePoolType | string;
+  type?: keyof typeof DevicePoolType | string;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
@@ -4943,7 +4943,7 @@ export interface ListNetworkProfilesRequest {
   /**
    * <p>The type of network profile to return information about. Valid values are listed here.</p>
    */
-  type?: NetworkProfileType | string;
+  type?: keyof typeof NetworkProfileType | string;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
@@ -5232,25 +5232,25 @@ export interface ListSamplesRequest {
 /**
  * @public
  */
-export enum SampleType {
-  CPU = "CPU",
-  MEMORY = "MEMORY",
-  NATIVE_AVG_DRAWTIME = "NATIVE_AVG_DRAWTIME",
-  NATIVE_FPS = "NATIVE_FPS",
-  NATIVE_FRAMES = "NATIVE_FRAMES",
-  NATIVE_MAX_DRAWTIME = "NATIVE_MAX_DRAWTIME",
-  NATIVE_MIN_DRAWTIME = "NATIVE_MIN_DRAWTIME",
-  OPENGL_AVG_DRAWTIME = "OPENGL_AVG_DRAWTIME",
-  OPENGL_FPS = "OPENGL_FPS",
-  OPENGL_FRAMES = "OPENGL_FRAMES",
-  OPENGL_MAX_DRAWTIME = "OPENGL_MAX_DRAWTIME",
-  OPENGL_MIN_DRAWTIME = "OPENGL_MIN_DRAWTIME",
-  RX = "RX",
-  RX_RATE = "RX_RATE",
-  THREADS = "THREADS",
-  TX = "TX",
-  TX_RATE = "TX_RATE",
-}
+export const SampleType = {
+  CPU: "CPU",
+  MEMORY: "MEMORY",
+  NATIVE_AVG_DRAWTIME: "NATIVE_AVG_DRAWTIME",
+  NATIVE_FPS: "NATIVE_FPS",
+  NATIVE_FRAMES: "NATIVE_FRAMES",
+  NATIVE_MAX_DRAWTIME: "NATIVE_MAX_DRAWTIME",
+  NATIVE_MIN_DRAWTIME: "NATIVE_MIN_DRAWTIME",
+  OPENGL_AVG_DRAWTIME: "OPENGL_AVG_DRAWTIME",
+  OPENGL_FPS: "OPENGL_FPS",
+  OPENGL_FRAMES: "OPENGL_FRAMES",
+  OPENGL_MAX_DRAWTIME: "OPENGL_MAX_DRAWTIME",
+  OPENGL_MIN_DRAWTIME: "OPENGL_MIN_DRAWTIME",
+  RX: "RX",
+  RX_RATE: "RX_RATE",
+  THREADS: "THREADS",
+  TX: "TX",
+  TX_RATE: "TX_RATE",
+};
 
 /**
  * @public
@@ -5324,7 +5324,7 @@ export interface Sample {
    *             </li>
    *          </ul>
    */
-  type?: SampleType | string;
+  type?: keyof typeof SampleType | string;
 
   /**
    * <p>The presigned Amazon S3 URL that can be used with a GET request to download the sample's
@@ -5531,10 +5531,10 @@ export interface ListTestGridSessionActionsResult {
 /**
  * @public
  */
-export enum TestGridSessionArtifactCategory {
-  LOG = "LOG",
-  VIDEO = "VIDEO",
-}
+export const TestGridSessionArtifactCategory = {
+  LOG: "LOG",
+  VIDEO: "VIDEO",
+};
 
 /**
  * @public
@@ -5548,7 +5548,7 @@ export interface ListTestGridSessionArtifactsRequest {
   /**
    * <p>Limit results to a specified type of artifact.</p>
    */
-  type?: TestGridSessionArtifactCategory | string;
+  type?: keyof typeof TestGridSessionArtifactCategory | string;
 
   /**
    * <p>The maximum number of results to be returned by a request.</p>
@@ -5564,11 +5564,11 @@ export interface ListTestGridSessionArtifactsRequest {
 /**
  * @public
  */
-export enum TestGridSessionArtifactType {
-  SELENIUM_LOG = "SELENIUM_LOG",
-  UNKNOWN = "UNKNOWN",
-  VIDEO = "VIDEO",
-}
+export const TestGridSessionArtifactType = {
+  SELENIUM_LOG: "SELENIUM_LOG",
+  UNKNOWN: "UNKNOWN",
+  VIDEO: "VIDEO",
+};
 
 /**
  * @public
@@ -5587,7 +5587,7 @@ export interface TestGridSessionArtifact {
   /**
    * <p>The kind of artifact.</p>
    */
-  type?: TestGridSessionArtifactType | string;
+  type?: keyof typeof TestGridSessionArtifactType | string;
 
   /**
    * <p>A semi-stable URL to the content of the object.</p>
@@ -5622,7 +5622,7 @@ export interface ListTestGridSessionsRequest {
   /**
    * <p>Return only sessions in this state.</p>
    */
-  status?: TestGridSessionStatus | string;
+  status?: keyof typeof TestGridSessionStatus | string;
 
   /**
    * <p>Return only sessions created after this time.</p>
@@ -5795,7 +5795,7 @@ export interface Problem {
    *             </li>
    *          </ul>
    */
-  result?: ExecutionResult | string;
+  result?: keyof typeof ExecutionResult | string;
 
   /**
    * <p>A message about the problem's result.</p>
@@ -5974,7 +5974,7 @@ export interface ListUploadsRequest {
    *             </li>
    *          </ul>
    */
-  type?: UploadType | string;
+  type?: keyof typeof UploadType | string;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
@@ -6678,7 +6678,7 @@ export interface UpdateNetworkProfileRequest {
   /**
    * <p>The type of network profile to return information about. Valid values are listed here.</p>
    */
-  type?: NetworkProfileType | string;
+  type?: keyof typeof NetworkProfileType | string;
 
   /**
    * <p>The data throughput rate in bits per second, as an integer from 0 to

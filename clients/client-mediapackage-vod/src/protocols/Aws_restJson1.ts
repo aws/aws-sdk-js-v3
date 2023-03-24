@@ -1669,7 +1669,7 @@ const deserializeAws_restJson1UnprocessableEntityExceptionResponse = async (
 };
 
 const serializeAws_restJson1__listOf__PeriodTriggersElement = (
-  input: (__PeriodTriggersElement | string)[],
+  input: (keyof typeof __PeriodTriggersElement | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -1908,7 +1908,7 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
 const deserializeAws_restJson1__listOf__PeriodTriggersElement = (
   output: any,
   context: __SerdeContext
-): (__PeriodTriggersElement | string)[] => {
+): (keyof typeof __PeriodTriggersElement | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

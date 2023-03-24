@@ -29,136 +29,136 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AlgorithmNameCloudRemoval {
+export const AlgorithmNameCloudRemoval = {
   /**
    * INTERPOLATION
    */
-  INTERPOLATION = "INTERPOLATION",
-}
+  INTERPOLATION: "INTERPOLATION",
+};
 
 /**
  * @public
  */
-export enum AlgorithmNameGeoMosaic {
+export const AlgorithmNameGeoMosaic = {
   /**
    * AVERAGE
    */
-  AVERAGE = "AVERAGE",
+  AVERAGE: "AVERAGE",
   /**
    * BILINEAR
    */
-  BILINEAR = "BILINEAR",
+  BILINEAR: "BILINEAR",
   /**
    * CUBIC
    */
-  CUBIC = "CUBIC",
+  CUBIC: "CUBIC",
   /**
    * CUBICSPLINE
    */
-  CUBICSPLINE = "CUBICSPLINE",
+  CUBICSPLINE: "CUBICSPLINE",
   /**
    * LANCZOS
    */
-  LANCZOS = "LANCZOS",
+  LANCZOS: "LANCZOS",
   /**
    * MAX
    */
-  MAX = "MAX",
+  MAX: "MAX",
   /**
    * MED
    */
-  MED = "MED",
+  MED: "MED",
   /**
    * MIN
    */
-  MIN = "MIN",
+  MIN: "MIN",
   /**
    * MODE
    */
-  MODE = "MODE",
+  MODE: "MODE",
   /**
    * NEAR
    */
-  NEAR = "NEAR",
+  NEAR: "NEAR",
   /**
    * Q1
    */
-  Q1 = "Q1",
+  Q1: "Q1",
   /**
    * Q3
    */
-  Q3 = "Q3",
+  Q3: "Q3",
   /**
    * RMS
    */
-  RMS = "RMS",
+  RMS: "RMS",
   /**
    * SUM
    */
-  SUM = "SUM",
-}
+  SUM: "SUM",
+};
 
 /**
  * @public
  */
-export enum AlgorithmNameResampling {
+export const AlgorithmNameResampling = {
   /**
    * AVERAGE
    */
-  AVERAGE = "AVERAGE",
+  AVERAGE: "AVERAGE",
   /**
    * BILINEAR
    */
-  BILINEAR = "BILINEAR",
+  BILINEAR: "BILINEAR",
   /**
    * CUBIC
    */
-  CUBIC = "CUBIC",
+  CUBIC: "CUBIC",
   /**
    * CUBICSPLINE
    */
-  CUBICSPLINE = "CUBICSPLINE",
+  CUBICSPLINE: "CUBICSPLINE",
   /**
    * LANCZOS
    */
-  LANCZOS = "LANCZOS",
+  LANCZOS: "LANCZOS",
   /**
    * MAX
    */
-  MAX = "MAX",
+  MAX: "MAX",
   /**
    * MED
    */
-  MED = "MED",
+  MED: "MED",
   /**
    * MIN
    */
-  MIN = "MIN",
+  MIN: "MIN",
   /**
    * MODE
    */
-  MODE = "MODE",
+  MODE: "MODE",
   /**
    * NEAR
    */
-  NEAR = "NEAR",
+  NEAR: "NEAR",
   /**
    * Q1
    */
-  Q1 = "Q1",
+  Q1: "Q1",
   /**
    * Q3
    */
-  Q3 = "Q3",
+  Q3: "Q3",
   /**
    * RMS
    */
-  RMS = "RMS",
+  RMS: "RMS",
   /**
    * SUM
    */
-  SUM = "SUM",
-}
+  SUM: "SUM",
+};
 
 /**
  * @public
@@ -280,28 +280,28 @@ export interface AssetValue {
 /**
  * @public
  */
-export enum OutputType {
+export const OutputType = {
   /**
    * FLOAT32
    */
-  FLOAT32 = "FLOAT32",
+  FLOAT32: "FLOAT32",
   /**
    * FLOAT64
    */
-  FLOAT64 = "FLOAT64",
+  FLOAT64: "FLOAT64",
   /**
    * INT16
    */
-  INT16 = "INT16",
+  INT16: "INT16",
   /**
    * INT32
    */
-  INT32 = "INT32",
+  INT32: "INT32",
   /**
    * UINT16
    */
-  UINT16 = "UINT16",
-}
+  UINT16: "UINT16",
+};
 
 /**
  * @public
@@ -321,7 +321,7 @@ export interface Operation {
   /**
    * <p>The type of the operation.</p>
    */
-  OutputType?: OutputType | string;
+  OutputType?: keyof typeof OutputType | string;
 }
 
 /**
@@ -365,7 +365,7 @@ export interface CloudRemovalConfigInput {
   /**
    * <p>The name of the algorithm used for cloud removal.</p>
    */
-  AlgorithmName?: AlgorithmNameCloudRemoval | string;
+  AlgorithmName?: keyof typeof AlgorithmNameCloudRemoval | string;
 
   /**
    * <p>The interpolation value you provide for cloud removal.</p>
@@ -381,20 +381,20 @@ export interface CloudRemovalConfigInput {
 /**
  * @public
  */
-export enum ComparisonOperator {
+export const ComparisonOperator = {
   /**
    * EQUALS
    */
-  EQUALS = "EQUALS",
+  EQUALS: "EQUALS",
   /**
    * NOT_EQUALS
    */
-  NOT_EQUALS = "NOT_EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
   /**
    * STARTS_WITH
    */
-  STARTS_WITH = "STARTS_WITH",
-}
+  STARTS_WITH: "STARTS_WITH",
+};
 
 /**
  * @public
@@ -452,20 +452,20 @@ export interface Filter {
 /**
  * @public
  */
-export enum DataCollectionType {
+export const DataCollectionType = {
   /**
    * PREMIUM
    */
-  PREMIUM = "PREMIUM",
+  PREMIUM: "PREMIUM",
   /**
    * PUBLIC
    */
-  PUBLIC = "PUBLIC",
+  PUBLIC: "PUBLIC",
   /**
    * USER
    */
-  USER = "USER",
-}
+  USER: "USER",
+};
 
 /**
  * @public
@@ -485,7 +485,7 @@ export interface RasterDataCollectionMetadata {
   /**
    * <p>The type of raster data collection.</p>
    */
-  Type: DataCollectionType | string | undefined;
+  Type: keyof typeof DataCollectionType | string | undefined;
 
   /**
    * <p>A description of the raster data collection.</p>
@@ -701,20 +701,20 @@ export interface ExportEarthObservationJobInput {
 /**
  * @public
  */
-export enum EarthObservationJobExportStatus {
+export const EarthObservationJobExportStatus = {
   /**
    * FAILED
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * IN_PROGRESS
    */
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS: "IN_PROGRESS",
   /**
    * SUCCEEDED
    */
-  SUCCEEDED = "SUCCEEDED",
-}
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -733,7 +733,7 @@ export interface ExportEarthObservationJobOutput {
   /**
    * <p>The status of the results of the Earth Observation job being exported.</p>
    */
-  ExportStatus: EarthObservationJobExportStatus | string | undefined;
+  ExportStatus: keyof typeof EarthObservationJobExportStatus | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</p>
@@ -791,16 +791,16 @@ export interface GetEarthObservationJobInput {
 /**
  * @public
  */
-export enum EarthObservationJobErrorType {
+export const EarthObservationJobErrorType = {
   /**
    * CLIENT_ERROR
    */
-  CLIENT_ERROR = "CLIENT_ERROR",
+  CLIENT_ERROR: "CLIENT_ERROR",
   /**
    * SERVER_ERROR
    */
-  SERVER_ERROR = "SERVER_ERROR",
-}
+  SERVER_ERROR: "SERVER_ERROR",
+};
 
 /**
  * @public
@@ -810,7 +810,7 @@ export interface EarthObservationJobErrorDetails {
   /**
    * <p/>
    */
-  Type?: EarthObservationJobErrorType | string;
+  Type?: keyof typeof EarthObservationJobErrorType | string;
 
   /**
    * <p/>
@@ -821,16 +821,16 @@ export interface EarthObservationJobErrorDetails {
 /**
  * @public
  */
-export enum ExportErrorType {
+export const ExportErrorType = {
   /**
    * CLIENT_ERROR
    */
-  CLIENT_ERROR = "CLIENT_ERROR",
+  CLIENT_ERROR: "CLIENT_ERROR",
   /**
    * SERVER_ERROR
    */
-  SERVER_ERROR = "SERVER_ERROR",
-}
+  SERVER_ERROR: "SERVER_ERROR",
+};
 
 /**
  * @public
@@ -840,7 +840,7 @@ export interface ExportErrorDetailsOutput {
   /**
    * <p/>
    */
-  Type?: ExportErrorType | string;
+  Type?: keyof typeof ExportErrorType | string;
 
   /**
    * <p/>
@@ -867,12 +867,12 @@ export interface ExportErrorDetails {
 /**
  * @public
  */
-export enum MetadataProvider {
+export const MetadataProvider = {
   /**
    * PLANET_ORDER
    */
-  PLANET_ORDER = "PLANET_ORDER",
-}
+  PLANET_ORDER: "PLANET_ORDER",
+};
 
 /**
  * @public
@@ -887,7 +887,7 @@ export interface S3DataInput {
   /**
    * <p/>
    */
-  MetadataProvider: MetadataProvider | string | undefined;
+  MetadataProvider: keyof typeof MetadataProvider | string | undefined;
 
   /**
    * <p>The Amazon Key Management Service (KMS) key ID for server-side encryption.</p>
@@ -932,12 +932,12 @@ export namespace EojDataSourceConfigInput {
 /**
  * @public
  */
-export enum LogicalOperator {
+export const LogicalOperator = {
   /**
    * AND
    */
-  AND = "AND",
-}
+  AND: "AND",
+};
 
 /**
  * @public
@@ -984,7 +984,7 @@ export interface PlatformInput {
   /**
    * <p/>
    */
-  ComparisonOperator?: ComparisonOperator | string;
+  ComparisonOperator?: keyof typeof ComparisonOperator | string;
 }
 
 /**
@@ -1185,7 +1185,7 @@ export interface PropertyFilters {
   /**
    * <p/>
    */
-  LogicalOperator?: LogicalOperator | string;
+  LogicalOperator?: keyof typeof LogicalOperator | string;
 }
 
 /**
@@ -1264,7 +1264,7 @@ export interface GeoMosaicConfigInput {
   /**
    * <p>The name of the algorithm being used for geomosaic.</p>
    */
-  AlgorithmName?: AlgorithmNameGeoMosaic | string;
+  AlgorithmName?: keyof typeof AlgorithmNameGeoMosaic | string;
 
   /**
    * <p>The target bands for geomosaic.</p>
@@ -1281,12 +1281,12 @@ export interface LandCoverSegmentationConfigInput {}
 /**
  * @public
  */
-export enum Unit {
+export const Unit = {
   /**
    * METERS
    */
-  METERS = "METERS",
-}
+  METERS: "METERS",
+};
 
 /**
  * @public
@@ -1301,7 +1301,7 @@ export interface UserDefined {
   /**
    * <p/>
    */
-  Unit: Unit | string | undefined;
+  Unit: keyof typeof Unit | string | undefined;
 }
 
 /**
@@ -1328,7 +1328,7 @@ export interface ResamplingConfigInput {
   /**
    * <p>The name of the algorithm used for resampling.</p>
    */
-  AlgorithmName?: AlgorithmNameResampling | string;
+  AlgorithmName?: keyof typeof AlgorithmNameResampling | string;
 
   /**
    * <p/>
@@ -1339,20 +1339,20 @@ export interface ResamplingConfigInput {
 /**
  * @public
  */
-export enum PredefinedResolution {
+export const PredefinedResolution = {
   /**
    * AVERAGE
    */
-  AVERAGE = "AVERAGE",
+  AVERAGE: "AVERAGE",
   /**
    * HIGHEST
    */
-  HIGHEST = "HIGHEST",
+  HIGHEST: "HIGHEST",
   /**
    * LOWEST
    */
-  LOWEST = "LOWEST",
-}
+  LOWEST: "LOWEST",
+};
 
 /**
  * @public
@@ -1362,7 +1362,7 @@ export interface OutputResolutionStackInput {
   /**
    * <p/>
    */
-  Predefined?: PredefinedResolution | string;
+  Predefined?: keyof typeof PredefinedResolution | string;
 
   /**
    * <p/>
@@ -1389,34 +1389,34 @@ export interface StackConfigInput {
 /**
  * @public
  */
-export enum GroupBy {
+export const GroupBy = {
   /**
    * ALL
    */
-  ALL = "ALL",
+  ALL: "ALL",
   /**
    * YEARLY
    */
-  YEARLY = "YEARLY",
-}
+  YEARLY: "YEARLY",
+};
 
 /**
  * @public
  */
-export enum TemporalStatistics {
+export const TemporalStatistics = {
   /**
    * MEAN
    */
-  MEAN = "MEAN",
+  MEAN: "MEAN",
   /**
    * MEDIAN
    */
-  MEDIAN = "MEDIAN",
+  MEDIAN: "MEDIAN",
   /**
    * STANDARD_DEVIATION
    */
-  STANDARD_DEVIATION = "STANDARD_DEVIATION",
-}
+  STANDARD_DEVIATION: "STANDARD_DEVIATION",
+};
 
 /**
  * @public
@@ -1426,12 +1426,12 @@ export interface TemporalStatisticsConfigInput {
   /**
    * <p/>
    */
-  GroupBy?: GroupBy | string;
+  GroupBy?: keyof typeof GroupBy | string;
 
   /**
    * <p/>
    */
-  Statistics: (TemporalStatistics | string)[] | undefined;
+  Statistics: (keyof typeof TemporalStatistics | string)[] | undefined;
 
   /**
    * <p/>
@@ -1442,32 +1442,32 @@ export interface TemporalStatisticsConfigInput {
 /**
  * @public
  */
-export enum ZonalStatistics {
+export const ZonalStatistics = {
   /**
    * MAX
    */
-  MAX = "MAX",
+  MAX: "MAX",
   /**
    * MEAN
    */
-  MEAN = "MEAN",
+  MEAN: "MEAN",
   /**
    * MEDIAN
    */
-  MEDIAN = "MEDIAN",
+  MEDIAN: "MEDIAN",
   /**
    * MIN
    */
-  MIN = "MIN",
+  MIN: "MIN",
   /**
    * STANDARD_DEVIATION
    */
-  STANDARD_DEVIATION = "STANDARD_DEVIATION",
+  STANDARD_DEVIATION: "STANDARD_DEVIATION",
   /**
    * SUM
    */
-  SUM = "SUM",
-}
+  SUM: "SUM",
+};
 
 /**
  * @public
@@ -1482,7 +1482,7 @@ export interface ZonalStatisticsConfigInput {
   /**
    * <p/>
    */
-  Statistics: (ZonalStatistics | string)[] | undefined;
+  Statistics: (keyof typeof ZonalStatistics | string)[] | undefined;
 
   /**
    * <p/>
@@ -1709,46 +1709,46 @@ export interface OutputBand {
   /**
    * <p>The datatype of the output band.</p>
    */
-  OutputDataType: OutputType | string | undefined;
+  OutputDataType: keyof typeof OutputType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum EarthObservationJobStatus {
+export const EarthObservationJobStatus = {
   /**
    * COMPLETED
    */
-  COMPLETED = "COMPLETED",
+  COMPLETED: "COMPLETED",
   /**
    * DELETED
    */
-  DELETED = "DELETED",
+  DELETED: "DELETED",
   /**
    * DELETING
    */
-  DELETING = "DELETING",
+  DELETING: "DELETING",
   /**
    * FAILED
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    * INITIALIZING
    */
-  INITIALIZING = "INITIALIZING",
+  INITIALIZING: "INITIALIZING",
   /**
    * IN_PROGRESS
    */
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS: "IN_PROGRESS",
   /**
    * STOPPED
    */
-  STOPPED = "STOPPED",
+  STOPPED: "STOPPED",
   /**
    * STOPPING
    */
-  STOPPING = "STOPPING",
-}
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
@@ -1777,7 +1777,7 @@ export interface GetEarthObservationJobOutput {
   /**
    * <p>The status of a previously initiated Earth Observation job.</p>
    */
-  Status: EarthObservationJobStatus | string | undefined;
+  Status: keyof typeof EarthObservationJobStatus | string | undefined;
 
   /**
    * <p>The Amazon Key Management Service (KMS) key ID for server-side encryption.</p>
@@ -1812,7 +1812,7 @@ export interface GetEarthObservationJobOutput {
   /**
    * <p>The status of the Earth Observation job.</p>
    */
-  ExportStatus?: EarthObservationJobExportStatus | string;
+  ExportStatus?: keyof typeof EarthObservationJobExportStatus | string;
 
   /**
    * <p>Details about the errors generated during ExportEarthObservationJob.</p>
@@ -1828,16 +1828,16 @@ export interface GetEarthObservationJobOutput {
 /**
  * @public
  */
-export enum TargetOptions {
+export const TargetOptions = {
   /**
    * INPUT
    */
-  INPUT = "INPUT",
+  INPUT: "INPUT",
   /**
    * OUTPUT
    */
-  OUTPUT = "OUTPUT",
-}
+  OUTPUT: "OUTPUT",
+};
 
 /**
  * @public
@@ -1866,7 +1866,7 @@ export interface GetTileInput {
   /**
    * <p>Determines what part of the Earth Observation job to tile. 'INPUT' or 'OUTPUT' are the valid options.</p>
    */
-  Target: TargetOptions | string | undefined;
+  Target: keyof typeof TargetOptions | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the tile operation.</p>
@@ -1896,7 +1896,7 @@ export interface GetTileInput {
   /**
    * <p>The output data type of the tile operation.</p>
    */
-  OutputDataType?: OutputType | string;
+  OutputDataType?: keyof typeof OutputType | string;
 }
 
 /**
@@ -1912,16 +1912,16 @@ export interface GetTileOutput {
 /**
  * @public
  */
-export enum SortOrder {
+export const SortOrder = {
   /**
    * ASCENDING
    */
-  ASCENDING = "ASCENDING",
+  ASCENDING: "ASCENDING",
   /**
    * DESCENDING
    */
-  DESCENDING = "DESCENDING",
-}
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -1930,12 +1930,12 @@ export interface ListEarthObservationJobInput {
   /**
    * <p>A filter that retrieves only jobs with a specific status.</p>
    */
-  StatusEquals?: EarthObservationJobStatus | string;
+  StatusEquals?: keyof typeof EarthObservationJobStatus | string;
 
   /**
    * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The parameter by which to sort the results.</p>
@@ -1982,7 +1982,7 @@ export interface ListEarthObservationJobOutputConfig {
   /**
    * <p>The status of the list of the Earth Observation jobs.</p>
    */
-  Status: EarthObservationJobStatus | string | undefined;
+  Status: keyof typeof EarthObservationJobStatus | string | undefined;
 
   /**
    * <p/>
@@ -2125,7 +2125,7 @@ export interface StartEarthObservationJobOutput {
   /**
    * <p>The status of the Earth Observation job.</p>
    */
-  Status: EarthObservationJobStatus | string | undefined;
+  Status: keyof typeof EarthObservationJobStatus | string | undefined;
 
   /**
    * <p>The Amazon Key Management Service (KMS) key ID for server-side encryption.</p>
@@ -2219,11 +2219,11 @@ export interface ExportVectorEnrichmentJobInput {
 /**
  * @public
  */
-export enum VectorEnrichmentJobExportStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const VectorEnrichmentJobExportStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2247,7 +2247,7 @@ export interface ExportVectorEnrichmentJobOutput {
   /**
    * <p>The status of the results the Vector Enrichment job being exported.</p>
    */
-  ExportStatus: VectorEnrichmentJobExportStatus | string | undefined;
+  ExportStatus: keyof typeof VectorEnrichmentJobExportStatus | string | undefined;
 
   /**
    * <p>Output location information for exporting Vector Enrichment Job results.
@@ -2299,7 +2299,7 @@ export interface GetRasterDataCollectionOutput {
   /**
    * <p>The raster data collection type.</p>
    */
-  Type: DataCollectionType | string | undefined;
+  Type: keyof typeof DataCollectionType | string | undefined;
 
   /**
    * <p>A description of the raster data collection.</p>
@@ -2340,16 +2340,16 @@ export interface GetVectorEnrichmentJobInput {
 /**
  * @public
  */
-export enum VectorEnrichmentJobErrorType {
+export const VectorEnrichmentJobErrorType = {
   /**
    * CLIENT_ERROR
    */
-  CLIENT_ERROR = "CLIENT_ERROR",
+  CLIENT_ERROR: "CLIENT_ERROR",
   /**
    * SERVER_ERROR
    */
-  SERVER_ERROR = "SERVER_ERROR",
-}
+  SERVER_ERROR: "SERVER_ERROR",
+};
 
 /**
  * @public
@@ -2359,7 +2359,7 @@ export interface VectorEnrichmentJobErrorDetails {
   /**
    * <p>The type of error generated during the Vector Enrichment job.</p>
    */
-  ErrorType?: VectorEnrichmentJobErrorType | string;
+  ErrorType?: keyof typeof VectorEnrichmentJobErrorType | string;
 
   /**
    * <p>A message that you define and then is processed and rendered by
@@ -2371,10 +2371,10 @@ export interface VectorEnrichmentJobErrorDetails {
 /**
  * @public
  */
-export enum VectorEnrichmentJobExportErrorType {
-  CLIENT_ERROR = "CLIENT_ERROR",
-  SERVER_ERROR = "SERVER_ERROR",
-}
+export const VectorEnrichmentJobExportErrorType = {
+  CLIENT_ERROR: "CLIENT_ERROR",
+  SERVER_ERROR: "SERVER_ERROR",
+};
 
 /**
  * @public
@@ -2384,7 +2384,7 @@ export interface VectorEnrichmentJobExportErrorDetails {
   /**
    * <p/>
    */
-  Type?: VectorEnrichmentJobExportErrorType | string;
+  Type?: keyof typeof VectorEnrichmentJobExportErrorType | string;
 
   /**
    * <p>The message providing details about the errors generated during the Vector Enrichment job.</p>
@@ -2431,9 +2431,9 @@ export namespace VectorEnrichmentJobDataSourceConfigInput {
 /**
  * @public
  */
-export enum VectorEnrichmentJobDocumentType {
-  CSV = "CSV",
-}
+export const VectorEnrichmentJobDocumentType = {
+  CSV: "CSV",
+};
 
 /**
  * @public
@@ -2443,7 +2443,7 @@ export interface VectorEnrichmentJobInputConfig {
   /**
    * <p/>
    */
-  DocumentType: VectorEnrichmentJobDocumentType | string | undefined;
+  DocumentType: keyof typeof VectorEnrichmentJobDocumentType | string | undefined;
 
   /**
    * <p/>
@@ -2546,24 +2546,24 @@ export namespace VectorEnrichmentJobConfig {
 /**
  * @public
  */
-export enum VectorEnrichmentJobStatus {
-  COMPLETED = "COMPLETED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INITIALIZING = "INITIALIZING",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const VectorEnrichmentJobStatus = {
+  COMPLETED: "COMPLETED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INITIALIZING: "INITIALIZING",
+  IN_PROGRESS: "IN_PROGRESS",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
  */
-export enum VectorEnrichmentJobType {
-  MAP_MATCHING = "MAP_MATCHING",
-  REVERSE_GEOCODING = "REVERSE_GEOCODING",
-}
+export const VectorEnrichmentJobType = {
+  MAP_MATCHING: "MAP_MATCHING",
+  REVERSE_GEOCODING: "REVERSE_GEOCODING",
+};
 
 /**
  * @public
@@ -2577,7 +2577,7 @@ export interface GetVectorEnrichmentJobOutput {
   /**
    * <p>The type of the Vector Enrichment job being initiated.</p>
    */
-  Type: VectorEnrichmentJobType | string | undefined;
+  Type: keyof typeof VectorEnrichmentJobType | string | undefined;
 
   /**
    * <p>The name of the Vector Enrichment job.</p>
@@ -2597,7 +2597,7 @@ export interface GetVectorEnrichmentJobOutput {
   /**
    * <p>The status of the initiated Vector Enrichment job.</p>
    */
-  Status: VectorEnrichmentJobStatus | string | undefined;
+  Status: keyof typeof VectorEnrichmentJobStatus | string | undefined;
 
   /**
    * <p>The Amazon Key Management Service (KMS) key ID for server-side encryption.</p>
@@ -2627,7 +2627,7 @@ export interface GetVectorEnrichmentJobOutput {
   /**
    * <p>The export status of the Vector Enrichment job being initiated.</p>
    */
-  ExportStatus?: VectorEnrichmentJobExportStatus | string;
+  ExportStatus?: keyof typeof VectorEnrichmentJobExportStatus | string;
 
   /**
    * <p>Details about the errors generated during the ExportVectorEnrichmentJob.</p>
@@ -2771,7 +2771,7 @@ export interface ListVectorEnrichmentJobInput {
   /**
    * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: keyof typeof SortOrder | string;
 
   /**
    * <p>The parameter by which to sort the results.</p>
@@ -2808,7 +2808,7 @@ export interface ListVectorEnrichmentJobOutputConfig {
   /**
    * <p>The type of the list of Vector Enrichment jobs.</p>
    */
-  Type: VectorEnrichmentJobType | string | undefined;
+  Type: keyof typeof VectorEnrichmentJobType | string | undefined;
 
   /**
    * <p>The creation time.</p>
@@ -2823,7 +2823,7 @@ export interface ListVectorEnrichmentJobOutputConfig {
   /**
    * <p>The status of the Vector Enrichment jobs list. </p>
    */
-  Status: VectorEnrichmentJobStatus | string | undefined;
+  Status: keyof typeof VectorEnrichmentJobStatus | string | undefined;
 
   /**
    * <p>Each tag consists of a key and a value.</p>
@@ -3012,7 +3012,7 @@ export interface StartVectorEnrichmentJobOutput {
   /**
    * <p>The type of the Vector Enrichment job.</p>
    */
-  Type: VectorEnrichmentJobType | string | undefined;
+  Type: keyof typeof VectorEnrichmentJobType | string | undefined;
 
   /**
    * <p>The creation time.</p>
@@ -3027,7 +3027,7 @@ export interface StartVectorEnrichmentJobOutput {
   /**
    * <p>The status of the Vector Enrichment job being started.</p>
    */
-  Status: VectorEnrichmentJobStatus | string | undefined;
+  Status: keyof typeof VectorEnrichmentJobStatus | string | undefined;
 
   /**
    * <p>The Amazon Key Management Service (KMS) key ID for server-side encryption.</p>

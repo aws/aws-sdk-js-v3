@@ -6,21 +6,21 @@ import { CloudFormationServiceException as __BaseException } from "./CloudFormat
 /**
  * @public
  */
-export enum AccountFilterType {
-  DIFFERENCE = "DIFFERENCE",
-  INTERSECTION = "INTERSECTION",
-  NONE = "NONE",
-  UNION = "UNION",
-}
+export const AccountFilterType = {
+  DIFFERENCE: "DIFFERENCE",
+  INTERSECTION: "INTERSECTION",
+  NONE: "NONE",
+  UNION: "UNION",
+};
 
 /**
  * @public
  */
-export enum AccountGateStatus {
-  FAILED = "FAILED",
-  SKIPPED = "SKIPPED",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const AccountGateStatus = {
+  FAILED: "FAILED",
+  SKIPPED: "SKIPPED",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -77,7 +77,7 @@ export interface AccountGateResult {
    *             </li>
    *          </ul>
    */
-  Status?: AccountGateStatus | string;
+  Status?: keyof typeof AccountGateStatus | string;
 
   /**
    * <p>The reason for the account gate status assigned to this account and Region for the stack
@@ -141,19 +141,19 @@ export interface LoggingConfig {
 /**
  * @public
  */
-export enum ThirdPartyType {
-  HOOK = "HOOK",
-  MODULE = "MODULE",
-  RESOURCE = "RESOURCE",
-}
+export const ThirdPartyType = {
+  HOOK: "HOOK",
+  MODULE: "MODULE",
+  RESOURCE: "RESOURCE",
+};
 
 /**
  * @public
  */
-export enum VersionBump {
-  MAJOR = "MAJOR",
-  MINOR = "MINOR",
-}
+export const VersionBump = {
+  MAJOR: "MAJOR",
+  MINOR: "MINOR",
+};
 
 /**
  * @public
@@ -164,7 +164,7 @@ export interface ActivateTypeInput {
    *          <p>Conditional: You must specify <code>PublicTypeArn</code>, or <code>TypeName</code>,
    *             <code>Type</code>, and <code>PublisherId</code>.</p>
    */
-  Type?: ThirdPartyType | string;
+  Type?: keyof typeof ThirdPartyType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the public extension.</p>
@@ -234,7 +234,7 @@ export interface ActivateTypeInput {
    *             </li>
    *          </ul>
    */
-  VersionBump?: VersionBump | string;
+  VersionBump?: keyof typeof VersionBump | string;
 
   /**
    * <p>The major version of this extension you want to activate, if multiple major versions are
@@ -373,7 +373,7 @@ export interface TypeConfigurationIdentifier {
   /**
    * <p>The type of extension.</p>
    */
-  Type?: ThirdPartyType | string;
+  Type?: keyof typeof ThirdPartyType | string;
 
   /**
    * <p>The name of the extension type to which this configuration applies.</p>
@@ -515,10 +515,10 @@ export class TypeConfigurationNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum CallAs {
-  DELEGATED_ADMIN = "DELEGATED_ADMIN",
-  SELF = "SELF",
-}
+export const CallAs = {
+  DELEGATED_ADMIN: "DELEGATED_ADMIN",
+  SELF: "SELF",
+};
 
 /**
  * @public
@@ -565,72 +565,72 @@ export class TokenAlreadyExistsException extends __BaseException {
 /**
  * @public
  */
-export enum Capability {
-  CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND",
-  CAPABILITY_IAM = "CAPABILITY_IAM",
-  CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM",
-}
+export const Capability = {
+  CAPABILITY_AUTO_EXPAND: "CAPABILITY_AUTO_EXPAND",
+  CAPABILITY_IAM: "CAPABILITY_IAM",
+  CAPABILITY_NAMED_IAM: "CAPABILITY_NAMED_IAM",
+};
 
 /**
  * @public
  */
-export enum Category {
-  ACTIVATED = "ACTIVATED",
-  AWS_TYPES = "AWS_TYPES",
-  REGISTERED = "REGISTERED",
-  THIRD_PARTY = "THIRD_PARTY",
-}
+export const Category = {
+  ACTIVATED: "ACTIVATED",
+  AWS_TYPES: "AWS_TYPES",
+  REGISTERED: "REGISTERED",
+  THIRD_PARTY: "THIRD_PARTY",
+};
 
 /**
  * @public
  */
-export enum ChangeAction {
-  Add = "Add",
-  Dynamic = "Dynamic",
-  Import = "Import",
-  Modify = "Modify",
-  Remove = "Remove",
-}
+export const ChangeAction = {
+  Add: "Add",
+  Dynamic: "Dynamic",
+  Import: "Import",
+  Modify: "Modify",
+  Remove: "Remove",
+};
 
 /**
  * @public
  */
-export enum ChangeSource {
-  Automatic = "Automatic",
-  DirectModification = "DirectModification",
-  ParameterReference = "ParameterReference",
-  ResourceAttribute = "ResourceAttribute",
-  ResourceReference = "ResourceReference",
-}
+export const ChangeSource = {
+  Automatic: "Automatic",
+  DirectModification: "DirectModification",
+  ParameterReference: "ParameterReference",
+  ResourceAttribute: "ResourceAttribute",
+  ResourceReference: "ResourceReference",
+};
 
 /**
  * @public
  */
-export enum EvaluationType {
-  Dynamic = "Dynamic",
-  Static = "Static",
-}
+export const EvaluationType = {
+  Dynamic: "Dynamic",
+  Static: "Static",
+};
 
 /**
  * @public
  */
-export enum ResourceAttribute {
-  CreationPolicy = "CreationPolicy",
-  DeletionPolicy = "DeletionPolicy",
-  Metadata = "Metadata",
-  Properties = "Properties",
-  Tags = "Tags",
-  UpdatePolicy = "UpdatePolicy",
-}
+export const ResourceAttribute = {
+  CreationPolicy: "CreationPolicy",
+  DeletionPolicy: "DeletionPolicy",
+  Metadata: "Metadata",
+  Properties: "Properties",
+  Tags: "Tags",
+  UpdatePolicy: "UpdatePolicy",
+};
 
 /**
  * @public
  */
-export enum RequiresRecreation {
-  Always = "Always",
-  Conditionally = "Conditionally",
-  Never = "Never",
-}
+export const RequiresRecreation = {
+  Always: "Always",
+  Conditionally: "Conditionally",
+  Never: "Never",
+};
 
 /**
  * @public
@@ -643,7 +643,7 @@ export interface ResourceTargetDefinition {
    *          resource attribute's <code>Metadata</code>, <code>Properties</code>, or
    *          <code>Tags</code>.</p>
    */
-  Attribute?: ResourceAttribute | string;
+  Attribute?: keyof typeof ResourceAttribute | string;
 
   /**
    * <p>If the <code>Attribute</code> value is <code>Properties</code>, the name of the
@@ -658,7 +658,7 @@ export interface ResourceTargetDefinition {
    *          conditions for a <code>Conditionally</code> recreation, see the update behavior for that
    *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a> in the CloudFormation User Guide.</p>
    */
-  RequiresRecreation?: RequiresRecreation | string;
+  RequiresRecreation?: keyof typeof RequiresRecreation | string;
 }
 
 /**
@@ -688,7 +688,7 @@ export interface ResourceChangeDetail {
    *          resource is recreated. If the resource is recreated, it will have a new physical ID, so all
    *          references to that resource will also be updated.</p>
    */
-  Evaluation?: EvaluationType | string;
+  Evaluation?: keyof typeof EvaluationType | string;
 
   /**
    * <p>The group to which the <code>CausingEntity</code> value belongs. There are five entity
@@ -728,7 +728,7 @@ export interface ResourceChangeDetail {
    *             </li>
    *          </ul>
    */
-  ChangeSource?: ChangeSource | string;
+  ChangeSource?: keyof typeof ChangeSource | string;
 
   /**
    * <p>The identity of the entity that triggered this change. This entity is a member of the
@@ -782,11 +782,11 @@ export interface ModuleInfo {
 /**
  * @public
  */
-export enum Replacement {
-  Conditional = "Conditional",
-  False = "False",
-  True = "True",
-}
+export const Replacement = {
+  Conditional: "Conditional",
+  False: "False",
+  True: "True",
+};
 
 /**
  * @public
@@ -800,7 +800,7 @@ export interface ResourceChange {
    *          resource), <code>Import</code> (imports a resource), or <code>Dynamic</code> (exact action
    *          for the resource can't be determined).</p>
    */
-  Action?: ChangeAction | string;
+  Action?: keyof typeof ChangeAction | string;
 
   /**
    * <p>The resource's logical ID, which is defined in the stack's template.</p>
@@ -833,14 +833,14 @@ export interface ResourceChange {
    *             <code>RequiresRecreation</code> value of <code>Always</code> has the most impact,
    *          followed by <code>Conditionally</code>, and then <code>Never</code>.</p>
    */
-  Replacement?: Replacement | string;
+  Replacement?: keyof typeof Replacement | string;
 
   /**
    * <p>For the <code>Modify</code> action, indicates which resource attribute is triggering
    *          this update, such as a change in the resource attribute's <code>Metadata</code>,
    *             <code>Properties</code>, or <code>Tags</code>.</p>
    */
-  Scope?: (ResourceAttribute | string)[];
+  Scope?: (keyof typeof ResourceAttribute | string)[];
 
   /**
    * <p>For the <code>Modify</code> action, a list of <code>ResourceChangeDetail</code>
@@ -864,9 +864,9 @@ export interface ResourceChange {
 /**
  * @public
  */
-export enum ChangeType {
-  Resource = "Resource",
-}
+export const ChangeType = {
+  Resource: "Resource",
+};
 
 /**
  * @public
@@ -878,7 +878,7 @@ export interface Change {
    * <p>The type of entity that CloudFormation changes. Currently, the only entity type is
    *             <code>Resource</code>.</p>
    */
-  Type?: ChangeType | string;
+  Type?: keyof typeof ChangeType | string;
 
   /**
    * <p>Is either <code>null</code>, if no hooks invoke for the resource, or contains the number
@@ -896,17 +896,17 @@ export interface Change {
 /**
  * @public
  */
-export enum HookFailureMode {
-  FAIL = "FAIL",
-  WARN = "WARN",
-}
+export const HookFailureMode = {
+  FAIL: "FAIL",
+  WARN: "WARN",
+};
 
 /**
  * @public
  */
-export enum HookInvocationPoint {
-  PRE_PROVISION = "PRE_PROVISION",
-}
+export const HookInvocationPoint = {
+  PRE_PROVISION: "PRE_PROVISION",
+};
 
 /**
  * @public
@@ -926,15 +926,15 @@ export interface ChangeSetHookResourceTargetDetails {
   /**
    * <p>Specifies the action of the resource.</p>
    */
-  ResourceAction?: ChangeAction | string;
+  ResourceAction?: keyof typeof ChangeAction | string;
 }
 
 /**
  * @public
  */
-export enum HookTargetType {
-  RESOURCE = "RESOURCE",
-}
+export const HookTargetType = {
+  RESOURCE: "RESOURCE",
+};
 
 /**
  * @public
@@ -944,7 +944,7 @@ export interface ChangeSetHookTargetDetails {
   /**
    * <p>The name of the type.</p>
    */
-  TargetType?: HookTargetType | string;
+  TargetType?: keyof typeof HookTargetType | string;
 
   /**
    * <p>Required if <code>TargetType</code> is <code>RESOURCE</code>.</p>
@@ -960,7 +960,7 @@ export interface ChangeSetHook {
   /**
    * <p>Specifies the points in provisioning logic where a hook is invoked.</p>
    */
-  InvocationPoint?: HookInvocationPoint | string;
+  InvocationPoint?: keyof typeof HookInvocationPoint | string;
 
   /**
    * <p>Specify the hook failure mode for non-compliant resources in the followings ways.</p>
@@ -975,7 +975,7 @@ export interface ChangeSetHook {
    *             </li>
    *          </ul>
    */
-  FailureMode?: HookFailureMode | string;
+  FailureMode?: keyof typeof HookFailureMode | string;
 
   /**
    * <p>The unique name for your hook. Specifies a three-part namespace for your hook, with a
@@ -1043,11 +1043,11 @@ export interface ChangeSetHook {
 /**
  * @public
  */
-export enum ChangeSetHooksStatus {
-  PLANNED = "PLANNED",
-  PLANNING = "PLANNING",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const ChangeSetHooksStatus = {
+  PLANNED: "PLANNED",
+  PLANNING: "PLANNING",
+  UNAVAILABLE: "UNAVAILABLE",
+};
 
 /**
  * @public
@@ -1075,28 +1075,28 @@ export class ChangeSetNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum ChangeSetStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  CREATE_PENDING = "CREATE_PENDING",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_PENDING = "DELETE_PENDING",
-  FAILED = "FAILED",
-}
+export const ChangeSetStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_PENDING: "CREATE_PENDING",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETE_PENDING: "DELETE_PENDING",
+  FAILED: "FAILED",
+};
 
 /**
  * @public
  */
-export enum ExecutionStatus {
-  AVAILABLE = "AVAILABLE",
-  EXECUTE_COMPLETE = "EXECUTE_COMPLETE",
-  EXECUTE_FAILED = "EXECUTE_FAILED",
-  EXECUTE_IN_PROGRESS = "EXECUTE_IN_PROGRESS",
-  OBSOLETE = "OBSOLETE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const ExecutionStatus = {
+  AVAILABLE: "AVAILABLE",
+  EXECUTE_COMPLETE: "EXECUTE_COMPLETE",
+  EXECUTE_FAILED: "EXECUTE_FAILED",
+  EXECUTE_IN_PROGRESS: "EXECUTE_IN_PROGRESS",
+  OBSOLETE: "OBSOLETE",
+  UNAVAILABLE: "UNAVAILABLE",
+};
 
 /**
  * @public
@@ -1131,13 +1131,13 @@ export interface ChangeSetSummary {
    *          creating it or in an <code>OBSOLETE</code> state because the stack was already
    *          updated.</p>
    */
-  ExecutionStatus?: ExecutionStatus | string;
+  ExecutionStatus?: keyof typeof ExecutionStatus | string;
 
   /**
    * <p>The state of the change set, such as <code>CREATE_IN_PROGRESS</code>,
    *             <code>CREATE_COMPLETE</code>, or <code>FAILED</code>.</p>
    */
-  Status?: ChangeSetStatus | string;
+  Status?: keyof typeof ChangeSetStatus | string;
 
   /**
    * <p>A description of the change set's status. For example, if your change set is in the
@@ -1175,11 +1175,11 @@ export interface ChangeSetSummary {
 /**
  * @public
  */
-export enum ChangeSetType {
-  CREATE = "CREATE",
-  IMPORT = "IMPORT",
-  UPDATE = "UPDATE",
-}
+export const ChangeSetType = {
+  CREATE: "CREATE",
+  IMPORT: "IMPORT",
+  UPDATE: "UPDATE",
+};
 
 /**
  * @public
@@ -1554,7 +1554,7 @@ export interface CreateChangeSetInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: (keyof typeof Capability | string)[];
 
   /**
    * <p>The template resource types that you have permissions to work with if you execute this
@@ -1634,7 +1634,7 @@ export interface CreateChangeSetInput {
    *             <code>UPDATE</code> type to create a change set for a new stack or the
    *             <code>CREATE</code> type to create a change set for an existing stack.</p>
    */
-  ChangeSetType?: ChangeSetType | string;
+  ChangeSetType?: keyof typeof ChangeSetType | string;
 
   /**
    * <p>The resources to import into your stack.</p>
@@ -1715,11 +1715,11 @@ export class LimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum OnFailure {
-  DELETE = "DELETE",
-  DO_NOTHING = "DO_NOTHING",
-  ROLLBACK = "ROLLBACK",
-}
+export const OnFailure = {
+  DELETE: "DELETE",
+  DO_NOTHING: "DO_NOTHING",
+  ROLLBACK: "ROLLBACK",
+};
 
 /**
  * @public
@@ -1895,7 +1895,7 @@ export interface CreateStackInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: (keyof typeof Capability | string)[];
 
   /**
    * <p>The template resource types that you have permissions to work with for this create stack
@@ -1937,7 +1937,7 @@ export interface CreateStackInput {
    *          <p>Default: <code>ROLLBACK</code>
    *          </p>
    */
-  OnFailure?: OnFailure | string;
+  OnFailure?: keyof typeof OnFailure | string;
 
   /**
    * <p>Structure containing the stack policy body. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html"> Prevent Updates
@@ -2063,16 +2063,16 @@ export interface DeploymentTargets {
    *             </li>
    *          </ul>
    */
-  AccountFilterType?: AccountFilterType | string;
+  AccountFilterType?: keyof typeof AccountFilterType | string;
 }
 
 /**
  * @public
  */
-export enum RegionConcurrencyType {
-  PARALLEL = "PARALLEL",
-  SEQUENTIAL = "SEQUENTIAL",
-}
+export const RegionConcurrencyType = {
+  PARALLEL: "PARALLEL",
+  SEQUENTIAL: "SEQUENTIAL",
+};
 
 /**
  * @public
@@ -2085,7 +2085,7 @@ export interface StackSetOperationPreferences {
    * <p>The concurrency type of deploying StackSets operations in Regions, could be in parallel
    *          or one Region at a time.</p>
    */
-  RegionConcurrencyType?: RegionConcurrencyType | string;
+  RegionConcurrencyType?: keyof typeof RegionConcurrencyType | string;
 
   /**
    * <p>The order of the Regions in where you want to perform the stack operation.</p>
@@ -2243,7 +2243,7 @@ export interface CreateStackInstancesInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
@@ -2415,10 +2415,10 @@ export interface ManagedExecution {
 /**
  * @public
  */
-export enum PermissionModels {
-  SELF_MANAGED = "SELF_MANAGED",
-  SERVICE_MANAGED = "SERVICE_MANAGED",
-}
+export const PermissionModels = {
+  SELF_MANAGED: "SELF_MANAGED",
+  SERVICE_MANAGED: "SERVICE_MANAGED",
+};
 
 /**
  * @public
@@ -2566,7 +2566,7 @@ export interface CreateStackSetInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: (keyof typeof Capability | string)[];
 
   /**
    * <p>The key-value pairs to associate with this stack set and the stacks created from it.
@@ -2614,7 +2614,7 @@ export interface CreateStackSetInput {
    *             </li>
    *          </ul>
    */
-  PermissionModel?: PermissionModels | string;
+  PermissionModel?: keyof typeof PermissionModels | string;
 
   /**
    * <p>Describes whether StackSets automatically deploys to Organizations accounts that
@@ -2644,7 +2644,7 @@ export interface CreateStackSetInput {
    *          <p>Stack sets with service-managed permissions are created in the management account, including stack sets that are created by delegated
    *          administrators.</p>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 
   /**
    * <p>A unique identifier for this <code>CreateStackSet</code> request. Specify this token if
@@ -2712,7 +2712,7 @@ export interface DeactivateTypeInput {
    *          <p>Conditional: You must specify either <code>Arn</code>, or <code>TypeName</code> and
    *             <code>Type</code>.</p>
    */
-  Type?: ThirdPartyType | string;
+  Type?: keyof typeof ThirdPartyType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the extension, in this account and region.</p>
@@ -2896,7 +2896,7 @@ export interface DeleteStackInstancesInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
@@ -2938,7 +2938,7 @@ export interface DeleteStackSetInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
@@ -2973,11 +2973,11 @@ export class StackSetNotEmptyException extends __BaseException {
 /**
  * @public
  */
-export enum RegistryType {
-  HOOK = "HOOK",
-  MODULE = "MODULE",
-  RESOURCE = "RESOURCE",
-}
+export const RegistryType = {
+  HOOK: "HOOK",
+  MODULE: "MODULE",
+  RESOURCE: "RESOURCE",
+};
 
 /**
  * @public
@@ -2995,7 +2995,7 @@ export interface DeregisterTypeInput {
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or
    *             <code>Arn</code>.</p>
    */
-  Type?: RegistryType | string;
+  Type?: keyof typeof RegistryType | string;
 
   /**
    * <p>The name of the extension.</p>
@@ -3119,13 +3119,13 @@ export interface DescribeChangeSetOutput {
    *          creating it or in an <code>OBSOLETE</code> state because the stack was already
    *          updated.</p>
    */
-  ExecutionStatus?: ExecutionStatus | string;
+  ExecutionStatus?: keyof typeof ExecutionStatus | string;
 
   /**
    * <p>The current status of the change set, such as <code>CREATE_IN_PROGRESS</code>,
    *             <code>CREATE_COMPLETE</code>, or <code>FAILED</code>.</p>
    */
-  Status?: ChangeSetStatus | string;
+  Status?: keyof typeof ChangeSetStatus | string;
 
   /**
    * <p>A description of the change set's status. For example, if your attempt to create a
@@ -3149,7 +3149,7 @@ export interface DescribeChangeSetOutput {
    * <p>If you execute the change set, the list of capabilities that were explicitly
    *          acknowledged when the change set was created.</p>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: (keyof typeof Capability | string)[];
 
   /**
    * <p>If you execute the change set, the tags that will be associated with the stack.</p>
@@ -3237,7 +3237,7 @@ export interface DescribeChangeSetHooksOutput {
   /**
    * <p>Provides the status of the change set hook.</p>
    */
-  Status?: ChangeSetHooksStatus | string;
+  Status?: keyof typeof ChangeSetHooksStatus | string;
 
   /**
    * <p>Pagination token, <code>null</code> or empty if no more results.</p>
@@ -3271,19 +3271,19 @@ export interface DescribePublisherInput {
 /**
  * @public
  */
-export enum IdentityProvider {
-  AWS_Marketplace = "AWS_Marketplace",
-  Bitbucket = "Bitbucket",
-  GitHub = "GitHub",
-}
+export const IdentityProvider = {
+  AWS_Marketplace: "AWS_Marketplace",
+  Bitbucket: "Bitbucket",
+  GitHub: "GitHub",
+};
 
 /**
  * @public
  */
-export enum PublisherStatus {
-  UNVERIFIED = "UNVERIFIED",
-  VERIFIED = "VERIFIED",
-}
+export const PublisherStatus = {
+  UNVERIFIED: "UNVERIFIED",
+  VERIFIED: "VERIFIED",
+};
 
 /**
  * @public
@@ -3298,13 +3298,13 @@ export interface DescribePublisherOutput {
    * <p>Whether the publisher is verified. Currently, all registered publishers are
    *          verified.</p>
    */
-  PublisherStatus?: PublisherStatus | string;
+  PublisherStatus?: keyof typeof PublisherStatus | string;
 
   /**
    * <p>The type of account used as the identity provider when registering this publisher with
    *             CloudFormation.</p>
    */
-  IdentityProvider?: IdentityProvider | string;
+  IdentityProvider?: keyof typeof IdentityProvider | string;
 
   /**
    * <p>The URL to the publisher's profile with the identity provider.</p>
@@ -3328,21 +3328,21 @@ export interface DescribeStackDriftDetectionStatusInput {
 /**
  * @public
  */
-export enum StackDriftDetectionStatus {
-  DETECTION_COMPLETE = "DETECTION_COMPLETE",
-  DETECTION_FAILED = "DETECTION_FAILED",
-  DETECTION_IN_PROGRESS = "DETECTION_IN_PROGRESS",
-}
+export const StackDriftDetectionStatus = {
+  DETECTION_COMPLETE: "DETECTION_COMPLETE",
+  DETECTION_FAILED: "DETECTION_FAILED",
+  DETECTION_IN_PROGRESS: "DETECTION_IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum StackDriftStatus {
-  DRIFTED = "DRIFTED",
-  IN_SYNC = "IN_SYNC",
-  NOT_CHECKED = "NOT_CHECKED",
-  UNKNOWN = "UNKNOWN",
-}
+export const StackDriftStatus = {
+  DRIFTED: "DRIFTED",
+  IN_SYNC: "IN_SYNC",
+  NOT_CHECKED: "NOT_CHECKED",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -3387,7 +3387,7 @@ export interface DescribeStackDriftDetectionStatusOutput {
    *             </li>
    *          </ul>
    */
-  StackDriftStatus?: StackDriftStatus | string;
+  StackDriftStatus?: keyof typeof StackDriftStatus | string;
 
   /**
    * <p>The status of the stack drift detection operation.</p>
@@ -3414,7 +3414,7 @@ export interface DescribeStackDriftDetectionStatusOutput {
    *             </li>
    *          </ul>
    */
-  DetectionStatus: StackDriftDetectionStatus | string | undefined;
+  DetectionStatus: keyof typeof StackDriftDetectionStatus | string | undefined;
 
   /**
    * <p>The reason the stack drift detection operation has its current status.</p>
@@ -3464,40 +3464,40 @@ export interface DescribeStackEventsInput {
 /**
  * @public
  */
-export enum HookStatus {
-  HOOK_COMPLETE_FAILED = "HOOK_COMPLETE_FAILED",
-  HOOK_COMPLETE_SUCCEEDED = "HOOK_COMPLETE_SUCCEEDED",
-  HOOK_FAILED = "HOOK_FAILED",
-  HOOK_IN_PROGRESS = "HOOK_IN_PROGRESS",
-}
+export const HookStatus = {
+  HOOK_COMPLETE_FAILED: "HOOK_COMPLETE_FAILED",
+  HOOK_COMPLETE_SUCCEEDED: "HOOK_COMPLETE_SUCCEEDED",
+  HOOK_FAILED: "HOOK_FAILED",
+  HOOK_IN_PROGRESS: "HOOK_IN_PROGRESS",
+};
 
 /**
  * @public
  */
-export enum ResourceStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  DELETE_SKIPPED = "DELETE_SKIPPED",
-  IMPORT_COMPLETE = "IMPORT_COMPLETE",
-  IMPORT_FAILED = "IMPORT_FAILED",
-  IMPORT_IN_PROGRESS = "IMPORT_IN_PROGRESS",
-  IMPORT_ROLLBACK_COMPLETE = "IMPORT_ROLLBACK_COMPLETE",
-  IMPORT_ROLLBACK_FAILED = "IMPORT_ROLLBACK_FAILED",
-  IMPORT_ROLLBACK_IN_PROGRESS = "IMPORT_ROLLBACK_IN_PROGRESS",
-  ROLLBACK_COMPLETE = "ROLLBACK_COMPLETE",
-  ROLLBACK_FAILED = "ROLLBACK_FAILED",
-  ROLLBACK_IN_PROGRESS = "ROLLBACK_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_ROLLBACK_COMPLETE = "UPDATE_ROLLBACK_COMPLETE",
-  UPDATE_ROLLBACK_FAILED = "UPDATE_ROLLBACK_FAILED",
-  UPDATE_ROLLBACK_IN_PROGRESS = "UPDATE_ROLLBACK_IN_PROGRESS",
-}
+export const ResourceStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  DELETE_SKIPPED: "DELETE_SKIPPED",
+  IMPORT_COMPLETE: "IMPORT_COMPLETE",
+  IMPORT_FAILED: "IMPORT_FAILED",
+  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
+  IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
+  IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
+  IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
+  ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
+  UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
+  UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -3543,7 +3543,7 @@ export interface StackEvent {
   /**
    * <p>Current status of the resource.</p>
    */
-  ResourceStatus?: ResourceStatus | string;
+  ResourceStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>Success/failure message associated with the resource.</p>
@@ -3579,7 +3579,7 @@ export interface StackEvent {
   /**
    * <p>Provides the status of the change set hook.</p>
    */
-  HookStatus?: HookStatus | string;
+  HookStatus?: keyof typeof HookStatus | string;
 
   /**
    * <p>Provides the reason for the hook status.</p>
@@ -3589,7 +3589,7 @@ export interface StackEvent {
   /**
    * <p>Invocation points are points in provisioning logic where hooks are initiated.</p>
    */
-  HookInvocationPoint?: HookInvocationPoint | string;
+  HookInvocationPoint?: keyof typeof HookInvocationPoint | string;
 
   /**
    * <p>Specify the hook failure mode for non-compliant resources in the followings ways.</p>
@@ -3604,7 +3604,7 @@ export interface StackEvent {
    *             </li>
    *          </ul>
    */
-  HookFailureMode?: HookFailureMode | string;
+  HookFailureMode?: keyof typeof HookFailureMode | string;
 }
 
 /**
@@ -3664,20 +3664,20 @@ export interface DescribeStackInstanceInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
  * @public
  */
-export enum StackInstanceDetailedStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  INOPERABLE = "INOPERABLE",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const StackInstanceDetailedStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  INOPERABLE: "INOPERABLE",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -3724,17 +3724,17 @@ export interface StackInstanceComprehensiveStatus {
    *             </li>
    *          </ul>
    */
-  DetailedStatus?: StackInstanceDetailedStatus | string;
+  DetailedStatus?: keyof typeof StackInstanceDetailedStatus | string;
 }
 
 /**
  * @public
  */
-export enum StackInstanceStatus {
-  CURRENT = "CURRENT",
-  INOPERABLE = "INOPERABLE",
-  OUTDATED = "OUTDATED",
-}
+export const StackInstanceStatus = {
+  CURRENT: "CURRENT",
+  INOPERABLE: "INOPERABLE",
+  OUTDATED: "OUTDATED",
+};
 
 /**
  * @public
@@ -3810,7 +3810,7 @@ export interface StackInstance {
    *             </li>
    *          </ul>
    */
-  Status?: StackInstanceStatus | string;
+  Status?: keyof typeof StackInstanceStatus | string;
 
   /**
    * <p>The detailed status of the stack instance.</p>
@@ -3856,7 +3856,7 @@ export interface StackInstance {
    *             </li>
    *          </ul>
    */
-  DriftStatus?: StackDriftStatus | string;
+  DriftStatus?: keyof typeof StackDriftStatus | string;
 
   /**
    * <p>Most recent time when CloudFormation performed a drift detection operation on
@@ -3934,12 +3934,12 @@ export interface DescribeStackResourceInput {
 /**
  * @public
  */
-export enum StackResourceDriftStatus {
-  DELETED = "DELETED",
-  IN_SYNC = "IN_SYNC",
-  MODIFIED = "MODIFIED",
-  NOT_CHECKED = "NOT_CHECKED",
-}
+export const StackResourceDriftStatus = {
+  DELETED: "DELETED",
+  IN_SYNC: "IN_SYNC",
+  MODIFIED: "MODIFIED",
+  NOT_CHECKED: "NOT_CHECKED",
+};
 
 /**
  * @public
@@ -3975,7 +3975,7 @@ export interface StackResourceDriftInformation {
    *             </li>
    *          </ul>
    */
-  StackResourceDriftStatus: StackResourceDriftStatus | string | undefined;
+  StackResourceDriftStatus: keyof typeof StackResourceDriftStatus | string | undefined;
 
   /**
    * <p>When CloudFormation last checked if the resource had drifted from its expected
@@ -4023,7 +4023,7 @@ export interface StackResourceDetail {
   /**
    * <p>Current status of the resource.</p>
    */
-  ResourceStatus: ResourceStatus | string | undefined;
+  ResourceStatus: keyof typeof ResourceStatus | string | undefined;
 
   /**
    * <p>Success/failure message associated with the resource.</p>
@@ -4103,7 +4103,7 @@ export interface DescribeStackResourceDriftsInput {
    *             </li>
    *          </ul>
    */
-  StackResourceDriftStatusFilters?: (StackResourceDriftStatus | string)[];
+  StackResourceDriftStatusFilters?: (keyof typeof StackResourceDriftStatus | string)[];
 
   /**
    * <p>A string that identifies the next page of stack resource drift results.</p>
@@ -4141,11 +4141,11 @@ export interface PhysicalResourceIdContextKeyValuePair {
 /**
  * @public
  */
-export enum DifferenceType {
-  ADD = "ADD",
-  NOT_EQUAL = "NOT_EQUAL",
-  REMOVE = "REMOVE",
-}
+export const DifferenceType = {
+  ADD: "ADD",
+  NOT_EQUAL: "NOT_EQUAL",
+  REMOVE: "REMOVE",
+};
 
 /**
  * @public
@@ -4193,7 +4193,7 @@ export interface PropertyDifference {
    *             </li>
    *          </ul>
    */
-  DifferenceType: DifferenceType | string | undefined;
+  DifferenceType: keyof typeof DifferenceType | string | undefined;
 }
 
 /**
@@ -4289,7 +4289,7 @@ export interface StackResourceDrift {
    *             </li>
    *          </ul>
    */
-  StackResourceDriftStatus: StackResourceDriftStatus | string | undefined;
+  StackResourceDriftStatus: keyof typeof StackResourceDriftStatus | string | undefined;
 
   /**
    * <p>Time at which CloudFormation performed drift detection on the stack resource.</p>
@@ -4411,7 +4411,7 @@ export interface StackResource {
   /**
    * <p>Current status of the resource.</p>
    */
-  ResourceStatus: ResourceStatus | string | undefined;
+  ResourceStatus: keyof typeof ResourceStatus | string | undefined;
 
   /**
    * <p>Success/failure message associated with the resource.</p>
@@ -4510,7 +4510,7 @@ export interface StackDriftInformation {
    *             </li>
    *          </ul>
    */
-  StackDriftStatus: StackDriftStatus | string | undefined;
+  StackDriftStatus: keyof typeof StackDriftStatus | string | undefined;
 
   /**
    * <p>Most recent time when a drift detection operation was initiated on the stack, or any of
@@ -4548,31 +4548,31 @@ export interface Output {
 /**
  * @public
  */
-export enum StackStatus {
-  CREATE_COMPLETE = "CREATE_COMPLETE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  IMPORT_COMPLETE = "IMPORT_COMPLETE",
-  IMPORT_IN_PROGRESS = "IMPORT_IN_PROGRESS",
-  IMPORT_ROLLBACK_COMPLETE = "IMPORT_ROLLBACK_COMPLETE",
-  IMPORT_ROLLBACK_FAILED = "IMPORT_ROLLBACK_FAILED",
-  IMPORT_ROLLBACK_IN_PROGRESS = "IMPORT_ROLLBACK_IN_PROGRESS",
-  REVIEW_IN_PROGRESS = "REVIEW_IN_PROGRESS",
-  ROLLBACK_COMPLETE = "ROLLBACK_COMPLETE",
-  ROLLBACK_FAILED = "ROLLBACK_FAILED",
-  ROLLBACK_IN_PROGRESS = "ROLLBACK_IN_PROGRESS",
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_COMPLETE_CLEANUP_IN_PROGRESS = "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_ROLLBACK_COMPLETE = "UPDATE_ROLLBACK_COMPLETE",
-  UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS = "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
-  UPDATE_ROLLBACK_FAILED = "UPDATE_ROLLBACK_FAILED",
-  UPDATE_ROLLBACK_IN_PROGRESS = "UPDATE_ROLLBACK_IN_PROGRESS",
-}
+export const StackStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  IMPORT_COMPLETE: "IMPORT_COMPLETE",
+  IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
+  IMPORT_ROLLBACK_COMPLETE: "IMPORT_ROLLBACK_COMPLETE",
+  IMPORT_ROLLBACK_FAILED: "IMPORT_ROLLBACK_FAILED",
+  IMPORT_ROLLBACK_IN_PROGRESS: "IMPORT_ROLLBACK_IN_PROGRESS",
+  REVIEW_IN_PROGRESS: "REVIEW_IN_PROGRESS",
+  ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_COMPLETE_CLEANUP_IN_PROGRESS: "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+  UPDATE_ROLLBACK_COMPLETE: "UPDATE_ROLLBACK_COMPLETE",
+  UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS: "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
+  UPDATE_ROLLBACK_FAILED: "UPDATE_ROLLBACK_FAILED",
+  UPDATE_ROLLBACK_IN_PROGRESS: "UPDATE_ROLLBACK_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -4629,7 +4629,7 @@ export interface Stack {
   /**
    * <p>Current status of the stack.</p>
    */
-  StackStatus: StackStatus | string | undefined;
+  StackStatus: keyof typeof StackStatus | string | undefined;
 
   /**
    * <p>Success/failure message associated with the stack status.</p>
@@ -4665,7 +4665,7 @@ export interface Stack {
   /**
    * <p>The capabilities allowed in the stack.</p>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: (keyof typeof Capability | string)[];
 
   /**
    * <p>A list of output structures.</p>
@@ -4762,28 +4762,28 @@ export interface DescribeStackSetInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
  * @public
  */
-export enum StackSetDriftDetectionStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
-  STOPPED = "STOPPED",
-}
+export const StackSetDriftDetectionStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PARTIAL_SUCCESS: "PARTIAL_SUCCESS",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
  */
-export enum StackSetDriftStatus {
-  DRIFTED = "DRIFTED",
-  IN_SYNC = "IN_SYNC",
-  NOT_CHECKED = "NOT_CHECKED",
-}
+export const StackSetDriftStatus = {
+  DRIFTED: "DRIFTED",
+  IN_SYNC: "IN_SYNC",
+  NOT_CHECKED: "NOT_CHECKED",
+};
 
 /**
  * @public
@@ -4821,7 +4821,7 @@ export interface StackSetDriftDetectionDetails {
    *             </li>
    *          </ul>
    */
-  DriftStatus?: StackSetDriftStatus | string;
+  DriftStatus?: keyof typeof StackSetDriftStatus | string;
 
   /**
    * <p>The status of the stack set drift detection operation.</p>
@@ -4852,7 +4852,7 @@ export interface StackSetDriftDetectionDetails {
    *             </li>
    *          </ul>
    */
-  DriftDetectionStatus?: StackSetDriftDetectionStatus | string;
+  DriftDetectionStatus?: keyof typeof StackSetDriftDetectionStatus | string;
 
   /**
    * <p>Most recent time when CloudFormation performed a drift detection operation on
@@ -4909,10 +4909,10 @@ export interface StackSetDriftDetectionDetails {
 /**
  * @public
  */
-export enum StackSetStatus {
-  ACTIVE = "ACTIVE",
-  DELETED = "DELETED",
-}
+export const StackSetStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+};
 
 /**
  * @public
@@ -4941,7 +4941,7 @@ export interface StackSet {
   /**
    * <p>The status of the stack set.</p>
    */
-  Status?: StackSetStatus | string;
+  Status?: keyof typeof StackSetStatus | string;
 
   /**
    * <p>The structure that contains the body of the template that was used to create or update
@@ -4962,7 +4962,7 @@ export interface StackSet {
    *          Templates.</a>
    *          </p>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: (keyof typeof Capability | string)[];
 
   /**
    * <p>A list of tags that specify information about the stack set. A maximum number of 50 tags
@@ -5023,7 +5023,7 @@ export interface StackSet {
    *             </li>
    *          </ul>
    */
-  PermissionModel?: PermissionModels | string;
+  PermissionModel?: keyof typeof PermissionModels | string;
 
   /**
    * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs
@@ -5083,30 +5083,30 @@ export interface DescribeStackSetOperationInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
  * @public
  */
-export enum StackSetOperationAction {
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  DETECT_DRIFT = "DETECT_DRIFT",
-  UPDATE = "UPDATE",
-}
+export const StackSetOperationAction = {
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  DETECT_DRIFT: "DETECT_DRIFT",
+  UPDATE: "UPDATE",
+};
 
 /**
  * @public
  */
-export enum StackSetOperationStatus {
-  FAILED = "FAILED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const StackSetOperationStatus = {
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -5141,7 +5141,7 @@ export interface StackSetOperation {
    *          the stack set itself, in addition to <i>all</i> associated stack set
    *          instances.</p>
    */
-  Action?: StackSetOperationAction | string;
+  Action?: keyof typeof StackSetOperationAction | string;
 
   /**
    * <p>The status of the operation.</p>
@@ -5182,7 +5182,7 @@ export interface StackSetOperation {
    *             </li>
    *          </ul>
    */
-  Status?: StackSetOperationStatus | string;
+  Status?: keyof typeof StackSetOperationStatus | string;
 
   /**
    * <p>The preferences for how CloudFormation performs this stack set operation.</p>
@@ -5297,7 +5297,7 @@ export interface DescribeTypeInput {
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or
    *             <code>Arn</code>.</p>
    */
-  Type?: RegistryType | string;
+  Type?: keyof typeof RegistryType | string;
 
   /**
    * <p>The name of the extension.</p>
@@ -5338,19 +5338,19 @@ export interface DescribeTypeInput {
 /**
  * @public
  */
-export enum DeprecatedStatus {
-  DEPRECATED = "DEPRECATED",
-  LIVE = "LIVE",
-}
+export const DeprecatedStatus = {
+  DEPRECATED: "DEPRECATED",
+  LIVE: "LIVE",
+};
 
 /**
  * @public
  */
-export enum ProvisioningType {
-  FULLY_MUTABLE = "FULLY_MUTABLE",
-  IMMUTABLE = "IMMUTABLE",
-  NON_PROVISIONABLE = "NON_PROVISIONABLE",
-}
+export const ProvisioningType = {
+  FULLY_MUTABLE: "FULLY_MUTABLE",
+  IMMUTABLE: "IMMUTABLE",
+  NON_PROVISIONABLE: "NON_PROVISIONABLE",
+};
 
 /**
  * @public
@@ -5393,20 +5393,20 @@ export interface RequiredActivatedType {
 /**
  * @public
  */
-export enum TypeTestsStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_TESTED = "NOT_TESTED",
-  PASSED = "PASSED",
-}
+export const TypeTestsStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_TESTED: "NOT_TESTED",
+  PASSED: "PASSED",
+};
 
 /**
  * @public
  */
-export enum Visibility {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-}
+export const Visibility = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+};
 
 /**
  * @public
@@ -5420,7 +5420,7 @@ export interface DescribeTypeOutput {
   /**
    * <p>The kind of extension.</p>
    */
-  Type?: RegistryType | string;
+  Type?: keyof typeof RegistryType | string;
 
   /**
    * <p>The name of the extension.</p>
@@ -5481,7 +5481,7 @@ export interface DescribeTypeOutput {
    *             </li>
    *          </ul>
    */
-  TypeTestsStatus?: TypeTestsStatus | string;
+  TypeTestsStatus?: keyof typeof TypeTestsStatus | string;
 
   /**
    * <p>The description of the test status. To return the extension test status of a specific
@@ -5540,7 +5540,7 @@ export interface DescribeTypeOutput {
    *             </li>
    *          </ul>
    */
-  ProvisioningType?: ProvisioningType | string;
+  ProvisioningType?: keyof typeof ProvisioningType | string;
 
   /**
    * <p>The deprecation status of the extension version.</p>
@@ -5561,7 +5561,7 @@ export interface DescribeTypeOutput {
    *          <p>For public third-party extensions, CloudFormation returns
    *          <code>null</code>.</p>
    */
-  DeprecatedStatus?: DeprecatedStatus | string;
+  DeprecatedStatus?: keyof typeof DeprecatedStatus | string;
 
   /**
    * <p>Contains logging configuration information for private extensions. This applies only to
@@ -5609,7 +5609,7 @@ export interface DescribeTypeOutput {
    *             </li>
    *          </ul>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>The URL of the source code for the extension.</p>
@@ -5722,11 +5722,11 @@ export interface DescribeTypeRegistrationInput {
 /**
  * @public
  */
-export enum RegistrationStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const RegistrationStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -5735,7 +5735,7 @@ export interface DescribeTypeRegistrationOutput {
   /**
    * <p>The current status of the extension registration request.</p>
    */
-  ProgressStatus?: RegistrationStatus | string;
+  ProgressStatus?: keyof typeof RegistrationStatus | string;
 
   /**
    * <p>The description of the extension registration request.</p>
@@ -5855,7 +5855,7 @@ export interface DetectStackSetDriftInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
@@ -5980,10 +5980,10 @@ export interface GetStackPolicyOutput {
 /**
  * @public
  */
-export enum TemplateStage {
-  Original = "Original",
-  Processed = "Processed",
-}
+export const TemplateStage = {
+  Original: "Original",
+  Processed: "Processed",
+};
 
 /**
  * @public
@@ -6021,7 +6021,7 @@ export interface GetTemplateInput {
    *             <code>Processed</code> return the same template. By default, CloudFormation
    *          specifies <code>Processed</code>.</p>
    */
-  TemplateStage?: TemplateStage | string;
+  TemplateStage?: keyof typeof TemplateStage | string;
 }
 
 /**
@@ -6043,7 +6043,7 @@ export interface GetTemplateOutput {
    *          finishes creating the change set, the <code>Processed</code> template becomes
    *          available.</p>
    */
-  StagesAvailable?: (TemplateStage | string)[];
+  StagesAvailable?: (keyof typeof TemplateStage | string)[];
 }
 
 /**
@@ -6108,7 +6108,7 @@ export interface GetTemplateSummaryInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
@@ -6213,7 +6213,7 @@ export interface GetTemplateSummaryOutput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in CloudFormation
    *          Templates</a>.</p>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: (keyof typeof Capability | string)[];
 
   /**
    * <p>The list of resources that generated the values in the <code>Capabilities</code>
@@ -6307,7 +6307,7 @@ export interface ImportStacksToStackSetInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
@@ -6468,10 +6468,10 @@ export interface ListImportsOutput {
 /**
  * @public
  */
-export enum StackInstanceFilterName {
-  DETAILED_STATUS = "DETAILED_STATUS",
-  LAST_OPERATION_ID = "LAST_OPERATION_ID",
-}
+export const StackInstanceFilterName = {
+  DETAILED_STATUS: "DETAILED_STATUS",
+  LAST_OPERATION_ID: "LAST_OPERATION_ID",
+};
 
 /**
  * @public
@@ -6481,7 +6481,7 @@ export interface StackInstanceFilter {
   /**
    * <p>The type of filter to apply.</p>
    */
-  Name?: StackInstanceFilterName | string;
+  Name?: keyof typeof StackInstanceFilterName | string;
 
   /**
    * <p>The status to filter by.</p>
@@ -6550,7 +6550,7 @@ export interface ListStackInstancesInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
@@ -6616,7 +6616,7 @@ export interface StackInstanceSummary {
    *             </li>
    *          </ul>
    */
-  Status?: StackInstanceStatus | string;
+  Status?: keyof typeof StackInstanceStatus | string;
 
   /**
    * <p>The explanation for the specific status code assigned to this stack instance.</p>
@@ -6661,7 +6661,7 @@ export interface StackInstanceSummary {
    *             </li>
    *          </ul>
    */
-  DriftStatus?: StackDriftStatus | string;
+  DriftStatus?: keyof typeof StackDriftStatus | string;
 
   /**
    * <p>Most recent time when CloudFormation performed a drift detection operation on
@@ -6759,7 +6759,7 @@ export interface StackResourceDriftInformationSummary {
    *             </li>
    *          </ul>
    */
-  StackResourceDriftStatus: StackResourceDriftStatus | string | undefined;
+  StackResourceDriftStatus: keyof typeof StackResourceDriftStatus | string | undefined;
 
   /**
    * <p>When CloudFormation last checked if the resource had drifted from its expected
@@ -6797,7 +6797,7 @@ export interface StackResourceSummary {
   /**
    * <p>Current status of the resource.</p>
    */
-  ResourceStatus: ResourceStatus | string | undefined;
+  ResourceStatus: keyof typeof ResourceStatus | string | undefined;
 
   /**
    * <p>Success/failure message associated with the resource.</p>
@@ -6851,7 +6851,7 @@ export interface ListStacksInput {
    *          stacks with the specified status codes. For a complete list of stack status codes, see the
    *             <code>StackStatus</code> parameter of the <a>Stack</a> data type.</p>
    */
-  StackStatusFilter?: (StackStatus | string)[];
+  StackStatusFilter?: (keyof typeof StackStatus | string)[];
 }
 
 /**
@@ -6888,7 +6888,7 @@ export interface StackDriftInformationSummary {
    *             </li>
    *          </ul>
    */
-  StackDriftStatus: StackDriftStatus | string | undefined;
+  StackDriftStatus: keyof typeof StackDriftStatus | string | undefined;
 
   /**
    * <p>Most recent time when a drift detection operation was initiated on the stack, or any of
@@ -6936,7 +6936,7 @@ export interface StackSummary {
   /**
    * <p>The current status of the stack.</p>
    */
-  StackStatus: StackStatus | string | undefined;
+  StackStatus: keyof typeof StackStatus | string | undefined;
 
   /**
    * <p>Success/Failure message associated with the stack status.</p>
@@ -6988,9 +6988,9 @@ export interface ListStacksOutput {
 /**
  * @public
  */
-export enum OperationResultFilterName {
-  OPERATION_RESULT_STATUS = "OPERATION_RESULT_STATUS",
-}
+export const OperationResultFilterName = {
+  OPERATION_RESULT_STATUS: "OPERATION_RESULT_STATUS",
+};
 
 /**
  * @public
@@ -7000,7 +7000,7 @@ export interface OperationResultFilter {
   /**
    * <p>The type of filter to apply.</p>
    */
-  Name?: OperationResultFilterName | string;
+  Name?: keyof typeof OperationResultFilterName | string;
 
   /**
    * <p>The value to filter by.</p>
@@ -7060,7 +7060,7 @@ export interface ListStackSetOperationResultsInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 
   /**
    * <p>The filter to apply to operation results.</p>
@@ -7071,13 +7071,13 @@ export interface ListStackSetOperationResultsInput {
 /**
  * @public
  */
-export enum StackSetOperationResultStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const StackSetOperationResultStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -7130,7 +7130,7 @@ export interface StackSetOperationResultSummary {
    *             </li>
    *          </ul>
    */
-  Status?: StackSetOperationResultStatus | string;
+  Status?: keyof typeof StackSetOperationResultStatus | string;
 
   /**
    * <p>The reason for the assigned result status.</p>
@@ -7216,7 +7216,7 @@ export interface ListStackSetOperationsInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
@@ -7235,7 +7235,7 @@ export interface StackSetOperationSummary {
    *          with the specified stack set. Update operations affect both the stack set itself and
    *             <i>all</i> associated stack set instances.</p>
    */
-  Action?: StackSetOperationAction | string;
+  Action?: keyof typeof StackSetOperationAction | string;
 
   /**
    * <p>The overall status of the operation.</p>
@@ -7276,7 +7276,7 @@ export interface StackSetOperationSummary {
    *             </li>
    *          </ul>
    */
-  Status?: StackSetOperationStatus | string;
+  Status?: keyof typeof StackSetOperationStatus | string;
 
   /**
    * <p>The time at which the operation was initiated. Note that the creation times for the
@@ -7355,7 +7355,7 @@ export interface ListStackSetsInput {
   /**
    * <p>The status of the stack sets that you want to get summary information about.</p>
    */
-  Status?: StackSetStatus | string;
+  Status?: keyof typeof StackSetStatus | string;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account
@@ -7376,7 +7376,7 @@ export interface ListStackSetsInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
@@ -7403,7 +7403,7 @@ export interface StackSetSummary {
   /**
    * <p>The status of the stack set.</p>
    */
-  Status?: StackSetStatus | string;
+  Status?: keyof typeof StackSetStatus | string;
 
   /**
    * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to
@@ -7428,7 +7428,7 @@ export interface StackSetSummary {
    *             </li>
    *          </ul>
    */
-  PermissionModel?: PermissionModels | string;
+  PermissionModel?: keyof typeof PermissionModels | string;
 
   /**
    * <p>Status of the stack set's actual configuration compared to its expected template and
@@ -7458,7 +7458,7 @@ export interface StackSetSummary {
    *             </li>
    *          </ul>
    */
-  DriftStatus?: StackDriftStatus | string;
+  DriftStatus?: keyof typeof StackDriftStatus | string;
 
   /**
    * <p>Most recent time when CloudFormation performed a drift detection operation on
@@ -7502,7 +7502,7 @@ export interface ListTypeRegistrationsInput {
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or
    *             <code>Arn</code>.</p>
    */
-  Type?: RegistryType | string;
+  Type?: keyof typeof RegistryType | string;
 
   /**
    * <p>The name of the extension.</p>
@@ -7522,7 +7522,7 @@ export interface ListTypeRegistrationsInput {
    * <p>The current status of the extension registration request.</p>
    *          <p>The default is <code>IN_PROGRESS</code>.</p>
    */
-  RegistrationStatusFilter?: RegistrationStatus | string;
+  RegistrationStatusFilter?: keyof typeof RegistrationStatus | string;
 
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -7602,7 +7602,7 @@ export interface TypeFilters {
    *             </li>
    *          </ul>
    */
-  Category?: Category | string;
+  Category?: keyof typeof Category | string;
 
   /**
    * <p>The id of the publisher of the extension.</p>
@@ -7648,7 +7648,7 @@ export interface ListTypesInput {
    *          </ul>
    *          <p>The default is <code>PRIVATE</code>.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: keyof typeof Visibility | string;
 
   /**
    * <p>For resource types, the provisioning behavior of the resource type. CloudFormation determines the
@@ -7675,7 +7675,7 @@ export interface ListTypesInput {
    *          </ul>
    *          <p>The default is <code>FULLY_MUTABLE</code>.</p>
    */
-  ProvisioningType?: ProvisioningType | string;
+  ProvisioningType?: keyof typeof ProvisioningType | string;
 
   /**
    * <p>The deprecation status of the extension that you want to get summary information
@@ -7694,12 +7694,12 @@ export interface ListTypesInput {
    *             </li>
    *          </ul>
    */
-  DeprecatedStatus?: DeprecatedStatus | string;
+  DeprecatedStatus?: keyof typeof DeprecatedStatus | string;
 
   /**
    * <p>The type of extension.</p>
    */
-  Type?: RegistryType | string;
+  Type?: keyof typeof RegistryType | string;
 
   /**
    * <p>Filter criteria to use in determining which extensions to return.</p>
@@ -7737,7 +7737,7 @@ export interface TypeSummary {
   /**
    * <p>The kind of extension.</p>
    */
-  Type?: RegistryType | string;
+  Type?: keyof typeof RegistryType | string;
 
   /**
    * <p>The name of the extension.</p>
@@ -7828,7 +7828,7 @@ export interface TypeSummary {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Registering your account to publish CloudFormation extensions</a> in the
    *             <i> CFN-CLI User Guide for Extension Development</i>.</p>
    */
-  PublisherIdentity?: IdentityProvider | string;
+  PublisherIdentity?: keyof typeof IdentityProvider | string;
 
   /**
    * <p>The publisher name, as defined in the public profile for that publisher in the service
@@ -7872,7 +7872,7 @@ export interface ListTypeVersionsInput {
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or
    *             <code>Arn</code>.</p>
    */
-  Type?: RegistryType | string;
+  Type?: keyof typeof RegistryType | string;
 
   /**
    * <p>The name of the extension for which you want version summary information.</p>
@@ -7924,7 +7924,7 @@ export interface ListTypeVersionsInput {
    *          </ul>
    *          <p>The default is <code>LIVE</code>.</p>
    */
-  DeprecatedStatus?: DeprecatedStatus | string;
+  DeprecatedStatus?: keyof typeof DeprecatedStatus | string;
 
   /**
    * <p>The publisher ID of the extension publisher.</p>
@@ -7942,7 +7942,7 @@ export interface TypeVersionSummary {
   /**
    * <p>The kind of extension.</p>
    */
-  Type?: RegistryType | string;
+  Type?: keyof typeof RegistryType | string;
 
   /**
    * <p>The name of the extension.</p>
@@ -8019,7 +8019,7 @@ export interface PublishTypeInput {
    *          <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and
    *             <code>Type</code>.</p>
    */
-  Type?: ThirdPartyType | string;
+  Type?: keyof typeof ThirdPartyType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
@@ -8111,37 +8111,37 @@ export class OperationStatusCheckFailedException extends __BaseException {
 /**
  * @public
  */
-export enum OperationStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SUCCESS = "SUCCESS",
-}
+export const OperationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
  */
-export enum HandlerErrorCode {
-  AccessDenied = "AccessDenied",
-  AlreadyExists = "AlreadyExists",
-  GeneralServiceException = "GeneralServiceException",
-  HandlerInternalFailure = "HandlerInternalFailure",
-  InternalFailure = "InternalFailure",
-  InvalidCredentials = "InvalidCredentials",
-  InvalidRequest = "InvalidRequest",
-  InvalidTypeConfiguration = "InvalidTypeConfiguration",
-  NetworkFailure = "NetworkFailure",
-  NonCompliant = "NonCompliant",
-  NotFound = "NotFound",
-  NotUpdatable = "NotUpdatable",
-  ResourceConflict = "ResourceConflict",
-  ServiceInternalError = "ServiceInternalError",
-  ServiceLimitExceeded = "ServiceLimitExceeded",
-  ServiceTimeout = "NotStabilized",
-  Throttling = "Throttling",
-  Unknown = "Unknown",
-  UnsupportedTarget = "UnsupportedTarget",
-}
+export const HandlerErrorCode = {
+  AccessDenied: "AccessDenied",
+  AlreadyExists: "AlreadyExists",
+  GeneralServiceException: "GeneralServiceException",
+  HandlerInternalFailure: "HandlerInternalFailure",
+  InternalFailure: "InternalFailure",
+  InvalidCredentials: "InvalidCredentials",
+  InvalidRequest: "InvalidRequest",
+  InvalidTypeConfiguration: "InvalidTypeConfiguration",
+  NetworkFailure: "NetworkFailure",
+  NonCompliant: "NonCompliant",
+  NotFound: "NotFound",
+  NotUpdatable: "NotUpdatable",
+  ResourceConflict: "ResourceConflict",
+  ServiceInternalError: "ServiceInternalError",
+  ServiceLimitExceeded: "ServiceLimitExceeded",
+  ServiceTimeout: "NotStabilized",
+  Throttling: "Throttling",
+  Unknown: "Unknown",
+  UnsupportedTarget: "UnsupportedTarget",
+};
 
 /**
  * @public
@@ -8155,12 +8155,12 @@ export interface RecordHandlerProgressInput {
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
    */
-  OperationStatus: OperationStatus | string | undefined;
+  OperationStatus: keyof typeof OperationStatus | string | undefined;
 
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
    */
-  CurrentOperationStatus?: OperationStatus | string;
+  CurrentOperationStatus?: keyof typeof OperationStatus | string;
 
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
@@ -8170,7 +8170,7 @@ export interface RecordHandlerProgressInput {
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
    */
-  ErrorCode?: HandlerErrorCode | string;
+  ErrorCode?: keyof typeof HandlerErrorCode | string;
 
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
@@ -8228,7 +8228,7 @@ export interface RegisterTypeInput {
   /**
    * <p>The kind of extension.</p>
    */
-  Type?: RegistryType | string;
+  Type?: keyof typeof RegistryType | string;
 
   /**
    * <p>The name of the extension being registered.</p>
@@ -8447,7 +8447,7 @@ export interface SetTypeConfigurationInput {
    *          <p>Conditional: You must specify <code>ConfigurationArn</code>, or <code>Type</code> and
    *             <code>TypeName</code>.</p>
    */
-  Type?: ThirdPartyType | string;
+  Type?: keyof typeof ThirdPartyType | string;
 }
 
 /**
@@ -8480,7 +8480,7 @@ export interface SetTypeDefaultVersionInput {
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or
    *             <code>Arn</code>.</p>
    */
-  Type?: RegistryType | string;
+  Type?: keyof typeof RegistryType | string;
 
   /**
    * <p>The name of the extension.</p>
@@ -8505,10 +8505,10 @@ export interface SetTypeDefaultVersionOutput {}
 /**
  * @public
  */
-export enum ResourceSignalStatus {
-  FAILURE = "FAILURE",
-  SUCCESS = "SUCCESS",
-}
+export const ResourceSignalStatus = {
+  FAILURE: "FAILURE",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -8538,7 +8538,7 @@ export interface SignalResourceInput {
    * <p>The status of the signal, which is either success or failure. A failure signal causes
    *             CloudFormation to immediately fail the stack creation or update.</p>
    */
-  Status: ResourceSignalStatus | string | undefined;
+  Status: keyof typeof ResourceSignalStatus | string | undefined;
 }
 
 /**
@@ -8574,7 +8574,7 @@ export interface StopStackSetOperationInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
@@ -8598,7 +8598,7 @@ export interface TestTypeInput {
    *          <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and
    *             <code>Type</code>.</p>
    */
-  Type?: ThirdPartyType | string;
+  Type?: keyof typeof ThirdPartyType | string;
 
   /**
    * <p>The name of the extension to test.</p>
@@ -8824,7 +8824,7 @@ export interface UpdateStackInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: (keyof typeof Capability | string)[];
 
   /**
    * <p>The template resource types that you have permissions to work with for this update stack
@@ -9037,7 +9037,7 @@ export interface UpdateStackInstancesInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 }
 
 /**
@@ -9194,7 +9194,7 @@ export interface UpdateStackSetInput {
    *             </li>
    *          </ul>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: (keyof typeof Capability | string)[];
 
   /**
    * <p>The key-value pairs to associate with this stack set and the stacks created from it.
@@ -9294,7 +9294,7 @@ export interface UpdateStackSetInput {
    *             </li>
    *          </ul>
    */
-  PermissionModel?: PermissionModels | string;
+  PermissionModel?: keyof typeof PermissionModels | string;
 
   /**
    * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to
@@ -9368,7 +9368,7 @@ export interface UpdateStackSetInput {
    *             </li>
    *          </ul>
    */
-  CallAs?: CallAs | string;
+  CallAs?: keyof typeof CallAs | string;
 
   /**
    * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues
@@ -9489,7 +9489,7 @@ export interface ValidateTemplateOutput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in CloudFormation
    *          Templates</a>.</p>
    */
-  Capabilities?: (Capability | string)[];
+  Capabilities?: (keyof typeof Capability | string)[];
 
   /**
    * <p>The list of resources that generated the values in the <code>Capabilities</code>

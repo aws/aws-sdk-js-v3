@@ -2693,13 +2693,16 @@ const serializeAws_restJson1EdgeConfig = (input: EdgeConfig, context: __SerdeCon
 };
 
 const serializeAws_restJson1FormatConfig = (input: Record<string, string>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [FormatConfigKey | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof FormatConfigKey | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = value;
       return acc;
-    }
-    acc[key] = value;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1ImageGenerationConfiguration = (
@@ -2732,7 +2735,10 @@ const serializeAws_restJson1ImageGenerationDestinationConfig = (
   };
 };
 
-const serializeAws_restJson1ListOfProtocols = (input: (ChannelProtocol | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1ListOfProtocols = (
+  input: (keyof typeof ChannelProtocol | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2938,13 +2944,16 @@ const deserializeAws_restJson1EdgeConfig = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1FormatConfig = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [FormatConfigKey | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, string>, [key, value]: [keyof typeof FormatConfigKey | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectString(value) as any;
       return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1ImageGenerationConfiguration = (

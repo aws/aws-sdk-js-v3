@@ -1793,7 +1793,10 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
   }, {});
 };
 
-const serializeAws_restJson1Telemetries = (input: (Telemetry | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1Telemetries = (
+  input: (keyof typeof Telemetry | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2090,7 +2093,10 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
   }, {});
 };
 
-const deserializeAws_restJson1Telemetries = (output: any, context: __SerdeContext): (Telemetry | string)[] => {
+const deserializeAws_restJson1Telemetries = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Telemetry | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

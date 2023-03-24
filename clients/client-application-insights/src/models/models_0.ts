@@ -79,12 +79,12 @@ export interface ApplicationComponent {
   /**
    * <p> The operating system of the component. </p>
    */
-  OsType?: OsType | string;
+  OsType?: keyof typeof OsType | string;
 
   /**
    * <p>The stack tier of the application component.</p>
    */
-  Tier?: Tier | string;
+  Tier?: keyof typeof Tier | string;
 
   /**
    * <p>Indicates whether the application component is monitored. </p>
@@ -100,10 +100,10 @@ export interface ApplicationComponent {
 /**
  * @public
  */
-export enum DiscoveryType {
-  ACCOUNT_BASED = "ACCOUNT_BASED",
-  RESOURCE_GROUP_BASED = "RESOURCE_GROUP_BASED",
-}
+export const DiscoveryType = {
+  ACCOUNT_BASED: "ACCOUNT_BASED",
+  RESOURCE_GROUP_BASED: "RESOURCE_GROUP_BASED",
+};
 
 /**
  * @public
@@ -163,7 +163,7 @@ export interface ApplicationInfo {
    *          The method used by Application Insights to onboard your resources.
    *       </p>
    */
-  DiscoveryType?: DiscoveryType | string;
+  DiscoveryType?: keyof typeof DiscoveryType | string;
 }
 
 /**
@@ -221,13 +221,13 @@ export interface ConfigurationEvent {
    * <p> The status of the configuration update event. Possible values include INFO, WARN, and
    *          ERROR. </p>
    */
-  EventStatus?: ConfigurationEventStatus | string;
+  EventStatus?: keyof typeof ConfigurationEventStatus | string;
 
   /**
    * <p> The resource type that Application Insights attempted to configure, for example,
    *          CLOUDWATCH_ALARM. </p>
    */
-  EventResourceType?: ConfigurationEventResourceType | string;
+  EventResourceType?: keyof typeof ConfigurationEventResourceType | string;
 
   /**
    * <p> The timestamp of the event. </p>
@@ -248,9 +248,9 @@ export interface ConfigurationEvent {
 /**
  * @public
  */
-export enum GroupingType {
-  ACCOUNT_BASED = "ACCOUNT_BASED",
-}
+export const GroupingType = {
+  ACCOUNT_BASED: "ACCOUNT_BASED",
+};
 
 /**
  * @public
@@ -347,7 +347,7 @@ export interface CreateApplicationRequest {
    *       To create an account-based application using all of the resources in the account, set this parameter to <code>ACCOUNT_BASED</code>.
    *       </p>
    */
-  GroupingType?: GroupingType | string;
+  GroupingType?: keyof typeof GroupingType | string;
 }
 
 /**
@@ -733,7 +733,7 @@ export interface DescribeComponentConfigurationResponse {
    *             <code>SQL_SERVER</code>, and <code>DEFAULT</code>
    *          </p>
    */
-  Tier?: Tier | string;
+  Tier?: keyof typeof Tier | string;
 
   /**
    * <p>The configuration settings of the component. The value is the escaped JSON of the
@@ -759,7 +759,7 @@ export interface DescribeComponentConfigurationRecommendationRequest {
   /**
    * <p>The tier of the application component.</p>
    */
-  Tier: Tier | string | undefined;
+  Tier: keyof typeof Tier | string | undefined;
 }
 
 /**
@@ -872,7 +872,7 @@ export interface Observation {
   /**
    * <p>The log filter of the observation.</p>
    */
-  LogFilter?: LogFilter | string;
+  LogFilter?: keyof typeof LogFilter | string;
 
   /**
    * <p>The namespace of the observation metric.</p>
@@ -903,7 +903,7 @@ export interface Observation {
   /**
    * <p> The source of the CloudWatch Event. </p>
    */
-  CloudWatchEventSource?: CloudWatchEventSource | string;
+  CloudWatchEventSource?: keyof typeof CloudWatchEventSource | string;
 
   /**
    * <p> The detail type of the CloudWatch Event-based observation, for example, <code>EC2
@@ -1128,7 +1128,7 @@ export interface Problem {
   /**
    * <p>The status of the problem.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>The resource affected by the problem.</p>
@@ -1148,7 +1148,7 @@ export interface Problem {
   /**
    * <p>A measure of the level of impact of the problem.</p>
    */
-  SeverityLevel?: SeverityLevel | string;
+  SeverityLevel?: keyof typeof SeverityLevel | string;
 
   /**
    * <p>The name of the resource group affected by the problem.</p>
@@ -1158,7 +1158,7 @@ export interface Problem {
   /**
    * <p>Feedback provided by the user about the problem.</p>
    */
-  Feedback?: Record<string, FeedbackValue | string>;
+  Feedback?: Record<string, keyof typeof FeedbackValue | string>;
 
   /**
    * <p> The number of times that the same problem reoccurred after the first time it was
@@ -1304,7 +1304,7 @@ export interface ListConfigurationHistoryRequest {
    * <p>The status of the configuration update event. Possible values include INFO, WARN, and
    *          ERROR.</p>
    */
-  EventStatus?: ConfigurationEventStatus | string;
+  EventStatus?: keyof typeof ConfigurationEventStatus | string;
 
   /**
    * <p> The maximum number of results returned by <code>ListConfigurationHistory</code> in
@@ -1694,7 +1694,7 @@ export interface UpdateComponentConfigurationRequest {
   /**
    * <p>The tier of the application component.</p>
    */
-  Tier?: Tier | string;
+  Tier?: keyof typeof Tier | string;
 
   /**
    * <p>The configuration settings of the component. The value is the escaped JSON of the

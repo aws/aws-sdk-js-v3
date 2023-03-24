@@ -1212,7 +1212,10 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
-const serializeAws_json1_1PermissionsList = (input: (Permissions | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1PermissionsList = (
+  input: (keyof typeof Permissions | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

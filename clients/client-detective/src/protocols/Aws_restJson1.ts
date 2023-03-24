@@ -2093,7 +2093,7 @@ const serializeAws_restJson1AccountList = (input: Account[], context: __SerdeCon
 };
 
 const serializeAws_restJson1DatasourcePackageList = (
-  input: (DatasourcePackage | string)[],
+  input: (keyof typeof DatasourcePackage | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -2174,7 +2174,10 @@ const deserializeAws_restJson1DatasourcePackageIngestDetails = (
   context: __SerdeContext
 ): Record<string, DatasourcePackageIngestDetail> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, DatasourcePackageIngestDetail>, [key, value]: [DatasourcePackage | string, any]) => {
+    (
+      acc: Record<string, DatasourcePackageIngestDetail>,
+      [key, value]: [keyof typeof DatasourcePackage | string, any]
+    ) => {
       if (value === null) {
         return acc;
       }
@@ -2190,7 +2193,10 @@ const deserializeAws_restJson1DatasourcePackageIngestHistory = (
   context: __SerdeContext
 ): Record<string, Record<string, TimestampForCollection>> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, Record<string, TimestampForCollection>>, [key, value]: [DatasourcePackage | string, any]) => {
+    (
+      acc: Record<string, Record<string, TimestampForCollection>>,
+      [key, value]: [keyof typeof DatasourcePackage | string, any]
+    ) => {
       if (value === null) {
         return acc;
       }
@@ -2204,9 +2210,12 @@ const deserializeAws_restJson1DatasourcePackageIngestHistory = (
 const deserializeAws_restJson1DatasourcePackageIngestStates = (
   output: any,
   context: __SerdeContext
-): Record<string, DatasourcePackageIngestState | string> => {
+): Record<string, keyof typeof DatasourcePackageIngestState | string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, DatasourcePackageIngestState | string>, [key, value]: [DatasourcePackage | string, any]) => {
+    (
+      acc: Record<string, keyof typeof DatasourcePackageIngestState | string>,
+      [key, value]: [keyof typeof DatasourcePackage | string, any]
+    ) => {
       if (value === null) {
         return acc;
       }
@@ -2255,7 +2264,10 @@ const deserializeAws_restJson1LastIngestStateChangeDates = (
   context: __SerdeContext
 ): Record<string, TimestampForCollection> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, TimestampForCollection>, [key, value]: [DatasourcePackageIngestState | string, any]) => {
+    (
+      acc: Record<string, TimestampForCollection>,
+      [key, value]: [keyof typeof DatasourcePackageIngestState | string, any]
+    ) => {
       if (value === null) {
         return acc;
       }
@@ -2414,7 +2426,7 @@ const deserializeAws_restJson1VolumeUsageByDatasourcePackage = (
   context: __SerdeContext
 ): Record<string, DatasourcePackageUsageInfo> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, DatasourcePackageUsageInfo>, [key, value]: [DatasourcePackage | string, any]) => {
+    (acc: Record<string, DatasourcePackageUsageInfo>, [key, value]: [keyof typeof DatasourcePackage | string, any]) => {
       if (value === null) {
         return acc;
       }

@@ -3701,13 +3701,16 @@ const serializeAws_restJson1UpstreamRepositoryList = (input: UpstreamRepository[
 };
 
 const deserializeAws_restJson1AssetHashes = (output: any, context: __SerdeContext): Record<string, string> => {
-  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [HashAlgorithm | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, string>, [key, value]: [keyof typeof HashAlgorithm | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = __expectString(value) as any;
       return acc;
-    }
-    acc[key] = __expectString(value) as any;
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeContext): AssetSummary => {

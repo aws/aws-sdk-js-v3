@@ -1485,7 +1485,10 @@ const serializeAws_queryAddPermissionRequest = (input: AddPermissionRequest, con
   return entries;
 };
 
-const serializeAws_queryAttributeNameList = (input: (QueueAttributeName | string)[], context: __SerdeContext): any => {
+const serializeAws_queryAttributeNameList = (
+  input: (keyof typeof QueueAttributeName | string)[],
+  context: __SerdeContext
+): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {

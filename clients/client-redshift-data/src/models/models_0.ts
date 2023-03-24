@@ -377,27 +377,27 @@ export interface SqlParameter {
 /**
  * @public
  */
-export enum StatusString {
-  ABORTED = "ABORTED",
-  ALL = "ALL",
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  PICKED = "PICKED",
-  STARTED = "STARTED",
-  SUBMITTED = "SUBMITTED",
-}
+export const StatusString = {
+  ABORTED: "ABORTED",
+  ALL: "ALL",
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  PICKED: "PICKED",
+  STARTED: "STARTED",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
  */
-export enum StatementStatusString {
-  ABORTED = "ABORTED",
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  PICKED = "PICKED",
-  STARTED = "STARTED",
-  SUBMITTED = "SUBMITTED",
-}
+export const StatementStatusString = {
+  ABORTED: "ABORTED",
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  PICKED: "PICKED",
+  STARTED: "STARTED",
+  SUBMITTED: "SUBMITTED",
+};
 
 /**
  * @public
@@ -426,7 +426,7 @@ export interface SubStatementData {
    *       example is the that the SQL statement finished.
    *       </p>
    */
-  Status?: StatementStatusString | string;
+  Status?: keyof typeof StatementStatusString | string;
 
   /**
    * <p>The date and time (UTC) the statement was created. </p>
@@ -531,7 +531,7 @@ export interface DescribeStatementResponse {
    *             </li>
    *          </ul>
    */
-  Status?: StatusString | string;
+  Status?: keyof typeof StatusString | string;
 
   /**
    * <p>The date and time (UTC) when the SQL statement was submitted to run. </p>
@@ -1142,7 +1142,7 @@ export interface ListStatementsRequest {
    *             </li>
    *          </ul>
    */
-  Status?: StatusString | string;
+  Status?: keyof typeof StatusString | string;
 
   /**
    * <p>A value that filters which statements to return in the response. If true, all statements run by the caller's IAM role are returned.
@@ -1181,7 +1181,7 @@ export interface StatementData {
    *        example is the that the SQL statement finished.
    *       </p>
    */
-  Status?: StatusString | string;
+  Status?: keyof typeof StatusString | string;
 
   /**
    * <p>The name of the SQL statement. </p>

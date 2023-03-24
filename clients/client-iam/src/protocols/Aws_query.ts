@@ -11693,7 +11693,10 @@ const serializeAws_queryEnableMFADeviceRequest = (input: EnableMFADeviceRequest,
   return entries;
 };
 
-const serializeAws_queryentityListType = (input: (EntityType | string)[], context: __SerdeContext): any => {
+const serializeAws_queryentityListType = (
+  input: (keyof typeof EntityType | string)[],
+  context: __SerdeContext
+): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -14065,7 +14068,7 @@ const deserializeAws_queryErrorDetails = (output: any, context: __SerdeContext):
 const deserializeAws_queryEvalDecisionDetailsType = (
   output: any,
   context: __SerdeContext
-): Record<string, PolicyEvaluationDecisionType | string> => {
+): Record<string, keyof typeof PolicyEvaluationDecisionType | string> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;

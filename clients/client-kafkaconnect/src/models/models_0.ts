@@ -95,13 +95,13 @@ export interface CapacityDescription {
 /**
  * @public
  */
-export enum ConnectorState {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  UPDATING = "UPDATING",
-}
+export const ConnectorState = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -150,10 +150,10 @@ export interface KafkaClusterDescription {
 /**
  * @public
  */
-export enum KafkaClusterClientAuthenticationType {
-  IAM = "IAM",
-  NONE = "NONE",
-}
+export const KafkaClusterClientAuthenticationType = {
+  IAM: "IAM",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -165,16 +165,16 @@ export interface KafkaClusterClientAuthenticationDescription {
    * <p>The type of client authentication used to connect to the Apache Kafka cluster. Value
    *          NONE means that no client authentication is used.</p>
    */
-  authenticationType?: KafkaClusterClientAuthenticationType | string;
+  authenticationType?: keyof typeof KafkaClusterClientAuthenticationType | string;
 }
 
 /**
  * @public
  */
-export enum KafkaClusterEncryptionInTransitType {
-  PLAINTEXT = "PLAINTEXT",
-  TLS = "TLS",
-}
+export const KafkaClusterEncryptionInTransitType = {
+  PLAINTEXT: "PLAINTEXT",
+  TLS: "TLS",
+};
 
 /**
  * @public
@@ -184,7 +184,7 @@ export interface KafkaClusterEncryptionInTransitDescription {
   /**
    * <p>The type of encryption in transit to the Apache Kafka cluster.</p>
    */
-  encryptionType?: KafkaClusterEncryptionInTransitType | string;
+  encryptionType?: keyof typeof KafkaClusterEncryptionInTransitType | string;
 }
 
 /**
@@ -347,7 +347,7 @@ export interface ConnectorSummary {
   /**
    * <p>The state of the connector.</p>
    */
-  connectorState?: ConnectorState | string;
+  connectorState?: keyof typeof ConnectorState | string;
 
   /**
    * <p>The time that the connector was created.</p>
@@ -406,22 +406,22 @@ export interface ConnectorSummary {
 /**
  * @public
  */
-export enum CustomPluginState {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const CustomPluginState = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum CustomPluginContentType {
-  JAR = "JAR",
-  ZIP = "ZIP",
-}
+export const CustomPluginContentType = {
+  JAR: "JAR",
+  ZIP: "ZIP",
+};
 
 /**
  * @public
@@ -481,7 +481,7 @@ export interface CustomPluginRevisionSummary {
   /**
    * <p>The format of the plugin file.</p>
    */
-  contentType?: CustomPluginContentType | string;
+  contentType?: keyof typeof CustomPluginContentType | string;
 
   /**
    * <p>The time that the custom plugin was created.</p>
@@ -527,7 +527,7 @@ export interface CustomPluginSummary {
   /**
    * <p>The state of the custom plugin.</p>
    */
-  customPluginState?: CustomPluginState | string;
+  customPluginState?: keyof typeof CustomPluginState | string;
 
   /**
    * <p>A description of the custom plugin.</p>
@@ -918,7 +918,7 @@ export interface KafkaClusterClientAuthentication {
    * <p>The type of client authentication used to connect to the Apache Kafka cluster. Value
    *          NONE means that no client authentication is used.</p>
    */
-  authenticationType: KafkaClusterClientAuthenticationType | string | undefined;
+  authenticationType: keyof typeof KafkaClusterClientAuthenticationType | string | undefined;
 }
 
 /**
@@ -929,7 +929,7 @@ export interface KafkaClusterEncryptionInTransit {
   /**
    * <p>The type of encryption in transit to the Apache Kafka cluster.</p>
    */
-  encryptionType: KafkaClusterEncryptionInTransitType | string | undefined;
+  encryptionType: keyof typeof KafkaClusterEncryptionInTransitType | string | undefined;
 }
 
 /**
@@ -1108,7 +1108,7 @@ export interface CreateConnectorResponse {
   /**
    * <p>The state of the connector.</p>
    */
-  connectorState?: ConnectorState | string;
+  connectorState?: keyof typeof ConnectorState | string;
 }
 
 /**
@@ -1276,7 +1276,7 @@ export interface CreateCustomPluginRequest {
   /**
    * <p>The type of the plugin file.</p>
    */
-  contentType: CustomPluginContentType | string | undefined;
+  contentType: keyof typeof CustomPluginContentType | string | undefined;
 
   /**
    * <p>A summary description of the custom plugin.</p>
@@ -1306,7 +1306,7 @@ export interface CreateCustomPluginResponse {
   /**
    * <p>The state of the custom plugin.</p>
    */
-  customPluginState?: CustomPluginState | string;
+  customPluginState?: keyof typeof CustomPluginState | string;
 
   /**
    * <p>The name of the custom plugin.</p>
@@ -1391,7 +1391,7 @@ export interface DeleteConnectorResponse {
   /**
    * <p>The state of the connector that you requested to delete.</p>
    */
-  connectorState?: ConnectorState | string;
+  connectorState?: keyof typeof ConnectorState | string;
 }
 
 /**
@@ -1416,7 +1416,7 @@ export interface DeleteCustomPluginResponse {
   /**
    * <p>The state of the custom plugin.</p>
    */
-  customPluginState?: CustomPluginState | string;
+  customPluginState?: keyof typeof CustomPluginState | string;
 }
 
 /**
@@ -1478,7 +1478,7 @@ export interface DescribeConnectorResponse {
   /**
    * <p>The state of the connector.</p>
    */
-  connectorState?: ConnectorState | string;
+  connectorState?: keyof typeof ConnectorState | string;
 
   /**
    * <p>The time the connector was created.</p>
@@ -1566,7 +1566,7 @@ export interface DescribeCustomPluginResponse {
   /**
    * <p>The state of the custom plugin.</p>
    */
-  customPluginState?: CustomPluginState | string;
+  customPluginState?: keyof typeof CustomPluginState | string;
 
   /**
    * <p>The description of the custom plugin.</p>
@@ -1796,7 +1796,7 @@ export interface UpdateConnectorResponse {
   /**
    * <p>The state of the connector.</p>
    */
-  connectorState?: ConnectorState | string;
+  connectorState?: keyof typeof ConnectorState | string;
 }
 
 /**

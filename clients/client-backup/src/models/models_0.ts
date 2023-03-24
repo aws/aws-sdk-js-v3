@@ -113,17 +113,17 @@ export interface RecoveryPointCreator {
 /**
  * @public
  */
-export enum BackupJobState {
-  ABORTED = "ABORTED",
-  ABORTING = "ABORTING",
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  PARTIAL = "PARTIAL",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
+export const BackupJobState = {
+  ABORTED: "ABORTED",
+  ABORTING: "ABORTING",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  PARTIAL: "PARTIAL",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -184,7 +184,7 @@ export interface BackupJob {
   /**
    * <p>The current state of a resource recovery point.</p>
    */
-  State?: BackupJobState | string;
+  State?: keyof typeof BackupJobState | string;
 
   /**
    * <p>A detailed message explaining the status of the job to back up a resource.</p>
@@ -677,9 +677,9 @@ export interface Conditions {
 /**
  * @public
  */
-export enum ConditionType {
-  STRINGEQUALS = "STRINGEQUALS",
-}
+export const ConditionType = {
+  STRINGEQUALS: "STRINGEQUALS",
+};
 
 /**
  * @public
@@ -696,7 +696,7 @@ export interface Condition {
    *                <code>BackupSelection</code>
    *             </a>.</p>
    */
-  ConditionType: ConditionType | string | undefined;
+  ConditionType: keyof typeof ConditionType | string | undefined;
 
   /**
    * <p>The key in a key-value pair. For example, in the tag <code>Department:
@@ -845,25 +845,25 @@ export interface BackupSelectionsListMember {
 /**
  * @public
  */
-export enum BackupVaultEvent {
-  BACKUP_JOB_COMPLETED = "BACKUP_JOB_COMPLETED",
-  BACKUP_JOB_EXPIRED = "BACKUP_JOB_EXPIRED",
-  BACKUP_JOB_FAILED = "BACKUP_JOB_FAILED",
-  BACKUP_JOB_STARTED = "BACKUP_JOB_STARTED",
-  BACKUP_JOB_SUCCESSFUL = "BACKUP_JOB_SUCCESSFUL",
-  BACKUP_PLAN_CREATED = "BACKUP_PLAN_CREATED",
-  BACKUP_PLAN_MODIFIED = "BACKUP_PLAN_MODIFIED",
-  COPY_JOB_FAILED = "COPY_JOB_FAILED",
-  COPY_JOB_STARTED = "COPY_JOB_STARTED",
-  COPY_JOB_SUCCESSFUL = "COPY_JOB_SUCCESSFUL",
-  RECOVERY_POINT_MODIFIED = "RECOVERY_POINT_MODIFIED",
-  RESTORE_JOB_COMPLETED = "RESTORE_JOB_COMPLETED",
-  RESTORE_JOB_FAILED = "RESTORE_JOB_FAILED",
-  RESTORE_JOB_STARTED = "RESTORE_JOB_STARTED",
-  RESTORE_JOB_SUCCESSFUL = "RESTORE_JOB_SUCCESSFUL",
-  S3_BACKUP_OBJECT_FAILED = "S3_BACKUP_OBJECT_FAILED",
-  S3_RESTORE_OBJECT_FAILED = "S3_RESTORE_OBJECT_FAILED",
-}
+export const BackupVaultEvent = {
+  BACKUP_JOB_COMPLETED: "BACKUP_JOB_COMPLETED",
+  BACKUP_JOB_EXPIRED: "BACKUP_JOB_EXPIRED",
+  BACKUP_JOB_FAILED: "BACKUP_JOB_FAILED",
+  BACKUP_JOB_STARTED: "BACKUP_JOB_STARTED",
+  BACKUP_JOB_SUCCESSFUL: "BACKUP_JOB_SUCCESSFUL",
+  BACKUP_PLAN_CREATED: "BACKUP_PLAN_CREATED",
+  BACKUP_PLAN_MODIFIED: "BACKUP_PLAN_MODIFIED",
+  COPY_JOB_FAILED: "COPY_JOB_FAILED",
+  COPY_JOB_STARTED: "COPY_JOB_STARTED",
+  COPY_JOB_SUCCESSFUL: "COPY_JOB_SUCCESSFUL",
+  RECOVERY_POINT_MODIFIED: "RECOVERY_POINT_MODIFIED",
+  RESTORE_JOB_COMPLETED: "RESTORE_JOB_COMPLETED",
+  RESTORE_JOB_FAILED: "RESTORE_JOB_FAILED",
+  RESTORE_JOB_STARTED: "RESTORE_JOB_STARTED",
+  RESTORE_JOB_SUCCESSFUL: "RESTORE_JOB_SUCCESSFUL",
+  S3_BACKUP_OBJECT_FAILED: "S3_BACKUP_OBJECT_FAILED",
+  S3_RESTORE_OBJECT_FAILED: "S3_RESTORE_OBJECT_FAILED",
+};
 
 /**
  * @public
@@ -1288,13 +1288,13 @@ export interface ControlScope {
 /**
  * @public
  */
-export enum CopyJobState {
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  FAILED = "FAILED",
-  PARTIAL = "PARTIAL",
-  RUNNING = "RUNNING",
-}
+export const CopyJobState = {
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  PARTIAL: "PARTIAL",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -1359,7 +1359,7 @@ export interface CopyJob {
   /**
    * <p>The current state of a copy job.</p>
    */
-  State?: CopyJobState | string;
+  State?: keyof typeof CopyJobState | string;
 
   /**
    * <p>A detailed message explaining the status of the job to copy a resource.</p>
@@ -1808,12 +1808,12 @@ export interface CreateLegalHoldInput {
 /**
  * @public
  */
-export enum LegalHoldStatus {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  CANCELING = "CANCELING",
-  CREATING = "CREATING",
-}
+export const LegalHoldStatus = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  CANCELING: "CANCELING",
+  CREATING: "CREATING",
+};
 
 /**
  * @public
@@ -1829,7 +1829,7 @@ export interface CreateLegalHoldOutput {
    *          Statuses can be <code>ACTIVE</code>, <code>PENDING</code>, <code>CANCELED</code>,
    *          <code>CANCELING</code>, or <code>FAILED</code>.</p>
    */
-  Status?: LegalHoldStatus | string;
+  Status?: keyof typeof LegalHoldStatus | string;
 
   /**
    * <p>This is the returned string description of the legal hold.</p>
@@ -2282,7 +2282,7 @@ export interface DescribeBackupJobOutput {
   /**
    * <p>The current state of a resource recovery point.</p>
    */
-  State?: BackupJobState | string;
+  State?: keyof typeof BackupJobState | string;
 
   /**
    * <p>A detailed message explaining the status of the job to back up a resource.</p>
@@ -2680,21 +2680,21 @@ export interface DescribeRecoveryPointInput {
 /**
  * @public
  */
-export enum RecoveryPointStatus {
-  COMPLETED = "COMPLETED",
-  DELETING = "DELETING",
-  EXPIRED = "EXPIRED",
-  PARTIAL = "PARTIAL",
-}
+export const RecoveryPointStatus = {
+  COMPLETED: "COMPLETED",
+  DELETING: "DELETING",
+  EXPIRED: "EXPIRED",
+  PARTIAL: "PARTIAL",
+};
 
 /**
  * @public
  */
-export enum StorageClass {
-  COLD = "COLD",
-  DELETED = "DELETED",
-  WARM = "WARM",
-}
+export const StorageClass = {
+  COLD: "COLD",
+  DELETED: "DELETED",
+  WARM: "WARM",
+};
 
 /**
  * @public
@@ -2776,7 +2776,7 @@ export interface DescribeRecoveryPointOutput {
    *          of a backup rule running will result in a new continuous recovery point being created.
    *          The recovery points with STOPPED status do not need to be deleted.</p>
    */
-  Status?: RecoveryPointStatus | string;
+  Status?: keyof typeof RecoveryPointStatus | string;
 
   /**
    * <p>A status message explaining the reason for the recovery point deletion failure.</p>
@@ -2841,7 +2841,7 @@ export interface DescribeRecoveryPointOutput {
    * <p>Specifies the storage class of the recovery point. Valid values are <code>WARM</code> or
    *             <code>COLD</code>.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: keyof typeof StorageClass | string;
 
   /**
    * <p>The date and time that a recovery point was last restored, in Unix format and
@@ -3124,13 +3124,13 @@ export interface DescribeRestoreJobInput {
 /**
  * @public
  */
-export enum RestoreJobStatus {
-  ABORTED = "ABORTED",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-}
+export const RestoreJobStatus = {
+  ABORTED: "ABORTED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -3172,7 +3172,7 @@ export interface DescribeRestoreJobOutput {
    * <p>Status code specifying the state of the job that is initiated by Backup to
    *          restore a recovery point.</p>
    */
-  Status?: RestoreJobStatus | string;
+  Status?: keyof typeof RestoreJobStatus | string;
 
   /**
    * <p>A message showing the status of a job to restore a recovery point.</p>
@@ -3526,7 +3526,7 @@ export interface GetBackupVaultNotificationsOutput {
    * <p>An array of events that indicate the status of jobs to back up resources to the backup
    *          vault.</p>
    */
-  BackupVaultEvents?: (BackupVaultEvent | string)[];
+  BackupVaultEvents?: (keyof typeof BackupVaultEvent | string)[];
 }
 
 /**
@@ -3554,7 +3554,7 @@ export interface GetLegalHoldOutput {
    *          <code>ACTIVE</code>, <code>CREATING</code>, <code>CANCELED</code>, and
    *          <code>CANCELING</code>.</p>
    */
-  Status?: LegalHoldStatus | string;
+  Status?: keyof typeof LegalHoldStatus | string;
 
   /**
    * <p>This is the returned string description of the legal hold.</p>
@@ -3722,7 +3722,7 @@ export interface ListBackupJobsInput {
   /**
    * <p>Returns only backup jobs that are in the specified state.</p>
    */
-  ByState?: BackupJobState | string;
+  ByState?: keyof typeof BackupJobState | string;
 
   /**
    * <p>Returns only backup jobs that will be stored in the specified backup vault. Backup
@@ -4067,7 +4067,7 @@ export interface ListCopyJobsInput {
   /**
    * <p>Returns only copy jobs that are in the specified state.</p>
    */
-  ByState?: CopyJobState | string;
+  ByState?: keyof typeof CopyJobState | string;
 
   /**
    * <p>Returns only copy jobs that were created before the specified date.</p>
@@ -4305,7 +4305,7 @@ export interface LegalHold {
    *          <code>ACTIVE</code>, <code>CREATING</code>, <code>CANCELED</code>, and
    *          <code>CANCELING</code>.</p>
    */
-  Status?: LegalHoldStatus | string;
+  Status?: keyof typeof LegalHoldStatus | string;
 
   /**
    * <p>This is the description of a legal hold.</p>
@@ -4545,7 +4545,7 @@ export interface RecoveryPointByBackupVault {
   /**
    * <p>A status code specifying the state of the recovery point.</p>
    */
-  Status?: RecoveryPointStatus | string;
+  Status?: keyof typeof RecoveryPointStatus | string;
 
   /**
    * <p>A message explaining the reason of the recovery point deletion failure.</p>
@@ -4764,7 +4764,7 @@ export interface RecoveryPointByResource {
   /**
    * <p>A status code specifying the state of the recovery point.</p>
    */
-  Status?: RecoveryPointStatus | string;
+  Status?: keyof typeof RecoveryPointStatus | string;
 
   /**
    * <p>A message explaining the reason of the recovery point deletion failure.</p>
@@ -4964,7 +4964,7 @@ export interface ListRestoreJobsInput {
   /**
    * <p>Returns only restore jobs associated with the specified job status.</p>
    */
-  ByStatus?: RestoreJobStatus | string;
+  ByStatus?: keyof typeof RestoreJobStatus | string;
 
   /**
    * <p>Returns only copy jobs completed before a date expressed in Unix format and Coordinated
@@ -5020,7 +5020,7 @@ export interface RestoreJobsListMember {
    * <p>A status code specifying the state of the job initiated by Backup to restore
    *          a recovery point.</p>
    */
-  Status?: RestoreJobStatus | string;
+  Status?: keyof typeof RestoreJobStatus | string;
 
   /**
    * <p>A detailed message explaining the status of the job to restore a recovery point.</p>
@@ -5264,7 +5264,7 @@ export interface PutBackupVaultNotificationsInput {
    *             Refer to the list above for current supported events.</p>
    *          </note>
    */
-  BackupVaultEvents: (BackupVaultEvent | string)[] | undefined;
+  BackupVaultEvents: (keyof typeof BackupVaultEvent | string)[] | undefined;
 }
 
 /**

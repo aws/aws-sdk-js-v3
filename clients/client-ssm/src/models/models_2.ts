@@ -177,7 +177,7 @@ export interface UpdateAssociationRequest {
   /**
    * <p>The severity level to assign to the association.</p>
    */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
+  ComplianceSeverity?: keyof typeof AssociationComplianceSeverity | string;
 
   /**
    * <p>The mode for generating association compliance. You can specify <code>AUTO</code> or
@@ -191,7 +191,7 @@ export interface UpdateAssociationRequest {
    *     <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    */
-  SyncCompliance?: AssociationSyncCompliance | string;
+  SyncCompliance?: keyof typeof AssociationSyncCompliance | string;
 
   /**
    * <p>By default, when you update an association, the system runs it immediately after it is
@@ -431,7 +431,7 @@ export interface UpdateDocumentRequest {
    * <p>Specify the document format for the new document version. Systems Manager supports JSON and YAML
    *    documents. JSON is the default format.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: keyof typeof DocumentFormat | string;
 
   /**
    * <p>Specify a new target type for the document.</p>
@@ -498,12 +498,12 @@ export interface UpdateDocumentDefaultVersionResult {
 /**
  * @public
  */
-export enum DocumentReviewAction {
-  Approve = "Approve",
-  Reject = "Reject",
-  SendForReview = "SendForReview",
-  UpdateReview = "UpdateReview",
-}
+export const DocumentReviewAction = {
+  Approve: "Approve",
+  Reject: "Reject",
+  SendForReview: "SendForReview",
+  UpdateReview: "UpdateReview",
+};
 
 /**
  * @public
@@ -513,7 +513,7 @@ export interface DocumentReviews {
   /**
    * <p>The action to take on a document approval review request.</p>
    */
-  Action: DocumentReviewAction | string | undefined;
+  Action: keyof typeof DocumentReviewAction | string | undefined;
 
   /**
    * <p>A comment entered by a user in your organization about the document review request.</p>
@@ -962,7 +962,7 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *             </li>
    *          </ul>
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  CutoffBehavior?: keyof typeof MaintenanceWindowTaskCutoffBehavior | string;
 
   /**
    * <p>The CloudWatch alarm you want to apply to your maintenance window task.</p>
@@ -1058,7 +1058,7 @@ export interface UpdateMaintenanceWindowTaskResult {
    * <p>The specification for whether tasks should continue to run after the cutoff time specified
    *    in the maintenance windows is reached. </p>
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  CutoffBehavior?: keyof typeof MaintenanceWindowTaskCutoffBehavior | string;
 
   /**
    * <p>The details for the CloudWatch alarm you applied to your maintenance window
@@ -1156,7 +1156,7 @@ export interface UpdateOpsItemRequest {
    * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
    *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details">Editing OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  Status?: OpsItemStatus | string;
+  Status?: keyof typeof OpsItemStatus | string;
 
   /**
    * <p>The ID of the OpsItem.</p>
@@ -1299,7 +1299,7 @@ export interface UpdatePatchBaselineRequest {
   /**
    * <p>Assigns a new compliance severity level to an existing patch baseline.</p>
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesComplianceLevel?: keyof typeof PatchComplianceLevel | string;
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
@@ -1341,7 +1341,7 @@ export interface UpdatePatchBaselineRequest {
    *             </li>
    *          </ul>
    */
-  RejectedPatchesAction?: PatchAction | string;
+  RejectedPatchesAction?: keyof typeof PatchAction | string;
 
   /**
    * <p>A description of the patch baseline.</p>
@@ -1379,7 +1379,7 @@ export interface UpdatePatchBaselineResult {
   /**
    * <p>The operating system rule used by the updated patch baseline.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: keyof typeof OperatingSystem | string;
 
   /**
    * <p>A set of global filters used to exclude patches from the baseline.</p>
@@ -1400,7 +1400,7 @@ export interface UpdatePatchBaselineResult {
    * <p>The compliance severity level assigned to the patch baseline after the update
    *    completed.</p>
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesComplianceLevel?: keyof typeof PatchComplianceLevel | string;
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
@@ -1419,7 +1419,7 @@ export interface UpdatePatchBaselineResult {
    *    patch can be allowed only if it is a dependency of another package, or blocked entirely along
    *    with packages that include it as a dependency.</p>
    */
-  RejectedPatchesAction?: PatchAction | string;
+  RejectedPatchesAction?: keyof typeof PatchAction | string;
 
   /**
    * <p>The date when the patch baseline was created.</p>

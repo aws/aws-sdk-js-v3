@@ -6,12 +6,12 @@ import { AmplifyBackendServiceException as __BaseException } from "./AmplifyBack
 /**
  * @public
  */
-export enum AdditionalConstraintsElement {
-  REQUIRE_DIGIT = "REQUIRE_DIGIT",
-  REQUIRE_LOWERCASE = "REQUIRE_LOWERCASE",
-  REQUIRE_SYMBOL = "REQUIRE_SYMBOL",
-  REQUIRE_UPPERCASE = "REQUIRE_UPPERCASE",
-}
+export const AdditionalConstraintsElement = {
+  REQUIRE_DIGIT: "REQUIRE_DIGIT",
+  REQUIRE_LOWERCASE: "REQUIRE_LOWERCASE",
+  REQUIRE_SYMBOL: "REQUIRE_SYMBOL",
+  REQUIRE_UPPERCASE: "REQUIRE_UPPERCASE",
+};
 
 /**
  * @public
@@ -256,12 +256,12 @@ export interface CreateBackendResponse {
 /**
  * @public
  */
-export enum Mode {
-  AMAZON_COGNITO_USER_POOLS = "AMAZON_COGNITO_USER_POOLS",
-  API_KEY = "API_KEY",
-  AWS_IAM = "AWS_IAM",
-  OPENID_CONNECT = "OPENID_CONNECT",
-}
+export const Mode = {
+  AMAZON_COGNITO_USER_POOLS: "AMAZON_COGNITO_USER_POOLS",
+  API_KEY: "API_KEY",
+  AWS_IAM: "AWS_IAM",
+  OPENID_CONNECT: "OPENID_CONNECT",
+};
 
 /**
  * @public
@@ -317,7 +317,7 @@ export interface BackendAPIAuthType {
   /**
    * <p>Describes the authentication mode.</p>
    */
-  Mode?: Mode | string;
+  Mode?: keyof typeof Mode | string;
 
   /**
    * <p>Describes settings for the authentication mode.</p>
@@ -328,12 +328,12 @@ export interface BackendAPIAuthType {
 /**
  * @public
  */
-export enum ResolutionStrategy {
-  AUTOMERGE = "AUTOMERGE",
-  LAMBDA = "LAMBDA",
-  NONE = "NONE",
-  OPTIMISTIC_CONCURRENCY = "OPTIMISTIC_CONCURRENCY",
-}
+export const ResolutionStrategy = {
+  AUTOMERGE: "AUTOMERGE",
+  LAMBDA: "LAMBDA",
+  NONE: "NONE",
+  OPTIMISTIC_CONCURRENCY: "OPTIMISTIC_CONCURRENCY",
+};
 
 /**
  * @public
@@ -343,7 +343,7 @@ export interface BackendAPIConflictResolution {
   /**
    * <p>The strategy for conflict resolution.</p>
    */
-  ResolutionStrategy?: ResolutionStrategy | string;
+  ResolutionStrategy?: keyof typeof ResolutionStrategy | string;
 }
 
 /**
@@ -446,10 +446,10 @@ export interface CreateBackendAPIResponse {
 /**
  * @public
  */
-export enum AuthResources {
-  IDENTITY_POOL_AND_USER_POOL = "IDENTITY_POOL_AND_USER_POOL",
-  USER_POOL_ONLY = "USER_POOL_ONLY",
-}
+export const AuthResources = {
+  IDENTITY_POOL_AND_USER_POOL: "IDENTITY_POOL_AND_USER_POOL",
+  USER_POOL_ONLY: "USER_POOL_ONLY",
+};
 
 /**
  * @public
@@ -470,17 +470,17 @@ export interface CreateBackendAuthIdentityPoolConfig {
 /**
  * @public
  */
-export enum Service {
-  COGNITO = "COGNITO",
-}
+export const Service = {
+  COGNITO: "COGNITO",
+};
 
 /**
  * @public
  */
-export enum DeliveryMethod {
-  EMAIL = "EMAIL",
-  SMS = "SMS",
-}
+export const DeliveryMethod = {
+  EMAIL: "EMAIL",
+  SMS: "SMS",
+};
 
 /**
  * @public
@@ -517,7 +517,7 @@ export interface CreateBackendAuthForgotPasswordConfig {
   /**
    * <p><b>(DEPRECATED)</b> Describes which mode to use (either SMS or email) to deliver messages to app users who want to recover their password.</p>
    */
-  DeliveryMethod: DeliveryMethod | string | undefined;
+  DeliveryMethod: keyof typeof DeliveryMethod | string | undefined;
 
   /**
    * <p><b>(DEPRECATED)</b> The configuration for the email sent when an app user forgets their password.</p>
@@ -533,19 +533,19 @@ export interface CreateBackendAuthForgotPasswordConfig {
 /**
  * @public
  */
-export enum MFAMode {
-  OFF = "OFF",
-  ON = "ON",
-  OPTIONAL = "OPTIONAL",
-}
+export const MFAMode = {
+  OFF: "OFF",
+  ON: "ON",
+  OPTIONAL: "OPTIONAL",
+};
 
 /**
  * @public
  */
-export enum MfaTypesElement {
-  SMS = "SMS",
-  TOTP = "TOTP",
-}
+export const MfaTypesElement = {
+  SMS: "SMS",
+  TOTP: "TOTP",
+};
 
 /**
  * @public
@@ -555,7 +555,7 @@ export interface Settings {
   /**
    * <p>The supported MFA types.</p>
    */
-  MfaTypes?: (MfaTypesElement | string)[];
+  MfaTypes?: (keyof typeof MfaTypesElement | string)[];
 
   /**
    * <p>The body of the SMS message.</p>
@@ -571,7 +571,7 @@ export interface CreateBackendAuthMFAConfig {
   /**
    * <p>Describes whether MFA should be [ON, OFF, or OPTIONAL] for authentication in your Amplify project.</p>
    */
-  MFAMode: MFAMode | string | undefined;
+  MFAMode: keyof typeof MFAMode | string | undefined;
 
   /**
    * <p>Describes the configuration settings and methods for your Amplify app users to use MFA.</p>
@@ -582,21 +582,21 @@ export interface CreateBackendAuthMFAConfig {
 /**
  * @public
  */
-export enum OAuthGrantType {
-  CODE = "CODE",
-  IMPLICIT = "IMPLICIT",
-}
+export const OAuthGrantType = {
+  CODE: "CODE",
+  IMPLICIT: "IMPLICIT",
+};
 
 /**
  * @public
  */
-export enum OAuthScopesElement {
-  AWS_COGNITO_SIGNIN_USER_ADMIN = "AWS_COGNITO_SIGNIN_USER_ADMIN",
-  EMAIL = "EMAIL",
-  OPENID = "OPENID",
-  PHONE = "PHONE",
-  PROFILE = "PROFILE",
-}
+export const OAuthScopesElement = {
+  AWS_COGNITO_SIGNIN_USER_ADMIN: "AWS_COGNITO_SIGNIN_USER_ADMIN",
+  EMAIL: "EMAIL",
+  OPENID: "OPENID",
+  PHONE: "PHONE",
+  PROFILE: "PROFILE",
+};
 
 /**
  * @public
@@ -679,12 +679,12 @@ export interface CreateBackendAuthOAuthConfig {
   /**
    * <p>The OAuth grant type that you use to allow app users to authenticate from your Amplify app.</p>
    */
-  OAuthGrantType: OAuthGrantType | string | undefined;
+  OAuthGrantType: keyof typeof OAuthGrantType | string | undefined;
 
   /**
    * <p>List of OAuth-related flows used to allow your app users to authenticate from your Amplify app.</p>
    */
-  OAuthScopes: (OAuthScopesElement | string)[] | undefined;
+  OAuthScopes: (keyof typeof OAuthScopesElement | string)[] | undefined;
 
   /**
    * <p>The redirected URI for signing in to your Amplify app.</p>
@@ -710,7 +710,7 @@ export interface CreateBackendAuthPasswordPolicyConfig {
   /**
    * <p>Additional constraints for the password used to access the backend of your Amplify project.</p>
    */
-  AdditionalConstraints?: (AdditionalConstraintsElement | string)[];
+  AdditionalConstraints?: (keyof typeof AdditionalConstraintsElement | string)[];
 
   /**
    * <p>The minimum length of the password used to access the backend of your Amplify project.</p>
@@ -721,35 +721,35 @@ export interface CreateBackendAuthPasswordPolicyConfig {
 /**
  * @public
  */
-export enum RequiredSignUpAttributesElement {
-  ADDRESS = "ADDRESS",
-  BIRTHDATE = "BIRTHDATE",
-  EMAIL = "EMAIL",
-  FAMILY_NAME = "FAMILY_NAME",
-  GENDER = "GENDER",
-  GIVEN_NAME = "GIVEN_NAME",
-  LOCALE = "LOCALE",
-  MIDDLE_NAME = "MIDDLE_NAME",
-  NAME = "NAME",
-  NICKNAME = "NICKNAME",
-  PHONE_NUMBER = "PHONE_NUMBER",
-  PICTURE = "PICTURE",
-  PREFERRED_USERNAME = "PREFERRED_USERNAME",
-  PROFILE = "PROFILE",
-  UPDATED_AT = "UPDATED_AT",
-  WEBSITE = "WEBSITE",
-  ZONE_INFO = "ZONE_INFO",
-}
+export const RequiredSignUpAttributesElement = {
+  ADDRESS: "ADDRESS",
+  BIRTHDATE: "BIRTHDATE",
+  EMAIL: "EMAIL",
+  FAMILY_NAME: "FAMILY_NAME",
+  GENDER: "GENDER",
+  GIVEN_NAME: "GIVEN_NAME",
+  LOCALE: "LOCALE",
+  MIDDLE_NAME: "MIDDLE_NAME",
+  NAME: "NAME",
+  NICKNAME: "NICKNAME",
+  PHONE_NUMBER: "PHONE_NUMBER",
+  PICTURE: "PICTURE",
+  PREFERRED_USERNAME: "PREFERRED_USERNAME",
+  PROFILE: "PROFILE",
+  UPDATED_AT: "UPDATED_AT",
+  WEBSITE: "WEBSITE",
+  ZONE_INFO: "ZONE_INFO",
+};
 
 /**
  * @public
  */
-export enum SignInMethod {
-  EMAIL = "EMAIL",
-  EMAIL_AND_PHONE_NUMBER = "EMAIL_AND_PHONE_NUMBER",
-  PHONE_NUMBER = "PHONE_NUMBER",
-  USERNAME = "USERNAME",
-}
+export const SignInMethod = {
+  EMAIL: "EMAIL",
+  EMAIL_AND_PHONE_NUMBER: "EMAIL_AND_PHONE_NUMBER",
+  PHONE_NUMBER: "PHONE_NUMBER",
+  USERNAME: "USERNAME",
+};
 
 /**
  * @public
@@ -759,7 +759,7 @@ export interface CreateBackendAuthVerificationMessageConfig {
   /**
    * <p>The type of verification message to send.</p>
    */
-  DeliveryMethod: DeliveryMethod | string | undefined;
+  DeliveryMethod: keyof typeof DeliveryMethod | string | undefined;
 
   /**
    * <p>The settings for the email message.</p>
@@ -800,12 +800,12 @@ export interface CreateBackendAuthUserPoolConfig {
   /**
    * <p>The required attributes to sign up new users in the user pool.</p>
    */
-  RequiredSignUpAttributes: (RequiredSignUpAttributesElement | string)[] | undefined;
+  RequiredSignUpAttributes: (keyof typeof RequiredSignUpAttributesElement | string)[] | undefined;
 
   /**
    * <p>Describes the sign-in methods that your Amplify app users use to log in using the Amazon Cognito user pool, configured as a part of your Amplify project.</p>
    */
-  SignInMethod: SignInMethod | string | undefined;
+  SignInMethod: keyof typeof SignInMethod | string | undefined;
 
   /**
    * <p>The Amazon Cognito user pool name.</p>
@@ -826,7 +826,7 @@ export interface CreateBackendAuthResourceConfig {
   /**
    * <p>Defines whether you want to configure only authentication or both authentication and authorization settings.</p>
    */
-  AuthResources: AuthResources | string | undefined;
+  AuthResources: keyof typeof AuthResources | string | undefined;
 
   /**
    * <p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of your auth resource in the Amplify project.</p>
@@ -836,7 +836,7 @@ export interface CreateBackendAuthResourceConfig {
   /**
    * <p>Defines the service name to use when configuring an authentication resource in your Amplify project.</p>
    */
-  Service: Service | string | undefined;
+  Service: keyof typeof Service | string | undefined;
 
   /**
    * <p>Describes authentication configuration for the Amazon Cognito user pool, provisioned as a part of your auth resource in the Amplify project.</p>
@@ -949,20 +949,20 @@ export interface CreateBackendConfigResponse {
 /**
  * @public
  */
-export enum AuthenticatedElement {
-  CREATE_AND_UPDATE = "CREATE_AND_UPDATE",
-  DELETE = "DELETE",
-  READ = "READ",
-}
+export const AuthenticatedElement = {
+  CREATE_AND_UPDATE: "CREATE_AND_UPDATE",
+  DELETE: "DELETE",
+  READ: "READ",
+};
 
 /**
  * @public
  */
-export enum UnAuthenticatedElement {
-  CREATE_AND_UPDATE = "CREATE_AND_UPDATE",
-  DELETE = "DELETE",
-  READ = "READ",
-}
+export const UnAuthenticatedElement = {
+  CREATE_AND_UPDATE: "CREATE_AND_UPDATE",
+  DELETE: "DELETE",
+  READ: "READ",
+};
 
 /**
  * @public
@@ -972,20 +972,20 @@ export interface BackendStoragePermissions {
   /**
    * <p>Lists all authenticated user read, write, and delete permissions for your S3 bucket.</p>
    */
-  Authenticated: (AuthenticatedElement | string)[] | undefined;
+  Authenticated: (keyof typeof AuthenticatedElement | string)[] | undefined;
 
   /**
    * <p>Lists all unauthenticated user read, write, and delete permissions for your S3 bucket.</p>
    */
-  UnAuthenticated?: (UnAuthenticatedElement | string)[];
+  UnAuthenticated?: (keyof typeof UnAuthenticatedElement | string)[];
 }
 
 /**
  * @public
  */
-export enum ServiceName {
-  S3 = "S3",
-}
+export const ServiceName = {
+  S3: "S3",
+};
 
 /**
  * @public
@@ -1005,7 +1005,7 @@ export interface CreateBackendStorageResourceConfig {
   /**
    * <p>The name of the storage service.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: keyof typeof ServiceName | string | undefined;
 }
 
 /**
@@ -1284,7 +1284,7 @@ export interface DeleteBackendStorageRequest {
   /**
    * <p>The name of the storage service.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: keyof typeof ServiceName | string | undefined;
 }
 
 /**
@@ -1529,10 +1529,10 @@ export interface GetBackendAPIModelsRequest {
 /**
  * @public
  */
-export enum Status {
-  LATEST = "LATEST",
-  STALE = "STALE",
-}
+export const Status = {
+  LATEST: "LATEST",
+  STALE: "STALE",
+};
 
 /**
  * @public
@@ -1546,7 +1546,7 @@ export interface GetBackendAPIModelsResponse {
   /**
    * <p>The current status of the request.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>Stringified JSON of the model introspection schema for an existing backend API resource.</p>
@@ -1714,7 +1714,7 @@ export interface GetBackendStorageResourceConfig {
   /**
    * <p>The name of the storage service.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: keyof typeof ServiceName | string | undefined;
 }
 
 /**
@@ -1876,7 +1876,7 @@ export interface ImportBackendStorageRequest {
   /**
    * <p>The name of the storage service.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: keyof typeof ServiceName | string | undefined;
 }
 
 /**
@@ -2194,7 +2194,7 @@ export interface UpdateBackendAuthForgotPasswordConfig {
   /**
    * <p><b>(DEPRECATED)</b> Describes which mode to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>
    */
-  DeliveryMethod?: DeliveryMethod | string;
+  DeliveryMethod?: keyof typeof DeliveryMethod | string;
 
   /**
    * <p><b>(DEPRECATED)</b> The configuration for the email sent when an app user forgets their password.</p>
@@ -2215,7 +2215,7 @@ export interface UpdateBackendAuthMFAConfig {
   /**
    * <p>The MFA mode for the backend of your Amplify project.</p>
    */
-  MFAMode?: MFAMode | string;
+  MFAMode?: keyof typeof MFAMode | string;
 
   /**
    * <p>The settings of your MFA configuration for the backend of your Amplify project.</p>
@@ -2236,12 +2236,12 @@ export interface UpdateBackendAuthOAuthConfig {
   /**
    * <p>The OAuth grant type to allow app users to authenticate from your Amplify app.</p>
    */
-  OAuthGrantType?: OAuthGrantType | string;
+  OAuthGrantType?: keyof typeof OAuthGrantType | string;
 
   /**
    * <p>The list of OAuth-related flows that can allow users to authenticate from your Amplify app.</p>
    */
-  OAuthScopes?: (OAuthScopesElement | string)[];
+  OAuthScopes?: (keyof typeof OAuthScopesElement | string)[];
 
   /**
    * <p>Redirect URLs that OAuth uses when a user signs in to an Amplify app.</p>
@@ -2267,7 +2267,7 @@ export interface UpdateBackendAuthPasswordPolicyConfig {
   /**
    * <p>Describes additional constraints on password requirements to sign in to the auth resource, configured as a part of your Amplify project.</p>
    */
-  AdditionalConstraints?: (AdditionalConstraintsElement | string)[];
+  AdditionalConstraints?: (keyof typeof AdditionalConstraintsElement | string)[];
 
   /**
    * <p>Describes the minimum length of the password required to sign in to the auth resource, configured as a part of your Amplify project.</p>
@@ -2283,7 +2283,7 @@ export interface UpdateBackendAuthVerificationMessageConfig {
   /**
    * <p>The type of verification message to send.</p>
    */
-  DeliveryMethod: DeliveryMethod | string | undefined;
+  DeliveryMethod: keyof typeof DeliveryMethod | string | undefined;
 
   /**
    * <p>The settings for the email message.</p>
@@ -2335,7 +2335,7 @@ export interface UpdateBackendAuthResourceConfig {
   /**
    * <p>Defines the service name to use when configuring an authentication resource in your Amplify project.</p>
    */
-  AuthResources: AuthResources | string | undefined;
+  AuthResources: keyof typeof AuthResources | string | undefined;
 
   /**
    * <p>Describes the authorization configuration for the Amazon Cognito identity pool, provisioned as a part of your auth resource in the Amplify project.</p>
@@ -2345,7 +2345,7 @@ export interface UpdateBackendAuthResourceConfig {
   /**
    * <p>Defines the service name to use when configuring an authentication resource in your Amplify project.</p>
    */
-  Service: Service | string | undefined;
+  Service: keyof typeof Service | string | undefined;
 
   /**
    * <p>Describes the authentication configuration for the Amazon Cognito user pool, provisioned as a part of your auth resource in the Amplify project.</p>
@@ -2570,7 +2570,7 @@ export interface UpdateBackendStorageResourceConfig {
   /**
    * <p>The name of the storage service.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: keyof typeof ServiceName | string | undefined;
 }
 
 /**

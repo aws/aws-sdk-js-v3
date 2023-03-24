@@ -68,11 +68,11 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum DestinationState {
-  DECOMMISSIONED = "DECOMMISSIONED",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const DestinationState = {
+  DECOMMISSIONED: "DECOMMISSIONED",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -96,7 +96,7 @@ export interface CreateDestinationRequest {
   /**
    * The state of the destination. Default used if not specified.
    */
-  state?: DestinationState | string;
+  state?: keyof typeof DestinationState | string;
 
   /**
    * JSON document containing additional fixed properties regarding the destination
@@ -131,7 +131,7 @@ export interface CreateDestinationResponse {
   /**
    * State of the destination.
    */
-  state: DestinationState | string | undefined;
+  state: keyof typeof DestinationState | string | undefined;
 }
 
 /**
@@ -605,7 +605,7 @@ export interface Destination {
   /**
    * State of the destination.
    */
-  state: DestinationState | string | undefined;
+  state: keyof typeof DestinationState | string | undefined;
 
   /**
    * JSON document containing additional fixed properties regarding the destination
@@ -660,7 +660,7 @@ export interface GetDestinationResponse {
   /**
    * State of the destination.
    */
-  state: DestinationState | string | undefined;
+  state: keyof typeof DestinationState | string | undefined;
 
   /**
    * JSON document containing additional fixed properties regarding the destination
@@ -691,7 +691,7 @@ export interface ListDestinationsRequest {
   /**
    * State of the destination.
    */
-  state?: DestinationState | string;
+  state?: keyof typeof DestinationState | string;
 }
 
 /**
@@ -727,7 +727,7 @@ export interface UpdateDestinationRequest {
   /**
    * State of the destination.
    */
-  state?: DestinationState | string;
+  state?: keyof typeof DestinationState | string;
 
   /**
    * JSON document containing additional fixed properties regarding the destination
@@ -762,7 +762,7 @@ export interface UpdateDestinationResponse {
   /**
    * State of the destination.
    */
-  state: DestinationState | string | undefined;
+  state: keyof typeof DestinationState | string | undefined;
 
   /**
    * JSON document containing additional fixed properties regarding the destination

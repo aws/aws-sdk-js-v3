@@ -27,25 +27,25 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum RuntimeAnalysisStatus {
-  ANALYSIS_FAILED = "ANALYSIS_FAILED",
-  ANALYSIS_STARTED = "ANALYSIS_STARTED",
-  ANALYSIS_SUCCESS = "ANALYSIS_SUCCESS",
-  ANALYSIS_TO_BE_SCHEDULED = "ANALYSIS_TO_BE_SCHEDULED",
-}
+export const RuntimeAnalysisStatus = {
+  ANALYSIS_FAILED: "ANALYSIS_FAILED",
+  ANALYSIS_STARTED: "ANALYSIS_STARTED",
+  ANALYSIS_SUCCESS: "ANALYSIS_SUCCESS",
+  ANALYSIS_TO_BE_SCHEDULED: "ANALYSIS_TO_BE_SCHEDULED",
+};
 
 /**
  * @public
  */
-export enum SrcCodeOrDbAnalysisStatus {
-  ANALYSIS_FAILED = "ANALYSIS_FAILED",
-  ANALYSIS_PARTIAL_SUCCESS = "ANALYSIS_PARTIAL_SUCCESS",
-  ANALYSIS_STARTED = "ANALYSIS_STARTED",
-  ANALYSIS_SUCCESS = "ANALYSIS_SUCCESS",
-  ANALYSIS_TO_BE_SCHEDULED = "ANALYSIS_TO_BE_SCHEDULED",
-  CONFIGURED = "CONFIGURED",
-  UNCONFIGURED = "UNCONFIGURED",
-}
+export const SrcCodeOrDbAnalysisStatus = {
+  ANALYSIS_FAILED: "ANALYSIS_FAILED",
+  ANALYSIS_PARTIAL_SUCCESS: "ANALYSIS_PARTIAL_SUCCESS",
+  ANALYSIS_STARTED: "ANALYSIS_STARTED",
+  ANALYSIS_SUCCESS: "ANALYSIS_SUCCESS",
+  ANALYSIS_TO_BE_SCHEDULED: "ANALYSIS_TO_BE_SCHEDULED",
+  CONFIGURED: "CONFIGURED",
+  UNCONFIGURED: "UNCONFIGURED",
+};
 
 /**
  * @public
@@ -64,7 +64,7 @@ export namespace AnalysisStatusUnion {
    * <p>The status of the analysis.</p>
    */
   export interface RuntimeAnalysisStatusMember {
-    runtimeAnalysisStatus: RuntimeAnalysisStatus | string;
+    runtimeAnalysisStatus: keyof typeof RuntimeAnalysisStatus | string;
     srcCodeOrDbAnalysisStatus?: never;
     $unknown?: never;
   }
@@ -74,7 +74,7 @@ export namespace AnalysisStatusUnion {
    */
   export interface SrcCodeOrDbAnalysisStatusMember {
     runtimeAnalysisStatus?: never;
-    srcCodeOrDbAnalysisStatus: SrcCodeOrDbAnalysisStatus | string;
+    srcCodeOrDbAnalysisStatus: keyof typeof SrcCodeOrDbAnalysisStatus | string;
     $unknown?: never;
   }
 
@@ -85,8 +85,8 @@ export namespace AnalysisStatusUnion {
   }
 
   export interface Visitor<T> {
-    runtimeAnalysisStatus: (value: RuntimeAnalysisStatus | string) => T;
-    srcCodeOrDbAnalysisStatus: (value: SrcCodeOrDbAnalysisStatus | string) => T;
+    runtimeAnalysisStatus: (value: keyof typeof RuntimeAnalysisStatus | string) => T;
+    srcCodeOrDbAnalysisStatus: (value: keyof typeof SrcCodeOrDbAnalysisStatus | string) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -101,41 +101,41 @@ export namespace AnalysisStatusUnion {
 /**
  * @public
  */
-export enum AnalysisType {
-  BINARY_ANALYSIS = "BINARY_ANALYSIS",
-  DATABASE_ANALYSIS = "DATABASE_ANALYSIS",
-  RUNTIME_ANALYSIS = "RUNTIME_ANALYSIS",
-  SOURCE_CODE_ANALYSIS = "SOURCE_CODE_ANALYSIS",
-}
+export const AnalysisType = {
+  BINARY_ANALYSIS: "BINARY_ANALYSIS",
+  DATABASE_ANALYSIS: "DATABASE_ANALYSIS",
+  RUNTIME_ANALYSIS: "RUNTIME_ANALYSIS",
+  SOURCE_CODE_ANALYSIS: "SOURCE_CODE_ANALYSIS",
+};
 
 /**
  * @public
  */
-export enum BinaryAnalyzerName {
-  BYTECODE_ANALYZER = "BYTECODE_ANALYZER",
-  DLL_ANALYZER = "DLL_ANALYZER",
-}
+export const BinaryAnalyzerName = {
+  BYTECODE_ANALYZER: "BYTECODE_ANALYZER",
+  DLL_ANALYZER: "DLL_ANALYZER",
+};
 
 /**
  * @public
  */
-export enum RunTimeAnalyzerName {
-  A2C_ANALYZER = "A2C_ANALYZER",
-  DATABASE_ANALYZER = "DATABASE_ANALYZER",
-  EMP_PA_ANALYZER = "EMP_PA_ANALYZER",
-  REHOST_ANALYZER = "REHOST_ANALYZER",
-  SCT_ANALYZER = "SCT_ANALYZER",
-}
+export const RunTimeAnalyzerName = {
+  A2C_ANALYZER: "A2C_ANALYZER",
+  DATABASE_ANALYZER: "DATABASE_ANALYZER",
+  EMP_PA_ANALYZER: "EMP_PA_ANALYZER",
+  REHOST_ANALYZER: "REHOST_ANALYZER",
+  SCT_ANALYZER: "SCT_ANALYZER",
+};
 
 /**
  * @public
  */
-export enum SourceCodeAnalyzerName {
-  BYTECODE_ANALYZER = "BYTECODE_ANALYZER",
-  CSHARP_ANALYZER = "CSHARP_ANALYZER",
-  JAVA_ANALYZER = "JAVA_ANALYZER",
-  PORTING_ASSISTANT = "PORTING_ASSISTANT",
-}
+export const SourceCodeAnalyzerName = {
+  BYTECODE_ANALYZER: "BYTECODE_ANALYZER",
+  CSHARP_ANALYZER: "CSHARP_ANALYZER",
+  JAVA_ANALYZER: "JAVA_ANALYZER",
+  PORTING_ASSISTANT: "PORTING_ASSISTANT",
+};
 
 /**
  * @public
@@ -155,7 +155,7 @@ export namespace AnalyzerNameUnion {
    * <p>The binary analyzer names.</p>
    */
   export interface BinaryAnalyzerNameMember {
-    binaryAnalyzerName: BinaryAnalyzerName | string;
+    binaryAnalyzerName: keyof typeof BinaryAnalyzerName | string;
     runTimeAnalyzerName?: never;
     sourceCodeAnalyzerName?: never;
     $unknown?: never;
@@ -166,7 +166,7 @@ export namespace AnalyzerNameUnion {
    */
   export interface RunTimeAnalyzerNameMember {
     binaryAnalyzerName?: never;
-    runTimeAnalyzerName: RunTimeAnalyzerName | string;
+    runTimeAnalyzerName: keyof typeof RunTimeAnalyzerName | string;
     sourceCodeAnalyzerName?: never;
     $unknown?: never;
   }
@@ -177,7 +177,7 @@ export namespace AnalyzerNameUnion {
   export interface SourceCodeAnalyzerNameMember {
     binaryAnalyzerName?: never;
     runTimeAnalyzerName?: never;
-    sourceCodeAnalyzerName: SourceCodeAnalyzerName | string;
+    sourceCodeAnalyzerName: keyof typeof SourceCodeAnalyzerName | string;
     $unknown?: never;
   }
 
@@ -189,9 +189,9 @@ export namespace AnalyzerNameUnion {
   }
 
   export interface Visitor<T> {
-    binaryAnalyzerName: (value: BinaryAnalyzerName | string) => T;
-    runTimeAnalyzerName: (value: RunTimeAnalyzerName | string) => T;
-    sourceCodeAnalyzerName: (value: SourceCodeAnalyzerName | string) => T;
+    binaryAnalyzerName: (value: keyof typeof BinaryAnalyzerName | string) => T;
+    runTimeAnalyzerName: (value: keyof typeof RunTimeAnalyzerName | string) => T;
+    sourceCodeAnalyzerName: (value: keyof typeof SourceCodeAnalyzerName | string) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -222,11 +222,11 @@ export interface S3Object {
 /**
  * @public
  */
-export enum AntipatternReportStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export const AntipatternReportStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -246,7 +246,7 @@ export interface AntipatternReportResult {
   /**
    * <p>The status of the anti-pattern report generation.</p>
    */
-  antipatternReportStatus?: AntipatternReportStatus | string;
+  antipatternReportStatus?: keyof typeof AntipatternReportStatus | string;
 
   /**
    * <p>The status message for the anti-pattern.</p>
@@ -257,11 +257,11 @@ export interface AntipatternReportResult {
 /**
  * @public
  */
-export enum Severity {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const Severity = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+};
 
 /**
  * @public
@@ -271,7 +271,7 @@ export interface AntipatternSeveritySummary {
   /**
    * <p> Contains the severity of anti-patterns. </p>
    */
-  severity?: Severity | string;
+  severity?: keyof typeof Severity | string;
 
   /**
    * <p> Contains the count of anti-patterns. </p>
@@ -282,55 +282,55 @@ export interface AntipatternSeveritySummary {
 /**
  * @public
  */
-export enum ApplicationComponentCriteria {
-  ANALYSIS_STATUS = "ANALYSIS_STATUS",
-  APP_NAME = "APP_NAME",
-  APP_TYPE = "APP_TYPE",
-  DESTINATION = "DESTINATION",
-  ERROR_CATEGORY = "ERROR_CATEGORY",
-  NOT_DEFINED = "NOT_DEFINED",
-  SERVER_ID = "SERVER_ID",
-  STRATEGY = "STRATEGY",
-}
+export const ApplicationComponentCriteria = {
+  ANALYSIS_STATUS: "ANALYSIS_STATUS",
+  APP_NAME: "APP_NAME",
+  APP_TYPE: "APP_TYPE",
+  DESTINATION: "DESTINATION",
+  ERROR_CATEGORY: "ERROR_CATEGORY",
+  NOT_DEFINED: "NOT_DEFINED",
+  SERVER_ID: "SERVER_ID",
+  STRATEGY: "STRATEGY",
+};
 
 /**
  * @public
  */
-export enum AppType {
-  IIS = "IIS",
-  cassandra = "Cassandra",
-  db2 = "DB2",
-  dotNetFramework = "DotNetFramework",
-  dotnet = "Dotnet",
-  dotnetcore = "DotnetCore",
-  java = "Java",
-  jboss = "JBoss",
-  mariadb = "Maria DB",
-  mongodb = "Mongo DB",
-  mysql = "MySQL",
-  oracle = "Oracle",
-  other = "Other",
-  postgresqlserver = "PostgreSQLServer",
-  spring = "Spring",
-  sqlServer = "SQLServer",
-  sybase = "Sybase",
-  tomcat = "Tomcat",
-  unknown = "Unknown",
-  visualbasic = "Visual Basic",
-  weblogic = "Oracle WebLogic",
-  websphere = "IBM WebSphere",
-}
+export const AppType = {
+  IIS: "IIS",
+  cassandra: "Cassandra",
+  db2: "DB2",
+  dotNetFramework: "DotNetFramework",
+  dotnet: "Dotnet",
+  dotnetcore: "DotnetCore",
+  java: "Java",
+  jboss: "JBoss",
+  mariadb: "Maria DB",
+  mongodb: "Mongo DB",
+  mysql: "MySQL",
+  oracle: "Oracle",
+  other: "Other",
+  postgresqlserver: "PostgreSQLServer",
+  spring: "Spring",
+  sqlServer: "SQLServer",
+  sybase: "Sybase",
+  tomcat: "Tomcat",
+  unknown: "Unknown",
+  visualbasic: "Visual Basic",
+  weblogic: "Oracle WebLogic",
+  websphere: "IBM WebSphere",
+};
 
 /**
  * @public
  */
-export enum AppUnitErrorCategory {
-  CONNECTIVITY_ERROR = "CONNECTIVITY_ERROR",
-  CREDENTIAL_ERROR = "CREDENTIAL_ERROR",
-  OTHER_ERROR = "OTHER_ERROR",
-  PERMISSION_ERROR = "PERMISSION_ERROR",
-  UNSUPPORTED_ERROR = "UNSUPPORTED_ERROR",
-}
+export const AppUnitErrorCategory = {
+  CONNECTIVITY_ERROR: "CONNECTIVITY_ERROR",
+  CREDENTIAL_ERROR: "CREDENTIAL_ERROR",
+  OTHER_ERROR: "OTHER_ERROR",
+  PERMISSION_ERROR: "PERMISSION_ERROR",
+  UNSUPPORTED_ERROR: "UNSUPPORTED_ERROR",
+};
 
 /**
  * @public
@@ -340,7 +340,7 @@ export interface AppUnitError {
   /**
    * <p>The category of the error.</p>
    */
-  appUnitErrorCategory?: AppUnitErrorCategory | string;
+  appUnitErrorCategory?: keyof typeof AppUnitErrorCategory | string;
 }
 
 /**
@@ -358,59 +358,59 @@ export interface DatabaseConfigDetail {
 /**
  * @public
  */
-export enum InclusionStatus {
-  EXCLUDE_FROM_RECOMMENDATION = "excludeFromAssessment",
-  INCLUDE_IN_RECOMMENDATION = "includeInAssessment",
-}
+export const InclusionStatus = {
+  EXCLUDE_FROM_RECOMMENDATION: "excludeFromAssessment",
+  INCLUDE_IN_RECOMMENDATION: "includeInAssessment",
+};
 
 /**
  * @public
  */
-export enum Strategy {
-  REFACTOR = "Refactor",
-  REHOST = "Rehost",
-  RELOCATE = "Relocate",
-  REPLATFORM = "Replatform",
-  REPURCHASE = "Repurchase",
-  RETAIN = "Retain",
-  RETIREMENT = "Retirement",
-}
+export const Strategy = {
+  REFACTOR: "Refactor",
+  REHOST: "Rehost",
+  RELOCATE: "Relocate",
+  REPLATFORM: "Replatform",
+  REPURCHASE: "Repurchase",
+  RETAIN: "Retain",
+  RETIREMENT: "Retirement",
+};
 
 /**
  * @public
  */
-export enum TargetDestination {
-  AMAZON_DOCUMENTDB = "Amazon DocumentDB",
-  AMAZON_DYNAMODB = "Amazon DynamoDB",
-  AMAZON_ELASTIC_CLOUD_COMPUTE = "Amazon Elastic Cloud Compute (EC2)",
-  AMAZON_ELASTIC_CONTAINER_SERVICE = "Amazon Elastic Container Service (ECS)",
-  AMAZON_ELASTIC_KUBERNETES_SERVICE = "Amazon Elastic Kubernetes Service (EKS)",
-  AMAZON_RDS = "Amazon Relational Database Service",
-  AMAZON_RDS_MYSQL = "Amazon Relational Database Service on MySQL",
-  AMAZON_RDS_POSTGRESQL = "Amazon Relational Database Service on PostgreSQL",
-  AURORA_MYSQL = "Aurora MySQL",
-  AURORA_POSTGRESQL = "Aurora PostgreSQL",
-  AWS_ELASTIC_BEANSTALK = "AWS Elastic BeanStalk",
-  AWS_FARGATE = "AWS Fargate",
-  BABELFISH_AURORA_POSTGRESQL = "Babelfish for Aurora PostgreSQL",
-  NONE_SPECIFIED = "None specified",
-}
+export const TargetDestination = {
+  AMAZON_DOCUMENTDB: "Amazon DocumentDB",
+  AMAZON_DYNAMODB: "Amazon DynamoDB",
+  AMAZON_ELASTIC_CLOUD_COMPUTE: "Amazon Elastic Cloud Compute (EC2)",
+  AMAZON_ELASTIC_CONTAINER_SERVICE: "Amazon Elastic Container Service (ECS)",
+  AMAZON_ELASTIC_KUBERNETES_SERVICE: "Amazon Elastic Kubernetes Service (EKS)",
+  AMAZON_RDS: "Amazon Relational Database Service",
+  AMAZON_RDS_MYSQL: "Amazon Relational Database Service on MySQL",
+  AMAZON_RDS_POSTGRESQL: "Amazon Relational Database Service on PostgreSQL",
+  AURORA_MYSQL: "Aurora MySQL",
+  AURORA_POSTGRESQL: "Aurora PostgreSQL",
+  AWS_ELASTIC_BEANSTALK: "AWS Elastic BeanStalk",
+  AWS_FARGATE: "AWS Fargate",
+  BABELFISH_AURORA_POSTGRESQL: "Babelfish for Aurora PostgreSQL",
+  NONE_SPECIFIED: "None specified",
+};
 
 /**
  * @public
  */
-export enum TransformationToolName {
-  APP2CONTAINER = "App2Container",
-  DMS = "Database Migration Service",
-  EMP = "End of Support Migration",
-  IN_PLACE_OS_UPGRADE = "In Place Operating System Upgrade",
-  MGN = "Application Migration Service",
-  NATIVE_SQL = "Native SQL Server Backup/Restore",
-  PORTING_ASSISTANT = "Porting Assistant For .NET",
-  SCT = "Schema Conversion Tool",
-  STRATEGY_RECOMMENDATION_SUPPORT = "Strategy Recommendation Support",
-  WWAMA = "Windows Web Application Migration Assistant",
-}
+export const TransformationToolName = {
+  APP2CONTAINER: "App2Container",
+  DMS: "Database Migration Service",
+  EMP: "End of Support Migration",
+  IN_PLACE_OS_UPGRADE: "In Place Operating System Upgrade",
+  MGN: "Application Migration Service",
+  NATIVE_SQL: "Native SQL Server Backup/Restore",
+  PORTING_ASSISTANT: "Porting Assistant For .NET",
+  SCT: "Schema Conversion Tool",
+  STRATEGY_RECOMMENDATION_SUPPORT: "Strategy Recommendation Support",
+  WWAMA: "Windows Web Application Migration Assistant",
+};
 
 /**
  * @public
@@ -421,7 +421,7 @@ export interface TransformationTool {
   /**
    * <p> Name of the tool. </p>
    */
-  name?: TransformationToolName | string;
+  name?: keyof typeof TransformationToolName | string;
 
   /**
    * <p> Description of the tool. </p>
@@ -447,22 +447,22 @@ export interface RecommendationSet {
   /**
    * <p> The recommended target destination. </p>
    */
-  targetDestination?: TargetDestination | string;
+  targetDestination?: keyof typeof TargetDestination | string;
 
   /**
    * <p> The recommended strategy. </p>
    */
-  strategy?: Strategy | string;
+  strategy?: keyof typeof Strategy | string;
 }
 
 /**
  * @public
  */
-export enum ResourceSubType {
-  DATABASE = "Database",
-  DATABASE_PROCESS = "DatabaseProcess",
-  PROCESS = "Process",
-}
+export const ResourceSubType = {
+  DATABASE: "Database",
+  DATABASE_PROCESS: "DatabaseProcess",
+  PROCESS: "Process",
+};
 
 /**
  * @public
@@ -472,7 +472,7 @@ export interface Result {
   /**
    * <p>The error in server analysis.</p>
    */
-  analysisType?: AnalysisType | string;
+  analysisType?: keyof typeof AnalysisType | string;
 
   /**
    * <p>The error in server analysis.</p>
@@ -541,7 +541,7 @@ export interface ApplicationComponentDetail {
    * <p> The status of analysis, if the application component has source code or an associated
    *       database. </p>
    */
-  analysisStatus?: SrcCodeOrDbAnalysisStatus | string;
+  analysisStatus?: keyof typeof SrcCodeOrDbAnalysisStatus | string;
 
   /**
    * <p> A detailed description of the analysis status and any failure message. </p>
@@ -567,18 +567,18 @@ export interface ApplicationComponentDetail {
   /**
    * <p> The type of application component. </p>
    */
-  appType?: AppType | string;
+  appType?: keyof typeof AppType | string;
 
   /**
    * <p> The application component subtype.</p>
    */
-  resourceSubType?: ResourceSubType | string;
+  resourceSubType?: keyof typeof ResourceSubType | string;
 
   /**
    * <p> Indicates whether the application component has been included for server recommendation
    *       or not. </p>
    */
-  inclusionStatus?: InclusionStatus | string;
+  inclusionStatus?: keyof typeof InclusionStatus | string;
 
   /**
    * <p> The S3 bucket name and the Amazon S3 key name for the anti-pattern report. </p>
@@ -588,7 +588,7 @@ export interface ApplicationComponentDetail {
   /**
    * <p> The status of the anti-pattern report generation.</p>
    */
-  antipatternReportStatus?: AntipatternReportStatus | string;
+  antipatternReportStatus?: keyof typeof AntipatternReportStatus | string;
 
   /**
    * <p> The status message for the anti-pattern. </p>
@@ -623,7 +623,7 @@ export interface ApplicationComponentDetail {
   /**
    * <p>The status of the application unit.</p>
    */
-  runtimeStatus?: RuntimeAnalysisStatus | string;
+  runtimeStatus?: keyof typeof RuntimeAnalysisStatus | string;
 
   /**
    * <p>The status message for the application unit.</p>
@@ -649,7 +649,7 @@ export interface ApplicationComponentStatusSummary {
   /**
    * <p>The status of database analysis.</p>
    */
-  srcCodeOrDbAnalysisStatus?: SrcCodeOrDbAnalysisStatus | string;
+  srcCodeOrDbAnalysisStatus?: keyof typeof SrcCodeOrDbAnalysisStatus | string;
 
   /**
    * <p>The number of application components successfully analyzed, partially successful or failed
@@ -661,12 +661,12 @@ export interface ApplicationComponentStatusSummary {
 /**
  * @public
  */
-export enum StrategyRecommendation {
-  NOT_RECOMMENDED = "notRecommended",
-  POTENTIAL = "potential",
-  RECOMMENDED = "recommended",
-  VIABLE_OPTION = "viableOption",
-}
+export const StrategyRecommendation = {
+  NOT_RECOMMENDED: "notRecommended",
+  POTENTIAL: "potential",
+  RECOMMENDED: "recommended",
+  VIABLE_OPTION: "viableOption",
+};
 
 /**
  * @public
@@ -682,7 +682,7 @@ export interface ApplicationComponentStrategy {
   /**
    * <p> The recommendation status of a strategy for an application component. </p>
    */
-  status?: StrategyRecommendation | string;
+  status?: keyof typeof StrategyRecommendation | string;
 
   /**
    * <p> Set to true if the recommendation is set as preferred. </p>
@@ -698,7 +698,7 @@ export interface ApplicationComponentSummary {
   /**
    * <p> Contains the name of application types. </p>
    */
-  appType?: AppType | string;
+  appType?: keyof typeof AppType | string;
 
   /**
    * <p> Contains the count of application type. </p>
@@ -709,20 +709,20 @@ export interface ApplicationComponentSummary {
 /**
  * @public
  */
-export enum ApplicationMode {
-  ALL = "ALL",
-  KNOWN = "KNOWN",
-  UNKNOWN = "UNKNOWN",
-}
+export const ApplicationMode = {
+  ALL: "ALL",
+  KNOWN: "KNOWN",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
  */
-export enum AwsManagedTargetDestination {
-  AWS_ELASTIC_BEANSTALK = "AWS Elastic BeanStalk",
-  AWS_FARGATE = "AWS Fargate",
-  NONE_SPECIFIED = "None specified",
-}
+export const AwsManagedTargetDestination = {
+  AWS_ELASTIC_BEANSTALK: "AWS Elastic BeanStalk",
+  AWS_FARGATE: "AWS Fargate",
+  NONE_SPECIFIED: "None specified",
+};
 
 /**
  * @public
@@ -732,20 +732,20 @@ export interface AwsManagedResources {
   /**
    * <p> The choice of application destination that you specify. </p>
    */
-  targetDestination: (AwsManagedTargetDestination | string)[] | undefined;
+  targetDestination: (keyof typeof AwsManagedTargetDestination | string)[] | undefined;
 }
 
 /**
  * @public
  */
-export enum NoPreferenceTargetDestination {
-  AMAZON_ELASTIC_CLOUD_COMPUTE = "Amazon Elastic Cloud Compute (EC2)",
-  AMAZON_ELASTIC_CONTAINER_SERVICE = "Amazon Elastic Container Service (ECS)",
-  AMAZON_ELASTIC_KUBERNETES_SERVICE = "Amazon Elastic Kubernetes Service (EKS)",
-  AWS_ELASTIC_BEANSTALK = "AWS Elastic BeanStalk",
-  AWS_FARGATE = "AWS Fargate",
-  NONE_SPECIFIED = "None specified",
-}
+export const NoPreferenceTargetDestination = {
+  AMAZON_ELASTIC_CLOUD_COMPUTE: "Amazon Elastic Cloud Compute (EC2)",
+  AMAZON_ELASTIC_CONTAINER_SERVICE: "Amazon Elastic Container Service (ECS)",
+  AMAZON_ELASTIC_KUBERNETES_SERVICE: "Amazon Elastic Kubernetes Service (EKS)",
+  AWS_ELASTIC_BEANSTALK: "AWS Elastic BeanStalk",
+  AWS_FARGATE: "AWS Fargate",
+  NONE_SPECIFIED: "None specified",
+};
 
 /**
  * @public
@@ -755,18 +755,18 @@ export interface NoManagementPreference {
   /**
    * <p> The choice of application destination that you specify. </p>
    */
-  targetDestination: (NoPreferenceTargetDestination | string)[] | undefined;
+  targetDestination: (keyof typeof NoPreferenceTargetDestination | string)[] | undefined;
 }
 
 /**
  * @public
  */
-export enum SelfManageTargetDestination {
-  AMAZON_ELASTIC_CLOUD_COMPUTE = "Amazon Elastic Cloud Compute (EC2)",
-  AMAZON_ELASTIC_CONTAINER_SERVICE = "Amazon Elastic Container Service (ECS)",
-  AMAZON_ELASTIC_KUBERNETES_SERVICE = "Amazon Elastic Kubernetes Service (EKS)",
-  NONE_SPECIFIED = "None specified",
-}
+export const SelfManageTargetDestination = {
+  AMAZON_ELASTIC_CLOUD_COMPUTE: "Amazon Elastic Cloud Compute (EC2)",
+  AMAZON_ELASTIC_CONTAINER_SERVICE: "Amazon Elastic Container Service (ECS)",
+  AMAZON_ELASTIC_KUBERNETES_SERVICE: "Amazon Elastic Kubernetes Service (EKS)",
+  NONE_SPECIFIED: "None specified",
+};
 
 /**
  * @public
@@ -776,7 +776,7 @@ export interface SelfManageResources {
   /**
    * <p> Self-managed resources target destination. </p>
    */
-  targetDestination: (SelfManageTargetDestination | string)[] | undefined;
+  targetDestination: (keyof typeof SelfManageTargetDestination | string)[] | undefined;
 }
 
 /**
@@ -859,12 +859,12 @@ export interface ApplicationPreferences {
 /**
  * @public
  */
-export enum AssessmentStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-}
+export const AssessmentStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -874,7 +874,7 @@ export interface StrategySummary {
   /**
    * <p> The name of recommended strategy. </p>
    */
-  strategy?: Strategy | string;
+  strategy?: keyof typeof Strategy | string;
 
   /**
    * <p> The count of recommendations per strategy. </p>
@@ -885,15 +885,15 @@ export interface StrategySummary {
 /**
  * @public
  */
-export enum RunTimeAssessmentStatus {
-  DC_FAILED = "dataCollectionTaskFailed",
-  DC_PARTIAL_SUCCESS = "dataCollectionTaskPartialSuccess",
-  DC_REQ_SENT = "dataCollectionTaskScheduled",
-  DC_STARTED = "dataCollectionTaskStarted",
-  DC_STOPPED = "dataCollectionTaskStopped",
-  DC_SUCCESS = "dataCollectionTaskSuccess",
-  DC_TO_BE_SCHEDULED = "dataCollectionTaskToBeScheduled",
-}
+export const RunTimeAssessmentStatus = {
+  DC_FAILED: "dataCollectionTaskFailed",
+  DC_PARTIAL_SUCCESS: "dataCollectionTaskPartialSuccess",
+  DC_REQ_SENT: "dataCollectionTaskScheduled",
+  DC_STARTED: "dataCollectionTaskStarted",
+  DC_STOPPED: "dataCollectionTaskStopped",
+  DC_SUCCESS: "dataCollectionTaskSuccess",
+  DC_TO_BE_SCHEDULED: "dataCollectionTaskToBeScheduled",
+};
 
 /**
  * @public
@@ -903,7 +903,7 @@ export interface ServerStatusSummary {
   /**
    * <p>The status of the run time.</p>
    */
-  runTimeAssessmentStatus?: RunTimeAssessmentStatus | string;
+  runTimeAssessmentStatus?: keyof typeof RunTimeAssessmentStatus | string;
 
   /**
    * <p>The number of servers successfully analyzed, partially successful or failed
@@ -915,13 +915,13 @@ export interface ServerStatusSummary {
 /**
  * @public
  */
-export enum ServerOsType {
-  amazonLinux = "AmazonLinux",
-  endOfSupportWindowsServer = "EndOfSupportWindowsServer",
-  other = "Other",
-  redhat = "Redhat",
-  windowsServer = "WindowsServer",
-}
+export const ServerOsType = {
+  amazonLinux: "AmazonLinux",
+  endOfSupportWindowsServer: "EndOfSupportWindowsServer",
+  other: "Other",
+  redhat: "Redhat",
+  windowsServer: "WindowsServer",
+};
 
 /**
  * @public
@@ -931,7 +931,7 @@ export interface ServerSummary {
   /**
    * <p> Type of operating system for the servers. </p>
    */
-  ServerOsType?: ServerOsType | string;
+  ServerOsType?: keyof typeof ServerOsType | string;
 
   /**
    * <p> Number of servers. </p>
@@ -977,7 +977,7 @@ export interface AssessmentSummary {
   /**
    * <p> The status of the anti-pattern report. </p>
    */
-  antipatternReportStatus?: AntipatternReportStatus | string;
+  antipatternReportStatus?: keyof typeof AntipatternReportStatus | string;
 
   /**
    * <p> The status message of the anti-pattern report. </p>
@@ -1003,12 +1003,12 @@ export interface AssessmentSummary {
 /**
  * @public
  */
-export enum Condition {
-  CONTAINS = "CONTAINS",
-  EQUALS = "EQUALS",
-  NOT_CONTAINS = "NOT_CONTAINS",
-  NOT_EQUALS = "NOT_EQUALS",
-}
+export const Condition = {
+  CONTAINS: "CONTAINS",
+  EQUALS: "EQUALS",
+  NOT_CONTAINS: "NOT_CONTAINS",
+  NOT_EQUALS: "NOT_EQUALS",
+};
 
 /**
  * @public
@@ -1018,7 +1018,7 @@ export interface AssessmentTarget {
   /**
    * <p>Condition of an assessment.</p>
    */
-  condition: Condition | string | undefined;
+  condition: keyof typeof Condition | string | undefined;
 
   /**
    * <p>Name of an assessment.</p>
@@ -1050,11 +1050,11 @@ export interface AssociatedApplication {
 /**
  * @public
  */
-export enum AuthType {
-  CERT = "CERT",
-  NTLM = "NTLM",
-  SSH = "SSH",
-}
+export const AuthType = {
+  CERT: "CERT",
+  NTLM: "NTLM",
+  SSH: "SSH",
+};
 
 /**
  * @public
@@ -1190,7 +1190,7 @@ export interface DataCollectionDetails {
   /**
    * <p> The status of the assessment. </p>
    */
-  status?: AssessmentStatus | string;
+  status?: keyof typeof AssessmentStatus | string;
 
   /**
    * <p> The total number of servers in the assessment. </p>
@@ -1261,16 +1261,16 @@ export interface GetImportFileTaskRequest {
 /**
  * @public
  */
-export enum ImportFileTaskStatus {
-  DELETE_FAILED = "DeleteFailed",
-  DELETE_IN_PROGRESS = "DeleteInProgress",
-  DELETE_PARTIAL_SUCCESS = "DeletePartialSuccess",
-  DELETE_SUCCESS = "DeleteSuccess",
-  IMPORT_FAILED = "ImportFailed",
-  IMPORT_IN_PROGRESS = "ImportInProgress",
-  IMPORT_PARTIAL_SUCCESS = "ImportPartialSuccess",
-  IMPORT_SUCCESS = "ImportSuccess",
-}
+export const ImportFileTaskStatus = {
+  DELETE_FAILED: "DeleteFailed",
+  DELETE_IN_PROGRESS: "DeleteInProgress",
+  DELETE_PARTIAL_SUCCESS: "DeletePartialSuccess",
+  DELETE_SUCCESS: "DeleteSuccess",
+  IMPORT_FAILED: "ImportFailed",
+  IMPORT_IN_PROGRESS: "ImportInProgress",
+  IMPORT_PARTIAL_SUCCESS: "ImportPartialSuccess",
+  IMPORT_SUCCESS: "ImportSuccess",
+};
 
 /**
  * @public
@@ -1284,7 +1284,7 @@ export interface GetImportFileTaskResponse {
   /**
    * <p> Status of import file task. </p>
    */
-  status?: ImportFileTaskStatus | string;
+  status?: keyof typeof ImportFileTaskStatus | string;
 
   /**
    * <p> Start time of the import task. </p>
@@ -1396,27 +1396,27 @@ export interface GetPortfolioPreferencesRequest {}
 /**
  * @public
  */
-export enum DatabaseManagementPreference {
-  AWS_MANAGED = "AWS-managed",
-  NO_PREFERENCE = "No preference",
-  SELF_MANAGE = "Self-manage",
-}
+export const DatabaseManagementPreference = {
+  AWS_MANAGED: "AWS-managed",
+  NO_PREFERENCE: "No preference",
+  SELF_MANAGE: "Self-manage",
+};
 
 /**
  * @public
  */
-export enum HeterogeneousTargetDatabaseEngine {
-  AMAZON_AURORA = "Amazon Aurora",
-  AWS_POSTGRESQL = "AWS PostgreSQL",
-  DB2_LUW = "Db2 LUW",
-  MARIA_DB = "MariaDB",
-  MICROSOFT_SQL_SERVER = "Microsoft SQL Server",
-  MONGO_DB = "MongoDB",
-  MYSQL = "MySQL",
-  NONE_SPECIFIED = "None specified",
-  ORACLE_DATABASE = "Oracle Database",
-  SAP = "SAP",
-}
+export const HeterogeneousTargetDatabaseEngine = {
+  AMAZON_AURORA: "Amazon Aurora",
+  AWS_POSTGRESQL: "AWS PostgreSQL",
+  DB2_LUW: "Db2 LUW",
+  MARIA_DB: "MariaDB",
+  MICROSOFT_SQL_SERVER: "Microsoft SQL Server",
+  MONGO_DB: "MongoDB",
+  MYSQL: "MySQL",
+  NONE_SPECIFIED: "None specified",
+  ORACLE_DATABASE: "Oracle Database",
+  SAP: "SAP",
+};
 
 /**
  * @public
@@ -1426,15 +1426,15 @@ export interface Heterogeneous {
   /**
    * <p> The target database engine for heterogeneous database migration preference. </p>
    */
-  targetDatabaseEngine: (HeterogeneousTargetDatabaseEngine | string)[] | undefined;
+  targetDatabaseEngine: (keyof typeof HeterogeneousTargetDatabaseEngine | string)[] | undefined;
 }
 
 /**
  * @public
  */
-export enum HomogeneousTargetDatabaseEngine {
-  NONE_SPECIFIED = "None specified",
-}
+export const HomogeneousTargetDatabaseEngine = {
+  NONE_SPECIFIED: "None specified",
+};
 
 /**
  * @public
@@ -1444,24 +1444,24 @@ export interface Homogeneous {
   /**
    * <p> The target database engine for homogeneous database migration preferences. </p>
    */
-  targetDatabaseEngine?: (HomogeneousTargetDatabaseEngine | string)[];
+  targetDatabaseEngine?: (keyof typeof HomogeneousTargetDatabaseEngine | string)[];
 }
 
 /**
  * @public
  */
-export enum TargetDatabaseEngine {
-  AMAZON_AURORA = "Amazon Aurora",
-  AWS_POSTGRESQL = "AWS PostgreSQL",
-  DB2_LUW = "Db2 LUW",
-  MARIA_DB = "MariaDB",
-  MICROSOFT_SQL_SERVER = "Microsoft SQL Server",
-  MONGO_DB = "MongoDB",
-  MYSQL = "MySQL",
-  NONE_SPECIFIED = "None specified",
-  ORACLE_DATABASE = "Oracle Database",
-  SAP = "SAP",
-}
+export const TargetDatabaseEngine = {
+  AMAZON_AURORA: "Amazon Aurora",
+  AWS_POSTGRESQL: "AWS PostgreSQL",
+  DB2_LUW: "Db2 LUW",
+  MARIA_DB: "MariaDB",
+  MICROSOFT_SQL_SERVER: "Microsoft SQL Server",
+  MONGO_DB: "MongoDB",
+  MYSQL: "MySQL",
+  NONE_SPECIFIED: "None specified",
+  ORACLE_DATABASE: "Oracle Database",
+  SAP: "SAP",
+};
 
 /**
  * @public
@@ -1472,7 +1472,7 @@ export interface NoDatabaseMigrationPreference {
   /**
    * <p> The target database engine for database migration preference that you specify. </p>
    */
-  targetDatabaseEngine: (TargetDatabaseEngine | string)[] | undefined;
+  targetDatabaseEngine: (keyof typeof TargetDatabaseEngine | string)[] | undefined;
 }
 
 /**
@@ -1552,7 +1552,7 @@ export interface DatabasePreferences {
    * <p> Specifies whether you're interested in self-managed databases or databases managed by
    *       AWS. </p>
    */
-  databaseManagementPreference?: DatabaseManagementPreference | string;
+  databaseManagementPreference?: keyof typeof DatabaseManagementPreference | string;
 
   /**
    * <p> Specifies your preferred migration path. </p>
@@ -1620,7 +1620,7 @@ export interface GetPortfolioPreferencesResponse {
   /**
    * <p>The classification for application component types.</p>
    */
-  applicationMode?: ApplicationMode | string;
+  applicationMode?: keyof typeof ApplicationMode | string;
 }
 
 /**
@@ -1652,11 +1652,11 @@ export interface GetRecommendationReportDetailsRequest {
 /**
  * @public
  */
-export enum RecommendationReportStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
-}
+export const RecommendationReportStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -1666,7 +1666,7 @@ export interface RecommendationReportDetails {
   /**
    * <p> The status of the recommendation report generation task. </p>
    */
-  status?: RecommendationReportStatus | string;
+  status?: keyof typeof RecommendationReportStatus | string;
 
   /**
    * <p> The status message for recommendation report generation. </p>
@@ -1734,13 +1734,13 @@ export interface GetServerDetailsRequest {
 /**
  * @public
  */
-export enum ServerErrorCategory {
-  ARCHITECTURE_ERROR = "ARCHITECTURE_ERROR",
-  CONNECTIVITY_ERROR = "CONNECTIVITY_ERROR",
-  CREDENTIAL_ERROR = "CREDENTIAL_ERROR",
-  OTHER_ERROR = "OTHER_ERROR",
-  PERMISSION_ERROR = "PERMISSION_ERROR",
-}
+export const ServerErrorCategory = {
+  ARCHITECTURE_ERROR: "ARCHITECTURE_ERROR",
+  CONNECTIVITY_ERROR: "CONNECTIVITY_ERROR",
+  CREDENTIAL_ERROR: "CREDENTIAL_ERROR",
+  OTHER_ERROR: "OTHER_ERROR",
+  PERMISSION_ERROR: "PERMISSION_ERROR",
+};
 
 /**
  * @public
@@ -1750,7 +1750,7 @@ export interface ServerError {
   /**
    * <p>The error category of server analysis.</p>
    */
-  serverErrorCategory?: ServerErrorCategory | string;
+  serverErrorCategory?: keyof typeof ServerErrorCategory | string;
 }
 
 /**
@@ -1783,10 +1783,10 @@ export interface NetworkInfo {
 /**
  * @public
  */
-export enum OSType {
-  LINUX = "LINUX",
-  WINDOWS = "WINDOWS",
-}
+export const OSType = {
+  LINUX: "LINUX",
+  WINDOWS: "WINDOWS",
+};
 
 /**
  * @public
@@ -1796,7 +1796,7 @@ export interface OSInfo {
   /**
    * <p> Information about the type of operating system. </p>
    */
-  type?: OSType | string;
+  type?: keyof typeof OSType | string;
 
   /**
    * <p> Information about the version of operating system. </p>
@@ -1853,7 +1853,7 @@ export interface ServerDetail {
   /**
    * <p> The status of assessment for the server. </p>
    */
-  dataCollectionStatus?: RunTimeAssessmentStatus | string;
+  dataCollectionStatus?: keyof typeof RunTimeAssessmentStatus | string;
 
   /**
    * <p> A message about the status of data collection, which contains detailed descriptions of
@@ -1884,7 +1884,7 @@ export interface ServerDetail {
   /**
    * <p> The status of the anti-pattern report generation. </p>
    */
-  antipatternReportStatus?: AntipatternReportStatus | string;
+  antipatternReportStatus?: keyof typeof AntipatternReportStatus | string;
 
   /**
    * <p> A message about the status of the anti-pattern report generation. </p>
@@ -1951,7 +1951,7 @@ export interface ServerStrategy {
   /**
    * <p> The recommendation status of the strategy for the server. </p>
    */
-  status?: StrategyRecommendation | string;
+  status?: keyof typeof StrategyRecommendation | string;
 
   /**
    * <p> The number of application components with this strategy recommendation running on the
@@ -1978,10 +1978,10 @@ export interface GetServerStrategiesResponse {
 /**
  * @public
  */
-export enum GroupName {
-  EXTERNAL_ID = "ExternalId",
-  EXTERNAL_SOURCE_TYPE = "ExternalSourceType",
-}
+export const GroupName = {
+  EXTERNAL_ID: "ExternalId",
+  EXTERNAL_SOURCE_TYPE: "ExternalSourceType",
+};
 
 /**
  * @public
@@ -1991,7 +1991,7 @@ export interface Group {
   /**
    * <p> The key of the specific import group. </p>
    */
-  name?: GroupName | string;
+  name?: keyof typeof GroupName | string;
 
   /**
    * <p> The value of the specific import group. </p>
@@ -2002,10 +2002,10 @@ export interface Group {
 /**
  * @public
  */
-export enum SortOrder {
-  ASC = "ASC",
-  DESC = "DESC",
-}
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+};
 
 /**
  * @public
@@ -2014,7 +2014,7 @@ export interface ListApplicationComponentsRequest {
   /**
    * <p> Criteria for filtering the list of application components. </p>
    */
-  applicationComponentCriteria?: ApplicationComponentCriteria | string;
+  applicationComponentCriteria?: keyof typeof ApplicationComponentCriteria | string;
 
   /**
    * <p> Specify the value based on the application component criteria type. For example, if
@@ -2028,7 +2028,7 @@ export interface ListApplicationComponentsRequest {
    * <p> Specifies whether to sort by ascending (<code>ASC</code>) or descending
    *         (<code>DESC</code>) order. </p>
    */
-  sort?: SortOrder | string;
+  sort?: keyof typeof SortOrder | string;
 
   /**
    * <p> The group ID specified in to filter on. </p>
@@ -2104,10 +2104,10 @@ export interface ListCollectorsRequest {
 /**
  * @public
  */
-export enum CollectorHealth {
-  COLLECTOR_HEALTHY = "COLLECTOR_HEALTHY",
-  COLLECTOR_UNHEALTHY = "COLLECTOR_UNHEALTHY",
-}
+export const CollectorHealth = {
+  COLLECTOR_HEALTHY: "COLLECTOR_HEALTHY",
+  COLLECTOR_UNHEALTHY: "COLLECTOR_UNHEALTHY",
+};
 
 /**
  * @public
@@ -2122,20 +2122,20 @@ export interface IPAddressBasedRemoteInfo {
   /**
    * <p>The type of authorization.</p>
    */
-  authType?: AuthType | string;
+  authType?: keyof typeof AuthType | string;
 
   /**
    * <p>The type of the operating system.</p>
    */
-  osType?: OSType | string;
+  osType?: keyof typeof OSType | string;
 }
 
 /**
  * @public
  */
-export enum PipelineType {
-  AZURE_DEVOPS = "AZURE_DEVOPS",
-}
+export const PipelineType = {
+  AZURE_DEVOPS: "AZURE_DEVOPS",
+};
 
 /**
  * @public
@@ -2145,7 +2145,7 @@ export interface PipelineInfo {
   /**
    * <p>The type of pipeline.</p>
    */
-  pipelineType?: PipelineType | string;
+  pipelineType?: keyof typeof PipelineType | string;
 
   /**
    * <p>The time when the pipeline info was configured.</p>
@@ -2177,17 +2177,17 @@ export interface VcenterBasedRemoteInfo {
   /**
    * <p>The type of the operating system.</p>
    */
-  osType?: OSType | string;
+  osType?: keyof typeof OSType | string;
 }
 
 /**
  * @public
  */
-export enum VersionControlType {
-  AZURE_DEVOPS_GIT = "AZURE_DEVOPS_GIT",
-  GITHUB = "GITHUB",
-  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
-}
+export const VersionControlType = {
+  AZURE_DEVOPS_GIT: "AZURE_DEVOPS_GIT",
+  GITHUB: "GITHUB",
+  GITHUB_ENTERPRISE: "GITHUB_ENTERPRISE",
+};
 
 /**
  * @public
@@ -2197,7 +2197,7 @@ export interface VersionControlInfo {
   /**
    * <p>The type of version control.</p>
    */
-  versionControlType?: VersionControlType | string;
+  versionControlType?: keyof typeof VersionControlType | string;
 
   /**
    * <p>The time when the version control system was last configured.</p>
@@ -2259,7 +2259,7 @@ export interface Collector {
   /**
    * <p> Indicates the health of a collector. </p>
    */
-  collectorHealth?: CollectorHealth | string;
+  collectorHealth?: keyof typeof CollectorHealth | string;
 
   /**
    * <p> Current version of the collector that is running in the environment that you specify.
@@ -2328,7 +2328,7 @@ export interface ImportFileTaskInformation {
   /**
    * <p> Status of import file task. </p>
    */
-  status?: ImportFileTaskStatus | string;
+  status?: keyof typeof ImportFileTaskStatus | string;
 
   /**
    * <p> Start time of the import task. </p>
@@ -2395,15 +2395,15 @@ export interface ListImportFileTaskResponse {
 /**
  * @public
  */
-export enum ServerCriteria {
-  ANALYSIS_STATUS = "ANALYSIS_STATUS",
-  DESTINATION = "DESTINATION",
-  ERROR_CATEGORY = "ERROR_CATEGORY",
-  NOT_DEFINED = "NOT_DEFINED",
-  OS_NAME = "OS_NAME",
-  SERVER_ID = "SERVER_ID",
-  STRATEGY = "STRATEGY",
-}
+export const ServerCriteria = {
+  ANALYSIS_STATUS: "ANALYSIS_STATUS",
+  DESTINATION: "DESTINATION",
+  ERROR_CATEGORY: "ERROR_CATEGORY",
+  NOT_DEFINED: "NOT_DEFINED",
+  OS_NAME: "OS_NAME",
+  SERVER_ID: "SERVER_ID",
+  STRATEGY: "STRATEGY",
+};
 
 /**
  * @public
@@ -2412,7 +2412,7 @@ export interface ListServersRequest {
   /**
    * <p> Criteria for filtering servers. </p>
    */
-  serverCriteria?: ServerCriteria | string;
+  serverCriteria?: keyof typeof ServerCriteria | string;
 
   /**
    * <p> Specifies the filter value, which is based on the type of server criteria. For example,
@@ -2426,7 +2426,7 @@ export interface ListServersRequest {
    * <p> Specifies whether to sort by ascending (<code>ASC</code>) or descending
    *         (<code>DESC</code>) order. </p>
    */
-  sort?: SortOrder | string;
+  sort?: keyof typeof SortOrder | string;
 
   /**
    * <p> Specifies the group ID to filter on. </p>
@@ -2504,7 +2504,7 @@ export interface PutPortfolioPreferencesRequest {
   /**
    * <p>The classification for application component types.</p>
    */
-  applicationMode?: ApplicationMode | string;
+  applicationMode?: keyof typeof ApplicationMode | string;
 }
 
 /**
@@ -2568,11 +2568,11 @@ export interface StartAssessmentResponse {
 /**
  * @public
  */
-export enum DataSourceType {
-  ADS = "ApplicationDiscoveryService",
-  IMPORT = "Import",
-  MPA = "MPA",
-}
+export const DataSourceType = {
+  ADS: "ApplicationDiscoveryService",
+  IMPORT: "Import",
+  MPA: "MPA",
+};
 
 /**
  * @public
@@ -2598,7 +2598,7 @@ export interface StartImportFileTaskRequest {
    * <p>Specifies the source that the servers are coming from. By default, Strategy Recommendations assumes that
    *       the servers specified in the import file are available in AWS Application Discovery Service. </p>
    */
-  dataSourceType?: DataSourceType | string;
+  dataSourceType?: keyof typeof DataSourceType | string;
 
   /**
    * <p>Groups the resources in the import file together with a unique name. This ID can be as
@@ -2626,10 +2626,10 @@ export interface StartImportFileTaskResponse {
 /**
  * @public
  */
-export enum OutputFormat {
-  Excel = "Excel",
-  Json = "Json",
-}
+export const OutputFormat = {
+  Excel: "Excel",
+  Json: "Json",
+};
 
 /**
  * @public
@@ -2639,7 +2639,7 @@ export interface StartRecommendationReportGenerationRequest {
    * <p> The output format for the recommendation report file. The default format is Microsoft
    *       Excel. </p>
    */
-  outputFormat?: OutputFormat | string;
+  outputFormat?: keyof typeof OutputFormat | string;
 
   /**
    * <p> Groups the resources in the recommendation report with a unique name. </p>
@@ -2675,11 +2675,11 @@ export interface StopAssessmentResponse {}
 /**
  * @public
  */
-export enum VersionControl {
-  AZURE_DEVOPS_GIT = "AZURE_DEVOPS_GIT",
-  GITHUB = "GITHUB",
-  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
-}
+export const VersionControl = {
+  AZURE_DEVOPS_GIT: "AZURE_DEVOPS_GIT",
+  GITHUB: "GITHUB",
+  GITHUB_ENTERPRISE: "GITHUB_ENTERPRISE",
+};
 
 /**
  * @public
@@ -2690,7 +2690,7 @@ export interface SourceCode {
   /**
    * <p> The type of repository to use for the source code. </p>
    */
-  versionControl?: VersionControl | string;
+  versionControl?: keyof typeof VersionControl | string;
 
   /**
    * <p> The branch of the source code. </p>
@@ -2717,19 +2717,19 @@ export interface StrategyOption {
   /**
    * <p> Type of transformation. For example, Rehost, Replatform, and so on. </p>
    */
-  strategy?: Strategy | string;
+  strategy?: keyof typeof Strategy | string;
 
   /**
    * <p> The name of the tool that can be used to transform an application component using this
    *       strategy. </p>
    */
-  toolName?: TransformationToolName | string;
+  toolName?: keyof typeof TransformationToolName | string;
 
   /**
    * <p> Destination information about where the application component can migrate to. For
    *       example, <code>EC2</code>, <code>ECS</code>, and so on. </p>
    */
-  targetDestination?: TargetDestination | string;
+  targetDestination?: keyof typeof TargetDestination | string;
 
   /**
    * <p> Indicates if a specific strategy is preferred for the application component. </p>
@@ -2750,7 +2750,7 @@ export interface UpdateApplicationComponentConfigRequest {
    * <p> Indicates whether the application component has been included for server recommendation
    *       or not. </p>
    */
-  inclusionStatus?: InclusionStatus | string;
+  inclusionStatus?: keyof typeof InclusionStatus | string;
 
   /**
    * <p> The preferred strategy options for the application component. Use values from the <a>GetApplicationComponentStrategies</a> response. </p>
@@ -2777,7 +2777,7 @@ export interface UpdateApplicationComponentConfigRequest {
   /**
    * <p>The type of known component.</p>
    */
-  appType?: AppType | string;
+  appType?: keyof typeof AppType | string;
 }
 
 /**

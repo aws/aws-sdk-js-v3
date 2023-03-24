@@ -218,11 +218,11 @@ export interface GeneralName {
 /**
  * @public
  */
-export enum AccessMethodType {
-  CA_REPOSITORY = "CA_REPOSITORY",
-  RESOURCE_PKI_MANIFEST = "RESOURCE_PKI_MANIFEST",
-  RESOURCE_PKI_NOTIFY = "RESOURCE_PKI_NOTIFY",
-}
+export const AccessMethodType = {
+  CA_REPOSITORY: "CA_REPOSITORY",
+  RESOURCE_PKI_MANIFEST: "RESOURCE_PKI_MANIFEST",
+  RESOURCE_PKI_NOTIFY: "RESOURCE_PKI_NOTIFY",
+};
 
 /**
  * @public
@@ -242,7 +242,7 @@ export interface AccessMethod {
   /**
    * <p>Specifies the <code>AccessMethod</code>.</p>
    */
-  AccessMethodType?: AccessMethodType | string;
+  AccessMethodType?: keyof typeof AccessMethodType | string;
 }
 
 /**
@@ -337,24 +337,24 @@ export interface CsrExtensions {
 /**
  * @public
  */
-export enum KeyAlgorithm {
-  EC_prime256v1 = "EC_prime256v1",
-  EC_secp384r1 = "EC_secp384r1",
-  RSA_2048 = "RSA_2048",
-  RSA_4096 = "RSA_4096",
-}
+export const KeyAlgorithm = {
+  EC_prime256v1: "EC_prime256v1",
+  EC_secp384r1: "EC_secp384r1",
+  RSA_2048: "RSA_2048",
+  RSA_4096: "RSA_4096",
+};
 
 /**
  * @public
  */
-export enum SigningAlgorithm {
-  SHA256WITHECDSA = "SHA256WITHECDSA",
-  SHA256WITHRSA = "SHA256WITHRSA",
-  SHA384WITHECDSA = "SHA384WITHECDSA",
-  SHA384WITHRSA = "SHA384WITHRSA",
-  SHA512WITHECDSA = "SHA512WITHECDSA",
-  SHA512WITHRSA = "SHA512WITHRSA",
-}
+export const SigningAlgorithm = {
+  SHA256WITHECDSA: "SHA256WITHECDSA",
+  SHA256WITHRSA: "SHA256WITHRSA",
+  SHA384WITHECDSA: "SHA384WITHECDSA",
+  SHA384WITHRSA: "SHA384WITHRSA",
+  SHA512WITHECDSA: "SHA512WITHECDSA",
+  SHA512WITHRSA: "SHA512WITHRSA",
+};
 
 /**
  * @public
@@ -370,14 +370,14 @@ export interface CertificateAuthorityConfiguration {
    * 			creates when it issues a certificate. When you create a subordinate CA, you must use a
    * 			key algorithm supported by the parent CA.</p>
    */
-  KeyAlgorithm: KeyAlgorithm | string | undefined;
+  KeyAlgorithm: keyof typeof KeyAlgorithm | string | undefined;
 
   /**
    * <p>Name of the algorithm your private CA uses to sign certificate requests.</p>
    *          <p>This parameter should not be confused with the <code>SigningAlgorithm</code> parameter
    * 			used to sign certificates when they are issued.</p>
    */
-  SigningAlgorithm: SigningAlgorithm | string | undefined;
+  SigningAlgorithm: keyof typeof SigningAlgorithm | string | undefined;
 
   /**
    * <p>Structure that contains X.500 distinguished name information for your private
@@ -395,26 +395,26 @@ export interface CertificateAuthorityConfiguration {
 /**
  * @public
  */
-export enum CertificateAuthorityType {
-  ROOT = "ROOT",
-  SUBORDINATE = "SUBORDINATE",
-}
+export const CertificateAuthorityType = {
+  ROOT: "ROOT",
+  SUBORDINATE: "SUBORDINATE",
+};
 
 /**
  * @public
  */
-export enum KeyStorageSecurityStandard {
-  FIPS_140_2_LEVEL_2_OR_HIGHER = "FIPS_140_2_LEVEL_2_OR_HIGHER",
-  FIPS_140_2_LEVEL_3_OR_HIGHER = "FIPS_140_2_LEVEL_3_OR_HIGHER",
-}
+export const KeyStorageSecurityStandard = {
+  FIPS_140_2_LEVEL_2_OR_HIGHER: "FIPS_140_2_LEVEL_2_OR_HIGHER",
+  FIPS_140_2_LEVEL_3_OR_HIGHER: "FIPS_140_2_LEVEL_3_OR_HIGHER",
+};
 
 /**
  * @public
  */
-export enum S3ObjectAcl {
-  BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
-  PUBLIC_READ = "PUBLIC_READ",
-}
+export const S3ObjectAcl = {
+  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
+  PUBLIC_READ: "PUBLIC_READ",
+};
 
 /**
  * @public
@@ -588,7 +588,7 @@ export interface CrlConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-bpa">Blocking public access to the S3
    * 				bucket</a>.</p>
    */
-  S3ObjectAcl?: S3ObjectAcl | string;
+  S3ObjectAcl?: keyof typeof S3ObjectAcl | string;
 }
 
 /**
@@ -669,10 +669,10 @@ export interface Tag {
 /**
  * @public
  */
-export enum CertificateAuthorityUsageMode {
-  GENERAL_PURPOSE = "GENERAL_PURPOSE",
-  SHORT_LIVED_CERTIFICATE = "SHORT_LIVED_CERTIFICATE",
-}
+export const CertificateAuthorityUsageMode = {
+  GENERAL_PURPOSE: "GENERAL_PURPOSE",
+  SHORT_LIVED_CERTIFICATE: "SHORT_LIVED_CERTIFICATE",
+};
 
 /**
  * @public
@@ -720,7 +720,7 @@ export interface CreateCertificateAuthorityRequest {
   /**
    * <p>The type of the certificate authority.</p>
    */
-  CertificateAuthorityType: CertificateAuthorityType | string | undefined;
+  CertificateAuthorityType: keyof typeof CertificateAuthorityType | string | undefined;
 
   /**
    * <p>Custom string that can be used to distinguish between calls to the <b>CreateCertificateAuthority</b> action. Idempotency tokens for
@@ -755,7 +755,7 @@ export interface CreateCertificateAuthorityRequest {
    * 				<code>InvalidArgsException</code> with the message, "A certificate authority cannot
    * 			be created in this region with the specified security standard."</p>
    */
-  KeyStorageSecurityStandard?: KeyStorageSecurityStandard | string;
+  KeyStorageSecurityStandard?: keyof typeof KeyStorageSecurityStandard | string;
 
   /**
    * <p>Key-value pairs that will be attached to the new private CA. You can associate up to
@@ -771,7 +771,7 @@ export interface CreateCertificateAuthorityRequest {
    * 			days.</p>
    *          <p>The default value is GENERAL_PURPOSE.</p>
    */
-  UsageMode?: CertificateAuthorityUsageMode | string;
+  UsageMode?: keyof typeof CertificateAuthorityUsageMode | string;
 }
 
 /**
@@ -875,10 +875,10 @@ export class LimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum AuditReportResponseFormat {
-  CSV = "CSV",
-  JSON = "JSON",
-}
+export const AuditReportResponseFormat = {
+  CSV: "CSV",
+  JSON: "JSON",
+};
 
 /**
  * @public
@@ -900,7 +900,7 @@ export interface CreateCertificateAuthorityAuditReportRequest {
   /**
    * <p>The format in which to create the report. This can be either <b>JSON</b> or <b>CSV</b>.</p>
    */
-  AuditReportResponseFormat: AuditReportResponseFormat | string | undefined;
+  AuditReportResponseFormat: keyof typeof AuditReportResponseFormat | string | undefined;
 }
 
 /**
@@ -1024,11 +1024,11 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum ActionType {
-  GetCertificate = "GetCertificate",
-  IssueCertificate = "IssueCertificate",
-  ListPermissions = "ListPermissions",
-}
+export const ActionType = {
+  GetCertificate: "GetCertificate",
+  IssueCertificate: "IssueCertificate",
+  ListPermissions: "ListPermissions",
+};
 
 /**
  * @public
@@ -1060,7 +1060,7 @@ export interface CreatePermissionRequest {
    * 				<code>IssueCertificate</code>, <code>GetCertificate</code>, and
    * 				<code>ListPermissions</code>.</p>
    */
-  Actions: (ActionType | string)[] | undefined;
+  Actions: (keyof typeof ActionType | string)[] | undefined;
 }
 
 /**
@@ -1202,24 +1202,24 @@ export interface DescribeCertificateAuthorityRequest {
 /**
  * @public
  */
-export enum FailureReason {
-  OTHER = "OTHER",
-  REQUEST_TIMED_OUT = "REQUEST_TIMED_OUT",
-  UNSUPPORTED_ALGORITHM = "UNSUPPORTED_ALGORITHM",
-}
+export const FailureReason = {
+  OTHER: "OTHER",
+  REQUEST_TIMED_OUT: "REQUEST_TIMED_OUT",
+  UNSUPPORTED_ALGORITHM: "UNSUPPORTED_ALGORITHM",
+};
 
 /**
  * @public
  */
-export enum CertificateAuthorityStatus {
-  ACTIVE = "ACTIVE",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  DISABLED = "DISABLED",
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  PENDING_CERTIFICATE = "PENDING_CERTIFICATE",
-}
+export const CertificateAuthorityStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DISABLED: "DISABLED",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  PENDING_CERTIFICATE: "PENDING_CERTIFICATE",
+};
 
 /**
  * @public
@@ -1260,7 +1260,7 @@ export interface CertificateAuthority {
   /**
    * <p>Type of your private CA.</p>
    */
-  Type?: CertificateAuthorityType | string;
+  Type?: keyof typeof CertificateAuthorityType | string;
 
   /**
    * <p>Serial number of your private CA.</p>
@@ -1270,7 +1270,7 @@ export interface CertificateAuthority {
   /**
    * <p>Status of your private CA.</p>
    */
-  Status?: CertificateAuthorityStatus | string;
+  Status?: keyof typeof CertificateAuthorityStatus | string;
 
   /**
    * <p>Date and time before which your private CA certificate is not valid.</p>
@@ -1285,7 +1285,7 @@ export interface CertificateAuthority {
   /**
    * <p>Reason the request to create your private CA failed.</p>
    */
-  FailureReason?: FailureReason | string;
+  FailureReason?: keyof typeof FailureReason | string;
 
   /**
    * <p>Your private CA configuration.</p>
@@ -1313,7 +1313,7 @@ export interface CertificateAuthority {
    * 				<code>InvalidArgsException</code> with the message "A certificate authority cannot
    * 			be created in this region with the specified security standard."</p>
    */
-  KeyStorageSecurityStandard?: KeyStorageSecurityStandard | string;
+  KeyStorageSecurityStandard?: keyof typeof KeyStorageSecurityStandard | string;
 
   /**
    * <p>Specifies whether the CA issues general-purpose certificates that typically require a
@@ -1322,7 +1322,7 @@ export interface CertificateAuthority {
    * 			days.</p>
    *          <p>The default value is GENERAL_PURPOSE.</p>
    */
-  UsageMode?: CertificateAuthorityUsageMode | string;
+  UsageMode?: keyof typeof CertificateAuthorityUsageMode | string;
 }
 
 /**
@@ -1358,11 +1358,11 @@ export interface DescribeCertificateAuthorityAuditReportRequest {
 /**
  * @public
  */
-export enum AuditReportStatus {
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  SUCCESS = "SUCCESS",
-}
+export const AuditReportStatus = {
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  SUCCESS: "SUCCESS",
+};
 
 /**
  * @public
@@ -1371,7 +1371,7 @@ export interface DescribeCertificateAuthorityAuditReportResponse {
   /**
    * <p>Specifies whether report creation is in progress, has succeeded, or has failed.</p>
    */
-  AuditReportStatus?: AuditReportStatus | string;
+  AuditReportStatus?: keyof typeof AuditReportStatus | string;
 
   /**
    * <p>Name of the S3 bucket that contains the report.</p>
@@ -1605,9 +1605,9 @@ export class MalformedCertificateException extends __BaseException {
 /**
  * @public
  */
-export enum PolicyQualifierId {
-  CPS = "CPS",
-}
+export const PolicyQualifierId = {
+  CPS: "CPS",
+};
 
 /**
  * @public
@@ -1632,7 +1632,7 @@ export interface PolicyQualifierInfo {
   /**
    * <p>Identifies the qualifier modifying a <code>CertPolicyId</code>.</p>
    */
-  PolicyQualifierId: PolicyQualifierId | string | undefined;
+  PolicyQualifierId: keyof typeof PolicyQualifierId | string | undefined;
 
   /**
    * <p>Defines the qualifier type. Amazon Web Services Private CA supports the use of a URI for a CPS qualifier
@@ -1694,17 +1694,17 @@ export interface CustomExtension {
 /**
  * @public
  */
-export enum ExtendedKeyUsageType {
-  CERTIFICATE_TRANSPARENCY = "CERTIFICATE_TRANSPARENCY",
-  CLIENT_AUTH = "CLIENT_AUTH",
-  CODE_SIGNING = "CODE_SIGNING",
-  DOCUMENT_SIGNING = "DOCUMENT_SIGNING",
-  EMAIL_PROTECTION = "EMAIL_PROTECTION",
-  OCSP_SIGNING = "OCSP_SIGNING",
-  SERVER_AUTH = "SERVER_AUTH",
-  SMART_CARD_LOGIN = "SMART_CARD_LOGIN",
-  TIME_STAMPING = "TIME_STAMPING",
-}
+export const ExtendedKeyUsageType = {
+  CERTIFICATE_TRANSPARENCY: "CERTIFICATE_TRANSPARENCY",
+  CLIENT_AUTH: "CLIENT_AUTH",
+  CODE_SIGNING: "CODE_SIGNING",
+  DOCUMENT_SIGNING: "DOCUMENT_SIGNING",
+  EMAIL_PROTECTION: "EMAIL_PROTECTION",
+  OCSP_SIGNING: "OCSP_SIGNING",
+  SERVER_AUTH: "SERVER_AUTH",
+  SMART_CARD_LOGIN: "SMART_CARD_LOGIN",
+  TIME_STAMPING: "TIME_STAMPING",
+};
 
 /**
  * @public
@@ -1716,7 +1716,7 @@ export interface ExtendedKeyUsage {
    * <p>Specifies a standard <code>ExtendedKeyUsage</code> as defined as in <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12">RFC
    * 				5280</a>.</p>
    */
-  ExtendedKeyUsageType?: ExtendedKeyUsageType | string;
+  ExtendedKeyUsageType?: keyof typeof ExtendedKeyUsageType | string;
 
   /**
    * <p>Specifies a custom <code>ExtendedKeyUsage</code> with an object identifier
@@ -1800,13 +1800,13 @@ export interface ApiPassthrough {
 /**
  * @public
  */
-export enum ValidityPeriodType {
-  ABSOLUTE = "ABSOLUTE",
-  DAYS = "DAYS",
-  END_DATE = "END_DATE",
-  MONTHS = "MONTHS",
-  YEARS = "YEARS",
-}
+export const ValidityPeriodType = {
+  ABSOLUTE: "ABSOLUTE",
+  DAYS: "DAYS",
+  END_DATE: "END_DATE",
+  MONTHS: "MONTHS",
+  YEARS: "YEARS",
+};
 
 /**
  * @public
@@ -1873,7 +1873,7 @@ export interface Validity {
    * 			(<code>DAYS</code>) is one day. The minimum validity for a certificate using absolute
    * 			time (<code>ABSOLUTE</code> or <code>END_DATE</code>) is one second.</p>
    */
-  Type: ValidityPeriodType | string | undefined;
+  Type: keyof typeof ValidityPeriodType | string | undefined;
 }
 
 /**
@@ -1931,7 +1931,7 @@ export interface IssueCertificateRequest {
    * 				family of the CA's secret key.</p>
    *          </note>
    */
-  SigningAlgorithm: SigningAlgorithm | string | undefined;
+  SigningAlgorithm: keyof typeof SigningAlgorithm | string | undefined;
 
   /**
    * <p>Specifies a custom configuration template to use when issuing a certificate. If this
@@ -2050,10 +2050,10 @@ export class InvalidNextTokenException extends __BaseException {
 /**
  * @public
  */
-export enum ResourceOwner {
-  OTHER_ACCOUNTS = "OTHER_ACCOUNTS",
-  SELF = "SELF",
-}
+export const ResourceOwner = {
+  OTHER_ACCOUNTS: "OTHER_ACCOUNTS",
+  SELF: "SELF",
+};
 
 /**
  * @public
@@ -2079,7 +2079,7 @@ export interface ListCertificateAuthoritiesRequest {
    * <p>Use this parameter to filter the returned set of certificate authorities based on
    * 			their owner. The default is SELF.</p>
    */
-  ResourceOwner?: ResourceOwner | string;
+  ResourceOwner?: keyof typeof ResourceOwner | string;
 }
 
 /**
@@ -2162,7 +2162,7 @@ export interface Permission {
   /**
    * <p>The private CA actions that can be performed by the designated Amazon Web Services service.</p>
    */
-  Actions?: (ActionType | string)[];
+  Actions?: (keyof typeof ActionType | string)[];
 
   /**
    * <p>The name of the policy that is associated with the permission.</p>
@@ -2290,16 +2290,16 @@ export class RequestAlreadyProcessedException extends __BaseException {
 /**
  * @public
  */
-export enum RevocationReason {
-  AFFILIATION_CHANGED = "AFFILIATION_CHANGED",
-  A_A_COMPROMISE = "A_A_COMPROMISE",
-  CERTIFICATE_AUTHORITY_COMPROMISE = "CERTIFICATE_AUTHORITY_COMPROMISE",
-  CESSATION_OF_OPERATION = "CESSATION_OF_OPERATION",
-  KEY_COMPROMISE = "KEY_COMPROMISE",
-  PRIVILEGE_WITHDRAWN = "PRIVILEGE_WITHDRAWN",
-  SUPERSEDED = "SUPERSEDED",
-  UNSPECIFIED = "UNSPECIFIED",
-}
+export const RevocationReason = {
+  AFFILIATION_CHANGED: "AFFILIATION_CHANGED",
+  A_A_COMPROMISE: "A_A_COMPROMISE",
+  CERTIFICATE_AUTHORITY_COMPROMISE: "CERTIFICATE_AUTHORITY_COMPROMISE",
+  CESSATION_OF_OPERATION: "CESSATION_OF_OPERATION",
+  KEY_COMPROMISE: "KEY_COMPROMISE",
+  PRIVILEGE_WITHDRAWN: "PRIVILEGE_WITHDRAWN",
+  SUPERSEDED: "SUPERSEDED",
+  UNSPECIFIED: "UNSPECIFIED",
+};
 
 /**
  * @public
@@ -2333,7 +2333,7 @@ export interface RevokeCertificateRequest {
   /**
    * <p>Specifies why you revoked the certificate.</p>
    */
-  RevocationReason: RevocationReason | string | undefined;
+  RevocationReason: keyof typeof RevocationReason | string | undefined;
 }
 
 /**
@@ -2444,5 +2444,5 @@ export interface UpdateCertificateAuthorityRequest {
   /**
    * <p>Status of your private CA.</p>
    */
-  Status?: CertificateAuthorityStatus | string;
+  Status?: keyof typeof CertificateAuthorityStatus | string;
 }

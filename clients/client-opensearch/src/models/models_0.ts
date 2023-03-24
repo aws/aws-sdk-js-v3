@@ -17,24 +17,24 @@ export interface AcceptInboundConnectionRequest {
 /**
  * @public
  */
-export enum ConnectionMode {
-  DIRECT = "DIRECT",
-  VPC_ENDPOINT = "VPC_ENDPOINT",
-}
+export const ConnectionMode = {
+  DIRECT: "DIRECT",
+  VPC_ENDPOINT: "VPC_ENDPOINT",
+};
 
 /**
  * @public
  */
-export enum InboundConnectionStatusCode {
-  ACTIVE = "ACTIVE",
-  APPROVED = "APPROVED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  PENDING_ACCEPTANCE = "PENDING_ACCEPTANCE",
-  PROVISIONING = "PROVISIONING",
-  REJECTED = "REJECTED",
-  REJECTING = "REJECTING",
-}
+export const InboundConnectionStatusCode = {
+  ACTIVE: "ACTIVE",
+  APPROVED: "APPROVED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  PENDING_ACCEPTANCE: "PENDING_ACCEPTANCE",
+  PROVISIONING: "PROVISIONING",
+  REJECTED: "REJECTED",
+  REJECTING: "REJECTING",
+};
 
 /**
  * @public
@@ -85,7 +85,7 @@ export interface InboundConnectionStatus {
    *             </li>
    *          </ul>
    */
-  StatusCode?: InboundConnectionStatusCode | string;
+  StatusCode?: keyof typeof InboundConnectionStatusCode | string;
 
   /**
    * <p>Information about the connection.</p>
@@ -155,7 +155,7 @@ export interface InboundConnection {
   /**
    * <p>The connection mode.</p>
    */
-  ConnectionMode?: ConnectionMode | string;
+  ConnectionMode?: keyof typeof ConnectionMode | string;
 }
 
 /**
@@ -252,11 +252,11 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum OptionState {
-  Active = "Active",
-  Processing = "Processing",
-  RequiresIndexDocuments = "RequiresIndexDocuments",
-}
+export const OptionState = {
+  Active: "Active",
+  Processing: "Processing",
+  RequiresIndexDocuments: "RequiresIndexDocuments",
+};
 
 /**
  * @public
@@ -281,7 +281,7 @@ export interface OptionStatus {
   /**
    * <p>The state of the entity.</p>
    */
-  State: OptionState | string | undefined;
+  State: keyof typeof OptionState | string | undefined;
 
   /**
    * <p>Indicates whether the entity is being deleted.</p>
@@ -310,32 +310,32 @@ export interface AccessPoliciesStatus {
 /**
  * @public
  */
-export enum ActionSeverity {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const ActionSeverity = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+};
 
 /**
  * @public
  */
-export enum ActionStatus {
-  COMPLETED = "COMPLETED",
-  ELIGIBLE = "ELIGIBLE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_ELIGIBLE = "NOT_ELIGIBLE",
-  PENDING_UPDATE = "PENDING_UPDATE",
-}
+export const ActionStatus = {
+  COMPLETED: "COMPLETED",
+  ELIGIBLE: "ELIGIBLE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_ELIGIBLE: "NOT_ELIGIBLE",
+  PENDING_UPDATE: "PENDING_UPDATE",
+};
 
 /**
  * @public
  */
-export enum ActionType {
-  JVM_HEAP_SIZE_TUNING = "JVM_HEAP_SIZE_TUNING",
-  JVM_YOUNG_GEN_TUNING = "JVM_YOUNG_GEN_TUNING",
-  SERVICE_SOFTWARE_UPDATE = "SERVICE_SOFTWARE_UPDATE",
-}
+export const ActionType = {
+  JVM_HEAP_SIZE_TUNING: "JVM_HEAP_SIZE_TUNING",
+  JVM_YOUNG_GEN_TUNING: "JVM_YOUNG_GEN_TUNING",
+  SERVICE_SOFTWARE_UPDATE: "SERVICE_SOFTWARE_UPDATE",
+};
 
 /**
  * @public
@@ -730,13 +730,13 @@ export interface AssociatePackageRequest {
 /**
  * @public
  */
-export enum DomainPackageStatus {
-  ACTIVE = "ACTIVE",
-  ASSOCIATING = "ASSOCIATING",
-  ASSOCIATION_FAILED = "ASSOCIATION_FAILED",
-  DISSOCIATING = "DISSOCIATING",
-  DISSOCIATION_FAILED = "DISSOCIATION_FAILED",
-}
+export const DomainPackageStatus = {
+  ACTIVE: "ACTIVE",
+  ASSOCIATING: "ASSOCIATING",
+  ASSOCIATION_FAILED: "ASSOCIATION_FAILED",
+  DISSOCIATING: "DISSOCIATING",
+  DISSOCIATION_FAILED: "DISSOCIATION_FAILED",
+};
 
 /**
  * @public
@@ -757,9 +757,9 @@ export interface ErrorDetails {
 /**
  * @public
  */
-export enum PackageType {
-  TXT_DICTIONARY = "TXT-DICTIONARY",
-}
+export const PackageType = {
+  TXT_DICTIONARY: "TXT-DICTIONARY",
+};
 
 /**
  * @public
@@ -780,7 +780,7 @@ export interface DomainPackageDetails {
   /**
    * <p>The type of package.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: keyof typeof PackageType | string;
 
   /**
    * <p>Timestamp of the most recent update to the package association status.</p>
@@ -795,7 +795,7 @@ export interface DomainPackageDetails {
   /**
    * <p>State of the association.</p>
    */
-  DomainPackageStatus?: DomainPackageStatus | string;
+  DomainPackageStatus?: keyof typeof DomainPackageStatus | string;
 
   /**
    * <p>The current version of the package.</p>
@@ -863,10 +863,10 @@ export interface AuthorizeVpcEndpointAccessRequest {
 /**
  * @public
  */
-export enum PrincipalType {
-  AWS_ACCOUNT = "AWS_ACCOUNT",
-  AWS_SERVICE = "AWS_SERVICE",
-}
+export const PrincipalType = {
+  AWS_ACCOUNT: "AWS_ACCOUNT",
+  AWS_SERVICE: "AWS_SERVICE",
+};
 
 /**
  * @public
@@ -877,7 +877,7 @@ export interface AuthorizedPrincipal {
   /**
    * <p>The type of principal.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: keyof typeof PrincipalType | string;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM principal</a> that is allowed access to the domain.</p>
@@ -911,13 +911,13 @@ export interface CancelServiceSoftwareUpdateRequest {
 /**
  * @public
  */
-export enum DeploymentStatus {
-  COMPLETED = "COMPLETED",
-  ELIGIBLE = "ELIGIBLE",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_ELIGIBLE = "NOT_ELIGIBLE",
-  PENDING_UPDATE = "PENDING_UPDATE",
-}
+export const DeploymentStatus = {
+  COMPLETED: "COMPLETED",
+  ELIGIBLE: "ELIGIBLE",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_ELIGIBLE: "NOT_ELIGIBLE",
+  PENDING_UPDATE: "PENDING_UPDATE",
+};
 
 /**
  * @public
@@ -951,7 +951,7 @@ export interface ServiceSoftwareOptions {
   /**
    * <p>The status of your service software update.</p>
    */
-  UpdateStatus?: DeploymentStatus | string;
+  UpdateStatus?: keyof typeof DeploymentStatus | string;
 
   /**
    * <p>A description of the service software update status.</p>
@@ -986,17 +986,17 @@ export interface CancelServiceSoftwareUpdateResponse {
 /**
  * @public
  */
-export enum AutoTuneDesiredState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AutoTuneDesiredState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum TimeUnit {
-  HOURS = "HOURS",
-}
+export const TimeUnit = {
+  HOURS: "HOURS",
+};
 
 /**
  * @public
@@ -1012,7 +1012,7 @@ export interface Duration {
   /**
    * <p>The unit of measurement for the duration of a maintenance schedule.</p>
    */
-  Unit?: TimeUnit | string;
+  Unit?: keyof typeof TimeUnit | string;
 }
 
 /**
@@ -1055,7 +1055,7 @@ export interface AutoTuneOptionsInput {
   /**
    * <p>Whether Auto-Tune is enabled or disabled.</p>
    */
-  DesiredState?: AutoTuneDesiredState | string;
+  DesiredState?: keyof typeof AutoTuneDesiredState | string;
 
   /**
    * <p>A list of maintenance schedules during which Auto-Tune can deploy changes. Maintenance windows are deprecated and have been replaced with <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">off-peak windows</a>.</p>
@@ -1084,112 +1084,112 @@ export interface ColdStorageOptions {
 /**
  * @public
  */
-export enum OpenSearchPartitionInstanceType {
-  c4_2xlarge_search = "c4.2xlarge.search",
-  c4_4xlarge_search = "c4.4xlarge.search",
-  c4_8xlarge_search = "c4.8xlarge.search",
-  c4_large_search = "c4.large.search",
-  c4_xlarge_search = "c4.xlarge.search",
-  c5_18xlarge_search = "c5.18xlarge.search",
-  c5_2xlarge_search = "c5.2xlarge.search",
-  c5_4xlarge_search = "c5.4xlarge.search",
-  c5_9xlarge_search = "c5.9xlarge.search",
-  c5_large_search = "c5.large.search",
-  c5_xlarge_search = "c5.xlarge.search",
-  c6g_12xlarge_search = "c6g.12xlarge.search",
-  c6g_2xlarge_search = "c6g.2xlarge.search",
-  c6g_4xlarge_search = "c6g.4xlarge.search",
-  c6g_8xlarge_search = "c6g.8xlarge.search",
-  c6g_large_search = "c6g.large.search",
-  c6g_xlarge_search = "c6g.xlarge.search",
-  d2_2xlarge_search = "d2.2xlarge.search",
-  d2_4xlarge_search = "d2.4xlarge.search",
-  d2_8xlarge_search = "d2.8xlarge.search",
-  d2_xlarge_search = "d2.xlarge.search",
-  i2_2xlarge_search = "i2.2xlarge.search",
-  i2_xlarge_search = "i2.xlarge.search",
-  i3_16xlarge_search = "i3.16xlarge.search",
-  i3_2xlarge_search = "i3.2xlarge.search",
-  i3_4xlarge_search = "i3.4xlarge.search",
-  i3_8xlarge_search = "i3.8xlarge.search",
-  i3_large_search = "i3.large.search",
-  i3_xlarge_search = "i3.xlarge.search",
-  m3_2xlarge_search = "m3.2xlarge.search",
-  m3_large_search = "m3.large.search",
-  m3_medium_search = "m3.medium.search",
-  m3_xlarge_search = "m3.xlarge.search",
-  m4_10xlarge_search = "m4.10xlarge.search",
-  m4_2xlarge_search = "m4.2xlarge.search",
-  m4_4xlarge_search = "m4.4xlarge.search",
-  m4_large_search = "m4.large.search",
-  m4_xlarge_search = "m4.xlarge.search",
-  m5_12xlarge_search = "m5.12xlarge.search",
-  m5_24xlarge_search = "m5.24xlarge.search",
-  m5_2xlarge_search = "m5.2xlarge.search",
-  m5_4xlarge_search = "m5.4xlarge.search",
-  m5_large_search = "m5.large.search",
-  m5_xlarge_search = "m5.xlarge.search",
-  m6g_12xlarge_search = "m6g.12xlarge.search",
-  m6g_2xlarge_search = "m6g.2xlarge.search",
-  m6g_4xlarge_search = "m6g.4xlarge.search",
-  m6g_8xlarge_search = "m6g.8xlarge.search",
-  m6g_large_search = "m6g.large.search",
-  m6g_xlarge_search = "m6g.xlarge.search",
-  r3_2xlarge_search = "r3.2xlarge.search",
-  r3_4xlarge_search = "r3.4xlarge.search",
-  r3_8xlarge_search = "r3.8xlarge.search",
-  r3_large_search = "r3.large.search",
-  r3_xlarge_search = "r3.xlarge.search",
-  r4_16xlarge_search = "r4.16xlarge.search",
-  r4_2xlarge_search = "r4.2xlarge.search",
-  r4_4xlarge_search = "r4.4xlarge.search",
-  r4_8xlarge_search = "r4.8xlarge.search",
-  r4_large_search = "r4.large.search",
-  r4_xlarge_search = "r4.xlarge.search",
-  r5_12xlarge_search = "r5.12xlarge.search",
-  r5_24xlarge_search = "r5.24xlarge.search",
-  r5_2xlarge_search = "r5.2xlarge.search",
-  r5_4xlarge_search = "r5.4xlarge.search",
-  r5_large_search = "r5.large.search",
-  r5_xlarge_search = "r5.xlarge.search",
-  r6g_12xlarge_search = "r6g.12xlarge.search",
-  r6g_2xlarge_search = "r6g.2xlarge.search",
-  r6g_4xlarge_search = "r6g.4xlarge.search",
-  r6g_8xlarge_search = "r6g.8xlarge.search",
-  r6g_large_search = "r6g.large.search",
-  r6g_xlarge_search = "r6g.xlarge.search",
-  r6gd_12xlarge_search = "r6gd.12xlarge.search",
-  r6gd_16xlarge_search = "r6gd.16xlarge.search",
-  r6gd_2xlarge_search = "r6gd.2xlarge.search",
-  r6gd_4xlarge_search = "r6gd.4xlarge.search",
-  r6gd_8xlarge_search = "r6gd.8xlarge.search",
-  r6gd_large_search = "r6gd.large.search",
-  r6gd_xlarge_search = "r6gd.xlarge.search",
-  t2_medium_search = "t2.medium.search",
-  t2_micro_search = "t2.micro.search",
-  t2_small_search = "t2.small.search",
-  t3_2xlarge_search = "t3.2xlarge.search",
-  t3_large_search = "t3.large.search",
-  t3_medium_search = "t3.medium.search",
-  t3_micro_search = "t3.micro.search",
-  t3_nano_search = "t3.nano.search",
-  t3_small_search = "t3.small.search",
-  t3_xlarge_search = "t3.xlarge.search",
-  t4g_medium_search = "t4g.medium.search",
-  t4g_small_search = "t4g.small.search",
-  ultrawarm1_large_search = "ultrawarm1.large.search",
-  ultrawarm1_medium_search = "ultrawarm1.medium.search",
-  ultrawarm1_xlarge_search = "ultrawarm1.xlarge.search",
-}
+export const OpenSearchPartitionInstanceType = {
+  c4_2xlarge_search: "c4.2xlarge.search",
+  c4_4xlarge_search: "c4.4xlarge.search",
+  c4_8xlarge_search: "c4.8xlarge.search",
+  c4_large_search: "c4.large.search",
+  c4_xlarge_search: "c4.xlarge.search",
+  c5_18xlarge_search: "c5.18xlarge.search",
+  c5_2xlarge_search: "c5.2xlarge.search",
+  c5_4xlarge_search: "c5.4xlarge.search",
+  c5_9xlarge_search: "c5.9xlarge.search",
+  c5_large_search: "c5.large.search",
+  c5_xlarge_search: "c5.xlarge.search",
+  c6g_12xlarge_search: "c6g.12xlarge.search",
+  c6g_2xlarge_search: "c6g.2xlarge.search",
+  c6g_4xlarge_search: "c6g.4xlarge.search",
+  c6g_8xlarge_search: "c6g.8xlarge.search",
+  c6g_large_search: "c6g.large.search",
+  c6g_xlarge_search: "c6g.xlarge.search",
+  d2_2xlarge_search: "d2.2xlarge.search",
+  d2_4xlarge_search: "d2.4xlarge.search",
+  d2_8xlarge_search: "d2.8xlarge.search",
+  d2_xlarge_search: "d2.xlarge.search",
+  i2_2xlarge_search: "i2.2xlarge.search",
+  i2_xlarge_search: "i2.xlarge.search",
+  i3_16xlarge_search: "i3.16xlarge.search",
+  i3_2xlarge_search: "i3.2xlarge.search",
+  i3_4xlarge_search: "i3.4xlarge.search",
+  i3_8xlarge_search: "i3.8xlarge.search",
+  i3_large_search: "i3.large.search",
+  i3_xlarge_search: "i3.xlarge.search",
+  m3_2xlarge_search: "m3.2xlarge.search",
+  m3_large_search: "m3.large.search",
+  m3_medium_search: "m3.medium.search",
+  m3_xlarge_search: "m3.xlarge.search",
+  m4_10xlarge_search: "m4.10xlarge.search",
+  m4_2xlarge_search: "m4.2xlarge.search",
+  m4_4xlarge_search: "m4.4xlarge.search",
+  m4_large_search: "m4.large.search",
+  m4_xlarge_search: "m4.xlarge.search",
+  m5_12xlarge_search: "m5.12xlarge.search",
+  m5_24xlarge_search: "m5.24xlarge.search",
+  m5_2xlarge_search: "m5.2xlarge.search",
+  m5_4xlarge_search: "m5.4xlarge.search",
+  m5_large_search: "m5.large.search",
+  m5_xlarge_search: "m5.xlarge.search",
+  m6g_12xlarge_search: "m6g.12xlarge.search",
+  m6g_2xlarge_search: "m6g.2xlarge.search",
+  m6g_4xlarge_search: "m6g.4xlarge.search",
+  m6g_8xlarge_search: "m6g.8xlarge.search",
+  m6g_large_search: "m6g.large.search",
+  m6g_xlarge_search: "m6g.xlarge.search",
+  r3_2xlarge_search: "r3.2xlarge.search",
+  r3_4xlarge_search: "r3.4xlarge.search",
+  r3_8xlarge_search: "r3.8xlarge.search",
+  r3_large_search: "r3.large.search",
+  r3_xlarge_search: "r3.xlarge.search",
+  r4_16xlarge_search: "r4.16xlarge.search",
+  r4_2xlarge_search: "r4.2xlarge.search",
+  r4_4xlarge_search: "r4.4xlarge.search",
+  r4_8xlarge_search: "r4.8xlarge.search",
+  r4_large_search: "r4.large.search",
+  r4_xlarge_search: "r4.xlarge.search",
+  r5_12xlarge_search: "r5.12xlarge.search",
+  r5_24xlarge_search: "r5.24xlarge.search",
+  r5_2xlarge_search: "r5.2xlarge.search",
+  r5_4xlarge_search: "r5.4xlarge.search",
+  r5_large_search: "r5.large.search",
+  r5_xlarge_search: "r5.xlarge.search",
+  r6g_12xlarge_search: "r6g.12xlarge.search",
+  r6g_2xlarge_search: "r6g.2xlarge.search",
+  r6g_4xlarge_search: "r6g.4xlarge.search",
+  r6g_8xlarge_search: "r6g.8xlarge.search",
+  r6g_large_search: "r6g.large.search",
+  r6g_xlarge_search: "r6g.xlarge.search",
+  r6gd_12xlarge_search: "r6gd.12xlarge.search",
+  r6gd_16xlarge_search: "r6gd.16xlarge.search",
+  r6gd_2xlarge_search: "r6gd.2xlarge.search",
+  r6gd_4xlarge_search: "r6gd.4xlarge.search",
+  r6gd_8xlarge_search: "r6gd.8xlarge.search",
+  r6gd_large_search: "r6gd.large.search",
+  r6gd_xlarge_search: "r6gd.xlarge.search",
+  t2_medium_search: "t2.medium.search",
+  t2_micro_search: "t2.micro.search",
+  t2_small_search: "t2.small.search",
+  t3_2xlarge_search: "t3.2xlarge.search",
+  t3_large_search: "t3.large.search",
+  t3_medium_search: "t3.medium.search",
+  t3_micro_search: "t3.micro.search",
+  t3_nano_search: "t3.nano.search",
+  t3_small_search: "t3.small.search",
+  t3_xlarge_search: "t3.xlarge.search",
+  t4g_medium_search: "t4g.medium.search",
+  t4g_small_search: "t4g.small.search",
+  ultrawarm1_large_search: "ultrawarm1.large.search",
+  ultrawarm1_medium_search: "ultrawarm1.medium.search",
+  ultrawarm1_xlarge_search: "ultrawarm1.xlarge.search",
+};
 
 /**
  * @public
  */
-export enum OpenSearchWarmPartitionInstanceType {
-  ultrawarm1_large_search = "ultrawarm1.large.search",
-  ultrawarm1_medium_search = "ultrawarm1.medium.search",
-  ultrawarm1_xlarge_search = "ultrawarm1.xlarge.search",
-}
+export const OpenSearchWarmPartitionInstanceType = {
+  ultrawarm1_large_search: "ultrawarm1.large.search",
+  ultrawarm1_medium_search: "ultrawarm1.medium.search",
+  ultrawarm1_xlarge_search: "ultrawarm1.xlarge.search",
+};
 
 /**
  * @public
@@ -1213,7 +1213,7 @@ export interface ClusterConfig {
   /**
    * <p>Instance type of data nodes in the cluster.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: keyof typeof OpenSearchPartitionInstanceType | string;
 
   /**
    * <p>Number of dedicated master nodes in the cluster. This number must be greater than 1,
@@ -1241,7 +1241,7 @@ export interface ClusterConfig {
   /**
    * <p>OpenSearch Service instance type of the dedicated master nodes in the cluster.</p>
    */
-  DedicatedMasterType?: OpenSearchPartitionInstanceType | string;
+  DedicatedMasterType?: keyof typeof OpenSearchPartitionInstanceType | string;
 
   /**
    * <p>Number of dedicated master nodes in the cluster. This number must be greater than 1,
@@ -1257,7 +1257,7 @@ export interface ClusterConfig {
   /**
    * <p>The instance type for the cluster's warm nodes.</p>
    */
-  WarmType?: OpenSearchWarmPartitionInstanceType | string;
+  WarmType?: keyof typeof OpenSearchWarmPartitionInstanceType | string;
 
   /**
    * <p>The number of warm nodes in the cluster.</p>
@@ -1304,10 +1304,10 @@ export interface CognitoOptions {
 /**
  * @public
  */
-export enum TLSSecurityPolicy {
-  POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
-  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07",
-}
+export const TLSSecurityPolicy = {
+  POLICY_MIN_TLS_1_0_2019_07: "Policy-Min-TLS-1-0-2019-07",
+  POLICY_MIN_TLS_1_2_2019_07: "Policy-Min-TLS-1-2-2019-07",
+};
 
 /**
  * @public
@@ -1335,7 +1335,7 @@ export interface DomainEndpointOptions {
    *             </li>
    *          </ul>
    */
-  TLSSecurityPolicy?: TLSSecurityPolicy | string;
+  TLSSecurityPolicy?: keyof typeof TLSSecurityPolicy | string;
 
   /**
    * <p>Whether to enable a custom endpoint for the domain.</p>
@@ -1357,12 +1357,12 @@ export interface DomainEndpointOptions {
 /**
  * @public
  */
-export enum VolumeType {
-  gp2 = "gp2",
-  gp3 = "gp3",
-  io1 = "io1",
-  standard = "standard",
-}
+export const VolumeType = {
+  gp2: "gp2",
+  gp3: "gp3",
+  io1: "io1",
+  standard: "standard",
+};
 
 /**
  * @public
@@ -1379,7 +1379,7 @@ export interface EBSOptions {
   /**
    * <p>Specifies the type of EBS volumes attached to data nodes.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: keyof typeof VolumeType | string;
 
   /**
    * <p>Specifies the size (in GiB) of EBS volumes attached to data nodes.</p>
@@ -1420,12 +1420,12 @@ export interface EncryptionAtRestOptions {
 /**
  * @public
  */
-export enum LogType {
-  AUDIT_LOGS = "AUDIT_LOGS",
-  ES_APPLICATION_LOGS = "ES_APPLICATION_LOGS",
-  INDEX_SLOW_LOGS = "INDEX_SLOW_LOGS",
-  SEARCH_SLOW_LOGS = "SEARCH_SLOW_LOGS",
-}
+export const LogType = {
+  AUDIT_LOGS: "AUDIT_LOGS",
+  ES_APPLICATION_LOGS: "ES_APPLICATION_LOGS",
+  INDEX_SLOW_LOGS: "INDEX_SLOW_LOGS",
+  SEARCH_SLOW_LOGS: "SEARCH_SLOW_LOGS",
+};
 
 /**
  * @public
@@ -1704,17 +1704,17 @@ export interface CreateDomainRequest {
 /**
  * @public
  */
-export enum AutoTuneState {
-  DISABLED = "DISABLED",
-  DISABLED_AND_ROLLBACK_COMPLETE = "DISABLED_AND_ROLLBACK_COMPLETE",
-  DISABLED_AND_ROLLBACK_ERROR = "DISABLED_AND_ROLLBACK_ERROR",
-  DISABLED_AND_ROLLBACK_IN_PROGRESS = "DISABLED_AND_ROLLBACK_IN_PROGRESS",
-  DISABLED_AND_ROLLBACK_SCHEDULED = "DISABLED_AND_ROLLBACK_SCHEDULED",
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-  ENABLE_IN_PROGRESS = "ENABLE_IN_PROGRESS",
-  ERROR = "ERROR",
-}
+export const AutoTuneState = {
+  DISABLED: "DISABLED",
+  DISABLED_AND_ROLLBACK_COMPLETE: "DISABLED_AND_ROLLBACK_COMPLETE",
+  DISABLED_AND_ROLLBACK_ERROR: "DISABLED_AND_ROLLBACK_ERROR",
+  DISABLED_AND_ROLLBACK_IN_PROGRESS: "DISABLED_AND_ROLLBACK_IN_PROGRESS",
+  DISABLED_AND_ROLLBACK_SCHEDULED: "DISABLED_AND_ROLLBACK_SCHEDULED",
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+  ENABLE_IN_PROGRESS: "ENABLE_IN_PROGRESS",
+  ERROR: "ERROR",
+};
 
 /**
  * @public
@@ -1724,7 +1724,7 @@ export interface AutoTuneOptionsOutput {
   /**
    * <p>The current state of Auto-Tune on the domain.</p>
    */
-  State?: AutoTuneState | string;
+  State?: keyof typeof AutoTuneState | string;
 
   /**
    * <p>Any errors that occurred while enabling or disabling Auto-Tune.</p>
@@ -2015,7 +2015,7 @@ export interface CreateOutboundConnectionRequest {
   /**
    * <p>The connection mode.</p>
    */
-  ConnectionMode?: ConnectionMode | string;
+  ConnectionMode?: keyof typeof ConnectionMode | string;
 }
 
 /**
@@ -2032,18 +2032,18 @@ export interface ConnectionProperties {
 /**
  * @public
  */
-export enum OutboundConnectionStatusCode {
-  ACTIVE = "ACTIVE",
-  APPROVED = "APPROVED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  PENDING_ACCEPTANCE = "PENDING_ACCEPTANCE",
-  PROVISIONING = "PROVISIONING",
-  REJECTED = "REJECTED",
-  REJECTING = "REJECTING",
-  VALIDATING = "VALIDATING",
-  VALIDATION_FAILED = "VALIDATION_FAILED",
-}
+export const OutboundConnectionStatusCode = {
+  ACTIVE: "ACTIVE",
+  APPROVED: "APPROVED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  PENDING_ACCEPTANCE: "PENDING_ACCEPTANCE",
+  PROVISIONING: "PROVISIONING",
+  REJECTED: "REJECTED",
+  REJECTING: "REJECTING",
+  VALIDATING: "VALIDATING",
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+};
 
 /**
  * @public
@@ -2102,7 +2102,7 @@ export interface OutboundConnectionStatus {
    *             </li>
    *          </ul>
    */
-  StatusCode?: OutboundConnectionStatusCode | string;
+  StatusCode?: keyof typeof OutboundConnectionStatusCode | string;
 
   /**
    * <p>Verbose information for the outbound connection.</p>
@@ -2145,7 +2145,7 @@ export interface CreateOutboundConnectionResponse {
   /**
    * <p>The connection mode.</p>
    */
-  ConnectionMode?: ConnectionMode | string;
+  ConnectionMode?: keyof typeof ConnectionMode | string;
 
   /**
    * <p>The <code>ConnectionProperties</code> for the newly created connection.</p>
@@ -2182,7 +2182,7 @@ export interface CreatePackageRequest {
   /**
    * <p>Type of package.</p>
    */
-  PackageType: PackageType | string | undefined;
+  PackageType: keyof typeof PackageType | string | undefined;
 
   /**
    * <p>Description of the package.</p>
@@ -2198,16 +2198,16 @@ export interface CreatePackageRequest {
 /**
  * @public
  */
-export enum PackageStatus {
-  AVAILABLE = "AVAILABLE",
-  COPYING = "COPYING",
-  COPY_FAILED = "COPY_FAILED",
-  DELETED = "DELETED",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  VALIDATING = "VALIDATING",
-  VALIDATION_FAILED = "VALIDATION_FAILED",
-}
+export const PackageStatus = {
+  AVAILABLE: "AVAILABLE",
+  COPYING: "COPYING",
+  COPY_FAILED: "COPY_FAILED",
+  DELETED: "DELETED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  VALIDATING: "VALIDATING",
+  VALIDATION_FAILED: "VALIDATION_FAILED",
+};
 
 /**
  * @public
@@ -2227,7 +2227,7 @@ export interface PackageDetails {
   /**
    * <p>The type of package.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: keyof typeof PackageType | string;
 
   /**
    * <p>User-specified description of the package.</p>
@@ -2237,7 +2237,7 @@ export interface PackageDetails {
   /**
    * <p>Current status of the package.</p>
    */
-  PackageStatus?: PackageStatus | string;
+  PackageStatus?: keyof typeof PackageStatus | string;
 
   /**
    * <p>The timestamp when the package was created.</p>
@@ -2294,15 +2294,15 @@ export interface CreateVpcEndpointRequest {
 /**
  * @public
  */
-export enum VpcEndpointStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const VpcEndpointStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -2334,7 +2334,7 @@ export interface VpcEndpoint {
   /**
    * <p>The current status of the endpoint.</p>
    */
-  Status?: VpcEndpointStatus | string;
+  Status?: keyof typeof VpcEndpointStatus | string;
 
   /**
    * <p>The connection endpoint ID for connecting to the domain.</p>
@@ -2442,7 +2442,7 @@ export interface OutboundConnection {
   /**
    * <p>The connection mode.</p>
    */
-  ConnectionMode?: ConnectionMode | string;
+  ConnectionMode?: keyof typeof ConnectionMode | string;
 
   /**
    * <p>Properties for the outbound connection.</p>
@@ -2517,7 +2517,7 @@ export interface VpcEndpointSummary {
   /**
    * <p>The current status of the endpoint.</p>
    */
-  Status?: VpcEndpointStatus | string;
+  Status?: keyof typeof VpcEndpointStatus | string;
 }
 
 /**
@@ -2580,19 +2580,19 @@ export interface DescribeDomainAutoTunesRequest {
 /**
  * @public
  */
-export enum ScheduledAutoTuneActionType {
-  JVM_HEAP_SIZE_TUNING = "JVM_HEAP_SIZE_TUNING",
-  JVM_YOUNG_GEN_TUNING = "JVM_YOUNG_GEN_TUNING",
-}
+export const ScheduledAutoTuneActionType = {
+  JVM_HEAP_SIZE_TUNING: "JVM_HEAP_SIZE_TUNING",
+  JVM_YOUNG_GEN_TUNING: "JVM_YOUNG_GEN_TUNING",
+};
 
 /**
  * @public
  */
-export enum ScheduledAutoTuneSeverityType {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const ScheduledAutoTuneSeverityType = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+};
 
 /**
  * @public
@@ -2608,7 +2608,7 @@ export interface ScheduledAutoTuneDetails {
   /**
    * <p>The type of Auto-Tune action.</p>
    */
-  ActionType?: ScheduledAutoTuneActionType | string;
+  ActionType?: keyof typeof ScheduledAutoTuneActionType | string;
 
   /**
    * <p>A description of the Auto-Tune action.</p>
@@ -2619,7 +2619,7 @@ export interface ScheduledAutoTuneDetails {
    * <p>The severity of the Auto-Tune action. Valid values are <code>LOW</code>,
    *    <code>MEDIUM</code>, and <code>HIGH</code>.</p>
    */
-  Severity?: ScheduledAutoTuneSeverityType | string;
+  Severity?: keyof typeof ScheduledAutoTuneSeverityType | string;
 }
 
 /**
@@ -2637,9 +2637,9 @@ export interface AutoTuneDetails {
 /**
  * @public
  */
-export enum AutoTuneType {
-  SCHEDULED_ACTION = "SCHEDULED_ACTION",
-}
+export const AutoTuneType = {
+  SCHEDULED_ACTION: "SCHEDULED_ACTION",
+};
 
 /**
  * @public
@@ -2650,7 +2650,7 @@ export interface AutoTune {
   /**
    * <p>The type of Auto-Tune action.</p>
    */
-  AutoTuneType?: AutoTuneType | string;
+  AutoTuneType?: keyof typeof AutoTuneType | string;
 
   /**
    * <p>Details about an Auto-Tune action.</p>
@@ -2723,12 +2723,12 @@ export interface ChangeProgressStage {
 /**
  * @public
  */
-export enum OverallChangeStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  PROCESSING = "PROCESSING",
-}
+export const OverallChangeStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  PROCESSING: "PROCESSING",
+};
 
 /**
  * @public
@@ -2748,7 +2748,7 @@ export interface ChangeProgressStatusDetails {
   /**
    * <p>The overall status of the domain configuration change.</p>
    */
-  Status?: OverallChangeStatus | string;
+  Status?: keyof typeof OverallChangeStatus | string;
 
   /**
    * <p>The list of properties in the domain configuration change that are still pending.</p>
@@ -2797,10 +2797,10 @@ export interface DescribeDomainConfigRequest {
 /**
  * @public
  */
-export enum RollbackOnDisable {
-  DEFAULT_ROLLBACK = "DEFAULT_ROLLBACK",
-  NO_ROLLBACK = "NO_ROLLBACK",
-}
+export const RollbackOnDisable = {
+  DEFAULT_ROLLBACK: "DEFAULT_ROLLBACK",
+  NO_ROLLBACK: "NO_ROLLBACK",
+};
 
 /**
  * @public
@@ -2811,7 +2811,7 @@ export interface AutoTuneOptions {
   /**
    * <p>Whether Auto-Tune is enabled or disabled.</p>
    */
-  DesiredState?: AutoTuneDesiredState | string;
+  DesiredState?: keyof typeof AutoTuneDesiredState | string;
 
   /**
    * <p>When disabling Auto-Tune, specify <code>NO_ROLLBACK</code> to retain all prior Auto-Tune
@@ -2819,7 +2819,7 @@ export interface AutoTuneOptions {
    *    specify <code>DEFAULT_ROLLBACK</code>, you must include a <code>MaintenanceSchedule</code> in the
    *    request. Otherwise, OpenSearch Service is unable to perform the rollback.</p>
    */
-  RollbackOnDisable?: RollbackOnDisable | string;
+  RollbackOnDisable?: keyof typeof RollbackOnDisable | string;
 
   /**
    * <p>DEPRECATED. Use <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">off-peak window</a>
@@ -2859,7 +2859,7 @@ export interface AutoTuneStatus {
   /**
    * <p>The current state of Auto-Tune on the domain.</p>
    */
-  State: AutoTuneState | string | undefined;
+  State: keyof typeof AutoTuneState | string | undefined;
 
   /**
    * <p>Any errors that occurred while enabling or disabling Auto-Tune.</p>
@@ -3433,7 +3433,7 @@ export interface DescribeInstanceTypeLimitsRequest {
   /**
    * <p>The OpenSearch Service instance type for which you need limit information.</p>
    */
-  InstanceType: OpenSearchPartitionInstanceType | string | undefined;
+  InstanceType: keyof typeof OpenSearchPartitionInstanceType | string | undefined;
 
   /**
    * <p>Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
@@ -3622,11 +3622,11 @@ export interface DescribeOutboundConnectionsResponse {
 /**
  * @public
  */
-export enum DescribePackagesFilterName {
-  PackageID = "PackageID",
-  PackageName = "PackageName",
-  PackageStatus = "PackageStatus",
-}
+export const DescribePackagesFilterName = {
+  PackageID: "PackageID",
+  PackageName: "PackageName",
+  PackageStatus: "PackageStatus",
+};
 
 /**
  * @public
@@ -3636,7 +3636,7 @@ export interface DescribePackagesFilter {
   /**
    * <p>Any field from <code>PackageDetails</code>.</p>
    */
-  Name?: DescribePackagesFilterName | string;
+  Name?: keyof typeof DescribePackagesFilterName | string;
 
   /**
    * <p>A list of values for the specified filter field.</p>
@@ -3716,11 +3716,11 @@ export interface DescribeReservedInstanceOfferingsRequest {
 /**
  * @public
  */
-export enum ReservedInstancePaymentOption {
-  ALL_UPFRONT = "ALL_UPFRONT",
-  NO_UPFRONT = "NO_UPFRONT",
-  PARTIAL_UPFRONT = "PARTIAL_UPFRONT",
-}
+export const ReservedInstancePaymentOption = {
+  ALL_UPFRONT: "ALL_UPFRONT",
+  NO_UPFRONT: "NO_UPFRONT",
+  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
+};
 
 /**
  * @public
@@ -3752,7 +3752,7 @@ export interface ReservedInstanceOffering {
   /**
    * <p>The OpenSearch instance type offered by the Reserved Instance offering.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: keyof typeof OpenSearchPartitionInstanceType | string;
 
   /**
    * <p>The duration, in seconds, for which the offering will reserve the OpenSearch instance.</p>
@@ -3778,7 +3778,7 @@ export interface ReservedInstanceOffering {
   /**
    * <p>Payment option for the Reserved Instance offering</p>
    */
-  PaymentOption?: ReservedInstancePaymentOption | string;
+  PaymentOption?: keyof typeof ReservedInstancePaymentOption | string;
 
   /**
    * <p>The recurring charge to your account, regardless of whether you creates any domains using
@@ -3860,7 +3860,7 @@ export interface ReservedInstance {
   /**
    * <p>The OpenSearch instance type offered by theReserved Instance offering.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: keyof typeof OpenSearchPartitionInstanceType | string;
 
   /**
    * <p>The date and time when the reservation was purchased.</p>
@@ -3901,7 +3901,7 @@ export interface ReservedInstance {
   /**
    * <p>The payment option as defined in the Reserved Instance offering.</p>
    */
-  PaymentOption?: ReservedInstancePaymentOption | string;
+  PaymentOption?: keyof typeof ReservedInstancePaymentOption | string;
 
   /**
    * <p>The recurring charge to your account, regardless of whether you create any domains using the
@@ -3942,10 +3942,10 @@ export interface DescribeVpcEndpointsRequest {
 /**
  * @public
  */
-export enum VpcEndpointErrorCode {
-  ENDPOINT_NOT_FOUND = "ENDPOINT_NOT_FOUND",
-  SERVER_ERROR = "SERVER_ERROR",
-}
+export const VpcEndpointErrorCode = {
+  ENDPOINT_NOT_FOUND: "ENDPOINT_NOT_FOUND",
+  SERVER_ERROR: "SERVER_ERROR",
+};
 
 /**
  * @public
@@ -3961,7 +3961,7 @@ export interface VpcEndpointError {
   /**
    * <p>The code associated with the error.</p>
    */
-  ErrorCode?: VpcEndpointErrorCode | string;
+  ErrorCode?: keyof typeof VpcEndpointErrorCode | string;
 
   /**
    * <p>A message describing the error.</p>
@@ -4149,21 +4149,21 @@ export interface GetUpgradeHistoryRequest {
 /**
  * @public
  */
-export enum UpgradeStep {
-  PRE_UPGRADE_CHECK = "PRE_UPGRADE_CHECK",
-  SNAPSHOT = "SNAPSHOT",
-  UPGRADE = "UPGRADE",
-}
+export const UpgradeStep = {
+  PRE_UPGRADE_CHECK: "PRE_UPGRADE_CHECK",
+  SNAPSHOT: "SNAPSHOT",
+  UPGRADE: "UPGRADE",
+};
 
 /**
  * @public
  */
-export enum UpgradeStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-  SUCCEEDED_WITH_ISSUES = "SUCCEEDED_WITH_ISSUES",
-}
+export const UpgradeStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+  SUCCEEDED_WITH_ISSUES: "SUCCEEDED_WITH_ISSUES",
+};
 
 /**
  * @public
@@ -4184,7 +4184,7 @@ export interface UpgradeStepItem {
    *             </li>
    *          </ul>
    */
-  UpgradeStep?: UpgradeStep | string;
+  UpgradeStep?: keyof typeof UpgradeStep | string;
 
   /**
    * <p> The current status of the upgrade. The status can take one of the following values: </p>
@@ -4203,7 +4203,7 @@ export interface UpgradeStepItem {
    *             </li>
    *          </ul>
    */
-  UpgradeStepStatus?: UpgradeStatus | string;
+  UpgradeStepStatus?: keyof typeof UpgradeStatus | string;
 
   /**
    * <p>A list of strings containing detailed information about the errors encountered in a particular step.</p>
@@ -4250,7 +4250,7 @@ export interface UpgradeHistory {
    *             </li>
    *          </ul>
    */
-  UpgradeStatus?: UpgradeStatus | string;
+  UpgradeStatus?: keyof typeof UpgradeStatus | string;
 
   /**
    * <p>A list of each step performed as part of a specific upgrade or upgrade eligibility check.</p>
@@ -4296,12 +4296,12 @@ export interface GetUpgradeStatusResponse {
   /**
    * <p>One of three steps that an upgrade or upgrade eligibility check goes through.</p>
    */
-  UpgradeStep?: UpgradeStep | string;
+  UpgradeStep?: keyof typeof UpgradeStep | string;
 
   /**
    * <p>The status of the current step that an upgrade is on.</p>
    */
-  StepStatus?: UpgradeStatus | string;
+  StepStatus?: keyof typeof UpgradeStatus | string;
 
   /**
    * <p>A string that describes the update.</p>
@@ -4312,10 +4312,10 @@ export interface GetUpgradeStatusResponse {
 /**
  * @public
  */
-export enum EngineType {
-  Elasticsearch = "Elasticsearch",
-  OpenSearch = "OpenSearch",
-}
+export const EngineType = {
+  Elasticsearch: "Elasticsearch",
+  OpenSearch: "OpenSearch",
+};
 
 /**
  * @public
@@ -4325,7 +4325,7 @@ export interface ListDomainNamesRequest {
   /**
    * <p>Filters the output by domain engine type.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: keyof typeof EngineType | string;
 }
 
 /**
@@ -4342,7 +4342,7 @@ export interface DomainInfo {
    * <p>The type of search engine that the domain is running.<code>OpenSearch</code> for an
    *    OpenSearch engine, or <code>Elasticsearch</code> for a legacy Elasticsearch OSS engine.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: keyof typeof EngineType | string;
 }
 
 /**
@@ -4438,7 +4438,7 @@ export interface InstanceTypeDetails {
   /**
    * <p>The instance type.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: keyof typeof OpenSearchPartitionInstanceType | string;
 
   /**
    * <p>Whether encryption at rest and node-to-node encryption are supported for the instance
@@ -4559,10 +4559,10 @@ export interface ListScheduledActionsRequest {
 /**
  * @public
  */
-export enum ScheduledBy {
-  CUSTOMER = "CUSTOMER",
-  SYSTEM = "SYSTEM",
-}
+export const ScheduledBy = {
+  CUSTOMER: "CUSTOMER",
+  SYSTEM: "SYSTEM",
+};
 
 /**
  * @public
@@ -4580,12 +4580,12 @@ export interface ScheduledAction {
   /**
    * <p>The type of action that will be taken on the domain.</p>
    */
-  Type: ActionType | string | undefined;
+  Type: keyof typeof ActionType | string | undefined;
 
   /**
    * <p>The severity of the action.</p>
    */
-  Severity: ActionSeverity | string | undefined;
+  Severity: keyof typeof ActionSeverity | string | undefined;
 
   /**
    * <p>The time when the change is scheduled to happen.</p>
@@ -4600,12 +4600,12 @@ export interface ScheduledAction {
   /**
    * <p>Whether the action was scheduled manually (<code>CUSTOMER</code>, or by OpenSearch Service automatically (<code>SYSTEM</code>).</p>
    */
-  ScheduledBy?: ScheduledBy | string;
+  ScheduledBy?: keyof typeof ScheduledBy | string;
 
   /**
    * <p>The current status of the scheduled action.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: keyof typeof ActionStatus | string;
 
   /**
    * <p>Whether the action is required or optional.</p>
@@ -4894,11 +4894,11 @@ export interface RevokeVpcEndpointAccessResponse {}
 /**
  * @public
  */
-export enum ScheduleAt {
-  NOW = "NOW",
-  OFF_PEAK_WINDOW = "OFF_PEAK_WINDOW",
-  TIMESTAMP = "TIMESTAMP",
-}
+export const ScheduleAt = {
+  NOW: "NOW",
+  OFF_PEAK_WINDOW: "OFF_PEAK_WINDOW",
+  TIMESTAMP: "TIMESTAMP",
+};
 
 /**
  * @public
@@ -4934,7 +4934,7 @@ export interface StartServiceSoftwareUpdateRequest {
    *          <p>Default: <code>NOW</code> if you don't specify a value for <code>DesiredStartTime</code>,
    *    and <code>TIMESTAMP</code> if you do.</p>
    */
-  ScheduleAt?: ScheduleAt | string;
+  ScheduleAt?: keyof typeof ScheduleAt | string;
 
   /**
    * <p>The Epoch timestamp when you want the service software update to start. You only need to
@@ -4958,10 +4958,10 @@ export interface StartServiceSoftwareUpdateResponse {
 /**
  * @public
  */
-export enum DryRunMode {
-  Basic = "Basic",
-  Verbose = "Verbose",
-}
+export const DryRunMode = {
+  Basic: "Basic",
+  Verbose: "Verbose",
+};
 
 /**
  * @public
@@ -5097,7 +5097,7 @@ export interface UpdateDomainConfigRequest {
    *             </li>
    *          </ul>
    */
-  DryRunMode?: DryRunMode | string;
+  DryRunMode?: keyof typeof DryRunMode | string;
 
   /**
    * <p>Off-peak window options for the domain.</p>
@@ -5214,7 +5214,7 @@ export interface UpdateScheduledActionRequest {
    * <p>The type of action to reschedule. Can be one of <code>SERVICE_SOFTWARE_UPDATE</code>,
    *    <code>JVM_HEAP_SIZE_TUNING</code>, or <code>JVM_YOUNG_GEN_TUNING</code>. To retrieve this value, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a> request.</p>
    */
-  ActionType: ActionType | string | undefined;
+  ActionType: keyof typeof ActionType | string | undefined;
 
   /**
    * <p>When to schedule the action.</p>
@@ -5237,7 +5237,7 @@ export interface UpdateScheduledActionRequest {
    *             </li>
    *          </ul>
    */
-  ScheduleAt: ScheduleAt | string | undefined;
+  ScheduleAt: keyof typeof ScheduleAt | string | undefined;
 
   /**
    * <p>The time to implement the change, in Coordinated Universal Time (UTC). Only specify this

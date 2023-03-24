@@ -83,76 +83,76 @@ import {
 /**
  * @public
  */
-export enum HlsMode {
-  LIVE = "LIVE",
-  VOD = "VOD",
-}
+export const HlsMode = {
+  LIVE: "LIVE",
+  VOD: "VOD",
+};
 
 /**
  * @public
  */
-export enum HlsOutputSelection {
-  MANIFESTS_AND_SEGMENTS = "MANIFESTS_AND_SEGMENTS",
-  SEGMENTS_ONLY = "SEGMENTS_ONLY",
-  VARIANT_MANIFESTS_AND_SEGMENTS = "VARIANT_MANIFESTS_AND_SEGMENTS",
-}
+export const HlsOutputSelection = {
+  MANIFESTS_AND_SEGMENTS: "MANIFESTS_AND_SEGMENTS",
+  SEGMENTS_ONLY: "SEGMENTS_ONLY",
+  VARIANT_MANIFESTS_AND_SEGMENTS: "VARIANT_MANIFESTS_AND_SEGMENTS",
+};
 
 /**
  * @public
  */
-export enum HlsProgramDateTime {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export const HlsProgramDateTime = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+};
 
 /**
  * @public
  */
-export enum HlsProgramDateTimeClock {
-  INITIALIZE_FROM_OUTPUT_TIMECODE = "INITIALIZE_FROM_OUTPUT_TIMECODE",
-  SYSTEM_CLOCK = "SYSTEM_CLOCK",
-}
+export const HlsProgramDateTimeClock = {
+  INITIALIZE_FROM_OUTPUT_TIMECODE: "INITIALIZE_FROM_OUTPUT_TIMECODE",
+  SYSTEM_CLOCK: "SYSTEM_CLOCK",
+};
 
 /**
  * @public
  */
-export enum HlsRedundantManifest {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const HlsRedundantManifest = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum HlsSegmentationMode {
-  USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
-  USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
-}
+export const HlsSegmentationMode = {
+  USE_INPUT_SEGMENTATION: "USE_INPUT_SEGMENTATION",
+  USE_SEGMENT_DURATION: "USE_SEGMENT_DURATION",
+};
 
 /**
  * @public
  */
-export enum HlsStreamInfResolution {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
+export const HlsStreamInfResolution = {
+  EXCLUDE: "EXCLUDE",
+  INCLUDE: "INCLUDE",
+};
 
 /**
  * @public
  */
-export enum HlsTimedMetadataId3Frame {
-  NONE = "NONE",
-  PRIV = "PRIV",
-  TDRL = "TDRL",
-}
+export const HlsTimedMetadataId3Frame = {
+  NONE: "NONE",
+  PRIV: "PRIV",
+  TDRL: "TDRL",
+};
 
 /**
  * @public
  */
-export enum HlsTsFileMode {
-  SEGMENTED_FILES = "SEGMENTED_FILES",
-  SINGLE_FILE = "SINGLE_FILE",
-}
+export const HlsTsFileMode = {
+  SEGMENTED_FILES: "SEGMENTED_FILES",
+  SINGLE_FILE: "SINGLE_FILE",
+};
 
 /**
  * @public
@@ -162,7 +162,7 @@ export interface HlsGroupSettings {
   /**
    * Choose one or more ad marker types to pass SCTE35 signals through to this group of Apple HLS outputs.
    */
-  AdMarkers?: (HlsAdMarkers | string)[];
+  AdMarkers?: (keyof typeof HlsAdMarkers | string)[];
 
   /**
    * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
@@ -199,17 +199,17 @@ export interface HlsGroupSettings {
    * none: Include CLOSED-CAPTIONS=NONE line in the manifest.
    * omit: Omit any CLOSED-CAPTIONS line from the manifest.
    */
-  CaptionLanguageSetting?: HlsCaptionLanguageSetting | string;
+  CaptionLanguageSetting?: keyof typeof HlsCaptionLanguageSetting | string;
 
   /**
    * When set to "disabled", sets the #EXT-X-ALLOW-CACHE:no tag in the manifest, which prevents clients from saving media segments for later replay.
    */
-  ClientCache?: HlsClientCache | string;
+  ClientCache?: keyof typeof HlsClientCache | string;
 
   /**
    * Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
    */
-  CodecSpecification?: HlsCodecSpecification | string;
+  CodecSpecification?: keyof typeof HlsCodecSpecification | string;
 
   /**
    * For use with encryptionType. This is a 128-bit, 16-byte hex value represented by a 32-character text string. If ivSource is set to "explicit" then this parameter is required and is used as the IV for encryption.
@@ -224,19 +224,19 @@ export interface HlsGroupSettings {
   /**
    * Place segments in subdirectories.
    */
-  DirectoryStructure?: HlsDirectoryStructure | string;
+  DirectoryStructure?: keyof typeof HlsDirectoryStructure | string;
 
   /**
    * Specifies whether to insert EXT-X-DISCONTINUITY tags in the HLS child manifests for this output group.
    * Typically, choose Insert because these tags are required in the manifest (according to the HLS specification) and serve an important purpose.
    * Choose Never Insert only if the downstream system is doing real-time failover (without using the MediaLive automatic failover feature) and only if that downstream system has advised you to exclude the tags.
    */
-  DiscontinuityTags?: HlsDiscontinuityTags | string;
+  DiscontinuityTags?: keyof typeof HlsDiscontinuityTags | string;
 
   /**
    * Encrypts the segments with the given encryption scheme.  Exclude this parameter if no encryption is desired.
    */
-  EncryptionType?: HlsEncryptionType | string;
+  EncryptionType?: keyof typeof HlsEncryptionType | string;
 
   /**
    * Parameters that control interactions with the CDN.
@@ -246,21 +246,21 @@ export interface HlsGroupSettings {
   /**
    * State of HLS ID3 Segment Tagging
    */
-  HlsId3SegmentTagging?: HlsId3SegmentTaggingState | string;
+  HlsId3SegmentTagging?: keyof typeof HlsId3SegmentTaggingState | string;
 
   /**
    * DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field).
    *
    * STANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888"
    */
-  IFrameOnlyPlaylists?: IFrameOnlyPlaylistType | string;
+  IFrameOnlyPlaylists?: keyof typeof IFrameOnlyPlaylistType | string;
 
   /**
    * Specifies whether to include the final (incomplete) segment in the media output when the pipeline stops producing output because of a channel stop, a channel pause or a loss of input to the pipeline.
    * Auto means that MediaLive decides whether to include the final segment, depending on the channel class and the types of output groups.
    * Suppress means to never include the incomplete segment. We recommend you choose Auto and let MediaLive control the behavior.
    */
-  IncompleteSegmentBehavior?: HlsIncompleteSegmentBehavior | string;
+  IncompleteSegmentBehavior?: keyof typeof HlsIncompleteSegmentBehavior | string;
 
   /**
    * Applies only if Mode field is LIVE.
@@ -272,17 +272,17 @@ export interface HlsGroupSettings {
   /**
    * Parameter that control output group behavior on input loss.
    */
-  InputLossAction?: InputLossActionForHlsOut | string;
+  InputLossAction?: keyof typeof InputLossActionForHlsOut | string;
 
   /**
    * For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If set to "include", IV is listed in the manifest, otherwise the IV is not in the manifest.
    */
-  IvInManifest?: HlsIvInManifest | string;
+  IvInManifest?: keyof typeof HlsIvInManifest | string;
 
   /**
    * For use with encryptionType. The IV (Initialization Vector) is a 128-bit number used in conjunction with the key for encrypting blocks. If this setting is "followsSegmentNumber", it will cause the IV to change every segment (to match the segment number). If this is set to "explicit", you must enter a constantIv value.
    */
-  IvSource?: HlsIvSource | string;
+  IvSource?: keyof typeof HlsIvSource | string;
 
   /**
    * Applies only if Mode field is LIVE.
@@ -311,12 +311,12 @@ export interface HlsGroupSettings {
   /**
    * When set to gzip, compresses HLS playlist.
    */
-  ManifestCompression?: HlsManifestCompression | string;
+  ManifestCompression?: keyof typeof HlsManifestCompression | string;
 
   /**
    * Indicates whether the output manifest should use floating point or integer values for segment duration.
    */
-  ManifestDurationFormat?: HlsManifestDurationFormat | string;
+  ManifestDurationFormat?: keyof typeof HlsManifestDurationFormat | string;
 
   /**
    * Minimum length of MPEG-2 Transport Stream segments in seconds. When set, minimum segment length is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
@@ -328,7 +328,7 @@ export interface HlsGroupSettings {
    *
    * VOD mode uses HLS EXT-X-PLAYLIST-TYPE of EVENT while the channel is running, converting it to a "VOD" type manifest on completion of the stream.
    */
-  Mode?: HlsMode | string;
+  Mode?: keyof typeof HlsMode | string;
 
   /**
    * MANIFESTS_AND_SEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group.
@@ -337,12 +337,12 @@ export interface HlsGroupSettings {
    *
    * SEGMENTS_ONLY: Does not generate any manifests for this output group.
    */
-  OutputSelection?: HlsOutputSelection | string;
+  OutputSelection?: keyof typeof HlsOutputSelection | string;
 
   /**
    * Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated using the program date time clock.
    */
-  ProgramDateTime?: HlsProgramDateTime | string;
+  ProgramDateTime?: keyof typeof HlsProgramDateTime | string;
 
   /**
    * Specifies the algorithm used to drive the HLS EXT-X-PROGRAM-DATE-TIME clock. Options include:
@@ -351,7 +351,7 @@ export interface HlsGroupSettings {
    *
    * SYSTEM_CLOCK: The PDT clock is initialized as a function of the UTC wall clock, then incremented by the EXTINF duration of each encoded segment. If the PDT clock diverges from the wall clock by more than 500ms, it is resynchronized to the wall clock.
    */
-  ProgramDateTimeClock?: HlsProgramDateTimeClock | string;
+  ProgramDateTimeClock?: keyof typeof HlsProgramDateTimeClock | string;
 
   /**
    * Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
@@ -365,7 +365,7 @@ export interface HlsGroupSettings {
    *
    * For an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant.
    */
-  RedundantManifest?: HlsRedundantManifest | string;
+  RedundantManifest?: keyof typeof HlsRedundantManifest | string;
 
   /**
    * Length of MPEG-2 Transport Stream segments to create in seconds. Note that segments will end on the next keyframe after this duration, so actual segment length may be longer.
@@ -375,7 +375,7 @@ export interface HlsGroupSettings {
   /**
    * useInputSegmentation has been deprecated. The configured segment size is always used.
    */
-  SegmentationMode?: HlsSegmentationMode | string;
+  SegmentationMode?: keyof typeof HlsSegmentationMode | string;
 
   /**
    * Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
@@ -385,12 +385,12 @@ export interface HlsGroupSettings {
   /**
    * Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
    */
-  StreamInfResolution?: HlsStreamInfResolution | string;
+  StreamInfResolution?: keyof typeof HlsStreamInfResolution | string;
 
   /**
    * Indicates ID3 frame that has the timecode.
    */
-  TimedMetadataId3Frame?: HlsTimedMetadataId3Frame | string;
+  TimedMetadataId3Frame?: keyof typeof HlsTimedMetadataId3Frame | string;
 
   /**
    * Timed Metadata interval in seconds.
@@ -407,7 +407,7 @@ export interface HlsGroupSettings {
    *
    * SINGLE_FILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching.
    */
-  TsFileMode?: HlsTsFileMode | string;
+  TsFileMode?: keyof typeof HlsTsFileMode | string;
 }
 
 /**
@@ -424,76 +424,76 @@ export interface MediaPackageGroupSettings {
 /**
  * @public
  */
-export enum SmoothGroupAudioOnlyTimecodeControl {
-  PASSTHROUGH = "PASSTHROUGH",
-  USE_CONFIGURED_CLOCK = "USE_CONFIGURED_CLOCK",
-}
+export const SmoothGroupAudioOnlyTimecodeControl = {
+  PASSTHROUGH: "PASSTHROUGH",
+  USE_CONFIGURED_CLOCK: "USE_CONFIGURED_CLOCK",
+};
 
 /**
  * @public
  */
-export enum SmoothGroupCertificateMode {
-  SELF_SIGNED = "SELF_SIGNED",
-  VERIFY_AUTHENTICITY = "VERIFY_AUTHENTICITY",
-}
+export const SmoothGroupCertificateMode = {
+  SELF_SIGNED: "SELF_SIGNED",
+  VERIFY_AUTHENTICITY: "VERIFY_AUTHENTICITY",
+};
 
 /**
  * @public
  */
-export enum SmoothGroupEventIdMode {
-  NO_EVENT_ID = "NO_EVENT_ID",
-  USE_CONFIGURED = "USE_CONFIGURED",
-  USE_TIMESTAMP = "USE_TIMESTAMP",
-}
+export const SmoothGroupEventIdMode = {
+  NO_EVENT_ID: "NO_EVENT_ID",
+  USE_CONFIGURED: "USE_CONFIGURED",
+  USE_TIMESTAMP: "USE_TIMESTAMP",
+};
 
 /**
  * @public
  */
-export enum SmoothGroupEventStopBehavior {
-  NONE = "NONE",
-  SEND_EOS = "SEND_EOS",
-}
+export const SmoothGroupEventStopBehavior = {
+  NONE: "NONE",
+  SEND_EOS: "SEND_EOS",
+};
 
 /**
  * @public
  */
-export enum InputLossActionForMsSmoothOut {
-  EMIT_OUTPUT = "EMIT_OUTPUT",
-  PAUSE_OUTPUT = "PAUSE_OUTPUT",
-}
+export const InputLossActionForMsSmoothOut = {
+  EMIT_OUTPUT: "EMIT_OUTPUT",
+  PAUSE_OUTPUT: "PAUSE_OUTPUT",
+};
 
 /**
  * @public
  */
-export enum SmoothGroupSegmentationMode {
-  USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
-  USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
-}
+export const SmoothGroupSegmentationMode = {
+  USE_INPUT_SEGMENTATION: "USE_INPUT_SEGMENTATION",
+  USE_SEGMENT_DURATION: "USE_SEGMENT_DURATION",
+};
 
 /**
  * @public
  */
-export enum SmoothGroupSparseTrackType {
-  NONE = "NONE",
-  SCTE_35 = "SCTE_35",
-  SCTE_35_WITHOUT_SEGMENTATION = "SCTE_35_WITHOUT_SEGMENTATION",
-}
+export const SmoothGroupSparseTrackType = {
+  NONE: "NONE",
+  SCTE_35: "SCTE_35",
+  SCTE_35_WITHOUT_SEGMENTATION: "SCTE_35_WITHOUT_SEGMENTATION",
+};
 
 /**
  * @public
  */
-export enum SmoothGroupStreamManifestBehavior {
-  DO_NOT_SEND = "DO_NOT_SEND",
-  SEND = "SEND",
-}
+export const SmoothGroupStreamManifestBehavior = {
+  DO_NOT_SEND: "DO_NOT_SEND",
+  SEND: "SEND",
+};
 
 /**
  * @public
  */
-export enum SmoothGroupTimestampOffsetMode {
-  USE_CONFIGURED_OFFSET = "USE_CONFIGURED_OFFSET",
-  USE_EVENT_START_DATE = "USE_EVENT_START_DATE",
-}
+export const SmoothGroupTimestampOffsetMode = {
+  USE_CONFIGURED_OFFSET: "USE_CONFIGURED_OFFSET",
+  USE_EVENT_START_DATE: "USE_EVENT_START_DATE",
+};
 
 /**
  * @public
@@ -508,12 +508,12 @@ export interface MsSmoothGroupSettings {
   /**
    * If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
    */
-  AudioOnlyTimecodeControl?: SmoothGroupAudioOnlyTimecodeControl | string;
+  AudioOnlyTimecodeControl?: keyof typeof SmoothGroupAudioOnlyTimecodeControl | string;
 
   /**
    * If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail.
    */
-  CertificateMode?: SmoothGroupCertificateMode | string;
+  CertificateMode?: keyof typeof SmoothGroupCertificateMode | string;
 
   /**
    * Number of seconds to wait before retrying connection to the IIS server if the connection is lost. Content will be cached during this time and the cache will be be delivered to the IIS server once the connection is re-established.
@@ -540,12 +540,12 @@ export interface MsSmoothGroupSettings {
    * - "useTimestamp" - generate and send an event ID based on the current timestamp
    * - "noEventId" - do not send an event ID to the IIS server.
    */
-  EventIdMode?: SmoothGroupEventIdMode | string;
+  EventIdMode?: keyof typeof SmoothGroupEventIdMode | string;
 
   /**
    * When set to sendEos, send EOS signal to IIS server when stopping the event
    */
-  EventStopBehavior?: SmoothGroupEventStopBehavior | string;
+  EventStopBehavior?: keyof typeof SmoothGroupEventStopBehavior | string;
 
   /**
    * Size in seconds of file cache for streaming outputs.
@@ -560,7 +560,7 @@ export interface MsSmoothGroupSettings {
   /**
    * Parameter that control output group behavior on input loss.
    */
-  InputLossAction?: InputLossActionForMsSmoothOut | string;
+  InputLossAction?: keyof typeof InputLossActionForMsSmoothOut | string;
 
   /**
    * Number of retry attempts.
@@ -575,7 +575,7 @@ export interface MsSmoothGroupSettings {
   /**
    * useInputSegmentation has been deprecated. The configured segment size is always used.
    */
-  SegmentationMode?: SmoothGroupSegmentationMode | string;
+  SegmentationMode?: keyof typeof SmoothGroupSegmentationMode | string;
 
   /**
    * Number of milliseconds to delay the output from the second pipeline.
@@ -588,12 +588,12 @@ export interface MsSmoothGroupSettings {
    * - SCTE35_WITHOUT_SEGMENTATION: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame but don't start a new segment.
    * - NONE: Don't generate a sparse track for any outputs in this output group.
    */
-  SparseTrackType?: SmoothGroupSparseTrackType | string;
+  SparseTrackType?: keyof typeof SmoothGroupSparseTrackType | string;
 
   /**
    * When set to send, send stream manifest so publishing point doesn't start until all streams start.
    */
-  StreamManifestBehavior?: SmoothGroupStreamManifestBehavior | string;
+  StreamManifestBehavior?: keyof typeof SmoothGroupStreamManifestBehavior | string;
 
   /**
    * Timestamp offset for the event.  Only used if timestampOffsetMode is set to useConfiguredOffset.
@@ -605,7 +605,7 @@ export interface MsSmoothGroupSettings {
    * - useEventStartDate: Use the date the event was started as the offset
    * - useConfiguredOffset: Use an explicitly configured date as the offset
    */
-  TimestampOffsetMode?: SmoothGroupTimestampOffsetMode | string;
+  TimestampOffsetMode?: keyof typeof SmoothGroupTimestampOffsetMode | string;
 }
 
 /**
@@ -617,42 +617,42 @@ export interface MultiplexGroupSettings {}
 /**
  * @public
  */
-export enum RtmpAdMarkers {
-  ON_CUE_POINT_SCTE35 = "ON_CUE_POINT_SCTE35",
-}
+export const RtmpAdMarkers = {
+  ON_CUE_POINT_SCTE35: "ON_CUE_POINT_SCTE35",
+};
 
 /**
  * @public
  */
-export enum AuthenticationScheme {
-  AKAMAI = "AKAMAI",
-  COMMON = "COMMON",
-}
+export const AuthenticationScheme = {
+  AKAMAI: "AKAMAI",
+  COMMON: "COMMON",
+};
 
 /**
  * @public
  */
-export enum RtmpCacheFullBehavior {
-  DISCONNECT_IMMEDIATELY = "DISCONNECT_IMMEDIATELY",
-  WAIT_FOR_SERVER = "WAIT_FOR_SERVER",
-}
+export const RtmpCacheFullBehavior = {
+  DISCONNECT_IMMEDIATELY: "DISCONNECT_IMMEDIATELY",
+  WAIT_FOR_SERVER: "WAIT_FOR_SERVER",
+};
 
 /**
  * @public
  */
-export enum RtmpCaptionData {
-  ALL = "ALL",
-  FIELD1_608 = "FIELD1_608",
-  FIELD1_AND_FIELD2_608 = "FIELD1_AND_FIELD2_608",
-}
+export const RtmpCaptionData = {
+  ALL: "ALL",
+  FIELD1_608: "FIELD1_608",
+  FIELD1_AND_FIELD2_608: "FIELD1_AND_FIELD2_608",
+};
 
 /**
  * @public
  */
-export enum InputLossActionForRtmpOut {
-  EMIT_OUTPUT = "EMIT_OUTPUT",
-  PAUSE_OUTPUT = "PAUSE_OUTPUT",
-}
+export const InputLossActionForRtmpOut = {
+  EMIT_OUTPUT: "EMIT_OUTPUT",
+  PAUSE_OUTPUT: "PAUSE_OUTPUT",
+};
 
 /**
  * @public
@@ -662,17 +662,17 @@ export interface RtmpGroupSettings {
   /**
    * Choose the ad marker type for this output group. MediaLive will create a message based on the content of each SCTE-35 message, format it for that marker type, and insert it in the datastream.
    */
-  AdMarkers?: (RtmpAdMarkers | string)[];
+  AdMarkers?: (keyof typeof RtmpAdMarkers | string)[];
 
   /**
    * Authentication scheme to use when connecting with CDN
    */
-  AuthenticationScheme?: AuthenticationScheme | string;
+  AuthenticationScheme?: keyof typeof AuthenticationScheme | string;
 
   /**
    * Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
    */
-  CacheFullBehavior?: RtmpCacheFullBehavior | string;
+  CacheFullBehavior?: keyof typeof RtmpCacheFullBehavior | string;
 
   /**
    * Cache length, in seconds, is used to calculate buffer size.
@@ -682,7 +682,7 @@ export interface RtmpGroupSettings {
   /**
    * Controls the types of data that passes to onCaptionInfo outputs.  If set to 'all' then 608 and 708 carried DTVCC data will be passed.  If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
    */
-  CaptionData?: RtmpCaptionData | string;
+  CaptionData?: keyof typeof RtmpCaptionData | string;
 
   /**
    * Controls the behavior of this RTMP group if input becomes unavailable.
@@ -690,7 +690,7 @@ export interface RtmpGroupSettings {
    * - emitOutput: Emit a slate until input returns.
    * - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
    */
-  InputLossAction?: InputLossActionForRtmpOut | string;
+  InputLossAction?: keyof typeof InputLossActionForRtmpOut | string;
 
   /**
    * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
@@ -701,20 +701,20 @@ export interface RtmpGroupSettings {
 /**
  * @public
  */
-export enum InputLossActionForUdpOut {
-  DROP_PROGRAM = "DROP_PROGRAM",
-  DROP_TS = "DROP_TS",
-  EMIT_PROGRAM = "EMIT_PROGRAM",
-}
+export const InputLossActionForUdpOut = {
+  DROP_PROGRAM: "DROP_PROGRAM",
+  DROP_TS: "DROP_TS",
+  EMIT_PROGRAM: "EMIT_PROGRAM",
+};
 
 /**
  * @public
  */
-export enum UdpTimedMetadataId3Frame {
-  NONE = "NONE",
-  PRIV = "PRIV",
-  TDRL = "TDRL",
-}
+export const UdpTimedMetadataId3Frame = {
+  NONE: "NONE",
+  PRIV: "PRIV",
+  TDRL: "TDRL",
+};
 
 /**
  * @public
@@ -724,12 +724,12 @@ export interface UdpGroupSettings {
   /**
    * Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
    */
-  InputLossAction?: InputLossActionForUdpOut | string;
+  InputLossAction?: keyof typeof InputLossActionForUdpOut | string;
 
   /**
    * Indicates ID3 frame that has the timecode.
    */
-  TimedMetadataId3Frame?: UdpTimedMetadataId3Frame | string;
+  TimedMetadataId3Frame?: keyof typeof UdpTimedMetadataId3Frame | string;
 
   /**
    * Timed Metadata interval in seconds.
@@ -838,10 +838,10 @@ export interface PipelineDetail {
 /**
  * @public
  */
-export enum PipelineId {
-  PIPELINE_0 = "PIPELINE_0",
-  PIPELINE_1 = "PIPELINE_1",
-}
+export const PipelineId = {
+  PIPELINE_0: "PIPELINE_0",
+  PIPELINE_1: "PIPELINE_1",
+};
 
 /**
  * @public
@@ -851,17 +851,17 @@ export interface PipelinePauseStateSettings {
   /**
    * Pipeline ID to pause ("PIPELINE_0" or "PIPELINE_1").
    */
-  PipelineId: PipelineId | string | undefined;
+  PipelineId: keyof typeof PipelineId | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ReservationAutomaticRenewal {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const ReservationAutomaticRenewal = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  UNAVAILABLE: "UNAVAILABLE",
+};
 
 /**
  * @public
@@ -871,7 +871,7 @@ export interface RenewalSettings {
   /**
    * Automatic renewal status for the reservation
    */
-  AutomaticRenewal?: ReservationAutomaticRenewal | string;
+  AutomaticRenewal?: keyof typeof ReservationAutomaticRenewal | string;
 
   /**
    * Count for the reservation renewal
@@ -882,12 +882,12 @@ export interface RenewalSettings {
 /**
  * @public
  */
-export enum ReservationState {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  DELETED = "DELETED",
-  EXPIRED = "EXPIRED",
-}
+export const ReservationState = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  DELETED: "DELETED",
+  EXPIRED: "EXPIRED",
+};
 
 /**
  * @public
@@ -917,7 +917,7 @@ export interface Reservation {
   /**
    * Units for duration, e.g. 'MONTHS'
    */
-  DurationUnits?: OfferingDurationUnits | string;
+  DurationUnits?: keyof typeof OfferingDurationUnits | string;
 
   /**
    * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
@@ -947,7 +947,7 @@ export interface Reservation {
   /**
    * Offering type, e.g. 'NO_UPFRONT'
    */
-  OfferingType?: OfferingType | string;
+  OfferingType?: keyof typeof OfferingType | string;
 
   /**
    * AWS region, e.g. 'us-west-2'
@@ -977,7 +977,7 @@ export interface Reservation {
   /**
    * Current state of reservation, e.g. 'ACTIVE'
    */
-  State?: ReservationState | string;
+  State?: keyof typeof ReservationState | string;
 
   /**
    * A collection of key-value pairs
@@ -1015,10 +1015,10 @@ export interface HlsTimedMetadataScheduleActionSettings {
 /**
  * @public
  */
-export enum InputTimecodeSource {
-  EMBEDDED = "EMBEDDED",
-  ZEROBASED = "ZEROBASED",
-}
+export const InputTimecodeSource = {
+  EMBEDDED: "EMBEDDED",
+  ZEROBASED: "ZEROBASED",
+};
 
 /**
  * @public
@@ -1034,10 +1034,10 @@ export interface StartTimecode {
 /**
  * @public
  */
-export enum LastFrameClippingBehavior {
-  EXCLUDE_LAST_FRAME = "EXCLUDE_LAST_FRAME",
-  INCLUDE_LAST_FRAME = "INCLUDE_LAST_FRAME",
-}
+export const LastFrameClippingBehavior = {
+  EXCLUDE_LAST_FRAME: "EXCLUDE_LAST_FRAME",
+  INCLUDE_LAST_FRAME: "INCLUDE_LAST_FRAME",
+};
 
 /**
  * @public
@@ -1047,7 +1047,7 @@ export interface StopTimecode {
   /**
    * If you specify a StopTimecode in an input (in order to clip the file), you can specify if you want the clip to exclude (the default) or include the frame specified by the timecode.
    */
-  LastFrameClippingBehavior?: LastFrameClippingBehavior | string;
+  LastFrameClippingBehavior?: keyof typeof LastFrameClippingBehavior | string;
 
   /**
    * The timecode for the frame where you want to stop the clip. Optional; if not specified, the clip continues to the end of the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
@@ -1063,7 +1063,7 @@ export interface InputClippingSettings {
   /**
    * The source of the timecodes in the source being clipped.
    */
-  InputTimecodeSource: InputTimecodeSource | string | undefined;
+  InputTimecodeSource: keyof typeof InputTimecodeSource | string | undefined;
 
   /**
    * Settings to identify the start of the clip.
@@ -1164,10 +1164,10 @@ export interface PauseStateScheduleActionSettings {
 /**
  * @public
  */
-export enum Scte35InputMode {
-  FIXED = "FIXED",
-  FOLLOW_ACTIVE = "FOLLOW_ACTIVE",
-}
+export const Scte35InputMode = {
+  FIXED: "FIXED",
+  FOLLOW_ACTIVE: "FOLLOW_ACTIVE",
+};
 
 /**
  * @public
@@ -1182,7 +1182,7 @@ export interface Scte35InputScheduleActionSettings {
   /**
    * Whether the SCTE-35 input should be the active input or a fixed input.
    */
-  Mode: Scte35InputMode | string | undefined;
+  Mode: keyof typeof Scte35InputMode | string | undefined;
 }
 
 /**
@@ -1215,36 +1215,36 @@ export interface Scte35SpliceInsertScheduleActionSettings {
 /**
  * @public
  */
-export enum Scte35ArchiveAllowedFlag {
-  ARCHIVE_ALLOWED = "ARCHIVE_ALLOWED",
-  ARCHIVE_NOT_ALLOWED = "ARCHIVE_NOT_ALLOWED",
-}
+export const Scte35ArchiveAllowedFlag = {
+  ARCHIVE_ALLOWED: "ARCHIVE_ALLOWED",
+  ARCHIVE_NOT_ALLOWED: "ARCHIVE_NOT_ALLOWED",
+};
 
 /**
  * @public
  */
-export enum Scte35DeviceRestrictions {
-  NONE = "NONE",
-  RESTRICT_GROUP0 = "RESTRICT_GROUP0",
-  RESTRICT_GROUP1 = "RESTRICT_GROUP1",
-  RESTRICT_GROUP2 = "RESTRICT_GROUP2",
-}
+export const Scte35DeviceRestrictions = {
+  NONE: "NONE",
+  RESTRICT_GROUP0: "RESTRICT_GROUP0",
+  RESTRICT_GROUP1: "RESTRICT_GROUP1",
+  RESTRICT_GROUP2: "RESTRICT_GROUP2",
+};
 
 /**
  * @public
  */
-export enum Scte35NoRegionalBlackoutFlag {
-  NO_REGIONAL_BLACKOUT = "NO_REGIONAL_BLACKOUT",
-  REGIONAL_BLACKOUT = "REGIONAL_BLACKOUT",
-}
+export const Scte35NoRegionalBlackoutFlag = {
+  NO_REGIONAL_BLACKOUT: "NO_REGIONAL_BLACKOUT",
+  REGIONAL_BLACKOUT: "REGIONAL_BLACKOUT",
+};
 
 /**
  * @public
  */
-export enum Scte35WebDeliveryAllowedFlag {
-  WEB_DELIVERY_ALLOWED = "WEB_DELIVERY_ALLOWED",
-  WEB_DELIVERY_NOT_ALLOWED = "WEB_DELIVERY_NOT_ALLOWED",
-}
+export const Scte35WebDeliveryAllowedFlag = {
+  WEB_DELIVERY_ALLOWED: "WEB_DELIVERY_ALLOWED",
+  WEB_DELIVERY_NOT_ALLOWED: "WEB_DELIVERY_NOT_ALLOWED",
+};
 
 /**
  * @public
@@ -1254,31 +1254,31 @@ export interface Scte35DeliveryRestrictions {
   /**
    * Corresponds to SCTE-35 archive_allowed_flag.
    */
-  ArchiveAllowedFlag: Scte35ArchiveAllowedFlag | string | undefined;
+  ArchiveAllowedFlag: keyof typeof Scte35ArchiveAllowedFlag | string | undefined;
 
   /**
    * Corresponds to SCTE-35 device_restrictions parameter.
    */
-  DeviceRestrictions: Scte35DeviceRestrictions | string | undefined;
+  DeviceRestrictions: keyof typeof Scte35DeviceRestrictions | string | undefined;
 
   /**
    * Corresponds to SCTE-35 no_regional_blackout_flag parameter.
    */
-  NoRegionalBlackoutFlag: Scte35NoRegionalBlackoutFlag | string | undefined;
+  NoRegionalBlackoutFlag: keyof typeof Scte35NoRegionalBlackoutFlag | string | undefined;
 
   /**
    * Corresponds to SCTE-35 web_delivery_allowed_flag parameter.
    */
-  WebDeliveryAllowedFlag: Scte35WebDeliveryAllowedFlag | string | undefined;
+  WebDeliveryAllowedFlag: keyof typeof Scte35WebDeliveryAllowedFlag | string | undefined;
 }
 
 /**
  * @public
  */
-export enum Scte35SegmentationCancelIndicator {
-  SEGMENTATION_EVENT_CANCELED = "SEGMENTATION_EVENT_CANCELED",
-  SEGMENTATION_EVENT_NOT_CANCELED = "SEGMENTATION_EVENT_NOT_CANCELED",
-}
+export const Scte35SegmentationCancelIndicator = {
+  SEGMENTATION_EVENT_CANCELED: "SEGMENTATION_EVENT_CANCELED",
+  SEGMENTATION_EVENT_NOT_CANCELED: "SEGMENTATION_EVENT_NOT_CANCELED",
+};
 
 /**
  * @public
@@ -1298,7 +1298,7 @@ export interface Scte35SegmentationDescriptor {
   /**
    * Corresponds to SCTE-35 segmentation_event_cancel_indicator.
    */
-  SegmentationCancelIndicator: Scte35SegmentationCancelIndicator | string | undefined;
+  SegmentationCancelIndicator: keyof typeof Scte35SegmentationCancelIndicator | string | undefined;
 
   /**
    * Corresponds to SCTE-35 segmentation_duration. Optional. The duration for the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. Enter time in 90 KHz clock ticks. If you do not enter a duration, the time_signal will continue until you insert a cancellation message.
@@ -1531,10 +1531,10 @@ export interface FixedModeScheduleActionStartSettings {
 /**
  * @public
  */
-export enum FollowPoint {
-  END = "END",
-  START = "START",
-}
+export const FollowPoint = {
+  END: "END",
+  START: "START",
+};
 
 /**
  * @public
@@ -1544,7 +1544,7 @@ export interface FollowModeScheduleActionStartSettings {
   /**
    * Identifies whether this action starts relative to the start or relative to the end of the reference action.
    */
-  FollowPoint: FollowPoint | string | undefined;
+  FollowPoint: keyof typeof FollowPoint | string | undefined;
 
   /**
    * The action name of another action that this one refers to.
@@ -1603,10 +1603,10 @@ export interface ScheduleAction {
 /**
  * @public
  */
-export enum InputDeviceTransferType {
-  INCOMING = "INCOMING",
-  OUTGOING = "OUTGOING",
-}
+export const InputDeviceTransferType = {
+  INCOMING: "INCOMING",
+  OUTGOING: "OUTGOING",
+};
 
 /**
  * @public
@@ -1631,7 +1631,7 @@ export interface TransferringInputDeviceSummary {
   /**
    * The type (direction) of the input device transfer.
    */
-  TransferType?: InputDeviceTransferType | string;
+  TransferType?: keyof typeof InputDeviceTransferType | string;
 }
 
 /**
@@ -1653,35 +1653,35 @@ export interface ValidationError {
 /**
  * @public
  */
-export enum FrameCaptureIntervalUnit {
-  MILLISECONDS = "MILLISECONDS",
-  SECONDS = "SECONDS",
-}
+export const FrameCaptureIntervalUnit = {
+  MILLISECONDS: "MILLISECONDS",
+  SECONDS: "SECONDS",
+};
 
 /**
  * @public
  */
-export enum TimecodeBurninFontSize {
-  EXTRA_SMALL_10 = "EXTRA_SMALL_10",
-  LARGE_48 = "LARGE_48",
-  MEDIUM_32 = "MEDIUM_32",
-  SMALL_16 = "SMALL_16",
-}
+export const TimecodeBurninFontSize = {
+  EXTRA_SMALL_10: "EXTRA_SMALL_10",
+  LARGE_48: "LARGE_48",
+  MEDIUM_32: "MEDIUM_32",
+  SMALL_16: "SMALL_16",
+};
 
 /**
  * @public
  */
-export enum TimecodeBurninPosition {
-  BOTTOM_CENTER = "BOTTOM_CENTER",
-  BOTTOM_LEFT = "BOTTOM_LEFT",
-  BOTTOM_RIGHT = "BOTTOM_RIGHT",
-  MIDDLE_CENTER = "MIDDLE_CENTER",
-  MIDDLE_LEFT = "MIDDLE_LEFT",
-  MIDDLE_RIGHT = "MIDDLE_RIGHT",
-  TOP_CENTER = "TOP_CENTER",
-  TOP_LEFT = "TOP_LEFT",
-  TOP_RIGHT = "TOP_RIGHT",
-}
+export const TimecodeBurninPosition = {
+  BOTTOM_CENTER: "BOTTOM_CENTER",
+  BOTTOM_LEFT: "BOTTOM_LEFT",
+  BOTTOM_RIGHT: "BOTTOM_RIGHT",
+  MIDDLE_CENTER: "MIDDLE_CENTER",
+  MIDDLE_LEFT: "MIDDLE_LEFT",
+  MIDDLE_RIGHT: "MIDDLE_RIGHT",
+  TOP_CENTER: "TOP_CENTER",
+  TOP_LEFT: "TOP_LEFT",
+  TOP_RIGHT: "TOP_RIGHT",
+};
 
 /**
  * @public
@@ -1691,12 +1691,12 @@ export interface TimecodeBurninSettings {
   /**
    * Choose a timecode burn-in font size
    */
-  FontSize: TimecodeBurninFontSize | string | undefined;
+  FontSize: keyof typeof TimecodeBurninFontSize | string | undefined;
 
   /**
    * Choose a timecode burn-in output position
    */
-  Position: TimecodeBurninPosition | string | undefined;
+  Position: keyof typeof TimecodeBurninPosition | string | undefined;
 
   /**
    * Create a timecode burn-in prefix (optional)
@@ -1717,7 +1717,7 @@ export interface FrameCaptureSettings {
   /**
    * Unit for the frame capture interval.
    */
-  CaptureIntervalUnits?: FrameCaptureIntervalUnit | string;
+  CaptureIntervalUnits?: keyof typeof FrameCaptureIntervalUnit | string;
 
   /**
    * Timecode burn-in settings
@@ -1728,32 +1728,32 @@ export interface FrameCaptureSettings {
 /**
  * @public
  */
-export enum H264AdaptiveQuantization {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  HIGHER = "HIGHER",
-  LOW = "LOW",
-  MAX = "MAX",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
+export const H264AdaptiveQuantization = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  HIGHER: "HIGHER",
+  LOW: "LOW",
+  MAX: "MAX",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+};
 
 /**
  * @public
  */
-export enum AfdSignaling {
-  AUTO = "AUTO",
-  FIXED = "FIXED",
-  NONE = "NONE",
-}
+export const AfdSignaling = {
+  AUTO: "AUTO",
+  FIXED: "FIXED",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum H264ColorMetadata {
-  IGNORE = "IGNORE",
-  INSERT = "INSERT",
-}
+export const H264ColorMetadata = {
+  IGNORE: "IGNORE",
+  INSERT: "INSERT",
+};
 
 /**
  * @public
@@ -1797,42 +1797,42 @@ export interface H264ColorSpaceSettings {
 /**
  * @public
  */
-export enum H264EntropyEncoding {
-  CABAC = "CABAC",
-  CAVLC = "CAVLC",
-}
+export const H264EntropyEncoding = {
+  CABAC: "CABAC",
+  CAVLC: "CAVLC",
+};
 
 /**
  * @public
  */
-export enum TemporalFilterPostFilterSharpening {
-  AUTO = "AUTO",
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const TemporalFilterPostFilterSharpening = {
+  AUTO: "AUTO",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum TemporalFilterStrength {
-  AUTO = "AUTO",
-  STRENGTH_1 = "STRENGTH_1",
-  STRENGTH_10 = "STRENGTH_10",
-  STRENGTH_11 = "STRENGTH_11",
-  STRENGTH_12 = "STRENGTH_12",
-  STRENGTH_13 = "STRENGTH_13",
-  STRENGTH_14 = "STRENGTH_14",
-  STRENGTH_15 = "STRENGTH_15",
-  STRENGTH_16 = "STRENGTH_16",
-  STRENGTH_2 = "STRENGTH_2",
-  STRENGTH_3 = "STRENGTH_3",
-  STRENGTH_4 = "STRENGTH_4",
-  STRENGTH_5 = "STRENGTH_5",
-  STRENGTH_6 = "STRENGTH_6",
-  STRENGTH_7 = "STRENGTH_7",
-  STRENGTH_8 = "STRENGTH_8",
-  STRENGTH_9 = "STRENGTH_9",
-}
+export const TemporalFilterStrength = {
+  AUTO: "AUTO",
+  STRENGTH_1: "STRENGTH_1",
+  STRENGTH_10: "STRENGTH_10",
+  STRENGTH_11: "STRENGTH_11",
+  STRENGTH_12: "STRENGTH_12",
+  STRENGTH_13: "STRENGTH_13",
+  STRENGTH_14: "STRENGTH_14",
+  STRENGTH_15: "STRENGTH_15",
+  STRENGTH_16: "STRENGTH_16",
+  STRENGTH_2: "STRENGTH_2",
+  STRENGTH_3: "STRENGTH_3",
+  STRENGTH_4: "STRENGTH_4",
+  STRENGTH_5: "STRENGTH_5",
+  STRENGTH_6: "STRENGTH_6",
+  STRENGTH_7: "STRENGTH_7",
+  STRENGTH_8: "STRENGTH_8",
+  STRENGTH_9: "STRENGTH_9",
+};
 
 /**
  * @public
@@ -1844,12 +1844,12 @@ export interface TemporalFilterSettings {
    * - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
    * - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
    */
-  PostFilterSharpening?: TemporalFilterPostFilterSharpening | string;
+  PostFilterSharpening?: keyof typeof TemporalFilterPostFilterSharpening | string;
 
   /**
    * Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
    */
-  Strength?: TemporalFilterStrength | string;
+  Strength?: keyof typeof TemporalFilterStrength | string;
 }
 
 /**
@@ -1866,185 +1866,185 @@ export interface H264FilterSettings {
 /**
  * @public
  */
-export enum FixedAfd {
-  AFD_0000 = "AFD_0000",
-  AFD_0010 = "AFD_0010",
-  AFD_0011 = "AFD_0011",
-  AFD_0100 = "AFD_0100",
-  AFD_1000 = "AFD_1000",
-  AFD_1001 = "AFD_1001",
-  AFD_1010 = "AFD_1010",
-  AFD_1011 = "AFD_1011",
-  AFD_1101 = "AFD_1101",
-  AFD_1110 = "AFD_1110",
-  AFD_1111 = "AFD_1111",
-}
+export const FixedAfd = {
+  AFD_0000: "AFD_0000",
+  AFD_0010: "AFD_0010",
+  AFD_0011: "AFD_0011",
+  AFD_0100: "AFD_0100",
+  AFD_1000: "AFD_1000",
+  AFD_1001: "AFD_1001",
+  AFD_1010: "AFD_1010",
+  AFD_1011: "AFD_1011",
+  AFD_1101: "AFD_1101",
+  AFD_1110: "AFD_1110",
+  AFD_1111: "AFD_1111",
+};
 
 /**
  * @public
  */
-export enum H264FlickerAq {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const H264FlickerAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum H264ForceFieldPictures {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const H264ForceFieldPictures = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum H264FramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
+export const H264FramerateControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+};
 
 /**
  * @public
  */
-export enum H264GopBReference {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const H264GopBReference = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum H264GopSizeUnits {
-  FRAMES = "FRAMES",
-  SECONDS = "SECONDS",
-}
+export const H264GopSizeUnits = {
+  FRAMES: "FRAMES",
+  SECONDS: "SECONDS",
+};
 
 /**
  * @public
  */
-export enum H264Level {
-  H264_LEVEL_1 = "H264_LEVEL_1",
-  H264_LEVEL_1_1 = "H264_LEVEL_1_1",
-  H264_LEVEL_1_2 = "H264_LEVEL_1_2",
-  H264_LEVEL_1_3 = "H264_LEVEL_1_3",
-  H264_LEVEL_2 = "H264_LEVEL_2",
-  H264_LEVEL_2_1 = "H264_LEVEL_2_1",
-  H264_LEVEL_2_2 = "H264_LEVEL_2_2",
-  H264_LEVEL_3 = "H264_LEVEL_3",
-  H264_LEVEL_3_1 = "H264_LEVEL_3_1",
-  H264_LEVEL_3_2 = "H264_LEVEL_3_2",
-  H264_LEVEL_4 = "H264_LEVEL_4",
-  H264_LEVEL_4_1 = "H264_LEVEL_4_1",
-  H264_LEVEL_4_2 = "H264_LEVEL_4_2",
-  H264_LEVEL_5 = "H264_LEVEL_5",
-  H264_LEVEL_5_1 = "H264_LEVEL_5_1",
-  H264_LEVEL_5_2 = "H264_LEVEL_5_2",
-  H264_LEVEL_AUTO = "H264_LEVEL_AUTO",
-}
+export const H264Level = {
+  H264_LEVEL_1: "H264_LEVEL_1",
+  H264_LEVEL_1_1: "H264_LEVEL_1_1",
+  H264_LEVEL_1_2: "H264_LEVEL_1_2",
+  H264_LEVEL_1_3: "H264_LEVEL_1_3",
+  H264_LEVEL_2: "H264_LEVEL_2",
+  H264_LEVEL_2_1: "H264_LEVEL_2_1",
+  H264_LEVEL_2_2: "H264_LEVEL_2_2",
+  H264_LEVEL_3: "H264_LEVEL_3",
+  H264_LEVEL_3_1: "H264_LEVEL_3_1",
+  H264_LEVEL_3_2: "H264_LEVEL_3_2",
+  H264_LEVEL_4: "H264_LEVEL_4",
+  H264_LEVEL_4_1: "H264_LEVEL_4_1",
+  H264_LEVEL_4_2: "H264_LEVEL_4_2",
+  H264_LEVEL_5: "H264_LEVEL_5",
+  H264_LEVEL_5_1: "H264_LEVEL_5_1",
+  H264_LEVEL_5_2: "H264_LEVEL_5_2",
+  H264_LEVEL_AUTO: "H264_LEVEL_AUTO",
+};
 
 /**
  * @public
  */
-export enum H264LookAheadRateControl {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const H264LookAheadRateControl = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+};
 
 /**
  * @public
  */
-export enum H264ParControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
+export const H264ParControl = {
+  INITIALIZE_FROM_SOURCE: "INITIALIZE_FROM_SOURCE",
+  SPECIFIED: "SPECIFIED",
+};
 
 /**
  * @public
  */
-export enum H264Profile {
-  BASELINE = "BASELINE",
-  HIGH = "HIGH",
-  HIGH_10BIT = "HIGH_10BIT",
-  HIGH_422 = "HIGH_422",
-  HIGH_422_10BIT = "HIGH_422_10BIT",
-  MAIN = "MAIN",
-}
+export const H264Profile = {
+  BASELINE: "BASELINE",
+  HIGH: "HIGH",
+  HIGH_10BIT: "HIGH_10BIT",
+  HIGH_422: "HIGH_422",
+  HIGH_422_10BIT: "HIGH_422_10BIT",
+  MAIN: "MAIN",
+};
 
 /**
  * @public
  */
-export enum H264QualityLevel {
-  ENHANCED_QUALITY = "ENHANCED_QUALITY",
-  STANDARD_QUALITY = "STANDARD_QUALITY",
-}
+export const H264QualityLevel = {
+  ENHANCED_QUALITY: "ENHANCED_QUALITY",
+  STANDARD_QUALITY: "STANDARD_QUALITY",
+};
 
 /**
  * @public
  */
-export enum H264RateControlMode {
-  CBR = "CBR",
-  MULTIPLEX = "MULTIPLEX",
-  QVBR = "QVBR",
-  VBR = "VBR",
-}
+export const H264RateControlMode = {
+  CBR: "CBR",
+  MULTIPLEX: "MULTIPLEX",
+  QVBR: "QVBR",
+  VBR: "VBR",
+};
 
 /**
  * @public
  */
-export enum H264ScanType {
-  INTERLACED = "INTERLACED",
-  PROGRESSIVE = "PROGRESSIVE",
-}
+export const H264ScanType = {
+  INTERLACED: "INTERLACED",
+  PROGRESSIVE: "PROGRESSIVE",
+};
 
 /**
  * @public
  */
-export enum H264SceneChangeDetect {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const H264SceneChangeDetect = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum H264SpatialAq {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const H264SpatialAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum H264SubGopLength {
-  DYNAMIC = "DYNAMIC",
-  FIXED = "FIXED",
-}
+export const H264SubGopLength = {
+  DYNAMIC: "DYNAMIC",
+  FIXED: "FIXED",
+};
 
 /**
  * @public
  */
-export enum H264Syntax {
-  DEFAULT = "DEFAULT",
-  RP2027 = "RP2027",
-}
+export const H264Syntax = {
+  DEFAULT: "DEFAULT",
+  RP2027: "RP2027",
+};
 
 /**
  * @public
  */
-export enum H264TemporalAq {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const H264TemporalAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum H264TimecodeInsertionBehavior {
-  DISABLED = "DISABLED",
-  PIC_TIMING_SEI = "PIC_TIMING_SEI",
-}
+export const H264TimecodeInsertionBehavior = {
+  DISABLED: "DISABLED",
+  PIC_TIMING_SEI: "PIC_TIMING_SEI",
+};
 
 /**
  * @public
@@ -2054,12 +2054,12 @@ export interface H264Settings {
   /**
    * Enables or disables adaptive quantization, which is a technique MediaLive can apply to video on a frame-by-frame basis to produce more compression without losing quality. There are three types of adaptive quantization: flicker, spatial, and temporal. Set the field in one of these ways: Set to Auto. Recommended. For each type of AQ, MediaLive will determine if AQ is needed, and if so, the appropriate strength. Set a strength (a value other than Auto or Disable). This strength will apply to any of the AQ fields that you choose to enable. Set to Disabled to disable all types of adaptive quantization.
    */
-  AdaptiveQuantization?: H264AdaptiveQuantization | string;
+  AdaptiveQuantization?: keyof typeof H264AdaptiveQuantization | string;
 
   /**
    * Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
    */
-  AfdSignaling?: AfdSignaling | string;
+  AfdSignaling?: keyof typeof AfdSignaling | string;
 
   /**
    * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
@@ -2079,7 +2079,7 @@ export interface H264Settings {
   /**
    * Includes colorspace metadata in the output.
    */
-  ColorMetadata?: H264ColorMetadata | string;
+  ColorMetadata?: keyof typeof H264ColorMetadata | string;
 
   /**
    * Color Space settings
@@ -2089,7 +2089,7 @@ export interface H264Settings {
   /**
    * Entropy encoding mode.  Use cabac (must be in Main or High profile) or cavlc.
    */
-  EntropyEncoding?: H264EntropyEncoding | string;
+  EntropyEncoding?: keyof typeof H264EntropyEncoding | string;
 
   /**
    * Optional filters that you can apply to an encode.
@@ -2099,24 +2099,24 @@ export interface H264Settings {
   /**
    * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
    */
-  FixedAfd?: FixedAfd | string;
+  FixedAfd?: keyof typeof FixedAfd | string;
 
   /**
    * Flicker AQ makes adjustments within each frame to reduce flicker or 'pop' on I-frames. The value to enter in this field depends on the value in the Adaptive quantization field: If you have set the Adaptive quantization field to Auto, MediaLive ignores any value in this field. MediaLive will determine if flicker AQ is appropriate and will apply the appropriate strength. If you have set the Adaptive quantization field to a strength, you can set this field to Enabled or Disabled. Enabled: MediaLive will apply flicker AQ using the specified strength. Disabled: MediaLive won't apply flicker AQ. If you have set the Adaptive quantization to Disabled, MediaLive ignores any value in this field and doesn't apply flicker AQ.
    */
-  FlickerAq?: H264FlickerAq | string;
+  FlickerAq?: keyof typeof H264FlickerAq | string;
 
   /**
    * This setting applies only when scan type is "interlaced." It controls whether coding is performed on a field basis or on a frame basis. (When the video is progressive, the coding is always performed on a frame basis.)
    * enabled: Force MediaLive to code on a field basis, so that odd and even sets of fields are coded separately.
    * disabled: Code the two sets of fields separately (on a field basis) or together (on a frame basis using PAFF), depending on what is most appropriate for the content.
    */
-  ForceFieldPictures?: H264ForceFieldPictures | string;
+  ForceFieldPictures?: keyof typeof H264ForceFieldPictures | string;
 
   /**
    * This field indicates how the output video frame rate is specified.  If "specified" is selected then the output video frame rate is determined by framerateNumerator and framerateDenominator, else if "initializeFromSource" is selected then the output video frame rate will be set equal to the input video frame rate of the first input.
    */
-  FramerateControl?: H264FramerateControl | string;
+  FramerateControl?: keyof typeof H264FramerateControl | string;
 
   /**
    * Framerate denominator.
@@ -2131,7 +2131,7 @@ export interface H264Settings {
   /**
    * Documentation update needed
    */
-  GopBReference?: H264GopBReference | string;
+  GopBReference?: keyof typeof H264GopBReference | string;
 
   /**
    * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
@@ -2153,17 +2153,17 @@ export interface H264Settings {
   /**
    * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
    */
-  GopSizeUnits?: H264GopSizeUnits | string;
+  GopSizeUnits?: keyof typeof H264GopSizeUnits | string;
 
   /**
    * H.264 Level.
    */
-  Level?: H264Level | string;
+  Level?: keyof typeof H264Level | string;
 
   /**
    * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
    */
-  LookAheadRateControl?: H264LookAheadRateControl | string;
+  LookAheadRateControl?: keyof typeof H264LookAheadRateControl | string;
 
   /**
    * For QVBR: See the tooltip for Quality level
@@ -2185,7 +2185,7 @@ export interface H264Settings {
   /**
    * This field indicates how the output pixel aspect ratio is specified.  If "specified" is selected then the output video pixel aspect ratio is determined by parNumerator and parDenominator, else if "initializeFromSource" is selected then the output pixsel aspect ratio will be set equal to the input video pixel aspect ratio of the first input.
    */
-  ParControl?: H264ParControl | string;
+  ParControl?: keyof typeof H264ParControl | string;
 
   /**
    * Pixel Aspect Ratio denominator.
@@ -2200,14 +2200,14 @@ export interface H264Settings {
   /**
    * H.264 Profile.
    */
-  Profile?: H264Profile | string;
+  Profile?: keyof typeof H264Profile | string;
 
   /**
    * Leave as STANDARD_QUALITY or choose a different value (which might result in additional costs to run the channel).
    * - ENHANCED_QUALITY: Produces a slightly better video quality without an increase in the bitrate. Has an effect only when the Rate control mode is QVBR or CBR. If this channel is in a MediaLive multiplex, the value must be ENHANCED_QUALITY.
    * - STANDARD_QUALITY: Valid for any Rate control mode.
    */
-  QualityLevel?: H264QualityLevel | string;
+  QualityLevel?: keyof typeof H264QualityLevel | string;
 
   /**
    * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. You can set a target quality or you can let MediaLive determine the best quality. To set a target quality, enter values in the QVBR quality level field and the Max bitrate field. Enter values that suit your most important viewing devices. Recommended values are:
@@ -2234,12 +2234,12 @@ export interface H264Settings {
    * delivered to a MediaLive Multiplex in which case the rate control configuration is controlled
    * by the properties within the Multiplex Program.
    */
-  RateControlMode?: H264RateControlMode | string;
+  RateControlMode?: keyof typeof H264RateControlMode | string;
 
   /**
    * Sets the scan type of the output to progressive or top-field-first interlaced.
    */
-  ScanType?: H264ScanType | string;
+  ScanType?: keyof typeof H264ScanType | string;
 
   /**
    * Scene change detection.
@@ -2247,7 +2247,7 @@ export interface H264Settings {
    * - On: inserts I-frames when scene change is detected.
    * - Off: does not force an I-frame when scene change is detected.
    */
-  SceneChangeDetect?: H264SceneChangeDetect | string;
+  SceneChangeDetect?: keyof typeof H264SceneChangeDetect | string;
 
   /**
    * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
@@ -2263,29 +2263,29 @@ export interface H264Settings {
   /**
    * Spatial AQ makes adjustments within each frame based on spatial variation of content complexity. The value to enter in this field depends on the value in the Adaptive quantization field: If you have set the Adaptive quantization field to Auto, MediaLive ignores any value in this field. MediaLive will determine if spatial AQ is appropriate and will apply the appropriate strength. If you have set the Adaptive quantization field to a strength, you can set this field to Enabled or Disabled. Enabled: MediaLive will apply spatial AQ using the specified strength. Disabled: MediaLive won't apply spatial AQ. If you have set the Adaptive quantization to Disabled, MediaLive ignores any value in this field and doesn't apply spatial AQ.
    */
-  SpatialAq?: H264SpatialAq | string;
+  SpatialAq?: keyof typeof H264SpatialAq | string;
 
   /**
    * If set to fixed, use gopNumBFrames B-frames per sub-GOP. If set to dynamic, optimize the number of B-frames used for each sub-GOP to improve visual quality.
    */
-  SubgopLength?: H264SubGopLength | string;
+  SubgopLength?: keyof typeof H264SubGopLength | string;
 
   /**
    * Produces a bitstream compliant with SMPTE RP-2027.
    */
-  Syntax?: H264Syntax | string;
+  Syntax?: keyof typeof H264Syntax | string;
 
   /**
    * Temporal makes adjustments within each frame based on temporal variation of content complexity. The value to enter in this field depends on the value in the Adaptive quantization field: If you have set the Adaptive quantization field to Auto, MediaLive ignores any value in this field. MediaLive will determine if temporal AQ is appropriate and will apply the appropriate strength. If you have set the Adaptive quantization field to a strength, you can set this field to Enabled or Disabled. Enabled: MediaLive will apply temporal AQ using the specified strength. Disabled: MediaLive won't apply temporal AQ. If you have set the Adaptive quantization to Disabled, MediaLive ignores any value in this field and doesn't apply temporal AQ.
    */
-  TemporalAq?: H264TemporalAq | string;
+  TemporalAq?: keyof typeof H264TemporalAq | string;
 
   /**
    * Determines how timecodes should be inserted into the video elementary stream.
    * - 'disabled': Do not include timecodes
    * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
    */
-  TimecodeInsertion?: H264TimecodeInsertionBehavior | string;
+  TimecodeInsertion?: keyof typeof H264TimecodeInsertionBehavior | string;
 
   /**
    * Timecode burn-in settings
@@ -2296,31 +2296,31 @@ export interface H264Settings {
 /**
  * @public
  */
-export enum H265AdaptiveQuantization {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  HIGHER = "HIGHER",
-  LOW = "LOW",
-  MAX = "MAX",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
+export const H265AdaptiveQuantization = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  HIGHER: "HIGHER",
+  LOW: "LOW",
+  MAX: "MAX",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+};
 
 /**
  * @public
  */
-export enum H265AlternativeTransferFunction {
-  INSERT = "INSERT",
-  OMIT = "OMIT",
-}
+export const H265AlternativeTransferFunction = {
+  INSERT: "INSERT",
+  OMIT: "OMIT",
+};
 
 /**
  * @public
  */
-export enum H265ColorMetadata {
-  IGNORE = "IGNORE",
-  INSERT = "INSERT",
-}
+export const H265ColorMetadata = {
+  IGNORE: "IGNORE",
+  INSERT: "INSERT",
+};
 
 /**
  * @public
@@ -2373,96 +2373,96 @@ export interface H265FilterSettings {
 /**
  * @public
  */
-export enum H265FlickerAq {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const H265FlickerAq = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum H265GopSizeUnits {
-  FRAMES = "FRAMES",
-  SECONDS = "SECONDS",
-}
+export const H265GopSizeUnits = {
+  FRAMES: "FRAMES",
+  SECONDS: "SECONDS",
+};
 
 /**
  * @public
  */
-export enum H265Level {
-  H265_LEVEL_1 = "H265_LEVEL_1",
-  H265_LEVEL_2 = "H265_LEVEL_2",
-  H265_LEVEL_2_1 = "H265_LEVEL_2_1",
-  H265_LEVEL_3 = "H265_LEVEL_3",
-  H265_LEVEL_3_1 = "H265_LEVEL_3_1",
-  H265_LEVEL_4 = "H265_LEVEL_4",
-  H265_LEVEL_4_1 = "H265_LEVEL_4_1",
-  H265_LEVEL_5 = "H265_LEVEL_5",
-  H265_LEVEL_5_1 = "H265_LEVEL_5_1",
-  H265_LEVEL_5_2 = "H265_LEVEL_5_2",
-  H265_LEVEL_6 = "H265_LEVEL_6",
-  H265_LEVEL_6_1 = "H265_LEVEL_6_1",
-  H265_LEVEL_6_2 = "H265_LEVEL_6_2",
-  H265_LEVEL_AUTO = "H265_LEVEL_AUTO",
-}
+export const H265Level = {
+  H265_LEVEL_1: "H265_LEVEL_1",
+  H265_LEVEL_2: "H265_LEVEL_2",
+  H265_LEVEL_2_1: "H265_LEVEL_2_1",
+  H265_LEVEL_3: "H265_LEVEL_3",
+  H265_LEVEL_3_1: "H265_LEVEL_3_1",
+  H265_LEVEL_4: "H265_LEVEL_4",
+  H265_LEVEL_4_1: "H265_LEVEL_4_1",
+  H265_LEVEL_5: "H265_LEVEL_5",
+  H265_LEVEL_5_1: "H265_LEVEL_5_1",
+  H265_LEVEL_5_2: "H265_LEVEL_5_2",
+  H265_LEVEL_6: "H265_LEVEL_6",
+  H265_LEVEL_6_1: "H265_LEVEL_6_1",
+  H265_LEVEL_6_2: "H265_LEVEL_6_2",
+  H265_LEVEL_AUTO: "H265_LEVEL_AUTO",
+};
 
 /**
  * @public
  */
-export enum H265LookAheadRateControl {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const H265LookAheadRateControl = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+};
 
 /**
  * @public
  */
-export enum H265Profile {
-  MAIN = "MAIN",
-  MAIN_10BIT = "MAIN_10BIT",
-}
+export const H265Profile = {
+  MAIN: "MAIN",
+  MAIN_10BIT: "MAIN_10BIT",
+};
 
 /**
  * @public
  */
-export enum H265RateControlMode {
-  CBR = "CBR",
-  MULTIPLEX = "MULTIPLEX",
-  QVBR = "QVBR",
-}
+export const H265RateControlMode = {
+  CBR: "CBR",
+  MULTIPLEX: "MULTIPLEX",
+  QVBR: "QVBR",
+};
 
 /**
  * @public
  */
-export enum H265ScanType {
-  INTERLACED = "INTERLACED",
-  PROGRESSIVE = "PROGRESSIVE",
-}
+export const H265ScanType = {
+  INTERLACED: "INTERLACED",
+  PROGRESSIVE: "PROGRESSIVE",
+};
 
 /**
  * @public
  */
-export enum H265SceneChangeDetect {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const H265SceneChangeDetect = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum H265Tier {
-  HIGH = "HIGH",
-  MAIN = "MAIN",
-}
+export const H265Tier = {
+  HIGH: "HIGH",
+  MAIN: "MAIN",
+};
 
 /**
  * @public
  */
-export enum H265TimecodeInsertionBehavior {
-  DISABLED = "DISABLED",
-  PIC_TIMING_SEI = "PIC_TIMING_SEI",
-}
+export const H265TimecodeInsertionBehavior = {
+  DISABLED: "DISABLED",
+  PIC_TIMING_SEI: "PIC_TIMING_SEI",
+};
 
 /**
  * @public
@@ -2472,17 +2472,17 @@ export interface H265Settings {
   /**
    * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
    */
-  AdaptiveQuantization?: H265AdaptiveQuantization | string;
+  AdaptiveQuantization?: keyof typeof H265AdaptiveQuantization | string;
 
   /**
    * Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
    */
-  AfdSignaling?: AfdSignaling | string;
+  AfdSignaling?: keyof typeof AfdSignaling | string;
 
   /**
    * Whether or not EML should insert an Alternative Transfer Function SEI message to support backwards compatibility with non-HDR decoders and displays.
    */
-  AlternativeTransferFunction?: H265AlternativeTransferFunction | string;
+  AlternativeTransferFunction?: keyof typeof H265AlternativeTransferFunction | string;
 
   /**
    * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
@@ -2497,7 +2497,7 @@ export interface H265Settings {
   /**
    * Includes colorspace metadata in the output.
    */
-  ColorMetadata?: H265ColorMetadata | string;
+  ColorMetadata?: keyof typeof H265ColorMetadata | string;
 
   /**
    * Color Space settings
@@ -2512,12 +2512,12 @@ export interface H265Settings {
   /**
    * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
    */
-  FixedAfd?: FixedAfd | string;
+  FixedAfd?: keyof typeof FixedAfd | string;
 
   /**
    * If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
    */
-  FlickerAq?: H265FlickerAq | string;
+  FlickerAq?: keyof typeof H265FlickerAq | string;
 
   /**
    * Framerate denominator.
@@ -2544,17 +2544,17 @@ export interface H265Settings {
   /**
    * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
    */
-  GopSizeUnits?: H265GopSizeUnits | string;
+  GopSizeUnits?: keyof typeof H265GopSizeUnits | string;
 
   /**
    * H.265 Level.
    */
-  Level?: H265Level | string;
+  Level?: keyof typeof H265Level | string;
 
   /**
    * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
    */
-  LookAheadRateControl?: H265LookAheadRateControl | string;
+  LookAheadRateControl?: keyof typeof H265LookAheadRateControl | string;
 
   /**
    * For QVBR: See the tooltip for Quality level
@@ -2579,7 +2579,7 @@ export interface H265Settings {
   /**
    * H.265 Profile.
    */
-  Profile?: H265Profile | string;
+  Profile?: keyof typeof H265Profile | string;
 
   /**
    * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
@@ -2602,17 +2602,17 @@ export interface H265Settings {
    * delivered to a MediaLive Multiplex in which case the rate control configuration is controlled
    * by the properties within the Multiplex Program.
    */
-  RateControlMode?: H265RateControlMode | string;
+  RateControlMode?: keyof typeof H265RateControlMode | string;
 
   /**
    * Sets the scan type of the output to progressive or top-field-first interlaced.
    */
-  ScanType?: H265ScanType | string;
+  ScanType?: keyof typeof H265ScanType | string;
 
   /**
    * Scene change detection.
    */
-  SceneChangeDetect?: H265SceneChangeDetect | string;
+  SceneChangeDetect?: keyof typeof H265SceneChangeDetect | string;
 
   /**
    * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
@@ -2623,14 +2623,14 @@ export interface H265Settings {
   /**
    * H.265 Tier.
    */
-  Tier?: H265Tier | string;
+  Tier?: keyof typeof H265Tier | string;
 
   /**
    * Determines how timecodes should be inserted into the video elementary stream.
    * - 'disabled': Do not include timecodes
    * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
    */
-  TimecodeInsertion?: H265TimecodeInsertionBehavior | string;
+  TimecodeInsertion?: keyof typeof H265TimecodeInsertionBehavior | string;
 
   /**
    * Timecode burn-in settings
@@ -2641,37 +2641,37 @@ export interface H265Settings {
 /**
  * @public
  */
-export enum Mpeg2AdaptiveQuantization {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
+export const Mpeg2AdaptiveQuantization = {
+  AUTO: "AUTO",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  OFF: "OFF",
+};
 
 /**
  * @public
  */
-export enum Mpeg2ColorMetadata {
-  IGNORE = "IGNORE",
-  INSERT = "INSERT",
-}
+export const Mpeg2ColorMetadata = {
+  IGNORE: "IGNORE",
+  INSERT: "INSERT",
+};
 
 /**
  * @public
  */
-export enum Mpeg2ColorSpace {
-  AUTO = "AUTO",
-  PASSTHROUGH = "PASSTHROUGH",
-}
+export const Mpeg2ColorSpace = {
+  AUTO: "AUTO",
+  PASSTHROUGH: "PASSTHROUGH",
+};
 
 /**
  * @public
  */
-export enum Mpeg2DisplayRatio {
-  DISPLAYRATIO16X9 = "DISPLAYRATIO16X9",
-  DISPLAYRATIO4X3 = "DISPLAYRATIO4X3",
-}
+export const Mpeg2DisplayRatio = {
+  DISPLAYRATIO16X9: "DISPLAYRATIO16X9",
+  DISPLAYRATIO4X3: "DISPLAYRATIO4X3",
+};
 
 /**
  * @public
@@ -2687,34 +2687,34 @@ export interface Mpeg2FilterSettings {
 /**
  * @public
  */
-export enum Mpeg2GopSizeUnits {
-  FRAMES = "FRAMES",
-  SECONDS = "SECONDS",
-}
+export const Mpeg2GopSizeUnits = {
+  FRAMES: "FRAMES",
+  SECONDS: "SECONDS",
+};
 
 /**
  * @public
  */
-export enum Mpeg2ScanType {
-  INTERLACED = "INTERLACED",
-  PROGRESSIVE = "PROGRESSIVE",
-}
+export const Mpeg2ScanType = {
+  INTERLACED: "INTERLACED",
+  PROGRESSIVE: "PROGRESSIVE",
+};
 
 /**
  * @public
  */
-export enum Mpeg2SubGopLength {
-  DYNAMIC = "DYNAMIC",
-  FIXED = "FIXED",
-}
+export const Mpeg2SubGopLength = {
+  DYNAMIC: "DYNAMIC",
+  FIXED: "FIXED",
+};
 
 /**
  * @public
  */
-export enum Mpeg2TimecodeInsertionBehavior {
-  DISABLED = "DISABLED",
-  GOP_TIMECODE = "GOP_TIMECODE",
-}
+export const Mpeg2TimecodeInsertionBehavior = {
+  DISABLED: "DISABLED",
+  GOP_TIMECODE: "GOP_TIMECODE",
+};
 
 /**
  * @public
@@ -2724,31 +2724,31 @@ export interface Mpeg2Settings {
   /**
    * Choose Off to disable adaptive quantization. Or choose another value to enable the quantizer and set its strength. The strengths are: Auto, Off, Low, Medium, High. When you enable this field, MediaLive allows intra-frame quantizers to vary, which might improve visual quality.
    */
-  AdaptiveQuantization?: Mpeg2AdaptiveQuantization | string;
+  AdaptiveQuantization?: keyof typeof Mpeg2AdaptiveQuantization | string;
 
   /**
    * Indicates the AFD values that MediaLive will write into the video encode. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose AUTO.
    * AUTO: MediaLive will try to preserve the input AFD value (in cases where multiple AFD values are valid).
    * FIXED: MediaLive will use the value you specify in fixedAFD.
    */
-  AfdSignaling?: AfdSignaling | string;
+  AfdSignaling?: keyof typeof AfdSignaling | string;
 
   /**
    * Specifies whether to include the color space metadata. The metadata describes the color space that applies to the video (the colorSpace field). We recommend that you insert the metadata.
    */
-  ColorMetadata?: Mpeg2ColorMetadata | string;
+  ColorMetadata?: keyof typeof Mpeg2ColorMetadata | string;
 
   /**
    * Choose the type of color space conversion to apply to the output. For detailed information on setting up both the input and the output to obtain the desired color space in the output, see the section on \"MediaLive Features - Video - color space\" in the MediaLive User Guide.
    * PASSTHROUGH: Keep the color space of the input content - do not convert it.
    * AUTO:Convert all content that is SD to rec 601, and convert all content that is HD to rec 709.
    */
-  ColorSpace?: Mpeg2ColorSpace | string;
+  ColorSpace?: keyof typeof Mpeg2ColorSpace | string;
 
   /**
    * Sets the pixel aspect ratio for the encode.
    */
-  DisplayAspectRatio?: Mpeg2DisplayRatio | string;
+  DisplayAspectRatio?: keyof typeof Mpeg2DisplayRatio | string;
 
   /**
    * Optionally specify a noise reduction filter, which can improve quality of compressed content. If you do not choose a filter, no filter will be applied.
@@ -2761,7 +2761,7 @@ export interface Mpeg2Settings {
   /**
    * Complete this field only when afdSignaling is set to FIXED. Enter the AFD value (4 bits) to write on all frames of the video encode.
    */
-  FixedAfd?: FixedAfd | string;
+  FixedAfd?: keyof typeof FixedAfd | string;
 
   /**
    * description": "The framerate denominator. For example, 1001. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
@@ -2793,26 +2793,26 @@ export interface Mpeg2Settings {
   /**
    * Relates to the GOP structure. Specifies whether the gopSize is specified in frames or seconds. If you do not plan to change the default gopSize, leave the default. If you specify SECONDS, MediaLive will internally convert the gop size to a frame count.
    */
-  GopSizeUnits?: Mpeg2GopSizeUnits | string;
+  GopSizeUnits?: keyof typeof Mpeg2GopSizeUnits | string;
 
   /**
    * Set the scan type of the output to PROGRESSIVE or INTERLACED (top field first).
    */
-  ScanType?: Mpeg2ScanType | string;
+  ScanType?: keyof typeof Mpeg2ScanType | string;
 
   /**
    * Relates to the GOP structure. If you do not know what GOP is, use the default.
    * FIXED: Set the number of B-frames in each sub-GOP to the value in gopNumBFrames.
    * DYNAMIC: Let MediaLive optimize the number of B-frames in each sub-GOP, to improve visual quality.
    */
-  SubgopLength?: Mpeg2SubGopLength | string;
+  SubgopLength?: keyof typeof Mpeg2SubGopLength | string;
 
   /**
    * Determines how MediaLive inserts timecodes in the output video. For detailed information about setting up the input and the output for a timecode, see the section on \"MediaLive Features - Timecode configuration\" in the MediaLive User Guide.
    * DISABLED: do not include timecodes.
    * GOP_TIMECODE: Include timecode metadata in the GOP header.
    */
-  TimecodeInsertion?: Mpeg2TimecodeInsertionBehavior | string;
+  TimecodeInsertion?: keyof typeof Mpeg2TimecodeInsertionBehavior | string;
 
   /**
    * Timecode burn-in settings
@@ -2849,19 +2849,19 @@ export interface VideoCodecSettings {
 /**
  * @public
  */
-export enum VideoDescriptionRespondToAfd {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-  RESPOND = "RESPOND",
-}
+export const VideoDescriptionRespondToAfd = {
+  NONE: "NONE",
+  PASSTHROUGH: "PASSTHROUGH",
+  RESPOND: "RESPOND",
+};
 
 /**
  * @public
  */
-export enum VideoDescriptionScalingBehavior {
-  DEFAULT = "DEFAULT",
-  STRETCH_TO_OUTPUT = "STRETCH_TO_OUTPUT",
-}
+export const VideoDescriptionScalingBehavior = {
+  DEFAULT: "DEFAULT",
+  STRETCH_TO_OUTPUT: "STRETCH_TO_OUTPUT",
+};
 
 /**
  * @public
@@ -2889,12 +2889,12 @@ export interface VideoDescription {
    * PASSTHROUGH: MediaLive ignores the AFD values and does not clip the video. But MediaLive does include the values in the output.
    * NONE: MediaLive does not clip the input video and does not include the AFD values in the output
    */
-  RespondToAfd?: VideoDescriptionRespondToAfd | string;
+  RespondToAfd?: keyof typeof VideoDescriptionRespondToAfd | string;
 
   /**
    * STRETCH_TO_OUTPUT configures the output position to stretch the video to the specified output resolution (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution.
    */
-  ScalingBehavior?: VideoDescriptionScalingBehavior | string;
+  ScalingBehavior?: keyof typeof VideoDescriptionScalingBehavior | string;
 
   /**
    * Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content.
@@ -2910,9 +2910,9 @@ export interface VideoDescription {
 /**
  * @public
  */
-export enum AcceptHeader {
-  image_jpeg = "image/jpeg",
-}
+export const AcceptHeader = {
+  image_jpeg: "image/jpeg",
+};
 
 /**
  * @public
@@ -3165,10 +3165,10 @@ export class UnprocessableEntityException extends __BaseException {
 /**
  * @public
  */
-export enum AvailBlankingState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const AvailBlankingState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -3183,7 +3183,7 @@ export interface AvailBlanking {
   /**
    * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
    */
-  State?: AvailBlankingState | string;
+  State?: keyof typeof AvailBlankingState | string;
 }
 
 /**
@@ -3225,18 +3225,18 @@ export interface Esam {
 /**
  * @public
  */
-export enum Scte35SpliceInsertNoRegionalBlackoutBehavior {
-  FOLLOW = "FOLLOW",
-  IGNORE = "IGNORE",
-}
+export const Scte35SpliceInsertNoRegionalBlackoutBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+};
 
 /**
  * @public
  */
-export enum Scte35SpliceInsertWebDeliveryAllowedBehavior {
-  FOLLOW = "FOLLOW",
-  IGNORE = "IGNORE",
-}
+export const Scte35SpliceInsertWebDeliveryAllowedBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+};
 
 /**
  * @public
@@ -3251,29 +3251,29 @@ export interface Scte35SpliceInsert {
   /**
    * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
    */
-  NoRegionalBlackoutFlag?: Scte35SpliceInsertNoRegionalBlackoutBehavior | string;
+  NoRegionalBlackoutFlag?: keyof typeof Scte35SpliceInsertNoRegionalBlackoutBehavior | string;
 
   /**
    * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
    */
-  WebDeliveryAllowedFlag?: Scte35SpliceInsertWebDeliveryAllowedBehavior | string;
+  WebDeliveryAllowedFlag?: keyof typeof Scte35SpliceInsertWebDeliveryAllowedBehavior | string;
 }
 
 /**
  * @public
  */
-export enum Scte35AposNoRegionalBlackoutBehavior {
-  FOLLOW = "FOLLOW",
-  IGNORE = "IGNORE",
-}
+export const Scte35AposNoRegionalBlackoutBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+};
 
 /**
  * @public
  */
-export enum Scte35AposWebDeliveryAllowedBehavior {
-  FOLLOW = "FOLLOW",
-  IGNORE = "IGNORE",
-}
+export const Scte35AposWebDeliveryAllowedBehavior = {
+  FOLLOW: "FOLLOW",
+  IGNORE: "IGNORE",
+};
 
 /**
  * @public
@@ -3288,12 +3288,12 @@ export interface Scte35TimeSignalApos {
   /**
    * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
    */
-  NoRegionalBlackoutFlag?: Scte35AposNoRegionalBlackoutBehavior | string;
+  NoRegionalBlackoutFlag?: keyof typeof Scte35AposNoRegionalBlackoutBehavior | string;
 
   /**
    * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
    */
-  WebDeliveryAllowedFlag?: Scte35AposWebDeliveryAllowedBehavior | string;
+  WebDeliveryAllowedFlag?: keyof typeof Scte35AposWebDeliveryAllowedBehavior | string;
 }
 
 /**
@@ -3518,18 +3518,18 @@ export interface BatchUpdateScheduleResponse {
 /**
  * @public
  */
-export enum BlackoutSlateNetworkEndBlackout {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const BlackoutSlateNetworkEndBlackout = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum BlackoutSlateState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const BlackoutSlateState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -3544,7 +3544,7 @@ export interface BlackoutSlate {
   /**
    * Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
    */
-  NetworkEndBlackout?: BlackoutSlateNetworkEndBlackout | string;
+  NetworkEndBlackout?: keyof typeof BlackoutSlateNetworkEndBlackout | string;
 
   /**
    * Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
@@ -3559,7 +3559,7 @@ export interface BlackoutSlate {
   /**
    * When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
    */
-  State?: BlackoutSlateState | string;
+  State?: keyof typeof BlackoutSlateState | string;
 }
 
 /**
@@ -3582,10 +3582,10 @@ export interface CancelInputDeviceTransferResponse {}
 /**
  * @public
  */
-export enum FeatureActivationsInputPrepareScheduleActions {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const FeatureActivationsInputPrepareScheduleActions = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -3596,24 +3596,24 @@ export interface FeatureActivations {
    * Enables the Input Prepare feature. You can create Input Prepare actions in the schedule only if this feature is enabled.
    * If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
    */
-  InputPrepareScheduleActions?: FeatureActivationsInputPrepareScheduleActions | string;
+  InputPrepareScheduleActions?: keyof typeof FeatureActivationsInputPrepareScheduleActions | string;
 }
 
 /**
  * @public
  */
-export enum GlobalConfigurationInputEndAction {
-  NONE = "NONE",
-  SWITCH_AND_LOOP_INPUTS = "SWITCH_AND_LOOP_INPUTS",
-}
+export const GlobalConfigurationInputEndAction = {
+  NONE: "NONE",
+  SWITCH_AND_LOOP_INPUTS: "SWITCH_AND_LOOP_INPUTS",
+};
 
 /**
  * @public
  */
-export enum InputLossImageType {
-  COLOR = "COLOR",
-  SLATE = "SLATE",
-}
+export const InputLossImageType = {
+  COLOR: "COLOR",
+  SLATE: "SLATE",
+};
 
 /**
  * @public
@@ -3638,7 +3638,7 @@ export interface InputLossBehavior {
   /**
    * Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
    */
-  InputLossImageType?: InputLossImageType | string;
+  InputLossImageType?: keyof typeof InputLossImageType | string;
 
   /**
    * Documentation update needed
@@ -3649,26 +3649,26 @@ export interface InputLossBehavior {
 /**
  * @public
  */
-export enum GlobalConfigurationOutputLockingMode {
-  EPOCH_LOCKING = "EPOCH_LOCKING",
-  PIPELINE_LOCKING = "PIPELINE_LOCKING",
-}
+export const GlobalConfigurationOutputLockingMode = {
+  EPOCH_LOCKING: "EPOCH_LOCKING",
+  PIPELINE_LOCKING: "PIPELINE_LOCKING",
+};
 
 /**
  * @public
  */
-export enum GlobalConfigurationOutputTimingSource {
-  INPUT_CLOCK = "INPUT_CLOCK",
-  SYSTEM_CLOCK = "SYSTEM_CLOCK",
-}
+export const GlobalConfigurationOutputTimingSource = {
+  INPUT_CLOCK: "INPUT_CLOCK",
+  SYSTEM_CLOCK: "SYSTEM_CLOCK",
+};
 
 /**
  * @public
  */
-export enum GlobalConfigurationLowFramerateInputs {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const GlobalConfigurationLowFramerateInputs = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -3683,7 +3683,7 @@ export interface GlobalConfiguration {
   /**
    * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
    */
-  InputEndAction?: GlobalConfigurationInputEndAction | string;
+  InputEndAction?: keyof typeof GlobalConfigurationInputEndAction | string;
 
   /**
    * Settings for system actions when input is lost.
@@ -3696,26 +3696,26 @@ export interface GlobalConfiguration {
    * PIPELINE_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other.
    * EPOCH_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
    */
-  OutputLockingMode?: GlobalConfigurationOutputLockingMode | string;
+  OutputLockingMode?: keyof typeof GlobalConfigurationOutputLockingMode | string;
 
   /**
    * Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
    */
-  OutputTimingSource?: GlobalConfigurationOutputTimingSource | string;
+  OutputTimingSource?: keyof typeof GlobalConfigurationOutputTimingSource | string;
 
   /**
    * Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
    */
-  SupportLowFramerateInputs?: GlobalConfigurationLowFramerateInputs | string;
+  SupportLowFramerateInputs?: keyof typeof GlobalConfigurationLowFramerateInputs | string;
 }
 
 /**
  * @public
  */
-export enum MotionGraphicsInsertion {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const MotionGraphicsInsertion = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -3742,7 +3742,7 @@ export interface MotionGraphicsConfiguration {
   /**
    * Motion Graphics Insertion
    */
-  MotionGraphicsInsertion?: MotionGraphicsInsertion | string;
+  MotionGraphicsInsertion?: keyof typeof MotionGraphicsInsertion | string;
 
   /**
    * Motion Graphics Settings
@@ -3753,10 +3753,10 @@ export interface MotionGraphicsConfiguration {
 /**
  * @public
  */
-export enum NielsenPcmToId3TaggingState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const NielsenPcmToId3TaggingState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -3771,17 +3771,17 @@ export interface NielsenConfiguration {
   /**
    * Enables Nielsen PCM to ID3 tagging
    */
-  NielsenPcmToId3Tagging?: NielsenPcmToId3TaggingState | string;
+  NielsenPcmToId3Tagging?: keyof typeof NielsenPcmToId3TaggingState | string;
 }
 
 /**
  * @public
  */
-export enum TimecodeConfigSource {
-  EMBEDDED = "EMBEDDED",
-  SYSTEMCLOCK = "SYSTEMCLOCK",
-  ZEROBASED = "ZEROBASED",
-}
+export const TimecodeConfigSource = {
+  EMBEDDED: "EMBEDDED",
+  SYSTEMCLOCK: "SYSTEMCLOCK",
+  ZEROBASED: "ZEROBASED",
+};
 
 /**
  * @public
@@ -3794,7 +3794,7 @@ export interface TimecodeConfig {
    * -System Clock (systemclock): Use the UTC time.
    * -Start at 0 (zerobased): The time of the first frame of the event will be 00:00:00:00.
    */
-  Source: TimecodeConfigSource | string | undefined;
+  Source: keyof typeof TimecodeConfigSource | string | undefined;
 
   /**
    * Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
@@ -3886,7 +3886,7 @@ export interface Channel {
   /**
    * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
-  ChannelClass?: ChannelClass | string;
+  ChannelClass?: keyof typeof ChannelClass | string;
 
   /**
    * A list of destinations of the channel. For UDP outputs, there is one
@@ -3923,7 +3923,7 @@ export interface Channel {
   /**
    * The log level being written to CloudWatch Logs.
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 
   /**
    * Maintenance settings for this channel.
@@ -3953,7 +3953,7 @@ export interface Channel {
   /**
    * Placeholder documentation for ChannelState
    */
-  State?: ChannelState | string;
+  State?: keyof typeof ChannelState | string;
 
   /**
    * A collection of key-value pairs.
@@ -3986,9 +3986,9 @@ export interface ClaimDeviceResponse {}
 /**
  * @public
  */
-export enum ContentType {
-  image_jpeg = "image/jpeg",
-}
+export const ContentType = {
+  image_jpeg: "image/jpeg",
+};
 
 /**
  * @public
@@ -3998,7 +3998,7 @@ export interface MaintenanceCreateSettings {
   /**
    * Choose one day of the week for maintenance. The chosen day is used for all future maintenance windows.
    */
-  MaintenanceDay?: MaintenanceDay | string;
+  MaintenanceDay?: keyof typeof MaintenanceDay | string;
 
   /**
    * Choose the hour that maintenance will start. The chosen time is used for all future maintenance windows.
@@ -4044,7 +4044,7 @@ export interface CreateChannelRequest {
   /**
    * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
-  ChannelClass?: ChannelClass | string;
+  ChannelClass?: keyof typeof ChannelClass | string;
 
   /**
    * Placeholder documentation for __listOfOutputDestination
@@ -4069,7 +4069,7 @@ export interface CreateChannelRequest {
   /**
    * The log level to write to CloudWatch Logs.
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 
   /**
    * Maintenance settings for this channel.
@@ -4200,7 +4200,7 @@ export interface CreateInputRequest {
   /**
    * The different types of inputs that AWS Elemental MediaLive supports.
    */
-  Type?: InputType | string;
+  Type?: keyof typeof InputType | string;
 
   /**
    * Settings for a private VPC Input.
@@ -4355,7 +4355,7 @@ export interface Multiplex {
   /**
    * The current state of the multiplex.
    */
-  State?: MultiplexState | string;
+  State?: keyof typeof MultiplexState | string;
 
   /**
    * A collection of key-value pairs.
@@ -4377,11 +4377,11 @@ export interface CreateMultiplexResponse {
 /**
  * @public
  */
-export enum PreferredChannelPipeline {
-  CURRENTLY_ACTIVE = "CURRENTLY_ACTIVE",
-  PIPELINE_0 = "PIPELINE_0",
-  PIPELINE_1 = "PIPELINE_1",
-}
+export const PreferredChannelPipeline = {
+  CURRENTLY_ACTIVE: "CURRENTLY_ACTIVE",
+  PIPELINE_0: "PIPELINE_0",
+  PIPELINE_1: "PIPELINE_1",
+};
 
 /**
  * @public
@@ -4446,7 +4446,7 @@ export interface MultiplexProgramSettings {
   /**
    * Indicates which pipeline is preferred by the multiplex for program ingest.
    */
-  PreferredChannelPipeline?: PreferredChannelPipeline | string;
+  PreferredChannelPipeline?: keyof typeof PreferredChannelPipeline | string;
 
   /**
    * Unique program number.
@@ -4682,7 +4682,7 @@ export interface DeleteChannelResponse {
   /**
    * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
-  ChannelClass?: ChannelClass | string;
+  ChannelClass?: keyof typeof ChannelClass | string;
 
   /**
    * A list of destinations of the channel. For UDP outputs, there is one
@@ -4719,7 +4719,7 @@ export interface DeleteChannelResponse {
   /**
    * The log level being written to CloudWatch Logs.
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 
   /**
    * Maintenance settings for this channel.
@@ -4749,7 +4749,7 @@ export interface DeleteChannelResponse {
   /**
    * Placeholder documentation for ChannelState
    */
-  State?: ChannelState | string;
+  State?: keyof typeof ChannelState | string;
 
   /**
    * A collection of key-value pairs.
@@ -4855,7 +4855,7 @@ export interface DeleteMultiplexResponse {
   /**
    * The current state of the multiplex.
    */
-  State?: MultiplexState | string;
+  State?: keyof typeof MultiplexState | string;
 
   /**
    * A collection of key-value pairs.
@@ -4949,7 +4949,7 @@ export interface DeleteReservationResponse {
   /**
    * Units for duration, e.g. 'MONTHS'
    */
-  DurationUnits?: OfferingDurationUnits | string;
+  DurationUnits?: keyof typeof OfferingDurationUnits | string;
 
   /**
    * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
@@ -4979,7 +4979,7 @@ export interface DeleteReservationResponse {
   /**
    * Offering type, e.g. 'NO_UPFRONT'
    */
-  OfferingType?: OfferingType | string;
+  OfferingType?: keyof typeof OfferingType | string;
 
   /**
    * AWS region, e.g. 'us-west-2'
@@ -5009,7 +5009,7 @@ export interface DeleteReservationResponse {
   /**
    * Current state of reservation, e.g. 'ACTIVE'
    */
-  State?: ReservationState | string;
+  State?: keyof typeof ReservationState | string;
 
   /**
    * A collection of key-value pairs
@@ -5084,7 +5084,7 @@ export interface DescribeChannelResponse {
   /**
    * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
-  ChannelClass?: ChannelClass | string;
+  ChannelClass?: keyof typeof ChannelClass | string;
 
   /**
    * A list of destinations of the channel. For UDP outputs, there is one
@@ -5121,7 +5121,7 @@ export interface DescribeChannelResponse {
   /**
    * The log level being written to CloudWatch Logs.
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 
   /**
    * Maintenance settings for this channel.
@@ -5151,7 +5151,7 @@ export interface DescribeChannelResponse {
   /**
    * Placeholder documentation for ChannelState
    */
-  State?: ChannelState | string;
+  State?: keyof typeof ChannelState | string;
 
   /**
    * A collection of key-value pairs.
@@ -5204,7 +5204,7 @@ export interface DescribeInputResponse {
    * STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
    * SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
    */
-  InputClass?: InputClass | string;
+  InputClass?: keyof typeof InputClass | string;
 
   /**
    * Settings for the input devices.
@@ -5220,7 +5220,7 @@ export interface DescribeInputResponse {
    * Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
    * during input switch actions. Presently, this functionality only works with MP4_FILE and TS_FILE inputs.
    */
-  InputSourceType?: InputSourceType | string;
+  InputSourceType?: keyof typeof InputSourceType | string;
 
   /**
    * A list of MediaConnect Flows for this input.
@@ -5250,7 +5250,7 @@ export interface DescribeInputResponse {
   /**
    * Placeholder documentation for InputState
    */
-  State?: InputState | string;
+  State?: keyof typeof InputState | string;
 
   /**
    * A collection of key-value pairs.
@@ -5260,7 +5260,7 @@ export interface DescribeInputResponse {
   /**
    * The different types of inputs that AWS Elemental MediaLive supports.
    */
-  Type?: InputType | string;
+  Type?: keyof typeof InputType | string;
 }
 
 /**
@@ -5287,17 +5287,17 @@ export interface DescribeInputDeviceResponse {
   /**
    * The state of the connection between the input device and AWS.
    */
-  ConnectionState?: InputDeviceConnectionState | string;
+  ConnectionState?: keyof typeof InputDeviceConnectionState | string;
 
   /**
    * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
    */
-  DeviceSettingsSyncState?: DeviceSettingsSyncState | string;
+  DeviceSettingsSyncState?: keyof typeof DeviceSettingsSyncState | string;
 
   /**
    * The status of software on the input device.
    */
-  DeviceUpdateStatus?: DeviceUpdateStatus | string;
+  DeviceUpdateStatus?: keyof typeof DeviceUpdateStatus | string;
 
   /**
    * Settings that describe an input device that is type HD.
@@ -5332,7 +5332,7 @@ export interface DescribeInputDeviceResponse {
   /**
    * The type of the input device.
    */
-  Type?: InputDeviceType | string;
+  Type?: keyof typeof InputDeviceType | string;
 
   /**
    * Settings that describe an input device that is type UHD.
@@ -5353,7 +5353,7 @@ export interface DescribeInputDeviceThumbnailRequest {
   /**
    * The HTTP Accept header. Indicates the requested type for the thumbnail.
    */
-  Accept: AcceptHeader | string | undefined;
+  Accept: keyof typeof AcceptHeader | string | undefined;
 }
 
 /**
@@ -5369,7 +5369,7 @@ export interface DescribeInputDeviceThumbnailResponse {
   /**
    * Specifies the media type of the thumbnail.
    */
-  ContentType?: ContentType | string;
+  ContentType?: keyof typeof ContentType | string;
 
   /**
    * The length of the content.
@@ -5421,7 +5421,7 @@ export interface DescribeInputSecurityGroupResponse {
   /**
    * The current state of the Input Security Group.
    */
-  State?: InputSecurityGroupState | string;
+  State?: keyof typeof InputSecurityGroupState | string;
 
   /**
    * A collection of key-value pairs.
@@ -5493,7 +5493,7 @@ export interface DescribeMultiplexResponse {
   /**
    * The current state of the multiplex.
    */
-  State?: MultiplexState | string;
+  State?: keyof typeof MultiplexState | string;
 
   /**
    * A collection of key-value pairs.
@@ -5582,7 +5582,7 @@ export interface DescribeOfferingResponse {
   /**
    * Units for duration, e.g. 'MONTHS'
    */
-  DurationUnits?: OfferingDurationUnits | string;
+  DurationUnits?: keyof typeof OfferingDurationUnits | string;
 
   /**
    * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
@@ -5602,7 +5602,7 @@ export interface DescribeOfferingResponse {
   /**
    * Offering type, e.g. 'NO_UPFRONT'
    */
-  OfferingType?: OfferingType | string;
+  OfferingType?: keyof typeof OfferingType | string;
 
   /**
    * AWS region, e.g. 'us-west-2'
@@ -5659,7 +5659,7 @@ export interface DescribeReservationResponse {
   /**
    * Units for duration, e.g. 'MONTHS'
    */
-  DurationUnits?: OfferingDurationUnits | string;
+  DurationUnits?: keyof typeof OfferingDurationUnits | string;
 
   /**
    * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
@@ -5689,7 +5689,7 @@ export interface DescribeReservationResponse {
   /**
    * Offering type, e.g. 'NO_UPFRONT'
    */
-  OfferingType?: OfferingType | string;
+  OfferingType?: keyof typeof OfferingType | string;
 
   /**
    * AWS region, e.g. 'us-west-2'
@@ -5719,7 +5719,7 @@ export interface DescribeReservationResponse {
   /**
    * Current state of reservation, e.g. 'ACTIVE'
    */
-  State?: ReservationState | string;
+  State?: keyof typeof ReservationState | string;
 
   /**
    * A collection of key-value pairs
@@ -5777,7 +5777,7 @@ export interface InputDeviceConfigurableSettings {
   /**
    * The input source that you want to use. If the device has a source connected to only one of its input ports, or if you don't care which source the device sends, specify Auto. If the device has sources connected to both its input ports, and you want to use a specific source, specify the source.
    */
-  ConfiguredInput?: InputDeviceConfiguredInput | string;
+  ConfiguredInput?: keyof typeof InputDeviceConfiguredInput | string;
 
   /**
    * The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
@@ -6208,7 +6208,7 @@ export interface MaintenanceUpdateSettings {
   /**
    * Choose one day of the week for maintenance. The chosen day is used for all future maintenance windows.
    */
-  MaintenanceDay?: MaintenanceDay | string;
+  MaintenanceDay?: keyof typeof MaintenanceDay | string;
 
   /**
    * Choose a specific date for maintenance to occur. The chosen date is used for the next maintenance window only.
@@ -6276,10 +6276,10 @@ export interface PurchaseOfferingResponse {
 /**
  * @public
  */
-export enum RebootInputDeviceForce {
-  NO = "NO",
-  YES = "YES",
-}
+export const RebootInputDeviceForce = {
+  NO: "NO",
+  YES: "YES",
+};
 
 /**
  * @public
@@ -6289,7 +6289,7 @@ export interface RebootInputDeviceRequest {
   /**
    * Force a reboot of an input device. If the device is streaming, it will stop streaming and begin rebooting within a few seconds of sending the command. If the device was streaming prior to the reboot, the device will resume streaming when the reboot completes.
    */
-  Force?: RebootInputDeviceForce | string;
+  Force?: keyof typeof RebootInputDeviceForce | string;
 
   /**
    * The unique ID of the input device to reboot. For example, hd-123456789abcdef.
@@ -6349,7 +6349,7 @@ export interface StartChannelResponse {
   /**
    * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
-  ChannelClass?: ChannelClass | string;
+  ChannelClass?: keyof typeof ChannelClass | string;
 
   /**
    * A list of destinations of the channel. For UDP outputs, there is one
@@ -6386,7 +6386,7 @@ export interface StartChannelResponse {
   /**
    * The log level being written to CloudWatch Logs.
    */
-  LogLevel?: LogLevel | string;
+  LogLevel?: keyof typeof LogLevel | string;
 
   /**
    * Maintenance settings for this channel.
@@ -6416,7 +6416,7 @@ export interface StartChannelResponse {
   /**
    * Placeholder documentation for ChannelState
    */
-  State?: ChannelState | string;
+  State?: keyof typeof ChannelState | string;
 
   /**
    * A collection of key-value pairs.

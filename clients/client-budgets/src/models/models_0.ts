@@ -31,10 +31,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum ThresholdType {
-  ABSOLUTE_VALUE = "ABSOLUTE_VALUE",
-  PERCENTAGE = "PERCENTAGE",
-}
+export const ThresholdType = {
+  ABSOLUTE_VALUE: "ABSOLUTE_VALUE",
+  PERCENTAGE: "PERCENTAGE",
+};
 
 /**
  * @public
@@ -49,25 +49,25 @@ export interface ActionThreshold {
   /**
    * <p> The type of threshold for a notification.</p>
    */
-  ActionThresholdType: ThresholdType | string | undefined;
+  ActionThresholdType: keyof typeof ThresholdType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ActionType {
-  IAM = "APPLY_IAM_POLICY",
-  SCP = "APPLY_SCP_POLICY",
-  SSM = "RUN_SSM_DOCUMENTS",
-}
+export const ActionType = {
+  IAM: "APPLY_IAM_POLICY",
+  SCP: "APPLY_SCP_POLICY",
+  SSM: "RUN_SSM_DOCUMENTS",
+};
 
 /**
  * @public
  */
-export enum ApprovalModel {
-  AUTO = "AUTOMATIC",
-  MANUAL = "MANUAL",
-}
+export const ApprovalModel = {
+  AUTO: "AUTOMATIC",
+  MANUAL: "MANUAL",
+};
 
 /**
  * @public
@@ -114,10 +114,10 @@ export interface ScpActionDefinition {
 /**
  * @public
  */
-export enum ActionSubType {
-  STOP_EC2 = "STOP_EC2_INSTANCES",
-  STOP_RDS = "STOP_RDS_INSTANCES",
-}
+export const ActionSubType = {
+  STOP_EC2: "STOP_EC2_INSTANCES",
+  STOP_RDS: "STOP_RDS_INSTANCES",
+};
 
 /**
  * @public
@@ -127,7 +127,7 @@ export interface SsmActionDefinition {
   /**
    * <p>The action subType. </p>
    */
-  ActionSubType: ActionSubType | string | undefined;
+  ActionSubType: keyof typeof ActionSubType | string | undefined;
 
   /**
    * <p>The Region to run the SSM document. </p>
@@ -164,34 +164,34 @@ export interface Definition {
 /**
  * @public
  */
-export enum NotificationType {
-  ACTUAL = "ACTUAL",
-  FORECASTED = "FORECASTED",
-}
+export const NotificationType = {
+  ACTUAL: "ACTUAL",
+  FORECASTED: "FORECASTED",
+};
 
 /**
  * @public
  */
-export enum ActionStatus {
-  Execution_Failure = "EXECUTION_FAILURE",
-  Execution_In_Progress = "EXECUTION_IN_PROGRESS",
-  Execution_Success = "EXECUTION_SUCCESS",
-  Pending = "PENDING",
-  Reset_Failure = "RESET_FAILURE",
-  Reset_In_Progress = "RESET_IN_PROGRESS",
-  Reverse_Failure = "REVERSE_FAILURE",
-  Reverse_In_Progress = "REVERSE_IN_PROGRESS",
-  Reverse_Success = "REVERSE_SUCCESS",
-  Standby = "STANDBY",
-}
+export const ActionStatus = {
+  Execution_Failure: "EXECUTION_FAILURE",
+  Execution_In_Progress: "EXECUTION_IN_PROGRESS",
+  Execution_Success: "EXECUTION_SUCCESS",
+  Pending: "PENDING",
+  Reset_Failure: "RESET_FAILURE",
+  Reset_In_Progress: "RESET_IN_PROGRESS",
+  Reverse_Failure: "REVERSE_FAILURE",
+  Reverse_In_Progress: "REVERSE_IN_PROGRESS",
+  Reverse_Success: "REVERSE_SUCCESS",
+  Standby: "STANDBY",
+};
 
 /**
  * @public
  */
-export enum SubscriptionType {
-  EMAIL = "EMAIL",
-  SNS = "SNS",
-}
+export const SubscriptionType = {
+  EMAIL: "EMAIL",
+  SNS: "SNS",
+};
 
 /**
  * @public
@@ -212,7 +212,7 @@ export interface Subscriber {
   /**
    * <p>The type of notification that Amazon Web Services sends to a subscriber.</p>
    */
-  SubscriptionType: SubscriptionType | string | undefined;
+  SubscriptionType: keyof typeof SubscriptionType | string | undefined;
 
   /**
    * <p>The address that Amazon Web Services sends budget notifications to, either an SNS topic or an email.</p>
@@ -239,13 +239,13 @@ export interface Action {
   /**
    * <p> The type of a notification. It must be ACTUAL or FORECASTED.</p>
    */
-  NotificationType: NotificationType | string | undefined;
+  NotificationType: keyof typeof NotificationType | string | undefined;
 
   /**
    * <p>The type of action. This defines the type of tasks that can be carried out by this action.
    * 			This field also determines the format for definition. </p>
    */
-  ActionType: ActionType | string | undefined;
+  ActionType: keyof typeof ActionType | string | undefined;
 
   /**
    * <p>The trigger threshold of the action. </p>
@@ -266,12 +266,12 @@ export interface Action {
   /**
    * <p>This specifies if the action needs manual or automatic approval. </p>
    */
-  ApprovalModel: ApprovalModel | string | undefined;
+  ApprovalModel: keyof typeof ApprovalModel | string | undefined;
 
   /**
    * <p>The status of the action. </p>
    */
-  Status: ActionStatus | string | undefined;
+  Status: keyof typeof ActionStatus | string | undefined;
 
   /**
    * <p> A list of subscribers.</p>
@@ -298,13 +298,13 @@ export interface ActionHistoryDetails {
 /**
  * @public
  */
-export enum EventType {
-  CreateAction = "CREATE_ACTION",
-  DeleteAction = "DELETE_ACTION",
-  ExecuteAction = "EXECUTE_ACTION",
-  System = "SYSTEM",
-  UpdateAction = "UPDATE_ACTION",
-}
+export const EventType = {
+  CreateAction: "CREATE_ACTION",
+  DeleteAction: "DELETE_ACTION",
+  ExecuteAction: "EXECUTE_ACTION",
+  System: "SYSTEM",
+  UpdateAction: "UPDATE_ACTION",
+};
 
 /**
  * @public
@@ -319,13 +319,13 @@ export interface ActionHistory {
   /**
    * <p>The status of action at the time of the event. </p>
    */
-  Status: ActionStatus | string | undefined;
+  Status: keyof typeof ActionStatus | string | undefined;
 
   /**
    * <p>This distinguishes between whether the events are triggered by the user or are generated by
    * 			the system. </p>
    */
-  EventType: EventType | string | undefined;
+  EventType: keyof typeof EventType | string | undefined;
 
   /**
    * <p>The description of the details for the event. </p>
@@ -336,10 +336,10 @@ export interface ActionHistory {
 /**
  * @public
  */
-export enum AutoAdjustType {
-  FORECAST = "FORECAST",
-  HISTORICAL = "HISTORICAL",
-}
+export const AutoAdjustType = {
+  FORECAST: "FORECAST",
+  HISTORICAL: "HISTORICAL",
+};
 
 /**
  * @public
@@ -381,7 +381,7 @@ export interface AutoAdjustData {
   /**
    * <p>The string that defines whether your budget auto-adjusts based on historical or forecasted data.</p>
    */
-  AutoAdjustType: AutoAdjustType | string | undefined;
+  AutoAdjustType: keyof typeof AutoAdjustType | string | undefined;
 
   /**
    * <p>The parameters that define or describe the historical data that your auto-adjusting budget is based on.</p>
@@ -427,14 +427,14 @@ export interface Spend {
 /**
  * @public
  */
-export enum BudgetType {
-  Cost = "COST",
-  RICoverage = "RI_COVERAGE",
-  RIUtilization = "RI_UTILIZATION",
-  SPCoverage = "SAVINGS_PLANS_COVERAGE",
-  SPUtilization = "SAVINGS_PLANS_UTILIZATION",
-  Usage = "USAGE",
-}
+export const BudgetType = {
+  Cost: "COST",
+  RICoverage: "RI_COVERAGE",
+  RIUtilization: "RI_UTILIZATION",
+  SPCoverage: "SAVINGS_PLANS_COVERAGE",
+  SPUtilization: "SAVINGS_PLANS_UTILIZATION",
+  Usage: "USAGE",
+};
 
 /**
  * @public
@@ -559,12 +559,12 @@ export interface TimePeriod {
 /**
  * @public
  */
-export enum TimeUnit {
-  ANNUALLY = "ANNUALLY",
-  DAILY = "DAILY",
-  MONTHLY = "MONTHLY",
-  QUARTERLY = "QUARTERLY",
-}
+export const TimeUnit = {
+  ANNUALLY: "ANNUALLY",
+  DAILY: "DAILY",
+  MONTHLY: "MONTHLY",
+  QUARTERLY: "QUARTERLY",
+};
 
 /**
  * @public
@@ -652,7 +652,7 @@ export interface Budget {
   /**
    * <p>The length of time until a budget resets the actual and forecasted spend.</p>
    */
-  TimeUnit: TimeUnit | string | undefined;
+  TimeUnit: keyof typeof TimeUnit | string | undefined;
 
   /**
    * <p>The period of time that's covered by a budget. You setthe start date and end date. The start
@@ -680,7 +680,7 @@ export interface Budget {
    * <p>Specifies whether this budget tracks costs, usage, RI utilization, RI coverage, Savings
    * 			Plans utilization, or Savings Plans coverage.</p>
    */
-  BudgetType: BudgetType | string | undefined;
+  BudgetType: keyof typeof BudgetType | string | undefined;
 
   /**
    * <p>The last time that you updated this budget.</p>
@@ -696,19 +696,19 @@ export interface Budget {
 /**
  * @public
  */
-export enum ComparisonOperator {
-  EQUAL_TO = "EQUAL_TO",
-  GREATER_THAN = "GREATER_THAN",
-  LESS_THAN = "LESS_THAN",
-}
+export const ComparisonOperator = {
+  EQUAL_TO: "EQUAL_TO",
+  GREATER_THAN: "GREATER_THAN",
+  LESS_THAN: "LESS_THAN",
+};
 
 /**
  * @public
  */
-export enum NotificationState {
-  ALARM = "ALARM",
-  OK = "OK",
-}
+export const NotificationState = {
+  ALARM: "ALARM",
+  OK: "OK",
+};
 
 /**
  * @public
@@ -739,12 +739,12 @@ export interface Notification {
    * <p>Specifies whether the notification is for how much you have spent (<code>ACTUAL</code>) or
    * 			for how much that you're forecasted to spend (<code>FORECASTED</code>).</p>
    */
-  NotificationType: NotificationType | string | undefined;
+  NotificationType: keyof typeof NotificationType | string | undefined;
 
   /**
    * <p>The comparison that's used for this notification.</p>
    */
-  ComparisonOperator: ComparisonOperator | string | undefined;
+  ComparisonOperator: keyof typeof ComparisonOperator | string | undefined;
 
   /**
    * <p>The threshold that's associated with a notification. Thresholds are always a percentage, and
@@ -756,13 +756,13 @@ export interface Notification {
   /**
    * <p>The type of threshold for a notification. For <code>ABSOLUTE_VALUE</code> thresholds, Amazon Web Services notifies you when you go over or are forecasted to go over your total cost threshold. For <code>PERCENTAGE</code> thresholds, Amazon Web Services notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a <code>PERCENTAGE</code> threshold of 80%, Amazon Web Services notifies you when you go over 160 dollars.</p>
    */
-  ThresholdType?: ThresholdType | string;
+  ThresholdType?: keyof typeof ThresholdType | string;
 
   /**
    * <p>Specifies whether this notification is in alarm. If a budget notification is in the
    * 				<code>ALARM</code> state, you passed the set threshold for the budget.</p>
    */
-  NotificationState?: NotificationState | string;
+  NotificationState?: keyof typeof NotificationState | string;
 }
 
 /**
@@ -952,14 +952,14 @@ export interface CreateBudgetActionRequest {
   /**
    * <p> The type of a notification. It must be ACTUAL or FORECASTED.</p>
    */
-  NotificationType: NotificationType | string | undefined;
+  NotificationType: keyof typeof NotificationType | string | undefined;
 
   /**
    * <p>
    *          The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
    *       </p>
    */
-  ActionType: ActionType | string | undefined;
+  ActionType: keyof typeof ActionType | string | undefined;
 
   /**
    * <p>The trigger threshold of the action. </p>
@@ -983,7 +983,7 @@ export interface CreateBudgetActionRequest {
    *          This specifies if the action needs manual or automatic approval.
    *       </p>
    */
-  ApprovalModel: ApprovalModel | string | undefined;
+  ApprovalModel: keyof typeof ApprovalModel | string | undefined;
 
   /**
    * <p> A list of subscribers.</p>
@@ -1629,7 +1629,7 @@ export interface BudgetPerformanceHistory {
    * 		       <p>
    *             <code>COST</code>, <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>, <code>SAVINGS_PLANS_UTILIZATION</code>, or <code>SAVINGS_PLANS_COVERAGE</code>.</p>
    */
-  BudgetType?: BudgetType | string;
+  BudgetType?: keyof typeof BudgetType | string;
 
   /**
    * <p>The history of the cost filters for a budget during the specified time period.</p>
@@ -1644,7 +1644,7 @@ export interface BudgetPerformanceHistory {
   /**
    * <p> The time unit of the budget, such as MONTHLY or QUARTERLY.</p>
    */
-  TimeUnit?: TimeUnit | string;
+  TimeUnit?: keyof typeof TimeUnit | string;
 
   /**
    * <p>A list of amounts of cost or usage that you created budgets for, which are compared to your
@@ -1798,12 +1798,12 @@ export interface DescribeSubscribersForNotificationResponse {
 /**
  * @public
  */
-export enum ExecutionType {
-  ApproveBudgetAction = "APPROVE_BUDGET_ACTION",
-  ResetBudgetAction = "RESET_BUDGET_ACTION",
-  RetryBudgetAction = "RETRY_BUDGET_ACTION",
-  ReverseBudgetAction = "REVERSE_BUDGET_ACTION",
-}
+export const ExecutionType = {
+  ApproveBudgetAction: "APPROVE_BUDGET_ACTION",
+  ResetBudgetAction: "RESET_BUDGET_ACTION",
+  RetryBudgetAction: "RETRY_BUDGET_ACTION",
+  ReverseBudgetAction: "REVERSE_BUDGET_ACTION",
+};
 
 /**
  * @public
@@ -1831,7 +1831,7 @@ export interface ExecuteBudgetActionRequest {
    *          The type of execution.
    *       </p>
    */
-  ExecutionType: ExecutionType | string | undefined;
+  ExecutionType: keyof typeof ExecutionType | string | undefined;
 }
 
 /**
@@ -1860,7 +1860,7 @@ export interface ExecuteBudgetActionResponse {
    *          The type of execution.
    *       </p>
    */
-  ExecutionType: ExecutionType | string | undefined;
+  ExecutionType: keyof typeof ExecutionType | string | undefined;
 }
 
 /**
@@ -1909,7 +1909,7 @@ export interface UpdateBudgetActionRequest {
   /**
    * <p> The type of a notification. It must be ACTUAL or FORECASTED.</p>
    */
-  NotificationType?: NotificationType | string;
+  NotificationType?: keyof typeof NotificationType | string;
 
   /**
    * <p>The trigger threshold of the action. </p>
@@ -1933,7 +1933,7 @@ export interface UpdateBudgetActionRequest {
    *          This specifies if the action needs manual or automatic approval.
    *       </p>
    */
-  ApprovalModel?: ApprovalModel | string;
+  ApprovalModel?: keyof typeof ApprovalModel | string;
 
   /**
    * <p> A list of subscribers.</p>

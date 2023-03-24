@@ -1384,7 +1384,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-const serializeAws_restJson1ResourceTypesInput = (input: (ResourceType | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1ResourceTypesInput = (
+  input: (keyof typeof ResourceType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

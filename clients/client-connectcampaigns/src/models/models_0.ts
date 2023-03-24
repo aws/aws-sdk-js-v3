@@ -485,28 +485,28 @@ export interface GetCampaignStateRequest {
 /**
  * @public
  */
-export enum CampaignState {
+export const CampaignState = {
   /**
    * Campaign is in failed state
    */
-  FAILED = "Failed",
+  FAILED: "Failed",
   /**
    * Campaign is in initialized state
    */
-  INITIALIZED = "Initialized",
+  INITIALIZED: "Initialized",
   /**
    * Campaign is in paused state
    */
-  PAUSED = "Paused",
+  PAUSED: "Paused",
   /**
    * Campaign is in running state
    */
-  RUNNING = "Running",
+  RUNNING: "Running",
   /**
    * Campaign is in stopped state
    */
-  STOPPED = "Stopped",
-}
+  STOPPED: "Stopped",
+};
 
 /**
  * @public
@@ -516,7 +516,7 @@ export interface GetCampaignStateResponse {
   /**
    * State of a campaign
    */
-  state?: CampaignState | string;
+  state?: keyof typeof CampaignState | string;
 }
 
 /**
@@ -533,16 +533,16 @@ export interface GetCampaignStateBatchRequest {
 /**
  * @public
  */
-export enum GetCampaignStateBatchFailureCode {
+export const GetCampaignStateBatchFailureCode = {
   /**
    * The specified resource was not found
    */
-  RESOURCE_NOT_FOUND = "ResourceNotFound",
+  RESOURCE_NOT_FOUND: "ResourceNotFound",
   /**
    * Unexpected error during processing of request
    */
-  UNKNOWN_ERROR = "UnknownError",
-}
+  UNKNOWN_ERROR: "UnknownError",
+};
 
 /**
  * @public
@@ -557,7 +557,7 @@ export interface FailedCampaignStateResponse {
   /**
    * A predefined code indicating the error that caused the failure in getting state of campaigns
    */
-  failureCode?: GetCampaignStateBatchFailureCode | string;
+  failureCode?: keyof typeof GetCampaignStateBatchFailureCode | string;
 }
 
 /**
@@ -573,7 +573,7 @@ export interface SuccessfulCampaignStateResponse {
   /**
    * State of a campaign
    */
-  state?: CampaignState | string;
+  state?: keyof typeof CampaignState | string;
 }
 
 /**
@@ -606,9 +606,9 @@ export interface GetConnectInstanceConfigRequest {
 /**
  * @public
  */
-export enum EncryptionType {
-  KMS = "KMS",
-}
+export const EncryptionType = {
+  KMS: "KMS",
+};
 
 /**
  * @public
@@ -626,7 +626,7 @@ export interface EncryptionConfig {
   /**
    * Server-side encryption type.
    */
-  encryptionType?: EncryptionType | string;
+  encryptionType?: keyof typeof EncryptionType | string;
 
   /**
    * KMS key id/arn for encryption config.
@@ -683,23 +683,23 @@ export interface GetInstanceOnboardingJobStatusRequest {
 /**
  * @public
  */
-export enum InstanceOnboardingJobFailureCode {
-  EVENT_BRIDGE_ACCESS_DENIED = "EVENT_BRIDGE_ACCESS_DENIED",
-  EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED = "EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED",
-  IAM_ACCESS_DENIED = "IAM_ACCESS_DENIED",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  KMS_ACCESS_DENIED = "KMS_ACCESS_DENIED",
-  KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND",
-}
+export const InstanceOnboardingJobFailureCode = {
+  EVENT_BRIDGE_ACCESS_DENIED: "EVENT_BRIDGE_ACCESS_DENIED",
+  EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED: "EVENT_BRIDGE_MANAGED_RULE_LIMIT_EXCEEDED",
+  IAM_ACCESS_DENIED: "IAM_ACCESS_DENIED",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  KMS_ACCESS_DENIED: "KMS_ACCESS_DENIED",
+  KMS_KEY_NOT_FOUND: "KMS_KEY_NOT_FOUND",
+};
 
 /**
  * @public
  */
-export enum InstanceOnboardingJobStatusCode {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const InstanceOnboardingJobStatusCode = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -714,12 +714,12 @@ export interface InstanceOnboardingJobStatus {
   /**
    * Enumeration of the possible states for instance onboarding job
    */
-  status: InstanceOnboardingJobStatusCode | string | undefined;
+  status: keyof typeof InstanceOnboardingJobStatusCode | string | undefined;
 
   /**
    * Enumeration of the possible failure codes for instance onboarding job
    */
-  failureCode?: InstanceOnboardingJobFailureCode | string;
+  failureCode?: keyof typeof InstanceOnboardingJobFailureCode | string;
 }
 
 /**
@@ -736,12 +736,12 @@ export interface GetInstanceOnboardingJobStatusResponse {
 /**
  * @public
  */
-export enum InstanceIdFilterOperator {
+export const InstanceIdFilterOperator = {
   /**
    * Equals operator
    */
-  EQ = "Eq",
-}
+  EQ: "Eq",
+};
 
 /**
  * @public
@@ -756,7 +756,7 @@ export interface InstanceIdFilter {
   /**
    * Operators for Connect instance identifier filter
    */
-  operator: InstanceIdFilterOperator | string | undefined;
+  operator: keyof typeof InstanceIdFilterOperator | string | undefined;
 }
 
 /**
@@ -865,7 +865,7 @@ export class InvalidCampaignStateException extends __BaseException {
   /**
    * State of a campaign
    */
-  state: CampaignState | string | undefined;
+  state: keyof typeof CampaignState | string | undefined;
 
   /**
    * A header that defines the error encountered while processing the request.
@@ -943,20 +943,20 @@ export interface PutDialRequestBatchRequest {
 /**
  * @public
  */
-export enum FailureCode {
+export const FailureCode = {
   /**
    * The request failed to satisfy the constraints specified by the service
    */
-  INVALID_INPUT = "InvalidInput",
+  INVALID_INPUT: "InvalidInput",
   /**
    * Request throttled due to large number of pending dial requests
    */
-  REQUEST_THROTTLED = "RequestThrottled",
+  REQUEST_THROTTLED: "RequestThrottled",
   /**
    * Unexpected error during processing of request
    */
-  UNKNOWN_ERROR = "UnknownError",
-}
+  UNKNOWN_ERROR: "UnknownError",
+};
 
 /**
  * @public
@@ -976,7 +976,7 @@ export interface FailedRequest {
   /**
    * A predefined code indicating the error that caused the failure.
    */
-  failureCode?: FailureCode | string;
+  failureCode?: keyof typeof FailureCode | string;
 }
 
 /**

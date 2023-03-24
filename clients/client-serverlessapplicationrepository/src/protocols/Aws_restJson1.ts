@@ -1747,7 +1747,10 @@ const deserializeAws_restJson1__listOfApplicationSummary = (
   return retVal;
 };
 
-const deserializeAws_restJson1__listOfCapability = (output: any, context: __SerdeContext): (Capability | string)[] => {
+const deserializeAws_restJson1__listOfCapability = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Capability | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

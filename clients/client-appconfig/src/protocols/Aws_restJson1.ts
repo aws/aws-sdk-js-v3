@@ -4291,13 +4291,16 @@ const serializeAws_restJson1ActionList = (input: Action[], context: __SerdeConte
 };
 
 const serializeAws_restJson1ActionsMap = (input: Record<string, Action[]>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [ActionPoint | string, any]) => {
-    if (value === null) {
+  return Object.entries(input).reduce(
+    (acc: Record<string, any>, [key, value]: [keyof typeof ActionPoint | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = serializeAws_restJson1ActionList(value, context);
       return acc;
-    }
-    acc[key] = serializeAws_restJson1ActionList(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const serializeAws_restJson1Monitor = (input: Monitor, context: __SerdeContext): any => {
@@ -4413,13 +4416,16 @@ const deserializeAws_restJson1ActionList = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1ActionsMap = (output: any, context: __SerdeContext): Record<string, Action[]> => {
-  return Object.entries(output).reduce((acc: Record<string, Action[]>, [key, value]: [ActionPoint | string, any]) => {
-    if (value === null) {
+  return Object.entries(output).reduce(
+    (acc: Record<string, Action[]>, [key, value]: [keyof typeof ActionPoint | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = deserializeAws_restJson1ActionList(value, context);
       return acc;
-    }
-    acc[key] = deserializeAws_restJson1ActionList(value, context);
-    return acc;
-  }, {});
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1Application = (output: any, context: __SerdeContext): Application => {
@@ -4795,7 +4801,7 @@ const deserializeAws_restJson1ValidatorList = (output: any, context: __SerdeCont
 const deserializeAws_restJson1ValidatorTypeList = (
   output: any,
   context: __SerdeContext
-): (ValidatorType | string)[] => {
+): (keyof typeof ValidatorType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

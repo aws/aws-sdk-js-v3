@@ -70,22 +70,22 @@ export interface AccountHealth {
 /**
  * @public
  */
-export enum NotificationMessageType {
-  CLOSED_INSIGHT = "CLOSED_INSIGHT",
-  NEW_ASSOCIATION = "NEW_ASSOCIATION",
-  NEW_INSIGHT = "NEW_INSIGHT",
-  NEW_RECOMMENDATION = "NEW_RECOMMENDATION",
-  SEVERITY_UPGRADED = "SEVERITY_UPGRADED",
-}
+export const NotificationMessageType = {
+  CLOSED_INSIGHT: "CLOSED_INSIGHT",
+  NEW_ASSOCIATION: "NEW_ASSOCIATION",
+  NEW_INSIGHT: "NEW_INSIGHT",
+  NEW_RECOMMENDATION: "NEW_RECOMMENDATION",
+  SEVERITY_UPGRADED: "SEVERITY_UPGRADED",
+};
 
 /**
  * @public
  */
-export enum InsightSeverity {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const InsightSeverity = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+};
 
 /**
  * @public
@@ -101,14 +101,14 @@ export interface NotificationFilterConfig {
    * 			For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding insight severities</a>.
    * 		</p>
    */
-  Severities?: (InsightSeverity | string)[];
+  Severities?: (keyof typeof InsightSeverity | string)[];
 
   /**
    * <p>
    * 			The events that you want to receive notifications for. For example, you can choose to receive notifications only when the severity level is upgraded or a new insight is created.
    * 		</p>
    */
-  MessageTypes?: (NotificationMessageType | string)[];
+  MessageTypes?: (keyof typeof NotificationMessageType | string)[];
 }
 
 /**
@@ -358,14 +358,14 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "CANNOT_PARSE",
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  INVALID_PARAMETER_COMBINATION = "INVALID_PARAMETER_COMBINATION",
-  OTHER = "OTHER",
-  PARAMETER_INCONSISTENT_WITH_SERVICE_STATE = "PARAMETER_INCONSISTENT_WITH_SERVICE_STATE",
-  UNKNOWN_OPERATION = "UNKNOWN_OPERATION",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CANNOT_PARSE",
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  INVALID_PARAMETER_COMBINATION: "INVALID_PARAMETER_COMBINATION",
+  OTHER: "OTHER",
+  PARAMETER_INCONSISTENT_WITH_SERVICE_STATE: "PARAMETER_INCONSISTENT_WITH_SERVICE_STATE",
+  UNKNOWN_OPERATION: "UNKNOWN_OPERATION",
+};
 
 /**
  * @public
@@ -383,7 +383,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p> The reason the validation exception was thrown. </p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p> An array of fields that are associated with the validation exception. </p>
@@ -408,10 +408,10 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum EventSourceOptInStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const EventSourceOptInStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -424,22 +424,22 @@ export interface AmazonCodeGuruProfilerIntegration {
    * <p>The status of the CodeGuru Profiler integration. Specifies if DevOps Guru is enabled to
    * 			consume recommendations that are generated from Amazon CodeGuru Profiler.</p>
    */
-  Status?: EventSourceOptInStatus | string;
+  Status?: keyof typeof EventSourceOptInStatus | string;
 }
 
 /**
  * @public
  */
-export enum LogAnomalyType {
-  BLOCK_FORMAT = "BLOCK_FORMAT",
-  FORMAT = "FORMAT",
-  HTTP_CODE = "HTTP_CODE",
-  KEYWORD = "KEYWORD",
-  KEYWORD_TOKEN = "KEYWORD_TOKEN",
-  NEW_FIELD_NAME = "NEW_FIELD_NAME",
-  NUMERICAL_NAN = "NUMERICAL_NAN",
-  NUMERICAL_POINT = "NUMERICAL_POINT",
-}
+export const LogAnomalyType = {
+  BLOCK_FORMAT: "BLOCK_FORMAT",
+  FORMAT: "FORMAT",
+  HTTP_CODE: "HTTP_CODE",
+  KEYWORD: "KEYWORD",
+  KEYWORD_TOKEN: "KEYWORD_TOKEN",
+  NEW_FIELD_NAME: "NEW_FIELD_NAME",
+  NUMERICAL_NAN: "NUMERICAL_NAN",
+  NUMERICAL_POINT: "NUMERICAL_POINT",
+};
 
 /**
  * @public
@@ -460,7 +460,7 @@ export interface LogAnomalyClass {
    * 			The type of log anomaly that has been detected.
    * 		</p>
    */
-  LogAnomalyType?: LogAnomalyType | string;
+  LogAnomalyType?: keyof typeof LogAnomalyType | string;
 
   /**
    * <p>
@@ -596,11 +596,11 @@ export interface AnomalyResource {
 /**
  * @public
  */
-export enum AnomalySeverity {
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const AnomalySeverity = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+};
 
 /**
  * @public
@@ -624,11 +624,11 @@ export interface CloudWatchMetricsDimension {
 /**
  * @public
  */
-export enum CloudWatchMetricDataStatusCode {
-  COMPLETE = "Complete",
-  INTERNAL_ERROR = "InternalError",
-  PARTIAL_DATA = "PartialData",
-}
+export const CloudWatchMetricDataStatusCode = {
+  COMPLETE: "Complete",
+  INTERNAL_ERROR: "InternalError",
+  PARTIAL_DATA: "PartialData",
+};
 
 /**
  * @public
@@ -661,22 +661,22 @@ export interface CloudWatchMetricsDataSummary {
    * <p>This is an enum of the status showing whether the metric value pair list has partial
    * 			or complete data, or if there was an error.</p>
    */
-  StatusCode?: CloudWatchMetricDataStatusCode | string;
+  StatusCode?: keyof typeof CloudWatchMetricDataStatusCode | string;
 }
 
 /**
  * @public
  */
-export enum CloudWatchMetricsStat {
-  AVERAGE = "Average",
-  MAXIMUM = "Maximum",
-  MINIMUM = "Minimum",
-  P50 = "p50",
-  P90 = "p90",
-  P99 = "p99",
-  SAMPLE_COUNT = "SampleCount",
-  SUM = "Sum",
-}
+export const CloudWatchMetricsStat = {
+  AVERAGE: "Average",
+  MAXIMUM: "Maximum",
+  MINIMUM: "Minimum",
+  P50: "p50",
+  P90: "p90",
+  P99: "p99",
+  SAMPLE_COUNT: "SampleCount",
+  SUM: "Sum",
+};
 
 /**
  * @public
@@ -703,7 +703,7 @@ export interface CloudWatchMetricsDetail {
    * <p> The type of statistic associated with the CloudWatch metric. For more information, see
    * 				<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>. </p>
    */
-  Stat?: CloudWatchMetricsStat | string;
+  Stat?: keyof typeof CloudWatchMetricsStat | string;
 
   /**
    * <p> The unit of measure used for the CloudWatch metric. For example, <code>Bytes</code>,
@@ -1162,10 +1162,10 @@ export interface AnomalySourceMetadata {
 /**
  * @public
  */
-export enum AnomalyStatus {
-  CLOSED = "CLOSED",
-  ONGOING = "ONGOING",
-}
+export const AnomalyStatus = {
+  CLOSED: "CLOSED",
+  ONGOING: "ONGOING",
+};
 
 /**
  * @public
@@ -1188,10 +1188,10 @@ export interface AnomalyTimeRange {
 /**
  * @public
  */
-export enum AnomalyType {
-  CAUSAL = "CAUSAL",
-  CONTEXTUAL = "CONTEXTUAL",
-}
+export const AnomalyType = {
+  CAUSAL: "CAUSAL",
+  CONTEXTUAL: "CONTEXTUAL",
+};
 
 /**
  * @public
@@ -1476,12 +1476,12 @@ export interface ProactiveAnomaly {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: AnomalySeverity | string;
+  Severity?: keyof typeof AnomalySeverity | string;
 
   /**
    * <p> The status of a proactive anomaly. </p>
    */
-  Status?: AnomalyStatus | string;
+  Status?: keyof typeof AnomalyStatus | string;
 
   /**
    * <p> The time of the anomaly's most recent update. </p>
@@ -1569,12 +1569,12 @@ export interface ReactiveAnomaly {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: AnomalySeverity | string;
+  Severity?: keyof typeof AnomalySeverity | string;
 
   /**
    * <p> The status of the anomaly. </p>
    */
-  Status?: AnomalyStatus | string;
+  Status?: keyof typeof AnomalyStatus | string;
 
   /**
    * <p> A time range that specifies when the observed unusual behavior in an anomaly started
@@ -1623,7 +1623,7 @@ export interface ReactiveAnomaly {
    *             </li>
    *          </ul>
    */
-  Type?: AnomalyType | string;
+  Type?: keyof typeof AnomalyType | string;
 
   /**
    * <p>The name of the reactive anomaly.</p>
@@ -1703,13 +1703,13 @@ export interface DescribeFeedbackRequest {
 /**
  * @public
  */
-export enum InsightFeedbackOption {
-  ALERT_TOO_SENSITIVE = "ALERT_TOO_SENSITIVE",
-  DATA_INCORRECT = "DATA_INCORRECT",
-  DATA_NOISY_ANOMALY = "DATA_NOISY_ANOMALY",
-  RECOMMENDATION_USEFUL = "RECOMMENDATION_USEFUL",
-  VALID_COLLECTION = "VALID_COLLECTION",
-}
+export const InsightFeedbackOption = {
+  ALERT_TOO_SENSITIVE: "ALERT_TOO_SENSITIVE",
+  DATA_INCORRECT: "DATA_INCORRECT",
+  DATA_NOISY_ANOMALY: "DATA_NOISY_ANOMALY",
+  RECOMMENDATION_USEFUL: "RECOMMENDATION_USEFUL",
+  VALID_COLLECTION: "VALID_COLLECTION",
+};
 
 /**
  * @public
@@ -1724,7 +1724,7 @@ export interface InsightFeedback {
   /**
    * <p> The feedback provided by the customer. </p>
    */
-  Feedback?: InsightFeedbackOption | string;
+  Feedback?: keyof typeof InsightFeedbackOption | string;
 }
 
 /**
@@ -1772,10 +1772,10 @@ export interface InsightTimeRange {
 /**
  * @public
  */
-export enum InsightStatus {
-  CLOSED = "CLOSED",
-  ONGOING = "ONGOING",
-}
+export const InsightStatus = {
+  CLOSED: "CLOSED",
+  ONGOING: "ONGOING",
+};
 
 /**
  * @public
@@ -1798,12 +1798,12 @@ export interface ProactiveInsight {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: InsightSeverity | string;
+  Severity?: keyof typeof InsightSeverity | string;
 
   /**
    * <p>The status of the proactive insight. </p>
    */
-  Status?: InsightStatus | string;
+  Status?: keyof typeof InsightStatus | string;
 
   /**
    * <p> A time ranged that specifies when the observed behavior in an insight started and
@@ -1858,12 +1858,12 @@ export interface ReactiveInsight {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: InsightSeverity | string;
+  Severity?: keyof typeof InsightSeverity | string;
 
   /**
    * <p> The status of a reactive insight. </p>
    */
-  Status?: InsightStatus | string;
+  Status?: keyof typeof InsightStatus | string;
 
   /**
    * <p> A time ranged that specifies when the observed behavior in an insight started and
@@ -1999,12 +1999,12 @@ export interface DescribeOrganizationOverviewResponse {
 /**
  * @public
  */
-export enum OrganizationResourceCollectionType {
-  AWS_ACCOUNT = "AWS_ACCOUNT",
-  AWS_CLOUD_FORMATION = "AWS_CLOUD_FORMATION",
-  AWS_SERVICE = "AWS_SERVICE",
-  AWS_TAGS = "AWS_TAGS",
-}
+export const OrganizationResourceCollectionType = {
+  AWS_ACCOUNT: "AWS_ACCOUNT",
+  AWS_CLOUD_FORMATION: "AWS_CLOUD_FORMATION",
+  AWS_SERVICE: "AWS_SERVICE",
+  AWS_TAGS: "AWS_TAGS",
+};
 
 /**
  * @public
@@ -2016,7 +2016,7 @@ export interface DescribeOrganizationResourceCollectionHealthRequest {
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
    *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
-  OrganizationResourceCollectionType: OrganizationResourceCollectionType | string | undefined;
+  OrganizationResourceCollectionType: keyof typeof OrganizationResourceCollectionType | string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account.</p>
@@ -2109,33 +2109,33 @@ export interface ServiceInsightHealth {
 /**
  * @public
  */
-export enum ServiceName {
-  API_GATEWAY = "API_GATEWAY",
-  APPLICATION_ELB = "APPLICATION_ELB",
-  AUTO_SCALING_GROUP = "AUTO_SCALING_GROUP",
-  CLOUD_FRONT = "CLOUD_FRONT",
-  DYNAMO_DB = "DYNAMO_DB",
-  EC2 = "EC2",
-  ECS = "ECS",
-  EKS = "EKS",
-  ELASTIC_BEANSTALK = "ELASTIC_BEANSTALK",
-  ELASTI_CACHE = "ELASTI_CACHE",
-  ELB = "ELB",
-  ES = "ES",
-  KINESIS = "KINESIS",
-  LAMBDA = "LAMBDA",
-  NAT_GATEWAY = "NAT_GATEWAY",
-  NETWORK_ELB = "NETWORK_ELB",
-  RDS = "RDS",
-  REDSHIFT = "REDSHIFT",
-  ROUTE_53 = "ROUTE_53",
-  S3 = "S3",
-  SAGE_MAKER = "SAGE_MAKER",
-  SNS = "SNS",
-  SQS = "SQS",
-  STEP_FUNCTIONS = "STEP_FUNCTIONS",
-  SWF = "SWF",
-}
+export const ServiceName = {
+  API_GATEWAY: "API_GATEWAY",
+  APPLICATION_ELB: "APPLICATION_ELB",
+  AUTO_SCALING_GROUP: "AUTO_SCALING_GROUP",
+  CLOUD_FRONT: "CLOUD_FRONT",
+  DYNAMO_DB: "DYNAMO_DB",
+  EC2: "EC2",
+  ECS: "ECS",
+  EKS: "EKS",
+  ELASTIC_BEANSTALK: "ELASTIC_BEANSTALK",
+  ELASTI_CACHE: "ELASTI_CACHE",
+  ELB: "ELB",
+  ES: "ES",
+  KINESIS: "KINESIS",
+  LAMBDA: "LAMBDA",
+  NAT_GATEWAY: "NAT_GATEWAY",
+  NETWORK_ELB: "NETWORK_ELB",
+  RDS: "RDS",
+  REDSHIFT: "REDSHIFT",
+  ROUTE_53: "ROUTE_53",
+  S3: "S3",
+  SAGE_MAKER: "SAGE_MAKER",
+  SNS: "SNS",
+  SQS: "SQS",
+  STEP_FUNCTIONS: "STEP_FUNCTIONS",
+  SWF: "SWF",
+};
 
 /**
  * @public
@@ -2145,7 +2145,7 @@ export interface ServiceHealth {
   /**
    * <p>The name of the Amazon Web Services service.</p>
    */
-  ServiceName?: ServiceName | string;
+  ServiceName?: keyof typeof ServiceName | string;
 
   /**
    * <p>Represents the health of an Amazon Web Services service. This is a <code>ServiceInsightHealth</code>
@@ -2281,11 +2281,11 @@ export interface DescribeOrganizationResourceCollectionHealthResponse {
 /**
  * @public
  */
-export enum ResourceCollectionType {
-  AWS_CLOUD_FORMATION = "AWS_CLOUD_FORMATION",
-  AWS_SERVICE = "AWS_SERVICE",
-  AWS_TAGS = "AWS_TAGS",
-}
+export const ResourceCollectionType = {
+  AWS_CLOUD_FORMATION: "AWS_CLOUD_FORMATION",
+  AWS_SERVICE: "AWS_SERVICE",
+  AWS_TAGS: "AWS_TAGS",
+};
 
 /**
  * @public
@@ -2297,7 +2297,7 @@ export interface DescribeResourceCollectionHealthRequest {
    *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
    *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
-  ResourceCollectionType: ResourceCollectionType | string | undefined;
+  ResourceCollectionType: keyof typeof ResourceCollectionType | string | undefined;
 
   /**
    * <p>The pagination token to use to retrieve
@@ -2376,10 +2376,10 @@ export interface DescribeServiceIntegrationRequest {}
 /**
  * @public
  */
-export enum OptInStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const OptInStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -2391,7 +2391,7 @@ export interface LogsAnomalyDetectionIntegration {
   /**
    * <p>Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups.</p>
    */
-  OptInStatus?: OptInStatus | string;
+  OptInStatus?: keyof typeof OptInStatus | string;
 }
 
 /**
@@ -2404,7 +2404,7 @@ export interface OpsCenterIntegration {
    * <p> Specifies if DevOps Guru is enabled to create an Amazon Web Services Systems Manager OpsItem for each created
    * 			insight. </p>
    */
-  OptInStatus?: OptInStatus | string;
+  OptInStatus?: keyof typeof OptInStatus | string;
 }
 
 /**
@@ -2452,10 +2452,10 @@ export interface GetCostEstimationRequest {
 /**
  * @public
  */
-export enum CostEstimationServiceResourceState {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const CostEstimationServiceResourceState = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -2477,7 +2477,7 @@ export interface ServiceResourceCost {
    * 			number of active Amazon Web Services resource hours analyzed for each resource. Inactive resources are
    * 			not charged. </p>
    */
-  State?: CostEstimationServiceResourceState | string;
+  State?: keyof typeof CostEstimationServiceResourceState | string;
 
   /**
    * <p>The number of active resources analyzed for this service to create a monthly cost
@@ -2614,10 +2614,10 @@ export interface CostEstimationResourceCollectionFilter {
 /**
  * @public
  */
-export enum CostEstimationStatus {
-  COMPLETED = "COMPLETED",
-  ONGOING = "ONGOING",
-}
+export const CostEstimationStatus = {
+  COMPLETED: "COMPLETED",
+  ONGOING: "ONGOING",
+};
 
 /**
  * @public
@@ -2650,7 +2650,7 @@ export interface GetCostEstimationResponse {
    * 				<code>ONGOING</code> is returned. If it is finished, the status
    * 				<code>COMPLETED</code> is returned.</p>
    */
-  Status?: CostEstimationStatus | string;
+  Status?: keyof typeof CostEstimationStatus | string;
 
   /**
    * <p>An array of <code>ResourceCost</code> objects that each contains details about the
@@ -2685,7 +2685,7 @@ export interface GetResourceCollectionRequest {
    * <p> The type of Amazon Web Services resource collections to return. The one valid value is
    * 				<code>CLOUD_FORMATION</code> for Amazon Web Services CloudFormation stacks. </p>
    */
-  ResourceCollectionType: ResourceCollectionType | string | undefined;
+  ResourceCollectionType: keyof typeof ResourceCollectionType | string | undefined;
 
   /**
    * <p>The pagination token to use to retrieve
@@ -2824,7 +2824,7 @@ export interface ServiceCollection {
   /**
    * <p>An array of strings that each specifies the name of an Amazon Web Services service.</p>
    */
-  ServiceNames?: (ServiceName | string)[];
+  ServiceNames?: (keyof typeof ServiceName | string)[];
 }
 
 /**
@@ -2915,12 +2915,12 @@ export interface ProactiveAnomalySummary {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: AnomalySeverity | string;
+  Severity?: keyof typeof AnomalySeverity | string;
 
   /**
    * <p>The status of the anomaly.</p>
    */
-  Status?: AnomalyStatus | string;
+  Status?: keyof typeof AnomalyStatus | string;
 
   /**
    * <p> The time of the anomaly's most recent update. </p>
@@ -3009,12 +3009,12 @@ export interface ReactiveAnomalySummary {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: AnomalySeverity | string;
+  Severity?: keyof typeof AnomalySeverity | string;
 
   /**
    * <p> The status of the reactive anomaly. </p>
    */
-  Status?: AnomalyStatus | string;
+  Status?: keyof typeof AnomalyStatus | string;
 
   /**
    * <p> A time range that specifies when the observed unusual behavior in an anomaly started
@@ -3063,7 +3063,7 @@ export interface ReactiveAnomalySummary {
    *             </li>
    *          </ul>
    */
-  Type?: AnomalyType | string;
+  Type?: keyof typeof AnomalyType | string;
 
   /**
    * <p>The name of the reactive anomaly.</p>
@@ -3162,21 +3162,21 @@ export interface ListAnomalousLogGroupsResponse {
 /**
  * @public
  */
-export enum EventDataSource {
-  AWS_CLOUD_TRAIL = "AWS_CLOUD_TRAIL",
-  AWS_CODE_DEPLOY = "AWS_CODE_DEPLOY",
-}
+export const EventDataSource = {
+  AWS_CLOUD_TRAIL: "AWS_CLOUD_TRAIL",
+  AWS_CODE_DEPLOY: "AWS_CODE_DEPLOY",
+};
 
 /**
  * @public
  */
-export enum EventClass {
-  CONFIG_CHANGE = "CONFIG_CHANGE",
-  DEPLOYMENT = "DEPLOYMENT",
-  INFRASTRUCTURE = "INFRASTRUCTURE",
-  SCHEMA_CHANGE = "SCHEMA_CHANGE",
-  SECURITY_CHANGE = "SECURITY_CHANGE",
-}
+export const EventClass = {
+  CONFIG_CHANGE: "CONFIG_CHANGE",
+  DEPLOYMENT: "DEPLOYMENT",
+  INFRASTRUCTURE: "INFRASTRUCTURE",
+  SCHEMA_CHANGE: "SCHEMA_CHANGE",
+  SECURITY_CHANGE: "SECURITY_CHANGE",
+};
 
 /**
  * @public
@@ -3216,7 +3216,7 @@ export interface ListEventsFilters {
    * <p> The class of the events you want to filter for, such as an infrastructure change, a
    * 			deployment, or a schema change. </p>
    */
-  EventClass?: EventClass | string;
+  EventClass?: keyof typeof EventClass | string;
 
   /**
    * <p> The Amazon Web Services source that emitted the events you want to filter for. </p>
@@ -3227,7 +3227,7 @@ export interface ListEventsFilters {
    * <p> The source, <code>AWS_CLOUD_TRAIL</code> or <code>AWS_CODE_DEPLOY</code>, of the
    * 			events you want returned. </p>
    */
-  DataSource?: EventDataSource | string;
+  DataSource?: keyof typeof EventDataSource | string;
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
@@ -3328,13 +3328,13 @@ export interface Event {
    * <p> The source, <code>AWS_CLOUD_TRAIL</code> or <code>AWS_CODE_DEPLOY</code>, where DevOps Guru
    * 			analysis found the event. </p>
    */
-  DataSource?: EventDataSource | string;
+  DataSource?: keyof typeof EventDataSource | string;
 
   /**
    * <p> The class of the event. The class specifies what the event is related to, such as an
    * 			infrastructure change, a deployment, or a schema change. </p>
    */
-  EventClass?: EventClass | string;
+  EventClass?: keyof typeof EventClass | string;
 
   /**
    * <p> An <code>EventResource</code> object that contains information about the resource
@@ -3362,10 +3362,10 @@ export interface ListEventsResponse {
 /**
  * @public
  */
-export enum InsightType {
-  PROACTIVE = "PROACTIVE",
-  REACTIVE = "REACTIVE",
-}
+export const InsightType = {
+  PROACTIVE: "PROACTIVE",
+  REACTIVE: "REACTIVE",
+};
 
 /**
  * @public
@@ -3376,7 +3376,7 @@ export interface ListInsightsAnyStatusFilter {
    * <p> Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights.
    * 		</p>
    */
-  Type: InsightType | string | undefined;
+  Type: keyof typeof InsightType | string | undefined;
 
   /**
    * <p> A time range used to specify when the behavior of the filtered insights started.
@@ -3411,7 +3411,7 @@ export interface ListInsightsClosedStatusFilter {
    * <p> Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights.
    * 		</p>
    */
-  Type: InsightType | string | undefined;
+  Type: keyof typeof InsightType | string | undefined;
 
   /**
    * <p> A time range used to specify when the behavior of the filtered insights ended.
@@ -3429,7 +3429,7 @@ export interface ListInsightsOngoingStatusFilter {
    * <p> Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights.
    * 		</p>
    */
-  Type: InsightType | string | undefined;
+  Type: keyof typeof InsightType | string | undefined;
 }
 
 /**
@@ -3502,12 +3502,12 @@ export interface ProactiveInsightSummary {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: InsightSeverity | string;
+  Severity?: keyof typeof InsightSeverity | string;
 
   /**
    * <p>The status of the proactive insight. </p>
    */
-  Status?: InsightStatus | string;
+  Status?: keyof typeof InsightStatus | string;
 
   /**
    * <p> A time ranged that specifies when the observed behavior in an insight started and
@@ -3563,12 +3563,12 @@ export interface ReactiveInsightSummary {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: InsightSeverity | string;
+  Severity?: keyof typeof InsightSeverity | string;
 
   /**
    * <p> The status of a reactive insight. </p>
    */
-  Status?: InsightStatus | string;
+  Status?: keyof typeof InsightStatus | string;
 
   /**
    * <p> A time ranged that specifies when the observed behavior in an insight started and
@@ -3620,43 +3620,43 @@ export interface ListInsightsResponse {
 /**
  * @public
  */
-export enum ResourcePermission {
-  FULL_PERMISSION = "FULL_PERMISSION",
-  MISSING_PERMISSION = "MISSING_PERMISSION",
-}
+export const ResourcePermission = {
+  FULL_PERMISSION: "FULL_PERMISSION",
+  MISSING_PERMISSION: "MISSING_PERMISSION",
+};
 
 /**
  * @public
  */
-export enum ResourceTypeFilter {
-  CLOUDFRONT_DISTRIBUTION = "CLOUDFRONT_DISTRIBUTION",
-  DYNAMODB_TABLE = "DYNAMODB_TABLE",
-  EC2_NAT_GATEWAY = "EC2_NAT_GATEWAY",
-  ECS_CLUSTER = "ECS_CLUSTER",
-  ECS_SERVICE = "ECS_SERVICE",
-  EKS_CLUSTER = "EKS_CLUSTER",
-  ELASTICACHE_CACHE_CLUSTER = "ELASTICACHE_CACHE_CLUSTER",
-  ELASTICSEARCH_DOMAIN = "ELASTICSEARCH_DOMAIN",
-  ELASTIC_BEANSTALK_ENVIRONMENT = "ELASTIC_BEANSTALK_ENVIRONMENT",
-  ELASTIC_LOAD_BALANCER_LOAD_BALANCER = "ELASTIC_LOAD_BALANCER_LOAD_BALANCER",
-  ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER = "ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER",
-  ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP = "ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP",
-  KINESIS_STREAM = "KINESIS_STREAM",
-  LAMBDA_FUNCTION = "LAMBDA_FUNCTION",
-  LOG_GROUPS = "LOG_GROUPS",
-  OPEN_SEARCH_SERVICE_DOMAIN = "OPEN_SEARCH_SERVICE_DOMAIN",
-  RDS_DB_CLUSTER = "RDS_DB_CLUSTER",
-  RDS_DB_INSTANCE = "RDS_DB_INSTANCE",
-  REDSHIFT_CLUSTER = "REDSHIFT_CLUSTER",
-  ROUTE53_HEALTH_CHECK = "ROUTE53_HEALTH_CHECK",
-  ROUTE53_HOSTED_ZONE = "ROUTE53_HOSTED_ZONE",
-  S3_BUCKET = "S3_BUCKET",
-  SAGEMAKER_ENDPOINT = "SAGEMAKER_ENDPOINT",
-  SNS_TOPIC = "SNS_TOPIC",
-  SQS_QUEUE = "SQS_QUEUE",
-  STEP_FUNCTIONS_ACTIVITY = "STEP_FUNCTIONS_ACTIVITY",
-  STEP_FUNCTIONS_STATE_MACHINE = "STEP_FUNCTIONS_STATE_MACHINE",
-}
+export const ResourceTypeFilter = {
+  CLOUDFRONT_DISTRIBUTION: "CLOUDFRONT_DISTRIBUTION",
+  DYNAMODB_TABLE: "DYNAMODB_TABLE",
+  EC2_NAT_GATEWAY: "EC2_NAT_GATEWAY",
+  ECS_CLUSTER: "ECS_CLUSTER",
+  ECS_SERVICE: "ECS_SERVICE",
+  EKS_CLUSTER: "EKS_CLUSTER",
+  ELASTICACHE_CACHE_CLUSTER: "ELASTICACHE_CACHE_CLUSTER",
+  ELASTICSEARCH_DOMAIN: "ELASTICSEARCH_DOMAIN",
+  ELASTIC_BEANSTALK_ENVIRONMENT: "ELASTIC_BEANSTALK_ENVIRONMENT",
+  ELASTIC_LOAD_BALANCER_LOAD_BALANCER: "ELASTIC_LOAD_BALANCER_LOAD_BALANCER",
+  ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER: "ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER",
+  ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP: "ELASTIC_LOAD_BALANCING_V2_TARGET_GROUP",
+  KINESIS_STREAM: "KINESIS_STREAM",
+  LAMBDA_FUNCTION: "LAMBDA_FUNCTION",
+  LOG_GROUPS: "LOG_GROUPS",
+  OPEN_SEARCH_SERVICE_DOMAIN: "OPEN_SEARCH_SERVICE_DOMAIN",
+  RDS_DB_CLUSTER: "RDS_DB_CLUSTER",
+  RDS_DB_INSTANCE: "RDS_DB_INSTANCE",
+  REDSHIFT_CLUSTER: "REDSHIFT_CLUSTER",
+  ROUTE53_HEALTH_CHECK: "ROUTE53_HEALTH_CHECK",
+  ROUTE53_HOSTED_ZONE: "ROUTE53_HOSTED_ZONE",
+  S3_BUCKET: "S3_BUCKET",
+  SAGEMAKER_ENDPOINT: "SAGEMAKER_ENDPOINT",
+  SNS_TOPIC: "SNS_TOPIC",
+  SQS_QUEUE: "SQS_QUEUE",
+  STEP_FUNCTIONS_ACTIVITY: "STEP_FUNCTIONS_ACTIVITY",
+  STEP_FUNCTIONS_STATE_MACHINE: "STEP_FUNCTIONS_STATE_MACHINE",
+};
 
 /**
  * @public
@@ -3670,14 +3670,14 @@ export interface ListMonitoredResourcesFilters {
    * 			The permission status of a resource.
    * 		</p>
    */
-  ResourcePermission: ResourcePermission | string | undefined;
+  ResourcePermission: keyof typeof ResourcePermission | string | undefined;
 
   /**
    * <p>
    * 			The type of resource that you wish to retrieve, such as log groups.
    * 		</p>
    */
-  ResourceTypeFilters: (ResourceTypeFilter | string)[] | undefined;
+  ResourceTypeFilters: (keyof typeof ResourceTypeFilter | string)[] | undefined;
 }
 
 /**
@@ -3730,7 +3730,7 @@ export interface MonitoredResourceIdentifier {
    * 			The permission status of a resource.
    * 		</p>
    */
-  ResourcePermission?: ResourcePermission | string;
+  ResourcePermission?: keyof typeof ResourcePermission | string;
 
   /**
    * <p>
@@ -3885,12 +3885,12 @@ export interface ProactiveOrganizationInsightSummary {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: InsightSeverity | string;
+  Severity?: keyof typeof InsightSeverity | string;
 
   /**
    * <p> An array of status values used to search for insights. </p>
    */
-  Status?: InsightStatus | string;
+  Status?: keyof typeof InsightStatus | string;
 
   /**
    * <p> A time ranged that specifies when the observed behavior in an insight started and
@@ -3950,12 +3950,12 @@ export interface ReactiveOrganizationInsightSummary {
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
-  Severity?: InsightSeverity | string;
+  Severity?: keyof typeof InsightSeverity | string;
 
   /**
    * <p> An array of status values used to search for insights. </p>
    */
-  Status?: InsightStatus | string;
+  Status?: keyof typeof InsightStatus | string;
 
   /**
    * <p> A time ranged that specifies when the observed behavior in an insight started and
@@ -4003,19 +4003,19 @@ export interface ListOrganizationInsightsResponse {
 /**
  * @public
  */
-export enum Locale {
-  DE_DE = "DE_DE",
-  EN_GB = "EN_GB",
-  EN_US = "EN_US",
-  ES_ES = "ES_ES",
-  FR_FR = "FR_FR",
-  IT_IT = "IT_IT",
-  JA_JP = "JA_JP",
-  KO_KR = "KO_KR",
-  PT_BR = "PT_BR",
-  ZH_CN = "ZH_CN",
-  ZH_TW = "ZH_TW",
-}
+export const Locale = {
+  DE_DE: "DE_DE",
+  EN_GB: "EN_GB",
+  EN_US: "EN_US",
+  ES_ES: "ES_ES",
+  FR_FR: "FR_FR",
+  IT_IT: "IT_IT",
+  JA_JP: "JA_JP",
+  KO_KR: "KO_KR",
+  PT_BR: "PT_BR",
+  ZH_CN: "ZH_CN",
+  ZH_TW: "ZH_TW",
+};
 
 /**
  * @public
@@ -4035,7 +4035,7 @@ export interface ListRecommendationsRequest {
   /**
    * <p>A locale that specifies the language to use for recommendations.</p>
    */
-  Locale?: Locale | string;
+  Locale?: keyof typeof Locale | string;
 
   /**
    * <p>The ID of the Amazon Web Services account. </p>
@@ -4254,12 +4254,12 @@ export interface SearchInsightsFilters {
   /**
    * <p> An array of severity values used to search for insights. </p>
    */
-  Severities?: (InsightSeverity | string)[];
+  Severities?: (keyof typeof InsightSeverity | string)[];
 
   /**
    * <p> An array of status values used to search for insights. </p>
    */
-  Statuses?: (InsightStatus | string)[];
+  Statuses?: (keyof typeof InsightStatus | string)[];
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
@@ -4307,7 +4307,7 @@ export interface SearchInsightsRequest {
    * <p> The type of insights you are searching for (<code>REACTIVE</code> or
    * 				<code>PROACTIVE</code>). </p>
    */
-  Type: InsightType | string | undefined;
+  Type: keyof typeof InsightType | string | undefined;
 }
 
 /**
@@ -4340,12 +4340,12 @@ export interface SearchOrganizationInsightsFilters {
   /**
    * <p> An array of severity values used to search for insights. </p>
    */
-  Severities?: (InsightSeverity | string)[];
+  Severities?: (keyof typeof InsightSeverity | string)[];
 
   /**
    * <p> An array of status values used to search for insights. </p>
    */
-  Statuses?: (InsightStatus | string)[];
+  Statuses?: (keyof typeof InsightStatus | string)[];
 
   /**
    * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
@@ -4398,7 +4398,7 @@ export interface SearchOrganizationInsightsRequest {
    * <p> The type of insights you are searching for (<code>REACTIVE</code> or
    * 				<code>PROACTIVE</code>). </p>
    */
-  Type: InsightType | string | undefined;
+  Type: keyof typeof InsightType | string | undefined;
 }
 
 /**
@@ -4463,10 +4463,10 @@ export interface UpdateEventSourcesConfigResponse {}
 /**
  * @public
  */
-export enum UpdateResourceCollectionAction {
-  ADD = "ADD",
-  REMOVE = "REMOVE",
-}
+export const UpdateResourceCollectionAction = {
+  ADD: "ADD",
+  REMOVE: "REMOVE",
+};
 
 /**
  * @public
@@ -4574,7 +4574,7 @@ export interface UpdateResourceCollectionRequest {
    * <p> Specifies if the resource collection in the request is added or deleted to the
    * 			resource collection. </p>
    */
-  Action: UpdateResourceCollectionAction | string | undefined;
+  Action: keyof typeof UpdateResourceCollectionAction | string | undefined;
 
   /**
    * <p> Contains information used to update a collection of Amazon Web Services resources. </p>
@@ -4597,7 +4597,7 @@ export interface LogsAnomalyDetectionIntegrationConfig {
   /**
    * <p>Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups.</p>
    */
-  OptInStatus?: OptInStatus | string;
+  OptInStatus?: keyof typeof OptInStatus | string;
 }
 
 /**
@@ -4610,7 +4610,7 @@ export interface OpsCenterIntegrationConfig {
    * <p> Specifies if DevOps Guru is enabled to create an Amazon Web Services Systems Manager OpsItem for each created
    * 			insight. </p>
    */
-  OptInStatus?: OptInStatus | string;
+  OptInStatus?: keyof typeof OptInStatus | string;
 }
 
 /**

@@ -54,10 +54,10 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum ConnectionType {
-  CONNECT_SSH = "CONNECT_SSH",
-  CONNECT_SSM = "CONNECT_SSM",
-}
+export const ConnectionType = {
+  CONNECT_SSH: "CONNECT_SSH",
+  CONNECT_SSM: "CONNECT_SSM",
+};
 
 /**
  * @public
@@ -194,7 +194,7 @@ export interface CreateEnvironmentEC2Request {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html">Accessing no-ingress EC2 instances with
    *         Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.</p>
    */
-  connectionType?: ConnectionType | string;
+  connectionType?: keyof typeof ConnectionType | string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -335,10 +335,10 @@ export class TooManyRequestsException extends __BaseException {
 /**
  * @public
  */
-export enum MemberPermissions {
-  READ_ONLY = "read-only",
-  READ_WRITE = "read-write",
-}
+export const MemberPermissions = {
+  READ_ONLY: "read-only",
+  READ_WRITE: "read-write",
+};
 
 /**
  * @public
@@ -368,17 +368,17 @@ export interface CreateEnvironmentMembershipRequest {
    *             </li>
    *          </ul>
    */
-  permissions: MemberPermissions | string | undefined;
+  permissions: keyof typeof MemberPermissions | string | undefined;
 }
 
 /**
  * @public
  */
-export enum Permissions {
-  OWNER = "owner",
-  READ_ONLY = "read-only",
-  READ_WRITE = "read-write",
-}
+export const Permissions = {
+  OWNER: "owner",
+  READ_ONLY: "read-only",
+  READ_WRITE: "read-write",
+};
 
 /**
  * @public
@@ -403,7 +403,7 @@ export interface EnvironmentMember {
    *             </li>
    *          </ul>
    */
-  permissions: Permissions | string | undefined;
+  permissions: keyof typeof Permissions | string | undefined;
 
   /**
    * <p>The user ID in Identity and Access Management (IAM) of the environment member.</p>
@@ -508,7 +508,7 @@ export interface DescribeEnvironmentMembershipsRequest {
    *          </ul>
    *          <p>If no value is specified, information about all environment members are returned.</p>
    */
-  permissions?: (Permissions | string)[];
+  permissions?: (keyof typeof Permissions | string)[];
 
   /**
    * <p>During a previous call, if there are more than 25 items in the list, only the first 25
@@ -555,13 +555,13 @@ export interface DescribeEnvironmentsRequest {
 /**
  * @public
  */
-export enum EnvironmentLifecycleStatus {
-  CREATED = "CREATED",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+export const EnvironmentLifecycleStatus = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -594,7 +594,7 @@ export interface EnvironmentLifecycle {
    *             </li>
    *          </ul>
    */
-  status?: EnvironmentLifecycleStatus | string;
+  status?: keyof typeof EnvironmentLifecycleStatus | string;
 
   /**
    * <p>Any informational message about the lifecycle state of the environment.</p>
@@ -611,27 +611,27 @@ export interface EnvironmentLifecycle {
 /**
  * @public
  */
-export enum ManagedCredentialsStatus {
-  DISABLED_BY_COLLABORATOR = "DISABLED_BY_COLLABORATOR",
-  DISABLED_BY_DEFAULT = "DISABLED_BY_DEFAULT",
-  DISABLED_BY_OWNER = "DISABLED_BY_OWNER",
-  ENABLED_BY_OWNER = "ENABLED_BY_OWNER",
-  ENABLED_ON_CREATE = "ENABLED_ON_CREATE",
-  FAILED_REMOVAL_BY_COLLABORATOR = "FAILED_REMOVAL_BY_COLLABORATOR",
-  FAILED_REMOVAL_BY_OWNER = "FAILED_REMOVAL_BY_OWNER",
-  PENDING_REMOVAL_BY_COLLABORATOR = "PENDING_REMOVAL_BY_COLLABORATOR",
-  PENDING_REMOVAL_BY_OWNER = "PENDING_REMOVAL_BY_OWNER",
-  PENDING_START_REMOVAL_BY_COLLABORATOR = "PENDING_START_REMOVAL_BY_COLLABORATOR",
-  PENDING_START_REMOVAL_BY_OWNER = "PENDING_START_REMOVAL_BY_OWNER",
-}
+export const ManagedCredentialsStatus = {
+  DISABLED_BY_COLLABORATOR: "DISABLED_BY_COLLABORATOR",
+  DISABLED_BY_DEFAULT: "DISABLED_BY_DEFAULT",
+  DISABLED_BY_OWNER: "DISABLED_BY_OWNER",
+  ENABLED_BY_OWNER: "ENABLED_BY_OWNER",
+  ENABLED_ON_CREATE: "ENABLED_ON_CREATE",
+  FAILED_REMOVAL_BY_COLLABORATOR: "FAILED_REMOVAL_BY_COLLABORATOR",
+  FAILED_REMOVAL_BY_OWNER: "FAILED_REMOVAL_BY_OWNER",
+  PENDING_REMOVAL_BY_COLLABORATOR: "PENDING_REMOVAL_BY_COLLABORATOR",
+  PENDING_REMOVAL_BY_OWNER: "PENDING_REMOVAL_BY_OWNER",
+  PENDING_START_REMOVAL_BY_COLLABORATOR: "PENDING_START_REMOVAL_BY_COLLABORATOR",
+  PENDING_START_REMOVAL_BY_OWNER: "PENDING_START_REMOVAL_BY_OWNER",
+};
 
 /**
  * @public
  */
-export enum EnvironmentType {
-  EC2 = "ec2",
-  SSH = "ssh",
-}
+export const EnvironmentType = {
+  EC2: "ec2",
+  SSH: "ssh",
+};
 
 /**
  * @public
@@ -666,13 +666,13 @@ export interface Environment {
    *             </li>
    *          </ul>
    */
-  type: EnvironmentType | string | undefined;
+  type: keyof typeof EnvironmentType | string | undefined;
 
   /**
    * <p>The connection type used for connecting to an Amazon EC2 environment. <code>CONNECT_SSH</code>
    *       is selected by default.</p>
    */
-  connectionType?: ConnectionType | string;
+  connectionType?: keyof typeof ConnectionType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the environment.</p>
@@ -745,7 +745,7 @@ export interface Environment {
    *             </li>
    *          </ul>
    */
-  managedCredentialsStatus?: ManagedCredentialsStatus | string;
+  managedCredentialsStatus?: keyof typeof ManagedCredentialsStatus | string;
 }
 
 /**
@@ -771,15 +771,15 @@ export interface DescribeEnvironmentStatusRequest {
 /**
  * @public
  */
-export enum EnvironmentStatus {
-  CONNECTING = "connecting",
-  CREATING = "creating",
-  DELETING = "deleting",
-  ERROR = "error",
-  READY = "ready",
-  STOPPED = "stopped",
-  STOPPING = "stopping",
-}
+export const EnvironmentStatus = {
+  CONNECTING: "connecting",
+  CREATING: "creating",
+  DELETING: "deleting",
+  ERROR: "error",
+  READY: "ready",
+  STOPPED: "stopped",
+  STOPPING: "stopping",
+};
 
 /**
  * @public
@@ -818,7 +818,7 @@ export interface DescribeEnvironmentStatusResult {
    *             </li>
    *          </ul>
    */
-  status: EnvironmentStatus | string | undefined;
+  status: keyof typeof EnvironmentStatus | string | undefined;
 
   /**
    * <p>Any informational message about the status of the environment.</p>
@@ -953,10 +953,10 @@ export interface UntagResourceResponse {}
 /**
  * @public
  */
-export enum ManagedCredentialsAction {
-  DISABLE = "DISABLE",
-  ENABLE = "ENABLE",
-}
+export const ManagedCredentialsAction = {
+  DISABLE: "DISABLE",
+  ENABLE: "ENABLE",
+};
 
 /**
  * @public
@@ -997,7 +997,7 @@ export interface UpdateEnvironmentRequest {
    *       owner.</p>
    *          </note>
    */
-  managedCredentialsAction?: ManagedCredentialsAction | string;
+  managedCredentialsAction?: keyof typeof ManagedCredentialsAction | string;
 }
 
 /**
@@ -1035,7 +1035,7 @@ export interface UpdateEnvironmentMembershipRequest {
    *             </li>
    *          </ul>
    */
-  permissions: MemberPermissions | string | undefined;
+  permissions: keyof typeof MemberPermissions | string | undefined;
 }
 
 /**

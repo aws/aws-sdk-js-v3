@@ -4621,7 +4621,10 @@ const deserializeAws_json1_1WorkspacesDefaultRoleNotFoundExceptionResponse = asy
   return __decorateServiceException(exception, body);
 };
 
-const serializeAws_json1_1ApplicationList = (input: (Application | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1ApplicationList = (
+  input: (keyof typeof Application | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4675,7 +4678,7 @@ const serializeAws_json1_1CertificateBasedAuthProperties = (
 };
 
 const serializeAws_json1_1ClientDeviceTypeList = (
-  input: (ClientDeviceType | string)[],
+  input: (keyof typeof ClientDeviceType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4839,7 +4842,7 @@ const serializeAws_json1_1DefaultImportClientBrandingAttributes = (
 };
 
 const serializeAws_json1_1DeletableCertificateBasedAuthPropertiesList = (
-  input: (DeletableCertificateBasedAuthProperty | string)[],
+  input: (keyof typeof DeletableCertificateBasedAuthProperty | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4850,7 +4853,7 @@ const serializeAws_json1_1DeletableCertificateBasedAuthPropertiesList = (
 };
 
 const serializeAws_json1_1DeletableSamlPropertiesList = (
-  input: (DeletableSamlProperty | string)[],
+  input: (keyof typeof DeletableSamlProperty | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -5359,7 +5362,7 @@ const serializeAws_json1_1ModifyWorkspaceStateRequest = (
   };
 };
 
-const serializeAws_json1_1ProtocolList = (input: (Protocol | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1ProtocolList = (input: (keyof typeof Protocol | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6810,7 +6813,10 @@ const deserializeAws_json1_1PendingCreateStandbyWorkspacesRequestList = (
   return retVal;
 };
 
-const deserializeAws_json1_1ProtocolList = (output: any, context: __SerdeContext): (Protocol | string)[] => {
+const deserializeAws_json1_1ProtocolList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Protocol | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

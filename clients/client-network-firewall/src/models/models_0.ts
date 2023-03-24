@@ -284,10 +284,10 @@ export class ThrottlingException extends __BaseException {
 /**
  * @public
  */
-export enum IPAddressType {
-  DUALSTACK = "DUALSTACK",
-  IPV4 = "IPV4",
-}
+export const IPAddressType = {
+  DUALSTACK: "DUALSTACK",
+  IPV4: "IPV4",
+};
 
 /**
  * @public
@@ -305,7 +305,7 @@ export interface SubnetMapping {
   /**
    * <p>The subnet's IP address type. You can't change the IP address type after you create the subnet.</p>
    */
-  IPAddressType?: IPAddressType | string;
+  IPAddressType?: keyof typeof IPAddressType | string;
 }
 
 /**
@@ -390,12 +390,12 @@ export class InsufficientCapacityException extends __BaseException {
 /**
  * @public
  */
-export enum AttachmentStatus {
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  READY = "READY",
-  SCALING = "SCALING",
-}
+export const AttachmentStatus = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  READY: "READY",
+  SCALING: "SCALING",
+};
 
 /**
  * @public
@@ -424,7 +424,7 @@ export interface Attachment {
    *          available for traffic, this value will reflect its state, for example
    *          <code>CREATING</code> or <code>DELETING</code>.</p>
    */
-  Status?: AttachmentStatus | string;
+  Status?: keyof typeof AttachmentStatus | string;
 
   /**
    * <p>If Network Firewall fails to create or delete the firewall endpoint in the subnet, it populates this with the reason for the failure and how to resolve it. Depending on the error, it can take as many as 15 minutes to populate this field. For more information about the errors and solutions available for this field, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html">Troubleshooting firewall endpoint failures</a> in the <i>Network Firewall Developer Guide</i>.</p>
@@ -478,19 +478,19 @@ export interface CapacityUsageSummary {
 /**
  * @public
  */
-export enum ConfigurationSyncState {
-  CAPACITY_CONSTRAINED = "CAPACITY_CONSTRAINED",
-  IN_SYNC = "IN_SYNC",
-  PENDING = "PENDING",
-}
+export const ConfigurationSyncState = {
+  CAPACITY_CONSTRAINED: "CAPACITY_CONSTRAINED",
+  IN_SYNC: "IN_SYNC",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
  */
-export enum EncryptionType {
-  AWS_OWNED_KMS_KEY = "AWS_OWNED_KMS_KEY",
-  CUSTOMER_KMS = "CUSTOMER_KMS",
-}
+export const EncryptionType = {
+  AWS_OWNED_KMS_KEY: "AWS_OWNED_KMS_KEY",
+  CUSTOMER_KMS: "CUSTOMER_KMS",
+};
 
 /**
  * @public
@@ -505,7 +505,7 @@ export interface EncryptionConfiguration {
   /**
    * <p>The type of Amazon Web Services KMS key to use for encryption of your Network Firewall resources.</p>
    */
-  Type: EncryptionType | string | undefined;
+  Type: keyof typeof EncryptionType | string | undefined;
 }
 
 /**
@@ -677,20 +677,20 @@ export interface Firewall {
 /**
  * @public
  */
-export enum FirewallStatusValue {
-  DELETING = "DELETING",
-  PROVISIONING = "PROVISIONING",
-  READY = "READY",
-}
+export const FirewallStatusValue = {
+  DELETING: "DELETING",
+  PROVISIONING: "PROVISIONING",
+  READY: "READY",
+};
 
 /**
  * @public
  */
-export enum PerObjectSyncStatus {
-  CAPACITY_CONSTRAINED = "CAPACITY_CONSTRAINED",
-  IN_SYNC = "IN_SYNC",
-  PENDING = "PENDING",
-}
+export const PerObjectSyncStatus = {
+  CAPACITY_CONSTRAINED: "CAPACITY_CONSTRAINED",
+  IN_SYNC: "IN_SYNC",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -703,7 +703,7 @@ export interface PerObjectStatus {
   /**
    * <p>Indicates whether this object is in sync with the version indicated in the update token.</p>
    */
-  SyncStatus?: PerObjectSyncStatus | string;
+  SyncStatus?: keyof typeof PerObjectSyncStatus | string;
 
   /**
    * <p>The current version of the object that is either in sync or pending synchronization. </p>
@@ -760,7 +760,7 @@ export interface FirewallStatus {
    *             <code>Status</code> values for all of the configured subnets are <code>READY</code>.
    *       </p>
    */
-  Status: FirewallStatusValue | string | undefined;
+  Status: keyof typeof FirewallStatusValue | string | undefined;
 
   /**
    * <p>The configuration sync state for the firewall. This summarizes the sync states reported
@@ -774,7 +774,7 @@ export interface FirewallStatus {
    *          doesn't indicate that the firewall is ready. The <code>Status</code> setting indicates
    *          firewall readiness.</p>
    */
-  ConfigurationSyncStateSummary: ConfigurationSyncState | string | undefined;
+  ConfigurationSyncStateSummary: keyof typeof ConfigurationSyncState | string | undefined;
 
   /**
    * <p>The subnets that you've configured for use by the Network Firewall firewall. This contains
@@ -831,18 +831,18 @@ export class LimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum RuleOrder {
-  DEFAULT_ACTION_ORDER = "DEFAULT_ACTION_ORDER",
-  STRICT_ORDER = "STRICT_ORDER",
-}
+export const RuleOrder = {
+  DEFAULT_ACTION_ORDER: "DEFAULT_ACTION_ORDER",
+  STRICT_ORDER: "STRICT_ORDER",
+};
 
 /**
  * @public
  */
-export enum StreamExceptionPolicy {
-  CONTINUE = "CONTINUE",
-  DROP = "DROP",
-}
+export const StreamExceptionPolicy = {
+  CONTINUE: "CONTINUE",
+  DROP: "DROP",
+};
 
 /**
  * @public
@@ -856,7 +856,7 @@ export interface StatefulEngineOptions {
    *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.
    *       </p>
    */
-  RuleOrder?: RuleOrder | string;
+  RuleOrder?: keyof typeof RuleOrder | string;
 
   /**
    * <p>Configures how Network Firewall processes traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself.</p>
@@ -871,15 +871,15 @@ export interface StatefulEngineOptions {
    *             </li>
    *          </ul>
    */
-  StreamExceptionPolicy?: StreamExceptionPolicy | string;
+  StreamExceptionPolicy?: keyof typeof StreamExceptionPolicy | string;
 }
 
 /**
  * @public
  */
-export enum OverrideAction {
-  DROP_TO_ALERT = "DROP_TO_ALERT",
-}
+export const OverrideAction = {
+  DROP_TO_ALERT: "DROP_TO_ALERT",
+};
 
 /**
  * @public
@@ -890,7 +890,7 @@ export interface StatefulRuleGroupOverride {
    * <p>The action that changes the rule group from <code>DROP</code> to <code>ALERT</code>. This only applies to
    *       managed rule groups.</p>
    */
-  Action?: OverrideAction | string;
+  Action?: keyof typeof OverrideAction | string;
 }
 
 /**
@@ -1108,10 +1108,10 @@ export interface CreateFirewallPolicyRequest {
 /**
  * @public
  */
-export enum ResourceStatus {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-}
+export const ResourceStatus = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -1148,7 +1148,7 @@ export interface FirewallPolicyResponse {
    *          by calling <a>DescribeFirewallPolicy</a> and providing the firewall policy's
    *          name or ARN.</p>
    */
-  FirewallPolicyStatus?: ResourceStatus | string;
+  FirewallPolicyStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The key:value pairs to associate with the resource.</p>
@@ -1225,18 +1225,18 @@ export interface ReferenceSets {
 /**
  * @public
  */
-export enum GeneratedRulesType {
-  ALLOWLIST = "ALLOWLIST",
-  DENYLIST = "DENYLIST",
-}
+export const GeneratedRulesType = {
+  ALLOWLIST: "ALLOWLIST",
+  DENYLIST: "DENYLIST",
+};
 
 /**
  * @public
  */
-export enum TargetType {
-  HTTP_HOST = "HTTP_HOST",
-  TLS_SNI = "TLS_SNI",
-}
+export const TargetType = {
+  HTTP_HOST: "HTTP_HOST",
+  TLS_SNI: "TLS_SNI",
+};
 
 /**
  * @public
@@ -1261,56 +1261,56 @@ export interface RulesSourceList {
   /**
    * <p>The protocols you want to inspect. Specify <code>TLS_SNI</code> for <code>HTTPS</code>. Specify <code>HTTP_HOST</code> for <code>HTTP</code>. You can specify either or both. </p>
    */
-  TargetTypes: (TargetType | string)[] | undefined;
+  TargetTypes: (keyof typeof TargetType | string)[] | undefined;
 
   /**
    * <p>Whether you want to allow or deny access to the domains in your target list.</p>
    */
-  GeneratedRulesType: GeneratedRulesType | string | undefined;
+  GeneratedRulesType: keyof typeof GeneratedRulesType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum StatefulAction {
-  ALERT = "ALERT",
-  DROP = "DROP",
-  PASS = "PASS",
-  REJECT = "REJECT",
-}
+export const StatefulAction = {
+  ALERT: "ALERT",
+  DROP: "DROP",
+  PASS: "PASS",
+  REJECT: "REJECT",
+};
 
 /**
  * @public
  */
-export enum StatefulRuleDirection {
-  ANY = "ANY",
-  FORWARD = "FORWARD",
-}
+export const StatefulRuleDirection = {
+  ANY: "ANY",
+  FORWARD: "FORWARD",
+};
 
 /**
  * @public
  */
-export enum StatefulRuleProtocol {
-  ANY = "IP",
-  DCERPC = "DCERPC",
-  DHCP = "DHCP",
-  DNS = "DNS",
-  FTP = "FTP",
-  HTTP = "HTTP",
-  ICMP = "ICMP",
-  IKEV2 = "IKEV2",
-  IMAP = "IMAP",
-  KRB5 = "KRB5",
-  MSN = "MSN",
-  NTP = "NTP",
-  SMB = "SMB",
-  SMTP = "SMTP",
-  SSH = "SSH",
-  TCP = "TCP",
-  TFTP = "TFTP",
-  TLS = "TLS",
-  UDP = "UDP",
-}
+export const StatefulRuleProtocol = {
+  ANY: "IP",
+  DCERPC: "DCERPC",
+  DHCP: "DHCP",
+  DNS: "DNS",
+  FTP: "FTP",
+  HTTP: "HTTP",
+  ICMP: "ICMP",
+  IKEV2: "IKEV2",
+  IMAP: "IMAP",
+  KRB5: "KRB5",
+  MSN: "MSN",
+  NTP: "NTP",
+  SMB: "SMB",
+  SMTP: "SMTP",
+  SSH: "SSH",
+  TCP: "TCP",
+  TFTP: "TFTP",
+  TLS: "TLS",
+  UDP: "UDP",
+};
 
 /**
  * @public
@@ -1322,7 +1322,7 @@ export interface Header {
   /**
    * <p>The protocol to inspect for. To specify all, you can use <code>IP</code>, because all traffic on Amazon Web Services and on the internet is IP.</p>
    */
-  Protocol: StatefulRuleProtocol | string | undefined;
+  Protocol: keyof typeof StatefulRuleProtocol | string | undefined;
 
   /**
    * <p>The source IP address or address range to inspect for, in CIDR notation.
@@ -1362,7 +1362,7 @@ export interface Header {
    *          destination to the source. If set to <code>FORWARD</code>, the inspection only matches
    *          traffic going from the source to the destination. </p>
    */
-  Direction: StatefulRuleDirection | string | undefined;
+  Direction: keyof typeof StatefulRuleDirection | string | undefined;
 
   /**
    * <p>The destination IP address or address range to inspect for, in CIDR notation.
@@ -1456,7 +1456,7 @@ export interface StatefulRule {
    *             </li>
    *          </ul>
    */
-  Action: StatefulAction | string | undefined;
+  Action: keyof typeof StatefulAction | string | undefined;
 
   /**
    * <p>The stateful inspection criteria for this rule, used to inspect traffic flows.
@@ -1493,16 +1493,16 @@ export interface PortRange {
 /**
  * @public
  */
-export enum TCPFlag {
-  ACK = "ACK",
-  CWR = "CWR",
-  ECE = "ECE",
-  FIN = "FIN",
-  PSH = "PSH",
-  RST = "RST",
-  SYN = "SYN",
-  URG = "URG",
-}
+export const TCPFlag = {
+  ACK: "ACK",
+  CWR: "CWR",
+  ECE: "ECE",
+  FIN: "FIN",
+  PSH: "PSH",
+  RST: "RST",
+  SYN: "SYN",
+  URG: "URG",
+};
 
 /**
  * @public
@@ -1521,12 +1521,12 @@ export interface TCPFlagField {
    *             </li>
    *          </ul>
    */
-  Flags: (TCPFlag | string)[] | undefined;
+  Flags: (keyof typeof TCPFlag | string)[] | undefined;
 
   /**
    * <p>The set of flags to consider in the inspection. To inspect all flags in the valid values list, leave this with no setting.</p>
    */
-  Masks?: (TCPFlag | string)[];
+  Masks?: (keyof typeof TCPFlag | string)[];
 }
 
 /**
@@ -1768,7 +1768,7 @@ export interface StatefulRuleOptions {
    *          <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.
    *       </p>
    */
-  RuleOrder?: RuleOrder | string;
+  RuleOrder?: keyof typeof RuleOrder | string;
 }
 
 /**
@@ -1823,10 +1823,10 @@ export interface SourceMetadata {
 /**
  * @public
  */
-export enum RuleGroupType {
-  STATEFUL = "STATEFUL",
-  STATELESS = "STATELESS",
-}
+export const RuleGroupType = {
+  STATEFUL: "STATEFUL",
+  STATELESS: "STATELESS",
+};
 
 /**
  * @public
@@ -1860,7 +1860,7 @@ export interface CreateRuleGroupRequest {
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
    */
-  Type: RuleGroupType | string | undefined;
+  Type: keyof typeof RuleGroupType | string | undefined;
 
   /**
    * <p>A description of the rule group. </p>
@@ -1972,7 +1972,7 @@ export interface RuleGroupResponse {
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
    */
-  Type?: RuleGroupType | string;
+  Type?: keyof typeof RuleGroupType | string;
 
   /**
    * <p>The maximum operating resources that this rule group can use. Rule group capacity is fixed at creation.
@@ -1986,7 +1986,7 @@ export interface RuleGroupResponse {
   /**
    * <p>Detailed information about the current status of a rule group. </p>
    */
-  RuleGroupStatus?: ResourceStatus | string;
+  RuleGroupStatus?: keyof typeof ResourceStatus | string;
 
   /**
    * <p>The key:value pairs to associate with the resource.</p>
@@ -2188,7 +2188,7 @@ export interface DeleteRuleGroupRequest {
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
-  Type?: RuleGroupType | string;
+  Type?: keyof typeof RuleGroupType | string;
 }
 
 /**
@@ -2298,19 +2298,19 @@ export interface DescribeLoggingConfigurationRequest {
 /**
  * @public
  */
-export enum LogDestinationType {
-  CLOUDWATCH_LOGS = "CloudWatchLogs",
-  KINESIS_DATA_FIREHOSE = "KinesisDataFirehose",
-  S3 = "S3",
-}
+export const LogDestinationType = {
+  CLOUDWATCH_LOGS: "CloudWatchLogs",
+  KINESIS_DATA_FIREHOSE: "KinesisDataFirehose",
+  S3: "S3",
+};
 
 /**
  * @public
  */
-export enum LogType {
-  ALERT = "ALERT",
-  FLOW = "FLOW",
-}
+export const LogType = {
+  ALERT: "ALERT",
+  FLOW: "FLOW",
+};
 
 /**
  * @public
@@ -2326,13 +2326,13 @@ export interface LogDestinationConfig {
    * <p>The type of log to send. Alert logs report traffic that matches a <a>StatefulRule</a> with an action setting that sends an alert log message. Flow logs are
    *          standard network traffic flow logs. </p>
    */
-  LogType: LogType | string | undefined;
+  LogType: keyof typeof LogType | string | undefined;
 
   /**
    * <p>The type of storage destination to send these logs to. You can send logs to an Amazon S3 bucket,
    *          a CloudWatch log group, or a Kinesis Data Firehose delivery stream.</p>
    */
-  LogDestinationType: LogDestinationType | string | undefined;
+  LogDestinationType: keyof typeof LogDestinationType | string | undefined;
 
   /**
    * <p>The named location for the logs, provided in a key:value mapping that is specific to the
@@ -2440,7 +2440,7 @@ export interface DescribeRuleGroupRequest {
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
-  Type?: RuleGroupType | string;
+  Type?: keyof typeof RuleGroupType | string;
 }
 
 /**
@@ -2492,7 +2492,7 @@ export interface DescribeRuleGroupMetadataRequest {
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
-  Type?: RuleGroupType | string;
+  Type?: keyof typeof RuleGroupType | string;
 }
 
 /**
@@ -2524,7 +2524,7 @@ export interface DescribeRuleGroupMetadataResponse {
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
-  Type?: RuleGroupType | string;
+  Type?: keyof typeof RuleGroupType | string;
 
   /**
    * <p>The maximum operating resources that this rule group can use. Rule group capacity is fixed at creation.
@@ -2722,18 +2722,18 @@ export interface ListFirewallsResponse {
 /**
  * @public
  */
-export enum ResourceManagedType {
-  AWS_MANAGED_DOMAIN_LISTS = "AWS_MANAGED_DOMAIN_LISTS",
-  AWS_MANAGED_THREAT_SIGNATURES = "AWS_MANAGED_THREAT_SIGNATURES",
-}
+export const ResourceManagedType = {
+  AWS_MANAGED_DOMAIN_LISTS: "AWS_MANAGED_DOMAIN_LISTS",
+  AWS_MANAGED_THREAT_SIGNATURES: "AWS_MANAGED_THREAT_SIGNATURES",
+};
 
 /**
  * @public
  */
-export enum ResourceManagedStatus {
-  ACCOUNT = "ACCOUNT",
-  MANAGED = "MANAGED",
-}
+export const ResourceManagedStatus = {
+  ACCOUNT: "ACCOUNT",
+  MANAGED: "MANAGED",
+};
 
 /**
  * @public
@@ -2758,17 +2758,17 @@ export interface ListRuleGroupsRequest {
    *          <code>NULL</code> returns all of the rule groups in your account. A setting of
    *          <code>MANAGED</code> returns all available managed rule groups.</p>
    */
-  Scope?: ResourceManagedStatus | string;
+  Scope?: keyof typeof ResourceManagedStatus | string;
 
   /**
    * <p>Indicates the general category of the Amazon Web Services managed rule group.</p>
    */
-  ManagedType?: ResourceManagedType | string;
+  ManagedType?: keyof typeof ResourceManagedType | string;
 
   /**
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.</p>
    */
-  Type?: RuleGroupType | string;
+  Type?: keyof typeof RuleGroupType | string;
 }
 
 /**
@@ -3367,7 +3367,7 @@ export interface UpdateRuleGroupRequest {
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
-  Type?: RuleGroupType | string;
+  Type?: keyof typeof RuleGroupType | string;
 
   /**
    * <p>A description of the rule group. </p>

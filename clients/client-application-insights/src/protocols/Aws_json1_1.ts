@@ -2416,7 +2416,7 @@ const deserializeAws_json1_1DetectedWorkload = (
   context: __SerdeContext
 ): Record<string, Record<string, string>> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, Record<string, string>>, [key, value]: [Tier | string, any]) => {
+    (acc: Record<string, Record<string, string>>, [key, value]: [keyof typeof Tier | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -2430,9 +2430,12 @@ const deserializeAws_json1_1DetectedWorkload = (
 const deserializeAws_json1_1Feedback = (
   output: any,
   context: __SerdeContext
-): Record<string, FeedbackValue | string> => {
+): Record<string, keyof typeof FeedbackValue | string> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, FeedbackValue | string>, [key, value]: [FeedbackKey | string, any]) => {
+    (
+      acc: Record<string, keyof typeof FeedbackValue | string>,
+      [key, value]: [keyof typeof FeedbackKey | string, any]
+    ) => {
       if (value === null) {
         return acc;
       }

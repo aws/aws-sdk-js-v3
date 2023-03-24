@@ -6,41 +6,41 @@ import { ChimeSDKMediaPipelinesServiceException as __BaseException } from "./Chi
 /**
  * @public
  */
-export enum ContentType {
-  PII = "PII",
-}
+export const ContentType = {
+  PII: "PII",
+};
 
 /**
  * @public
  */
-export enum CallAnalyticsLanguageCode {
-  DE_DE = "de-DE",
-  EN_AU = "en-AU",
-  EN_GB = "en-GB",
-  EN_US = "en-US",
-  ES_US = "es-US",
-  FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
-  IT_IT = "it-IT",
-  PT_BR = "pt-BR",
-}
+export const CallAnalyticsLanguageCode = {
+  DE_DE: "de-DE",
+  EN_AU: "en-AU",
+  EN_GB: "en-GB",
+  EN_US: "en-US",
+  ES_US: "es-US",
+  FR_CA: "fr-CA",
+  FR_FR: "fr-FR",
+  IT_IT: "it-IT",
+  PT_BR: "pt-BR",
+};
 
 /**
  * @public
  */
-export enum PartialResultsStability {
-  HIGH = "high",
-  LOW = "low",
-  MEDIUM = "medium",
-}
+export const PartialResultsStability = {
+  HIGH: "high",
+  LOW: "low",
+  MEDIUM: "medium",
+};
 
 /**
  * @public
  */
-export enum ContentRedactionOutput {
-  REDACTED = "redacted",
-  REDACTED_AND_UNREDACTED = "redacted_and_unredacted",
-}
+export const ContentRedactionOutput = {
+  REDACTED: "redacted",
+  REDACTED_AND_UNREDACTED: "redacted_and_unredacted",
+};
 
 /**
  * @public
@@ -61,7 +61,7 @@ export interface PostCallAnalyticsSettings {
   /**
    * <p>The content redaction output settings for a post-call analysis task.</p>
    */
-  ContentRedactionOutput?: ContentRedactionOutput | string;
+  ContentRedactionOutput?: keyof typeof ContentRedactionOutput | string;
 
   /**
    * <p>The ID of the KMS (Key Management System) key used to encrypt the output.</p>
@@ -72,11 +72,11 @@ export interface PostCallAnalyticsSettings {
 /**
  * @public
  */
-export enum VocabularyFilterMethod {
-  MASK = "mask",
-  REMOVE = "remove",
-  TAG = "tag",
-}
+export const VocabularyFilterMethod = {
+  MASK: "mask",
+  REMOVE: "remove",
+  TAG: "tag",
+};
 
 /**
  * @public
@@ -87,7 +87,7 @@ export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
   /**
    * <p>The language code in the configuration.</p>
    */
-  LanguageCode: CallAnalyticsLanguageCode | string | undefined;
+  LanguageCode: keyof typeof CallAnalyticsLanguageCode | string | undefined;
 
   /**
    * <p>Specifies the name of the custom vocabulary to use when processing a transcription. Note
@@ -114,7 +114,7 @@ export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
    *          <p>To delete words, choose <code>remove</code>.</p>
    *          <p>To flag words without changing them, choose <code>tag</code>. </p>
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+  VocabularyFilterMethod?: keyof typeof VocabularyFilterMethod | string;
 
   /**
    * <p>Specifies the name of the custom language model to use when processing a transcription.
@@ -140,7 +140,7 @@ export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result stabilization</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  PartialResultsStability?: PartialResultsStability | string;
+  PartialResultsStability?: keyof typeof PartialResultsStability | string;
 
   /**
    * <p>Labels all personally identifiable information (PII) identified in your transcript.</p>
@@ -149,7 +149,7 @@ export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable information</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  ContentIdentificationType?: ContentType | string;
+  ContentIdentificationType?: keyof typeof ContentType | string;
 
   /**
    * <p>Redacts all personally identifiable information (PII) identified in your transcript.</p>
@@ -158,7 +158,7 @@ export interface AmazonTranscribeCallAnalyticsProcessorConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable information</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  ContentRedactionType?: ContentType | string;
+  ContentRedactionType?: keyof typeof ContentType | string;
 
   /**
    * <p>Specifies the types of personally identifiable information (PII) to redact from a transcript. You can include as many types as you'd like, or you can select <code>ALL</code>.</p>
@@ -198,7 +198,7 @@ export interface AmazonTranscribeProcessorConfiguration {
    *          <p>For a list of languages that real-time Call Analytics supports, see the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported languages table</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  LanguageCode: CallAnalyticsLanguageCode | string | undefined;
+  LanguageCode: keyof typeof CallAnalyticsLanguageCode | string | undefined;
 
   /**
    * <p>The name of the custom vocabulary that you specified in your Call Analytics
@@ -217,7 +217,7 @@ export interface AmazonTranscribeProcessorConfiguration {
   /**
    * <p>The vocabulary filtering method used in your Call Analytics transcription.</p>
    */
-  VocabularyFilterMethod?: VocabularyFilterMethod | string;
+  VocabularyFilterMethod?: keyof typeof VocabularyFilterMethod | string;
 
   /**
    * <p>Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning labels the speech from individual speakers in your media file.</p>
@@ -239,7 +239,7 @@ export interface AmazonTranscribeProcessorConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html#streaming-partial-result-stabilization">Partial-result stabilization</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  PartialResultsStability?: PartialResultsStability | string;
+  PartialResultsStability?: keyof typeof PartialResultsStability | string;
 
   /**
    * <p>Labels all personally identifiable information (PII) identified in your transcript.</p>
@@ -252,7 +252,7 @@ export interface AmazonTranscribeProcessorConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable information</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  ContentIdentificationType?: ContentType | string;
+  ContentIdentificationType?: keyof typeof ContentType | string;
 
   /**
    * <p>Redacts all personally identifiable information (PII) identified in your transcript.</p>
@@ -261,7 +261,7 @@ export interface AmazonTranscribeProcessorConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/pii-redaction.html">Redacting or identifying personally identifiable information</a>
    *          in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  ContentRedactionType?: ContentType | string;
+  ContentRedactionType?: keyof typeof ContentType | string;
 
   /**
    * <p>The types of personally identifiable information (PII) to redact from a transcript. You
@@ -292,9 +292,9 @@ export interface AmazonTranscribeProcessorConfiguration {
 /**
  * @public
  */
-export enum AudioArtifactsConcatenationState {
-  Enabled = "Enabled",
-}
+export const AudioArtifactsConcatenationState = {
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -304,16 +304,16 @@ export interface AudioConcatenationConfiguration {
   /**
    * <p>Enables or disables the configuration object.</p>
    */
-  State: AudioArtifactsConcatenationState | string | undefined;
+  State: keyof typeof AudioArtifactsConcatenationState | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ArtifactsConcatenationState {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ArtifactsConcatenationState = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -325,7 +325,7 @@ export interface CompositedVideoConcatenationConfiguration {
   /**
    * <p>Enables or disables the configuration object.</p>
    */
-  State: ArtifactsConcatenationState | string | undefined;
+  State: keyof typeof ArtifactsConcatenationState | string | undefined;
 }
 
 /**
@@ -337,7 +337,7 @@ export interface ContentConcatenationConfiguration {
   /**
    * <p>Enables or disables the configuration object.</p>
    */
-  State: ArtifactsConcatenationState | string | undefined;
+  State: keyof typeof ArtifactsConcatenationState | string | undefined;
 }
 
 /**
@@ -348,7 +348,7 @@ export interface DataChannelConcatenationConfiguration {
   /**
    * <p>Enables or disables the configuration object.</p>
    */
-  State: ArtifactsConcatenationState | string | undefined;
+  State: keyof typeof ArtifactsConcatenationState | string | undefined;
 }
 
 /**
@@ -359,7 +359,7 @@ export interface MeetingEventsConcatenationConfiguration {
   /**
    * <p>Enables or disables the configuration object.</p>
    */
-  State: ArtifactsConcatenationState | string | undefined;
+  State: keyof typeof ArtifactsConcatenationState | string | undefined;
 }
 
 /**
@@ -370,7 +370,7 @@ export interface TranscriptionMessagesConcatenationConfiguration {
   /**
    * <p>Enables or disables the configuration object.</p>
    */
-  State: ArtifactsConcatenationState | string | undefined;
+  State: keyof typeof ArtifactsConcatenationState | string | undefined;
 }
 
 /**
@@ -381,7 +381,7 @@ export interface VideoConcatenationConfiguration {
   /**
    * <p>Enables or disables the configuration object.</p>
    */
-  State: ArtifactsConcatenationState | string | undefined;
+  State: keyof typeof ArtifactsConcatenationState | string | undefined;
 }
 
 /**
@@ -428,11 +428,11 @@ export interface ArtifactsConcatenationConfiguration {
 /**
  * @public
  */
-export enum AudioMuxType {
-  AudioOnly = "AudioOnly",
-  AudioWithActiveSpeakerVideo = "AudioWithActiveSpeakerVideo",
-  AudioWithCompositedVideo = "AudioWithCompositedVideo",
-}
+export const AudioMuxType = {
+  AudioOnly: "AudioOnly",
+  AudioWithActiveSpeakerVideo: "AudioWithActiveSpeakerVideo",
+  AudioWithCompositedVideo: "AudioWithCompositedVideo",
+};
 
 /**
  * @public
@@ -442,27 +442,27 @@ export interface AudioArtifactsConfiguration {
   /**
    * <p>The MUX type of the audio artifact configuration object.</p>
    */
-  MuxType: AudioMuxType | string | undefined;
+  MuxType: keyof typeof AudioMuxType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ContentShareLayoutOption {
-  Horizontal = "Horizontal",
-  PresenterOnly = "PresenterOnly",
-  Vertical = "Vertical",
-}
+export const ContentShareLayoutOption = {
+  Horizontal: "Horizontal",
+  PresenterOnly: "PresenterOnly",
+  Vertical: "Vertical",
+};
 
 /**
  * @public
  */
-export enum PresenterPosition {
-  BottomLeft = "BottomLeft",
-  BottomRight = "BottomRight",
-  TopLeft = "TopLeft",
-  TopRight = "TopRight",
-}
+export const PresenterPosition = {
+  BottomLeft: "BottomLeft",
+  BottomRight: "BottomRight",
+  TopLeft: "TopLeft",
+  TopRight: "TopRight",
+};
 
 /**
  * @public
@@ -472,7 +472,7 @@ export interface PresenterOnlyConfiguration {
   /**
    * <p>Defines the position of the presenter video tile. Default: <code>TopRight</code>.</p>
    */
-  PresenterPosition?: PresenterPosition | string;
+  PresenterPosition?: keyof typeof PresenterPosition | string;
 }
 
 /**
@@ -483,7 +483,7 @@ export interface GridViewConfiguration {
   /**
    * <p>Defines the layout of the video tiles when content sharing is enabled.</p>
    */
-  ContentShareLayout: ContentShareLayoutOption | string | undefined;
+  ContentShareLayout: keyof typeof ContentShareLayoutOption | string | undefined;
 
   /**
    * <p>Defines the configuration options for a presenter only video tile.</p>
@@ -494,17 +494,17 @@ export interface GridViewConfiguration {
 /**
  * @public
  */
-export enum LayoutOption {
-  GridView = "GridView",
-}
+export const LayoutOption = {
+  GridView: "GridView",
+};
 
 /**
  * @public
  */
-export enum ResolutionOption {
-  FHD = "FHD",
-  HD = "HD",
-}
+export const ResolutionOption = {
+  FHD: "FHD",
+  HD: "HD",
+};
 
 /**
  * @public
@@ -514,12 +514,12 @@ export interface CompositedVideoArtifactsConfiguration {
   /**
    * <p>The layout setting, such as <code>GridView</code> in the configuration object.</p>
    */
-  Layout?: LayoutOption | string;
+  Layout?: keyof typeof LayoutOption | string;
 
   /**
    * <p>The video resolution setting in the configuration object. Default: HD at 1280 x 720. FHD resolution: 1920 x 1080.</p>
    */
-  Resolution?: ResolutionOption | string;
+  Resolution?: keyof typeof ResolutionOption | string;
 
   /**
    * <p>The <code>GridView</code> configuration setting.</p>
@@ -530,17 +530,17 @@ export interface CompositedVideoArtifactsConfiguration {
 /**
  * @public
  */
-export enum ContentMuxType {
-  ContentOnly = "ContentOnly",
-}
+export const ContentMuxType = {
+  ContentOnly: "ContentOnly",
+};
 
 /**
  * @public
  */
-export enum ArtifactsState {
-  Disabled = "Disabled",
-  Enabled = "Enabled",
-}
+export const ArtifactsState = {
+  Disabled: "Disabled",
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -550,20 +550,20 @@ export interface ContentArtifactsConfiguration {
   /**
    * <p>Indicates whether the content artifact is enabled or disabled.</p>
    */
-  State: ArtifactsState | string | undefined;
+  State: keyof typeof ArtifactsState | string | undefined;
 
   /**
    * <p>The MUX type of the artifact configuration.</p>
    */
-  MuxType?: ContentMuxType | string;
+  MuxType?: keyof typeof ContentMuxType | string;
 }
 
 /**
  * @public
  */
-export enum VideoMuxType {
-  VideoOnly = "VideoOnly",
-}
+export const VideoMuxType = {
+  VideoOnly: "VideoOnly",
+};
 
 /**
  * @public
@@ -573,12 +573,12 @@ export interface VideoArtifactsConfiguration {
   /**
    * <p>Indicates whether the video artifact is enabled or disabled.</p>
    */
-  State: ArtifactsState | string | undefined;
+  State: keyof typeof ArtifactsState | string | undefined;
 
   /**
    * <p>The MUX type of the video artifact configuration object.</p>
    */
-  MuxType?: VideoMuxType | string;
+  MuxType?: keyof typeof VideoMuxType | string;
 }
 
 /**
@@ -610,23 +610,23 @@ export interface ArtifactsConfiguration {
 /**
  * @public
  */
-export enum AudioChannelsOption {
-  Mono = "Mono",
-  Stereo = "Stereo",
-}
+export const AudioChannelsOption = {
+  Mono: "Mono",
+  Stereo: "Stereo",
+};
 
 /**
  * @public
  */
-export enum ErrorCode {
-  BadRequest = "BadRequest",
-  Forbidden = "Forbidden",
-  NotFound = "NotFound",
-  ResourceLimitExceeded = "ResourceLimitExceeded",
-  ServiceFailure = "ServiceFailure",
-  ServiceUnavailable = "ServiceUnavailable",
-  Throttling = "Throttling",
-}
+export const ErrorCode = {
+  BadRequest: "BadRequest",
+  Forbidden: "Forbidden",
+  NotFound: "NotFound",
+  ResourceLimitExceeded: "ResourceLimitExceeded",
+  ServiceFailure: "ServiceFailure",
+  ServiceUnavailable: "ServiceUnavailable",
+  Throttling: "Throttling",
+};
 
 /**
  * @public
@@ -635,7 +635,7 @@ export enum ErrorCode {
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * <p>The request ID associated with the call responsible for the exception.</p>
@@ -660,10 +660,10 @@ export class BadRequestException extends __BaseException {
 /**
  * @public
  */
-export enum ParticipantRole {
-  AGENT = "AGENT",
-  CUSTOMER = "CUSTOMER",
-}
+export const ParticipantRole = {
+  AGENT: "AGENT",
+  CUSTOMER: "CUSTOMER",
+};
 
 /**
  * @public
@@ -678,7 +678,7 @@ export interface ChannelDefinition {
   /**
    * <p>Specifies whether the audio in a channel belongs to the <code>AGENT</code> or <code>CUSTOMER</code>.</p>
    */
-  ParticipantRole?: ParticipantRole | string;
+  ParticipantRole?: keyof typeof ParticipantRole | string;
 }
 
 /**
@@ -729,16 +729,16 @@ export interface ChimeSdkMeetingConfiguration {
 /**
  * @public
  */
-export enum MediaPipelineSinkType {
-  S3Bucket = "S3Bucket",
-}
+export const MediaPipelineSinkType = {
+  S3Bucket: "S3Bucket",
+};
 
 /**
  * @public
  */
-export enum MediaPipelineSourceType {
-  ChimeSdkMeeting = "ChimeSdkMeeting",
-}
+export const MediaPipelineSourceType = {
+  ChimeSdkMeeting: "ChimeSdkMeeting",
+};
 
 /**
  * @public
@@ -764,7 +764,7 @@ export interface CreateMediaCapturePipelineRequest {
    * <p>Source type from which the media artifacts are captured. A Chime SDK Meeting is the only
    *          supported source.</p>
    */
-  SourceType: MediaPipelineSourceType | string | undefined;
+  SourceType: keyof typeof MediaPipelineSourceType | string | undefined;
 
   /**
    * <p>ARN of the source from which the media artifacts are captured.</p>
@@ -774,7 +774,7 @@ export interface CreateMediaCapturePipelineRequest {
   /**
    * <p>Destination type to which the media artifacts are saved. You must use an S3 bucket.</p>
    */
-  SinkType: MediaPipelineSinkType | string | undefined;
+  SinkType: keyof typeof MediaPipelineSinkType | string | undefined;
 
   /**
    * <p>The ARN of the sink type.</p>
@@ -801,14 +801,14 @@ export interface CreateMediaCapturePipelineRequest {
 /**
  * @public
  */
-export enum MediaPipelineStatus {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  Initializing = "Initializing",
-  Paused = "Paused",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-}
+export const MediaPipelineStatus = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  Initializing: "Initializing",
+  Paused: "Paused",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+};
 
 /**
  * @public
@@ -830,7 +830,7 @@ export interface MediaCapturePipeline {
    * <p>Source type from which media artifacts are saved. You must use
    *          <code>ChimeMeeting</code>.</p>
    */
-  SourceType?: MediaPipelineSourceType | string;
+  SourceType?: keyof typeof MediaPipelineSourceType | string;
 
   /**
    * <p>ARN of the source from which the media artifacts are saved.</p>
@@ -840,13 +840,13 @@ export interface MediaCapturePipeline {
   /**
    * <p>The status of the media pipeline.</p>
    */
-  Status?: MediaPipelineStatus | string;
+  Status?: keyof typeof MediaPipelineStatus | string;
 
   /**
    * <p>Destination type to which the media artifacts are saved. You must use an S3
    *          Bucket.</p>
    */
-  SinkType?: MediaPipelineSinkType | string;
+  SinkType?: keyof typeof MediaPipelineSinkType | string;
 
   /**
    * <p>ARN of the destination to which the media artifacts are saved.</p>
@@ -888,7 +888,7 @@ export interface CreateMediaCapturePipelineResponse {
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * <p>The request id associated with the call responsible for the exception.</p>
@@ -917,7 +917,7 @@ export class ForbiddenException extends __BaseException {
 export class ResourceLimitExceededException extends __BaseException {
   readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * <p>The request ID associated with the call responsible for the exception.</p>
@@ -946,7 +946,7 @@ export class ResourceLimitExceededException extends __BaseException {
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * <p>The request ID associated with the call responsible for the exception.</p>
@@ -975,7 +975,7 @@ export class ServiceFailureException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * <p>The request ID associated with the call responsible for the exception.</p>
@@ -1004,7 +1004,7 @@ export class ServiceUnavailableException extends __BaseException {
 export class ThrottledClientException extends __BaseException {
   readonly name: "ThrottledClientException" = "ThrottledClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * <p>The request ID associated with the call responsible for the exception.</p>
@@ -1033,7 +1033,7 @@ export class ThrottledClientException extends __BaseException {
 export class UnauthorizedClientException extends __BaseException {
   readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * <p>The request ID associated with the call responsible for the exception.</p>
@@ -1069,9 +1069,9 @@ export interface S3BucketSinkConfiguration {
 /**
  * @public
  */
-export enum ConcatenationSinkType {
-  S3Bucket = "S3Bucket",
-}
+export const ConcatenationSinkType = {
+  S3Bucket: "S3Bucket",
+};
 
 /**
  * @public
@@ -1081,7 +1081,7 @@ export interface ConcatenationSink {
   /**
    * <p>The type of data sink in the configuration object.</p>
    */
-  Type: ConcatenationSinkType | string | undefined;
+  Type: keyof typeof ConcatenationSinkType | string | undefined;
 
   /**
    * <p>The configuration settings for an Amazon S3 bucket sink.</p>
@@ -1120,9 +1120,9 @@ export interface MediaCapturePipelineSourceConfiguration {
 /**
  * @public
  */
-export enum ConcatenationSourceType {
-  MediaCapturePipeline = "MediaCapturePipeline",
-}
+export const ConcatenationSourceType = {
+  MediaCapturePipeline: "MediaCapturePipeline",
+};
 
 /**
  * @public
@@ -1132,7 +1132,7 @@ export interface ConcatenationSource {
   /**
    * <p>The type of concatenation source in a configuration object.</p>
    */
-  Type: ConcatenationSourceType | string | undefined;
+  Type: keyof typeof ConcatenationSourceType | string | undefined;
 
   /**
    * <p>The concatenation settings for the media pipeline in a configuration object.</p>
@@ -1194,7 +1194,7 @@ export interface MediaConcatenationPipeline {
   /**
    * <p>The status of the concatenation pipeline.</p>
    */
-  Status?: MediaPipelineStatus | string;
+  Status?: keyof typeof MediaPipelineStatus | string;
 
   /**
    * <p>The time at which the concatenation pipeline was created.</p>
@@ -1221,10 +1221,10 @@ export interface CreateMediaConcatenationPipelineResponse {
 /**
  * @public
  */
-export enum FragmentSelectorType {
-  ProducerTimestamp = "ProducerTimestamp",
-  ServerTimestamp = "ServerTimestamp",
-}
+export const FragmentSelectorType = {
+  ProducerTimestamp: "ProducerTimestamp",
+  ServerTimestamp: "ServerTimestamp",
+};
 
 /**
  * @public
@@ -1268,7 +1268,7 @@ export interface FragmentSelector {
    * <p>The origin of the timestamps to use, <code>Server</code> or <code>Producer</code>. For more information, see
    *          <a href="kinesisvideostreams/latest/dg/API_dataplane_StartSelector.html#KinesisVideo-Type-dataplane_StartSelector-StartSelectorType">StartSelectorType</a> in the <i>Amazon Kinesis Video Streams Developer Guide</i>.</p>
    */
-  FragmentSelectorType: FragmentSelectorType | string | undefined;
+  FragmentSelectorType: keyof typeof FragmentSelectorType | string | undefined;
 
   /**
    * <p>The range of timestamps to return.</p>
@@ -1306,9 +1306,9 @@ export interface KinesisVideoStreamRecordingSourceRuntimeConfiguration {
 /**
  * @public
  */
-export enum MediaEncoding {
-  PCM = "pcm",
-}
+export const MediaEncoding = {
+  PCM: "pcm",
+};
 
 /**
  * @public
@@ -1361,7 +1361,7 @@ export interface KinesisVideoStreamSourceRuntimeConfiguration {
    * <p>Specifies the encoding of your input audio. Supported format: PCM (only signed 16-bit little-endian audio formats, which does not include WAV)</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio">Media formats</a> in the <i>Amazon Transcribe Developer Guide</i>.</p>
    */
-  MediaEncoding: MediaEncoding | string | undefined;
+  MediaEncoding: keyof typeof MediaEncoding | string | undefined;
 
   /**
    * <p>The sample rate of the input audio (in hertz). Low-quality audio, such as telephone
@@ -1375,10 +1375,10 @@ export interface KinesisVideoStreamSourceRuntimeConfiguration {
 /**
  * @public
  */
-export enum RecordingFileFormat {
-  Opus = "Opus",
-  Wav = "Wav",
-}
+export const RecordingFileFormat = {
+  Opus: "Opus",
+  Wav: "Wav",
+};
 
 /**
  * @public
@@ -1393,7 +1393,7 @@ export interface S3RecordingSinkRuntimeConfiguration {
   /**
    * <p>The file formats for the audio and video files sent to the Amazon S3 bucket.</p>
    */
-  RecordingFileFormat: RecordingFileFormat | string | undefined;
+  RecordingFileFormat: keyof typeof RecordingFileFormat | string | undefined;
 }
 
 /**
@@ -1460,7 +1460,7 @@ export interface MediaInsightsPipeline {
   /**
    * <p>The status of a media insights pipeline.</p>
    */
-  Status?: MediaPipelineStatus | string;
+  Status?: keyof typeof MediaPipelineStatus | string;
 
   /**
    * <p>The configuration settings for a Kinesis runtime video stream in a media insights pipeline.</p>
@@ -1505,7 +1505,7 @@ export interface CreateMediaInsightsPipelineResponse {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * <p>The request ID associated with the call responsible for the exception.</p>
@@ -1585,24 +1585,24 @@ export interface SqsQueueSinkConfiguration {
 /**
  * @public
  */
-export enum MediaInsightsPipelineConfigurationElementType {
-  AMAZON_TRANSCRIBE_CALL_ANALYTICS_PROCESSOR = "AmazonTranscribeCallAnalyticsProcessor",
-  AMAZON_TRANSCRIBE_PROCESSOR = "AmazonTranscribeProcessor",
-  KINESIS_DATA_STREAM_SINK = "KinesisDataStreamSink",
-  LAMBDA_FUNCTION_SINK = "LambdaFunctionSink",
-  S3_RECORDING_SINK = "S3RecordingSink",
-  SNS_TOPIC_SINK = "SnsTopicSink",
-  SQS_QUEUE_SINK = "SqsQueueSink",
-  VOICE_ANALYTICS_PROCESSOR = "VoiceAnalyticsProcessor",
-}
+export const MediaInsightsPipelineConfigurationElementType = {
+  AMAZON_TRANSCRIBE_CALL_ANALYTICS_PROCESSOR: "AmazonTranscribeCallAnalyticsProcessor",
+  AMAZON_TRANSCRIBE_PROCESSOR: "AmazonTranscribeProcessor",
+  KINESIS_DATA_STREAM_SINK: "KinesisDataStreamSink",
+  LAMBDA_FUNCTION_SINK: "LambdaFunctionSink",
+  S3_RECORDING_SINK: "S3RecordingSink",
+  SNS_TOPIC_SINK: "SnsTopicSink",
+  SQS_QUEUE_SINK: "SqsQueueSink",
+  VOICE_ANALYTICS_PROCESSOR: "VoiceAnalyticsProcessor",
+};
 
 /**
  * @public
  */
-export enum VoiceAnalyticsConfigurationStatus {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const VoiceAnalyticsConfigurationStatus = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+};
 
 /**
  * @public
@@ -1612,12 +1612,12 @@ export interface VoiceAnalyticsProcessorConfiguration {
   /**
    * <p>The status of the speaker search task.</p>
    */
-  SpeakerSearchStatus?: VoiceAnalyticsConfigurationStatus | string;
+  SpeakerSearchStatus?: keyof typeof VoiceAnalyticsConfigurationStatus | string;
 
   /**
    * <p>The status of the voice tone analysis task.</p>
    */
-  VoiceToneAnalysisStatus?: VoiceAnalyticsConfigurationStatus | string;
+  VoiceToneAnalysisStatus?: keyof typeof VoiceAnalyticsConfigurationStatus | string;
 }
 
 /**
@@ -1628,7 +1628,7 @@ export interface MediaInsightsPipelineConfigurationElement {
   /**
    * <p>The element type.</p>
    */
-  Type: MediaInsightsPipelineConfigurationElementType | string | undefined;
+  Type: keyof typeof MediaInsightsPipelineConfigurationElementType | string | undefined;
 
   /**
    * <p>The analytics configuration settings for transcribing audio in a media insights pipeline configuration element.</p>
@@ -1708,9 +1708,9 @@ export interface KeywordMatchConfiguration {
 /**
  * @public
  */
-export enum SentimentType {
-  NEGATIVE = "NEGATIVE",
-}
+export const SentimentType = {
+  NEGATIVE: "NEGATIVE",
+};
 
 /**
  * @public
@@ -1725,7 +1725,7 @@ export interface SentimentConfiguration {
   /**
    * <p>The type of sentiment, <code>POSITIVE</code>, <code>NEGATIVE</code>, or <code>NEUTRAL</code>.</p>
    */
-  SentimentType: SentimentType | string | undefined;
+  SentimentType: keyof typeof SentimentType | string | undefined;
 
   /**
    * <p>Specifies the analysis interval.</p>
@@ -1736,11 +1736,11 @@ export interface SentimentConfiguration {
 /**
  * @public
  */
-export enum RealTimeAlertRuleType {
-  IssueDetection = "IssueDetection",
-  KeywordMatch = "KeywordMatch",
-  Sentiment = "Sentiment",
-}
+export const RealTimeAlertRuleType = {
+  IssueDetection: "IssueDetection",
+  KeywordMatch: "KeywordMatch",
+  Sentiment: "Sentiment",
+};
 
 /**
  * @public
@@ -1750,7 +1750,7 @@ export interface RealTimeAlertRule {
   /**
    * <p>The type of alert rule.</p>
    */
-  Type: RealTimeAlertRuleType | string | undefined;
+  Type: keyof typeof RealTimeAlertRuleType | string | undefined;
 
   /**
    * <p>Specifies the settings for matching the keywords in a real-time alert rule.</p>
@@ -1890,7 +1890,7 @@ export interface LiveConnectorRTMPConfiguration {
   /**
    * <p>The audio channels set for the RTMP configuration</p>
    */
-  AudioChannels?: AudioChannelsOption | string;
+  AudioChannels?: keyof typeof AudioChannelsOption | string;
 
   /**
    * <p>The audio sample rate set for the RTMP configuration. Default: 48000.</p>
@@ -1901,9 +1901,9 @@ export interface LiveConnectorRTMPConfiguration {
 /**
  * @public
  */
-export enum LiveConnectorSinkType {
-  RTMP = "RTMP",
-}
+export const LiveConnectorSinkType = {
+  RTMP: "RTMP",
+};
 
 /**
  * @public
@@ -1913,7 +1913,7 @@ export interface LiveConnectorSinkConfiguration {
   /**
    * <p>The sink configuration's sink type.</p>
    */
-  SinkType: LiveConnectorSinkType | string | undefined;
+  SinkType: keyof typeof LiveConnectorSinkType | string | undefined;
 
   /**
    * <p>The sink configuration's RTMP configuration settings.</p>
@@ -1924,10 +1924,10 @@ export interface LiveConnectorSinkConfiguration {
 /**
  * @public
  */
-export enum LiveConnectorMuxType {
-  AudioWithActiveSpeakerVideo = "AudioWithActiveSpeakerVideo",
-  AudioWithCompositedVideo = "AudioWithCompositedVideo",
-}
+export const LiveConnectorMuxType = {
+  AudioWithActiveSpeakerVideo: "AudioWithActiveSpeakerVideo",
+  AudioWithCompositedVideo: "AudioWithCompositedVideo",
+};
 
 /**
  * @public
@@ -1942,7 +1942,7 @@ export interface ChimeSdkMeetingLiveConnectorConfiguration {
   /**
    * <p>The configuration object's multiplex type.</p>
    */
-  MuxType: LiveConnectorMuxType | string | undefined;
+  MuxType: keyof typeof LiveConnectorMuxType | string | undefined;
 
   /**
    * <p>The media pipeline's composited video.</p>
@@ -1958,9 +1958,9 @@ export interface ChimeSdkMeetingLiveConnectorConfiguration {
 /**
  * @public
  */
-export enum LiveConnectorSourceType {
-  ChimeSdkMeeting = "ChimeSdkMeeting",
-}
+export const LiveConnectorSourceType = {
+  ChimeSdkMeeting: "ChimeSdkMeeting",
+};
 
 /**
  * @public
@@ -1970,7 +1970,7 @@ export interface LiveConnectorSourceConfiguration {
   /**
    * <p>The source configuration's media source type.</p>
    */
-  SourceType: LiveConnectorSourceType | string | undefined;
+  SourceType: keyof typeof LiveConnectorSourceType | string | undefined;
 
   /**
    * <p>The configuration settings of the connector pipeline.</p>
@@ -2031,7 +2031,7 @@ export interface MediaLiveConnectorPipeline {
   /**
    * <p>The connector pipeline's status.</p>
    */
-  Status?: MediaPipelineStatus | string;
+  Status?: keyof typeof MediaPipelineStatus | string;
 
   /**
    * <p>The time at which the connector pipeline was created.</p>
@@ -2072,7 +2072,7 @@ export interface DeleteMediaCapturePipelineRequest {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: keyof typeof ErrorCode | string;
   Message?: string;
   /**
    * <p>The request ID associated with the call responsible for the exception.</p>
@@ -2441,10 +2441,10 @@ export interface UpdateMediaInsightsPipelineConfigurationResponse {
 /**
  * @public
  */
-export enum MediaPipelineStatusUpdate {
-  Pause = "Pause",
-  Resume = "Resume",
-}
+export const MediaPipelineStatusUpdate = {
+  Pause: "Pause",
+  Resume: "Resume",
+};
 
 /**
  * @public
@@ -2458,7 +2458,7 @@ export interface UpdateMediaInsightsPipelineStatusRequest {
   /**
    * <p>The requested status of the media insights pipeline.</p>
    */
-  UpdateStatus: MediaPipelineStatusUpdate | string | undefined;
+  UpdateStatus: keyof typeof MediaPipelineStatusUpdate | string | undefined;
 }
 
 /**

@@ -17984,7 +17984,10 @@ const serializeAws_json1_1AutoMLAlgorithmConfig = (input: AutoMLAlgorithmConfig,
   };
 };
 
-const serializeAws_json1_1AutoMLAlgorithms = (input: (AutoMLAlgorithm | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1AutoMLAlgorithms = (
+  input: (keyof typeof AutoMLAlgorithm | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -18393,7 +18396,7 @@ const serializeAws_json1_1ClarifyFeatureHeaders = (input: string[], context: __S
 };
 
 const serializeAws_json1_1ClarifyFeatureTypes = (
-  input: (ClarifyFeatureType | string)[],
+  input: (keyof typeof ClarifyFeatureType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -18522,7 +18525,10 @@ const serializeAws_json1_1CollectionParameters = (input: Record<string, string>,
   }, {});
 };
 
-const serializeAws_json1_1CompressionTypes = (input: (CompressionType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1CompressionTypes = (
+  input: (keyof typeof CompressionType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -18571,7 +18577,7 @@ const serializeAws_json1_1ContainerEntrypoint = (input: string[], context: __Ser
 };
 
 const serializeAws_json1_1ContentClassifiers = (
-  input: (ContentClassifier | string)[],
+  input: (keyof typeof ContentClassifier | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -21886,7 +21892,10 @@ const serializeAws_json1_1InputDataConfig = (input: Channel[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1InputModes = (input: (TrainingInputMode | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1InputModes = (
+  input: (keyof typeof TrainingInputMode | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -23751,7 +23760,7 @@ const serializeAws_json1_1ModelQualityJobInput = (input: ModelQualityJobInput, c
 };
 
 const serializeAws_json1_1ModelVariantActionMap = (
-  input: Record<string, ModelVariantAction | string>,
+  input: Record<string, keyof typeof ModelVariantAction | string>,
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
@@ -24091,7 +24100,7 @@ const serializeAws_json1_1NetworkConfig = (input: NetworkConfig, context: __Serd
 };
 
 const serializeAws_json1_1NotebookInstanceAcceleratorTypes = (
-  input: (NotebookInstanceAcceleratorType | string)[],
+  input: (keyof typeof NotebookInstanceAcceleratorType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -24638,7 +24647,10 @@ const serializeAws_json1_1QueryLineageStartArns = (input: string[], context: __S
     });
 };
 
-const serializeAws_json1_1QueryLineageTypes = (input: (LineageType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1QueryLineageTypes = (
+  input: (keyof typeof LineageType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -24672,7 +24684,7 @@ const serializeAws_json1_1RealTimeInferenceConfig = (input: RealTimeInferenceCon
 };
 
 const serializeAws_json1_1RealtimeInferenceInstanceTypes = (
-  input: (ProductionVariantInstanceType | string)[],
+  input: (keyof typeof ProductionVariantInstanceType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -25571,7 +25583,7 @@ const serializeAws_json1_1TrainingImageConfig = (input: TrainingImageConfig, con
 };
 
 const serializeAws_json1_1TrainingInstanceTypes = (
-  input: (TrainingInstanceType | string)[],
+  input: (keyof typeof TrainingInstanceType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -25675,7 +25687,7 @@ const serializeAws_json1_1TransformInput = (input: TransformInput, context: __Se
 };
 
 const serializeAws_json1_1TransformInstanceTypes = (
-  input: (TransformInstanceType | string)[],
+  input: (keyof typeof TransformInstanceType | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -26959,7 +26971,10 @@ const deserializeAws_json1_1AutoMLAlgorithmConfig = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1AutoMLAlgorithms = (output: any, context: __SerdeContext): (AutoMLAlgorithm | string)[] => {
+const deserializeAws_json1_1AutoMLAlgorithms = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof AutoMLAlgorithm | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -27112,7 +27127,10 @@ const deserializeAws_json1_1AutoMLInferenceContainerDefinitions = (
   context: __SerdeContext
 ): Record<string, AutoMLContainerDefinition[]> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, AutoMLContainerDefinition[]>, [key, value]: [AutoMLProcessingUnit | string, any]) => {
+    (
+      acc: Record<string, AutoMLContainerDefinition[]>,
+      [key, value]: [keyof typeof AutoMLProcessingUnit | string, any]
+    ) => {
       if (value === null) {
         return acc;
       }
@@ -27720,7 +27738,7 @@ const deserializeAws_json1_1ClarifyFeatureHeaders = (output: any, context: __Ser
 const deserializeAws_json1_1ClarifyFeatureTypes = (
   output: any,
   context: __SerdeContext
-): (ClarifyFeatureType | string)[] => {
+): (keyof typeof ClarifyFeatureType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -27945,7 +27963,10 @@ const deserializeAws_json1_1CompilationJobSummary = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1CompressionTypes = (output: any, context: __SerdeContext): (CompressionType | string)[] => {
+const deserializeAws_json1_1CompressionTypes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof CompressionType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -28027,7 +28048,7 @@ const deserializeAws_json1_1ContainerEntrypoint = (output: any, context: __Serde
 const deserializeAws_json1_1ContentClassifiers = (
   output: any,
   context: __SerdeContext
-): (ContentClassifier | string)[] => {
+): (keyof typeof ContentClassifier | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -33176,7 +33197,10 @@ const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeCont
   return retVal;
 };
 
-const deserializeAws_json1_1InputModes = (output: any, context: __SerdeContext): (TrainingInputMode | string)[] => {
+const deserializeAws_json1_1InputModes = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof TrainingInputMode | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -36001,7 +36025,7 @@ const deserializeAws_json1_1NetworkConfig = (output: any, context: __SerdeContex
 const deserializeAws_json1_1NotebookInstanceAcceleratorTypes = (
   output: any,
   context: __SerdeContext
-): (NotebookInstanceAcceleratorType | string)[] => {
+): (keyof typeof NotebookInstanceAcceleratorType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -37262,7 +37286,7 @@ const deserializeAws_json1_1RealTimeInferenceConfig = (
 const deserializeAws_json1_1RealtimeInferenceInstanceTypes = (
   output: any,
   context: __SerdeContext
-): (ProductionVariantInstanceType | string)[] => {
+): (keyof typeof ProductionVariantInstanceType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -38222,7 +38246,7 @@ const deserializeAws_json1_1TrainingImageConfig = (output: any, context: __Serde
 const deserializeAws_json1_1TrainingInstanceTypes = (
   output: any,
   context: __SerdeContext
-): (TrainingInstanceType | string)[] => {
+): (keyof typeof TrainingInstanceType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -38485,7 +38509,7 @@ const deserializeAws_json1_1TransformInput = (output: any, context: __SerdeConte
 const deserializeAws_json1_1TransformInstanceTypes = (
   output: any,
   context: __SerdeContext
-): (TransformInstanceType | string)[] => {
+): (keyof typeof TransformInstanceType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

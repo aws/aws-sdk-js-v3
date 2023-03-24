@@ -151,18 +151,18 @@ export interface Device {
 /**
  * @public
  */
-export enum EncodingType {
-  binary = "binary",
-  json = "json",
-}
+export const EncodingType = {
+  binary: "binary",
+  json: "json",
+};
 
 /**
  * @public
  */
-export enum FunctionIsolationMode {
-  GreengrassContainer = "GreengrassContainer",
-  NoContainer = "NoContainer",
-}
+export const FunctionIsolationMode = {
+  GreengrassContainer: "GreengrassContainer",
+  NoContainer: "NoContainer",
+};
 
 /**
  * @public
@@ -188,7 +188,7 @@ export interface FunctionExecutionConfig {
   /**
    * Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
    */
-  IsolationMode?: FunctionIsolationMode | string;
+  IsolationMode?: keyof typeof FunctionIsolationMode | string;
 
   /**
    * Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.
@@ -199,10 +199,10 @@ export interface FunctionExecutionConfig {
 /**
  * @public
  */
-export enum Permission {
-  ro = "ro",
-  rw = "rw",
-}
+export const Permission = {
+  ro: "ro",
+  rw: "rw",
+};
 
 /**
  * @public
@@ -212,7 +212,7 @@ export interface ResourceAccessPolicy {
   /**
    * The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
    */
-  Permission?: Permission | string;
+  Permission?: keyof typeof Permission | string;
 
   /**
    * The ID of the resource. (This ID is assigned to the resource when you create the resource definiton.)
@@ -254,7 +254,7 @@ export interface FunctionConfiguration {
   /**
    * The expected encoding type of the input payload for the function. The default is ''json''.
    */
-  EncodingType?: EncodingType | string;
+  EncodingType?: keyof typeof EncodingType | string;
 
   /**
    * The environment configuration of the function.
@@ -373,29 +373,29 @@ export interface GroupInformation {
 /**
  * @public
  */
-export enum LoggerComponent {
-  GreengrassSystem = "GreengrassSystem",
-  Lambda = "Lambda",
-}
+export const LoggerComponent = {
+  GreengrassSystem: "GreengrassSystem",
+  Lambda: "Lambda",
+};
 
 /**
  * @public
  */
-export enum LoggerLevel {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  FATAL = "FATAL",
-  INFO = "INFO",
-  WARN = "WARN",
-}
+export const LoggerLevel = {
+  DEBUG: "DEBUG",
+  ERROR: "ERROR",
+  FATAL: "FATAL",
+  INFO: "INFO",
+  WARN: "WARN",
+};
 
 /**
  * @public
  */
-export enum LoggerType {
-  AWSCloudWatch = "AWSCloudWatch",
-  FileSystem = "FileSystem",
-}
+export const LoggerType = {
+  AWSCloudWatch: "AWSCloudWatch",
+  FileSystem: "FileSystem",
+};
 
 /**
  * @public
@@ -405,7 +405,7 @@ export interface Logger {
   /**
    * The component that will be subject to logging.
    */
-  Component: LoggerComponent | string | undefined;
+  Component: keyof typeof LoggerComponent | string | undefined;
 
   /**
    * A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
@@ -415,7 +415,7 @@ export interface Logger {
   /**
    * The level of the logs.
    */
-  Level: LoggerLevel | string | undefined;
+  Level: keyof typeof LoggerLevel | string | undefined;
 
   /**
    * The amount of file space, in KB, to use if the local file system is used for logging purposes.
@@ -425,7 +425,7 @@ export interface Logger {
   /**
    * The type of log output which will be used.
    */
-  Type: LoggerType | string | undefined;
+  Type: keyof typeof LoggerType | string | undefined;
 }
 
 /**
@@ -494,7 +494,7 @@ export interface ResourceDownloadOwnerSetting {
   /**
    * The permissions that the group owner has to the resource. Valid values are ''rw'' (read/write) or ''ro'' (read-only).
    */
-  GroupPermission: Permission | string | undefined;
+  GroupPermission: keyof typeof Permission | string | undefined;
 }
 
 /**
@@ -827,12 +827,12 @@ export interface BulkDeploymentMetrics {
 /**
  * @public
  */
-export enum DeploymentType {
-  ForceResetDeployment = "ForceResetDeployment",
-  NewDeployment = "NewDeployment",
-  Redeployment = "Redeployment",
-  ResetDeployment = "ResetDeployment",
-}
+export const DeploymentType = {
+  ForceResetDeployment: "ForceResetDeployment",
+  NewDeployment: "NewDeployment",
+  Redeployment: "Redeployment",
+  ResetDeployment: "ResetDeployment",
+};
 
 /**
  * @public
@@ -862,7 +862,7 @@ export interface BulkDeploymentResult {
   /**
    * The type of the deployment.
    */
-  DeploymentType?: DeploymentType | string;
+  DeploymentType?: keyof typeof DeploymentType | string;
 
   /**
    * Details about the error.
@@ -883,22 +883,22 @@ export interface BulkDeploymentResult {
 /**
  * @public
  */
-export enum BulkDeploymentStatus {
-  Completed = "Completed",
-  Failed = "Failed",
-  Initializing = "Initializing",
-  Running = "Running",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-}
+export const BulkDeploymentStatus = {
+  Completed: "Completed",
+  Failed: "Failed",
+  Initializing: "Initializing",
+  Running: "Running",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+};
 
 /**
  * @public
  */
-export enum ConfigurationSyncStatus {
-  InSync = "InSync",
-  OutOfSync = "OutOfSync",
-}
+export const ConfigurationSyncStatus = {
+  InSync: "InSync",
+  OutOfSync: "OutOfSync",
+};
 
 /**
  * @public
@@ -1160,7 +1160,7 @@ export interface CreateDeploymentRequest {
   /**
    * The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
    */
-  DeploymentType: DeploymentType | string | undefined;
+  DeploymentType: keyof typeof DeploymentType | string | undefined;
 
   /**
    * The ID of the Greengrass group.
@@ -1317,7 +1317,7 @@ export interface FunctionDefaultExecutionConfig {
   /**
    * Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.
    */
-  IsolationMode?: FunctionIsolationMode | string;
+  IsolationMode?: keyof typeof FunctionIsolationMode | string;
 
   /**
    * Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.
@@ -1919,44 +1919,44 @@ export interface CreateResourceDefinitionVersionResponse {
 /**
  * @public
  */
-export enum SoftwareToUpdate {
-  core = "core",
-  ota_agent = "ota_agent",
-}
+export const SoftwareToUpdate = {
+  core: "core",
+  ota_agent: "ota_agent",
+};
 
 /**
  * @public
  */
-export enum UpdateAgentLogLevel {
-  DEBUG = "DEBUG",
-  ERROR = "ERROR",
-  FATAL = "FATAL",
-  INFO = "INFO",
-  NONE = "NONE",
-  TRACE = "TRACE",
-  VERBOSE = "VERBOSE",
-  WARN = "WARN",
-}
+export const UpdateAgentLogLevel = {
+  DEBUG: "DEBUG",
+  ERROR: "ERROR",
+  FATAL: "FATAL",
+  INFO: "INFO",
+  NONE: "NONE",
+  TRACE: "TRACE",
+  VERBOSE: "VERBOSE",
+  WARN: "WARN",
+};
 
 /**
  * @public
  */
-export enum UpdateTargetsArchitecture {
-  aarch64 = "aarch64",
-  armv6l = "armv6l",
-  armv7l = "armv7l",
-  x86_64 = "x86_64",
-}
+export const UpdateTargetsArchitecture = {
+  aarch64: "aarch64",
+  armv6l: "armv6l",
+  armv7l: "armv7l",
+  x86_64: "x86_64",
+};
 
 /**
  * @public
  */
-export enum UpdateTargetsOperatingSystem {
-  amazon_linux = "amazon_linux",
-  openwrt = "openwrt",
-  raspbian = "raspbian",
-  ubuntu = "ubuntu",
-}
+export const UpdateTargetsOperatingSystem = {
+  amazon_linux: "amazon_linux",
+  openwrt: "openwrt",
+  raspbian: "raspbian",
+  ubuntu: "ubuntu",
+};
 
 /**
  * @public
@@ -1975,12 +1975,12 @@ export interface CreateSoftwareUpdateJobRequest {
   /**
    * The piece of software on the Greengrass core that will be updated.
    */
-  SoftwareToUpdate: SoftwareToUpdate | string | undefined;
+  SoftwareToUpdate: keyof typeof SoftwareToUpdate | string | undefined;
 
   /**
    * The minimum level of log statements that should be logged by the OTA Agent during an update.
    */
-  UpdateAgentLogLevel?: UpdateAgentLogLevel | string;
+  UpdateAgentLogLevel?: keyof typeof UpdateAgentLogLevel | string;
 
   /**
    * The ARNs of the targets (IoT things or IoT thing groups) that this update will be applied to.
@@ -1990,12 +1990,12 @@ export interface CreateSoftwareUpdateJobRequest {
   /**
    * The architecture of the cores which are the targets of an update.
    */
-  UpdateTargetsArchitecture: UpdateTargetsArchitecture | string | undefined;
+  UpdateTargetsArchitecture: keyof typeof UpdateTargetsArchitecture | string | undefined;
 
   /**
    * The operating system of the cores which are the targets of an update.
    */
-  UpdateTargetsOperatingSystem: UpdateTargetsOperatingSystem | string | undefined;
+  UpdateTargetsOperatingSystem: keyof typeof UpdateTargetsOperatingSystem | string | undefined;
 }
 
 /**
@@ -2282,7 +2282,7 @@ export interface Deployment {
   /**
    * The type of the deployment.
    */
-  DeploymentType?: DeploymentType | string;
+  DeploymentType?: keyof typeof DeploymentType | string;
 
   /**
    * The ARN of the group for this deployment.
@@ -2372,7 +2372,7 @@ export interface GetBulkDeploymentStatusResponse {
   /**
    * The status of the bulk deployment.
    */
-  BulkDeploymentStatus?: BulkDeploymentStatus | string;
+  BulkDeploymentStatus?: keyof typeof BulkDeploymentStatus | string;
 
   /**
    * The time, in ISO format, when the deployment was created.
@@ -2662,7 +2662,7 @@ export interface GetDeploymentStatusResponse {
   /**
    * The type of the deployment.
    */
-  DeploymentType?: DeploymentType | string;
+  DeploymentType?: keyof typeof DeploymentType | string;
 
   /**
    * Error details
@@ -3413,10 +3413,10 @@ export interface GetThingRuntimeConfigurationRequest {
 /**
  * @public
  */
-export enum Telemetry {
-  Off = "Off",
-  On = "On",
-}
+export const Telemetry = {
+  Off: "Off",
+  On: "On",
+};
 
 /**
  * @public
@@ -3426,12 +3426,12 @@ export interface TelemetryConfiguration {
   /**
    * Synchronization status of the device reported configuration with the desired configuration.
    */
-  ConfigurationSyncStatus?: ConfigurationSyncStatus | string;
+  ConfigurationSyncStatus?: keyof typeof ConfigurationSyncStatus | string;
 
   /**
    * Configure telemetry to be on or off.
    */
-  Telemetry: Telemetry | string | undefined;
+  Telemetry: keyof typeof Telemetry | string | undefined;
 }
 
 /**
@@ -4471,7 +4471,7 @@ export interface TelemetryConfigurationUpdate {
   /**
    * Configure telemetry to be on or off.
    */
-  Telemetry: Telemetry | string | undefined;
+  Telemetry: keyof typeof Telemetry | string | undefined;
 }
 
 /**

@@ -6,20 +6,20 @@ import { LicenseManagerLinuxSubscriptionsServiceException as __BaseException } f
 /**
  * @public
  */
-export enum Operator {
+export const Operator = {
   /**
    * Contains operator
    */
-  CONTAINS = "Contains",
+  CONTAINS: "Contains",
   /**
    * Equal operator
    */
-  EQUAL = "Equal",
+  EQUAL: "Equal",
   /**
    * Not equal operator
    */
-  NOT_EQUAL = "NotEqual",
-}
+  NOT_EQUAL: "NotEqual",
+};
 
 /**
  * @public
@@ -40,7 +40,7 @@ export interface Filter {
   /**
    * <p>An operator for filtering results.</p>
    */
-  Operator?: Operator | string;
+  Operator?: keyof typeof Operator | string;
 }
 
 /**
@@ -51,30 +51,30 @@ export interface GetServiceSettingsRequest {}
 /**
  * @public
  */
-export enum LinuxSubscriptionsDiscovery {
+export const LinuxSubscriptionsDiscovery = {
   /**
    * Disabled LinuxSubscriptionsDiscovery
    */
-  Disabled = "Disabled",
+  Disabled: "Disabled",
   /**
    * Enabled LinuxSubscriptionsDiscovery
    */
-  Enabled = "Enabled",
-}
+  Enabled: "Enabled",
+};
 
 /**
  * @public
  */
-export enum OrganizationIntegration {
+export const OrganizationIntegration = {
   /**
    * Disabled OrganizationIntegration
    */
-  Disabled = "Disabled",
+  Disabled: "Disabled",
   /**
    * Enabled OrganizationIntegration
    */
-  Enabled = "Enabled",
-}
+  Enabled: "Enabled",
+};
 
 /**
  * @public
@@ -89,30 +89,30 @@ export interface LinuxSubscriptionsDiscoverySettings {
   /**
    * <p>Details if you have enabled resource discovery across your accounts in Organizations.</p>
    */
-  OrganizationIntegration: OrganizationIntegration | string | undefined;
+  OrganizationIntegration: keyof typeof OrganizationIntegration | string | undefined;
 }
 
 /**
  * @public
  */
-export enum Status {
+export const Status = {
   /**
    * Completed status
    */
-  Completed = "Completed",
+  Completed: "Completed",
   /**
    * Failed status
    */
-  Failed = "Failed",
+  Failed: "Failed",
   /**
    * InProgress status
    */
-  InProgress = "InProgress",
+  InProgress: "InProgress",
   /**
    * Successful status
    */
-  Successful = "Successful",
-}
+  Successful: "Successful",
+};
 
 /**
  * @public
@@ -121,7 +121,7 @@ export interface GetServiceSettingsResponse {
   /**
    * <p>Lists if discovery has been enabled for Linux subscriptions.</p>
    */
-  LinuxSubscriptionsDiscovery?: LinuxSubscriptionsDiscovery | string;
+  LinuxSubscriptionsDiscovery?: keyof typeof LinuxSubscriptionsDiscovery | string;
 
   /**
    * <p>Lists the settings defined for Linux subscriptions discovery. The settings include if
@@ -132,7 +132,7 @@ export interface GetServiceSettingsResponse {
   /**
    * <p>Indicates the status of Linux subscriptions settings being applied.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>A message which details the Linux subscriptions service settings current status.</p>
@@ -462,7 +462,7 @@ export interface UpdateServiceSettingsRequest {
   /**
    * <p>Describes if the discovery of Linux subscriptions is enabled.</p>
    */
-  LinuxSubscriptionsDiscovery: LinuxSubscriptionsDiscovery | string | undefined;
+  LinuxSubscriptionsDiscovery: keyof typeof LinuxSubscriptionsDiscovery | string | undefined;
 
   /**
    * <p>The settings defined for Linux subscriptions discovery. The settings include if Organizations
@@ -484,7 +484,7 @@ export interface UpdateServiceSettingsResponse {
   /**
    * <p>Lists if discovery has been enabled for Linux subscriptions.</p>
    */
-  LinuxSubscriptionsDiscovery?: LinuxSubscriptionsDiscovery | string;
+  LinuxSubscriptionsDiscovery?: keyof typeof LinuxSubscriptionsDiscovery | string;
 
   /**
    * <p>The settings defined for Linux subscriptions discovery. The settings include if Organizations
@@ -495,7 +495,7 @@ export interface UpdateServiceSettingsResponse {
   /**
    * <p>Indicates the status of Linux subscriptions settings being applied.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>A message which details the Linux subscriptions service settings current status.</p>

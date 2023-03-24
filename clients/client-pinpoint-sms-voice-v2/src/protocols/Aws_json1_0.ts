@@ -3564,7 +3564,7 @@ const serializeAws_json1_0DestinationCountryParameters = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: Record<string, any>, [key, value]: [DestinationCountryParameterKey | string, any]) => {
+    (acc: Record<string, any>, [key, value]: [keyof typeof DestinationCountryParameterKey | string, any]) => {
       if (value === null) {
         return acc;
       }
@@ -3587,7 +3587,10 @@ const serializeAws_json1_0DisassociateOriginationIdentityRequest = (
   };
 };
 
-const serializeAws_json1_0EventTypeList = (input: (EventType | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_0EventTypeList = (
+  input: (keyof typeof EventType | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3668,7 +3671,7 @@ const serializeAws_json1_0NonEmptyTagList = (input: Tag[], context: __SerdeConte
 };
 
 const serializeAws_json1_0NumberCapabilityList = (
-  input: (NumberCapability | string)[],
+  input: (keyof typeof NumberCapability | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -4492,7 +4495,10 @@ const deserializeAws_json1_0EventDestinationList = (output: any, context: __Serd
   return retVal;
 };
 
-const deserializeAws_json1_0EventTypeList = (output: any, context: __SerdeContext): (EventType | string)[] => {
+const deserializeAws_json1_0EventTypeList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof EventType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4569,7 +4575,10 @@ const deserializeAws_json1_0ListTagsForResourceResult = (
   } as any;
 };
 
-const deserializeAws_json1_0MessageTypeList = (output: any, context: __SerdeContext): (MessageType | string)[] => {
+const deserializeAws_json1_0MessageTypeList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof MessageType | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -4584,7 +4593,7 @@ const deserializeAws_json1_0MessageTypeList = (output: any, context: __SerdeCont
 const deserializeAws_json1_0NumberCapabilityList = (
   output: any,
   context: __SerdeContext
-): (NumberCapability | string)[] => {
+): (keyof typeof NumberCapability | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

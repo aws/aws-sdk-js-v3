@@ -6,10 +6,10 @@ import { MarketplaceEntitlementServiceServiceException as __BaseException } from
 /**
  * @public
  */
-export enum GetEntitlementFilterName {
-  CUSTOMER_IDENTIFIER = "CUSTOMER_IDENTIFIER",
-  DIMENSION = "DIMENSION",
-}
+export const GetEntitlementFilterName = {
+  CUSTOMER_IDENTIFIER: "CUSTOMER_IDENTIFIER",
+  DIMENSION: "DIMENSION",
+};
 
 /**
  * @public

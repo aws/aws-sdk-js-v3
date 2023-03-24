@@ -4979,7 +4979,7 @@ const deserializeAws_queryNotFoundException = (output: any, context: __SerdeCont
 const deserializeAws_queryNumberCapabilityList = (
   output: any,
   context: __SerdeContext
-): (NumberCapability | string)[] => {
+): (keyof typeof NumberCapability | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

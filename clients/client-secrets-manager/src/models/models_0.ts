@@ -327,11 +327,11 @@ export interface CreateSecretRequest {
 /**
  * @public
  */
-export enum StatusType {
-  Failed = "Failed",
-  InProgress = "InProgress",
-  InSync = "InSync",
-}
+export const StatusType = {
+  Failed: "Failed",
+  InProgress: "InProgress",
+  InSync: "InSync",
+};
 
 /**
  * @public
@@ -351,7 +351,7 @@ export interface ReplicationStatusType {
   /**
    * <p>The status can be <code>InProgress</code>, <code>Failed</code>, or <code>InSync</code>.</p>
    */
-  Status?: StatusType | string;
+  Status?: keyof typeof StatusType | string;
 
   /**
    * <p>Status message such as "<i>Secret with this name already exists in this
@@ -842,15 +842,15 @@ export interface DescribeSecretResponse {
 /**
  * @public
  */
-export enum FilterNameStringType {
-  all = "all",
-  description = "description",
-  name = "name",
-  owning_service = "owning-service",
-  primary_region = "primary-region",
-  tag_key = "tag-key",
-  tag_value = "tag-value",
-}
+export const FilterNameStringType = {
+  all: "all",
+  description: "description",
+  name: "name",
+  owning_service: "owning-service",
+  primary_region: "primary-region",
+  tag_key: "tag-key",
+  tag_value: "tag-value",
+};
 
 /**
  * @public
@@ -890,7 +890,7 @@ export interface Filter {
    *             </li>
    *          </ul>
    */
-  Key?: FilterNameStringType | string;
+  Key?: keyof typeof FilterNameStringType | string;
 
   /**
    * <p>The keyword to filter for.</p>
@@ -1104,10 +1104,10 @@ export class InvalidNextTokenException extends __BaseException {
 /**
  * @public
  */
-export enum SortOrderType {
-  asc = "asc",
-  desc = "desc",
-}
+export const SortOrderType = {
+  asc: "asc",
+  desc: "desc",
+};
 
 /**
  * @public
@@ -1141,7 +1141,7 @@ export interface ListSecretsRequest {
   /**
    * <p>Secrets are listed by <code>CreatedDate</code>. </p>
    */
-  SortOrder?: SortOrderType | string;
+  SortOrder?: keyof typeof SortOrderType | string;
 }
 
 /**

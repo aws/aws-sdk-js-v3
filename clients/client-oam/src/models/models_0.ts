@@ -33,11 +33,11 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum ResourceType {
-  AWS_CLOUDWATCH_METRIC = "AWS::CloudWatch::Metric",
-  AWS_LOGS_LOGGROUP = "AWS::Logs::LogGroup",
-  AWS_XRAY_TRACE = "AWS::XRay::Trace",
-}
+export const ResourceType = {
+  AWS_CLOUDWATCH_METRIC: "AWS::CloudWatch::Metric",
+  AWS_LOGS_LOGGROUP: "AWS::Logs::LogGroup",
+  AWS_XRAY_TRACE: "AWS::XRay::Trace",
+};
 
 /**
  * @public
@@ -68,7 +68,7 @@ export interface CreateLinkInput {
    * <p>An array of strings that define which types of data that the source account shares with the monitoring
    *             account.</p>
    */
-  ResourceTypes: (ResourceType | string)[] | undefined;
+  ResourceTypes: (keyof typeof ResourceType | string)[] | undefined;
 
   /**
    * <p>The ARN of the sink to use to create this link. You can use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a> to find the ARNs of sinks.</p>
@@ -813,7 +813,7 @@ export interface UpdateLinkInput {
    *             account.</p>
    *         <p>Your input here replaces the current set of data types that are shared.</p>
    */
-  ResourceTypes: (ResourceType | string)[] | undefined;
+  ResourceTypes: (keyof typeof ResourceType | string)[] | undefined;
 }
 
 /**

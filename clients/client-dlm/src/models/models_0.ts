@@ -27,12 +27,12 @@ export interface EncryptionConfiguration {
 /**
  * @public
  */
-export enum RetentionIntervalUnitValues {
-  DAYS = "DAYS",
-  MONTHS = "MONTHS",
-  WEEKS = "WEEKS",
-  YEARS = "YEARS",
-}
+export const RetentionIntervalUnitValues = {
+  DAYS: "DAYS",
+  MONTHS: "MONTHS",
+  WEEKS: "WEEKS",
+  YEARS: "YEARS",
+};
 
 /**
  * @public
@@ -51,7 +51,7 @@ export interface CrossRegionCopyRetainRule {
    * <p>The unit of time for time-based retention. For example, to retain a cross-Region copy for
    * 			3 months, specify <code>Interval=3</code> and <code>IntervalUnit=MONTHS</code>.</p>
    */
-  IntervalUnit?: RetentionIntervalUnitValues | string;
+  IntervalUnit?: keyof typeof RetentionIntervalUnitValues | string;
 }
 
 /**
@@ -134,7 +134,7 @@ export interface RetentionArchiveTier {
    * 			example, to retain a snapshots in the archive tier for 6 months, specify <code>Interval=6</code>
    * 			and <code>IntervalUnit=MONTHS</code>.</p>
    */
-  IntervalUnit?: RetentionIntervalUnitValues | string;
+  IntervalUnit?: keyof typeof RetentionIntervalUnitValues | string;
 }
 
 /**
@@ -166,9 +166,9 @@ export interface ArchiveRule {
 /**
  * @public
  */
-export enum EventTypeValues {
-  SHARE_SNAPSHOT = "shareSnapshot",
-}
+export const EventTypeValues = {
+  SHARE_SNAPSHOT: "shareSnapshot",
+};
 
 /**
  * @public
@@ -179,7 +179,7 @@ export interface EventParameters {
   /**
    * <p>The type of event. Currently, only snapshot sharing events are supported.</p>
    */
-  EventType: EventTypeValues | string | undefined;
+  EventType: keyof typeof EventTypeValues | string | undefined;
 
   /**
    * <p>The IDs of the Amazon Web Services accounts that can trigger policy by sharing snapshots with your account.
@@ -201,9 +201,9 @@ export interface EventParameters {
 /**
  * @public
  */
-export enum EventSourceValues {
-  MANAGED_CWE = "MANAGED_CWE",
-}
+export const EventSourceValues = {
+  MANAGED_CWE: "MANAGED_CWE",
+};
 
 /**
  * @public
@@ -214,7 +214,7 @@ export interface EventSource {
   /**
    * <p>The source of the event. Currently only managed CloudWatch Events rules are supported.</p>
    */
-  Type: EventSourceValues | string | undefined;
+  Type: keyof typeof EventSourceValues | string | undefined;
 
   /**
    * <p>Information about the event.</p>
@@ -283,42 +283,42 @@ export interface _Parameters {
 /**
  * @public
  */
-export enum PolicyTypeValues {
-  EBS_SNAPSHOT_MANAGEMENT = "EBS_SNAPSHOT_MANAGEMENT",
-  EVENT_BASED_POLICY = "EVENT_BASED_POLICY",
-  IMAGE_MANAGEMENT = "IMAGE_MANAGEMENT",
-}
+export const PolicyTypeValues = {
+  EBS_SNAPSHOT_MANAGEMENT: "EBS_SNAPSHOT_MANAGEMENT",
+  EVENT_BASED_POLICY: "EVENT_BASED_POLICY",
+  IMAGE_MANAGEMENT: "IMAGE_MANAGEMENT",
+};
 
 /**
  * @public
  */
-export enum ResourceLocationValues {
-  CLOUD = "CLOUD",
-  OUTPOST = "OUTPOST",
-}
+export const ResourceLocationValues = {
+  CLOUD: "CLOUD",
+  OUTPOST: "OUTPOST",
+};
 
 /**
  * @public
  */
-export enum ResourceTypeValues {
-  INSTANCE = "INSTANCE",
-  VOLUME = "VOLUME",
-}
+export const ResourceTypeValues = {
+  INSTANCE: "INSTANCE",
+  VOLUME: "VOLUME",
+};
 
 /**
  * @public
  */
-export enum IntervalUnitValues {
-  HOURS = "HOURS",
-}
+export const IntervalUnitValues = {
+  HOURS: "HOURS",
+};
 
 /**
  * @public
  */
-export enum LocationValues {
-  CLOUD = "CLOUD",
-  OUTPOST_LOCAL = "OUTPOST_LOCAL",
-}
+export const LocationValues = {
+  CLOUD: "CLOUD",
+  OUTPOST_LOCAL: "OUTPOST_LOCAL",
+};
 
 /**
  * @public
@@ -350,7 +350,7 @@ export interface CreateRule {
    * 			Outpost, then you can create snapshots on the same Outpost as the source resource, or in
    * 			the Region of that Outpost.</p>
    */
-  Location?: LocationValues | string;
+  Location?: keyof typeof LocationValues | string;
 
   /**
    * <p>The interval between snapshots. The supported values are 1, 2, 3, 4, 6, 8, 12, and 24.</p>
@@ -360,7 +360,7 @@ export interface CreateRule {
   /**
    * <p>The interval unit.</p>
    */
-  IntervalUnit?: IntervalUnitValues | string;
+  IntervalUnit?: keyof typeof IntervalUnitValues | string;
 
   /**
    * <p>The time, in UTC, to start the operation. The supported format is hh:mm.</p>
@@ -395,7 +395,7 @@ export interface CrossRegionCopyDeprecateRule {
    * 			to deprecate a cross-Region AMI copy after 3 months, specify <code>Interval=3</code> and
    * 			<code>IntervalUnit=MONTHS</code>.</p>
    */
-  IntervalUnit?: RetentionIntervalUnitValues | string;
+  IntervalUnit?: keyof typeof RetentionIntervalUnitValues | string;
 }
 
 /**
@@ -486,7 +486,7 @@ export interface DeprecateRule {
   /**
    * <p>The unit of time in which to measure the <b>Interval</b>.</p>
    */
-  IntervalUnit?: RetentionIntervalUnitValues | string;
+  IntervalUnit?: keyof typeof RetentionIntervalUnitValues | string;
 }
 
 /**
@@ -511,7 +511,7 @@ export interface FastRestoreRule {
   /**
    * <p>The unit of time for enabling fast snapshot restore.</p>
    */
-  IntervalUnit?: RetentionIntervalUnitValues | string;
+  IntervalUnit?: keyof typeof RetentionIntervalUnitValues | string;
 
   /**
    * <p>The Availability Zones in which to enable fast snapshot restore.</p>
@@ -577,7 +577,7 @@ export interface RetainRule {
    * 			3 months, it is deleted, or it is moved to the archive tier if you have specified an
    * 			<a>ArchiveRule</a>.</p>
    */
-  IntervalUnit?: RetentionIntervalUnitValues | string;
+  IntervalUnit?: keyof typeof RetentionIntervalUnitValues | string;
 }
 
 /**
@@ -599,7 +599,7 @@ export interface ShareRule {
   /**
    * <p>The unit of time for the automatic unsharing interval.</p>
    */
-  UnshareIntervalUnit?: RetentionIntervalUnitValues | string;
+  UnshareIntervalUnit?: keyof typeof RetentionIntervalUnitValues | string;
 }
 
 /**
@@ -699,7 +699,7 @@ export interface PolicyDetails {
    * 			to create an event-based policy that performs specific actions when a defined event occurs in your Amazon Web Services account.</p>
    *          <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>
    */
-  PolicyType?: PolicyTypeValues | string;
+  PolicyType?: keyof typeof PolicyTypeValues | string;
 
   /**
    * <p>
@@ -707,7 +707,7 @@ export interface PolicyDetails {
    * 			create snapshots of individual volumes or use <code>INSTANCE</code> to create multi-volume
    * 			snapshots from the volumes for an instance.</p>
    */
-  ResourceTypes?: (ResourceTypeValues | string)[];
+  ResourceTypes?: (keyof typeof ResourceTypeValues | string)[];
 
   /**
    * <p>
@@ -717,7 +717,7 @@ export interface PolicyDetails {
    *          <p>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
    * 				of the specified type with matching target tags across all of the Outposts in your account.</p>
    */
-  ResourceLocations?: (ResourceLocationValues | string)[];
+  ResourceLocations?: (keyof typeof ResourceLocationValues | string)[];
 
   /**
    * <p>
@@ -761,10 +761,10 @@ export interface PolicyDetails {
 /**
  * @public
  */
-export enum SettablePolicyStateValues {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const SettablePolicyStateValues = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -785,7 +785,7 @@ export interface CreateLifecyclePolicyRequest {
   /**
    * <p>The desired activation state of the lifecycle policy after creation.</p>
    */
-  State: SettablePolicyStateValues | string | undefined;
+  State: keyof typeof SettablePolicyStateValues | string | undefined;
 
   /**
    * <p>The configuration details of the lifecycle policy.</p>
@@ -950,11 +950,11 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum GettablePolicyStateValues {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ERROR = "ERROR",
-}
+export const GettablePolicyStateValues = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ERROR: "ERROR",
+};
 
 /**
  * @public
@@ -968,12 +968,12 @@ export interface GetLifecyclePoliciesRequest {
   /**
    * <p>The activation state.</p>
    */
-  State?: GettablePolicyStateValues | string;
+  State?: keyof typeof GettablePolicyStateValues | string;
 
   /**
    * <p>The resource type.</p>
    */
-  ResourceTypes?: (ResourceTypeValues | string)[];
+  ResourceTypes?: (keyof typeof ResourceTypeValues | string)[];
 
   /**
    * <p>The target tag for a policy.</p>
@@ -1007,7 +1007,7 @@ export interface LifecyclePolicySummary {
   /**
    * <p>The activation state of the lifecycle policy.</p>
    */
-  State?: GettablePolicyStateValues | string;
+  State?: keyof typeof GettablePolicyStateValues | string;
 
   /**
    * <p>The tags.</p>
@@ -1021,7 +1021,7 @@ export interface LifecyclePolicySummary {
    * 			<code>EVENT_BASED_POLICY</code> indicates that the policy automates cross-account
    * 			snapshot copies for snapshots that are shared with your account.</p>
    */
-  PolicyType?: PolicyTypeValues | string;
+  PolicyType?: keyof typeof PolicyTypeValues | string;
 }
 
 /**
@@ -1063,7 +1063,7 @@ export interface LifecyclePolicy {
   /**
    * <p>The activation state of the lifecycle policy.</p>
    */
-  State?: GettablePolicyStateValues | string;
+  State?: keyof typeof GettablePolicyStateValues | string;
 
   /**
    * <p>The description of the status.</p>
@@ -1190,7 +1190,7 @@ export interface UpdateLifecyclePolicyRequest {
   /**
    * <p>The desired activation state of the lifecycle policy after creation.</p>
    */
-  State?: SettablePolicyStateValues | string;
+  State?: keyof typeof SettablePolicyStateValues | string;
 
   /**
    * <p>A description of the lifecycle policy.</p>

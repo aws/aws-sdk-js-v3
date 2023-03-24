@@ -2174,7 +2174,10 @@ const serializeAws_json1_1DisassociateConfigurationItemsFromApplicationRequest =
   };
 };
 
-const serializeAws_json1_1ExportDataFormats = (input: (ExportDataFormat | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1ExportDataFormats = (
+  input: (keyof typeof ExportDataFormat | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

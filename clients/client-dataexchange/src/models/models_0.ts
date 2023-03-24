@@ -31,10 +31,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum ServerSideEncryptionTypes {
-  AES256 = "AES256",
-  aws_kms = "aws:kms",
-}
+export const ServerSideEncryptionTypes = {
+  AES256: "AES256",
+  aws_kms: "aws:kms",
+};
 
 /**
  * @public
@@ -49,7 +49,7 @@ export interface ExportServerSideEncryption {
   /**
    * <p>The type of server side encryption used for encrypting the objects in Amazon S3.</p>
    */
-  Type: ServerSideEncryptionTypes | string | undefined;
+  Type: keyof typeof ServerSideEncryptionTypes | string | undefined;
 }
 
 /**
@@ -98,9 +98,9 @@ export interface Action {
 /**
  * @public
  */
-export enum ProtocolType {
-  REST = "REST",
-}
+export const ProtocolType = {
+  REST: "REST",
+};
 
 /**
  * @public
@@ -145,7 +145,7 @@ export interface ApiGatewayApiAsset {
   /**
    * <p>The protocol type of the API asset.</p>
    */
-  ProtocolType?: ProtocolType | string;
+  ProtocolType?: keyof typeof ProtocolType | string;
 
   /**
    * <p>The stage of the API asset.</p>
@@ -231,10 +231,10 @@ export interface LFResourceDetails {
 /**
  * @public
  */
-export enum LFResourceType {
-  DATABASE = "DATABASE",
-  TABLE = "TABLE",
-}
+export const LFResourceType = {
+  DATABASE: "DATABASE",
+  TABLE: "TABLE",
+};
 
 /**
  * @public
@@ -249,7 +249,7 @@ export interface LFTagPolicyDetails {
   /**
    * <p>The resource type for which the LF-tag policy applies.</p>
    */
-  ResourceType: LFResourceType | string | undefined;
+  ResourceType: keyof typeof LFResourceType | string | undefined;
 
   /**
    * <p>Details for the Lake Formation Resources included in the LF-tag policy.</p>
@@ -271,17 +271,17 @@ export interface LakeFormationDataPermissionDetails {
 /**
  * @public
  */
-export enum LakeFormationDataPermissionType {
-  LFTagPolicy = "LFTagPolicy",
-}
+export const LakeFormationDataPermissionType = {
+  LFTagPolicy: "LFTagPolicy",
+};
 
 /**
  * @public
  */
-export enum LFPermission {
-  DESCRIBE = "DESCRIBE",
-  SELECT = "SELECT",
-}
+export const LFPermission = {
+  DESCRIBE: "DESCRIBE",
+  SELECT: "SELECT",
+};
 
 /**
  * @public
@@ -296,12 +296,12 @@ export interface LakeFormationDataPermissionAsset {
   /**
    * <p>The data permission type.</p>
    */
-  LakeFormationDataPermissionType: LakeFormationDataPermissionType | string | undefined;
+  LakeFormationDataPermissionType: keyof typeof LakeFormationDataPermissionType | string | undefined;
 
   /**
    * <p>The permissions granted to the subscribers on the resource.</p>
    */
-  Permissions: (LFPermission | string)[] | undefined;
+  Permissions: (keyof typeof LFPermission | string)[] | undefined;
 
   /**
    * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions to AWS Lake Formation data permissions.</p>
@@ -418,13 +418,13 @@ export interface AssetDetails {
 /**
  * @public
  */
-export enum AssetType {
-  API_GATEWAY_API = "API_GATEWAY_API",
-  LAKE_FORMATION_DATA_PERMISSION = "LAKE_FORMATION_DATA_PERMISSION",
-  REDSHIFT_DATA_SHARE = "REDSHIFT_DATA_SHARE",
-  S3_DATA_ACCESS = "S3_DATA_ACCESS",
-  S3_SNAPSHOT = "S3_SNAPSHOT",
-}
+export const AssetType = {
+  API_GATEWAY_API: "API_GATEWAY_API",
+  LAKE_FORMATION_DATA_PERMISSION: "LAKE_FORMATION_DATA_PERMISSION",
+  REDSHIFT_DATA_SHARE: "REDSHIFT_DATA_SHARE",
+  S3_DATA_ACCESS: "S3_DATA_ACCESS",
+  S3_SNAPSHOT: "S3_SNAPSHOT",
+};
 
 /**
  * @public
@@ -451,7 +451,7 @@ export interface AssetEntry {
   /**
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType: AssetType | string | undefined;
+  AssetType: keyof typeof AssetType | string | undefined;
 
   /**
    * <p>The date and time that the asset was created, in ISO 8601 format.</p>
@@ -524,13 +524,13 @@ export interface CancelJobRequest {
 /**
  * @public
  */
-export enum ResourceType {
-  ASSET = "ASSET",
-  DATA_SET = "DATA_SET",
-  EVENT_ACTION = "EVENT_ACTION",
-  JOB = "JOB",
-  REVISION = "REVISION",
-}
+export const ResourceType = {
+  ASSET: "ASSET",
+  DATA_SET: "DATA_SET",
+  EVENT_ACTION: "EVENT_ACTION",
+  JOB: "JOB",
+  REVISION: "REVISION",
+};
 
 /**
  * @public
@@ -552,7 +552,7 @@ export class ConflictException extends __BaseException {
   /**
    * <p>The type of the resource with the conflict.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
   /**
    * @internal
    */
@@ -614,7 +614,7 @@ export class ResourceNotFoundException extends __BaseException {
   /**
    * <p>The type of resource that couldn't be found.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
   /**
    * @internal
    */
@@ -659,10 +659,10 @@ export class ThrottlingException extends __BaseException {
 /**
  * @public
  */
-export enum ExceptionCause {
-  InsufficientS3BucketPolicy = "InsufficientS3BucketPolicy",
-  S3AccessDenied = "S3AccessDenied",
-}
+export const ExceptionCause = {
+  InsufficientS3BucketPolicy: "InsufficientS3BucketPolicy",
+  S3AccessDenied: "S3AccessDenied",
+};
 
 /**
  * @public
@@ -679,7 +679,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The unique identifier for the resource that couldn't be found.</p>
    */
-  ExceptionCause?: ExceptionCause | string;
+  ExceptionCause?: keyof typeof ExceptionCause | string;
   /**
    * @internal
    */
@@ -698,15 +698,15 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum Code {
-  ACCESS_DENIED_EXCEPTION = "ACCESS_DENIED_EXCEPTION",
-  INTERNAL_SERVER_EXCEPTION = "INTERNAL_SERVER_EXCEPTION",
-  MALWARE_DETECTED = "MALWARE_DETECTED",
-  MALWARE_SCAN_ENCRYPTED_FILE = "MALWARE_SCAN_ENCRYPTED_FILE",
-  RESOURCE_NOT_FOUND_EXCEPTION = "RESOURCE_NOT_FOUND_EXCEPTION",
-  SERVICE_QUOTA_EXCEEDED_EXCEPTION = "SERVICE_QUOTA_EXCEEDED_EXCEPTION",
-  VALIDATION_EXCEPTION = "VALIDATION_EXCEPTION",
-}
+export const Code = {
+  ACCESS_DENIED_EXCEPTION: "ACCESS_DENIED_EXCEPTION",
+  INTERNAL_SERVER_EXCEPTION: "INTERNAL_SERVER_EXCEPTION",
+  MALWARE_DETECTED: "MALWARE_DETECTED",
+  MALWARE_SCAN_ENCRYPTED_FILE: "MALWARE_SCAN_ENCRYPTED_FILE",
+  RESOURCE_NOT_FOUND_EXCEPTION: "RESOURCE_NOT_FOUND_EXCEPTION",
+  SERVICE_QUOTA_EXCEEDED_EXCEPTION: "SERVICE_QUOTA_EXCEEDED_EXCEPTION",
+  VALIDATION_EXCEPTION: "VALIDATION_EXCEPTION",
+};
 
 /**
  * @public
@@ -715,7 +715,7 @@ export interface CreateDataSetRequest {
   /**
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType: AssetType | string | undefined;
+  AssetType: keyof typeof AssetType | string | undefined;
 
   /**
    * <p>A description for the data set. This value can be up to 16,348 characters long.</p>
@@ -736,10 +736,10 @@ export interface CreateDataSetRequest {
 /**
  * @public
  */
-export enum Origin {
-  ENTITLED = "ENTITLED",
-  OWNED = "OWNED",
-}
+export const Origin = {
+  ENTITLED: "ENTITLED",
+  OWNED: "OWNED",
+};
 
 /**
  * @public
@@ -764,7 +764,7 @@ export interface CreateDataSetResponse {
   /**
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType?: AssetType | string;
+  AssetType?: keyof typeof AssetType | string;
 
   /**
    * <p>The date and time that the data set was created, in ISO 8601 format.</p>
@@ -789,7 +789,7 @@ export interface CreateDataSetResponse {
   /**
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
    */
-  Origin?: Origin | string;
+  Origin?: keyof typeof Origin | string;
 
   /**
    * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
@@ -815,36 +815,47 @@ export interface CreateDataSetResponse {
 /**
  * @public
  */
-export enum LimitName {
-  AWS_Lake_Formation_data_permission_assets_per_revision = "AWS Lake Formation data permission assets per revision",
-  Amazon_API_Gateway_API_assets_per_revision = "Amazon API Gateway API assets per revision",
-  Amazon_Redshift_datashare_assets_per_import_job_from_Redshift = "Amazon Redshift datashare assets per import job from Redshift",
-  Amazon_Redshift_datashare_assets_per_revision = "Amazon Redshift datashare assets per revision",
-  Amazon_S3_data_access_assets_per_revision = "Amazon S3 data access assets per revision",
-  Asset_per_export_job_from_Amazon_S3 = "Asset per export job from Amazon S3",
-  Asset_size_in_GB = "Asset size in GB",
-  Assets_per_import_job_from_Amazon_S3 = "Assets per import job from Amazon S3",
-  Assets_per_revision = "Assets per revision",
-  Auto_export_event_actions_per_data_set = "Auto export event actions per data set",
-  Concurrent_in_progress_jobs_to_create_Amazon_S3_data_access_assets_from_S3_buckets = "Concurrent in progress jobs to create Amazon S3 data access assets from S3 buckets",
-  Concurrent_in_progress_jobs_to_export_assets_to_Amazon_S3 = "Concurrent in progress jobs to export assets to Amazon S3",
-  Concurrent_in_progress_jobs_to_export_assets_to_a_signed_URL = "Concurrent in progress jobs to export assets to a signed URL",
-  Concurrent_in_progress_jobs_to_export_revisions_to_Amazon_S3 = "Concurrent in progress jobs to export revisions to Amazon S3",
-  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_Redshift_datashares = "Concurrent in progress jobs to import assets from Amazon Redshift datashares",
-  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3 = "Concurrent in progress jobs to import assets from Amazon S3",
-  Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL = "Concurrent in progress jobs to import assets from a signed URL",
-  Concurrent_in_progress_jobs_to_import_assets_from_an_API_Gateway_API = "Concurrent in progress jobs to import assets from an API Gateway API",
-  Concurrent_in_progress_jobs_to_import_assets_from_an_AWS_Lake_Formation_tag_policy = "Concurrent in progress jobs to import assets from an AWS Lake Formation tag policy",
-  Data_sets_per_account = "Data sets per account",
-  Data_sets_per_product = "Data sets per product",
-  Event_actions_per_account = "Event actions per account",
-  Products_per_account = "Products per account",
-  Revisions_per_AWS_Lake_Formation_data_permission_data_set = "Revisions per AWS Lake Formation data permission data set",
-  Revisions_per_Amazon_API_Gateway_API_data_set = "Revisions per Amazon API Gateway API data set",
-  Revisions_per_Amazon_Redshift_datashare_data_set = "Revisions per Amazon Redshift datashare data set",
-  Revisions_per_Amazon_S3_data_access_data_set = "Revisions per Amazon S3 data access data set",
-  Revisions_per_data_set = "Revisions per data set",
-}
+export const LimitName = {
+  AWS_Lake_Formation_data_permission_assets_per_revision: "AWS Lake Formation data permission assets per revision",
+  Amazon_API_Gateway_API_assets_per_revision: "Amazon API Gateway API assets per revision",
+  Amazon_Redshift_datashare_assets_per_import_job_from_Redshift:
+    "Amazon Redshift datashare assets per import job from Redshift",
+  Amazon_Redshift_datashare_assets_per_revision: "Amazon Redshift datashare assets per revision",
+  Amazon_S3_data_access_assets_per_revision: "Amazon S3 data access assets per revision",
+  Asset_per_export_job_from_Amazon_S3: "Asset per export job from Amazon S3",
+  Asset_size_in_GB: "Asset size in GB",
+  Assets_per_import_job_from_Amazon_S3: "Assets per import job from Amazon S3",
+  Assets_per_revision: "Assets per revision",
+  Auto_export_event_actions_per_data_set: "Auto export event actions per data set",
+  Concurrent_in_progress_jobs_to_create_Amazon_S3_data_access_assets_from_S3_buckets:
+    "Concurrent in progress jobs to create Amazon S3 data access assets from S3 buckets",
+  Concurrent_in_progress_jobs_to_export_assets_to_Amazon_S3:
+    "Concurrent in progress jobs to export assets to Amazon S3",
+  Concurrent_in_progress_jobs_to_export_assets_to_a_signed_URL:
+    "Concurrent in progress jobs to export assets to a signed URL",
+  Concurrent_in_progress_jobs_to_export_revisions_to_Amazon_S3:
+    "Concurrent in progress jobs to export revisions to Amazon S3",
+  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_Redshift_datashares:
+    "Concurrent in progress jobs to import assets from Amazon Redshift datashares",
+  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3:
+    "Concurrent in progress jobs to import assets from Amazon S3",
+  Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL:
+    "Concurrent in progress jobs to import assets from a signed URL",
+  Concurrent_in_progress_jobs_to_import_assets_from_an_API_Gateway_API:
+    "Concurrent in progress jobs to import assets from an API Gateway API",
+  Concurrent_in_progress_jobs_to_import_assets_from_an_AWS_Lake_Formation_tag_policy:
+    "Concurrent in progress jobs to import assets from an AWS Lake Formation tag policy",
+  Data_sets_per_account: "Data sets per account",
+  Data_sets_per_product: "Data sets per product",
+  Event_actions_per_account: "Event actions per account",
+  Products_per_account: "Products per account",
+  Revisions_per_AWS_Lake_Formation_data_permission_data_set:
+    "Revisions per AWS Lake Formation data permission data set",
+  Revisions_per_Amazon_API_Gateway_API_data_set: "Revisions per Amazon API Gateway API data set",
+  Revisions_per_Amazon_Redshift_datashare_data_set: "Revisions per Amazon Redshift datashare data set",
+  Revisions_per_Amazon_S3_data_access_data_set: "Revisions per Amazon S3 data access data set",
+  Revisions_per_data_set: "Revisions per data set",
+};
 
 /**
  * @public
@@ -856,7 +867,7 @@ export class ServiceLimitExceededException extends __BaseException {
   /**
    * <p>The name of the limit that was reached.</p>
    */
-  LimitName?: LimitName | string;
+  LimitName?: keyof typeof LimitName | string;
 
   /**
    * <p>The value of the exceeded limit.</p>
@@ -1130,7 +1141,7 @@ export interface ImportAssetFromApiGatewayApiRequestDetails {
   /**
    * <p>The protocol type.</p>
    */
-  ProtocolType: ProtocolType | string | undefined;
+  ProtocolType: keyof typeof ProtocolType | string | undefined;
 
   /**
    * <p>The revision ID.</p>
@@ -1172,9 +1183,9 @@ export interface ImportAssetFromSignedUrlRequestDetails {
 /**
  * @public
  */
-export enum DatabaseLFTagPolicyPermission {
-  DESCRIBE = "DESCRIBE",
-}
+export const DatabaseLFTagPolicyPermission = {
+  DESCRIBE: "DESCRIBE",
+};
 
 /**
  * @public
@@ -1189,16 +1200,16 @@ export interface DatabaseLFTagPolicyAndPermissions {
   /**
    * <p>The permissions granted to subscribers on database resources.</p>
    */
-  Permissions: (DatabaseLFTagPolicyPermission | string)[] | undefined;
+  Permissions: (keyof typeof DatabaseLFTagPolicyPermission | string)[] | undefined;
 }
 
 /**
  * @public
  */
-export enum TableTagPolicyLFPermission {
-  DESCRIBE = "DESCRIBE",
-  SELECT = "SELECT",
-}
+export const TableTagPolicyLFPermission = {
+  DESCRIBE: "DESCRIBE",
+  SELECT: "SELECT",
+};
 
 /**
  * @public
@@ -1213,7 +1224,7 @@ export interface TableLFTagPolicyAndPermissions {
   /**
    * <p>The permissions granted to subscribers on table resources.</p>
    */
-  Permissions: (TableTagPolicyLFPermission | string)[] | undefined;
+  Permissions: (keyof typeof TableTagPolicyLFPermission | string)[] | undefined;
 }
 
 /**
@@ -1359,17 +1370,17 @@ export interface RequestDetails {
 /**
  * @public
  */
-export enum Type {
-  CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET = "CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET",
-  EXPORT_ASSETS_TO_S3 = "EXPORT_ASSETS_TO_S3",
-  EXPORT_ASSET_TO_SIGNED_URL = "EXPORT_ASSET_TO_SIGNED_URL",
-  EXPORT_REVISIONS_TO_S3 = "EXPORT_REVISIONS_TO_S3",
-  IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY = "IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY",
-  IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES = "IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES",
-  IMPORT_ASSETS_FROM_S3 = "IMPORT_ASSETS_FROM_S3",
-  IMPORT_ASSET_FROM_API_GATEWAY_API = "IMPORT_ASSET_FROM_API_GATEWAY_API",
-  IMPORT_ASSET_FROM_SIGNED_URL = "IMPORT_ASSET_FROM_SIGNED_URL",
-}
+export const Type = {
+  CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET: "CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET",
+  EXPORT_ASSETS_TO_S3: "EXPORT_ASSETS_TO_S3",
+  EXPORT_ASSET_TO_SIGNED_URL: "EXPORT_ASSET_TO_SIGNED_URL",
+  EXPORT_REVISIONS_TO_S3: "EXPORT_REVISIONS_TO_S3",
+  IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY: "IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY",
+  IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES: "IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES",
+  IMPORT_ASSETS_FROM_S3: "IMPORT_ASSETS_FROM_S3",
+  IMPORT_ASSET_FROM_API_GATEWAY_API: "IMPORT_ASSET_FROM_API_GATEWAY_API",
+  IMPORT_ASSET_FROM_SIGNED_URL: "IMPORT_ASSET_FROM_SIGNED_URL",
+};
 
 /**
  * @public
@@ -1383,7 +1394,7 @@ export interface CreateJobRequest {
   /**
    * <p>The type of job to be created.</p>
    */
-  Type: Type | string | undefined;
+  Type: keyof typeof Type | string | undefined;
 }
 
 /**
@@ -1538,7 +1549,7 @@ export interface ImportAssetFromApiGatewayApiResponseDetails {
   /**
    * <p>The protocol type.</p>
    */
-  ProtocolType: ProtocolType | string | undefined;
+  ProtocolType: keyof typeof ProtocolType | string | undefined;
 
   /**
    * <p>The revision ID.</p>
@@ -1746,22 +1757,22 @@ export interface Details {
 /**
  * @public
  */
-export enum JobErrorLimitName {
-  AWS_Lake_Formation_data_permission_assets_per_revision = "AWS Lake Formation data permission assets per revision",
-  Amazon_Redshift_datashare_assets_per_revision = "Amazon Redshift datashare assets per revision",
-  Amazon_S3_data_access_assets_per_revision = "Amazon S3 data access assets per revision",
-  Asset_size_in_GB = "Asset size in GB",
-  Assets_per_revision = "Assets per revision",
-}
+export const JobErrorLimitName = {
+  AWS_Lake_Formation_data_permission_assets_per_revision: "AWS Lake Formation data permission assets per revision",
+  Amazon_Redshift_datashare_assets_per_revision: "Amazon Redshift datashare assets per revision",
+  Amazon_S3_data_access_assets_per_revision: "Amazon S3 data access assets per revision",
+  Asset_size_in_GB: "Asset size in GB",
+  Assets_per_revision: "Assets per revision",
+};
 
 /**
  * @public
  */
-export enum JobErrorResourceTypes {
-  ASSET = "ASSET",
-  DATA_SET = "DATA_SET",
-  REVISION = "REVISION",
-}
+export const JobErrorResourceTypes = {
+  ASSET: "ASSET",
+  DATA_SET: "DATA_SET",
+  REVISION: "REVISION",
+};
 
 /**
  * @public
@@ -1771,7 +1782,7 @@ export interface JobError {
   /**
    * <p>The code for the job error.</p>
    */
-  Code: Code | string | undefined;
+  Code: keyof typeof Code | string | undefined;
 
   /**
    * <p>The details about the job error.</p>
@@ -1781,7 +1792,7 @@ export interface JobError {
   /**
    * <p>The name of the limit that was reached.</p>
    */
-  LimitName?: JobErrorLimitName | string;
+  LimitName?: keyof typeof JobErrorLimitName | string;
 
   /**
    * <p>The value of the exceeded limit.</p>
@@ -1801,20 +1812,20 @@ export interface JobError {
   /**
    * <p>The type of resource related to the error.</p>
    */
-  ResourceType?: JobErrorResourceTypes | string;
+  ResourceType?: keyof typeof JobErrorResourceTypes | string;
 }
 
 /**
  * @public
  */
-export enum State {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-  TIMED_OUT = "TIMED_OUT",
-  WAITING = "WAITING",
-}
+export const State = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+  TIMED_OUT: "TIMED_OUT",
+  WAITING: "WAITING",
+};
 
 /**
  * @public
@@ -1848,12 +1859,12 @@ export interface CreateJobResponse {
   /**
    * <p>The state of the job.</p>
    */
-  State?: State | string;
+  State?: keyof typeof State | string;
 
   /**
    * <p>The job type.</p>
    */
-  Type?: Type | string;
+  Type?: keyof typeof Type | string;
 
   /**
    * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
@@ -2038,7 +2049,7 @@ export interface GetAssetResponse {
   /**
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType?: AssetType | string;
+  AssetType?: keyof typeof AssetType | string;
 
   /**
    * <p>The date and time that the asset was created, in ISO 8601 format.</p>
@@ -2104,7 +2115,7 @@ export interface GetDataSetResponse {
   /**
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType?: AssetType | string;
+  AssetType?: keyof typeof AssetType | string;
 
   /**
    * <p>The date and time that the data set was created, in ISO 8601 format.</p>
@@ -2129,7 +2140,7 @@ export interface GetDataSetResponse {
   /**
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
    */
-  Origin?: Origin | string;
+  Origin?: keyof typeof Origin | string;
 
   /**
    * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
@@ -2239,12 +2250,12 @@ export interface GetJobResponse {
   /**
    * <p>The state of the job.</p>
    */
-  State?: State | string;
+  State?: keyof typeof State | string;
 
   /**
    * <p>The job type.</p>
    */
-  Type?: Type | string;
+  Type?: keyof typeof Type | string;
 
   /**
    * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
@@ -2461,7 +2472,7 @@ export interface DataSetEntry {
   /**
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType: AssetType | string | undefined;
+  AssetType: keyof typeof AssetType | string | undefined;
 
   /**
    * <p>The date and time that the data set was created, in ISO 8601 format.</p>
@@ -2486,7 +2497,7 @@ export interface DataSetEntry {
   /**
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
    */
-  Origin: Origin | string | undefined;
+  Origin: keyof typeof Origin | string | undefined;
 
   /**
    * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>
@@ -2648,12 +2659,12 @@ export interface JobEntry {
   /**
    * <p>The state of the job.</p>
    */
-  State: State | string | undefined;
+  State: keyof typeof State | string | undefined;
 
   /**
    * <p>The job type.</p>
    */
-  Type: Type | string | undefined;
+  Type: keyof typeof Type | string | undefined;
 
   /**
    * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
@@ -2969,7 +2980,7 @@ export interface UpdateAssetResponse {
   /**
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType?: AssetType | string;
+  AssetType?: keyof typeof AssetType | string;
 
   /**
    * <p>The date and time that the asset was created, in ISO 8601 format.</p>
@@ -3045,7 +3056,7 @@ export interface UpdateDataSetResponse {
   /**
    * <p>The type of asset that is added to a data set.</p>
    */
-  AssetType?: AssetType | string;
+  AssetType?: keyof typeof AssetType | string;
 
   /**
    * <p>The date and time that the data set was created, in ISO 8601 format.</p>
@@ -3070,7 +3081,7 @@ export interface UpdateDataSetResponse {
   /**
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).</p>
    */
-  Origin?: Origin | string;
+  Origin?: keyof typeof Origin | string;
 
   /**
    * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS Marketplace.</p>

@@ -183,14 +183,14 @@ export interface ExplainerConfig {
 /**
  * @public
  */
-export enum ProductionVariantAcceleratorType {
-  ML_EIA1_LARGE = "ml.eia1.large",
-  ML_EIA1_MEDIUM = "ml.eia1.medium",
-  ML_EIA1_XLARGE = "ml.eia1.xlarge",
-  ML_EIA2_LARGE = "ml.eia2.large",
-  ML_EIA2_MEDIUM = "ml.eia2.medium",
-  ML_EIA2_XLARGE = "ml.eia2.xlarge",
-}
+export const ProductionVariantAcceleratorType = {
+  ML_EIA1_LARGE: "ml.eia1.large",
+  ML_EIA1_MEDIUM: "ml.eia1.medium",
+  ML_EIA1_XLARGE: "ml.eia1.xlarge",
+  ML_EIA2_LARGE: "ml.eia2.large",
+  ML_EIA2_MEDIUM: "ml.eia2.medium",
+  ML_EIA2_XLARGE: "ml.eia2.xlarge",
+};
 
 /**
  * @public
@@ -297,7 +297,7 @@ export interface ProductionVariant {
   /**
    * <p>The ML compute instance type.</p>
    */
-  InstanceType?: ProductionVariantInstanceType | string;
+  InstanceType?: keyof typeof ProductionVariantInstanceType | string;
 
   /**
    * <p>Determines initial traffic distribution among all of the models that you specify in
@@ -314,7 +314,7 @@ export interface ProductionVariant {
    *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
    *             Inference in Amazon SageMaker</a>.</p>
    */
-  AcceleratorType?: ProductionVariantAcceleratorType | string;
+  AcceleratorType?: keyof typeof ProductionVariantAcceleratorType | string;
 
   /**
    * <p>Specifies configuration for a core dump from the model container when the process
@@ -505,11 +505,11 @@ export interface CreateExperimentResponse {
 /**
  * @public
  */
-export enum FeatureType {
-  FRACTIONAL = "Fractional",
-  INTEGRAL = "Integral",
-  STRING = "String",
-}
+export const FeatureType = {
+  FRACTIONAL: "Fractional",
+  INTEGRAL: "Integral",
+  STRING: "String",
+};
 
 /**
  * @public
@@ -528,7 +528,7 @@ export interface FeatureDefinition {
   /**
    * <p>The value type of a feature. Valid values are Integral, Fractional, or String.</p>
    */
-  FeatureType?: FeatureType | string;
+  FeatureType?: keyof typeof FeatureType | string;
 }
 
 /**
@@ -589,10 +589,10 @@ export interface S3StorageConfig {
 /**
  * @public
  */
-export enum TableFormat {
-  GLUE = "Glue",
-  ICEBERG = "Iceberg",
-}
+export const TableFormat = {
+  GLUE: "Glue",
+  ICEBERG: "Iceberg",
+};
 
 /**
  * @public
@@ -624,7 +624,7 @@ export interface OfflineStoreConfig {
   /**
    * <p>Format for the offline store table. Supported formats are Glue (Default) and <a href="https://iceberg.apache.org/">Apache Iceberg</a>.</p>
    */
-  TableFormat?: TableFormat | string;
+  TableFormat?: keyof typeof TableFormat | string;
 }
 
 /**
@@ -1610,7 +1610,7 @@ export interface HumanLoopRequestSource {
    * <p>Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source.
    *       The default field settings and JSON parsing rules are different based on the integration source. Valid values:</p>
    */
-  AwsManagedHumanLoopRequestSource: AwsManagedHumanLoopRequestSource | string | undefined;
+  AwsManagedHumanLoopRequestSource: keyof typeof AwsManagedHumanLoopRequestSource | string | undefined;
 }
 
 /**
@@ -1828,7 +1828,7 @@ export interface IntegerParameterRange {
    *             </dd>
    *          </dl>
    */
-  ScalingType?: HyperParameterScalingType | string;
+  ScalingType?: keyof typeof HyperParameterScalingType | string;
 }
 
 /**
@@ -1892,12 +1892,12 @@ export interface ResourceLimits {
 /**
  * @public
  */
-export enum HyperParameterTuningJobStrategyType {
-  BAYESIAN = "Bayesian",
-  GRID = "Grid",
-  HYPERBAND = "Hyperband",
-  RANDOM = "Random",
-}
+export const HyperParameterTuningJobStrategyType = {
+  BAYESIAN: "Bayesian",
+  GRID: "Grid",
+  HYPERBAND: "Hyperband",
+  RANDOM: "Random",
+};
 
 /**
  * @public
@@ -1982,10 +1982,10 @@ export interface HyperParameterTuningJobStrategyConfig {
 /**
  * @public
  */
-export enum TrainingJobEarlyStoppingType {
-  AUTO = "Auto",
-  OFF = "Off",
-}
+export const TrainingJobEarlyStoppingType = {
+  AUTO: "Auto",
+  OFF: "Off",
+};
 
 /**
  * @public
@@ -2022,7 +2022,7 @@ export interface HyperParameterTuningJobConfig {
    *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
    *                 Hyperparameter Tuning Works</a>.</p>
    */
-  Strategy: HyperParameterTuningJobStrategyType | string | undefined;
+  Strategy: keyof typeof HyperParameterTuningJobStrategyType | string | undefined;
 
   /**
    * <p>The configuration for the <code>Hyperband</code> optimization strategy. This parameter
@@ -2071,7 +2071,7 @@ export interface HyperParameterTuningJobConfig {
    *             </dd>
    *          </dl>
    */
-  TrainingJobEarlyStoppingType?: TrainingJobEarlyStoppingType | string;
+  TrainingJobEarlyStoppingType?: keyof typeof TrainingJobEarlyStoppingType | string;
 
   /**
    * <p>The tuning job's completion criteria.</p>
@@ -2139,7 +2139,7 @@ export interface HyperParameterAlgorithmSpecification {
    *             manifest files aren't supported. The startup time is lower when there are fewer files in
    *             the S3 bucket provided.</p>
    */
-  TrainingInputMode: TrainingInputMode | string | undefined;
+  TrainingInputMode: keyof typeof TrainingInputMode | string | undefined;
 
   /**
    * <p>The name of the resource algorithm to use for the hyperparameter tuning job. If you
@@ -2159,9 +2159,9 @@ export interface HyperParameterAlgorithmSpecification {
 /**
  * @public
  */
-export enum HyperParameterTuningAllocationStrategy {
-  PRIORITIZED = "Prioritized",
-}
+export const HyperParameterTuningAllocationStrategy = {
+  PRIORITIZED: "Prioritized",
+};
 
 /**
  * @public
@@ -2178,7 +2178,7 @@ export interface HyperParameterTuningInstanceConfig {
    *             information about instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html">instance type
    *                 descriptions</a>.</p>
    */
-  InstanceType: TrainingInstanceType | string | undefined;
+  InstanceType: keyof typeof TrainingInstanceType | string | undefined;
 
   /**
    * <p>The number of instances of the type specified by <code>InstanceType</code>. Choose an
@@ -2216,7 +2216,7 @@ export interface HyperParameterTuningResourceConfig {
    * <p>The instance type used to run hyperparameter optimization tuning jobs. See <a href="https://docs.aws.amazon.com/notebooks-available-instance-types.html"> descriptions of
    *                 instance types</a> for more information.</p>
    */
-  InstanceType?: TrainingInstanceType | string;
+  InstanceType?: keyof typeof TrainingInstanceType | string;
 
   /**
    * <p>The number of compute instances of type <code>InstanceType</code> to use. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html">distributed training</a>, select a value greater than 1.</p>
@@ -2264,7 +2264,7 @@ export interface HyperParameterTuningResourceConfig {
    * <p>The strategy that determines the order of preference for resources specified in
    *                 <code>InstanceConfigs</code> used in hyperparameter optimization.</p>
    */
-  AllocationStrategy?: HyperParameterTuningAllocationStrategy | string;
+  AllocationStrategy?: keyof typeof HyperParameterTuningAllocationStrategy | string;
 
   /**
    * <p>A list containing the configuration(s) for one or more resources for processing
@@ -2488,10 +2488,10 @@ export interface ParentHyperParameterTuningJob {
 /**
  * @public
  */
-export enum HyperParameterTuningJobWarmStartType {
-  IDENTICAL_DATA_AND_ALGORITHM = "IdenticalDataAndAlgorithm",
-  TRANSFER_LEARNING = "TransferLearning",
-}
+export const HyperParameterTuningJobWarmStartType = {
+  IDENTICAL_DATA_AND_ALGORITHM: "IdenticalDataAndAlgorithm",
+  TRANSFER_LEARNING: "TransferLearning",
+};
 
 /**
  * @public
@@ -2552,7 +2552,7 @@ export interface HyperParameterTuningJobWarmStartConfig {
    *             </dd>
    *          </dl>
    */
-  WarmStartType: HyperParameterTuningJobWarmStartType | string | undefined;
+  WarmStartType: keyof typeof HyperParameterTuningJobWarmStartType | string | undefined;
 }
 
 /**
@@ -2673,29 +2673,29 @@ export interface CreateImageResponse {
 /**
  * @public
  */
-export enum JobType {
-  INFERENCE = "INFERENCE",
-  NOTEBOOK_KERNEL = "NOTEBOOK_KERNEL",
-  TRAINING = "TRAINING",
-}
+export const JobType = {
+  INFERENCE: "INFERENCE",
+  NOTEBOOK_KERNEL: "NOTEBOOK_KERNEL",
+  TRAINING: "TRAINING",
+};
 
 /**
  * @public
  */
-export enum Processor {
-  CPU = "CPU",
-  GPU = "GPU",
-}
+export const Processor = {
+  CPU: "CPU",
+  GPU: "GPU",
+};
 
 /**
  * @public
  */
-export enum VendorGuidance {
-  ARCHIVED = "ARCHIVED",
-  NOT_PROVIDED = "NOT_PROVIDED",
-  STABLE = "STABLE",
-  TO_BE_ARCHIVED = "TO_BE_ARCHIVED",
-}
+export const VendorGuidance = {
+  ARCHIVED: "ARCHIVED",
+  NOT_PROVIDED: "NOT_PROVIDED",
+  STABLE: "STABLE",
+  TO_BE_ARCHIVED: "TO_BE_ARCHIVED",
+};
 
 /**
  * @public
@@ -2747,7 +2747,7 @@ export interface CreateImageVersionRequest {
    *             </li>
    *          </ul>
    */
-  VendorGuidance?: VendorGuidance | string;
+  VendorGuidance?: keyof typeof VendorGuidance | string;
 
   /**
    * <p>Indicates SageMaker job type compatibility.</p>
@@ -2766,7 +2766,7 @@ export interface CreateImageVersionRequest {
    *             </li>
    *          </ul>
    */
-  JobType?: JobType | string;
+  JobType?: keyof typeof JobType | string;
 
   /**
    * <p>The machine learning framework vended in the image version.</p>
@@ -2791,7 +2791,7 @@ export interface CreateImageVersionRequest {
    *             </li>
    *          </ul>
    */
-  Processor?: Processor | string;
+  Processor?: keyof typeof Processor | string;
 
   /**
    * <p>Indicates Horovod compatibility.</p>
@@ -2842,84 +2842,84 @@ export interface InferenceExperimentDataStorageConfig {
 /**
  * @public
  */
-export enum ModelInfrastructureType {
-  REAL_TIME_INFERENCE = "RealTimeInference",
-}
+export const ModelInfrastructureType = {
+  REAL_TIME_INFERENCE: "RealTimeInference",
+};
 
 /**
  * @public
  */
-export enum _InstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5D_18XLARGE = "ml.c5d.18xlarge",
-  ML_C5D_2XLARGE = "ml.c5d.2xlarge",
-  ML_C5D_4XLARGE = "ml.c5d.4xlarge",
-  ML_C5D_9XLARGE = "ml.c5d.9xlarge",
-  ML_C5D_XLARGE = "ml.c5d.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_G5_12XLARGE = "ml.g5.12xlarge",
-  ML_G5_16XLARGE = "ml.g5.16xlarge",
-  ML_G5_24XLARGE = "ml.g5.24xlarge",
-  ML_G5_2XLARGE = "ml.g5.2xlarge",
-  ML_G5_48XLARGE = "ml.g5.48xlarge",
-  ML_G5_4XLARGE = "ml.g5.4xlarge",
-  ML_G5_8XLARGE = "ml.g5.8xlarge",
-  ML_G5_XLARGE = "ml.g5.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
-  ML_M5D_16XLARGE = "ml.m5d.16xlarge",
-  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
-  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
-  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
-  ML_M5D_8XLARGE = "ml.m5d.8xlarge",
-  ML_M5D_LARGE = "ml.m5d.large",
-  ML_M5D_XLARGE = "ml.m5d.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_R5_12XLARGE = "ml.r5.12xlarge",
-  ML_R5_16XLARGE = "ml.r5.16xlarge",
-  ML_R5_24XLARGE = "ml.r5.24xlarge",
-  ML_R5_2XLARGE = "ml.r5.2xlarge",
-  ML_R5_4XLARGE = "ml.r5.4xlarge",
-  ML_R5_8XLARGE = "ml.r5.8xlarge",
-  ML_R5_LARGE = "ml.r5.large",
-  ML_R5_XLARGE = "ml.r5.xlarge",
-  ML_T2_2XLARGE = "ml.t2.2xlarge",
-  ML_T2_LARGE = "ml.t2.large",
-  ML_T2_MEDIUM = "ml.t2.medium",
-  ML_T2_XLARGE = "ml.t2.xlarge",
-  ML_T3_2XLARGE = "ml.t3.2xlarge",
-  ML_T3_LARGE = "ml.t3.large",
-  ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_XLARGE = "ml.t3.xlarge",
-}
+export const _InstanceType = {
+  ML_C4_2XLARGE: "ml.c4.2xlarge",
+  ML_C4_4XLARGE: "ml.c4.4xlarge",
+  ML_C4_8XLARGE: "ml.c4.8xlarge",
+  ML_C4_XLARGE: "ml.c4.xlarge",
+  ML_C5D_18XLARGE: "ml.c5d.18xlarge",
+  ML_C5D_2XLARGE: "ml.c5d.2xlarge",
+  ML_C5D_4XLARGE: "ml.c5d.4xlarge",
+  ML_C5D_9XLARGE: "ml.c5d.9xlarge",
+  ML_C5D_XLARGE: "ml.c5d.xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_G5_12XLARGE: "ml.g5.12xlarge",
+  ML_G5_16XLARGE: "ml.g5.16xlarge",
+  ML_G5_24XLARGE: "ml.g5.24xlarge",
+  ML_G5_2XLARGE: "ml.g5.2xlarge",
+  ML_G5_48XLARGE: "ml.g5.48xlarge",
+  ML_G5_4XLARGE: "ml.g5.4xlarge",
+  ML_G5_8XLARGE: "ml.g5.8xlarge",
+  ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_M4_10XLARGE: "ml.m4.10xlarge",
+  ML_M4_16XLARGE: "ml.m4.16xlarge",
+  ML_M4_2XLARGE: "ml.m4.2xlarge",
+  ML_M4_4XLARGE: "ml.m4.4xlarge",
+  ML_M4_XLARGE: "ml.m4.xlarge",
+  ML_M5D_12XLARGE: "ml.m5d.12xlarge",
+  ML_M5D_16XLARGE: "ml.m5d.16xlarge",
+  ML_M5D_24XLARGE: "ml.m5d.24xlarge",
+  ML_M5D_2XLARGE: "ml.m5d.2xlarge",
+  ML_M5D_4XLARGE: "ml.m5d.4xlarge",
+  ML_M5D_8XLARGE: "ml.m5d.8xlarge",
+  ML_M5D_LARGE: "ml.m5d.large",
+  ML_M5D_XLARGE: "ml.m5d.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P2_16XLARGE: "ml.p2.16xlarge",
+  ML_P2_8XLARGE: "ml.p2.8xlarge",
+  ML_P2_XLARGE: "ml.p2.xlarge",
+  ML_P3DN_24XLARGE: "ml.p3dn.24xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_R5_12XLARGE: "ml.r5.12xlarge",
+  ML_R5_16XLARGE: "ml.r5.16xlarge",
+  ML_R5_24XLARGE: "ml.r5.24xlarge",
+  ML_R5_2XLARGE: "ml.r5.2xlarge",
+  ML_R5_4XLARGE: "ml.r5.4xlarge",
+  ML_R5_8XLARGE: "ml.r5.8xlarge",
+  ML_R5_LARGE: "ml.r5.large",
+  ML_R5_XLARGE: "ml.r5.xlarge",
+  ML_T2_2XLARGE: "ml.t2.2xlarge",
+  ML_T2_LARGE: "ml.t2.large",
+  ML_T2_MEDIUM: "ml.t2.medium",
+  ML_T2_XLARGE: "ml.t2.xlarge",
+  ML_T3_2XLARGE: "ml.t3.2xlarge",
+  ML_T3_LARGE: "ml.t3.large",
+  ML_T3_MEDIUM: "ml.t3.medium",
+  ML_T3_XLARGE: "ml.t3.xlarge",
+};
 
 /**
  * @public
@@ -2929,7 +2929,7 @@ export interface RealTimeInferenceConfig {
   /**
    * <p>The instance type the model is deployed to.</p>
    */
-  InstanceType: _InstanceType | string | undefined;
+  InstanceType: keyof typeof _InstanceType | string | undefined;
 
   /**
    * <p>The number of instances of the type specified by <code>InstanceType</code>.</p>
@@ -2951,7 +2951,7 @@ export interface ModelInfrastructureConfig {
    *             </li>
    *          </ul>
    */
-  InfrastructureType: ModelInfrastructureType | string | undefined;
+  InfrastructureType: keyof typeof ModelInfrastructureType | string | undefined;
 
   /**
    * <p>The infrastructure configuration for deploying the model to real-time inference.</p>
@@ -3040,9 +3040,9 @@ export interface ShadowModeConfig {
 /**
  * @public
  */
-export enum InferenceExperimentType {
-  SHADOW_MODE = "ShadowMode",
-}
+export const InferenceExperimentType = {
+  SHADOW_MODE: "ShadowMode",
+};
 
 /**
  * @public
@@ -3066,7 +3066,7 @@ export interface CreateInferenceExperimentRequest {
    *             </li>
    *          </ul>
    */
-  Type: InferenceExperimentType | string | undefined;
+  Type: keyof typeof InferenceExperimentType | string | undefined;
 
   /**
    * <p>
@@ -3291,7 +3291,7 @@ export interface EndpointInputConfiguration {
   /**
    * <p>The instance types to use for the load test.</p>
    */
-  InstanceType: ProductionVariantInstanceType | string | undefined;
+  InstanceType: keyof typeof ProductionVariantInstanceType | string | undefined;
 
   /**
    * <p>The inference specification name in the model package version.</p>
@@ -3356,9 +3356,9 @@ export interface Phase {
 /**
  * @public
  */
-export enum TrafficType {
-  PHASES = "PHASES",
-}
+export const TrafficType = {
+  PHASES: "PHASES",
+};
 
 /**
  * @public
@@ -3368,7 +3368,7 @@ export interface TrafficPattern {
   /**
    * <p>Defines the traffic patterns.</p>
    */
-  TrafficType?: TrafficType | string;
+  TrafficType?: keyof typeof TrafficType | string;
 
   /**
    * <p>Defines the phases traffic specification.</p>
@@ -3489,10 +3489,10 @@ export interface RecommendationJobInputConfig {
 /**
  * @public
  */
-export enum RecommendationJobType {
-  ADVANCED = "Advanced",
-  DEFAULT = "Default",
-}
+export const RecommendationJobType = {
+  ADVANCED: "Advanced",
+  DEFAULT: "Default",
+};
 
 /**
  * @public
@@ -3607,7 +3607,7 @@ export interface CreateInferenceRecommendationsJobRequest {
    *            recommendation and <code>Advanced</code> to initiate a load test. If left unspecified,
    *            Amazon SageMaker Inference Recommender will run an instance recommendation (<code>DEFAULT</code>) job.</p>
    */
-  JobType: RecommendationJobType | string | undefined;
+  JobType: keyof typeof RecommendationJobType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker
@@ -5328,7 +5328,7 @@ export interface LabelingJobDataAttributes {
    *             content. SageMaker may restrict the Amazon Mechanical Turk workers that can view your task
    *             based on this information.</p>
    */
-  ContentClassifiers?: (ContentClassifier | string)[];
+  ContentClassifiers?: (keyof typeof ContentClassifier | string)[];
 }
 
 /**
@@ -5775,10 +5775,10 @@ export interface CreateLabelingJobResponse {
 /**
  * @public
  */
-export enum InferenceExecutionMode {
-  DIRECT = "Direct",
-  SERIAL = "Serial",
-}
+export const InferenceExecutionMode = {
+  DIRECT: "Direct",
+  SERIAL: "Serial",
+};
 
 /**
  * @public
@@ -5799,7 +5799,7 @@ export interface InferenceExecutionConfig {
    *             </li>
    *          </ul>
    */
-  Mode: InferenceExecutionMode | string | undefined;
+  Mode: keyof typeof InferenceExecutionMode | string | undefined;
 }
 
 /**
@@ -6016,12 +6016,12 @@ export interface CreateModelBiasJobDefinitionResponse {
 /**
  * @public
  */
-export enum ModelCardStatus {
-  APPROVED = "Approved",
-  ARCHIVED = "Archived",
-  DRAFT = "Draft",
-  PENDINGREVIEW = "PendingReview",
-}
+export const ModelCardStatus = {
+  APPROVED: "Approved",
+  ARCHIVED: "Archived",
+  DRAFT: "Draft",
+  PENDINGREVIEW: "PendingReview",
+};
 
 /**
  * @public
@@ -6079,7 +6079,7 @@ export interface CreateModelCardRequest {
    *             </li>
    *          </ul>
    */
-  ModelCardStatus: ModelCardStatus | string | undefined;
+  ModelCardStatus: keyof typeof ModelCardStatus | string | undefined;
 
   /**
    * <p>Key-value pairs used to manage metadata for model cards.</p>
@@ -6608,7 +6608,7 @@ export interface CreateModelPackageInput {
    *          <p>For versioned models, the value of this parameter must be set to <code>Approved</code>
    *         to deploy the model.</p>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: keyof typeof ModelApprovalStatus | string;
 
   /**
    * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
@@ -6715,11 +6715,11 @@ export interface CreateModelPackageGroupOutput {
 /**
  * @public
  */
-export enum MonitoringProblemType {
-  BINARY_CLASSIFICATION = "BinaryClassification",
-  MULTICLASS_CLASSIFICATION = "MulticlassClassification",
-  REGRESSION = "Regression",
-}
+export const MonitoringProblemType = {
+  BINARY_CLASSIFICATION: "BinaryClassification",
+  MULTICLASS_CLASSIFICATION: "MulticlassClassification",
+  REGRESSION: "Regression",
+};
 
 /**
  * @public
@@ -6758,7 +6758,7 @@ export interface ModelQualityAppSpecification {
   /**
    * <p>The machine learning problem type of the model that the monitoring job monitors.</p>
    */
-  ProblemType?: MonitoringProblemType | string;
+  ProblemType?: keyof typeof MonitoringProblemType | string;
 
   /**
    * <p>Sets the environment variables in the container that the monitoring job runs.</p>
@@ -7037,12 +7037,12 @@ export interface MonitoringJobDefinition {
 /**
  * @public
  */
-export enum MonitoringType {
-  DATA_QUALITY = "DataQuality",
-  MODEL_BIAS = "ModelBias",
-  MODEL_EXPLAINABILITY = "ModelExplainability",
-  MODEL_QUALITY = "ModelQuality",
-}
+export const MonitoringType = {
+  DATA_QUALITY: "DataQuality",
+  MODEL_BIAS: "ModelBias",
+  MODEL_EXPLAINABILITY: "ModelExplainability",
+  MODEL_QUALITY: "ModelQuality",
+};
 
 /**
  * @public
@@ -7132,7 +7132,7 @@ export interface MonitoringScheduleConfig {
   /**
    * <p>The type of the monitoring job definition to schedule.</p>
    */
-  MonitoringType?: MonitoringType | string;
+  MonitoringType?: keyof typeof MonitoringType | string;
 }
 
 /**
@@ -7171,22 +7171,22 @@ export interface CreateMonitoringScheduleResponse {
 /**
  * @public
  */
-export enum NotebookInstanceAcceleratorType {
-  ML_EIA1_LARGE = "ml.eia1.large",
-  ML_EIA1_MEDIUM = "ml.eia1.medium",
-  ML_EIA1_XLARGE = "ml.eia1.xlarge",
-  ML_EIA2_LARGE = "ml.eia2.large",
-  ML_EIA2_MEDIUM = "ml.eia2.medium",
-  ML_EIA2_XLARGE = "ml.eia2.xlarge",
-}
+export const NotebookInstanceAcceleratorType = {
+  ML_EIA1_LARGE: "ml.eia1.large",
+  ML_EIA1_MEDIUM: "ml.eia1.medium",
+  ML_EIA1_XLARGE: "ml.eia1.xlarge",
+  ML_EIA2_LARGE: "ml.eia2.large",
+  ML_EIA2_MEDIUM: "ml.eia2.medium",
+  ML_EIA2_XLARGE: "ml.eia2.xlarge",
+};
 
 /**
  * @public
  */
-export enum DirectInternetAccess {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const DirectInternetAccess = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+};
 
 /**
  * @public
@@ -7202,10 +7202,10 @@ export interface InstanceMetadataServiceConfiguration {
 /**
  * @public
  */
-export enum RootAccess {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const RootAccess = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+};
 
 /**
  * @public
@@ -7219,7 +7219,7 @@ export interface CreateNotebookInstanceInput {
   /**
    * <p>The type of ML compute instance to launch for the notebook instance.</p>
    */
-  InstanceType: _InstanceType | string | undefined;
+  InstanceType: keyof typeof _InstanceType | string | undefined;
 
   /**
    * <p>The ID of the subnet in a VPC to which you would like to have a connectivity from
@@ -7278,7 +7278,7 @@ export interface CreateNotebookInstanceInput {
    *             of this parameter to <code>Disabled</code> only if you set a value for the
    *                 <code>SubnetId</code> parameter.</p>
    */
-  DirectInternetAccess?: DirectInternetAccess | string;
+  DirectInternetAccess?: keyof typeof DirectInternetAccess | string;
 
   /**
    * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
@@ -7291,7 +7291,7 @@ export interface CreateNotebookInstanceInput {
    *             instance. Currently, only one instance type can be associated with a notebook instance.
    *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon SageMaker</a>.</p>
    */
-  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
+  AcceleratorTypes?: (keyof typeof NotebookInstanceAcceleratorType | string)[];
 
   /**
    * <p>A Git repository to associate with the notebook instance as its default code
@@ -7323,7 +7323,7 @@ export interface CreateNotebookInstanceInput {
    *                 users.</p>
    *          </note>
    */
-  RootAccess?: RootAccess | string;
+  RootAccess?: keyof typeof RootAccess | string;
 
   /**
    * <p>The platform identifier of the notebook instance runtime environment.</p>
@@ -7615,37 +7615,37 @@ export interface ExperimentConfig {
 /**
  * @public
  */
-export enum DataDistributionType {
-  FULLYREPLICATED = "FullyReplicated",
-  SHARDEDBYS3KEY = "ShardedByS3Key",
-}
+export const DataDistributionType = {
+  FULLYREPLICATED: "FullyReplicated",
+  SHARDEDBYS3KEY: "ShardedByS3Key",
+};
 
 /**
  * @public
  */
-export enum InputMode {
-  FILE = "File",
-  PIPE = "Pipe",
-}
+export const InputMode = {
+  FILE: "File",
+  PIPE: "Pipe",
+};
 
 /**
  * @public
  */
-export enum RedshiftResultCompressionType {
-  BZIP2 = "BZIP2",
-  GZIP = "GZIP",
-  NONE = "None",
-  SNAPPY = "SNAPPY",
-  ZSTD = "ZSTD",
-}
+export const RedshiftResultCompressionType = {
+  BZIP2: "BZIP2",
+  GZIP: "GZIP",
+  NONE: "None",
+  SNAPPY: "SNAPPY",
+  ZSTD: "ZSTD",
+};
 
 /**
  * @public
  */
-export enum RedshiftResultFormat {
-  CSV = "CSV",
-  PARQUET = "PARQUET",
-}
+export const RedshiftResultFormat = {
+  CSV: "CSV",
+  PARQUET: "PARQUET",
+};
 
 /**
  * @public
@@ -7691,12 +7691,12 @@ export interface RedshiftDatasetDefinition {
   /**
    * <p>The data storage format for Redshift query results.</p>
    */
-  OutputFormat: RedshiftResultFormat | string | undefined;
+  OutputFormat: keyof typeof RedshiftResultFormat | string | undefined;
 
   /**
    * <p>The compression used for Redshift query results.</p>
    */
-  OutputCompression?: RedshiftResultCompressionType | string;
+  OutputCompression?: keyof typeof RedshiftResultCompressionType | string;
 }
 
 /**
@@ -7727,7 +7727,7 @@ export interface DatasetDefinition {
    * <p>Whether the generated dataset is <code>FullyReplicated</code> or
    *             <code>ShardedByS3Key</code> (default).</p>
    */
-  DataDistributionType?: DataDistributionType | string;
+  DataDistributionType?: keyof typeof DataDistributionType | string;
 
   /**
    * <p>Whether to use <code>File</code> or <code>Pipe</code> input mode. In <code>File</code> (default) mode,
@@ -7736,24 +7736,24 @@ export interface DatasetDefinition {
    *             input mode. In <code>Pipe</code> mode, Amazon SageMaker streams input data from the source directly to your
    *             algorithm without using the EBS volume.</p>
    */
-  InputMode?: InputMode | string;
+  InputMode?: keyof typeof InputMode | string;
 }
 
 /**
  * @public
  */
-export enum ProcessingS3CompressionType {
-  GZIP = "Gzip",
-  NONE = "None",
-}
+export const ProcessingS3CompressionType = {
+  GZIP: "Gzip",
+  NONE: "None",
+};
 
 /**
  * @public
  */
-export enum ProcessingS3DataType {
-  MANIFEST_FILE = "ManifestFile",
-  S3_PREFIX = "S3Prefix",
-}
+export const ProcessingS3DataType = {
+  MANIFEST_FILE: "ManifestFile",
+  S3_PREFIX: "S3Prefix",
+};
 
 /**
  * @public
@@ -7781,7 +7781,7 @@ export interface ProcessingS3Input {
    *             that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for
    *             the processing job.</p>
    */
-  S3DataType: ProcessingS3DataType | string | undefined;
+  S3DataType: keyof typeof ProcessingS3DataType | string | undefined;
 
   /**
    * <p>Whether to use <code>File</code> or <code>Pipe</code> input mode. In File mode, Amazon SageMaker copies the data
@@ -7790,14 +7790,14 @@ export interface ProcessingS3Input {
    *             streams input data from the source directly to your processing container into named
    *             pipes without using the ML storage volume.</p>
    */
-  S3InputMode?: ProcessingS3InputMode | string;
+  S3InputMode?: keyof typeof ProcessingS3InputMode | string;
 
   /**
    * <p>Whether to distribute the data from Amazon S3 to all processing instances with
    *             <code>FullyReplicated</code>, or whether the data from Amazon S3 is shared by Amazon S3 key,
    *             downloading one shard of data to each processing instance.</p>
    */
-  S3DataDistributionType?: ProcessingS3DataDistributionType | string;
+  S3DataDistributionType?: keyof typeof ProcessingS3DataDistributionType | string;
 
   /**
    * <p>Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing
@@ -7805,7 +7805,7 @@ export interface ProcessingS3Input {
    *             specified as the <code>S3InputMode</code>. In <code>Pipe</code> mode, Amazon SageMaker streams input
    *             data from the source directly to your container without using the EBS volume.</p>
    */
-  S3CompressionType?: ProcessingS3CompressionType | string;
+  S3CompressionType?: keyof typeof ProcessingS3CompressionType | string;
 }
 
 /**
@@ -7871,7 +7871,7 @@ export interface ProcessingS3Output {
    * <p>Whether to upload the results of the processing job continuously or after the job
    *             completes.</p>
    */
-  S3UploadMode: ProcessingS3UploadMode | string | undefined;
+  S3UploadMode: keyof typeof ProcessingS3UploadMode | string | undefined;
 }
 
 /**
@@ -7937,7 +7937,7 @@ export interface ProcessingClusterConfig {
   /**
    * <p>The ML compute instance type for the processing job.</p>
    */
-  InstanceType: ProcessingInstanceType | string | undefined;
+  InstanceType: keyof typeof ProcessingInstanceType | string | undefined;
 
   /**
    * <p>The size of the ML storage volume in gigabytes that you want to provision. You must
@@ -8238,10 +8238,10 @@ export interface CreateSpaceResponse {
 /**
  * @public
  */
-export enum StudioLifecycleConfigAppType {
-  JupyterServer = "JupyterServer",
-  KernelGateway = "KernelGateway",
-}
+export const StudioLifecycleConfigAppType = {
+  JupyterServer: "JupyterServer",
+  KernelGateway: "KernelGateway",
+};
 
 /**
  * @public
@@ -8260,7 +8260,7 @@ export interface CreateStudioLifecycleConfigRequest {
   /**
    * <p>The App type that the Lifecycle Configuration is attached to.</p>
    */
-  StudioLifecycleConfigAppType: StudioLifecycleConfigAppType | string | undefined;
+  StudioLifecycleConfigAppType: keyof typeof StudioLifecycleConfigAppType | string | undefined;
 
   /**
    * <p>Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API. </p>
@@ -8343,7 +8343,7 @@ export interface DebugRuleConfiguration {
   /**
    * <p>The instance type to deploy a custom rule for debugging a training job.</p>
    */
-  InstanceType?: ProcessingInstanceType | string;
+  InstanceType?: keyof typeof ProcessingInstanceType | string;
 
   /**
    * <p>The size, in GB, of the ML storage volume attached to the processing instance.</p>
@@ -8417,7 +8417,7 @@ export interface ProfilerRuleConfiguration {
   /**
    * <p>The instance type to deploy a custom rule for profiling a training job.</p>
    */
-  InstanceType?: ProcessingInstanceType | string;
+  InstanceType?: keyof typeof ProcessingInstanceType | string;
 
   /**
    * <p>The size, in GB, of the ML storage volume attached to the processing instance.</p>
@@ -8670,10 +8670,10 @@ export interface CreateTrainingJobResponse {
 /**
  * @public
  */
-export enum JoinSource {
-  INPUT = "Input",
-  NONE = "None",
-}
+export const JoinSource = {
+  INPUT: "Input",
+  NONE: "None",
+};
 
 /**
  * @public
@@ -8728,7 +8728,7 @@ export interface DataProcessing {
    *             file.</p>
    *          <p>For information on how joining in applied, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow">Workflow for Associating Inferences with Input Records</a>.</p>
    */
-  JoinSource?: JoinSource | string;
+  JoinSource?: keyof typeof JoinSource | string;
 }
 
 /**
@@ -8817,7 +8817,7 @@ export interface CreateTransformJobRequest {
    *                 <code>MaxPayloadInMB</code> limit, set <code>BatchStrategy</code> to
    *                 <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.</p>
    */
-  BatchStrategy?: BatchStrategy | string;
+  BatchStrategy?: keyof typeof BatchStrategy | string;
 
   /**
    * <p>The environment variables to set in the Docker container. We support up to 16 key and
@@ -9028,13 +9028,13 @@ export namespace TrialComponentParameterValue {
 /**
  * @public
  */
-export enum TrialComponentPrimaryStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const TrialComponentPrimaryStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+};
 
 /**
  * @public
@@ -9044,7 +9044,7 @@ export interface TrialComponentStatus {
   /**
    * <p>The status of the trial component.</p>
    */
-  PrimaryStatus?: TrialComponentPrimaryStatus | string;
+  PrimaryStatus?: keyof typeof TrialComponentPrimaryStatus | string;
 
   /**
    * <p>If the component failed, a message describing why.</p>
@@ -9455,7 +9455,7 @@ export interface DataCaptureConfigSummary {
   /**
    * <p>Whether data capture is currently functional.</p>
    */
-  CaptureStatus: CaptureStatus | string | undefined;
+  CaptureStatus: keyof typeof CaptureStatus | string | undefined;
 
   /**
    * <p>The percentage of requests being captured by your Endpoint.</p>
@@ -9476,14 +9476,14 @@ export interface DataCaptureConfigSummary {
 /**
  * @public
  */
-export enum RuleEvaluationStatus {
-  ERROR = "Error",
-  IN_PROGRESS = "InProgress",
-  ISSUES_FOUND = "IssuesFound",
-  NO_ISSUES_FOUND = "NoIssuesFound",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const RuleEvaluationStatus = {
+  ERROR: "Error",
+  IN_PROGRESS: "InProgress",
+  ISSUES_FOUND: "IssuesFound",
+  NO_ISSUES_FOUND: "NoIssuesFound",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+};
 
 /**
  * @public
@@ -9503,7 +9503,7 @@ export interface DebugRuleEvaluationStatus {
   /**
    * <p>Status of the rule evaluation.</p>
    */
-  RuleEvaluationStatus?: RuleEvaluationStatus | string;
+  RuleEvaluationStatus?: keyof typeof RuleEvaluationStatus | string;
 
   /**
    * <p>Details from the rule evaluation.</p>
@@ -9563,7 +9563,7 @@ export interface DeleteAppRequest {
   /**
    * <p>The type of app.</p>
    */
-  AppType: AppType | string | undefined;
+  AppType: keyof typeof AppType | string | undefined;
 
   /**
    * <p>The name of the app.</p>
@@ -9694,10 +9694,10 @@ export interface DeleteDeviceFleetRequest {
 /**
  * @public
  */
-export enum RetentionType {
-  Delete = "Delete",
-  Retain = "Retain",
-}
+export const RetentionType = {
+  Delete: "Delete",
+  Retain: "Retain",
+};
 
 /**
  * @public
@@ -9708,7 +9708,7 @@ export interface RetentionPolicy {
    * <p>The default is <code>Retain</code>, which specifies to keep the data stored on the EFS volume.</p>
    *          <p>Specify <code>Delete</code> to delete the data stored on the EFS volume.</p>
    */
-  HomeEfsFileSystem?: RetentionType | string;
+  HomeEfsFileSystem?: keyof typeof RetentionType | string;
 }
 
 /**
@@ -9832,10 +9832,10 @@ export interface DeleteHubRequest {
 /**
  * @public
  */
-export enum HubContentType {
-  MODEL = "Model",
-  NOTEBOOK = "Notebook",
-}
+export const HubContentType = {
+  MODEL: "Model",
+  NOTEBOOK: "Notebook",
+};
 
 /**
  * @public
@@ -9849,7 +9849,7 @@ export interface DeleteHubContentRequest {
   /**
    * <p>The type of content that you want to delete from a hub.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: keyof typeof HubContentType | string | undefined;
 
   /**
    * <p>The name of the content that you want to delete from a hub.</p>

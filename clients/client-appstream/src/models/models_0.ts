@@ -6,9 +6,9 @@ import { AppStreamServiceException as __BaseException } from "./AppStreamService
 /**
  * @public
  */
-export enum AccessEndpointType {
-  STREAMING = "STREAMING",
-}
+export const AccessEndpointType = {
+  STREAMING: "STREAMING",
+};
 
 /**
  * @public
@@ -18,7 +18,7 @@ export interface AccessEndpoint {
   /**
    * <p>The type of interface endpoint.</p>
    */
-  EndpointType: AccessEndpointType | string | undefined;
+  EndpointType: keyof typeof AccessEndpointType | string | undefined;
 
   /**
    * <p>The identifier (ID) of the VPC in which the interface endpoint is used.</p>
@@ -29,15 +29,15 @@ export interface AccessEndpoint {
 /**
  * @public
  */
-export enum Action {
-  CLIPBOARD_COPY_FROM_LOCAL_DEVICE = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
-  CLIPBOARD_COPY_TO_LOCAL_DEVICE = "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
-  DOMAIN_PASSWORD_SIGNIN = "DOMAIN_PASSWORD_SIGNIN",
-  DOMAIN_SMART_CARD_SIGNIN = "DOMAIN_SMART_CARD_SIGNIN",
-  FILE_DOWNLOAD = "FILE_DOWNLOAD",
-  FILE_UPLOAD = "FILE_UPLOAD",
-  PRINTING_TO_LOCAL_DEVICE = "PRINTING_TO_LOCAL_DEVICE",
-}
+export const Action = {
+  CLIPBOARD_COPY_FROM_LOCAL_DEVICE: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
+  CLIPBOARD_COPY_TO_LOCAL_DEVICE: "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
+  DOMAIN_PASSWORD_SIGNIN: "DOMAIN_PASSWORD_SIGNIN",
+  DOMAIN_SMART_CARD_SIGNIN: "DOMAIN_SMART_CARD_SIGNIN",
+  FILE_DOWNLOAD: "FILE_DOWNLOAD",
+  FILE_UPLOAD: "FILE_UPLOAD",
+  PRINTING_TO_LOCAL_DEVICE: "PRINTING_TO_LOCAL_DEVICE",
+};
 
 /**
  * @public
@@ -131,12 +131,12 @@ export interface AppBlock {
 /**
  * @public
  */
-export enum PlatformType {
-  AMAZON_LINUX2 = "AMAZON_LINUX2",
-  WINDOWS = "WINDOWS",
-  WINDOWS_SERVER_2016 = "WINDOWS_SERVER_2016",
-  WINDOWS_SERVER_2019 = "WINDOWS_SERVER_2019",
-}
+export const PlatformType = {
+  AMAZON_LINUX2: "AMAZON_LINUX2",
+  WINDOWS: "WINDOWS",
+  WINDOWS_SERVER_2016: "WINDOWS_SERVER_2016",
+  WINDOWS_SERVER_2019: "WINDOWS_SERVER_2019",
+};
 
 /**
  * @public
@@ -206,7 +206,7 @@ export interface Application {
   /**
    * <p>The platforms on which the application can run.</p>
    */
-  Platforms?: (PlatformType | string)[];
+  Platforms?: (keyof typeof PlatformType | string)[];
 
   /**
    * <p>The instance families for the application.</p>
@@ -222,10 +222,10 @@ export interface Application {
 /**
  * @public
  */
-export enum ApplicationAttribute {
-  LAUNCH_PARAMETERS = "LAUNCH_PARAMETERS",
-  WORKING_DIRECTORY = "WORKING_DIRECTORY",
-}
+export const ApplicationAttribute = {
+  LAUNCH_PARAMETERS: "LAUNCH_PARAMETERS",
+  WORKING_DIRECTORY: "WORKING_DIRECTORY",
+};
 
 /**
  * @public
@@ -284,10 +284,10 @@ export interface ApplicationSettingsResponse {
 /**
  * @public
  */
-export enum AppVisibility {
-  ALL = "ALL",
-  ASSOCIATED = "ASSOCIATED",
-}
+export const AppVisibility = {
+  ALL: "ALL",
+  ASSOCIATED: "ASSOCIATED",
+};
 
 /**
  * @public
@@ -564,12 +564,12 @@ export class InvalidAccountStatusException extends __BaseException {
 /**
  * @public
  */
-export enum AuthenticationType {
-  API = "API",
-  AWS_AD = "AWS_AD",
-  SAML = "SAML",
-  USERPOOL = "USERPOOL",
-}
+export const AuthenticationType = {
+  API: "API",
+  AWS_AD: "AWS_AD",
+  SAML: "SAML",
+  USERPOOL: "USERPOOL",
+};
 
 /**
  * @public
@@ -592,7 +592,7 @@ export interface UserStackAssociation {
   /**
    * <p>The authentication type for the user.</p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: keyof typeof AuthenticationType | string | undefined;
 
   /**
    * <p>Specifies whether a welcome email is sent to a user after the user is created in the user pool.</p>
@@ -613,12 +613,12 @@ export interface BatchAssociateUserStackRequest {
 /**
  * @public
  */
-export enum UserStackAssociationErrorCode {
-  DIRECTORY_NOT_FOUND = "DIRECTORY_NOT_FOUND",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  STACK_NOT_FOUND = "STACK_NOT_FOUND",
-  USER_NAME_NOT_FOUND = "USER_NAME_NOT_FOUND",
-}
+export const UserStackAssociationErrorCode = {
+  DIRECTORY_NOT_FOUND: "DIRECTORY_NOT_FOUND",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  STACK_NOT_FOUND: "STACK_NOT_FOUND",
+  USER_NAME_NOT_FOUND: "USER_NAME_NOT_FOUND",
+};
 
 /**
  * @public
@@ -633,7 +633,7 @@ export interface UserStackAssociationError {
   /**
    * <p>The error code for the error that is returned when a user can’t be associated with or disassociated from a stack.</p>
    */
-  ErrorCode?: UserStackAssociationErrorCode | string;
+  ErrorCode?: keyof typeof UserStackAssociationErrorCode | string;
 
   /**
    * <p>The error message for the error that is returned when a user can’t be associated with or disassociated from a stack.</p>
@@ -674,11 +674,11 @@ export interface BatchDisassociateUserStackResult {
 /**
  * @public
  */
-export enum CertificateBasedAuthStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  ENABLED_NO_DIRECTORY_LOGIN_FALLBACK = "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
-}
+export const CertificateBasedAuthStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ENABLED_NO_DIRECTORY_LOGIN_FALLBACK: "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK",
+};
 
 /**
  * @public
@@ -694,7 +694,7 @@ export interface CertificateBasedAuthProperties {
   /**
    * <p>The status of the certificate-based authentication properties.</p>
    */
-  Status?: CertificateBasedAuthStatus | string;
+  Status?: keyof typeof CertificateBasedAuthStatus | string;
 
   /**
    * <p>The ARN of the AWS Certificate Manager Private CA resource.</p>
@@ -912,7 +912,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>The platforms the application supports. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic fleets.</p>
    */
-  Platforms: (PlatformType | string)[] | undefined;
+  Platforms: (keyof typeof PlatformType | string)[] | undefined;
 
   /**
    * <p>The instance families the application supports. Valid values are GENERAL_PURPOSE and GRAPHICS_G4.</p>
@@ -1129,7 +1129,7 @@ export interface CreateEntitlementRequest {
   /**
    * <p>Specifies whether all or selected apps are entitled.</p>
    */
-  AppVisibility: AppVisibility | string | undefined;
+  AppVisibility: keyof typeof AppVisibility | string | undefined;
 
   /**
    * <p>The attributes of the entitlement.</p>
@@ -1165,7 +1165,7 @@ export interface Entitlement {
   /**
    * <p>Specifies whether all or selected apps are entitled.</p>
    */
-  AppVisibility: AppVisibility | string | undefined;
+  AppVisibility: keyof typeof AppVisibility | string | undefined;
 
   /**
    * <p>The attributes of the entitlement.</p>
@@ -1237,19 +1237,19 @@ export interface DomainJoinInfo {
 /**
  * @public
  */
-export enum FleetType {
-  ALWAYS_ON = "ALWAYS_ON",
-  ELASTIC = "ELASTIC",
-  ON_DEMAND = "ON_DEMAND",
-}
+export const FleetType = {
+  ALWAYS_ON: "ALWAYS_ON",
+  ELASTIC: "ELASTIC",
+  ON_DEMAND: "ON_DEMAND",
+};
 
 /**
  * @public
  */
-export enum StreamView {
-  APP = "APP",
-  DESKTOP = "DESKTOP",
-}
+export const StreamView = {
+  APP: "APP",
+  DESKTOP: "DESKTOP",
+};
 
 /**
  * @public
@@ -1432,7 +1432,7 @@ export interface CreateFleetRequest {
    *             </dd>
    *          </dl>
    */
-  FleetType?: FleetType | string;
+  FleetType?: keyof typeof FleetType | string;
 
   /**
    * <p>The desired capacity for the fleet. This is not allowed for Elastic fleets. For Elastic fleets, specify MaxConcurrentSessions instead.</p>
@@ -1513,13 +1513,13 @@ export interface CreateFleetRequest {
    * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
    *          <p>The default value is <code>APP</code>.</p>
    */
-  StreamView?: StreamView | string;
+  StreamView?: keyof typeof StreamView | string;
 
   /**
    * <p>The fleet platform. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic
    *             fleets. </p>
    */
-  Platform?: PlatformType | string;
+  Platform?: keyof typeof PlatformType | string;
 
   /**
    * <p>The maximum concurrent sessions of the Elastic fleet. This is required for Elastic
@@ -1541,38 +1541,38 @@ export interface CreateFleetRequest {
 /**
  * @public
  */
-export enum FleetErrorCode {
-  DOMAIN_JOIN_ERROR_ACCESS_DENIED = "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
-  DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED = "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
-  DOMAIN_JOIN_ERROR_FILE_NOT_FOUND = "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND",
-  DOMAIN_JOIN_ERROR_INVALID_PARAMETER = "DOMAIN_JOIN_ERROR_INVALID_PARAMETER",
-  DOMAIN_JOIN_ERROR_LOGON_FAILURE = "DOMAIN_JOIN_ERROR_LOGON_FAILURE",
-  DOMAIN_JOIN_ERROR_MORE_DATA = "DOMAIN_JOIN_ERROR_MORE_DATA",
-  DOMAIN_JOIN_ERROR_NOT_SUPPORTED = "DOMAIN_JOIN_ERROR_NOT_SUPPORTED",
-  DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN = "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN",
-  DOMAIN_JOIN_INTERNAL_SERVICE_ERROR = "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR",
-  DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME = "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
-  DOMAIN_JOIN_NERR_PASSWORD_EXPIRED = "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
-  DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED = "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
-  FLEET_INSTANCE_PROVISIONING_FAILURE = "FLEET_INSTANCE_PROVISIONING_FAILURE",
-  FLEET_STOPPED = "FLEET_STOPPED",
-  IAM_SERVICE_ROLE_IS_MISSING = "IAM_SERVICE_ROLE_IS_MISSING",
-  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION = "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
-  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION = "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
-  IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION = "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
-  IGW_NOT_ATTACHED = "IGW_NOT_ATTACHED",
-  IMAGE_NOT_FOUND = "IMAGE_NOT_FOUND",
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  INVALID_SUBNET_CONFIGURATION = "INVALID_SUBNET_CONFIGURATION",
-  MACHINE_ROLE_IS_MISSING = "MACHINE_ROLE_IS_MISSING",
-  NETWORK_INTERFACE_LIMIT_EXCEEDED = "NETWORK_INTERFACE_LIMIT_EXCEEDED",
-  SECURITY_GROUPS_NOT_FOUND = "SECURITY_GROUPS_NOT_FOUND",
-  STS_DISABLED_IN_REGION = "STS_DISABLED_IN_REGION",
-  SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES = "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
-  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND",
-}
+export const FleetErrorCode = {
+  DOMAIN_JOIN_ERROR_ACCESS_DENIED: "DOMAIN_JOIN_ERROR_ACCESS_DENIED",
+  DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED: "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED",
+  DOMAIN_JOIN_ERROR_FILE_NOT_FOUND: "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND",
+  DOMAIN_JOIN_ERROR_INVALID_PARAMETER: "DOMAIN_JOIN_ERROR_INVALID_PARAMETER",
+  DOMAIN_JOIN_ERROR_LOGON_FAILURE: "DOMAIN_JOIN_ERROR_LOGON_FAILURE",
+  DOMAIN_JOIN_ERROR_MORE_DATA: "DOMAIN_JOIN_ERROR_MORE_DATA",
+  DOMAIN_JOIN_ERROR_NOT_SUPPORTED: "DOMAIN_JOIN_ERROR_NOT_SUPPORTED",
+  DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN: "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN",
+  DOMAIN_JOIN_INTERNAL_SERVICE_ERROR: "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR",
+  DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME: "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
+  DOMAIN_JOIN_NERR_PASSWORD_EXPIRED: "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
+  DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED: "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
+  FLEET_INSTANCE_PROVISIONING_FAILURE: "FLEET_INSTANCE_PROVISIONING_FAILURE",
+  FLEET_STOPPED: "FLEET_STOPPED",
+  IAM_SERVICE_ROLE_IS_MISSING: "IAM_SERVICE_ROLE_IS_MISSING",
+  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION: "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
+  IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION: "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION",
+  IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION: "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION",
+  IGW_NOT_ATTACHED: "IGW_NOT_ATTACHED",
+  IMAGE_NOT_FOUND: "IMAGE_NOT_FOUND",
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  INVALID_SUBNET_CONFIGURATION: "INVALID_SUBNET_CONFIGURATION",
+  MACHINE_ROLE_IS_MISSING: "MACHINE_ROLE_IS_MISSING",
+  NETWORK_INTERFACE_LIMIT_EXCEEDED: "NETWORK_INTERFACE_LIMIT_EXCEEDED",
+  SECURITY_GROUPS_NOT_FOUND: "SECURITY_GROUPS_NOT_FOUND",
+  STS_DISABLED_IN_REGION: "STS_DISABLED_IN_REGION",
+  SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES: "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+};
 
 /**
  * @public
@@ -1582,7 +1582,7 @@ export interface FleetError {
   /**
    * <p>The error code.</p>
    */
-  ErrorCode?: FleetErrorCode | string;
+  ErrorCode?: keyof typeof FleetErrorCode | string;
 
   /**
    * <p>The error message.</p>
@@ -1593,12 +1593,12 @@ export interface FleetError {
 /**
  * @public
  */
-export enum FleetState {
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const FleetState = {
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
@@ -1757,7 +1757,7 @@ export interface Fleet {
    *             </dd>
    *          </dl>
    */
-  FleetType?: FleetType | string;
+  FleetType?: keyof typeof FleetType | string;
 
   /**
    * <p>The capacity status for the fleet.</p>
@@ -1779,7 +1779,7 @@ export interface Fleet {
   /**
    * <p>The current state for the fleet.</p>
    */
-  State: FleetState | string | undefined;
+  State: keyof typeof FleetState | string | undefined;
 
   /**
    * <p>The VPC configuration for the fleet.</p>
@@ -1834,12 +1834,12 @@ export interface Fleet {
    * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
    *          <p>The default value is <code>APP</code>.</p>
    */
-  StreamView?: StreamView | string;
+  StreamView?: keyof typeof StreamView | string;
 
   /**
    * <p>The platform of the fleet.</p>
    */
-  Platform?: PlatformType | string;
+  Platform?: keyof typeof PlatformType | string;
 
   /**
    * <p>The maximum number of concurrent sessions for the fleet.</p>
@@ -2076,7 +2076,7 @@ export interface ResourceError {
   /**
    * <p>The error code.</p>
    */
-  ErrorCode?: FleetErrorCode | string;
+  ErrorCode?: keyof typeof FleetErrorCode | string;
 
   /**
    * <p>The error message.</p>
@@ -2108,27 +2108,27 @@ export interface NetworkAccessConfiguration {
 /**
  * @public
  */
-export enum ImageBuilderState {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  PENDING_QUALIFICATION = "PENDING_QUALIFICATION",
-  REBOOTING = "REBOOTING",
-  RUNNING = "RUNNING",
-  SNAPSHOTTING = "SNAPSHOTTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
-  UPDATING_AGENT = "UPDATING_AGENT",
-}
+export const ImageBuilderState = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  PENDING_QUALIFICATION: "PENDING_QUALIFICATION",
+  REBOOTING: "REBOOTING",
+  RUNNING: "RUNNING",
+  SNAPSHOTTING: "SNAPSHOTTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  UPDATING: "UPDATING",
+  UPDATING_AGENT: "UPDATING_AGENT",
+};
 
 /**
  * @public
  */
-export enum ImageBuilderStateChangeReasonCode {
-  IMAGE_UNAVAILABLE = "IMAGE_UNAVAILABLE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-}
+export const ImageBuilderStateChangeReasonCode = {
+  IMAGE_UNAVAILABLE: "IMAGE_UNAVAILABLE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+};
 
 /**
  * @public
@@ -2138,7 +2138,7 @@ export interface ImageBuilderStateChangeReason {
   /**
    * <p>The state change reason code.</p>
    */
-  Code?: ImageBuilderStateChangeReasonCode | string;
+  Code?: keyof typeof ImageBuilderStateChangeReasonCode | string;
 
   /**
    * <p>The state change reason message.</p>
@@ -2290,7 +2290,7 @@ export interface ImageBuilder {
   /**
    * <p>The operating system platform of the image builder.</p>
    */
-  Platform?: PlatformType | string;
+  Platform?: keyof typeof PlatformType | string;
 
   /**
    * <p>The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
@@ -2301,7 +2301,7 @@ export interface ImageBuilder {
   /**
    * <p>The state of the image builder.</p>
    */
-  State?: ImageBuilderState | string;
+  State?: keyof typeof ImageBuilderState | string;
 
   /**
    * <p>The reason why the last state change occurred.</p>
@@ -2388,11 +2388,11 @@ export interface CreateImageBuilderStreamingURLResult {
 /**
  * @public
  */
-export enum StorageConnectorType {
-  GOOGLE_DRIVE = "GOOGLE_DRIVE",
-  HOMEFOLDERS = "HOMEFOLDERS",
-  ONE_DRIVE = "ONE_DRIVE",
-}
+export const StorageConnectorType = {
+  GOOGLE_DRIVE: "GOOGLE_DRIVE",
+  HOMEFOLDERS: "HOMEFOLDERS",
+  ONE_DRIVE: "ONE_DRIVE",
+};
 
 /**
  * @public
@@ -2402,7 +2402,7 @@ export interface StorageConnector {
   /**
    * <p>The type of storage connector.</p>
    */
-  ConnectorType: StorageConnectorType | string | undefined;
+  ConnectorType: keyof typeof StorageConnectorType | string | undefined;
 
   /**
    * <p>The ARN of the storage connector.</p>
@@ -2418,10 +2418,10 @@ export interface StorageConnector {
 /**
  * @public
  */
-export enum PreferredProtocol {
-  TCP = "TCP",
-  UDP = "UDP",
-}
+export const PreferredProtocol = {
+  TCP: "TCP",
+  UDP: "UDP",
+};
 
 /**
  * @public
@@ -2431,16 +2431,16 @@ export interface StreamingExperienceSettings {
   /**
    * <p>The preferred protocol that you want to use while streaming your application.</p>
    */
-  PreferredProtocol?: PreferredProtocol | string;
+  PreferredProtocol?: keyof typeof PreferredProtocol | string;
 }
 
 /**
  * @public
  */
-export enum Permission {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const Permission = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -2450,12 +2450,12 @@ export interface UserSetting {
   /**
    * <p>The action that is enabled or disabled.</p>
    */
-  Action: Action | string | undefined;
+  Action: keyof typeof Action | string | undefined;
 
   /**
    * <p>Indicates whether the action is enabled or disabled.</p>
    */
-  Permission: Permission | string | undefined;
+  Permission: keyof typeof Permission | string | undefined;
 }
 
 /**
@@ -2530,10 +2530,10 @@ export interface CreateStackRequest {
 /**
  * @public
  */
-export enum StackErrorCode {
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  STORAGE_CONNECTOR_ERROR = "STORAGE_CONNECTOR_ERROR",
-}
+export const StackErrorCode = {
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  STORAGE_CONNECTOR_ERROR: "STORAGE_CONNECTOR_ERROR",
+};
 
 /**
  * @public
@@ -2543,7 +2543,7 @@ export interface StackError {
   /**
    * <p>The error code.</p>
    */
-  ErrorCode?: StackErrorCode | string;
+  ErrorCode?: keyof typeof StackErrorCode | string;
 
   /**
    * <p>The error message.</p>
@@ -2747,24 +2747,24 @@ export interface ImagePermissions {
 /**
  * @public
  */
-export enum ImageState {
-  AVAILABLE = "AVAILABLE",
-  COPYING = "COPYING",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  IMPORTING = "IMPORTING",
-  PENDING = "PENDING",
-}
+export const ImageState = {
+  AVAILABLE: "AVAILABLE",
+  COPYING: "COPYING",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IMPORTING: "IMPORTING",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
  */
-export enum ImageStateChangeReasonCode {
-  IMAGE_BUILDER_NOT_AVAILABLE = "IMAGE_BUILDER_NOT_AVAILABLE",
-  IMAGE_COPY_FAILURE = "IMAGE_COPY_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-}
+export const ImageStateChangeReasonCode = {
+  IMAGE_BUILDER_NOT_AVAILABLE: "IMAGE_BUILDER_NOT_AVAILABLE",
+  IMAGE_COPY_FAILURE: "IMAGE_COPY_FAILURE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+};
 
 /**
  * @public
@@ -2774,7 +2774,7 @@ export interface ImageStateChangeReason {
   /**
    * <p>The state change reason code.</p>
    */
-  Code?: ImageStateChangeReasonCode | string;
+  Code?: keyof typeof ImageStateChangeReasonCode | string;
 
   /**
    * <p>The state change reason message.</p>
@@ -2785,11 +2785,11 @@ export interface ImageStateChangeReason {
 /**
  * @public
  */
-export enum VisibilityType {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-  SHARED = "SHARED",
-}
+export const VisibilityType = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+  SHARED: "SHARED",
+};
 
 /**
  * @public
@@ -2820,12 +2820,12 @@ export interface Image {
    * <p>The image starts in the <code>PENDING</code> state. If image creation succeeds, the
    *             state is <code>AVAILABLE</code>. If image creation fails, the state is <code>FAILED</code>.</p>
    */
-  State?: ImageState | string;
+  State?: keyof typeof ImageState | string;
 
   /**
    * <p>Indicates whether the image is public or private.</p>
    */
-  Visibility?: VisibilityType | string;
+  Visibility?: keyof typeof VisibilityType | string;
 
   /**
    * <p>Indicates whether an image builder can be launched from this image.</p>
@@ -2840,7 +2840,7 @@ export interface Image {
   /**
    * <p>The operating system platform of the image.</p>
    */
-  Platform?: PlatformType | string;
+  Platform?: keyof typeof PlatformType | string;
 
   /**
    * <p>The description to display.</p>
@@ -2907,9 +2907,9 @@ export interface CreateUsageReportSubscriptionRequest {}
 /**
  * @public
  */
-export enum UsageReportSchedule {
-  DAILY = "DAILY",
-}
+export const UsageReportSchedule = {
+  DAILY: "DAILY",
+};
 
 /**
  * @public
@@ -2928,16 +2928,16 @@ export interface CreateUsageReportSubscriptionResult {
   /**
    * <p>The schedule for generating usage reports.</p>
    */
-  Schedule?: UsageReportSchedule | string;
+  Schedule?: keyof typeof UsageReportSchedule | string;
 }
 
 /**
  * @public
  */
-export enum MessageAction {
-  RESEND = "RESEND",
-  SUPPRESS = "SUPPRESS",
-}
+export const MessageAction = {
+  RESEND: "RESEND",
+  SUPPRESS: "SUPPRESS",
+};
 
 /**
  * @public
@@ -2957,7 +2957,7 @@ export interface CreateUserRequest {
    *             <p>The temporary password in the welcome email is valid for only 7 days. If users don’t set their passwords within 7 days, you must send them a new welcome email.</p>
    *          </note>
    */
-  MessageAction?: MessageAction | string;
+  MessageAction?: keyof typeof MessageAction | string;
 
   /**
    * <p>The first name, or given name, of the user.</p>
@@ -2972,7 +2972,7 @@ export interface CreateUserRequest {
   /**
    * <p>The authentication type for the user. You must specify USERPOOL. </p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: keyof typeof AuthenticationType | string | undefined;
 }
 
 /**
@@ -3185,7 +3185,7 @@ export interface DeleteUserRequest {
   /**
    * <p>The authentication type for the user. You must specify USERPOOL.</p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: keyof typeof AuthenticationType | string | undefined;
 }
 
 /**
@@ -3528,7 +3528,7 @@ export interface DescribeImagesRequest {
   /**
    * <p>The type of image (public, private, or shared) to describe. </p>
    */
-  Type?: VisibilityType | string;
+  Type?: keyof typeof VisibilityType | string;
 
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
@@ -3590,25 +3590,25 @@ export interface DescribeSessionsRequest {
    *             authenticated using a streaming URL or <code>SAML</code> for a SAML federated user.
    *             The default is to authenticate users using a streaming URL.</p>
    */
-  AuthenticationType?: AuthenticationType | string;
+  AuthenticationType?: keyof typeof AuthenticationType | string;
 }
 
 /**
  * @public
  */
-export enum SessionConnectionState {
-  CONNECTED = "CONNECTED",
-  NOT_CONNECTED = "NOT_CONNECTED",
-}
+export const SessionConnectionState = {
+  CONNECTED: "CONNECTED",
+  NOT_CONNECTED: "NOT_CONNECTED",
+};
 
 /**
  * @public
  */
-export enum SessionState {
-  ACTIVE = "ACTIVE",
-  EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
-}
+export const SessionState = {
+  ACTIVE: "ACTIVE",
+  EXPIRED: "EXPIRED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -3638,12 +3638,12 @@ export interface Session {
   /**
    * <p>The current state of the streaming session.</p>
    */
-  State: SessionState | string | undefined;
+  State: keyof typeof SessionState | string | undefined;
 
   /**
    * <p>Specifies whether a user is connected to the streaming session.</p>
    */
-  ConnectionState?: SessionConnectionState | string;
+  ConnectionState?: keyof typeof SessionConnectionState | string;
 
   /**
    * <p>The time when a streaming instance is dedicated for the user.</p>
@@ -3659,7 +3659,7 @@ export interface Session {
    * <p>The authentication method. The user is authenticated using a streaming URL
    *             (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
    */
-  AuthenticationType?: AuthenticationType | string;
+  AuthenticationType?: keyof typeof AuthenticationType | string;
 
   /**
    * <p>The network details for the streaming session.</p>
@@ -3730,11 +3730,11 @@ export interface DescribeUsageReportSubscriptionsRequest {
 /**
  * @public
  */
-export enum UsageReportExecutionErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-}
+export const UsageReportExecutionErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+};
 
 /**
  * @public
@@ -3744,7 +3744,7 @@ export interface LastReportGenerationExecutionError {
   /**
    * <p>The error code for the error that is returned when a usage report can't be generated.</p>
    */
-  ErrorCode?: UsageReportExecutionErrorCode | string;
+  ErrorCode?: keyof typeof UsageReportExecutionErrorCode | string;
 
   /**
    * <p>The error message for the error that is returned when a usage report can't be generated.</p>
@@ -3770,7 +3770,7 @@ export interface UsageReportSubscription {
   /**
    * <p>The schedule for generating usage reports.</p>
    */
-  Schedule?: UsageReportSchedule | string;
+  Schedule?: keyof typeof UsageReportSchedule | string;
 
   /**
    * <p>The time when the last usage report was generated.</p>
@@ -3805,7 +3805,7 @@ export interface DescribeUsersRequest {
   /**
    * <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: keyof typeof AuthenticationType | string | undefined;
 
   /**
    * <p>The maximum size of each page of results.</p>
@@ -3881,7 +3881,7 @@ export interface User {
   /**
    * <p>The authentication type for the user.</p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: keyof typeof AuthenticationType | string | undefined;
 }
 
 /**
@@ -3919,7 +3919,7 @@ export interface DescribeUserStackAssociationsRequest {
   /**
    * <p>The authentication type for the user who is associated with the stack. You must specify USERPOOL.</p>
    */
-  AuthenticationType?: AuthenticationType | string;
+  AuthenticationType?: keyof typeof AuthenticationType | string;
 
   /**
    * <p>The maximum size of each page of results.</p>
@@ -3962,7 +3962,7 @@ export interface DisableUserRequest {
   /**
    * <p>The authentication type for the user. You must specify USERPOOL.</p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: keyof typeof AuthenticationType | string | undefined;
 }
 
 /**
@@ -4050,7 +4050,7 @@ export interface EnableUserRequest {
   /**
    * <p>The authentication type for the user. You must specify USERPOOL.</p>
    */
-  AuthenticationType: AuthenticationType | string | undefined;
+  AuthenticationType: keyof typeof AuthenticationType | string | undefined;
 }
 
 /**
@@ -4087,14 +4087,14 @@ export interface ExpireSessionResult {}
 /**
  * @public
  */
-export enum FleetAttribute {
-  DOMAIN_JOIN_INFO = "DOMAIN_JOIN_INFO",
-  IAM_ROLE_ARN = "IAM_ROLE_ARN",
-  SESSION_SCRIPT_S3_LOCATION = "SESSION_SCRIPT_S3_LOCATION",
-  USB_DEVICE_FILTER_STRINGS = "USB_DEVICE_FILTER_STRINGS",
-  VPC_CONFIGURATION = "VPC_CONFIGURATION",
-  VPC_CONFIGURATION_SECURITY_GROUP_IDS = "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
-}
+export const FleetAttribute = {
+  DOMAIN_JOIN_INFO: "DOMAIN_JOIN_INFO",
+  IAM_ROLE_ARN: "IAM_ROLE_ARN",
+  SESSION_SCRIPT_S3_LOCATION: "SESSION_SCRIPT_S3_LOCATION",
+  USB_DEVICE_FILTER_STRINGS: "USB_DEVICE_FILTER_STRINGS",
+  VPC_CONFIGURATION: "VPC_CONFIGURATION",
+  VPC_CONFIGURATION_SECURITY_GROUP_IDS: "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
+};
 
 /**
  * @public
@@ -4381,7 +4381,7 @@ export interface UpdateApplicationRequest {
   /**
    * <p>The attributes to delete for an application.</p>
    */
-  AttributesToDelete?: (ApplicationAttribute | string)[];
+  AttributesToDelete?: (keyof typeof ApplicationAttribute | string)[];
 }
 
 /**
@@ -4457,7 +4457,7 @@ export interface UpdateEntitlementRequest {
   /**
    * <p>Specifies whether all or only selected apps are entitled.</p>
    */
-  AppVisibility?: AppVisibility | string;
+  AppVisibility?: keyof typeof AppVisibility | string;
 
   /**
    * <p>The attributes of the entitlement.</p>
@@ -4694,7 +4694,7 @@ export interface UpdateFleetRequest {
   /**
    * <p>The fleet attributes to delete.</p>
    */
-  AttributesToDelete?: (FleetAttribute | string)[];
+  AttributesToDelete?: (keyof typeof FleetAttribute | string)[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
@@ -4706,12 +4706,12 @@ export interface UpdateFleetRequest {
    * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
    *          <p>The default value is <code>APP</code>.</p>
    */
-  StreamView?: StreamView | string;
+  StreamView?: keyof typeof StreamView | string;
 
   /**
    * <p>The platform of the fleet. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported for Elastic fleets. </p>
    */
-  Platform?: PlatformType | string;
+  Platform?: keyof typeof PlatformType | string;
 
   /**
    * <p>The maximum number of concurrent sessions for a fleet.</p>
@@ -4767,20 +4767,20 @@ export interface UpdateImagePermissionsResult {}
 /**
  * @public
  */
-export enum StackAttribute {
-  ACCESS_ENDPOINTS = "ACCESS_ENDPOINTS",
-  EMBED_HOST_DOMAINS = "EMBED_HOST_DOMAINS",
-  FEEDBACK_URL = "FEEDBACK_URL",
-  IAM_ROLE_ARN = "IAM_ROLE_ARN",
-  REDIRECT_URL = "REDIRECT_URL",
-  STORAGE_CONNECTORS = "STORAGE_CONNECTORS",
-  STORAGE_CONNECTOR_GOOGLE_DRIVE = "STORAGE_CONNECTOR_GOOGLE_DRIVE",
-  STORAGE_CONNECTOR_HOMEFOLDERS = "STORAGE_CONNECTOR_HOMEFOLDERS",
-  STORAGE_CONNECTOR_ONE_DRIVE = "STORAGE_CONNECTOR_ONE_DRIVE",
-  STREAMING_EXPERIENCE_SETTINGS = "STREAMING_EXPERIENCE_SETTINGS",
-  THEME_NAME = "THEME_NAME",
-  USER_SETTINGS = "USER_SETTINGS",
-}
+export const StackAttribute = {
+  ACCESS_ENDPOINTS: "ACCESS_ENDPOINTS",
+  EMBED_HOST_DOMAINS: "EMBED_HOST_DOMAINS",
+  FEEDBACK_URL: "FEEDBACK_URL",
+  IAM_ROLE_ARN: "IAM_ROLE_ARN",
+  REDIRECT_URL: "REDIRECT_URL",
+  STORAGE_CONNECTORS: "STORAGE_CONNECTORS",
+  STORAGE_CONNECTOR_GOOGLE_DRIVE: "STORAGE_CONNECTOR_GOOGLE_DRIVE",
+  STORAGE_CONNECTOR_HOMEFOLDERS: "STORAGE_CONNECTOR_HOMEFOLDERS",
+  STORAGE_CONNECTOR_ONE_DRIVE: "STORAGE_CONNECTOR_ONE_DRIVE",
+  STREAMING_EXPERIENCE_SETTINGS: "STREAMING_EXPERIENCE_SETTINGS",
+  THEME_NAME: "THEME_NAME",
+  USER_SETTINGS: "USER_SETTINGS",
+};
 
 /**
  * @public
@@ -4826,7 +4826,7 @@ export interface UpdateStackRequest {
   /**
    * <p>The stack attributes to delete.</p>
    */
-  AttributesToDelete?: (StackAttribute | string)[];
+  AttributesToDelete?: (keyof typeof StackAttribute | string)[];
 
   /**
    * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.</p>

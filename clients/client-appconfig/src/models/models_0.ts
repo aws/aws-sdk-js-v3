@@ -119,15 +119,15 @@ export interface ActionInvocation {
 /**
  * @public
  */
-export enum ActionPoint {
-  ON_DEPLOYMENT_BAKING = "ON_DEPLOYMENT_BAKING",
-  ON_DEPLOYMENT_COMPLETE = "ON_DEPLOYMENT_COMPLETE",
-  ON_DEPLOYMENT_ROLLED_BACK = "ON_DEPLOYMENT_ROLLED_BACK",
-  ON_DEPLOYMENT_START = "ON_DEPLOYMENT_START",
-  ON_DEPLOYMENT_STEP = "ON_DEPLOYMENT_STEP",
-  PRE_CREATE_HOSTED_CONFIGURATION_VERSION = "PRE_CREATE_HOSTED_CONFIGURATION_VERSION",
-  PRE_START_DEPLOYMENT = "PRE_START_DEPLOYMENT",
-}
+export const ActionPoint = {
+  ON_DEPLOYMENT_BAKING: "ON_DEPLOYMENT_BAKING",
+  ON_DEPLOYMENT_COMPLETE: "ON_DEPLOYMENT_COMPLETE",
+  ON_DEPLOYMENT_ROLLED_BACK: "ON_DEPLOYMENT_ROLLED_BACK",
+  ON_DEPLOYMENT_START: "ON_DEPLOYMENT_START",
+  ON_DEPLOYMENT_STEP: "ON_DEPLOYMENT_STEP",
+  PRE_CREATE_HOSTED_CONFIGURATION_VERSION: "PRE_CREATE_HOSTED_CONFIGURATION_VERSION",
+  PRE_START_DEPLOYMENT: "PRE_START_DEPLOYMENT",
+};
 
 /**
  * @public
@@ -223,9 +223,9 @@ export namespace BadRequestDetails {
 /**
  * @public
  */
-export enum BadRequestReason {
-  INVALID_CONFIGURATION = "InvalidConfiguration",
-}
+export const BadRequestReason = {
+  INVALID_CONFIGURATION: "InvalidConfiguration",
+};
 
 /**
  * @public
@@ -235,7 +235,7 @@ export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: BadRequestReason | string;
+  Reason?: keyof typeof BadRequestReason | string;
   /**
    * <p>Detailed information about the input that failed to satisfy the constraints specified by
    *          a call.</p>
@@ -303,10 +303,10 @@ export class InternalServerException extends __BaseException {
 /**
  * @public
  */
-export enum ValidatorType {
-  JSON_SCHEMA = "JSON_SCHEMA",
-  LAMBDA = "LAMBDA",
-}
+export const ValidatorType = {
+  JSON_SCHEMA: "JSON_SCHEMA",
+  LAMBDA: "LAMBDA",
+};
 
 /**
  * @public
@@ -322,7 +322,7 @@ export interface Validator {
    *             <code>LAMBDA</code>
    *          </p>
    */
-  Type: ValidatorType | string | undefined;
+  Type: keyof typeof ValidatorType | string | undefined;
 
   /**
    * <p>Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda
@@ -501,18 +501,18 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum GrowthType {
-  EXPONENTIAL = "EXPONENTIAL",
-  LINEAR = "LINEAR",
-}
+export const GrowthType = {
+  EXPONENTIAL: "EXPONENTIAL",
+  LINEAR: "LINEAR",
+};
 
 /**
  * @public
  */
-export enum ReplicateTo {
-  NONE = "NONE",
-  SSM_DOCUMENT = "SSM_DOCUMENT",
-}
+export const ReplicateTo = {
+  NONE: "NONE",
+  SSM_DOCUMENT: "SSM_DOCUMENT",
+};
 
 /**
  * @public
@@ -580,12 +580,12 @@ export interface CreateDeploymentStrategyRequest {
    *          targets, 8% of the targets, and continues until the configuration has been deployed to all
    *          targets.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: keyof typeof GrowthType | string;
 
   /**
    * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
    */
-  ReplicateTo?: ReplicateTo | string;
+  ReplicateTo?: keyof typeof ReplicateTo | string;
 
   /**
    * <p>Metadata to assign to the deployment strategy. Tags help organize and categorize your
@@ -622,7 +622,7 @@ export interface DeploymentStrategy {
   /**
    * <p>The algorithm used to define how percentage grew over time.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: keyof typeof GrowthType | string;
 
   /**
    * <p>The percentage of targets that received a deployed configuration during each
@@ -639,7 +639,7 @@ export interface DeploymentStrategy {
   /**
    * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
    */
-  ReplicateTo?: ReplicateTo | string;
+  ReplicateTo?: keyof typeof ReplicateTo | string;
 }
 
 /**
@@ -693,12 +693,12 @@ export interface CreateEnvironmentRequest {
 /**
  * @public
  */
-export enum EnvironmentState {
-  DEPLOYING = "DEPLOYING",
-  READY_FOR_DEPLOYMENT = "READY_FOR_DEPLOYMENT",
-  ROLLED_BACK = "ROLLED_BACK",
-  ROLLING_BACK = "ROLLING_BACK",
-}
+export const EnvironmentState = {
+  DEPLOYING: "DEPLOYING",
+  READY_FOR_DEPLOYMENT: "READY_FOR_DEPLOYMENT",
+  ROLLED_BACK: "ROLLED_BACK",
+  ROLLING_BACK: "ROLLING_BACK",
+};
 
 /**
  * @public
@@ -730,7 +730,7 @@ export interface Environment {
    *             <code>ROLLED_BACK</code>
    *          </p>
    */
-  State?: EnvironmentState | string;
+  State?: keyof typeof EnvironmentState | string;
 
   /**
    * <p>Amazon CloudWatch alarms monitored during the deployment.</p>
@@ -1048,9 +1048,9 @@ export interface HostedConfigurationVersion {
 /**
  * @public
  */
-export enum BytesMeasure {
-  KILOBYTES = "KILOBYTES",
-}
+export const BytesMeasure = {
+  KILOBYTES: "KILOBYTES",
+};
 
 /**
  * @public
@@ -1060,7 +1060,7 @@ export class PayloadTooLargeException extends __BaseException {
   readonly name: "PayloadTooLargeException" = "PayloadTooLargeException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Measure?: BytesMeasure | string;
+  Measure?: keyof typeof BytesMeasure | string;
   Limit?: number;
   Size?: number;
   /**
@@ -1312,24 +1312,24 @@ export interface AppliedExtension {
 /**
  * @public
  */
-export enum DeploymentEventType {
-  BAKE_TIME_STARTED = "BAKE_TIME_STARTED",
-  DEPLOYMENT_COMPLETED = "DEPLOYMENT_COMPLETED",
-  DEPLOYMENT_STARTED = "DEPLOYMENT_STARTED",
-  PERCENTAGE_UPDATED = "PERCENTAGE_UPDATED",
-  ROLLBACK_COMPLETED = "ROLLBACK_COMPLETED",
-  ROLLBACK_STARTED = "ROLLBACK_STARTED",
-}
+export const DeploymentEventType = {
+  BAKE_TIME_STARTED: "BAKE_TIME_STARTED",
+  DEPLOYMENT_COMPLETED: "DEPLOYMENT_COMPLETED",
+  DEPLOYMENT_STARTED: "DEPLOYMENT_STARTED",
+  PERCENTAGE_UPDATED: "PERCENTAGE_UPDATED",
+  ROLLBACK_COMPLETED: "ROLLBACK_COMPLETED",
+  ROLLBACK_STARTED: "ROLLBACK_STARTED",
+};
 
 /**
  * @public
  */
-export enum TriggeredBy {
-  APPCONFIG = "APPCONFIG",
-  CLOUDWATCH_ALARM = "CLOUDWATCH_ALARM",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  USER = "USER",
-}
+export const TriggeredBy = {
+  APPCONFIG: "APPCONFIG",
+  CLOUDWATCH_ALARM: "CLOUDWATCH_ALARM",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -1341,13 +1341,13 @@ export interface DeploymentEvent {
    *          completion of a deployment; a percentage update; the start or stop of a bake period; and
    *          the start or completion of a rollback.</p>
    */
-  EventType?: DeploymentEventType | string;
+  EventType?: keyof typeof DeploymentEventType | string;
 
   /**
    * <p>The entity that triggered the deployment event. Events can be triggered by a user,
    *             AppConfig, an Amazon CloudWatch alarm, or an internal error.</p>
    */
-  TriggeredBy?: TriggeredBy | string;
+  TriggeredBy?: keyof typeof TriggeredBy | string;
 
   /**
    * <p>A description of the deployment event. Descriptions include, but are not limited to, the
@@ -1371,14 +1371,14 @@ export interface DeploymentEvent {
 /**
  * @public
  */
-export enum DeploymentState {
-  BAKING = "BAKING",
-  COMPLETE = "COMPLETE",
-  DEPLOYING = "DEPLOYING",
-  ROLLED_BACK = "ROLLED_BACK",
-  ROLLING_BACK = "ROLLING_BACK",
-  VALIDATING = "VALIDATING",
-}
+export const DeploymentState = {
+  BAKING: "BAKING",
+  COMPLETE: "COMPLETE",
+  DEPLOYING: "DEPLOYING",
+  ROLLED_BACK: "ROLLED_BACK",
+  ROLLING_BACK: "ROLLING_BACK",
+  VALIDATING: "VALIDATING",
+};
 
 /**
  * @public
@@ -1437,7 +1437,7 @@ export interface Deployment {
   /**
    * <p>The algorithm used to define how percentage grew over time.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: keyof typeof GrowthType | string;
 
   /**
    * <p>The percentage of targets to receive a deployed configuration during each
@@ -1454,7 +1454,7 @@ export interface Deployment {
   /**
    * <p>The state of the deployment.</p>
    */
-  State?: DeploymentState | string;
+  State?: keyof typeof DeploymentState | string;
 
   /**
    * <p>A list containing all events related to a deployment. The most recent events are
@@ -1652,7 +1652,7 @@ export interface ConfigurationProfileSummary {
   /**
    * <p>The types of validators in the configuration profile.</p>
    */
-  ValidatorTypes?: (ValidatorType | string)[];
+  ValidatorTypes?: (keyof typeof ValidatorType | string)[];
 
   /**
    * <p>The type of configurations contained in the profile. AppConfig supports
@@ -1741,7 +1741,7 @@ export interface DeploymentSummary {
   /**
    * <p>The algorithm used to define how percentage grows over time.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: keyof typeof GrowthType | string;
 
   /**
    * <p>The percentage of targets to receive a deployed configuration during each
@@ -1758,7 +1758,7 @@ export interface DeploymentSummary {
   /**
    * <p>The state of the deployment.</p>
    */
-  State?: DeploymentState | string;
+  State?: keyof typeof DeploymentState | string;
 
   /**
    * <p>The percentage of targets for which the deployment is available.</p>
@@ -2357,7 +2357,7 @@ export interface UpdateDeploymentStrategyRequest {
    *          targets, 8% of the targets, and continues until the configuration has been deployed to all
    *          targets.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: keyof typeof GrowthType | string;
 }
 
 /**

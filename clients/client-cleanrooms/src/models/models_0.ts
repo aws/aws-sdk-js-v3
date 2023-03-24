@@ -6,9 +6,9 @@ import { CleanRoomsServiceException as __BaseException } from "./CleanRoomsServi
 /**
  * @public
  */
-export enum AccessDeniedExceptionReason {
-  INSUFFICIENT_PERMISSIONS = "INSUFFICIENT_PERMISSIONS",
-}
+export const AccessDeniedExceptionReason = {
+  INSUFFICIENT_PERMISSIONS: "INSUFFICIENT_PERMISSIONS",
+};
 
 /**
  * @public
@@ -20,7 +20,7 @@ export class AccessDeniedException extends __BaseException {
   /**
    * <p>A reason code for the exception.</p>
    */
-  reason?: AccessDeniedExceptionReason | string;
+  reason?: keyof typeof AccessDeniedExceptionReason | string;
 
   /**
    * @internal
@@ -39,13 +39,13 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AggregateFunctionName {
-  AVG = "AVG",
-  COUNT = "COUNT",
-  COUNT_DISTINCT = "COUNT_DISTINCT",
-  SUM = "SUM",
-  SUM_DISTINCT = "SUM_DISTINCT",
-}
+export const AggregateFunctionName = {
+  AVG: "AVG",
+  COUNT: "COUNT",
+  COUNT_DISTINCT: "COUNT_DISTINCT",
+  SUM: "SUM",
+  SUM_DISTINCT: "SUM_DISTINCT",
+};
 
 /**
  * @public
@@ -60,15 +60,15 @@ export interface AggregateColumn {
   /**
    * <p>Aggregation function that can be applied to aggregate column in query.</p>
    */
-  function: AggregateFunctionName | string | undefined;
+  function: keyof typeof AggregateFunctionName | string | undefined;
 }
 
 /**
  * @public
  */
-export enum AggregationType {
-  COUNT_DISTINCT = "COUNT_DISTINCT",
-}
+export const AggregationType = {
+  COUNT_DISTINCT: "COUNT_DISTINCT",
+};
 
 /**
  * @public
@@ -91,41 +91,41 @@ export interface AggregationConstraint {
    * <p>The type of aggregation the constraint allows. The only valid value is currently
    *          `COUNT_DISTINCT`.</p>
    */
-  type: AggregationType | string | undefined;
+  type: keyof typeof AggregationType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum AnalysisMethod {
-  DIRECT_QUERY = "DIRECT_QUERY",
-}
+export const AnalysisMethod = {
+  DIRECT_QUERY: "DIRECT_QUERY",
+};
 
 /**
  * @public
  */
-export enum JoinRequiredOption {
-  QUERY_RUNNER = "QUERY_RUNNER",
-}
+export const JoinRequiredOption = {
+  QUERY_RUNNER: "QUERY_RUNNER",
+};
 
 /**
  * @public
  */
-export enum ScalarFunctions {
-  ABS = "ABS",
-  CAST = "CAST",
-  CEILING = "CEILING",
-  COALESCE = "COALESCE",
-  FLOOR = "FLOOR",
-  LN = "LN",
-  LOG = "LOG",
-  LOWER = "LOWER",
-  ROUND = "ROUND",
-  RTRIM = "RTRIM",
-  SQRT = "SQRT",
-  TRUNC = "TRUNC",
-  UPPER = "UPPER",
-}
+export const ScalarFunctions = {
+  ABS: "ABS",
+  CAST: "CAST",
+  CEILING: "CEILING",
+  COALESCE: "COALESCE",
+  FLOOR: "FLOOR",
+  LN: "LN",
+  LOG: "LOG",
+  LOWER: "LOWER",
+  ROUND: "ROUND",
+  RTRIM: "RTRIM",
+  SQRT: "SQRT",
+  TRUNC: "TRUNC",
+  UPPER: "UPPER",
+};
 
 /**
  * @public
@@ -147,7 +147,7 @@ export interface AnalysisRuleAggregation {
    * <p>Control that requires member who runs query to do a join with their configured table
    *          and/or other configured table in query</p>
    */
-  joinRequired?: JoinRequiredOption | string;
+  joinRequired?: keyof typeof JoinRequiredOption | string;
 
   /**
    * <p>The columns that query runners are allowed to select, group by, or filter by.</p>
@@ -157,7 +157,7 @@ export interface AnalysisRuleAggregation {
   /**
    * <p>Set of scalar functions that are allowed to be used on dimension columns and the output of aggregation of metrics.</p>
    */
-  scalarFunctions: (ScalarFunctions | string)[] | undefined;
+  scalarFunctions: (keyof typeof ScalarFunctions | string)[] | undefined;
 
   /**
    * <p>Columns that must meet a specific threshold value (after an aggregation function is applied to it) for each output row to be returned.</p>
@@ -268,10 +268,10 @@ export namespace AnalysisRulePolicy {
 /**
  * @public
  */
-export enum AnalysisRuleType {
-  AGGREGATION = "AGGREGATION",
-  LIST = "LIST",
-}
+export const AnalysisRuleType = {
+  AGGREGATION: "AGGREGATION",
+  LIST: "LIST",
+};
 
 /**
  * @public
@@ -286,7 +286,7 @@ export interface AnalysisRule {
   /**
    * <p>The type of analysis rule. Valid values are `AGGREGATION` and `LIST`.</p>
    */
-  type: AnalysisRuleType | string | undefined;
+  type: keyof typeof AnalysisRuleType | string | undefined;
 
   /**
    * <p>The name for the analysis rule.</p>
@@ -365,9 +365,9 @@ export interface Column {
 /**
  * @public
  */
-export enum SchemaType {
-  TABLE = "TABLE",
-}
+export const SchemaType = {
+  TABLE: "TABLE",
+};
 
 /**
  * @public
@@ -388,13 +388,13 @@ export interface Schema {
    * <p>The analysis rule types associated with the schema. Valued values are LIST and
    *          AGGREGATION. Currently, only one entry is present.</p>
    */
-  analysisRuleTypes: (AnalysisRuleType | string)[] | undefined;
+  analysisRuleTypes: (keyof typeof AnalysisRuleType | string)[] | undefined;
 
   /**
    * <p>The analysis method for the schema. The only valid value is currently
    *          DIRECT_QUERY.</p>
    */
-  analysisMethod?: AnalysisMethod | string;
+  analysisMethod?: keyof typeof AnalysisMethod | string;
 
   /**
    * <p>The unique account ID for the AWS account that owns the schema.</p>
@@ -434,7 +434,7 @@ export interface Schema {
   /**
    * <p>The type of schema. The only valid value is currently `TABLE`.</p>
    */
-  type: SchemaType | string | undefined;
+  type: keyof typeof SchemaType | string | undefined;
 }
 
 /**
@@ -476,12 +476,12 @@ export class InternalServerException extends __BaseException {
 /**
  * @public
  */
-export enum ResourceType {
-  COLLABORATION = "COLLABORATION",
-  CONFIGURED_TABLE = "CONFIGURED_TABLE",
-  CONFIGURED_TABLE_ASSOCIATION = "CONFIGURED_TABLE_ASSOCIATION",
-  MEMBERSHIP = "MEMBERSHIP",
-}
+export const ResourceType = {
+  COLLABORATION: "COLLABORATION",
+  CONFIGURED_TABLE: "CONFIGURED_TABLE",
+  CONFIGURED_TABLE_ASSOCIATION: "CONFIGURED_TABLE_ASSOCIATION",
+  MEMBERSHIP: "MEMBERSHIP",
+};
 
 /**
  * @public
@@ -498,7 +498,7 @@ export class ResourceNotFoundException extends __BaseException {
   /**
    * <p>The type of the missing resource.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: keyof typeof ResourceType | string | undefined;
 
   /**
    * @internal
@@ -554,11 +554,11 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
-  INVALID_CONFIGURATION = "INVALID_CONFIGURATION",
-  INVALID_QUERY = "INVALID_QUERY",
-}
+export const ValidationExceptionReason = {
+  FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  INVALID_CONFIGURATION: "INVALID_CONFIGURATION",
+  INVALID_QUERY: "INVALID_QUERY",
+};
 
 /**
  * @public
@@ -570,7 +570,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>A reason code for the exception.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p>Validation errors for specific input parameters.</p>
@@ -595,10 +595,10 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum MemberAbility {
-  CAN_QUERY = "CAN_QUERY",
-  CAN_RECEIVE_RESULTS = "CAN_RECEIVE_RESULTS",
-}
+export const MemberAbility = {
+  CAN_QUERY: "CAN_QUERY",
+  CAN_RECEIVE_RESULTS: "CAN_RECEIVE_RESULTS",
+};
 
 /**
  * @public
@@ -639,7 +639,7 @@ export interface MemberSpecification {
   /**
    * <p>The abilities granted to the collaboration member.</p>
    */
-  memberAbilities: (MemberAbility | string)[] | undefined;
+  memberAbilities: (keyof typeof MemberAbility | string)[] | undefined;
 
   /**
    * <p>The member's display name.</p>
@@ -650,10 +650,10 @@ export interface MemberSpecification {
 /**
  * @public
  */
-export enum CollaborationQueryLogStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const CollaborationQueryLogStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -677,7 +677,7 @@ export interface CreateCollaborationInput {
   /**
    * <p>The abilities granted to the collaboration creator.</p>
    */
-  creatorMemberAbilities: (MemberAbility | string)[] | undefined;
+  creatorMemberAbilities: (keyof typeof MemberAbility | string)[] | undefined;
 
   /**
    * <p>The display name of the collaboration creator.</p>
@@ -693,7 +693,7 @@ export interface CreateCollaborationInput {
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
-  queryLogStatus: CollaborationQueryLogStatus | string | undefined;
+  queryLogStatus: keyof typeof CollaborationQueryLogStatus | string | undefined;
 
   /**
    * <p>An optional label that you can assign to a resource when you create it. Each tag
@@ -707,12 +707,12 @@ export interface CreateCollaborationInput {
 /**
  * @public
  */
-export enum MemberStatus {
-  ACTIVE = "ACTIVE",
-  INVITED = "INVITED",
-  LEFT = "LEFT",
-  REMOVED = "REMOVED",
-}
+export const MemberStatus = {
+  ACTIVE: "ACTIVE",
+  INVITED: "INVITED",
+  LEFT: "LEFT",
+  REMOVED: "REMOVED",
+};
 
 /**
  * @public
@@ -762,7 +762,7 @@ export interface Collaboration {
   /**
    * <p>The status of a member in a collaboration.</p>
    */
-  memberStatus: MemberStatus | string | undefined;
+  memberStatus: keyof typeof MemberStatus | string | undefined;
 
   /**
    * <p>The unique ID for your membership within the collaboration.</p>
@@ -783,7 +783,7 @@ export interface Collaboration {
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
-  queryLogStatus: CollaborationQueryLogStatus | string | undefined;
+  queryLogStatus: keyof typeof CollaborationQueryLogStatus | string | undefined;
 }
 
 /**
@@ -846,11 +846,11 @@ export interface DeleteCollaborationOutput {}
 /**
  * @public
  */
-export enum ConflictExceptionReason {
-  ALREADY_EXISTS = "ALREADY_EXISTS",
-  INVALID_STATE = "INVALID_STATE",
-  SUBRESOURCES_EXIST = "SUBRESOURCES_EXIST",
-}
+export const ConflictExceptionReason = {
+  ALREADY_EXISTS: "ALREADY_EXISTS",
+  INVALID_STATE: "INVALID_STATE",
+  SUBRESOURCES_EXIST: "SUBRESOURCES_EXIST",
+};
 
 /**
  * @public
@@ -867,12 +867,12 @@ export class ConflictException extends __BaseException {
   /**
    * <p>The type of the conflicting resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>A reason code for the exception.</p>
    */
-  reason?: ConflictExceptionReason | string;
+  reason?: keyof typeof ConflictExceptionReason | string;
 
   /**
    * @internal
@@ -974,7 +974,7 @@ export interface GetSchemaAnalysisRuleInput {
   /**
    * <p>The type of the schema analysis rule to retrieve. Schema analysis rules are uniquely identified by a combination of the collaboration, the schema name, and their type.</p>
    */
-  type: AnalysisRuleType | string | undefined;
+  type: keyof typeof AnalysisRuleType | string | undefined;
 }
 
 /**
@@ -990,10 +990,10 @@ export interface GetSchemaAnalysisRuleOutput {
 /**
  * @public
  */
-export enum FilterableMemberStatus {
-  ACTIVE = "ACTIVE",
-  INVITED = "INVITED",
-}
+export const FilterableMemberStatus = {
+  ACTIVE: "ACTIVE",
+  INVITED: "INVITED",
+};
 
 /**
  * @public
@@ -1014,7 +1014,7 @@ export interface ListCollaborationsInput {
   /**
    * <p>The caller's status in a collaboration.</p>
    */
-  memberStatus?: FilterableMemberStatus | string;
+  memberStatus?: keyof typeof FilterableMemberStatus | string;
 }
 
 /**
@@ -1060,7 +1060,7 @@ export interface CollaborationSummary {
   /**
    * <p>The status of a member in a collaboration.</p>
    */
-  memberStatus: MemberStatus | string | undefined;
+  memberStatus: keyof typeof MemberStatus | string | undefined;
 
   /**
    * <p>The identifier of a member in a collaboration.</p>
@@ -1121,7 +1121,7 @@ export interface MemberSummary {
   /**
    * <p>The status of the member. Valid values are `INVITED`, `ACTIVE`, `LEFT`, and `REMOVED`.</p>
    */
-  status: MemberStatus | string | undefined;
+  status: keyof typeof MemberStatus | string | undefined;
 
   /**
    * <p>The member's display name.</p>
@@ -1131,7 +1131,7 @@ export interface MemberSummary {
   /**
    * <p>The abilities granted to the collaboration member.</p>
    */
-  abilities: (MemberAbility | string)[] | undefined;
+  abilities: (keyof typeof MemberAbility | string)[] | undefined;
 
   /**
    * <p>The time when the member was created.</p>
@@ -1182,7 +1182,7 @@ export interface ListSchemasInput {
   /**
    * <p>If present, filter schemas by schema type. The only valid schema type is currently `TABLE`.</p>
    */
-  schemaType?: SchemaType | string;
+  schemaType?: keyof typeof SchemaType | string;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -1208,7 +1208,7 @@ export interface SchemaSummary {
   /**
    * <p>The type of schema object. The only valid schema type is currently `TABLE`.</p>
    */
-  type: SchemaType | string | undefined;
+  type: keyof typeof SchemaType | string | undefined;
 
   /**
    * <p>The unique account ID for the AWS account that owns the schema.</p>
@@ -1238,12 +1238,12 @@ export interface SchemaSummary {
   /**
    * <p>The types of analysis rules that are associated with this schema object.</p>
    */
-  analysisRuleTypes: (AnalysisRuleType | string)[] | undefined;
+  analysisRuleTypes: (keyof typeof AnalysisRuleType | string)[] | undefined;
 
   /**
    * <p>The analysis method for the associated schema. The only valid value is currently `DIRECT_QUERY`.</p>
    */
-  analysisMethod?: AnalysisMethod | string;
+  analysisMethod?: keyof typeof AnalysisMethod | string;
 }
 
 /**
@@ -1649,7 +1649,7 @@ export interface CreateConfiguredTableInput {
   /**
    * <p>The analysis method for the configured tables. The only valid value is currently `DIRECT_QUERY`.</p>
    */
-  analysisMethod: AnalysisMethod | string | undefined;
+  analysisMethod: keyof typeof AnalysisMethod | string | undefined;
 
   /**
    * <p>An optional label that you can assign to a resource when you create it. Each tag
@@ -1663,10 +1663,10 @@ export interface CreateConfiguredTableInput {
 /**
  * @public
  */
-export enum ConfiguredTableAnalysisRuleType {
-  AGGREGATION = "AGGREGATION",
-  LIST = "LIST",
-}
+export const ConfiguredTableAnalysisRuleType = {
+  AGGREGATION: "AGGREGATION",
+  LIST: "LIST",
+};
 
 /**
  * @public
@@ -1711,12 +1711,12 @@ export interface ConfiguredTable {
   /**
    * <p>The types of analysis rules associated with this configured table. Valid values are `AGGREGATION` and `LIST`. Currently, only one analysis rule may be associated with a configured table.</p>
    */
-  analysisRuleTypes: (ConfiguredTableAnalysisRuleType | string)[] | undefined;
+  analysisRuleTypes: (keyof typeof ConfiguredTableAnalysisRuleType | string)[] | undefined;
 
   /**
    * <p>The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.</p>
    */
-  analysisMethod: AnalysisMethod | string | undefined;
+  analysisMethod: keyof typeof AnalysisMethod | string | undefined;
 
   /**
    * <p>The columns within the underlying AWS Glue table that can be utilized within
@@ -1833,7 +1833,7 @@ export interface CreateConfiguredTableAnalysisRuleInput {
   /**
    * <p>The type of analysis rule. Valid values are AGGREGATION and LIST.</p>
    */
-  analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
+  analysisRuleType: keyof typeof ConfiguredTableAnalysisRuleType | string | undefined;
 
   /**
    * <p>The entire created configured table analysis rule object.</p>
@@ -1864,7 +1864,7 @@ export interface ConfiguredTableAnalysisRule {
   /**
    * <p>The type of configured table analysis rule. Valid values are `AGGREGATION` and `LIST`.</p>
    */
-  type: ConfiguredTableAnalysisRuleType | string | undefined;
+  type: keyof typeof ConfiguredTableAnalysisRuleType | string | undefined;
 
   /**
    * <p>The time the configured table analysis rule was created.</p>
@@ -1916,7 +1916,7 @@ export interface DeleteConfiguredTableAnalysisRuleInput {
   /**
    * <p>The analysis rule type to be deleted. Configured table analysis rules are uniquely identified by their configured table identifier and analysis rule type.</p>
    */
-  analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
+  analysisRuleType: keyof typeof ConfiguredTableAnalysisRuleType | string | undefined;
 }
 
 /**
@@ -1957,7 +1957,7 @@ export interface GetConfiguredTableAnalysisRuleInput {
   /**
    * <p>The analysis rule to be retrieved. Configured table analysis rules are uniquely identified by their configured table identifier and analysis rule type.</p>
    */
-  analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
+  analysisRuleType: keyof typeof ConfiguredTableAnalysisRuleType | string | undefined;
 }
 
 /**
@@ -2018,12 +2018,12 @@ export interface ConfiguredTableSummary {
   /**
    * <p>The types of analysis rules associated with this configured table.</p>
    */
-  analysisRuleTypes: (ConfiguredTableAnalysisRuleType | string)[] | undefined;
+  analysisRuleTypes: (keyof typeof ConfiguredTableAnalysisRuleType | string)[] | undefined;
 
   /**
    * <p>The analysis method for the configured tables. The only valid value is currently `DIRECT_QUERY`.</p>
    */
-  analysisMethod: AnalysisMethod | string | undefined;
+  analysisMethod: keyof typeof AnalysisMethod | string | undefined;
 }
 
 /**
@@ -2084,7 +2084,7 @@ export interface UpdateConfiguredTableAnalysisRuleInput {
   /**
    * <p>The analysis rule type to be updated. Configured table analysis rules are uniquely identified by their configured table identifier and analysis rule type.</p>
    */
-  analysisRuleType: ConfiguredTableAnalysisRuleType | string | undefined;
+  analysisRuleType: keyof typeof ConfiguredTableAnalysisRuleType | string | undefined;
 
   /**
    * <p>The new analysis rule policy for the configured table analysis rule.</p>
@@ -2125,10 +2125,10 @@ export interface ListTagsForResourceOutput {
 /**
  * @public
  */
-export enum MembershipQueryLogStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const MembershipQueryLogStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -2143,7 +2143,7 @@ export interface CreateMembershipInput {
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
-  queryLogStatus: MembershipQueryLogStatus | string | undefined;
+  queryLogStatus: keyof typeof MembershipQueryLogStatus | string | undefined;
 
   /**
    * <p>An optional label that you can assign to a resource when you create it. Each tag
@@ -2157,11 +2157,11 @@ export interface CreateMembershipInput {
 /**
  * @public
  */
-export enum MembershipStatus {
-  ACTIVE = "ACTIVE",
-  COLLABORATION_DELETED = "COLLABORATION_DELETED",
-  REMOVED = "REMOVED",
-}
+export const MembershipStatus = {
+  ACTIVE: "ACTIVE",
+  COLLABORATION_DELETED: "COLLABORATION_DELETED",
+  REMOVED: "REMOVED",
+};
 
 /**
  * @public
@@ -2216,18 +2216,18 @@ export interface Membership {
   /**
    * <p>The status of the membership. Valid values are `ACTIVE`, `REMOVED`, and `COLLABORATION_DELETED`.</p>
    */
-  status: MembershipStatus | string | undefined;
+  status: keyof typeof MembershipStatus | string | undefined;
 
   /**
    * <p>The abilities granted to the collaboration member.</p>
    */
-  memberAbilities: (MemberAbility | string)[] | undefined;
+  memberAbilities: (keyof typeof MemberAbility | string)[] | undefined;
 
   /**
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
-  queryLogStatus: MembershipQueryLogStatus | string | undefined;
+  queryLogStatus: keyof typeof MembershipQueryLogStatus | string | undefined;
 }
 
 /**
@@ -2365,10 +2365,10 @@ export interface ProtectedQueryResult {
 /**
  * @public
  */
-export enum ResultFormat {
-  CSV = "CSV",
-  PARQUET = "PARQUET",
-}
+export const ResultFormat = {
+  CSV: "CSV",
+  PARQUET: "PARQUET",
+};
 
 /**
  * @public
@@ -2378,7 +2378,7 @@ export interface ProtectedQueryS3OutputConfiguration {
   /**
    * <p>Intended file format of the result.</p>
    */
-  resultFormat: ResultFormat | string | undefined;
+  resultFormat: keyof typeof ResultFormat | string | undefined;
 
   /**
    * <p>The S3 bucket to unload the protected query results.</p>
@@ -2463,15 +2463,15 @@ export interface ProtectedQueryStatistics {
 /**
  * @public
  */
-export enum ProtectedQueryStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  FAILED = "FAILED",
-  STARTED = "STARTED",
-  SUBMITTED = "SUBMITTED",
-  SUCCESS = "SUCCESS",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const ProtectedQueryStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  FAILED: "FAILED",
+  STARTED: "STARTED",
+  SUBMITTED: "SUBMITTED",
+  SUCCESS: "SUCCESS",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -2506,7 +2506,7 @@ export interface ProtectedQuery {
   /**
    * <p>The status of the query.</p>
    */
-  status: ProtectedQueryStatus | string | undefined;
+  status: keyof typeof ProtectedQueryStatus | string | undefined;
 
   /**
    * <p>Contains any details needed to write the query results.</p>
@@ -2556,7 +2556,7 @@ export interface ListMembershipsInput {
   /**
    * <p>A filter which will return only memberships in the specified status.</p>
    */
-  status?: MembershipStatus | string;
+  status?: keyof typeof MembershipStatus | string;
 }
 
 /**
@@ -2612,12 +2612,12 @@ export interface MembershipSummary {
   /**
    * <p>The status of the membership. Valid values are `ACTIVE`, `REMOVED`, and `COLLABORATION_DELETED`.</p>
    */
-  status: MembershipStatus | string | undefined;
+  status: keyof typeof MembershipStatus | string | undefined;
 
   /**
    * <p>The abilities granted to the collaboration member.</p>
    */
-  memberAbilities: (MemberAbility | string)[] | undefined;
+  memberAbilities: (keyof typeof MemberAbility | string)[] | undefined;
 }
 
 /**
@@ -2647,7 +2647,7 @@ export interface ListProtectedQueriesInput {
   /**
    * <p>A filter on the status of the protected query.</p>
    */
-  status?: ProtectedQueryStatus | string;
+  status?: keyof typeof ProtectedQueryStatus | string;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -2690,7 +2690,7 @@ export interface ProtectedQuerySummary {
   /**
    * <p>The status of the protected query. Value values are `SUBMITTED`, `STARTED`, `CANCELLED`, `CANCELLING`, `FAILED`, `SUCCESS`, `TIMED_OUT`.</p>
    */
-  status: ProtectedQueryStatus | string | undefined;
+  status: keyof typeof ProtectedQueryStatus | string | undefined;
 }
 
 /**
@@ -2711,9 +2711,9 @@ export interface ListProtectedQueriesOutput {
 /**
  * @public
  */
-export enum ProtectedQueryType {
-  SQL = "SQL",
-}
+export const ProtectedQueryType = {
+  SQL: "SQL",
+};
 
 /**
  * @public
@@ -2722,7 +2722,7 @@ export interface StartProtectedQueryInput {
   /**
    * <p>The type of the protected query to be started.</p>
    */
-  type: ProtectedQueryType | string | undefined;
+  type: keyof typeof ProtectedQueryType | string | undefined;
 
   /**
    * <p>A unique identifier for the membership to run this query against. Currently accepts a membership ID.</p>
@@ -2763,7 +2763,7 @@ export interface UpdateMembershipInput {
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          collaboration.</p>
    */
-  queryLogStatus?: MembershipQueryLogStatus | string;
+  queryLogStatus?: keyof typeof MembershipQueryLogStatus | string;
 }
 
 /**
@@ -2779,9 +2779,9 @@ export interface UpdateMembershipOutput {
 /**
  * @public
  */
-export enum TargetProtectedQueryStatus {
-  CANCELLED = "CANCELLED",
-}
+export const TargetProtectedQueryStatus = {
+  CANCELLED: "CANCELLED",
+};
 
 /**
  * @public
@@ -2800,7 +2800,7 @@ export interface UpdateProtectedQueryInput {
   /**
    * <p>The target status of a query. Used to update the execution status of a currently running query.</p>
    */
-  targetStatus: TargetProtectedQueryStatus | string | undefined;
+  targetStatus: keyof typeof TargetProtectedQueryStatus | string | undefined;
 }
 
 /**

@@ -4556,7 +4556,7 @@ const serializeAws_queryCancelUpdateStackInput = (input: CancelUpdateStackInput,
   return entries;
 };
 
-const serializeAws_queryCapabilities = (input: (Capability | string)[], context: __SerdeContext): any => {
+const serializeAws_queryCapabilities = (input: (keyof typeof Capability | string)[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -6244,7 +6244,7 @@ const serializeAws_queryStackInstanceFilters = (input: StackInstanceFilter[], co
 };
 
 const serializeAws_queryStackResourceDriftStatusFilters = (
-  input: (StackResourceDriftStatus | string)[],
+  input: (keyof typeof StackResourceDriftStatus | string)[],
   context: __SerdeContext
 ): any => {
   const entries: any = {};
@@ -6292,7 +6292,10 @@ const serializeAws_queryStackSetOperationPreferences = (
   return entries;
 };
 
-const serializeAws_queryStackStatusFilter = (input: (StackStatus | string)[], context: __SerdeContext): any => {
+const serializeAws_queryStackStatusFilter = (
+  input: (keyof typeof StackStatus | string)[],
+  context: __SerdeContext
+): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -6864,7 +6867,10 @@ const deserializeAws_queryBatchDescribeTypeConfigurationsOutput = (
   return contents;
 };
 
-const deserializeAws_queryCapabilities = (output: any, context: __SerdeContext): (Capability | string)[] => {
+const deserializeAws_queryCapabilities = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof Capability | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8483,7 +8489,10 @@ const deserializeAws_queryRollbackTriggers = (output: any, context: __SerdeConte
     });
 };
 
-const deserializeAws_queryScope = (output: any, context: __SerdeContext): (ResourceAttribute | string)[] => {
+const deserializeAws_queryScope = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof ResourceAttribute | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -9443,7 +9452,10 @@ const deserializeAws_queryStackSummary = (output: any, context: __SerdeContext):
   return contents;
 };
 
-const deserializeAws_queryStageList = (output: any, context: __SerdeContext): (TemplateStage | string)[] => {
+const deserializeAws_queryStageList = (
+  output: any,
+  context: __SerdeContext
+): (keyof typeof TemplateStage | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -27,25 +27,25 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AccountStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-  PENDING_ACTIVATION = "PENDING_ACTIVATION",
-}
+export const AccountStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+  PENDING_ACTIVATION: "PENDING_ACTIVATION",
+};
 
 /**
  * @public
  */
-export enum ActionEnum {
-  ACTIVE = "ACTIVE",
-  CREATE = "CREATE",
-  DELETE = "DELETE",
-  IMPORT_EVIDENCE = "IMPORT_EVIDENCE",
-  INACTIVE = "INACTIVE",
-  REVIEWED = "REVIEWED",
-  UNDER_REVIEW = "UNDER_REVIEW",
-  UPDATE_METADATA = "UPDATE_METADATA",
-}
+export const ActionEnum = {
+  ACTIVE: "ACTIVE",
+  CREATE: "CREATE",
+  DELETE: "DELETE",
+  IMPORT_EVIDENCE: "IMPORT_EVIDENCE",
+  INACTIVE: "INACTIVE",
+  REVIEWED: "REVIEWED",
+  UNDER_REVIEW: "UNDER_REVIEW",
+  UPDATE_METADATA: "UPDATE_METADATA",
+};
 
 /**
  * @public
@@ -94,21 +94,21 @@ export interface ControlComment {
 /**
  * @public
  */
-export enum ControlResponse {
-  AUTOMATE = "AUTOMATE",
-  DEFER = "DEFER",
-  IGNORE = "IGNORE",
-  MANUAL = "MANUAL",
-}
+export const ControlResponse = {
+  AUTOMATE: "AUTOMATE",
+  DEFER: "DEFER",
+  IGNORE: "IGNORE",
+  MANUAL: "MANUAL",
+};
 
 /**
  * @public
  */
-export enum ControlStatus {
-  INACTIVE = "INACTIVE",
-  REVIEWED = "REVIEWED",
-  UNDER_REVIEW = "UNDER_REVIEW",
-}
+export const ControlStatus = {
+  INACTIVE: "INACTIVE",
+  REVIEWED: "REVIEWED",
+  UNDER_REVIEW: "UNDER_REVIEW",
+};
 
 /**
  * @public
@@ -133,12 +133,12 @@ export interface AssessmentControl {
   /**
    * <p> The status of the control. </p>
    */
-  status?: ControlStatus | string;
+  status?: keyof typeof ControlStatus | string;
 
   /**
    * <p> The response of the control. </p>
    */
-  response?: ControlResponse | string;
+  response?: keyof typeof ControlResponse | string;
 
   /**
    * <p> The list of comments that's attached to the control. </p>
@@ -164,19 +164,19 @@ export interface AssessmentControl {
 /**
  * @public
  */
-export enum RoleType {
-  PROCESS_OWNER = "PROCESS_OWNER",
-  RESOURCE_OWNER = "RESOURCE_OWNER",
-}
+export const RoleType = {
+  PROCESS_OWNER: "PROCESS_OWNER",
+  RESOURCE_OWNER: "RESOURCE_OWNER",
+};
 
 /**
  * @public
  */
-export enum DelegationStatus {
-  COMPLETE = "COMPLETE",
-  IN_PROGRESS = "IN_PROGRESS",
-  UNDER_REVIEW = "UNDER_REVIEW",
-}
+export const DelegationStatus = {
+  COMPLETE: "COMPLETE",
+  IN_PROGRESS: "IN_PROGRESS",
+  UNDER_REVIEW: "UNDER_REVIEW",
+};
 
 /**
  * @public
@@ -201,7 +201,7 @@ export interface Delegation {
   /**
    * <p> The status of the delegation. </p>
    */
-  status?: DelegationStatus | string;
+  status?: keyof typeof DelegationStatus | string;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the IAM role. </p>
@@ -219,7 +219,7 @@ export interface Delegation {
    *                <code>RESOURCE_OWNER</code>.</p>
    *          </note>
    */
-  roleType?: RoleType | string;
+  roleType?: keyof typeof RoleType | string;
 
   /**
    * <p> Specifies when the delegation was created. </p>
@@ -264,7 +264,7 @@ export interface Role {
    *                <code>RESOURCE_OWNER</code>.</p>
    *          </note>
    */
-  roleType: RoleType | string | undefined;
+  roleType: keyof typeof RoleType | string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the IAM role. </p>
@@ -275,11 +275,11 @@ export interface Role {
 /**
  * @public
  */
-export enum ControlSetStatus {
-  ACTIVE = "ACTIVE",
-  REVIEWED = "REVIEWED",
-  UNDER_REVIEW = "UNDER_REVIEW",
-}
+export const ControlSetStatus = {
+  ACTIVE: "ACTIVE",
+  REVIEWED: "REVIEWED",
+  UNDER_REVIEW: "UNDER_REVIEW",
+};
 
 /**
  * @public
@@ -300,7 +300,7 @@ export interface AssessmentControlSet {
   /**
    * <p> The current status of the control set. </p>
    */
-  status?: ControlSetStatus | string;
+  status?: keyof typeof ControlSetStatus | string;
 
   /**
    * <p> The roles that are associated with the control set. </p>
@@ -387,9 +387,9 @@ export interface AssessmentFramework {
 /**
  * @public
  */
-export enum AssessmentReportDestinationType {
-  S3 = "S3",
-}
+export const AssessmentReportDestinationType = {
+  S3: "S3",
+};
 
 /**
  * @public
@@ -400,7 +400,7 @@ export interface AssessmentReportsDestination {
   /**
    * <p> The destination type, such as Amazon S3. </p>
    */
-  destinationType?: AssessmentReportDestinationType | string;
+  destinationType?: keyof typeof AssessmentReportDestinationType | string;
 
   /**
    * <p> The destination of the assessment report. </p>
@@ -456,10 +456,10 @@ export interface Scope {
 /**
  * @public
  */
-export enum AssessmentStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const AssessmentStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
@@ -490,7 +490,7 @@ export interface AssessmentMetadata {
   /**
    * <p> The overall status of the assessment. </p>
    */
-  status?: AssessmentStatus | string;
+  status?: keyof typeof AssessmentStatus | string;
 
   /**
    * <p> The destination that evidence reports are stored in for the assessment. </p>
@@ -662,10 +662,10 @@ export interface AssessmentEvidenceFolder {
 /**
  * @public
  */
-export enum FrameworkType {
-  CUSTOM = "Custom",
-  STANDARD = "Standard",
-}
+export const FrameworkType = {
+  CUSTOM: "Custom",
+  STANDARD: "Standard",
+};
 
 /**
  * @public
@@ -685,7 +685,7 @@ export interface AssessmentFrameworkMetadata {
   /**
    * <p> The framework type, such as a standard framework or a custom framework. </p>
    */
-  type?: FrameworkType | string;
+  type?: keyof typeof FrameworkType | string;
 
   /**
    * <p> The name of the framework. </p>
@@ -732,16 +732,16 @@ export interface AssessmentFrameworkMetadata {
 /**
  * @public
  */
-export enum ShareRequestStatus {
-  ACTIVE = "ACTIVE",
-  DECLINED = "DECLINED",
-  EXPIRED = "EXPIRED",
-  EXPIRING = "EXPIRING",
-  FAILED = "FAILED",
-  REPLICATING = "REPLICATING",
-  REVOKED = "REVOKED",
-  SHARED = "SHARED",
-}
+export const ShareRequestStatus = {
+  ACTIVE: "ACTIVE",
+  DECLINED: "DECLINED",
+  EXPIRED: "EXPIRED",
+  EXPIRING: "EXPIRING",
+  FAILED: "FAILED",
+  REPLICATING: "REPLICATING",
+  REVOKED: "REVOKED",
+  SHARED: "SHARED",
+};
 
 /**
  * @public
@@ -771,7 +771,7 @@ export interface AssessmentFrameworkShareRequest {
   /**
    * <p> The status of the share request. </p>
    */
-  status?: ShareRequestStatus | string;
+  status?: keyof typeof ShareRequestStatus | string;
 
   /**
    * <p> The Amazon Web Services account of the sender. </p>
@@ -850,7 +850,7 @@ export interface AssessmentMetadataItem {
   /**
    * <p> The current status of the assessment. </p>
    */
-  status?: AssessmentStatus | string;
+  status?: keyof typeof AssessmentStatus | string;
 
   /**
    * <p> The roles that are associated with the assessment. </p>
@@ -876,11 +876,11 @@ export interface AssessmentMetadataItem {
 /**
  * @public
  */
-export enum AssessmentReportStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const AssessmentReportStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -928,7 +928,7 @@ export interface AssessmentReport {
   /**
    * <p> The current status of the specified assessment report. </p>
    */
-  status?: AssessmentReportStatus | string;
+  status?: keyof typeof AssessmentReportStatus | string;
 
   /**
    * <p> Specifies when the assessment report was created. </p>
@@ -996,7 +996,7 @@ export interface AssessmentReportMetadata {
   /**
    * <p> The current status of the assessment report. </p>
    */
-  status?: AssessmentReportStatus | string;
+  status?: keyof typeof AssessmentReportStatus | string;
 
   /**
    * <p> Specifies when the assessment report was created. </p>
@@ -1096,12 +1096,12 @@ export interface ValidationExceptionField {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+};
 
 /**
  * @public
@@ -1113,7 +1113,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p> The reason the request failed validation. </p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: keyof typeof ValidationExceptionReason | string;
 
   /**
    * <p> The fields that caused the error, if applicable. </p>
@@ -1203,7 +1203,7 @@ export interface CreateDelegationRequest {
    *                <code>RESOURCE_OWNER</code>.</p>
    *          </note>
    */
-  roleType?: RoleType | string;
+  roleType?: keyof typeof RoleType | string;
 }
 
 /**
@@ -1557,18 +1557,18 @@ export interface CreateAssessmentFrameworkRequest {
 /**
  * @public
  */
-export enum SourceFrequency {
-  DAILY = "DAILY",
-  MONTHLY = "MONTHLY",
-  WEEKLY = "WEEKLY",
-}
+export const SourceFrequency = {
+  DAILY: "DAILY",
+  MONTHLY: "MONTHLY",
+  WEEKLY: "WEEKLY",
+};
 
 /**
  * @public
  */
-export enum KeywordInputType {
-  SELECT_FROM_LIST = "SELECT_FROM_LIST",
-}
+export const KeywordInputType = {
+  SELECT_FROM_LIST: "SELECT_FROM_LIST",
+};
 
 /**
  * @public
@@ -1605,7 +1605,7 @@ export interface SourceKeyword {
   /**
    * <p> The input method for the keyword. </p>
    */
-  keywordInputType?: KeywordInputType | string;
+  keywordInputType?: keyof typeof KeywordInputType | string;
 
   /**
    * <p> The value of the keyword that's used when mapping a control data source. For example,
@@ -1672,21 +1672,21 @@ export interface SourceKeyword {
 /**
  * @public
  */
-export enum SourceSetUpOption {
-  PROCEDURAL_CONTROLS_MAPPING = "Procedural_Controls_Mapping",
-  SYSTEM_CONTROLS_MAPPING = "System_Controls_Mapping",
-}
+export const SourceSetUpOption = {
+  PROCEDURAL_CONTROLS_MAPPING: "Procedural_Controls_Mapping",
+  SYSTEM_CONTROLS_MAPPING: "System_Controls_Mapping",
+};
 
 /**
  * @public
  */
-export enum SourceType {
-  AWS_API_CALL = "AWS_API_Call",
-  AWS_CLOUDTRAIL = "AWS_Cloudtrail",
-  AWS_CONFIG = "AWS_Config",
-  AWS_SECURITY_HUB = "AWS_Security_Hub",
-  MANUAL = "MANUAL",
-}
+export const SourceType = {
+  AWS_API_CALL: "AWS_API_Call",
+  AWS_CLOUDTRAIL: "AWS_Cloudtrail",
+  AWS_CONFIG: "AWS_Config",
+  AWS_SECURITY_HUB: "AWS_Security_Hub",
+  MANUAL: "MANUAL",
+};
 
 /**
  * @public
@@ -1713,12 +1713,12 @@ export interface ControlMappingSource {
    * <p> The setup option for the data source. This option reflects if the evidence collection
    *          is automated or manual. </p>
    */
-  sourceSetUpOption?: SourceSetUpOption | string;
+  sourceSetUpOption?: keyof typeof SourceSetUpOption | string;
 
   /**
    * <p> Specifies one of the five data source types for evidence collection. </p>
    */
-  sourceType?: SourceType | string;
+  sourceType?: keyof typeof SourceType | string;
 
   /**
    * <p> The keyword to search for in CloudTrail logs, Config rules,
@@ -1755,7 +1755,7 @@ export interface ControlMappingSource {
   /**
    * <p> The frequency of evidence collection for the control mapping source. </p>
    */
-  sourceFrequency?: SourceFrequency | string;
+  sourceFrequency?: keyof typeof SourceFrequency | string;
 
   /**
    * <p> The instructions for troubleshooting the control. </p>
@@ -1766,10 +1766,10 @@ export interface ControlMappingSource {
 /**
  * @public
  */
-export enum ControlType {
-  CUSTOM = "Custom",
-  STANDARD = "Standard",
-}
+export const ControlType = {
+  CUSTOM: "Custom",
+  STANDARD: "Standard",
+};
 
 /**
  * @public
@@ -1789,7 +1789,7 @@ export interface Control {
   /**
    * <p> The type of control, such as a custom control or a standard control. </p>
    */
-  type?: ControlType | string;
+  type?: keyof typeof ControlType | string;
 
   /**
    * <p> The name of the control. </p>
@@ -1900,7 +1900,7 @@ export interface Framework {
   /**
    * <p> The framework type, such as a custom framework or a standard framework. </p>
    */
-  type?: FrameworkType | string;
+  type?: keyof typeof FrameworkType | string;
 
   /**
    * <p> The compliance type that the new custom framework supports, such as CIS or HIPAA.
@@ -2031,12 +2031,12 @@ export interface CreateControlMappingSource {
    * <p> The setup option for the data source, which reflects if the evidence collection is
    *          automated or manual. </p>
    */
-  sourceSetUpOption?: SourceSetUpOption | string;
+  sourceSetUpOption?: keyof typeof SourceSetUpOption | string;
 
   /**
    * <p> Specifies one of the five types of data sources for evidence collection. </p>
    */
-  sourceType?: SourceType | string;
+  sourceType?: keyof typeof SourceType | string;
 
   /**
    * <p> The keyword to search for in CloudTrail logs, Config rules,
@@ -2073,7 +2073,7 @@ export interface CreateControlMappingSource {
   /**
    * <p> The frequency of evidence collection for the control mapping source. </p>
    */
-  sourceFrequency?: SourceFrequency | string;
+  sourceFrequency?: keyof typeof SourceFrequency | string;
 
   /**
    * <p> The instructions for troubleshooting the control. </p>
@@ -2164,10 +2164,10 @@ export interface DeleteAssessmentFrameworkResponse {}
 /**
  * @public
  */
-export enum ShareRequestType {
-  RECEIVED = "RECEIVED",
-  SENT = "SENT",
-}
+export const ShareRequestType = {
+  RECEIVED: "RECEIVED",
+  SENT: "SENT",
+};
 
 /**
  * @public
@@ -2181,7 +2181,7 @@ export interface DeleteAssessmentFrameworkShareRequest {
   /**
    * <p>Specifies whether the share request is a sent request or a received request.</p>
    */
-  requestType: ShareRequestType | string | undefined;
+  requestType: keyof typeof ShareRequestType | string | undefined;
 }
 
 /**
@@ -2236,7 +2236,7 @@ export interface DeregisterAccountResponse {
   /**
    * <p> The registration status of the account. </p>
    */
-  status?: AccountStatus | string;
+  status?: keyof typeof AccountStatus | string;
 }
 
 /**
@@ -2286,7 +2286,7 @@ export interface GetAccountStatusResponse {
   /**
    * <p> The status of the Amazon Web Services account. </p>
    */
-  status?: AccountStatus | string;
+  status?: keyof typeof AccountStatus | string;
 }
 
 /**
@@ -2412,13 +2412,13 @@ export interface GetChangeLogsRequest {
 /**
  * @public
  */
-export enum ObjectTypeEnum {
-  ASSESSMENT = "ASSESSMENT",
-  ASSESSMENT_REPORT = "ASSESSMENT_REPORT",
-  CONTROL = "CONTROL",
-  CONTROL_SET = "CONTROL_SET",
-  DELEGATION = "DELEGATION",
-}
+export const ObjectTypeEnum = {
+  ASSESSMENT: "ASSESSMENT",
+  ASSESSMENT_REPORT: "ASSESSMENT_REPORT",
+  CONTROL: "CONTROL",
+  CONTROL_SET: "CONTROL_SET",
+  DELEGATION: "DELEGATION",
+};
 
 /**
  * @public
@@ -2429,7 +2429,7 @@ export interface ChangeLog {
   /**
    * <p> The object that was changed, such as an assessment, control, or control set. </p>
    */
-  objectType?: ObjectTypeEnum | string;
+  objectType?: keyof typeof ObjectTypeEnum | string;
 
   /**
    * <p> The name of the object that changed. This could be the name of an assessment, control,
@@ -2440,7 +2440,7 @@ export interface ChangeLog {
   /**
    * <p> The action that was performed. </p>
    */
-  action?: ActionEnum | string;
+  action?: keyof typeof ActionEnum | string;
 
   /**
    * <p> The time when the action was performed and the changelog record was created. </p>
@@ -2526,7 +2526,7 @@ export interface DelegationMetadata {
   /**
    * <p> The current status of the delegation. </p>
    */
-  status?: DelegationStatus | string;
+  status?: keyof typeof DelegationStatus | string;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the IAM role. </p>
@@ -3165,15 +3165,15 @@ export interface GetServicesInScopeResponse {
 /**
  * @public
  */
-export enum SettingAttribute {
-  ALL = "ALL",
-  DEFAULT_ASSESSMENT_REPORTS_DESTINATION = "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
-  DEFAULT_PROCESS_OWNERS = "DEFAULT_PROCESS_OWNERS",
-  DEREGISTRATION_POLICY = "DEREGISTRATION_POLICY",
-  EVIDENCE_FINDER_ENABLEMENT = "EVIDENCE_FINDER_ENABLEMENT",
-  IS_AWS_ORG_ENABLED = "IS_AWS_ORG_ENABLED",
-  SNS_TOPIC = "SNS_TOPIC",
-}
+export const SettingAttribute = {
+  ALL: "ALL",
+  DEFAULT_ASSESSMENT_REPORTS_DESTINATION: "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
+  DEFAULT_PROCESS_OWNERS: "DEFAULT_PROCESS_OWNERS",
+  DEREGISTRATION_POLICY: "DEREGISTRATION_POLICY",
+  EVIDENCE_FINDER_ENABLEMENT: "EVIDENCE_FINDER_ENABLEMENT",
+  IS_AWS_ORG_ENABLED: "IS_AWS_ORG_ENABLED",
+  SNS_TOPIC: "SNS_TOPIC",
+};
 
 /**
  * @public
@@ -3182,16 +3182,16 @@ export interface GetSettingsRequest {
   /**
    * <p> The list of setting attribute enum values. </p>
    */
-  attribute: SettingAttribute | string | undefined;
+  attribute: keyof typeof SettingAttribute | string | undefined;
 }
 
 /**
  * @public
  */
-export enum DeleteResources {
-  ALL = "ALL",
-  DEFAULT = "DEFAULT",
-}
+export const DeleteResources = {
+  ALL: "ALL",
+  DEFAULT: "DEFAULT",
+};
 
 /**
  * @public
@@ -3228,27 +3228,27 @@ export interface DeregistrationPolicy {
    *             </li>
    *          </ul>
    */
-  deleteResources?: DeleteResources | string;
+  deleteResources?: keyof typeof DeleteResources | string;
 }
 
 /**
  * @public
  */
-export enum EvidenceFinderBackfillStatus {
-  COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-}
+export const EvidenceFinderBackfillStatus = {
+  COMPLETED: "COMPLETED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+};
 
 /**
  * @public
  */
-export enum EvidenceFinderEnablementStatus {
-  DISABLED = "DISABLED",
-  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
-  ENABLED = "ENABLED",
-  ENABLE_IN_PROGRESS = "ENABLE_IN_PROGRESS",
-}
+export const EvidenceFinderEnablementStatus = {
+  DISABLED: "DISABLED",
+  DISABLE_IN_PROGRESS: "DISABLE_IN_PROGRESS",
+  ENABLED: "ENABLED",
+  ENABLE_IN_PROGRESS: "ENABLE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -3294,7 +3294,7 @@ export interface EvidenceFinderEnablement {
    *             </li>
    *          </ul>
    */
-  enablementStatus?: EvidenceFinderEnablementStatus | string;
+  enablementStatus?: keyof typeof EvidenceFinderEnablementStatus | string;
 
   /**
    * <p>The current status of the evidence data backfill process. </p>
@@ -3317,7 +3317,7 @@ export interface EvidenceFinderEnablement {
    *             </li>
    *          </ul>
    */
-  backfillStatus?: EvidenceFinderBackfillStatus | string;
+  backfillStatus?: keyof typeof EvidenceFinderBackfillStatus | string;
 
   /**
    * <p>Represents any errors that occurred when enabling or disabling evidence finder. </p>
@@ -3495,7 +3495,7 @@ export interface ListAssessmentFrameworksRequest {
   /**
    * <p> The type of framework, such as a standard framework or a custom framework. </p>
    */
-  frameworkType: FrameworkType | string | undefined;
+  frameworkType: keyof typeof FrameworkType | string | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
@@ -3530,7 +3530,7 @@ export interface ListAssessmentFrameworkShareRequestsRequest {
   /**
    * <p> Specifies whether the share request is a sent request or a received request.</p>
    */
-  requestType: ShareRequestType | string | undefined;
+  requestType: keyof typeof ShareRequestType | string | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
@@ -3597,7 +3597,7 @@ export interface ListAssessmentsRequest {
   /**
    * <p> The current status of the assessment.</p>
    */
-  status?: AssessmentStatus | string;
+  status?: keyof typeof AssessmentStatus | string;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
@@ -3805,7 +3805,7 @@ export interface ListControlsRequest {
   /**
    * <p> The type of control, such as a standard control or a custom control. </p>
    */
-  controlType: ControlType | string | undefined;
+  controlType: keyof typeof ControlType | string | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
@@ -3878,7 +3878,7 @@ export interface ListKeywordsForDataSourceRequest {
   /**
    * <p> The control mapping data source that the keywords apply to. </p>
    */
-  source: SourceType | string | undefined;
+  source: keyof typeof SourceType | string | undefined;
 
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
@@ -4026,7 +4026,7 @@ export interface RegisterAccountResponse {
   /**
    * <p> The status of the account registration request. </p>
    */
-  status?: AccountStatus | string;
+  status?: keyof typeof AccountStatus | string;
 }
 
 /**
@@ -4219,7 +4219,7 @@ export interface UpdateAssessmentControlRequest {
   /**
    * <p> The status of the control. </p>
    */
-  controlStatus?: ControlStatus | string;
+  controlStatus?: keyof typeof ControlStatus | string;
 
   /**
    * <p> The comment body text for the control. </p>
@@ -4255,7 +4255,7 @@ export interface UpdateAssessmentControlSetStatusRequest {
   /**
    * <p> The status of the control set that's being updated. </p>
    */
-  status: ControlSetStatus | string | undefined;
+  status: keyof typeof ControlSetStatus | string | undefined;
 
   /**
    * <p> The comment that's related to the status update. </p>
@@ -4339,11 +4339,11 @@ export interface UpdateAssessmentFrameworkResponse {
 /**
  * @public
  */
-export enum ShareRequestAction {
-  ACCEPT = "ACCEPT",
-  DECLINE = "DECLINE",
-  REVOKE = "REVOKE",
-}
+export const ShareRequestAction = {
+  ACCEPT: "ACCEPT",
+  DECLINE: "DECLINE",
+  REVOKE: "REVOKE",
+};
 
 /**
  * @public
@@ -4357,12 +4357,12 @@ export interface UpdateAssessmentFrameworkShareRequest {
   /**
    * <p>Specifies whether the share request is a sent request or a received request.</p>
    */
-  requestType: ShareRequestType | string | undefined;
+  requestType: keyof typeof ShareRequestType | string | undefined;
 
   /**
    * <p>Specifies the update action for the share request.</p>
    */
-  action: ShareRequestAction | string | undefined;
+  action: keyof typeof ShareRequestAction | string | undefined;
 }
 
 /**
@@ -4388,7 +4388,7 @@ export interface UpdateAssessmentStatusRequest {
   /**
    * <p> The current status of the assessment. </p>
    */
-  status: AssessmentStatus | string | undefined;
+  status: keyof typeof AssessmentStatus | string | undefined;
 }
 
 /**

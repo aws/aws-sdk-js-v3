@@ -4742,7 +4742,10 @@ const serializeAws_json1_1GrantConstraints = (input: GrantConstraints, context: 
   };
 };
 
-const serializeAws_json1_1GrantOperationList = (input: (GrantOperation | string)[], context: __SerdeContext): any => {
+const serializeAws_json1_1GrantOperationList = (
+  input: (keyof typeof GrantOperation | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5278,7 +5281,7 @@ const deserializeAws_json1_1DisconnectCustomKeyStoreResponse = (
 const deserializeAws_json1_1EncryptionAlgorithmSpecList = (
   output: any,
   context: __SerdeContext
-): (EncryptionAlgorithmSpec | string)[] => {
+): (keyof typeof EncryptionAlgorithmSpec | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5475,7 +5478,7 @@ const deserializeAws_json1_1GrantListEntry = (output: any, context: __SerdeConte
 const deserializeAws_json1_1GrantOperationList = (
   output: any,
   context: __SerdeContext
-): (GrantOperation | string)[] => {
+): (keyof typeof GrantOperation | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5749,7 +5752,7 @@ const deserializeAws_json1_1ListResourceTagsResponse = (
 const deserializeAws_json1_1MacAlgorithmSpecList = (
   output: any,
   context: __SerdeContext
-): (MacAlgorithmSpec | string)[] => {
+): (keyof typeof MacAlgorithmSpec | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5859,7 +5862,7 @@ const deserializeAws_json1_1ScheduleKeyDeletionResponse = (
 const deserializeAws_json1_1SigningAlgorithmSpecList = (
   output: any,
   context: __SerdeContext
-): (SigningAlgorithmSpec | string)[] => {
+): (keyof typeof SigningAlgorithmSpec | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

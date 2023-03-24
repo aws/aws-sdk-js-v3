@@ -16,11 +16,11 @@ export interface AcceptEnvironmentAccountConnectionInput {
 /**
  * @public
  */
-export enum EnvironmentAccountConnectionStatus {
-  CONNECTED = "CONNECTED",
-  PENDING = "PENDING",
-  REJECTED = "REJECTED",
-}
+export const EnvironmentAccountConnectionStatus = {
+  CONNECTED: "CONNECTED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+};
 
 /**
  * @public
@@ -70,7 +70,7 @@ export interface EnvironmentAccountConnection {
   /**
    * <p>The status of the environment account connection.</p>
    */
-  status: EnvironmentAccountConnectionStatus | string | undefined;
+  status: keyof typeof EnvironmentAccountConnectionStatus | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated
@@ -227,11 +227,11 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum RepositoryProvider {
-  BITBUCKET = "BITBUCKET",
-  GITHUB = "GITHUB",
-  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
-}
+export const RepositoryProvider = {
+  BITBUCKET: "BITBUCKET",
+  GITHUB: "GITHUB",
+  GITHUB_ENTERPRISE: "GITHUB_ENTERPRISE",
+};
 
 /**
  * @public
@@ -246,7 +246,7 @@ export interface RepositoryBranch {
   /**
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: keyof typeof RepositoryProvider | string | undefined;
 
   /**
    * <p>The repository name.</p>
@@ -306,7 +306,7 @@ export interface RepositoryBranchInput {
   /**
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: keyof typeof RepositoryProvider | string | undefined;
 
   /**
    * <p>The repository name.</p>
@@ -375,16 +375,16 @@ export interface CancelComponentDeploymentInput {
 /**
  * @public
  */
-export enum DeploymentStatus {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  DELETE_COMPLETE = "DELETE_COMPLETE",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const DeploymentStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -447,7 +447,7 @@ export interface Component {
   /**
    * <p>The component deployment status.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: keyof typeof DeploymentStatus | string | undefined;
 
   /**
    * <p>The message associated with the component deployment status.</p>
@@ -483,9 +483,9 @@ export interface CancelEnvironmentDeploymentInput {
 /**
  * @public
  */
-export enum Provisioning {
-  CUSTOMER_MANAGED = "CUSTOMER_MANAGED",
-}
+export const Provisioning = {
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
+};
 
 /**
  * @public
@@ -540,7 +540,7 @@ export interface Environment {
   /**
    * <p>The environment deployment status.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: keyof typeof DeploymentStatus | string | undefined;
 
   /**
    * <p>An environment deployment status message.</p>
@@ -570,7 +570,7 @@ export interface Environment {
   /**
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
    */
-  provisioning?: Provisioning | string;
+  provisioning?: keyof typeof Provisioning | string;
 
   /**
    * <p>The linked repository that you use to host your rendered infrastructure templates for self-managed provisioning. A linked repository is a repository
@@ -678,7 +678,7 @@ export interface ServiceInstance {
   /**
    * <p>The service instance deployment status.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: keyof typeof DeploymentStatus | string | undefined;
 
   /**
    * <p>The message associated with the service instance deployment status.</p>
@@ -754,7 +754,7 @@ export interface ServicePipeline {
   /**
    * <p>The deployment status of the service pipeline.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: keyof typeof DeploymentStatus | string | undefined;
 
   /**
    * <p>A service pipeline deployment status message.</p>
@@ -842,10 +842,10 @@ export interface ListComponentProvisionedResourcesInput {
 /**
  * @public
  */
-export enum ProvisionedResourceEngine {
-  CLOUDFORMATION = "CLOUDFORMATION",
-  TERRAFORM = "TERRAFORM",
-}
+export const ProvisionedResourceEngine = {
+  CLOUDFORMATION: "CLOUDFORMATION",
+  TERRAFORM: "TERRAFORM",
+};
 
 /**
  * @public
@@ -867,7 +867,7 @@ export interface ProvisionedResource {
    *       be used for self-managed provisioning.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>
    */
-  provisioningEngine?: ProvisionedResourceEngine | string;
+  provisioningEngine?: keyof typeof ProvisionedResourceEngine | string;
 }
 
 /**
@@ -1121,7 +1121,7 @@ export interface ComponentSummary {
   /**
    * <p>The component deployment status.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: keyof typeof DeploymentStatus | string | undefined;
 
   /**
    * <p>The message associated with the component deployment status.</p>
@@ -1147,10 +1147,10 @@ export interface ListComponentsOutput {
 /**
  * @public
  */
-export enum ComponentDeploymentUpdateType {
-  CURRENT_VERSION = "CURRENT_VERSION",
-  NONE = "NONE",
-}
+export const ComponentDeploymentUpdateType = {
+  CURRENT_VERSION: "CURRENT_VERSION",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -1182,7 +1182,7 @@ export interface UpdateComponentInput {
    *             </dd>
    *          </dl>
    */
-  deploymentType: ComponentDeploymentUpdateType | string | undefined;
+  deploymentType: keyof typeof ComponentDeploymentUpdateType | string | undefined;
 
   /**
    * <p>An optional customer-provided description of the component.</p>
@@ -1334,10 +1334,10 @@ export interface GetEnvironmentAccountConnectionOutput {
 /**
  * @public
  */
-export enum EnvironmentAccountConnectionRequesterAccountType {
-  ENVIRONMENT_ACCOUNT = "ENVIRONMENT_ACCOUNT",
-  MANAGEMENT_ACCOUNT = "MANAGEMENT_ACCOUNT",
-}
+export const EnvironmentAccountConnectionRequesterAccountType = {
+  ENVIRONMENT_ACCOUNT: "ENVIRONMENT_ACCOUNT",
+  MANAGEMENT_ACCOUNT: "MANAGEMENT_ACCOUNT",
+};
 
 /**
  * @public
@@ -1346,7 +1346,7 @@ export interface ListEnvironmentAccountConnectionsInput {
   /**
    * <p>The type of account making the <code>ListEnvironmentAccountConnections</code> request.</p>
    */
-  requestedBy: EnvironmentAccountConnectionRequesterAccountType | string | undefined;
+  requestedBy: keyof typeof EnvironmentAccountConnectionRequesterAccountType | string | undefined;
 
   /**
    * <p>The environment name that's associated with each listed environment account connection.</p>
@@ -1356,7 +1356,7 @@ export interface ListEnvironmentAccountConnectionsInput {
   /**
    * <p>The status details for each listed environment account connection.</p>
    */
-  statuses?: (EnvironmentAccountConnectionStatus | string)[];
+  statuses?: (keyof typeof EnvironmentAccountConnectionStatus | string)[];
 
   /**
    * <p>A token that indicates the location of the next environment account connection in the array of environment account connections, after the list of
@@ -1418,7 +1418,7 @@ export interface EnvironmentAccountConnectionSummary {
   /**
    * <p>The status of the environment account connection.</p>
    */
-  status: EnvironmentAccountConnectionStatus | string | undefined;
+  status: keyof typeof EnvironmentAccountConnectionStatus | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated
@@ -1799,7 +1799,7 @@ export interface EnvironmentSummary {
   /**
    * <p>The environment deployment status.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: keyof typeof DeploymentStatus | string | undefined;
 
   /**
    * <p>An environment deployment status message.</p>
@@ -1824,7 +1824,7 @@ export interface EnvironmentSummary {
   /**
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
    */
-  provisioning?: Provisioning | string;
+  provisioning?: keyof typeof Provisioning | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in this environment. It
@@ -1855,12 +1855,12 @@ export interface ListEnvironmentsOutput {
 /**
  * @public
  */
-export enum DeploymentUpdateType {
-  CURRENT_VERSION = "CURRENT_VERSION",
-  MAJOR_VERSION = "MAJOR_VERSION",
-  MINOR_VERSION = "MINOR_VERSION",
-  NONE = "NONE",
-}
+export const DeploymentUpdateType = {
+  CURRENT_VERSION: "CURRENT_VERSION",
+  MAJOR_VERSION: "MAJOR_VERSION",
+  MINOR_VERSION: "MINOR_VERSION",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -1932,7 +1932,7 @@ export interface UpdateEnvironmentInput {
    *             </dd>
    *          </dl>
    */
-  deploymentType: DeploymentUpdateType | string | undefined;
+  deploymentType: keyof typeof DeploymentUpdateType | string | undefined;
 
   /**
    * <p>The ID of the environment account connection.</p>
@@ -2001,7 +2001,7 @@ export interface CreateEnvironmentTemplateInput {
   /**
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
    */
-  provisioning?: Provisioning | string;
+  provisioning?: keyof typeof Provisioning | string;
 
   /**
    * <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
@@ -2059,7 +2059,7 @@ export interface EnvironmentTemplate {
   /**
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
    */
-  provisioning?: Provisioning | string;
+  provisioning?: keyof typeof Provisioning | string;
 }
 
 /**
@@ -2171,7 +2171,7 @@ export interface EnvironmentTemplateSummary {
   /**
    * <p>When included, indicates that the environment template is for customer provisioned and managed infrastructure.</p>
    */
-  provisioning?: Provisioning | string;
+  provisioning?: keyof typeof Provisioning | string;
 }
 
 /**
@@ -2314,12 +2314,12 @@ export interface CreateEnvironmentTemplateVersionInput {
 /**
  * @public
  */
-export enum TemplateVersionStatus {
-  DRAFT = "DRAFT",
-  PUBLISHED = "PUBLISHED",
-  REGISTRATION_FAILED = "REGISTRATION_FAILED",
-  REGISTRATION_IN_PROGRESS = "REGISTRATION_IN_PROGRESS",
-}
+export const TemplateVersionStatus = {
+  DRAFT: "DRAFT",
+  PUBLISHED: "PUBLISHED",
+  REGISTRATION_FAILED: "REGISTRATION_FAILED",
+  REGISTRATION_IN_PROGRESS: "REGISTRATION_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -2349,7 +2349,7 @@ export interface EnvironmentTemplateVersion {
   /**
    * <p>The status of the version of an environment template.</p>
    */
-  status: TemplateVersionStatus | string | undefined;
+  status: keyof typeof TemplateVersionStatus | string | undefined;
 
   /**
    * <p>The status message of the version of an environment template.</p>
@@ -2508,7 +2508,7 @@ export interface EnvironmentTemplateVersionSummary {
   /**
    * <p>The status of the version of an environment template.</p>
    */
-  status: TemplateVersionStatus | string | undefined;
+  status: keyof typeof TemplateVersionStatus | string | undefined;
 
   /**
    * <p>The status message of the version of an environment template.</p>
@@ -2579,7 +2579,7 @@ export interface UpdateEnvironmentTemplateVersionInput {
   /**
    * <p>The status of the environment template minor version to update.</p>
    */
-  status?: TemplateVersionStatus | string;
+  status?: keyof typeof TemplateVersionStatus | string;
 }
 
 /**
@@ -2595,9 +2595,9 @@ export interface UpdateEnvironmentTemplateVersionOutput {
 /**
  * @public
  */
-export enum SyncType {
-  TEMPLATE_SYNC = "TEMPLATE_SYNC",
-}
+export const SyncType = {
+  TEMPLATE_SYNC: "TEMPLATE_SYNC",
+};
 
 /**
  * @public
@@ -2611,7 +2611,7 @@ export interface GetRepositorySyncStatusInput {
   /**
    * <p>The repository provider.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: keyof typeof RepositoryProvider | string | undefined;
 
   /**
    * <p>The repository branch.</p>
@@ -2621,7 +2621,7 @@ export interface GetRepositorySyncStatusInput {
   /**
    * <p>The repository sync type.</p>
    */
-  syncType: SyncType | string | undefined;
+  syncType: keyof typeof SyncType | string | undefined;
 }
 
 /**
@@ -2653,33 +2653,33 @@ export interface RepositorySyncEvent {
 /**
  * @public
  */
-export enum RepositorySyncStatus {
+export const RepositorySyncStatus = {
   /**
    *     The repository sync attempt has failed.
    *
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    *    A repository sync attempt has been created and will begin soon.
    *
    */
-  INITIATED = "INITIATED",
+  INITIATED: "INITIATED",
   /**
    *     A repository sync attempt has started and work is being done to reconcile the branch.
    *
    */
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS: "IN_PROGRESS",
   /**
    *     The repository sync attempt didn't execute and was queued.
    *
    */
-  QUEUED = "QUEUED",
+  QUEUED: "QUEUED",
   /**
    *     The repository sync attempt has completed successfully.
    *
    */
-  SUCCEEDED = "SUCCEEDED",
-}
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2694,7 +2694,7 @@ export interface RepositorySyncAttempt {
   /**
    * <p>The sync attempt status.</p>
    */
-  status: RepositorySyncStatus | string | undefined;
+  status: keyof typeof RepositorySyncStatus | string | undefined;
 
   /**
    * <p>Detail data for sync attempt events.</p>
@@ -2808,10 +2808,10 @@ export interface GetResourcesSummaryOutput {
 /**
  * @public
  */
-export enum TemplateType {
-  ENVIRONMENT = "ENVIRONMENT",
-  SERVICE = "SERVICE",
-}
+export const TemplateType = {
+  ENVIRONMENT: "ENVIRONMENT",
+  SERVICE: "SERVICE",
+};
 
 /**
  * @public
@@ -2825,7 +2825,7 @@ export interface GetTemplateSyncStatusInput {
   /**
    * <p>The template type.</p>
    */
-  templateType: TemplateType | string | undefined;
+  templateType: keyof typeof TemplateType | string | undefined;
 
   /**
    * <p>The template major version.</p>
@@ -2846,7 +2846,7 @@ export interface Revision {
   /**
    * <p>The repository provider.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: keyof typeof RepositoryProvider | string | undefined;
 
   /**
    * <p>The secure hash algorithm (SHA) hash for the revision.</p>
@@ -2893,28 +2893,28 @@ export interface ResourceSyncEvent {
 /**
  * @public
  */
-export enum ResourceSyncStatus {
+export const ResourceSyncStatus = {
   /**
    *     Syncing has failed.
    *
    */
-  FAILED = "FAILED",
+  FAILED: "FAILED",
   /**
    *    A sync attempt has been created and will begin soon.
    *
    */
-  INITIATED = "INITIATED",
+  INITIATED: "INITIATED",
   /**
    *     Syncing has started and work is being done to reconcile state.
    *
    */
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS: "IN_PROGRESS",
   /**
    *     Syncing has completed successfully.
    *
    */
-  SUCCEEDED = "SUCCEEDED",
-}
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -2944,7 +2944,7 @@ export interface ResourceSyncAttempt {
   /**
    * <p>The status of the sync attempt.</p>
    */
-  status: ResourceSyncStatus | string | undefined;
+  status: keyof typeof ResourceSyncStatus | string | undefined;
 
   /**
    * <p>An array of events with detail data.</p>
@@ -2984,12 +2984,12 @@ export interface ListRepositorySyncDefinitionsInput {
   /**
    * <p>The repository provider.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: keyof typeof RepositoryProvider | string | undefined;
 
   /**
    * <p>The sync type. The only supported value is <code>TEMPLATE_SYNC</code>.</p>
    */
-  syncType: SyncType | string | undefined;
+  syncType: keyof typeof SyncType | string | undefined;
 
   /**
    * <p>A token that indicates the location of the next repository sync definition in the array of repository sync definitions, after the list of repository
@@ -3080,11 +3080,11 @@ export interface ListTagsForResourceOutput {
 /**
  * @public
  */
-export enum ResourceDeploymentStatus {
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ResourceDeploymentStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -3098,7 +3098,7 @@ export interface NotifyResourceDeploymentStatusChangeInput {
   /**
    * <p>The status of your provisioned resource.</p>
    */
-  status?: ResourceDeploymentStatus | string;
+  status?: keyof typeof ResourceDeploymentStatus | string;
 
   /**
    * <p>The provisioned resource state change detail data that's returned by Proton.</p>
@@ -3128,7 +3128,7 @@ export interface CreateRepositoryInput {
   /**
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: keyof typeof RepositoryProvider | string | undefined;
 
   /**
    * <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
@@ -3167,7 +3167,7 @@ export interface Repository {
   /**
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: keyof typeof RepositoryProvider | string | undefined;
 
   /**
    * <p>The repository name.</p>
@@ -3202,7 +3202,7 @@ export interface DeleteRepositoryInput {
   /**
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: keyof typeof RepositoryProvider | string | undefined;
 
   /**
    * <p>The repository name.</p>
@@ -3227,7 +3227,7 @@ export interface GetRepositoryInput {
   /**
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: keyof typeof RepositoryProvider | string | undefined;
 
   /**
    * <p>The repository name, for example <code>myrepos/myrepo</code>.</p>
@@ -3273,7 +3273,7 @@ export interface RepositorySummary {
   /**
    * <p>The repository provider.</p>
    */
-  provider: RepositoryProvider | string | undefined;
+  provider: keyof typeof RepositoryProvider | string | undefined;
 
   /**
    * <p>The repository name.</p>
@@ -3396,18 +3396,18 @@ export interface GetServiceInstanceOutput {
 /**
  * @public
  */
-export enum ListServiceInstancesFilterBy {
-  CREATED_AT_AFTER = "createdAtAfter",
-  CREATED_AT_BEFORE = "createdAtBefore",
-  DEPLOYED_TEMPLATE_VERSION_STATUS = "deployedTemplateVersionStatus",
-  DEPLOYMENT_STATUS = "deploymentStatus",
-  ENVIRONMENT_NAME = "environmentName",
-  LAST_DEPLOYMENT_ATTEMPTED_AT_AFTER = "lastDeploymentAttemptedAtAfter",
-  LAST_DEPLOYMENT_ATTEMPTED_AT_BEFORE = "lastDeploymentAttemptedAtBefore",
-  NAME = "name",
-  SERVICE_NAME = "serviceName",
-  TEMPLATE_NAME = "templateName",
-}
+export const ListServiceInstancesFilterBy = {
+  CREATED_AT_AFTER: "createdAtAfter",
+  CREATED_AT_BEFORE: "createdAtBefore",
+  DEPLOYED_TEMPLATE_VERSION_STATUS: "deployedTemplateVersionStatus",
+  DEPLOYMENT_STATUS: "deploymentStatus",
+  ENVIRONMENT_NAME: "environmentName",
+  LAST_DEPLOYMENT_ATTEMPTED_AT_AFTER: "lastDeploymentAttemptedAtAfter",
+  LAST_DEPLOYMENT_ATTEMPTED_AT_BEFORE: "lastDeploymentAttemptedAtBefore",
+  NAME: "name",
+  SERVICE_NAME: "serviceName",
+  TEMPLATE_NAME: "templateName",
+};
 
 /**
  * @public
@@ -3417,7 +3417,7 @@ export interface ListServiceInstancesFilter {
   /**
    * <p>The name of a filtering criterion.</p>
    */
-  key?: ListServiceInstancesFilterBy | string;
+  key?: keyof typeof ListServiceInstancesFilterBy | string;
 
   /**
    * <p>A value to filter by.</p>
@@ -3430,23 +3430,23 @@ export interface ListServiceInstancesFilter {
 /**
  * @public
  */
-export enum ListServiceInstancesSortBy {
-  CREATED_AT = "createdAt",
-  DEPLOYMENT_STATUS = "deploymentStatus",
-  ENVIRONMENT_NAME = "environmentName",
-  LAST_DEPLOYMENT_ATTEMPTED_AT = "lastDeploymentAttemptedAt",
-  NAME = "name",
-  SERVICE_NAME = "serviceName",
-  TEMPLATE_NAME = "templateName",
-}
+export const ListServiceInstancesSortBy = {
+  CREATED_AT: "createdAt",
+  DEPLOYMENT_STATUS: "deploymentStatus",
+  ENVIRONMENT_NAME: "environmentName",
+  LAST_DEPLOYMENT_ATTEMPTED_AT: "lastDeploymentAttemptedAt",
+  NAME: "name",
+  SERVICE_NAME: "serviceName",
+  TEMPLATE_NAME: "templateName",
+};
 
 /**
  * @public
  */
-export enum SortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -3480,14 +3480,14 @@ export interface ListServiceInstancesInput {
    *          <p>Default: <code>serviceName</code>
    *          </p>
    */
-  sortBy?: ListServiceInstancesSortBy | string;
+  sortBy?: keyof typeof ListServiceInstancesSortBy | string;
 
   /**
    * <p>Result list sort order.</p>
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: keyof typeof SortOrder | string;
 }
 
 /**
@@ -3548,7 +3548,7 @@ export interface ServiceInstanceSummary {
   /**
    * <p>The service instance deployment status.</p>
    */
-  deploymentStatus: DeploymentStatus | string | undefined;
+  deploymentStatus: keyof typeof DeploymentStatus | string | undefined;
 
   /**
    * <p>A service instance deployment status message.</p>
@@ -3622,7 +3622,7 @@ export interface UpdateServiceInstanceInput {
    *             </dd>
    *          </dl>
    */
-  deploymentType: DeploymentUpdateType | string | undefined;
+  deploymentType: keyof typeof DeploymentUpdateType | string | undefined;
 
   /**
    * <p>The formatted specification that defines the service instance update.</p>
@@ -3763,7 +3763,7 @@ export interface UpdateServicePipelineInput {
    *             </dd>
    *          </dl>
    */
-  deploymentType: DeploymentUpdateType | string | undefined;
+  deploymentType: keyof typeof DeploymentUpdateType | string | undefined;
 
   /**
    * <p>The major version of the service template that was used to create the service that the pipeline is associated with.</p>
@@ -3853,22 +3853,22 @@ export interface CreateServiceInput {
 /**
  * @public
  */
-export enum ServiceStatus {
-  ACTIVE = "ACTIVE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATE_FAILED_CLEANUP_COMPLETE = "CREATE_FAILED_CLEANUP_COMPLETE",
-  CREATE_FAILED_CLEANUP_FAILED = "CREATE_FAILED_CLEANUP_FAILED",
-  CREATE_FAILED_CLEANUP_IN_PROGRESS = "CREATE_FAILED_CLEANUP_IN_PROGRESS",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
-  UPDATE_COMPLETE_CLEANUP_FAILED = "UPDATE_COMPLETE_CLEANUP_FAILED",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_FAILED_CLEANUP_COMPLETE = "UPDATE_FAILED_CLEANUP_COMPLETE",
-  UPDATE_FAILED_CLEANUP_FAILED = "UPDATE_FAILED_CLEANUP_FAILED",
-  UPDATE_FAILED_CLEANUP_IN_PROGRESS = "UPDATE_FAILED_CLEANUP_IN_PROGRESS",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const ServiceStatus = {
+  ACTIVE: "ACTIVE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_FAILED_CLEANUP_COMPLETE: "CREATE_FAILED_CLEANUP_COMPLETE",
+  CREATE_FAILED_CLEANUP_FAILED: "CREATE_FAILED_CLEANUP_FAILED",
+  CREATE_FAILED_CLEANUP_IN_PROGRESS: "CREATE_FAILED_CLEANUP_IN_PROGRESS",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+  UPDATE_COMPLETE_CLEANUP_FAILED: "UPDATE_COMPLETE_CLEANUP_FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_FAILED_CLEANUP_COMPLETE: "UPDATE_FAILED_CLEANUP_COMPLETE",
+  UPDATE_FAILED_CLEANUP_FAILED: "UPDATE_FAILED_CLEANUP_FAILED",
+  UPDATE_FAILED_CLEANUP_IN_PROGRESS: "UPDATE_FAILED_CLEANUP_IN_PROGRESS",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -3908,7 +3908,7 @@ export interface Service {
   /**
    * <p>The status of the service.</p>
    */
-  status: ServiceStatus | string | undefined;
+  status: keyof typeof ServiceStatus | string | undefined;
 
   /**
    * <p>A service status message.</p>
@@ -4045,7 +4045,7 @@ export interface ServiceSummary {
   /**
    * <p>The status of the service.</p>
    */
-  status: ServiceStatus | string | undefined;
+  status: keyof typeof ServiceStatus | string | undefined;
 
   /**
    * <p>A service status message.</p>
@@ -4128,7 +4128,7 @@ export interface CreateServiceTemplateInput {
    *         <i>isn't</i> provided for your service. After it's included, it <i>can't</i> be changed. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-authoring.html#ag-template-bundles">Template bundles</a> in the <i>Proton
    *         User Guide</i>.</p>
    */
-  pipelineProvisioning?: Provisioning | string;
+  pipelineProvisioning?: keyof typeof Provisioning | string;
 
   /**
    * <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
@@ -4187,7 +4187,7 @@ export interface ServiceTemplate {
    * <p>If <code>pipelineProvisioning</code> is <code>true</code>, a service pipeline is included in the service template. Otherwise, a service pipeline
    *         <i>isn't</i> included in the service template.</p>
    */
-  pipelineProvisioning?: Provisioning | string;
+  pipelineProvisioning?: keyof typeof Provisioning | string;
 }
 
 /**
@@ -4300,7 +4300,7 @@ export interface ServiceTemplateSummary {
    * <p>If <code>pipelineProvisioning</code> is <code>true</code>, a service pipeline is included in the service template, otherwise a service pipeline
    *         <i>isn't</i> included in the service template.</p>
    */
-  pipelineProvisioning?: Provisioning | string;
+  pipelineProvisioning?: keyof typeof Provisioning | string;
 }
 
 /**
@@ -4368,9 +4368,9 @@ export interface CompatibleEnvironmentTemplateInput {
 /**
  * @public
  */
-export enum ServiceTemplateSupportedComponentSourceType {
-  DIRECTLY_DEFINED = "DIRECTLY_DEFINED",
-}
+export const ServiceTemplateSupportedComponentSourceType = {
+  DIRECTLY_DEFINED: "DIRECTLY_DEFINED",
+};
 
 /**
  * @public
@@ -4424,7 +4424,7 @@ export interface CreateServiceTemplateVersionInput {
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
    */
-  supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
+  supportedComponentSources?: (keyof typeof ServiceTemplateSupportedComponentSourceType | string)[];
 }
 
 /**
@@ -4471,7 +4471,7 @@ export interface ServiceTemplateVersion {
   /**
    * <p>The service template version status.</p>
    */
-  status: TemplateVersionStatus | string | undefined;
+  status: keyof typeof TemplateVersionStatus | string | undefined;
 
   /**
    * <p>A service template version status message.</p>
@@ -4515,7 +4515,7 @@ export interface ServiceTemplateVersion {
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
    */
-  supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
+  supportedComponentSources?: (keyof typeof ServiceTemplateSupportedComponentSourceType | string)[];
 }
 
 /**
@@ -4644,7 +4644,7 @@ export interface ServiceTemplateVersionSummary {
   /**
    * <p>The service template minor version status.</p>
    */
-  status: TemplateVersionStatus | string | undefined;
+  status: keyof typeof TemplateVersionStatus | string | undefined;
 
   /**
    * <p>A service template minor version status message.</p>
@@ -4715,7 +4715,7 @@ export interface UpdateServiceTemplateVersionInput {
   /**
    * <p>The status of the service template minor version to update.</p>
    */
-  status?: TemplateVersionStatus | string;
+  status?: keyof typeof TemplateVersionStatus | string;
 
   /**
    * <p>An array of environment template objects that are compatible with this service template version. A service instance based on this service template
@@ -4734,7 +4734,7 @@ export interface UpdateServiceTemplateVersionInput {
    *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
    *   <i>Proton User Guide</i>.</p>
    */
-  supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
+  supportedComponentSources?: (keyof typeof ServiceTemplateSupportedComponentSourceType | string)[];
 }
 
 /**
@@ -4779,12 +4779,12 @@ export interface CreateTemplateSyncConfigInput {
   /**
    * <p>The type of the registered template.</p>
    */
-  templateType: TemplateType | string | undefined;
+  templateType: keyof typeof TemplateType | string | undefined;
 
   /**
    * <p>The provider type for your repository.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: keyof typeof RepositoryProvider | string | undefined;
 
   /**
    * <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
@@ -4816,12 +4816,12 @@ export interface TemplateSyncConfig {
   /**
    * <p>The template type.</p>
    */
-  templateType: TemplateType | string | undefined;
+  templateType: keyof typeof TemplateType | string | undefined;
 
   /**
    * <p>The repository provider.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: keyof typeof RepositoryProvider | string | undefined;
 
   /**
    * <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>
@@ -4861,7 +4861,7 @@ export interface DeleteTemplateSyncConfigInput {
   /**
    * <p>The template type.</p>
    */
-  templateType: TemplateType | string | undefined;
+  templateType: keyof typeof TemplateType | string | undefined;
 }
 
 /**
@@ -4886,7 +4886,7 @@ export interface GetTemplateSyncConfigInput {
   /**
    * <p>The template type.</p>
    */
-  templateType: TemplateType | string | undefined;
+  templateType: keyof typeof TemplateType | string | undefined;
 }
 
 /**
@@ -4911,12 +4911,12 @@ export interface UpdateTemplateSyncConfigInput {
   /**
    * <p>The synced template type.</p>
    */
-  templateType: TemplateType | string | undefined;
+  templateType: keyof typeof TemplateType | string | undefined;
 
   /**
    * <p>The repository provider.</p>
    */
-  repositoryProvider: RepositoryProvider | string | undefined;
+  repositoryProvider: keyof typeof RepositoryProvider | string | undefined;
 
   /**
    * <p>The repository name (for example, <code>myrepos/myrepo</code>).</p>

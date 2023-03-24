@@ -26,10 +26,10 @@ export class AccessDeniedException extends __BaseException {
 /**
  * @public
  */
-export enum AppliedStatus {
-  APPLIED = "APPLIED",
-  NOT_APPLIED = "NOT_APPLIED",
-}
+export const AppliedStatus = {
+  APPLIED: "APPLIED",
+  NOT_APPLIED: "NOT_APPLIED",
+};
 
 /**
  * @public
@@ -44,11 +44,11 @@ export interface CancelZonalShiftRequest {
 /**
  * @public
  */
-export enum ConflictExceptionReason {
-  SIMULTANEOUS_ZONAL_SHIFTS_CONFLICT = "SimultaneousZonalShiftsConflict",
-  ZONAL_SHIFT_ALREADY_EXISTS = "ZonalShiftAlreadyExists",
-  ZONAL_SHIFT_STATUS_NOT_ACTIVE = "ZonalShiftStatusNotActive",
-}
+export const ConflictExceptionReason = {
+  SIMULTANEOUS_ZONAL_SHIFTS_CONFLICT: "SimultaneousZonalShiftsConflict",
+  ZONAL_SHIFT_ALREADY_EXISTS: "ZonalShiftAlreadyExists",
+  ZONAL_SHIFT_STATUS_NOT_ACTIVE: "ZonalShiftStatusNotActive",
+};
 
 /**
  * @public
@@ -60,7 +60,7 @@ export class ConflictException extends __BaseException {
   /**
    * <p>The reason for the conflict exception.</p>
    */
-  reason: ConflictExceptionReason | string | undefined;
+  reason: keyof typeof ConflictExceptionReason | string | undefined;
 
   /**
    * <p>The zonal shift ID associated with the conflict exception.</p>
@@ -145,15 +145,15 @@ export class ThrottlingException extends __BaseException {
 /**
  * @public
  */
-export enum ValidationExceptionReason {
-  INVALID_AZ = "InvalidAz",
-  INVALID_EXPIRES_IN = "InvalidExpiresIn",
-  INVALID_RESOURCE_IDENTIFIER = "InvalidResourceIdentifier",
-  INVALID_STATUS = "InvalidStatus",
-  INVALID_TOKEN = "InvalidToken",
-  MISSING_VALUE = "MissingValue",
-  UNSUPPORTED_AZ = "UnsupportedAz",
-}
+export const ValidationExceptionReason = {
+  INVALID_AZ: "InvalidAz",
+  INVALID_EXPIRES_IN: "InvalidExpiresIn",
+  INVALID_RESOURCE_IDENTIFIER: "InvalidResourceIdentifier",
+  INVALID_STATUS: "InvalidStatus",
+  INVALID_TOKEN: "InvalidToken",
+  MISSING_VALUE: "MissingValue",
+  UNSUPPORTED_AZ: "UnsupportedAz",
+};
 
 /**
  * @public
@@ -165,7 +165,7 @@ export class ValidationException extends __BaseException {
   /**
    * <p>The reason for the validation exception.</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: keyof typeof ValidationExceptionReason | string | undefined;
 
   /**
    * @internal
@@ -184,11 +184,11 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
-export enum ZonalShiftStatus {
-  ACTIVE = "ACTIVE",
-  CANCELED = "CANCELED",
-  EXPIRED = "EXPIRED",
-}
+export const ZonalShiftStatus = {
+  ACTIVE: "ACTIVE",
+  CANCELED: "CANCELED",
+  EXPIRED: "EXPIRED",
+};
 
 /**
  * @public
@@ -244,7 +244,7 @@ export interface ZonalShift {
    *             </li>
    *          </ul>
    */
-  status: ZonalShiftStatus | string | undefined;
+  status: keyof typeof ZonalShiftStatus | string | undefined;
 
   /**
    * <p>A comment that you enter about the zonal shift. Only the latest comment is retained; no comment
@@ -273,7 +273,7 @@ export interface ZonalShiftInResource {
    * <p>An <code>appliedStatus</code> for a zonal shift for a resource can have one of two values: <code>APPLIED</code>
    *    		or <code>NOT_APPLIED</code>. </p>
    */
-  appliedStatus: AppliedStatus | string | undefined;
+  appliedStatus: keyof typeof AppliedStatus | string | undefined;
 
   /**
    * <p>The identifier of a zonal shift.</p>
@@ -429,7 +429,7 @@ export interface ListZonalShiftsRequest {
    *             </li>
    *          </ul>
    */
-  status?: ZonalShiftStatus | string;
+  status?: keyof typeof ZonalShiftStatus | string;
 
   /**
    * <p>The number of objects that you want to return with this call.</p>
@@ -499,7 +499,7 @@ export interface ZonalShiftSummary {
    *             </li>
    *          </ul>
    */
-  status: ZonalShiftStatus | string | undefined;
+  status: keyof typeof ZonalShiftStatus | string | undefined;
 
   /**
    * <p>A comment that you enter about the zonal shift. Only the latest comment is retained; no comment

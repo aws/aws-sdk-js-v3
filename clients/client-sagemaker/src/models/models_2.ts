@@ -299,16 +299,16 @@ export interface DeployedImage {
 /**
  * @public
  */
-export enum StageStatus {
-  Creating = "CREATING",
-  Deployed = "DEPLOYED",
-  Failed = "FAILED",
-  InProgress = "INPROGRESS",
-  ReadyToDeploy = "READYTODEPLOY",
-  Starting = "STARTING",
-  Stopped = "STOPPED",
-  Stopping = "STOPPING",
-}
+export const StageStatus = {
+  Creating: "CREATING",
+  Deployed: "DEPLOYED",
+  Failed: "FAILED",
+  InProgress: "INPROGRESS",
+  ReadyToDeploy: "READYTODEPLOY",
+  Starting: "STARTING",
+  Stopped: "STOPPED",
+  Stopping: "STOPPING",
+};
 
 /**
  * @public
@@ -318,7 +318,7 @@ export interface EdgeDeploymentStatus {
   /**
    * <p>The general status of the current stage.</p>
    */
-  StageStatus: StageStatus | string | undefined;
+  StageStatus: keyof typeof StageStatus | string | undefined;
 
   /**
    * <p>The number of edge devices with the successful deployment in the current stage.</p>
@@ -429,7 +429,7 @@ export interface DescribeActionResponse {
   /**
    * <p>The status of the action.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: keyof typeof ActionStatus | string;
 
   /**
    * <p>A list of the action's properties.</p>
@@ -522,7 +522,7 @@ export interface DescribeAlgorithmOutput {
   /**
    * <p>The current status of the algorithm.</p>
    */
-  AlgorithmStatus: AlgorithmStatus | string | undefined;
+  AlgorithmStatus: keyof typeof AlgorithmStatus | string | undefined;
 
   /**
    * <p>Details about the current status of the algorithm.</p>
@@ -558,7 +558,7 @@ export interface DescribeAppRequest {
   /**
    * <p>The type of app.</p>
    */
-  AppType: AppType | string | undefined;
+  AppType: keyof typeof AppType | string | undefined;
 
   /**
    * <p>The name of the app.</p>
@@ -583,7 +583,7 @@ export interface DescribeAppResponse {
   /**
    * <p>The type of app.</p>
    */
-  AppType?: AppType | string;
+  AppType?: keyof typeof AppType | string;
 
   /**
    * <p>The name of the app.</p>
@@ -603,7 +603,7 @@ export interface DescribeAppResponse {
   /**
    * <p>The status.</p>
    */
-  Status?: AppStatus | string;
+  Status?: keyof typeof AppStatus | string;
 
   /**
    * <p>The timestamp of the last health check.</p>
@@ -787,7 +787,7 @@ export interface ResolvedAttributes {
   /**
    * <p>The problem type.</p>
    */
-  ProblemType?: ProblemType | string;
+  ProblemType?: keyof typeof ProblemType | string;
 
   /**
    * <p>How long a job is allowed to run, or how many candidates a job is allowed to
@@ -834,7 +834,7 @@ export interface DescribeAutoMLJobResponse {
   /**
    * <p>Returns the job's problem type.</p>
    */
-  ProblemType?: ProblemType | string;
+  ProblemType?: keyof typeof ProblemType | string;
 
   /**
    * <p>Returns the configuration for the AutoML job.</p>
@@ -876,12 +876,12 @@ export interface DescribeAutoMLJobResponse {
   /**
    * <p>Returns the status of the AutoML job.</p>
    */
-  AutoMLJobStatus: AutoMLJobStatus | string | undefined;
+  AutoMLJobStatus: keyof typeof AutoMLJobStatus | string | undefined;
 
   /**
    * <p>Returns the secondary status of the AutoML job.</p>
    */
-  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | string | undefined;
+  AutoMLJobSecondaryStatus: keyof typeof AutoMLJobSecondaryStatus | string | undefined;
 
   /**
    * <p>Indicates whether the output for an AutoML job generates candidate definitions
@@ -998,12 +998,12 @@ export interface DescribeAutoMLJobV2Response {
   /**
    * <p>Returns the status of the AutoML V2 job.</p>
    */
-  AutoMLJobStatus: AutoMLJobStatus | string | undefined;
+  AutoMLJobStatus: keyof typeof AutoMLJobStatus | string | undefined;
 
   /**
    * <p>Returns the secondary status of the AutoML V2 job.</p>
    */
-  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | string | undefined;
+  AutoMLJobSecondaryStatus: keyof typeof AutoMLJobSecondaryStatus | string | undefined;
 
   /**
    * <p>Indicates whether the model was deployed automatically to an endpoint and the name of
@@ -1124,7 +1124,7 @@ export interface DescribeCompilationJobResponse {
   /**
    * <p>The status of the model compilation job.</p>
    */
-  CompilationJobStatus: CompilationJobStatus | string | undefined;
+  CompilationJobStatus: keyof typeof CompilationJobStatus | string | undefined;
 
   /**
    * <p>The time when the model compilation job started the <code>CompilationJob</code>
@@ -1535,15 +1535,15 @@ export interface DescribeDomainRequest {
 /**
  * @public
  */
-export enum DomainStatus {
-  Delete_Failed = "Delete_Failed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Update_Failed = "Update_Failed",
-  Updating = "Updating",
-}
+export const DomainStatus = {
+  Delete_Failed: "Delete_Failed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Update_Failed: "Update_Failed",
+  Updating: "Updating",
+};
 
 /**
  * @public
@@ -1577,7 +1577,7 @@ export interface DescribeDomainResponse {
   /**
    * <p>The status.</p>
    */
-  Status?: DomainStatus | string;
+  Status?: keyof typeof DomainStatus | string;
 
   /**
    * <p>The creation time.</p>
@@ -1597,7 +1597,7 @@ export interface DescribeDomainResponse {
   /**
    * <p>The domain's authentication mode.</p>
    */
-  AuthMode?: AuthMode | string;
+  AuthMode?: keyof typeof AuthMode | string;
 
   /**
    * <p>Settings which are applied to UserProfiles in this domain if settings are not explicitly specified
@@ -1621,7 +1621,7 @@ export interface DescribeDomainResponse {
    *             </li>
    *          </ul>
    */
-  AppNetworkAccessType?: AppNetworkAccessType | string;
+  AppNetworkAccessType?: keyof typeof AppNetworkAccessType | string;
 
   /**
    * @deprecated
@@ -1663,7 +1663,7 @@ export interface DescribeDomainResponse {
    *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
    *             provided.</p>
    */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
+  AppSecurityGroupManagement?: keyof typeof AppSecurityGroupManagement | string;
 
   /**
    * <p>The ID of the security group that authorizes traffic between the
@@ -1770,22 +1770,22 @@ export interface DescribeEdgePackagingJobRequest {
 /**
  * @public
  */
-export enum EdgePackagingJobStatus {
-  Completed = "COMPLETED",
-  Failed = "FAILED",
-  InProgress = "INPROGRESS",
-  Starting = "STARTING",
-  Stopped = "STOPPED",
-  Stopping = "STOPPING",
-}
+export const EdgePackagingJobStatus = {
+  Completed: "COMPLETED",
+  Failed: "FAILED",
+  InProgress: "INPROGRESS",
+  Starting: "STARTING",
+  Stopped: "STOPPED",
+  Stopping: "STOPPING",
+};
 
 /**
  * @public
  */
-export enum EdgePresetDeploymentStatus {
-  Completed = "COMPLETED",
-  Failed = "FAILED",
-}
+export const EdgePresetDeploymentStatus = {
+  Completed: "COMPLETED",
+  Failed: "FAILED",
+};
 
 /**
  * @public
@@ -1796,7 +1796,7 @@ export interface EdgePresetDeploymentOutput {
    * <p>The deployment type created by SageMaker Edge Manager. Currently only
    *      supports Amazon Web Services IoT Greengrass Version 2 components.</p>
    */
-  Type: EdgePresetDeploymentType | string | undefined;
+  Type: keyof typeof EdgePresetDeploymentType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the generated deployable resource.</p>
@@ -1806,7 +1806,7 @@ export interface EdgePresetDeploymentOutput {
   /**
    * <p>The status of the deployable resource.</p>
    */
-  Status?: EdgePresetDeploymentStatus | string;
+  Status?: keyof typeof EdgePresetDeploymentStatus | string;
 
   /**
    * <p>Returns a message describing the status of the deployed resource.</p>
@@ -1861,7 +1861,7 @@ export interface DescribeEdgePackagingJobResponse {
   /**
    * <p>The current status of the packaging job.</p>
    */
-  EdgePackagingJobStatus: EdgePackagingJobStatus | string | undefined;
+  EdgePackagingJobStatus: keyof typeof EdgePackagingJobStatus | string | undefined;
 
   /**
    * <p>Returns a message describing the job status and error messages.</p>
@@ -1907,27 +1907,27 @@ export interface DescribeEndpointInput {
 /**
  * @public
  */
-export enum EndpointStatus {
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_SERVICE = "InService",
-  OUT_OF_SERVICE = "OutOfService",
-  ROLLING_BACK = "RollingBack",
-  SYSTEM_UPDATING = "SystemUpdating",
-  UPDATING = "Updating",
-}
+export const EndpointStatus = {
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_SERVICE: "InService",
+  OUT_OF_SERVICE: "OutOfService",
+  ROLLING_BACK: "RollingBack",
+  SYSTEM_UPDATING: "SystemUpdating",
+  UPDATING: "Updating",
+};
 
 /**
  * @public
  */
-export enum VariantStatus {
-  ACTIVATING_TRAFFIC = "ActivatingTraffic",
-  BAKING = "Baking",
-  CREATING = "Creating",
-  DELETING = "Deleting",
-  UPDATING = "Updating",
-}
+export const VariantStatus = {
+  ACTIVATING_TRAFFIC: "ActivatingTraffic",
+  BAKING: "Baking",
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  UPDATING: "Updating",
+};
 
 /**
  * @public
@@ -1964,7 +1964,7 @@ export interface ProductionVariantStatus {
    *             </li>
    *          </ul>
    */
-  Status: VariantStatus | string | undefined;
+  Status: keyof typeof VariantStatus | string | undefined;
 
   /**
    * <p>A message that describes the status of the production variant.</p>
@@ -2030,7 +2030,7 @@ export interface PendingProductionVariantSummary {
   /**
    * <p>The type of instances associated with the variant.</p>
    */
-  InstanceType?: ProductionVariantInstanceType | string;
+  InstanceType?: keyof typeof ProductionVariantInstanceType | string;
 
   /**
    * <p>The size of the Elastic Inference (EI) instance to use for the production variant. EI
@@ -2038,7 +2038,7 @@ export interface PendingProductionVariantSummary {
    *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic
    *                 Inference in Amazon SageMaker</a>.</p>
    */
-  AcceleratorType?: ProductionVariantAcceleratorType | string;
+  AcceleratorType?: keyof typeof ProductionVariantAcceleratorType | string;
 
   /**
    * <p>The endpoint variant status which describes the current deployment stage status or
@@ -2227,7 +2227,7 @@ export interface DescribeEndpointOutput {
    *             </li>
    *          </ul>
    */
-  EndpointStatus: EndpointStatus | string | undefined;
+  EndpointStatus: keyof typeof EndpointStatus | string | undefined;
 
   /**
    * <p>If the status of the endpoint is <code>Failed</code>, the reason why it failed.
@@ -2439,22 +2439,22 @@ export interface DescribeFeatureGroupRequest {
 /**
  * @public
  */
-export enum FeatureGroupStatus {
-  CREATED = "Created",
-  CREATE_FAILED = "CreateFailed",
-  CREATING = "Creating",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-}
+export const FeatureGroupStatus = {
+  CREATED: "Created",
+  CREATE_FAILED: "CreateFailed",
+  CREATING: "Creating",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+};
 
 /**
  * @public
  */
-export enum LastUpdateStatusValue {
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  SUCCESSFUL = "Successful",
-}
+export const LastUpdateStatusValue = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  SUCCESSFUL: "Successful",
+};
 
 /**
  * @public
@@ -2464,7 +2464,7 @@ export interface LastUpdateStatus {
   /**
    * <p>A value that indicates whether the update was made successful.</p>
    */
-  Status: LastUpdateStatusValue | string | undefined;
+  Status: keyof typeof LastUpdateStatusValue | string | undefined;
 
   /**
    * <p>If the update wasn't successful, indicates the reason why it failed.</p>
@@ -2475,11 +2475,11 @@ export interface LastUpdateStatus {
 /**
  * @public
  */
-export enum OfflineStoreStatusValue {
-  ACTIVE = "Active",
-  BLOCKED = "Blocked",
-  DISABLED = "Disabled",
-}
+export const OfflineStoreStatusValue = {
+  ACTIVE: "Active",
+  BLOCKED: "Blocked",
+  DISABLED: "Disabled",
+};
 
 /**
  * @public
@@ -2489,7 +2489,7 @@ export interface OfflineStoreStatus {
   /**
    * <p>An <code>OfflineStore</code> status.</p>
    */
-  Status: OfflineStoreStatusValue | string | undefined;
+  Status: keyof typeof OfflineStoreStatusValue | string | undefined;
 
   /**
    * <p>The justification for why the OfflineStoreStatus is Blocked (if applicable).</p>
@@ -2578,7 +2578,7 @@ export interface DescribeFeatureGroupResponse {
   /**
    * <p>The status of the feature group.</p>
    */
-  FeatureGroupStatus?: FeatureGroupStatus | string;
+  FeatureGroupStatus?: keyof typeof FeatureGroupStatus | string;
 
   /**
    * <p>The status of the <code>OfflineStore</code>. Notifies you if replicating data into the
@@ -2679,7 +2679,7 @@ export interface DescribeFeatureMetadataResponse {
   /**
    * <p>The data type of the feature.</p>
    */
-  FeatureType: FeatureType | string | undefined;
+  FeatureType: keyof typeof FeatureType | string | undefined;
 
   /**
    * <p>A timestamp indicating when the feature was created.</p>
@@ -2715,12 +2715,12 @@ export interface DescribeFlowDefinitionRequest {
 /**
  * @public
  */
-export enum FlowDefinitionStatus {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-}
+export const FlowDefinitionStatus = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  INITIALIZING: "Initializing",
+};
 
 /**
  * @public
@@ -2739,7 +2739,7 @@ export interface DescribeFlowDefinitionResponse {
   /**
    * <p>The status of the flow definition. Valid values are listed below.</p>
    */
-  FlowDefinitionStatus: FlowDefinitionStatus | string | undefined;
+  FlowDefinitionStatus: keyof typeof FlowDefinitionStatus | string | undefined;
 
   /**
    * <p>The timestamp when the flow definition was created.</p>
@@ -2791,15 +2791,15 @@ export interface DescribeHubRequest {
 /**
  * @public
  */
-export enum HubStatus {
-  CREATE_FAILED = "CreateFailed",
-  CREATING = "Creating",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-  IN_SERVICE = "InService",
-  UPDATE_FAILED = "UpdateFailed",
-  UPDATING = "Updating",
-}
+export const HubStatus = {
+  CREATE_FAILED: "CreateFailed",
+  CREATING: "Creating",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  IN_SERVICE: "InService",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATING: "Updating",
+};
 
 /**
  * @public
@@ -2838,7 +2838,7 @@ export interface DescribeHubResponse {
   /**
    * <p>The status of the hub.</p>
    */
-  HubStatus: HubStatus | string | undefined;
+  HubStatus: keyof typeof HubStatus | string | undefined;
 
   /**
    * <p>The failure reason if importing hub content failed.</p>
@@ -2868,7 +2868,7 @@ export interface DescribeHubContentRequest {
   /**
    * <p>The type of content in the hub.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: keyof typeof HubContentType | string | undefined;
 
   /**
    * <p>The name of the content to describe.</p>
@@ -2900,13 +2900,13 @@ export interface HubContentDependency {
 /**
  * @public
  */
-export enum HubContentStatus {
-  AVAILABLE = "Available",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-  IMPORTING = "Importing",
-  IMPORT_FAILED = "ImportFailed",
-}
+export const HubContentStatus = {
+  AVAILABLE: "Available",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  IMPORTING: "Importing",
+  IMPORT_FAILED: "ImportFailed",
+};
 
 /**
  * @public
@@ -2930,7 +2930,7 @@ export interface DescribeHubContentResponse {
   /**
    * <p>The type of hub content.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: keyof typeof HubContentType | string | undefined;
 
   /**
    * <p>The document schema version for the hub content.</p>
@@ -2980,7 +2980,7 @@ export interface DescribeHubContentResponse {
   /**
    * <p>The status of the hub content.</p>
    */
-  HubContentStatus: HubContentStatus | string | undefined;
+  HubContentStatus: keyof typeof HubContentStatus | string | undefined;
 
   /**
    * <p>The failure reason if importing hub content failed.</p>
@@ -3007,10 +3007,10 @@ export interface DescribeHumanTaskUiRequest {
 /**
  * @public
  */
-export enum HumanTaskUiStatus {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-}
+export const HumanTaskUiStatus = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+};
 
 /**
  * @public
@@ -3045,7 +3045,7 @@ export interface DescribeHumanTaskUiResponse {
   /**
    * <p>The status of the human task user interface (worker task template). Valid values are listed below.</p>
    */
-  HumanTaskUiStatus?: HumanTaskUiStatus | string;
+  HumanTaskUiStatus?: keyof typeof HumanTaskUiStatus | string;
 
   /**
    * <p>The timestamp when the human task user interface was created.</p>
@@ -3079,7 +3079,7 @@ export interface FinalHyperParameterTuningJobObjectiveMetric {
    * <p>Select if you want to minimize or maximize the objective metric during hyperparameter
    *             tuning. </p>
    */
-  Type?: HyperParameterTuningJobObjectiveType | string;
+  Type?: keyof typeof HyperParameterTuningJobObjectiveType | string;
 
   /**
    * <p>The name of the objective metric. For SageMaker built-in algorithms, metrics are defined
@@ -3098,13 +3098,13 @@ export interface FinalHyperParameterTuningJobObjectiveMetric {
 /**
  * @public
  */
-export enum TrainingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const TrainingJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+};
 
 /**
  * @public
@@ -3154,7 +3154,7 @@ export interface HyperParameterTrainingJobSummary {
    *             status
    *             of the training job.</p>
    */
-  TrainingJobStatus: TrainingJobStatus | string | undefined;
+  TrainingJobStatus: keyof typeof TrainingJobStatus | string | undefined;
 
   /**
    * <p>A
@@ -3208,7 +3208,7 @@ export interface HyperParameterTrainingJobSummary {
    *             </li>
    *          </ul>
    */
-  ObjectiveStatus?: ObjectiveStatus | string;
+  ObjectiveStatus?: keyof typeof ObjectiveStatus | string;
 }
 
 /**
@@ -3225,13 +3225,13 @@ export interface HyperParameterTuningJobConsumedResources {
 /**
  * @public
  */
-export enum HyperParameterTuningJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const HyperParameterTuningJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+};
 
 /**
  * @public
@@ -3357,7 +3357,7 @@ export interface DescribeHyperParameterTuningJobResponse {
    * <p>The status of the tuning job: InProgress, Completed, Failed, Stopping, or
    *             Stopped.</p>
    */
-  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | string | undefined;
+  HyperParameterTuningJobStatus: keyof typeof HyperParameterTuningJobStatus | string | undefined;
 
   /**
    * <p>The date and time that the tuning job started.</p>
@@ -3442,15 +3442,15 @@ export interface DescribeImageRequest {
 /**
  * @public
  */
-export enum ImageStatus {
-  CREATED = "CREATED",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const ImageStatus = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -3489,7 +3489,7 @@ export interface DescribeImageResponse {
   /**
    * <p>The status of the image.</p>
    */
-  ImageStatus?: ImageStatus | string;
+  ImageStatus?: keyof typeof ImageStatus | string;
 
   /**
    * <p>When the image was last modified.</p>
@@ -3525,13 +3525,13 @@ export interface DescribeImageVersionRequest {
 /**
  * @public
  */
-export enum ImageVersionStatus {
-  CREATED = "CREATED",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+export const ImageVersionStatus = {
+  CREATED: "CREATED",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -3570,7 +3570,7 @@ export interface DescribeImageVersionResponse {
   /**
    * <p>The status of the version.</p>
    */
-  ImageVersionStatus?: ImageVersionStatus | string;
+  ImageVersionStatus?: keyof typeof ImageVersionStatus | string;
 
   /**
    * <p>When the version was last modified.</p>
@@ -3603,7 +3603,7 @@ export interface DescribeImageVersionResponse {
    *             </li>
    *          </ul>
    */
-  VendorGuidance?: VendorGuidance | string;
+  VendorGuidance?: keyof typeof VendorGuidance | string;
 
   /**
    * <p>Indicates SageMaker job type compatibility.</p>
@@ -3622,7 +3622,7 @@ export interface DescribeImageVersionResponse {
    *             </li>
    *          </ul>
    */
-  JobType?: JobType | string;
+  JobType?: keyof typeof JobType | string;
 
   /**
    * <p>The machine learning framework vended in the image version.</p>
@@ -3647,7 +3647,7 @@ export interface DescribeImageVersionResponse {
    *             </li>
    *          </ul>
    */
-  Processor?: Processor | string;
+  Processor?: keyof typeof Processor | string;
 
   /**
    * <p>Indicates Horovod compatibility.</p>
@@ -3690,7 +3690,7 @@ export interface EndpointMetadata {
    *            The status of the endpoint. For possible values of the status of an endpoint, see <a>EndpointSummary$EndpointStatus</a>.
    *        </p>
    */
-  EndpointStatus?: EndpointStatus | string;
+  EndpointStatus?: keyof typeof EndpointStatus | string;
 
   /**
    * <p>
@@ -3704,13 +3704,13 @@ export interface EndpointMetadata {
 /**
  * @public
  */
-export enum ModelVariantStatus {
-  CREATING = "Creating",
-  DELETED = "Deleted",
-  DELETING = "Deleting",
-  IN_SERVICE = "InService",
-  UPDATING = "Updating",
-}
+export const ModelVariantStatus = {
+  CREATING: "Creating",
+  DELETED: "Deleted",
+  DELETING: "Deleting",
+  IN_SERVICE: "InService",
+  UPDATING: "Updating",
+};
 
 /**
  * @public
@@ -3763,22 +3763,22 @@ export interface ModelVariantConfigSummary {
    *             </li>
    *          </ul>
    */
-  Status: ModelVariantStatus | string | undefined;
+  Status: keyof typeof ModelVariantStatus | string | undefined;
 }
 
 /**
  * @public
  */
-export enum InferenceExperimentStatus {
-  CANCELLED = "Cancelled",
-  COMPLETED = "Completed",
-  CREATED = "Created",
-  CREATING = "Creating",
-  RUNNING = "Running",
-  STARTING = "Starting",
-  STOPPING = "Stopping",
-  UPDATING = "Updating",
-}
+export const InferenceExperimentStatus = {
+  CANCELLED: "Cancelled",
+  COMPLETED: "Completed",
+  CREATED: "Created",
+  CREATING: "Creating",
+  RUNNING: "Running",
+  STARTING: "Starting",
+  STOPPING: "Stopping",
+  UPDATING: "Updating",
+};
 
 /**
  * @public
@@ -3797,7 +3797,7 @@ export interface DescribeInferenceExperimentResponse {
   /**
    * <p>The type of the inference experiment.</p>
    */
-  Type: InferenceExperimentType | string | undefined;
+  Type: keyof typeof InferenceExperimentType | string | undefined;
 
   /**
    * <p>The duration for which the inference experiment ran or will run.</p>
@@ -3854,7 +3854,7 @@ export interface DescribeInferenceExperimentResponse {
    *             </li>
    *          </ul>
    */
-  Status: InferenceExperimentStatus | string | undefined;
+  Status: keyof typeof InferenceExperimentStatus | string | undefined;
 
   /**
    * <p>
@@ -3993,7 +3993,7 @@ export interface EndpointOutputConfiguration {
   /**
    * <p>The instance type recommended by Amazon SageMaker Inference Recommender.</p>
    */
-  InstanceType: ProductionVariantInstanceType | string | undefined;
+  InstanceType: keyof typeof ProductionVariantInstanceType | string | undefined;
 
   /**
    * <p>The number of instances recommended to launch initially.</p>
@@ -4112,14 +4112,14 @@ export interface InferenceRecommendation {
 /**
  * @public
  */
-export enum RecommendationJobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const RecommendationJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
@@ -4139,7 +4139,7 @@ export interface DescribeInferenceRecommendationsJobResponse {
   /**
    * <p>The job type that you provided when you initiated the job.</p>
    */
-  JobType: RecommendationJobType | string | undefined;
+  JobType: keyof typeof RecommendationJobType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the job.</p>
@@ -4155,7 +4155,7 @@ export interface DescribeInferenceRecommendationsJobResponse {
   /**
    * <p>The status of the job.</p>
    */
-  Status: RecommendationJobStatus | string | undefined;
+  Status: keyof typeof RecommendationJobStatus | string | undefined;
 
   /**
    * <p>A timestamp that shows when the job was created.</p>
@@ -4260,14 +4260,14 @@ export interface LabelingJobOutput {
 /**
  * @public
  */
-export enum LabelingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const LabelingJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  INITIALIZING: "Initializing",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+};
 
 /**
  * @public
@@ -4276,7 +4276,7 @@ export interface DescribeLabelingJobResponse {
   /**
    * <p>The processing status of the labeling job. </p>
    */
-  LabelingJobStatus: LabelingJobStatus | string | undefined;
+  LabelingJobStatus: keyof typeof LabelingJobStatus | string | undefined;
 
   /**
    * <p>Provides a breakdown of the number of data objects labeled by humans, the number of
@@ -4645,14 +4645,14 @@ export interface DescribeModelCardRequest {
 /**
  * @public
  */
-export enum ModelCardProcessingStatus {
-  CONTENT_DELETED = "ContentDeleted",
-  DELETE_COMPLETED = "DeleteCompleted",
-  DELETE_FAILED = "DeleteFailed",
-  DELETE_INPROGRESS = "DeleteInProgress",
-  DELETE_PENDING = "DeletePending",
-  EXPORTJOBS_DELETED = "ExportJobsDeleted",
-}
+export const ModelCardProcessingStatus = {
+  CONTENT_DELETED: "ContentDeleted",
+  DELETE_COMPLETED: "DeleteCompleted",
+  DELETE_FAILED: "DeleteFailed",
+  DELETE_INPROGRESS: "DeleteInProgress",
+  DELETE_PENDING: "DeletePending",
+  EXPORTJOBS_DELETED: "ExportJobsDeleted",
+};
 
 /**
  * @public
@@ -4700,7 +4700,7 @@ export interface DescribeModelCardResponse {
    *             </li>
    *          </ul>
    */
-  ModelCardStatus: ModelCardStatus | string | undefined;
+  ModelCardStatus: keyof typeof ModelCardStatus | string | undefined;
 
   /**
    * <p>The security configuration used to protect model card content.</p>
@@ -4758,7 +4758,7 @@ export interface DescribeModelCardResponse {
    *             </li>
    *          </ul>
    */
-  ModelCardProcessingStatus?: ModelCardProcessingStatus | string;
+  ModelCardProcessingStatus?: keyof typeof ModelCardProcessingStatus | string;
 }
 
 /**
@@ -4785,11 +4785,11 @@ export interface ModelCardExportArtifacts {
 /**
  * @public
  */
-export enum ModelCardExportJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-}
+export const ModelCardExportJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+};
 
 /**
  * @public
@@ -4824,7 +4824,7 @@ export interface DescribeModelCardExportJobResponse {
    *             </li>
    *          </ul>
    */
-  Status: ModelCardExportJobStatus | string | undefined;
+  Status: keyof typeof ModelCardExportJobStatus | string | undefined;
 
   /**
    * <p>The name of the model card that the model export job exports.</p>
@@ -4952,12 +4952,12 @@ export interface DescribeModelPackageInput {
 /**
  * @public
  */
-export enum DetailedModelPackageStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  NOT_STARTED = "NotStarted",
-}
+export const DetailedModelPackageStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  NOT_STARTED: "NotStarted",
+};
 
 /**
  * @public
@@ -4972,7 +4972,7 @@ export interface ModelPackageStatusItem {
   /**
    * <p>The current status.</p>
    */
-  Status: DetailedModelPackageStatus | string | undefined;
+  Status: keyof typeof DetailedModelPackageStatus | string | undefined;
 
   /**
    * <p>if the overall status is <code>Failed</code>, the reason for the failure.</p>
@@ -5051,7 +5051,7 @@ export interface DescribeModelPackageOutput {
   /**
    * <p>The current status of the model package.</p>
    */
-  ModelPackageStatus: ModelPackageStatus | string | undefined;
+  ModelPackageStatus: keyof typeof ModelPackageStatus | string | undefined;
 
   /**
    * <p>Details about the current status of the model package.</p>
@@ -5066,7 +5066,7 @@ export interface DescribeModelPackageOutput {
   /**
    * <p>The approval status of the model package.</p>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: keyof typeof ModelApprovalStatus | string;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
@@ -5151,14 +5151,14 @@ export interface DescribeModelPackageGroupInput {
 /**
  * @public
  */
-export enum ModelPackageGroupStatus {
-  COMPLETED = "Completed",
-  DELETE_FAILED = "DeleteFailed",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-}
+export const ModelPackageGroupStatus = {
+  COMPLETED: "Completed",
+  DELETE_FAILED: "DeleteFailed",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+};
 
 /**
  * @public
@@ -5193,7 +5193,7 @@ export interface DescribeModelPackageGroupOutput {
   /**
    * <p>The status of the model group.</p>
    */
-  ModelPackageGroupStatus: ModelPackageGroupStatus | string | undefined;
+  ModelPackageGroupStatus: keyof typeof ModelPackageGroupStatus | string | undefined;
 }
 
 /**
@@ -5282,15 +5282,15 @@ export interface DescribeMonitoringScheduleRequest {
 /**
  * @public
  */
-export enum ExecutionStatus {
-  COMPLETED = "Completed",
-  COMPLETED_WITH_VIOLATIONS = "CompletedWithViolations",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const ExecutionStatus = {
+  COMPLETED: "Completed",
+  COMPLETED_WITH_VIOLATIONS: "CompletedWithViolations",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+};
 
 /**
  * @public
@@ -5320,7 +5320,7 @@ export interface MonitoringExecutionSummary {
   /**
    * <p>The status of the monitoring job.</p>
    */
-  MonitoringExecutionStatus: ExecutionStatus | string | undefined;
+  MonitoringExecutionStatus: keyof typeof ExecutionStatus | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the monitoring job.</p>
@@ -5345,18 +5345,18 @@ export interface MonitoringExecutionSummary {
   /**
    * <p>The type of the monitoring job.</p>
    */
-  MonitoringType?: MonitoringType | string;
+  MonitoringType?: keyof typeof MonitoringType | string;
 }
 
 /**
  * @public
  */
-export enum ScheduleStatus {
-  FAILED = "Failed",
-  PENDING = "Pending",
-  SCHEDULED = "Scheduled",
-  STOPPED = "Stopped",
-}
+export const ScheduleStatus = {
+  FAILED: "Failed",
+  PENDING: "Pending",
+  SCHEDULED: "Scheduled",
+  STOPPED: "Stopped",
+};
 
 /**
  * @public
@@ -5375,7 +5375,7 @@ export interface DescribeMonitoringScheduleResponse {
   /**
    * <p>The status of an monitoring job.</p>
    */
-  MonitoringScheduleStatus: ScheduleStatus | string | undefined;
+  MonitoringScheduleStatus: keyof typeof ScheduleStatus | string | undefined;
 
   /**
    * <p>The type of the monitoring job that this schedule runs. This is one of the following
@@ -5402,7 +5402,7 @@ export interface DescribeMonitoringScheduleResponse {
    *             </li>
    *          </ul>
    */
-  MonitoringType?: MonitoringType | string;
+  MonitoringType?: keyof typeof MonitoringType | string;
 
   /**
    * <p>A string, up to one KB in size, that contains the reason a monitoring job failed, if it
@@ -5450,15 +5450,15 @@ export interface DescribeNotebookInstanceInput {
 /**
  * @public
  */
-export enum NotebookInstanceStatus {
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Stopped = "Stopped",
-  Stopping = "Stopping",
-  Updating = "Updating",
-}
+export const NotebookInstanceStatus = {
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+  Updating: "Updating",
+};
 
 /**
  * @public
@@ -5477,7 +5477,7 @@ export interface DescribeNotebookInstanceOutput {
   /**
    * <p>The status of the notebook instance.</p>
    */
-  NotebookInstanceStatus?: NotebookInstanceStatus | string;
+  NotebookInstanceStatus?: keyof typeof NotebookInstanceStatus | string;
 
   /**
    * <p>If status is <code>Failed</code>, the reason it failed.</p>
@@ -5493,7 +5493,7 @@ export interface DescribeNotebookInstanceOutput {
   /**
    * <p>The type of ML compute instance running on the notebook instance.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The ID of the VPC subnet.</p>
@@ -5549,7 +5549,7 @@ export interface DescribeNotebookInstanceOutput {
    *             internet access, and cannot connect to SageMaker training and endpoint services.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>.</p>
    */
-  DirectInternetAccess?: DirectInternetAccess | string;
+  DirectInternetAccess?: keyof typeof DirectInternetAccess | string;
 
   /**
    * <p>The size, in GB, of the ML storage volume attached to the notebook instance.</p>
@@ -5562,7 +5562,7 @@ export interface DescribeNotebookInstanceOutput {
    *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
    *                 SageMaker</a>.</p>
    */
-  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
+  AcceleratorTypes?: (keyof typeof NotebookInstanceAcceleratorType | string)[];
 
   /**
    * <p>The Git repository associated with the notebook instance as its default code
@@ -5593,7 +5593,7 @@ export interface DescribeNotebookInstanceOutput {
    *                 users.</p>
    *          </note>
    */
-  RootAccess?: RootAccess | string;
+  RootAccess?: keyof typeof RootAccess | string;
 
   /**
    * <p>The platform identifier of the notebook instance runtime environment.</p>
@@ -5665,9 +5665,9 @@ export interface DescribePipelineRequest {
 /**
  * @public
  */
-export enum PipelineStatus {
-  ACTIVE = "Active",
-}
+export const PipelineStatus = {
+  ACTIVE: "Active",
+};
 
 /**
  * @public
@@ -5706,7 +5706,7 @@ export interface DescribePipelineResponse {
   /**
    * <p>The status of the pipeline execution.</p>
    */
-  PipelineStatus?: PipelineStatus | string;
+  PipelineStatus?: keyof typeof PipelineStatus | string;
 
   /**
    * <p>The time when the pipeline was created.</p>
@@ -5779,13 +5779,13 @@ export interface DescribePipelineExecutionRequest {
 /**
  * @public
  */
-export enum PipelineExecutionStatus {
-  EXECUTING = "Executing",
-  FAILED = "Failed",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  SUCCEEDED = "Succeeded",
-}
+export const PipelineExecutionStatus = {
+  EXECUTING: "Executing",
+  FAILED: "Failed",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  SUCCEEDED: "Succeeded",
+};
 
 /**
  * @public
@@ -5825,7 +5825,7 @@ export interface DescribePipelineExecutionResponse {
   /**
    * <p>The status of the pipeline execution.</p>
    */
-  PipelineExecutionStatus?: PipelineExecutionStatus | string;
+  PipelineExecutionStatus?: keyof typeof PipelineExecutionStatus | string;
 
   /**
    * <p>The description of the pipeline execution.</p>
@@ -5884,13 +5884,13 @@ export interface DescribeProcessingJobRequest {
 /**
  * @public
  */
-export enum ProcessingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const ProcessingJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+};
 
 /**
  * @public
@@ -5957,7 +5957,7 @@ export interface DescribeProcessingJobResponse {
   /**
    * <p>Provides the status of a processing job.</p>
    */
-  ProcessingJobStatus: ProcessingJobStatus | string | undefined;
+  ProcessingJobStatus: keyof typeof ProcessingJobStatus | string | undefined;
 
   /**
    * <p>An optional string, up to one KB in size, that contains metadata from the processing
@@ -6021,18 +6021,18 @@ export interface DescribeProjectInput {
 /**
  * @public
  */
-export enum ProjectStatus {
-  CREATE_COMPLETED = "CreateCompleted",
-  CREATE_FAILED = "CreateFailed",
-  CREATE_IN_PROGRESS = "CreateInProgress",
-  DELETE_COMPLETED = "DeleteCompleted",
-  DELETE_FAILED = "DeleteFailed",
-  DELETE_IN_PROGRESS = "DeleteInProgress",
-  PENDING = "Pending",
-  UPDATE_COMPLETED = "UpdateCompleted",
-  UPDATE_FAILED = "UpdateFailed",
-  UPDATE_IN_PROGRESS = "UpdateInProgress",
-}
+export const ProjectStatus = {
+  CREATE_COMPLETED: "CreateCompleted",
+  CREATE_FAILED: "CreateFailed",
+  CREATE_IN_PROGRESS: "CreateInProgress",
+  DELETE_COMPLETED: "DeleteCompleted",
+  DELETE_FAILED: "DeleteFailed",
+  DELETE_IN_PROGRESS: "DeleteInProgress",
+  PENDING: "Pending",
+  UPDATE_COMPLETED: "UpdateCompleted",
+  UPDATE_FAILED: "UpdateFailed",
+  UPDATE_IN_PROGRESS: "UpdateInProgress",
+};
 
 /**
  * @public
@@ -6112,7 +6112,7 @@ export interface DescribeProjectOutput {
   /**
    * <p>The status of the project.</p>
    */
-  ProjectStatus: ProjectStatus | string | undefined;
+  ProjectStatus: keyof typeof ProjectStatus | string | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
@@ -6155,15 +6155,15 @@ export interface DescribeSpaceRequest {
 /**
  * @public
  */
-export enum SpaceStatus {
-  Delete_Failed = "Delete_Failed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Update_Failed = "Update_Failed",
-  Updating = "Updating",
-}
+export const SpaceStatus = {
+  Delete_Failed: "Delete_Failed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Update_Failed: "Update_Failed",
+  Updating: "Updating",
+};
 
 /**
  * @public
@@ -6192,7 +6192,7 @@ export interface DescribeSpaceResponse {
   /**
    * <p>The status.</p>
    */
-  Status?: SpaceStatus | string;
+  Status?: keyof typeof SpaceStatus | string;
 
   /**
    * <p>The last modified time.</p>
@@ -6257,7 +6257,7 @@ export interface DescribeStudioLifecycleConfigResponse {
   /**
    * <p>The App type that the Lifecycle Configuration is attached to.</p>
    */
-  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | string;
+  StudioLifecycleConfigAppType?: keyof typeof StudioLifecycleConfigAppType | string;
 }
 
 /**
@@ -6360,7 +6360,7 @@ export interface ProfilerRuleEvaluationStatus {
   /**
    * <p>Status of the rule evaluation.</p>
    */
-  RuleEvaluationStatus?: RuleEvaluationStatus | string;
+  RuleEvaluationStatus?: keyof typeof RuleEvaluationStatus | string;
 
   /**
    * <p>Details from the rule evaluation.</p>
@@ -6376,32 +6376,32 @@ export interface ProfilerRuleEvaluationStatus {
 /**
  * @public
  */
-export enum ProfilingStatus {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const ProfilingStatus = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+};
 
 /**
  * @public
  */
-export enum SecondaryStatus {
-  COMPLETED = "Completed",
-  DOWNLOADING = "Downloading",
-  DOWNLOADING_TRAINING_IMAGE = "DownloadingTrainingImage",
-  FAILED = "Failed",
-  INTERRUPTED = "Interrupted",
-  LAUNCHING_ML_INSTANCES = "LaunchingMLInstances",
-  MAX_RUNTIME_EXCEEDED = "MaxRuntimeExceeded",
-  MAX_WAIT_TIME_EXCEEDED = "MaxWaitTimeExceeded",
-  PREPARING_TRAINING_STACK = "PreparingTrainingStack",
-  RESTARTING = "Restarting",
-  STARTING = "Starting",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  TRAINING = "Training",
-  UPDATING = "Updating",
-  UPLOADING = "Uploading",
-}
+export const SecondaryStatus = {
+  COMPLETED: "Completed",
+  DOWNLOADING: "Downloading",
+  DOWNLOADING_TRAINING_IMAGE: "DownloadingTrainingImage",
+  FAILED: "Failed",
+  INTERRUPTED: "Interrupted",
+  LAUNCHING_ML_INSTANCES: "LaunchingMLInstances",
+  MAX_RUNTIME_EXCEEDED: "MaxRuntimeExceeded",
+  MAX_WAIT_TIME_EXCEEDED: "MaxWaitTimeExceeded",
+  PREPARING_TRAINING_STACK: "PreparingTrainingStack",
+  RESTARTING: "Restarting",
+  STARTING: "Starting",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  TRAINING: "Training",
+  UPDATING: "Updating",
+  UPLOADING: "Uploading",
+};
 
 /**
  * @public
@@ -6510,7 +6510,7 @@ export interface SecondaryStatusTransition {
    *             </li>
    *          </ul>
    */
-  Status: SecondaryStatus | string | undefined;
+  Status: keyof typeof SecondaryStatus | string | undefined;
 
   /**
    * <p>A timestamp that shows when the training job transitioned to the current secondary
@@ -6597,12 +6597,12 @@ export interface SecondaryStatusTransition {
 /**
  * @public
  */
-export enum WarmPoolResourceStatus {
-  AVAILABLE = "Available",
-  INUSE = "InUse",
-  REUSED = "Reused",
-  TERMINATED = "Terminated",
-}
+export const WarmPoolResourceStatus = {
+  AVAILABLE: "Available",
+  INUSE: "InUse",
+  REUSED: "Reused",
+  TERMINATED: "Terminated",
+};
 
 /**
  * @public
@@ -6635,7 +6635,7 @@ export interface WarmPoolStatus {
    *             </li>
    *          </ul>
    */
-  Status: WarmPoolResourceStatus | string | undefined;
+  Status: keyof typeof WarmPoolResourceStatus | string | undefined;
 
   /**
    * <p>The billable time in seconds used by the warm pool. Billable time refers to the
@@ -6719,7 +6719,7 @@ export interface DescribeTrainingJobResponse {
    *          </ul>
    *          <p>For more detailed information, see <code>SecondaryStatus</code>. </p>
    */
-  TrainingJobStatus: TrainingJobStatus | string | undefined;
+  TrainingJobStatus: keyof typeof TrainingJobStatus | string | undefined;
 
   /**
    * <p> Provides detailed information about the state of the training job. For detailed
@@ -6829,7 +6829,7 @@ export interface DescribeTrainingJobResponse {
    *             </li>
    *          </ul>
    */
-  SecondaryStatus: SecondaryStatus | string | undefined;
+  SecondaryStatus: keyof typeof SecondaryStatus | string | undefined;
 
   /**
    * <p>If the training job failed, the reason it failed. </p>
@@ -7043,7 +7043,7 @@ export interface DescribeTrainingJobResponse {
   /**
    * <p>Profiling status of a training job.</p>
    */
-  ProfilingStatus?: ProfilingStatus | string;
+  ProfilingStatus?: keyof typeof ProfilingStatus | string;
 
   /**
    * <p>The number of times to retry the job when the job fails due to an
@@ -7075,13 +7075,13 @@ export interface DescribeTransformJobRequest {
 /**
  * @public
  */
-export enum TransformJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const TransformJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+};
 
 /**
  * @public
@@ -7102,7 +7102,7 @@ export interface DescribeTransformJobResponse {
    *             status of the transform job. If the transform job failed, the reason
    *             is returned in the <code>FailureReason</code> field.</p>
    */
-  TransformJobStatus: TransformJobStatus | string | undefined;
+  TransformJobStatus: keyof typeof TransformJobStatus | string | undefined;
 
   /**
    * <p>If the transform job failed, <code>FailureReason</code> describes
@@ -7154,7 +7154,7 @@ export interface DescribeTransformJobResponse {
    *                 <code>Line</code>, <code>RecordIO</code>, or
    *             <code>TFRecord</code>.</p>
    */
-  BatchStrategy?: BatchStrategy | string;
+  BatchStrategy?: keyof typeof BatchStrategy | string;
 
   /**
    * <p>The
@@ -7539,15 +7539,15 @@ export interface DescribeUserProfileRequest {
 /**
  * @public
  */
-export enum UserProfileStatus {
-  Delete_Failed = "Delete_Failed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Update_Failed = "Update_Failed",
-  Updating = "Updating",
-}
+export const UserProfileStatus = {
+  Delete_Failed: "Delete_Failed",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+  Update_Failed: "Update_Failed",
+  Updating: "Updating",
+};
 
 /**
  * @public
@@ -7576,7 +7576,7 @@ export interface DescribeUserProfileResponse {
   /**
    * <p>The status.</p>
    */
-  Status?: UserProfileStatus | string;
+  Status?: keyof typeof UserProfileStatus | string;
 
   /**
    * <p>The last modified time.</p>
@@ -7665,13 +7665,13 @@ export interface OidcConfigForResponse {
 /**
  * @public
  */
-export enum WorkforceStatus {
-  ACTIVE = "Active",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-  UPDATING = "Updating",
-}
+export const WorkforceStatus = {
+  ACTIVE: "Active",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  INITIALIZING: "Initializing",
+  UPDATING: "Updating",
+};
 
 /**
  * @public
@@ -7761,7 +7761,7 @@ export interface Workforce {
   /**
    * <p>The status of your workforce.</p>
    */
-  Status?: WorkforceStatus | string;
+  Status?: keyof typeof WorkforceStatus | string;
 
   /**
    * <p>The reason your workforce failed.</p>
@@ -7911,14 +7911,14 @@ export interface Device {
 /**
  * @public
  */
-export enum DeviceDeploymentStatus {
-  Deployed = "DEPLOYED",
-  Failed = "FAILED",
-  InProgress = "INPROGRESS",
-  ReadyToDeploy = "READYTODEPLOY",
-  Stopped = "STOPPED",
-  Stopping = "STOPPING",
-}
+export const DeviceDeploymentStatus = {
+  Deployed: "DEPLOYED",
+  Failed: "FAILED",
+  InProgress: "INPROGRESS",
+  ReadyToDeploy: "READYTODEPLOY",
+  Stopped: "STOPPED",
+  Stopping: "STOPPING",
+};
 
 /**
  * @public
@@ -7963,7 +7963,7 @@ export interface DeviceDeploymentSummary {
   /**
    * <p>The deployment status of the device.</p>
    */
-  DeviceDeploymentStatus?: DeviceDeploymentStatus | string;
+  DeviceDeploymentStatus?: keyof typeof DeviceDeploymentStatus | string;
 
   /**
    * <p>The detailed error message for the deployoment status result.</p>
@@ -8093,11 +8093,11 @@ export interface DeviceSummary {
 /**
  * @public
  */
-export enum Direction {
-  ASCENDANTS = "Ascendants",
-  BOTH = "Both",
-  DESCENDANTS = "Descendants",
-}
+export const Direction = {
+  ASCENDANTS: "Ascendants",
+  BOTH: "Both",
+  DESCENDANTS: "Descendants",
+};
 
 /**
  * @public
@@ -8162,7 +8162,7 @@ export interface DomainDetails {
   /**
    * <p>The status.</p>
    */
-  Status?: DomainStatus | string;
+  Status?: keyof typeof DomainStatus | string;
 
   /**
    * <p>The creation time.</p>
@@ -8224,7 +8224,7 @@ export interface DomainSettingsForUpdate {
    *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>. This configuration can only be modified if there
    *             are no apps in the <code>InService</code> or <code>Pending</code> state.</p>
    */
-  ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
+  ExecutionRoleIdentityConfig?: keyof typeof ExecutionRoleIdentityConfig | string;
 
   /**
    * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for
@@ -8252,7 +8252,7 @@ export interface Edge {
    * <p>The type of the Association(Edge) between the source and destination. For example <code>ContributedTo</code>,
    *          <code>Produced</code>, or <code>DerivedFrom</code>.</p>
    */
-  AssociationType?: AssociationEdgeType | string;
+  AssociationType?: keyof typeof AssociationEdgeType | string;
 }
 
 /**
@@ -8355,7 +8355,7 @@ export interface EdgePackagingJobSummary {
   /**
    * <p>The status of the edge packaging job.</p>
    */
-  EdgePackagingJobStatus: EdgePackagingJobStatus | string | undefined;
+  EdgePackagingJobStatus: keyof typeof EdgePackagingJobStatus | string | undefined;
 
   /**
    * <p>The name of the SageMaker Neo compilation job.</p>
@@ -8458,12 +8458,12 @@ export interface MonitoringSchedule {
    *             </li>
    *          </ul>
    */
-  MonitoringScheduleStatus?: ScheduleStatus | string;
+  MonitoringScheduleStatus?: keyof typeof ScheduleStatus | string;
 
   /**
    * <p>The type of the monitoring job definition to schedule.</p>
    */
-  MonitoringType?: MonitoringType | string;
+  MonitoringType?: keyof typeof MonitoringType | string;
 
   /**
    * <p>If the monitoring schedule failed, the reason it failed.</p>
@@ -8536,7 +8536,7 @@ export interface Endpoint {
   /**
    * <p>The status of the endpoint.</p>
    */
-  EndpointStatus: EndpointStatus | string | undefined;
+  EndpointStatus: keyof typeof EndpointStatus | string | undefined;
 
   /**
    * <p>If the endpoint failed, the reason it failed.</p>
@@ -8575,10 +8575,10 @@ export interface Endpoint {
 /**
  * @public
  */
-export enum EndpointConfigSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name",
-}
+export const EndpointConfigSortKey = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+};
 
 /**
  * @public
@@ -8604,11 +8604,11 @@ export interface EndpointConfigSummary {
 /**
  * @public
  */
-export enum EndpointSortKey {
-  CreationTime = "CreationTime",
-  Name = "Name",
-  Status = "Status",
-}
+export const EndpointSortKey = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+  Status: "Status",
+};
 
 /**
  * @public
@@ -8687,7 +8687,7 @@ export interface EndpointSummary {
    *          </ul>
    *          <p>To get a list of endpoints with a specified status, use the <a>ListEndpointsInput$StatusEquals</a> filter.</p>
    */
-  EndpointStatus: EndpointStatus | string | undefined;
+  EndpointStatus: keyof typeof EndpointStatus | string | undefined;
 }
 
 /**
@@ -8884,7 +8884,7 @@ export interface FeatureGroup {
   /**
    * <p>A <code>FeatureGroup</code> status.</p>
    */
-  FeatureGroupStatus?: FeatureGroupStatus | string;
+  FeatureGroupStatus?: keyof typeof FeatureGroupStatus | string;
 
   /**
    * <p>The status of <code>OfflineStore</code>.</p>
@@ -8918,20 +8918,20 @@ export interface FeatureGroup {
 /**
  * @public
  */
-export enum FeatureGroupSortBy {
-  CREATION_TIME = "CreationTime",
-  FEATURE_GROUP_STATUS = "FeatureGroupStatus",
-  NAME = "Name",
-  OFFLINE_STORE_STATUS = "OfflineStoreStatus",
-}
+export const FeatureGroupSortBy = {
+  CREATION_TIME: "CreationTime",
+  FEATURE_GROUP_STATUS: "FeatureGroupStatus",
+  NAME: "Name",
+  OFFLINE_STORE_STATUS: "OfflineStoreStatus",
+};
 
 /**
  * @public
  */
-export enum FeatureGroupSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export const FeatureGroupSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+};
 
 /**
  * @public
@@ -8960,7 +8960,7 @@ export interface FeatureGroupSummary {
    *             <code>Creating</code>, <code>Created</code>, <code>CreateFail</code>,
    *             <code>Deleting</code> or <code>DetailFail</code>. </p>
    */
-  FeatureGroupStatus?: FeatureGroupStatus | string;
+  FeatureGroupStatus?: keyof typeof FeatureGroupStatus | string;
 
   /**
    * <p>Notifies you if replicating data into the <code>OfflineStore</code> has failed. Returns
@@ -8992,7 +8992,7 @@ export interface FeatureMetadata {
   /**
    * <p>The data type of the feature.</p>
    */
-  FeatureType?: FeatureType | string;
+  FeatureType?: keyof typeof FeatureType | string;
 
   /**
    * <p>A timestamp indicating when the feature was created.</p>
@@ -9018,18 +9018,18 @@ export interface FeatureMetadata {
 /**
  * @public
  */
-export enum Operator {
-  CONTAINS = "Contains",
-  EQUALS = "Equals",
-  EXISTS = "Exists",
-  GREATER_THAN = "GreaterThan",
-  GREATER_THAN_OR_EQUAL_TO = "GreaterThanOrEqualTo",
-  IN = "In",
-  LESS_THAN = "LessThan",
-  LESS_THAN_OR_EQUAL_TO = "LessThanOrEqualTo",
-  NOT_EQUALS = "NotEquals",
-  NOT_EXISTS = "NotExists",
-}
+export const Operator = {
+  CONTAINS: "Contains",
+  EQUALS: "Equals",
+  EXISTS: "Exists",
+  GREATER_THAN: "GreaterThan",
+  GREATER_THAN_OR_EQUAL_TO: "GreaterThanOrEqualTo",
+  IN: "In",
+  LESS_THAN: "LessThan",
+  LESS_THAN_OR_EQUAL_TO: "LessThanOrEqualTo",
+  NOT_EQUALS: "NotEquals",
+  NOT_EXISTS: "NotExists",
+};
 
 /**
  * @public
@@ -9220,7 +9220,7 @@ export interface Filter {
    *             </dd>
    *          </dl>
    */
-  Operator?: Operator | string;
+  Operator?: keyof typeof Operator | string;
 
   /**
    * <p>A value used with <code>Name</code> and <code>Operator</code> to determine which
@@ -9250,7 +9250,7 @@ export interface FlowDefinitionSummary {
   /**
    * <p>The status of the flow definition. Valid values:</p>
    */
-  FlowDefinitionStatus: FlowDefinitionStatus | string | undefined;
+  FlowDefinitionStatus: keyof typeof FlowDefinitionStatus | string | undefined;
 
   /**
    * <p>The timestamp when SageMaker created the flow definition.</p>
@@ -9371,10 +9371,10 @@ export interface GetSagemakerServicecatalogPortfolioStatusInput {}
 /**
  * @public
  */
-export enum SagemakerServicecatalogStatus {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const SagemakerServicecatalogStatus = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+};
 
 /**
  * @public
@@ -9383,29 +9383,29 @@ export interface GetSagemakerServicecatalogPortfolioStatusOutput {
   /**
    * <p>Whether Service Catalog is enabled or disabled in SageMaker.</p>
    */
-  Status?: SagemakerServicecatalogStatus | string;
+  Status?: keyof typeof SagemakerServicecatalogStatus | string;
 }
 
 /**
  * @public
  */
-export enum ResourceType {
-  ENDPOINT = "Endpoint",
-  EXPERIMENT = "Experiment",
-  EXPERIMENT_TRIAL = "ExperimentTrial",
-  EXPERIMENT_TRIAL_COMPONENT = "ExperimentTrialComponent",
-  FEATURE_GROUP = "FeatureGroup",
-  FEATURE_METADATA = "FeatureMetadata",
-  HYPER_PARAMETER_TUNING_JOB = "HyperParameterTuningJob",
-  MODEL = "Model",
-  MODEL_CARD = "ModelCard",
-  MODEL_PACKAGE = "ModelPackage",
-  MODEL_PACKAGE_GROUP = "ModelPackageGroup",
-  PIPELINE = "Pipeline",
-  PIPELINE_EXECUTION = "PipelineExecution",
-  PROJECT = "Project",
-  TRAINING_JOB = "TrainingJob",
-}
+export const ResourceType = {
+  ENDPOINT: "Endpoint",
+  EXPERIMENT: "Experiment",
+  EXPERIMENT_TRIAL: "ExperimentTrial",
+  EXPERIMENT_TRIAL_COMPONENT: "ExperimentTrialComponent",
+  FEATURE_GROUP: "FeatureGroup",
+  FEATURE_METADATA: "FeatureMetadata",
+  HYPER_PARAMETER_TUNING_JOB: "HyperParameterTuningJob",
+  MODEL: "Model",
+  MODEL_CARD: "ModelCard",
+  MODEL_PACKAGE: "ModelPackage",
+  MODEL_PACKAGE_GROUP: "ModelPackageGroup",
+  PIPELINE: "Pipeline",
+  PIPELINE_EXECUTION: "PipelineExecution",
+  PROJECT: "Project",
+  TRAINING_JOB: "TrainingJob",
+};
 
 /**
  * @public
@@ -9439,7 +9439,7 @@ export interface GetSearchSuggestionsRequest {
   /**
    * <p>The name of the SageMaker resource to search for.</p>
    */
-  Resource: ResourceType | string | undefined;
+  Resource: keyof typeof ResourceType | string | undefined;
 
   /**
    * <p>Limits the property names that are included in the response.</p>
@@ -9512,7 +9512,7 @@ export interface HubContentInfo {
   /**
    * <p>The type of hub content.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: keyof typeof HubContentType | string | undefined;
 
   /**
    * <p>The version of the hub content document schema.</p>
@@ -9537,7 +9537,7 @@ export interface HubContentInfo {
   /**
    * <p>The status of the hub content.</p>
    */
-  HubContentStatus: HubContentStatus | string | undefined;
+  HubContentStatus: keyof typeof HubContentStatus | string | undefined;
 
   /**
    * <p>The date and time that the hub content was created.</p>
@@ -9548,11 +9548,11 @@ export interface HubContentInfo {
 /**
  * @public
  */
-export enum HubContentSortBy {
-  CREATION_TIME = "CreationTime",
-  HUB_CONTENT_NAME = "HubContentName",
-  HUB_CONTENT_STATUS = "HubContentStatus",
-}
+export const HubContentSortBy = {
+  CREATION_TIME: "CreationTime",
+  HUB_CONTENT_NAME: "HubContentName",
+  HUB_CONTENT_STATUS: "HubContentStatus",
+};
 
 /**
  * @public
@@ -9587,7 +9587,7 @@ export interface HubInfo {
   /**
    * <p>The status of the hub.</p>
    */
-  HubStatus: HubStatus | string | undefined;
+  HubStatus: keyof typeof HubStatus | string | undefined;
 
   /**
    * <p>The date and time that the hub was created.</p>
@@ -9603,12 +9603,12 @@ export interface HubInfo {
 /**
  * @public
  */
-export enum HubSortBy {
-  ACCOUNT_ID_OWNER = "AccountIdOwner",
-  CREATION_TIME = "CreationTime",
-  HUB_NAME = "HubName",
-  HUB_STATUS = "HubStatus",
-}
+export const HubSortBy = {
+  ACCOUNT_ID_OWNER: "AccountIdOwner",
+  CREATION_TIME: "CreationTime",
+  HUB_NAME: "HubName",
+  HUB_STATUS: "HubStatus",
+};
 
 /**
  * @public
@@ -9666,7 +9666,7 @@ export interface HyperParameterTuningJobSearchEntity {
   /**
    * <p>The status of a hyperparameter tuning job.</p>
    */
-  HyperParameterTuningJobStatus?: HyperParameterTuningJobStatus | string;
+  HyperParameterTuningJobStatus?: keyof typeof HyperParameterTuningJobStatus | string;
 
   /**
    * <p>The time that a hyperparameter tuning job was created.</p>
@@ -9751,11 +9751,11 @@ export interface HyperParameterTuningJobSearchEntity {
 /**
  * @public
  */
-export enum HyperParameterTuningJobSortByOptions {
-  CreationTime = "CreationTime",
-  Name = "Name",
-  Status = "Status",
-}
+export const HyperParameterTuningJobSortByOptions = {
+  CreationTime: "CreationTime",
+  Name: "Name",
+  Status: "Status",
+};
 
 /**
  * @public
@@ -9779,7 +9779,7 @@ export interface HyperParameterTuningJobSummary {
    *             tuning
    *             job.</p>
    */
-  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | string | undefined;
+  HyperParameterTuningJobStatus: keyof typeof HyperParameterTuningJobStatus | string | undefined;
 
   /**
    * <p>Specifies the search strategy hyperparameter tuning uses to choose which
@@ -9787,7 +9787,7 @@ export interface HyperParameterTuningJobSummary {
    *             evaluate
    *             at each iteration.</p>
    */
-  Strategy: HyperParameterTuningJobStrategyType | string | undefined;
+  Strategy: keyof typeof HyperParameterTuningJobStrategyType | string | undefined;
 
   /**
    * <p>The date and time that the tuning job was created.</p>
@@ -9865,7 +9865,7 @@ export interface Image {
   /**
    * <p>The status of the image.</p>
    */
-  ImageStatus: ImageStatus | string | undefined;
+  ImageStatus: keyof typeof ImageStatus | string | undefined;
 
   /**
    * <p>When the image was last modified.</p>
@@ -9876,19 +9876,19 @@ export interface Image {
 /**
  * @public
  */
-export enum ImageSortBy {
-  CREATION_TIME = "CREATION_TIME",
-  IMAGE_NAME = "IMAGE_NAME",
-  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-}
+export const ImageSortBy = {
+  CREATION_TIME: "CREATION_TIME",
+  IMAGE_NAME: "IMAGE_NAME",
+  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
+};
 
 /**
  * @public
  */
-export enum ImageSortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const ImageSortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -9919,7 +9919,7 @@ export interface ImageVersion {
   /**
    * <p>The status of the version.</p>
    */
-  ImageVersionStatus: ImageVersionStatus | string | undefined;
+  ImageVersionStatus: keyof typeof ImageVersionStatus | string | undefined;
 
   /**
    * <p>When the version was last modified.</p>
@@ -9935,19 +9935,19 @@ export interface ImageVersion {
 /**
  * @public
  */
-export enum ImageVersionSortBy {
-  CREATION_TIME = "CREATION_TIME",
-  LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-  VERSION = "VERSION",
-}
+export const ImageVersionSortBy = {
+  CREATION_TIME: "CREATION_TIME",
+  LAST_MODIFIED_TIME: "LAST_MODIFIED_TIME",
+  VERSION: "VERSION",
+};
 
 /**
  * @public
  */
-export enum ImageVersionSortOrder {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
+export const ImageVersionSortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+};
 
 /**
  * @public
@@ -9966,7 +9966,7 @@ export interface ImportHubContentRequest {
   /**
    * <p>The type of hub content to import.</p>
    */
-  HubContentType: HubContentType | string | undefined;
+  HubContentType: keyof typeof HubContentType | string | undefined;
 
   /**
    * <p>The version of the hub content schema to import.</p>
@@ -10037,7 +10037,7 @@ export interface InferenceExperimentSummary {
   /**
    * <p>The type of the inference experiment.</p>
    */
-  Type: InferenceExperimentType | string | undefined;
+  Type: keyof typeof InferenceExperimentType | string | undefined;
 
   /**
    * <p>The duration for which the inference experiment ran or will run.</p>
@@ -10048,7 +10048,7 @@ export interface InferenceExperimentSummary {
   /**
    * <p>The status of the inference experiment.</p>
    */
-  Status: InferenceExperimentStatus | string | undefined;
+  Status: keyof typeof InferenceExperimentStatus | string | undefined;
 
   /**
    * <p>The error message for the inference experiment status result.</p>
@@ -10087,10 +10087,10 @@ export interface InferenceExperimentSummary {
 /**
  * @public
  */
-export enum InferenceExperimentStopDesiredState {
-  CANCELLED = "Cancelled",
-  COMPLETED = "Completed",
-}
+export const InferenceExperimentStopDesiredState = {
+  CANCELLED: "Cancelled",
+  COMPLETED: "Completed",
+};
 
 /**
  * @public
@@ -10110,7 +10110,7 @@ export interface InferenceRecommendationsJob {
   /**
    * <p>The recommendation job type.</p>
    */
-  JobType: RecommendationJobType | string | undefined;
+  JobType: keyof typeof RecommendationJobType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recommendation job.</p>
@@ -10120,7 +10120,7 @@ export interface InferenceRecommendationsJob {
   /**
    * <p>The status of the job.</p>
    */
-  Status: RecommendationJobStatus | string | undefined;
+  Status: keyof typeof RecommendationJobStatus | string | undefined;
 
   /**
    * <p>A timestamp that shows when the job was created.</p>
@@ -10183,9 +10183,9 @@ export interface RecommendationJobInferenceBenchmark {
 /**
  * @public
  */
-export enum RecommendationStepType {
-  BENCHMARK = "BENCHMARK",
-}
+export const RecommendationStepType = {
+  BENCHMARK: "BENCHMARK",
+};
 
 /**
  * @public
@@ -10198,7 +10198,7 @@ export interface InferenceRecommendationsJobStep {
    *          <p>
    *             <code>BENCHMARK</code>: Evaluate the performance of your model on different instance types.</p>
    */
-  StepType: RecommendationStepType | string | undefined;
+  StepType: keyof typeof RecommendationStepType | string | undefined;
 
   /**
    * <p>The name of the Inference Recommender job.</p>
@@ -10208,7 +10208,7 @@ export interface InferenceRecommendationsJobStep {
   /**
    * <p>The current status of the benchmark.</p>
    */
-  Status: RecommendationJobStatus | string | undefined;
+  Status: keyof typeof RecommendationJobStatus | string | undefined;
 
   /**
    * <p>The details for a specific benchmark.</p>
@@ -10304,7 +10304,7 @@ export interface LabelingJobSummary {
   /**
    * <p>The current status of the labeling job. </p>
    */
-  LabelingJobStatus: LabelingJobStatus | string | undefined;
+  LabelingJobStatus: keyof typeof LabelingJobStatus | string | undefined;
 
   /**
    * <p>Counts showing the progress of the labeling job.</p>

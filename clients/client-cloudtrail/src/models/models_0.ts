@@ -984,14 +984,14 @@ export interface CancelQueryRequest {
 /**
  * @public
  */
-export enum QueryStatus {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  FINISHED = "FINISHED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-  TIMED_OUT = "TIMED_OUT",
-}
+export const QueryStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  FINISHED: "FINISHED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  TIMED_OUT: "TIMED_OUT",
+};
 
 /**
  * @public
@@ -1006,7 +1006,7 @@ export interface CancelQueryResponse {
    * <p>Shows the status of a query after a <code>CancelQuery</code> request. Typically, the
    *          values shown are either <code>RUNNING</code> or <code>CANCELLED</code>.</p>
    */
-  QueryStatus: QueryStatus | string | undefined;
+  QueryStatus: keyof typeof QueryStatus | string | undefined;
 }
 
 /**
@@ -1266,10 +1266,10 @@ export class ChannelMaxLimitExceededException extends __BaseException {
 /**
  * @public
  */
-export enum DestinationType {
-  AWS_SERVICE = "AWS_SERVICE",
-  EVENT_DATA_STORE = "EVENT_DATA_STORE",
-}
+export const DestinationType = {
+  AWS_SERVICE: "AWS_SERVICE",
+  EVENT_DATA_STORE: "EVENT_DATA_STORE",
+};
 
 /**
  * @public
@@ -1280,7 +1280,7 @@ export interface Destination {
    * <p>The type of destination for events arriving from a channel. For channels used for a CloudTrail Lake integration, the value is <code>EventDataStore</code>. For service-linked channels,
    *          the value is <code>AWS_SERVICE</code>. </p>
    */
-  Type: DestinationType | string | undefined;
+  Type: keyof typeof DestinationType | string | undefined;
 
   /**
    * <p> For channels used for a CloudTrail Lake integration, the location is the ARN of an event data store that receives events from a channel.
@@ -1521,11 +1521,11 @@ export interface CreateEventDataStoreRequest {
 /**
  * @public
  */
-export enum EventDataStoreStatus {
-  CREATED = "CREATED",
-  ENABLED = "ENABLED",
-  PENDING_DELETION = "PENDING_DELETION",
-}
+export const EventDataStoreStatus = {
+  CREATED: "CREATED",
+  ENABLED: "ENABLED",
+  PENDING_DELETION: "PENDING_DELETION",
+};
 
 /**
  * @public
@@ -1544,7 +1544,7 @@ export interface CreateEventDataStoreResponse {
   /**
    * <p>The status of event data store creation.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: keyof typeof EventDataStoreStatus | string;
 
   /**
    * <p>The advanced event selectors that were used to select the events for the data
@@ -2792,17 +2792,17 @@ export interface DescribeQueryRequest {
 /**
  * @public
  */
-export enum DeliveryStatus {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  ACCESS_DENIED_SIGNING_FILE = "ACCESS_DENIED_SIGNING_FILE",
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  FAILED_SIGNING_FILE = "FAILED_SIGNING_FILE",
-  PENDING = "PENDING",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
-  SUCCESS = "SUCCESS",
-  UNKNOWN = "UNKNOWN",
-}
+export const DeliveryStatus = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  ACCESS_DENIED_SIGNING_FILE: "ACCESS_DENIED_SIGNING_FILE",
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  FAILED_SIGNING_FILE: "FAILED_SIGNING_FILE",
+  PENDING: "PENDING",
+  RESOURCE_NOT_FOUND: "RESOURCE_NOT_FOUND",
+  SUCCESS: "SUCCESS",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -2859,7 +2859,7 @@ export interface DescribeQueryResponse {
    *          <code>TIMED_OUT</code>, or <code>CANCELLED</code>
    *          </p>
    */
-  QueryStatus?: QueryStatus | string;
+  QueryStatus?: keyof typeof QueryStatus | string;
 
   /**
    * <p>Metadata about a query, including the number of events that were matched, the total
@@ -2882,7 +2882,7 @@ export interface DescribeQueryResponse {
   /**
    * <p>The delivery status.</p>
    */
-  DeliveryStatus?: DeliveryStatus | string;
+  DeliveryStatus?: keyof typeof DeliveryStatus | string;
 }
 
 /**
@@ -3183,7 +3183,7 @@ export interface GetEventDataStoreResponse {
    * <p>The status of an event data store. Values can be <code>ENABLED</code> and
    *             <code>PENDING_DELETION</code>.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: keyof typeof EventDataStoreStatus | string;
 
   /**
    * <p>The advanced event selectors used to select events for the data store.</p>
@@ -3469,11 +3469,11 @@ export interface DataResource {
 /**
  * @public
  */
-export enum ReadWriteType {
-  All = "All",
-  ReadOnly = "ReadOnly",
-  WriteOnly = "WriteOnly",
-}
+export const ReadWriteType = {
+  All: "All",
+  ReadOnly: "ReadOnly",
+  WriteOnly: "WriteOnly",
+};
 
 /**
  * @public
@@ -3493,7 +3493,7 @@ export interface EventSelector {
    *             <code>RunInstances</code> is a write-only API operation.</p>
    *          <p> By default, the value is <code>All</code>.</p>
    */
-  ReadWriteType?: ReadWriteType | string;
+  ReadWriteType?: keyof typeof ReadWriteType | string;
 
   /**
    * <p>Specify if you want your event selector to include management events for your
@@ -3628,13 +3628,13 @@ export interface ImportStatistics {
 /**
  * @public
  */
-export enum ImportStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INITIALIZING = "INITIALIZING",
-  IN_PROGRESS = "IN_PROGRESS",
-  STOPPED = "STOPPED",
-}
+export const ImportStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INITIALIZING: "INITIALIZING",
+  IN_PROGRESS: "IN_PROGRESS",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -3672,7 +3672,7 @@ export interface GetImportResponse {
   /**
    * <p> The status of the import. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: keyof typeof ImportStatus | string;
 
   /**
    * <p> The timestamp of the import's creation. </p>
@@ -3755,10 +3755,10 @@ export interface GetInsightSelectorsRequest {
 /**
  * @public
  */
-export enum InsightType {
-  ApiCallRateInsight = "ApiCallRateInsight",
-  ApiErrorRateInsight = "ApiErrorRateInsight",
-}
+export const InsightType = {
+  ApiCallRateInsight: "ApiCallRateInsight",
+  ApiErrorRateInsight: "ApiErrorRateInsight",
+};
 
 /**
  * @public
@@ -3769,7 +3769,7 @@ export interface InsightSelector {
    * <p>The type of insights to log on a trail. <code>ApiCallRateInsight</code> and
    *             <code>ApiErrorRateInsight</code> are valid insight types.</p>
    */
-  InsightType?: InsightType | string;
+  InsightType?: keyof typeof InsightType | string;
 }
 
 /**
@@ -3877,7 +3877,7 @@ export interface GetQueryResultsResponse {
    *             <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
    *             <code>CANCELLED</code>.</p>
    */
-  QueryStatus?: QueryStatus | string;
+  QueryStatus?: keyof typeof QueryStatus | string;
 
   /**
    * <p>Shows the count of query results.</p>
@@ -4221,7 +4221,7 @@ export interface EventDataStore {
    * <p>The status of an event data store. Values are
    *             <code>ENABLED</code> and <code>PENDING_DELETION</code>.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: keyof typeof EventDataStoreStatus | string;
 
   /**
    * @deprecated
@@ -4310,11 +4310,11 @@ export interface ListImportFailuresRequest {
 /**
  * @public
  */
-export enum ImportFailureStatus {
-  FAILED = "FAILED",
-  RETRY = "RETRY",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const ImportFailureStatus = {
+  FAILED: "FAILED",
+  RETRY: "RETRY",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -4329,7 +4329,7 @@ export interface ImportFailureListItem {
   /**
    * <p> The status of the import. </p>
    */
-  Status?: ImportFailureStatus | string;
+  Status?: keyof typeof ImportFailureStatus | string;
 
   /**
    * <p> The type of import error. </p>
@@ -4379,7 +4379,7 @@ export interface ListImportsRequest {
   /**
    * <p> The status of the import. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: keyof typeof ImportStatus | string;
 
   /**
    * <p> A token you can use to get the next page of import results. </p>
@@ -4400,7 +4400,7 @@ export interface ImportsListItem {
   /**
    * <p> The status of the import. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: keyof typeof ImportStatus | string;
 
   /**
    * <p> The ARN of the destination event data store. </p>
@@ -4644,7 +4644,7 @@ export interface ListQueriesRequest {
    *             <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
    *             <code>CANCELLED</code>.</p>
    */
-  QueryStatus?: QueryStatus | string;
+  QueryStatus?: keyof typeof QueryStatus | string;
 }
 
 /**
@@ -4663,7 +4663,7 @@ export interface Query {
    *             <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
    *             <code>CANCELLED</code>.</p>
    */
-  QueryStatus?: QueryStatus | string;
+  QueryStatus?: keyof typeof QueryStatus | string;
 
   /**
    * <p>The creation time of a query.</p>
@@ -4845,23 +4845,23 @@ export class InvalidLookupAttributesException extends __BaseException {
 /**
  * @public
  */
-export enum EventCategory {
-  Insight = "insight",
-}
+export const EventCategory = {
+  Insight: "insight",
+};
 
 /**
  * @public
  */
-export enum LookupAttributeKey {
-  ACCESS_KEY_ID = "AccessKeyId",
-  EVENT_ID = "EventId",
-  EVENT_NAME = "EventName",
-  EVENT_SOURCE = "EventSource",
-  READ_ONLY = "ReadOnly",
-  RESOURCE_NAME = "ResourceName",
-  RESOURCE_TYPE = "ResourceType",
-  USERNAME = "Username",
-}
+export const LookupAttributeKey = {
+  ACCESS_KEY_ID: "AccessKeyId",
+  EVENT_ID: "EventId",
+  EVENT_NAME: "EventName",
+  EVENT_SOURCE: "EventSource",
+  READ_ONLY: "ReadOnly",
+  RESOURCE_NAME: "ResourceName",
+  RESOURCE_TYPE: "ResourceType",
+  USERNAME: "Username",
+};
 
 /**
  * @public
@@ -4871,7 +4871,7 @@ export interface LookupAttribute {
   /**
    * <p>Specifies an attribute on which to filter the events returned.</p>
    */
-  AttributeKey: LookupAttributeKey | string | undefined;
+  AttributeKey: keyof typeof LookupAttributeKey | string | undefined;
 
   /**
    * <p>Specifies a value for the specified AttributeKey.</p>
@@ -4908,7 +4908,7 @@ export interface LookupEventsRequest {
    *             <code>insight</code> as the value of <code>EventCategory</code>, no Insights events are
    *          returned.</p>
    */
-  EventCategory?: EventCategory | string;
+  EventCategory?: keyof typeof EventCategory | string;
 
   /**
    * <p>The number of events to return. Possible values are 1 through 50. The default is
@@ -5398,7 +5398,7 @@ export interface RestoreEventDataStoreResponse {
   /**
    * <p>The status of the event data store.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: keyof typeof EventDataStoreStatus | string;
 
   /**
    * <p>The advanced event selectors that were used to select events.</p>
@@ -5553,7 +5553,7 @@ export interface StartImportResponse {
    *          finishes with a status of <code>COMPLETED</code> if there were no failures, or
    *             <code>FAILED</code> if there were failures. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: keyof typeof ImportStatus | string;
 
   /**
    * <p> The timestamp for the import's creation. </p>
@@ -5699,7 +5699,7 @@ export interface StopImportResponse {
   /**
    * <p> The status of the import. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: keyof typeof ImportStatus | string;
 
   /**
    * <p> The timestamp of the import's creation. </p>
@@ -5907,7 +5907,7 @@ export interface UpdateEventDataStoreResponse {
    * <p>The status of an event data store. Values can be <code>ENABLED</code> and
    *             <code>PENDING_DELETION</code>.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: keyof typeof EventDataStoreStatus | string;
 
   /**
    * <p>The advanced event selectors that are applied to the event data store.</p>

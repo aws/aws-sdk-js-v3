@@ -27,14 +27,14 @@ export interface ActionSource {
 /**
  * @public
  */
-export enum ActionStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  UNKNOWN = "Unknown",
-}
+export const ActionStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  UNKNOWN: "Unknown",
+};
 
 /**
  * @public
@@ -66,7 +66,7 @@ export interface ActionSummary {
   /**
    * <p>The status of the action.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: keyof typeof ActionStatus | string;
 
   /**
    * <p>When the action was created.</p>
@@ -82,12 +82,12 @@ export interface ActionSummary {
 /**
  * @public
  */
-export enum AssociationEdgeType {
-  ASSOCIATED_WITH = "AssociatedWith",
-  CONTRIBUTED_TO = "ContributedTo",
-  DERIVED_FROM = "DerivedFrom",
-  PRODUCED = "Produced",
-}
+export const AssociationEdgeType = {
+  ASSOCIATED_WITH: "AssociatedWith",
+  CONTRIBUTED_TO: "ContributedTo",
+  DERIVED_FROM: "DerivedFrom",
+  PRODUCED: "Produced",
+};
 
 /**
  * @public
@@ -126,7 +126,7 @@ export interface AddAssociationRequest {
    *             </li>
    *          </ul>
    */
-  AssociationType?: AssociationEdgeType | string;
+  AssociationType?: keyof typeof AssociationEdgeType | string;
 }
 
 /**
@@ -275,187 +275,187 @@ export interface ModelPackageContainerDefinition {
 /**
  * @public
  */
-export enum ProductionVariantInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_LARGE = "ml.c4.large",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5D_18XLARGE = "ml.c5d.18xlarge",
-  ML_C5D_2XLARGE = "ml.c5d.2xlarge",
-  ML_C5D_4XLARGE = "ml.c5d.4xlarge",
-  ML_C5D_9XLARGE = "ml.c5d.9xlarge",
-  ML_C5D_LARGE = "ml.c5d.large",
-  ML_C5D_XLARGE = "ml.c5d.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_LARGE = "ml.c5.large",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_C6GD_12XLARGE = "ml.c6gd.12xlarge",
-  ML_C6GD_16XLARGE = "ml.c6gd.16xlarge",
-  ML_C6GD_2XLARGE = "ml.c6gd.2xlarge",
-  ML_C6GD_4XLARGE = "ml.c6gd.4xlarge",
-  ML_C6GD_8XLARGE = "ml.c6gd.8xlarge",
-  ML_C6GD_LARGE = "ml.c6gd.large",
-  ML_C6GD_XLARGE = "ml.c6gd.xlarge",
-  ML_C6GN_12XLARGE = "ml.c6gn.12xlarge",
-  ML_C6GN_16XLARGE = "ml.c6gn.16xlarge",
-  ML_C6GN_2XLARGE = "ml.c6gn.2xlarge",
-  ML_C6GN_4XLARGE = "ml.c6gn.4xlarge",
-  ML_C6GN_8XLARGE = "ml.c6gn.8xlarge",
-  ML_C6GN_LARGE = "ml.c6gn.large",
-  ML_C6GN_XLARGE = "ml.c6gn.xlarge",
-  ML_C6G_12XLARGE = "ml.c6g.12xlarge",
-  ML_C6G_16XLARGE = "ml.c6g.16xlarge",
-  ML_C6G_2XLARGE = "ml.c6g.2xlarge",
-  ML_C6G_4XLARGE = "ml.c6g.4xlarge",
-  ML_C6G_8XLARGE = "ml.c6g.8xlarge",
-  ML_C6G_LARGE = "ml.c6g.large",
-  ML_C6G_XLARGE = "ml.c6g.xlarge",
-  ML_C6I_12XLARGE = "ml.c6i.12xlarge",
-  ML_C6I_16XLARGE = "ml.c6i.16xlarge",
-  ML_C6I_24XLARGE = "ml.c6i.24xlarge",
-  ML_C6I_2XLARGE = "ml.c6i.2xlarge",
-  ML_C6I_32XLARGE = "ml.c6i.32xlarge",
-  ML_C6I_4XLARGE = "ml.c6i.4xlarge",
-  ML_C6I_8XLARGE = "ml.c6i.8xlarge",
-  ML_C6I_LARGE = "ml.c6i.large",
-  ML_C6I_XLARGE = "ml.c6i.xlarge",
-  ML_C7G_12XLARGE = "ml.c7g.12xlarge",
-  ML_C7G_16XLARGE = "ml.c7g.16xlarge",
-  ML_C7G_2XLARGE = "ml.c7g.2xlarge",
-  ML_C7G_4XLARGE = "ml.c7g.4xlarge",
-  ML_C7G_8XLARGE = "ml.c7g.8xlarge",
-  ML_C7G_LARGE = "ml.c7g.large",
-  ML_C7G_XLARGE = "ml.c7g.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_G5_12XLARGE = "ml.g5.12xlarge",
-  ML_G5_16XLARGE = "ml.g5.16xlarge",
-  ML_G5_24XLARGE = "ml.g5.24xlarge",
-  ML_G5_2XLARGE = "ml.g5.2xlarge",
-  ML_G5_48XLARGE = "ml.g5.48xlarge",
-  ML_G5_4XLARGE = "ml.g5.4xlarge",
-  ML_G5_8XLARGE = "ml.g5.8xlarge",
-  ML_G5_XLARGE = "ml.g5.xlarge",
-  ML_INF1_24XLARGE = "ml.inf1.24xlarge",
-  ML_INF1_2XLARGE = "ml.inf1.2xlarge",
-  ML_INF1_6XLARGE = "ml.inf1.6xlarge",
-  ML_INF1_XLARGE = "ml.inf1.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
-  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
-  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
-  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
-  ML_M5D_LARGE = "ml.m5d.large",
-  ML_M5D_XLARGE = "ml.m5d.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_M6GD_12XLARGE = "ml.m6gd.12xlarge",
-  ML_M6GD_16XLARGE = "ml.m6gd.16xlarge",
-  ML_M6GD_2XLARGE = "ml.m6gd.2xlarge",
-  ML_M6GD_4XLARGE = "ml.m6gd.4xlarge",
-  ML_M6GD_8XLARGE = "ml.m6gd.8xlarge",
-  ML_M6GD_LARGE = "ml.m6gd.large",
-  ML_M6GD_XLARGE = "ml.m6gd.xlarge",
-  ML_M6G_12XLARGE = "ml.m6g.12xlarge",
-  ML_M6G_16XLARGE = "ml.m6g.16xlarge",
-  ML_M6G_2XLARGE = "ml.m6g.2xlarge",
-  ML_M6G_4XLARGE = "ml.m6g.4xlarge",
-  ML_M6G_8XLARGE = "ml.m6g.8xlarge",
-  ML_M6G_LARGE = "ml.m6g.large",
-  ML_M6G_XLARGE = "ml.m6g.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_P4DE_24XLARGE = "ml.p4de.24xlarge",
-  ML_P4D_24XLARGE = "ml.p4d.24xlarge",
-  ML_R5D_12XLARGE = "ml.r5d.12xlarge",
-  ML_R5D_24XLARGE = "ml.r5d.24xlarge",
-  ML_R5D_2XLARGE = "ml.r5d.2xlarge",
-  ML_R5D_4XLARGE = "ml.r5d.4xlarge",
-  ML_R5D_LARGE = "ml.r5d.large",
-  ML_R5D_XLARGE = "ml.r5d.xlarge",
-  ML_R5_12XLARGE = "ml.r5.12xlarge",
-  ML_R5_24XLARGE = "ml.r5.24xlarge",
-  ML_R5_2XLARGE = "ml.r5.2xlarge",
-  ML_R5_4XLARGE = "ml.r5.4xlarge",
-  ML_R5_LARGE = "ml.r5.large",
-  ML_R5_XLARGE = "ml.r5.xlarge",
-  ML_R6GD_12XLARGE = "ml.r6gd.12xlarge",
-  ML_R6GD_16XLARGE = "ml.r6gd.16xlarge",
-  ML_R6GD_2XLARGE = "ml.r6gd.2xlarge",
-  ML_R6GD_4XLARGE = "ml.r6gd.4xlarge",
-  ML_R6GD_8XLARGE = "ml.r6gd.8xlarge",
-  ML_R6GD_LARGE = "ml.r6gd.large",
-  ML_R6GD_XLARGE = "ml.r6gd.xlarge",
-  ML_R6G_12XLARGE = "ml.r6g.12xlarge",
-  ML_R6G_16XLARGE = "ml.r6g.16xlarge",
-  ML_R6G_2XLARGE = "ml.r6g.2xlarge",
-  ML_R6G_4XLARGE = "ml.r6g.4xlarge",
-  ML_R6G_8XLARGE = "ml.r6g.8xlarge",
-  ML_R6G_LARGE = "ml.r6g.large",
-  ML_R6G_XLARGE = "ml.r6g.xlarge",
-  ML_T2_2XLARGE = "ml.t2.2xlarge",
-  ML_T2_LARGE = "ml.t2.large",
-  ML_T2_MEDIUM = "ml.t2.medium",
-  ML_T2_XLARGE = "ml.t2.xlarge",
-}
+export const ProductionVariantInstanceType = {
+  ML_C4_2XLARGE: "ml.c4.2xlarge",
+  ML_C4_4XLARGE: "ml.c4.4xlarge",
+  ML_C4_8XLARGE: "ml.c4.8xlarge",
+  ML_C4_LARGE: "ml.c4.large",
+  ML_C4_XLARGE: "ml.c4.xlarge",
+  ML_C5D_18XLARGE: "ml.c5d.18xlarge",
+  ML_C5D_2XLARGE: "ml.c5d.2xlarge",
+  ML_C5D_4XLARGE: "ml.c5d.4xlarge",
+  ML_C5D_9XLARGE: "ml.c5d.9xlarge",
+  ML_C5D_LARGE: "ml.c5d.large",
+  ML_C5D_XLARGE: "ml.c5d.xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_LARGE: "ml.c5.large",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_C6GD_12XLARGE: "ml.c6gd.12xlarge",
+  ML_C6GD_16XLARGE: "ml.c6gd.16xlarge",
+  ML_C6GD_2XLARGE: "ml.c6gd.2xlarge",
+  ML_C6GD_4XLARGE: "ml.c6gd.4xlarge",
+  ML_C6GD_8XLARGE: "ml.c6gd.8xlarge",
+  ML_C6GD_LARGE: "ml.c6gd.large",
+  ML_C6GD_XLARGE: "ml.c6gd.xlarge",
+  ML_C6GN_12XLARGE: "ml.c6gn.12xlarge",
+  ML_C6GN_16XLARGE: "ml.c6gn.16xlarge",
+  ML_C6GN_2XLARGE: "ml.c6gn.2xlarge",
+  ML_C6GN_4XLARGE: "ml.c6gn.4xlarge",
+  ML_C6GN_8XLARGE: "ml.c6gn.8xlarge",
+  ML_C6GN_LARGE: "ml.c6gn.large",
+  ML_C6GN_XLARGE: "ml.c6gn.xlarge",
+  ML_C6G_12XLARGE: "ml.c6g.12xlarge",
+  ML_C6G_16XLARGE: "ml.c6g.16xlarge",
+  ML_C6G_2XLARGE: "ml.c6g.2xlarge",
+  ML_C6G_4XLARGE: "ml.c6g.4xlarge",
+  ML_C6G_8XLARGE: "ml.c6g.8xlarge",
+  ML_C6G_LARGE: "ml.c6g.large",
+  ML_C6G_XLARGE: "ml.c6g.xlarge",
+  ML_C6I_12XLARGE: "ml.c6i.12xlarge",
+  ML_C6I_16XLARGE: "ml.c6i.16xlarge",
+  ML_C6I_24XLARGE: "ml.c6i.24xlarge",
+  ML_C6I_2XLARGE: "ml.c6i.2xlarge",
+  ML_C6I_32XLARGE: "ml.c6i.32xlarge",
+  ML_C6I_4XLARGE: "ml.c6i.4xlarge",
+  ML_C6I_8XLARGE: "ml.c6i.8xlarge",
+  ML_C6I_LARGE: "ml.c6i.large",
+  ML_C6I_XLARGE: "ml.c6i.xlarge",
+  ML_C7G_12XLARGE: "ml.c7g.12xlarge",
+  ML_C7G_16XLARGE: "ml.c7g.16xlarge",
+  ML_C7G_2XLARGE: "ml.c7g.2xlarge",
+  ML_C7G_4XLARGE: "ml.c7g.4xlarge",
+  ML_C7G_8XLARGE: "ml.c7g.8xlarge",
+  ML_C7G_LARGE: "ml.c7g.large",
+  ML_C7G_XLARGE: "ml.c7g.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_G5_12XLARGE: "ml.g5.12xlarge",
+  ML_G5_16XLARGE: "ml.g5.16xlarge",
+  ML_G5_24XLARGE: "ml.g5.24xlarge",
+  ML_G5_2XLARGE: "ml.g5.2xlarge",
+  ML_G5_48XLARGE: "ml.g5.48xlarge",
+  ML_G5_4XLARGE: "ml.g5.4xlarge",
+  ML_G5_8XLARGE: "ml.g5.8xlarge",
+  ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_INF1_24XLARGE: "ml.inf1.24xlarge",
+  ML_INF1_2XLARGE: "ml.inf1.2xlarge",
+  ML_INF1_6XLARGE: "ml.inf1.6xlarge",
+  ML_INF1_XLARGE: "ml.inf1.xlarge",
+  ML_M4_10XLARGE: "ml.m4.10xlarge",
+  ML_M4_16XLARGE: "ml.m4.16xlarge",
+  ML_M4_2XLARGE: "ml.m4.2xlarge",
+  ML_M4_4XLARGE: "ml.m4.4xlarge",
+  ML_M4_XLARGE: "ml.m4.xlarge",
+  ML_M5D_12XLARGE: "ml.m5d.12xlarge",
+  ML_M5D_24XLARGE: "ml.m5d.24xlarge",
+  ML_M5D_2XLARGE: "ml.m5d.2xlarge",
+  ML_M5D_4XLARGE: "ml.m5d.4xlarge",
+  ML_M5D_LARGE: "ml.m5d.large",
+  ML_M5D_XLARGE: "ml.m5d.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_M6GD_12XLARGE: "ml.m6gd.12xlarge",
+  ML_M6GD_16XLARGE: "ml.m6gd.16xlarge",
+  ML_M6GD_2XLARGE: "ml.m6gd.2xlarge",
+  ML_M6GD_4XLARGE: "ml.m6gd.4xlarge",
+  ML_M6GD_8XLARGE: "ml.m6gd.8xlarge",
+  ML_M6GD_LARGE: "ml.m6gd.large",
+  ML_M6GD_XLARGE: "ml.m6gd.xlarge",
+  ML_M6G_12XLARGE: "ml.m6g.12xlarge",
+  ML_M6G_16XLARGE: "ml.m6g.16xlarge",
+  ML_M6G_2XLARGE: "ml.m6g.2xlarge",
+  ML_M6G_4XLARGE: "ml.m6g.4xlarge",
+  ML_M6G_8XLARGE: "ml.m6g.8xlarge",
+  ML_M6G_LARGE: "ml.m6g.large",
+  ML_M6G_XLARGE: "ml.m6g.xlarge",
+  ML_P2_16XLARGE: "ml.p2.16xlarge",
+  ML_P2_8XLARGE: "ml.p2.8xlarge",
+  ML_P2_XLARGE: "ml.p2.xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
+  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_R5D_12XLARGE: "ml.r5d.12xlarge",
+  ML_R5D_24XLARGE: "ml.r5d.24xlarge",
+  ML_R5D_2XLARGE: "ml.r5d.2xlarge",
+  ML_R5D_4XLARGE: "ml.r5d.4xlarge",
+  ML_R5D_LARGE: "ml.r5d.large",
+  ML_R5D_XLARGE: "ml.r5d.xlarge",
+  ML_R5_12XLARGE: "ml.r5.12xlarge",
+  ML_R5_24XLARGE: "ml.r5.24xlarge",
+  ML_R5_2XLARGE: "ml.r5.2xlarge",
+  ML_R5_4XLARGE: "ml.r5.4xlarge",
+  ML_R5_LARGE: "ml.r5.large",
+  ML_R5_XLARGE: "ml.r5.xlarge",
+  ML_R6GD_12XLARGE: "ml.r6gd.12xlarge",
+  ML_R6GD_16XLARGE: "ml.r6gd.16xlarge",
+  ML_R6GD_2XLARGE: "ml.r6gd.2xlarge",
+  ML_R6GD_4XLARGE: "ml.r6gd.4xlarge",
+  ML_R6GD_8XLARGE: "ml.r6gd.8xlarge",
+  ML_R6GD_LARGE: "ml.r6gd.large",
+  ML_R6GD_XLARGE: "ml.r6gd.xlarge",
+  ML_R6G_12XLARGE: "ml.r6g.12xlarge",
+  ML_R6G_16XLARGE: "ml.r6g.16xlarge",
+  ML_R6G_2XLARGE: "ml.r6g.2xlarge",
+  ML_R6G_4XLARGE: "ml.r6g.4xlarge",
+  ML_R6G_8XLARGE: "ml.r6g.8xlarge",
+  ML_R6G_LARGE: "ml.r6g.large",
+  ML_R6G_XLARGE: "ml.r6g.xlarge",
+  ML_T2_2XLARGE: "ml.t2.2xlarge",
+  ML_T2_LARGE: "ml.t2.large",
+  ML_T2_MEDIUM: "ml.t2.medium",
+  ML_T2_XLARGE: "ml.t2.xlarge",
+};
 
 /**
  * @public
  */
-export enum TransformInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-}
+export const TransformInstanceType = {
+  ML_C4_2XLARGE: "ml.c4.2xlarge",
+  ML_C4_4XLARGE: "ml.c4.4xlarge",
+  ML_C4_8XLARGE: "ml.c4.8xlarge",
+  ML_C4_XLARGE: "ml.c4.xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_M4_10XLARGE: "ml.m4.10xlarge",
+  ML_M4_16XLARGE: "ml.m4.16xlarge",
+  ML_M4_2XLARGE: "ml.m4.2xlarge",
+  ML_M4_4XLARGE: "ml.m4.4xlarge",
+  ML_M4_XLARGE: "ml.m4.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P2_16XLARGE: "ml.p2.16xlarge",
+  ML_P2_8XLARGE: "ml.p2.8xlarge",
+  ML_P2_XLARGE: "ml.p2.xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+};
 
 /**
  * @public
@@ -485,12 +485,12 @@ export interface AdditionalInferenceSpecificationDefinition {
    * <p>A list of the instance types on which a transformation job can be run
    *            or on which an endpoint can be deployed.</p>
    */
-  SupportedTransformInstanceTypes?: (TransformInstanceType | string)[];
+  SupportedTransformInstanceTypes?: (keyof typeof TransformInstanceType | string)[];
 
   /**
    * <p>A list of the instance types that are used to generate inferences in real-time.</p>
    */
-  SupportedRealtimeInferenceInstanceTypes?: (ProductionVariantInstanceType | string)[];
+  SupportedRealtimeInferenceInstanceTypes?: (keyof typeof ProductionVariantInstanceType | string)[];
 
   /**
    * <p>The supported MIME types for the input data.</p>
@@ -585,10 +585,10 @@ export interface Alarm {
 /**
  * @public
  */
-export enum AlgorithmSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-}
+export const AlgorithmSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+};
 
 /**
  * @public
@@ -620,10 +620,10 @@ export interface MetricDefinition {
 /**
  * @public
  */
-export enum TrainingRepositoryAccessMode {
-  PLATFORM = "Platform",
-  VPC = "Vpc",
-}
+export const TrainingRepositoryAccessMode = {
+  PLATFORM: "Platform",
+  VPC: "Vpc",
+};
 
 /**
  * @public
@@ -648,7 +648,7 @@ export interface TrainingImageConfig {
    *             private Docker registry. For access to an image in a private Docker registry, set to
    *                 <code>Vpc</code>.</p>
    */
-  TrainingRepositoryAccessMode: TrainingRepositoryAccessMode | string | undefined;
+  TrainingRepositoryAccessMode: keyof typeof TrainingRepositoryAccessMode | string | undefined;
 
   /**
    * <p>An object containing authentication information for a private Docker registry
@@ -660,11 +660,11 @@ export interface TrainingImageConfig {
 /**
  * @public
  */
-export enum TrainingInputMode {
-  FASTFILE = "FastFile",
-  FILE = "File",
-  PIPE = "Pipe",
-}
+export const TrainingInputMode = {
+  FASTFILE: "FastFile",
+  FILE: "File",
+  PIPE: "Pipe",
+};
 
 /**
  * @public
@@ -748,7 +748,7 @@ export interface AlgorithmSpecification {
    *             manifest files aren't supported. The startup time is lower when there are fewer files in
    *             the S3 bucket provided.</p>
    */
-  TrainingInputMode: TrainingInputMode | string | undefined;
+  TrainingInputMode: keyof typeof TrainingInputMode | string | undefined;
 
   /**
    * <p>A list of metric definition objects. Each object specifies the metric name and regular
@@ -810,23 +810,23 @@ export interface AlgorithmSpecification {
 /**
  * @public
  */
-export enum AlgorithmStatus {
-  COMPLETED = "Completed",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-}
+export const AlgorithmStatus = {
+  COMPLETED: "Completed",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+};
 
 /**
  * @public
  */
-export enum DetailedAlgorithmStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  NOT_STARTED = "NotStarted",
-}
+export const DetailedAlgorithmStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  NOT_STARTED: "NotStarted",
+};
 
 /**
  * @public
@@ -841,7 +841,7 @@ export interface AlgorithmStatusItem {
   /**
    * <p>The current status.</p>
    */
-  Status: DetailedAlgorithmStatus | string | undefined;
+  Status: keyof typeof DetailedAlgorithmStatus | string | undefined;
 
   /**
    * <p>if the overall status is <code>Failed</code>, the reason for the failure.</p>
@@ -893,32 +893,32 @@ export interface AlgorithmSummary {
   /**
    * <p>The overall status of the algorithm.</p>
    */
-  AlgorithmStatus: AlgorithmStatus | string | undefined;
+  AlgorithmStatus: keyof typeof AlgorithmStatus | string | undefined;
 }
 
 /**
  * @public
  */
-export enum CompressionType {
-  GZIP = "Gzip",
-  NONE = "None",
-}
+export const CompressionType = {
+  GZIP: "Gzip",
+  NONE: "None",
+};
 
 /**
  * @public
  */
-export enum FileSystemAccessMode {
-  RO = "ro",
-  RW = "rw",
-}
+export const FileSystemAccessMode = {
+  RO: "ro",
+  RW: "rw",
+};
 
 /**
  * @public
  */
-export enum FileSystemType {
-  EFS = "EFS",
-  FSXLUSTRE = "FSxLustre",
-}
+export const FileSystemType = {
+  EFS: "EFS",
+  FSXLUSTRE: "FSxLustre",
+};
 
 /**
  * @public
@@ -935,12 +935,12 @@ export interface FileSystemDataSource {
    *             can be mounted either in <code>ro</code> (read-only) or <code>rw</code> (read-write)
    *             mode.</p>
    */
-  FileSystemAccessMode: FileSystemAccessMode | string | undefined;
+  FileSystemAccessMode: keyof typeof FileSystemAccessMode | string | undefined;
 
   /**
    * <p>The file system type. </p>
    */
-  FileSystemType: FileSystemType | string | undefined;
+  FileSystemType: keyof typeof FileSystemType | string | undefined;
 
   /**
    * <p>The full path to the directory to associate with the channel.</p>
@@ -951,19 +951,19 @@ export interface FileSystemDataSource {
 /**
  * @public
  */
-export enum S3DataDistribution {
-  FULLY_REPLICATED = "FullyReplicated",
-  SHARDED_BY_S3_KEY = "ShardedByS3Key",
-}
+export const S3DataDistribution = {
+  FULLY_REPLICATED: "FullyReplicated",
+  SHARDED_BY_S3_KEY: "ShardedByS3Key",
+};
 
 /**
  * @public
  */
-export enum S3DataType {
-  AUGMENTED_MANIFEST_FILE = "AugmentedManifestFile",
-  MANIFEST_FILE = "ManifestFile",
-  S3_PREFIX = "S3Prefix",
-}
+export const S3DataType = {
+  AUGMENTED_MANIFEST_FILE: "AugmentedManifestFile",
+  MANIFEST_FILE: "ManifestFile",
+  S3_PREFIX: "S3Prefix",
+};
 
 /**
  * @public
@@ -981,7 +981,7 @@ export interface S3DataSource {
    *             use for model training. <code>AugmentedManifestFile</code> can only be used if the
    *             Channel's input mode is <code>Pipe</code>.</p>
    */
-  S3DataType: S3DataType | string | undefined;
+  S3DataType: keyof typeof S3DataType | string | undefined;
 
   /**
    * <p>Depending on the value specified for the <code>S3DataType</code>, identifies either
@@ -1061,7 +1061,7 @@ export interface S3DataSource {
    *             the ML storage volume (when <code>TrainingInputMode</code> is set to <code>File</code>),
    *             this copies 1/<i>n</i> of the number of objects. </p>
    */
-  S3DataDistributionType?: S3DataDistribution | string;
+  S3DataDistributionType?: keyof typeof S3DataDistribution | string;
 
   /**
    * <p>A list of one or more attribute names to use that are found in a specified augmented
@@ -1094,10 +1094,10 @@ export interface DataSource {
 /**
  * @public
  */
-export enum RecordWrapper {
-  NONE = "None",
-  RECORDIO = "RecordIO",
-}
+export const RecordWrapper = {
+  NONE: "None",
+  RECORDIO: "RecordIO",
+};
 
 /**
  * @public
@@ -1148,7 +1148,7 @@ export interface Channel {
    *                 <code>None</code>. <code>CompressionType</code> is used only in Pipe input mode. In
    *             File mode, leave this field unset or set it to None.</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: keyof typeof CompressionType | string;
 
   /**
    * <p></p>
@@ -1159,7 +1159,7 @@ export interface Channel {
    *                 a Dataset Using RecordIO</a>. </p>
    *          <p>In File mode, leave this field unset or set it to None.</p>
    */
-  RecordWrapperType?: RecordWrapper | string;
+  RecordWrapperType?: keyof typeof RecordWrapper | string;
 
   /**
    * <p>(Optional) The input mode to use for the data channel in a training job. If you don't
@@ -1173,7 +1173,7 @@ export interface Channel {
    *             mode.</p>
    *          <p>To use a model for incremental training, choose <code>File</code> input model.</p>
    */
-  InputMode?: TrainingInputMode | string;
+  InputMode?: keyof typeof TrainingInputMode | string;
 
   /**
    * <p>A configuration for a shuffle option for input data in a channel. If you use
@@ -1259,57 +1259,57 @@ export interface OutputDataConfig {
 /**
  * @public
  */
-export enum TrainingInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5N_18XLARGE = "ml.c5n.18xlarge",
-  ML_C5N_2XLARGE = "ml.c5n.2xlarge",
-  ML_C5N_4XLARGE = "ml.c5n.4xlarge",
-  ML_C5N_9XLARGE = "ml.c5n.9xlarge",
-  ML_C5N_XLARGE = "ml.c5n.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_G5_12XLARGE = "ml.g5.12xlarge",
-  ML_G5_16XLARGE = "ml.g5.16xlarge",
-  ML_G5_24XLARGE = "ml.g5.24xlarge",
-  ML_G5_2XLARGE = "ml.g5.2xlarge",
-  ML_G5_48XLARGE = "ml.g5.48xlarge",
-  ML_G5_4XLARGE = "ml.g5.4xlarge",
-  ML_G5_8XLARGE = "ml.g5.8xlarge",
-  ML_G5_XLARGE = "ml.g5.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_P4D_24XLARGE = "ml.p4d.24xlarge",
-  ML_TRN1_2XLARGE = "ml.trn1.2xlarge",
-  ML_TRN1_32XLARGE = "ml.trn1.32xlarge",
-}
+export const TrainingInstanceType = {
+  ML_C4_2XLARGE: "ml.c4.2xlarge",
+  ML_C4_4XLARGE: "ml.c4.4xlarge",
+  ML_C4_8XLARGE: "ml.c4.8xlarge",
+  ML_C4_XLARGE: "ml.c4.xlarge",
+  ML_C5N_18XLARGE: "ml.c5n.18xlarge",
+  ML_C5N_2XLARGE: "ml.c5n.2xlarge",
+  ML_C5N_4XLARGE: "ml.c5n.4xlarge",
+  ML_C5N_9XLARGE: "ml.c5n.9xlarge",
+  ML_C5N_XLARGE: "ml.c5n.xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_G5_12XLARGE: "ml.g5.12xlarge",
+  ML_G5_16XLARGE: "ml.g5.16xlarge",
+  ML_G5_24XLARGE: "ml.g5.24xlarge",
+  ML_G5_2XLARGE: "ml.g5.2xlarge",
+  ML_G5_48XLARGE: "ml.g5.48xlarge",
+  ML_G5_4XLARGE: "ml.g5.4xlarge",
+  ML_G5_8XLARGE: "ml.g5.8xlarge",
+  ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_M4_10XLARGE: "ml.m4.10xlarge",
+  ML_M4_16XLARGE: "ml.m4.16xlarge",
+  ML_M4_2XLARGE: "ml.m4.2xlarge",
+  ML_M4_4XLARGE: "ml.m4.4xlarge",
+  ML_M4_XLARGE: "ml.m4.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P2_16XLARGE: "ml.p2.16xlarge",
+  ML_P2_8XLARGE: "ml.p2.8xlarge",
+  ML_P2_XLARGE: "ml.p2.xlarge",
+  ML_P3DN_24XLARGE: "ml.p3dn.24xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
+  ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+};
 
 /**
  * @public
@@ -1320,7 +1320,7 @@ export interface InstanceGroup {
   /**
    * <p>Specifies the instance type of the instance group.</p>
    */
-  InstanceType: TrainingInstanceType | string | undefined;
+  InstanceType: keyof typeof TrainingInstanceType | string | undefined;
 
   /**
    * <p>Specifies the number of instances of the instance group.</p>
@@ -1364,7 +1364,7 @@ export interface ResourceConfig {
    *                 Training service team through your account team.</p>
    *          </note>
    */
-  InstanceType?: TrainingInstanceType | string;
+  InstanceType?: keyof typeof TrainingInstanceType | string;
 
   /**
    * <p>The number of ML compute instances to use. For distributed training, provide a
@@ -1530,7 +1530,7 @@ export interface TrainingJobDefinition {
    *             manifest files aren't supported. The startup time is lower when there are fewer files in
    *             the S3 bucket provided.</p>
    */
-  TrainingInputMode: TrainingInputMode | string | undefined;
+  TrainingInputMode: keyof typeof TrainingInputMode | string | undefined;
 
   /**
    * <p>The hyperparameters used for the training job.</p>
@@ -1569,10 +1569,10 @@ export interface TrainingJobDefinition {
 /**
  * @public
  */
-export enum BatchStrategy {
-  MULTI_RECORD = "MultiRecord",
-  SINGLE_RECORD = "SingleRecord",
-}
+export const BatchStrategy = {
+  MULTI_RECORD: "MultiRecord",
+  SINGLE_RECORD: "SingleRecord",
+};
 
 /**
  * @public
@@ -1591,7 +1591,7 @@ export interface TransformS3DataSource {
    *          <p>The following value is not compatible: <code>AugmentedManifestFile</code>
    *          </p>
    */
-  S3DataType: S3DataType | string | undefined;
+  S3DataType: keyof typeof S3DataType | string | undefined;
 
   /**
    * <p>Depending on the value specified for the <code>S3DataType</code>, identifies either a
@@ -1661,12 +1661,12 @@ export interface TransformDataSource {
 /**
  * @public
  */
-export enum SplitType {
-  LINE = "Line",
-  NONE = "None",
-  RECORDIO = "RecordIO",
-  TFRECORD = "TFRecord",
-}
+export const SplitType = {
+  LINE: "Line",
+  NONE: "None",
+  RECORDIO: "RecordIO",
+  TFRECORD: "TFRecord",
+};
 
 /**
  * @public
@@ -1697,7 +1697,7 @@ export interface TransformInput {
    *             decompresses the data for the transform job accordingly. The default value is
    *                 <code>None</code>.</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: keyof typeof CompressionType | string;
 
   /**
    * <p>The method to use to split the transform job's data files into smaller batches.
@@ -1734,16 +1734,16 @@ export interface TransformInput {
    *                     <code>TFRecord</code>, see <a href="https://www.tensorflow.org/guide/data#consuming_tfrecord_data">Consuming TFRecord data</a> in the TensorFlow documentation.</p>
    *          </note>
    */
-  SplitType?: SplitType | string;
+  SplitType?: keyof typeof SplitType | string;
 }
 
 /**
  * @public
  */
-export enum AssemblyType {
-  LINE = "Line",
-  NONE = "None",
-}
+export const AssemblyType = {
+  LINE: "Line",
+  NONE: "None",
+};
 
 /**
  * @public
@@ -1781,7 +1781,7 @@ export interface TransformOutput {
    *             record, specify
    *             <code>Line</code>.</p>
    */
-  AssembleWith?: AssemblyType | string;
+  AssembleWith?: keyof typeof AssemblyType | string;
 
   /**
    * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using
@@ -1834,7 +1834,7 @@ export interface TransformResources {
    *             moderately sized datasets, we recommend using ml.m4.xlarge or
    *             <code>ml.m5.large</code>instance types.</p>
    */
-  InstanceType: TransformInstanceType | string | undefined;
+  InstanceType: keyof typeof TransformInstanceType | string | undefined;
 
   /**
    * <p>The number of
@@ -1908,7 +1908,7 @@ export interface TransformJobDefinition {
    *                 <code>MultiRecord</code> means a mini-batch is set to contain as many records that
    *             can fit within the <code>MaxPayloadInMB</code> limit.</p>
    */
-  BatchStrategy?: BatchStrategy | string;
+  BatchStrategy?: keyof typeof BatchStrategy | string;
 
   /**
    * <p>The environment variables to set in the Docker container. We support up to 16 key and
@@ -3463,24 +3463,24 @@ export interface AnnotationConsolidationConfig {
 /**
  * @public
  */
-export enum AppType {
-  JupyterServer = "JupyterServer",
-  KernelGateway = "KernelGateway",
-  RSessionGateway = "RSessionGateway",
-  RStudioServerPro = "RStudioServerPro",
-  TensorBoard = "TensorBoard",
-}
+export const AppType = {
+  JupyterServer: "JupyterServer",
+  KernelGateway: "KernelGateway",
+  RSessionGateway: "RSessionGateway",
+  RStudioServerPro: "RStudioServerPro",
+  TensorBoard: "TensorBoard",
+};
 
 /**
  * @public
  */
-export enum AppStatus {
-  Deleted = "Deleted",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-}
+export const AppStatus = {
+  Deleted: "Deleted",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  InService: "InService",
+  Pending: "Pending",
+};
 
 /**
  * @public
@@ -3500,7 +3500,7 @@ export interface AppDetails {
   /**
    * <p>The type of app.</p>
    */
-  AppType?: AppType | string;
+  AppType?: keyof typeof AppType | string;
 
   /**
    * <p>The name of the app.</p>
@@ -3510,7 +3510,7 @@ export interface AppDetails {
   /**
    * <p>The status.</p>
    */
-  Status?: AppStatus | string;
+  Status?: keyof typeof AppStatus | string;
 
   /**
    * <p>The creation time.</p>
@@ -3612,98 +3612,98 @@ export interface AppImageConfigDetails {
 /**
  * @public
  */
-export enum AppImageConfigSortKey {
-  CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime",
-  Name = "Name",
-}
+export const AppImageConfigSortKey = {
+  CreationTime: "CreationTime",
+  LastModifiedTime: "LastModifiedTime",
+  Name: "Name",
+};
 
 /**
  * @public
  */
-export enum AppInstanceType {
-  ML_C5_12XLARGE = "ml.c5.12xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_24XLARGE = "ml.c5.24xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_LARGE = "ml.c5.large",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_G5_12XLARGE = "ml.g5.12xlarge",
-  ML_G5_16XLARGE = "ml.g5.16xlarge",
-  ML_G5_24XLARGE = "ml.g5.24xlarge",
-  ML_G5_2XLARGE = "ml.g5.2xlarge",
-  ML_G5_48XLARGE = "ml.g5.48xlarge",
-  ML_G5_4XLARGE = "ml.g5.4xlarge",
-  ML_G5_8XLARGE = "ml.g5.8xlarge",
-  ML_G5_XLARGE = "ml.g5.xlarge",
-  ML_GEOSPATIAL_INTERACTIVE = "ml.geospatial.interactive",
-  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
-  ML_M5D_16XLARGE = "ml.m5d.16xlarge",
-  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
-  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
-  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
-  ML_M5D_8XLARGE = "ml.m5d.8xlarge",
-  ML_M5D_LARGE = "ml.m5d.large",
-  ML_M5D_XLARGE = "ml.m5d.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_16XLARGE = "ml.m5.16xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_8XLARGE = "ml.m5.8xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_R5_12XLARGE = "ml.r5.12xlarge",
-  ML_R5_16XLARGE = "ml.r5.16xlarge",
-  ML_R5_24XLARGE = "ml.r5.24xlarge",
-  ML_R5_2XLARGE = "ml.r5.2xlarge",
-  ML_R5_4XLARGE = "ml.r5.4xlarge",
-  ML_R5_8XLARGE = "ml.r5.8xlarge",
-  ML_R5_LARGE = "ml.r5.large",
-  ML_R5_XLARGE = "ml.r5.xlarge",
-  ML_T3_2XLARGE = "ml.t3.2xlarge",
-  ML_T3_LARGE = "ml.t3.large",
-  ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_MICRO = "ml.t3.micro",
-  ML_T3_SMALL = "ml.t3.small",
-  ML_T3_XLARGE = "ml.t3.xlarge",
-  SYSTEM = "system",
-}
+export const AppInstanceType = {
+  ML_C5_12XLARGE: "ml.c5.12xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_24XLARGE: "ml.c5.24xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_LARGE: "ml.c5.large",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_G5_12XLARGE: "ml.g5.12xlarge",
+  ML_G5_16XLARGE: "ml.g5.16xlarge",
+  ML_G5_24XLARGE: "ml.g5.24xlarge",
+  ML_G5_2XLARGE: "ml.g5.2xlarge",
+  ML_G5_48XLARGE: "ml.g5.48xlarge",
+  ML_G5_4XLARGE: "ml.g5.4xlarge",
+  ML_G5_8XLARGE: "ml.g5.8xlarge",
+  ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_GEOSPATIAL_INTERACTIVE: "ml.geospatial.interactive",
+  ML_M5D_12XLARGE: "ml.m5d.12xlarge",
+  ML_M5D_16XLARGE: "ml.m5d.16xlarge",
+  ML_M5D_24XLARGE: "ml.m5d.24xlarge",
+  ML_M5D_2XLARGE: "ml.m5d.2xlarge",
+  ML_M5D_4XLARGE: "ml.m5d.4xlarge",
+  ML_M5D_8XLARGE: "ml.m5d.8xlarge",
+  ML_M5D_LARGE: "ml.m5d.large",
+  ML_M5D_XLARGE: "ml.m5d.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_16XLARGE: "ml.m5.16xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_8XLARGE: "ml.m5.8xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P3DN_24XLARGE: "ml.p3dn.24xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_R5_12XLARGE: "ml.r5.12xlarge",
+  ML_R5_16XLARGE: "ml.r5.16xlarge",
+  ML_R5_24XLARGE: "ml.r5.24xlarge",
+  ML_R5_2XLARGE: "ml.r5.2xlarge",
+  ML_R5_4XLARGE: "ml.r5.4xlarge",
+  ML_R5_8XLARGE: "ml.r5.8xlarge",
+  ML_R5_LARGE: "ml.r5.large",
+  ML_R5_XLARGE: "ml.r5.xlarge",
+  ML_T3_2XLARGE: "ml.t3.2xlarge",
+  ML_T3_LARGE: "ml.t3.large",
+  ML_T3_MEDIUM: "ml.t3.medium",
+  ML_T3_MICRO: "ml.t3.micro",
+  ML_T3_SMALL: "ml.t3.small",
+  ML_T3_XLARGE: "ml.t3.xlarge",
+  SYSTEM: "system",
+};
 
 /**
  * @public
  */
-export enum AppNetworkAccessType {
-  PublicInternetOnly = "PublicInternetOnly",
-  VpcOnly = "VpcOnly",
-}
+export const AppNetworkAccessType = {
+  PublicInternetOnly: "PublicInternetOnly",
+  VpcOnly: "VpcOnly",
+};
 
 /**
  * @public
  */
-export enum AppSecurityGroupManagement {
-  Customer = "Customer",
-  Service = "Service",
-}
+export const AppSecurityGroupManagement = {
+  Customer: "Customer",
+  Service: "Service",
+};
 
 /**
  * @public
  */
-export enum AppSortKey {
-  CreationTime = "CreationTime",
-}
+export const AppSortKey = {
+  CreationTime: "CreationTime",
+};
 
 /**
  * @public
@@ -3729,12 +3729,12 @@ export interface AppSpecification {
 /**
  * @public
  */
-export enum ArtifactSourceIdType {
-  CUSTOM = "Custom",
-  MD5_HASH = "MD5Hash",
-  S3_ETAG = "S3ETag",
-  S3_VERSION = "S3Version",
-}
+export const ArtifactSourceIdType = {
+  CUSTOM: "Custom",
+  MD5_HASH: "MD5Hash",
+  S3_ETAG: "S3ETag",
+  S3_VERSION: "S3Version",
+};
 
 /**
  * @public
@@ -3744,7 +3744,7 @@ export interface ArtifactSourceType {
   /**
    * <p>The type of ID.</p>
    */
-  SourceIdType: ArtifactSourceIdType | string | undefined;
+  SourceIdType: keyof typeof ArtifactSourceIdType | string | undefined;
 
   /**
    * <p>The ID.</p>
@@ -3915,7 +3915,7 @@ export interface AssociationSummary {
   /**
    * <p>The type of the association.</p>
    */
-  AssociationType?: AssociationEdgeType | string;
+  AssociationType?: keyof typeof AssociationEdgeType | string;
 
   /**
    * <p>The name of the source.</p>
@@ -4015,22 +4015,22 @@ export interface AsyncInferenceConfig {
 /**
  * @public
  */
-export enum AthenaResultCompressionType {
-  GZIP = "GZIP",
-  SNAPPY = "SNAPPY",
-  ZLIB = "ZLIB",
-}
+export const AthenaResultCompressionType = {
+  GZIP: "GZIP",
+  SNAPPY: "SNAPPY",
+  ZLIB: "ZLIB",
+};
 
 /**
  * @public
  */
-export enum AthenaResultFormat {
-  AVRO = "AVRO",
-  JSON = "JSON",
-  ORC = "ORC",
-  PARQUET = "PARQUET",
-  TEXTFILE = "TEXTFILE",
-}
+export const AthenaResultFormat = {
+  AVRO: "AVRO",
+  JSON: "JSON",
+  ORC: "ORC",
+  PARQUET: "PARQUET",
+  TEXTFILE: "TEXTFILE",
+};
 
 /**
  * @public
@@ -4071,36 +4071,36 @@ export interface AthenaDatasetDefinition {
   /**
    * <p>The data storage format for Athena query results.</p>
    */
-  OutputFormat: AthenaResultFormat | string | undefined;
+  OutputFormat: keyof typeof AthenaResultFormat | string | undefined;
 
   /**
    * <p>The compression used for Athena query results.</p>
    */
-  OutputCompression?: AthenaResultCompressionType | string;
+  OutputCompression?: keyof typeof AthenaResultCompressionType | string;
 }
 
 /**
  * @public
  */
-export enum AuthMode {
-  IAM = "IAM",
-  SSO = "SSO",
-}
+export const AuthMode = {
+  IAM: "IAM",
+  SSO: "SSO",
+};
 
 /**
  * @public
  */
-export enum AutoMLAlgorithm {
-  CATBOOST = "catboost",
-  EXTRA_TREES = "extra-trees",
-  FASTAI = "fastai",
-  LIGHTGBM = "lightgbm",
-  LINEAR_LEARNER = "linear-learner",
-  MLP = "mlp",
-  NN_TORCH = "nn-torch",
-  RANDOMFOREST = "randomforest",
-  XGBOOST = "xgboost",
-}
+export const AutoMLAlgorithm = {
+  CATBOOST: "catboost",
+  EXTRA_TREES: "extra-trees",
+  FASTAI: "fastai",
+  LIGHTGBM: "lightgbm",
+  LINEAR_LEARNER: "linear-learner",
+  MLP: "mlp",
+  NN_TORCH: "nn-torch",
+  RANDOMFOREST: "randomforest",
+  XGBOOST: "xgboost",
+};
 
 /**
  * @public
@@ -4164,7 +4164,7 @@ export interface AutoMLAlgorithmConfig {
    *             </li>
    *          </ul>
    */
-  AutoMLAlgorithms: (AutoMLAlgorithm | string)[] | undefined;
+  AutoMLAlgorithms: (keyof typeof AutoMLAlgorithm | string)[] | undefined;
 }
 
 /**
@@ -4187,51 +4187,51 @@ export interface CandidateArtifactLocations {
 /**
  * @public
  */
-export enum AutoMLMetricEnum {
-  ACCURACY = "Accuracy",
-  AUC = "AUC",
-  BALANCED_ACCURACY = "BalancedAccuracy",
-  F1 = "F1",
-  F1_MACRO = "F1macro",
-  MAE = "MAE",
-  MSE = "MSE",
-  PRECISION = "Precision",
-  PRECISION_MACRO = "PrecisionMacro",
-  R2 = "R2",
-  RECALL = "Recall",
-  RECALL_MACRO = "RecallMacro",
-  RMSE = "RMSE",
-}
+export const AutoMLMetricEnum = {
+  ACCURACY: "Accuracy",
+  AUC: "AUC",
+  BALANCED_ACCURACY: "BalancedAccuracy",
+  F1: "F1",
+  F1_MACRO: "F1macro",
+  MAE: "MAE",
+  MSE: "MSE",
+  PRECISION: "Precision",
+  PRECISION_MACRO: "PrecisionMacro",
+  R2: "R2",
+  RECALL: "Recall",
+  RECALL_MACRO: "RecallMacro",
+  RMSE: "RMSE",
+};
 
 /**
  * @public
  */
-export enum MetricSetSource {
-  TEST = "Test",
-  TRAIN = "Train",
-  VALIDATION = "Validation",
-}
+export const MetricSetSource = {
+  TEST: "Test",
+  TRAIN: "Train",
+  VALIDATION: "Validation",
+};
 
 /**
  * @public
  */
-export enum AutoMLMetricExtendedEnum {
-  ACCURACY = "Accuracy",
-  AUC = "AUC",
-  BALANCED_ACCURACY = "BalancedAccuracy",
-  F1 = "F1",
-  F1_MACRO = "F1macro",
-  INFERENCE_LATENCY = "InferenceLatency",
-  LogLoss = "LogLoss",
-  MAE = "MAE",
-  MSE = "MSE",
-  PRECISION = "Precision",
-  PRECISION_MACRO = "PrecisionMacro",
-  R2 = "R2",
-  RECALL = "Recall",
-  RECALL_MACRO = "RecallMacro",
-  RMSE = "RMSE",
-}
+export const AutoMLMetricExtendedEnum = {
+  ACCURACY: "Accuracy",
+  AUC: "AUC",
+  BALANCED_ACCURACY: "BalancedAccuracy",
+  F1: "F1",
+  F1_MACRO: "F1macro",
+  INFERENCE_LATENCY: "InferenceLatency",
+  LogLoss: "LogLoss",
+  MAE: "MAE",
+  MSE: "MSE",
+  PRECISION: "Precision",
+  PRECISION_MACRO: "PrecisionMacro",
+  R2: "R2",
+  RECALL: "Recall",
+  RECALL_MACRO: "RecallMacro",
+  RMSE: "RMSE",
+};
 
 /**
  * @public
@@ -4241,7 +4241,7 @@ export interface MetricDatum {
   /**
    * <p>The name of the metric.</p>
    */
-  MetricName?: AutoMLMetricEnum | string;
+  MetricName?: keyof typeof AutoMLMetricEnum | string;
 
   /**
    * <p>The value of the metric.</p>
@@ -4251,7 +4251,7 @@ export interface MetricDatum {
   /**
    * <p>The dataset split from which the AutoML job produced the metric.</p>
    */
-  Set?: MetricSetSource | string;
+  Set?: keyof typeof MetricSetSource | string;
 
   /**
    * <p>The name of the standard metric. </p>
@@ -4261,7 +4261,7 @@ export interface MetricDatum {
    *                </a>.</p>
    *          </note>
    */
-  StandardMetricName?: AutoMLMetricExtendedEnum | string;
+  StandardMetricName?: keyof typeof AutoMLMetricExtendedEnum | string;
 }
 
 /**
@@ -4283,22 +4283,22 @@ export interface CandidateProperties {
 /**
  * @public
  */
-export enum CandidateStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const CandidateStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+};
 
 /**
  * @public
  */
-export enum CandidateStepType {
-  PROCESSING = "AWS::SageMaker::ProcessingJob",
-  TRAINING = "AWS::SageMaker::TrainingJob",
-  TRANSFORM = "AWS::SageMaker::TransformJob",
-}
+export const CandidateStepType = {
+  PROCESSING: "AWS::SageMaker::ProcessingJob",
+  TRAINING: "AWS::SageMaker::TrainingJob",
+  TRANSFORM: "AWS::SageMaker::TransformJob",
+};
 
 /**
  * @public
@@ -4308,7 +4308,7 @@ export interface AutoMLCandidateStep {
   /**
    * <p>Whether the candidate is at the transform, training, or processing step.</p>
    */
-  CandidateStepType: CandidateStepType | string | undefined;
+  CandidateStepType: keyof typeof CandidateStepType | string | undefined;
 
   /**
    * <p>The ARN for the candidate's step.</p>
@@ -4324,10 +4324,10 @@ export interface AutoMLCandidateStep {
 /**
  * @public
  */
-export enum AutoMLJobObjectiveType {
-  MAXIMIZE = "Maximize",
-  MINIMIZE = "Minimize",
-}
+export const AutoMLJobObjectiveType = {
+  MAXIMIZE: "Maximize",
+  MINIMIZE: "Minimize",
+};
 
 /**
  * @public
@@ -4337,13 +4337,13 @@ export interface FinalAutoMLJobObjectiveMetric {
   /**
    * <p>The type of metric with the best result.</p>
    */
-  Type?: AutoMLJobObjectiveType | string;
+  Type?: keyof typeof AutoMLJobObjectiveType | string;
 
   /**
    * <p>The name of the metric with the best result. For a description of the possible objective
    *          metrics, see <a>AutoMLJobObjective$MetricName</a>.</p>
    */
-  MetricName: AutoMLMetricEnum | string | undefined;
+  MetricName: keyof typeof AutoMLMetricEnum | string | undefined;
 
   /**
    * <p>The value of the metric with the best result.</p>
@@ -4354,16 +4354,16 @@ export interface FinalAutoMLJobObjectiveMetric {
    * <p>The name of the standard metric. For a description of the standard metrics, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html#autopilot-metrics">Autopilot
    *             candidate metrics</a>.</p>
    */
-  StandardMetricName?: AutoMLMetricEnum | string;
+  StandardMetricName?: keyof typeof AutoMLMetricEnum | string;
 }
 
 /**
  * @public
  */
-export enum AutoMLProcessingUnit {
-  CPU = "CPU",
-  GPU = "GPU",
-}
+export const AutoMLProcessingUnit = {
+  CPU: "CPU",
+  GPU: "GPU",
+};
 
 /**
  * @public
@@ -4391,11 +4391,11 @@ export interface AutoMLContainerDefinition {
 /**
  * @public
  */
-export enum ObjectiveStatus {
-  Failed = "Failed",
-  Pending = "Pending",
-  Succeeded = "Succeeded",
-}
+export const ObjectiveStatus = {
+  Failed: "Failed",
+  Pending: "Pending",
+  Succeeded: "Succeeded",
+};
 
 /**
  * @public
@@ -4416,7 +4416,7 @@ export interface AutoMLCandidate {
   /**
    * <p>The objective's status.</p>
    */
-  ObjectiveStatus: ObjectiveStatus | string | undefined;
+  ObjectiveStatus: keyof typeof ObjectiveStatus | string | undefined;
 
   /**
    * <p>Information about the candidate's steps.</p>
@@ -4426,7 +4426,7 @@ export interface AutoMLCandidate {
   /**
    * <p>The candidate's status.</p>
    */
-  CandidateStatus: CandidateStatus | string | undefined;
+  CandidateStatus: keyof typeof CandidateStatus | string | undefined;
 
   /**
    * <p>Information about the recommended inference container definitions.</p>
@@ -4536,19 +4536,19 @@ export interface AutoMLCandidateGenerationConfig {
 /**
  * @public
  */
-export enum AutoMLChannelType {
-  TRAINING = "training",
-  VALIDATION = "validation",
-}
+export const AutoMLChannelType = {
+  TRAINING: "training",
+  VALIDATION: "validation",
+};
 
 /**
  * @public
  */
-export enum AutoMLS3DataType {
-  AUGMENTED_MANIFEST_FILE = "AugmentedManifestFile",
-  MANIFEST_FILE = "ManifestFile",
-  S3_PREFIX = "S3Prefix",
-}
+export const AutoMLS3DataType = {
+  AUGMENTED_MANIFEST_FILE: "AugmentedManifestFile",
+  MANIFEST_FILE: "ManifestFile",
+  S3_PREFIX: "S3Prefix",
+};
 
 /**
  * @public
@@ -4605,7 +4605,7 @@ export interface AutoMLS3DataSource {
    *             </li>
    *          </ul>
    */
-  S3DataType: AutoMLS3DataType | string | undefined;
+  S3DataType: keyof typeof AutoMLS3DataType | string | undefined;
 
   /**
    * <p>The URL to the Amazon S3 data source. The Uri refers to the Amazon S3 prefix or ManifestFile
@@ -4645,7 +4645,7 @@ export interface AutoMLChannel {
    * <p>You can use <code>Gzip</code> or <code>None</code>. The default value is
    *             <code>None</code>.</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: keyof typeof CompressionType | string;
 
   /**
    * <p>The name of the target variable in supervised learning, usually represented by
@@ -4668,7 +4668,7 @@ export interface AutoMLChannel {
    *                <code>How to specify training and validation datasets</code>
    *             </a>.</p>
    */
-  ChannelType?: AutoMLChannelType | string;
+  ChannelType?: keyof typeof AutoMLChannelType | string;
 }
 
 /**
@@ -4720,7 +4720,7 @@ export interface AutoMLJobChannel {
    *             <code>validation</code> must share the same <code>ContentType</code>
    *          </p>
    */
-  ChannelType?: AutoMLChannelType | string;
+  ChannelType?: keyof typeof AutoMLChannelType | string;
 
   /**
    * <p>The content type of the data from the input source. The following are the allowed
@@ -4745,7 +4745,7 @@ export interface AutoMLJobChannel {
    *          compression type should be <code>None</code>. If no compression type is provided, we
    *          default to <code>None</code>.</p>
    */
-  CompressionType?: CompressionType | string;
+  CompressionType?: keyof typeof CompressionType | string;
 
   /**
    * <p>The data source for an AutoML channel.</p>
@@ -4788,11 +4788,11 @@ export interface AutoMLJobCompletionCriteria {
 /**
  * @public
  */
-export enum AutoMLMode {
-  AUTO = "AUTO",
-  ENSEMBLING = "ENSEMBLING",
-  HYPERPARAMETER_TUNING = "HYPERPARAMETER_TUNING",
-}
+export const AutoMLMode = {
+  AUTO: "AUTO",
+  ENSEMBLING: "ENSEMBLING",
+  HYPERPARAMETER_TUNING: "HYPERPARAMETER_TUNING",
+};
 
 /**
  * @public
@@ -4882,7 +4882,7 @@ export interface AutoMLJobConfig {
    *          metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot algorithm support</a> for a list of algorithms supported by
    *             <code>HYPERPARAMETER_TUNING</code> mode.</p>
    */
-  Mode?: AutoMLMode | string;
+  Mode?: keyof typeof AutoMLMode | string;
 }
 
 /**
@@ -5059,43 +5059,43 @@ export interface AutoMLJobObjective {
    *             </li>
    *          </ul>
    */
-  MetricName: AutoMLMetricEnum | string | undefined;
+  MetricName: keyof typeof AutoMLMetricEnum | string | undefined;
 }
 
 /**
  * @public
  */
-export enum AutoMLJobSecondaryStatus {
-  ANALYZING_DATA = "AnalyzingData",
-  CANDIDATE_DEFINITIONS_GENERATED = "CandidateDefinitionsGenerated",
-  COMPLETED = "Completed",
-  DEPLOYING_MODEL = "DeployingModel",
-  EXPLAINABILITY_ERROR = "ExplainabilityError",
-  FAILED = "Failed",
-  FEATURE_ENGINEERING = "FeatureEngineering",
-  GENERATING_EXPLAINABILITY_REPORT = "GeneratingExplainabilityReport",
-  GENERATING_MODEL_INSIGHTS_REPORT = "GeneratingModelInsightsReport",
-  MAX_AUTO_ML_JOB_RUNTIME_REACHED = "MaxAutoMLJobRuntimeReached",
-  MAX_CANDIDATES_REACHED = "MaxCandidatesReached",
-  MODEL_DEPLOYMENT_ERROR = "ModelDeploymentError",
-  MODEL_INSIGHTS_ERROR = "ModelInsightsError",
-  MODEL_TUNING = "ModelTuning",
-  STARTING = "Starting",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-  TRAINING_MODELS = "TrainingModels",
-}
+export const AutoMLJobSecondaryStatus = {
+  ANALYZING_DATA: "AnalyzingData",
+  CANDIDATE_DEFINITIONS_GENERATED: "CandidateDefinitionsGenerated",
+  COMPLETED: "Completed",
+  DEPLOYING_MODEL: "DeployingModel",
+  EXPLAINABILITY_ERROR: "ExplainabilityError",
+  FAILED: "Failed",
+  FEATURE_ENGINEERING: "FeatureEngineering",
+  GENERATING_EXPLAINABILITY_REPORT: "GeneratingExplainabilityReport",
+  GENERATING_MODEL_INSIGHTS_REPORT: "GeneratingModelInsightsReport",
+  MAX_AUTO_ML_JOB_RUNTIME_REACHED: "MaxAutoMLJobRuntimeReached",
+  MAX_CANDIDATES_REACHED: "MaxCandidatesReached",
+  MODEL_DEPLOYMENT_ERROR: "ModelDeploymentError",
+  MODEL_INSIGHTS_ERROR: "ModelInsightsError",
+  MODEL_TUNING: "ModelTuning",
+  STARTING: "Starting",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+  TRAINING_MODELS: "TrainingModels",
+};
 
 /**
  * @public
  */
-export enum AutoMLJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
-}
+export const AutoMLJobStatus = {
+  COMPLETED: "Completed",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  STOPPED: "Stopped",
+  STOPPING: "Stopping",
+};
 
 /**
  * @public
@@ -5137,12 +5137,12 @@ export interface AutoMLJobSummary {
   /**
    * <p>The status of the AutoML job.</p>
    */
-  AutoMLJobStatus: AutoMLJobStatus | string | undefined;
+  AutoMLJobStatus: keyof typeof AutoMLJobStatus | string | undefined;
 
   /**
    * <p>The secondary status of the AutoML job.</p>
    */
-  AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | string | undefined;
+  AutoMLJobSecondaryStatus: keyof typeof AutoMLJobSecondaryStatus | string | undefined;
 
   /**
    * <p>When the AutoML job was created.</p>
@@ -5280,19 +5280,19 @@ export namespace AutoMLProblemTypeConfig {
 /**
  * @public
  */
-export enum AutoMLSortBy {
-  CREATION_TIME = "CreationTime",
-  NAME = "Name",
-  STATUS = "Status",
-}
+export const AutoMLSortBy = {
+  CREATION_TIME: "CreationTime",
+  NAME: "Name",
+  STATUS: "Status",
+};
 
 /**
  * @public
  */
-export enum AutoMLSortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export const AutoMLSortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+};
 
 /**
  * @public
@@ -5311,10 +5311,10 @@ export interface AutoRollbackConfig {
 /**
  * @public
  */
-export enum AwsManagedHumanLoopRequestSource {
-  REKOGNITION_DETECT_MODERATION_LABELS_IMAGE_V3 = "AWS/Rekognition/DetectModerationLabels/Image/V3",
-  TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1 = "AWS/Textract/AnalyzeDocument/Forms/V1",
-}
+export const AwsManagedHumanLoopRequestSource = {
+  REKOGNITION_DETECT_MODERATION_LABELS_IMAGE_V3: "AWS/Rekognition/DetectModerationLabels/Image/V3",
+  TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1: "AWS/Textract/AnalyzeDocument/Forms/V1",
+};
 
 /**
  * @public
@@ -5401,14 +5401,14 @@ export interface InferenceSpecification {
    *          <p>This parameter is required for unversioned models, and optional for versioned
    *             models.</p>
    */
-  SupportedTransformInstanceTypes?: (TransformInstanceType | string)[];
+  SupportedTransformInstanceTypes?: (keyof typeof TransformInstanceType | string)[];
 
   /**
    * <p>A list of the instance types that are used to generate inferences in real-time.</p>
    *          <p>This parameter is required for unversioned models, and optional for versioned
    *             models.</p>
    */
-  SupportedRealtimeInferenceInstanceTypes?: (ProductionVariantInstanceType | string)[];
+  SupportedRealtimeInferenceInstanceTypes?: (keyof typeof ProductionVariantInstanceType | string)[];
 
   /**
    * <p>The supported MIME types for the input data.</p>
@@ -5424,22 +5424,22 @@ export interface InferenceSpecification {
 /**
  * @public
  */
-export enum ModelApprovalStatus {
-  APPROVED = "Approved",
-  PENDING_MANUAL_APPROVAL = "PendingManualApproval",
-  REJECTED = "Rejected",
-}
+export const ModelApprovalStatus = {
+  APPROVED: "Approved",
+  PENDING_MANUAL_APPROVAL: "PendingManualApproval",
+  REJECTED: "Rejected",
+};
 
 /**
  * @public
  */
-export enum ModelPackageStatus {
-  COMPLETED = "Completed",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
-}
+export const ModelPackageStatus = {
+  COMPLETED: "Completed",
+  DELETING: "Deleting",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+};
 
 /**
  * @public
@@ -5479,12 +5479,12 @@ export interface BatchDescribeModelPackageSummary {
   /**
    * <p>The status of the mortgage package.</p>
    */
-  ModelPackageStatus: ModelPackageStatus | string | undefined;
+  ModelPackageStatus: keyof typeof ModelPackageStatus | string | undefined;
 
   /**
    * <p>The approval status of the model.</p>
    */
-  ModelApprovalStatus?: ModelApprovalStatus | string;
+  ModelApprovalStatus?: keyof typeof ModelApprovalStatus | string;
 }
 
 /**
@@ -5556,18 +5556,18 @@ export interface MonitoringDatasetFormat {
 /**
  * @public
  */
-export enum ProcessingS3DataDistributionType {
-  FULLYREPLICATED = "FullyReplicated",
-  SHARDEDBYS3KEY = "ShardedByS3Key",
-}
+export const ProcessingS3DataDistributionType = {
+  FULLYREPLICATED: "FullyReplicated",
+  SHARDEDBYS3KEY: "ShardedByS3Key",
+};
 
 /**
  * @public
  */
-export enum ProcessingS3InputMode {
-  FILE = "File",
-  PIPE = "Pipe",
-}
+export const ProcessingS3InputMode = {
+  FILE: "File",
+  PIPE: "Pipe",
+};
 
 /**
  * @public
@@ -5595,14 +5595,14 @@ export interface BatchTransformInput {
    *             datasets. <code>File</code> mode is useful for small files that fit in memory. Defaults to
    *             <code>File</code>.</p>
    */
-  S3InputMode?: ProcessingS3InputMode | string;
+  S3InputMode?: keyof typeof ProcessingS3InputMode | string;
 
   /**
    * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
    *             Defaults to <code>FullyReplicated</code>
    *          </p>
    */
-  S3DataDistributionType?: ProcessingS3DataDistributionType | string;
+  S3DataDistributionType?: keyof typeof ProcessingS3DataDistributionType | string;
 
   /**
    * <p>The attributes of the input data that are the input features.</p>
@@ -5698,10 +5698,10 @@ export interface Bias {
 /**
  * @public
  */
-export enum CapacitySizeType {
-  CAPACITY_PERCENT = "CAPACITY_PERCENT",
-  INSTANCE_COUNT = "INSTANCE_COUNT",
-}
+export const CapacitySizeType = {
+  CAPACITY_PERCENT: "CAPACITY_PERCENT",
+  INSTANCE_COUNT: "INSTANCE_COUNT",
+};
 
 /**
  * @public
@@ -5723,7 +5723,7 @@ export interface CapacitySize {
    *             </li>
    *          </ul>
    */
-  Type: CapacitySizeType | string | undefined;
+  Type: keyof typeof CapacitySizeType | string | undefined;
 
   /**
    * <p>Defines the capacity size, either as a number of instances or a capacity
@@ -5735,11 +5735,11 @@ export interface CapacitySize {
 /**
  * @public
  */
-export enum TrafficRoutingConfigType {
-  ALL_AT_ONCE = "ALL_AT_ONCE",
-  CANARY = "CANARY",
-  LINEAR = "LINEAR",
-}
+export const TrafficRoutingConfigType = {
+  ALL_AT_ONCE: "ALL_AT_ONCE",
+  CANARY: "CANARY",
+  LINEAR: "LINEAR",
+};
 
 /**
  * @public
@@ -5771,7 +5771,7 @@ export interface TrafficRoutingConfig {
    *             </li>
    *          </ul>
    */
-  Type: TrafficRoutingConfigType | string | undefined;
+  Type: keyof typeof TrafficRoutingConfigType | string | undefined;
 
   /**
    * <p>The waiting time (in seconds) between incremental steps to turn on traffic on the
@@ -5825,10 +5825,10 @@ export interface BlueGreenUpdatePolicy {
 /**
  * @public
  */
-export enum BooleanOperator {
-  AND = "And",
-  OR = "Or",
-}
+export const BooleanOperator = {
+  AND: "And",
+  OR: "Or",
+};
 
 /**
  * @public
@@ -5881,19 +5881,19 @@ export interface CallbackStepMetadata {
 /**
  * @public
  */
-export enum CandidateSortBy {
-  CreationTime = "CreationTime",
-  FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
-  Status = "Status",
-}
+export const CandidateSortBy = {
+  CreationTime: "CreationTime",
+  FinalObjectiveMetricValue: "FinalObjectiveMetricValue",
+  Status: "Status",
+};
 
 /**
  * @public
  */
-export enum FeatureStatus {
-  Disabled = "DISABLED",
-  Enabled = "ENABLED",
-}
+export const FeatureStatus = {
+  Disabled: "DISABLED",
+  Enabled: "ENABLED",
+};
 
 /**
  * @public
@@ -5903,7 +5903,7 @@ export interface TimeSeriesForecastingSettings {
   /**
    * <p>Describes whether time series forecasting is enabled or disabled in the Canvas app.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: keyof typeof FeatureStatus | string;
 
   /**
    * <p>The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default,
@@ -5949,10 +5949,10 @@ export interface CaptureContentTypeHeader {
 /**
  * @public
  */
-export enum CaptureMode {
-  INPUT = "Input",
-  OUTPUT = "Output",
-}
+export const CaptureMode = {
+  INPUT: "Input",
+  OUTPUT: "Output",
+};
 
 /**
  * @public
@@ -5962,16 +5962,16 @@ export interface CaptureOption {
   /**
    * <p>Specify the boundary of data to capture.</p>
    */
-  CaptureMode: CaptureMode | string | undefined;
+  CaptureMode: keyof typeof CaptureMode | string | undefined;
 }
 
 /**
  * @public
  */
-export enum CaptureStatus {
-  STARTED = "Started",
-  STOPPED = "Stopped",
-}
+export const CaptureStatus = {
+  STARTED: "Started",
+  STOPPED: "Stopped",
+};
 
 /**
  * @public
@@ -6046,7 +6046,7 @@ export interface ChannelSpecification {
   /**
    * <p>The allowed compression types, if data compression is used.</p>
    */
-  SupportedCompressionTypes?: (CompressionType | string)[];
+  SupportedCompressionTypes?: (keyof typeof CompressionType | string)[];
 
   /**
    * <p>The allowed input mode, either FILE or PIPE.</p>
@@ -6056,7 +6056,7 @@ export interface ChannelSpecification {
    *          <p>In PIPE mode, Amazon SageMaker streams input data from the source directly to your
    *             algorithm without using the EBS volume.</p>
    */
-  SupportedInputModes: (TrainingInputMode | string)[] | undefined;
+  SupportedInputModes: (keyof typeof TrainingInputMode | string)[] | undefined;
 }
 
 /**
@@ -6133,11 +6133,11 @@ export interface ClarifyCheckStepMetadata {
 /**
  * @public
  */
-export enum ClarifyFeatureType {
-  CATEGORICAL = "categorical",
-  NUMERICAL = "numerical",
-  TEXT = "text",
-}
+export const ClarifyFeatureType = {
+  CATEGORICAL: "categorical",
+  NUMERICAL: "numerical",
+  TEXT: "text",
+};
 
 /**
  * @public
@@ -6257,7 +6257,7 @@ export interface ClarifyInferenceConfig {
    *             payload. For additional information see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">response</a> section under <b>Invoke the endpoint</b>
    *             in the Developer Guide for more information.</p>
    */
-  FeatureTypes?: (ClarifyFeatureType | string)[];
+  FeatureTypes?: (keyof typeof ClarifyFeatureType | string)[];
 }
 
 /**
@@ -6320,77 +6320,77 @@ export interface ClarifyShapBaselineConfig {
 /**
  * @public
  */
-export enum ClarifyTextGranularity {
-  PARAGRAPH = "paragraph",
-  SENTENCE = "sentence",
-  TOKEN = "token",
-}
+export const ClarifyTextGranularity = {
+  PARAGRAPH: "paragraph",
+  SENTENCE: "sentence",
+  TOKEN: "token",
+};
 
 /**
  * @public
  */
-export enum ClarifyTextLanguage {
-  AFRIKAANS = "af",
-  ALBANIAN = "sq",
-  ARABIC = "ar",
-  ARMENIAN = "hy",
-  BASQUE = "eu",
-  BENGALI = "bn",
-  BULGARIAN = "bg",
-  CATALAN = "ca",
-  CHINESE = "zh",
-  CROATIAN = "hr",
-  CZECH = "cs",
-  DANISH = "da",
-  DUTCH = "nl",
-  ENGLISH = "en",
-  ESTONIAN = "et",
-  FINNISH = "fi",
-  FRENCH = "fr",
-  GERMAN = "de",
-  GREEK = "el",
-  GUJARATI = "gu",
-  HEBREW = "he",
-  HINDI = "hi",
-  HUNGARIAN = "hu",
-  ICELANDIC = "is",
-  INDONESIAN = "id",
-  IRISH = "ga",
-  ITALIAN = "it",
-  KANNADA = "kn",
-  KYRGYZ = "ky",
-  LATVIAN = "lv",
-  LIGURIAN = "lij",
-  LITHUANIAN = "lt",
-  LUXEMBOURGISH = "lb",
-  MACEDONIAN = "mk",
-  MALAYALAM = "ml",
-  MARATHI = "mr",
-  MULTI_LANGUAGE = "xx",
-  NEPALI = "ne",
-  NORWEGIAN_BOKMAL = "nb",
-  PERSIAN = "fa",
-  POLISH = "pl",
-  PORTUGUESE = "pt",
-  ROMANIAN = "ro",
-  RUSSIAN = "ru",
-  SANSKRIT = "sa",
-  SERBIAN = "sr",
-  SETSWANA = "tn",
-  SINHALA = "si",
-  SLOVAK = "sk",
-  SLOVENIAN = "sl",
-  SPANISH = "es",
-  SWEDISH = "sv",
-  TAGALOG = "tl",
-  TAMIL = "ta",
-  TATAR = "tt",
-  TELUGU = "te",
-  TURKISH = "tr",
-  UKRAINIAN = "uk",
-  URDU = "ur",
-  YORUBA = "yo",
-}
+export const ClarifyTextLanguage = {
+  AFRIKAANS: "af",
+  ALBANIAN: "sq",
+  ARABIC: "ar",
+  ARMENIAN: "hy",
+  BASQUE: "eu",
+  BENGALI: "bn",
+  BULGARIAN: "bg",
+  CATALAN: "ca",
+  CHINESE: "zh",
+  CROATIAN: "hr",
+  CZECH: "cs",
+  DANISH: "da",
+  DUTCH: "nl",
+  ENGLISH: "en",
+  ESTONIAN: "et",
+  FINNISH: "fi",
+  FRENCH: "fr",
+  GERMAN: "de",
+  GREEK: "el",
+  GUJARATI: "gu",
+  HEBREW: "he",
+  HINDI: "hi",
+  HUNGARIAN: "hu",
+  ICELANDIC: "is",
+  INDONESIAN: "id",
+  IRISH: "ga",
+  ITALIAN: "it",
+  KANNADA: "kn",
+  KYRGYZ: "ky",
+  LATVIAN: "lv",
+  LIGURIAN: "lij",
+  LITHUANIAN: "lt",
+  LUXEMBOURGISH: "lb",
+  MACEDONIAN: "mk",
+  MALAYALAM: "ml",
+  MARATHI: "mr",
+  MULTI_LANGUAGE: "xx",
+  NEPALI: "ne",
+  NORWEGIAN_BOKMAL: "nb",
+  PERSIAN: "fa",
+  POLISH: "pl",
+  PORTUGUESE: "pt",
+  ROMANIAN: "ro",
+  RUSSIAN: "ru",
+  SANSKRIT: "sa",
+  SERBIAN: "sr",
+  SETSWANA: "tn",
+  SINHALA: "si",
+  SLOVAK: "sk",
+  SLOVENIAN: "sl",
+  SPANISH: "es",
+  SWEDISH: "sv",
+  TAGALOG: "tl",
+  TAMIL: "ta",
+  TATAR: "tt",
+  TELUGU: "te",
+  TURKISH: "tr",
+  UKRAINIAN: "uk",
+  URDU: "ur",
+  YORUBA: "yo",
+};
 
 /**
  * @public
@@ -6407,14 +6407,14 @@ export interface ClarifyTextConfig {
    *             <p>For a mix of multiple languages, use code <code>'xx'</code>.</p>
    *          </note>
    */
-  Language: ClarifyTextLanguage | string | undefined;
+  Language: keyof typeof ClarifyTextLanguage | string | undefined;
 
   /**
    * <p>The unit of granularity for the analysis of text features. For example, if the unit is
    *                 <code>'token'</code>, then each token (like a word in English) of the text is
    *             treated as a feature. SHAP values are computed for each unit/feature.</p>
    */
-  Granularity: ClarifyTextGranularity | string | undefined;
+  Granularity: keyof typeof ClarifyTextGranularity | string | undefined;
 }
 
 /**
@@ -6495,19 +6495,19 @@ export interface CodeRepository {
 /**
  * @public
  */
-export enum CodeRepositorySortBy {
-  CREATION_TIME = "CreationTime",
-  LAST_MODIFIED_TIME = "LastModifiedTime",
-  NAME = "Name",
-}
+export const CodeRepositorySortBy = {
+  CREATION_TIME: "CreationTime",
+  LAST_MODIFIED_TIME: "LastModifiedTime",
+  NAME: "Name",
+};
 
 /**
  * @public
  */
-export enum CodeRepositorySortOrder {
-  ASCENDING = "Ascending",
-  DESCENDING = "Descending",
-}
+export const CodeRepositorySortOrder = {
+  ASCENDING: "Ascending",
+  DESCENDING: "Descending",
+};
 
 /**
  * @public
@@ -6639,81 +6639,81 @@ export interface CollectionConfiguration {
 /**
  * @public
  */
-export enum CompilationJobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  INPROGRESS = "INPROGRESS",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const CompilationJobStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  INPROGRESS: "INPROGRESS",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
  */
-export enum TargetDevice {
-  AISAGE = "aisage",
-  AMBA_CV2 = "amba_cv2",
-  AMBA_CV22 = "amba_cv22",
-  AMBA_CV25 = "amba_cv25",
-  COREML = "coreml",
-  DEEPLENS = "deeplens",
-  IMX8MPLUS = "imx8mplus",
-  IMX8QM = "imx8qm",
-  JACINTO_TDA4VM = "jacinto_tda4vm",
-  JETSON_NANO = "jetson_nano",
-  JETSON_TX1 = "jetson_tx1",
-  JETSON_TX2 = "jetson_tx2",
-  JETSON_XAVIER = "jetson_xavier",
-  LAMBDA = "lambda",
-  ML_C4 = "ml_c4",
-  ML_C5 = "ml_c5",
-  ML_EIA2 = "ml_eia2",
-  ML_G4DN = "ml_g4dn",
-  ML_INF1 = "ml_inf1",
-  ML_M4 = "ml_m4",
-  ML_M5 = "ml_m5",
-  ML_P2 = "ml_p2",
-  ML_P3 = "ml_p3",
-  QCS603 = "qcs603",
-  QCS605 = "qcs605",
-  RASP3B = "rasp3b",
-  RK3288 = "rk3288",
-  RK3399 = "rk3399",
-  SBE_C = "sbe_c",
-  SITARA_AM57X = "sitara_am57x",
-  X86_WIN32 = "x86_win32",
-  X86_WIN64 = "x86_win64",
-}
+export const TargetDevice = {
+  AISAGE: "aisage",
+  AMBA_CV2: "amba_cv2",
+  AMBA_CV22: "amba_cv22",
+  AMBA_CV25: "amba_cv25",
+  COREML: "coreml",
+  DEEPLENS: "deeplens",
+  IMX8MPLUS: "imx8mplus",
+  IMX8QM: "imx8qm",
+  JACINTO_TDA4VM: "jacinto_tda4vm",
+  JETSON_NANO: "jetson_nano",
+  JETSON_TX1: "jetson_tx1",
+  JETSON_TX2: "jetson_tx2",
+  JETSON_XAVIER: "jetson_xavier",
+  LAMBDA: "lambda",
+  ML_C4: "ml_c4",
+  ML_C5: "ml_c5",
+  ML_EIA2: "ml_eia2",
+  ML_G4DN: "ml_g4dn",
+  ML_INF1: "ml_inf1",
+  ML_M4: "ml_m4",
+  ML_M5: "ml_m5",
+  ML_P2: "ml_p2",
+  ML_P3: "ml_p3",
+  QCS603: "qcs603",
+  QCS605: "qcs605",
+  RASP3B: "rasp3b",
+  RK3288: "rk3288",
+  RK3399: "rk3399",
+  SBE_C: "sbe_c",
+  SITARA_AM57X: "sitara_am57x",
+  X86_WIN32: "x86_win32",
+  X86_WIN64: "x86_win64",
+};
 
 /**
  * @public
  */
-export enum TargetPlatformAccelerator {
-  INTEL_GRAPHICS = "INTEL_GRAPHICS",
-  MALI = "MALI",
-  NNA = "NNA",
-  NVIDIA = "NVIDIA",
-}
+export const TargetPlatformAccelerator = {
+  INTEL_GRAPHICS: "INTEL_GRAPHICS",
+  MALI: "MALI",
+  NNA: "NNA",
+  NVIDIA: "NVIDIA",
+};
 
 /**
  * @public
  */
-export enum TargetPlatformArch {
-  ARM64 = "ARM64",
-  ARM_EABI = "ARM_EABI",
-  ARM_EABIHF = "ARM_EABIHF",
-  X86 = "X86",
-  X86_64 = "X86_64",
-}
+export const TargetPlatformArch = {
+  ARM64: "ARM64",
+  ARM_EABI: "ARM_EABI",
+  ARM_EABIHF: "ARM_EABIHF",
+  X86: "X86",
+  X86_64: "X86_64",
+};
 
 /**
  * @public
  */
-export enum TargetPlatformOs {
-  ANDROID = "ANDROID",
-  LINUX = "LINUX",
-}
+export const TargetPlatformOs = {
+  ANDROID: "ANDROID",
+  LINUX: "LINUX",
+};
 
 /**
  * @public
@@ -6749,25 +6749,25 @@ export interface CompilationJobSummary {
    * <p>The type of device that the model will run on after the compilation job has
    *             completed.</p>
    */
-  CompilationTargetDevice?: TargetDevice | string;
+  CompilationTargetDevice?: keyof typeof TargetDevice | string;
 
   /**
    * <p>The type of OS that the model will run on after the compilation job has
    *             completed.</p>
    */
-  CompilationTargetPlatformOs?: TargetPlatformOs | string;
+  CompilationTargetPlatformOs?: keyof typeof TargetPlatformOs | string;
 
   /**
    * <p>The type of architecture that the model will run on after the compilation job has
    *             completed.</p>
    */
-  CompilationTargetPlatformArch?: TargetPlatformArch | string;
+  CompilationTargetPlatformArch?: keyof typeof TargetPlatformArch | string;
 
   /**
    * <p>The type of accelerator that the model will run on after the compilation job has
    *             completed.</p>
    */
-  CompilationTargetPlatformAccelerator?: TargetPlatformAccelerator | string;
+  CompilationTargetPlatformAccelerator?: keyof typeof TargetPlatformAccelerator | string;
 
   /**
    * <p>The time when the model compilation job was last modified.</p>
@@ -6777,24 +6777,24 @@ export interface CompilationJobSummary {
   /**
    * <p>The status of the model compilation job.</p>
    */
-  CompilationJobStatus: CompilationJobStatus | string | undefined;
+  CompilationJobStatus: keyof typeof CompilationJobStatus | string | undefined;
 }
 
 /**
  * @public
  */
-export enum CompleteOnConvergence {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const CompleteOnConvergence = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+};
 
 /**
  * @public
  */
-export enum ConditionOutcome {
-  FALSE = "False",
-  TRUE = "True",
-}
+export const ConditionOutcome = {
+  FALSE: "False",
+  TRUE: "True",
+};
 
 /**
  * @public
@@ -6804,7 +6804,7 @@ export interface ConditionStepMetadata {
   /**
    * <p>The outcome of the Condition step evaluation.</p>
    */
-  Outcome?: ConditionOutcome | string;
+  Outcome?: keyof typeof ConditionOutcome | string;
 }
 
 /**
@@ -6833,10 +6833,10 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  */
-export enum RepositoryAccessMode {
-  PLATFORM = "Platform",
-  VPC = "Vpc",
-}
+export const RepositoryAccessMode = {
+  PLATFORM: "Platform",
+  VPC: "Vpc",
+};
 
 /**
  * @public
@@ -6879,7 +6879,7 @@ export interface ImageConfig {
    *             </li>
    *          </ul>
    */
-  RepositoryAccessMode: RepositoryAccessMode | string | undefined;
+  RepositoryAccessMode: keyof typeof RepositoryAccessMode | string | undefined;
 
   /**
    * <p>(Optional) Specifies an authentication configuration for the private docker registry
@@ -6894,18 +6894,18 @@ export interface ImageConfig {
 /**
  * @public
  */
-export enum ContainerMode {
-  MULTI_MODEL = "MultiModel",
-  SINGLE_MODEL = "SingleModel",
-}
+export const ContainerMode = {
+  MULTI_MODEL: "MultiModel",
+  SINGLE_MODEL: "SingleModel",
+};
 
 /**
  * @public
  */
-export enum ModelCacheSetting {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
-}
+export const ModelCacheSetting = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+};
 
 /**
  * @public
@@ -6920,7 +6920,7 @@ export interface MultiModelConfig {
    *             perform better if you disable model caching. To disable model caching, set the value of
    *             this parameter to <code>Disabled</code>.</p>
    */
-  ModelCacheSetting?: ModelCacheSetting | string;
+  ModelCacheSetting?: keyof typeof ModelCacheSetting | string;
 }
 
 /**
@@ -6969,7 +6969,7 @@ export interface ContainerDefinition {
   /**
    * <p>Whether the container hosts a single model or multiple models.</p>
    */
-  Mode?: ContainerMode | string;
+  Mode?: keyof typeof ContainerMode | string;
 
   /**
    * <p>The S3 path where the model artifacts, which result from model training, are stored.
@@ -7022,10 +7022,10 @@ export interface ContainerDefinition {
 /**
  * @public
  */
-export enum ContentClassifier {
-  FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
-}
+export const ContentClassifier = {
+  FREE_OF_ADULT_CONTENT: "FreeOfAdultContent",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: "FreeOfPersonallyIdentifiableInformation",
+};
 
 /**
  * @public
@@ -7088,12 +7088,12 @@ export interface ContextSummary {
 /**
  * @public
  */
-export enum HyperParameterScalingType {
-  AUTO = "Auto",
-  LINEAR = "Linear",
-  LOGARITHMIC = "Logarithmic",
-  REVERSE_LOGARITHMIC = "ReverseLogarithmic",
-}
+export const HyperParameterScalingType = {
+  AUTO: "Auto",
+  LINEAR: "Linear",
+  LOGARITHMIC: "Logarithmic",
+  REVERSE_LOGARITHMIC: "ReverseLogarithmic",
+};
 
 /**
  * @public
@@ -7149,7 +7149,7 @@ export interface ContinuousParameterRange {
    *             </dd>
    *          </dl>
    */
-  ScalingType?: HyperParameterScalingType | string;
+  ScalingType?: keyof typeof HyperParameterScalingType | string;
 }
 
 /**
@@ -7178,7 +7178,7 @@ export interface ConvergenceDetected {
   /**
    * <p>A flag to stop a tuning job once AMT has detected that the job has converged.</p>
    */
-  CompleteOnConvergence?: CompleteOnConvergence | string;
+  CompleteOnConvergence?: keyof typeof CompleteOnConvergence | string;
 }
 
 /**
@@ -7234,7 +7234,7 @@ export interface CreateActionRequest {
   /**
    * <p>The status of the action.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: keyof typeof ActionStatus | string;
 
   /**
    * <p>A list of properties to add to the action.</p>
@@ -7306,12 +7306,12 @@ export interface ParameterRange {
 /**
  * @public
  */
-export enum ParameterType {
-  CATEGORICAL = "Categorical",
-  CONTINUOUS = "Continuous",
-  FREE_TEXT = "FreeText",
-  INTEGER = "Integer",
-}
+export const ParameterType = {
+  CATEGORICAL: "Categorical",
+  CONTINUOUS: "Continuous",
+  FREE_TEXT: "FreeText",
+  INTEGER: "Integer",
+};
 
 /**
  * @public
@@ -7332,7 +7332,7 @@ export interface HyperParameterSpecification {
    * <p>The type of this hyperparameter. The valid types are <code>Integer</code>,
    *                 <code>Continuous</code>, <code>Categorical</code>, and <code>FreeText</code>.</p>
    */
-  Type: ParameterType | string | undefined;
+  Type: keyof typeof ParameterType | string | undefined;
 
   /**
    * <p>The allowed range for this hyperparameter.</p>
@@ -7360,10 +7360,10 @@ export interface HyperParameterSpecification {
 /**
  * @public
  */
-export enum HyperParameterTuningJobObjectiveType {
-  MAXIMIZE = "Maximize",
-  MINIMIZE = "Minimize",
-}
+export const HyperParameterTuningJobObjectiveType = {
+  MAXIMIZE: "Maximize",
+  MINIMIZE: "Minimize",
+};
 
 /**
  * @public
@@ -7380,7 +7380,7 @@ export interface HyperParameterTuningJobObjective {
    *             minimize
    *             or maximize the objective metric.</p>
    */
-  Type: HyperParameterTuningJobObjectiveType | string | undefined;
+  Type: keyof typeof HyperParameterTuningJobObjectiveType | string | undefined;
 
   /**
    * <p>The
@@ -7416,7 +7416,7 @@ export interface TrainingSpecification {
   /**
    * <p>A list of the instance types that this algorithm can use for training.</p>
    */
-  SupportedTrainingInstanceTypes: (TrainingInstanceType | string)[] | undefined;
+  SupportedTrainingInstanceTypes: (keyof typeof TrainingInstanceType | string)[] | undefined;
 
   /**
    * <p>Indicates whether the algorithm supports distributed training. If set to false, buyers
@@ -7567,7 +7567,7 @@ export interface ResourceSpec {
    *             instance types.</p>
    *          </note>
    */
-  InstanceType?: AppInstanceType | string;
+  InstanceType?: keyof typeof AppInstanceType | string;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.</p>
@@ -7592,7 +7592,7 @@ export interface CreateAppRequest {
   /**
    * <p>The type of app.</p>
    */
-  AppType: AppType | string | undefined;
+  AppType: keyof typeof AppType | string | undefined;
 
   /**
    * <p>The name of the app.</p>
@@ -7762,11 +7762,11 @@ export interface ModelDeployConfig {
 /**
  * @public
  */
-export enum ProblemType {
-  BINARY_CLASSIFICATION = "BinaryClassification",
-  MULTICLASS_CLASSIFICATION = "MulticlassClassification",
-  REGRESSION = "Regression",
-}
+export const ProblemType = {
+  BINARY_CLASSIFICATION: "BinaryClassification",
+  MULTICLASS_CLASSIFICATION: "MulticlassClassification",
+  REGRESSION: "Regression",
+};
 
 /**
  * @public
@@ -7797,7 +7797,7 @@ export interface CreateAutoMLJobRequest {
    *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
    *             Amazon SageMaker Autopilot problem types and algorithm support</a>.</p>
    */
-  ProblemType?: ProblemType | string;
+  ProblemType?: keyof typeof ProblemType | string;
 
   /**
    * <p>Defines the objective metric used to measure the predictive quality of an AutoML job. You
@@ -7975,17 +7975,17 @@ export interface CreateCodeRepositoryOutput {
 /**
  * @public
  */
-export enum Framework {
-  DARKNET = "DARKNET",
-  KERAS = "KERAS",
-  MXNET = "MXNET",
-  ONNX = "ONNX",
-  PYTORCH = "PYTORCH",
-  SKLEARN = "SKLEARN",
-  TENSORFLOW = "TENSORFLOW",
-  TFLITE = "TFLITE",
-  XGBOOST = "XGBOOST",
-}
+export const Framework = {
+  DARKNET: "DARKNET",
+  KERAS: "KERAS",
+  MXNET: "MXNET",
+  ONNX: "ONNX",
+  PYTORCH: "PYTORCH",
+  SKLEARN: "SKLEARN",
+  TENSORFLOW: "TENSORFLOW",
+  TFLITE: "TFLITE",
+  XGBOOST: "XGBOOST",
+};
 
 /**
  * @public
@@ -8336,7 +8336,7 @@ export interface InputConfig {
    * <p>Identifies the framework in which the model was trained. For example:
    *             TENSORFLOW.</p>
    */
-  Framework: Framework | string | undefined;
+  Framework: keyof typeof Framework | string | undefined;
 
   /**
    * <p>Specifies the framework version to use. This API field is only supported for the MXNet,
@@ -8371,7 +8371,7 @@ export interface TargetPlatform {
    *             </li>
    *          </ul>
    */
-  Os: TargetPlatformOs | string | undefined;
+  Os: keyof typeof TargetPlatformOs | string | undefined;
 
   /**
    * <p>Specifies a target platform architecture.</p>
@@ -8399,7 +8399,7 @@ export interface TargetPlatform {
    *             </li>
    *          </ul>
    */
-  Arch: TargetPlatformArch | string | undefined;
+  Arch: keyof typeof TargetPlatformArch | string | undefined;
 
   /**
    * <p>Specifies a target platform accelerator (optional).</p>
@@ -8420,7 +8420,7 @@ export interface TargetPlatform {
    *             </li>
    *          </ul>
    */
-  Accelerator?: TargetPlatformAccelerator | string;
+  Accelerator?: keyof typeof TargetPlatformAccelerator | string;
 }
 
 /**
@@ -8446,7 +8446,7 @@ export interface OutputConfig {
    *             architecture, and accelerator using <a>TargetPlatform</a> fields. It can be
    *             used instead of <code>TargetPlatform</code>.</p>
    */
-  TargetDevice?: TargetDevice | string;
+  TargetDevice?: keyof typeof TargetDevice | string;
 
   /**
    * <p>Contains information about a target platform that you want your model to run on, such
@@ -8972,14 +8972,14 @@ export interface EndpointInput {
    *          datasets. <code>File</code> mode is useful for small files that fit in memory. Defaults to
    *             <code>File</code>.</p>
    */
-  S3InputMode?: ProcessingS3InputMode | string;
+  S3InputMode?: keyof typeof ProcessingS3InputMode | string;
 
   /**
    * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
    *          Defaults to <code>FullyReplicated</code>
    *          </p>
    */
-  S3DataDistributionType?: ProcessingS3DataDistributionType | string;
+  S3DataDistributionType?: keyof typeof ProcessingS3DataDistributionType | string;
 
   /**
    * <p>The attributes of the input data that are the input features.</p>
@@ -9036,10 +9036,10 @@ export interface DataQualityJobInput {
 /**
  * @public
  */
-export enum ProcessingS3UploadMode {
-  CONTINUOUS = "Continuous",
-  END_OF_JOB = "EndOfJob",
-}
+export const ProcessingS3UploadMode = {
+  CONTINUOUS: "Continuous",
+  END_OF_JOB: "EndOfJob",
+};
 
 /**
  * @public
@@ -9063,7 +9063,7 @@ export interface MonitoringS3Output {
    * <p>Whether to upload the results of the monitoring job continuously or after the job
    *          completes.</p>
    */
-  S3UploadMode?: ProcessingS3UploadMode | string;
+  S3UploadMode?: keyof typeof ProcessingS3UploadMode | string;
 }
 
 /**
@@ -9098,52 +9098,52 @@ export interface MonitoringOutputConfig {
 /**
  * @public
  */
-export enum ProcessingInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_R5_12XLARGE = "ml.r5.12xlarge",
-  ML_R5_16XLARGE = "ml.r5.16xlarge",
-  ML_R5_24XLARGE = "ml.r5.24xlarge",
-  ML_R5_2XLARGE = "ml.r5.2xlarge",
-  ML_R5_4XLARGE = "ml.r5.4xlarge",
-  ML_R5_8XLARGE = "ml.r5.8xlarge",
-  ML_R5_LARGE = "ml.r5.large",
-  ML_R5_XLARGE = "ml.r5.xlarge",
-  ML_T3_2XLARGE = "ml.t3.2xlarge",
-  ML_T3_LARGE = "ml.t3.large",
-  ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_XLARGE = "ml.t3.xlarge",
-}
+export const ProcessingInstanceType = {
+  ML_C4_2XLARGE: "ml.c4.2xlarge",
+  ML_C4_4XLARGE: "ml.c4.4xlarge",
+  ML_C4_8XLARGE: "ml.c4.8xlarge",
+  ML_C4_XLARGE: "ml.c4.xlarge",
+  ML_C5_18XLARGE: "ml.c5.18xlarge",
+  ML_C5_2XLARGE: "ml.c5.2xlarge",
+  ML_C5_4XLARGE: "ml.c5.4xlarge",
+  ML_C5_9XLARGE: "ml.c5.9xlarge",
+  ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE: "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE: "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE: "ml.g4dn.xlarge",
+  ML_M4_10XLARGE: "ml.m4.10xlarge",
+  ML_M4_16XLARGE: "ml.m4.16xlarge",
+  ML_M4_2XLARGE: "ml.m4.2xlarge",
+  ML_M4_4XLARGE: "ml.m4.4xlarge",
+  ML_M4_XLARGE: "ml.m4.xlarge",
+  ML_M5_12XLARGE: "ml.m5.12xlarge",
+  ML_M5_24XLARGE: "ml.m5.24xlarge",
+  ML_M5_2XLARGE: "ml.m5.2xlarge",
+  ML_M5_4XLARGE: "ml.m5.4xlarge",
+  ML_M5_LARGE: "ml.m5.large",
+  ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_P2_16XLARGE: "ml.p2.16xlarge",
+  ML_P2_8XLARGE: "ml.p2.8xlarge",
+  ML_P2_XLARGE: "ml.p2.xlarge",
+  ML_P3_16XLARGE: "ml.p3.16xlarge",
+  ML_P3_2XLARGE: "ml.p3.2xlarge",
+  ML_P3_8XLARGE: "ml.p3.8xlarge",
+  ML_R5_12XLARGE: "ml.r5.12xlarge",
+  ML_R5_16XLARGE: "ml.r5.16xlarge",
+  ML_R5_24XLARGE: "ml.r5.24xlarge",
+  ML_R5_2XLARGE: "ml.r5.2xlarge",
+  ML_R5_4XLARGE: "ml.r5.4xlarge",
+  ML_R5_8XLARGE: "ml.r5.8xlarge",
+  ML_R5_LARGE: "ml.r5.large",
+  ML_R5_XLARGE: "ml.r5.xlarge",
+  ML_T3_2XLARGE: "ml.t3.2xlarge",
+  ML_T3_LARGE: "ml.t3.large",
+  ML_T3_MEDIUM: "ml.t3.medium",
+  ML_T3_XLARGE: "ml.t3.xlarge",
+};
 
 /**
  * @public
@@ -9159,7 +9159,7 @@ export interface MonitoringClusterConfig {
   /**
    * <p>The ML compute instance type for the processing job.</p>
    */
-  InstanceType: ProcessingInstanceType | string | undefined;
+  InstanceType: keyof typeof ProcessingInstanceType | string | undefined;
 
   /**
    * <p>The size of the ML storage volume, in gigabytes, that you want to provision. You must
@@ -9300,9 +9300,9 @@ export interface CreateDataQualityJobDefinitionResponse {
 /**
  * @public
  */
-export enum EdgePresetDeploymentType {
-  GreengrassV2Component = "GreengrassV2Component",
-}
+export const EdgePresetDeploymentType = {
+  GreengrassV2Component: "GreengrassV2Component",
+};
 
 /**
  * @public
@@ -9324,7 +9324,7 @@ export interface EdgeOutputConfig {
    * <p>The deployment type SageMaker Edge Manager will create.
    *       Currently only supports Amazon Web Services IoT Greengrass Version 2 components.</p>
    */
-  PresetDeploymentType?: EdgePresetDeploymentType | string;
+  PresetDeploymentType?: keyof typeof EdgePresetDeploymentType | string;
 
   /**
    * <p>The configuration used to create deployment artifacts.
@@ -9525,18 +9525,18 @@ export interface RSessionAppSettings {
 /**
  * @public
  */
-export enum RStudioServerProAccessStatus {
-  Disabled = "DISABLED",
-  Enabled = "ENABLED",
-}
+export const RStudioServerProAccessStatus = {
+  Disabled: "DISABLED",
+  Enabled: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum RStudioServerProUserGroup {
-  Admin = "R_STUDIO_ADMIN",
-  User = "R_STUDIO_USER",
-}
+export const RStudioServerProUserGroup = {
+  Admin: "R_STUDIO_ADMIN",
+  User: "R_STUDIO_USER",
+};
 
 /**
  * @public
@@ -9550,23 +9550,23 @@ export interface RStudioServerProAppSettings {
    * <p>Indicates whether the current user has access to the <code>RStudioServerPro</code>
    *             app.</p>
    */
-  AccessStatus?: RStudioServerProAccessStatus | string;
+  AccessStatus?: keyof typeof RStudioServerProAccessStatus | string;
 
   /**
    * <p>The level of permissions that the user has within the <code>RStudioServerPro</code>
    *             app. This value defaults to `User`. The `Admin` value allows the user access to the
    *             RStudio Administrative Dashboard.</p>
    */
-  UserGroup?: RStudioServerProUserGroup | string;
+  UserGroup?: keyof typeof RStudioServerProUserGroup | string;
 }
 
 /**
  * @public
  */
-export enum NotebookOutputOption {
-  Allowed = "Allowed",
-  Disabled = "Disabled",
-}
+export const NotebookOutputOption = {
+  Allowed: "Allowed",
+  Disabled: "Disabled",
+};
 
 /**
  * @public
@@ -9581,7 +9581,7 @@ export interface SharingSettings {
    * <p>Whether to include the notebook cell output when sharing the notebook. The default
    *          is <code>Disabled</code>.</p>
    */
-  NotebookOutputOption?: NotebookOutputOption | string;
+  NotebookOutputOption?: keyof typeof NotebookOutputOption | string;
 
   /**
    * <p>When <code>NotebookOutputOption</code> is <code>Allowed</code>, the Amazon S3 bucket used
@@ -9674,10 +9674,10 @@ export interface UserSettings {
 /**
  * @public
  */
-export enum ExecutionRoleIdentityConfig {
-  DISABLED = "DISABLED",
-  USER_PROFILE_NAME = "USER_PROFILE_NAME",
-}
+export const ExecutionRoleIdentityConfig = {
+  DISABLED: "DISABLED",
+  USER_PROFILE_NAME: "USER_PROFILE_NAME",
+};
 
 /**
  * @public
@@ -9730,7 +9730,7 @@ export interface DomainSettings {
    * <p>The configuration for attaching a SageMaker user profile name to the execution role as a
    *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity key</a>.</p>
    */
-  ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
+  ExecutionRoleIdentityConfig?: keyof typeof ExecutionRoleIdentityConfig | string;
 }
 
 /**
@@ -9745,7 +9745,7 @@ export interface CreateDomainRequest {
   /**
    * <p>The mode of authentication that members use to access the domain.</p>
    */
-  AuthMode: AuthMode | string | undefined;
+  AuthMode: keyof typeof AuthMode | string | undefined;
 
   /**
    * <p>The default settings to use to create a user profile when <code>UserSettings</code> isn't specified
@@ -9791,7 +9791,7 @@ export interface CreateDomainRequest {
    *             </li>
    *          </ul>
    */
-  AppNetworkAccessType?: AppNetworkAccessType | string;
+  AppNetworkAccessType?: keyof typeof AppNetworkAccessType | string;
 
   /**
    * @deprecated
@@ -9813,7 +9813,7 @@ export interface CreateDomainRequest {
    *                 <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
    *             provided.</p>
    */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
+  AppSecurityGroupManagement?: keyof typeof AppSecurityGroupManagement | string;
 
   /**
    * <p>A collection of <code>Domain</code> settings.</p>
@@ -9860,10 +9860,10 @@ export interface EdgeDeploymentModelConfig {
 /**
  * @public
  */
-export enum FailureHandlingPolicy {
-  DoNothing = "DO_NOTHING",
-  RollbackOnFailure = "ROLLBACK_ON_FAILURE",
-}
+export const FailureHandlingPolicy = {
+  DoNothing: "DO_NOTHING",
+  RollbackOnFailure: "ROLLBACK_ON_FAILURE",
+};
 
 /**
  * @public
@@ -9874,17 +9874,17 @@ export interface EdgeDeploymentConfig {
    * <p>Toggle that determines whether to rollback to previous configuration if the current deployment fails.
    *       By default this is turned on. You may turn this off if you want to investigate the errors yourself.</p>
    */
-  FailureHandlingPolicy: FailureHandlingPolicy | string | undefined;
+  FailureHandlingPolicy: keyof typeof FailureHandlingPolicy | string | undefined;
 }
 
 /**
  * @public
  */
-export enum DeviceSubsetType {
-  NameContains = "NAMECONTAINS",
-  Percentage = "PERCENTAGE",
-  Selection = "SELECTION",
-}
+export const DeviceSubsetType = {
+  NameContains: "NAMECONTAINS",
+  Percentage: "PERCENTAGE",
+  Selection: "SELECTION",
+};
 
 /**
  * @public
@@ -9894,7 +9894,7 @@ export interface DeviceSelectionConfig {
   /**
    * <p>Type of device subsets to deploy to the current stage.</p>
    */
-  DeviceSubsetType: DeviceSubsetType | string | undefined;
+  DeviceSubsetType: keyof typeof DeviceSubsetType | string | undefined;
 
   /**
    * <p>Percentage of devices in the fleet to deploy to the current stage.</p>

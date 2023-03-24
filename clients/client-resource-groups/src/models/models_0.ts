@@ -6,20 +6,20 @@ import { ResourceGroupsServiceException as __BaseException } from "./ResourceGro
 /**
  * @public
  */
-export enum GroupLifecycleEventsDesiredStatus {
-  ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
+export const GroupLifecycleEventsDesiredStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+};
 
 /**
  * @public
  */
-export enum GroupLifecycleEventsStatus {
-  ACTIVE = "ACTIVE",
-  ERROR = "ERROR",
-  INACTIVE = "INACTIVE",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const GroupLifecycleEventsStatus = {
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+  INACTIVE: "INACTIVE",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -29,12 +29,12 @@ export interface AccountSettings {
   /**
    * <p>The desired target status of the group lifecycle events feature. If</p>
    */
-  GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus | string;
+  GroupLifecycleEventsDesiredStatus?: keyof typeof GroupLifecycleEventsDesiredStatus | string;
 
   /**
    * <p>The current status of the group lifecycle events feature.</p>
    */
-  GroupLifecycleEventsStatus?: GroupLifecycleEventsStatus | string;
+  GroupLifecycleEventsStatus?: keyof typeof GroupLifecycleEventsStatus | string;
 
   /**
    * <p>The text of any error message occurs during an attempt to turn group lifecycle events on or off.</p>
@@ -112,10 +112,10 @@ export interface GroupConfigurationItem {
 /**
  * @public
  */
-export enum QueryType {
-  CLOUDFORMATION_STACK_1_0 = "CLOUDFORMATION_STACK_1_0",
-  TAG_FILTERS_1_0 = "TAG_FILTERS_1_0",
-}
+export const QueryType = {
+  CLOUDFORMATION_STACK_1_0: "CLOUDFORMATION_STACK_1_0",
+  TAG_FILTERS_1_0: "TAG_FILTERS_1_0",
+};
 
 /**
  * @public
@@ -169,7 +169,7 @@ export interface ResourceQuery {
    *             </li>
    *          </ul>
    */
-  Type: QueryType | string | undefined;
+  Type: keyof typeof QueryType | string | undefined;
 
   /**
    * <p>The query that defines a group or a search. The contents depends on the value of the
@@ -359,11 +359,11 @@ export interface Group {
 /**
  * @public
  */
-export enum GroupConfigurationStatus {
-  UPDATE_COMPLETE = "UPDATE_COMPLETE",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATING = "UPDATING",
-}
+export const GroupConfigurationStatus = {
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -389,7 +389,7 @@ export interface GroupConfiguration {
   /**
    * <p>The current status of an attempt to update the group configuration.</p>
    */
-  Status?: GroupConfigurationStatus | string;
+  Status?: keyof typeof GroupConfigurationStatus | string;
 
   /**
    * <p>If present, the reason why a request to update the group configuration failed.</p>
@@ -777,9 +777,9 @@ export interface GroupResourcesOutput {
 /**
  * @public
  */
-export enum ResourceFilterName {
-  ResourceType = "resource-type",
-}
+export const ResourceFilterName = {
+  ResourceType: "resource-type",
+};
 
 /**
  * @public
@@ -790,7 +790,7 @@ export interface ResourceFilter {
   /**
    * <p>The name of the filter. Filter names are case-sensitive.</p>
    */
-  Name: ResourceFilterName | string | undefined;
+  Name: keyof typeof ResourceFilterName | string | undefined;
 
   /**
    * <p>One or more filter values. Allowed filter values vary by resource filter name, and are
@@ -879,11 +879,11 @@ export interface ListGroupResourcesInput {
 /**
  * @public
  */
-export enum QueryErrorCode {
-  CLOUDFORMATION_STACK_INACTIVE = "CLOUDFORMATION_STACK_INACTIVE",
-  CLOUDFORMATION_STACK_NOT_EXISTING = "CLOUDFORMATION_STACK_NOT_EXISTING",
-  CLOUDFORMATION_STACK_UNASSUMABLE_ROLE = "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
-}
+export const QueryErrorCode = {
+  CLOUDFORMATION_STACK_INACTIVE: "CLOUDFORMATION_STACK_INACTIVE",
+  CLOUDFORMATION_STACK_NOT_EXISTING: "CLOUDFORMATION_STACK_NOT_EXISTING",
+  CLOUDFORMATION_STACK_UNASSUMABLE_ROLE: "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE",
+};
 
 /**
  * @public
@@ -898,7 +898,7 @@ export interface QueryError {
   /**
    * <p>Specifies the error code that was raised.</p>
    */
-  ErrorCode?: QueryErrorCode | string;
+  ErrorCode?: keyof typeof QueryErrorCode | string;
 
   /**
    * <p>A message that explains the <code>ErrorCode</code> value. Messages might state that
@@ -929,9 +929,9 @@ export interface ResourceIdentifier {
 /**
  * @public
  */
-export enum ResourceStatusValue {
-  Pending = "PENDING",
-}
+export const ResourceStatusValue = {
+  Pending: "PENDING",
+};
 
 /**
  * @public
@@ -944,7 +944,7 @@ export interface ResourceStatus {
   /**
    * <p>The current status.</p>
    */
-  Name?: ResourceStatusValue | string;
+  Name?: keyof typeof ResourceStatusValue | string;
 }
 
 /**
@@ -1038,10 +1038,10 @@ export class UnauthorizedException extends __BaseException {
 /**
  * @public
  */
-export enum GroupFilterName {
-  ConfigurationType = "configuration-type",
-  ResourceType = "resource-type",
-}
+export const GroupFilterName = {
+  ConfigurationType: "configuration-type",
+  ResourceType: "resource-type",
+};
 
 /**
  * @public
@@ -1052,7 +1052,7 @@ export interface GroupFilter {
   /**
    * <p>The name of the filter. Filter names are case-sensitive.</p>
    */
-  Name: GroupFilterName | string | undefined;
+  Name: keyof typeof GroupFilterName | string | undefined;
 
   /**
    * <p>One or more filter values. Allowed filter values vary by group filter name, and are
@@ -1380,7 +1380,7 @@ export interface UpdateAccountSettingsInput {
   /**
    * <p>Specifies whether you want to turn <a href="https://docs.aws.amazon.com/ARG/latest/userguide/monitor-groups.html">group lifecycle events</a> on or off.</p>
    */
-  GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus | string;
+  GroupLifecycleEventsDesiredStatus?: keyof typeof GroupLifecycleEventsDesiredStatus | string;
 }
 
 /**

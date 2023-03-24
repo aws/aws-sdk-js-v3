@@ -27,10 +27,10 @@ export interface BatchCheckLayerAvailabilityRequest {
 /**
  * @public
  */
-export enum LayerFailureCode {
-  InvalidLayerDigest = "InvalidLayerDigest",
-  MissingLayerDigest = "MissingLayerDigest",
-}
+export const LayerFailureCode = {
+  InvalidLayerDigest: "InvalidLayerDigest",
+  MissingLayerDigest: "MissingLayerDigest",
+};
 
 /**
  * @public
@@ -45,7 +45,7 @@ export interface LayerFailure {
   /**
    * <p>The failure code associated with the failure.</p>
    */
-  failureCode?: LayerFailureCode | string;
+  failureCode?: keyof typeof LayerFailureCode | string;
 
   /**
    * <p>The reason for the failure.</p>
@@ -56,10 +56,10 @@ export interface LayerFailure {
 /**
  * @public
  */
-export enum LayerAvailability {
-  AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE",
-}
+export const LayerAvailability = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+};
 
 /**
  * @public
@@ -74,7 +74,7 @@ export interface Layer {
   /**
    * <p>The availability status of the image layer.</p>
    */
-  layerAvailability?: LayerAvailability | string;
+  layerAvailability?: keyof typeof LayerAvailability | string;
 
   /**
    * <p>The size, in bytes, of the image layer.</p>
@@ -211,15 +211,15 @@ export interface BatchDeleteImageRequest {
 /**
  * @public
  */
-export enum ImageFailureCode {
-  ImageNotFound = "ImageNotFound",
-  ImageReferencedByManifestList = "ImageReferencedByManifestList",
-  ImageTagDoesNotMatchDigest = "ImageTagDoesNotMatchDigest",
-  InvalidImageDigest = "InvalidImageDigest",
-  InvalidImageTag = "InvalidImageTag",
-  KmsError = "KmsError",
-  MissingDigestAndTag = "MissingDigestAndTag",
-}
+export const ImageFailureCode = {
+  ImageNotFound: "ImageNotFound",
+  ImageReferencedByManifestList: "ImageReferencedByManifestList",
+  ImageTagDoesNotMatchDigest: "ImageTagDoesNotMatchDigest",
+  InvalidImageDigest: "InvalidImageDigest",
+  InvalidImageTag: "InvalidImageTag",
+  KmsError: "KmsError",
+  MissingDigestAndTag: "MissingDigestAndTag",
+};
 
 /**
  * @public
@@ -234,7 +234,7 @@ export interface ImageFailure {
   /**
    * <p>The code associated with the failure.</p>
    */
-  failureCode?: ImageFailureCode | string;
+  failureCode?: keyof typeof ImageFailureCode | string;
 
   /**
    * <p>The reason for the failure.</p>
@@ -348,9 +348,9 @@ export interface BatchGetRepositoryScanningConfigurationRequest {
 /**
  * @public
  */
-export enum ScanningConfigurationFailureCode {
-  REPOSITORY_NOT_FOUND = "REPOSITORY_NOT_FOUND",
-}
+export const ScanningConfigurationFailureCode = {
+  REPOSITORY_NOT_FOUND: "REPOSITORY_NOT_FOUND",
+};
 
 /**
  * @public
@@ -366,7 +366,7 @@ export interface RepositoryScanningConfigurationFailure {
   /**
    * <p>The failure code.</p>
    */
-  failureCode?: ScanningConfigurationFailureCode | string;
+  failureCode?: keyof typeof ScanningConfigurationFailureCode | string;
 
   /**
    * <p>The reason for the failure.</p>
@@ -377,9 +377,9 @@ export interface RepositoryScanningConfigurationFailure {
 /**
  * @public
  */
-export enum ScanningRepositoryFilterType {
-  WILDCARD = "WILDCARD",
-}
+export const ScanningRepositoryFilterType = {
+  WILDCARD: "WILDCARD",
+};
 
 /**
  * @public
@@ -396,17 +396,17 @@ export interface ScanningRepositoryFilter {
   /**
    * <p>The type associated with the filter.</p>
    */
-  filterType: ScanningRepositoryFilterType | string | undefined;
+  filterType: keyof typeof ScanningRepositoryFilterType | string | undefined;
 }
 
 /**
  * @public
  */
-export enum ScanFrequency {
-  CONTINUOUS_SCAN = "CONTINUOUS_SCAN",
-  MANUAL = "MANUAL",
-  SCAN_ON_PUSH = "SCAN_ON_PUSH",
-}
+export const ScanFrequency = {
+  CONTINUOUS_SCAN: "CONTINUOUS_SCAN",
+  MANUAL: "MANUAL",
+  SCAN_ON_PUSH: "SCAN_ON_PUSH",
+};
 
 /**
  * @public
@@ -431,7 +431,7 @@ export interface RepositoryScanningConfiguration {
   /**
    * <p>The scan frequency for the repository.</p>
    */
-  scanFrequency?: ScanFrequency | string;
+  scanFrequency?: keyof typeof ScanFrequency | string;
 
   /**
    * <p>The scan filters applied to the repository.</p>
@@ -768,10 +768,10 @@ export class UnsupportedUpstreamRegistryException extends __BaseException {
 /**
  * @public
  */
-export enum EncryptionType {
-  AES256 = "AES256",
-  KMS = "KMS",
-}
+export const EncryptionType = {
+  AES256: "AES256",
+  KMS: "KMS",
+};
 
 /**
  * @public
@@ -802,7 +802,7 @@ export interface EncryptionConfiguration {
    *                 server-side encryption with Amazon S3-managed encryption keys (SSE-S3)</a> in the
    *                 <i>Amazon Simple Storage Service Console Developer Guide</i>.</p>
    */
-  encryptionType: EncryptionType | string | undefined;
+  encryptionType: keyof typeof EncryptionType | string | undefined;
 
   /**
    * <p>If you use the <code>KMS</code> encryption type, specify the KMS key to use for
@@ -830,10 +830,10 @@ export interface ImageScanningConfiguration {
 /**
  * @public
  */
-export enum ImageTagMutability {
-  IMMUTABLE = "IMMUTABLE",
-  MUTABLE = "MUTABLE",
-}
+export const ImageTagMutability = {
+  IMMUTABLE: "IMMUTABLE",
+  MUTABLE: "MUTABLE",
+};
 
 /**
  * @public
@@ -885,7 +885,7 @@ export interface CreateRepositoryRequest {
    *             overwritten. If <code>IMMUTABLE</code> is specified, all image tags within the
    *             repository will be immutable which will prevent them from being overwritten.</p>
    */
-  imageTagMutability?: ImageTagMutability | string;
+  imageTagMutability?: keyof typeof ImageTagMutability | string;
 
   /**
    * <p>The image scanning configuration for the repository. This determines whether images
@@ -936,7 +936,7 @@ export interface Repository {
   /**
    * <p>The tag mutability setting for the repository.</p>
    */
-  imageTagMutability?: ImageTagMutability | string;
+  imageTagMutability?: keyof typeof ImageTagMutability | string;
 
   /**
    * <p>The image scanning configuration for a repository.</p>
@@ -1320,11 +1320,11 @@ export interface DescribeImageReplicationStatusRequest {
 /**
  * @public
  */
-export enum ReplicationStatus {
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const ReplicationStatus = {
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -1344,7 +1344,7 @@ export interface ImageReplicationStatus {
   /**
    * <p>The image replication status.</p>
    */
-  status?: ReplicationStatus | string;
+  status?: keyof typeof ReplicationStatus | string;
 
   /**
    * <p>The failure code for a replication that has failed.</p>
@@ -1395,11 +1395,11 @@ export class ImageNotFoundException extends __BaseException {
 /**
  * @public
  */
-export enum TagStatus {
-  ANY = "ANY",
-  TAGGED = "TAGGED",
-  UNTAGGED = "UNTAGGED",
-}
+export const TagStatus = {
+  ANY: "ANY",
+  TAGGED: "TAGGED",
+  UNTAGGED: "UNTAGGED",
+};
 
 /**
  * @public
@@ -1412,7 +1412,7 @@ export interface DescribeImagesFilter {
    *             can filter results based on whether they are <code>TAGGED</code> or
    *                 <code>UNTAGGED</code>.</p>
    */
-  tagStatus?: TagStatus | string;
+  tagStatus?: keyof typeof TagStatus | string;
 }
 
 /**
@@ -1468,14 +1468,14 @@ export interface DescribeImagesRequest {
 /**
  * @public
  */
-export enum FindingSeverity {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  INFORMATIONAL = "INFORMATIONAL",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-  UNDEFINED = "UNDEFINED",
-}
+export const FindingSeverity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  UNDEFINED: "UNDEFINED",
+};
 
 /**
  * @public
@@ -1501,16 +1501,16 @@ export interface ImageScanFindingsSummary {
 /**
  * @public
  */
-export enum ScanStatus {
-  ACTIVE = "ACTIVE",
-  COMPLETE = "COMPLETE",
-  FAILED = "FAILED",
-  FINDINGS_UNAVAILABLE = "FINDINGS_UNAVAILABLE",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  SCAN_ELIGIBILITY_EXPIRED = "SCAN_ELIGIBILITY_EXPIRED",
-  UNSUPPORTED_IMAGE = "UNSUPPORTED_IMAGE",
-}
+export const ScanStatus = {
+  ACTIVE: "ACTIVE",
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  FINDINGS_UNAVAILABLE: "FINDINGS_UNAVAILABLE",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  SCAN_ELIGIBILITY_EXPIRED: "SCAN_ELIGIBILITY_EXPIRED",
+  UNSUPPORTED_IMAGE: "UNSUPPORTED_IMAGE",
+};
 
 /**
  * @public
@@ -1520,7 +1520,7 @@ export interface ImageScanStatus {
   /**
    * <p>The current state of an image scan.</p>
    */
-  status?: ScanStatus | string;
+  status?: keyof typeof ScanStatus | string;
 
   /**
    * <p>The description of the image scan status.</p>
@@ -2091,7 +2091,7 @@ export interface ImageScanFinding {
   /**
    * <p>The finding severity.</p>
    */
-  severity?: FindingSeverity | string;
+  severity?: keyof typeof FindingSeverity | string;
 
   /**
    * <p>A collection of attributes of the host from which the finding is generated.</p>
@@ -2302,9 +2302,9 @@ export interface ReplicationDestination {
 /**
  * @public
  */
-export enum RepositoryFilterType {
-  PREFIX_MATCH = "PREFIX_MATCH",
-}
+export const RepositoryFilterType = {
+  PREFIX_MATCH: "PREFIX_MATCH",
+};
 
 /**
  * @public
@@ -2326,7 +2326,7 @@ export interface RepositoryFilter {
    *             which is a repository name prefix specified with the <code>filter</code>
    *             parameter.</p>
    */
-  filterType: RepositoryFilterType | string | undefined;
+  filterType: keyof typeof RepositoryFilterType | string | undefined;
 }
 
 /**
@@ -2618,7 +2618,7 @@ export interface LifecyclePolicyPreviewFilter {
   /**
    * <p>The tag status of the image.</p>
    */
-  tagStatus?: TagStatus | string;
+  tagStatus?: keyof typeof TagStatus | string;
 }
 
 /**
@@ -2676,9 +2676,9 @@ export interface GetLifecyclePolicyPreviewRequest {
 /**
  * @public
  */
-export enum ImageActionType {
-  EXPIRE = "EXPIRE",
-}
+export const ImageActionType = {
+  EXPIRE: "EXPIRE",
+};
 
 /**
  * @public
@@ -2688,7 +2688,7 @@ export interface LifecyclePolicyRuleAction {
   /**
    * <p>The type of action to be taken.</p>
    */
-  type?: ImageActionType | string;
+  type?: keyof typeof ImageActionType | string;
 }
 
 /**
@@ -2726,12 +2726,12 @@ export interface LifecyclePolicyPreviewResult {
 /**
  * @public
  */
-export enum LifecyclePolicyPreviewStatus {
-  COMPLETE = "COMPLETE",
-  EXPIRED = "EXPIRED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-}
+export const LifecyclePolicyPreviewStatus = {
+  COMPLETE: "COMPLETE",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+};
 
 /**
  * @public
@@ -2766,7 +2766,7 @@ export interface GetLifecyclePolicyPreviewResponse {
   /**
    * <p>The status of the lifecycle policy preview request.</p>
    */
-  status?: LifecyclePolicyPreviewStatus | string;
+  status?: keyof typeof LifecyclePolicyPreviewStatus | string;
 
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -2845,7 +2845,7 @@ export interface RegistryScanningRule {
    *                 <code>BASIC</code> scan type is specified, the <code>SCAN_ON_PUSH</code> and
    *                 <code>MANUAL</code> scan frequencies are supported.</p>
    */
-  scanFrequency: ScanFrequency | string | undefined;
+  scanFrequency: keyof typeof ScanFrequency | string | undefined;
 
   /**
    * <p>The repository filters associated with the scanning configuration for a private
@@ -2857,10 +2857,10 @@ export interface RegistryScanningRule {
 /**
  * @public
  */
-export enum ScanType {
-  BASIC = "BASIC",
-  ENHANCED = "ENHANCED",
-}
+export const ScanType = {
+  BASIC: "BASIC",
+  ENHANCED: "ENHANCED",
+};
 
 /**
  * @public
@@ -2870,7 +2870,7 @@ export interface RegistryScanningConfiguration {
   /**
    * <p>The type of scanning configured for the registry.</p>
    */
-  scanType?: ScanType | string;
+  scanType?: keyof typeof ScanType | string;
 
   /**
    * <p>The scanning rules associated with the registry.</p>
@@ -2971,7 +2971,7 @@ export interface ListImagesFilter {
    *             filter results based on whether they are <code>TAGGED</code> or
    *             <code>UNTAGGED</code>.</p>
    */
-  tagStatus?: TagStatus | string;
+  tagStatus?: keyof typeof TagStatus | string;
 }
 
 /**
@@ -3260,7 +3260,7 @@ export interface PutImageTagMutabilityRequest {
    *             within the repository will be immutable which will prevent them from being
    *             overwritten.</p>
    */
-  imageTagMutability: ImageTagMutability | string | undefined;
+  imageTagMutability: keyof typeof ImageTagMutability | string | undefined;
 }
 
 /**
@@ -3280,7 +3280,7 @@ export interface PutImageTagMutabilityResponse {
   /**
    * <p>The image tag mutability setting for the repository.</p>
    */
-  imageTagMutability?: ImageTagMutability | string;
+  imageTagMutability?: keyof typeof ImageTagMutability | string;
 }
 
 /**
@@ -3367,7 +3367,7 @@ export interface PutRegistryScanningConfigurationRequest {
    *             you may specify filters to determine which individual repositories, or all repositories,
    *             are scanned.</p>
    */
-  scanType?: ScanType | string;
+  scanType?: keyof typeof ScanType | string;
 
   /**
    * <p>The scanning rules to use for the registry. A scanning rule is used to determine which
@@ -3587,7 +3587,7 @@ export interface StartLifecyclePolicyPreviewResponse {
   /**
    * <p>The status of the lifecycle policy preview request.</p>
    */
-  status?: LifecyclePolicyPreviewStatus | string;
+  status?: keyof typeof LifecyclePolicyPreviewStatus | string;
 }
 
 /**

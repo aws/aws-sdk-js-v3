@@ -235,10 +235,10 @@ export interface ListAccessTokensResponse {
 /**
  * @public
  */
-export enum CatalogActionVersionFileRecordType {
-  LICENSE = "LICENSE",
-  README = "README",
-}
+export const CatalogActionVersionFileRecordType = {
+  LICENSE: "LICENSE",
+  README: "README",
+};
 
 /**
  * @public
@@ -339,10 +339,10 @@ export interface ListEventLogsRequest {
 /**
  * @public
  */
-export enum OperationType {
-  MUTATION = "MUTATION",
-  READONLY = "READONLY",
-}
+export const OperationType = {
+  MUTATION: "MUTATION",
+  READONLY: "READONLY",
+};
 
 /**
  * @public
@@ -379,11 +379,11 @@ export interface EventPayload {
 /**
  * @public
  */
-export enum UserType {
-  AWS_ACCOUNT = "AWS_ACCOUNT",
-  UNKNOWN = "UNKNOWN",
-  USER = "USER",
-}
+export const UserType = {
+  AWS_ACCOUNT: "AWS_ACCOUNT",
+  UNKNOWN: "UNKNOWN",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -393,7 +393,7 @@ export interface UserIdentity {
   /**
    * <p>The role assigned to the user in a Amazon CodeCatalyst space or project when the event occurred.</p>
    */
-  userType: UserType | string | undefined;
+  userType: keyof typeof UserType | string | undefined;
 
   /**
    * <p/>
@@ -449,7 +449,7 @@ export interface EventLogEntry {
   /**
    * <p>The type of the event.</p>
    */
-  operationType: OperationType | string | undefined;
+  operationType: keyof typeof OperationType | string | undefined;
 
   /**
    * <p>The system-generated unique ID of the user whose actions are recorded in the event.</p>
@@ -661,12 +661,12 @@ export interface IdeConfiguration {
 /**
  * @public
  */
-export enum _InstanceType {
-  DEV_STANDARD1_LARGE = "dev.standard1.large",
-  DEV_STANDARD1_MEDIUM = "dev.standard1.medium",
-  DEV_STANDARD1_SMALL = "dev.standard1.small",
-  DEV_STANDARD1_XLARGE = "dev.standard1.xlarge",
-}
+export const _InstanceType = {
+  DEV_STANDARD1_LARGE: "dev.standard1.large",
+  DEV_STANDARD1_MEDIUM: "dev.standard1.medium",
+  DEV_STANDARD1_SMALL: "dev.standard1.small",
+  DEV_STANDARD1_XLARGE: "dev.standard1.xlarge",
+};
 
 /**
  * @public
@@ -742,7 +742,7 @@ export interface CreateDevEnvironmentRequest {
   /**
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    */
-  instanceType: _InstanceType | string | undefined;
+  instanceType: keyof typeof _InstanceType | string | undefined;
 
   /**
    * <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.</p>
@@ -891,16 +891,16 @@ export interface DevEnvironmentRepositorySummary {
 /**
  * @public
  */
-export enum DevEnvironmentStatus {
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-}
+export const DevEnvironmentStatus = {
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+};
 
 /**
  * @public
@@ -934,7 +934,7 @@ export interface GetDevEnvironmentResponse {
   /**
    * <p>The current status of the Dev Environment.</p>
    */
-  status: DevEnvironmentStatus | string | undefined;
+  status: keyof typeof DevEnvironmentStatus | string | undefined;
 
   /**
    * <p>The reason for the status.</p>
@@ -959,7 +959,7 @@ export interface GetDevEnvironmentResponse {
   /**
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    */
-  instanceType: _InstanceType | string | undefined;
+  instanceType: keyof typeof _InstanceType | string | undefined;
 
   /**
    * <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes.</p>
@@ -1056,7 +1056,7 @@ export interface DevEnvironmentSummary {
   /**
    * <p>The status of the Dev Environment. </p>
    */
-  status: DevEnvironmentStatus | string | undefined;
+  status: keyof typeof DevEnvironmentStatus | string | undefined;
 
   /**
    * <p>The reason for the status.</p>
@@ -1081,7 +1081,7 @@ export interface DevEnvironmentSummary {
   /**
    * <p>The Amazon EC2 instace type used for the Dev Environment. </p>
    */
-  instanceType: _InstanceType | string | undefined;
+  instanceType: keyof typeof _InstanceType | string | undefined;
 
   /**
    * <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Dev Environments consume compute minutes when running.</p>
@@ -1136,7 +1136,7 @@ export interface StartDevEnvironmentRequest {
   /**
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    */
-  instanceType?: _InstanceType | string;
+  instanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.</p>
@@ -1166,7 +1166,7 @@ export interface StartDevEnvironmentResponse {
   /**
    * <p>The status of the Dev Environment. </p>
    */
-  status: DevEnvironmentStatus | string | undefined;
+  status: keyof typeof DevEnvironmentStatus | string | undefined;
 }
 
 /**
@@ -1188,10 +1188,10 @@ export interface ExecuteCommandSessionConfiguration {
 /**
  * @public
  */
-export enum DevEnvironmentSessionType {
-  SSH = "SSH",
-  SSM = "SSM",
-}
+export const DevEnvironmentSessionType = {
+  SSH: "SSH",
+  SSM: "SSM",
+};
 
 /**
  * @public
@@ -1201,7 +1201,7 @@ export interface DevEnvironmentSessionConfiguration {
   /**
    * <p>The type of the session.</p>
    */
-  sessionType: DevEnvironmentSessionType | string | undefined;
+  sessionType: keyof typeof DevEnvironmentSessionType | string | undefined;
 
   /**
    * <p>Information about optional commands that will be run on the Dev Environment when the SSH session begins.</p>
@@ -1322,7 +1322,7 @@ export interface StopDevEnvironmentResponse {
   /**
    * <p>The status of the Dev Environment. </p>
    */
-  status: DevEnvironmentStatus | string | undefined;
+  status: keyof typeof DevEnvironmentStatus | string | undefined;
 }
 
 /**
@@ -1410,7 +1410,7 @@ export interface UpdateDevEnvironmentRequest {
    *             <p>Changing this value will cause a restart of the Dev Environment if it is running.</p>
    *          </note>
    */
-  instanceType?: _InstanceType | string;
+  instanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes.
@@ -1460,7 +1460,7 @@ export interface UpdateDevEnvironmentResponse {
   /**
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    */
-  instanceType?: _InstanceType | string;
+  instanceType?: keyof typeof _InstanceType | string;
 
   /**
    * <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. </p>
@@ -1517,20 +1517,20 @@ export interface GetProjectResponse {
 /**
  * @public
  */
-export enum ComparisonOperator {
-  EQUALS = "EQ",
-  GREATER_THAN = "GT",
-  GREATER_THAN_OR_EQUALS = "GE",
-  LESS_THAN = "LT",
-  LESS_THAN_OR_EQUALS = "LE",
-}
+export const ComparisonOperator = {
+  EQUALS: "EQ",
+  GREATER_THAN: "GT",
+  GREATER_THAN_OR_EQUALS: "GE",
+  LESS_THAN: "LT",
+  LESS_THAN_OR_EQUALS: "LE",
+};
 
 /**
  * @public
  */
-export enum FilterKey {
-  HAS_ACCESS_TO = "hasAccessTo",
-}
+export const FilterKey = {
+  HAS_ACCESS_TO: "hasAccessTo",
+};
 
 /**
  * @public
@@ -1540,7 +1540,7 @@ export interface ProjectListFilter {
   /**
    * <p>A key that can be used to sort results.</p>
    */
-  key: FilterKey | string | undefined;
+  key: keyof typeof FilterKey | string | undefined;
 
   /**
    * <p>The value of the key.</p>
@@ -1550,7 +1550,7 @@ export interface ProjectListFilter {
   /**
    * <p>The operator used to compare the fields.</p>
    */
-  comparisonOperator?: ComparisonOperator | string;
+  comparisonOperator?: keyof typeof ComparisonOperator | string;
 }
 
 /**

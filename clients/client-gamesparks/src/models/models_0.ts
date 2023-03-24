@@ -95,10 +95,10 @@ export interface CreateGameRequest {
 /**
  * @public
  */
-export enum GameState {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-}
+export const GameState = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -133,7 +133,7 @@ export interface GameDetails {
   /**
    * <p>The state of the game.</p>
    */
-  State?: GameState | string;
+  State?: keyof typeof GameState | string;
 
   /**
    * <p>Determines if the game can be deleted.</p>
@@ -387,10 +387,10 @@ export interface CreateStageRequest {
 /**
  * @public
  */
-export enum StageState {
-  ACTIVE = "ACTIVE",
-  DELETING = "DELETING",
-}
+export const StageState = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -438,7 +438,7 @@ export interface StageDetails {
   /**
    * <p>The state of the stage.</p>
    */
-  State?: StageState | string;
+  State?: keyof typeof StageState | string;
 
   /**
    * <p>The tags associated with the stage.</p>
@@ -499,19 +499,19 @@ export interface DeleteStageResult {}
 /**
  * @public
  */
-export enum DeploymentAction {
-  DEPLOY = "DEPLOY",
-  UNDEPLOY = "UNDEPLOY",
-}
+export const DeploymentAction = {
+  DEPLOY: "DEPLOY",
+  UNDEPLOY: "UNDEPLOY",
+};
 
 /**
  * @public
  */
-export enum ResultCode {
-  INVALID_ROLE_FAILURE = "INVALID_ROLE_FAILURE",
-  SUCCESS = "SUCCESS",
-  UNSPECIFIED_FAILURE = "UNSPECIFIED_FAILURE",
-}
+export const ResultCode = {
+  INVALID_ROLE_FAILURE: "INVALID_ROLE_FAILURE",
+  SUCCESS: "SUCCESS",
+  UNSPECIFIED_FAILURE: "UNSPECIFIED_FAILURE",
+};
 
 /**
  * @public
@@ -521,7 +521,7 @@ export interface DeploymentResult {
   /**
    * <p>The type of deployment result.</p>
    */
-  ResultCode?: ResultCode | string;
+  ResultCode?: keyof typeof ResultCode | string;
 
   /**
    * <p>Details about the deployment result.</p>
@@ -532,12 +532,12 @@ export interface DeploymentResult {
 /**
  * @public
  */
-export enum DeploymentState {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-}
+export const DeploymentState = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -799,12 +799,12 @@ export interface GetGeneratedCodeJobRequest {
 /**
  * @public
  */
-export enum GeneratedCodeJobState {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-}
+export const GeneratedCodeJobState = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -819,7 +819,7 @@ export interface GeneratedCodeJobDetails {
   /**
    * <p>The status of the generated code job</p>
    */
-  Status?: GeneratedCodeJobState | string;
+  Status?: keyof typeof GeneratedCodeJobState | string;
 
   /**
    * <p>The description of the generated code job.</p>
@@ -976,12 +976,12 @@ export interface StageDeploymentDetails {
   /**
    * <p>The type of action of the stage deployment.</p>
    */
-  DeploymentAction?: DeploymentAction | string;
+  DeploymentAction?: keyof typeof DeploymentAction | string;
 
   /**
    * <p>The state of the deployment.</p>
    */
-  DeploymentState?: DeploymentState | string;
+  DeploymentState?: keyof typeof DeploymentState | string;
 
   /**
    * <p>The timestamp of when the stage deployment was created.</p>
@@ -1175,7 +1175,7 @@ export interface GameSummary {
   /**
    * <p>The state of the game.</p>
    */
-  State?: GameState | string;
+  State?: keyof typeof GameState | string;
 
   /**
    * <p>The tags associated with the game.</p>
@@ -1375,12 +1375,12 @@ export interface StageDeploymentSummary {
   /**
    * <p>The type of action of the deployment.</p>
    */
-  DeploymentAction?: DeploymentAction | string;
+  DeploymentAction?: keyof typeof DeploymentAction | string;
 
   /**
    * <p>The state of the deployment.</p>
    */
-  DeploymentState?: DeploymentState | string;
+  DeploymentState?: keyof typeof DeploymentState | string;
 
   /**
    * <p>The timestamp of when the deployment was last updated.</p>
@@ -1467,7 +1467,7 @@ export interface StageSummary {
   /**
    * <p>The state of the stage.</p>
    */
-  State?: StageState | string;
+  State?: keyof typeof StageState | string;
 
   /**
    * <p>The tags associated with the stage.</p>
@@ -1681,11 +1681,11 @@ export interface UpdateGameResult {
 /**
  * @public
  */
-export enum Operation {
-  ADD = "ADD",
-  REMOVE = "REMOVE",
-  REPLACE = "REPLACE",
-}
+export const Operation = {
+  ADD: "ADD",
+  REMOVE: "REMOVE",
+  REPLACE: "REPLACE",
+};
 
 /**
  * @public
@@ -1708,7 +1708,7 @@ export interface SectionModification {
    *       Content can be added, deleted, or replaced within a section.
    *       </p>
    */
-  Operation: Operation | string | undefined;
+  Operation: keyof typeof Operation | string | undefined;
 
   /**
    * <p>For add and replace operations, this is the value that will be used.</p>

@@ -4356,10 +4356,10 @@ export interface AwsS3BucketLoggingConfiguration {
 /**
  * @public
  */
-export enum AwsS3BucketNotificationConfigurationS3KeyFilterRuleName {
-  PREFIX = "Prefix",
-  SUFFIX = "Suffix",
-}
+export const AwsS3BucketNotificationConfigurationS3KeyFilterRuleName = {
+  PREFIX: "Prefix",
+  SUFFIX: "Suffix",
+};
 
 /**
  * @public
@@ -4369,7 +4369,7 @@ export interface AwsS3BucketNotificationConfigurationS3KeyFilterRule {
   /**
    * <p>Indicates whether the filter is based on the prefix or suffix of the Amazon S3 key.</p>
    */
-  Name?: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName | string;
+  Name?: keyof typeof AwsS3BucketNotificationConfigurationS3KeyFilterRuleName | string;
 
   /**
    * <p>The filter value.</p>
@@ -4951,12 +4951,12 @@ export interface AwsSecretsManagerSecretDetails {
 /**
  * @public
  */
-export enum ComplianceStatus {
-  FAILED = "FAILED",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  PASSED = "PASSED",
-  WARNING = "WARNING",
-}
+export const ComplianceStatus = {
+  FAILED: "FAILED",
+  NOT_AVAILABLE: "NOT_AVAILABLE",
+  PASSED: "PASSED",
+  WARNING: "WARNING",
+};
 
 /**
  * @public
@@ -5015,7 +5015,7 @@ export interface Compliance {
    *             </li>
    *          </ul>
    */
-  Status?: ComplianceStatus | string;
+  Status?: keyof typeof ComplianceStatus | string;
 
   /**
    * <p>For a control, the industry or regulatory framework requirements that are related to the
@@ -5064,13 +5064,13 @@ export interface RelatedFinding {
 /**
  * @public
  */
-export enum SeverityLabel {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  INFORMATIONAL = "INFORMATIONAL",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const SeverityLabel = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+};
 
 /**
  * @public
@@ -5080,7 +5080,7 @@ export interface FindingProviderSeverity {
   /**
    * <p>The severity label assigned to the finding by the finding provider.</p>
    */
-  Label?: SeverityLabel | string;
+  Label?: keyof typeof SeverityLabel | string;
 
   /**
    * <p>The finding provider's original value for the severity.</p>
@@ -5130,32 +5130,32 @@ export interface FindingProviderFields {
 /**
  * @public
  */
-export enum MalwareState {
-  OBSERVED = "OBSERVED",
-  REMOVAL_FAILED = "REMOVAL_FAILED",
-  REMOVED = "REMOVED",
-}
+export const MalwareState = {
+  OBSERVED: "OBSERVED",
+  REMOVAL_FAILED: "REMOVAL_FAILED",
+  REMOVED: "REMOVED",
+};
 
 /**
  * @public
  */
-export enum MalwareType {
-  ADWARE = "ADWARE",
-  BLENDED_THREAT = "BLENDED_THREAT",
-  BOTNET_AGENT = "BOTNET_AGENT",
-  COIN_MINER = "COIN_MINER",
-  EXPLOIT_KIT = "EXPLOIT_KIT",
-  KEYLOGGER = "KEYLOGGER",
-  MACRO = "MACRO",
-  POTENTIALLY_UNWANTED = "POTENTIALLY_UNWANTED",
-  RANSOMWARE = "RANSOMWARE",
-  REMOTE_ACCESS = "REMOTE_ACCESS",
-  ROOTKIT = "ROOTKIT",
-  SPYWARE = "SPYWARE",
-  TROJAN = "TROJAN",
-  VIRUS = "VIRUS",
-  WORM = "WORM",
-}
+export const MalwareType = {
+  ADWARE: "ADWARE",
+  BLENDED_THREAT: "BLENDED_THREAT",
+  BOTNET_AGENT: "BOTNET_AGENT",
+  COIN_MINER: "COIN_MINER",
+  EXPLOIT_KIT: "EXPLOIT_KIT",
+  KEYLOGGER: "KEYLOGGER",
+  MACRO: "MACRO",
+  POTENTIALLY_UNWANTED: "POTENTIALLY_UNWANTED",
+  RANSOMWARE: "RANSOMWARE",
+  REMOTE_ACCESS: "REMOTE_ACCESS",
+  ROOTKIT: "ROOTKIT",
+  SPYWARE: "SPYWARE",
+  TROJAN: "TROJAN",
+  VIRUS: "VIRUS",
+  WORM: "WORM",
+};
 
 /**
  * @public
@@ -5170,7 +5170,7 @@ export interface Malware {
   /**
    * <p>The type of the malware that was observed.</p>
    */
-  Type?: MalwareType | string;
+  Type?: keyof typeof MalwareType | string;
 
   /**
    * <p>The file system path of the malware that was observed.</p>
@@ -5180,16 +5180,16 @@ export interface Malware {
   /**
    * <p>The state of the malware that was observed.</p>
    */
-  State?: MalwareState | string;
+  State?: keyof typeof MalwareState | string;
 }
 
 /**
  * @public
  */
-export enum NetworkDirection {
-  IN = "IN",
-  OUT = "OUT",
-}
+export const NetworkDirection = {
+  IN: "IN",
+  OUT: "OUT",
+};
 
 /**
  * @public
@@ -5215,7 +5215,7 @@ export interface Network {
   /**
    * <p>The direction of network traffic associated with a finding.</p>
    */
-  Direction?: NetworkDirection | string;
+  Direction?: keyof typeof NetworkDirection | string;
 
   /**
    * <p>The protocol of network-related information about a finding.</p>
@@ -5483,10 +5483,10 @@ export interface ProcessDetails {
 /**
  * @public
  */
-export enum RecordState {
-  ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-}
+export const RecordState = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+};
 
 /**
  * @public
@@ -7783,11 +7783,11 @@ export interface ResourceDetails {
 /**
  * @public
  */
-export enum Partition {
-  AWS = "aws",
-  AWS_CN = "aws-cn",
-  AWS_US_GOV = "aws-us-gov",
-}
+export const Partition = {
+  AWS: "aws",
+  AWS_CN: "aws-cn",
+  AWS_US_GOV: "aws-us-gov",
+};
 
 /**
  * @public
@@ -7811,7 +7811,7 @@ export interface Resource {
   /**
    * <p>The canonical Amazon Web Services partition name that the Region is assigned to.</p>
    */
-  Partition?: Partition | string;
+  Partition?: keyof typeof Partition | string;
 
   /**
    * <p>The canonical Amazon Web Services external Region name where this resource is located.</p>
@@ -7910,7 +7910,7 @@ export interface Severity {
    *             </li>
    *          </ul>
    */
-  Label?: SeverityLabel | string;
+  Label?: keyof typeof SeverityLabel | string;
 
   /**
    * <p>Deprecated. The normalized severity of a finding. This attribute is being deprecated.
@@ -7951,31 +7951,31 @@ export interface Severity {
 /**
  * @public
  */
-export enum ThreatIntelIndicatorCategory {
-  BACKDOOR = "BACKDOOR",
-  CARD_STEALER = "CARD_STEALER",
-  COMMAND_AND_CONTROL = "COMMAND_AND_CONTROL",
-  DROP_SITE = "DROP_SITE",
-  EXPLOIT_SITE = "EXPLOIT_SITE",
-  KEYLOGGER = "KEYLOGGER",
-}
+export const ThreatIntelIndicatorCategory = {
+  BACKDOOR: "BACKDOOR",
+  CARD_STEALER: "CARD_STEALER",
+  COMMAND_AND_CONTROL: "COMMAND_AND_CONTROL",
+  DROP_SITE: "DROP_SITE",
+  EXPLOIT_SITE: "EXPLOIT_SITE",
+  KEYLOGGER: "KEYLOGGER",
+};
 
 /**
  * @public
  */
-export enum ThreatIntelIndicatorType {
-  DOMAIN = "DOMAIN",
-  EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  HASH_MD5 = "HASH_MD5",
-  HASH_SHA1 = "HASH_SHA1",
-  HASH_SHA256 = "HASH_SHA256",
-  HASH_SHA512 = "HASH_SHA512",
-  IPV4_ADDRESS = "IPV4_ADDRESS",
-  IPV6_ADDRESS = "IPV6_ADDRESS",
-  MUTEX = "MUTEX",
-  PROCESS = "PROCESS",
-  URL = "URL",
-}
+export const ThreatIntelIndicatorType = {
+  DOMAIN: "DOMAIN",
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  HASH_MD5: "HASH_MD5",
+  HASH_SHA1: "HASH_SHA1",
+  HASH_SHA256: "HASH_SHA256",
+  HASH_SHA512: "HASH_SHA512",
+  IPV4_ADDRESS: "IPV4_ADDRESS",
+  IPV6_ADDRESS: "IPV6_ADDRESS",
+  MUTEX: "MUTEX",
+  PROCESS: "PROCESS",
+  URL: "URL",
+};
 
 /**
  * @public
@@ -7985,7 +7985,7 @@ export interface ThreatIntelIndicator {
   /**
    * <p>The type of threat intelligence indicator.</p>
    */
-  Type?: ThreatIntelIndicatorType | string;
+  Type?: keyof typeof ThreatIntelIndicatorType | string;
 
   /**
    * <p>The value of a threat intelligence indicator.</p>
@@ -7995,7 +7995,7 @@ export interface ThreatIntelIndicator {
   /**
    * <p>The category of a threat intelligence indicator.</p>
    */
-  Category?: ThreatIntelIndicatorCategory | string;
+  Category?: keyof typeof ThreatIntelIndicatorCategory | string;
 
   /**
    * <p>Indicates when the most recent instance of a threat intelligence indicator was
@@ -8083,12 +8083,12 @@ export interface Threat {
 /**
  * @public
  */
-export enum VerificationState {
-  BENIGN_POSITIVE = "BENIGN_POSITIVE",
-  FALSE_POSITIVE = "FALSE_POSITIVE",
-  TRUE_POSITIVE = "TRUE_POSITIVE",
-  UNKNOWN = "UNKNOWN",
-}
+export const VerificationState = {
+  BENIGN_POSITIVE: "BENIGN_POSITIVE",
+  FALSE_POSITIVE: "FALSE_POSITIVE",
+  TRUE_POSITIVE: "TRUE_POSITIVE",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -8124,11 +8124,11 @@ export interface Cvss {
 /**
  * @public
  */
-export enum VulnerabilityFixAvailable {
-  NO = "NO",
-  PARTIAL = "PARTIAL",
-  YES = "YES",
-}
+export const VulnerabilityFixAvailable = {
+  NO: "NO",
+  PARTIAL: "PARTIAL",
+  YES: "YES",
+};
 
 /**
  * @public
@@ -8289,18 +8289,18 @@ export interface Vulnerability {
    *             </li>
    *          </ul>
    */
-  FixAvailable?: VulnerabilityFixAvailable | string;
+  FixAvailable?: keyof typeof VulnerabilityFixAvailable | string;
 }
 
 /**
  * @public
  */
-export enum WorkflowStatus {
-  NEW = "NEW",
-  NOTIFIED = "NOTIFIED",
-  RESOLVED = "RESOLVED",
-  SUPPRESSED = "SUPPRESSED",
-}
+export const WorkflowStatus = {
+  NEW: "NEW",
+  NOTIFIED: "NOTIFIED",
+  RESOLVED: "RESOLVED",
+  SUPPRESSED: "SUPPRESSED",
+};
 
 /**
  * @public
@@ -8347,19 +8347,19 @@ export interface Workflow {
    *             </li>
    *          </ul>
    */
-  Status?: WorkflowStatus | string;
+  Status?: keyof typeof WorkflowStatus | string;
 }
 
 /**
  * @public
  */
-export enum WorkflowState {
-  ASSIGNED = "ASSIGNED",
-  DEFERRED = "DEFERRED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NEW = "NEW",
-  RESOLVED = "RESOLVED",
-}
+export const WorkflowState = {
+  ASSIGNED: "ASSIGNED",
+  DEFERRED: "DEFERRED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NEW: "NEW",
+  RESOLVED: "RESOLVED",
+};
 
 /**
  * @public
@@ -8572,14 +8572,14 @@ export interface AwsSecurityFinding {
   /**
    * <p>Indicates the veracity of a finding. </p>
    */
-  VerificationState?: VerificationState | string;
+  VerificationState?: keyof typeof VerificationState | string;
 
   /**
    * @deprecated
    *
    * <p>The workflow state of a finding. </p>
    */
-  WorkflowState?: WorkflowState | string;
+  WorkflowState?: keyof typeof WorkflowState | string;
 
   /**
    * <p>Provides information about the status of the investigation into a finding.</p>
@@ -8589,7 +8589,7 @@ export interface AwsSecurityFinding {
   /**
    * <p>The record state of a finding.</p>
    */
-  RecordState?: RecordState | string;
+  RecordState?: keyof typeof RecordState | string;
 
   /**
    * <p>A list of related findings.</p>
@@ -8631,12 +8631,12 @@ export interface AwsSecurityFinding {
 /**
  * @public
  */
-export enum StringFilterComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-  PREFIX = "PREFIX",
-  PREFIX_NOT_EQUALS = "PREFIX_NOT_EQUALS",
-}
+export const StringFilterComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+  PREFIX: "PREFIX",
+  PREFIX_NOT_EQUALS: "PREFIX_NOT_EQUALS",
+};
 
 /**
  * @public
@@ -8731,7 +8731,7 @@ export interface StringFilter {
    *             </li>
    *          </ul>
    */
-  Comparison?: StringFilterComparison | string;
+  Comparison?: keyof typeof StringFilterComparison | string;
 }
 
 /**
@@ -8761,9 +8761,9 @@ export interface NumberFilter {
 /**
  * @public
  */
-export enum DateRangeUnit {
-  DAYS = "DAYS",
-}
+export const DateRangeUnit = {
+  DAYS: "DAYS",
+};
 
 /**
  * @public
@@ -8778,7 +8778,7 @@ export interface DateRange {
   /**
    * <p>A date range unit for the date filter.</p>
    */
-  Unit?: DateRangeUnit | string;
+  Unit?: keyof typeof DateRangeUnit | string;
 }
 
 /**
@@ -8831,10 +8831,10 @@ export interface IpFilter {
 /**
  * @public
  */
-export enum MapFilterComparison {
-  EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS",
-}
+export const MapFilterComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+};
 
 /**
  * @public
@@ -8876,7 +8876,7 @@ export interface MapFilter {
    *          <p>You cannot have both an <code>EQUALS</code> filter and a <code>NOT_EQUALS</code> filter
    *          on the same field.</p>
    */
-  Comparison?: MapFilterComparison | string;
+  Comparison?: keyof typeof MapFilterComparison | string;
 }
 
 /**
@@ -9540,21 +9540,21 @@ export interface BatchDisableStandardsRequest {
 /**
  * @public
  */
-export enum StandardsStatus {
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  INCOMPLETE = "INCOMPLETE",
-  PENDING = "PENDING",
-  READY = "READY",
-}
+export const StandardsStatus = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  INCOMPLETE: "INCOMPLETE",
+  PENDING: "PENDING",
+  READY: "READY",
+};
 
 /**
  * @public
  */
-export enum StatusReasonCode {
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-  NO_AVAILABLE_CONFIGURATION_RECORDER = "NO_AVAILABLE_CONFIGURATION_RECORDER",
-}
+export const StatusReasonCode = {
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  NO_AVAILABLE_CONFIGURATION_RECORDER: "NO_AVAILABLE_CONFIGURATION_RECORDER",
+};
 
 /**
  * @public
@@ -9564,7 +9564,7 @@ export interface StandardsStatusReason {
   /**
    * <p>The reason code that represents the reason for the current status of a standard subscription.</p>
    */
-  StatusReasonCode: StatusReasonCode | string | undefined;
+  StatusReasonCode: keyof typeof StatusReasonCode | string | undefined;
 }
 
 /**
@@ -9613,7 +9613,7 @@ export interface StandardsSubscription {
    *             </li>
    *          </ul>
    */
-  StandardsStatus: StandardsStatus | string | undefined;
+  StandardsStatus: keyof typeof StandardsStatus | string | undefined;
 
   /**
    * <p>The reason for the current status.</p>
@@ -9683,20 +9683,20 @@ export interface BatchGetSecurityControlsRequest {
 /**
  * @public
  */
-export enum ControlStatus {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const ControlStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum SeverityRating {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const SeverityRating = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+};
 
 /**
  * @public
@@ -9747,7 +9747,7 @@ export interface SecurityControl {
    *          <i>Security Hub User Guide</i>.
    *       </p>
    */
-  SeverityRating: SeverityRating | string | undefined;
+  SeverityRating: keyof typeof SeverityRating | string | undefined;
 
   /**
    * <p>
@@ -9756,18 +9756,18 @@ export interface SecurityControl {
    *          <i>Security Hub User Guide</i>.
    *       </p>
    */
-  SecurityControlStatus: ControlStatus | string | undefined;
+  SecurityControlStatus: keyof typeof ControlStatus | string | undefined;
 }
 
 /**
  * @public
  */
-export enum UnprocessedErrorCode {
-  ACCESS_DENIED = "ACCESS_DENIED",
-  INVALID_INPUT = "INVALID_INPUT",
-  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
-  NOT_FOUND = "NOT_FOUND",
-}
+export const UnprocessedErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INVALID_INPUT: "INVALID_INPUT",
+  LIMIT_EXCEEDED: "LIMIT_EXCEEDED",
+  NOT_FOUND: "NOT_FOUND",
+};
 
 /**
  * @public
@@ -9786,7 +9786,7 @@ export interface UnprocessedSecurityControl {
    *          The error code for the unprocessed security control.
    *       </p>
    */
-  ErrorCode: UnprocessedErrorCode | string | undefined;
+  ErrorCode: keyof typeof UnprocessedErrorCode | string | undefined;
 
   /**
    * <p>
@@ -9886,7 +9886,7 @@ export interface StandardsControlAssociationDetail {
    *          Specifies whether a control is enabled or disabled in a specified standard.
    *       </p>
    */
-  AssociationStatus: AssociationStatus | string | undefined;
+  AssociationStatus: keyof typeof AssociationStatus | string | undefined;
 
   /**
    * <p>
@@ -9951,7 +9951,7 @@ export interface UnprocessedStandardsControlAssociation {
    * <p>The error code for the unprocessed standard and control association.
    *       </p>
    */
-  ErrorCode: UnprocessedErrorCode | string | undefined;
+  ErrorCode: keyof typeof UnprocessedErrorCode | string | undefined;
 
   /**
    * <p>The reason why the standard and control association was unprocessed. </p>
@@ -10116,7 +10116,7 @@ export interface SeverityUpdate {
    *             </li>
    *          </ul>
    */
-  Label?: SeverityLabel | string;
+  Label?: keyof typeof SeverityLabel | string;
 }
 
 /**
@@ -10162,7 +10162,7 @@ export interface WorkflowUpdate {
    *             </li>
    *          </ul>
    */
-  Status?: WorkflowStatus | string;
+  Status?: keyof typeof WorkflowStatus | string;
 }
 
 /**
@@ -10211,7 +10211,7 @@ export interface BatchUpdateFindingsRequest {
    *             </li>
    *          </ul>
    */
-  VerificationState?: VerificationState | string;
+  VerificationState?: keyof typeof VerificationState | string;
 
   /**
    * <p>The updated value for the finding confidence. Confidence is defined as the likelihood
@@ -10394,7 +10394,7 @@ export interface StandardsControlAssociationUpdate {
   /**
    * <p>The desired enablement status of the control in the standard.</p>
    */
-  AssociationStatus: AssociationStatus | string | undefined;
+  AssociationStatus: keyof typeof AssociationStatus | string | undefined;
 
   /**
    * <p>The reason for updating the control's enablement status in the standard.</p>
@@ -10432,7 +10432,7 @@ export interface UnprocessedStandardsControlAssociationUpdate {
    * <p>The error code for the unprocessed update of the control's enablement status in the
    *          specified standard.</p>
    */
-  ErrorCode: UnprocessedErrorCode | string | undefined;
+  ErrorCode: keyof typeof UnprocessedErrorCode | string | undefined;
 
   /**
    * <p>The reason why a control's enablement status in the specified standard couldn't be updated. </p>
@@ -10455,10 +10455,10 @@ export interface BatchUpdateStandardsControlAssociationsResponse {
 /**
  * @public
  */
-export enum ControlFindingGenerator {
-  SECURITY_CONTROL = "SECURITY_CONTROL",
-  STANDARD_CONTROL = "STANDARD_CONTROL",
-}
+export const ControlFindingGenerator = {
+  SECURITY_CONTROL: "SECURITY_CONTROL",
+  STANDARD_CONTROL: "STANDARD_CONTROL",
+};
 
 /**
  * @public

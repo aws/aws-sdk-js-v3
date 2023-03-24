@@ -190,25 +190,25 @@ export interface ListCrawlersResponse {
 /**
  * @public
  */
-export enum FieldName {
-  CRAWL_ID = "CRAWL_ID",
-  DPU_HOUR = "DPU_HOUR",
-  END_TIME = "END_TIME",
-  START_TIME = "START_TIME",
-  STATE = "STATE",
-}
+export const FieldName = {
+  CRAWL_ID: "CRAWL_ID",
+  DPU_HOUR: "DPU_HOUR",
+  END_TIME: "END_TIME",
+  START_TIME: "START_TIME",
+  STATE: "STATE",
+};
 
 /**
  * @public
  */
-export enum FilterOperator {
-  EQ = "EQ",
-  GE = "GE",
-  GT = "GT",
-  LE = "LE",
-  LT = "LT",
-  NE = "NE",
-}
+export const FilterOperator = {
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  LE: "LE",
+  LT: "LT",
+  NE: "NE",
+};
 
 /**
  * @public
@@ -236,7 +236,7 @@ export interface CrawlsFilter {
    *             </li>
    *          </ul>
    */
-  FieldName?: FieldName | string;
+  FieldName?: keyof typeof FieldName | string;
 
   /**
    * <p>A defined comparator that operates on the value. The available operators are:</p>
@@ -267,7 +267,7 @@ export interface CrawlsFilter {
    *             </li>
    *          </ul>
    */
-  FilterOperator?: FilterOperator | string;
+  FilterOperator?: keyof typeof FilterOperator | string;
 
   /**
    * <p>The value provided for comparison on the crawl field. </p>
@@ -303,12 +303,12 @@ export interface ListCrawlsRequest {
 /**
  * @public
  */
-export enum CrawlerHistoryState {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
-}
+export const CrawlerHistoryState = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -323,7 +323,7 @@ export interface CrawlerHistory {
   /**
    * <p>The state of the crawl.</p>
    */
-  State?: CrawlerHistoryState | string;
+  State?: keyof typeof CrawlerHistoryState | string;
 
   /**
    * <p>The date and time on which the crawl started.</p>
@@ -562,7 +562,7 @@ export interface DataQualityRuleRecommendationRunDescription {
   /**
    * <p>The status for this run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: keyof typeof TaskStatusType | string;
 
   /**
    * <p>The date and time when this run started.</p>
@@ -644,7 +644,7 @@ export interface DataQualityRulesetEvaluationRunDescription {
   /**
    * <p>The status for this run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: keyof typeof TaskStatusType | string;
 
   /**
    * <p>The date and time when the run started.</p>
@@ -952,7 +952,7 @@ export interface RegistryListItem {
   /**
    * <p>The status of the registry.</p>
    */
-  Status?: RegistryStatus | string;
+  Status?: keyof typeof RegistryStatus | string;
 
   /**
    * <p>The data the registry was created.</p>
@@ -1028,7 +1028,7 @@ export interface SchemaListItem {
   /**
    * <p>The status of the schema.</p>
    */
-  SchemaStatus?: SchemaStatus | string;
+  SchemaStatus?: keyof typeof SchemaStatus | string;
 
   /**
    * <p>The date and time that a schema was created.</p>
@@ -1107,7 +1107,7 @@ export interface SchemaVersionListItem {
   /**
    * <p>The status of the schema version.</p>
    */
-  Status?: SchemaVersionStatus | string;
+  Status?: keyof typeof SchemaVersionStatus | string;
 
   /**
    * <p>The date and time the schema version was created.</p>
@@ -1306,19 +1306,19 @@ export interface PutDataCatalogEncryptionSettingsResponse {}
 /**
  * @public
  */
-export enum EnableHybridValues {
-  FALSE = "FALSE",
-  TRUE = "TRUE",
-}
+export const EnableHybridValues = {
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+};
 
 /**
  * @public
  */
-export enum ExistCondition {
-  MUST_EXIST = "MUST_EXIST",
-  NONE = "NONE",
-  NOT_EXIST = "NOT_EXIST",
-}
+export const ExistCondition = {
+  MUST_EXIST: "MUST_EXIST",
+  NONE: "NONE",
+  NOT_EXIST: "NOT_EXIST",
+};
 
 /**
  * @public
@@ -1346,7 +1346,7 @@ export interface PutResourcePolicyRequest {
    *         <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a
    *       null value is used, the call does not depend on the existence of a policy.</p>
    */
-  PolicyExistsCondition?: ExistCondition | string;
+  PolicyExistsCondition?: keyof typeof ExistCondition | string;
 
   /**
    * <p>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account
@@ -1363,7 +1363,7 @@ export interface PutResourcePolicyRequest {
    *          <p>Must be set to <code>'TRUE'</code> if you have already used the Management Console to
    *       grant cross-account access, otherwise the call fails. Default is 'FALSE'.</p>
    */
-  EnableHybrid?: EnableHybridValues | string;
+  EnableHybrid?: keyof typeof EnableHybridValues | string;
 }
 
 /**
@@ -1621,7 +1621,7 @@ export interface RegisterSchemaVersionResponse {
   /**
    * <p>The status of the schema version.</p>
    */
-  Status?: SchemaVersionStatus | string;
+  Status?: keyof typeof SchemaVersionStatus | string;
 }
 
 /**
@@ -1837,13 +1837,13 @@ export interface RunStatementResponse {
 /**
  * @public
  */
-export enum Comparator {
-  EQUALS = "EQUALS",
-  GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_EQUALS = "GREATER_THAN_EQUALS",
-  LESS_THAN = "LESS_THAN",
-  LESS_THAN_EQUALS = "LESS_THAN_EQUALS",
-}
+export const Comparator = {
+  EQUALS: "EQUALS",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_EQUALS: "GREATER_THAN_EQUALS",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_EQUALS: "LESS_THAN_EQUALS",
+};
 
 /**
  * @public
@@ -1863,16 +1863,16 @@ export interface PropertyPredicate {
   /**
    * <p>The comparator used to compare this property to others.</p>
    */
-  Comparator?: Comparator | string;
+  Comparator?: keyof typeof Comparator | string;
 }
 
 /**
  * @public
  */
-export enum Sort {
-  ASCENDING = "ASC",
-  DESCENDING = "DESC",
-}
+export const Sort = {
+  ASCENDING: "ASC",
+  DESCENDING: "DESC",
+};
 
 /**
  * @public
@@ -1887,7 +1887,7 @@ export interface SortCriterion {
   /**
    * <p>An ascending or descending sort.</p>
    */
-  Sort?: Sort | string;
+  Sort?: keyof typeof Sort | string;
 }
 
 /**
@@ -1939,7 +1939,7 @@ export interface SearchTablesRequest {
    *             </li>
    *          </ul>
    */
-  ResourceShareType?: ResourceShareType | string;
+  ResourceShareType?: keyof typeof ResourceShareType | string;
 }
 
 /**
@@ -2337,7 +2337,7 @@ export interface StartJobRunRequest {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: keyof typeof WorkerType | string;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
@@ -2349,7 +2349,7 @@ export interface StartJobRunRequest {
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
-  ExecutionClass?: ExecutionClass | string;
+  ExecutionClass?: keyof typeof ExecutionClass | string;
 }
 
 /**
@@ -2743,7 +2743,7 @@ export interface UpdateCsvClassifierRequest {
   /**
    * <p>Indicates whether the CSV file contains a header.</p>
    */
-  ContainsHeader?: CsvHeaderOption | string;
+  ContainsHeader?: keyof typeof CsvHeaderOption | string;
 
   /**
    * <p>A list of strings representing column names.</p>
@@ -3313,7 +3313,7 @@ export interface UpdateJobFromSourceControlRequest {
   /**
    * <p>The provider for the remote repository.</p>
    */
-  Provider?: SourceControlProvider | string;
+  Provider?: keyof typeof SourceControlProvider | string;
 
   /**
    * <p>The name of the remote repository that contains the job artifacts.</p>
@@ -3343,7 +3343,7 @@ export interface UpdateJobFromSourceControlRequest {
   /**
    * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
    */
-  AuthStrategy?: SourceControlAuthStrategy | string;
+  AuthStrategy?: keyof typeof SourceControlAuthStrategy | string;
 
   /**
    * <p>The value of the authorization token.</p>
@@ -3420,7 +3420,7 @@ export interface UpdateMLTransformRequest {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: keyof typeof WorkerType | string;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
@@ -3541,7 +3541,7 @@ export interface UpdateSchemaInput {
   /**
    * <p>The new compatibility setting for the schema.</p>
    */
-  Compatibility?: Compatibility | string;
+  Compatibility?: keyof typeof Compatibility | string;
 
   /**
    * <p>The new description for the schema.</p>
@@ -3581,7 +3581,7 @@ export interface UpdateSourceControlFromJobRequest {
   /**
    * <p>The provider for the remote repository.</p>
    */
-  Provider?: SourceControlProvider | string;
+  Provider?: keyof typeof SourceControlProvider | string;
 
   /**
    * <p>The name of the remote repository that contains the job artifacts.</p>
@@ -3611,7 +3611,7 @@ export interface UpdateSourceControlFromJobRequest {
   /**
    * <p>The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token.</p>
    */
-  AuthStrategy?: SourceControlAuthStrategy | string;
+  AuthStrategy?: keyof typeof SourceControlAuthStrategy | string;
 
   /**
    * <p>The value of the authorization token.</p>
@@ -4368,7 +4368,7 @@ export interface CreateJobRequest {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: keyof typeof WorkerType | string;
 
   /**
    * <p>The representation of a directed acyclic graph on which both the Glue Studio visual component and Glue Studio code generation is based.</p>
@@ -4380,7 +4380,7 @@ export interface CreateJobRequest {
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
-  ExecutionClass?: ExecutionClass | string;
+  ExecutionClass?: keyof typeof ExecutionClass | string;
 
   /**
    * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
@@ -4519,7 +4519,7 @@ export interface Job {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: keyof typeof WorkerType | string;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
@@ -4554,7 +4554,7 @@ export interface Job {
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
-  ExecutionClass?: ExecutionClass | string;
+  ExecutionClass?: keyof typeof ExecutionClass | string;
 
   /**
    * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>
@@ -4676,7 +4676,7 @@ export interface JobUpdate {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: keyof typeof WorkerType | string;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
@@ -4710,7 +4710,7 @@ export interface JobUpdate {
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
-  ExecutionClass?: ExecutionClass | string;
+  ExecutionClass?: keyof typeof ExecutionClass | string;
 
   /**
    * <p>The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository.</p>

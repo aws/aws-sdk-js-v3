@@ -3098,7 +3098,7 @@ const serializeAws_restJson1EphemerisData = (input: EphemerisData, context: __Se
 };
 
 const serializeAws_restJson1EphemerisStatusList = (
-  input: (EphemerisStatus | string)[],
+  input: (keyof typeof EphemerisStatus | string)[],
   context: __SerdeContext
 ): any => {
   return input
@@ -3240,7 +3240,10 @@ const serializeAws_restJson1SpectrumConfig = (input: SpectrumConfig, context: __
   };
 };
 
-const serializeAws_restJson1StatusList = (input: (ContactStatus | string)[], context: __SerdeContext): any => {
+const serializeAws_restJson1StatusList = (
+  input: (keyof typeof ContactStatus | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

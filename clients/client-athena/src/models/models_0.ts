@@ -6,9 +6,9 @@ import { AthenaServiceException as __BaseException } from "./AthenaServiceExcept
 /**
  * @public
  */
-export enum S3AclOption {
-  BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
-}
+export const S3AclOption = {
+  BUCKET_OWNER_FULL_CONTROL: "BUCKET_OWNER_FULL_CONTROL",
+};
 
 /**
  * @public
@@ -27,7 +27,7 @@ export interface AclConfiguration {
    *             specified in the workgroup's settings is used for all queries that run in the workgroup.
    *             For more information about Amazon S3 canned ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl">Canned ACL</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  S3AclOption: S3AclOption | string | undefined;
+  S3AclOption: keyof typeof S3AclOption | string | undefined;
 }
 
 /**
@@ -324,11 +324,11 @@ export interface QueryExecutionContext {
 /**
  * @public
  */
-export enum EncryptionOption {
-  CSE_KMS = "CSE_KMS",
-  SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3",
-}
+export const EncryptionOption = {
+  CSE_KMS: "CSE_KMS",
+  SSE_KMS: "SSE_KMS",
+  SSE_S3: "SSE_S3",
+};
 
 /**
  * @public
@@ -345,7 +345,7 @@ export interface EncryptionConfiguration {
    *             the workgroup's setting for encryption is used. It specifies whether query results must
    *             be encrypted, for all queries that run in this workgroup. </p>
    */
-  EncryptionOption: EncryptionOption | string | undefined;
+  EncryptionOption: keyof typeof EncryptionOption | string | undefined;
 
   /**
    * <p>For <code>SSE_KMS</code> and <code>CSE_KMS</code>, this is the KMS key ARN or
@@ -438,11 +438,11 @@ export interface ResultReuseConfiguration {
 /**
  * @public
  */
-export enum StatementType {
-  DDL = "DDL",
-  DML = "DML",
-  UTILITY = "UTILITY",
-}
+export const StatementType = {
+  DDL: "DDL",
+  DML: "DML",
+  UTILITY: "UTILITY",
+};
 
 /**
  * @public
@@ -557,13 +557,13 @@ export interface AthenaError {
 /**
  * @public
  */
-export enum QueryExecutionState {
-  CANCELLED = "CANCELLED",
-  FAILED = "FAILED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const QueryExecutionState = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -585,7 +585,7 @@ export interface QueryExecutionStatus {
    *                     <code>RUNNING</code> or <code>FAILED</code> to <code>QUEUED</code>. </p>
    *          </note>
    */
-  State?: QueryExecutionState | string;
+  State?: keyof typeof QueryExecutionState | string;
 
   /**
    * <p>Further detail about the status of the query.</p>
@@ -630,7 +630,7 @@ export interface QueryExecution {
    *             query statements other than DDL and DML, such as <code>SHOW CREATE TABLE</code>, or
    *                 <code>DESCRIBE TABLE</code>.</p>
    */
-  StatementType?: StatementType | string;
+  StatementType?: keyof typeof StatementType | string;
 
   /**
    * <p>The location in Amazon S3 where query results were stored and the encryption
@@ -755,11 +755,11 @@ export interface Tag {
 /**
  * @public
  */
-export enum DataCatalogType {
-  GLUE = "GLUE",
-  HIVE = "HIVE",
-  LAMBDA = "LAMBDA",
-}
+export const DataCatalogType = {
+  GLUE: "GLUE",
+  HIVE: "HIVE",
+  LAMBDA: "LAMBDA",
+};
 
 /**
  * @public
@@ -778,7 +778,7 @@ export interface CreateDataCatalogInput {
    *                 <code>HIVE</code> for an external hive metastore, or <code>GLUE</code> for an
    *                 Glue Data Catalog.</p>
    */
-  Type: DataCatalogType | string | undefined;
+  Type: keyof typeof DataCatalogType | string | undefined;
 
   /**
    * <p>A description of the data catalog to be created.</p>
@@ -963,9 +963,9 @@ export interface CreateNotebookOutput {
 /**
  * @public
  */
-export enum ThrottleReason {
-  CONCURRENT_QUERY_LIMIT_EXCEEDED = "CONCURRENT_QUERY_LIMIT_EXCEEDED",
-}
+export const ThrottleReason = {
+  CONCURRENT_QUERY_LIMIT_EXCEEDED: "CONCURRENT_QUERY_LIMIT_EXCEEDED",
+};
 
 /**
  * @public
@@ -979,7 +979,7 @@ export class TooManyRequestsException extends __BaseException {
    * <p>The reason for the query throttling, for example, when it exceeds the concurrent query
    *             limit.</p>
    */
-  Reason?: ThrottleReason | string;
+  Reason?: keyof typeof ThrottleReason | string;
   /**
    * @internal
    */
@@ -1301,9 +1301,9 @@ export interface ExportNotebookInput {
 /**
  * @public
  */
-export enum NotebookType {
-  IPYNB = "IPYNB",
-}
+export const NotebookType = {
+  IPYNB: "IPYNB",
+};
 
 /**
  * @public
@@ -1334,7 +1334,7 @@ export interface NotebookMetadata {
   /**
    * <p>The type of notebook. Currently, the only valid type is <code>IPYNB</code>.</p>
    */
-  Type?: NotebookType | string;
+  Type?: keyof typeof NotebookType | string;
 
   /**
    * <p>The time when the notebook was last modified.</p>
@@ -1414,16 +1414,16 @@ export interface CalculationStatistics {
 /**
  * @public
  */
-export enum CalculationExecutionState {
-  CANCELED = "CANCELED",
-  CANCELING = "CANCELING",
-  COMPLETED = "COMPLETED",
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  QUEUED = "QUEUED",
-  RUNNING = "RUNNING",
-}
+export const CalculationExecutionState = {
+  CANCELED: "CANCELED",
+  CANCELING: "CANCELING",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+};
 
 /**
  * @public
@@ -1461,7 +1461,7 @@ export interface CalculationStatus {
    *          <p>
    *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
    */
-  State?: CalculationExecutionState | string;
+  State?: keyof typeof CalculationExecutionState | string;
 
   /**
    * <p>The reason for the calculation state change (for example, the calculation was canceled
@@ -1665,7 +1665,7 @@ export interface DataCatalog {
    *                 <code>HIVE</code> for an external hive metastore, or <code>GLUE</code> for an
    *                 Glue Data Catalog.</p>
    */
-  Type: DataCatalogType | string | undefined;
+  Type: keyof typeof DataCatalogType | string | undefined;
 
   /**
    * <p>Specifies the Lambda function or functions to use for the data catalog.
@@ -1856,11 +1856,11 @@ export interface GetQueryResultsInput {
 /**
  * @public
  */
-export enum ColumnNullable {
-  NOT_NULL = "NOT_NULL",
-  NULLABLE = "NULLABLE",
-  UNKNOWN = "UNKNOWN",
-}
+export const ColumnNullable = {
+  NOT_NULL: "NOT_NULL",
+  NULLABLE: "NULLABLE",
+  UNKNOWN: "UNKNOWN",
+};
 
 /**
  * @public
@@ -1912,7 +1912,7 @@ export interface ColumnInfo {
   /**
    * <p>Indicates the column's nullable status.</p>
    */
-  Nullable?: ColumnNullable | string;
+  Nullable?: keyof typeof ColumnNullable | string;
 
   /**
    * <p>Indicates whether values in the column are case-sensitive.</p>
@@ -2156,16 +2156,16 @@ export interface SessionStatistics {
 /**
  * @public
  */
-export enum SessionState {
-  BUSY = "BUSY",
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DEGRADED = "DEGRADED",
-  FAILED = "FAILED",
-  IDLE = "IDLE",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
+export const SessionState = {
+  BUSY: "BUSY",
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DEGRADED: "DEGRADED",
+  FAILED: "FAILED",
+  IDLE: "IDLE",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+};
 
 /**
  * @public
@@ -2215,7 +2215,7 @@ export interface SessionStatus {
    *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
    *             running.</p>
    */
-  State?: SessionState | string;
+  State?: keyof typeof SessionState | string;
 
   /**
    * <p>The reason for the session state change (for example, canceled because the session was
@@ -2407,10 +2407,10 @@ export interface GetWorkGroupInput {
 /**
  * @public
  */
-export enum WorkGroupState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const WorkGroupState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
@@ -2432,7 +2432,7 @@ export interface WorkGroup {
   /**
    * <p>The state of the workgroup: ENABLED or DISABLED.</p>
    */
-  State?: WorkGroupState | string;
+  State?: keyof typeof WorkGroupState | string;
 
   /**
    * <p>The configuration of the workgroup, which includes the location in Amazon S3
@@ -2489,7 +2489,7 @@ export interface ImportNotebookInput {
    * <p>The notebook content type. Currently, the only valid type is
    *             <code>IPYNB</code>.</p>
    */
-  Type: NotebookType | string | undefined;
+  Type: keyof typeof NotebookType | string | undefined;
 
   /**
    * <p>A unique case-sensitive string used to ensure the request to import the notebook is
@@ -2595,7 +2595,7 @@ export interface ListCalculationExecutionsRequest {
    *          <p>
    *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
    */
-  StateFilter?: CalculationExecutionState | string;
+  StateFilter?: keyof typeof CalculationExecutionState | string;
 
   /**
    * <p>The maximum number of calculation executions to return.</p>
@@ -2719,7 +2719,7 @@ export interface DataCatalogSummary {
   /**
    * <p>The data catalog type.</p>
    */
-  Type?: DataCatalogType | string;
+  Type?: keyof typeof DataCatalogType | string;
 }
 
 /**
@@ -2776,14 +2776,14 @@ export interface ListEngineVersionsOutput {
 /**
  * @public
  */
-export enum ExecutorState {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  FAILED = "FAILED",
-  REGISTERED = "REGISTERED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-}
+export const ExecutorState = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  FAILED: "FAILED",
+  REGISTERED: "REGISTERED",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+};
 
 /**
  * @public
@@ -2810,7 +2810,7 @@ export interface ListExecutorsRequest {
    *          <p>
    *             <code>FAILED</code> - Due to a failure, the executor is no longer running.</p>
    */
-  ExecutorStateFilter?: ExecutorState | string;
+  ExecutorStateFilter?: keyof typeof ExecutorState | string;
 
   /**
    * <p>The maximum number of executors to return.</p>
@@ -2828,11 +2828,11 @@ export interface ListExecutorsRequest {
 /**
  * @public
  */
-export enum ExecutorType {
-  COORDINATOR = "COORDINATOR",
-  GATEWAY = "GATEWAY",
-  WORKER = "WORKER",
-}
+export const ExecutorType = {
+  COORDINATOR: "COORDINATOR",
+  GATEWAY: "GATEWAY",
+  WORKER: "WORKER",
+};
 
 /**
  * @public
@@ -2848,7 +2848,7 @@ export interface ExecutorsSummary {
    * <p>The type of executor used for the application (<code>COORDINATOR</code>,
    *                 <code>GATEWAY</code>, or <code>WORKER</code>).</p>
    */
-  ExecutorType?: ExecutorType | string;
+  ExecutorType?: keyof typeof ExecutorType | string;
 
   /**
    * <p>The date and time that the executor started.</p>
@@ -2876,7 +2876,7 @@ export interface ExecutorsSummary {
    *          <p>
    *             <code>FAILED</code> - Due to a failure, the executor is no longer running.</p>
    */
-  ExecutorState?: ExecutorState | string;
+  ExecutorState?: keyof typeof ExecutorState | string;
 
   /**
    * <p>The smallest unit of compute that a session can request from Athena. Size
@@ -3183,7 +3183,7 @@ export interface ListSessionsRequest {
    *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
    *             running.</p>
    */
-  StateFilter?: SessionState | string;
+  StateFilter?: keyof typeof SessionState | string;
 
   /**
    * <p>The maximum number of sessions to return.</p>
@@ -3366,7 +3366,7 @@ export interface WorkGroupSummary {
   /**
    * <p>The state of the workgroup.</p>
    */
-  State?: WorkGroupState | string;
+  State?: keyof typeof WorkGroupState | string;
 
   /**
    * <p>The workgroup description.</p>
@@ -3486,7 +3486,7 @@ export interface StartCalculationExecutionResponse {
    *          <p>
    *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
    */
-  State?: CalculationExecutionState | string;
+  State?: keyof typeof CalculationExecutionState | string;
 }
 
 /**
@@ -3652,7 +3652,7 @@ export interface StartSessionResponse {
    *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
    *             running.</p>
    */
-  State?: SessionState | string;
+  State?: keyof typeof SessionState | string;
 }
 
 /**
@@ -3689,7 +3689,7 @@ export interface StopCalculationExecutionResponse {
    *          <p>
    *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
    */
-  State?: CalculationExecutionState | string;
+  State?: keyof typeof CalculationExecutionState | string;
 }
 
 /**
@@ -3764,7 +3764,7 @@ export interface TerminateSessionResponse {
    *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
    *             running.</p>
    */
-  State?: SessionState | string;
+  State?: keyof typeof SessionState | string;
 }
 
 /**
@@ -3805,7 +3805,7 @@ export interface UpdateDataCatalogInput {
    *             federated catalog, <code>HIVE</code> for an external hive metastore, or
    *                 <code>GLUE</code> for an Glue Data Catalog.</p>
    */
-  Type: DataCatalogType | string | undefined;
+  Type: keyof typeof DataCatalogType | string | undefined;
 
   /**
    * <p>New or modified text that describes the data catalog.</p>
@@ -3909,7 +3909,7 @@ export interface UpdateNotebookInput {
    * <p>The notebook content type. Currently, the only valid type is
    *             <code>IPYNB</code>.</p>
    */
-  Type: NotebookType | string | undefined;
+  Type: keyof typeof NotebookType | string | undefined;
 
   /**
    * <p>The ID of the session in which the notebook will be updated.</p>
@@ -4183,7 +4183,7 @@ export interface UpdateWorkGroupInput {
   /**
    * <p>The workgroup state that will be updated for the given workgroup.</p>
    */
-  State?: WorkGroupState | string;
+  State?: keyof typeof WorkGroupState | string;
 }
 
 /**

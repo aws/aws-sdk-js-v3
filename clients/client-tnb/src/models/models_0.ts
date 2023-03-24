@@ -127,27 +127,27 @@ export interface CreateSolFunctionPackageInput {
 /**
  * @public
  */
-export enum OnboardingState {
-  CREATED = "CREATED",
-  ERROR = "ERROR",
-  ONBOARDED = "ONBOARDED",
-}
+export const OnboardingState = {
+  CREATED: "CREATED",
+  ERROR: "ERROR",
+  ONBOARDED: "ONBOARDED",
+};
 
 /**
  * @public
  */
-export enum OperationalState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const OperationalState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum UsageState {
-  IN_USE = "IN_USE",
-  NOT_IN_USE = "NOT_IN_USE",
-}
+export const UsageState = {
+  IN_USE: "IN_USE",
+  NOT_IN_USE: "NOT_IN_USE",
+};
 
 /**
  * @public
@@ -166,17 +166,17 @@ export interface CreateSolFunctionPackageOutput {
   /**
    * <p>Onboarding state of the function package.</p>
    */
-  onboardingState: OnboardingState | string | undefined;
+  onboardingState: keyof typeof OnboardingState | string | undefined;
 
   /**
    * <p>Operational state of the function package.</p>
    */
-  operationalState: OperationalState | string | undefined;
+  operationalState: keyof typeof OperationalState | string | undefined;
 
   /**
    * <p>Usage state of the function package.</p>
    */
-  usageState: UsageState | string | undefined;
+  usageState: keyof typeof UsageState | string | undefined;
 
   /**
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
@@ -272,27 +272,27 @@ export interface CreateSolNetworkPackageInput {
 /**
  * @public
  */
-export enum NsdOnboardingState {
-  CREATED = "CREATED",
-  ERROR = "ERROR",
-  ONBOARDED = "ONBOARDED",
-}
+export const NsdOnboardingState = {
+  CREATED: "CREATED",
+  ERROR: "ERROR",
+  ONBOARDED: "ONBOARDED",
+};
 
 /**
  * @public
  */
-export enum NsdOperationalState {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
+export const NsdOperationalState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+};
 
 /**
  * @public
  */
-export enum NsdUsageState {
-  IN_USE = "IN_USE",
-  NOT_IN_USE = "NOT_IN_USE",
-}
+export const NsdUsageState = {
+  IN_USE: "IN_USE",
+  NOT_IN_USE: "NOT_IN_USE",
+};
 
 /**
  * @public
@@ -311,17 +311,17 @@ export interface CreateSolNetworkPackageOutput {
   /**
    * <p>Onboarding state of the network service descriptor in the network package.</p>
    */
-  nsdOnboardingState: NsdOnboardingState | string | undefined;
+  nsdOnboardingState: keyof typeof NsdOnboardingState | string | undefined;
 
   /**
    * <p>Operational state of the network service descriptor in the network package.</p>
    */
-  nsdOperationalState: NsdOperationalState | string | undefined;
+  nsdOperationalState: keyof typeof NsdOperationalState | string | undefined;
 
   /**
    * <p>Usage state of the network service descriptor in the network package.</p>
    */
-  nsdUsageState: NsdUsageState | string | undefined;
+  nsdUsageState: keyof typeof NsdUsageState | string | undefined;
 
   /**
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
@@ -362,9 +362,9 @@ export interface DeleteSolNetworkPackageInput {
 /**
  * @public
  */
-export enum DescriptorContentType {
-  TEXT_PLAIN = "text/plain",
-}
+export const DescriptorContentType = {
+  TEXT_PLAIN: "text/plain",
+};
 
 /**
  * @public
@@ -457,10 +457,10 @@ export interface GetSolVnfcResourceInfo {
 /**
  * @public
  */
-export enum VnfOperationalState {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-}
+export const VnfOperationalState = {
+  STARTED: "STARTED",
+  STOPPED: "STOPPED",
+};
 
 /**
  * @public
@@ -471,7 +471,7 @@ export interface GetSolVnfInfo {
   /**
    * <p>State of the network function instance.</p>
    */
-  vnfState?: VnfOperationalState | string;
+  vnfState?: keyof typeof VnfOperationalState | string;
 
   /**
    * <p>Compute info used by the network function instance.</p>
@@ -482,10 +482,10 @@ export interface GetSolVnfInfo {
 /**
  * @public
  */
-export enum VnfInstantiationState {
-  INSTANTIATED = "INSTANTIATED",
-  NOT_INSTANTIATED = "NOT_INSTANTIATED",
-}
+export const VnfInstantiationState = {
+  INSTANTIATED: "INSTANTIATED",
+  NOT_INSTANTIATED: "NOT_INSTANTIATED",
+};
 
 /**
  * @public
@@ -551,7 +551,7 @@ export interface GetSolFunctionInstanceOutput {
   /**
    * <p>Network function instantiation state.</p>
    */
-  instantiationState: VnfInstantiationState | string | undefined;
+  instantiationState: keyof typeof VnfInstantiationState | string | undefined;
 
   /**
    * <p>Information about the network function.</p>
@@ -620,17 +620,17 @@ export interface GetSolFunctionPackageOutput {
   /**
    * <p>Function package onboarding state.</p>
    */
-  onboardingState: OnboardingState | string | undefined;
+  onboardingState: keyof typeof OnboardingState | string | undefined;
 
   /**
    * <p>Function package operational state.</p>
    */
-  operationalState: OperationalState | string | undefined;
+  operationalState: keyof typeof OperationalState | string | undefined;
 
   /**
    * <p>Function package usage state.</p>
    */
-  usageState: UsageState | string | undefined;
+  usageState: keyof typeof UsageState | string | undefined;
 
   /**
    * <p>Function package descriptor  ID.</p>
@@ -667,9 +667,9 @@ export interface GetSolFunctionPackageOutput {
 /**
  * @public
  */
-export enum PackageContentType {
-  APPLICATION_ZIP = "application/zip",
-}
+export const PackageContentType = {
+  APPLICATION_ZIP: "application/zip",
+};
 
 /**
  * @public
@@ -683,7 +683,7 @@ export interface GetSolFunctionPackageContentInput {
   /**
    * <p>The format of the package that you want to download from the function packages.</p>
    */
-  accept: PackageContentType | string | undefined;
+  accept: keyof typeof PackageContentType | string | undefined;
 }
 
 /**
@@ -693,7 +693,7 @@ export interface GetSolFunctionPackageContentOutput {
   /**
    * <p>Indicates the media type of the resource.</p>
    */
-  contentType?: PackageContentType | string;
+  contentType?: keyof typeof PackageContentType | string;
 
   /**
    * <p>Contents of the function package.</p>
@@ -713,7 +713,7 @@ export interface GetSolFunctionPackageDescriptorInput {
   /**
    * <p>Indicates which content types, expressed as MIME types, the client is able to understand.</p>
    */
-  accept: DescriptorContentType | string | undefined;
+  accept: keyof typeof DescriptorContentType | string | undefined;
 }
 
 /**
@@ -723,7 +723,7 @@ export interface GetSolFunctionPackageDescriptorOutput {
   /**
    * <p>Indicates the media type of the resource.</p>
    */
-  contentType?: DescriptorContentType | string;
+  contentType?: keyof typeof DescriptorContentType | string;
 
   /**
    * <p>Contents of the function package descriptor.</p>
@@ -740,7 +740,7 @@ export interface GetSolInstantiatedVnfInfo {
   /**
    * <p>State of the network function.</p>
    */
-  vnfState?: VnfOperationalState | string;
+  vnfState?: keyof typeof VnfOperationalState | string;
 }
 
 /**
@@ -785,16 +785,16 @@ export interface GetSolNetworkInstanceMetadata {
 /**
  * @public
  */
-export enum NsState {
-  DELETED = "DELETED",
-  IMPAIRED = "IMPAIRED",
-  INSTANTIATED = "INSTANTIATED",
-  INSTANTIATE_IN_PROGRESS = "INSTANTIATE_IN_PROGRESS",
-  NOT_INSTANTIATED = "NOT_INSTANTIATED",
-  STOPPED = "STOPPED",
-  TERMINATE_IN_PROGRESS = "TERMINATE_IN_PROGRESS",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-}
+export const NsState = {
+  DELETED: "DELETED",
+  IMPAIRED: "IMPAIRED",
+  INSTANTIATED: "INSTANTIATED",
+  INSTANTIATE_IN_PROGRESS: "INSTANTIATE_IN_PROGRESS",
+  NOT_INSTANTIATED: "NOT_INSTANTIATED",
+  STOPPED: "STOPPED",
+  TERMINATE_IN_PROGRESS: "TERMINATE_IN_PROGRESS",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+};
 
 /**
  * @public
@@ -833,7 +833,7 @@ export interface GetSolNetworkInstanceOutput {
   /**
    * <p>Network instance state.</p>
    */
-  nsState?: NsState | string;
+  nsState?: keyof typeof NsState | string;
 
   /**
    * <p>Lifecycle management operation details on the network instance.</p>
@@ -882,11 +882,11 @@ export interface ProblemDetails {
 /**
  * @public
  */
-export enum LcmOperationType {
-  INSTANTIATE = "INSTANTIATE",
-  TERMINATE = "TERMINATE",
-  UPDATE = "UPDATE",
-}
+export const LcmOperationType = {
+  INSTANTIATE: "INSTANTIATE",
+  TERMINATE: "TERMINATE",
+  UPDATE: "UPDATE",
+};
 
 /**
  * @public
@@ -908,26 +908,26 @@ export interface GetSolNetworkOperationMetadata {
 /**
  * @public
  */
-export enum NsLcmOperationState {
-  CANCELLED = "CANCELLED",
-  CANCELLING = "CANCELLING",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  PROCESSING = "PROCESSING",
-}
+export const NsLcmOperationState = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+};
 
 /**
  * @public
  */
-export enum TaskStatus {
-  CANCELLED = "CANCELLED",
-  COMPLETED = "COMPLETED",
-  ERROR = "ERROR",
-  IN_PROGRESS = "IN_PROGRESS",
-  SCHEDULED = "SCHEDULED",
-  SKIPPED = "SKIPPED",
-  STARTED = "STARTED",
-}
+export const TaskStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+  SCHEDULED: "SCHEDULED",
+  SKIPPED: "SKIPPED",
+  STARTED: "STARTED",
+};
 
 /**
  * @public
@@ -953,7 +953,7 @@ export interface GetSolNetworkOperationTaskDetails {
   /**
    * <p>Task status.</p>
    */
-  taskStatus?: TaskStatus | string;
+  taskStatus?: keyof typeof TaskStatus | string;
 
   /**
    * <p>Task start time.</p>
@@ -983,7 +983,7 @@ export interface GetSolNetworkOperationOutput {
   /**
    * <p>The state of the network operation.</p>
    */
-  operationState?: NsLcmOperationState | string;
+  operationState?: keyof typeof NsLcmOperationState | string;
 
   /**
    * <p>ID of the network operation instance.</p>
@@ -993,7 +993,7 @@ export interface GetSolNetworkOperationOutput {
   /**
    * <p>Type of the operation represented by this occurrence.</p>
    */
-  lcmOperationType?: LcmOperationType | string;
+  lcmOperationType?: keyof typeof LcmOperationType | string;
 
   /**
    * <p>Error related to this specific network operation occurrence.</p>
@@ -1077,17 +1077,17 @@ export interface GetSolNetworkPackageOutput {
   /**
    * <p>Network service descriptor onboarding state.</p>
    */
-  nsdOnboardingState: NsdOnboardingState | string | undefined;
+  nsdOnboardingState: keyof typeof NsdOnboardingState | string | undefined;
 
   /**
    * <p>Network service descriptor operational state.</p>
    */
-  nsdOperationalState: NsdOperationalState | string | undefined;
+  nsdOperationalState: keyof typeof NsdOperationalState | string | undefined;
 
   /**
    * <p>Network service descriptor usage state.</p>
    */
-  nsdUsageState: NsdUsageState | string | undefined;
+  nsdUsageState: keyof typeof NsdUsageState | string | undefined;
 
   /**
    * <p>Network service descriptor ID.</p>
@@ -1133,7 +1133,7 @@ export interface GetSolNetworkPackageContentInput {
   /**
    * <p>The format of the package you want to download from the network package.</p>
    */
-  accept: PackageContentType | string | undefined;
+  accept: keyof typeof PackageContentType | string | undefined;
 }
 
 /**
@@ -1143,7 +1143,7 @@ export interface GetSolNetworkPackageContentOutput {
   /**
    * <p>Indicates the media type of the resource.</p>
    */
-  contentType?: PackageContentType | string;
+  contentType?: keyof typeof PackageContentType | string;
 
   /**
    * <p>Content of the network service descriptor in the network package.</p>
@@ -1168,7 +1168,7 @@ export interface GetSolNetworkPackageDescriptorOutput {
   /**
    * <p>Indicates the media type of the resource.</p>
    */
-  contentType?: DescriptorContentType | string;
+  contentType?: keyof typeof DescriptorContentType | string;
 
   /**
    * <p>Contents of the network service descriptor in the network package.</p>
@@ -1269,7 +1269,7 @@ export interface ListSolFunctionInstanceInfo {
   /**
    * <p>Network function instance instantiation state.</p>
    */
-  instantiationState: VnfInstantiationState | string | undefined;
+  instantiationState: keyof typeof VnfInstantiationState | string | undefined;
 
   /**
    * <p>Information about a network function.</p>
@@ -1349,17 +1349,17 @@ export interface ListSolFunctionPackageInfo {
   /**
    * <p>Onboarding state of the function package.</p>
    */
-  onboardingState: OnboardingState | string | undefined;
+  onboardingState: keyof typeof OnboardingState | string | undefined;
 
   /**
    * <p>Operational state of the function package.</p>
    */
-  operationalState: OperationalState | string | undefined;
+  operationalState: keyof typeof OperationalState | string | undefined;
 
   /**
    * <p>Usage state of the function package.</p>
    */
-  usageState: UsageState | string | undefined;
+  usageState: keyof typeof UsageState | string | undefined;
 
   /**
    * <p>Identifies the function package and the function package descriptor.</p>
@@ -1473,7 +1473,7 @@ export interface ListSolNetworkInstanceInfo {
   /**
    * <p>The state of the network instance.</p>
    */
-  nsState: NsState | string | undefined;
+  nsState: keyof typeof NsState | string | undefined;
 
   /**
    * <p>The metadata of the network instance.</p>
@@ -1561,7 +1561,7 @@ export interface ListSolNetworkOperationsInfo {
   /**
    * <p>The state of the network operation.</p>
    */
-  operationState: NsLcmOperationState | string | undefined;
+  operationState: keyof typeof NsLcmOperationState | string | undefined;
 
   /**
    * <p>ID of the network instance related to this operation.</p>
@@ -1571,7 +1571,7 @@ export interface ListSolNetworkOperationsInfo {
   /**
    * <p>Type of lifecycle management network operation.</p>
    */
-  lcmOperationType: LcmOperationType | string | undefined;
+  lcmOperationType: keyof typeof LcmOperationType | string | undefined;
 
   /**
    * <p>Error related to this specific network operation.</p>
@@ -1635,17 +1635,17 @@ export interface ListSolNetworkPackageInfo {
   /**
    * <p>Onboarding state of the network service descriptor in the network package.</p>
    */
-  nsdOnboardingState: NsdOnboardingState | string | undefined;
+  nsdOnboardingState: keyof typeof NsdOnboardingState | string | undefined;
 
   /**
    * <p>Operational state of the network service descriptor in the network package.</p>
    */
-  nsdOperationalState: NsdOperationalState | string | undefined;
+  nsdOperationalState: keyof typeof NsdOperationalState | string | undefined;
 
   /**
    * <p>Usage state of the network service descriptor in the network package.</p>
    */
-  nsdUsageState: NsdUsageState | string | undefined;
+  nsdUsageState: keyof typeof NsdUsageState | string | undefined;
 
   /**
    * <p>ID of the network service descriptor on which the network package is based.</p>
@@ -1745,7 +1745,7 @@ export interface PutSolFunctionPackageContentInput {
   /**
    * <p>Function package content type.</p>
    */
-  contentType?: PackageContentType | string;
+  contentType?: keyof typeof PackageContentType | string;
 
   /**
    * <p>Function package file.</p>
@@ -1813,7 +1813,7 @@ export interface PutSolNetworkPackageContentInput {
   /**
    * <p>Network package content type.</p>
    */
-  contentType?: PackageContentType | string;
+  contentType?: keyof typeof PackageContentType | string;
 
   /**
    * <p>Network package file.</p>
@@ -1956,7 +1956,7 @@ export interface UpdateSolFunctionPackageInput {
   /**
    * <p>Operational state of the function package.</p>
    */
-  operationalState: OperationalState | string | undefined;
+  operationalState: keyof typeof OperationalState | string | undefined;
 }
 
 /**
@@ -1966,7 +1966,7 @@ export interface UpdateSolFunctionPackageOutput {
   /**
    * <p>Operational state of the function package.</p>
    */
-  operationalState: OperationalState | string | undefined;
+  operationalState: keyof typeof OperationalState | string | undefined;
 }
 
 /**
@@ -1990,9 +1990,9 @@ export interface UpdateSolNetworkModify {
 /**
  * @public
  */
-export enum UpdateSolNetworkType {
-  MODIFY_VNF_INFORMATION = "MODIFY_VNF_INFORMATION",
-}
+export const UpdateSolNetworkType = {
+  MODIFY_VNF_INFORMATION: "MODIFY_VNF_INFORMATION",
+};
 
 /**
  * @public
@@ -2006,7 +2006,7 @@ export interface UpdateSolNetworkInstanceInput {
   /**
    * <p>The type of update.</p>
    */
-  updateType: UpdateSolNetworkType | string | undefined;
+  updateType: keyof typeof UpdateSolNetworkType | string | undefined;
 
   /**
    * <p>Identifies the network function information parameters and/or the configurable properties of the network function to be modified.</p>
@@ -2046,7 +2046,7 @@ export interface UpdateSolNetworkPackageInput {
   /**
    * <p>Operational state of the network service descriptor in the network package.</p>
    */
-  nsdOperationalState: NsdOperationalState | string | undefined;
+  nsdOperationalState: keyof typeof NsdOperationalState | string | undefined;
 }
 
 /**
@@ -2056,7 +2056,7 @@ export interface UpdateSolNetworkPackageOutput {
   /**
    * <p>Operational state of the network service descriptor in the network package.</p>
    */
-  nsdOperationalState: NsdOperationalState | string | undefined;
+  nsdOperationalState: keyof typeof NsdOperationalState | string | undefined;
 }
 
 /**
@@ -2071,7 +2071,7 @@ export interface ValidateSolFunctionPackageContentInput {
   /**
    * <p>Function package content type.</p>
    */
-  contentType?: PackageContentType | string;
+  contentType?: keyof typeof PackageContentType | string;
 
   /**
    * <p>Function package file.</p>
@@ -2139,7 +2139,7 @@ export interface ValidateSolNetworkPackageContentInput {
   /**
    * <p>Network package content type.</p>
    */
-  contentType?: PackageContentType | string;
+  contentType?: keyof typeof PackageContentType | string;
 
   /**
    * <p>Network package file.</p>

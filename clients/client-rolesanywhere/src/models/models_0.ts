@@ -230,11 +230,11 @@ export namespace SourceData {
 /**
  * @public
  */
-export enum TrustAnchorType {
-  AWS_ACM_PCA = "AWS_ACM_PCA",
-  CERTIFICATE_BUNDLE = "CERTIFICATE_BUNDLE",
-  SELF_SIGNED_REPOSITORY = "SELF_SIGNED_REPOSITORY",
-}
+export const TrustAnchorType = {
+  AWS_ACM_PCA: "AWS_ACM_PCA",
+  CERTIFICATE_BUNDLE: "CERTIFICATE_BUNDLE",
+  SELF_SIGNED_REPOSITORY: "SELF_SIGNED_REPOSITORY",
+};
 
 /**
  * @public
@@ -244,7 +244,7 @@ export interface Source {
   /**
    * <p>The type of the trust anchor. </p>
    */
-  sourceType?: TrustAnchorType | string;
+  sourceType?: keyof typeof TrustAnchorType | string;
 
   /**
    * <p>The data field of the trust anchor depending on its type. </p>

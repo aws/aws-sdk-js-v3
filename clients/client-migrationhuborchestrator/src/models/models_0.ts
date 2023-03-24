@@ -213,22 +213,22 @@ export interface CreateMigrationWorkflowRequest {
 /**
  * @public
  */
-export enum MigrationWorkflowStatusEnum {
-  COMPLETED = "COMPLETED",
-  CREATING = "CREATING",
-  CREATION_FAILED = "CREATION_FAILED",
-  DELETED = "DELETED",
-  DELETING = "DELETING",
-  DELETION_FAILED = "DELETION_FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED",
-  PAUSED = "PAUSED",
-  PAUSING = "PAUSING",
-  PAUSING_FAILED = "PAUSING_FAILED",
-  STARTING = "STARTING",
-  USER_ATTENTION_REQUIRED = "USER_ATTENTION_REQUIRED",
-  WORKFLOW_FAILED = "WORKFLOW_FAILED",
-}
+export const MigrationWorkflowStatusEnum = {
+  COMPLETED: "COMPLETED",
+  CREATING: "CREATING",
+  CREATION_FAILED: "CREATION_FAILED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  DELETION_FAILED: "DELETION_FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_STARTED: "NOT_STARTED",
+  PAUSED: "PAUSED",
+  PAUSING: "PAUSING",
+  PAUSING_FAILED: "PAUSING_FAILED",
+  STARTING: "STARTING",
+  USER_ATTENTION_REQUIRED: "USER_ATTENTION_REQUIRED",
+  WORKFLOW_FAILED: "WORKFLOW_FAILED",
+};
 
 /**
  * @public
@@ -277,7 +277,7 @@ export interface CreateMigrationWorkflowResponse {
   /**
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: keyof typeof MigrationWorkflowStatusEnum | string;
 
   /**
    * <p>The time at which the migration workflow was created.</p>
@@ -357,7 +357,7 @@ export interface DeleteMigrationWorkflowResponse {
   /**
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: keyof typeof MigrationWorkflowStatusEnum | string;
 }
 
 /**
@@ -428,7 +428,7 @@ export interface GetMigrationWorkflowResponse {
   /**
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: keyof typeof MigrationWorkflowStatusEnum | string;
 
   /**
    * <p>The status message of the migration workflow.</p>
@@ -518,7 +518,7 @@ export interface ListMigrationWorkflowsRequest {
   /**
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: keyof typeof MigrationWorkflowStatusEnum | string;
 
   /**
    * <p>The name of the migration workflow.</p>
@@ -554,7 +554,7 @@ export interface MigrationWorkflowSummary {
   /**
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: keyof typeof MigrationWorkflowStatusEnum | string;
 
   /**
    * <p>The time at which the migration workflow was created.</p>
@@ -624,7 +624,7 @@ export interface StartMigrationWorkflowResponse {
   /**
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: keyof typeof MigrationWorkflowStatusEnum | string;
 
   /**
    * <p>The status message of the migration workflow.</p>
@@ -664,7 +664,7 @@ export interface StopMigrationWorkflowResponse {
   /**
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: keyof typeof MigrationWorkflowStatusEnum | string;
 
   /**
    * <p>The status message of the migration workflow.</p>
@@ -754,7 +754,7 @@ export interface UpdateMigrationWorkflowResponse {
   /**
    * <p>The status of the migration workflow.</p>
    */
-  status?: MigrationWorkflowStatusEnum | string;
+  status?: keyof typeof MigrationWorkflowStatusEnum | string;
 
   /**
    * <p>The time at which the migration workflow was created.</p>
@@ -785,12 +785,12 @@ export interface GetMigrationWorkflowTemplateRequest {
 /**
  * @public
  */
-export enum DataType {
-  INTEGER = "INTEGER",
-  STRING = "STRING",
-  STRINGLIST = "STRINGLIST",
-  STRINGMAP = "STRINGMAP",
-}
+export const DataType = {
+  INTEGER: "INTEGER",
+  STRING: "STRING",
+  STRINGLIST: "STRINGLIST",
+  STRINGMAP: "STRINGMAP",
+};
 
 /**
  * @public
@@ -805,7 +805,7 @@ export interface TemplateInput {
   /**
    * <p>The data type of the template input.</p>
    */
-  dataType?: DataType | string;
+  dataType?: keyof typeof DataType | string;
 
   /**
    * <p>Determine if an input is required from the template.</p>
@@ -816,9 +816,9 @@ export interface TemplateInput {
 /**
  * @public
  */
-export enum TemplateStatus {
-  CREATED = "CREATED",
-}
+export const TemplateStatus = {
+  CREATED: "CREATED",
+};
 
 /**
  * @public
@@ -852,7 +852,7 @@ export interface GetMigrationWorkflowTemplateResponse {
   /**
    * <p>The status of the template.</p>
    */
-  status?: TemplateStatus | string;
+  status?: keyof typeof TemplateStatus | string;
 
   /**
    * <p>The time at which the template was last created.</p>
@@ -939,10 +939,10 @@ export interface ListPluginsRequest {
 /**
  * @public
  */
-export enum PluginHealth {
-  PLUGIN_HEALTHY = "HEALTHY",
-  PLUGIN_UNHEALTHY = "UNHEALTHY",
-}
+export const PluginHealth = {
+  PLUGIN_HEALTHY: "HEALTHY",
+  PLUGIN_UNHEALTHY: "UNHEALTHY",
+};
 
 /**
  * @public
@@ -962,7 +962,7 @@ export interface PluginSummary {
   /**
    * <p>The status of the plugin.</p>
    */
-  status?: PluginHealth | string;
+  status?: keyof typeof PluginHealth | string;
 
   /**
    * <p>The IP address at which the plugin is located.</p>
@@ -1049,7 +1049,7 @@ export interface StepOutput {
   /**
    * <p>The data type of the step output.</p>
    */
-  dataType?: DataType | string;
+  dataType?: keyof typeof DataType | string;
 
   /**
    * <p>Determine if an output is required from a step.</p>
@@ -1060,10 +1060,10 @@ export interface StepOutput {
 /**
  * @public
  */
-export enum StepActionType {
-  AUTOMATED = "AUTOMATED",
-  MANUAL = "MANUAL",
-}
+export const StepActionType = {
+  AUTOMATED: "AUTOMATED",
+  MANUAL: "MANUAL",
+};
 
 /**
  * @public
@@ -1084,10 +1084,10 @@ export interface PlatformCommand {
 /**
  * @public
  */
-export enum RunEnvironment {
-  AWS = "AWS",
-  ONPREMISE = "ONPREMISE",
-}
+export const RunEnvironment = {
+  AWS: "AWS",
+  ONPREMISE: "ONPREMISE",
+};
 
 /**
  * @public
@@ -1108,11 +1108,11 @@ export interface PlatformScriptKey {
 /**
  * @public
  */
-export enum TargetType {
-  ALL = "ALL",
-  NONE = "NONE",
-  SINGLE = "SINGLE",
-}
+export const TargetType = {
+  ALL: "ALL",
+  NONE: "NONE",
+  SINGLE: "SINGLE",
+};
 
 /**
  * @public
@@ -1137,12 +1137,12 @@ export interface StepAutomationConfiguration {
   /**
    * <p>The source or target environment.</p>
    */
-  runEnvironment?: RunEnvironment | string;
+  runEnvironment?: keyof typeof RunEnvironment | string;
 
   /**
    * <p>The servers on which to run the script.</p>
    */
-  targetType?: TargetType | string;
+  targetType?: keyof typeof TargetType | string;
 }
 
 /**
@@ -1178,7 +1178,7 @@ export interface GetTemplateStepResponse {
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
-  stepActionType?: StepActionType | string;
+  stepActionType?: keyof typeof StepActionType | string;
 
   /**
    * <p>The time at which the step was created.</p>
@@ -1234,10 +1234,10 @@ export interface ListTemplateStepsRequest {
 /**
  * @public
  */
-export enum Owner {
-  AWSManaged = "AWS_MANAGED",
-  CUSTOM = "CUSTOM",
-}
+export const Owner = {
+  AWSManaged: "AWS_MANAGED",
+  CUSTOM: "CUSTOM",
+};
 
 /**
  * @public
@@ -1268,17 +1268,17 @@ export interface TemplateStepSummary {
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
-  stepActionType?: StepActionType | string;
+  stepActionType?: keyof typeof StepActionType | string;
 
   /**
    * <p>The servers on which to run the script.</p>
    */
-  targetType?: TargetType | string;
+  targetType?: keyof typeof TargetType | string;
 
   /**
    * <p>The owner of the step.</p>
    */
-  owner?: Owner | string;
+  owner?: keyof typeof Owner | string;
 
   /**
    * <p>The previous step.</p>
@@ -1324,16 +1324,16 @@ export interface GetTemplateStepGroupRequest {
 /**
  * @public
  */
-export enum StepGroupStatus {
-  AWAITING_DEPENDENCIES = "AWAITING_DEPENDENCIES",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PAUSED = "PAUSED",
-  PAUSING = "PAUSING",
-  READY = "READY",
-  USER_ATTENTION_REQUIRED = "USER_ATTENTION_REQUIRED",
-}
+export const StepGroupStatus = {
+  AWAITING_DEPENDENCIES: "AWAITING_DEPENDENCIES",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PAUSED: "PAUSED",
+  PAUSING: "PAUSING",
+  READY: "READY",
+  USER_ATTENTION_REQUIRED: "USER_ATTENTION_REQUIRED",
+};
 
 /**
  * @public
@@ -1362,7 +1362,7 @@ export interface GetTemplateStepGroupResponse {
   /**
    * <p>The status of the step group.</p>
    */
-  status?: StepGroupStatus | string;
+  status?: keyof typeof StepGroupStatus | string;
 
   /**
    * <p>The time at which the step group was created.</p>
@@ -1551,7 +1551,7 @@ export interface WorkflowStepOutput {
   /**
    * <p>The data type of the output.</p>
    */
-  dataType?: DataType | string;
+  dataType?: keyof typeof DataType | string;
 
   /**
    * <p>Determine if an output is required from a step.</p>
@@ -1587,12 +1587,12 @@ export interface WorkflowStepAutomationConfiguration {
   /**
    * <p>The source or target environment.</p>
    */
-  runEnvironment?: RunEnvironment | string;
+  runEnvironment?: keyof typeof RunEnvironment | string;
 
   /**
    * <p>The servers on which to run the script.</p>
    */
-  targetType?: TargetType | string;
+  targetType?: keyof typeof TargetType | string;
 }
 
 /**
@@ -1618,7 +1618,7 @@ export interface CreateWorkflowStepRequest {
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
-  stepActionType: StepActionType | string | undefined;
+  stepActionType: keyof typeof StepActionType | string | undefined;
 
   /**
    * <p>The description of the step.</p>
@@ -1724,15 +1724,15 @@ export interface GetWorkflowStepRequest {
 /**
  * @public
  */
-export enum StepStatus {
-  AWAITING_DEPENDENCIES = "AWAITING_DEPENDENCIES",
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PAUSED = "PAUSED",
-  READY = "READY",
-  USER_ATTENTION_REQUIRED = "USER_ATTENTION_REQUIRED",
-}
+export const StepStatus = {
+  AWAITING_DEPENDENCIES: "AWAITING_DEPENDENCIES",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PAUSED: "PAUSED",
+  READY: "READY",
+  USER_ATTENTION_REQUIRED: "USER_ATTENTION_REQUIRED",
+};
 
 /**
  * @public
@@ -1767,12 +1767,12 @@ export interface GetWorkflowStepResponse {
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
-  stepActionType?: StepActionType | string;
+  stepActionType?: keyof typeof StepActionType | string;
 
   /**
    * <p>The owner of the step.</p>
    */
-  owner?: Owner | string;
+  owner?: keyof typeof Owner | string;
 
   /**
    * <p>The custom script to run tests on source or target environments.</p>
@@ -1802,7 +1802,7 @@ export interface GetWorkflowStepResponse {
   /**
    * <p>The status of the step.</p>
    */
-  status?: StepStatus | string;
+  status?: keyof typeof StepStatus | string;
 
   /**
    * <p>The status message of the migration workflow.</p>
@@ -1889,12 +1889,12 @@ export interface WorkflowStepSummary {
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
-  stepActionType?: StepActionType | string;
+  stepActionType?: keyof typeof StepActionType | string;
 
   /**
    * <p>The owner of the step.</p>
    */
-  owner?: Owner | string;
+  owner?: keyof typeof Owner | string;
 
   /**
    * <p>The previous step.</p>
@@ -1909,7 +1909,7 @@ export interface WorkflowStepSummary {
   /**
    * <p>The status of the step.</p>
    */
-  status?: StepStatus | string;
+  status?: keyof typeof StepStatus | string;
 
   /**
    * <p>The status message of the migration workflow.</p>
@@ -1999,7 +1999,7 @@ export interface RetryWorkflowStepResponse {
   /**
    * <p>The status of the step.</p>
    */
-  status?: StepStatus | string;
+  status?: keyof typeof StepStatus | string;
 }
 
 /**
@@ -2035,7 +2035,7 @@ export interface UpdateWorkflowStepRequest {
    * <p>The action type of the step. You must run and update the status of a manual step for
    *             the workflow to continue after the completion of the step.</p>
    */
-  stepActionType?: StepActionType | string;
+  stepActionType?: keyof typeof StepActionType | string;
 
   /**
    * <p>The custom script to run tests on the source and target environments.</p>
@@ -2065,7 +2065,7 @@ export interface UpdateWorkflowStepRequest {
   /**
    * <p>The status of the step.</p>
    */
-  status?: StepStatus | string;
+  status?: keyof typeof StepStatus | string;
 }
 
 /**
@@ -2230,12 +2230,12 @@ export interface GetWorkflowStepGroupResponse {
   /**
    * <p>The status of the step group.</p>
    */
-  status?: StepGroupStatus | string;
+  status?: keyof typeof StepGroupStatus | string;
 
   /**
    * <p>The owner of the step group.</p>
    */
-  owner?: Owner | string;
+  owner?: keyof typeof Owner | string;
 
   /**
    * <p>The time at which the step group was created.</p>
@@ -2306,12 +2306,12 @@ export interface WorkflowStepGroupSummary {
   /**
    * <p>The owner of the step group.</p>
    */
-  owner?: Owner | string;
+  owner?: keyof typeof Owner | string;
 
   /**
    * <p>The status of the step group.</p>
    */
-  status?: StepGroupStatus | string;
+  status?: keyof typeof StepGroupStatus | string;
 
   /**
    * <p>The previous step group.</p>

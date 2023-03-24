@@ -31,12 +31,12 @@ export interface ActiveDirectoryBackupAttributes {
 /**
  * @public
  */
-export enum ActiveDirectoryErrorType {
-  DOMAIN_NOT_FOUND = "DOMAIN_NOT_FOUND",
-  INCOMPATIBLE_DOMAIN_MODE = "INCOMPATIBLE_DOMAIN_MODE",
-  INVALID_DOMAIN_STAGE = "INVALID_DOMAIN_STAGE",
-  WRONG_VPC = "WRONG_VPC",
-}
+export const ActiveDirectoryErrorType = {
+  DOMAIN_NOT_FOUND: "DOMAIN_NOT_FOUND",
+  INCOMPATIBLE_DOMAIN_MODE: "INCOMPATIBLE_DOMAIN_MODE",
+  INVALID_DOMAIN_STAGE: "INVALID_DOMAIN_STAGE",
+  WRONG_VPC: "WRONG_VPC",
+};
 
 /**
  * @public
@@ -53,7 +53,7 @@ export class ActiveDirectoryError extends __BaseException {
   /**
    * <p>The type of Active Directory error.</p>
    */
-  Type?: ActiveDirectoryErrorType | string;
+  Type?: keyof typeof ActiveDirectoryErrorType | string;
 
   /**
    * <p>A detailed error message.</p>
@@ -78,16 +78,16 @@ export class ActiveDirectoryError extends __BaseException {
 /**
  * @public
  */
-export enum AdministrativeActionType {
-  FILE_SYSTEM_ALIAS_ASSOCIATION = "FILE_SYSTEM_ALIAS_ASSOCIATION",
-  FILE_SYSTEM_ALIAS_DISASSOCIATION = "FILE_SYSTEM_ALIAS_DISASSOCIATION",
-  FILE_SYSTEM_UPDATE = "FILE_SYSTEM_UPDATE",
-  RELEASE_NFS_V3_LOCKS = "RELEASE_NFS_V3_LOCKS",
-  SNAPSHOT_UPDATE = "SNAPSHOT_UPDATE",
-  STORAGE_OPTIMIZATION = "STORAGE_OPTIMIZATION",
-  VOLUME_RESTORE = "VOLUME_RESTORE",
-  VOLUME_UPDATE = "VOLUME_UPDATE",
-}
+export const AdministrativeActionType = {
+  FILE_SYSTEM_ALIAS_ASSOCIATION: "FILE_SYSTEM_ALIAS_ASSOCIATION",
+  FILE_SYSTEM_ALIAS_DISASSOCIATION: "FILE_SYSTEM_ALIAS_DISASSOCIATION",
+  FILE_SYSTEM_UPDATE: "FILE_SYSTEM_UPDATE",
+  RELEASE_NFS_V3_LOCKS: "RELEASE_NFS_V3_LOCKS",
+  SNAPSHOT_UPDATE: "SNAPSHOT_UPDATE",
+  STORAGE_OPTIMIZATION: "STORAGE_OPTIMIZATION",
+  VOLUME_RESTORE: "VOLUME_RESTORE",
+  VOLUME_UPDATE: "VOLUME_UPDATE",
+};
 
 /**
  * @public
@@ -103,13 +103,13 @@ export interface AdministrativeActionFailureDetails {
 /**
  * @public
  */
-export enum Status {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  PENDING = "PENDING",
-  UPDATED_OPTIMIZING = "UPDATED_OPTIMIZING",
-}
+export const Status = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  UPDATED_OPTIMIZING: "UPDATED_OPTIMIZING",
+};
 
 /**
  * @public
@@ -125,43 +125,43 @@ export interface FileSystemFailureDetails {
 /**
  * @public
  */
-export enum FileSystemType {
-  LUSTRE = "LUSTRE",
-  ONTAP = "ONTAP",
-  OPENZFS = "OPENZFS",
-  WINDOWS = "WINDOWS",
-}
+export const FileSystemType = {
+  LUSTRE: "LUSTRE",
+  ONTAP: "ONTAP",
+  OPENZFS: "OPENZFS",
+  WINDOWS: "WINDOWS",
+};
 
 /**
  * @public
  */
-export enum FileSystemLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MISCONFIGURED = "MISCONFIGURED",
-  MISCONFIGURED_UNAVAILABLE = "MISCONFIGURED_UNAVAILABLE",
-  UPDATING = "UPDATING",
-}
+export const FileSystemLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MISCONFIGURED: "MISCONFIGURED",
+  MISCONFIGURED_UNAVAILABLE: "MISCONFIGURED_UNAVAILABLE",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
  */
-export enum DataCompressionType {
-  LZ4 = "LZ4",
-  NONE = "NONE",
-}
+export const DataCompressionType = {
+  LZ4: "LZ4",
+  NONE: "NONE",
+};
 
 /**
  * @public
  */
-export enum AutoImportPolicyType {
-  NEW = "NEW",
-  NEW_CHANGED = "NEW_CHANGED",
-  NEW_CHANGED_DELETED = "NEW_CHANGED_DELETED",
-  NONE = "NONE",
-}
+export const AutoImportPolicyType = {
+  NEW: "NEW",
+  NEW_CHANGED: "NEW_CHANGED",
+  NEW_CHANGED_DELETED: "NEW_CHANGED_DELETED",
+  NONE: "NONE",
+};
 
 /**
  * @public
@@ -178,14 +178,14 @@ export interface DataRepositoryFailureDetails {
 /**
  * @public
  */
-export enum DataRepositoryLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MISCONFIGURED = "MISCONFIGURED",
-  UPDATING = "UPDATING",
-}
+export const DataRepositoryLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MISCONFIGURED: "MISCONFIGURED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -228,7 +228,7 @@ export interface DataRepositoryConfiguration {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: DataRepositoryLifecycle | string;
+  Lifecycle?: keyof typeof DataRepositoryLifecycle | string;
 
   /**
    * <p>The import path to the Amazon S3 bucket (and optional prefix) that you're using
@@ -288,7 +288,7 @@ export interface DataRepositoryConfiguration {
    *             </li>
    *          </ul>
    */
-  AutoImportPolicy?: AutoImportPolicyType | string;
+  AutoImportPolicy?: keyof typeof AutoImportPolicyType | string;
 
   /**
    * <p>Provides detailed information about the data repository if its <code>Lifecycle</code> is
@@ -300,30 +300,30 @@ export interface DataRepositoryConfiguration {
 /**
  * @public
  */
-export enum LustreDeploymentType {
-  PERSISTENT_1 = "PERSISTENT_1",
-  PERSISTENT_2 = "PERSISTENT_2",
-  SCRATCH_1 = "SCRATCH_1",
-  SCRATCH_2 = "SCRATCH_2",
-}
+export const LustreDeploymentType = {
+  PERSISTENT_1: "PERSISTENT_1",
+  PERSISTENT_2: "PERSISTENT_2",
+  SCRATCH_1: "SCRATCH_1",
+  SCRATCH_2: "SCRATCH_2",
+};
 
 /**
  * @public
  */
-export enum DriveCacheType {
-  NONE = "NONE",
-  READ = "READ",
-}
+export const DriveCacheType = {
+  NONE: "NONE",
+  READ: "READ",
+};
 
 /**
  * @public
  */
-export enum LustreAccessAuditLogLevel {
-  DISABLED = "DISABLED",
-  ERROR_ONLY = "ERROR_ONLY",
-  WARN_ERROR = "WARN_ERROR",
-  WARN_ONLY = "WARN_ONLY",
-}
+export const LustreAccessAuditLogLevel = {
+  DISABLED: "DISABLED",
+  ERROR_ONLY: "ERROR_ONLY",
+  WARN_ERROR: "WARN_ERROR",
+  WARN_ONLY: "WARN_ONLY",
+};
 
 /**
  * @public
@@ -357,7 +357,7 @@ export interface LustreLogConfiguration {
    *          <p>Note that Amazon File Cache uses a default setting of <code>WARN_ERROR</code>,
    *             which can't be changed.</p>
    */
-  Level: LustreAccessAuditLogLevel | string | undefined;
+  Level: keyof typeof LustreAccessAuditLogLevel | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that specifies the destination of the logs.
@@ -456,7 +456,7 @@ export interface LustreFileSystemConfiguration {
    *                 FSx for Lustre deployment options</a>.</p>
    *          <p>The default is <code>SCRATCH_1</code>.</p>
    */
-  DeploymentType?: LustreDeploymentType | string;
+  DeploymentType?: keyof typeof LustreDeploymentType | string;
 
   /**
    * <p>Per unit storage throughput represents the megabytes per second of read or write
@@ -521,7 +521,7 @@ export interface LustreFileSystemConfiguration {
    *             of the total storage capacity.</p>
    *          <p>This parameter is required when <code>StorageType</code> is set to HDD.</p>
    */
-  DriveCacheType?: DriveCacheType | string;
+  DriveCacheType?: keyof typeof DriveCacheType | string;
 
   /**
    * <p>The data compression configuration for the file system. <code>DataCompressionType</code>
@@ -540,7 +540,7 @@ export interface LustreFileSystemConfiguration {
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
    */
-  DataCompressionType?: DataCompressionType | string;
+  DataCompressionType?: keyof typeof DataCompressionType | string;
 
   /**
    * <p>The Lustre logging configuration. Lustre logging writes the enabled log
@@ -559,18 +559,18 @@ export interface LustreFileSystemConfiguration {
 /**
  * @public
  */
-export enum OntapDeploymentType {
-  MULTI_AZ_1 = "MULTI_AZ_1",
-  SINGLE_AZ_1 = "SINGLE_AZ_1",
-}
+export const OntapDeploymentType = {
+  MULTI_AZ_1: "MULTI_AZ_1",
+  SINGLE_AZ_1: "SINGLE_AZ_1",
+};
 
 /**
  * @public
  */
-export enum DiskIopsConfigurationMode {
-  AUTOMATIC = "AUTOMATIC",
-  USER_PROVISIONED = "USER_PROVISIONED",
-}
+export const DiskIopsConfigurationMode = {
+  AUTOMATIC: "AUTOMATIC",
+  USER_PROVISIONED: "USER_PROVISIONED",
+};
 
 /**
  * @public
@@ -585,7 +585,7 @@ export interface DiskIopsConfiguration {
    *             using the system default (<code>AUTOMATIC</code>) or was
    *             provisioned by the customer (<code>USER_PROVISIONED</code>).</p>
    */
-  Mode?: DiskIopsConfigurationMode | string;
+  Mode?: keyof typeof DiskIopsConfigurationMode | string;
 
   /**
    * <p>The total number of SSD IOPS provisioned for the file system.</p>
@@ -672,7 +672,7 @@ export interface OntapFileSystemConfiguration {
    *                 <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html">Choosing Multi-AZ or
    *                 Single-AZ file system deployment</a>. </p>
    */
-  DeploymentType?: OntapDeploymentType | string;
+  DeploymentType?: keyof typeof OntapDeploymentType | string;
 
   /**
    * <p>(Multi-AZ only) The IP address range in which the endpoints to access your file system
@@ -734,10 +734,10 @@ export interface OntapFileSystemConfiguration {
 /**
  * @public
  */
-export enum OpenZFSDeploymentType {
-  SINGLE_AZ_1 = "SINGLE_AZ_1",
-  SINGLE_AZ_2 = "SINGLE_AZ_2",
-}
+export const OpenZFSDeploymentType = {
+  SINGLE_AZ_1: "SINGLE_AZ_1",
+  SINGLE_AZ_2: "SINGLE_AZ_2",
+};
 
 /**
  * @public
@@ -783,7 +783,7 @@ export interface OpenZFSFileSystemConfiguration {
   /**
    * <p>Specifies the file-system deployment type. Amazon FSx for OpenZFS supports  <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code>.</p>
    */
-  DeploymentType?: OpenZFSDeploymentType | string;
+  DeploymentType?: keyof typeof OpenZFSDeploymentType | string;
 
   /**
    * <p>The throughput of an Amazon FSx file system, measured in megabytes per second (MBps).</p>
@@ -819,10 +819,10 @@ export interface OpenZFSFileSystemConfiguration {
 /**
  * @public
  */
-export enum StorageType {
-  HDD = "HDD",
-  SSD = "SSD",
-}
+export const StorageType = {
+  HDD: "HDD",
+  SSD: "SSD",
+};
 
 /**
  * @public
@@ -847,13 +847,13 @@ export interface Tag {
 /**
  * @public
  */
-export enum AliasLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATE_FAILED = "CREATE_FAILED",
-  CREATING = "CREATING",
-  DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
-}
+export const AliasLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+};
 
 /**
  * @public
@@ -905,18 +905,18 @@ export interface Alias {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: AliasLifecycle | string;
+  Lifecycle?: keyof typeof AliasLifecycle | string;
 }
 
 /**
  * @public
  */
-export enum WindowsAccessAuditLogLevel {
-  DISABLED = "DISABLED",
-  FAILURE_ONLY = "FAILURE_ONLY",
-  SUCCESS_AND_FAILURE = "SUCCESS_AND_FAILURE",
-  SUCCESS_ONLY = "SUCCESS_ONLY",
-}
+export const WindowsAccessAuditLogLevel = {
+  DISABLED: "DISABLED",
+  FAILURE_ONLY: "FAILURE_ONLY",
+  SUCCESS_AND_FAILURE: "SUCCESS_AND_FAILURE",
+  SUCCESS_ONLY: "SUCCESS_ONLY",
+};
 
 /**
  * @public
@@ -951,7 +951,7 @@ export interface WindowsAuditLogConfiguration {
    *             </li>
    *          </ul>
    */
-  FileAccessAuditLogLevel: WindowsAccessAuditLogLevel | string | undefined;
+  FileAccessAuditLogLevel: keyof typeof WindowsAccessAuditLogLevel | string | undefined;
 
   /**
    * <p>Sets which attempt type is logged by Amazon FSx for file share accesses.</p>
@@ -977,7 +977,7 @@ export interface WindowsAuditLogConfiguration {
    *             </li>
    *          </ul>
    */
-  FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevel | string | undefined;
+  FileShareAccessAuditLogLevel: keyof typeof WindowsAccessAuditLogLevel | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the destination of the audit logs.
@@ -996,19 +996,19 @@ export interface WindowsAuditLogConfiguration {
 /**
  * @public
  */
-export enum WindowsDeploymentType {
-  MULTI_AZ_1 = "MULTI_AZ_1",
-  SINGLE_AZ_1 = "SINGLE_AZ_1",
-  SINGLE_AZ_2 = "SINGLE_AZ_2",
-}
+export const WindowsDeploymentType = {
+  MULTI_AZ_1: "MULTI_AZ_1",
+  SINGLE_AZ_1: "SINGLE_AZ_1",
+  SINGLE_AZ_2: "SINGLE_AZ_2",
+};
 
 /**
  * @public
  */
-export enum FileSystemMaintenanceOperation {
-  BACKING_UP = "BACKING_UP",
-  PATCHING = "PATCHING",
-}
+export const FileSystemMaintenanceOperation = {
+  BACKING_UP: "BACKING_UP",
+  PATCHING: "PATCHING",
+};
 
 /**
  * @public
@@ -1084,7 +1084,7 @@ export interface WindowsFileSystemConfiguration {
    *          <p>For more information, see
    *          <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">Single-AZ and Multi-AZ File Systems</a>.</p>
    */
-  DeploymentType?: WindowsDeploymentType | string;
+  DeploymentType?: keyof typeof WindowsDeploymentType | string;
 
   /**
    * <p>For <code>MULTI_AZ_1</code> deployment types, use this endpoint when performing administrative tasks on the file system using
@@ -1126,7 +1126,7 @@ export interface WindowsFileSystemConfiguration {
   /**
    * <p>The list of maintenance operations in progress for this file system.</p>
    */
-  MaintenanceOperationsInProgress?: (FileSystemMaintenanceOperation | string)[];
+  MaintenanceOperationsInProgress?: (keyof typeof FileSystemMaintenanceOperation | string)[];
 
   /**
    * <p>The preferred start time to perform weekly maintenance, formatted d:HH:MM in the UTC
@@ -1178,12 +1178,12 @@ export interface WindowsFileSystemConfiguration {
 /**
  * @public
  */
-export enum SnapshotLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  PENDING = "PENDING",
-}
+export const SnapshotLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
@@ -1199,52 +1199,52 @@ export interface LifecycleTransitionReason {
 /**
  * @public
  */
-export enum VolumeLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MISCONFIGURED = "MISCONFIGURED",
-  PENDING = "PENDING",
-}
+export const VolumeLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MISCONFIGURED: "MISCONFIGURED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
  */
-export enum FlexCacheEndpointType {
-  CACHE = "CACHE",
-  NONE = "NONE",
-  ORIGIN = "ORIGIN",
-}
+export const FlexCacheEndpointType = {
+  CACHE: "CACHE",
+  NONE: "NONE",
+  ORIGIN: "ORIGIN",
+};
 
 /**
  * @public
  */
-export enum OntapVolumeType {
-  DP = "DP",
-  LS = "LS",
-  RW = "RW",
-}
+export const OntapVolumeType = {
+  DP: "DP",
+  LS: "LS",
+  RW: "RW",
+};
 
 /**
  * @public
  */
-export enum SecurityStyle {
-  MIXED = "MIXED",
-  NTFS = "NTFS",
-  UNIX = "UNIX",
-}
+export const SecurityStyle = {
+  MIXED: "MIXED",
+  NTFS: "NTFS",
+  UNIX: "UNIX",
+};
 
 /**
  * @public
  */
-export enum TieringPolicyName {
-  ALL = "ALL",
-  AUTO = "AUTO",
-  NONE = "NONE",
-  SNAPSHOT_ONLY = "SNAPSHOT_ONLY",
-}
+export const TieringPolicyName = {
+  ALL: "ALL",
+  AUTO: "AUTO",
+  NONE: "NONE",
+  SNAPSHOT_ONLY: "SNAPSHOT_ONLY",
+};
 
 /**
  * @public
@@ -1310,7 +1310,7 @@ export interface TieringPolicy {
    *             </li>
    *          </ul>
    */
-  Name?: TieringPolicyName | string;
+  Name?: keyof typeof TieringPolicyName | string;
 }
 
 /**
@@ -1337,7 +1337,7 @@ export interface OntapVolumeConfiguration {
    *             </li>
    *          </ul>
    */
-  FlexCacheEndpointType?: FlexCacheEndpointType | string;
+  FlexCacheEndpointType?: keyof typeof FlexCacheEndpointType | string;
 
   /**
    * <p>Specifies the directory that network-attached storage (NAS) clients use to mount the
@@ -1354,7 +1354,7 @@ export interface OntapVolumeConfiguration {
    *             or
    *                 <code>MIXED</code>.</p>
    */
-  SecurityStyle?: SecurityStyle | string;
+  SecurityStyle?: keyof typeof SecurityStyle | string;
 
   /**
    * <p>The configured size of the volume, in megabytes (MBs).</p>
@@ -1413,7 +1413,7 @@ export interface OntapVolumeConfiguration {
    *             </li>
    *          </ul>
    */
-  OntapVolumeType?: OntapVolumeType | string;
+  OntapVolumeType?: keyof typeof OntapVolumeType | string;
 
   /**
    * <p>Specifies the snapshot policy for the volume. There are three built-in snapshot policies:</p>
@@ -1454,11 +1454,11 @@ export interface OntapVolumeConfiguration {
 /**
  * @public
  */
-export enum OpenZFSDataCompressionType {
-  LZ4 = "LZ4",
-  NONE = "NONE",
-  ZSTD = "ZSTD",
-}
+export const OpenZFSDataCompressionType = {
+  LZ4: "LZ4",
+  NONE: "NONE",
+  ZSTD: "ZSTD",
+};
 
 /**
  * @public
@@ -1513,10 +1513,10 @@ export interface OpenZFSNfsExport {
 /**
  * @public
  */
-export enum OpenZFSCopyStrategy {
-  CLONE = "CLONE",
-  FULL_COPY = "FULL_COPY",
-}
+export const OpenZFSCopyStrategy = {
+  CLONE: "CLONE",
+  FULL_COPY: "FULL_COPY",
+};
 
 /**
  * @public
@@ -1549,16 +1549,16 @@ export interface OpenZFSOriginSnapshotConfiguration {
    *             </li>
    *          </ul>
    */
-  CopyStrategy?: OpenZFSCopyStrategy | string;
+  CopyStrategy?: keyof typeof OpenZFSCopyStrategy | string;
 }
 
 /**
  * @public
  */
-export enum OpenZFSQuotaType {
-  GROUP = "GROUP",
-  USER = "USER",
-}
+export const OpenZFSQuotaType = {
+  GROUP: "GROUP",
+  USER: "USER",
+};
 
 /**
  * @public
@@ -1568,7 +1568,7 @@ export interface OpenZFSUserOrGroupQuota {
   /**
    * <p>A value that specifies whether the quota applies to a user or group.</p>
    */
-  Type: OpenZFSQuotaType | string | undefined;
+  Type: keyof typeof OpenZFSQuotaType | string | undefined;
 
   /**
    * <p>The ID of the user or group.</p>
@@ -1641,7 +1641,7 @@ export interface OpenZFSVolumeConfiguration {
    *             </li>
    *          </ul>
    */
-  DataCompressionType?: OpenZFSDataCompressionType | string;
+  DataCompressionType?: keyof typeof OpenZFSDataCompressionType | string;
 
   /**
    * <p>A Boolean value indicating whether tags for the volume should be copied to snapshots.
@@ -1698,10 +1698,10 @@ export interface OpenZFSVolumeConfiguration {
 /**
  * @public
  */
-export enum VolumeType {
-  ONTAP = "ONTAP",
-  OPENZFS = "OPENZFS",
-}
+export const VolumeType = {
+  ONTAP: "ONTAP",
+  OPENZFS: "OPENZFS",
+};
 
 /**
  * @public
@@ -1840,11 +1840,11 @@ export class InternalServerError extends __BaseException {
 /**
  * @public
  */
-export enum EventType {
-  CHANGED = "CHANGED",
-  DELETED = "DELETED",
-  NEW = "NEW",
-}
+export const EventType = {
+  CHANGED: "CHANGED",
+  DELETED: "DELETED",
+  NEW: "NEW",
+};
 
 /**
  * @public
@@ -1879,7 +1879,7 @@ export interface AutoExportPolicy {
    *          </ul>
    *          <p>You can define any combination of event types for your <code>AutoExportPolicy</code>.</p>
    */
-  Events?: (EventType | string)[];
+  Events?: (keyof typeof EventType | string)[];
 }
 
 /**
@@ -1915,7 +1915,7 @@ export interface AutoImportPolicy {
    *          </ul>
    *          <p>You can define any combination of event types for your <code>AutoImportPolicy</code>.</p>
    */
-  Events?: (EventType | string)[];
+  Events?: (keyof typeof EventType | string)[];
 }
 
 /**
@@ -1932,14 +1932,14 @@ export interface CancelDataRepositoryTaskRequest {
 /**
  * @public
  */
-export enum DataRepositoryTaskLifecycle {
-  CANCELED = "CANCELED",
-  CANCELING = "CANCELING",
-  EXECUTING = "EXECUTING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  SUCCEEDED = "SUCCEEDED",
-}
+export const DataRepositoryTaskLifecycle = {
+  CANCELED: "CANCELED",
+  CANCELING: "CANCELING",
+  EXECUTING: "EXECUTING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+};
 
 /**
  * @public
@@ -1975,7 +1975,7 @@ export interface CancelDataRepositoryTaskResponse {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: DataRepositoryTaskLifecycle | string;
+  Lifecycle?: keyof typeof DataRepositoryTaskLifecycle | string;
 
   /**
    * <p>The ID of the task being canceled.</p>
@@ -2166,32 +2166,32 @@ export interface BackupFailureDetails {
 /**
  * @public
  */
-export enum BackupLifecycle {
-  AVAILABLE = "AVAILABLE",
-  COPYING = "COPYING",
-  CREATING = "CREATING",
-  DELETED = "DELETED",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-  TRANSFERRING = "TRANSFERRING",
-}
+export const BackupLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  COPYING: "COPYING",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  TRANSFERRING: "TRANSFERRING",
+};
 
 /**
  * @public
  */
-export enum ResourceType {
-  FILE_SYSTEM = "FILE_SYSTEM",
-  VOLUME = "VOLUME",
-}
+export const ResourceType = {
+  FILE_SYSTEM: "FILE_SYSTEM",
+  VOLUME: "VOLUME",
+};
 
 /**
  * @public
  */
-export enum BackupType {
-  AUTOMATIC = "AUTOMATIC",
-  AWS_BACKUP = "AWS_BACKUP",
-  USER_INITIATED = "USER_INITIATED",
-}
+export const BackupType = {
+  AUTOMATIC: "AUTOMATIC",
+  AWS_BACKUP: "AWS_BACKUP",
+  USER_INITIATED: "USER_INITIATED",
+};
 
 /**
  * @public
@@ -2333,18 +2333,18 @@ export class InvalidSourceKmsKey extends __BaseException {
 /**
  * @public
  */
-export enum ServiceLimit {
-  FILE_CACHE_COUNT = "FILE_CACHE_COUNT",
-  FILE_SYSTEM_COUNT = "FILE_SYSTEM_COUNT",
-  STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM = "STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM",
-  TOTAL_IN_PROGRESS_COPY_BACKUPS = "TOTAL_IN_PROGRESS_COPY_BACKUPS",
-  TOTAL_SSD_IOPS = "TOTAL_SSD_IOPS",
-  TOTAL_STORAGE = "TOTAL_STORAGE",
-  TOTAL_THROUGHPUT_CAPACITY = "TOTAL_THROUGHPUT_CAPACITY",
-  TOTAL_USER_INITIATED_BACKUPS = "TOTAL_USER_INITIATED_BACKUPS",
-  TOTAL_USER_TAGS = "TOTAL_USER_TAGS",
-  VOLUMES_PER_FILE_SYSTEM = "VOLUMES_PER_FILE_SYSTEM",
-}
+export const ServiceLimit = {
+  FILE_CACHE_COUNT: "FILE_CACHE_COUNT",
+  FILE_SYSTEM_COUNT: "FILE_SYSTEM_COUNT",
+  STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM: "STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM",
+  TOTAL_IN_PROGRESS_COPY_BACKUPS: "TOTAL_IN_PROGRESS_COPY_BACKUPS",
+  TOTAL_SSD_IOPS: "TOTAL_SSD_IOPS",
+  TOTAL_STORAGE: "TOTAL_STORAGE",
+  TOTAL_THROUGHPUT_CAPACITY: "TOTAL_THROUGHPUT_CAPACITY",
+  TOTAL_USER_INITIATED_BACKUPS: "TOTAL_USER_INITIATED_BACKUPS",
+  TOTAL_USER_TAGS: "TOTAL_USER_TAGS",
+  VOLUMES_PER_FILE_SYSTEM: "VOLUMES_PER_FILE_SYSTEM",
+};
 
 /**
  * @public
@@ -2357,7 +2357,7 @@ export class ServiceLimitExceeded extends __BaseException {
   /**
    * <p>Enumeration of the service limit that was exceeded. </p>
    */
-  Limit: ServiceLimit | string | undefined;
+  Limit: keyof typeof ServiceLimit | string | undefined;
 
   /**
    * <p>A detailed error message.</p>
@@ -2605,9 +2605,9 @@ export interface CreateDataRepositoryAssociationRequest {
 /**
  * @public
  */
-export enum NfsVersion {
-  NFS3 = "NFS3",
-}
+export const NfsVersion = {
+  NFS3: "NFS3",
+};
 
 /**
  * @public
@@ -2621,7 +2621,7 @@ export interface NFSDataRepositoryConfiguration {
    *             <code>NFS3</code>, which indicates that the data repository must
    *             support the NFSv3 protocol.</p>
    */
-  Version: NfsVersion | string | undefined;
+  Version: keyof typeof NfsVersion | string | undefined;
 
   /**
    * <p>A list of up to 2 IP addresses of DNS servers used to resolve
@@ -2723,7 +2723,7 @@ export interface DataRepositoryAssociation {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: DataRepositoryLifecycle | string;
+  Lifecycle?: keyof typeof DataRepositoryLifecycle | string;
 
   /**
    * <p>Provides detailed information about the data repository if its <code>Lifecycle</code> is
@@ -2883,16 +2883,16 @@ export interface CreateDataRepositoryAssociationResponse {
 /**
  * @public
  */
-export enum ReportFormat {
-  REPORT_CSV_20191124 = "REPORT_CSV_20191124",
-}
+export const ReportFormat = {
+  REPORT_CSV_20191124: "REPORT_CSV_20191124",
+};
 
 /**
  * @public
  */
-export enum ReportScope {
-  FAILED_FILES_ONLY = "FAILED_FILES_ONLY",
-}
+export const ReportScope = {
+  FAILED_FILES_ONLY: "FAILED_FILES_ONLY",
+};
 
 /**
  * @public
@@ -2924,24 +2924,24 @@ export interface CompletionReport {
    *             <code>\{path\}/task-\{id\}/failures.csv</code>.
    *         </p>
    */
-  Format?: ReportFormat | string;
+  Format?: keyof typeof ReportFormat | string;
 
   /**
    * <p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the scope of the <code>CompletionReport</code>; <code>FAILED_FILES_ONLY</code> is the only scope currently supported.
    *             When <code>Scope</code> is set to <code>FAILED_FILES_ONLY</code>, the <code>CompletionReport</code> only contains information about files that the data repository task failed to process.</p>
    */
-  Scope?: ReportScope | string;
+  Scope?: keyof typeof ReportScope | string;
 }
 
 /**
  * @public
  */
-export enum DataRepositoryTaskType {
-  AUTO_TRIGGERED_EVICTION = "AUTO_RELEASE_DATA",
-  EVICTION = "RELEASE_DATA_FROM_FILESYSTEM",
-  EXPORT = "EXPORT_TO_REPOSITORY",
-  IMPORT = "IMPORT_METADATA_FROM_REPOSITORY",
-}
+export const DataRepositoryTaskType = {
+  AUTO_TRIGGERED_EVICTION: "AUTO_RELEASE_DATA",
+  EVICTION: "RELEASE_DATA_FROM_FILESYSTEM",
+  EXPORT: "EXPORT_TO_REPOSITORY",
+  IMPORT: "IMPORT_METADATA_FROM_REPOSITORY",
+};
 
 /**
  * @public
@@ -2950,7 +2950,7 @@ export interface CreateDataRepositoryTaskRequest {
   /**
    * <p>Specifies the type of data repository task to create.</p>
    */
-  Type: DataRepositoryTaskType | string | undefined;
+  Type: keyof typeof DataRepositoryTaskType | string | undefined;
 
   /**
    * <p>A list of paths for the data repository task to use when the task is processed.
@@ -3101,7 +3101,7 @@ export interface DataRepositoryTask {
    *                 You can use the DescribeDataRepositoryTask action to monitor the task status. Contact the FSx team if you need to delete your file system immediately.</p>
    *          </note>
    */
-  Lifecycle: DataRepositoryTaskLifecycle | string | undefined;
+  Lifecycle: keyof typeof DataRepositoryTaskLifecycle | string | undefined;
 
   /**
    * <p>The type of data repository task.</p>
@@ -3123,7 +3123,7 @@ export interface DataRepositoryTask {
    *             </li>
    *          </ul>
    */
-  Type: DataRepositoryTaskType | string | undefined;
+  Type: keyof typeof DataRepositoryTaskType | string | undefined;
 
   /**
    * <p>The time that the resource was created, in seconds (since 1970-01-01T00:00:00Z),
@@ -3244,7 +3244,7 @@ export interface FileCacheNFSConfiguration {
    *             NFS data repository. The only supported value is <code>NFS3</code>,
    *             which indicates that the data repository must support the NFSv3 protocol.</p>
    */
-  Version: NfsVersion | string | undefined;
+  Version: keyof typeof NfsVersion | string | undefined;
 
   /**
    * <p>A list of up to 2 IP addresses of DNS servers used to resolve
@@ -3339,16 +3339,16 @@ export interface FileCacheDataRepositoryAssociation {
 /**
  * @public
  */
-export enum FileCacheType {
-  LUSTRE = "LUSTRE",
-}
+export const FileCacheType = {
+  LUSTRE: "LUSTRE",
+};
 
 /**
  * @public
  */
-export enum FileCacheLustreDeploymentType {
-  CACHE_1 = "CACHE_1",
-}
+export const FileCacheLustreDeploymentType = {
+  CACHE_1: "CACHE_1",
+};
 
 /**
  * @public
@@ -3379,7 +3379,7 @@ export interface CreateFileCacheLustreConfiguration {
   /**
    * <p>Specifies the cache deployment type, which must be <code>CACHE_1</code>.</p>
    */
-  DeploymentType: FileCacheLustreDeploymentType | string | undefined;
+  DeploymentType: keyof typeof FileCacheLustreDeploymentType | string | undefined;
 
   /**
    * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
@@ -3420,7 +3420,7 @@ export interface CreateFileCacheRequest {
    * <p>The type of cache that you're creating, which
    *             must be <code>LUSTRE</code>.</p>
    */
-  FileCacheType: FileCacheType | string | undefined;
+  FileCacheType: keyof typeof FileCacheType | string | undefined;
 
   /**
    * <p>Sets the Lustre version for the cache that you're creating,
@@ -3507,13 +3507,13 @@ export interface FileCacheFailureDetails {
 /**
  * @public
  */
-export enum FileCacheLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  UPDATING = "UPDATING",
-}
+export const FileCacheLifecycle = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+};
 
 /**
  * @public
@@ -3532,7 +3532,7 @@ export interface FileCacheLustreConfiguration {
    * <p>The deployment type of the Amazon File Cache resource, which must
    *             be <code>CACHE_1</code>.</p>
    */
-  DeploymentType?: FileCacheLustreDeploymentType | string;
+  DeploymentType?: keyof typeof FileCacheLustreDeploymentType | string;
 
   /**
    * <p>You use the <code>MountName</code> value when mounting the cache. If you pass
@@ -3591,7 +3591,7 @@ export interface FileCacheCreating {
   /**
    * <p>The type of cache, which must be <code>LUSTRE</code>.</p>
    */
-  FileCacheType?: FileCacheType | string;
+  FileCacheType?: keyof typeof FileCacheType | string;
 
   /**
    * <p>The Lustre version of the cache, which must be <code>2.12</code>.</p>
@@ -3625,7 +3625,7 @@ export interface FileCacheCreating {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: FileCacheLifecycle | string;
+  Lifecycle?: keyof typeof FileCacheLifecycle | string;
 
   /**
    * <p>A structure providing details of any failures that occurred.</p>
@@ -3834,7 +3834,7 @@ export interface LustreLogCreateConfiguration {
    *             </li>
    *          </ul>
    */
-  Level: LustreAccessAuditLogLevel | string | undefined;
+  Level: keyof typeof LustreAccessAuditLogLevel | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that specifies the destination of the logs.</p>
@@ -3989,7 +3989,7 @@ export interface CreateFileSystemLustreConfiguration {
    *                 transit</a>  in the <i>Amazon FSx for Lustre User Guide</i>. </p>
    *          <p>(Default = <code>SCRATCH_1</code>)</p>
    */
-  DeploymentType?: LustreDeploymentType | string;
+  DeploymentType?: keyof typeof LustreDeploymentType | string;
 
   /**
    * <p> (Optional) Available with <code>Scratch</code> and <code>Persistent_1</code> deployment types. When you
@@ -4033,7 +4033,7 @@ export interface CreateFileSystemLustreConfiguration {
    *             a data repository association to link your Lustre file system to a data repository.</p>
    *          </note>
    */
-  AutoImportPolicy?: AutoImportPolicyType | string;
+  AutoImportPolicy?: keyof typeof AutoImportPolicyType | string;
 
   /**
    * <p>Required with <code>PERSISTENT_1</code> and <code>PERSISTENT_2</code> deployment
@@ -4095,7 +4095,7 @@ export interface CreateFileSystemLustreConfiguration {
    *             of the total storage capacity of the file system.</p>
    *          <p>This parameter is required when <code>StorageType</code> is set to <code>HDD</code>.</p>
    */
-  DriveCacheType?: DriveCacheType | string;
+  DriveCacheType?: keyof typeof DriveCacheType | string;
 
   /**
    * <p>Sets the data compression configuration for the file system. <code>DataCompressionType</code>
@@ -4115,7 +4115,7 @@ export interface CreateFileSystemLustreConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>
    *             in the <i>Amazon FSx for Lustre User Guide</i>.</p>
    */
-  DataCompressionType?: DataCompressionType | string;
+  DataCompressionType?: keyof typeof DataCompressionType | string;
 
   /**
    * <p>The Lustre logging configuration used when creating an Amazon FSx for Lustre
@@ -4171,7 +4171,7 @@ export interface CreateFileSystemOntapConfiguration {
    *          <p>For information about the use cases for Multi-AZ and Single-AZ deployments, refer to
    *                 <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-AZ.html">Choosing a file system deployment type</a>. </p>
    */
-  DeploymentType: OntapDeploymentType | string | undefined;
+  DeploymentType: keyof typeof OntapDeploymentType | string | undefined;
 
   /**
    * <p>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
@@ -4267,7 +4267,7 @@ export interface OpenZFSCreateRootVolumeConfiguration {
    *             </li>
    *          </ul>
    */
-  DataCompressionType?: OpenZFSDataCompressionType | string;
+  DataCompressionType?: keyof typeof OpenZFSDataCompressionType | string;
 
   /**
    * <p>The configuration object for mounting a file system.</p>
@@ -4359,7 +4359,7 @@ export interface CreateFileSystemOpenZFSConfiguration {
    *             and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance">File system performance</a>
    *             in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    */
-  DeploymentType: OpenZFSDeploymentType | string | undefined;
+  DeploymentType: keyof typeof OpenZFSDeploymentType | string | undefined;
 
   /**
    * <p>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second (MB/s). Valid values depend on the DeploymentType you choose, as follows:</p>
@@ -4432,7 +4432,7 @@ export interface WindowsAuditLogCreateConfiguration {
    *             </li>
    *          </ul>
    */
-  FileAccessAuditLogLevel: WindowsAccessAuditLogLevel | string | undefined;
+  FileAccessAuditLogLevel: keyof typeof WindowsAccessAuditLogLevel | string | undefined;
 
   /**
    * <p>Sets which attempt type is logged by Amazon FSx for file share accesses.</p>
@@ -4458,7 +4458,7 @@ export interface WindowsAuditLogCreateConfiguration {
    *             </li>
    *          </ul>
    */
-  FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevel | string | undefined;
+  FileShareAccessAuditLogLevel: keyof typeof WindowsAccessAuditLogLevel | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that specifies the destination of the audit logs.</p>
@@ -4602,7 +4602,7 @@ export interface CreateFileSystemWindowsConfiguration {
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
    *                 Availability and Durability: Single-AZ and Multi-AZ File Systems</a>.</p>
    */
-  DeploymentType?: WindowsDeploymentType | string;
+  DeploymentType?: keyof typeof WindowsDeploymentType | string;
 
   /**
    * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>. This specifies the subnet
@@ -4702,7 +4702,7 @@ export interface CreateFileSystemRequest {
    *                 <code>WINDOWS</code>, <code>LUSTRE</code>, <code>ONTAP</code>, and
    *                 <code>OPENZFS</code>.</p>
    */
-  FileSystemType: FileSystemType | string | undefined;
+  FileSystemType: keyof typeof FileSystemType | string | undefined;
 
   /**
    * <p>Sets the storage capacity of the file system that you're creating, in gibibytes (GiB).</p>
@@ -4767,7 +4767,7 @@ export interface CreateFileSystemRequest {
    *                 options</a> in the <i>FSx for Lustre User
    *             Guide</i>. </p>
    */
-  StorageType?: StorageType | string;
+  StorageType?: keyof typeof StorageType | string;
 
   /**
    * <p>Specifies the IDs of the subnets that the file system will be accessible from. For
@@ -5075,7 +5075,7 @@ export interface CreateFileSystemFromBackupRequest {
    *             used SSD storage if the original SSD file system had a storage capacity of at least 2000 GiB.</p>
    *          </note>
    */
-  StorageType?: StorageType | string;
+  StorageType?: keyof typeof StorageType | string;
 
   /**
    * <p>Specifies the ID of the Key Management Service (KMS) key to use for encrypting data on
@@ -5184,11 +5184,11 @@ export interface CreateSvmActiveDirectoryConfiguration {
 /**
  * @public
  */
-export enum StorageVirtualMachineRootVolumeSecurityStyle {
-  MIXED = "MIXED",
-  NTFS = "NTFS",
-  UNIX = "UNIX",
-}
+export const StorageVirtualMachineRootVolumeSecurityStyle = {
+  MIXED: "MIXED",
+  NTFS: "NTFS",
+  UNIX: "UNIX",
+};
 
 /**
  * @public
@@ -5252,7 +5252,7 @@ export interface CreateStorageVirtualMachineRequest {
    *             </li>
    *          </ul>
    */
-  RootVolumeSecurityStyle?: StorageVirtualMachineRootVolumeSecurityStyle | string;
+  RootVolumeSecurityStyle?: keyof typeof StorageVirtualMachineRootVolumeSecurityStyle | string;
 }
 
 /**
@@ -5326,24 +5326,24 @@ export interface SvmEndpoints {
 /**
  * @public
  */
-export enum StorageVirtualMachineLifecycle {
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MISCONFIGURED = "MISCONFIGURED",
-  PENDING = "PENDING",
-}
+export const StorageVirtualMachineLifecycle = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MISCONFIGURED: "MISCONFIGURED",
+  PENDING: "PENDING",
+};
 
 /**
  * @public
  */
-export enum StorageVirtualMachineSubtype {
-  DEFAULT = "DEFAULT",
-  DP_DESTINATION = "DP_DESTINATION",
-  SYNC_DESTINATION = "SYNC_DESTINATION",
-  SYNC_SOURCE = "SYNC_SOURCE",
-}
+export const StorageVirtualMachineSubtype = {
+  DEFAULT: "DEFAULT",
+  DP_DESTINATION: "DP_DESTINATION",
+  SYNC_DESTINATION: "SYNC_DESTINATION",
+  SYNC_SOURCE: "SYNC_SOURCE",
+};
 
 /**
  * @public
@@ -5403,7 +5403,7 @@ export interface StorageVirtualMachine {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: StorageVirtualMachineLifecycle | string;
+  Lifecycle?: keyof typeof StorageVirtualMachineLifecycle | string;
 
   /**
    * <p>The name of the SVM, if provisioned.</p>
@@ -5426,7 +5426,7 @@ export interface StorageVirtualMachine {
   /**
    * <p>Describes the SVM's subtype.</p>
    */
-  Subtype?: StorageVirtualMachineSubtype | string;
+  Subtype?: keyof typeof StorageVirtualMachineSubtype | string;
 
   /**
    * <p>The SVM's UUID (universally unique identifier).</p>
@@ -5446,7 +5446,7 @@ export interface StorageVirtualMachine {
   /**
    * <p>The security style of the root volume of the SVM.</p>
    */
-  RootVolumeSecurityStyle?: StorageVirtualMachineRootVolumeSecurityStyle | string;
+  RootVolumeSecurityStyle?: keyof typeof StorageVirtualMachineRootVolumeSecurityStyle | string;
 }
 
 /**
@@ -5462,10 +5462,10 @@ export interface CreateStorageVirtualMachineResponse {
 /**
  * @public
  */
-export enum InputOntapVolumeType {
-  DP = "DP",
-  RW = "RW",
-}
+export const InputOntapVolumeType = {
+  DP: "DP",
+  RW: "RW",
+};
 
 /**
  * @public
@@ -5506,7 +5506,7 @@ export interface CreateOntapVolumeConfiguration {
    *             </li>
    *          </ul>
    */
-  SecurityStyle?: SecurityStyle | string;
+  SecurityStyle?: keyof typeof SecurityStyle | string;
 
   /**
    * <p>Specifies the size of the volume, in megabytes (MB), that you are creating.</p>
@@ -5572,7 +5572,7 @@ export interface CreateOntapVolumeConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types">Volume types</a>
    *             in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</p>
    */
-  OntapVolumeType?: InputOntapVolumeType | string;
+  OntapVolumeType?: keyof typeof InputOntapVolumeType | string;
 
   /**
    * <p>Specifies the snapshot policy for the volume. There are three built-in snapshot policies:</p>
@@ -5640,7 +5640,7 @@ export interface CreateOpenZFSOriginSnapshotConfiguration {
    *             </li>
    *          </ul>
    */
-  CopyStrategy: OpenZFSCopyStrategy | string | undefined;
+  CopyStrategy: keyof typeof OpenZFSCopyStrategy | string | undefined;
 }
 
 /**
@@ -5717,7 +5717,7 @@ export interface CreateOpenZFSVolumeConfiguration {
    *             see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#performance-tips-zfs">
    *                 Tips for maximizing performance</a> File system and volume settings in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    */
-  DataCompressionType?: OpenZFSDataCompressionType | string;
+  DataCompressionType?: keyof typeof OpenZFSDataCompressionType | string;
 
   /**
    * <p>A Boolean value indicating whether tags for the volume should be copied to snapshots.
@@ -5766,7 +5766,7 @@ export interface CreateVolumeRequest {
    * <p>Specifies the type of volume to create; <code>ONTAP</code> and <code>OPENZFS</code> are
    *             the only valid volume types.</p>
    */
-  VolumeType: VolumeType | string | undefined;
+  VolumeType: keyof typeof VolumeType | string | undefined;
 
   /**
    * <p>Specifies the name of the volume that you're creating.</p>
@@ -5966,7 +5966,7 @@ export interface DeleteBackupResponse {
    * <p>The lifecycle status of the backup. If the <code>DeleteBackup</code> operation is
    *             successful, the status is <code>DELETED</code>.</p>
    */
-  Lifecycle?: BackupLifecycle | string;
+  Lifecycle?: keyof typeof BackupLifecycle | string;
 }
 
 /**
@@ -6029,7 +6029,7 @@ export interface DeleteDataRepositoryAssociationResponse {
   /**
    * <p>Describes the lifecycle state of the data repository association being deleted.</p>
    */
-  Lifecycle?: DataRepositoryLifecycle | string;
+  Lifecycle?: keyof typeof DataRepositoryLifecycle | string;
 
   /**
    * <p>Indicates whether data in the file system that corresponds to the data
@@ -6069,7 +6069,7 @@ export interface DeleteFileCacheResponse {
    *             <code>DeleteFileCache</code> operation is successful, this status is
    *             <code>DELETING</code>.</p>
    */
-  Lifecycle?: FileCacheLifecycle | string;
+  Lifecycle?: keyof typeof FileCacheLifecycle | string;
 }
 
 /**
@@ -6125,9 +6125,9 @@ export interface DeleteFileSystemLustreConfiguration {
 /**
  * @public
  */
-export enum DeleteFileSystemOpenZFSOption {
-  DELETE_CHILD_VOLUMES_AND_SNAPSHOTS = "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
-}
+export const DeleteFileSystemOpenZFSOption = {
+  DELETE_CHILD_VOLUMES_AND_SNAPSHOTS: "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
+};
 
 /**
  * @public
@@ -6153,7 +6153,7 @@ export interface DeleteFileSystemOpenZFSConfiguration {
    *             use the string <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>. If your file system
    *             has child volumes and you don't use this option, the delete request will fail.</p>
    */
-  Options?: (DeleteFileSystemOpenZFSOption | string)[];
+  Options?: (keyof typeof DeleteFileSystemOpenZFSOption | string)[];
 }
 
 /**
@@ -6278,7 +6278,7 @@ export interface DeleteFileSystemResponse {
    *                 <code>DeleteFileSystem</code> operation is successful, this status is
    *                 <code>DELETING</code>.</p>
    */
-  Lifecycle?: FileSystemLifecycle | string;
+  Lifecycle?: keyof typeof FileSystemLifecycle | string;
 
   /**
    * <p>The response object for the Microsoft Windows file system used in the
@@ -6329,7 +6329,7 @@ export interface DeleteSnapshotResponse {
    * <p>The lifecycle status of the snapshot. If the <code>DeleteSnapshot</code> operation is
    *             successful, this status is <code>DELETING</code>.</p>
    */
-  Lifecycle?: SnapshotLifecycle | string;
+  Lifecycle?: keyof typeof SnapshotLifecycle | string;
 }
 
 /**
@@ -6386,7 +6386,7 @@ export interface DeleteStorageVirtualMachineResponse {
   /**
    * <p>Describes the lifecycle state of the SVM being deleted.</p>
    */
-  Lifecycle?: StorageVirtualMachineLifecycle | string;
+  Lifecycle?: keyof typeof StorageVirtualMachineLifecycle | string;
 }
 
 /**
@@ -6409,9 +6409,9 @@ export interface DeleteVolumeOntapConfiguration {
 /**
  * @public
  */
-export enum DeleteOpenZFSVolumeOption {
-  DELETE_CHILD_VOLUMES_AND_SNAPSHOTS = "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
-}
+export const DeleteOpenZFSVolumeOption = {
+  DELETE_CHILD_VOLUMES_AND_SNAPSHOTS: "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
+};
 
 /**
  * @public
@@ -6422,7 +6422,7 @@ export interface DeleteVolumeOpenZFSConfiguration {
    * <p>To delete the volume's child volumes, snapshots, and clones, use the string
    *               <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>.</p>
    */
-  Options?: (DeleteOpenZFSVolumeOption | string)[];
+  Options?: (keyof typeof DeleteOpenZFSVolumeOption | string)[];
 }
 
 /**
@@ -6485,7 +6485,7 @@ export interface DeleteVolumeResponse {
    * <p>The lifecycle state of the volume being deleted. If the <code>DeleteVolume</code>
    *             operation is successful, this value is <code>DELETING</code>.</p>
    */
-  Lifecycle?: VolumeLifecycle | string;
+  Lifecycle?: keyof typeof VolumeLifecycle | string;
 
   /**
    * <p>Returned after a <code>DeleteVolume</code> request, showing the status of the delete
@@ -6497,15 +6497,15 @@ export interface DeleteVolumeResponse {
 /**
  * @public
  */
-export enum FilterName {
-  BACKUP_TYPE = "backup-type",
-  DATA_REPOSITORY_TYPE = "data-repository-type",
-  FILE_CACHE_ID = "file-cache-id",
-  FILE_CACHE_TYPE = "file-cache-type",
-  FILE_SYSTEM_ID = "file-system-id",
-  FILE_SYSTEM_TYPE = "file-system-type",
-  VOLUME_ID = "volume-id",
-}
+export const FilterName = {
+  BACKUP_TYPE: "backup-type",
+  DATA_REPOSITORY_TYPE: "data-repository-type",
+  FILE_CACHE_ID: "file-cache-id",
+  FILE_CACHE_TYPE: "file-cache-type",
+  FILE_SYSTEM_ID: "file-system-id",
+  FILE_SYSTEM_TYPE: "file-system-type",
+  VOLUME_ID: "volume-id",
+};
 
 /**
  * @public
@@ -6516,7 +6516,7 @@ export interface Filter {
   /**
    * <p>The name for this filter.</p>
    */
-  Name?: FilterName | string;
+  Name?: keyof typeof FilterName | string;
 
   /**
    * <p>The values of the filter. These are all the values for any of the applied
@@ -6633,12 +6633,12 @@ export class InvalidDataRepositoryType extends __BaseException {
 /**
  * @public
  */
-export enum DataRepositoryTaskFilterName {
-  DATA_REPO_ASSOCIATION_ID = "data-repository-association-id",
-  FILE_CACHE_ID = "file-cache-id",
-  FILE_SYSTEM_ID = "file-system-id",
-  TASK_LIFECYCLE = "task-lifecycle",
-}
+export const DataRepositoryTaskFilterName = {
+  DATA_REPO_ASSOCIATION_ID: "data-repository-association-id",
+  FILE_CACHE_ID: "file-cache-id",
+  FILE_SYSTEM_ID: "file-system-id",
+  TASK_LIFECYCLE: "task-lifecycle",
+};
 
 /**
  * @public
@@ -6659,7 +6659,7 @@ export interface DataRepositoryTaskFilter {
    *             </li>
    *          </ul>
    */
-  Name?: DataRepositoryTaskFilterName | string;
+  Name?: keyof typeof DataRepositoryTaskFilterName | string;
 
   /**
    * <p>Use Values to include the specific file system IDs and task
@@ -6764,7 +6764,7 @@ export interface FileCache {
   /**
    * <p>The type of cache, which must be <code>LUSTRE</code>.</p>
    */
-  FileCacheType?: FileCacheType | string;
+  FileCacheType?: keyof typeof FileCacheType | string;
 
   /**
    * <p>The Lustre version of the cache, which must be <code>2.12</code>.</p>
@@ -6798,7 +6798,7 @@ export interface FileCache {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: FileCacheLifecycle | string;
+  Lifecycle?: keyof typeof FileCacheLifecycle | string;
 
   /**
    * <p>A structure providing details of any failures that occurred.</p>
@@ -6959,10 +6959,10 @@ export interface DescribeFileSystemsRequest {
 /**
  * @public
  */
-export enum SnapshotFilterName {
-  FILE_SYSTEM_ID = "file-system-id",
-  VOLUME_ID = "volume-id",
-}
+export const SnapshotFilterName = {
+  FILE_SYSTEM_ID: "file-system-id",
+  VOLUME_ID: "volume-id",
+};
 
 /**
  * @public
@@ -6974,7 +6974,7 @@ export interface SnapshotFilter {
    * <p>The name of the filter to use. You can filter by the <code>file-system-id</code> or by
    *                 <code>volume-id</code>.</p>
    */
-  Name?: SnapshotFilterName | string;
+  Name?: keyof typeof SnapshotFilterName | string;
 
   /**
    * <p>The <code>file-system-id</code> or <code>volume-id</code> that you are filtering
@@ -7016,9 +7016,9 @@ export interface DescribeSnapshotsRequest {
 /**
  * @public
  */
-export enum StorageVirtualMachineFilterName {
-  FILE_SYSTEM_ID = "file-system-id",
-}
+export const StorageVirtualMachineFilterName = {
+  FILE_SYSTEM_ID: "file-system-id",
+};
 
 /**
  * @public
@@ -7030,7 +7030,7 @@ export interface StorageVirtualMachineFilter {
   /**
    * <p>The name for this filter.</p>
    */
-  Name?: StorageVirtualMachineFilterName | string;
+  Name?: keyof typeof StorageVirtualMachineFilterName | string;
 
   /**
    * <p>The values of the filter. These are all the values for any of the applied
@@ -7087,10 +7087,10 @@ export interface DescribeStorageVirtualMachinesResponse {
 /**
  * @public
  */
-export enum VolumeFilterName {
-  FILE_SYSTEM_ID = "file-system-id",
-  STORAGE_VIRTUAL_MACHINE_ID = "storage-virtual-machine-id",
-}
+export const VolumeFilterName = {
+  FILE_SYSTEM_ID: "file-system-id",
+  STORAGE_VIRTUAL_MACHINE_ID: "storage-virtual-machine-id",
+};
 
 /**
  * @public
@@ -7102,7 +7102,7 @@ export interface VolumeFilter {
   /**
    * <p>The name for this filter.</p>
    */
-  Name?: VolumeFilterName | string;
+  Name?: keyof typeof VolumeFilterName | string;
 
   /**
    * <p>The values of the filter. These are all the values for any of the applied
@@ -7334,10 +7334,10 @@ export interface ReleaseFileSystemNfsV3LocksRequest {
 /**
  * @public
  */
-export enum RestoreOpenZFSVolumeOption {
-  DELETE_CLONED_VOLUMES = "DELETE_CLONED_VOLUMES",
-  DELETE_INTERMEDIATE_SNAPSHOTS = "DELETE_INTERMEDIATE_SNAPSHOTS",
-}
+export const RestoreOpenZFSVolumeOption = {
+  DELETE_CLONED_VOLUMES: "DELETE_CLONED_VOLUMES",
+  DELETE_INTERMEDIATE_SNAPSHOTS: "DELETE_INTERMEDIATE_SNAPSHOTS",
+};
 
 /**
  * @public
@@ -7378,7 +7378,7 @@ export interface RestoreVolumeFromSnapshotRequest {
    *             </li>
    *          </ul>
    */
-  Options?: (RestoreOpenZFSVolumeOption | string)[];
+  Options?: (keyof typeof RestoreOpenZFSVolumeOption | string)[];
 }
 
 /**
@@ -7588,7 +7588,7 @@ export interface UpdateFileSystemLustreConfiguration {
    *             the <code>Persistent_2</code> deployment type. Instead, use
    *             to update a data repository association on your <code>Persistent_2</code> file system.</p>
    */
-  AutoImportPolicy?: AutoImportPolicyType | string;
+  AutoImportPolicy?: keyof typeof AutoImportPolicyType | string;
 
   /**
    * <p>Sets the data compression configuration for the file system. <code>DataCompressionType</code>
@@ -7609,7 +7609,7 @@ export interface UpdateFileSystemLustreConfiguration {
    *             its current data compression configuration.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
    */
-  DataCompressionType?: DataCompressionType | string;
+  DataCompressionType?: keyof typeof DataCompressionType | string;
 
   /**
    * <p>The Lustre logging configuration used when updating an Amazon FSx for Lustre
@@ -8005,7 +8005,7 @@ export interface UpdateOntapVolumeConfiguration {
    * <p>The security style for the volume, which can be <code>UNIX</code>.
    *             <code>NTFS</code>, or <code>MIXED</code>.</p>
    */
-  SecurityStyle?: SecurityStyle | string;
+  SecurityStyle?: keyof typeof SecurityStyle | string;
 
   /**
    * <p>Specifies the size of the volume in megabytes.</p>
@@ -8113,7 +8113,7 @@ export interface UpdateOpenZFSVolumeConfiguration {
    *             </li>
    *          </ul>
    */
-  DataCompressionType?: OpenZFSDataCompressionType | string;
+  DataCompressionType?: keyof typeof OpenZFSDataCompressionType | string;
 
   /**
    * <p>The configuration object for mounting a Network File System (NFS) file system.</p>
@@ -8247,7 +8247,7 @@ export interface AdministrativeAction {
    *             </li>
    *          </ul>
    */
-  AdministrativeActionType?: AdministrativeActionType | string;
+  AdministrativeActionType?: keyof typeof AdministrativeActionType | string;
 
   /**
    * <p>The percentage-complete status of a <code>STORAGE_OPTIMIZATION</code> administrative
@@ -8290,7 +8290,7 @@ export interface AdministrativeAction {
    *             </li>
    *          </ul>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 
   /**
    * <p>Describes the target value for the administration action,
@@ -8344,7 +8344,7 @@ export interface FileSystem {
    * <p>The type of Amazon FSx file system, which can be <code>LUSTRE</code>,
    *                 <code>WINDOWS</code>, <code>ONTAP</code>, or <code>OPENZFS</code>.</p>
    */
-  FileSystemType?: FileSystemType | string;
+  FileSystemType?: keyof typeof FileSystemType | string;
 
   /**
    * <p>The lifecycle status of the file system. The following are the possible values and
@@ -8382,7 +8382,7 @@ export interface FileSystem {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: FileSystemLifecycle | string;
+  Lifecycle?: keyof typeof FileSystemLifecycle | string;
 
   /**
    * <p>A structure providing details of any failures that occurred.</p>
@@ -8400,7 +8400,7 @@ export interface FileSystem {
    *             If set to <code>HDD</code>, the file system uses hard disk drive storage.
    *         </p>
    */
-  StorageType?: StorageType | string;
+  StorageType?: keyof typeof StorageType | string;
 
   /**
    * <p>The ID of the primary virtual private cloud (VPC) for the file system.</p>
@@ -8562,7 +8562,7 @@ export interface Snapshot {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: SnapshotLifecycle | string;
+  Lifecycle?: keyof typeof SnapshotLifecycle | string;
 
   /**
    * <p>Describes why a resource lifecycle state changed.</p>
@@ -8637,7 +8637,7 @@ export interface Volume {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: VolumeLifecycle | string;
+  Lifecycle?: keyof typeof VolumeLifecycle | string;
 
   /**
    * <p>The name of the volume.</p>
@@ -8670,7 +8670,7 @@ export interface Volume {
   /**
    * <p>The type of the volume.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: keyof typeof VolumeType | string;
 
   /**
    * <p>The reason why the volume lifecycle status changed.</p>
@@ -8702,7 +8702,7 @@ export interface RestoreVolumeFromSnapshotResponse {
   /**
    * <p>The lifecycle state of the volume being restored.</p>
    */
-  Lifecycle?: VolumeLifecycle | string;
+  Lifecycle?: keyof typeof VolumeLifecycle | string;
 
   /**
    * <p>A list of administrative actions for the file system that are in process or waiting to
@@ -8907,7 +8907,7 @@ export interface Backup {
    *             </li>
    *          </ul>
    */
-  Lifecycle: BackupLifecycle | string | undefined;
+  Lifecycle: keyof typeof BackupLifecycle | string | undefined;
 
   /**
    * <p>Details explaining any failures that occurred when creating a backup.</p>
@@ -8917,7 +8917,7 @@ export interface Backup {
   /**
    * <p>The type of the file-system backup.</p>
    */
-  Type: BackupType | string | undefined;
+  Type: keyof typeof BackupType | string | undefined;
 
   /**
    * <p>The current percent of progress of an asynchronous task.</p>
@@ -8977,7 +8977,7 @@ export interface Backup {
   /**
    * <p>Specifies the resource type that's backed up.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: keyof typeof ResourceType | string;
 
   /**
    * <p>Describes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS

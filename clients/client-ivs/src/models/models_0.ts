@@ -41,18 +41,18 @@ export interface BatchGetChannelRequest {
 /**
  * @public
  */
-export enum ChannelLatencyMode {
-  LowLatency = "LOW",
-  NormalLatency = "NORMAL",
-}
+export const ChannelLatencyMode = {
+  LowLatency: "LOW",
+  NormalLatency: "NORMAL",
+};
 
 /**
  * @public
  */
-export enum ChannelType {
-  BasicChannelType = "BASIC",
-  StandardChannelType = "STANDARD",
-}
+export const ChannelType = {
+  BasicChannelType: "BASIC",
+  StandardChannelType: "STANDARD",
+};
 
 /**
  * @public
@@ -75,7 +75,7 @@ export interface Channel {
    *         <code>LOW</code>. (Note: In the Amazon IVS console, <code>LOW</code> and <code>NORMAL</code>
    *       correspond to Ultra-low and Standard, respectively.)</p>
    */
-  latencyMode?: ChannelLatencyMode | string;
+  latencyMode?: keyof typeof ChannelLatencyMode | string;
 
   /**
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
@@ -100,7 +100,7 @@ export interface Channel {
    *             </li>
    *          </ul>
    */
-  type?: ChannelType | string;
+  type?: keyof typeof ChannelType | string;
 
   /**
    * <p>Recording-configuration ARN. A value other than an empty string indicates that recording
@@ -239,7 +239,7 @@ export interface CreateChannelRequest {
    *       Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and
    *       Standard, respectively.) Default: <code>LOW</code>.</p>
    */
-  latencyMode?: ChannelLatencyMode | string;
+  latencyMode?: keyof typeof ChannelLatencyMode | string;
 
   /**
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
@@ -264,7 +264,7 @@ export interface CreateChannelRequest {
    *             </li>
    *          </ul>
    */
-  type?: ChannelType | string;
+  type?: keyof typeof ChannelType | string;
 
   /**
    * <p>Whether the channel is private (enabled for playback authorization). Default:
@@ -453,10 +453,10 @@ export interface DestinationConfiguration {
 /**
  * @public
  */
-export enum RecordingMode {
-  Disabled = "DISABLED",
-  Interval = "INTERVAL",
-}
+export const RecordingMode = {
+  Disabled: "DISABLED",
+  Interval: "INTERVAL",
+};
 
 /**
  * @public
@@ -466,7 +466,7 @@ export interface ThumbnailConfiguration {
   /**
    * <p>Thumbnail recording mode. Default: <code>INTERVAL</code>.</p>
    */
-  recordingMode?: RecordingMode | string;
+  recordingMode?: keyof typeof RecordingMode | string;
 
   /**
    * <p>The targeted thumbnail-generation interval in seconds. This is configurable (and required)
@@ -522,11 +522,11 @@ export interface CreateRecordingConfigurationRequest {
 /**
  * @public
  */
-export enum RecordingConfigurationState {
-  Active = "ACTIVE",
-  CreateFailed = "CREATE_FAILED",
-  Creating = "CREATING",
-}
+export const RecordingConfigurationState = {
+  Active: "ACTIVE",
+  CreateFailed: "CREATE_FAILED",
+  Creating: "CREATING",
+};
 
 /**
  * @public
@@ -552,7 +552,7 @@ export interface RecordingConfiguration {
    * <p>Indicates the current state of the recording configuration. When the state is
    *         <code>ACTIVE</code>, the configuration is ready for recording a channel stream.</p>
    */
-  state: RecordingConfigurationState | string | undefined;
+  state: keyof typeof RecordingConfigurationState | string | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
@@ -810,19 +810,19 @@ export interface GetStreamRequest {
 /**
  * @public
  */
-export enum StreamHealth {
-  Starving = "STARVING",
-  StreamHealthy = "HEALTHY",
-  Unknown = "UNKNOWN",
-}
+export const StreamHealth = {
+  Starving: "STARVING",
+  StreamHealthy: "HEALTHY",
+  Unknown: "UNKNOWN",
+};
 
 /**
  * @public
  */
-export enum StreamState {
-  StreamLive = "LIVE",
-  StreamOffline = "OFFLINE",
-}
+export const StreamState = {
+  StreamLive: "LIVE",
+  StreamOffline: "OFFLINE",
+};
 
 /**
  * @public
@@ -855,12 +855,12 @@ export interface _Stream {
    *       return it; instead, a "NotBroadcasting" error will indicate that the stream is not
    *       live.</p>
    */
-  state?: StreamState | string;
+  state?: keyof typeof StreamState | string;
 
   /**
    * <p>The stream’s health.</p>
    */
-  health?: StreamHealth | string;
+  health?: keyof typeof StreamHealth | string;
 
   /**
    * <p>A count of concurrent views of the stream. Typically, a new view appears in
@@ -1173,7 +1173,7 @@ export interface ChannelSummary {
    *         <code>LOW</code>. (Note: In the Amazon IVS console, <code>LOW</code> and <code>NORMAL</code>
    *       correspond to Ultra-low and Standard, respectively.)</p>
    */
-  latencyMode?: ChannelLatencyMode | string;
+  latencyMode?: keyof typeof ChannelLatencyMode | string;
 
   /**
    * <p>Whether the channel is private (enabled for playback authorization). Default:
@@ -1310,7 +1310,7 @@ export interface RecordingConfigurationSummary {
    * <p>Indicates the current state of the recording configuration. When the state is
    *         <code>ACTIVE</code>, the configuration is ready for recording a channel stream.</p>
    */
-  state: RecordingConfigurationState | string | undefined;
+  state: keyof typeof RecordingConfigurationState | string | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string
@@ -1406,7 +1406,7 @@ export interface StreamFilters {
   /**
    * <p>The stream’s health.</p>
    */
-  health?: StreamHealth | string;
+  health?: keyof typeof StreamHealth | string;
 }
 
 /**
@@ -1449,12 +1449,12 @@ export interface StreamSummary {
    * <p>The stream’s state. Do not rely on the <code>OFFLINE</code> state, as the API may not return it;
    *       instead, a "NotBroadcasting" error will indicate that the stream is not live.</p>
    */
-  state?: StreamState | string;
+  state?: keyof typeof StreamState | string;
 
   /**
    * <p>The stream’s health.</p>
    */
-  health?: StreamHealth | string;
+  health?: keyof typeof StreamHealth | string;
 
   /**
    * <p>A count of concurrent views of the stream. Typically, a new view appears in
@@ -1720,7 +1720,7 @@ export interface UpdateChannelRequest {
    *       Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and
    *       Standard, respectively.)</p>
    */
-  latencyMode?: ChannelLatencyMode | string;
+  latencyMode?: keyof typeof ChannelLatencyMode | string;
 
   /**
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
@@ -1745,7 +1745,7 @@ export interface UpdateChannelRequest {
    *             </li>
    *          </ul>
    */
-  type?: ChannelType | string;
+  type?: keyof typeof ChannelType | string;
 
   /**
    * <p>Whether the channel is private (enabled for playback authorization).</p>

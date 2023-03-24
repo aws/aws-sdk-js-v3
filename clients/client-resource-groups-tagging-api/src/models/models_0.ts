@@ -232,10 +232,10 @@ export class ThrottledException extends __BaseException {
 /**
  * @public
  */
-export enum ErrorCode {
-  INTERNAL_SERVICE_EXCEPTION = "InternalServiceException",
-  INVALID_PARAMETER_EXCEPTION = "InvalidParameterException",
-}
+export const ErrorCode = {
+  INTERNAL_SERVICE_EXCEPTION: "InternalServiceException",
+  INVALID_PARAMETER_EXCEPTION: "InvalidParameterException",
+};
 
 /**
  * @public
@@ -283,7 +283,7 @@ export interface FailureInfo {
    *             any valid error code returned by the Amazon Web Services service that hosts the resource that you want
    *             to tag.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: keyof typeof ErrorCode | string;
 
   /**
    * <p>The message of the common error.</p>
@@ -294,11 +294,11 @@ export interface FailureInfo {
 /**
  * @public
  */
-export enum GroupByAttribute {
-  REGION = "REGION",
-  RESOURCE_TYPE = "RESOURCE_TYPE",
-  TARGET_ID = "TARGET_ID",
-}
+export const GroupByAttribute = {
+  REGION: "REGION",
+  RESOURCE_TYPE: "RESOURCE_TYPE",
+  TARGET_ID: "TARGET_ID",
+};
 
 /**
  * @public
@@ -360,7 +360,7 @@ export interface GetComplianceSummaryInput {
    * <p>Specifies a list of attributes to group the counts of noncompliant resources by. If
    *             supplied, the counts are sorted by those attributes.</p>
    */
-  GroupBy?: (GroupByAttribute | string)[];
+  GroupBy?: (keyof typeof GroupByAttribute | string)[];
 
   /**
    * <p>Specifies the maximum number of results to be returned in each page. A
@@ -381,11 +381,11 @@ export interface GetComplianceSummaryInput {
 /**
  * @public
  */
-export enum TargetIdType {
-  ACCOUNT = "ACCOUNT",
-  OU = "OU",
-  ROOT = "ROOT",
-}
+export const TargetIdType = {
+  ACCOUNT: "ACCOUNT",
+  OU: "OU",
+  ROOT: "ROOT",
+};
 
 /**
  * @public
@@ -406,7 +406,7 @@ export interface Summary {
   /**
    * <p>Whether the target is an account, an OU, or the organization root.</p>
    */
-  TargetIdType?: TargetIdType | string;
+  TargetIdType?: keyof typeof TargetIdType | string;
 
   /**
    * <p>The Amazon Web Services Region that the summary applies to.</p>

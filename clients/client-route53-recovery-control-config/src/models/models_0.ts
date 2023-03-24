@@ -22,11 +22,11 @@ export interface ClusterEndpoint {
 /**
  * @public
  */
-export enum Status {
-  DEPLOYED = "DEPLOYED",
-  PENDING = "PENDING",
-  PENDING_DELETION = "PENDING_DELETION",
-}
+export const Status = {
+  DEPLOYED: "DEPLOYED",
+  PENDING: "PENDING",
+  PENDING_DELETION: "PENDING_DELETION",
+};
 
 /**
  * @public
@@ -51,7 +51,7 @@ export interface Cluster {
   /**
    * <p>Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -87,7 +87,7 @@ export interface ControlPanel {
   /**
    * <p>The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
@@ -113,17 +113,17 @@ export interface RoutingControl {
   /**
    * <p>The deployment status of a routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
-  Status?: Status | string;
+  Status?: keyof typeof Status | string;
 }
 
 /**
  * @public
  */
-export enum RuleType {
-  AND = "AND",
-  ATLEAST = "ATLEAST",
-  OR = "OR",
-}
+export const RuleType = {
+  AND: "AND",
+  ATLEAST: "ATLEAST",
+  OR: "OR",
+};
 
 /**
  * @public
@@ -143,7 +143,7 @@ export interface RuleConfig {
   /**
    * <p>A rule can be one of the following: ATLEAST, AND, or OR.</p>
    */
-  Type: RuleType | string | undefined;
+  Type: keyof typeof RuleType | string | undefined;
 }
 
 /**
@@ -179,7 +179,7 @@ export interface AssertionRule {
   /**
    * <p>The deployment status of an assertion rule. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
-  Status: Status | string | undefined;
+  Status: keyof typeof Status | string | undefined;
 
   /**
    * <p>An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.</p>
@@ -220,7 +220,7 @@ export interface GatingRule {
   /**
    * <p>The deployment status of a gating rule. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    */
-  Status: Status | string | undefined;
+  Status: keyof typeof Status | string | undefined;
 
   /**
    * <p>An array of target routing control Amazon Resource Names (ARNs) for which the states can only be updated if the rule configuration that you specify evaluates to true for the gating routing control. As a simple example, if you have a single gating control, it acts as an overall "on/off" switch for a set of target routing controls. You can use this to manually override automated failover, for example.</p>

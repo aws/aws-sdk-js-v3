@@ -325,21 +325,21 @@ export interface CreatePlatformEndpointInput {
 /**
  * @public
  */
-export enum LanguageCodeString {
-  de_DE = "de-DE",
-  en_GB = "en-GB",
-  en_US = "en-US",
-  es_419 = "es-419",
-  es_ES = "es-ES",
-  fr_CA = "fr-CA",
-  fr_FR = "fr-FR",
-  it_IT = "it-IT",
-  jp_JP = "ja-JP",
-  kr_KR = "kr-KR",
-  pt_BR = "pt-BR",
-  zh_CN = "zh-CN",
-  zh_TW = "zh-TW",
-}
+export const LanguageCodeString = {
+  de_DE: "de-DE",
+  en_GB: "en-GB",
+  en_US: "en-US",
+  es_419: "es-419",
+  es_ES: "es-ES",
+  fr_CA: "fr-CA",
+  fr_FR: "fr-FR",
+  it_IT: "it-IT",
+  jp_JP: "ja-JP",
+  kr_KR: "kr-KR",
+  pt_BR: "pt-BR",
+  zh_CN: "zh-CN",
+  zh_TW: "zh-TW",
+};
 
 /**
  * @public
@@ -355,7 +355,7 @@ export interface CreateSMSSandboxPhoneNumberInput {
    * <p>The language to use for sending the OTP. The default value is
    *             <code>en-US</code>.</p>
    */
-  LanguageCode?: LanguageCodeString | string;
+  LanguageCode?: keyof typeof LanguageCodeString | string;
 }
 
 /**
@@ -1230,20 +1230,20 @@ export interface ListOriginationNumbersRequest {
 /**
  * @public
  */
-export enum NumberCapability {
-  MMS = "MMS",
-  SMS = "SMS",
-  VOICE = "VOICE",
-}
+export const NumberCapability = {
+  MMS: "MMS",
+  SMS: "SMS",
+  VOICE: "VOICE",
+};
 
 /**
  * @public
  */
-export enum RouteType {
-  Premium = "Premium",
-  Promotional = "Promotional",
-  Transactional = "Transactional",
-}
+export const RouteType = {
+  Premium: "Premium",
+  Promotional: "Promotional",
+  Transactional: "Transactional",
+};
 
 /**
  * @public
@@ -1273,12 +1273,12 @@ export interface PhoneNumberInformation {
   /**
    * <p>The list of supported routes.</p>
    */
-  RouteType?: RouteType | string;
+  RouteType?: keyof typeof RouteType | string;
 
   /**
    * <p>The capabilities of each phone number.</p>
    */
-  NumberCapabilities?: (NumberCapability | string)[];
+  NumberCapabilities?: (keyof typeof NumberCapability | string)[];
 }
 
 /**
@@ -1416,10 +1416,10 @@ export interface ListSMSSandboxPhoneNumbersInput {
 /**
  * @public
  */
-export enum SMSSandboxPhoneNumberVerificationStatus {
-  Pending = "Pending",
-  Verified = "Verified",
-}
+export const SMSSandboxPhoneNumberVerificationStatus = {
+  Pending: "Pending",
+  Verified: "Verified",
+};
 
 /**
  * @public
@@ -1442,7 +1442,7 @@ export interface SMSSandboxPhoneNumber {
   /**
    * <p>The destination phone number's verification status.</p>
    */
-  Status?: SMSSandboxPhoneNumberVerificationStatus | string;
+  Status?: keyof typeof SMSSandboxPhoneNumberVerificationStatus | string;
 }
 
 /**
