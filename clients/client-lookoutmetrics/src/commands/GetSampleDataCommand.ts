@@ -42,6 +42,33 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  * import { LookoutMetricsClient, GetSampleDataCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, GetSampleDataCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = {
+ *   S3SourceConfig: {
+ *     RoleArn: "STRING_VALUE", // required
+ *     TemplatedPathList: [
+ *       "STRING_VALUE",
+ *     ],
+ *     HistoricalDataPathList: [
+ *       "STRING_VALUE",
+ *     ],
+ *     FileFormatDescriptor: {
+ *       CsvFormatDescriptor: {
+ *         FileCompression: "STRING_VALUE",
+ *         Charset: "STRING_VALUE",
+ *         ContainsHeader: true || false,
+ *         Delimiter: "STRING_VALUE",
+ *         HeaderList: [
+ *           "STRING_VALUE",
+ *         ],
+ *         QuoteSymbol: "STRING_VALUE",
+ *       },
+ *       JsonFormatDescriptor: {
+ *         FileCompression: "STRING_VALUE",
+ *         Charset: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new GetSampleDataCommand(input);
  * const response = await client.send(command);
  * ```

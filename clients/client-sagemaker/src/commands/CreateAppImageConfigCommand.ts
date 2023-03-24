@@ -44,6 +44,28 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  * import { SageMakerClient, CreateAppImageConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateAppImageConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   AppImageConfigName: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   KernelGatewayImageConfig: {
+ *     KernelSpecs: [ // required
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         DisplayName: "STRING_VALUE",
+ *       },
+ *     ],
+ *     FileSystemConfig: {
+ *       MountPath: "STRING_VALUE",
+ *       DefaultUid: Number("int"),
+ *       DefaultGid: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new CreateAppImageConfigCommand(input);
  * const response = await client.send(command);
  * ```

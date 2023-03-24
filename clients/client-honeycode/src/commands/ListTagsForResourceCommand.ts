@@ -44,6 +44,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { HoneycodeClient, ListTagsForResourceCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, ListTagsForResourceCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

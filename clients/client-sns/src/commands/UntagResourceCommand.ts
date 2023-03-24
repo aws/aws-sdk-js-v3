@@ -43,6 +43,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { SNSClient, UntagResourceCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, UntagResourceCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

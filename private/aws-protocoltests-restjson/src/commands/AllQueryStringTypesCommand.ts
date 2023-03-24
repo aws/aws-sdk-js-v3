@@ -41,6 +41,51 @@ export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
  * import { RestJsonProtocolClient, AllQueryStringTypesCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, AllQueryStringTypesCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   queryString: "STRING_VALUE",
+ *   queryStringList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   queryStringSet: [
+ *     "STRING_VALUE",
+ *   ],
+ *   queryByte: "BYTE_VALUE",
+ *   queryShort: Number("short"),
+ *   queryInteger: Number("int"),
+ *   queryIntegerList: [
+ *     Number("int"),
+ *   ],
+ *   queryIntegerSet: [
+ *     Number("int"),
+ *   ],
+ *   queryLong: Number("long"),
+ *   queryFloat: Number("float"),
+ *   queryDouble: Number("double"),
+ *   queryDoubleList: [
+ *     Number("double"),
+ *   ],
+ *   queryBoolean: true || false,
+ *   queryBooleanList: [
+ *     true || false,
+ *   ],
+ *   queryTimestamp: new Date("TIMESTAMP"),
+ *   queryTimestampList: [
+ *     new Date("TIMESTAMP"),
+ *   ],
+ *   queryEnum: "Foo" || "Baz" || "Bar" || "1" || "0",
+ *   queryEnumList: [
+ *     "Foo" || "Baz" || "Bar" || "1" || "0",
+ *   ],
+ *   queryIntegerEnum: 1 || 2 || 3,
+ *   queryIntegerEnumList: [
+ *     1 || 2 || 3,
+ *   ],
+ *   queryParamsMapOfStringList: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new AllQueryStringTypesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DisassociateApiCommandOutput extends DisassociateApiResponse, _
  * import { AppSyncClient, DisassociateApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DisassociateApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   domainName: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateApiCommand(input);
  * const response = await client.send(command);
  * ```

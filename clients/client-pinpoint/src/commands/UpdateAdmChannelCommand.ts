@@ -42,6 +42,14 @@ export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse,
  * import { PinpointClient, UpdateAdmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateAdmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ADMChannelRequest: {
+ *     ClientId: "STRING_VALUE", // required
+ *     ClientSecret: "STRING_VALUE", // required
+ *     Enabled: true || false,
+ *   },
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateAdmChannelCommand(input);
  * const response = await client.send(command);
  * ```

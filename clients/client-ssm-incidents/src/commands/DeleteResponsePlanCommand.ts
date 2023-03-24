@@ -43,6 +43,9 @@ export interface DeleteResponsePlanCommandOutput extends DeleteResponsePlanOutpu
  * import { SSMIncidentsClient, DeleteResponsePlanCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, DeleteResponsePlanCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResponsePlanCommand(input);
  * const response = await client.send(command);
  * ```

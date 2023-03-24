@@ -44,6 +44,12 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * import { ElasticInferenceClient, TagResourceCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
  * // const { ElasticInferenceClient, TagResourceCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
  * const client = new ElasticInferenceClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

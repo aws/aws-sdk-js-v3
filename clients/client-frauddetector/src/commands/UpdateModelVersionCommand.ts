@@ -42,6 +42,27 @@ export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResul
  * import { FraudDetectorClient, UpdateModelVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateModelVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   modelId: "STRING_VALUE", // required
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
+ *   majorVersionNumber: "STRING_VALUE", // required
+ *   externalEventsDetail: {
+ *     dataLocation: "STRING_VALUE", // required
+ *     dataAccessRoleArn: "STRING_VALUE", // required
+ *   },
+ *   ingestedEventsDetail: {
+ *     ingestedEventsTimeWindow: {
+ *       startTime: "STRING_VALUE", // required
+ *       endTime: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateModelVersionCommand(input);
  * const response = await client.send(command);
  * ```

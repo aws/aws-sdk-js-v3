@@ -45,6 +45,9 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  * import { EFSClient, DeleteAccessPointCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DeleteAccessPointCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   AccessPointId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccessPointCommand(input);
  * const response = await client.send(command);
  * ```

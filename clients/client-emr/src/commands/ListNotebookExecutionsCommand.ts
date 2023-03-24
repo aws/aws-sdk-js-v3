@@ -45,6 +45,13 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  * import { EMRClient, ListNotebookExecutionsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListNotebookExecutionsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   EditorId: "STRING_VALUE",
+ *   Status: "START_PENDING" || "STARTING" || "RUNNING" || "FINISHING" || "FINISHED" || "FAILING" || "FAILED" || "STOP_PENDING" || "STOPPING" || "STOPPED",
+ *   From: new Date("TIMESTAMP"),
+ *   To: new Date("TIMESTAMP"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListNotebookExecutionsCommand(input);
  * const response = await client.send(command);
  * ```

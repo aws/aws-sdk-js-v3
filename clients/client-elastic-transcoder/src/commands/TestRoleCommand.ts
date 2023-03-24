@@ -53,6 +53,14 @@ export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBeare
  * import { ElasticTranscoderClient, TestRoleCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, TestRoleCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
+ * const input = {
+ *   Role: "STRING_VALUE", // required
+ *   InputBucket: "STRING_VALUE", // required
+ *   OutputBucket: "STRING_VALUE", // required
+ *   Topics: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new TestRoleCommand(input);
  * const response = await client.send(command);
  * ```

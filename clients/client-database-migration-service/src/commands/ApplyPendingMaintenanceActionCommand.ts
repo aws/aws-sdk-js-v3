@@ -48,6 +48,11 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * import { DatabaseMigrationServiceClient, ApplyPendingMaintenanceActionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ApplyPendingMaintenanceActionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   ReplicationInstanceArn: "STRING_VALUE", // required
+ *   ApplyAction: "STRING_VALUE", // required
+ *   OptInType: "STRING_VALUE", // required
+ * };
  * const command = new ApplyPendingMaintenanceActionCommand(input);
  * const response = await client.send(command);
  * ```

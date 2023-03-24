@@ -48,6 +48,53 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * import { RedshiftClient, CreateClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   DBName: "STRING_VALUE",
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   ClusterType: "STRING_VALUE",
+ *   NodeType: "STRING_VALUE", // required
+ *   MasterUsername: "STRING_VALUE", // required
+ *   MasterUserPassword: "STRING_VALUE", // required
+ *   ClusterSecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ClusterSubnetGroupName: "STRING_VALUE",
+ *   AvailabilityZone: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   ClusterParameterGroupName: "STRING_VALUE",
+ *   AutomatedSnapshotRetentionPeriod: Number("int"),
+ *   ManualSnapshotRetentionPeriod: Number("int"),
+ *   Port: Number("int"),
+ *   ClusterVersion: "STRING_VALUE",
+ *   AllowVersionUpgrade: true || false,
+ *   NumberOfNodes: Number("int"),
+ *   PubliclyAccessible: true || false,
+ *   Encrypted: true || false,
+ *   HsmClientCertificateIdentifier: "STRING_VALUE",
+ *   HsmConfigurationIdentifier: "STRING_VALUE",
+ *   ElasticIp: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   EnhancedVpcRouting: true || false,
+ *   AdditionalInfo: "STRING_VALUE",
+ *   IamRoles: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MaintenanceTrackName: "STRING_VALUE",
+ *   SnapshotScheduleIdentifier: "STRING_VALUE",
+ *   AvailabilityZoneRelocation: true || false,
+ *   AquaConfigurationStatus: "enabled" || "disabled" || "auto",
+ *   DefaultIamRoleArn: "STRING_VALUE",
+ *   LoadSampleData: "STRING_VALUE",
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```

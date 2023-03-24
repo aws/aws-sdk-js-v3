@@ -44,6 +44,9 @@ export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __M
  * import { SupportAppClient, PutAccountAliasCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, PutAccountAliasCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = {
+ *   accountAlias: "STRING_VALUE", // required
+ * };
  * const command = new PutAccountAliasCommand(input);
  * const response = await client.send(command);
  * ```

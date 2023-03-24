@@ -46,6 +46,10 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * import { RedshiftServerlessClient, ListWorkgroupsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, ListWorkgroupsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListWorkgroupsCommand(input);
  * const response = await client.send(command);
  * ```

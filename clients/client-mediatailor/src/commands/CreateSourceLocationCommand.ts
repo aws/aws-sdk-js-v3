@@ -42,6 +42,32 @@ export interface CreateSourceLocationCommandOutput extends CreateSourceLocationR
  * import { MediaTailorClient, CreateSourceLocationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreateSourceLocationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   AccessConfiguration: {
+ *     AccessType: "S3_SIGV4" || "SECRETS_MANAGER_ACCESS_TOKEN",
+ *     SecretsManagerAccessTokenConfiguration: {
+ *       HeaderName: "STRING_VALUE",
+ *       SecretArn: "STRING_VALUE",
+ *       SecretStringKey: "STRING_VALUE",
+ *     },
+ *   },
+ *   DefaultSegmentDeliveryConfiguration: {
+ *     BaseUrl: "STRING_VALUE",
+ *   },
+ *   HttpConfiguration: {
+ *     BaseUrl: "STRING_VALUE", // required
+ *   },
+ *   SegmentDeliveryConfigurations: [
+ *     {
+ *       BaseUrl: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SourceLocationName: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateSourceLocationCommand(input);
  * const response = await client.send(command);
  * ```

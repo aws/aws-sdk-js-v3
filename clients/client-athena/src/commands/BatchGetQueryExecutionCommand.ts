@@ -47,6 +47,11 @@ export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecut
  * import { AthenaClient, BatchGetQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, BatchGetQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   QueryExecutionIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetQueryExecutionCommand(input);
  * const response = await client.send(command);
  * ```

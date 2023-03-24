@@ -42,6 +42,38 @@ export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse,
  * import { KafkaClient, UpdateMonitoringCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateMonitoringCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = {
+ *   ClusterArn: "STRING_VALUE", // required
+ *   CurrentVersion: "STRING_VALUE", // required
+ *   EnhancedMonitoring: "DEFAULT" || "PER_BROKER" || "PER_TOPIC_PER_BROKER" || "PER_TOPIC_PER_PARTITION",
+ *   OpenMonitoring: {
+ *     Prometheus: {
+ *       JmxExporter: {
+ *         EnabledInBroker: true || false, // required
+ *       },
+ *       NodeExporter: {
+ *         EnabledInBroker: true || false, // required
+ *       },
+ *     },
+ *   },
+ *   LoggingInfo: {
+ *     BrokerLogs: {
+ *       CloudWatchLogs: {
+ *         Enabled: true || false, // required
+ *         LogGroup: "STRING_VALUE",
+ *       },
+ *       Firehose: {
+ *         DeliveryStream: "STRING_VALUE",
+ *         Enabled: true || false, // required
+ *       },
+ *       S3: {
+ *         Bucket: "STRING_VALUE",
+ *         Enabled: true || false, // required
+ *         Prefix: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateMonitoringCommand(input);
  * const response = await client.send(command);
  * ```

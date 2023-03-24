@@ -48,6 +48,11 @@ export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingCo
  * import { Route53Client, ListQueryLoggingConfigsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListQueryLoggingConfigsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   HostedZoneId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListQueryLoggingConfigsCommand(input);
  * const response = await client.send(command);
  * ```

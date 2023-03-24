@@ -45,6 +45,11 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  * import { CloudHSMV2Client, InitializeClusterCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, InitializeClusterCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = {
+ *   ClusterId: "STRING_VALUE", // required
+ *   SignedCert: "STRING_VALUE", // required
+ *   TrustAnchor: "STRING_VALUE", // required
+ * };
  * const command = new InitializeClusterCommand(input);
  * const response = await client.send(command);
  * ```

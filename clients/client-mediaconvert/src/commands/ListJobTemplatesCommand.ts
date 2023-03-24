@@ -42,6 +42,13 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * import { MediaConvertClient, ListJobTemplatesCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, ListJobTemplatesCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = {
+ *   Category: "STRING_VALUE",
+ *   ListBy: "NAME" || "CREATION_DATE" || "SYSTEM",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Order: "ASCENDING" || "DESCENDING",
+ * };
  * const command = new ListJobTemplatesCommand(input);
  * const response = await client.send(command);
  * ```

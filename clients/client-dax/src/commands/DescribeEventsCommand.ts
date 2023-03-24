@@ -46,6 +46,15 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * import { DAXClient, DescribeEventsCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeEventsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = {
+ *   SourceName: "STRING_VALUE",
+ *   SourceType: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   Duration: Number("int"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
  * ```

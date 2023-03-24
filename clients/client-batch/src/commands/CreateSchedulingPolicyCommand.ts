@@ -42,6 +42,22 @@ export interface CreateSchedulingPolicyCommandOutput extends CreateSchedulingPol
  * import { BatchClient, CreateSchedulingPolicyCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, CreateSchedulingPolicyCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   fairsharePolicy: {
+ *     shareDecaySeconds: Number("int"),
+ *     computeReservation: Number("int"),
+ *     shareDistribution: [
+ *       {
+ *         shareIdentifier: "STRING_VALUE", // required
+ *         weightFactor: Number("float"),
+ *       },
+ *     ],
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateSchedulingPolicyCommand(input);
  * const response = await client.send(command);
  * ```

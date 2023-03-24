@@ -48,6 +48,9 @@ export interface DescribeDocumentClassificationJobCommandOutput
  * import { ComprehendClient, DescribeDocumentClassificationJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeDocumentClassificationJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDocumentClassificationJobCommand(input);
  * const response = await client.send(command);
  * ```

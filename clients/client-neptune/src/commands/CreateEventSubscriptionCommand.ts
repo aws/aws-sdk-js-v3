@@ -56,6 +56,24 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * import { NeptuneClient, CreateEventSubscriptionCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateEventSubscriptionCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = {
+ *   SubscriptionName: "STRING_VALUE", // required
+ *   SnsTopicArn: "STRING_VALUE", // required
+ *   SourceType: "STRING_VALUE",
+ *   EventCategories: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SourceIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Enabled: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

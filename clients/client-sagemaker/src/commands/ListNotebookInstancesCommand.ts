@@ -43,6 +43,21 @@ export interface ListNotebookInstancesCommandOutput extends ListNotebookInstance
  * import { SageMakerClient, ListNotebookInstancesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListNotebookInstancesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NameContains: "STRING_VALUE",
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   StatusEquals: "Pending" || "InService" || "Stopping" || "Stopped" || "Failed" || "Deleting" || "Updating",
+ *   NotebookInstanceLifecycleConfigNameContains: "STRING_VALUE",
+ *   DefaultCodeRepositoryContains: "STRING_VALUE",
+ *   AdditionalCodeRepositoryEquals: "STRING_VALUE",
+ * };
  * const command = new ListNotebookInstancesCommand(input);
  * const response = await client.send(command);
  * ```

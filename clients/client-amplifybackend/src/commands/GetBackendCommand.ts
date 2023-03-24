@@ -42,6 +42,10 @@ export interface GetBackendCommandOutput extends GetBackendResponse, __MetadataB
  * import { AmplifyBackendClient, GetBackendCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, GetBackendCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = {
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE",
+ * };
  * const command = new GetBackendCommand(input);
  * const response = await client.send(command);
  * ```

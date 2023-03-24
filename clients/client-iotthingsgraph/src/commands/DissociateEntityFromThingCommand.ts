@@ -45,6 +45,10 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
  * import { IoTThingsGraphClient, DissociateEntityFromThingCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DissociateEntityFromThingCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   thingName: "STRING_VALUE", // required
+ *   entityType: "STRING_VALUE", // required
+ * };
  * const command = new DissociateEntityFromThingCommand(input);
  * const response = await client.send(command);
  * ```

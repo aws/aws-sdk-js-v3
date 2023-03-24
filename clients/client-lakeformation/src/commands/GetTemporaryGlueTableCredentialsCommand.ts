@@ -44,6 +44,19 @@ export interface GetTemporaryGlueTableCredentialsCommandOutput
  * import { LakeFormationClient, GetTemporaryGlueTableCredentialsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetTemporaryGlueTableCredentialsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = {
+ *   TableArn: "STRING_VALUE", // required
+ *   Permissions: [
+ *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *   ],
+ *   DurationSeconds: Number("int"),
+ *   AuditContext: {
+ *     AdditionalAuditContext: "STRING_VALUE",
+ *   },
+ *   SupportedPermissionTypes: [ // required
+ *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION",
+ *   ],
+ * };
  * const command = new GetTemporaryGlueTableCredentialsCommand(input);
  * const response = await client.send(command);
  * ```

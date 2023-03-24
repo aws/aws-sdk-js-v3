@@ -53,6 +53,16 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * import { CloudWatchLogsClient, DescribeLogGroupsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeLogGroupsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   accountIdentifiers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   logGroupNamePrefix: "STRING_VALUE",
+ *   logGroupNamePattern: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ *   includeLinkedAccounts: true || false,
+ * };
  * const command = new DescribeLogGroupsCommand(input);
  * const response = await client.send(command);
  * ```

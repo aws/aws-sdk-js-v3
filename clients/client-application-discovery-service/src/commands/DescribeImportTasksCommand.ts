@@ -47,6 +47,18 @@ export interface DescribeImportTasksCommandOutput extends DescribeImportTasksRes
  * import { ApplicationDiscoveryServiceClient, DescribeImportTasksCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DescribeImportTasksCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = {
+ *   filters: [
+ *     {
+ *       name: "IMPORT_TASK_ID" || "STATUS" || "NAME",
+ *       values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeImportTasksCommand(input);
  * const response = await client.send(command);
  * ```

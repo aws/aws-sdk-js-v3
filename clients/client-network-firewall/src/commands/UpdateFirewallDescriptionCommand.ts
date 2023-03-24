@@ -43,6 +43,12 @@ export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDe
  * import { NetworkFirewallClient, UpdateFirewallDescriptionCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateFirewallDescriptionCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = {
+ *   UpdateToken: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateFirewallDescriptionCommand(input);
  * const response = await client.send(command);
  * ```

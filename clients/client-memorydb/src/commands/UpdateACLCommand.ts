@@ -39,6 +39,15 @@ export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBea
  * import { MemoryDBClient, UpdateACLCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, UpdateACLCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = {
+ *   ACLName: "STRING_VALUE", // required
+ *   UserNamesToAdd: [
+ *     "STRING_VALUE",
+ *   ],
+ *   UserNamesToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateACLCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,10 @@ export interface ListVpcEndpointsForDomainCommandOutput extends ListVpcEndpoints
  * import { OpenSearchClient, ListVpcEndpointsForDomainCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, ListVpcEndpointsForDomainCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListVpcEndpointsForDomainCommand(input);
  * const response = await client.send(command);
  * ```

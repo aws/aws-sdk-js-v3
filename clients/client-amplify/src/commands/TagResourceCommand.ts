@@ -42,6 +42,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { AmplifyClient, TagResourceCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, TagResourceCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

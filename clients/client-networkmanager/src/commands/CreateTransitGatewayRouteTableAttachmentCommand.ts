@@ -48,6 +48,17 @@ export interface CreateTransitGatewayRouteTableAttachmentCommandOutput
  * import { NetworkManagerClient, CreateTransitGatewayRouteTableAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateTransitGatewayRouteTableAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   PeeringId: "STRING_VALUE", // required
+ *   TransitGatewayRouteTableArn: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateTransitGatewayRouteTableAttachmentCommand(input);
  * const response = await client.send(command);
  * ```

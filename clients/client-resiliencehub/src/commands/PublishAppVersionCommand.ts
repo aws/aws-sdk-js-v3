@@ -42,6 +42,9 @@ export interface PublishAppVersionCommandOutput extends PublishAppVersionRespons
  * import { ResiliencehubClient, PublishAppVersionCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, PublishAppVersionCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   appArn: "STRING_VALUE", // required
+ * };
  * const command = new PublishAppVersionCommand(input);
  * const response = await client.send(command);
  * ```

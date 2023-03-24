@@ -44,6 +44,9 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  * import { SageMakerClient, DeleteExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ExperimentName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteExperimentCommand(input);
  * const response = await client.send(command);
  * ```

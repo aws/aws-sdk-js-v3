@@ -47,6 +47,47 @@ export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBea
  * import { OpsWorksClient, CloneStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, CloneStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   SourceStackId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Region: "STRING_VALUE",
+ *   VpcId: "STRING_VALUE",
+ *   Attributes: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ServiceRoleArn: "STRING_VALUE", // required
+ *   DefaultInstanceProfileArn: "STRING_VALUE",
+ *   DefaultOs: "STRING_VALUE",
+ *   HostnameTheme: "STRING_VALUE",
+ *   DefaultAvailabilityZone: "STRING_VALUE",
+ *   DefaultSubnetId: "STRING_VALUE",
+ *   CustomJson: "STRING_VALUE",
+ *   ConfigurationManager: {
+ *     Name: "STRING_VALUE",
+ *     Version: "STRING_VALUE",
+ *   },
+ *   ChefConfiguration: {
+ *     ManageBerkshelf: true || false,
+ *     BerkshelfVersion: "STRING_VALUE",
+ *   },
+ *   UseCustomCookbooks: true || false,
+ *   UseOpsworksSecurityGroups: true || false,
+ *   CustomCookbooksSource: {
+ *     Type: "STRING_VALUE",
+ *     Url: "STRING_VALUE",
+ *     Username: "STRING_VALUE",
+ *     Password: "STRING_VALUE",
+ *     SshKey: "STRING_VALUE",
+ *     Revision: "STRING_VALUE",
+ *   },
+ *   DefaultSshKeyName: "STRING_VALUE",
+ *   ClonePermissions: true || false,
+ *   CloneAppIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DefaultRootDeviceType: "STRING_VALUE",
+ *   AgentVersion: "STRING_VALUE",
+ * };
  * const command = new CloneStackCommand(input);
  * const response = await client.send(command);
  * ```

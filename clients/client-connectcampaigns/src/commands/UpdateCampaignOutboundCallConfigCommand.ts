@@ -42,6 +42,14 @@ export interface UpdateCampaignOutboundCallConfigCommandOutput extends __Metadat
  * import { ConnectCampaignsClient, UpdateCampaignOutboundCallConfigCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, UpdateCampaignOutboundCallConfigCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   connectContactFlowId: "STRING_VALUE",
+ *   connectSourcePhoneNumber: "STRING_VALUE",
+ *   answerMachineDetectionConfig: {
+ *     enableAnswerMachineDetection: true || false, // required
+ *   },
+ * };
  * const command = new UpdateCampaignOutboundCallConfigCommand(input);
  * const response = await client.send(command);
  * ```

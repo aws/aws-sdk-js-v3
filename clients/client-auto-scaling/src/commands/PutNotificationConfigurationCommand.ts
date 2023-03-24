@@ -50,6 +50,13 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * import { AutoScalingClient, PutNotificationConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, PutNotificationConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   TopicARN: "STRING_VALUE", // required
+ *   NotificationTypes: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new PutNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

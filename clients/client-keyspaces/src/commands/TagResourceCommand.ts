@@ -48,6 +48,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { KeyspacesClient, TagResourceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, TagResourceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: [ // required
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

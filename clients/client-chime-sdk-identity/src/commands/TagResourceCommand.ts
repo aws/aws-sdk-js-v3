@@ -42,6 +42,15 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { ChimeSDKIdentityClient, TagResourceCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, TagResourceCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

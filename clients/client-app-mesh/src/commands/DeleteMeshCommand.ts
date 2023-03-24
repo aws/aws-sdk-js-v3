@@ -44,6 +44,9 @@ export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBea
  * import { AppMeshClient, DeleteMeshCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DeleteMeshCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = {
+ *   meshName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMeshCommand(input);
  * const response = await client.send(command);
  * ```

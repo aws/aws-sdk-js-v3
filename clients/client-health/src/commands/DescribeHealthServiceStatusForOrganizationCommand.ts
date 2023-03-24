@@ -47,6 +47,7 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
  * import { HealthClient, DescribeHealthServiceStatusForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeHealthServiceStatusForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = {};
  * const command = new DescribeHealthServiceStatusForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```

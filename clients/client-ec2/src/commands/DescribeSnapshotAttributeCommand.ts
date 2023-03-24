@@ -44,6 +44,11 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * import { EC2Client, DescribeSnapshotAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSnapshotAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Attribute: "productCodes" || "createVolumePermission", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeSnapshotAttributeCommand(input);
  * const response = await client.send(command);
  * ```

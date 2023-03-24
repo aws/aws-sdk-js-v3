@@ -42,6 +42,11 @@ export interface RemoveRoleFromDBInstanceCommandOutput extends __MetadataBearer 
  * import { RDSClient, RemoveRoleFromDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RemoveRoleFromDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   FeatureName: "STRING_VALUE", // required
+ * };
  * const command = new RemoveRoleFromDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```

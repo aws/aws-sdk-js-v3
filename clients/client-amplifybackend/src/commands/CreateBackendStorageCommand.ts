@@ -42,6 +42,23 @@ export interface CreateBackendStorageCommandOutput extends CreateBackendStorageR
  * import { AmplifyBackendClient, CreateBackendStorageCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, CreateBackendStorageCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = {
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   ResourceConfig: {
+ *     BucketName: "STRING_VALUE",
+ *     Permissions: {
+ *       Authenticated: [ // required
+ *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ *       ],
+ *       UnAuthenticated: [
+ *         "READ" || "CREATE_AND_UPDATE" || "DELETE",
+ *       ],
+ *     },
+ *     ServiceName: "S3", // required
+ *   },
+ *   ResourceName: "STRING_VALUE", // required
+ * };
  * const command = new CreateBackendStorageCommand(input);
  * const response = await client.send(command);
  * ```

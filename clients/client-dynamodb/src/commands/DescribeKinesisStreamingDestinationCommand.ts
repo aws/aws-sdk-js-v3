@@ -47,6 +47,9 @@ export interface DescribeKinesisStreamingDestinationCommandOutput
  * import { DynamoDBClient, DescribeKinesisStreamingDestinationCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeKinesisStreamingDestinationCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   TableName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeKinesisStreamingDestinationCommand(input);
  * const response = await client.send(command);
  * ```

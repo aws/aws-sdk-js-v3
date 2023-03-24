@@ -43,6 +43,21 @@ export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __
  * import { RDSClient, DescribeExportTasksCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeExportTasksCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   ExportTaskIdentifier: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   SourceType: "SNAPSHOT" || "CLUSTER",
+ * };
  * const command = new DescribeExportTasksCommand(input);
  * const response = await client.send(command);
  * ```

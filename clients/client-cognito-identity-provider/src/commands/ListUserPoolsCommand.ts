@@ -47,6 +47,10 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
  * import { CognitoIdentityProviderClient, ListUserPoolsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListUserPoolsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"), // required
+ * };
  * const command = new ListUserPoolsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,7 @@ export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer 
  * import { QueryProtocolClient, XmlListsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, XmlListsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {};
  * const command = new XmlListsCommand(input);
  * const response = await client.send(command);
  * ```

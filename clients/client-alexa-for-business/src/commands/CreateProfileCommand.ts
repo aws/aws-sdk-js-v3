@@ -42,6 +42,44 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * import { AlexaForBusinessClient, CreateProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   ProfileName: "STRING_VALUE", // required
+ *   Timezone: "STRING_VALUE", // required
+ *   Address: "STRING_VALUE", // required
+ *   DistanceUnit: "STRING_VALUE", // required
+ *   TemperatureUnit: "STRING_VALUE", // required
+ *   WakeWord: "STRING_VALUE", // required
+ *   Locale: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   SetupModeDisabled: true || false,
+ *   MaxVolumeLimit: Number("int"),
+ *   PSTNEnabled: true || false,
+ *   DataRetentionOptIn: true || false,
+ *   MeetingRoomConfiguration: {
+ *     RoomUtilizationMetricsEnabled: true || false,
+ *     EndOfMeetingReminder: {
+ *       ReminderAtMinutes: [ // required
+ *         Number("int"),
+ *       ],
+ *       ReminderType: "STRING_VALUE", // required
+ *       Enabled: true || false, // required
+ *     },
+ *     InstantBooking: {
+ *       DurationInMinutes: Number("int"), // required
+ *       Enabled: true || false, // required
+ *     },
+ *     RequireCheckIn: {
+ *       ReleaseAfterMinutes: Number("int"), // required
+ *       Enabled: true || false, // required
+ *     },
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
  * ```

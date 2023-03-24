@@ -45,6 +45,7 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * import { QueryProtocolClient, GreetingWithErrorsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, GreetingWithErrorsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {};
  * const command = new GreetingWithErrorsCommand(input);
  * const response = await client.send(command);
  * ```

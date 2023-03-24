@@ -79,6 +79,15 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
  * import { HealthClient, DescribeEventDetailsForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventDetailsForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = {
+ *   organizationEventDetailFilters: [ // required
+ *     {
+ *       eventArn: "STRING_VALUE", // required
+ *       awsAccountId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   locale: "STRING_VALUE",
+ * };
  * const command = new DescribeEventDetailsForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```

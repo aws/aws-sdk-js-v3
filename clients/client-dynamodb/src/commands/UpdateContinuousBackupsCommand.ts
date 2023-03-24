@@ -53,6 +53,12 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  * import { DynamoDBClient, UpdateContinuousBackupsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateContinuousBackupsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   TableName: "STRING_VALUE", // required
+ *   PointInTimeRecoverySpecification: {
+ *     PointInTimeRecoveryEnabled: true || false, // required
+ *   },
+ * };
  * const command = new UpdateContinuousBackupsCommand(input);
  * const response = await client.send(command);
  * ```

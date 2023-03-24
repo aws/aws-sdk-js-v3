@@ -42,6 +42,13 @@ export interface ResetParameterGroupCommandOutput extends ResetParameterGroupRes
  * import { MemoryDBClient, ResetParameterGroupCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, ResetParameterGroupCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = {
+ *   ParameterGroupName: "STRING_VALUE", // required
+ *   AllParameters: true || false,
+ *   ParameterNames: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ResetParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```

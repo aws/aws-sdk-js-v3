@@ -45,6 +45,24 @@ export interface DescribeNodeConfigurationOptionsCommandOutput
  * import { RedshiftClient, DescribeNodeConfigurationOptionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeNodeConfigurationOptionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ActionType: "restore-cluster" || "recommend-node-config" || "resize-cluster", // required
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   SnapshotIdentifier: "STRING_VALUE",
+ *   SnapshotArn: "STRING_VALUE",
+ *   OwnerAccount: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       Name: "NodeType" || "NumberOfNodes" || "EstimatedDiskUtilizationPercent" || "Mode",
+ *       Operator: "eq" || "lt" || "gt" || "le" || "ge" || "in" || "between",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeNodeConfigurationOptionsCommand(input);
  * const response = await client.send(command);
  * ```

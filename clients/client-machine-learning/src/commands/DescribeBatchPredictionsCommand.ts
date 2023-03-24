@@ -42,6 +42,19 @@ export interface DescribeBatchPredictionsCommandOutput extends DescribeBatchPred
  * import { MachineLearningClient, DescribeBatchPredictionsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DescribeBatchPredictionsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = {
+ *   FilterVariable: "STRING_VALUE",
+ *   EQ: "STRING_VALUE",
+ *   GT: "STRING_VALUE",
+ *   LT: "STRING_VALUE",
+ *   GE: "STRING_VALUE",
+ *   LE: "STRING_VALUE",
+ *   NE: "STRING_VALUE",
+ *   Prefix: "STRING_VALUE",
+ *   SortOrder: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeBatchPredictionsCommand(input);
  * const response = await client.send(command);
  * ```

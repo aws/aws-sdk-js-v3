@@ -43,6 +43,13 @@ export interface SearchIndexCommandOutput extends SearchIndexResponse, __Metadat
  * import { IoTClient, SearchIndexCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, SearchIndexCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   indexName: "STRING_VALUE",
+ *   queryString: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   queryVersion: "STRING_VALUE",
+ * };
  * const command = new SearchIndexCommand(input);
  * const response = await client.send(command);
  * ```

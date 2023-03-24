@@ -42,6 +42,13 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * import { DocDBElasticClient, CreateClusterSnapshotCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, CreateClusterSnapshotCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
+ * const input = {
+ *   clusterArn: "STRING_VALUE", // required
+ *   snapshotName: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

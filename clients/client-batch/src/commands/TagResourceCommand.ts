@@ -45,6 +45,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { BatchClient, TagResourceCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, TagResourceCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -74,6 +74,19 @@ export interface InviteAccountToOrganizationCommandOutput
  * import { OrganizationsClient, InviteAccountToOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, InviteAccountToOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   Target: {
+ *     Id: "STRING_VALUE", // required
+ *     Type: "ACCOUNT" || "ORGANIZATION" || "EMAIL", // required
+ *   },
+ *   Notes: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new InviteAccountToOrganizationCommand(input);
  * const response = await client.send(command);
  * ```

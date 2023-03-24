@@ -42,6 +42,12 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * import { MediaLiveClient, DeleteTagsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteTagsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
  * ```

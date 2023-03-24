@@ -48,6 +48,35 @@ export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer
  * import { ChimeSDKMeetingsClient, StartMeetingTranscriptionCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, StartMeetingTranscriptionCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
+ * const input = {
+ *   MeetingId: "STRING_VALUE", // required
+ *   TranscriptionConfiguration: {
+ *     EngineTranscribeSettings: {
+ *       LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN",
+ *       VocabularyFilterMethod: "remove" || "mask" || "tag",
+ *       VocabularyFilterName: "STRING_VALUE",
+ *       VocabularyName: "STRING_VALUE",
+ *       Region: "us-east-2" || "us-east-1" || "us-west-2" || "ap-northeast-2" || "ap-southeast-2" || "ap-northeast-1" || "ca-central-1" || "eu-central-1" || "eu-west-1" || "eu-west-2" || "sa-east-1" || "auto" || "us-gov-west-1",
+ *       EnablePartialResultsStabilization: true || false,
+ *       PartialResultsStability: "low" || "medium" || "high",
+ *       ContentIdentificationType: "PII",
+ *       ContentRedactionType: "PII",
+ *       PiiEntityTypes: "STRING_VALUE",
+ *       LanguageModelName: "STRING_VALUE",
+ *       IdentifyLanguage: true || false,
+ *       LanguageOptions: "STRING_VALUE",
+ *       PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN",
+ *     },
+ *     EngineTranscribeMedicalSettings: {
+ *       LanguageCode: "en-US", // required
+ *       Specialty: "PRIMARYCARE" || "CARDIOLOGY" || "NEUROLOGY" || "ONCOLOGY" || "RADIOLOGY" || "UROLOGY", // required
+ *       Type: "CONVERSATION" || "DICTATION", // required
+ *       VocabularyName: "STRING_VALUE",
+ *       Region: "us-east-1" || "us-east-2" || "us-west-2" || "ap-southeast-2" || "ca-central-1" || "eu-west-1" || "auto",
+ *       ContentIdentificationType: "PHI",
+ *     },
+ *   },
+ * };
  * const command = new StartMeetingTranscriptionCommand(input);
  * const response = await client.send(command);
  * ```

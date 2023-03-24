@@ -42,6 +42,11 @@ export interface CreateResourceCommandOutput extends CreateResourceResponse, __M
  * import { WorkMailClient, CreateResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Type: "ROOM" || "EQUIPMENT", // required
+ * };
  * const command = new CreateResourceCommand(input);
  * const response = await client.send(command);
  * ```

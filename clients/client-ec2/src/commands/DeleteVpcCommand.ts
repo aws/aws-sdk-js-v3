@@ -39,6 +39,10 @@ export interface DeleteVpcCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   VpcId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteVpcCommand(input);
  * const response = await client.send(command);
  * ```

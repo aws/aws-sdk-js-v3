@@ -49,6 +49,12 @@ export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSe
  * import { SESClient, ReorderReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ReorderReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   RuleSetName: "STRING_VALUE", // required
+ *   RuleNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ReorderReceiptRuleSetCommand(input);
  * const response = await client.send(command);
  * ```

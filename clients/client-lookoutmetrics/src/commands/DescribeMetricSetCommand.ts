@@ -44,6 +44,9 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  * import { LookoutMetricsClient, DescribeMetricSetCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, DescribeMetricSetCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = {
+ *   MetricSetArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMetricSetCommand(input);
  * const response = await client.send(command);
  * ```

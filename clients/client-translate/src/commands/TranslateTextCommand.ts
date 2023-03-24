@@ -43,6 +43,18 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  * import { TranslateClient, TranslateTextCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, TranslateTextCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = {
+ *   Text: "STRING_VALUE", // required
+ *   TerminologyNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SourceLanguageCode: "STRING_VALUE", // required
+ *   TargetLanguageCode: "STRING_VALUE", // required
+ *   Settings: {
+ *     Formality: "FORMAL" || "INFORMAL",
+ *     Profanity: "MASK",
+ *   },
+ * };
  * const command = new TranslateTextCommand(input);
  * const response = await client.send(command);
  * ```

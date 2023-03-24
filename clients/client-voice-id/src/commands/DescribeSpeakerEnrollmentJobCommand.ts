@@ -48,6 +48,10 @@ export interface DescribeSpeakerEnrollmentJobCommandOutput
  * import { VoiceIDClient, DescribeSpeakerEnrollmentJobCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DescribeSpeakerEnrollmentJobCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
+ * const input = {
+ *   DomainId: "STRING_VALUE", // required
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSpeakerEnrollmentJobCommand(input);
  * const response = await client.send(command);
  * ```

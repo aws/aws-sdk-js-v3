@@ -42,6 +42,9 @@ export interface ClaimDeviceCommandOutput extends ClaimDeviceResponse, __Metadat
  * import { MediaLiveClient, ClaimDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ClaimDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE",
+ * };
  * const command = new ClaimDeviceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -55,6 +55,12 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  * import { ResourceExplorer2Client, SearchCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, SearchCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = {
+ *   QueryString: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   ViewArn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new SearchCommand(input);
  * const response = await client.send(command);
  * ```

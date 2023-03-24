@@ -46,6 +46,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { MigrationHubOrchestratorClient, UntagResourceCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, UntagResourceCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

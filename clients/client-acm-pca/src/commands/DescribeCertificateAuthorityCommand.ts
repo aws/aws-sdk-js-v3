@@ -84,6 +84,9 @@ export interface DescribeCertificateAuthorityCommandOutput
  * import { ACMPCAClient, DescribeCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, DescribeCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = {
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```

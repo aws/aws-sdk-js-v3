@@ -51,6 +51,10 @@ export interface DeleteVpcPeeringAuthorizationCommandOutput
  * import { GameLiftClient, DeleteVpcPeeringAuthorizationCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteVpcPeeringAuthorizationCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   GameLiftAwsAccountId: "STRING_VALUE", // required
+ *   PeerVpcId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVpcPeeringAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,10 @@ export interface PutOptedOutNumberCommandOutput extends PutOptedOutNumberResult,
  * import { PinpointSMSVoiceV2Client, PutOptedOutNumberCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, PutOptedOutNumberCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = {
+ *   OptOutListName: "STRING_VALUE", // required
+ *   OptedOutNumber: "STRING_VALUE", // required
+ * };
  * const command = new PutOptedOutNumberCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,7 @@ export interface ListAvailableSolutionStacksCommandOutput
  * import { ElasticBeanstalkClient, ListAvailableSolutionStacksCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ListAvailableSolutionStacksCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {};
  * const command = new ListAvailableSolutionStacksCommand(input);
  * const response = await client.send(command);
  * ```

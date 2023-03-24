@@ -49,6 +49,9 @@ export interface RebootClusterCommandOutput extends RebootClusterResult, __Metad
  * import { RedshiftClient, RebootClusterCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RebootClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new RebootClusterCommand(input);
  * const response = await client.send(command);
  * ```

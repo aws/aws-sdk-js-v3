@@ -49,6 +49,53 @@ export interface CreateLaunchCommandOutput extends CreateLaunchResponse, __Metad
  * import { EvidentlyClient, CreateLaunchCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, CreateLaunchCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   project: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   scheduledSplitsConfig: {
+ *     steps: [ // required
+ *       {
+ *         startTime: new Date("TIMESTAMP"), // required
+ *         groupWeights: { // required
+ *           "<keys>": Number("long"),
+ *         },
+ *         segmentOverrides: [
+ *           {
+ *             segment: "STRING_VALUE", // required
+ *             evaluationOrder: Number("long"), // required
+ *             weights: { // required
+ *               "<keys>": Number("long"),
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   metricMonitors: [
+ *     {
+ *       metricDefinition: {
+ *         name: "STRING_VALUE", // required
+ *         entityIdKey: "STRING_VALUE", // required
+ *         valueKey: "STRING_VALUE", // required
+ *         eventPattern: "STRING_VALUE",
+ *         unitLabel: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   groups: [ // required
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       feature: "STRING_VALUE", // required
+ *       variation: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   randomizationSalt: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLaunchCommand(input);
  * const response = await client.send(command);
  * ```

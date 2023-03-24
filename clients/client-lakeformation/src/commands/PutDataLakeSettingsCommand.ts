@@ -43,6 +43,51 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  * import { LakeFormationClient, PutDataLakeSettingsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, PutDataLakeSettingsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   DataLakeSettings: {
+ *     DataLakeAdmins: [
+ *       {
+ *         DataLakePrincipalIdentifier: "STRING_VALUE",
+ *       },
+ *     ],
+ *     CreateDatabaseDefaultPermissions: [
+ *       {
+ *         Principal: {
+ *           DataLakePrincipalIdentifier: "STRING_VALUE",
+ *         },
+ *         Permissions: [
+ *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *         ],
+ *       },
+ *     ],
+ *     CreateTableDefaultPermissions: [
+ *       {
+ *         Principal: {
+ *           DataLakePrincipalIdentifier: "STRING_VALUE",
+ *         },
+ *         Permissions: [
+ *           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *         ],
+ *       },
+ *     ],
+ *     Parameters: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TrustedResourceOwners: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowExternalDataFiltering: true || false,
+ *     ExternalDataFilteringAllowList: [
+ *       {
+ *         DataLakePrincipalIdentifier: "STRING_VALUE",
+ *       },
+ *     ],
+ *     AuthorizedSessionTagValueList: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new PutDataLakeSettingsCommand(input);
  * const response = await client.send(command);
  * ```

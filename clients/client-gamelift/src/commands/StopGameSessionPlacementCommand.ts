@@ -44,6 +44,9 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
  * import { GameLiftClient, StopGameSessionPlacementCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StopGameSessionPlacementCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   PlacementId: "STRING_VALUE", // required
+ * };
  * const command = new StopGameSessionPlacementCommand(input);
  * const response = await client.send(command);
  * ```

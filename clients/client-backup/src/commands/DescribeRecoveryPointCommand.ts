@@ -43,6 +43,10 @@ export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPoin
  * import { BackupClient, DescribeRecoveryPointCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeRecoveryPointCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   RecoveryPointArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRecoveryPointCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,7 @@ export interface GetConferencePreferenceCommandOutput extends GetConferencePrefe
  * import { AlexaForBusinessClient, GetConferencePreferenceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetConferencePreferenceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {};
  * const command = new GetConferencePreferenceCommand(input);
  * const response = await client.send(command);
  * ```

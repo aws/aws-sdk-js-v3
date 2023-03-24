@@ -57,6 +57,9 @@ export interface DeleteServerCommandOutput extends DeleteServerResponse, __Metad
  * import { OpsWorksCMClient, DeleteServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, DeleteServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = {
+ *   ServerName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteServerCommand(input);
  * const response = await client.send(command);
  * ```

@@ -54,6 +54,9 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * import { IoTClient, DeletePolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeletePolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   policyName: "STRING_VALUE", // required
+ * };
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);
  * ```

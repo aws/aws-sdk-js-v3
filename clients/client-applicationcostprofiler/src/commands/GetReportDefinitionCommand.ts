@@ -46,6 +46,9 @@ export interface GetReportDefinitionCommandOutput extends GetReportDefinitionRes
  * import { ApplicationCostProfilerClient, GetReportDefinitionCommand } from "@aws-sdk/client-applicationcostprofiler"; // ES Modules import
  * // const { ApplicationCostProfilerClient, GetReportDefinitionCommand } = require("@aws-sdk/client-applicationcostprofiler"); // CommonJS import
  * const client = new ApplicationCostProfilerClient(config);
+ * const input = {
+ *   reportId: "STRING_VALUE", // required
+ * };
  * const command = new GetReportDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

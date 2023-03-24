@@ -43,6 +43,17 @@ export interface BatchGetAssetPropertyValueCommandOutput extends BatchGetAssetPr
  * import { IoTSiteWiseClient, BatchGetAssetPropertyValueCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, BatchGetAssetPropertyValueCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   entries: [ // required
+ *     {
+ *       entryId: "STRING_VALUE", // required
+ *       assetId: "STRING_VALUE",
+ *       propertyId: "STRING_VALUE",
+ *       propertyAlias: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new BatchGetAssetPropertyValueCommand(input);
  * const response = await client.send(command);
  * ```

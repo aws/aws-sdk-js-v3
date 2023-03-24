@@ -48,6 +48,25 @@ export interface CreateLocationObjectStorageCommandOutput
  * import { DataSyncClient, CreateLocationObjectStorageCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationObjectStorageCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   ServerHostname: "STRING_VALUE", // required
+ *   ServerPort: Number("int"),
+ *   ServerProtocol: "HTTPS" || "HTTP",
+ *   Subdirectory: "STRING_VALUE",
+ *   BucketName: "STRING_VALUE", // required
+ *   AccessKey: "STRING_VALUE",
+ *   SecretKey: "STRING_VALUE",
+ *   AgentArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ServerCertificate: "BLOB_VALUE",
+ * };
  * const command = new CreateLocationObjectStorageCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,11 @@ export interface CreateApprovalRuleTemplateCommandOutput extends CreateApprovalR
  * import { CodeCommitClient, CreateApprovalRuleTemplateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreateApprovalRuleTemplateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   approvalRuleTemplateName: "STRING_VALUE", // required
+ *   approvalRuleTemplateContent: "STRING_VALUE", // required
+ *   approvalRuleTemplateDescription: "STRING_VALUE",
+ * };
  * const command = new CreateApprovalRuleTemplateCommand(input);
  * const response = await client.send(command);
  * ```

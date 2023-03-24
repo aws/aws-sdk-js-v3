@@ -74,6 +74,9 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  * import { KMSClient, DisableKeyRotationCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, DisableKeyRotationCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   KeyId: "STRING_VALUE", // required
+ * };
  * const command = new DisableKeyRotationCommand(input);
  * const response = await client.send(command);
  * ```

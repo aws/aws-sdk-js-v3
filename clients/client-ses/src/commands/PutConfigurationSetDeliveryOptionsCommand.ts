@@ -47,6 +47,12 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * import { SESClient, PutConfigurationSetDeliveryOptionsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, PutConfigurationSetDeliveryOptionsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   DeliveryOptions: {
+ *     TlsPolicy: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutConfigurationSetDeliveryOptionsCommand(input);
  * const response = await client.send(command);
  * ```

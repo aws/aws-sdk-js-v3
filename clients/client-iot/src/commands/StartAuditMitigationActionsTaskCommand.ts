@@ -45,6 +45,26 @@ export interface StartAuditMitigationActionsTaskCommandOutput
  * import { IoTClient, StartAuditMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, StartAuditMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   taskId: "STRING_VALUE", // required
+ *   target: {
+ *     auditTaskId: "STRING_VALUE",
+ *     findingIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     auditCheckToReasonCodeFilter: {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   auditCheckToActionsMapping: { // required
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   clientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new StartAuditMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
  * ```

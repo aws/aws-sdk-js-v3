@@ -46,6 +46,18 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
  * import { SageMakerA2IRuntimeClient, StartHumanLoopCommand } from "@aws-sdk/client-sagemaker-a2i-runtime"; // ES Modules import
  * // const { SageMakerA2IRuntimeClient, StartHumanLoopCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime"); // CommonJS import
  * const client = new SageMakerA2IRuntimeClient(config);
+ * const input = {
+ *   HumanLoopName: "STRING_VALUE", // required
+ *   FlowDefinitionArn: "STRING_VALUE", // required
+ *   HumanLoopInput: {
+ *     InputContent: "STRING_VALUE", // required
+ *   },
+ *   DataAttributes: {
+ *     ContentClassifiers: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new StartHumanLoopCommand(input);
  * const response = await client.send(command);
  * ```

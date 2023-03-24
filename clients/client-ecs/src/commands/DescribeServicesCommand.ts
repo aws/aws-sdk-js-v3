@@ -42,6 +42,15 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * import { ECSClient, DescribeServicesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeServicesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE",
+ *   services: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   include: [
+ *     "TAGS",
+ *   ],
+ * };
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);
  * ```

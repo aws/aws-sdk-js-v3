@@ -67,6 +67,12 @@ export interface UpdateTrafficPolicyInstanceCommandOutput
  * import { Route53Client, UpdateTrafficPolicyInstanceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, UpdateTrafficPolicyInstanceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   TTL: Number("long"), // required
+ *   TrafficPolicyId: "STRING_VALUE", // required
+ *   TrafficPolicyVersion: Number("int"), // required
+ * };
  * const command = new UpdateTrafficPolicyInstanceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { QLDBClient, ListTagsForResourceCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ListTagsForResourceCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBea
  * import { AppMeshClient, ListMeshesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListMeshesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new ListMeshesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -81,6 +81,20 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * import { WAFRegionalClient, CreateWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   MetricName: "STRING_VALUE", // required
+ *   DefaultAction: {
+ *     Type: "STRING_VALUE", // required
+ *   },
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateWebACLCommand(input);
  * const response = await client.send(command);
  * ```

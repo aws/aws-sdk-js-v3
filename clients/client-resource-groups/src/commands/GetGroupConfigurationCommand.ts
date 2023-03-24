@@ -54,6 +54,9 @@ export interface GetGroupConfigurationCommandOutput extends GetGroupConfiguratio
  * import { ResourceGroupsClient, GetGroupConfigurationCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GetGroupConfigurationCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = {
+ *   Group: "STRING_VALUE",
+ * };
  * const command = new GetGroupConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

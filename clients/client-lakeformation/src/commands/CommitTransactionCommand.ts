@@ -42,6 +42,9 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * import { LakeFormationClient, CommitTransactionCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, CommitTransactionCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = {
+ *   TransactionId: "STRING_VALUE", // required
+ * };
  * const command = new CommitTransactionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResource
  * import { CodeDeployClient, DeleteResourcesByExternalIdCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, DeleteResourcesByExternalIdCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = {
+ *   externalId: "STRING_VALUE",
+ * };
  * const command = new DeleteResourcesByExternalIdCommand(input);
  * const response = await client.send(command);
  * ```

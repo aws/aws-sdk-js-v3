@@ -69,6 +69,14 @@ export interface DescribeFleetLocationAttributesCommandOutput
  * import { GameLiftClient, DescribeFleetLocationAttributesCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetLocationAttributesCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   FleetId: "STRING_VALUE", // required
+ *   Locations: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFleetLocationAttributesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __M
  * import { GuardDutyClient, DeleteDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DeleteDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   DetectorId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDetectorCommand(input);
  * const response = await client.send(command);
  * ```

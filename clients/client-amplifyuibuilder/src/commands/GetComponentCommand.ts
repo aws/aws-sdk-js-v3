@@ -42,6 +42,11 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * import { AmplifyUIBuilderClient, GetComponentCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, GetComponentCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetComponentCommand(input);
  * const response = await client.send(command);
  * ```

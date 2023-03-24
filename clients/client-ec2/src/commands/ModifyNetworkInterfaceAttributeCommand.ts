@@ -44,6 +44,29 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * import { EC2Client, ModifyNetworkInterfaceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyNetworkInterfaceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Attachment: {
+ *     AttachmentId: "STRING_VALUE",
+ *     DeleteOnTermination: true || false,
+ *   },
+ *   Description: {
+ *     Value: "STRING_VALUE",
+ *   },
+ *   DryRun: true || false,
+ *   Groups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   SourceDestCheck: {
+ *     Value: true || false,
+ *   },
+ *   EnaSrdSpecification: {
+ *     EnaSrdEnabled: true || false,
+ *     EnaSrdUdpSpecification: {
+ *       EnaSrdUdpEnabled: true || false,
+ *     },
+ *   },
+ * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
  * ```

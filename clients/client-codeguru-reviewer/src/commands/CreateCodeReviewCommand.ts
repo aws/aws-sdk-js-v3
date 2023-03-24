@@ -45,6 +45,54 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse,
  * import { CodeGuruReviewerClient, CreateCodeReviewCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, CreateCodeReviewCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   RepositoryAssociationArn: "STRING_VALUE", // required
+ *   Type: {
+ *     RepositoryAnalysis: {
+ *       RepositoryHead: {
+ *         BranchName: "STRING_VALUE", // required
+ *       },
+ *       SourceCodeType: {
+ *         CommitDiff: {
+ *           SourceCommit: "STRING_VALUE",
+ *           DestinationCommit: "STRING_VALUE",
+ *           MergeBaseCommit: "STRING_VALUE",
+ *         },
+ *         RepositoryHead: {
+ *           BranchName: "STRING_VALUE", // required
+ *         },
+ *         BranchDiff: {
+ *           SourceBranchName: "STRING_VALUE", // required
+ *           DestinationBranchName: "STRING_VALUE", // required
+ *         },
+ *         S3BucketRepository: {
+ *           Name: "STRING_VALUE", // required
+ *           Details: {
+ *             BucketName: "STRING_VALUE",
+ *             CodeArtifacts: {
+ *               SourceCodeArtifactsObjectKey: "STRING_VALUE", // required
+ *               BuildArtifactsObjectKey: "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *         RequestMetadata: {
+ *           RequestId: "STRING_VALUE",
+ *           Requester: "STRING_VALUE",
+ *           EventInfo: {
+ *             Name: "STRING_VALUE",
+ *             State: "STRING_VALUE",
+ *           },
+ *           VendorName: "GitHub" || "GitLab" || "NativeS3",
+ *         },
+ *       },
+ *     },
+ *     AnalysisTypes: [
+ *       "Security" || "CodeQuality",
+ *     ],
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new CreateCodeReviewCommand(input);
  * const response = await client.send(command);
  * ```

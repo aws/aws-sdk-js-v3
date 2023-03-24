@@ -70,6 +70,13 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, CreateLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CreateLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   logGroupName: "STRING_VALUE", // required
+ *   kmsKeyId: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLogGroupCommand(input);
  * const response = await client.send(command);
  * ```

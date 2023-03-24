@@ -42,6 +42,9 @@ export interface DeleteBatchImportJobCommandOutput extends DeleteBatchImportJobR
  * import { FraudDetectorClient, DeleteBatchImportJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DeleteBatchImportJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBatchImportJobCommand(input);
  * const response = await client.send(command);
  * ```

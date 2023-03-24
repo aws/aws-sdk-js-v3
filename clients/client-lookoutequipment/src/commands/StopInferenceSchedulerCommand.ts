@@ -42,6 +42,9 @@ export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedu
  * import { LookoutEquipmentClient, StopInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, StopInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   InferenceSchedulerName: "STRING_VALUE", // required
+ * };
  * const command = new StopInferenceSchedulerCommand(input);
  * const response = await client.send(command);
  * ```

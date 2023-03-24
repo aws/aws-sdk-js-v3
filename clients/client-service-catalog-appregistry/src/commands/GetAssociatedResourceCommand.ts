@@ -46,6 +46,11 @@ export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourc
  * import { ServiceCatalogAppRegistryClient, GetAssociatedResourceCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, GetAssociatedResourceCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = {
+ *   application: "STRING_VALUE", // required
+ *   resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE", // required
+ *   resource: "STRING_VALUE", // required
+ * };
  * const command = new GetAssociatedResourceCommand(input);
  * const response = await client.send(command);
  * ```

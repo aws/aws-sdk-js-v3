@@ -54,6 +54,12 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * import { DetectiveClient, DeleteMembersCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, DeleteMembersCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = {
+ *   GraphArn: "STRING_VALUE", // required
+ *   AccountIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteMembersCommand(input);
  * const response = await client.send(command);
  * ```

@@ -40,6 +40,12 @@ export interface UntagPolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, UntagPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UntagPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   PolicyArn: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagPolicyCommand(input);
  * const response = await client.send(command);
  * ```

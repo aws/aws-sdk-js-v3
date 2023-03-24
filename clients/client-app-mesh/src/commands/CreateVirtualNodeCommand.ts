@@ -65,6 +65,255 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  * import { AppMeshClient, CreateVirtualNodeCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateVirtualNodeCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = {
+ *   virtualNodeName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   spec: {
+ *     serviceDiscovery: { // Union: only one key present
+ *       dns: {
+ *         hostname: "STRING_VALUE", // required
+ *         responseType: "STRING_VALUE",
+ *         ipPreference: "STRING_VALUE",
+ *       },
+ *       awsCloudMap: {
+ *         namespaceName: "STRING_VALUE", // required
+ *         serviceName: "STRING_VALUE", // required
+ *         attributes: [
+ *           {
+ *             key: "STRING_VALUE", // required
+ *             value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         ipPreference: "STRING_VALUE",
+ *       },
+ *     },
+ *     listeners: [
+ *       {
+ *         portMapping: {
+ *           port: Number("int"), // required
+ *           protocol: "STRING_VALUE", // required
+ *         },
+ *         tls: {
+ *           mode: "STRING_VALUE", // required
+ *           certificate: { // Union: only one key present
+ *             acm: {
+ *               certificateArn: "STRING_VALUE", // required
+ *             },
+ *             file: {
+ *               certificateChain: "STRING_VALUE", // required
+ *               privateKey: "STRING_VALUE", // required
+ *             },
+ *             sds: {
+ *               secretName: "STRING_VALUE", // required
+ *             },
+ *           },
+ *           validation: {
+ *             trust: { // Union: only one key present
+ *               file: {
+ *                 certificateChain: "STRING_VALUE", // required
+ *               },
+ *               sds: {
+ *                 secretName: "STRING_VALUE", // required
+ *               },
+ *             },
+ *             subjectAlternativeNames: {
+ *               match: {
+ *                 exact: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *         },
+ *         healthCheck: {
+ *           timeoutMillis: Number("long"), // required
+ *           intervalMillis: Number("long"), // required
+ *           protocol: "STRING_VALUE", // required
+ *           port: Number("int"),
+ *           path: "STRING_VALUE",
+ *           healthyThreshold: Number("int"), // required
+ *           unhealthyThreshold: Number("int"), // required
+ *         },
+ *         timeout: { // Union: only one key present
+ *           tcp: {
+ *             idle: {
+ *               value: Number("long"),
+ *               unit: "STRING_VALUE",
+ *             },
+ *           },
+ *           http: {
+ *             perRequest: {
+ *               value: Number("long"),
+ *               unit: "STRING_VALUE",
+ *             },
+ *             idle: {
+ *               value: Number("long"),
+ *               unit: "STRING_VALUE",
+ *             },
+ *           },
+ *           http2: {
+ *             perRequest: {
+ *               value: Number("long"),
+ *               unit: "STRING_VALUE",
+ *             },
+ *             idle: {
+ *               value: Number("long"),
+ *               unit: "STRING_VALUE",
+ *             },
+ *           },
+ *           grpc: {
+ *             perRequest: {
+ *               value: Number("long"),
+ *               unit: "STRING_VALUE",
+ *             },
+ *             idle: {
+ *               value: Number("long"),
+ *               unit: "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *         outlierDetection: {
+ *           maxServerErrors: Number("long"), // required
+ *           interval: {
+ *             value: Number("long"),
+ *             unit: "STRING_VALUE",
+ *           },
+ *           baseEjectionDuration: {
+ *             value: Number("long"),
+ *             unit: "STRING_VALUE",
+ *           },
+ *           maxEjectionPercent: Number("int"), // required
+ *         },
+ *         connectionPool: { // Union: only one key present
+ *           tcp: {
+ *             maxConnections: Number("int"), // required
+ *           },
+ *           http: {
+ *             maxConnections: Number("int"), // required
+ *             maxPendingRequests: Number("int"),
+ *           },
+ *           http2: {
+ *             maxRequests: Number("int"), // required
+ *           },
+ *           grpc: {
+ *             maxRequests: Number("int"), // required
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     backends: [
+ *       { // Union: only one key present
+ *         virtualService: {
+ *           virtualServiceName: "STRING_VALUE", // required
+ *           clientPolicy: {
+ *             tls: {
+ *               enforce: true || false,
+ *               ports: [
+ *                 Number("int"),
+ *               ],
+ *               certificate: { // Union: only one key present
+ *                 file: {
+ *                   certificateChain: "STRING_VALUE", // required
+ *                   privateKey: "STRING_VALUE", // required
+ *                 },
+ *                 sds: {
+ *                   secretName: "STRING_VALUE", // required
+ *                 },
+ *               },
+ *               validation: {
+ *                 trust: { // Union: only one key present
+ *                   acm: {
+ *                     certificateAuthorityArns: [ // required
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                   file: {
+ *                     certificateChain: "STRING_VALUE", // required
+ *                   },
+ *                   sds: {
+ *                     secretName: "STRING_VALUE", // required
+ *                   },
+ *                 },
+ *                 subjectAlternativeNames: {
+ *                   match: {
+ *                     exact: [ // required
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                 },
+ *               },
+ *             },
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     backendDefaults: {
+ *       clientPolicy: {
+ *         tls: {
+ *           enforce: true || false,
+ *           ports: [
+ *             Number("int"),
+ *           ],
+ *           certificate: { // Union: only one key present
+ *             file: {
+ *               certificateChain: "STRING_VALUE", // required
+ *               privateKey: "STRING_VALUE", // required
+ *             },
+ *             sds: {
+ *               secretName: "STRING_VALUE", // required
+ *             },
+ *           },
+ *           validation: {
+ *             trust: { // Union: only one key present
+ *               acm: {
+ *                 certificateAuthorityArns: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               file: {
+ *                 certificateChain: "STRING_VALUE", // required
+ *               },
+ *               sds: {
+ *                 secretName: "STRING_VALUE", // required
+ *               },
+ *             },
+ *             subjectAlternativeNames: {
+ *               match: {
+ *                 exact: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *         },
+ *       },
+ *     },
+ *     logging: {
+ *       accessLog: { // Union: only one key present
+ *         file: {
+ *           path: "STRING_VALUE", // required
+ *           format: { // Union: only one key present
+ *             text: "STRING_VALUE",
+ *             json: [
+ *               {
+ *                 key: "STRING_VALUE", // required
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new CreateVirtualNodeCommand(input);
  * const response = await client.send(command);
  * ```

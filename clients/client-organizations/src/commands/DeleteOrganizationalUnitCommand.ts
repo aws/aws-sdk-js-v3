@@ -44,6 +44,9 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  * import { OrganizationsClient, DeleteOrganizationalUnitCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DeleteOrganizationalUnitCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   OrganizationalUnitId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteOrganizationalUnitCommand(input);
  * const response = await client.send(command);
  * ```

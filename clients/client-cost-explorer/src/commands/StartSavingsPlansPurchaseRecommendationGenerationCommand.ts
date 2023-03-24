@@ -56,6 +56,7 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * import { CostExplorerClient, StartSavingsPlansPurchaseRecommendationGenerationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, StartSavingsPlansPurchaseRecommendationGenerationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = {};
  * const command = new StartSavingsPlansPurchaseRecommendationGenerationCommand(input);
  * const response = await client.send(command);
  * ```

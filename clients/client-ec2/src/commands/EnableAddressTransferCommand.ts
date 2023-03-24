@@ -42,6 +42,11 @@ export interface EnableAddressTransferCommandOutput extends EnableAddressTransfe
  * import { EC2Client, EnableAddressTransferCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableAddressTransferCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   AllocationId: "STRING_VALUE", // required
+ *   TransferAccountId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new EnableAddressTransferCommand(input);
  * const response = await client.send(command);
  * ```

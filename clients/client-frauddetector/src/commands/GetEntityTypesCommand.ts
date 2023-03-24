@@ -47,6 +47,11 @@ export interface GetEntityTypesCommandOutput extends GetEntityTypesResult, __Met
  * import { FraudDetectorClient, GetEntityTypesCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetEntityTypesCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   name: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetEntityTypesCommand(input);
  * const response = await client.send(command);
  * ```

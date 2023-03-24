@@ -51,6 +51,24 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * import { DocDBClient, ResetDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ResetDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   ResetAllParameters: true || false,
+ *   Parameters: [
+ *     {
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       ApplyType: "STRING_VALUE",
+ *       DataType: "STRING_VALUE",
+ *       AllowedValues: "STRING_VALUE",
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *       ApplyMethod: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ResetDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```

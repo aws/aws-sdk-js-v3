@@ -43,6 +43,13 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * import { ECSClient, ListServicesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListServicesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   schedulingStrategy: "REPLICA" || "DAEMON",
+ * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
  * ```

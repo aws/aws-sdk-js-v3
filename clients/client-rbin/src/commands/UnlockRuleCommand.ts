@@ -43,6 +43,9 @@ export interface UnlockRuleCommandOutput extends UnlockRuleResponse, __MetadataB
  * import { RbinClient, UnlockRuleCommand } from "@aws-sdk/client-rbin"; // ES Modules import
  * // const { RbinClient, UnlockRuleCommand } = require("@aws-sdk/client-rbin"); // CommonJS import
  * const client = new RbinClient(config);
+ * const input = {
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new UnlockRuleCommand(input);
  * const response = await client.send(command);
  * ```

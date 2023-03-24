@@ -50,6 +50,9 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  * import { SFNClient, DescribeExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DescribeExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   executionArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeExecutionCommand(input);
  * const response = await client.send(command);
  * ```

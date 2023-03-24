@@ -42,6 +42,9 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationResult,
  * import { AppStreamClient, DeleteApplicationCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteApplicationCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
  * ```

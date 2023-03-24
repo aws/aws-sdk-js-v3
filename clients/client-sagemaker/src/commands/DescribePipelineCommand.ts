@@ -42,6 +42,9 @@ export interface DescribePipelineCommandOutput extends DescribePipelineResponse,
  * import { SageMakerClient, DescribePipelineCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribePipelineCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   PipelineName: "STRING_VALUE", // required
+ * };
  * const command = new DescribePipelineCommand(input);
  * const response = await client.send(command);
  * ```

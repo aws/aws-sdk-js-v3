@@ -52,6 +52,15 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * import { IoTFleetWiseClient, RegisterAccountCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, RegisterAccountCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   timestreamResources: {
+ *     timestreamDatabaseName: "STRING_VALUE", // required
+ *     timestreamTableName: "STRING_VALUE", // required
+ *   },
+ *   iamResources: {
+ *     roleArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new RegisterAccountCommand(input);
  * const response = await client.send(command);
  * ```

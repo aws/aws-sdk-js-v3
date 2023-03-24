@@ -43,6 +43,13 @@ export interface UpdateEventConfigurationsCommandOutput extends UpdateEventConfi
  * import { IoTClient, UpdateEventConfigurationsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateEventConfigurationsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   eventConfigurations: {
+ *     "<keys>": {
+ *       Enabled: true || false,
+ *     },
+ *   },
+ * };
  * const command = new UpdateEventConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```

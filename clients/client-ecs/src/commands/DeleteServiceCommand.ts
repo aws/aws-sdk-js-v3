@@ -62,6 +62,11 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * import { ECSClient, DeleteServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeleteServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE",
+ *   service: "STRING_VALUE", // required
+ *   force: true || false,
+ * };
  * const command = new DeleteServiceCommand(input);
  * const response = await client.send(command);
  * ```

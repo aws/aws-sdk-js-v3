@@ -43,6 +43,13 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  * import { WorkMailClient, GetAccessControlEffectCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, GetAccessControlEffectCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ *   IpAddress: "STRING_VALUE", // required
+ *   Action: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE",
+ *   ImpersonationRoleId: "STRING_VALUE",
+ * };
  * const command = new GetAccessControlEffectCommand(input);
  * const response = await client.send(command);
  * ```

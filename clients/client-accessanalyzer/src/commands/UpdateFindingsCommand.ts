@@ -42,6 +42,15 @@ export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
  * import { AccessAnalyzerClient, UpdateFindingsCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, UpdateFindingsCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = {
+ *   analyzerArn: "STRING_VALUE", // required
+ *   status: "STRING_VALUE", // required
+ *   ids: [
+ *     "STRING_VALUE",
+ *   ],
+ *   resourceArn: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateFindingsCommand(input);
  * const response = await client.send(command);
  * ```

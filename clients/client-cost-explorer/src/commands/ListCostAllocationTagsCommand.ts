@@ -43,6 +43,15 @@ export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationT
  * import { CostExplorerClient, ListCostAllocationTagsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, ListCostAllocationTagsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = {
+ *   Status: "Active" || "Inactive",
+ *   TagKeys: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Type: "AWSGenerated" || "UserDefined",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListCostAllocationTagsCommand(input);
  * const response = await client.send(command);
  * ```

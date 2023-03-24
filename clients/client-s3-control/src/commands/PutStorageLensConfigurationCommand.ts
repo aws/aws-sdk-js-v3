@@ -49,6 +49,96 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  * import { S3ControlClient, PutStorageLensConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutStorageLensConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   ConfigId: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
+ *   StorageLensConfiguration: {
+ *     Id: "STRING_VALUE", // required
+ *     AccountLevel: {
+ *       ActivityMetrics: {
+ *         IsEnabled: true || false,
+ *       },
+ *       BucketLevel: {
+ *         ActivityMetrics: {
+ *           IsEnabled: true || false,
+ *         },
+ *         PrefixLevel: {
+ *           StorageMetrics: {
+ *             IsEnabled: true || false,
+ *             SelectionCriteria: {
+ *               Delimiter: "STRING_VALUE",
+ *               MaxDepth: Number("int"),
+ *               MinStorageBytesPercentage: Number("double"),
+ *             },
+ *           },
+ *         },
+ *         AdvancedCostOptimizationMetrics: {
+ *           IsEnabled: true || false,
+ *         },
+ *         AdvancedDataProtectionMetrics: {
+ *           IsEnabled: true || false,
+ *         },
+ *         DetailedStatusCodesMetrics: {
+ *           IsEnabled: true || false,
+ *         },
+ *       },
+ *       AdvancedCostOptimizationMetrics: {
+ *         IsEnabled: true || false,
+ *       },
+ *       AdvancedDataProtectionMetrics: {
+ *         IsEnabled: true || false,
+ *       },
+ *       DetailedStatusCodesMetrics: {
+ *         IsEnabled: true || false,
+ *       },
+ *     },
+ *     Include: {
+ *       Buckets: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Regions: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Exclude: {
+ *       Buckets: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Regions: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     DataExport: {
+ *       S3BucketDestination: {
+ *         Format: "CSV" || "Parquet", // required
+ *         OutputSchemaVersion: "V_1", // required
+ *         AccountId: "STRING_VALUE",
+ *         Arn: "STRING_VALUE", // required
+ *         Prefix: "STRING_VALUE",
+ *         Encryption: {
+ *           SSES3: {},
+ *           SSEKMS: {
+ *             KeyId: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *       CloudWatchMetrics: {
+ *         IsEnabled: true || false, // required
+ *       },
+ *     },
+ *     IsEnabled: true || false, // required
+ *     AwsOrg: {
+ *       Arn: "STRING_VALUE", // required
+ *     },
+ *     StorageLensArn: "STRING_VALUE",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutStorageLensConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

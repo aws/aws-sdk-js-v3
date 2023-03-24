@@ -46,6 +46,17 @@ export interface ListStudioComponentsCommandOutput extends ListStudioComponentsR
  * import { NimbleClient, ListStudioComponentsCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListStudioComponentsCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   states: [
+ *     "CREATE_IN_PROGRESS" || "READY" || "UPDATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DELETE_FAILED" || "CREATE_FAILED" || "UPDATE_FAILED",
+ *   ],
+ *   studioId: "STRING_VALUE", // required
+ *   types: [
+ *     "ACTIVE_DIRECTORY" || "SHARED_FILE_SYSTEM" || "COMPUTE_FARM" || "LICENSE_SERVICE" || "CUSTOM",
+ *   ],
+ * };
  * const command = new ListStudioComponentsCommand(input);
  * const response = await client.send(command);
  * ```

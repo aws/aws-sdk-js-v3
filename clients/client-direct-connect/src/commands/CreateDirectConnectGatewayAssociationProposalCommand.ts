@@ -49,6 +49,21 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
  * import { DirectConnectClient, CreateDirectConnectGatewayAssociationProposalCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateDirectConnectGatewayAssociationProposalCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   directConnectGatewayId: "STRING_VALUE", // required
+ *   directConnectGatewayOwnerAccount: "STRING_VALUE", // required
+ *   gatewayId: "STRING_VALUE", // required
+ *   addAllowedPrefixesToDirectConnectGateway: [
+ *     {
+ *       cidr: "STRING_VALUE",
+ *     },
+ *   ],
+ *   removeAllowedPrefixesToDirectConnectGateway: [
+ *     {
+ *       cidr: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDirectConnectGatewayAssociationProposalCommand(input);
  * const response = await client.send(command);
  * ```

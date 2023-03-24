@@ -42,6 +42,17 @@ export interface ListAnnotationImportJobsCommandOutput extends ListAnnotationImp
  * import { OmicsClient, ListAnnotationImportJobsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListAnnotationImportJobsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   ids: [
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   filter: {
+ *     status: "STRING_VALUE",
+ *     storeName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListAnnotationImportJobsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, DeletePipelineCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DeletePipelineCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = {
+ *   pipelineName: "STRING_VALUE", // required
+ * };
  * const command = new DeletePipelineCommand(input);
  * const response = await client.send(command);
  * ```

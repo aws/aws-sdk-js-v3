@@ -38,6 +38,7 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsOutput, __MetadataB
  * import { EC2ProtocolClient, XmlIntEnumsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, XmlIntEnumsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
+ * const input = {};
  * const command = new XmlIntEnumsCommand(input);
  * const response = await client.send(command);
  * ```

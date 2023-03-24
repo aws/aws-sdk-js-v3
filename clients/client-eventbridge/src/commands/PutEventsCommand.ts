@@ -42,6 +42,22 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * import { EventBridgeClient, PutEventsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, PutEventsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   Entries: [ // required
+ *     {
+ *       Time: new Date("TIMESTAMP"),
+ *       Source: "STRING_VALUE",
+ *       Resources: [
+ *         "STRING_VALUE",
+ *       ],
+ *       DetailType: "STRING_VALUE",
+ *       Detail: "STRING_VALUE",
+ *       EventBusName: "STRING_VALUE",
+ *       TraceHeader: "STRING_VALUE",
+ *     },
+ *   ],
+ *   EndpointId: "STRING_VALUE",
+ * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
  * ```

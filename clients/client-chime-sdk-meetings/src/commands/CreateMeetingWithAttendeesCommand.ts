@@ -53,6 +53,42 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * import { ChimeSDKMeetingsClient, CreateMeetingWithAttendeesCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, CreateMeetingWithAttendeesCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
+ * const input = {
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   MediaRegion: "STRING_VALUE", // required
+ *   MeetingHostId: "STRING_VALUE",
+ *   ExternalMeetingId: "STRING_VALUE", // required
+ *   MeetingFeatures: {
+ *     Audio: {
+ *       EchoReduction: "AVAILABLE" || "UNAVAILABLE",
+ *     },
+ *   },
+ *   NotificationsConfiguration: {
+ *     LambdaFunctionArn: "STRING_VALUE",
+ *     SnsTopicArn: "STRING_VALUE",
+ *     SqsQueueArn: "STRING_VALUE",
+ *   },
+ *   Attendees: [ // required
+ *     {
+ *       ExternalUserId: "STRING_VALUE", // required
+ *       Capabilities: {
+ *         Audio: "SendReceive" || "Send" || "Receive" || "None", // required
+ *         Video: "SendReceive" || "Send" || "Receive" || "None", // required
+ *         Content: "SendReceive" || "Send" || "Receive" || "None", // required
+ *       },
+ *     },
+ *   ],
+ *   PrimaryMeetingId: "STRING_VALUE",
+ *   TenantIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMeetingWithAttendeesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,9 @@ export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplat
  * import { IoTThingsGraphClient, DeprecateFlowTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeprecateFlowTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeprecateFlowTemplateCommand(input);
  * const response = await client.send(command);
  * ```

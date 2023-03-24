@@ -47,6 +47,19 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
  * import { AppConfigClient, UpdateConfigurationProfileCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, UpdateConfigurationProfileCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ConfigurationProfileId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RetrievalRoleArn: "STRING_VALUE",
+ *   Validators: [
+ *     {
+ *       Type: "JSON_SCHEMA" || "LAMBDA", // required
+ *       Content: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateConfigurationProfileCommand(input);
  * const response = await client.send(command);
  * ```

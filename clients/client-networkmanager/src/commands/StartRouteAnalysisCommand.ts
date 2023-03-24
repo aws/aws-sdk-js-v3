@@ -43,6 +43,19 @@ export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisRespo
  * import { NetworkManagerClient, StartRouteAnalysisCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, StartRouteAnalysisCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   Source: {
+ *     TransitGatewayAttachmentArn: "STRING_VALUE",
+ *     IpAddress: "STRING_VALUE",
+ *   },
+ *   Destination: {
+ *     TransitGatewayAttachmentArn: "STRING_VALUE",
+ *     IpAddress: "STRING_VALUE",
+ *   },
+ *   IncludeReturnPath: true || false,
+ *   UseMiddleboxes: true || false,
+ * };
  * const command = new StartRouteAnalysisCommand(input);
  * const response = await client.send(command);
  * ```

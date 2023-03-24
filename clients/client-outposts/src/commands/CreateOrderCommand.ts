@@ -42,6 +42,17 @@ export interface CreateOrderCommandOutput extends CreateOrderOutput, __MetadataB
  * import { OutpostsClient, CreateOrderCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CreateOrderCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = {
+ *   OutpostIdentifier: "STRING_VALUE", // required
+ *   LineItems: [ // required
+ *     {
+ *       CatalogItemId: "STRING_VALUE",
+ *       Quantity: Number("int"),
+ *     },
+ *   ],
+ *   PaymentOption: "ALL_UPFRONT" || "NO_UPFRONT" || "PARTIAL_UPFRONT", // required
+ *   PaymentTerm: "THREE_YEARS" || "ONE_YEAR",
+ * };
  * const command = new CreateOrderCommand(input);
  * const response = await client.send(command);
  * ```

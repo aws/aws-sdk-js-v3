@@ -42,6 +42,9 @@ export interface DescribeInputSecurityGroupCommandOutput extends DescribeInputSe
  * import { MediaLiveClient, DescribeInputSecurityGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeInputSecurityGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   InputSecurityGroupId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInputSecurityGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,166 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  * import { IoTEventsClient, UpdateAlarmModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, UpdateAlarmModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = {
+ *   alarmModelName: "STRING_VALUE", // required
+ *   alarmModelDescription: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE", // required
+ *   severity: Number("int"),
+ *   alarmRule: {
+ *     simpleRule: {
+ *       inputProperty: "STRING_VALUE", // required
+ *       comparisonOperator: "STRING_VALUE", // required
+ *       threshold: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   alarmNotification: {
+ *     notificationActions: [
+ *       {
+ *         action: {
+ *           lambdaAction: {
+ *             functionArn: "STRING_VALUE", // required
+ *             payload: {
+ *               contentExpression: "STRING_VALUE", // required
+ *               type: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *         smsConfigurations: [
+ *           {
+ *             senderId: "STRING_VALUE",
+ *             additionalMessage: "STRING_VALUE",
+ *             recipients: [ // required
+ *               {
+ *                 ssoIdentity: {
+ *                   identityStoreId: "STRING_VALUE", // required
+ *                   userId: "STRING_VALUE",
+ *                 },
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *         emailConfigurations: [
+ *           {
+ *             from: "STRING_VALUE", // required
+ *             content: {
+ *               subject: "STRING_VALUE",
+ *               additionalMessage: "STRING_VALUE",
+ *             },
+ *             recipients: {
+ *               to: [
+ *                 {
+ *                   ssoIdentity: {
+ *                     identityStoreId: "STRING_VALUE", // required
+ *                     userId: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   alarmEventActions: {
+ *     alarmActions: [
+ *       {
+ *         sns: {
+ *           targetArn: "STRING_VALUE", // required
+ *           payload: {
+ *             contentExpression: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         iotTopicPublish: {
+ *           mqttTopic: "STRING_VALUE", // required
+ *           payload: {
+ *             contentExpression: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         lambda: {
+ *           functionArn: "STRING_VALUE", // required
+ *           payload: {
+ *             contentExpression: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         iotEvents: {
+ *           inputName: "STRING_VALUE", // required
+ *           payload: {
+ *             contentExpression: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         sqs: {
+ *           queueUrl: "STRING_VALUE", // required
+ *           useBase64: true || false,
+ *           payload: {
+ *             contentExpression: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         firehose: {
+ *           deliveryStreamName: "STRING_VALUE", // required
+ *           separator: "STRING_VALUE",
+ *           payload: {
+ *             contentExpression: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         dynamoDB: {
+ *           hashKeyType: "STRING_VALUE",
+ *           hashKeyField: "STRING_VALUE", // required
+ *           hashKeyValue: "STRING_VALUE", // required
+ *           rangeKeyType: "STRING_VALUE",
+ *           rangeKeyField: "STRING_VALUE",
+ *           rangeKeyValue: "STRING_VALUE",
+ *           operation: "STRING_VALUE",
+ *           payloadField: "STRING_VALUE",
+ *           tableName: "STRING_VALUE", // required
+ *           payload: {
+ *             contentExpression: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         dynamoDBv2: {
+ *           tableName: "STRING_VALUE", // required
+ *           payload: {
+ *             contentExpression: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         iotSiteWise: {
+ *           entryId: "STRING_VALUE",
+ *           assetId: "STRING_VALUE",
+ *           propertyId: "STRING_VALUE",
+ *           propertyAlias: "STRING_VALUE",
+ *           propertyValue: {
+ *             value: {
+ *               stringValue: "STRING_VALUE",
+ *               integerValue: "STRING_VALUE",
+ *               doubleValue: "STRING_VALUE",
+ *               booleanValue: "STRING_VALUE",
+ *             },
+ *             timestamp: {
+ *               timeInSeconds: "STRING_VALUE", // required
+ *               offsetInNanos: "STRING_VALUE",
+ *             },
+ *             quality: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   alarmCapabilities: {
+ *     initializationConfiguration: {
+ *       disabledOnInitialization: true || false, // required
+ *     },
+ *     acknowledgeFlow: {
+ *       enabled: true || false, // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateAlarmModelCommand(input);
  * const response = await client.send(command);
  * ```

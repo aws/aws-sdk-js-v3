@@ -42,6 +42,10 @@ export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __M
  * import { AppSyncClient, DeleteFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DeleteFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   apiId: "STRING_VALUE", // required
+ *   functionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFunctionCommand(input);
  * const response = await client.send(command);
  * ```

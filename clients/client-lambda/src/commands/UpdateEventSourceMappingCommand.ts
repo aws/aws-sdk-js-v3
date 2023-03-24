@@ -144,6 +144,50 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * import { LambdaClient, UpdateEventSourceMappingCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateEventSourceMappingCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   UUID: "STRING_VALUE", // required
+ *   FunctionName: "STRING_VALUE",
+ *   Enabled: true || false,
+ *   BatchSize: Number("int"),
+ *   FilterCriteria: {
+ *     Filters: [
+ *       {
+ *         Pattern: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   MaximumBatchingWindowInSeconds: Number("int"),
+ *   DestinationConfig: {
+ *     OnSuccess: {
+ *       Destination: "STRING_VALUE",
+ *     },
+ *     OnFailure: {
+ *       Destination: "STRING_VALUE",
+ *     },
+ *   },
+ *   MaximumRecordAgeInSeconds: Number("int"),
+ *   BisectBatchOnFunctionError: true || false,
+ *   MaximumRetryAttempts: Number("int"),
+ *   ParallelizationFactor: Number("int"),
+ *   SourceAccessConfigurations: [
+ *     {
+ *       Type: "BASIC_AUTH" || "VPC_SUBNET" || "VPC_SECURITY_GROUP" || "SASL_SCRAM_512_AUTH" || "SASL_SCRAM_256_AUTH" || "VIRTUAL_HOST" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ *       URI: "STRING_VALUE",
+ *     },
+ *   ],
+ *   TumblingWindowInSeconds: Number("int"),
+ *   FunctionResponseTypes: [
+ *     "ReportBatchItemFailures",
+ *   ],
+ *   ScalingConfig: {
+ *     MaximumConcurrency: Number("int"),
+ *   },
+ *   DocumentDBEventSourceConfig: {
+ *     DatabaseName: "STRING_VALUE",
+ *     CollectionName: "STRING_VALUE",
+ *     FullDocument: "UpdateLookup" || "Default",
+ *   },
+ * };
  * const command = new UpdateEventSourceMappingCommand(input);
  * const response = await client.send(command);
  * ```

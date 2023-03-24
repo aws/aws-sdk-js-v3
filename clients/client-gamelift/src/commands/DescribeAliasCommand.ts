@@ -51,6 +51,9 @@ export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __Metad
  * import { GameLiftClient, DescribeAliasCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeAliasCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   AliasId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAliasCommand(input);
  * const response = await client.send(command);
  * ```

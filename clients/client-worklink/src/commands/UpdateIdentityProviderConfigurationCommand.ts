@@ -49,6 +49,11 @@ export interface UpdateIdentityProviderConfigurationCommandOutput
  * import { WorkLinkClient, UpdateIdentityProviderConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, UpdateIdentityProviderConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ *   IdentityProviderType: "STRING_VALUE", // required
+ *   IdentityProviderSamlMetadata: "STRING_VALUE",
+ * };
  * const command = new UpdateIdentityProviderConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

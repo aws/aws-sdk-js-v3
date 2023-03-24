@@ -54,6 +54,11 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * import { KinesisClient, IncreaseStreamRetentionPeriodCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, IncreaseStreamRetentionPeriodCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = {
+ *   StreamName: "STRING_VALUE",
+ *   RetentionPeriodHours: Number("int"), // required
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new IncreaseStreamRetentionPeriodCommand(input);
  * const response = await client.send(command);
  * ```

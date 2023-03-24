@@ -42,6 +42,14 @@ export interface ListReportJobsCommandOutput extends ListReportJobsOutput, __Met
  * import { BackupClient, ListReportJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListReportJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   ByReportPlanName: "STRING_VALUE",
+ *   ByCreationBefore: new Date("TIMESTAMP"),
+ *   ByCreationAfter: new Date("TIMESTAMP"),
+ *   ByStatus: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListReportJobsCommand(input);
  * const response = await client.send(command);
  * ```

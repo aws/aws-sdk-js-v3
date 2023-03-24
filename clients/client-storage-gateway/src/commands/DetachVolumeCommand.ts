@@ -46,6 +46,10 @@ export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __Metadat
  * import { StorageGatewayClient, DetachVolumeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DetachVolumeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   VolumeARN: "STRING_VALUE", // required
+ *   ForceDetach: true || false,
+ * };
  * const command = new DetachVolumeCommand(input);
  * const response = await client.send(command);
  * ```

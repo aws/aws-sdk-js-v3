@@ -44,6 +44,16 @@ export interface ListLabelingJobsForWorkteamCommandOutput
  * import { SageMakerClient, ListLabelingJobsForWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListLabelingJobsForWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   WorkteamArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   JobReferenceCodeContains: "STRING_VALUE",
+ *   SortBy: "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ * };
  * const command = new ListLabelingJobsForWorkteamCommand(input);
  * const response = await client.send(command);
  * ```

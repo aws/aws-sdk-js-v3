@@ -44,6 +44,11 @@ export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSof
  * import { OpenSearchClient, StartServiceSoftwareUpdateCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, StartServiceSoftwareUpdateCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   ScheduleAt: "NOW" || "TIMESTAMP" || "OFF_PEAK_WINDOW",
+ *   DesiredStartTime: Number("long"),
+ * };
  * const command = new StartServiceSoftwareUpdateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,60 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * import { TransferClient, UpdateServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   Certificate: "STRING_VALUE",
+ *   ProtocolDetails: {
+ *     PassiveIp: "STRING_VALUE",
+ *     TlsSessionResumptionMode: "DISABLED" || "ENABLED" || "ENFORCED",
+ *     SetStatOption: "DEFAULT" || "ENABLE_NO_OP",
+ *     As2Transports: [
+ *       "HTTP",
+ *     ],
+ *   },
+ *   EndpointDetails: {
+ *     AddressAllocationIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     VpcEndpointId: "STRING_VALUE",
+ *     VpcId: "STRING_VALUE",
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   EndpointType: "PUBLIC" || "VPC" || "VPC_ENDPOINT",
+ *   HostKey: "STRING_VALUE",
+ *   IdentityProviderDetails: {
+ *     Url: "STRING_VALUE",
+ *     InvocationRole: "STRING_VALUE",
+ *     DirectoryId: "STRING_VALUE",
+ *     Function: "STRING_VALUE",
+ *   },
+ *   LoggingRole: "STRING_VALUE",
+ *   PostAuthenticationLoginBanner: "STRING_VALUE",
+ *   PreAuthenticationLoginBanner: "STRING_VALUE",
+ *   Protocols: [
+ *     "SFTP" || "FTP" || "FTPS" || "AS2",
+ *   ],
+ *   SecurityPolicyName: "STRING_VALUE",
+ *   ServerId: "STRING_VALUE", // required
+ *   WorkflowDetails: {
+ *     OnUpload: [
+ *       {
+ *         WorkflowId: "STRING_VALUE", // required
+ *         ExecutionRole: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     OnPartialUpload: [
+ *       {
+ *         WorkflowId: "STRING_VALUE", // required
+ *         ExecutionRole: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateServerCommand(input);
  * const response = await client.send(command);
  * ```

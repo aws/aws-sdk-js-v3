@@ -52,6 +52,12 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
  * import { WellArchitectedClient, AssociateLensesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, AssociateLensesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = {
+ *   WorkloadId: "STRING_VALUE", // required
+ *   LensAliases: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AssociateLensesCommand(input);
  * const response = await client.send(command);
  * ```

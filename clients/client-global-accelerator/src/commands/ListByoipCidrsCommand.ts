@@ -47,6 +47,10 @@ export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __M
  * import { GlobalAcceleratorClient, ListByoipCidrsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListByoipCidrsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListByoipCidrsCommand(input);
  * const response = await client.send(command);
  * ```

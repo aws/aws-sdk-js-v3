@@ -42,6 +42,9 @@ export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspa
  * import { WorkSpacesClient, DescribeWorkspaceSnapshotsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspaceSnapshotsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   WorkspaceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWorkspaceSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```

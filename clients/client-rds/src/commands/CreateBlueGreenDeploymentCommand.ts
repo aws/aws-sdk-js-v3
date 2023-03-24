@@ -56,6 +56,19 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  * import { RDSClient, CreateBlueGreenDeploymentCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateBlueGreenDeploymentCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   BlueGreenDeploymentName: "STRING_VALUE", // required
+ *   Source: "STRING_VALUE", // required
+ *   TargetEngineVersion: "STRING_VALUE",
+ *   TargetDBParameterGroupName: "STRING_VALUE",
+ *   TargetDBClusterParameterGroupName: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateBlueGreenDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

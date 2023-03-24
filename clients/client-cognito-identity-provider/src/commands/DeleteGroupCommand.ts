@@ -48,6 +48,10 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
  * import { CognitoIdentityProviderClient, DeleteGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DeleteGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   GroupName: "STRING_VALUE", // required
+ *   UserPoolId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
  * ```

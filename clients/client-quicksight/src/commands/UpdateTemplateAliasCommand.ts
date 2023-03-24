@@ -42,6 +42,12 @@ export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasRes
  * import { QuickSightClient, UpdateTemplateAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateTemplateAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   TemplateId: "STRING_VALUE", // required
+ *   AliasName: "STRING_VALUE", // required
+ *   TemplateVersionNumber: Number("long"), // required
+ * };
  * const command = new UpdateTemplateAliasCommand(input);
  * const response = await client.send(command);
  * ```

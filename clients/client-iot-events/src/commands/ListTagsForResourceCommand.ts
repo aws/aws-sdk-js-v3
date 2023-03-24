@@ -42,6 +42,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { IoTEventsClient, ListTagsForResourceCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

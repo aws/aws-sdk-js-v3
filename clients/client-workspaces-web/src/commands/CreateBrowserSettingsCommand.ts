@@ -48,6 +48,20 @@ export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSetting
  * import { WorkSpacesWebClient, CreateBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   customerManagedKey: "STRING_VALUE",
+ *   additionalEncryptionContext: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   browserPolicy: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateBrowserSettingsCommand(input);
  * const response = await client.send(command);
  * ```

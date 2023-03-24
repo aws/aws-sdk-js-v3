@@ -49,6 +49,11 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * import { ChimeClient, UpdatePhoneNumberCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdatePhoneNumberCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   PhoneNumberId: "STRING_VALUE", // required
+ *   ProductType: "STRING_VALUE",
+ *   CallingName: "STRING_VALUE",
+ * };
  * const command = new UpdatePhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```

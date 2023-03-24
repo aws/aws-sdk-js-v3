@@ -43,6 +43,19 @@ export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroup
  * import { RDSClient, DescribeDBParameterGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBParameterGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBParameterGroupsCommand(input);
  * const response = await client.send(command);
  * ```

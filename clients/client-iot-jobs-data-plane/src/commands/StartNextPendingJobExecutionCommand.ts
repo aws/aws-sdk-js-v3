@@ -44,6 +44,13 @@ export interface StartNextPendingJobExecutionCommandOutput
  * import { IoTJobsDataPlaneClient, StartNextPendingJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
  * // const { IoTJobsDataPlaneClient, StartNextPendingJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
+ * const input = {
+ *   thingName: "STRING_VALUE", // required
+ *   statusDetails: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   stepTimeoutInMinutes: Number("long"),
+ * };
  * const command = new StartNextPendingJobExecutionCommand(input);
  * const response = await client.send(command);
  * ```

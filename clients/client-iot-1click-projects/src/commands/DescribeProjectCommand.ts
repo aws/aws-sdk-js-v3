@@ -46,6 +46,9 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * import { IoT1ClickProjectsClient, DescribeProjectCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, DescribeProjectCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
+ * const input = {
+ *   projectName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
  * ```

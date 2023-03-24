@@ -55,6 +55,10 @@ export interface AttachElasticLoadBalancerCommandOutput extends __MetadataBearer
  * import { OpsWorksClient, AttachElasticLoadBalancerCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, AttachElasticLoadBalancerCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   ElasticLoadBalancerName: "STRING_VALUE", // required
+ *   LayerId: "STRING_VALUE", // required
+ * };
  * const command = new AttachElasticLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```

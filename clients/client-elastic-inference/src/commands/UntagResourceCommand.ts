@@ -44,6 +44,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * import { ElasticInferenceClient, UntagResourceCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
  * // const { ElasticInferenceClient, UntagResourceCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
  * const client = new ElasticInferenceClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

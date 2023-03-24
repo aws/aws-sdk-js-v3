@@ -42,6 +42,17 @@ export interface CreateSoftwareUpdateJobCommandOutput extends CreateSoftwareUpda
  * import { GreengrassClient, CreateSoftwareUpdateJobCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateSoftwareUpdateJobCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   AmznClientToken: "STRING_VALUE",
+ *   S3UrlSignerRole: "STRING_VALUE", // required
+ *   SoftwareToUpdate: "core" || "ota_agent", // required
+ *   UpdateAgentLogLevel: "NONE" || "TRACE" || "DEBUG" || "VERBOSE" || "INFO" || "WARN" || "ERROR" || "FATAL",
+ *   UpdateTargets: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   UpdateTargetsArchitecture: "armv6l" || "armv7l" || "x86_64" || "aarch64", // required
+ *   UpdateTargetsOperatingSystem: "ubuntu" || "raspbian" || "amazon_linux" || "openwrt", // required
+ * };
  * const command = new CreateSoftwareUpdateJobCommand(input);
  * const response = await client.send(command);
  * ```

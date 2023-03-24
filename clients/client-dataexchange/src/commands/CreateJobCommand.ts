@@ -42,6 +42,131 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * import { DataExchangeClient, CreateJobCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, CreateJobCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = {
+ *   Details: {
+ *     ExportAssetToSignedUrl: {
+ *       AssetId: "STRING_VALUE", // required
+ *       DataSetId: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *     ExportAssetsToS3: {
+ *       AssetDestinations: [ // required
+ *         {
+ *           AssetId: "STRING_VALUE", // required
+ *           Bucket: "STRING_VALUE", // required
+ *           Key: "STRING_VALUE",
+ *         },
+ *       ],
+ *       DataSetId: "STRING_VALUE", // required
+ *       Encryption: {
+ *         KmsKeyArn: "STRING_VALUE",
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *     ExportRevisionsToS3: {
+ *       DataSetId: "STRING_VALUE", // required
+ *       Encryption: {
+ *         KmsKeyArn: "STRING_VALUE",
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *       RevisionDestinations: [ // required
+ *         {
+ *           Bucket: "STRING_VALUE", // required
+ *           KeyPattern: "STRING_VALUE",
+ *           RevisionId: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     ImportAssetFromSignedUrl: {
+ *       AssetName: "STRING_VALUE", // required
+ *       DataSetId: "STRING_VALUE", // required
+ *       Md5Hash: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *     ImportAssetsFromS3: {
+ *       AssetSources: [ // required
+ *         {
+ *           Bucket: "STRING_VALUE", // required
+ *           Key: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       DataSetId: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *     ImportAssetsFromRedshiftDataShares: {
+ *       AssetSources: [ // required
+ *         {
+ *           DataShareArn: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       DataSetId: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *     ImportAssetFromApiGatewayApi: {
+ *       ApiDescription: "STRING_VALUE",
+ *       ApiId: "STRING_VALUE", // required
+ *       ApiKey: "STRING_VALUE",
+ *       ApiName: "STRING_VALUE", // required
+ *       ApiSpecificationMd5Hash: "STRING_VALUE", // required
+ *       DataSetId: "STRING_VALUE", // required
+ *       ProtocolType: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *       Stage: "STRING_VALUE", // required
+ *     },
+ *     CreateS3DataAccessFromS3Bucket: {
+ *       AssetSource: {
+ *         Bucket: "STRING_VALUE", // required
+ *         KeyPrefixes: [
+ *           "STRING_VALUE",
+ *         ],
+ *         Keys: [
+ *           "STRING_VALUE",
+ *         ],
+ *         KmsKeysToGrant: [
+ *           {
+ *             KmsKeyArn: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       DataSetId: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *     ImportAssetsFromLakeFormationTagPolicy: {
+ *       CatalogId: "STRING_VALUE", // required
+ *       Database: {
+ *         Expression: [ // required
+ *           {
+ *             TagKey: "STRING_VALUE", // required
+ *             TagValues: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *         Permissions: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Table: {
+ *         Expression: [ // required
+ *           {
+ *             TagKey: "STRING_VALUE", // required
+ *             TagValues: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *         Permissions: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       RoleArn: "STRING_VALUE", // required
+ *       DataSetId: "STRING_VALUE", // required
+ *       RevisionId: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Type: "STRING_VALUE", // required
+ * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
  * ```

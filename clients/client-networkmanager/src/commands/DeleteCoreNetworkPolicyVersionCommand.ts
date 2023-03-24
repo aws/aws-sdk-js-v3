@@ -44,6 +44,10 @@ export interface DeleteCoreNetworkPolicyVersionCommandOutput
  * import { NetworkManagerClient, DeleteCoreNetworkPolicyVersionCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteCoreNetworkPolicyVersionCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   CoreNetworkId: "STRING_VALUE", // required
+ *   PolicyVersionId: Number("int"), // required
+ * };
  * const command = new DeleteCoreNetworkPolicyVersionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse,
  * import { LocationClient, ListPlaceIndexesCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListPlaceIndexesCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPlaceIndexesCommand(input);
  * const response = await client.send(command);
  * ```

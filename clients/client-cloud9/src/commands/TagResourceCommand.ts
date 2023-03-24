@@ -46,6 +46,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { Cloud9Client, TagResourceCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, TagResourceCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
  * const client = new Cloud9Client(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,13 @@ export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBeare
  * import { ConnectClient, UpdateUserSecurityProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserSecurityProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   SecurityProfileIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   UserId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateUserSecurityProfilesCommand(input);
  * const response = await client.send(command);
  * ```

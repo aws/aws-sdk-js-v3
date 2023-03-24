@@ -42,6 +42,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { DataSyncClient, UntagResourceCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UntagResourceCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Keys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

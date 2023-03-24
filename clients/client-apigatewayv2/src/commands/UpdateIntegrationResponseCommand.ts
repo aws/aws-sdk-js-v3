@@ -42,6 +42,20 @@ export interface UpdateIntegrationResponseCommandOutput extends UpdateIntegratio
  * import { ApiGatewayV2Client, UpdateIntegrationResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateIntegrationResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   ApiId: "STRING_VALUE", // required
+ *   ContentHandlingStrategy: "STRING_VALUE",
+ *   IntegrationId: "STRING_VALUE", // required
+ *   IntegrationResponseId: "STRING_VALUE", // required
+ *   IntegrationResponseKey: "STRING_VALUE",
+ *   ResponseParameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ResponseTemplates: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TemplateSelectionExpression: "STRING_VALUE",
+ * };
  * const command = new UpdateIntegrationResponseCommand(input);
  * const response = await client.send(command);
  * ```

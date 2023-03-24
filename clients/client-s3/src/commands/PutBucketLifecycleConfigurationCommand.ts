@@ -130,6 +130,66 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  * import { S3Client, PutBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   LifecycleConfiguration: {
+ *     Rules: [ // required
+ *       {
+ *         Expiration: {
+ *           Date: new Date("TIMESTAMP"),
+ *           Days: Number("int"),
+ *           ExpiredObjectDeleteMarker: true || false,
+ *         },
+ *         ID: "STRING_VALUE",
+ *         Prefix: "STRING_VALUE",
+ *         Filter: { // Union: only one key present
+ *           Prefix: "STRING_VALUE",
+ *           Tag: {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *           ObjectSizeGreaterThan: Number("long"),
+ *           ObjectSizeLessThan: Number("long"),
+ *           And: {
+ *             Prefix: "STRING_VALUE",
+ *             Tags: [
+ *               {
+ *                 Key: "STRING_VALUE", // required
+ *                 Value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             ObjectSizeGreaterThan: Number("long"),
+ *             ObjectSizeLessThan: Number("long"),
+ *           },
+ *         },
+ *         Status: "Enabled" || "Disabled", // required
+ *         Transitions: [
+ *           {
+ *             Date: new Date("TIMESTAMP"),
+ *             Days: Number("int"),
+ *             StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
+ *           },
+ *         ],
+ *         NoncurrentVersionTransitions: [
+ *           {
+ *             NoncurrentDays: Number("int"),
+ *             StorageClass: "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
+ *             NewerNoncurrentVersions: Number("int"),
+ *           },
+ *         ],
+ *         NoncurrentVersionExpiration: {
+ *           NoncurrentDays: Number("int"),
+ *           NewerNoncurrentVersions: Number("int"),
+ *         },
+ *         AbortIncompleteMultipartUpload: {
+ *           DaysAfterInitiation: Number("int"),
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

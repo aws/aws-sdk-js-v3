@@ -43,6 +43,10 @@ export interface GetFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  * import { LambdaClient, GetFunctionEventInvokeConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetFunctionEventInvokeConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE",
+ * };
  * const command = new GetFunctionEventInvokeConfigCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,9 @@ export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStor
  * import { StorageGatewayClient, DescribeWorkingStorageCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeWorkingStorageCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeWorkingStorageCommand(input);
  * const response = await client.send(command);
  * ```

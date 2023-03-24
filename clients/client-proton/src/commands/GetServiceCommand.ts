@@ -42,6 +42,9 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * import { ProtonClient, GetServiceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, GetServiceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetServiceCommand(input);
  * const response = await client.send(command);
  * ```

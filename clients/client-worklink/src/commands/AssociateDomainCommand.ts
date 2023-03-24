@@ -44,6 +44,12 @@ export interface AssociateDomainCommandOutput extends AssociateDomainResponse, _
  * import { WorkLinkClient, AssociateDomainCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, AssociateDomainCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   AcmCertificateArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateDomainCommand(input);
  * const response = await client.send(command);
  * ```

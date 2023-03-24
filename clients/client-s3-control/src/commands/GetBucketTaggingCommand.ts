@@ -79,6 +79,10 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingResult, _
  * import { S3ControlClient, GetBucketTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetBucketTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ * };
  * const command = new GetBucketTaggingCommand(input);
  * const response = await client.send(command);
  * ```

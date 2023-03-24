@@ -43,6 +43,27 @@ export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThing
  * import { IoTClient, CreateDynamicThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateDynamicThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   thingGroupName: "STRING_VALUE", // required
+ *   thingGroupProperties: {
+ *     thingGroupDescription: "STRING_VALUE",
+ *     attributePayload: {
+ *       attributes: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       merge: true || false,
+ *     },
+ *   },
+ *   indexName: "STRING_VALUE",
+ *   queryString: "STRING_VALUE", // required
+ *   queryVersion: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDynamicThingGroupCommand(input);
  * const response = await client.send(command);
  * ```

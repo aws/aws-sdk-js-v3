@@ -44,6 +44,25 @@ export interface UpdateIncidentRecordCommandOutput extends UpdateIncidentRecordO
  * import { SSMIncidentsClient, UpdateIncidentRecordCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, UpdateIncidentRecordCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   arn: "STRING_VALUE", // required
+ *   title: "STRING_VALUE",
+ *   summary: "STRING_VALUE",
+ *   impact: Number("int"),
+ *   status: "STRING_VALUE",
+ *   chatChannel: { // Union: only one key present
+ *     empty: {},
+ *     chatbotSns: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   notificationTargets: [
+ *     { // Union: only one key present
+ *       snsTopicArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateIncidentRecordCommand(input);
  * const response = await client.send(command);
  * ```

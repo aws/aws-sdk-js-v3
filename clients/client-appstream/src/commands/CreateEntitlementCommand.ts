@@ -47,6 +47,18 @@ export interface CreateEntitlementCommandOutput extends CreateEntitlementResult,
  * import { AppStreamClient, CreateEntitlementCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateEntitlementCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AppVisibility: "ALL" || "ASSOCIATED", // required
+ *   Attributes: [ // required
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateEntitlementCommand(input);
  * const response = await client.send(command);
  * ```

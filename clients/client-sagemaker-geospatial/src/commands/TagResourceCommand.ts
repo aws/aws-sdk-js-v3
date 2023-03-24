@@ -46,6 +46,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { SageMakerGeospatialClient, TagResourceCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, TagResourceCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

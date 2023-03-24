@@ -39,6 +39,13 @@ export interface GetSchemaCommandOutput extends GetSchemaResponse, __MetadataBea
  * import { GlueClient, GetSchemaCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetSchemaCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   SchemaId: {
+ *     SchemaArn: "STRING_VALUE",
+ *     SchemaName: "STRING_VALUE",
+ *     RegistryName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetSchemaCommand(input);
  * const response = await client.send(command);
  * ```

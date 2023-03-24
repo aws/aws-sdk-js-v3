@@ -49,6 +49,10 @@ export interface GetPositionCommandOutput extends GetPositionResponse, __Metadat
  * import { IoTWirelessClient, GetPositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetPositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
+ * };
  * const command = new GetPositionCommand(input);
  * const response = await client.send(command);
  * ```

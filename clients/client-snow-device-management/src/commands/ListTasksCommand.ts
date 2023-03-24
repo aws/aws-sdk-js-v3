@@ -46,6 +46,11 @@ export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBeare
  * import { SnowDeviceManagementClient, ListTasksCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, ListTasksCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
+ * const input = {
+ *   state: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);
  * ```

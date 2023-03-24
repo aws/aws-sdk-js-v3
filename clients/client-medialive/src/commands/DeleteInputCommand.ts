@@ -42,6 +42,9 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * import { MediaLiveClient, DeleteInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   InputId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInputCommand(input);
  * const response = await client.send(command);
  * ```

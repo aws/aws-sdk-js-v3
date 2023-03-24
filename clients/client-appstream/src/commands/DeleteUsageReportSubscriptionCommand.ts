@@ -44,6 +44,7 @@ export interface DeleteUsageReportSubscriptionCommandOutput
  * import { AppStreamClient, DeleteUsageReportSubscriptionCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteUsageReportSubscriptionCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {};
  * const command = new DeleteUsageReportSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,30 @@ export interface PutWebhookCommandOutput extends PutWebhookOutput, __MetadataBea
  * import { CodePipelineClient, PutWebhookCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutWebhookCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   webhook: {
+ *     name: "STRING_VALUE", // required
+ *     targetPipeline: "STRING_VALUE", // required
+ *     targetAction: "STRING_VALUE", // required
+ *     filters: [ // required
+ *       {
+ *         jsonPath: "STRING_VALUE", // required
+ *         matchEquals: "STRING_VALUE",
+ *       },
+ *     ],
+ *     authentication: "STRING_VALUE", // required
+ *     authenticationConfiguration: {
+ *       AllowedIPRange: "STRING_VALUE",
+ *       SecretToken: "STRING_VALUE",
+ *     },
+ *   },
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutWebhookCommand(input);
  * const response = await client.send(command);
  * ```

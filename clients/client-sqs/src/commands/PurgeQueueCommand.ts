@@ -52,6 +52,9 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * import { SQSClient, PurgeQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, PurgeQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = {
+ *   QueueUrl: "STRING_VALUE", // required
+ * };
  * const command = new PurgeQueueCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,37 @@ export interface CreateNetworkSiteCommandOutput extends CreateNetworkSiteRespons
  * import { PrivateNetworksClient, CreateNetworkSiteCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, CreateNetworkSiteCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = {
+ *   networkSiteName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   networkArn: "STRING_VALUE", // required
+ *   pendingPlan: {
+ *     resourceDefinitions: [
+ *       {
+ *         type: "STRING_VALUE", // required
+ *         options: [
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             value: "STRING_VALUE",
+ *           },
+ *         ],
+ *         count: Number("int"), // required
+ *       },
+ *     ],
+ *     options: [
+ *       {
+ *         name: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   availabilityZone: "STRING_VALUE",
+ *   availabilityZoneId: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateNetworkSiteCommand(input);
  * const response = await client.send(command);
  * ```

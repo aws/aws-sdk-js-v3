@@ -43,6 +43,12 @@ export interface DisassociateTimeSeriesFromAssetPropertyCommandOutput extends __
  * import { IoTSiteWiseClient, DisassociateTimeSeriesFromAssetPropertyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DisassociateTimeSeriesFromAssetPropertyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   alias: "STRING_VALUE", // required
+ *   assetId: "STRING_VALUE", // required
+ *   propertyId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DisassociateTimeSeriesFromAssetPropertyCommand(input);
  * const response = await client.send(command);
  * ```

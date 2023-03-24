@@ -46,6 +46,15 @@ export interface ListFlywheelIterationHistoryCommandOutput
  * import { ComprehendClient, ListFlywheelIterationHistoryCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListFlywheelIterationHistoryCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   FlywheelArn: "STRING_VALUE", // required
+ *   Filter: {
+ *     CreationTimeAfter: new Date("TIMESTAMP"),
+ *     CreationTimeBefore: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFlywheelIterationHistoryCommand(input);
  * const response = await client.send(command);
  * ```

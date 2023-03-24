@@ -47,6 +47,26 @@ export interface AddDraftAppVersionResourceMappingsCommandOutput
  * import { ResiliencehubClient, AddDraftAppVersionResourceMappingsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, AddDraftAppVersionResourceMappingsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   appArn: "STRING_VALUE", // required
+ *   resourceMappings: [ // required
+ *     {
+ *       resourceName: "STRING_VALUE",
+ *       logicalStackName: "STRING_VALUE",
+ *       appRegistryAppName: "STRING_VALUE",
+ *       resourceGroupName: "STRING_VALUE",
+ *       mappingType: "STRING_VALUE", // required
+ *       physicalResourceId: {
+ *         identifier: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *         awsRegion: "STRING_VALUE",
+ *         awsAccountId: "STRING_VALUE",
+ *       },
+ *       terraformSourceName: "STRING_VALUE",
+ *       eksSourceName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AddDraftAppVersionResourceMappingsCommand(input);
  * const response = await client.send(command);
  * ```

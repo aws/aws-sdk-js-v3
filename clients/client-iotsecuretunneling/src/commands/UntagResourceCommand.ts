@@ -46,6 +46,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { IoTSecureTunnelingClient, UntagResourceCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, UntagResourceCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
  * const client = new IoTSecureTunnelingClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

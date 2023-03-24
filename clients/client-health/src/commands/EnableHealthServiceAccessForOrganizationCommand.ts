@@ -63,6 +63,7 @@ export interface EnableHealthServiceAccessForOrganizationCommandOutput extends _
  * import { HealthClient, EnableHealthServiceAccessForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, EnableHealthServiceAccessForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = {};
  * const command = new EnableHealthServiceAccessForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```

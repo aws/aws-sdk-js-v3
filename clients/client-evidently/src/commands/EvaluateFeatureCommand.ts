@@ -66,6 +66,12 @@ export interface EvaluateFeatureCommandOutput extends EvaluateFeatureResponse, _
  * import { EvidentlyClient, EvaluateFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, EvaluateFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   project: "STRING_VALUE", // required
+ *   feature: "STRING_VALUE", // required
+ *   entityId: "STRING_VALUE", // required
+ *   evaluationContext: "STRING_VALUE",
+ * };
  * const command = new EvaluateFeatureCommand(input);
  * const response = await client.send(command);
  * ```

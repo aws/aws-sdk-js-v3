@@ -44,6 +44,62 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  * import { ComprehendClient, CreateEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   RecognizerName: "STRING_VALUE", // required
+ *   VersionName: "STRING_VALUE",
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   InputDataConfig: {
+ *     DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
+ *     EntityTypes: [ // required
+ *       {
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     Documents: {
+ *       S3Uri: "STRING_VALUE", // required
+ *       TestS3Uri: "STRING_VALUE",
+ *       InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ *     },
+ *     Annotations: {
+ *       S3Uri: "STRING_VALUE", // required
+ *       TestS3Uri: "STRING_VALUE",
+ *     },
+ *     EntityList: {
+ *       S3Uri: "STRING_VALUE", // required
+ *     },
+ *     AugmentedManifests: [
+ *       {
+ *         S3Uri: "STRING_VALUE", // required
+ *         Split: "TRAIN" || "TEST",
+ *         AttributeNames: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         AnnotationDataS3Uri: "STRING_VALUE",
+ *         SourceDocumentsS3Uri: "STRING_VALUE",
+ *         DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ *       },
+ *     ],
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ *   VolumeKmsKeyId: "STRING_VALUE",
+ *   VpcConfig: {
+ *     SecurityGroupIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ModelKmsKeyId: "STRING_VALUE",
+ *   ModelPolicy: "STRING_VALUE",
+ * };
  * const command = new CreateEntityRecognizerCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,80 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * import { KafkaConnectClient, CreateConnectorCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, CreateConnectorCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
+ * const input = {
+ *   capacity: {
+ *     autoScaling: {
+ *       maxWorkerCount: Number("int"), // required
+ *       mcuCount: Number("int"), // required
+ *       minWorkerCount: Number("int"), // required
+ *       scaleInPolicy: {
+ *         cpuUtilizationPercentage: Number("int"), // required
+ *       },
+ *       scaleOutPolicy: {
+ *         cpuUtilizationPercentage: Number("int"), // required
+ *       },
+ *     },
+ *     provisionedCapacity: {
+ *       mcuCount: Number("int"), // required
+ *       workerCount: Number("int"), // required
+ *     },
+ *   },
+ *   connectorConfiguration: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   connectorDescription: "STRING_VALUE",
+ *   connectorName: "STRING_VALUE", // required
+ *   kafkaCluster: {
+ *     apacheKafkaCluster: {
+ *       bootstrapServers: "STRING_VALUE", // required
+ *       vpc: {
+ *         securityGroups: [
+ *           "STRING_VALUE",
+ *         ],
+ *         subnets: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   kafkaClusterClientAuthentication: {
+ *     authenticationType: "STRING_VALUE", // required
+ *   },
+ *   kafkaClusterEncryptionInTransit: {
+ *     encryptionType: "STRING_VALUE", // required
+ *   },
+ *   kafkaConnectVersion: "STRING_VALUE", // required
+ *   logDelivery: {
+ *     workerLogDelivery: {
+ *       cloudWatchLogs: {
+ *         enabled: true || false, // required
+ *         logGroup: "STRING_VALUE",
+ *       },
+ *       firehose: {
+ *         deliveryStream: "STRING_VALUE",
+ *         enabled: true || false, // required
+ *       },
+ *       s3: {
+ *         bucket: "STRING_VALUE",
+ *         enabled: true || false, // required
+ *         prefix: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   plugins: [ // required
+ *     {
+ *       customPlugin: {
+ *         customPluginArn: "STRING_VALUE", // required
+ *         revision: Number("long"), // required
+ *       },
+ *     },
+ *   ],
+ *   serviceExecutionRoleArn: "STRING_VALUE", // required
+ *   workerConfiguration: {
+ *     revision: Number("long"), // required
+ *     workerConfigurationArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateConnectorCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,15 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  * import { CodeDeployClient, ListDeploymentTargetsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListDeploymentTargetsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = {
+ *   deploymentId: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   targetFilters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListDeploymentTargetsCommand(input);
  * const response = await client.send(command);
  * ```

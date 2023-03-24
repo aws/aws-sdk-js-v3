@@ -44,6 +44,9 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * import { IoTClient, GetPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   policyName: "STRING_VALUE", // required
+ * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,9 @@ export interface DeleteAccessorCommandOutput extends DeleteAccessorOutput, __Met
  * import { ManagedBlockchainClient, DeleteAccessorCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, DeleteAccessorCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = {
+ *   AccessorId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccessorCommand(input);
  * const response = await client.send(command);
  * ```

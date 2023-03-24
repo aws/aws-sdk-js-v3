@@ -121,6 +121,18 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * import { OrganizationsClient, CreateAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CreateAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   Email: "STRING_VALUE", // required
+ *   AccountName: "STRING_VALUE", // required
+ *   RoleName: "STRING_VALUE",
+ *   IamUserAccessToBilling: "ALLOW" || "DENY",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateAccountCommand(input);
  * const response = await client.send(command);
  * ```

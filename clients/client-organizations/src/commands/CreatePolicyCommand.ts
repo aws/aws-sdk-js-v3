@@ -48,6 +48,18 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * import { OrganizationsClient, CreatePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CreatePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   Content: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
  * ```

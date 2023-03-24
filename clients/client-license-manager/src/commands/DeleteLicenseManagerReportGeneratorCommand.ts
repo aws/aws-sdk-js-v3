@@ -49,6 +49,9 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
  * import { LicenseManagerClient, DeleteLicenseManagerReportGeneratorCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, DeleteLicenseManagerReportGeneratorCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = {
+ *   LicenseManagerReportGeneratorArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLicenseManagerReportGeneratorCommand(input);
  * const response = await client.send(command);
  * ```

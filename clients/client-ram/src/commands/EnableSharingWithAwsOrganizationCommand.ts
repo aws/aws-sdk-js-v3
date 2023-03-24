@@ -52,6 +52,7 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
  * import { RAMClient, EnableSharingWithAwsOrganizationCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, EnableSharingWithAwsOrganizationCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = {};
  * const command = new EnableSharingWithAwsOrganizationCommand(input);
  * const response = await client.send(command);
  * ```

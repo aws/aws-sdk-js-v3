@@ -49,6 +49,9 @@ export interface RejectEnvironmentAccountConnectionCommandOutput
  * import { ProtonClient, RejectEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, RejectEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new RejectEnvironmentAccountConnectionCommand(input);
  * const response = await client.send(command);
  * ```

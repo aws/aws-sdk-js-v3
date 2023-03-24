@@ -48,6 +48,25 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
  * import { IoTFleetWiseClient, BatchCreateVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, BatchCreateVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   vehicles: [ // required
+ *     {
+ *       vehicleName: "STRING_VALUE", // required
+ *       modelManifestArn: "STRING_VALUE", // required
+ *       decoderManifestArn: "STRING_VALUE", // required
+ *       attributes: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       associationBehavior: "STRING_VALUE",
+ *       tags: [
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new BatchCreateVehicleCommand(input);
  * const response = await client.send(command);
  * ```

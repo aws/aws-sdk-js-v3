@@ -44,6 +44,7 @@ export interface DescribeAccountHealthCommandOutput extends DescribeAccountHealt
  * import { DevOpsGuruClient, DescribeAccountHealthCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeAccountHealthCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {};
  * const command = new DescribeAccountHealthCommand(input);
  * const response = await client.send(command);
  * ```

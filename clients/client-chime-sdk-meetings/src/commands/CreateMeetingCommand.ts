@@ -53,6 +53,32 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  * import { ChimeSDKMeetingsClient, CreateMeetingCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, CreateMeetingCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
+ * const input = {
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   MediaRegion: "STRING_VALUE", // required
+ *   MeetingHostId: "STRING_VALUE",
+ *   ExternalMeetingId: "STRING_VALUE", // required
+ *   NotificationsConfiguration: {
+ *     LambdaFunctionArn: "STRING_VALUE",
+ *     SnsTopicArn: "STRING_VALUE",
+ *     SqsQueueArn: "STRING_VALUE",
+ *   },
+ *   MeetingFeatures: {
+ *     Audio: {
+ *       EchoReduction: "AVAILABLE" || "UNAVAILABLE",
+ *     },
+ *   },
+ *   PrimaryMeetingId: "STRING_VALUE",
+ *   TenantIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMeetingCommand(input);
  * const response = await client.send(command);
  * ```

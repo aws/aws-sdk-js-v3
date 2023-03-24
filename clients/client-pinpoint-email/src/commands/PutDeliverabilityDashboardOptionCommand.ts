@@ -50,6 +50,21 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  * import { PinpointEmailClient, PutDeliverabilityDashboardOptionCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutDeliverabilityDashboardOptionCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {
+ *   DashboardEnabled: true || false, // required
+ *   SubscribedDomains: [
+ *     {
+ *       Domain: "STRING_VALUE",
+ *       SubscriptionStartDate: new Date("TIMESTAMP"),
+ *       InboxPlacementTrackingOption: {
+ *         Global: true || false,
+ *         TrackedIsps: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PutDeliverabilityDashboardOptionCommand(input);
  * const response = await client.send(command);
  * ```

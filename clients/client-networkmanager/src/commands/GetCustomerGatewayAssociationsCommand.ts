@@ -45,6 +45,14 @@ export interface GetCustomerGatewayAssociationsCommandOutput
  * import { NetworkManagerClient, GetCustomerGatewayAssociationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetCustomerGatewayAssociationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   CustomerGatewayArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetCustomerGatewayAssociationsCommand(input);
  * const response = await client.send(command);
  * ```

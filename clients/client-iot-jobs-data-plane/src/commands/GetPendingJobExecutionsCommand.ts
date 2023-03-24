@@ -42,6 +42,9 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
  * import { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
  * // const { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
+ * const input = {
+ *   thingName: "STRING_VALUE", // required
+ * };
  * const command = new GetPendingJobExecutionsCommand(input);
  * const response = await client.send(command);
  * ```

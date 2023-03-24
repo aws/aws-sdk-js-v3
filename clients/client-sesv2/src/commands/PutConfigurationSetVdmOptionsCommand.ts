@@ -45,6 +45,17 @@ export interface PutConfigurationSetVdmOptionsCommandOutput
  * import { SESv2Client, PutConfigurationSetVdmOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutConfigurationSetVdmOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   VdmOptions: {
+ *     DashboardOptions: {
+ *       EngagementMetrics: "ENABLED" || "DISABLED",
+ *     },
+ *     GuardianOptions: {
+ *       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ * };
  * const command = new PutConfigurationSetVdmOptionsCommand(input);
  * const response = await client.send(command);
  * ```

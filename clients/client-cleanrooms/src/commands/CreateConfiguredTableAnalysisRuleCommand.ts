@@ -45,6 +45,49 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  * import { CleanRoomsClient, CreateConfiguredTableAnalysisRuleCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, CreateConfiguredTableAnalysisRuleCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = {
+ *   configuredTableIdentifier: "STRING_VALUE", // required
+ *   analysisRuleType: "AGGREGATION" || "LIST", // required
+ *   analysisRulePolicy: { // Union: only one key present
+ *     v1: { // Union: only one key present
+ *       list: {
+ *         joinColumns: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         listColumns: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       aggregation: {
+ *         aggregateColumns: [ // required
+ *           {
+ *             columnNames: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *             function: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         joinColumns: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         joinRequired: "STRING_VALUE",
+ *         dimensionColumns: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         scalarFunctions: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         outputConstraints: [ // required
+ *           {
+ *             columnName: "STRING_VALUE", // required
+ *             minimum: Number("int"), // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreateConfiguredTableAnalysisRuleCommand(input);
  * const response = await client.send(command);
  * ```

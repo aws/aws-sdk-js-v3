@@ -42,6 +42,24 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  * import { SSMClient, UpdateDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Content: "STRING_VALUE", // required
+ *   Attachments: [
+ *     {
+ *       Key: "SourceUrl" || "S3FileUrl" || "AttachmentReference",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Name: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   VersionName: "STRING_VALUE",
+ *   DocumentVersion: "STRING_VALUE",
+ *   DocumentFormat: "YAML" || "JSON" || "TEXT",
+ *   TargetType: "STRING_VALUE",
+ * };
  * const command = new UpdateDocumentCommand(input);
  * const response = await client.send(command);
  * ```

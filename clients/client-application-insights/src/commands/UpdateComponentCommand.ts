@@ -47,6 +47,14 @@ export interface UpdateComponentCommandOutput extends UpdateComponentResponse, _
  * import { ApplicationInsightsClient, UpdateComponentCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, UpdateComponentCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = {
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   ComponentName: "STRING_VALUE", // required
+ *   NewComponentName: "STRING_VALUE",
+ *   ResourceList: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateComponentCommand(input);
  * const response = await client.send(command);
  * ```

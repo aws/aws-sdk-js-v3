@@ -52,6 +52,15 @@ export interface ClaimPhoneNumberCommandOutput extends ClaimPhoneNumberResponse,
  * import { ConnectClient, ClaimPhoneNumberCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ClaimPhoneNumberCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   TargetArn: "STRING_VALUE", // required
+ *   PhoneNumber: "STRING_VALUE", // required
+ *   PhoneNumberDescription: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new ClaimPhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,174 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * import { QuickSightClient, UpdateDataSetCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateDataSetCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   DataSetId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   PhysicalTableMap: { // required
+ *     "<keys>": { // Union: only one key present
+ *       RelationalTable: {
+ *         DataSourceArn: "STRING_VALUE", // required
+ *         Catalog: "STRING_VALUE",
+ *         Schema: "STRING_VALUE",
+ *         Name: "STRING_VALUE", // required
+ *         InputColumns: [ // required
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *           },
+ *         ],
+ *       },
+ *       CustomSql: {
+ *         DataSourceArn: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *         SqlQuery: "STRING_VALUE", // required
+ *         Columns: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *           },
+ *         ],
+ *       },
+ *       S3Source: {
+ *         DataSourceArn: "STRING_VALUE", // required
+ *         UploadSettings: {
+ *           Format: "CSV" || "TSV" || "CLF" || "ELF" || "XLSX" || "JSON",
+ *           StartFromRow: Number("int"),
+ *           ContainsHeader: true || false,
+ *           TextQualifier: "DOUBLE_QUOTE" || "SINGLE_QUOTE",
+ *           Delimiter: "STRING_VALUE",
+ *         },
+ *         InputColumns: [ // required
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   LogicalTableMap: {
+ *     "<keys>": {
+ *       Alias: "STRING_VALUE", // required
+ *       DataTransforms: [
+ *         { // Union: only one key present
+ *           ProjectOperation: {
+ *             ProjectedColumns: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           FilterOperation: {
+ *             ConditionExpression: "STRING_VALUE", // required
+ *           },
+ *           CreateColumnsOperation: {
+ *             Columns: [ // required
+ *               {
+ *                 ColumnName: "STRING_VALUE", // required
+ *                 ColumnId: "STRING_VALUE", // required
+ *                 Expression: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *           RenameColumnOperation: {
+ *             ColumnName: "STRING_VALUE", // required
+ *             NewColumnName: "STRING_VALUE", // required
+ *           },
+ *           CastColumnTypeOperation: {
+ *             ColumnName: "STRING_VALUE", // required
+ *             NewColumnType: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME", // required
+ *             Format: "STRING_VALUE",
+ *           },
+ *           TagColumnOperation: {
+ *             ColumnName: "STRING_VALUE", // required
+ *             Tags: [ // required
+ *               {
+ *                 ColumnGeographicRole: "COUNTRY" || "STATE" || "COUNTY" || "CITY" || "POSTCODE" || "LONGITUDE" || "LATITUDE",
+ *                 ColumnDescription: {
+ *                   Text: "STRING_VALUE",
+ *                 },
+ *               },
+ *             ],
+ *           },
+ *           UntagColumnOperation: {
+ *             ColumnName: "STRING_VALUE", // required
+ *             TagNames: [ // required
+ *               "COLUMN_GEOGRAPHIC_ROLE" || "COLUMN_DESCRIPTION",
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       Source: {
+ *         JoinInstruction: {
+ *           LeftOperand: "STRING_VALUE", // required
+ *           RightOperand: "STRING_VALUE", // required
+ *           LeftJoinKeyProperties: {
+ *             UniqueKey: true || false,
+ *           },
+ *           RightJoinKeyProperties: {
+ *             UniqueKey: true || false,
+ *           },
+ *           Type: "INNER" || "OUTER" || "LEFT" || "RIGHT", // required
+ *           OnClause: "STRING_VALUE", // required
+ *         },
+ *         PhysicalTableId: "STRING_VALUE",
+ *         DataSetArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   ImportMode: "SPICE" || "DIRECT_QUERY", // required
+ *   ColumnGroups: [
+ *     {
+ *       GeoSpatialColumnGroup: {
+ *         Name: "STRING_VALUE", // required
+ *         CountryCode: "US",
+ *         Columns: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   FieldFolders: {
+ *     "<keys>": {
+ *       description: "STRING_VALUE",
+ *       columns: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   RowLevelPermissionDataSet: {
+ *     Namespace: "STRING_VALUE",
+ *     Arn: "STRING_VALUE", // required
+ *     PermissionPolicy: "GRANT_ACCESS" || "DENY_ACCESS", // required
+ *     FormatVersion: "VERSION_1" || "VERSION_2",
+ *     Status: "ENABLED" || "DISABLED",
+ *   },
+ *   RowLevelPermissionTagConfiguration: {
+ *     Status: "ENABLED" || "DISABLED",
+ *     TagRules: [ // required
+ *       {
+ *         TagKey: "STRING_VALUE", // required
+ *         ColumnName: "STRING_VALUE", // required
+ *         TagMultiValueDelimiter: "STRING_VALUE",
+ *         MatchAllValue: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   ColumnLevelPermissionRules: [
+ *     {
+ *       Principals: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ColumnNames: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DataSetUsageConfiguration: {
+ *     DisableUseAsDirectQuerySource: true || false,
+ *     DisableUseAsImportedSource: true || false,
+ *   },
+ * };
  * const command = new UpdateDataSetCommand(input);
  * const response = await client.send(command);
  * ```

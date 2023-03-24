@@ -45,6 +45,22 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput
  * import { EC2Client, DescribeTransitGatewayAttachmentsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeTransitGatewayAttachmentsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   TransitGatewayAttachmentIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeTransitGatewayAttachmentsCommand(input);
  * const response = await client.send(command);
  * ```

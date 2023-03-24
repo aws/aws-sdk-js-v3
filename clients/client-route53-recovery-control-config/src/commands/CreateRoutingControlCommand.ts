@@ -46,6 +46,12 @@ export interface CreateRoutingControlCommandOutput extends CreateRoutingControlR
  * import { Route53RecoveryControlConfigClient, CreateRoutingControlCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, CreateRoutingControlCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE",
+ *   ClusterArn: "STRING_VALUE", // required
+ *   ControlPanelArn: "STRING_VALUE",
+ *   RoutingControlName: "STRING_VALUE", // required
+ * };
  * const command = new CreateRoutingControlCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface UpdateResourceProfileCommandOutput extends UpdateResourceProfil
  * import { Macie2Client, UpdateResourceProfileCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateResourceProfileCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   sensitivityScoreOverride: Number("int"),
+ * };
  * const command = new UpdateResourceProfileCommand(input);
  * const response = await client.send(command);
  * ```

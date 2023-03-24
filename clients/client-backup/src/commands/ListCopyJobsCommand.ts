@@ -42,6 +42,20 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  * import { BackupClient, ListCopyJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListCopyJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ByResourceArn: "STRING_VALUE",
+ *   ByState: "CREATED" || "RUNNING" || "COMPLETED" || "FAILED" || "PARTIAL",
+ *   ByCreatedBefore: new Date("TIMESTAMP"),
+ *   ByCreatedAfter: new Date("TIMESTAMP"),
+ *   ByResourceType: "STRING_VALUE",
+ *   ByDestinationVaultArn: "STRING_VALUE",
+ *   ByAccountId: "STRING_VALUE",
+ *   ByCompleteBefore: new Date("TIMESTAMP"),
+ *   ByCompleteAfter: new Date("TIMESTAMP"),
+ *   ByParentJobId: "STRING_VALUE",
+ * };
  * const command = new ListCopyJobsCommand(input);
  * const response = await client.send(command);
  * ```

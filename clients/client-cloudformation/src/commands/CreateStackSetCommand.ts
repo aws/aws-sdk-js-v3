@@ -42,6 +42,42 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
  * import { CloudFormationClient, CreateStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CreateStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   StackSetName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateURL: "STRING_VALUE",
+ *   StackId: "STRING_VALUE",
+ *   Parameters: [
+ *     {
+ *       ParameterKey: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       UsePreviousValue: true || false,
+ *       ResolvedValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Capabilities: [
+ *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   AdministrationRoleARN: "STRING_VALUE",
+ *   ExecutionRoleName: "STRING_VALUE",
+ *   PermissionModel: "SERVICE_MANAGED" || "SELF_MANAGED",
+ *   AutoDeployment: {
+ *     Enabled: true || false,
+ *     RetainStacksOnAccountRemoval: true || false,
+ *   },
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   ManagedExecution: {
+ *     Active: true || false,
+ *   },
+ * };
  * const command = new CreateStackSetCommand(input);
  * const response = await client.send(command);
  * ```

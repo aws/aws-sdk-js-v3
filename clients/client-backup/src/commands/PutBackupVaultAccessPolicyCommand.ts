@@ -44,6 +44,10 @@ export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBeare
  * import { BackupClient, PutBackupVaultAccessPolicyCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, PutBackupVaultAccessPolicyCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE",
+ * };
  * const command = new PutBackupVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```

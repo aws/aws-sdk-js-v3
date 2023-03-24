@@ -45,6 +45,14 @@ export interface RemoveAttributesFromFindingsCommandOutput
  * import { InspectorClient, RemoveAttributesFromFindingsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, RemoveAttributesFromFindingsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   findingArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   attributeKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveAttributesFromFindingsCommand(input);
  * const response = await client.send(command);
  * ```

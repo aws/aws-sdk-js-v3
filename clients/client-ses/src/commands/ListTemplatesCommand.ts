@@ -44,6 +44,10 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * import { SESClient, ListTemplatesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListTemplatesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
  * ```

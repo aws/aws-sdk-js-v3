@@ -48,6 +48,24 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput
  * import { GlueClient, StartDataQualityRuleRecommendationRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartDataQualityRuleRecommendationRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   DataSource: {
+ *     GlueTable: {
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *       CatalogId: "STRING_VALUE",
+ *       ConnectionName: "STRING_VALUE",
+ *       AdditionalOptions: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   Role: "STRING_VALUE", // required
+ *   NumberOfWorkers: Number("int"),
+ *   Timeout: Number("int"),
+ *   CreatedRulesetName: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new StartDataQualityRuleRecommendationRunCommand(input);
  * const response = await client.send(command);
  * ```

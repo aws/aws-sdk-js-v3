@@ -43,6 +43,13 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * import { Route53ResolverClient, ListFirewallRulesCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListFirewallRulesCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   FirewallRuleGroupId: "STRING_VALUE", // required
+ *   Priority: Number("int"),
+ *   Action: "ALLOW" || "BLOCK" || "ALERT",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFirewallRulesCommand(input);
  * const response = await client.send(command);
  * ```

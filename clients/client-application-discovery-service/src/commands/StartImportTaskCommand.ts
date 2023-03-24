@@ -77,6 +77,11 @@ export interface StartImportTaskCommandOutput extends StartImportTaskResponse, _
  * import { ApplicationDiscoveryServiceClient, StartImportTaskCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, StartImportTaskCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = {
+ *   clientRequestToken: "STRING_VALUE",
+ *   name: "STRING_VALUE", // required
+ *   importUrl: "STRING_VALUE", // required
+ * };
  * const command = new StartImportTaskCommand(input);
  * const response = await client.send(command);
  * ```

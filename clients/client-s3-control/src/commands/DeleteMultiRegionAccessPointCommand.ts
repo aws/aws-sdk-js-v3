@@ -77,6 +77,13 @@ export interface DeleteMultiRegionAccessPointCommandOutput
  * import { S3ControlClient, DeleteMultiRegionAccessPointCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteMultiRegionAccessPointCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE", // required
+ *   Details: {
+ *     Name: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DeleteMultiRegionAccessPointCommand(input);
  * const response = await client.send(command);
  * ```

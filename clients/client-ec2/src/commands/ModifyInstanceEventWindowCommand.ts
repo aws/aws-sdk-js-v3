@@ -49,6 +49,20 @@ export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEv
  * import { EC2Client, ModifyInstanceEventWindowCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstanceEventWindowCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   Name: "STRING_VALUE",
+ *   InstanceEventWindowId: "STRING_VALUE", // required
+ *   TimeRanges: [
+ *     {
+ *       StartWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ *       StartHour: Number("int"),
+ *       EndWeekDay: "sunday" || "monday" || "tuesday" || "wednesday" || "thursday" || "friday" || "saturday",
+ *       EndHour: Number("int"),
+ *     },
+ *   ],
+ *   CronExpression: "STRING_VALUE",
+ * };
  * const command = new ModifyInstanceEventWindowCommand(input);
  * const response = await client.send(command);
  * ```

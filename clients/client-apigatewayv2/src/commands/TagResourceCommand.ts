@@ -42,6 +42,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { ApiGatewayV2Client, TagResourceCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, TagResourceCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -41,6 +41,9 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
  * import { RestJsonProtocolClient, QueryIdempotencyTokenAutoFillCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, QueryIdempotencyTokenAutoFillCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   token: "STRING_VALUE",
+ * };
  * const command = new QueryIdempotencyTokenAutoFillCommand(input);
  * const response = await client.send(command);
  * ```

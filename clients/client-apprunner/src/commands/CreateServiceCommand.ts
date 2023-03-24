@@ -48,6 +48,88 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * import { AppRunnerClient, CreateServiceCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, CreateServiceCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   ServiceName: "STRING_VALUE", // required
+ *   SourceConfiguration: {
+ *     CodeRepository: {
+ *       RepositoryUrl: "STRING_VALUE", // required
+ *       SourceCodeVersion: {
+ *         Type: "BRANCH", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *       CodeConfiguration: {
+ *         ConfigurationSource: "REPOSITORY" || "API", // required
+ *         CodeConfigurationValues: {
+ *           Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31", // required
+ *           BuildCommand: "STRING_VALUE",
+ *           StartCommand: "STRING_VALUE",
+ *           Port: "STRING_VALUE",
+ *           RuntimeEnvironmentVariables: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           RuntimeEnvironmentSecrets: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *     ImageRepository: {
+ *       ImageIdentifier: "STRING_VALUE", // required
+ *       ImageConfiguration: {
+ *         RuntimeEnvironmentVariables: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         StartCommand: "STRING_VALUE",
+ *         Port: "STRING_VALUE",
+ *         RuntimeEnvironmentSecrets: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       ImageRepositoryType: "ECR" || "ECR_PUBLIC", // required
+ *     },
+ *     AutoDeploymentsEnabled: true || false,
+ *     AuthenticationConfiguration: {
+ *       ConnectionArn: "STRING_VALUE",
+ *       AccessRoleArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   InstanceConfiguration: {
+ *     Cpu: "STRING_VALUE",
+ *     Memory: "STRING_VALUE",
+ *     InstanceRoleArn: "STRING_VALUE",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   EncryptionConfiguration: {
+ *     KmsKey: "STRING_VALUE", // required
+ *   },
+ *   HealthCheckConfiguration: {
+ *     Protocol: "TCP" || "HTTP",
+ *     Path: "STRING_VALUE",
+ *     Interval: Number("int"),
+ *     Timeout: Number("int"),
+ *     HealthyThreshold: Number("int"),
+ *     UnhealthyThreshold: Number("int"),
+ *   },
+ *   AutoScalingConfigurationArn: "STRING_VALUE",
+ *   NetworkConfiguration: {
+ *     EgressConfiguration: {
+ *       EgressType: "DEFAULT" || "VPC",
+ *       VpcConnectorArn: "STRING_VALUE",
+ *     },
+ *     IngressConfiguration: {
+ *       IsPubliclyAccessible: true || false,
+ *     },
+ *   },
+ *   ObservabilityConfiguration: {
+ *     ObservabilityEnabled: true || false, // required
+ *     ObservabilityConfigurationArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
  * ```

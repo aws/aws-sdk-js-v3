@@ -42,6 +42,10 @@ export interface DescribeServiceActionCommandOutput extends DescribeServiceActio
  * import { ServiceCatalogClient, DescribeServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   AcceptLanguage: "STRING_VALUE",
+ * };
  * const command = new DescribeServiceActionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface DeleteSuiteDefinitionCommandOutput extends DeleteSuiteDefinitio
  * import { IotDeviceAdvisorClient, DeleteSuiteDefinitionCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, DeleteSuiteDefinitionCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
+ * const input = {
+ *   suiteDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSuiteDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

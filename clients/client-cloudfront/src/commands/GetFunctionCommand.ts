@@ -45,6 +45,10 @@ export interface GetFunctionCommandOutput extends GetFunctionResult, __MetadataB
  * import { CloudFrontClient, GetFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Stage: "DEVELOPMENT" || "LIVE",
+ * };
  * const command = new GetFunctionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -51,6 +51,9 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   InstanceProfileName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,10 @@ export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedIns
  * import { SSMClient, UpdateManagedInstanceRoleCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateManagedInstanceRoleCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   IamRole: "STRING_VALUE", // required
+ * };
  * const command = new UpdateManagedInstanceRoleCommand(input);
  * const response = await client.send(command);
  * ```

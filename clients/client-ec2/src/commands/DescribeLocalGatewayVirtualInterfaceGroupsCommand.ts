@@ -48,6 +48,22 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
  * import { EC2Client, DescribeLocalGatewayVirtualInterfaceGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeLocalGatewayVirtualInterfaceGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   LocalGatewayVirtualInterfaceGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeLocalGatewayVirtualInterfaceGroupsCommand(input);
  * const response = await client.send(command);
  * ```

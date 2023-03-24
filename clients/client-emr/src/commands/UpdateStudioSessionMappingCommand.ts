@@ -42,6 +42,13 @@ export interface UpdateStudioSessionMappingCommandOutput extends __MetadataBeare
  * import { EMRClient, UpdateStudioSessionMappingCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, UpdateStudioSessionMappingCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   StudioId: "STRING_VALUE", // required
+ *   IdentityId: "STRING_VALUE",
+ *   IdentityName: "STRING_VALUE",
+ *   IdentityType: "USER" || "GROUP", // required
+ *   SessionPolicyArn: "STRING_VALUE", // required
+ * };
  * const command = new UpdateStudioSessionMappingCommand(input);
  * const response = await client.send(command);
  * ```

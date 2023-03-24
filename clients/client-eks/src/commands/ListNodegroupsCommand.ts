@@ -44,6 +44,11 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
  * import { EKSClient, ListNodegroupsCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListNodegroupsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   clusterName: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListNodegroupsCommand(input);
  * const response = await client.send(command);
  * ```

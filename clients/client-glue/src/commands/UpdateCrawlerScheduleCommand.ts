@@ -42,6 +42,10 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
  * import { GlueClient, UpdateCrawlerScheduleCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateCrawlerScheduleCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CrawlerName: "STRING_VALUE", // required
+ *   Schedule: "STRING_VALUE",
+ * };
  * const command = new UpdateCrawlerScheduleCommand(input);
  * const response = await client.send(command);
  * ```

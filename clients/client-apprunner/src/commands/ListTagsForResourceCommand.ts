@@ -42,6 +42,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { AppRunnerClient, ListTagsForResourceCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListTagsForResourceCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

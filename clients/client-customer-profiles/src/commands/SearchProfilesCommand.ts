@@ -46,6 +46,24 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * import { CustomerProfilesClient, SearchProfilesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, SearchProfilesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DomainName: "STRING_VALUE", // required
+ *   KeyName: "STRING_VALUE", // required
+ *   Values: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AdditionalSearchKeys: [
+ *     {
+ *       KeyName: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   LogicalOperator: "AND" || "OR",
+ * };
  * const command = new SearchProfilesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,10 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  * import { EventBridgeClient, TestEventPatternCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, TestEventPatternCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   EventPattern: "STRING_VALUE", // required
+ *   Event: "STRING_VALUE", // required
+ * };
  * const command = new TestEventPatternCommand(input);
  * const response = await client.send(command);
  * ```

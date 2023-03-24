@@ -48,6 +48,12 @@ export interface CreateWorkspaceApiKeyCommandOutput extends CreateWorkspaceApiKe
  * import { GrafanaClient, CreateWorkspaceApiKeyCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, CreateWorkspaceApiKeyCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = {
+ *   keyName: "STRING_VALUE", // required
+ *   keyRole: "STRING_VALUE", // required
+ *   secondsToLive: Number("int"), // required
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new CreateWorkspaceApiKeyCommand(input);
  * const response = await client.send(command);
  * ```

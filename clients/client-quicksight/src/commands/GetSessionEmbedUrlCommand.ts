@@ -71,6 +71,12 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  * import { QuickSightClient, GetSessionEmbedUrlCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, GetSessionEmbedUrlCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   EntryPoint: "STRING_VALUE",
+ *   SessionLifetimeInMinutes: Number("long"),
+ *   UserArn: "STRING_VALUE",
+ * };
  * const command = new GetSessionEmbedUrlCommand(input);
  * const response = await client.send(command);
  * ```

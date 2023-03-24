@@ -42,6 +42,80 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * import { PinpointClient, PutEventsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, PutEventsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EventsRequest: {
+ *     BatchItem: { // required
+ *       "<keys>": {
+ *         Endpoint: {
+ *           Address: "STRING_VALUE",
+ *           Attributes: {
+ *             "<keys>": [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           ChannelType: "STRING_VALUE",
+ *           Demographic: {
+ *             AppVersion: "STRING_VALUE",
+ *             Locale: "STRING_VALUE",
+ *             Make: "STRING_VALUE",
+ *             Model: "STRING_VALUE",
+ *             ModelVersion: "STRING_VALUE",
+ *             Platform: "STRING_VALUE",
+ *             PlatformVersion: "STRING_VALUE",
+ *             Timezone: "STRING_VALUE",
+ *           },
+ *           EffectiveDate: "STRING_VALUE",
+ *           EndpointStatus: "STRING_VALUE",
+ *           Location: {
+ *             City: "STRING_VALUE",
+ *             Country: "STRING_VALUE",
+ *             Latitude: Number("double"),
+ *             Longitude: Number("double"),
+ *             PostalCode: "STRING_VALUE",
+ *             Region: "STRING_VALUE",
+ *           },
+ *           Metrics: {
+ *             "<keys>": Number("double"),
+ *           },
+ *           OptOut: "STRING_VALUE",
+ *           RequestId: "STRING_VALUE",
+ *           User: {
+ *             UserAttributes: {
+ *               "<keys>": [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             UserId: "STRING_VALUE",
+ *           },
+ *         },
+ *         Events: { // required
+ *           "<keys>": {
+ *             AppPackageName: "STRING_VALUE",
+ *             AppTitle: "STRING_VALUE",
+ *             AppVersionCode: "STRING_VALUE",
+ *             Attributes: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             ClientSdkVersion: "STRING_VALUE",
+ *             EventType: "STRING_VALUE", // required
+ *             Metrics: {
+ *               "<keys>": Number("double"),
+ *             },
+ *             SdkName: "STRING_VALUE",
+ *             Session: {
+ *               Duration: Number("int"),
+ *               Id: "STRING_VALUE", // required
+ *               StartTimestamp: "STRING_VALUE", // required
+ *               StopTimestamp: "STRING_VALUE",
+ *             },
+ *             Timestamp: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
  * ```

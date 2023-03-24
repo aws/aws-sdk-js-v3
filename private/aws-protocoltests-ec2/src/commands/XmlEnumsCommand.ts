@@ -38,6 +38,7 @@ export interface XmlEnumsCommandOutput extends XmlEnumsOutput, __MetadataBearer 
  * import { EC2ProtocolClient, XmlEnumsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, XmlEnumsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
+ * const input = {};
  * const command = new XmlEnumsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,13 @@ export interface UpdateSipMediaApplicationCallCommandOutput
  * import { ChimeClient, UpdateSipMediaApplicationCallCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateSipMediaApplicationCallCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   TransactionId: "STRING_VALUE", // required
+ *   Arguments: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateSipMediaApplicationCallCommand(input);
  * const response = await client.send(command);
  * ```

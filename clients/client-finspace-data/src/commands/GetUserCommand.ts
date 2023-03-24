@@ -42,6 +42,9 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * import { FinspaceDataClient, GetUserCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, GetUserCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = {
+ *   userId: "STRING_VALUE", // required
+ * };
  * const command = new GetUserCommand(input);
  * const response = await client.send(command);
  * ```

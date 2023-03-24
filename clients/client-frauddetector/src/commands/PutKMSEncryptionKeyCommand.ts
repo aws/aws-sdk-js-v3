@@ -42,6 +42,9 @@ export interface PutKMSEncryptionKeyCommandOutput extends PutKMSEncryptionKeyRes
  * import { FraudDetectorClient, PutKMSEncryptionKeyCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, PutKMSEncryptionKeyCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   kmsEncryptionKeyArn: "STRING_VALUE", // required
+ * };
  * const command = new PutKMSEncryptionKeyCommand(input);
  * const response = await client.send(command);
  * ```

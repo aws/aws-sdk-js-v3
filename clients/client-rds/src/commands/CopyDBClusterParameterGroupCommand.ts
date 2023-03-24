@@ -42,6 +42,17 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * import { RDSClient, CopyDBClusterParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CopyDBClusterParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   SourceDBClusterParameterGroupIdentifier: "STRING_VALUE", // required
+ *   TargetDBClusterParameterGroupIdentifier: "STRING_VALUE", // required
+ *   TargetDBClusterParameterGroupDescription: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```

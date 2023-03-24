@@ -47,6 +47,16 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * import { CloudHSMV2Client, DescribeBackupsCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, DescribeBackupsCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   SortAscending: true || false,
+ * };
  * const command = new DescribeBackupsCommand(input);
  * const response = await client.send(command);
  * ```

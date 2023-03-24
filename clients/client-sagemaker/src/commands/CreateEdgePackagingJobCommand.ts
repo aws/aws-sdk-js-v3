@@ -42,6 +42,26 @@ export interface CreateEdgePackagingJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, CreateEdgePackagingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateEdgePackagingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   EdgePackagingJobName: "STRING_VALUE", // required
+ *   CompilationJobName: "STRING_VALUE", // required
+ *   ModelName: "STRING_VALUE", // required
+ *   ModelVersion: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   OutputConfig: {
+ *     S3OutputLocation: "STRING_VALUE", // required
+ *     KmsKeyId: "STRING_VALUE",
+ *     PresetDeploymentType: "GreengrassV2Component",
+ *     PresetDeploymentConfig: "STRING_VALUE",
+ *   },
+ *   ResourceKey: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateEdgePackagingJobCommand(input);
  * const response = await client.send(command);
  * ```

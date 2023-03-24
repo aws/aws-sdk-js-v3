@@ -48,6 +48,17 @@ export interface PutPermissionsBoundaryToPermissionSetCommandOutput
  * import { SSOAdminClient, PutPermissionsBoundaryToPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, PutPermissionsBoundaryToPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = {
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   PermissionsBoundary: {
+ *     CustomerManagedPolicyReference: {
+ *       Name: "STRING_VALUE", // required
+ *       Path: "STRING_VALUE",
+ *     },
+ *     ManagedPolicyArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutPermissionsBoundaryToPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```

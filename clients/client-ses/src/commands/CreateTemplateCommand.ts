@@ -45,6 +45,14 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * import { SESClient, CreateTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, CreateTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   Template: {
+ *     TemplateName: "STRING_VALUE", // required
+ *     SubjectPart: "STRING_VALUE",
+ *     TextPart: "STRING_VALUE",
+ *     HtmlPart: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateTemplateCommand(input);
  * const response = await client.send(command);
  * ```

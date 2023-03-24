@@ -42,6 +42,35 @@ export interface CreateFindingsFilterCommandOutput extends CreateFindingsFilterR
  * import { Macie2Client, CreateFindingsFilterCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, CreateFindingsFilterCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   action: "ARCHIVE" || "NOOP", // required
+ *   clientToken: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   findingCriteria: {
+ *     criterion: {
+ *       "<keys>": {
+ *         eq: [
+ *           "STRING_VALUE",
+ *         ],
+ *         eqExactMatch: [
+ *           "STRING_VALUE",
+ *         ],
+ *         gt: Number("long"),
+ *         gte: Number("long"),
+ *         lt: Number("long"),
+ *         lte: Number("long"),
+ *         neq: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   name: "STRING_VALUE", // required
+ *   position: Number("int"),
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateFindingsFilterCommand(input);
  * const response = await client.send(command);
  * ```

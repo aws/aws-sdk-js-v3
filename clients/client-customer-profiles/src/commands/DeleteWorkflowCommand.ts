@@ -42,6 +42,10 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  * import { CustomerProfilesClient, DeleteWorkflowCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DeleteWorkflowCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   WorkflowId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkflowCommand(input);
  * const response = await client.send(command);
  * ```

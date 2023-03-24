@@ -50,6 +50,14 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  * import { EC2Client, DescribeSpotFleetRequestHistoryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSpotFleetRequestHistoryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   EventType: "instanceChange" || "fleetRequestChange" || "error" || "information",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SpotFleetRequestId: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new DescribeSpotFleetRequestHistoryCommand(input);
  * const response = await client.send(command);
  * ```

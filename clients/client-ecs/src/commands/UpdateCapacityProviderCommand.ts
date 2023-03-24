@@ -42,6 +42,19 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * import { ECSClient, UpdateCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   autoScalingGroupProvider: {
+ *     managedScaling: {
+ *       status: "ENABLED" || "DISABLED",
+ *       targetCapacity: Number("int"),
+ *       minimumScalingStepSize: Number("int"),
+ *       maximumScalingStepSize: Number("int"),
+ *       instanceWarmupPeriod: Number("int"),
+ *     },
+ *     managedTerminationProtection: "ENABLED" || "DISABLED",
+ *   },
+ * };
  * const command = new UpdateCapacityProviderCommand(input);
  * const response = await client.send(command);
  * ```

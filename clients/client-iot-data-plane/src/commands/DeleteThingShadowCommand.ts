@@ -44,6 +44,10 @@ export interface DeleteThingShadowCommandOutput extends DeleteThingShadowRespons
  * import { IoTDataPlaneClient, DeleteThingShadowCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
  * // const { IoTDataPlaneClient, DeleteThingShadowCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
  * const client = new IoTDataPlaneClient(config);
+ * const input = {
+ *   thingName: "STRING_VALUE", // required
+ *   shadowName: "STRING_VALUE",
+ * };
  * const command = new DeleteThingShadowCommand(input);
  * const response = await client.send(command);
  * ```

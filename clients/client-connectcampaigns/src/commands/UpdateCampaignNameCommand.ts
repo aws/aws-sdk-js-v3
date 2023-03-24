@@ -42,6 +42,10 @@ export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
  * import { ConnectCampaignsClient, UpdateCampaignNameCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, UpdateCampaignNameCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new UpdateCampaignNameCommand(input);
  * const response = await client.send(command);
  * ```

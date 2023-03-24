@@ -46,6 +46,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { ApplicationInsightsClient, UntagResourceCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, UntagResourceCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

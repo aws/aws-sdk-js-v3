@@ -42,6 +42,16 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResponse, __Met
  * import { SageMakerClient, ListArtifactsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListArtifactsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   SourceUri: "STRING_VALUE",
+ *   ArtifactType: "STRING_VALUE",
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   SortBy: "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListArtifactsCommand(input);
  * const response = await client.send(command);
  * ```

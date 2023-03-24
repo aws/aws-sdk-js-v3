@@ -45,6 +45,11 @@ export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvision
  * import { ServiceCatalogClient, DeleteProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeleteProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE", // required
+ *   ProvisioningArtifactId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProvisioningArtifactCommand(input);
  * const response = await client.send(command);
  * ```

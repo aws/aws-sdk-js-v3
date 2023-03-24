@@ -48,6 +48,11 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanOutput,
  * import { BillingconductorClient, UpdatePricingPlanCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, UpdatePricingPlanCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = {
+ *   Arn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdatePricingPlanCommand(input);
  * const response = await client.send(command);
  * ```

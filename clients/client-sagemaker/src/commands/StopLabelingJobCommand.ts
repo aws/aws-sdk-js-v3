@@ -43,6 +43,9 @@ export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, StopLabelingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopLabelingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   LabelingJobName: "STRING_VALUE", // required
+ * };
  * const command = new StopLabelingJobCommand(input);
  * const response = await client.send(command);
  * ```

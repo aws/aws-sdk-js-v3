@@ -53,6 +53,9 @@ export interface EnableVpcClassicLinkDnsSupportCommandOutput
  * import { EC2Client, EnableVpcClassicLinkDnsSupportCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableVpcClassicLinkDnsSupportCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   VpcId: "STRING_VALUE",
+ * };
  * const command = new EnableVpcClassicLinkDnsSupportCommand(input);
  * const response = await client.send(command);
  * ```

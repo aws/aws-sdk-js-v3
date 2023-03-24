@@ -44,6 +44,10 @@ export interface StartImagePipelineExecutionCommandOutput
  * import { ImagebuilderClient, StartImagePipelineExecutionCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, StartImagePipelineExecutionCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   imagePipelineArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new StartImagePipelineExecutionCommand(input);
  * const response = await client.send(command);
  * ```

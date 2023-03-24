@@ -46,6 +46,15 @@ export interface CreateTrafficDistributionGroupCommandOutput
  * import { ConnectClient, CreateTrafficDistributionGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateTrafficDistributionGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateTrafficDistributionGroupCommand(input);
  * const response = await client.send(command);
  * ```

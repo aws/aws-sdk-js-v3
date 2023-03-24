@@ -43,6 +43,15 @@ export interface ListBuiltInSlotTypesCommandOutput extends ListBuiltInSlotTypesR
  * import { LexModelsV2Client, ListBuiltInSlotTypesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBuiltInSlotTypesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   localeId: "STRING_VALUE", // required
+ *   sortBy: {
+ *     attribute: "SlotTypeSignature", // required
+ *     order: "Ascending" || "Descending", // required
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBuiltInSlotTypesCommand(input);
  * const response = await client.send(command);
  * ```

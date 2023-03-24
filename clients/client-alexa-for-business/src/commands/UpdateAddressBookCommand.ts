@@ -42,6 +42,11 @@ export interface UpdateAddressBookCommandOutput extends UpdateAddressBookRespons
  * import { AlexaForBusinessClient, UpdateAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   AddressBookArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateAddressBookCommand(input);
  * const response = await client.send(command);
  * ```

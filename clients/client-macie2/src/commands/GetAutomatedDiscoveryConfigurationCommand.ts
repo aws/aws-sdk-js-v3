@@ -47,6 +47,7 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
  * import { Macie2Client, GetAutomatedDiscoveryConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetAutomatedDiscoveryConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {};
  * const command = new GetAutomatedDiscoveryConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

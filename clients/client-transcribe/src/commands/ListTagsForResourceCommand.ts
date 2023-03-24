@@ -45,6 +45,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { TranscribeClient, ListTagsForResourceCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListTagsForResourceCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -62,6 +62,9 @@ export interface StartReplicationTaskAssessmentCommandOutput
  * import { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   ReplicationTaskArn: "STRING_VALUE", // required
+ * };
  * const command = new StartReplicationTaskAssessmentCommand(input);
  * const response = await client.send(command);
  * ```

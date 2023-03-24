@@ -42,6 +42,10 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * import { WorkSpacesWebClient, ListPortalsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, ListPortalsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListPortalsCommand(input);
  * const response = await client.send(command);
  * ```

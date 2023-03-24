@@ -45,6 +45,12 @@ export interface UpdateExtensionAssociationCommandOutput extends ExtensionAssoci
  * import { AppConfigClient, UpdateExtensionAssociationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, UpdateExtensionAssociationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   ExtensionAssociationId: "STRING_VALUE", // required
+ *   Parameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateExtensionAssociationCommand(input);
  * const response = await client.send(command);
  * ```

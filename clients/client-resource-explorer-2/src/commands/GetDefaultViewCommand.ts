@@ -47,6 +47,7 @@ export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __Met
  * import { ResourceExplorer2Client, GetDefaultViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, GetDefaultViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = {};
  * const command = new GetDefaultViewCommand(input);
  * const response = await client.send(command);
  * ```

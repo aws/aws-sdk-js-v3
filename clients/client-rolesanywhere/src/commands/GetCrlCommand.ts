@@ -43,6 +43,9 @@ export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer
  * import { RolesAnywhereClient, GetCrlCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, GetCrlCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = {
+ *   crlId: "STRING_VALUE", // required
+ * };
  * const command = new GetCrlCommand(input);
  * const response = await client.send(command);
  * ```

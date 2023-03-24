@@ -55,6 +55,78 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * import { RDSClient, CreateDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   AvailabilityZones: [
+ *     "STRING_VALUE",
+ *   ],
+ *   BackupRetentionPeriod: Number("int"),
+ *   CharacterSetName: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE",
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   MasterUsername: "STRING_VALUE",
+ *   MasterUserPassword: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   ReplicationSourceIdentifier: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StorageEncrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   PreSignedUrl: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   BacktrackWindow: Number("long"),
+ *   EnableCloudwatchLogsExports: [
+ *     "STRING_VALUE",
+ *   ],
+ *   EngineMode: "STRING_VALUE",
+ *   ScalingConfiguration: {
+ *     MinCapacity: Number("int"),
+ *     MaxCapacity: Number("int"),
+ *     AutoPause: true || false,
+ *     SecondsUntilAutoPause: Number("int"),
+ *     TimeoutAction: "STRING_VALUE",
+ *     SecondsBeforeTimeout: Number("int"),
+ *   },
+ *   DeletionProtection: true || false,
+ *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   EnableHttpEndpoint: true || false,
+ *   CopyTagsToSnapshot: true || false,
+ *   Domain: "STRING_VALUE",
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   EnableGlobalWriteForwarding: true || false,
+ *   DBClusterInstanceClass: "STRING_VALUE",
+ *   AllocatedStorage: Number("int"),
+ *   StorageType: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   PubliclyAccessible: true || false,
+ *   AutoMinorVersionUpgrade: true || false,
+ *   MonitoringInterval: Number("int"),
+ *   MonitoringRoleArn: "STRING_VALUE",
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   PerformanceInsightsRetentionPeriod: Number("int"),
+ *   ServerlessV2ScalingConfiguration: {
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
+ *   NetworkType: "STRING_VALUE",
+ *   DBSystemId: "STRING_VALUE",
+ *   ManageMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
  * ```

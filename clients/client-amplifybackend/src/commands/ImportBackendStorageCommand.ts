@@ -42,6 +42,12 @@ export interface ImportBackendStorageCommandOutput extends ImportBackendStorageR
  * import { AmplifyBackendClient, ImportBackendStorageCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, ImportBackendStorageCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = {
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   BucketName: "STRING_VALUE",
+ *   ServiceName: "S3", // required
+ * };
  * const command = new ImportBackendStorageCommand(input);
  * const response = await client.send(command);
  * ```

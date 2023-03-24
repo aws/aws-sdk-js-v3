@@ -44,6 +44,13 @@ export interface RejectVpcEndpointConnectionsCommandOutput
  * import { EC2Client, RejectVpcEndpointConnectionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RejectVpcEndpointConnectionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   ServiceId: "STRING_VALUE", // required
+ *   VpcEndpointIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RejectVpcEndpointConnectionsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,10 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * import { MigrationHubRefactorSpacesClient, DeleteApplicationCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, DeleteApplicationCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = {
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   ApplicationIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
  * ```

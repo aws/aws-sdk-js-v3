@@ -43,6 +43,9 @@ export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBe
  * import { ConfigServiceClient, DeleteConfigurationAggregatorCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteConfigurationAggregatorCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigurationAggregatorCommand(input);
  * const response = await client.send(command);
  * ```

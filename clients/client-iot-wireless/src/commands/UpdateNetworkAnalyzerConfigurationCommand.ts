@@ -47,6 +47,26 @@ export interface UpdateNetworkAnalyzerConfigurationCommandOutput
  * import { IoTWirelessClient, UpdateNetworkAnalyzerConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateNetworkAnalyzerConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   ConfigurationName: "STRING_VALUE", // required
+ *   TraceContent: {
+ *     WirelessDeviceFrameInfo: "ENABLED" || "DISABLED",
+ *     LogLevel: "INFO" || "ERROR" || "DISABLED",
+ *   },
+ *   WirelessDevicesToAdd: [
+ *     "STRING_VALUE",
+ *   ],
+ *   WirelessDevicesToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   WirelessGatewaysToAdd: [
+ *     "STRING_VALUE",
+ *   ],
+ *   WirelessGatewaysToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateNetworkAnalyzerConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

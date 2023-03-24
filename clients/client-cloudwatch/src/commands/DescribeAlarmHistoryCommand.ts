@@ -47,6 +47,18 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * import { CloudWatchClient, DescribeAlarmHistoryCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAlarmHistoryCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = {
+ *   AlarmName: "STRING_VALUE",
+ *   AlarmTypes: [
+ *     "CompositeAlarm" || "MetricAlarm",
+ *   ],
+ *   HistoryItemType: "ConfigurationUpdate" || "StateUpdate" || "Action",
+ *   StartDate: new Date("TIMESTAMP"),
+ *   EndDate: new Date("TIMESTAMP"),
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ScanBy: "TimestampDescending" || "TimestampAscending",
+ * };
  * const command = new DescribeAlarmHistoryCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,7 @@ export interface FlattenedXmlMapWithXmlNamespaceCommandOutput
  * import { RestXmlProtocolClient, FlattenedXmlMapWithXmlNamespaceCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, FlattenedXmlMapWithXmlNamespaceCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = {};
  * const command = new FlattenedXmlMapWithXmlNamespaceCommand(input);
  * const response = await client.send(command);
  * ```

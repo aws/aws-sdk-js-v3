@@ -43,6 +43,22 @@ export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBe
  * import { CodePipelineClient, PutThirdPartyJobSuccessResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutThirdPartyJobSuccessResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ *   currentRevision: {
+ *     revision: "STRING_VALUE", // required
+ *     changeIdentifier: "STRING_VALUE", // required
+ *     created: new Date("TIMESTAMP"),
+ *     revisionSummary: "STRING_VALUE",
+ *   },
+ *   continuationToken: "STRING_VALUE",
+ *   executionDetails: {
+ *     summary: "STRING_VALUE",
+ *     externalExecutionId: "STRING_VALUE",
+ *     percentComplete: Number("int"),
+ *   },
+ * };
  * const command = new PutThirdPartyJobSuccessResultCommand(input);
  * const response = await client.send(command);
  * ```

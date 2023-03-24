@@ -48,6 +48,11 @@ export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDa
  * import { HoneycodeClient, DescribeTableDataImportJobCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, DescribeTableDataImportJobCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = {
+ *   workbookId: "STRING_VALUE", // required
+ *   tableId: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTableDataImportJobCommand(input);
  * const response = await client.send(command);
  * ```

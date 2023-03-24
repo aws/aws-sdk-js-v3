@@ -55,6 +55,21 @@ export interface DeleteAppVersionResourceCommandOutput extends DeleteAppVersionR
  * import { ResiliencehubClient, DeleteAppVersionResourceCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DeleteAppVersionResourceCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   appArn: "STRING_VALUE", // required
+ *   resourceName: "STRING_VALUE",
+ *   logicalResourceId: {
+ *     identifier: "STRING_VALUE", // required
+ *     logicalStackName: "STRING_VALUE",
+ *     resourceGroupName: "STRING_VALUE",
+ *     terraformSourceName: "STRING_VALUE",
+ *     eksSourceName: "STRING_VALUE",
+ *   },
+ *   physicalResourceId: "STRING_VALUE",
+ *   awsRegion: "STRING_VALUE",
+ *   awsAccountId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteAppVersionResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,27 @@ export interface UpdateDevEndpointCommandOutput extends UpdateDevEndpointRespons
  * import { GlueClient, UpdateDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   EndpointName: "STRING_VALUE", // required
+ *   PublicKey: "STRING_VALUE",
+ *   AddPublicKeys: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DeletePublicKeys: [
+ *     "STRING_VALUE",
+ *   ],
+ *   CustomLibraries: {
+ *     ExtraPythonLibsS3Path: "STRING_VALUE",
+ *     ExtraJarsS3Path: "STRING_VALUE",
+ *   },
+ *   UpdateEtlLibraries: true || false,
+ *   DeleteArguments: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AddArguments: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateDevEndpointCommand(input);
  * const response = await client.send(command);
  * ```

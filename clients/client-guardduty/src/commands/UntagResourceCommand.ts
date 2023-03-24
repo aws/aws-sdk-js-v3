@@ -42,6 +42,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { GuardDutyClient, UntagResourceCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UntagResourceCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

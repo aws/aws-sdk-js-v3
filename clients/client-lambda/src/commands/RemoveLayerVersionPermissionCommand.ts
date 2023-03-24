@@ -44,6 +44,12 @@ export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBea
  * import { LambdaClient, RemoveLayerVersionPermissionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, RemoveLayerVersionPermissionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   LayerName: "STRING_VALUE", // required
+ *   VersionNumber: Number("long"), // required
+ *   StatementId: "STRING_VALUE", // required
+ *   RevisionId: "STRING_VALUE",
+ * };
  * const command = new RemoveLayerVersionPermissionCommand(input);
  * const response = await client.send(command);
  * ```

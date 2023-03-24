@@ -57,6 +57,57 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * import { RDSClient, RestoreDBInstanceFromDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBInstanceFromDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   DBSnapshotIdentifier: "STRING_VALUE",
+ *   DBInstanceClass: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   AvailabilityZone: "STRING_VALUE",
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   PubliclyAccessible: true || false,
+ *   AutoMinorVersionUpgrade: true || false,
+ *   LicenseModel: "STRING_VALUE",
+ *   DBName: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   OptionGroupName: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StorageType: "STRING_VALUE",
+ *   TdeCredentialArn: "STRING_VALUE",
+ *   TdeCredentialPassword: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Domain: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   EnableCloudwatchLogsExports: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ProcessorFeatures: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UseDefaultProcessorFeatures: true || false,
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   EnableCustomerOwnedIp: true || false,
+ *   CustomIamInstanceProfile: "STRING_VALUE",
+ *   BackupTarget: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
+ *   StorageThroughput: Number("int"),
+ *   DBClusterSnapshotIdentifier: "STRING_VALUE",
+ *   AllocatedStorage: Number("int"),
+ * };
  * const command = new RestoreDBInstanceFromDBSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

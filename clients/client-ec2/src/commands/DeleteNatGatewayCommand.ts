@@ -44,6 +44,10 @@ export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, _
  * import { EC2Client, DeleteNatGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNatGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   NatGatewayId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteNatGatewayCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,136 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
  * import { CodeDeployClient, CreateDeploymentGroupCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, CreateDeploymentGroupCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = {
+ *   applicationName: "STRING_VALUE", // required
+ *   deploymentGroupName: "STRING_VALUE", // required
+ *   deploymentConfigName: "STRING_VALUE",
+ *   ec2TagFilters: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *     },
+ *   ],
+ *   onPremisesInstanceTagFilters: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *     },
+ *   ],
+ *   autoScalingGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   serviceRoleArn: "STRING_VALUE", // required
+ *   triggerConfigurations: [
+ *     {
+ *       triggerName: "STRING_VALUE",
+ *       triggerTargetArn: "STRING_VALUE",
+ *       triggerEvents: [
+ *         "DeploymentStart" || "DeploymentSuccess" || "DeploymentFailure" || "DeploymentStop" || "DeploymentRollback" || "DeploymentReady" || "InstanceStart" || "InstanceSuccess" || "InstanceFailure" || "InstanceReady",
+ *       ],
+ *     },
+ *   ],
+ *   alarmConfiguration: {
+ *     enabled: true || false,
+ *     ignorePollAlarmFailure: true || false,
+ *     alarms: [
+ *       {
+ *         name: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   autoRollbackConfiguration: {
+ *     enabled: true || false,
+ *     events: [
+ *       "DEPLOYMENT_FAILURE" || "DEPLOYMENT_STOP_ON_ALARM" || "DEPLOYMENT_STOP_ON_REQUEST",
+ *     ],
+ *   },
+ *   outdatedInstancesStrategy: "UPDATE" || "IGNORE",
+ *   deploymentStyle: {
+ *     deploymentType: "IN_PLACE" || "BLUE_GREEN",
+ *     deploymentOption: "WITH_TRAFFIC_CONTROL" || "WITHOUT_TRAFFIC_CONTROL",
+ *   },
+ *   blueGreenDeploymentConfiguration: {
+ *     terminateBlueInstancesOnDeploymentSuccess: {
+ *       action: "TERMINATE" || "KEEP_ALIVE",
+ *       terminationWaitTimeInMinutes: Number("int"),
+ *     },
+ *     deploymentReadyOption: {
+ *       actionOnTimeout: "CONTINUE_DEPLOYMENT" || "STOP_DEPLOYMENT",
+ *       waitTimeInMinutes: Number("int"),
+ *     },
+ *     greenFleetProvisioningOption: {
+ *       action: "DISCOVER_EXISTING" || "COPY_AUTO_SCALING_GROUP",
+ *     },
+ *   },
+ *   loadBalancerInfo: {
+ *     elbInfoList: [
+ *       {
+ *         name: "STRING_VALUE",
+ *       },
+ *     ],
+ *     targetGroupInfoList: [
+ *       {
+ *         name: "STRING_VALUE",
+ *       },
+ *     ],
+ *     targetGroupPairInfoList: [
+ *       {
+ *         targetGroups: [
+ *           {
+ *             name: "STRING_VALUE",
+ *           },
+ *         ],
+ *         prodTrafficRoute: {
+ *           listenerArns: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         testTrafficRoute: {
+ *           listenerArns: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   ec2TagSet: {
+ *     ec2TagSetList: [
+ *       [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *         },
+ *       ],
+ *     ],
+ *   },
+ *   ecsServices: [
+ *     {
+ *       serviceName: "STRING_VALUE",
+ *       clusterName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   onPremisesTagSet: {
+ *     onPremisesTagSetList: [
+ *       [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *         },
+ *       ],
+ *     ],
+ *   },
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDeploymentGroupCommand(input);
  * const response = await client.send(command);
  * ```

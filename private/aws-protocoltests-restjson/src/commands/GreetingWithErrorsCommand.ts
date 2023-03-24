@@ -50,6 +50,7 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * import { RestJsonProtocolClient, GreetingWithErrorsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, GreetingWithErrorsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {};
  * const command = new GreetingWithErrorsCommand(input);
  * const response = await client.send(command);
  * ```

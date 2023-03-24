@@ -43,6 +43,10 @@ export interface GenerateTemplateCommandOutput extends GenerateTemplateResponse,
  * import { SMSClient, GenerateTemplateCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GenerateTemplateCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE",
+ *   templateFormat: "STRING_VALUE",
+ * };
  * const command = new GenerateTemplateCommand(input);
  * const response = await client.send(command);
  * ```

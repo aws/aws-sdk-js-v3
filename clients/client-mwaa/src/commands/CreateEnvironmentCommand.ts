@@ -46,6 +46,60 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * import { MWAAClient, CreateEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, CreateEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   SourceBucketArn: "STRING_VALUE", // required
+ *   DagS3Path: "STRING_VALUE", // required
+ *   NetworkConfiguration: {
+ *     SubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   PluginsS3Path: "STRING_VALUE",
+ *   PluginsS3ObjectVersion: "STRING_VALUE",
+ *   RequirementsS3Path: "STRING_VALUE",
+ *   RequirementsS3ObjectVersion: "STRING_VALUE",
+ *   AirflowConfigurationOptions: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   EnvironmentClass: "STRING_VALUE",
+ *   MaxWorkers: Number("int"),
+ *   KmsKey: "STRING_VALUE",
+ *   AirflowVersion: "STRING_VALUE",
+ *   LoggingConfiguration: {
+ *     DagProcessingLogs: {
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *     SchedulerLogs: {
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *     WebserverLogs: {
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *     WorkerLogs: {
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *     TaskLogs: {
+ *       Enabled: true || false, // required
+ *       LogLevel: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   WeeklyMaintenanceWindowStart: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   WebserverAccessMode: "STRING_VALUE",
+ *   MinWorkers: Number("int"),
+ *   Schedulers: Number("int"),
+ * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

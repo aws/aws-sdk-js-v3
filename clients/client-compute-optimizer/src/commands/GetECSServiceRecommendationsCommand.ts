@@ -53,6 +53,24 @@ export interface GetECSServiceRecommendationsCommandOutput
  * import { ComputeOptimizerClient, GetECSServiceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetECSServiceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = {
+ *   serviceArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [
+ *     {
+ *       name: "Finding" || "FindingReasonCode",
+ *       values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   accountIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetECSServiceRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```

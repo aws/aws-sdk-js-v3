@@ -46,6 +46,9 @@ export interface GetHypervisorPropertyMappingsCommandOutput
  * import { BackupGatewayClient, GetHypervisorPropertyMappingsCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, GetHypervisorPropertyMappingsCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = {
+ *   HypervisorArn: "STRING_VALUE", // required
+ * };
  * const command = new GetHypervisorPropertyMappingsCommand(input);
  * const response = await client.send(command);
  * ```

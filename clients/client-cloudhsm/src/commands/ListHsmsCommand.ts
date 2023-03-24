@@ -54,6 +54,9 @@ export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBeare
  * import { CloudHSMClient, ListHsmsCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ListHsmsCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListHsmsCommand(input);
  * const response = await client.send(command);
  * ```

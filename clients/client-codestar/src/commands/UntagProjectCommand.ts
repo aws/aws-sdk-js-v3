@@ -42,6 +42,12 @@ export interface UntagProjectCommandOutput extends UntagProjectResult, __Metadat
  * import { CodeStarClient, UntagProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, UntagProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   tags: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagProjectCommand(input);
  * const response = await client.send(command);
  * ```

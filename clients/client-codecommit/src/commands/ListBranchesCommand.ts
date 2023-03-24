@@ -42,6 +42,10 @@ export interface ListBranchesCommandOutput extends ListBranchesOutput, __Metadat
  * import { CodeCommitClient, ListBranchesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, ListBranchesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   repositoryName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBranchesCommand(input);
  * const response = await client.send(command);
  * ```

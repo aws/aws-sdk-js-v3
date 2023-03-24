@@ -44,6 +44,11 @@ export interface StopContactStreamingCommandOutput extends StopContactStreamingR
  * import { ConnectClient, StopContactStreamingCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StopContactStreamingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   StreamingId: "STRING_VALUE", // required
+ * };
  * const command = new StopContactStreamingCommand(input);
  * const response = await client.send(command);
  * ```

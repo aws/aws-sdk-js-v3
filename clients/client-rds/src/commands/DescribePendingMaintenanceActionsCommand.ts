@@ -44,6 +44,19 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * import { RDSClient, DescribePendingMaintenanceActionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribePendingMaintenanceActionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   ResourceIdentifier: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribePendingMaintenanceActionsCommand(input);
  * const response = await client.send(command);
  * ```

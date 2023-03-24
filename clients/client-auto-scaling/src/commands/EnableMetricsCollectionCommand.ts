@@ -47,6 +47,13 @@ export interface EnableMetricsCollectionCommandOutput extends __MetadataBearer {
  * import { AutoScalingClient, EnableMetricsCollectionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, EnableMetricsCollectionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   Metrics: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Granularity: "STRING_VALUE", // required
+ * };
  * const command = new EnableMetricsCollectionCommand(input);
  * const response = await client.send(command);
  * ```

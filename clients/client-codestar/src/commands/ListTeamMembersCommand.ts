@@ -42,6 +42,11 @@ export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __M
  * import { CodeStarClient, ListTeamMembersCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, ListTeamMembersCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = {
+ *   projectId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListTeamMembersCommand(input);
  * const response = await client.send(command);
  * ```

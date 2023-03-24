@@ -51,6 +51,19 @@ export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSu
  * import { DatabaseMigrationServiceClient, DescribeEventSubscriptionsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeEventSubscriptionsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   SubscriptionName: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEventSubscriptionsCommand(input);
  * const response = await client.send(command);
  * ```

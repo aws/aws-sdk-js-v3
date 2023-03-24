@@ -44,6 +44,9 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * import { CodeGuruProfilerClient, GetPolicyCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, GetPolicyCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = {
+ *   profilingGroupName: "STRING_VALUE", // required
+ * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
  * ```

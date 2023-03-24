@@ -68,6 +68,32 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  * import { StorageGatewayClient, UpdateNFSFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateNFSFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   FileShareARN: "STRING_VALUE", // required
+ *   KMSEncrypted: true || false,
+ *   KMSKey: "STRING_VALUE",
+ *   NFSFileShareDefaults: {
+ *     FileMode: "STRING_VALUE",
+ *     DirectoryMode: "STRING_VALUE",
+ *     GroupId: Number("long"),
+ *     OwnerId: Number("long"),
+ *   },
+ *   DefaultStorageClass: "STRING_VALUE",
+ *   ObjectACL: "STRING_VALUE",
+ *   ClientList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Squash: "STRING_VALUE",
+ *   ReadOnly: true || false,
+ *   GuessMIMETypeEnabled: true || false,
+ *   RequesterPays: true || false,
+ *   FileShareName: "STRING_VALUE",
+ *   CacheAttributes: {
+ *     CacheStaleTimeoutInSeconds: Number("int"),
+ *   },
+ *   NotificationPolicy: "STRING_VALUE",
+ *   AuditDestinationARN: "STRING_VALUE",
+ * };
  * const command = new UpdateNFSFileShareCommand(input);
  * const response = await client.send(command);
  * ```

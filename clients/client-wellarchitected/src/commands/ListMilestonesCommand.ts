@@ -42,6 +42,11 @@ export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __Met
  * import { WellArchitectedClient, ListMilestonesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListMilestonesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = {
+ *   WorkloadId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListMilestonesCommand(input);
  * const response = await client.send(command);
  * ```

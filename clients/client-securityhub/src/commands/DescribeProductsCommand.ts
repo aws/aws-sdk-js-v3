@@ -46,6 +46,11 @@ export interface DescribeProductsCommandOutput extends DescribeProductsResponse,
  * import { SecurityHubClient, DescribeProductsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DescribeProductsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ProductArn: "STRING_VALUE",
+ * };
  * const command = new DescribeProductsCommand(input);
  * const response = await client.send(command);
  * ```

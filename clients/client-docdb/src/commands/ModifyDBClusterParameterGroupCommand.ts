@@ -62,6 +62,23 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * import { DocDBClient, ModifyDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   DBClusterParameterGroupName: "STRING_VALUE", // required
+ *   Parameters: [ // required
+ *     {
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       ApplyType: "STRING_VALUE",
+ *       DataType: "STRING_VALUE",
+ *       AllowedValues: "STRING_VALUE",
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *       ApplyMethod: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```

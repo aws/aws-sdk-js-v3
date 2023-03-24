@@ -54,6 +54,35 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * import { PinpointEmailClient, CreateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, CreateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   EventDestinationName: "STRING_VALUE", // required
+ *   EventDestination: {
+ *     Enabled: true || false,
+ *     MatchingEventTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     KinesisFirehoseDestination: {
+ *       IamRoleArn: "STRING_VALUE", // required
+ *       DeliveryStreamArn: "STRING_VALUE", // required
+ *     },
+ *     CloudWatchDestination: {
+ *       DimensionConfigurations: [ // required
+ *         {
+ *           DimensionName: "STRING_VALUE", // required
+ *           DimensionValueSource: "STRING_VALUE", // required
+ *           DefaultDimensionValue: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     SnsDestination: {
+ *       TopicArn: "STRING_VALUE", // required
+ *     },
+ *     PinpointDestination: {
+ *       ApplicationArn: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
  * ```

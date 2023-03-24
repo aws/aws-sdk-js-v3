@@ -42,6 +42,10 @@ export interface DeleteFieldLevelEncryptionProfileCommandOutput extends __Metada
  * import { CloudFrontClient, DeleteFieldLevelEncryptionProfileCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteFieldLevelEncryptionProfileCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteFieldLevelEncryptionProfileCommand(input);
  * const response = await client.send(command);
  * ```

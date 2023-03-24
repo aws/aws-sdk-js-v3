@@ -79,6 +79,32 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  * import { GameLiftClient, StartMatchBackfillCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StartMatchBackfillCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   TicketId: "STRING_VALUE",
+ *   ConfigurationName: "STRING_VALUE", // required
+ *   GameSessionArn: "STRING_VALUE",
+ *   Players: [ // required
+ *     {
+ *       PlayerId: "STRING_VALUE",
+ *       PlayerAttributes: {
+ *         "<keys>": {
+ *           S: "STRING_VALUE",
+ *           N: Number("double"),
+ *           SL: [
+ *             "STRING_VALUE",
+ *           ],
+ *           SDM: {
+ *             "<keys>": Number("double"),
+ *           },
+ *         },
+ *       },
+ *       Team: "STRING_VALUE",
+ *       LatencyInMs: {
+ *         "<keys>": Number("int"),
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new StartMatchBackfillCommand(input);
  * const response = await client.send(command);
  * ```

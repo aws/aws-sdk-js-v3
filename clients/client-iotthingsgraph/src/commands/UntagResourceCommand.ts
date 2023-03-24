@@ -44,6 +44,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { IoTThingsGraphClient, UntagResourceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, UntagResourceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

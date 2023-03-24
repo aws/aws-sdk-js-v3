@@ -43,6 +43,23 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  * import { IoTClient, CreateAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   authorizerName: "STRING_VALUE", // required
+ *   authorizerFunctionArn: "STRING_VALUE", // required
+ *   tokenKeyName: "STRING_VALUE",
+ *   tokenSigningPublicKeys: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   status: "ACTIVE" || "INACTIVE",
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   signingDisabled: true || false,
+ *   enableCachingForHttp: true || false,
+ * };
  * const command = new CreateAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface DeleteBranchCommandOutput extends DeleteBranchOutput, __Metadat
  * import { CodeCommitClient, DeleteBranchCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DeleteBranchCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   repositoryName: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBranchCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,15 @@ export interface UpdateAgentStatusCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateAgentStatusCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateAgentStatusCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   AgentStatusId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   State: "ENABLED" || "DISABLED",
+ *   DisplayOrder: Number("int"),
+ *   ResetOrderNumber: true || false,
+ * };
  * const command = new UpdateAgentStatusCommand(input);
  * const response = await client.send(command);
  * ```

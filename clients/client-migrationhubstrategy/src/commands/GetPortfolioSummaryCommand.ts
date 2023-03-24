@@ -47,6 +47,7 @@ export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryRes
  * import { MigrationHubStrategyClient, GetPortfolioSummaryCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetPortfolioSummaryCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {};
  * const command = new GetPortfolioSummaryCommand(input);
  * const response = await client.send(command);
  * ```

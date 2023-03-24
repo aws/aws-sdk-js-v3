@@ -61,6 +61,18 @@ export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
  * import { ElasticBeanstalkClient, UpdateTagsForResourceCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, UpdateTagsForResourceCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagsToAdd: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   TagsToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

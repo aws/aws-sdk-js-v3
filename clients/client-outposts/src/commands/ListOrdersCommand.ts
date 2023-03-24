@@ -42,6 +42,11 @@ export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBea
  * import { OutpostsClient, ListOrdersCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListOrdersCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = {
+ *   OutpostIdentifierFilter: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListOrdersCommand(input);
  * const response = await client.send(command);
  * ```

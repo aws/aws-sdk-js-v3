@@ -44,6 +44,11 @@ export interface DescribeReservedInstancesCommandOutput extends DescribeReserved
  * import { OpenSearchClient, DescribeReservedInstancesCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeReservedInstancesCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   ReservedInstanceId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeReservedInstancesCommand(input);
  * const response = await client.send(command);
  * ```

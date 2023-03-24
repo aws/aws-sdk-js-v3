@@ -59,6 +59,23 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  * import { StorageGatewayClient, CreateCachediSCSIVolumeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateCachediSCSIVolumeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   GatewayARN: "STRING_VALUE", // required
+ *   VolumeSizeInBytes: Number("long"), // required
+ *   SnapshotId: "STRING_VALUE",
+ *   TargetName: "STRING_VALUE", // required
+ *   SourceVolumeARN: "STRING_VALUE",
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE", // required
+ *   KMSEncrypted: true || false,
+ *   KMSKey: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCachediSCSIVolumeCommand(input);
  * const response = await client.send(command);
  * ```

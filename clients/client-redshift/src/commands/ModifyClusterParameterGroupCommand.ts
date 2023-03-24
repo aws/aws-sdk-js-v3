@@ -47,6 +47,22 @@ export interface ModifyClusterParameterGroupCommandOutput extends ClusterParamet
  * import { RedshiftClient, ModifyClusterParameterGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterParameterGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ParameterGroupName: "STRING_VALUE", // required
+ *   Parameters: [ // required
+ *     {
+ *       ParameterName: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       DataType: "STRING_VALUE",
+ *       AllowedValues: "STRING_VALUE",
+ *       ApplyType: "static" || "dynamic",
+ *       IsModifiable: true || false,
+ *       MinimumEngineVersion: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ModifyClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,13 @@ export interface CreateInvitationsCommandOutput extends CreateInvitationsRespons
  * import { Macie2Client, CreateInvitationsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, CreateInvitationsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   accountIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   disableEmailNotification: true || false,
+ *   message: "STRING_VALUE",
+ * };
  * const command = new CreateInvitationsCommand(input);
  * const response = await client.send(command);
  * ```

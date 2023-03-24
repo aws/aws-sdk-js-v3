@@ -42,6 +42,18 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ModifyVpcAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   EnableDnsHostnames: {
+ *     Value: true || false,
+ *   },
+ *   EnableDnsSupport: {
+ *     Value: true || false,
+ *   },
+ *   VpcId: "STRING_VALUE", // required
+ *   EnableNetworkAddressUsageMetrics: {
+ *     Value: true || false,
+ *   },
+ * };
  * const command = new ModifyVpcAttributeCommand(input);
  * const response = await client.send(command);
  * ```

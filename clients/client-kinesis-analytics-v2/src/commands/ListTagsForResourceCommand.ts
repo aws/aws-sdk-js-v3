@@ -47,6 +47,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { KinesisAnalyticsV2Client, ListTagsForResourceCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, ListTagsForResourceCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

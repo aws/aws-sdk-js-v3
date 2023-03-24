@@ -46,6 +46,27 @@ export interface CreateReplicationTaskCommandOutput extends CreateReplicationTas
  * import { DatabaseMigrationServiceClient, CreateReplicationTaskCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateReplicationTaskCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   ReplicationTaskIdentifier: "STRING_VALUE", // required
+ *   SourceEndpointArn: "STRING_VALUE", // required
+ *   TargetEndpointArn: "STRING_VALUE", // required
+ *   ReplicationInstanceArn: "STRING_VALUE", // required
+ *   MigrationType: "full-load" || "cdc" || "full-load-and-cdc", // required
+ *   TableMappings: "STRING_VALUE", // required
+ *   ReplicationTaskSettings: "STRING_VALUE",
+ *   CdcStartTime: new Date("TIMESTAMP"),
+ *   CdcStartPosition: "STRING_VALUE",
+ *   CdcStopPosition: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   TaskData: "STRING_VALUE",
+ *   ResourceIdentifier: "STRING_VALUE",
+ * };
  * const command = new CreateReplicationTaskCommand(input);
  * const response = await client.send(command);
  * ```

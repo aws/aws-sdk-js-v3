@@ -42,6 +42,9 @@ export interface DeleteGcmChannelCommandOutput extends DeleteGcmChannelResponse,
  * import { PinpointClient, DeleteGcmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteGcmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGcmChannelCommand(input);
  * const response = await client.send(command);
  * ```

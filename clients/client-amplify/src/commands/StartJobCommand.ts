@@ -42,6 +42,16 @@ export interface StartJobCommandOutput extends StartJobResult, __MetadataBearer 
  * import { AmplifyClient, StartJobCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, StartJobCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE",
+ *   jobType: "RELEASE" || "RETRY" || "MANUAL" || "WEB_HOOK", // required
+ *   jobReason: "STRING_VALUE",
+ *   commitId: "STRING_VALUE",
+ *   commitMessage: "STRING_VALUE",
+ *   commitTime: new Date("TIMESTAMP"),
+ * };
  * const command = new StartJobCommand(input);
  * const response = await client.send(command);
  * ```

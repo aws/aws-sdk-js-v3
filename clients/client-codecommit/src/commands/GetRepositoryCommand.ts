@@ -50,6 +50,9 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  * import { CodeCommitClient, GetRepositoryCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetRepositoryCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new GetRepositoryCommand(input);
  * const response = await client.send(command);
  * ```

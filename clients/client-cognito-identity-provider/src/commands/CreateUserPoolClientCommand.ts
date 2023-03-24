@@ -53,6 +53,56 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
  * import { CognitoIdentityProviderClient, CreateUserPoolClientCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, CreateUserPoolClientCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ *   ClientName: "STRING_VALUE", // required
+ *   GenerateSecret: true || false,
+ *   RefreshTokenValidity: Number("int"),
+ *   AccessTokenValidity: Number("int"),
+ *   IdTokenValidity: Number("int"),
+ *   TokenValidityUnits: {
+ *     AccessToken: "seconds" || "minutes" || "hours" || "days",
+ *     IdToken: "seconds" || "minutes" || "hours" || "days",
+ *     RefreshToken: "seconds" || "minutes" || "hours" || "days",
+ *   },
+ *   ReadAttributes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   WriteAttributes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ExplicitAuthFlows: [
+ *     "ADMIN_NO_SRP_AUTH" || "CUSTOM_AUTH_FLOW_ONLY" || "USER_PASSWORD_AUTH" || "ALLOW_ADMIN_USER_PASSWORD_AUTH" || "ALLOW_CUSTOM_AUTH" || "ALLOW_USER_PASSWORD_AUTH" || "ALLOW_USER_SRP_AUTH" || "ALLOW_REFRESH_TOKEN_AUTH",
+ *   ],
+ *   SupportedIdentityProviders: [
+ *     "STRING_VALUE",
+ *   ],
+ *   CallbackURLs: [
+ *     "STRING_VALUE",
+ *   ],
+ *   LogoutURLs: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DefaultRedirectURI: "STRING_VALUE",
+ *   AllowedOAuthFlows: [
+ *     "code" || "implicit" || "client_credentials",
+ *   ],
+ *   AllowedOAuthScopes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AllowedOAuthFlowsUserPoolClient: true || false,
+ *   AnalyticsConfiguration: {
+ *     ApplicationId: "STRING_VALUE",
+ *     ApplicationArn: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE",
+ *     ExternalId: "STRING_VALUE",
+ *     UserDataShared: true || false,
+ *   },
+ *   PreventUserExistenceErrors: "LEGACY" || "ENABLED",
+ *   EnableTokenRevocation: true || false,
+ *   EnablePropagateAdditionalUserContextData: true || false,
+ *   AuthSessionValidity: Number("int"),
+ * };
  * const command = new CreateUserPoolClientCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,13 @@ export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSource
  * import { DevOpsGuruClient, UpdateEventSourcesConfigCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, UpdateEventSourcesConfigCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {
+ *   EventSources: {
+ *     AmazonCodeGuruProfiler: {
+ *       Status: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ * };
  * const command = new UpdateEventSourcesConfigCommand(input);
  * const response = await client.send(command);
  * ```

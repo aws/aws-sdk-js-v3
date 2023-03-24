@@ -42,6 +42,11 @@ export interface GetIntegrationResponseCommandOutput extends GetIntegrationRespo
  * import { ApiGatewayV2Client, GetIntegrationResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetIntegrationResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   ApiId: "STRING_VALUE", // required
+ *   IntegrationId: "STRING_VALUE", // required
+ *   IntegrationResponseId: "STRING_VALUE", // required
+ * };
  * const command = new GetIntegrationResponseCommand(input);
  * const response = await client.send(command);
  * ```

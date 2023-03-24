@@ -66,6 +66,11 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  * import { WorkSpacesClient, UpdateWorkspaceImagePermissionCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, UpdateWorkspaceImagePermissionCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   ImageId: "STRING_VALUE", // required
+ *   AllowCopyImage: true || false, // required
+ *   SharedAccountId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateWorkspaceImagePermissionCommand(input);
  * const response = await client.send(command);
  * ```

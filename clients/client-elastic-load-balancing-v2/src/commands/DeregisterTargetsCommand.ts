@@ -47,6 +47,16 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * import { ElasticLoadBalancingV2Client, DeregisterTargetsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DeregisterTargetsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = {
+ *   TargetGroupArn: "STRING_VALUE", // required
+ *   Targets: [ // required
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       Port: Number("int"),
+ *       AvailabilityZone: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DeregisterTargetsCommand(input);
  * const response = await client.send(command);
  * ```

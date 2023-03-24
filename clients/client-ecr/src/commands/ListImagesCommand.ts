@@ -48,6 +48,15 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * import { ECRClient, ListImagesCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, ListImagesCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filter: {
+ *     tagStatus: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListImagesCommand(input);
  * const response = await client.send(command);
  * ```

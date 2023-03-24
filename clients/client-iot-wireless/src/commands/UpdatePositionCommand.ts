@@ -48,6 +48,13 @@ export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __M
  * import { IoTWirelessClient, UpdatePositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdatePositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   ResourceIdentifier: "STRING_VALUE", // required
+ *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
+ *   Position: [ // required
+ *     Number("float"),
+ *   ],
+ * };
  * const command = new UpdatePositionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,10 @@ export interface AssociateWirelessDeviceWithFuotaTaskCommandOutput
  * import { IoTWirelessClient, AssociateWirelessDeviceWithFuotaTaskCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, AssociateWirelessDeviceWithFuotaTaskCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   WirelessDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateWirelessDeviceWithFuotaTaskCommand(input);
  * const response = await client.send(command);
  * ```

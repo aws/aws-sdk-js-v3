@@ -52,6 +52,13 @@ export interface StartModelCommandOutput extends StartModelResponse, __MetadataB
  * import { LookoutVisionClient, StartModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, StartModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = {
+ *   ProjectName: "STRING_VALUE", // required
+ *   ModelVersion: "STRING_VALUE", // required
+ *   MinInferenceUnits: Number("int"), // required
+ *   ClientToken: "STRING_VALUE",
+ *   MaxInferenceUnits: Number("int"),
+ * };
  * const command = new StartModelCommand(input);
  * const response = await client.send(command);
  * ```

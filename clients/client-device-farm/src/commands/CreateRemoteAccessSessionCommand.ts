@@ -42,6 +42,25 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * import { DeviceFarmClient, CreateRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   projectArn: "STRING_VALUE", // required
+ *   deviceArn: "STRING_VALUE", // required
+ *   instanceArn: "STRING_VALUE",
+ *   sshPublicKey: "STRING_VALUE",
+ *   remoteDebugEnabled: true || false,
+ *   remoteRecordEnabled: true || false,
+ *   remoteRecordAppArn: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   clientId: "STRING_VALUE",
+ *   configuration: {
+ *     billingMethod: "METERED" || "UNMETERED",
+ *     vpceConfigurationArns: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   interactionMode: "INTERACTIVE" || "NO_VIDEO" || "VIDEO_ONLY",
+ *   skipAppResign: true || false,
+ * };
  * const command = new CreateRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
  * ```

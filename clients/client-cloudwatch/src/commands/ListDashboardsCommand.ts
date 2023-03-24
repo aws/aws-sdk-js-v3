@@ -50,6 +50,10 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  * import { CloudWatchClient, ListDashboardsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, ListDashboardsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = {
+ *   DashboardNamePrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDashboardsCommand(input);
  * const response = await client.send(command);
  * ```

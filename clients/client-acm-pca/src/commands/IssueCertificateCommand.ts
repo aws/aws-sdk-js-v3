@@ -49,6 +49,123 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  * import { ACMPCAClient, IssueCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, IssueCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = {
+ *   ApiPassthrough: {
+ *     Extensions: {
+ *       CertificatePolicies: [
+ *         {
+ *           CertPolicyId: "STRING_VALUE", // required
+ *           PolicyQualifiers: [
+ *             {
+ *               PolicyQualifierId: "CPS", // required
+ *               Qualifier: {
+ *                 CpsUri: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       ExtendedKeyUsage: [
+ *         {
+ *           ExtendedKeyUsageType: "SERVER_AUTH" || "CLIENT_AUTH" || "CODE_SIGNING" || "EMAIL_PROTECTION" || "TIME_STAMPING" || "OCSP_SIGNING" || "SMART_CARD_LOGIN" || "DOCUMENT_SIGNING" || "CERTIFICATE_TRANSPARENCY",
+ *           ExtendedKeyUsageObjectIdentifier: "STRING_VALUE",
+ *         },
+ *       ],
+ *       KeyUsage: {
+ *         DigitalSignature: true || false,
+ *         NonRepudiation: true || false,
+ *         KeyEncipherment: true || false,
+ *         DataEncipherment: true || false,
+ *         KeyAgreement: true || false,
+ *         KeyCertSign: true || false,
+ *         CRLSign: true || false,
+ *         EncipherOnly: true || false,
+ *         DecipherOnly: true || false,
+ *       },
+ *       SubjectAlternativeNames: [
+ *         {
+ *           OtherName: {
+ *             TypeId: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *           Rfc822Name: "STRING_VALUE",
+ *           DnsName: "STRING_VALUE",
+ *           DirectoryName: {
+ *             Country: "STRING_VALUE",
+ *             Organization: "STRING_VALUE",
+ *             OrganizationalUnit: "STRING_VALUE",
+ *             DistinguishedNameQualifier: "STRING_VALUE",
+ *             State: "STRING_VALUE",
+ *             CommonName: "STRING_VALUE",
+ *             SerialNumber: "STRING_VALUE",
+ *             Locality: "STRING_VALUE",
+ *             Title: "STRING_VALUE",
+ *             Surname: "STRING_VALUE",
+ *             GivenName: "STRING_VALUE",
+ *             Initials: "STRING_VALUE",
+ *             Pseudonym: "STRING_VALUE",
+ *             GenerationQualifier: "STRING_VALUE",
+ *             CustomAttributes: [
+ *               {
+ *                 ObjectIdentifier: "STRING_VALUE", // required
+ *                 Value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *           EdiPartyName: {
+ *             PartyName: "STRING_VALUE", // required
+ *             NameAssigner: "STRING_VALUE",
+ *           },
+ *           UniformResourceIdentifier: "STRING_VALUE",
+ *           IpAddress: "STRING_VALUE",
+ *           RegisteredId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       CustomExtensions: [
+ *         {
+ *           ObjectIdentifier: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *           Critical: true || false,
+ *         },
+ *       ],
+ *     },
+ *     Subject: {
+ *       Country: "STRING_VALUE",
+ *       Organization: "STRING_VALUE",
+ *       OrganizationalUnit: "STRING_VALUE",
+ *       DistinguishedNameQualifier: "STRING_VALUE",
+ *       State: "STRING_VALUE",
+ *       CommonName: "STRING_VALUE",
+ *       SerialNumber: "STRING_VALUE",
+ *       Locality: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Surname: "STRING_VALUE",
+ *       GivenName: "STRING_VALUE",
+ *       Initials: "STRING_VALUE",
+ *       Pseudonym: "STRING_VALUE",
+ *       GenerationQualifier: "STRING_VALUE",
+ *       CustomAttributes: [
+ *         {
+ *           ObjectIdentifier: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   Csr: "BLOB_VALUE", // required
+ *   SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA", // required
+ *   TemplateArn: "STRING_VALUE",
+ *   Validity: {
+ *     Value: Number("long"), // required
+ *     Type: "END_DATE" || "ABSOLUTE" || "DAYS" || "MONTHS" || "YEARS", // required
+ *   },
+ *   ValidityNotBefore: {
+ *     Value: Number("long"), // required
+ *     Type: "END_DATE" || "ABSOLUTE" || "DAYS" || "MONTHS" || "YEARS", // required
+ *   },
+ *   IdempotencyToken: "STRING_VALUE",
+ * };
  * const command = new IssueCertificateCommand(input);
  * const response = await client.send(command);
  * ```

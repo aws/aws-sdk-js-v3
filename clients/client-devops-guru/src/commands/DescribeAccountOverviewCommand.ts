@@ -44,6 +44,10 @@ export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOve
  * import { DevOpsGuruClient, DescribeAccountOverviewCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeAccountOverviewCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {
+ *   FromTime: new Date("TIMESTAMP"), // required
+ *   ToTime: new Date("TIMESTAMP"),
+ * };
  * const command = new DescribeAccountOverviewCommand(input);
  * const response = await client.send(command);
  * ```

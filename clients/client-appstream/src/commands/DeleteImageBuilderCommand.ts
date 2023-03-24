@@ -42,6 +42,9 @@ export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResul
  * import { AppStreamClient, DeleteImageBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteImageBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteImageBuilderCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,9 @@ export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTem
  * import { IoTThingsGraphClient, DeprecateSystemTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeprecateSystemTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeprecateSystemTemplateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,13 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
  * import { EC2Client, DisableAwsNetworkPerformanceMetricSubscriptionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableAwsNetworkPerformanceMetricSubscriptionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Source: "STRING_VALUE",
+ *   Destination: "STRING_VALUE",
+ *   Metric: "aggregate-latency",
+ *   Statistic: "p50",
+ *   DryRun: true || false,
+ * };
  * const command = new DisableAwsNetworkPerformanceMetricSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

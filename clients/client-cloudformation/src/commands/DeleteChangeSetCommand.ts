@@ -49,6 +49,10 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
  * import { CloudFormationClient, DeleteChangeSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeleteChangeSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   ChangeSetName: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE",
+ * };
  * const command = new DeleteChangeSetCommand(input);
  * const response = await client.send(command);
  * ```

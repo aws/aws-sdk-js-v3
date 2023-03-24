@@ -47,6 +47,18 @@ export interface ListRobotsCommandOutput extends ListRobotsResponse, __MetadataB
  * import { RoboMakerClient, ListRobotsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListRobotsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [
+ *     {
+ *       name: "STRING_VALUE",
+ *       values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListRobotsCommand(input);
  * const response = await client.send(command);
  * ```

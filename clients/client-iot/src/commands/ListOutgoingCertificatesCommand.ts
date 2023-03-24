@@ -43,6 +43,11 @@ export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCerti
  * import { IoTClient, ListOutgoingCertificatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListOutgoingCertificatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   pageSize: Number("int"),
+ *   marker: "STRING_VALUE",
+ *   ascendingOrder: true || false,
+ * };
  * const command = new ListOutgoingCertificatesCommand(input);
  * const response = await client.send(command);
  * ```

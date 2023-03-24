@@ -42,6 +42,15 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * import { MqClient, CreateUserCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, CreateUserCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = {
+ *   BrokerId: "STRING_VALUE", // required
+ *   ConsoleAccess: true || false,
+ *   Groups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Password: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,7 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  * import { ElasticBeanstalkClient, CreateStorageLocationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CreateStorageLocationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {};
  * const command = new CreateStorageLocationCommand(input);
  * const response = await client.send(command);
  * ```

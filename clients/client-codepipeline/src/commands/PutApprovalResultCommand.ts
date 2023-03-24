@@ -43,6 +43,16 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
  * import { CodePipelineClient, PutApprovalResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutApprovalResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   pipelineName: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ *   actionName: "STRING_VALUE", // required
+ *   result: {
+ *     summary: "STRING_VALUE", // required
+ *     status: "STRING_VALUE", // required
+ *   },
+ *   token: "STRING_VALUE", // required
+ * };
  * const command = new PutApprovalResultCommand(input);
  * const response = await client.send(command);
  * ```

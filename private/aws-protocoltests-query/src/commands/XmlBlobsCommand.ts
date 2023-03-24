@@ -38,6 +38,7 @@ export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer 
  * import { QueryProtocolClient, XmlBlobsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, XmlBlobsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {};
  * const command = new XmlBlobsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,22 @@ export interface CreateMultiplexCommandOutput extends CreateMultiplexResponse, _
  * import { MediaLiveClient, CreateMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   AvailabilityZones: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   MultiplexSettings: {
+ *     MaximumVideoBufferDelayMilliseconds: Number("int"),
+ *     TransportStreamBitrate: Number("int"), // required
+ *     TransportStreamId: Number("int"), // required
+ *     TransportStreamReservedBitrate: Number("int"),
+ *   },
+ *   Name: "STRING_VALUE", // required
+ *   RequestId: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateMultiplexCommand(input);
  * const response = await client.send(command);
  * ```

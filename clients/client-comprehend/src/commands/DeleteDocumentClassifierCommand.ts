@@ -48,6 +48,9 @@ export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentCla
  * import { ComprehendClient, DeleteDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DeleteDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   DocumentClassifierArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDocumentClassifierCommand(input);
  * const response = await client.send(command);
  * ```

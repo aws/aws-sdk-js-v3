@@ -42,6 +42,17 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * import { IoTEventsClient, UpdateInputCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, UpdateInputCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = {
+ *   inputName: "STRING_VALUE", // required
+ *   inputDescription: "STRING_VALUE",
+ *   inputDefinition: {
+ *     attributes: [ // required
+ *       {
+ *         jsonPath: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateInputCommand(input);
  * const response = await client.send(command);
  * ```

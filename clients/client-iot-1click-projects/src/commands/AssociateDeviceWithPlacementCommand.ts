@@ -48,6 +48,12 @@ export interface AssociateDeviceWithPlacementCommandOutput
  * import { IoT1ClickProjectsClient, AssociateDeviceWithPlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, AssociateDeviceWithPlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
+ * const input = {
+ *   projectName: "STRING_VALUE", // required
+ *   placementName: "STRING_VALUE", // required
+ *   deviceId: "STRING_VALUE", // required
+ *   deviceTemplateName: "STRING_VALUE", // required
+ * };
  * const command = new AssociateDeviceWithPlacementCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,59 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  * import { SSMClient, GetInventoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetInventoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *     },
+ *   ],
+ *   Aggregators: [
+ *     {
+ *       Expression: "STRING_VALUE",
+ *       Aggregators: [
+ *         {
+ *           Expression: "STRING_VALUE",
+ *           Aggregators: [
+ *             "<InventoryAggregatorList>",
+ *           ],
+ *           Groups: [
+ *             {
+ *               Name: "STRING_VALUE", // required
+ *               Filters: [ // required
+ *                 {
+ *                   Key: "STRING_VALUE", // required
+ *                   Values: [ // required
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   Type: "Equal" || "NotEqual" || "BeginWith" || "LessThan" || "GreaterThan" || "Exists",
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       Groups: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Filters: [ // required
+ *             "<InventoryFilterList>",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ResultAttributes: [
+ *     {
+ *       TypeName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetInventoryCommand(input);
  * const response = await client.send(command);
  * ```

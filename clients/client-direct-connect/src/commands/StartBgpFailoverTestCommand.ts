@@ -45,6 +45,13 @@ export interface StartBgpFailoverTestCommandOutput extends StartBgpFailoverTestR
  * import { DirectConnectClient, StartBgpFailoverTestCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, StartBgpFailoverTestCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   virtualInterfaceId: "STRING_VALUE", // required
+ *   bgpPeers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   testDurationInMinutes: Number("int"),
+ * };
  * const command = new StartBgpFailoverTestCommand(input);
  * const response = await client.send(command);
  * ```

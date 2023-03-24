@@ -46,6 +46,20 @@ export interface DescribeEventsCommandOutput extends EventDescriptionsMessage, _
  * import { ElasticBeanstalkClient, DescribeEventsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEventsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE",
+ *   VersionLabel: "STRING_VALUE",
+ *   TemplateName: "STRING_VALUE",
+ *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ *   PlatformArn: "STRING_VALUE",
+ *   RequestId: "STRING_VALUE",
+ *   Severity: "TRACE" || "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
  * ```

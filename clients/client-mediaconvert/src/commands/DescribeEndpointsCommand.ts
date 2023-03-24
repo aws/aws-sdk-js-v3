@@ -42,6 +42,11 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * import { MediaConvertClient, DescribeEndpointsCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, DescribeEndpointsCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   Mode: "DEFAULT" || "GET_ONLY",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,17 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * import { IdentitystoreClient, ListGroupsCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, ListGroupsCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = {
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       AttributePath: "STRING_VALUE", // required
+ *       AttributeValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
  * ```

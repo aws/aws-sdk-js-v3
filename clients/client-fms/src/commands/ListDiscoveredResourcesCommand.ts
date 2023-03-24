@@ -42,6 +42,14 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * import { FMSClient, ListDiscoveredResourcesCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListDiscoveredResourcesCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {
+ *   MemberAccountIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourceType: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDiscoveredResourcesCommand(input);
  * const response = await client.send(command);
  * ```

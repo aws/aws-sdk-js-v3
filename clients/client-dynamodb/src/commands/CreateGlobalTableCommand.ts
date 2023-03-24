@@ -104,6 +104,14 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  * import { DynamoDBClient, CreateGlobalTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, CreateGlobalTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   GlobalTableName: "STRING_VALUE", // required
+ *   ReplicationGroup: [ // required
+ *     {
+ *       RegionName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateGlobalTableCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,146 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * import { ConnectCasesClient, SearchCasesCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, SearchCasesCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = {
+ *   domainId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   searchTerm: "STRING_VALUE",
+ *   filter: { // Union: only one key present
+ *     field: { // Union: only one key present
+ *       equalTo: {
+ *         id: "STRING_VALUE", // required
+ *         value: { // Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       contains: {
+ *         id: "STRING_VALUE", // required
+ *         value: { // Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       greaterThan: {
+ *         id: "STRING_VALUE", // required
+ *         value: { // Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       greaterThanOrEqualTo: {
+ *         id: "STRING_VALUE", // required
+ *         value: { // Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       lessThan: {
+ *         id: "STRING_VALUE", // required
+ *         value: { // Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *       lessThanOrEqualTo: {
+ *         id: "STRING_VALUE", // required
+ *         value: { // Union: only one key present
+ *           stringValue: "STRING_VALUE",
+ *           doubleValue: Number("double"),
+ *           booleanValue: true || false,
+ *         },
+ *       },
+ *     },
+ *     not: { // Union: only one key present
+ *       field: { // Union: only one key present
+ *         equalTo: {
+ *           id: "STRING_VALUE", // required
+ *           value: { // Union: only one key present
+ *             stringValue: "STRING_VALUE",
+ *             doubleValue: Number("double"),
+ *             booleanValue: true || false,
+ *           },
+ *         },
+ *         contains: {
+ *           id: "STRING_VALUE", // required
+ *           value: { // Union: only one key present
+ *             stringValue: "STRING_VALUE",
+ *             doubleValue: Number("double"),
+ *             booleanValue: true || false,
+ *           },
+ *         },
+ *         greaterThan: {
+ *           id: "STRING_VALUE", // required
+ *           value: { // Union: only one key present
+ *             stringValue: "STRING_VALUE",
+ *             doubleValue: Number("double"),
+ *             booleanValue: true || false,
+ *           },
+ *         },
+ *         greaterThanOrEqualTo: {
+ *           id: "STRING_VALUE", // required
+ *           value: { // Union: only one key present
+ *             stringValue: "STRING_VALUE",
+ *             doubleValue: Number("double"),
+ *             booleanValue: true || false,
+ *           },
+ *         },
+ *         lessThan: {
+ *           id: "STRING_VALUE", // required
+ *           value: { // Union: only one key present
+ *             stringValue: "STRING_VALUE",
+ *             doubleValue: Number("double"),
+ *             booleanValue: true || false,
+ *           },
+ *         },
+ *         lessThanOrEqualTo: {
+ *           id: "STRING_VALUE", // required
+ *           value: { // Union: only one key present
+ *             stringValue: "STRING_VALUE",
+ *             doubleValue: Number("double"),
+ *             booleanValue: true || false,
+ *           },
+ *         },
+ *       },
+ *       not: { // Union: only one key present
+ *         field: "<CaseFilter>",
+ *         not: "<CaseFilter>",
+ *         andAll: [
+ *           { // Union: only one key present
+ *             field: "<CaseFilter>",
+ *             not: "<CaseFilter>",
+ *             andAll: [
+ *               { // Union: only one key present
+ *                 field: "<CaseFilter>",
+ *                 not: "<CaseFilter>",
+ *                 andAll: "<CaseFilter>",
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       andAll: "<CaseFilter>",
+ *     },
+ *     andAll: "<CaseFilter>",
+ *   },
+ *   sorts: [
+ *     {
+ *       fieldId: "STRING_VALUE", // required
+ *       sortOrder: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   fields: [
+ *     {
+ *       id: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new SearchCasesCommand(input);
  * const response = await client.send(command);
  * ```

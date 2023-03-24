@@ -42,6 +42,13 @@ export interface DescribeModelVersionsCommandOutput extends DescribeModelVersion
  * import { FraudDetectorClient, DescribeModelVersionsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, DescribeModelVersionsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   modelId: "STRING_VALUE",
+ *   modelVersionNumber: "STRING_VALUE",
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeModelVersionsCommand(input);
  * const response = await client.send(command);
  * ```

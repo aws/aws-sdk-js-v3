@@ -45,6 +45,16 @@ export interface CreateConfiguredTableAssociationCommandOutput
  * import { CleanRoomsClient, CreateConfiguredTableAssociationCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, CreateConfiguredTableAssociationCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   membershipIdentifier: "STRING_VALUE", // required
+ *   configuredTableIdentifier: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateConfiguredTableAssociationCommand(input);
  * const response = await client.send(command);
  * ```

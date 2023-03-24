@@ -50,6 +50,9 @@ export interface DeleteChannelFlowCommandOutput extends __MetadataBearer {}
  * import { ChimeSDKMessagingClient, DeleteChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DeleteChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   ChannelFlowArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteChannelFlowCommand(input);
  * const response = await client.send(command);
  * ```

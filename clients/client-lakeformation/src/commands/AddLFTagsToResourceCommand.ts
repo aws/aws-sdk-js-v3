@@ -42,6 +42,73 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  * import { LakeFormationClient, AddLFTagsToResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, AddLFTagsToResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   Resource: {
+ *     Catalog: {},
+ *     Database: {
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *     Table: {
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE",
+ *       TableWildcard: {},
+ *     },
+ *     TableWithColumns: {
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *       ColumnNames: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ColumnWildcard: {
+ *         ExcludedColumnNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     DataLocation: {
+ *       CatalogId: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE", // required
+ *     },
+ *     DataCellsFilter: {
+ *       TableCatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       TableName: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *     LFTag: {
+ *       CatalogId: "STRING_VALUE",
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValues: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     LFTagPolicy: {
+ *       CatalogId: "STRING_VALUE",
+ *       ResourceType: "DATABASE" || "TABLE", // required
+ *       Expression: [ // required
+ *         {
+ *           TagKey: "STRING_VALUE", // required
+ *           TagValues: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   LFTags: [ // required
+ *     {
+ *       CatalogId: "STRING_VALUE",
+ *       TagKey: "STRING_VALUE", // required
+ *       TagValues: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new AddLFTagsToResourceCommand(input);
  * const response = await client.send(command);
  * ```

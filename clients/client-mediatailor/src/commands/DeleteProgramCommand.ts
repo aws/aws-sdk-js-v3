@@ -42,6 +42,10 @@ export interface DeleteProgramCommandOutput extends DeleteProgramResponse, __Met
  * import { MediaTailorClient, DeleteProgramCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeleteProgramCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   ChannelName: "STRING_VALUE", // required
+ *   ProgramName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProgramCommand(input);
  * const response = await client.send(command);
  * ```

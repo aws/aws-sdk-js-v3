@@ -48,6 +48,22 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  * import { EMRClient, ModifyInstanceFleetCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ModifyInstanceFleetCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   ClusterId: "STRING_VALUE", // required
+ *   InstanceFleet: {
+ *     InstanceFleetId: "STRING_VALUE", // required
+ *     TargetOnDemandCapacity: Number("int"),
+ *     TargetSpotCapacity: Number("int"),
+ *     ResizeSpecifications: {
+ *       SpotResizeSpecification: {
+ *         TimeoutDurationMinutes: Number("int"), // required
+ *       },
+ *       OnDemandResizeSpecification: {
+ *         TimeoutDurationMinutes: Number("int"), // required
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new ModifyInstanceFleetCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,11 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  * import { LakeFormationClient, RegisterResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, RegisterResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   UseServiceLinkedRole: true || false,
+ *   RoleArn: "STRING_VALUE",
+ * };
  * const command = new RegisterResourceCommand(input);
  * const response = await client.send(command);
  * ```

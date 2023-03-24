@@ -101,6 +101,13 @@ export interface GetDiscoveredResourceCountsCommandOutput
  * import { ConfigServiceClient, GetDiscoveredResourceCountsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetDiscoveredResourceCountsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   resourceTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   limit: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new GetDiscoveredResourceCountsCommand(input);
  * const response = await client.send(command);
  * ```

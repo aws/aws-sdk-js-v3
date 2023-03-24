@@ -69,6 +69,13 @@ export interface DescribeFileCachesCommandOutput extends DescribeFileCachesRespo
  * import { FSxClient, DescribeFileCachesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeFileCachesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   FileCacheIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFileCachesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -80,6 +80,12 @@ export interface StartAssessmentFrameworkShareCommandOutput
  * import { AuditManagerClient, StartAssessmentFrameworkShareCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, StartAssessmentFrameworkShareCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   frameworkId: "STRING_VALUE", // required
+ *   destinationAccount: "STRING_VALUE", // required
+ *   destinationRegion: "STRING_VALUE", // required
+ *   comment: "STRING_VALUE",
+ * };
  * const command = new StartAssessmentFrameworkShareCommand(input);
  * const response = await client.send(command);
  * ```

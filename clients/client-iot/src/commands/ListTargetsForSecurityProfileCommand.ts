@@ -45,6 +45,11 @@ export interface ListTargetsForSecurityProfileCommandOutput
  * import { IoTClient, ListTargetsForSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListTargetsForSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   securityProfileName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListTargetsForSecurityProfileCommand(input);
  * const response = await client.send(command);
  * ```

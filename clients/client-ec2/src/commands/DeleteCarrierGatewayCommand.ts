@@ -47,6 +47,10 @@ export interface DeleteCarrierGatewayCommandOutput extends DeleteCarrierGatewayR
  * import { EC2Client, DeleteCarrierGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteCarrierGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   CarrierGatewayId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteCarrierGatewayCommand(input);
  * const response = await client.send(command);
  * ```

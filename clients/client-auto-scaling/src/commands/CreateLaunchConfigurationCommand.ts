@@ -54,6 +54,52 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * import { AutoScalingClient, CreateLaunchConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, CreateLaunchConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   LaunchConfigurationName: "STRING_VALUE", // required
+ *   ImageId: "STRING_VALUE",
+ *   KeyName: "STRING_VALUE",
+ *   SecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ClassicLinkVPCId: "STRING_VALUE",
+ *   ClassicLinkVPCSecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   UserData: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   InstanceType: "STRING_VALUE",
+ *   KernelId: "STRING_VALUE",
+ *   RamdiskId: "STRING_VALUE",
+ *   BlockDeviceMappings: [
+ *     {
+ *       VirtualName: "STRING_VALUE",
+ *       DeviceName: "STRING_VALUE", // required
+ *       Ebs: {
+ *         SnapshotId: "STRING_VALUE",
+ *         VolumeSize: Number("int"),
+ *         VolumeType: "STRING_VALUE",
+ *         DeleteOnTermination: true || false,
+ *         Iops: Number("int"),
+ *         Encrypted: true || false,
+ *         Throughput: Number("int"),
+ *       },
+ *       NoDevice: true || false,
+ *     },
+ *   ],
+ *   InstanceMonitoring: {
+ *     Enabled: true || false,
+ *   },
+ *   SpotPrice: "STRING_VALUE",
+ *   IamInstanceProfile: "STRING_VALUE",
+ *   EbsOptimized: true || false,
+ *   AssociatePublicIpAddress: true || false,
+ *   PlacementTenancy: "STRING_VALUE",
+ *   MetadataOptions: {
+ *     HttpTokens: "optional" || "required",
+ *     HttpPutResponseHopLimit: Number("int"),
+ *     HttpEndpoint: "disabled" || "enabled",
+ *   },
+ * };
  * const command = new CreateLaunchConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

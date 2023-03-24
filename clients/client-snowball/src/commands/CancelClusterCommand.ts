@@ -44,6 +44,9 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  * import { SnowballClient, CancelClusterCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CancelClusterCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = {
+ *   ClusterId: "STRING_VALUE", // required
+ * };
  * const command = new CancelClusterCommand(input);
  * const response = await client.send(command);
  * ```

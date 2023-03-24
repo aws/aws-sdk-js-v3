@@ -44,6 +44,17 @@ export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, _
  * import { CodeartifactClient, UpdateRepositoryCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, UpdateRepositoryCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   upstreams: [
+ *     {
+ *       repositoryName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRepositoryCommand(input);
  * const response = await client.send(command);
  * ```

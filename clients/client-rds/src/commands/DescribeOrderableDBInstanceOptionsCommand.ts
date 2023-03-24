@@ -44,6 +44,24 @@ export interface DescribeOrderableDBInstanceOptionsCommandOutput
  * import { RDSClient, DescribeOrderableDBInstanceOptionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeOrderableDBInstanceOptionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   DBInstanceClass: "STRING_VALUE",
+ *   LicenseModel: "STRING_VALUE",
+ *   AvailabilityZoneGroup: "STRING_VALUE",
+ *   Vpc: true || false,
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeOrderableDBInstanceOptionsCommand(input);
  * const response = await client.send(command);
  * ```

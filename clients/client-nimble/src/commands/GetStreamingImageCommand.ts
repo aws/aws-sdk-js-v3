@@ -46,6 +46,10 @@ export interface GetStreamingImageCommandOutput extends GetStreamingImageRespons
  * import { NimbleClient, GetStreamingImageCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetStreamingImageCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   streamingImageId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new GetStreamingImageCommand(input);
  * const response = await client.send(command);
  * ```

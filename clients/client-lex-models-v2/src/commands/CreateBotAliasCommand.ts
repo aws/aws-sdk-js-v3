@@ -46,6 +46,54 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  * import { LexModelsV2Client, CreateBotAliasCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateBotAliasCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botAliasName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   botAliasLocaleSettings: {
+ *     "<keys>": {
+ *       enabled: true || false, // required
+ *       codeHookSpecification: {
+ *         lambdaCodeHook: {
+ *           lambdaARN: "STRING_VALUE", // required
+ *           codeHookInterfaceVersion: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   },
+ *   conversationLogSettings: {
+ *     textLogSettings: [
+ *       {
+ *         enabled: true || false, // required
+ *         destination: {
+ *           cloudWatch: {
+ *             cloudWatchLogGroupArn: "STRING_VALUE", // required
+ *             logPrefix: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     audioLogSettings: [
+ *       {
+ *         enabled: true || false, // required
+ *         destination: {
+ *           s3Bucket: {
+ *             kmsKeyArn: "STRING_VALUE",
+ *             s3BucketArn: "STRING_VALUE", // required
+ *             logPrefix: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   sentimentAnalysisSettings: {
+ *     detectSentiment: true || false, // required
+ *   },
+ *   botId: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateBotAliasCommand(input);
  * const response = await client.send(command);
  * ```

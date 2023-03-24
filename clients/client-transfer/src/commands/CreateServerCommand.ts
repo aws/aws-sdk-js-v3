@@ -45,6 +45,67 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * import { TransferClient, CreateServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   Certificate: "STRING_VALUE",
+ *   Domain: "S3" || "EFS",
+ *   EndpointDetails: {
+ *     AddressAllocationIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     VpcEndpointId: "STRING_VALUE",
+ *     VpcId: "STRING_VALUE",
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   EndpointType: "PUBLIC" || "VPC" || "VPC_ENDPOINT",
+ *   HostKey: "STRING_VALUE",
+ *   IdentityProviderDetails: {
+ *     Url: "STRING_VALUE",
+ *     InvocationRole: "STRING_VALUE",
+ *     DirectoryId: "STRING_VALUE",
+ *     Function: "STRING_VALUE",
+ *   },
+ *   IdentityProviderType: "SERVICE_MANAGED" || "API_GATEWAY" || "AWS_DIRECTORY_SERVICE" || "AWS_LAMBDA",
+ *   LoggingRole: "STRING_VALUE",
+ *   PostAuthenticationLoginBanner: "STRING_VALUE",
+ *   PreAuthenticationLoginBanner: "STRING_VALUE",
+ *   Protocols: [
+ *     "SFTP" || "FTP" || "FTPS" || "AS2",
+ *   ],
+ *   ProtocolDetails: {
+ *     PassiveIp: "STRING_VALUE",
+ *     TlsSessionResumptionMode: "DISABLED" || "ENABLED" || "ENFORCED",
+ *     SetStatOption: "DEFAULT" || "ENABLE_NO_OP",
+ *     As2Transports: [
+ *       "HTTP",
+ *     ],
+ *   },
+ *   SecurityPolicyName: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   WorkflowDetails: {
+ *     OnUpload: [
+ *       {
+ *         WorkflowId: "STRING_VALUE", // required
+ *         ExecutionRole: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     OnPartialUpload: [
+ *       {
+ *         WorkflowId: "STRING_VALUE", // required
+ *         ExecutionRole: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);
  * ```

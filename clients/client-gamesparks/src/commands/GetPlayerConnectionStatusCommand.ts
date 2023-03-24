@@ -46,6 +46,11 @@ export interface GetPlayerConnectionStatusCommandOutput extends GetPlayerConnect
  * import { GameSparksClient, GetPlayerConnectionStatusCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetPlayerConnectionStatusCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   PlayerId: "STRING_VALUE", // required
+ *   GameName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ * };
  * const command = new GetPlayerConnectionStatusCommand(input);
  * const response = await client.send(command);
  * ```

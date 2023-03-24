@@ -45,6 +45,9 @@ export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer
  * import { SNSClient, DeletePlatformApplicationCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, DeletePlatformApplicationCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   PlatformApplicationArn: "STRING_VALUE", // required
+ * };
  * const command = new DeletePlatformApplicationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,9 @@ export interface DisableOrganizationAdminAccountCommandOutput
  * import { SecurityHubClient, DisableOrganizationAdminAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisableOrganizationAdminAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   AdminAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DisableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```

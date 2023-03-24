@@ -57,6 +57,9 @@ export interface GetJobManifestCommandOutput extends GetJobManifestResult, __Met
  * import { SnowballClient, GetJobManifestCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, GetJobManifestCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new GetJobManifestCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,18 @@ export interface UpdateEnvironmentCommandOutput extends Environment, __MetadataB
  * import { AppConfigClient, UpdateEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EnvironmentId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Monitors: [
+ *     {
+ *       AlarmArn: "STRING_VALUE", // required
+ *       AlarmRoleArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

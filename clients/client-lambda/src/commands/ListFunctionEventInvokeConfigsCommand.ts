@@ -45,6 +45,11 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
  * import { LambdaClient, ListFunctionEventInvokeConfigsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListFunctionEventInvokeConfigsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   FunctionName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListFunctionEventInvokeConfigsCommand(input);
  * const response = await client.send(command);
  * ```

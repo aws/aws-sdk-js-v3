@@ -61,6 +61,16 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  * import { ChimeSDKMessagingClient, ListChannelMessagesCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelMessagesCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   SortOrder: "ASCENDING" || "DESCENDING",
+ *   NotBefore: new Date("TIMESTAMP"),
+ *   NotAfter: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE", // required
+ *   SubChannelId: "STRING_VALUE",
+ * };
  * const command = new ListChannelMessagesCommand(input);
  * const response = await client.send(command);
  * ```

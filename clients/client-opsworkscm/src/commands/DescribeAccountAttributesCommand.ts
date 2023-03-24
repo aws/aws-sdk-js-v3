@@ -47,6 +47,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * import { OpsWorksCMClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
  * ```

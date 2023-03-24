@@ -42,6 +42,12 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
  * import { ElasticBeanstalkClient, TerminateEnvironmentCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, TerminateEnvironmentCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   EnvironmentId: "STRING_VALUE",
+ *   EnvironmentName: "STRING_VALUE",
+ *   TerminateResources: true || false,
+ *   ForceTerminate: true || false,
+ * };
  * const command = new TerminateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

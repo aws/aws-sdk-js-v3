@@ -44,6 +44,18 @@ export interface ListInferenceRecommendationsJobsCommandOutput
  * import { SageMakerClient, ListInferenceRecommendationsJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListInferenceRecommendationsJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   NameContains: "STRING_VALUE",
+ *   StatusEquals: "PENDING" || "IN_PROGRESS" || "COMPLETED" || "FAILED" || "STOPPING" || "STOPPED",
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListInferenceRecommendationsJobsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,26 @@ export interface UpdateReportGroupCommandOutput extends UpdateReportGroupOutput,
  * import { CodeBuildClient, UpdateReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, UpdateReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ *   exportConfig: {
+ *     exportConfigType: "STRING_VALUE",
+ *     s3Destination: {
+ *       bucket: "STRING_VALUE",
+ *       bucketOwner: "STRING_VALUE",
+ *       path: "STRING_VALUE",
+ *       packaging: "STRING_VALUE",
+ *       encryptionKey: "STRING_VALUE",
+ *       encryptionDisabled: true || false,
+ *     },
+ *   },
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateReportGroupCommand(input);
  * const response = await client.send(command);
  * ```

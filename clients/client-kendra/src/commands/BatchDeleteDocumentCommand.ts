@@ -46,6 +46,16 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * import { KendraClient, BatchDeleteDocumentCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, BatchDeleteDocumentCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   IndexId: "STRING_VALUE", // required
+ *   DocumentIdList: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DataSourceSyncJobMetricTarget: {
+ *     DataSourceId: "STRING_VALUE", // required
+ *     DataSourceSyncJobId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new BatchDeleteDocumentCommand(input);
  * const response = await client.send(command);
  * ```

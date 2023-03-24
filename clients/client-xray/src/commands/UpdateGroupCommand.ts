@@ -42,6 +42,15 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  * import { XRayClient, UpdateGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, UpdateGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = {
+ *   GroupName: "STRING_VALUE",
+ *   GroupARN: "STRING_VALUE",
+ *   FilterExpression: "STRING_VALUE",
+ *   InsightsConfiguration: {
+ *     InsightsEnabled: true || false,
+ *     NotificationsEnabled: true || false,
+ *   },
+ * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
  * ```

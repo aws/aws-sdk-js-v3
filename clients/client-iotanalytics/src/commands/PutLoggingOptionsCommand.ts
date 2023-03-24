@@ -46,6 +46,13 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, PutLoggingOptionsCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, PutLoggingOptionsCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = {
+ *   loggingOptions: {
+ *     roleArn: "STRING_VALUE", // required
+ *     level: "STRING_VALUE", // required
+ *     enabled: true || false, // required
+ *   },
+ * };
  * const command = new PutLoggingOptionsCommand(input);
  * const response = await client.send(command);
  * ```

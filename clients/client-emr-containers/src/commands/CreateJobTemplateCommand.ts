@@ -49,6 +49,71 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * import { EMRContainersClient, CreateJobTemplateCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, CreateJobTemplateCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ *   jobTemplateData: {
+ *     executionRoleArn: "STRING_VALUE", // required
+ *     releaseLabel: "STRING_VALUE", // required
+ *     configurationOverrides: {
+ *       applicationConfiguration: [
+ *         {
+ *           classification: "STRING_VALUE", // required
+ *           properties: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           configurations: [
+ *             {
+ *               classification: "STRING_VALUE", // required
+ *               properties: {
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *               configurations: [
+ *                 "<ConfigurationList>",
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       monitoringConfiguration: {
+ *         persistentAppUI: "STRING_VALUE",
+ *         cloudWatchMonitoringConfiguration: {
+ *           logGroupName: "STRING_VALUE",
+ *           logStreamNamePrefix: "STRING_VALUE",
+ *         },
+ *         s3MonitoringConfiguration: {
+ *           logUri: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     jobDriver: {
+ *       sparkSubmitJobDriver: {
+ *         entryPoint: "STRING_VALUE", // required
+ *         entryPointArguments: [
+ *           "STRING_VALUE",
+ *         ],
+ *         sparkSubmitParameters: "STRING_VALUE",
+ *       },
+ *       sparkSqlJobDriver: {
+ *         entryPoint: "STRING_VALUE",
+ *         sparkSqlParameters: "STRING_VALUE",
+ *       },
+ *     },
+ *     parameterConfiguration: {
+ *       "<keys>": {
+ *         type: "NUMBER" || "STRING",
+ *         defaultValue: "STRING_VALUE",
+ *       },
+ *     },
+ *     jobTags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   kmsKeyArn: "STRING_VALUE",
+ * };
  * const command = new CreateJobTemplateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,9 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  * import { DirectConnectClient, DescribeConnectionsOnInterconnectCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeConnectionsOnInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   interconnectId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeConnectionsOnInterconnectCommand(input);
  * const response = await client.send(command);
  * ```

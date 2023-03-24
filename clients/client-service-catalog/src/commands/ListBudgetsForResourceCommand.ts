@@ -42,6 +42,12 @@ export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResou
  * import { ServiceCatalogClient, ListBudgetsForResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListBudgetsForResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE", // required
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new ListBudgetsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,15 @@ export interface AddTagsCommandOutput extends __MetadataBearer {}
  * import { ElasticsearchServiceClient, AddTagsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, AddTagsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = {
+ *   ARN: "STRING_VALUE", // required
+ *   TagList: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
  * ```

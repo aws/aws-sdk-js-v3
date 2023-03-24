@@ -52,6 +52,15 @@ export interface DisassociateResolverEndpointIpAddressCommandOutput
  * import { Route53ResolverClient, DisassociateResolverEndpointIpAddressCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DisassociateResolverEndpointIpAddressCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   ResolverEndpointId: "STRING_VALUE", // required
+ *   IpAddress: {
+ *     IpId: "STRING_VALUE",
+ *     SubnetId: "STRING_VALUE",
+ *     Ip: "STRING_VALUE",
+ *     Ipv6: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DisassociateResolverEndpointIpAddressCommand(input);
  * const response = await client.send(command);
  * ```

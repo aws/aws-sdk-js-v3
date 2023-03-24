@@ -44,6 +44,12 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  * import { CloudWatchLogsClient, DescribeQueriesCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeQueriesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   logGroupName: "STRING_VALUE",
+ *   status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeQueriesCommand(input);
  * const response = await client.send(command);
  * ```

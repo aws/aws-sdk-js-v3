@@ -47,6 +47,16 @@ export interface GetContainerServiceMetricDataCommandOutput
  * import { LightsailClient, GetContainerServiceMetricDataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContainerServiceMetricDataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   serviceName: "STRING_VALUE", // required
+ *   metricName: "CPUUtilization" || "MemoryUtilization", // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   period: Number("int"), // required
+ *   statistics: [ // required
+ *     "Minimum" || "Maximum" || "Sum" || "Average" || "SampleCount",
+ *   ],
+ * };
  * const command = new GetContainerServiceMetricDataCommand(input);
  * const response = await client.send(command);
  * ```

@@ -118,6 +118,120 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * import { ECSClient, CreateServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE",
+ *   serviceName: "STRING_VALUE", // required
+ *   taskDefinition: "STRING_VALUE",
+ *   loadBalancers: [
+ *     {
+ *       targetGroupArn: "STRING_VALUE",
+ *       loadBalancerName: "STRING_VALUE",
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   serviceRegistries: [
+ *     {
+ *       registryArn: "STRING_VALUE",
+ *       port: Number("int"),
+ *       containerName: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *     },
+ *   ],
+ *   desiredCount: Number("int"),
+ *   clientToken: "STRING_VALUE",
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   capacityProviderStrategy: [
+ *     {
+ *       capacityProvider: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       base: Number("int"),
+ *     },
+ *   ],
+ *   platformVersion: "STRING_VALUE",
+ *   role: "STRING_VALUE",
+ *   deploymentConfiguration: {
+ *     deploymentCircuitBreaker: {
+ *       enable: true || false, // required
+ *       rollback: true || false, // required
+ *     },
+ *     maximumPercent: Number("int"),
+ *     minimumHealthyPercent: Number("int"),
+ *     alarms: {
+ *       alarmNames: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       enable: true || false, // required
+ *       rollback: true || false, // required
+ *     },
+ *   },
+ *   placementConstraints: [
+ *     {
+ *       type: "distinctInstance" || "memberOf",
+ *       expression: "STRING_VALUE",
+ *     },
+ *   ],
+ *   placementStrategy: [
+ *     {
+ *       type: "random" || "spread" || "binpack",
+ *       field: "STRING_VALUE",
+ *     },
+ *   ],
+ *   networkConfiguration: {
+ *     awsvpcConfiguration: {
+ *       subnets: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroups: [
+ *         "STRING_VALUE",
+ *       ],
+ *       assignPublicIp: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ *   healthCheckGracePeriodSeconds: Number("int"),
+ *   schedulingStrategy: "REPLICA" || "DAEMON",
+ *   deploymentController: {
+ *     type: "ECS" || "CODE_DEPLOY" || "EXTERNAL", // required
+ *   },
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   enableECSManagedTags: true || false,
+ *   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *   enableExecuteCommand: true || false,
+ *   serviceConnectConfiguration: {
+ *     enabled: true || false, // required
+ *     namespace: "STRING_VALUE",
+ *     services: [
+ *       {
+ *         portName: "STRING_VALUE", // required
+ *         discoveryName: "STRING_VALUE",
+ *         clientAliases: [
+ *           {
+ *             port: Number("int"), // required
+ *             dnsName: "STRING_VALUE",
+ *           },
+ *         ],
+ *         ingressPortOverride: Number("int"),
+ *       },
+ *     ],
+ *     logConfiguration: {
+ *       logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk" || "awsfirelens", // required
+ *       options: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       secretOptions: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           valueFrom: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
  * ```

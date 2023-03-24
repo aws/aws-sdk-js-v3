@@ -45,6 +45,16 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * import { SESv2Client, CreateDedicatedIpPoolCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateDedicatedIpPoolCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   PoolName: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ScalingMode: "STANDARD" || "MANAGED",
+ * };
  * const command = new CreateDedicatedIpPoolCommand(input);
  * const response = await client.send(command);
  * ```

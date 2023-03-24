@@ -42,6 +42,17 @@ export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse,
  * import { MediaPackageClient, CreateHarvestJobCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, CreateHarvestJobCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
+ * const input = {
+ *   EndTime: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   OriginEndpointId: "STRING_VALUE", // required
+ *   S3Destination: {
+ *     BucketName: "STRING_VALUE", // required
+ *     ManifestKey: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   StartTime: "STRING_VALUE", // required
+ * };
  * const command = new CreateHarvestJobCommand(input);
  * const response = await client.send(command);
  * ```

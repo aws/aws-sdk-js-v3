@@ -42,6 +42,27 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * import { QuickSightClient, CreateFolderCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateFolderCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   FolderId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   FolderType: "SHARED",
+ *   ParentFolderArn: "STRING_VALUE",
+ *   Permissions: [
+ *     {
+ *       Principal: "STRING_VALUE", // required
+ *       Actions: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateFolderCommand(input);
  * const response = await client.send(command);
  * ```

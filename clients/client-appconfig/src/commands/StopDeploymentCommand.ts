@@ -44,6 +44,11 @@ export interface StopDeploymentCommandOutput extends Deployment, __MetadataBeare
  * import { AppConfigClient, StopDeploymentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, StopDeploymentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EnvironmentId: "STRING_VALUE", // required
+ *   DeploymentNumber: Number("int"), // required
+ * };
  * const command = new StopDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

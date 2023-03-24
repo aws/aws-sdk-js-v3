@@ -44,6 +44,9 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * import { ACMClient, DescribeCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, DescribeCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = {
+ *   CertificateArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCertificateCommand(input);
  * const response = await client.send(command);
  * ```

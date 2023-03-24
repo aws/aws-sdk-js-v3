@@ -46,6 +46,9 @@ export interface AcceptSharedDirectoryCommandOutput extends AcceptSharedDirector
  * import { DirectoryServiceClient, AcceptSharedDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, AcceptSharedDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = {
+ *   SharedDirectoryId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptSharedDirectoryCommand(input);
  * const response = await client.send(command);
  * ```

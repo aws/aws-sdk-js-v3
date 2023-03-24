@@ -42,6 +42,14 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { PinpointClient, TagResourceCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, TagResourceCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagsModel: {
+ *     tags: { // required
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

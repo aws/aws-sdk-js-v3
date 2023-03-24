@@ -42,6 +42,17 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * import { OpenSearchClient, UpdateVpcEndpointCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, UpdateVpcEndpointCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   VpcEndpointId: "STRING_VALUE", // required
+ *   VpcOptions: {
+ *     SubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new UpdateVpcEndpointCommand(input);
  * const response = await client.send(command);
  * ```

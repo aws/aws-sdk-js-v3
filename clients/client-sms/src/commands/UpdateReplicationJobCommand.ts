@@ -42,6 +42,17 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
  * import { SMSClient, UpdateReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, UpdateReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   replicationJobId: "STRING_VALUE", // required
+ *   frequency: Number("int"),
+ *   nextReplicationRunStartTime: new Date("TIMESTAMP"),
+ *   licenseType: "STRING_VALUE",
+ *   roleName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   numberOfRecentAmisToKeep: Number("int"),
+ *   encrypted: true || false,
+ *   kmsKeyId: "STRING_VALUE",
+ * };
  * const command = new UpdateReplicationJobCommand(input);
  * const response = await client.send(command);
  * ```

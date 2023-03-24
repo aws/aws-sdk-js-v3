@@ -42,6 +42,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { CloudHSMV2Client, TagResourceCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, TagResourceCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   TagList: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

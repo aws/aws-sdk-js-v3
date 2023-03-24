@@ -46,6 +46,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { MgnClient, ListTagsForResourceCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListTagsForResourceCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

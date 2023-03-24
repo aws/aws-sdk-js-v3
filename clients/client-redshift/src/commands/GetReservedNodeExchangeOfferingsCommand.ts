@@ -48,6 +48,11 @@ export interface GetReservedNodeExchangeOfferingsCommandOutput
  * import { RedshiftClient, GetReservedNodeExchangeOfferingsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, GetReservedNodeExchangeOfferingsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ReservedNodeId: "STRING_VALUE", // required
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new GetReservedNodeExchangeOfferingsCommand(input);
  * const response = await client.send(command);
  * ```

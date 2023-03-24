@@ -48,6 +48,24 @@ export interface BatchGetAssetPropertyValueHistoryCommandOutput
  * import { IoTSiteWiseClient, BatchGetAssetPropertyValueHistoryCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, BatchGetAssetPropertyValueHistoryCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   entries: [ // required
+ *     {
+ *       entryId: "STRING_VALUE", // required
+ *       assetId: "STRING_VALUE",
+ *       propertyId: "STRING_VALUE",
+ *       propertyAlias: "STRING_VALUE",
+ *       startDate: new Date("TIMESTAMP"),
+ *       endDate: new Date("TIMESTAMP"),
+ *       qualities: [
+ *         "GOOD" || "BAD" || "UNCERTAIN",
+ *       ],
+ *       timeOrdering: "ASCENDING" || "DESCENDING",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new BatchGetAssetPropertyValueHistoryCommand(input);
  * const response = await client.send(command);
  * ```

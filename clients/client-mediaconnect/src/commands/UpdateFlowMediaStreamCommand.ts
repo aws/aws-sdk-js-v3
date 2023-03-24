@@ -42,6 +42,26 @@ export interface UpdateFlowMediaStreamCommandOutput extends UpdateFlowMediaStrea
  * import { MediaConnectClient, UpdateFlowMediaStreamCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UpdateFlowMediaStreamCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = {
+ *   Attributes: {
+ *     Fmtp: {
+ *       ChannelOrder: "STRING_VALUE",
+ *       Colorimetry: "BT601" || "BT709" || "BT2020" || "BT2100" || "ST2065-1" || "ST2065-3" || "XYZ",
+ *       ExactFramerate: "STRING_VALUE",
+ *       Par: "STRING_VALUE",
+ *       Range: "NARROW" || "FULL" || "FULLPROTECT",
+ *       ScanMode: "progressive" || "interlace" || "progressive-segmented-frame",
+ *       Tcs: "SDR" || "PQ" || "HLG" || "LINEAR" || "BT2100LINPQ" || "BT2100LINHLG" || "ST2065-1" || "ST428-1" || "DENSITY",
+ *     },
+ *     Lang: "STRING_VALUE",
+ *   },
+ *   ClockRate: Number("int"),
+ *   Description: "STRING_VALUE",
+ *   FlowArn: "STRING_VALUE", // required
+ *   MediaStreamName: "STRING_VALUE", // required
+ *   MediaStreamType: "video" || "audio" || "ancillary-data",
+ *   VideoFormat: "STRING_VALUE",
+ * };
  * const command = new UpdateFlowMediaStreamCommand(input);
  * const response = await client.send(command);
  * ```

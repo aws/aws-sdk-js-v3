@@ -43,6 +43,11 @@ export interface ListBatchSegmentJobsCommandOutput extends ListBatchSegmentJobsR
  * import { PersonalizeClient, ListBatchSegmentJobsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListBatchSegmentJobsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   solutionVersionArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListBatchSegmentJobsCommand(input);
  * const response = await client.send(command);
  * ```

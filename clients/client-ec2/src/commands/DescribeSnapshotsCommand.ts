@@ -84,6 +84,28 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * import { EC2Client, DescribeSnapshotsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSnapshotsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   OwnerIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RestorableByUserIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SnapshotIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```

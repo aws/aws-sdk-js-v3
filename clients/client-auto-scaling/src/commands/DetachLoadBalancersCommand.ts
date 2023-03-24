@@ -47,6 +47,12 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  * import { AutoScalingClient, DetachLoadBalancersCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DetachLoadBalancersCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   LoadBalancerNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DetachLoadBalancersCommand(input);
  * const response = await client.send(command);
  * ```

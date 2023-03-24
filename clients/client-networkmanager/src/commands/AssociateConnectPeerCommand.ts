@@ -45,6 +45,12 @@ export interface AssociateConnectPeerCommandOutput extends AssociateConnectPeerR
  * import { NetworkManagerClient, AssociateConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, AssociateConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   ConnectPeerId: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ *   LinkId: "STRING_VALUE",
+ * };
  * const command = new AssociateConnectPeerCommand(input);
  * const response = await client.send(command);
  * ```

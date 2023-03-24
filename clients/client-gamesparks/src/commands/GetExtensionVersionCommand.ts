@@ -42,6 +42,11 @@ export interface GetExtensionVersionCommandOutput extends GetExtensionVersionRes
  * import { GameSparksClient, GetExtensionVersionCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetExtensionVersionCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   Namespace: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   ExtensionVersion: "STRING_VALUE", // required
+ * };
  * const command = new GetExtensionVersionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,9 @@ export interface DeregisterOrganizationDelegatedAdminCommandOutput
  * import { CloudTrailClient, DeregisterOrganizationDelegatedAdminCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DeregisterOrganizationDelegatedAdminCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   DelegatedAdminAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterOrganizationDelegatedAdminCommand(input);
  * const response = await client.send(command);
  * ```

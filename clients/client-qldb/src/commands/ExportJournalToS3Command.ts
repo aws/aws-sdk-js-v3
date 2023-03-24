@@ -56,6 +56,21 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  * import { QLDBClient, ExportJournalToS3Command } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ExportJournalToS3Command } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   InclusiveStartTime: new Date("TIMESTAMP"), // required
+ *   ExclusiveEndTime: new Date("TIMESTAMP"), // required
+ *   S3ExportConfiguration: {
+ *     Bucket: "STRING_VALUE", // required
+ *     Prefix: "STRING_VALUE", // required
+ *     EncryptionConfiguration: {
+ *       ObjectEncryptionType: "STRING_VALUE", // required
+ *       KmsKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   OutputFormat: "STRING_VALUE",
+ * };
  * const command = new ExportJournalToS3Command(input);
  * const response = await client.send(command);
  * ```

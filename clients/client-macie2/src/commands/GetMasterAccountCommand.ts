@@ -42,6 +42,7 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * import { Macie2Client, GetMasterAccountCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetMasterAccountCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {};
  * const command = new GetMasterAccountCommand(input);
  * const response = await client.send(command);
  * ```

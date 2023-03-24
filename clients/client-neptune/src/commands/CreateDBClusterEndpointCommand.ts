@@ -42,6 +42,23 @@ export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEnd
  * import { NeptuneClient, CreateDBClusterEndpointCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBClusterEndpointCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = {
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   DBClusterEndpointIdentifier: "STRING_VALUE", // required
+ *   EndpointType: "STRING_VALUE", // required
+ *   StaticMembers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ExcludedMembers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBClusterEndpointCommand(input);
  * const response = await client.send(command);
  * ```

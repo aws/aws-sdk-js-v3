@@ -53,6 +53,20 @@ export interface PutVoiceConnectorTerminationCommandOutput
  * import { ChimeClient, PutVoiceConnectorTerminationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorTerminationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   Termination: {
+ *     CpsLimit: Number("int"),
+ *     DefaultPhoneNumber: "STRING_VALUE",
+ *     CallingRegions: [
+ *       "STRING_VALUE",
+ *     ],
+ *     CidrAllowedList: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Disabled: true || false,
+ *   },
+ * };
  * const command = new PutVoiceConnectorTerminationCommand(input);
  * const response = await client.send(command);
  * ```

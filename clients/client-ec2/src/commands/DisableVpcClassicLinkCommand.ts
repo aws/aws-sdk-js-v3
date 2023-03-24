@@ -45,6 +45,10 @@ export interface DisableVpcClassicLinkCommandOutput extends DisableVpcClassicLin
  * import { EC2Client, DisableVpcClassicLinkCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableVpcClassicLinkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   VpcId: "STRING_VALUE", // required
+ * };
  * const command = new DisableVpcClassicLinkCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  * import { AppflowClient, ListFlowsCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, ListFlowsCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListFlowsCommand(input);
  * const response = await client.send(command);
  * ```

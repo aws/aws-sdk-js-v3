@@ -43,6 +43,13 @@ export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBear
  * import { ConnectClient, AssociateQueueQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateQueueQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   QueueId: "STRING_VALUE", // required
+ *   QuickConnectIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AssociateQueueQuickConnectsCommand(input);
  * const response = await client.send(command);
  * ```

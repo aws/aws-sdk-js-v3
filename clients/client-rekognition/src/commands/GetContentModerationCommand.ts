@@ -68,6 +68,12 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  * import { RekognitionClient, GetContentModerationCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetContentModerationCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SortBy: "NAME" || "TIMESTAMP",
+ * };
  * const command = new GetContentModerationCommand(input);
  * const response = await client.send(command);
  * ```

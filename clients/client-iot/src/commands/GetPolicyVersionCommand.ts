@@ -43,6 +43,10 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * import { IoTClient, GetPolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetPolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   policyName: "STRING_VALUE", // required
+ *   policyVersionId: "STRING_VALUE", // required
+ * };
  * const command = new GetPolicyVersionCommand(input);
  * const response = await client.send(command);
  * ```

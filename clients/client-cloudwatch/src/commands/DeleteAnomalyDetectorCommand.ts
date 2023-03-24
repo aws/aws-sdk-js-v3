@@ -50,6 +50,52 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * import { CloudWatchClient, DeleteAnomalyDetectorCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DeleteAnomalyDetectorCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = {
+ *   Namespace: "STRING_VALUE",
+ *   MetricName: "STRING_VALUE",
+ *   Dimensions: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Stat: "STRING_VALUE",
+ *   SingleMetricAnomalyDetector: {
+ *     Namespace: "STRING_VALUE",
+ *     MetricName: "STRING_VALUE",
+ *     Dimensions: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     Stat: "STRING_VALUE",
+ *   },
+ *   MetricMathAnomalyDetector: {
+ *     MetricDataQueries: [
+ *       {
+ *         Id: "STRING_VALUE", // required
+ *         MetricStat: {
+ *           Metric: {
+ *             Namespace: "STRING_VALUE",
+ *             MetricName: "STRING_VALUE",
+ *             Dimensions: [
+ *               "<Dimensions>",
+ *             ],
+ *           },
+ *           Period: Number("int"), // required
+ *           Stat: "STRING_VALUE", // required
+ *           Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *         },
+ *         Expression: "STRING_VALUE",
+ *         Label: "STRING_VALUE",
+ *         ReturnData: true || false,
+ *         Period: Number("int"),
+ *         AccountId: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new DeleteAnomalyDetectorCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,17 @@ export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskR
  * import { EC2Client, CreateStoreImageTaskCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateStoreImageTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   ImageId: "STRING_VALUE", // required
+ *   Bucket: "STRING_VALUE", // required
+ *   S3ObjectTags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new CreateStoreImageTaskCommand(input);
  * const response = await client.send(command);
  * ```

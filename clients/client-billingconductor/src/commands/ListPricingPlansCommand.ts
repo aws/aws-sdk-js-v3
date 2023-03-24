@@ -47,6 +47,16 @@ export interface ListPricingPlansCommandOutput extends ListPricingPlansOutput, _
  * import { BillingconductorClient, ListPricingPlansCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListPricingPlansCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = {
+ *   BillingPeriod: "STRING_VALUE",
+ *   Filters: {
+ *     Arns: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPricingPlansCommand(input);
  * const response = await client.send(command);
  * ```

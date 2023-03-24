@@ -47,6 +47,11 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput
  * import { DirectConnectClient, ConfirmPrivateVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, ConfirmPrivateVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   virtualInterfaceId: "STRING_VALUE", // required
+ *   virtualGatewayId: "STRING_VALUE",
+ *   directConnectGatewayId: "STRING_VALUE",
+ * };
  * const command = new ConfirmPrivateVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```

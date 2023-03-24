@@ -45,6 +45,9 @@ export interface DeleteContactCommandOutput extends DeleteContactResult, __Metad
  * import { SSMContactsClient, DeleteContactCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, DeleteContactCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = {
+ *   ContactId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteContactCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,11 @@ export interface GetFolderCommandOutput extends GetFolderResponse, __MetadataBea
  * import { WorkDocsClient, GetFolderCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetFolderCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   AuthenticationToken: "STRING_VALUE",
+ *   FolderId: "STRING_VALUE", // required
+ *   IncludeCustomMetadata: true || false,
+ * };
  * const command = new GetFolderCommand(input);
  * const response = await client.send(command);
  * ```

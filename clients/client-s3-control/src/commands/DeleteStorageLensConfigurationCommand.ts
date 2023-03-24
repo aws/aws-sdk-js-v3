@@ -51,6 +51,10 @@ export interface DeleteStorageLensConfigurationCommandOutput extends __MetadataB
  * import { S3ControlClient, DeleteStorageLensConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DeleteStorageLensConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   ConfigId: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new DeleteStorageLensConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

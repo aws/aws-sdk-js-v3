@@ -43,6 +43,10 @@ export interface GetBackupSelectionCommandOutput extends GetBackupSelectionOutpu
  * import { BackupClient, GetBackupSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetBackupSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupPlanId: "STRING_VALUE", // required
+ *   SelectionId: "STRING_VALUE", // required
+ * };
  * const command = new GetBackupSelectionCommand(input);
  * const response = await client.send(command);
  * ```

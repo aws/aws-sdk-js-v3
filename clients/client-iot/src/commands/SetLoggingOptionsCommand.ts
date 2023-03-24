@@ -45,6 +45,12 @@ export interface SetLoggingOptionsCommandOutput extends __MetadataBearer {}
  * import { IoTClient, SetLoggingOptionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, SetLoggingOptionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   loggingOptionsPayload: {
+ *     roleArn: "STRING_VALUE", // required
+ *     logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED",
+ *   },
+ * };
  * const command = new SetLoggingOptionsCommand(input);
  * const response = await client.send(command);
  * ```

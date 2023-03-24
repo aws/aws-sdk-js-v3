@@ -80,6 +80,13 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * import { S3Client, AbortMultipartUploadCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, AbortMultipartUploadCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   UploadId: "STRING_VALUE", // required
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new AbortMultipartUploadCommand(input);
  * const response = await client.send(command);
  * ```

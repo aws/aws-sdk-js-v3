@@ -44,6 +44,10 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * import { CloudFormationClient, ListImportsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListImportsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   ExportName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
  * ```

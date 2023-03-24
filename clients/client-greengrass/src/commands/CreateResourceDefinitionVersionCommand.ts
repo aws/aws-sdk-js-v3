@@ -44,6 +44,55 @@ export interface CreateResourceDefinitionVersionCommandOutput
  * import { GreengrassClient, CreateResourceDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateResourceDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   AmznClientToken: "STRING_VALUE",
+ *   ResourceDefinitionId: "STRING_VALUE", // required
+ *   Resources: [
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       Name: "STRING_VALUE", // required
+ *       ResourceDataContainer: {
+ *         LocalDeviceResourceData: {
+ *           GroupOwnerSetting: {
+ *             AutoAddGroupOwner: true || false,
+ *             GroupOwner: "STRING_VALUE",
+ *           },
+ *           SourcePath: "STRING_VALUE",
+ *         },
+ *         LocalVolumeResourceData: {
+ *           DestinationPath: "STRING_VALUE",
+ *           GroupOwnerSetting: {
+ *             AutoAddGroupOwner: true || false,
+ *             GroupOwner: "STRING_VALUE",
+ *           },
+ *           SourcePath: "STRING_VALUE",
+ *         },
+ *         S3MachineLearningModelResourceData: {
+ *           DestinationPath: "STRING_VALUE",
+ *           OwnerSetting: {
+ *             GroupOwner: "STRING_VALUE", // required
+ *             GroupPermission: "ro" || "rw", // required
+ *           },
+ *           S3Uri: "STRING_VALUE",
+ *         },
+ *         SageMakerMachineLearningModelResourceData: {
+ *           DestinationPath: "STRING_VALUE",
+ *           OwnerSetting: {
+ *             GroupOwner: "STRING_VALUE", // required
+ *             GroupPermission: "ro" || "rw", // required
+ *           },
+ *           SageMakerJobArn: "STRING_VALUE",
+ *         },
+ *         SecretsManagerSecretResourceData: {
+ *           ARN: "STRING_VALUE",
+ *           AdditionalStagingLabelsToDownload: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new CreateResourceDefinitionVersionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,12 @@ export interface UpdateFirewallRuleGroupAssociationCommandOutput
  * import { Route53ResolverClient, UpdateFirewallRuleGroupAssociationCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateFirewallRuleGroupAssociationCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   FirewallRuleGroupAssociationId: "STRING_VALUE", // required
+ *   Priority: Number("int"),
+ *   MutationProtection: "ENABLED" || "DISABLED",
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateFirewallRuleGroupAssociationCommand(input);
  * const response = await client.send(command);
  * ```

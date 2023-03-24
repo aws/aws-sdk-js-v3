@@ -53,6 +53,92 @@ export interface CreateResponseHeadersPolicyCommandOutput extends CreateResponse
  * import { CloudFrontClient, CreateResponseHeadersPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateResponseHeadersPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   ResponseHeadersPolicyConfig: {
+ *     Comment: "STRING_VALUE",
+ *     Name: "STRING_VALUE", // required
+ *     CorsConfig: {
+ *       AccessControlAllowOrigins: {
+ *         Quantity: Number("int"), // required
+ *         Items: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       AccessControlAllowHeaders: {
+ *         Quantity: Number("int"), // required
+ *         Items: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       AccessControlAllowMethods: {
+ *         Quantity: Number("int"), // required
+ *         Items: [ // required
+ *           "GET" || "POST" || "OPTIONS" || "PUT" || "DELETE" || "PATCH" || "HEAD" || "ALL",
+ *         ],
+ *       },
+ *       AccessControlAllowCredentials: true || false, // required
+ *       AccessControlExposeHeaders: {
+ *         Quantity: Number("int"), // required
+ *         Items: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       AccessControlMaxAgeSec: Number("int"),
+ *       OriginOverride: true || false, // required
+ *     },
+ *     SecurityHeadersConfig: {
+ *       XSSProtection: {
+ *         Override: true || false, // required
+ *         Protection: true || false, // required
+ *         ModeBlock: true || false,
+ *         ReportUri: "STRING_VALUE",
+ *       },
+ *       FrameOptions: {
+ *         Override: true || false, // required
+ *         FrameOption: "DENY" || "SAMEORIGIN", // required
+ *       },
+ *       ReferrerPolicy: {
+ *         Override: true || false, // required
+ *         ReferrerPolicy: "no-referrer" || "no-referrer-when-downgrade" || "origin" || "origin-when-cross-origin" || "same-origin" || "strict-origin" || "strict-origin-when-cross-origin" || "unsafe-url", // required
+ *       },
+ *       ContentSecurityPolicy: {
+ *         Override: true || false, // required
+ *         ContentSecurityPolicy: "STRING_VALUE", // required
+ *       },
+ *       ContentTypeOptions: {
+ *         Override: true || false, // required
+ *       },
+ *       StrictTransportSecurity: {
+ *         Override: true || false, // required
+ *         IncludeSubdomains: true || false,
+ *         Preload: true || false,
+ *         AccessControlMaxAgeSec: Number("int"), // required
+ *       },
+ *     },
+ *     ServerTimingHeadersConfig: {
+ *       Enabled: true || false, // required
+ *       SamplingRate: Number("double"),
+ *     },
+ *     CustomHeadersConfig: {
+ *       Quantity: Number("int"), // required
+ *       Items: [
+ *         {
+ *           Header: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *           Override: true || false, // required
+ *         },
+ *       ],
+ *     },
+ *     RemoveHeadersConfig: {
+ *       Quantity: Number("int"), // required
+ *       Items: [
+ *         {
+ *           Header: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateResponseHeadersPolicyCommand(input);
  * const response = await client.send(command);
  * ```

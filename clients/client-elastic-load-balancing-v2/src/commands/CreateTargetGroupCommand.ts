@@ -69,6 +69,33 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  * import { ElasticLoadBalancingV2Client, CreateTargetGroupCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, CreateTargetGroupCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Protocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ *   ProtocolVersion: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   VpcId: "STRING_VALUE",
+ *   HealthCheckProtocol: "HTTP" || "HTTPS" || "TCP" || "TLS" || "UDP" || "TCP_UDP" || "GENEVE",
+ *   HealthCheckPort: "STRING_VALUE",
+ *   HealthCheckEnabled: true || false,
+ *   HealthCheckPath: "STRING_VALUE",
+ *   HealthCheckIntervalSeconds: Number("int"),
+ *   HealthCheckTimeoutSeconds: Number("int"),
+ *   HealthyThresholdCount: Number("int"),
+ *   UnhealthyThresholdCount: Number("int"),
+ *   Matcher: {
+ *     HttpCode: "STRING_VALUE",
+ *     GrpcCode: "STRING_VALUE",
+ *   },
+ *   TargetType: "instance" || "ip" || "lambda" || "alb",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   IpAddressType: "ipv4" || "ipv6",
+ * };
  * const command = new CreateTargetGroupCommand(input);
  * const response = await client.send(command);
  * ```

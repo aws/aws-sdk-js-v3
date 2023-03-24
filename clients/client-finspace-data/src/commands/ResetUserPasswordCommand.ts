@@ -46,6 +46,10 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordRespons
  * import { FinspaceDataClient, ResetUserPasswordCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, ResetUserPasswordCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = {
+ *   userId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new ResetUserPasswordCommand(input);
  * const response = await client.send(command);
  * ```

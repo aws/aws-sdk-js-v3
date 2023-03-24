@@ -42,6 +42,17 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
  * import { RDSClient, CopyOptionGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CopyOptionGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   SourceOptionGroupIdentifier: "STRING_VALUE", // required
+ *   TargetOptionGroupIdentifier: "STRING_VALUE", // required
+ *   TargetOptionGroupDescription: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopyOptionGroupCommand(input);
  * const response = await client.send(command);
  * ```

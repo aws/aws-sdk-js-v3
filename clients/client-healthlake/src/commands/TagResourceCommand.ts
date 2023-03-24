@@ -44,6 +44,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { HealthLakeClient, TagResourceCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, TagResourceCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

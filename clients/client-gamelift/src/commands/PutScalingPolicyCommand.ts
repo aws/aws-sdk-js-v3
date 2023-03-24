@@ -99,6 +99,20 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  * import { GameLiftClient, PutScalingPolicyCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, PutScalingPolicyCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   FleetId: "STRING_VALUE", // required
+ *   ScalingAdjustment: Number("int"),
+ *   ScalingAdjustmentType: "ChangeInCapacity" || "ExactCapacity" || "PercentChangeInCapacity",
+ *   Threshold: Number("double"),
+ *   ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold",
+ *   EvaluationPeriods: Number("int"),
+ *   MetricName: "ActivatingGameSessions" || "ActiveGameSessions" || "ActiveInstances" || "AvailableGameSessions" || "AvailablePlayerSessions" || "CurrentPlayerSessions" || "IdleInstances" || "PercentAvailableGameSessions" || "PercentIdleInstances" || "QueueDepth" || "WaitTime" || "ConcurrentActivatableGameSessions", // required
+ *   PolicyType: "RuleBased" || "TargetBased",
+ *   TargetConfiguration: {
+ *     TargetValue: Number("double"), // required
+ *   },
+ * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```

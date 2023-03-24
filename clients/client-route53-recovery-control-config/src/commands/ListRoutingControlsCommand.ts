@@ -46,6 +46,11 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * import { Route53RecoveryControlConfigClient, ListRoutingControlsCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, ListRoutingControlsCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = {
+ *   ControlPanelArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListRoutingControlsCommand(input);
  * const response = await client.send(command);
  * ```

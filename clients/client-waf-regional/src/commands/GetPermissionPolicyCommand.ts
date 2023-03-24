@@ -50,6 +50,9 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  * import { WAFRegionalClient, GetPermissionPolicyCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetPermissionPolicyCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetPermissionPolicyCommand(input);
  * const response = await client.send(command);
  * ```

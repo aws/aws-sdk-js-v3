@@ -79,6 +79,11 @@ export interface ListBucketAnalyticsConfigurationsCommandOutput
  * import { S3Client, ListBucketAnalyticsConfigurationsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListBucketAnalyticsConfigurationsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   ContinuationToken: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new ListBucketAnalyticsConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```

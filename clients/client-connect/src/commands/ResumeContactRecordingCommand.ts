@@ -44,6 +44,11 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  * import { ConnectClient, ResumeContactRecordingCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ResumeContactRecordingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   InitialContactId: "STRING_VALUE", // required
+ * };
  * const command = new ResumeContactRecordingCommand(input);
  * const response = await client.send(command);
  * ```

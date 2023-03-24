@@ -43,6 +43,18 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  * import { SESv2Client, CreateContactCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateContactCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   ContactListName: "STRING_VALUE", // required
+ *   EmailAddress: "STRING_VALUE", // required
+ *   TopicPreferences: [
+ *     {
+ *       TopicName: "STRING_VALUE", // required
+ *       SubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ *     },
+ *   ],
+ *   UnsubscribeAll: true || false,
+ *   AttributesData: "STRING_VALUE",
+ * };
  * const command = new CreateContactCommand(input);
  * const response = await client.send(command);
  * ```

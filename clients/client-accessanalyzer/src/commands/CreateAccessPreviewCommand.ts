@@ -43,6 +43,116 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  * import { AccessAnalyzerClient, CreateAccessPreviewCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, CreateAccessPreviewCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = {
+ *   analyzerArn: "STRING_VALUE", // required
+ *   configurations: { // required
+ *     "<keys>": { // Union: only one key present
+ *       ebsSnapshot: {
+ *         userIds: [
+ *           "STRING_VALUE",
+ *         ],
+ *         groups: [
+ *           "STRING_VALUE",
+ *         ],
+ *         kmsKeyId: "STRING_VALUE",
+ *       },
+ *       ecrRepository: {
+ *         repositoryPolicy: "STRING_VALUE",
+ *       },
+ *       iamRole: {
+ *         trustPolicy: "STRING_VALUE",
+ *       },
+ *       efsFileSystem: {
+ *         fileSystemPolicy: "STRING_VALUE",
+ *       },
+ *       kmsKey: {
+ *         keyPolicies: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         grants: [
+ *           {
+ *             operations: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *             granteePrincipal: "STRING_VALUE", // required
+ *             retiringPrincipal: "STRING_VALUE",
+ *             constraints: {
+ *               encryptionContextEquals: {
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *               encryptionContextSubset: {
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             },
+ *             issuingAccount: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       rdsDbClusterSnapshot: {
+ *         attributes: {
+ *           "<keys>": { // Union: only one key present
+ *             accountIds: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *         kmsKeyId: "STRING_VALUE",
+ *       },
+ *       rdsDbSnapshot: {
+ *         attributes: {
+ *           "<keys>": { // Union: only one key present
+ *             accountIds: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *         kmsKeyId: "STRING_VALUE",
+ *       },
+ *       secretsManagerSecret: {
+ *         kmsKeyId: "STRING_VALUE",
+ *         secretPolicy: "STRING_VALUE",
+ *       },
+ *       s3Bucket: {
+ *         bucketPolicy: "STRING_VALUE",
+ *         bucketAclGrants: [
+ *           {
+ *             permission: "STRING_VALUE", // required
+ *             grantee: { // Union: only one key present
+ *               id: "STRING_VALUE",
+ *               uri: "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         bucketPublicAccessBlock: {
+ *           ignorePublicAcls: true || false, // required
+ *           restrictPublicBuckets: true || false, // required
+ *         },
+ *         accessPoints: {
+ *           "<keys>": {
+ *             accessPointPolicy: "STRING_VALUE",
+ *             publicAccessBlock: {
+ *               ignorePublicAcls: true || false, // required
+ *               restrictPublicBuckets: true || false, // required
+ *             },
+ *             networkOrigin: { // Union: only one key present
+ *               vpcConfiguration: {
+ *                 vpcId: "STRING_VALUE", // required
+ *               },
+ *               internetConfiguration: {},
+ *             },
+ *           },
+ *         },
+ *       },
+ *       snsTopic: {
+ *         topicPolicy: "STRING_VALUE",
+ *       },
+ *       sqsQueue: {
+ *         queuePolicy: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateAccessPreviewCommand(input);
  * const response = await client.send(command);
  * ```

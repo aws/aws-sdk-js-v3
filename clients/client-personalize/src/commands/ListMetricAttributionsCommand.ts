@@ -42,6 +42,11 @@ export interface ListMetricAttributionsCommandOutput extends ListMetricAttributi
  * import { PersonalizeClient, ListMetricAttributionsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListMetricAttributionsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   datasetGroupArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListMetricAttributionsCommand(input);
  * const response = await client.send(command);
  * ```

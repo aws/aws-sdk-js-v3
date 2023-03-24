@@ -46,6 +46,79 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * import { GlacierClient, InitiateJobCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, InitiateJobCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   jobParameters: {
+ *     Format: "STRING_VALUE",
+ *     Type: "STRING_VALUE",
+ *     ArchiveId: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     SNSTopic: "STRING_VALUE",
+ *     RetrievalByteRange: "STRING_VALUE",
+ *     Tier: "STRING_VALUE",
+ *     InventoryRetrievalParameters: {
+ *       StartDate: "STRING_VALUE",
+ *       EndDate: "STRING_VALUE",
+ *       Limit: "STRING_VALUE",
+ *       Marker: "STRING_VALUE",
+ *     },
+ *     SelectParameters: {
+ *       InputSerialization: {
+ *         csv: {
+ *           FileHeaderInfo: "USE" || "IGNORE" || "NONE",
+ *           Comments: "STRING_VALUE",
+ *           QuoteEscapeCharacter: "STRING_VALUE",
+ *           RecordDelimiter: "STRING_VALUE",
+ *           FieldDelimiter: "STRING_VALUE",
+ *           QuoteCharacter: "STRING_VALUE",
+ *         },
+ *       },
+ *       ExpressionType: "SQL",
+ *       Expression: "STRING_VALUE",
+ *       OutputSerialization: {
+ *         csv: {
+ *           QuoteFields: "ALWAYS" || "ASNEEDED",
+ *           QuoteEscapeCharacter: "STRING_VALUE",
+ *           RecordDelimiter: "STRING_VALUE",
+ *           FieldDelimiter: "STRING_VALUE",
+ *           QuoteCharacter: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     OutputLocation: {
+ *       S3: {
+ *         BucketName: "STRING_VALUE",
+ *         Prefix: "STRING_VALUE",
+ *         Encryption: {
+ *           EncryptionType: "aws:kms" || "AES256",
+ *           KMSKeyId: "STRING_VALUE",
+ *           KMSContext: "STRING_VALUE",
+ *         },
+ *         CannedACL: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *         AccessControlList: [
+ *           {
+ *             Grantee: {
+ *               Type: "AmazonCustomerByEmail" || "CanonicalUser" || "Group", // required
+ *               DisplayName: "STRING_VALUE",
+ *               URI: "STRING_VALUE",
+ *               ID: "STRING_VALUE",
+ *               EmailAddress: "STRING_VALUE",
+ *             },
+ *             Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *           },
+ *         ],
+ *         Tagging: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         UserMetadata: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new InitiateJobCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * import { OAMClient, ListTagsForResourceCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

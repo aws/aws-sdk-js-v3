@@ -43,6 +43,16 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * import { BackupClient, ListRestoreJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRestoreJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ByAccountId: "STRING_VALUE",
+ *   ByCreatedBefore: new Date("TIMESTAMP"),
+ *   ByCreatedAfter: new Date("TIMESTAMP"),
+ *   ByStatus: "PENDING" || "RUNNING" || "COMPLETED" || "ABORTED" || "FAILED",
+ *   ByCompleteBefore: new Date("TIMESTAMP"),
+ *   ByCompleteAfter: new Date("TIMESTAMP"),
+ * };
  * const command = new ListRestoreJobsCommand(input);
  * const response = await client.send(command);
  * ```

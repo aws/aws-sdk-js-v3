@@ -51,6 +51,12 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * import { DatabaseMigrationServiceClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * const response = await client.send(command);
  * ```

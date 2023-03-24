@@ -42,6 +42,13 @@ export interface PutCoreNetworkPolicyCommandOutput extends PutCoreNetworkPolicyR
  * import { NetworkManagerClient, PutCoreNetworkPolicyCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, PutCoreNetworkPolicyCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   CoreNetworkId: "STRING_VALUE", // required
+ *   PolicyDocument: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   LatestVersionId: Number("int"),
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new PutCoreNetworkPolicyCommand(input);
  * const response = await client.send(command);
  * ```

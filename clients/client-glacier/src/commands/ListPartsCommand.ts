@@ -63,6 +63,13 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * import { GlacierClient, ListPartsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListPartsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   uploadId: "STRING_VALUE", // required
+ *   marker: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new ListPartsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface GetDeploymentTargetCommandOutput extends GetDeploymentTargetOut
  * import { CodeDeployClient, GetDeploymentTargetCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, GetDeploymentTargetCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = {
+ *   deploymentId: "STRING_VALUE",
+ *   targetId: "STRING_VALUE",
+ * };
  * const command = new GetDeploymentTargetCommand(input);
  * const response = await client.send(command);
  * ```

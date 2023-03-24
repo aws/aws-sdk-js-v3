@@ -43,6 +43,11 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * import { AthenaClient, ListTagsForResourceCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListTagsForResourceCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

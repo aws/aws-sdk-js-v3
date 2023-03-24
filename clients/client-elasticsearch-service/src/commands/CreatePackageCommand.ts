@@ -46,6 +46,15 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * import { ElasticsearchServiceClient, CreatePackageCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, CreatePackageCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = {
+ *   PackageName: "STRING_VALUE", // required
+ *   PackageType: "TXT-DICTIONARY", // required
+ *   PackageDescription: "STRING_VALUE",
+ *   PackageSource: {
+ *     S3BucketName: "STRING_VALUE",
+ *     S3Key: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePackageCommand(input);
  * const response = await client.send(command);
  * ```

@@ -70,6 +70,13 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * import { ChimeSDKMessagingClient, ListChannelsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   Privacy: "PUBLIC" || "PRIVATE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
  * ```

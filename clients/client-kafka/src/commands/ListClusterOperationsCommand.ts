@@ -42,6 +42,11 @@ export interface ListClusterOperationsCommandOutput extends ListClusterOperation
  * import { KafkaClient, ListClusterOperationsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListClusterOperationsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = {
+ *   ClusterArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListClusterOperationsCommand(input);
  * const response = await client.send(command);
  * ```

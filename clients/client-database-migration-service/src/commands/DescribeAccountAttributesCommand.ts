@@ -52,6 +52,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * import { DatabaseMigrationServiceClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
  * ```

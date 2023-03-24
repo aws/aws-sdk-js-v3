@@ -42,6 +42,10 @@ export interface StopEdgeDeploymentStageCommandOutput extends __MetadataBearer {
  * import { SageMakerClient, StopEdgeDeploymentStageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopEdgeDeploymentStageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   EdgeDeploymentPlanName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ * };
  * const command = new StopEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
  * ```

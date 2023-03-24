@@ -42,6 +42,44 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * import { MqClient, UpdateBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, UpdateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = {
+ *   AuthenticationStrategy: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   BrokerId: "STRING_VALUE", // required
+ *   Configuration: {
+ *     Id: "STRING_VALUE", // required
+ *     Revision: Number("int"),
+ *   },
+ *   EngineVersion: "STRING_VALUE",
+ *   HostInstanceType: "STRING_VALUE",
+ *   LdapServerMetadata: {
+ *     Hosts: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     RoleBase: "STRING_VALUE", // required
+ *     RoleName: "STRING_VALUE",
+ *     RoleSearchMatching: "STRING_VALUE", // required
+ *     RoleSearchSubtree: true || false,
+ *     ServiceAccountPassword: "STRING_VALUE", // required
+ *     ServiceAccountUsername: "STRING_VALUE", // required
+ *     UserBase: "STRING_VALUE", // required
+ *     UserRoleName: "STRING_VALUE",
+ *     UserSearchMatching: "STRING_VALUE", // required
+ *     UserSearchSubtree: true || false,
+ *   },
+ *   Logs: {
+ *     Audit: true || false,
+ *     General: true || false,
+ *   },
+ *   MaintenanceWindowStartTime: {
+ *     DayOfWeek: "STRING_VALUE", // required
+ *     TimeOfDay: "STRING_VALUE", // required
+ *     TimeZone: "STRING_VALUE",
+ *   },
+ *   SecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateBrokerCommand(input);
  * const response = await client.send(command);
  * ```

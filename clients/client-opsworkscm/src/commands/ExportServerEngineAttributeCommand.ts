@@ -60,6 +60,16 @@ export interface ExportServerEngineAttributeCommandOutput
  * import { OpsWorksCMClient, ExportServerEngineAttributeCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, ExportServerEngineAttributeCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = {
+ *   ExportAttributeName: "STRING_VALUE", // required
+ *   ServerName: "STRING_VALUE", // required
+ *   InputAttributes: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ExportServerEngineAttributeCommand(input);
  * const response = await client.send(command);
  * ```

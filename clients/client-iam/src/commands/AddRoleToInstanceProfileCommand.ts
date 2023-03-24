@@ -54,6 +54,10 @@ export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer 
  * import { IAMClient, AddRoleToInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, AddRoleToInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   InstanceProfileName: "STRING_VALUE", // required
+ *   RoleName: "STRING_VALUE", // required
+ * };
  * const command = new AddRoleToInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```

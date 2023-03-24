@@ -44,6 +44,13 @@ export interface GetEvidenceByEvidenceFolderCommandOutput
  * import { AuditManagerClient, GetEvidenceByEvidenceFolderCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetEvidenceByEvidenceFolderCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   assessmentId: "STRING_VALUE", // required
+ *   controlSetId: "STRING_VALUE", // required
+ *   evidenceFolderId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetEvidenceByEvidenceFolderCommand(input);
  * const response = await client.send(command);
  * ```

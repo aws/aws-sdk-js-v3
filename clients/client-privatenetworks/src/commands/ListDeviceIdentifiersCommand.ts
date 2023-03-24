@@ -50,6 +50,16 @@ export interface ListDeviceIdentifiersCommandOutput extends ListDeviceIdentifier
  * import { PrivateNetworksClient, ListDeviceIdentifiersCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ListDeviceIdentifiersCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = {
+ *   filters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   networkArn: "STRING_VALUE", // required
+ *   startToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDeviceIdentifiersCommand(input);
  * const response = await client.send(command);
  * ```

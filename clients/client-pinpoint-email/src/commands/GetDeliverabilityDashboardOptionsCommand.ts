@@ -53,6 +53,7 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
  * import { PinpointEmailClient, GetDeliverabilityDashboardOptionsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetDeliverabilityDashboardOptionsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {};
  * const command = new GetDeliverabilityDashboardOptionsCommand(input);
  * const response = await client.send(command);
  * ```

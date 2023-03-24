@@ -50,6 +50,9 @@ export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __Met
  * import { SecretsManagerClient, RestoreSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, RestoreSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = {
+ *   SecretId: "STRING_VALUE", // required
+ * };
  * const command = new RestoreSecretCommand(input);
  * const response = await client.send(command);
  * ```

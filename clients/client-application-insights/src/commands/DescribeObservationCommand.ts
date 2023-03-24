@@ -46,6 +46,9 @@ export interface DescribeObservationCommandOutput extends DescribeObservationRes
  * import { ApplicationInsightsClient, DescribeObservationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DescribeObservationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = {
+ *   ObservationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeObservationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -56,6 +56,14 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  * import { CloudFrontClient, CreateFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   FunctionConfig: {
+ *     Comment: "STRING_VALUE", // required
+ *     Runtime: "cloudfront-js-1.0", // required
+ *   },
+ *   FunctionCode: "BLOB_VALUE", // required
+ * };
  * const command = new CreateFunctionCommand(input);
  * const response = await client.send(command);
  * ```

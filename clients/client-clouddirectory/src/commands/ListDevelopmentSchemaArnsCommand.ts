@@ -43,6 +43,10 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  * import { CloudDirectoryClient, ListDevelopmentSchemaArnsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListDevelopmentSchemaArnsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDevelopmentSchemaArnsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,18 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * import { DirectoryServiceClient, CreateComputerCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, CreateComputerCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = {
+ *   DirectoryId: "STRING_VALUE", // required
+ *   ComputerName: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ *   OrganizationalUnitDistinguishedName: "STRING_VALUE",
+ *   ComputerAttributes: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateComputerCommand(input);
  * const response = await client.send(command);
  * ```

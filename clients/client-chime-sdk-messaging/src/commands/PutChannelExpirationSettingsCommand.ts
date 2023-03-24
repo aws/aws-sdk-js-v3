@@ -65,6 +65,14 @@ export interface PutChannelExpirationSettingsCommandOutput
  * import { ChimeSDKMessagingClient, PutChannelExpirationSettingsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, PutChannelExpirationSettingsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ *   ExpirationSettings: {
+ *     ExpirationDays: Number("int"), // required
+ *     ExpirationCriterion: "CREATED_TIMESTAMP" || "LAST_MESSAGE_TIMESTAMP", // required
+ *   },
+ * };
  * const command = new PutChannelExpirationSettingsCommand(input);
  * const response = await client.send(command);
  * ```

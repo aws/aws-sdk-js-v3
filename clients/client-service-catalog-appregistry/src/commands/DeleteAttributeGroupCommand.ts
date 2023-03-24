@@ -46,6 +46,9 @@ export interface DeleteAttributeGroupCommandOutput extends DeleteAttributeGroupR
  * import { ServiceCatalogAppRegistryClient, DeleteAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, DeleteAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = {
+ *   attributeGroup: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAttributeGroupCommand(input);
  * const response = await client.send(command);
  * ```

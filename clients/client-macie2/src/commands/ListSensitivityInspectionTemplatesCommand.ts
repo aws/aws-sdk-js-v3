@@ -47,6 +47,10 @@ export interface ListSensitivityInspectionTemplatesCommandOutput
  * import { Macie2Client, ListSensitivityInspectionTemplatesCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListSensitivityInspectionTemplatesCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSensitivityInspectionTemplatesCommand(input);
  * const response = await client.send(command);
  * ```

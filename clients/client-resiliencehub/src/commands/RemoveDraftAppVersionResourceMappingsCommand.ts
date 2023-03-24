@@ -48,6 +48,27 @@ export interface RemoveDraftAppVersionResourceMappingsCommandOutput
  * import { ResiliencehubClient, RemoveDraftAppVersionResourceMappingsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, RemoveDraftAppVersionResourceMappingsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   appArn: "STRING_VALUE", // required
+ *   resourceNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   logicalStackNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   appRegistryAppNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   resourceGroupNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   terraformSourceNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   eksSourceNames: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveDraftAppVersionResourceMappingsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * import { SecurityHubClient, DescribeHubCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DescribeHubCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   HubArn: "STRING_VALUE",
+ * };
  * const command = new DescribeHubCommand(input);
  * const response = await client.send(command);
  * ```

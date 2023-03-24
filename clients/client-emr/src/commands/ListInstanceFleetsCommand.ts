@@ -46,6 +46,10 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
  * import { EMRClient, ListInstanceFleetsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListInstanceFleetsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   ClusterId: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListInstanceFleetsCommand(input);
  * const response = await client.send(command);
  * ```

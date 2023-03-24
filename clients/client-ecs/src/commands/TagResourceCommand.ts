@@ -45,6 +45,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { ECSClient, TagResourceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, TagResourceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: [ // required
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

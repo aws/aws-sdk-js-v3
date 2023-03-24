@@ -42,6 +42,12 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * import { SchedulerClient, UntagResourceCommand } from "@aws-sdk/client-scheduler"; // ES Modules import
  * // const { SchedulerClient, UntagResourceCommand } = require("@aws-sdk/client-scheduler"); // CommonJS import
  * const client = new SchedulerClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,17 @@ export interface GetBucketsAggregationCommandOutput extends GetBucketsAggregatio
  * import { IoTClient, GetBucketsAggregationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetBucketsAggregationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   indexName: "STRING_VALUE",
+ *   queryString: "STRING_VALUE", // required
+ *   aggregationField: "STRING_VALUE", // required
+ *   queryVersion: "STRING_VALUE",
+ *   bucketsAggregationType: {
+ *     termsAggregation: {
+ *       maxBuckets: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new GetBucketsAggregationCommand(input);
  * const response = await client.send(command);
  * ```

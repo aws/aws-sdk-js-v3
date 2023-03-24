@@ -47,6 +47,11 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesResult, _
  * import { CodeartifactClient, ListRepositoriesCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, ListRepositoriesCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = {
+ *   repositoryPrefix: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListRepositoriesCommand(input);
  * const response = await client.send(command);
  * ```

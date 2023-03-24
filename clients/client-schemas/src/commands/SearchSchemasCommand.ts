@@ -42,6 +42,12 @@ export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __Met
  * import { SchemasClient, SearchSchemasCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, SearchSchemasCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = {
+ *   Keywords: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   RegistryName: "STRING_VALUE", // required
+ * };
  * const command = new SearchSchemasCommand(input);
  * const response = await client.send(command);
  * ```

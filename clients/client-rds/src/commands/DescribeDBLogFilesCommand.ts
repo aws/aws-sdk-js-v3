@@ -43,6 +43,22 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  * import { RDSClient, DescribeDBLogFilesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBLogFilesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   FilenameContains: "STRING_VALUE",
+ *   FileLastWritten: Number("long"),
+ *   FileSize: Number("long"),
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDBLogFilesCommand(input);
  * const response = await client.send(command);
  * ```

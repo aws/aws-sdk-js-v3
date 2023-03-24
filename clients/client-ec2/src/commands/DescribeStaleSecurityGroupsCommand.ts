@@ -45,6 +45,12 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
  * import { EC2Client, DescribeStaleSecurityGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeStaleSecurityGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   VpcId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeStaleSecurityGroupsCommand(input);
  * const response = await client.send(command);
  * ```

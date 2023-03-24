@@ -42,6 +42,13 @@ export interface DescribeActionTargetsCommandOutput extends DescribeActionTarget
  * import { SecurityHubClient, DescribeActionTargetsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DescribeActionTargetsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   ActionTargetArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeActionTargetsCommand(input);
  * const response = await client.send(command);
  * ```

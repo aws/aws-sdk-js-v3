@@ -42,6 +42,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { FSxClient, UntagResourceCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UntagResourceCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

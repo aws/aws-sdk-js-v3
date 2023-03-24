@@ -43,6 +43,20 @@ export interface ListOpsItemRelatedItemsCommandOutput extends ListOpsItemRelated
  * import { SSMClient, ListOpsItemRelatedItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListOpsItemRelatedItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   OpsItemId: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       Key: "ResourceType" || "AssociationId" || "ResourceUri", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Operator: "Equal", // required
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListOpsItemRelatedItemsCommand(input);
  * const response = await client.send(command);
  * ```

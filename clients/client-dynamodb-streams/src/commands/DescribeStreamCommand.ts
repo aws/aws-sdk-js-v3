@@ -50,6 +50,11 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * import { DynamoDBStreamsClient, DescribeStreamCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
  * // const { DynamoDBStreamsClient, DescribeStreamCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
  * const client = new DynamoDBStreamsClient(config);
+ * const input = {
+ *   StreamArn: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   ExclusiveStartShardId: "STRING_VALUE",
+ * };
  * const command = new DescribeStreamCommand(input);
  * const response = await client.send(command);
  * ```

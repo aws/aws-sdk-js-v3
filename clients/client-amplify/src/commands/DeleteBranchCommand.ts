@@ -42,6 +42,10 @@ export interface DeleteBranchCommandOutput extends DeleteBranchResult, __Metadat
  * import { AmplifyClient, DeleteBranchCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, DeleteBranchCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBranchCommand(input);
  * const response = await client.send(command);
  * ```

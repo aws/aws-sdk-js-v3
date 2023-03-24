@@ -43,6 +43,36 @@ export interface ListEventsCommandOutput extends ListEventsResponse, __MetadataB
  * import { DevOpsGuruClient, ListEventsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListEventsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {
+ *   Filters: {
+ *     InsightId: "STRING_VALUE",
+ *     EventTimeRange: {
+ *       FromTime: new Date("TIMESTAMP"), // required
+ *       ToTime: new Date("TIMESTAMP"), // required
+ *     },
+ *     EventClass: "INFRASTRUCTURE" || "DEPLOYMENT" || "SECURITY_CHANGE" || "CONFIG_CHANGE" || "SCHEMA_CHANGE",
+ *     EventSource: "STRING_VALUE",
+ *     DataSource: "AWS_CLOUD_TRAIL" || "AWS_CODE_DEPLOY",
+ *     ResourceCollection: {
+ *       CloudFormation: {
+ *         StackNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Tags: [
+ *         {
+ *           AppBoundaryKey: "STRING_VALUE", // required
+ *           TagValues: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new ListEventsCommand(input);
  * const response = await client.send(command);
  * ```

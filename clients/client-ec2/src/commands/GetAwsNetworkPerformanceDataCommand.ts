@@ -44,6 +44,23 @@ export interface GetAwsNetworkPerformanceDataCommandOutput
  * import { EC2Client, GetAwsNetworkPerformanceDataCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetAwsNetworkPerformanceDataCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DataQueries: [
+ *     {
+ *       Id: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       Destination: "STRING_VALUE",
+ *       Metric: "aggregate-latency",
+ *       Statistic: "p50",
+ *       Period: "five-minutes" || "fifteen-minutes" || "one-hour" || "three-hours" || "one-day" || "one-week",
+ *     },
+ *   ],
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new GetAwsNetworkPerformanceDataCommand(input);
  * const response = await client.send(command);
  * ```

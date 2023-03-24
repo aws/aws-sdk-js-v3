@@ -60,6 +60,10 @@ export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBe
  * import { S3Client, DeleteBucketOwnershipControlsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteBucketOwnershipControlsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteBucketOwnershipControlsCommand(input);
  * const response = await client.send(command);
  * ```

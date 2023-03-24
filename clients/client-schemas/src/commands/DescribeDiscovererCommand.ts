@@ -42,6 +42,9 @@ export interface DescribeDiscovererCommandOutput extends DescribeDiscovererRespo
  * import { SchemasClient, DescribeDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DescribeDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = {
+ *   DiscovererId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDiscovererCommand(input);
  * const response = await client.send(command);
  * ```

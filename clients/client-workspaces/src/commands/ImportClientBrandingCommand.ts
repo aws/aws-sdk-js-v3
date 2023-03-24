@@ -69,6 +69,65 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  * import { WorkSpacesClient, ImportClientBrandingCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ImportClientBrandingCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   DeviceTypeWindows: {
+ *     Logo: "BLOB_VALUE",
+ *     SupportEmail: "STRING_VALUE",
+ *     SupportLink: "STRING_VALUE",
+ *     ForgotPasswordLink: "STRING_VALUE",
+ *     LoginMessage: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   DeviceTypeOsx: {
+ *     Logo: "BLOB_VALUE",
+ *     SupportEmail: "STRING_VALUE",
+ *     SupportLink: "STRING_VALUE",
+ *     ForgotPasswordLink: "STRING_VALUE",
+ *     LoginMessage: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   DeviceTypeAndroid: {
+ *     Logo: "BLOB_VALUE",
+ *     SupportEmail: "STRING_VALUE",
+ *     SupportLink: "STRING_VALUE",
+ *     ForgotPasswordLink: "STRING_VALUE",
+ *     LoginMessage: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   DeviceTypeIos: {
+ *     Logo: "BLOB_VALUE",
+ *     Logo2x: "BLOB_VALUE",
+ *     Logo3x: "BLOB_VALUE",
+ *     SupportEmail: "STRING_VALUE",
+ *     SupportLink: "STRING_VALUE",
+ *     ForgotPasswordLink: "STRING_VALUE",
+ *     LoginMessage: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   DeviceTypeLinux: {
+ *     Logo: "BLOB_VALUE",
+ *     SupportEmail: "STRING_VALUE",
+ *     SupportLink: "STRING_VALUE",
+ *     ForgotPasswordLink: "STRING_VALUE",
+ *     LoginMessage: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   DeviceTypeWeb: {
+ *     Logo: "BLOB_VALUE",
+ *     SupportEmail: "STRING_VALUE",
+ *     SupportLink: "STRING_VALUE",
+ *     ForgotPasswordLink: "STRING_VALUE",
+ *     LoginMessage: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new ImportClientBrandingCommand(input);
  * const response = await client.send(command);
  * ```

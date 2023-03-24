@@ -41,6 +41,13 @@ export interface NullAndEmptyHeadersServerCommandOutput extends NullAndEmptyHead
  * import { RestXmlProtocolClient, NullAndEmptyHeadersServerCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, NullAndEmptyHeadersServerCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = {
+ *   a: "STRING_VALUE",
+ *   b: "STRING_VALUE",
+ *   c: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new NullAndEmptyHeadersServerCommand(input);
  * const response = await client.send(command);
  * ```

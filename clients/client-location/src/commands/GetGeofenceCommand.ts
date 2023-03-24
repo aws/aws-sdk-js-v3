@@ -42,6 +42,10 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
  * import { LocationClient, GetGeofenceCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetGeofenceCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   CollectionName: "STRING_VALUE", // required
+ *   GeofenceId: "STRING_VALUE", // required
+ * };
  * const command = new GetGeofenceCommand(input);
  * const response = await client.send(command);
  * ```

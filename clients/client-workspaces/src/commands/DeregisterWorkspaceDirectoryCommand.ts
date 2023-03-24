@@ -57,6 +57,9 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
  * import { WorkSpacesClient, DeregisterWorkspaceDirectoryCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeregisterWorkspaceDirectoryCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   DirectoryId: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterWorkspaceDirectoryCommand(input);
  * const response = await client.send(command);
  * ```

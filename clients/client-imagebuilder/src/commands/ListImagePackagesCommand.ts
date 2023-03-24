@@ -42,6 +42,11 @@ export interface ListImagePackagesCommandOutput extends ListImagePackagesRespons
  * import { ImagebuilderClient, ListImagePackagesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListImagePackagesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   imageBuildVersionArn: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListImagePackagesCommand(input);
  * const response = await client.send(command);
  * ```

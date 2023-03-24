@@ -54,6 +54,26 @@ export interface PutReplicationConfigurationCommandOutput
  * import { ECRClient, PutReplicationConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, PutReplicationConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {
+ *   replicationConfiguration: {
+ *     rules: [ // required
+ *       {
+ *         destinations: [ // required
+ *           {
+ *             region: "STRING_VALUE", // required
+ *             registryId: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         repositoryFilters: [
+ *           {
+ *             filter: "STRING_VALUE", // required
+ *             filterType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new PutReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,14 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * import { CloudTrailClient, PutInsightSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, PutInsightSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   TrailName: "STRING_VALUE", // required
+ *   InsightSelectors: [ // required
+ *     {
+ *       InsightType: "ApiCallRateInsight" || "ApiErrorRateInsight",
+ *     },
+ *   ],
+ * };
  * const command = new PutInsightSelectorsCommand(input);
  * const response = await client.send(command);
  * ```

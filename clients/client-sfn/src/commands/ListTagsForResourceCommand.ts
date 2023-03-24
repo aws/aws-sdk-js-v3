@@ -43,6 +43,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * import { SFNClient, ListTagsForResourceCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, ListTagsForResourceCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

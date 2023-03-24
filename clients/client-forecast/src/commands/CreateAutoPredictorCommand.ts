@@ -94,6 +94,60 @@ export interface CreateAutoPredictorCommandOutput extends CreateAutoPredictorRes
  * import { ForecastClient, CreateAutoPredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateAutoPredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   PredictorName: "STRING_VALUE", // required
+ *   ForecastHorizon: Number("int"),
+ *   ForecastTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ForecastDimensions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ForecastFrequency: "STRING_VALUE",
+ *   DataConfig: {
+ *     DatasetGroupArn: "STRING_VALUE", // required
+ *     AttributeConfigs: [
+ *       {
+ *         AttributeName: "STRING_VALUE", // required
+ *         Transformations: { // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     AdditionalDatasets: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Configuration: {
+ *           "<keys>": [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   EncryptionConfig: {
+ *     RoleArn: "STRING_VALUE", // required
+ *     KMSKeyArn: "STRING_VALUE", // required
+ *   },
+ *   ReferencePredictorArn: "STRING_VALUE",
+ *   OptimizationMetric: "WAPE" || "RMSE" || "AverageWeightedQuantileLoss" || "MASE" || "MAPE",
+ *   ExplainPredictor: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   MonitorConfig: {
+ *     MonitorName: "STRING_VALUE", // required
+ *   },
+ *   TimeAlignmentBoundary: {
+ *     Month: "JANUARY" || "FEBRUARY" || "MARCH" || "APRIL" || "MAY" || "JUNE" || "JULY" || "AUGUST" || "SEPTEMBER" || "OCTOBER" || "NOVEMBER" || "DECEMBER",
+ *     DayOfMonth: Number("int"),
+ *     DayOfWeek: "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY" || "SUNDAY",
+ *     Hour: Number("int"),
+ *   },
+ * };
  * const command = new CreateAutoPredictorCommand(input);
  * const response = await client.send(command);
  * ```

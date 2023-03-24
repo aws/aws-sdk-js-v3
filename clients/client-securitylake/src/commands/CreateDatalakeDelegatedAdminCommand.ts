@@ -46,6 +46,9 @@ export interface CreateDatalakeDelegatedAdminCommandOutput
  * import { SecurityLakeClient, CreateDatalakeDelegatedAdminCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateDatalakeDelegatedAdminCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   account: "STRING_VALUE", // required
+ * };
  * const command = new CreateDatalakeDelegatedAdminCommand(input);
  * const response = await client.send(command);
  * ```

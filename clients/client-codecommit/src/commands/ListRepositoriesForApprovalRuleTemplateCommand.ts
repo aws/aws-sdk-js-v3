@@ -48,6 +48,11 @@ export interface ListRepositoriesForApprovalRuleTemplateCommandOutput
  * import { CodeCommitClient, ListRepositoriesForApprovalRuleTemplateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, ListRepositoriesForApprovalRuleTemplateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   approvalRuleTemplateName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListRepositoriesForApprovalRuleTemplateCommand(input);
  * const response = await client.send(command);
  * ```

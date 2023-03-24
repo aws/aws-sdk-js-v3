@@ -44,6 +44,41 @@ export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse,
  * import { EvidentlyClient, UpdateExperimentCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, UpdateExperimentCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   project: "STRING_VALUE", // required
+ *   experiment: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   treatments: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       feature: "STRING_VALUE", // required
+ *       variation: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   metricGoals: [
+ *     {
+ *       metricDefinition: {
+ *         name: "STRING_VALUE", // required
+ *         entityIdKey: "STRING_VALUE", // required
+ *         valueKey: "STRING_VALUE", // required
+ *         eventPattern: "STRING_VALUE",
+ *         unitLabel: "STRING_VALUE",
+ *       },
+ *       desiredChange: "STRING_VALUE",
+ *     },
+ *   ],
+ *   randomizationSalt: "STRING_VALUE",
+ *   samplingRate: Number("long"),
+ *   segment: "STRING_VALUE",
+ *   removeSegment: true || false,
+ *   onlineAbConfig: {
+ *     controlTreatmentName: "STRING_VALUE",
+ *     treatmentWeights: {
+ *       "<keys>": Number("long"),
+ *     },
+ *   },
+ * };
  * const command = new UpdateExperimentCommand(input);
  * const response = await client.send(command);
  * ```

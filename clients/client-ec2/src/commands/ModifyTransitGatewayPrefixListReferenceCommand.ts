@@ -48,6 +48,13 @@ export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
  * import { EC2Client, ModifyTransitGatewayPrefixListReferenceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyTransitGatewayPrefixListReferenceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   PrefixListId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: "STRING_VALUE",
+ *   Blackhole: true || false,
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyTransitGatewayPrefixListReferenceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,11 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  * import { InspectorClient, DescribeAssessmentTargetsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeAssessmentTargetsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   assessmentTargetArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeAssessmentTargetsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,27 @@ export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __Metad
  * import { DataBrewClient, UpdateRecipeCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateRecipeCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   Description: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Steps: [
+ *     {
+ *       Action: {
+ *         Operation: "STRING_VALUE", // required
+ *         Parameters: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       ConditionExpressions: [
+ *         {
+ *           Condition: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE",
+ *           TargetColumn: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRecipeCommand(input);
  * const response = await client.send(command);
  * ```

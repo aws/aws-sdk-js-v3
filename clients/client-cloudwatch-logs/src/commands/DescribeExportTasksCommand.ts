@@ -43,6 +43,12 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * import { CloudWatchLogsClient, DescribeExportTasksCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeExportTasksCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   taskId: "STRING_VALUE",
+ *   statusCode: "CANCELLED" || "COMPLETED" || "FAILED" || "PENDING" || "PENDING_CANCEL" || "RUNNING",
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new DescribeExportTasksCommand(input);
  * const response = await client.send(command);
  * ```

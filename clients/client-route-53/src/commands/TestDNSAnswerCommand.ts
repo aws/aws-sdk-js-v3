@@ -46,6 +46,14 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * import { Route53Client, TestDNSAnswerCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, TestDNSAnswerCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   RecordName: "STRING_VALUE", // required
+ *   RecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ *   ResolverIP: "STRING_VALUE",
+ *   EDNS0ClientSubnetIP: "STRING_VALUE",
+ *   EDNS0ClientSubnetMask: "STRING_VALUE",
+ * };
  * const command = new TestDNSAnswerCommand(input);
  * const response = await client.send(command);
  * ```

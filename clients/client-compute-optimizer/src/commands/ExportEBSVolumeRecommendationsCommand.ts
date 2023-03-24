@@ -49,6 +49,28 @@ export interface ExportEBSVolumeRecommendationsCommandOutput
  * import { ComputeOptimizerClient, ExportEBSVolumeRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, ExportEBSVolumeRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = {
+ *   accountIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [
+ *     {
+ *       name: "Finding",
+ *       values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   fieldsToExport: [
+ *     "AccountId" || "VolumeArn" || "Finding" || "UtilizationMetricsVolumeReadOpsPerSecondMaximum" || "UtilizationMetricsVolumeWriteOpsPerSecondMaximum" || "UtilizationMetricsVolumeReadBytesPerSecondMaximum" || "UtilizationMetricsVolumeWriteBytesPerSecondMaximum" || "LookbackPeriodInDays" || "CurrentConfigurationVolumeType" || "CurrentConfigurationVolumeBaselineIOPS" || "CurrentConfigurationVolumeBaselineThroughput" || "CurrentConfigurationVolumeBurstIOPS" || "CurrentConfigurationVolumeBurstThroughput" || "CurrentConfigurationVolumeSize" || "CurrentMonthlyPrice" || "RecommendationOptionsConfigurationVolumeType" || "RecommendationOptionsConfigurationVolumeBaselineIOPS" || "RecommendationOptionsConfigurationVolumeBaselineThroughput" || "RecommendationOptionsConfigurationVolumeBurstIOPS" || "RecommendationOptionsConfigurationVolumeBurstThroughput" || "RecommendationOptionsConfigurationVolumeSize" || "RecommendationOptionsMonthlyPrice" || "RecommendationOptionsPerformanceRisk" || "LastRefreshTimestamp" || "CurrentPerformanceRisk" || "RecommendationOptionsSavingsOpportunityPercentage" || "RecommendationOptionsEstimatedMonthlySavingsCurrency" || "RecommendationOptionsEstimatedMonthlySavingsValue",
+ *   ],
+ *   s3DestinationConfig: {
+ *     bucket: "STRING_VALUE",
+ *     keyPrefix: "STRING_VALUE",
+ *   },
+ *   fileFormat: "Csv",
+ *   includeMemberAccounts: true || false,
+ * };
  * const command = new ExportEBSVolumeRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```

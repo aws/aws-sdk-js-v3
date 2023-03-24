@@ -48,6 +48,76 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * import { CodePipelineClient, CreatePipelineCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, CreatePipelineCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   pipeline: {
+ *     name: "STRING_VALUE", // required
+ *     roleArn: "STRING_VALUE", // required
+ *     artifactStore: {
+ *       type: "STRING_VALUE", // required
+ *       location: "STRING_VALUE", // required
+ *       encryptionKey: {
+ *         id: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     artifactStores: {
+ *       "<keys>": {
+ *         type: "STRING_VALUE", // required
+ *         location: "STRING_VALUE", // required
+ *         encryptionKey: {
+ *           id: "STRING_VALUE", // required
+ *           type: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *     stages: [ // required
+ *       {
+ *         name: "STRING_VALUE", // required
+ *         blockers: [
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             type: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         actions: [ // required
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             actionTypeId: {
+ *               category: "STRING_VALUE", // required
+ *               owner: "STRING_VALUE", // required
+ *               provider: "STRING_VALUE", // required
+ *               version: "STRING_VALUE", // required
+ *             },
+ *             runOrder: Number("int"),
+ *             configuration: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             outputArtifacts: [
+ *               {
+ *                 name: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             inputArtifacts: [
+ *               {
+ *                 name: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             roleArn: "STRING_VALUE",
+ *             region: "STRING_VALUE",
+ *             namespace: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     version: Number("int"),
+ *   },
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);
  * ```

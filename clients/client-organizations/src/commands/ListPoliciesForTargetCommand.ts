@@ -54,6 +54,12 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  * import { OrganizationsClient, ListPoliciesForTargetCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListPoliciesForTargetCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   TargetId: "STRING_VALUE", // required
+ *   Filter: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPoliciesForTargetCommand(input);
  * const response = await client.send(command);
  * ```

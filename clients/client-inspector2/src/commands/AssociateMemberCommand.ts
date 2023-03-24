@@ -42,6 +42,9 @@ export interface AssociateMemberCommandOutput extends AssociateMemberResponse, _
  * import { Inspector2Client, AssociateMemberCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, AssociateMemberCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateMemberCommand(input);
  * const response = await client.send(command);
  * ```

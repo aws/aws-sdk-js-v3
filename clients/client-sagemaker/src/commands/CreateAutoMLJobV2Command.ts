@@ -49,6 +49,73 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  * import { SageMakerClient, CreateAutoMLJobV2Command } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateAutoMLJobV2Command } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   AutoMLJobName: "STRING_VALUE", // required
+ *   AutoMLJobInputDataConfig: [ // required
+ *     {
+ *       ChannelType: "training" || "validation",
+ *       ContentType: "STRING_VALUE",
+ *       CompressionType: "None" || "Gzip",
+ *       DataSource: {
+ *         S3DataSource: {
+ *           S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
+ *           S3Uri: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   OutputDataConfig: {
+ *     KmsKeyId: "STRING_VALUE",
+ *     S3OutputPath: "STRING_VALUE", // required
+ *   },
+ *   AutoMLProblemTypeConfig: { // Union: only one key present
+ *     ImageClassificationJobConfig: {
+ *       CompletionCriteria: {
+ *         MaxCandidates: Number("int"),
+ *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
+ *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
+ *       },
+ *     },
+ *     TextClassificationJobConfig: {
+ *       CompletionCriteria: {
+ *         MaxCandidates: Number("int"),
+ *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
+ *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
+ *       },
+ *       ContentColumn: "STRING_VALUE",
+ *       TargetLabelColumn: "STRING_VALUE",
+ *     },
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   SecurityConfig: {
+ *     VolumeKmsKeyId: "STRING_VALUE",
+ *     EnableInterContainerTrafficEncryption: true || false,
+ *     VpcConfig: {
+ *       SecurityGroupIds: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Subnets: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   AutoMLJobObjective: {
+ *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro", // required
+ *   },
+ *   ModelDeployConfig: {
+ *     AutoGenerateEndpointName: true || false,
+ *     EndpointName: "STRING_VALUE",
+ *   },
+ *   DataSplitConfig: {
+ *     ValidationFraction: Number("float"),
+ *   },
+ * };
  * const command = new CreateAutoMLJobV2Command(input);
  * const response = await client.send(command);
  * ```

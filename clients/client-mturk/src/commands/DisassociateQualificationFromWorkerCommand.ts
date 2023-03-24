@@ -54,6 +54,11 @@ export interface DisassociateQualificationFromWorkerCommandOutput
  * import { MTurkClient, DisassociateQualificationFromWorkerCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, DisassociateQualificationFromWorkerCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   WorkerId: "STRING_VALUE", // required
+ *   QualificationTypeId: "STRING_VALUE", // required
+ *   Reason: "STRING_VALUE",
+ * };
  * const command = new DisassociateQualificationFromWorkerCommand(input);
  * const response = await client.send(command);
  * ```

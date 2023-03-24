@@ -43,6 +43,18 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * import { InternetMonitorClient, UpdateMonitorCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, UpdateMonitorCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
  * const client = new InternetMonitorClient(config);
+ * const input = {
+ *   MonitorName: "STRING_VALUE", // required
+ *   ResourcesToAdd: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourcesToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Status: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   MaxCityNetworksToMonitor: Number("int"),
+ * };
  * const command = new UpdateMonitorCommand(input);
  * const response = await client.send(command);
  * ```

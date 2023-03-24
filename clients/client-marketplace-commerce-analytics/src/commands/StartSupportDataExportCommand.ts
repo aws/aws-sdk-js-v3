@@ -53,6 +53,17 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  * import { MarketplaceCommerceAnalyticsClient, StartSupportDataExportCommand } from "@aws-sdk/client-marketplace-commerce-analytics"; // ES Modules import
  * // const { MarketplaceCommerceAnalyticsClient, StartSupportDataExportCommand } = require("@aws-sdk/client-marketplace-commerce-analytics"); // CommonJS import
  * const client = new MarketplaceCommerceAnalyticsClient(config);
+ * const input = {
+ *   dataSetType: "STRING_VALUE", // required
+ *   fromDate: new Date("TIMESTAMP"), // required
+ *   roleNameArn: "STRING_VALUE", // required
+ *   destinationS3BucketName: "STRING_VALUE", // required
+ *   destinationS3Prefix: "STRING_VALUE",
+ *   snsTopicArn: "STRING_VALUE", // required
+ *   customerDefinedValues: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartSupportDataExportCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,15 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * import { MgnClient, ListImportsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListImportsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   filters: {
+ *     importIDs: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListImportsCommand(input);
  * const response = await client.send(command);
  * ```

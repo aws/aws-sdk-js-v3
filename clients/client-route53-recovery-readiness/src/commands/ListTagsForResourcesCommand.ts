@@ -46,6 +46,9 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * import { Route53RecoveryReadinessClient, ListTagsForResourcesCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, ListTagsForResourcesCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourcesCommand(input);
  * const response = await client.send(command);
  * ```

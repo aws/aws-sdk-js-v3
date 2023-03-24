@@ -44,6 +44,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { WorkLinkClient, UntagResourceCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, UntagResourceCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

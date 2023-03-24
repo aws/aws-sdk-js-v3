@@ -47,6 +47,11 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
  * import { AppSyncClient, ListApiKeysCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListApiKeysCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   apiId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListApiKeysCommand(input);
  * const response = await client.send(command);
  * ```

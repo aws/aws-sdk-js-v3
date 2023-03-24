@@ -42,6 +42,10 @@ export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironm
  * import { Cloud9Client, DeleteEnvironmentMembershipCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, DeleteEnvironmentMembershipCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
  * const client = new Cloud9Client(config);
+ * const input = {
+ *   environmentId: "STRING_VALUE", // required
+ *   userArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEnvironmentMembershipCommand(input);
  * const response = await client.send(command);
  * ```

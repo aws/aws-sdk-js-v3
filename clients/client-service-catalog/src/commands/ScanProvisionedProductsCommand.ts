@@ -43,6 +43,15 @@ export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedPro
  * import { ServiceCatalogClient, ScanProvisionedProductsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ScanProvisionedProductsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   AccessLevelFilter: {
+ *     Key: "Account" || "Role" || "User",
+ *     Value: "STRING_VALUE",
+ *   },
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new ScanProvisionedProductsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  * import { ARCZonalShiftClient, ListZonalShiftsCommand } from "@aws-sdk/client-arc-zonal-shift"; // ES Modules import
  * // const { ARCZonalShiftClient, ListZonalShiftsCommand } = require("@aws-sdk/client-arc-zonal-shift"); // CommonJS import
  * const client = new ARCZonalShiftClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   status: "ACTIVE" || "EXPIRED" || "CANCELED",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListZonalShiftsCommand(input);
  * const response = await client.send(command);
  * ```

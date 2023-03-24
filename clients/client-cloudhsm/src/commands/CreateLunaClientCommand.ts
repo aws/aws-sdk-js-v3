@@ -52,6 +52,10 @@ export interface CreateLunaClientCommandOutput extends CreateLunaClientResponse,
  * import { CloudHSMClient, CreateLunaClientCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, CreateLunaClientCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = {
+ *   Label: "STRING_VALUE",
+ *   Certificate: "STRING_VALUE", // required
+ * };
  * const command = new CreateLunaClientCommand(input);
  * const response = await client.send(command);
  * ```

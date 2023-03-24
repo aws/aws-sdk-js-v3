@@ -42,6 +42,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * import { SSMContactsClient, UntagResourceCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, UntagResourceCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

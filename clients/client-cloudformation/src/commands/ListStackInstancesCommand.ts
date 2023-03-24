@@ -43,6 +43,20 @@ export interface ListStackInstancesCommandOutput extends ListStackInstancesOutpu
  * import { CloudFormationClient, ListStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   StackSetName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [
+ *     {
+ *       Name: "DETAILED_STATUS" || "LAST_OPERATION_ID",
+ *       Values: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StackInstanceAccount: "STRING_VALUE",
+ *   StackInstanceRegion: "STRING_VALUE",
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new ListStackInstancesCommand(input);
  * const response = await client.send(command);
  * ```

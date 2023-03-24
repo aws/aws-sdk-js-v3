@@ -43,6 +43,14 @@ export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermission
  * import { WorkMailClient, PutMailboxPermissionsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, PutMailboxPermissionsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ *   GranteeId: "STRING_VALUE", // required
+ *   PermissionValues: [ // required
+ *     "FULL_ACCESS" || "SEND_AS" || "SEND_ON_BEHALF",
+ *   ],
+ * };
  * const command = new PutMailboxPermissionsCommand(input);
  * const response = await client.send(command);
  * ```

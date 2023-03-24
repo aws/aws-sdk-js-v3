@@ -51,6 +51,10 @@ export interface ResetServiceSpecificCredentialCommandOutput
  * import { IAMClient, ResetServiceSpecificCredentialCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ResetServiceSpecificCredentialCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   UserName: "STRING_VALUE",
+ *   ServiceSpecificCredentialId: "STRING_VALUE", // required
+ * };
  * const command = new ResetServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);
  * ```

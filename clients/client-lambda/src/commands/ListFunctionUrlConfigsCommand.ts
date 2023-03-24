@@ -42,6 +42,11 @@ export interface ListFunctionUrlConfigsCommandOutput extends ListFunctionUrlConf
  * import { LambdaClient, ListFunctionUrlConfigsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListFunctionUrlConfigsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   FunctionName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListFunctionUrlConfigsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  * import { ShieldClient, DescribeAttackCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DescribeAttackCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {
+ *   AttackId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAttackCommand(input);
  * const response = await client.send(command);
  * ```

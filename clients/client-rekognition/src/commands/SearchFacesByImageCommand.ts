@@ -78,6 +78,20 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  * import { RekognitionClient, SearchFacesByImageCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, SearchFacesByImageCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   CollectionId: "STRING_VALUE", // required
+ *   Image: {
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: {
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   MaxFaces: Number("int"),
+ *   FaceMatchThreshold: Number("float"),
+ *   QualityFilter: "NONE" || "AUTO" || "LOW" || "MEDIUM" || "HIGH",
+ * };
  * const command = new SearchFacesByImageCommand(input);
  * const response = await client.send(command);
  * ```

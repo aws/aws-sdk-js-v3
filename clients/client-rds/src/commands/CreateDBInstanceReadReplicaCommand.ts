@@ -54,6 +54,59 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * import { RDSClient, CreateDBInstanceReadReplicaCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBInstanceReadReplicaCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   SourceDBInstanceIdentifier: "STRING_VALUE", // required
+ *   DBInstanceClass: "STRING_VALUE",
+ *   AvailabilityZone: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   MultiAZ: true || false,
+ *   AutoMinorVersionUpgrade: true || false,
+ *   Iops: Number("int"),
+ *   OptionGroupName: "STRING_VALUE",
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   PubliclyAccessible: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   StorageType: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   MonitoringInterval: Number("int"),
+ *   MonitoringRoleArn: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   PreSignedUrl: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   PerformanceInsightsRetentionPeriod: Number("int"),
+ *   EnableCloudwatchLogsExports: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ProcessorFeatures: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UseDefaultProcessorFeatures: true || false,
+ *   DeletionProtection: true || false,
+ *   Domain: "STRING_VALUE",
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   ReplicaMode: "open-read-only" || "mounted",
+ *   MaxAllocatedStorage: Number("int"),
+ *   CustomIamInstanceProfile: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
+ *   StorageThroughput: Number("int"),
+ *   EnableCustomerOwnedIp: true || false,
+ *   AllocatedStorage: Number("int"),
+ * };
  * const command = new CreateDBInstanceReadReplicaCommand(input);
  * const response = await client.send(command);
  * ```

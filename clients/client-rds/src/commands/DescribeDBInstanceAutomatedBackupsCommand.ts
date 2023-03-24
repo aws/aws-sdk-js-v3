@@ -50,6 +50,21 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  * import { RDSClient, DescribeDBInstanceAutomatedBackupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBInstanceAutomatedBackupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DbiResourceId: "STRING_VALUE",
+ *   DBInstanceIdentifier: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   DBInstanceAutomatedBackupsArn: "STRING_VALUE",
+ * };
  * const command = new DescribeDBInstanceAutomatedBackupsCommand(input);
  * const response = await client.send(command);
  * ```

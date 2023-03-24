@@ -109,6 +109,16 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  * import { S3ControlClient, PutJobTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutJobTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   JobId: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutJobTaggingCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface GetApisCommandOutput extends GetApisResponse, __MetadataBearer 
  * import { ApiGatewayV2Client, GetApisCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetApisCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetApisCommand(input);
  * const response = await client.send(command);
  * ```

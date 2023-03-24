@@ -43,6 +43,9 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * import { WorkMailClient, DescribeOrganizationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DescribeOrganizationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeOrganizationCommand(input);
  * const response = await client.send(command);
  * ```

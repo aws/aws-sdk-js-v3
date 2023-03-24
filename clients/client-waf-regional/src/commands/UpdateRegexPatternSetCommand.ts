@@ -89,6 +89,16 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * import { WAFRegionalClient, UpdateRegexPatternSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateRegexPatternSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   RegexPatternSetId: "STRING_VALUE", // required
+ *   Updates: [ // required
+ *     {
+ *       Action: "STRING_VALUE", // required
+ *       RegexPatternString: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRegexPatternSetCommand(input);
  * const response = await client.send(command);
  * ```

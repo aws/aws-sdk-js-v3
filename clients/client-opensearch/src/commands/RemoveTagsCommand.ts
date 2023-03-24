@@ -43,6 +43,12 @@ export interface RemoveTagsCommandOutput extends __MetadataBearer {}
  * import { OpenSearchClient, RemoveTagsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, RemoveTagsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   ARN: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);
  * ```

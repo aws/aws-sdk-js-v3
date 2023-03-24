@@ -48,6 +48,13 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
  * import { KendraClient, DisassociatePersonasFromEntitiesCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DisassociatePersonasFromEntitiesCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ *   EntityIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociatePersonasFromEntitiesCommand(input);
  * const response = await client.send(command);
  * ```

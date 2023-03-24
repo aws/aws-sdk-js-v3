@@ -44,6 +44,22 @@ export interface DescribeReservedInstancesCommandOutput extends DescribeReserved
  * import { EC2Client, DescribeReservedInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeReservedInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   OfferingClass: "standard" || "convertible",
+ *   ReservedInstancesIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   OfferingType: "Heavy Utilization" || "Medium Utilization" || "Light Utilization" || "No Upfront" || "Partial Upfront" || "All Upfront",
+ * };
  * const command = new DescribeReservedInstancesCommand(input);
  * const response = await client.send(command);
  * ```

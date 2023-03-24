@@ -69,6 +69,13 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  * import { LexModelBuildingServiceClient, GetUtterancesViewCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetUtterancesViewCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = {
+ *   botName: "STRING_VALUE", // required
+ *   botVersions: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   statusType: "STRING_VALUE", // required
+ * };
  * const command = new GetUtterancesViewCommand(input);
  * const response = await client.send(command);
  * ```

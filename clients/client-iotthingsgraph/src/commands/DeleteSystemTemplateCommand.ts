@@ -45,6 +45,9 @@ export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateR
  * import { IoTThingsGraphClient, DeleteSystemTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeleteSystemTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSystemTemplateCommand(input);
  * const response = await client.send(command);
  * ```

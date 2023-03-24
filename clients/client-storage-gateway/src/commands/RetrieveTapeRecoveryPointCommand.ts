@@ -53,6 +53,10 @@ export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeReco
  * import { StorageGatewayClient, RetrieveTapeRecoveryPointCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, RetrieveTapeRecoveryPointCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   TapeARN: "STRING_VALUE", // required
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new RetrieveTapeRecoveryPointCommand(input);
  * const response = await client.send(command);
  * ```

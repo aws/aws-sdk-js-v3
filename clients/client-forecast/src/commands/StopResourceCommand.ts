@@ -70,6 +70,9 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, StopResourceCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, StopResourceCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new StopResourceCommand(input);
  * const response = await client.send(command);
  * ```

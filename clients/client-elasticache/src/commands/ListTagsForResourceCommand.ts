@@ -47,6 +47,9 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * import { ElastiCacheClient, ListTagsForResourceCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ListTagsForResourceCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   ResourceName: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

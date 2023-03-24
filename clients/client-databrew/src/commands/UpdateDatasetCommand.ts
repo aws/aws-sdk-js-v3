@@ -42,6 +42,89 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * import { DataBrewClient, UpdateDatasetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateDatasetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Format: "CSV" || "JSON" || "PARQUET" || "EXCEL" || "ORC",
+ *   FormatOptions: {
+ *     Json: {
+ *       MultiLine: true || false,
+ *     },
+ *     Excel: {
+ *       SheetNames: [
+ *         "STRING_VALUE",
+ *       ],
+ *       SheetIndexes: [
+ *         Number("int"),
+ *       ],
+ *       HeaderRow: true || false,
+ *     },
+ *     Csv: {
+ *       Delimiter: "STRING_VALUE",
+ *       HeaderRow: true || false,
+ *     },
+ *   },
+ *   Input: {
+ *     S3InputDefinition: {
+ *       Bucket: "STRING_VALUE", // required
+ *       Key: "STRING_VALUE",
+ *       BucketOwner: "STRING_VALUE",
+ *     },
+ *     DataCatalogInputDefinition: {
+ *       CatalogId: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *       TempDirectory: {
+ *         Bucket: "STRING_VALUE", // required
+ *         Key: "STRING_VALUE",
+ *         BucketOwner: "STRING_VALUE",
+ *       },
+ *     },
+ *     DatabaseInputDefinition: {
+ *       GlueConnectionName: "STRING_VALUE", // required
+ *       DatabaseTableName: "STRING_VALUE",
+ *       TempDirectory: {
+ *         Bucket: "STRING_VALUE", // required
+ *         Key: "STRING_VALUE",
+ *         BucketOwner: "STRING_VALUE",
+ *       },
+ *       QueryString: "STRING_VALUE",
+ *     },
+ *     Metadata: {
+ *       SourceArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   PathOptions: {
+ *     LastModifiedDateCondition: {
+ *       Expression: "STRING_VALUE", // required
+ *       ValuesMap: { // required
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *     FilesLimit: {
+ *       MaxFiles: Number("int"), // required
+ *       OrderedBy: "LAST_MODIFIED_DATE",
+ *       Order: "DESCENDING" || "ASCENDING",
+ *     },
+ *     Parameters: {
+ *       "<keys>": {
+ *         Name: "STRING_VALUE", // required
+ *         Type: "Datetime" || "Number" || "String", // required
+ *         DatetimeOptions: {
+ *           Format: "STRING_VALUE", // required
+ *           TimezoneOffset: "STRING_VALUE",
+ *           LocaleCode: "STRING_VALUE",
+ *         },
+ *         CreateColumn: true || false,
+ *         Filter: {
+ *           Expression: "STRING_VALUE", // required
+ *           ValuesMap: { // required
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateDatasetCommand(input);
  * const response = await client.send(command);
  * ```

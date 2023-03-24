@@ -57,6 +57,10 @@ export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
  * import { LexModelBuildingServiceClient, DeleteUtterancesCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, DeleteUtterancesCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = {
+ *   botName: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteUtterancesCommand(input);
  * const response = await client.send(command);
  * ```

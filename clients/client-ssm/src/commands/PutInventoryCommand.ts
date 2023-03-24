@@ -44,6 +44,25 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
  * import { SSMClient, PutInventoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, PutInventoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   Items: [ // required
+ *     {
+ *       TypeName: "STRING_VALUE", // required
+ *       SchemaVersion: "STRING_VALUE", // required
+ *       CaptureTime: "STRING_VALUE", // required
+ *       ContentHash: "STRING_VALUE",
+ *       Content: [
+ *         {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       ],
+ *       Context: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PutInventoryCommand(input);
  * const response = await client.send(command);
  * ```

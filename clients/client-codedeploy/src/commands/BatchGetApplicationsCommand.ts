@@ -43,6 +43,11 @@ export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsO
  * import { CodeDeployClient, BatchGetApplicationsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetApplicationsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = {
+ *   applicationNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetApplicationsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,12 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  * import { EventBridgeClient, ListTargetsByRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListTargetsByRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   Rule: "STRING_VALUE", // required
+ *   EventBusName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListTargetsByRuleCommand(input);
  * const response = await client.send(command);
  * ```

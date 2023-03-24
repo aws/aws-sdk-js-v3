@@ -46,6 +46,9 @@ export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {
  * import { SageMakerClient, StartMonitoringScheduleCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StartMonitoringScheduleCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   MonitoringScheduleName: "STRING_VALUE", // required
+ * };
  * const command = new StartMonitoringScheduleCommand(input);
  * const response = await client.send(command);
  * ```

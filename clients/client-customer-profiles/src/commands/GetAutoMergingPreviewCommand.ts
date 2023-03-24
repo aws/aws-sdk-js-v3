@@ -54,6 +54,21 @@ export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPrevie
  * import { CustomerProfilesClient, GetAutoMergingPreviewCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, GetAutoMergingPreviewCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   Consolidation: {
+ *     MatchingAttributesList: [ // required
+ *       [
+ *         "STRING_VALUE",
+ *       ],
+ *     ],
+ *   },
+ *   ConflictResolution: {
+ *     ConflictResolvingModel: "RECENCY" || "SOURCE", // required
+ *     SourceName: "STRING_VALUE",
+ *   },
+ *   MinAllowedConfidenceScoreForMerging: Number("double"),
+ * };
  * const command = new GetAutoMergingPreviewCommand(input);
  * const response = await client.send(command);
  * ```

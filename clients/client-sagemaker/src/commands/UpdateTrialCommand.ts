@@ -42,6 +42,10 @@ export interface UpdateTrialCommandOutput extends UpdateTrialResponse, __Metadat
  * import { SageMakerClient, UpdateTrialCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateTrialCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   TrialName: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ * };
  * const command = new UpdateTrialCommand(input);
  * const response = await client.send(command);
  * ```

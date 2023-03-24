@@ -42,6 +42,23 @@ export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefine
  * import { GlueClient, UpdateUserDefinedFunctionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateUserDefinedFunctionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   FunctionName: "STRING_VALUE", // required
+ *   FunctionInput: {
+ *     FunctionName: "STRING_VALUE",
+ *     ClassName: "STRING_VALUE",
+ *     OwnerName: "STRING_VALUE",
+ *     OwnerType: "USER" || "ROLE" || "GROUP",
+ *     ResourceUris: [
+ *       {
+ *         ResourceType: "JAR" || "FILE" || "ARCHIVE",
+ *         Uri: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateUserDefinedFunctionCommand(input);
  * const response = await client.send(command);
  * ```

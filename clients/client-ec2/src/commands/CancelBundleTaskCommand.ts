@@ -42,6 +42,10 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
  * import { EC2Client, CancelBundleTaskCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CancelBundleTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   BundleId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new CancelBundleTaskCommand(input);
  * const response = await client.send(command);
  * ```

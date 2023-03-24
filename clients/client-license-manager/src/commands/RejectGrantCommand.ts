@@ -42,6 +42,9 @@ export interface RejectGrantCommandOutput extends RejectGrantResponse, __Metadat
  * import { LicenseManagerClient, RejectGrantCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, RejectGrantCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = {
+ *   GrantArn: "STRING_VALUE", // required
+ * };
  * const command = new RejectGrantCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,10 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  * import { WorkSpacesClient, ModifyWorkspaceStateCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyWorkspaceStateCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   WorkspaceId: "STRING_VALUE", // required
+ *   WorkspaceState: "AVAILABLE" || "ADMIN_MAINTENANCE", // required
+ * };
  * const command = new ModifyWorkspaceStateCommand(input);
  * const response = await client.send(command);
  * ```

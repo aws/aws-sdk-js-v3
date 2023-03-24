@@ -48,6 +48,19 @@ export interface ListManagedEndpointsCommandOutput extends ListManagedEndpointsR
  * import { EMRContainersClient, ListManagedEndpointsCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, ListManagedEndpointsCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = {
+ *   virtualClusterId: "STRING_VALUE", // required
+ *   createdBefore: new Date("TIMESTAMP"),
+ *   createdAfter: new Date("TIMESTAMP"),
+ *   types: [
+ *     "STRING_VALUE",
+ *   ],
+ *   states: [
+ *     "CREATING" || "ACTIVE" || "TERMINATING" || "TERMINATED" || "TERMINATED_WITH_ERRORS",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListManagedEndpointsCommand(input);
  * const response = await client.send(command);
  * ```

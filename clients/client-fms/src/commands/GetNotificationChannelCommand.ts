@@ -44,6 +44,7 @@ export interface GetNotificationChannelCommandOutput extends GetNotificationChan
  * import { FMSClient, GetNotificationChannelCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetNotificationChannelCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {};
  * const command = new GetNotificationChannelCommand(input);
  * const response = await client.send(command);
  * ```

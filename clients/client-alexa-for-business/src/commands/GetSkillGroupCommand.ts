@@ -42,6 +42,9 @@ export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __Met
  * import { AlexaForBusinessClient, GetSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   SkillGroupArn: "STRING_VALUE",
+ * };
  * const command = new GetSkillGroupCommand(input);
  * const response = await client.send(command);
  * ```

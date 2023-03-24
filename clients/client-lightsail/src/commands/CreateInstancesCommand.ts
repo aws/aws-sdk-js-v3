@@ -44,6 +44,36 @@ export interface CreateInstancesCommandOutput extends CreateInstancesResult, __M
  * import { LightsailClient, CreateInstancesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateInstancesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   instanceNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   availabilityZone: "STRING_VALUE", // required
+ *   customImageName: "STRING_VALUE",
+ *   blueprintId: "STRING_VALUE", // required
+ *   bundleId: "STRING_VALUE", // required
+ *   userData: "STRING_VALUE",
+ *   keyPairName: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   addOns: [
+ *     {
+ *       addOnType: "AutoSnapshot" || "StopInstanceOnIdle", // required
+ *       autoSnapshotAddOnRequest: {
+ *         snapshotTimeOfDay: "STRING_VALUE",
+ *       },
+ *       stopInstanceOnIdleRequest: {
+ *         threshold: "STRING_VALUE",
+ *         duration: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   ipAddressType: "dualstack" || "ipv4",
+ * };
  * const command = new CreateInstancesCommand(input);
  * const response = await client.send(command);
  * ```

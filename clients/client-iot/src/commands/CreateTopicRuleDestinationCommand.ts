@@ -43,6 +43,23 @@ export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRule
  * import { IoTClient, CreateTopicRuleDestinationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   destinationConfiguration: {
+ *     httpUrlConfiguration: {
+ *       confirmationUrl: "STRING_VALUE", // required
+ *     },
+ *     vpcConfiguration: {
+ *       subnetIds: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroups: [
+ *         "STRING_VALUE",
+ *       ],
+ *       vpcId: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new CreateTopicRuleDestinationCommand(input);
  * const response = await client.send(command);
  * ```

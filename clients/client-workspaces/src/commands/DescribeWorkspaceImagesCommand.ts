@@ -43,6 +43,14 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  * import { WorkSpacesClient, DescribeWorkspaceImagesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspaceImagesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   ImageIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ImageType: "OWNED" || "SHARED",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeWorkspaceImagesCommand(input);
  * const response = await client.send(command);
  * ```

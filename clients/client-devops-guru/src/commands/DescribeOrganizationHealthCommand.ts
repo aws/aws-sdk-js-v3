@@ -43,6 +43,14 @@ export interface DescribeOrganizationHealthCommandOutput extends DescribeOrganiz
  * import { DevOpsGuruClient, DescribeOrganizationHealthCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeOrganizationHealthCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {
+ *   AccountIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   OrganizationalUnitIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeOrganizationHealthCommand(input);
  * const response = await client.send(command);
  * ```

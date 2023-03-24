@@ -42,6 +42,13 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * import { OmicsClient, GetWorkflowCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetWorkflowCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   type: "STRING_VALUE",
+ *   export: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetWorkflowCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,16 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  * import { ComprehendClient, ListEndpointsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListEndpointsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   Filter: {
+ *     ModelArn: "STRING_VALUE",
+ *     Status: "CREATING" || "DELETING" || "FAILED" || "IN_SERVICE" || "UPDATING",
+ *     CreationTimeBefore: new Date("TIMESTAMP"),
+ *     CreationTimeAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEndpointsCommand(input);
  * const response = await client.send(command);
  * ```

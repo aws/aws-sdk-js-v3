@@ -91,6 +91,22 @@ export interface UpdateSqlInjectionMatchSetCommandOutput extends UpdateSqlInject
  * import { WAFRegionalClient, UpdateSqlInjectionMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateSqlInjectionMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   SqlInjectionMatchSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // required
+ *     {
+ *       Action: "STRING_VALUE", // required
+ *       SqlInjectionMatchTuple: {
+ *         FieldToMatch: {
+ *           Type: "STRING_VALUE", // required
+ *           Data: "STRING_VALUE",
+ *         },
+ *         TextTransformation: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
  * ```

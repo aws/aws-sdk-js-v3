@@ -43,6 +43,26 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * import { Route53ResolverClient, CreateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, CreateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   CreatorRequestId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE", // required
+ *   DomainName: "STRING_VALUE", // required
+ *   TargetIps: [
+ *     {
+ *       Ip: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       Ipv6: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ResolverEndpointId: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateResolverRuleCommand(input);
  * const response = await client.send(command);
  * ```

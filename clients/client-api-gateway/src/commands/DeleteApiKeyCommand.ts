@@ -42,6 +42,9 @@ export interface DeleteApiKeyCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteApiKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteApiKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   apiKey: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApiKeyCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,13 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  * import { EKSClient, ListUpdatesCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListUpdatesCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   nodegroupName: "STRING_VALUE",
+ *   addonName: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListUpdatesCommand(input);
  * const response = await client.send(command);
  * ```

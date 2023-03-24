@@ -62,6 +62,24 @@ export interface CreatePredictorBacktestExportJobCommandOutput
  * import { ForecastClient, CreatePredictorBacktestExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreatePredictorBacktestExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   PredictorBacktestExportJobName: "STRING_VALUE", // required
+ *   PredictorArn: "STRING_VALUE", // required
+ *   Destination: {
+ *     S3Config: {
+ *       Path: "STRING_VALUE", // required
+ *       RoleArn: "STRING_VALUE", // required
+ *       KMSKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Format: "STRING_VALUE",
+ * };
  * const command = new CreatePredictorBacktestExportJobCommand(input);
  * const response = await client.send(command);
  * ```

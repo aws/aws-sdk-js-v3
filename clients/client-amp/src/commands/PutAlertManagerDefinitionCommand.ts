@@ -42,6 +42,11 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  * import { AmpClient, PutAlertManagerDefinitionCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, PutAlertManagerDefinitionCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   data: "BLOB_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new PutAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

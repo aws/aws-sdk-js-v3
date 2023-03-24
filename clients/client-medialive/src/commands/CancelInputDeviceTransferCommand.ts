@@ -42,6 +42,9 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  * import { MediaLiveClient, CancelInputDeviceTransferCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CancelInputDeviceTransferCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   InputDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new CancelInputDeviceTransferCommand(input);
  * const response = await client.send(command);
  * ```

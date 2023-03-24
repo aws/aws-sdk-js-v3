@@ -42,6 +42,11 @@ export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareO
  * import { ServiceCatalogClient, RejectPortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, RejectPortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   PortfolioShareType: "IMPORTED" || "AWS_SERVICECATALOG" || "AWS_ORGANIZATIONS",
+ * };
  * const command = new RejectPortfolioShareCommand(input);
  * const response = await client.send(command);
  * ```

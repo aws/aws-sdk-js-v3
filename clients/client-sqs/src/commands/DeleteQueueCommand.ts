@@ -53,6 +53,9 @@ export interface DeleteQueueCommandOutput extends __MetadataBearer {}
  * import { SQSClient, DeleteQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, DeleteQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = {
+ *   QueueUrl: "STRING_VALUE", // required
+ * };
  * const command = new DeleteQueueCommand(input);
  * const response = await client.send(command);
  * ```

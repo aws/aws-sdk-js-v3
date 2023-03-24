@@ -59,6 +59,11 @@ export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
  * import { GlacierClient, AbortMultipartUploadCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, AbortMultipartUploadCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   uploadId: "STRING_VALUE", // required
+ * };
  * const command = new AbortMultipartUploadCommand(input);
  * const response = await client.send(command);
  * ```

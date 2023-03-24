@@ -42,6 +42,11 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
  * import { CloudDirectoryClient, ListDirectoriesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListDirectoriesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   state: "ENABLED" || "DISABLED" || "DELETED",
+ * };
  * const command = new ListDirectoriesCommand(input);
  * const response = await client.send(command);
  * ```

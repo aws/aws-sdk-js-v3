@@ -39,6 +39,11 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * import { AlexaForBusinessClient, ListTagsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListTagsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   Arn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
  * ```

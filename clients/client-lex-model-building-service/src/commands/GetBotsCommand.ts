@@ -60,6 +60,11 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  * import { LexModelBuildingServiceClient, GetBotsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBotsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nameContains: "STRING_VALUE",
+ * };
  * const command = new GetBotsCommand(input);
  * const response = await client.send(command);
  * ```

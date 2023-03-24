@@ -46,6 +46,10 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * import { RolesAnywhereClient, ListProfilesCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, ListProfilesCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   pageSize: Number("int"),
+ * };
  * const command = new ListProfilesCommand(input);
  * const response = await client.send(command);
  * ```

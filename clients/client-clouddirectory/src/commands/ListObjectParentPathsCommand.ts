@@ -49,6 +49,14 @@ export interface ListObjectParentPathsCommandOutput extends ListObjectParentPath
  * import { CloudDirectoryClient, ListObjectParentPathsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListObjectParentPathsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ObjectReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListObjectParentPathsCommand(input);
  * const response = await client.send(command);
  * ```

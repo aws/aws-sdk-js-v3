@@ -49,6 +49,10 @@ export interface DescribeCostCategoryDefinitionCommandOutput
  * import { CostExplorerClient, DescribeCostCategoryDefinitionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, DescribeCostCategoryDefinitionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = {
+ *   CostCategoryArn: "STRING_VALUE", // required
+ *   EffectiveOn: "STRING_VALUE",
+ * };
  * const command = new DescribeCostCategoryDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

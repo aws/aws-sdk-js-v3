@@ -48,6 +48,45 @@ export interface CreateCloudFormationChangeSetCommandOutput
  * import { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   Capabilities: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ChangeSetName: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   NotificationArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ParameterOverrides: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ResourceTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RollbackConfiguration: {
+ *     MonitoringTimeInMinutes: Number("int"),
+ *     RollbackTriggers: [
+ *       {
+ *         Arn: "STRING_VALUE", // required
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   SemanticVersion: "STRING_VALUE",
+ *   StackName: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   TemplateId: "STRING_VALUE",
+ * };
  * const command = new CreateCloudFormationChangeSetCommand(input);
  * const response = await client.send(command);
  * ```

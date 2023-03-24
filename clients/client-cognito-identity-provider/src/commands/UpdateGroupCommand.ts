@@ -48,6 +48,13 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * import { CognitoIdentityProviderClient, UpdateGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, UpdateGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   GroupName: "STRING_VALUE", // required
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   Precedence: Number("int"),
+ * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
  * ```

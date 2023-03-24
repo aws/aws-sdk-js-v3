@@ -46,6 +46,12 @@ export interface TestBodyStructureCommandOutput extends TestBodyStructureInputOu
  * import { RestJsonProtocolClient, TestBodyStructureCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, TestBodyStructureCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   testId: "STRING_VALUE",
+ *   testConfig: {
+ *     timeout: Number("int"),
+ *   },
+ * };
  * const command = new TestBodyStructureCommand(input);
  * const response = await client.send(command);
  * ```

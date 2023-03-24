@@ -50,6 +50,13 @@ export interface DescribeRaidArraysCommandOutput extends DescribeRaidArraysResul
  * import { OpsWorksClient, DescribeRaidArraysCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeRaidArraysCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE",
+ *   StackId: "STRING_VALUE",
+ *   RaidArrayIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeRaidArraysCommand(input);
  * const response = await client.send(command);
  * ```

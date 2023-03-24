@@ -48,6 +48,10 @@ export interface StartOnDemandReplicationRunCommandOutput
  * import { SMSClient, StartOnDemandReplicationRunCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, StartOnDemandReplicationRunCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   replicationJobId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ * };
  * const command = new StartOnDemandReplicationRunCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,13 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  * import { IoTSiteWiseClient, UpdateDashboardCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateDashboardCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   dashboardId: "STRING_VALUE", // required
+ *   dashboardName: "STRING_VALUE", // required
+ *   dashboardDescription: "STRING_VALUE",
+ *   dashboardDefinition: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateDashboardCommand(input);
  * const response = await client.send(command);
  * ```

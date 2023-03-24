@@ -49,6 +49,12 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * import { EMRContainersClient, ListJobTemplatesCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, ListJobTemplatesCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = {
+ *   createdAfter: new Date("TIMESTAMP"),
+ *   createdBefore: new Date("TIMESTAMP"),
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListJobTemplatesCommand(input);
  * const response = await client.send(command);
  * ```

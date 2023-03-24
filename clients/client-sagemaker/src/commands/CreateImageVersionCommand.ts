@@ -43,6 +43,21 @@ export interface CreateImageVersionCommandOutput extends CreateImageVersionRespo
  * import { SageMakerClient, CreateImageVersionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateImageVersionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   BaseImage: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE", // required
+ *   ImageName: "STRING_VALUE", // required
+ *   Aliases: [
+ *     "STRING_VALUE",
+ *   ],
+ *   VendorGuidance: "NOT_PROVIDED" || "STABLE" || "TO_BE_ARCHIVED" || "ARCHIVED",
+ *   JobType: "TRAINING" || "INFERENCE" || "NOTEBOOK_KERNEL",
+ *   MLFramework: "STRING_VALUE",
+ *   ProgrammingLang: "STRING_VALUE",
+ *   Processor: "CPU" || "GPU",
+ *   Horovod: true || false,
+ *   ReleaseNotes: "STRING_VALUE",
+ * };
  * const command = new CreateImageVersionCommand(input);
  * const response = await client.send(command);
  * ```

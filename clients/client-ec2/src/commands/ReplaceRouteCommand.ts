@@ -44,6 +44,25 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  * import { EC2Client, ReplaceRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReplaceRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DestinationCidrBlock: "STRING_VALUE",
+ *   DestinationIpv6CidrBlock: "STRING_VALUE",
+ *   DestinationPrefixListId: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   VpcEndpointId: "STRING_VALUE",
+ *   EgressOnlyInternetGatewayId: "STRING_VALUE",
+ *   GatewayId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   LocalTarget: true || false,
+ *   NatGatewayId: "STRING_VALUE",
+ *   TransitGatewayId: "STRING_VALUE",
+ *   LocalGatewayId: "STRING_VALUE",
+ *   CarrierGatewayId: "STRING_VALUE",
+ *   NetworkInterfaceId: "STRING_VALUE",
+ *   RouteTableId: "STRING_VALUE", // required
+ *   VpcPeeringConnectionId: "STRING_VALUE",
+ *   CoreNetworkArn: "STRING_VALUE",
+ * };
  * const command = new ReplaceRouteCommand(input);
  * const response = await client.send(command);
  * ```

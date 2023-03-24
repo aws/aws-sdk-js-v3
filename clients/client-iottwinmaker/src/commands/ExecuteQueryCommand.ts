@@ -43,6 +43,12 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * import { IoTTwinMakerClient, ExecuteQueryCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, ExecuteQueryCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   queryStatement: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ExecuteQueryCommand(input);
  * const response = await client.send(command);
  * ```

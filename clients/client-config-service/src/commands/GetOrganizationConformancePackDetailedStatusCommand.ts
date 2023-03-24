@@ -48,6 +48,15 @@ export interface GetOrganizationConformancePackDetailedStatusCommandOutput
  * import { ConfigServiceClient, GetOrganizationConformancePackDetailedStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetOrganizationConformancePackDetailedStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   OrganizationConformancePackName: "STRING_VALUE", // required
+ *   Filters: {
+ *     AccountId: "STRING_VALUE",
+ *     Status: "CREATE_SUCCESSFUL" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_SUCCESSFUL" || "DELETE_FAILED" || "DELETE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED",
+ *   },
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetOrganizationConformancePackDetailedStatusCommand(input);
  * const response = await client.send(command);
  * ```

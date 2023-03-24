@@ -44,6 +44,20 @@ export interface CreateDimensionCommandOutput extends CreateDimensionResponse, _
  * import { IoTClient, CreateDimensionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateDimensionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   type: "TOPIC_FILTER", // required
+ *   stringValues: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   clientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateDimensionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,9 @@ export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, DeleteDatasetGroupCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteDatasetGroupCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   DatasetGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDatasetGroupCommand(input);
  * const response = await client.send(command);
  * ```

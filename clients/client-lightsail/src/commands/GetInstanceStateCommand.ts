@@ -42,6 +42,9 @@ export interface GetInstanceStateCommandOutput extends GetInstanceStateResult, _
  * import { LightsailClient, GetInstanceStateCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstanceStateCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new GetInstanceStateCommand(input);
  * const response = await client.send(command);
  * ```

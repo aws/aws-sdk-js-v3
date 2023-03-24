@@ -44,6 +44,17 @@ export interface CreateStudioLifecycleConfigCommandOutput
  * import { SageMakerClient, CreateStudioLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateStudioLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   StudioLifecycleConfigName: "STRING_VALUE", // required
+ *   StudioLifecycleConfigContent: "STRING_VALUE", // required
+ *   StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateStudioLifecycleConfigCommand(input);
  * const response = await client.send(command);
  * ```

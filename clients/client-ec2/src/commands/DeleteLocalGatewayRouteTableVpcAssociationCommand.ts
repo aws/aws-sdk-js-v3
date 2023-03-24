@@ -48,6 +48,10 @@ export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
  * import { EC2Client, DeleteLocalGatewayRouteTableVpcAssociationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteLocalGatewayRouteTableVpcAssociationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   LocalGatewayRouteTableVpcAssociationId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteLocalGatewayRouteTableVpcAssociationCommand(input);
  * const response = await client.send(command);
  * ```

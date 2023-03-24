@@ -45,6 +45,14 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
  * import { StorageGatewayClient, DescribeTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   GatewayARN: "STRING_VALUE", // required
+ *   TapeARNs: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new DescribeTapesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -60,6 +60,12 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, StopStreamEncryptionCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, StopStreamEncryptionCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = {
+ *   StreamName: "STRING_VALUE",
+ *   EncryptionType: "NONE" || "KMS", // required
+ *   KeyId: "STRING_VALUE", // required
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new StopStreamEncryptionCommand(input);
  * const response = await client.send(command);
  * ```

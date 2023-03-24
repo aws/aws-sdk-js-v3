@@ -42,6 +42,10 @@ export interface DisassociateFleetCommandOutput extends DisassociateFleetResult,
  * import { AppStreamClient, DisassociateFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DisassociateFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   FleetName: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateFleetCommand(input);
  * const response = await client.send(command);
  * ```

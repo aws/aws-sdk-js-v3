@@ -42,6 +42,9 @@ export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateRespons
  * import { MediaConvertClient, DeleteJobTemplateCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, DeleteJobTemplateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteJobTemplateCommand(input);
  * const response = await client.send(command);
  * ```

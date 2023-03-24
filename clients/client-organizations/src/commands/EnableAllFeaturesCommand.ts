@@ -71,6 +71,7 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  * import { OrganizationsClient, EnableAllFeaturesCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, EnableAllFeaturesCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {};
  * const command = new EnableAllFeaturesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,20 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
  * import { DeviceFarmClient, CreateNetworkProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateNetworkProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   projectArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   type: "CURATED" || "PRIVATE",
+ *   uplinkBandwidthBits: Number("long"),
+ *   downlinkBandwidthBits: Number("long"),
+ *   uplinkDelayMs: Number("long"),
+ *   downlinkDelayMs: Number("long"),
+ *   uplinkJitterMs: Number("long"),
+ *   downlinkJitterMs: Number("long"),
+ *   uplinkLossPercent: Number("int"),
+ *   downlinkLossPercent: Number("int"),
+ * };
  * const command = new CreateNetworkProfileCommand(input);
  * const response = await client.send(command);
  * ```

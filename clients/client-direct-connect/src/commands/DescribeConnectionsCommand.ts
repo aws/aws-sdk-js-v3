@@ -42,6 +42,9 @@ export interface DescribeConnectionsCommandOutput extends Connections, __Metadat
  * import { DirectConnectClient, DescribeConnectionsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeConnectionsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   connectionId: "STRING_VALUE",
+ * };
  * const command = new DescribeConnectionsCommand(input);
  * const response = await client.send(command);
  * ```

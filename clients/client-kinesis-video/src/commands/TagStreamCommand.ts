@@ -51,6 +51,13 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  * import { KinesisVideoClient, TagStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, TagStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = {
+ *   StreamARN: "STRING_VALUE",
+ *   StreamName: "STRING_VALUE",
+ *   Tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagStreamCommand(input);
  * const response = await client.send(command);
  * ```

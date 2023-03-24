@@ -42,6 +42,11 @@ export interface DeleteWorkloadShareCommandOutput extends __MetadataBearer {}
  * import { WellArchitectedClient, DeleteWorkloadShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, DeleteWorkloadShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = {
+ *   ShareId: "STRING_VALUE", // required
+ *   WorkloadId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkloadShareCommand(input);
  * const response = await client.send(command);
  * ```

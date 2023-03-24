@@ -44,6 +44,10 @@ export interface RevokeDomainAccessCommandOutput extends RevokeDomainAccessRespo
  * import { WorkLinkClient, RevokeDomainAccessCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, RevokeDomainAccessCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new RevokeDomainAccessCommand(input);
  * const response = await client.send(command);
  * ```

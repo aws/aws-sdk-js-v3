@@ -43,6 +43,9 @@ export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __Met
  * import { RedshiftClient, DescribeLoggingStatusCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeLoggingStatusCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLoggingStatusCommand(input);
  * const response = await client.send(command);
  * ```

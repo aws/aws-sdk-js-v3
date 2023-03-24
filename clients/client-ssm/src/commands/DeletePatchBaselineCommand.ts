@@ -42,6 +42,9 @@ export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineRes
  * import { SSMClient, DeletePatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeletePatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   BaselineId: "STRING_VALUE", // required
+ * };
  * const command = new DeletePatchBaselineCommand(input);
  * const response = await client.send(command);
  * ```

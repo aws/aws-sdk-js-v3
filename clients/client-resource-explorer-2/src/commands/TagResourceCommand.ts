@@ -46,6 +46,12 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * import { ResourceExplorer2Client, TagResourceCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, TagResourceCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

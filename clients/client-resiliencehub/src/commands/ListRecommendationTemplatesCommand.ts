@@ -48,6 +48,17 @@ export interface ListRecommendationTemplatesCommandOutput
  * import { ResiliencehubClient, ListRecommendationTemplatesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListRecommendationTemplatesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   assessmentArn: "STRING_VALUE", // required
+ *   reverseOrder: true || false,
+ *   status: [
+ *     "STRING_VALUE",
+ *   ],
+ *   recommendationTemplateArn: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListRecommendationTemplatesCommand(input);
  * const response = await client.send(command);
  * ```

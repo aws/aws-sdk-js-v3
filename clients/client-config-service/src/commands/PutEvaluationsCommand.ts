@@ -44,6 +44,19 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  * import { ConfigServiceClient, PutEvaluationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutEvaluationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   Evaluations: [
+ *     {
+ *       ComplianceResourceType: "STRING_VALUE", // required
+ *       ComplianceResourceId: "STRING_VALUE", // required
+ *       ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA", // required
+ *       Annotation: "STRING_VALUE",
+ *       OrderingTimestamp: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ *   ResultToken: "STRING_VALUE", // required
+ *   TestMode: true || false,
+ * };
  * const command = new PutEvaluationsCommand(input);
  * const response = await client.send(command);
  * ```

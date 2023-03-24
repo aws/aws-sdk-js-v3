@@ -44,6 +44,10 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * import { GuardDutyClient, ListOrganizationAdminAccountsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListOrganizationAdminAccountsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
  * ```

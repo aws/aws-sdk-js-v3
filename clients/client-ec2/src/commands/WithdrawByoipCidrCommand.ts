@@ -46,6 +46,10 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult,
  * import { EC2Client, WithdrawByoipCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, WithdrawByoipCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Cidr: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new WithdrawByoipCidrCommand(input);
  * const response = await client.send(command);
  * ```

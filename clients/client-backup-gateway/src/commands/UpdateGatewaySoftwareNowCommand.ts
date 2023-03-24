@@ -48,6 +48,9 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * import { BackupGatewayClient, UpdateGatewaySoftwareNowCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, UpdateGatewaySoftwareNowCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = {
+ *   GatewayArn: "STRING_VALUE", // required
+ * };
  * const command = new UpdateGatewaySoftwareNowCommand(input);
  * const response = await client.send(command);
  * ```

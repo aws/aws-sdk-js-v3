@@ -43,6 +43,11 @@ export interface ListApprovedOriginsCommandOutput extends ListApprovedOriginsRes
  * import { ConnectClient, ListApprovedOriginsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListApprovedOriginsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListApprovedOriginsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,9 @@ export interface GetBrowserSettingsCommandOutput extends GetBrowserSettingsRespo
  * import { WorkSpacesWebClient, GetBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   browserSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new GetBrowserSettingsCommand(input);
  * const response = await client.send(command);
  * ```

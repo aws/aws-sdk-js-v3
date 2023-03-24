@@ -56,6 +56,9 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * import { Route53Client, DeleteHealthCheckCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeleteHealthCheckCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   HealthCheckId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHealthCheckCommand(input);
  * const response = await client.send(command);
  * ```

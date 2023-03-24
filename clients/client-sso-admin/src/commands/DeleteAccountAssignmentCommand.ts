@@ -46,6 +46,14 @@ export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssig
  * import { SSOAdminClient, DeleteAccountAssignmentCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, DeleteAccountAssignmentCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = {
+ *   InstanceArn: "STRING_VALUE", // required
+ *   TargetId: "STRING_VALUE", // required
+ *   TargetType: "AWS_ACCOUNT", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   PrincipalType: "USER" || "GROUP", // required
+ *   PrincipalId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccountAssignmentCommand(input);
  * const response = await client.send(command);
  * ```

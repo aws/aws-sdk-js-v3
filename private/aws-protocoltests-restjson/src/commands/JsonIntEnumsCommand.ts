@@ -41,6 +41,20 @@ export interface JsonIntEnumsCommandOutput extends JsonIntEnumsInputOutput, __Me
  * import { RestJsonProtocolClient, JsonIntEnumsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonIntEnumsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   integerEnum1: 1 || 2 || 3,
+ *   integerEnum2: 1 || 2 || 3,
+ *   integerEnum3: 1 || 2 || 3,
+ *   integerEnumList: [
+ *     1 || 2 || 3,
+ *   ],
+ *   integerEnumSet: [
+ *     1 || 2 || 3,
+ *   ],
+ *   integerEnumMap: {
+ *     "<keys>": 1 || 2 || 3,
+ *   },
+ * };
  * const command = new JsonIntEnumsCommand(input);
  * const response = await client.send(command);
  * ```

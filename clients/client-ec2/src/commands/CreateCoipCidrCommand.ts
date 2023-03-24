@@ -41,6 +41,11 @@ export interface CreateCoipCidrCommandOutput extends CreateCoipCidrResult, __Met
  * import { EC2Client, CreateCoipCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateCoipCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Cidr: "STRING_VALUE", // required
+ *   CoipPoolId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new CreateCoipCidrCommand(input);
  * const response = await client.send(command);
  * ```

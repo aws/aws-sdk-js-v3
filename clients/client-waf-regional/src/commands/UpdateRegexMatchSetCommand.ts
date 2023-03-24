@@ -84,6 +84,23 @@ export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetRes
  * import { WAFRegionalClient, UpdateRegexMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateRegexMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   RegexMatchSetId: "STRING_VALUE", // required
+ *   Updates: [ // required
+ *     {
+ *       Action: "STRING_VALUE", // required
+ *       RegexMatchTuple: {
+ *         FieldToMatch: {
+ *           Type: "STRING_VALUE", // required
+ *           Data: "STRING_VALUE",
+ *         },
+ *         TextTransformation: "STRING_VALUE", // required
+ *         RegexPatternSetId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRegexMatchSetCommand(input);
  * const response = await client.send(command);
  * ```

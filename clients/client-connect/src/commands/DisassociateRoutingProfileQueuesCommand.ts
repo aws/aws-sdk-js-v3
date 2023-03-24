@@ -42,6 +42,16 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
  * import { ConnectClient, DisassociateRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   RoutingProfileId: "STRING_VALUE", // required
+ *   QueueReferences: [ // required
+ *     {
+ *       QueueId: "STRING_VALUE", // required
+ *       Channel: "VOICE" || "CHAT" || "TASK", // required
+ *     },
+ *   ],
+ * };
  * const command = new DisassociateRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
  * ```

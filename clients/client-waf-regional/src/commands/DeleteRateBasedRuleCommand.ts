@@ -69,6 +69,10 @@ export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleRes
  * import { WAFRegionalClient, DeleteRateBasedRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteRateBasedRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   RuleId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRateBasedRuleCommand(input);
  * const response = await client.send(command);
  * ```

@@ -60,6 +60,10 @@ export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse,
  * import { GlueClient, ResetJobBookmarkCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ResetJobBookmarkCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   JobName: "STRING_VALUE", // required
+ *   RunId: "STRING_VALUE",
+ * };
  * const command = new ResetJobBookmarkCommand(input);
  * const response = await client.send(command);
  * ```

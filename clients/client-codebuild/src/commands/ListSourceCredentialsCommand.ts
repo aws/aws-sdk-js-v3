@@ -42,6 +42,7 @@ export interface ListSourceCredentialsCommandOutput extends ListSourceCredential
  * import { CodeBuildClient, ListSourceCredentialsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListSourceCredentialsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {};
  * const command = new ListSourceCredentialsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -111,6 +111,7 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * import { DynamoDBClient, DescribeLimitsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeLimitsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {};
  * const command = new DescribeLimitsCommand(input);
  * const response = await client.send(command);
  * ```

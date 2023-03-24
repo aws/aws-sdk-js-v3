@@ -42,6 +42,9 @@ export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __M
  * import { FMSClient, GetResourceSetCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetResourceSetCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new GetResourceSetCommand(input);
  * const response = await client.send(command);
  * ```

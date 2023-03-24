@@ -44,6 +44,9 @@ export interface DisableOrganizationAdminAccountCommandOutput
  * import { Macie2Client, DisableOrganizationAdminAccountCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DisableOrganizationAdminAccountCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   adminAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DisableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```

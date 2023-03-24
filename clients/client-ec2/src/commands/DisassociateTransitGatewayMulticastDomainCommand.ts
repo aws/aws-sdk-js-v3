@@ -48,6 +48,14 @@ export interface DisassociateTransitGatewayMulticastDomainCommandOutput
  * import { EC2Client, DisassociateTransitGatewayMulticastDomainCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateTransitGatewayMulticastDomainCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   TransitGatewayMulticastDomainId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   SubnetIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new DisassociateTransitGatewayMulticastDomainCommand(input);
  * const response = await client.send(command);
  * ```

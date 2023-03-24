@@ -45,6 +45,13 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  * import { IoTThingsGraphClient, CreateSystemTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, CreateSystemTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   definition: {
+ *     language: "STRING_VALUE", // required
+ *     text: "STRING_VALUE", // required
+ *   },
+ *   compatibleNamespaceVersion: Number("long"),
+ * };
  * const command = new CreateSystemTemplateCommand(input);
  * const response = await client.send(command);
  * ```

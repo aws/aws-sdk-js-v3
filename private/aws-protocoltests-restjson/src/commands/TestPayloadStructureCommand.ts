@@ -45,6 +45,12 @@ export interface TestPayloadStructureCommandOutput extends TestPayloadStructureI
  * import { RestJsonProtocolClient, TestPayloadStructureCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, TestPayloadStructureCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   testId: "STRING_VALUE",
+ *   payloadConfig: {
+ *     data: Number("int"),
+ *   },
+ * };
  * const command = new TestPayloadStructureCommand(input);
  * const response = await client.send(command);
  * ```

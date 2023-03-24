@@ -42,6 +42,15 @@ export interface ListBackendJobsCommandOutput extends ListBackendJobsResponse, _
  * import { AmplifyBackendClient, ListBackendJobsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, ListBackendJobsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = {
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   JobId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Operation: "STRING_VALUE",
+ *   Status: "STRING_VALUE",
+ * };
  * const command = new ListBackendJobsCommand(input);
  * const response = await client.send(command);
  * ```

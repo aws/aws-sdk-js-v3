@@ -42,6 +42,30 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * import { GlueClient, CreateConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   ConnectionInput: {
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     ConnectionType: "JDBC" || "SFTP" || "MONGODB" || "KAFKA" || "NETWORK" || "MARKETPLACE" || "CUSTOM", // required
+ *     MatchCriteria: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ConnectionProperties: { // required
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     PhysicalConnectionRequirements: {
+ *       SubnetId: "STRING_VALUE",
+ *       SecurityGroupIdList: [
+ *         "STRING_VALUE",
+ *       ],
+ *       AvailabilityZone: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
  * ```

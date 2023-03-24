@@ -42,6 +42,34 @@ export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStor
  * import { OmicsClient, CreateAnnotationStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CreateAnnotationStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   reference: { // Union: only one key present
+ *     referenceArn: "STRING_VALUE",
+ *   },
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   sseConfig: {
+ *     type: "STRING_VALUE", // required
+ *     keyArn: "STRING_VALUE",
+ *   },
+ *   storeFormat: "STRING_VALUE", // required
+ *   storeOptions: { // Union: only one key present
+ *     tsvStoreOptions: {
+ *       annotationType: "STRING_VALUE",
+ *       formatToHeader: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       schema: [
+ *         {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateAnnotationStoreCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,17 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * import { NeptuneClient, CopyDBClusterParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CopyDBClusterParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = {
+ *   SourceDBClusterParameterGroupIdentifier: "STRING_VALUE", // required
+ *   TargetDBClusterParameterGroupIdentifier: "STRING_VALUE", // required
+ *   TargetDBClusterParameterGroupDescription: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```

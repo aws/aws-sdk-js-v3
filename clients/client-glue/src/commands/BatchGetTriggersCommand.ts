@@ -42,6 +42,11 @@ export interface BatchGetTriggersCommandOutput extends BatchGetTriggersResponse,
  * import { GlueClient, BatchGetTriggersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetTriggersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   TriggerNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetTriggersCommand(input);
  * const response = await client.send(command);
  * ```

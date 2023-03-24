@@ -45,6 +45,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { IoTFleetHubClient, TagResourceCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, TagResourceCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
  * const client = new IoTFleetHubClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

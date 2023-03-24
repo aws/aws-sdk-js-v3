@@ -43,6 +43,18 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  * import { RoboMakerClient, ListSimulationJobsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListSimulationJobsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [
+ *     {
+ *       name: "STRING_VALUE",
+ *       values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new ListSimulationJobsCommand(input);
  * const response = await client.send(command);
  * ```

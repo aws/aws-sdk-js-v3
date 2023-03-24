@@ -42,6 +42,9 @@ export interface GetOrderCommandOutput extends GetOrderResponse, __MetadataBeare
  * import { PrivateNetworksClient, GetOrderCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, GetOrderCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = {
+ *   orderArn: "STRING_VALUE", // required
+ * };
  * const command = new GetOrderCommand(input);
  * const response = await client.send(command);
  * ```

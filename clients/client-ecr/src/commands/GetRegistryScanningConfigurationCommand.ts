@@ -44,6 +44,7 @@ export interface GetRegistryScanningConfigurationCommandOutput
  * import { ECRClient, GetRegistryScanningConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetRegistryScanningConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {};
  * const command = new GetRegistryScanningConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

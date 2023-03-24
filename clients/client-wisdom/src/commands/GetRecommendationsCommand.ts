@@ -49,6 +49,12 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * import { WisdomClient, GetRecommendationsCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetRecommendationsCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = {
+ *   assistantId: "STRING_VALUE", // required
+ *   sessionId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   waitTimeSeconds: Number("int"),
+ * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```

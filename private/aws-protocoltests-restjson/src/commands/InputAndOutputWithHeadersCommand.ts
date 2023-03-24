@@ -42,6 +42,40 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  * import { RestJsonProtocolClient, InputAndOutputWithHeadersCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, InputAndOutputWithHeadersCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   headerString: "STRING_VALUE",
+ *   headerByte: "BYTE_VALUE",
+ *   headerShort: Number("short"),
+ *   headerInteger: Number("int"),
+ *   headerLong: Number("long"),
+ *   headerFloat: Number("float"),
+ *   headerDouble: Number("double"),
+ *   headerTrueBool: true || false,
+ *   headerFalseBool: true || false,
+ *   headerStringList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   headerStringSet: [
+ *     "STRING_VALUE",
+ *   ],
+ *   headerIntegerList: [
+ *     Number("int"),
+ *   ],
+ *   headerBooleanList: [
+ *     true || false,
+ *   ],
+ *   headerTimestampList: [
+ *     new Date("TIMESTAMP"),
+ *   ],
+ *   headerEnum: "Foo" || "Baz" || "Bar" || "1" || "0",
+ *   headerEnumList: [
+ *     "Foo" || "Baz" || "Bar" || "1" || "0",
+ *   ],
+ *   headerIntegerEnum: 1 || 2 || 3,
+ *   headerIntegerEnumList: [
+ *     1 || 2 || 3,
+ *   ],
+ * };
  * const command = new InputAndOutputWithHeadersCommand(input);
  * const response = await client.send(command);
  * ```

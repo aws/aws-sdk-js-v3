@@ -42,6 +42,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { M2Client, TagResourceCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, TagResourceCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

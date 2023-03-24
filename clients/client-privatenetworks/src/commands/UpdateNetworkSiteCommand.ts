@@ -46,6 +46,11 @@ export interface UpdateNetworkSiteCommandOutput extends UpdateNetworkSiteRespons
  * import { PrivateNetworksClient, UpdateNetworkSiteCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, UpdateNetworkSiteCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = {
+ *   networkSiteArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateNetworkSiteCommand(input);
  * const response = await client.send(command);
  * ```

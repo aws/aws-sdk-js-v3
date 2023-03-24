@@ -51,6 +51,16 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
  * import { EC2Client, ModifyTrafficMirrorFilterNetworkServicesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyTrafficMirrorFilterNetworkServicesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   TrafficMirrorFilterId: "STRING_VALUE", // required
+ *   AddNetworkServices: [
+ *     "amazon-dns",
+ *   ],
+ *   RemoveNetworkServices: [
+ *     "amazon-dns",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyTrafficMirrorFilterNetworkServicesCommand(input);
  * const response = await client.send(command);
  * ```

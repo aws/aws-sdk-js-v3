@@ -46,6 +46,13 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeAccessPoints
  * import { ElasticLoadBalancingClient, DescribeLoadBalancersCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DescribeLoadBalancersCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = {
+ *   LoadBalancerNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new DescribeLoadBalancersCommand(input);
  * const response = await client.send(command);
  * ```

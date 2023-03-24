@@ -45,6 +45,10 @@ export interface DescribeDomainChangeProgressCommandOutput
  * import { OpenSearchClient, DescribeDomainChangeProgressCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeDomainChangeProgressCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   ChangeId: "STRING_VALUE",
+ * };
  * const command = new DescribeDomainChangeProgressCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,23 @@ export interface ListUserAssociationsCommandOutput extends ListUserAssociationsR
  * import { LicenseManagerUserSubscriptionsClient, ListUserAssociationsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, ListUserAssociationsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   IdentityProvider: { // Union: only one key present
+ *     ActiveDirectoryIdentityProvider: {
+ *       DirectoryId: "STRING_VALUE",
+ *     },
+ *   },
+ *   MaxResults: Number("int"),
+ *   Filters: [
+ *     {
+ *       Attribute: "STRING_VALUE",
+ *       Operation: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListUserAssociationsCommand(input);
  * const response = await client.send(command);
  * ```

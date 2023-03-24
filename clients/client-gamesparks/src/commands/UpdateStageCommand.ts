@@ -42,6 +42,12 @@ export interface UpdateStageCommandOutput extends UpdateStageResult, __MetadataB
  * import { GameSparksClient, UpdateStageCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, UpdateStageCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   GameName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ *   Role: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateStageCommand(input);
  * const response = await client.send(command);
  * ```

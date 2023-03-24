@@ -42,6 +42,12 @@ export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __Metad
  * import { LocationClient, GetMapGlyphsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetMapGlyphsCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   MapName: "STRING_VALUE", // required
+ *   FontStack: "STRING_VALUE", // required
+ *   FontUnicodeRange: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE",
+ * };
  * const command = new GetMapGlyphsCommand(input);
  * const response = await client.send(command);
  * ```

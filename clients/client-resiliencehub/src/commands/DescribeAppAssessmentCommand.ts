@@ -46,6 +46,9 @@ export interface DescribeAppAssessmentCommandOutput extends DescribeAppAssessmen
  * import { ResiliencehubClient, DescribeAppAssessmentCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, DescribeAppAssessmentCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   assessmentArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAppAssessmentCommand(input);
  * const response = await client.send(command);
  * ```

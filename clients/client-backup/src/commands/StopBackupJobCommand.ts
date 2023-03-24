@@ -46,6 +46,9 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
  * import { BackupClient, StopBackupJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, StopBackupJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupJobId: "STRING_VALUE", // required
+ * };
  * const command = new StopBackupJobCommand(input);
  * const response = await client.send(command);
  * ```

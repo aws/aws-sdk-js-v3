@@ -42,6 +42,10 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * import { IoTSiteWiseClient, DeleteProjectCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeleteProjectCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   projectId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
  * ```

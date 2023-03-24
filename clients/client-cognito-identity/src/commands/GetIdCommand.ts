@@ -41,6 +41,13 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  * import { CognitoIdentityClient, GetIdCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, GetIdCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   Logins: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetIdCommand(input);
  * const response = await client.send(command);
  * ```

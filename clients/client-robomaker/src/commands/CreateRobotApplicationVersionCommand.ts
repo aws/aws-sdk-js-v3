@@ -44,6 +44,14 @@ export interface CreateRobotApplicationVersionCommandOutput
  * import { RoboMakerClient, CreateRobotApplicationVersionCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateRobotApplicationVersionCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = {
+ *   application: "STRING_VALUE", // required
+ *   currentRevisionId: "STRING_VALUE",
+ *   s3Etags: [
+ *     "STRING_VALUE",
+ *   ],
+ *   imageDigest: "STRING_VALUE",
+ * };
  * const command = new CreateRobotApplicationVersionCommand(input);
  * const response = await client.send(command);
  * ```

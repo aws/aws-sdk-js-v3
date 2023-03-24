@@ -42,6 +42,10 @@ export interface AssociateBrowserSettingsCommandOutput extends AssociateBrowserS
  * import { WorkSpacesWebClient, AssociateBrowserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, AssociateBrowserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   portalArn: "STRING_VALUE", // required
+ *   browserSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateBrowserSettingsCommand(input);
  * const response = await client.send(command);
  * ```

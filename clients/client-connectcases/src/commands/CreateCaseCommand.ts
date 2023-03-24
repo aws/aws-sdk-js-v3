@@ -62,6 +62,21 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * import { ConnectCasesClient, CreateCaseCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, CreateCaseCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = {
+ *   domainId: "STRING_VALUE", // required
+ *   templateId: "STRING_VALUE", // required
+ *   fields: [ // required
+ *     {
+ *       id: "STRING_VALUE", // required
+ *       value: { // Union: only one key present
+ *         stringValue: "STRING_VALUE",
+ *         doubleValue: Number("double"),
+ *         booleanValue: true || false,
+ *       },
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateCaseCommand(input);
  * const response = await client.send(command);
  * ```

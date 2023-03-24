@@ -52,6 +52,12 @@ export interface GetPredictiveScalingForecastCommandOutput
  * import { AutoScalingClient, GetPredictiveScalingForecastCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, GetPredictiveScalingForecastCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new GetPredictiveScalingForecastCommand(input);
  * const response = await client.send(command);
  * ```

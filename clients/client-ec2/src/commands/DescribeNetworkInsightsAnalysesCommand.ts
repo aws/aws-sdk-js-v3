@@ -44,6 +44,25 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * import { EC2Client, DescribeNetworkInsightsAnalysesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeNetworkInsightsAnalysesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   NetworkInsightsAnalysisIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NetworkInsightsPathId: "STRING_VALUE",
+ *   AnalysisStartTime: new Date("TIMESTAMP"),
+ *   AnalysisEndTime: new Date("TIMESTAMP"),
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeNetworkInsightsAnalysesCommand(input);
  * const response = await client.send(command);
  * ```

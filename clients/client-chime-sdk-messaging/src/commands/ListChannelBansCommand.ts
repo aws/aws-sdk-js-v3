@@ -56,6 +56,12 @@ export interface ListChannelBansCommandOutput extends ListChannelBansResponse, _
  * import { ChimeSDKMessagingClient, ListChannelBansCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelBansCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new ListChannelBansCommand(input);
  * const response = await client.send(command);
  * ```

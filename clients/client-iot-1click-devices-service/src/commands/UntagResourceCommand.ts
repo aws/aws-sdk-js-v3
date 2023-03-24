@@ -47,6 +47,12 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { IoT1ClickDevicesServiceClient, UntagResourceCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, UntagResourceCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,15 @@ export interface ListCheckSummariesCommandOutput extends ListCheckSummariesOutpu
  * import { WellArchitectedClient, ListCheckSummariesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListCheckSummariesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = {
+ *   WorkloadId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   LensArn: "STRING_VALUE", // required
+ *   PillarId: "STRING_VALUE", // required
+ *   QuestionId: "STRING_VALUE", // required
+ *   ChoiceId: "STRING_VALUE", // required
+ * };
  * const command = new ListCheckSummariesCommand(input);
  * const response = await client.send(command);
  * ```

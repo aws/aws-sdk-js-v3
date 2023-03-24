@@ -42,6 +42,12 @@ export interface UpdateFieldCommandOutput extends UpdateFieldResponse, __Metadat
  * import { ConnectCasesClient, UpdateFieldCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, UpdateFieldCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = {
+ *   domainId: "STRING_VALUE", // required
+ *   fieldId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateFieldCommand(input);
  * const response = await client.send(command);
  * ```

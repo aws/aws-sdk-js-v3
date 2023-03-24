@@ -47,6 +47,11 @@ export interface GetContactMethodsCommandOutput extends GetContactMethodsResult,
  * import { LightsailClient, GetContactMethodsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContactMethodsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   protocols: [
+ *     "Email" || "SMS",
+ *   ],
+ * };
  * const command = new GetContactMethodsCommand(input);
  * const response = await client.send(command);
  * ```

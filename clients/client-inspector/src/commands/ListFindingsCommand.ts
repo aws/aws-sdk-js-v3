@@ -43,6 +43,46 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * import { InspectorClient, ListFindingsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListFindingsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   assessmentRunArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   filter: {
+ *     agentIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     autoScalingGroups: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ruleNames: [
+ *       "STRING_VALUE",
+ *     ],
+ *     severities: [
+ *       "STRING_VALUE",
+ *     ],
+ *     rulesPackageArns: [
+ *       "STRING_VALUE",
+ *     ],
+ *     attributes: [
+ *       {
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     userAttributes: [
+ *       {
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     creationTimeRange: {
+ *       beginDate: new Date("TIMESTAMP"),
+ *       endDate: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListFindingsCommand(input);
  * const response = await client.send(command);
  * ```

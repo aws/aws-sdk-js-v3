@@ -55,6 +55,15 @@ export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __Metadat
  * import { EC2Client, ModifyVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   VolumeId: "STRING_VALUE", // required
+ *   Size: Number("int"),
+ *   VolumeType: "standard" || "io1" || "io2" || "gp2" || "sc1" || "st1" || "gp3",
+ *   Iops: Number("int"),
+ *   Throughput: Number("int"),
+ *   MultiAttachEnabled: true || false,
+ * };
  * const command = new ModifyVolumeCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * import { LambdaClient, GetPolicyCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetPolicyCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE",
+ * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
  * ```

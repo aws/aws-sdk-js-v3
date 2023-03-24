@@ -42,6 +42,29 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * import { PinpointClient, UpdateApplicationSettingsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateApplicationSettingsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   WriteApplicationSettingsRequest: {
+ *     CampaignHook: {
+ *       LambdaFunctionName: "STRING_VALUE",
+ *       Mode: "STRING_VALUE",
+ *       WebUrl: "STRING_VALUE",
+ *     },
+ *     CloudWatchMetricsEnabled: true || false,
+ *     EventTaggingEnabled: true || false,
+ *     Limits: {
+ *       Daily: Number("int"),
+ *       MaximumDuration: Number("int"),
+ *       MessagesPerSecond: Number("int"),
+ *       Total: Number("int"),
+ *       Session: Number("int"),
+ *     },
+ *     QuietTime: {
+ *       End: "STRING_VALUE",
+ *       Start: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateApplicationSettingsCommand(input);
  * const response = await client.send(command);
  * ```

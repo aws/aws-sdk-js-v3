@@ -42,6 +42,9 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * import { IoTSiteWiseClient, DescribeProjectCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeProjectCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   projectId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);
  * ```

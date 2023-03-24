@@ -47,6 +47,24 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  * import { ElasticBeanstalkClient, UpdateApplicationResourceLifecycleCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, UpdateApplicationResourceLifecycleCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   ResourceLifecycleConfig: {
+ *     ServiceRole: "STRING_VALUE",
+ *     VersionLifecycleConfig: {
+ *       MaxCountRule: {
+ *         Enabled: true || false, // required
+ *         MaxCount: Number("int"),
+ *         DeleteSourceFromS3: true || false,
+ *       },
+ *       MaxAgeRule: {
+ *         Enabled: true || false, // required
+ *         MaxAgeInDays: Number("int"),
+ *         DeleteSourceFromS3: true || false,
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateApplicationResourceLifecycleCommand(input);
  * const response = await client.send(command);
  * ```

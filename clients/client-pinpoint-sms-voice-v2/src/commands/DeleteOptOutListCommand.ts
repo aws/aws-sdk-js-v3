@@ -49,6 +49,9 @@ export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, _
  * import { PinpointSMSVoiceV2Client, DeleteOptOutListCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, DeleteOptOutListCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = {
+ *   OptOutListName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteOptOutListCommand(input);
  * const response = await client.send(command);
  * ```

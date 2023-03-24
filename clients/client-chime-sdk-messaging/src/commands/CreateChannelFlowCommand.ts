@@ -69,6 +69,30 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  * import { ChimeSDKMessagingClient, CreateChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, CreateChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   Processors: [ // required
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Configuration: {
+ *         Lambda: {
+ *           ResourceArn: "STRING_VALUE", // required
+ *           InvocationType: "ASYNC", // required
+ *         },
+ *       },
+ *       ExecutionOrder: Number("int"), // required
+ *       FallbackAction: "CONTINUE" || "ABORT", // required
+ *     },
+ *   ],
+ *   Name: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateChannelFlowCommand(input);
  * const response = await client.send(command);
  * ```

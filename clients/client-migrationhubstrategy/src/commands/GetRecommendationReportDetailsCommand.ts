@@ -48,6 +48,9 @@ export interface GetRecommendationReportDetailsCommandOutput
  * import { MigrationHubStrategyClient, GetRecommendationReportDetailsCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetRecommendationReportDetailsCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetRecommendationReportDetailsCommand(input);
  * const response = await client.send(command);
  * ```

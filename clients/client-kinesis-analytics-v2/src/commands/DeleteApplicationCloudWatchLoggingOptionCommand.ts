@@ -52,6 +52,12 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
  * import { KinesisAnalyticsV2Client, DeleteApplicationCloudWatchLoggingOptionCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, DeleteApplicationCloudWatchLoggingOptionCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"),
+ *   CloudWatchLoggingOptionId: "STRING_VALUE", // required
+ *   ConditionalToken: "STRING_VALUE",
+ * };
  * const command = new DeleteApplicationCloudWatchLoggingOptionCommand(input);
  * const response = await client.send(command);
  * ```

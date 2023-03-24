@@ -43,6 +43,9 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult,
  * import { Cloud9Client, DeleteEnvironmentCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, DeleteEnvironmentCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
  * const client = new Cloud9Client(config);
+ * const input = {
+ *   environmentId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

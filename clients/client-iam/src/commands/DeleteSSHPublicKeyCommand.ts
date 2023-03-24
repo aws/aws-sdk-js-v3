@@ -46,6 +46,10 @@ export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteSSHPublicKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteSSHPublicKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   UserName: "STRING_VALUE", // required
+ *   SSHPublicKeyId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSSHPublicKeyCommand(input);
  * const response = await client.send(command);
  * ```

@@ -49,6 +49,11 @@ export interface DescribeDefaultClusterParametersCommandOutput
  * import { RedshiftClient, DescribeDefaultClusterParametersCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeDefaultClusterParametersCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ParameterGroupFamily: "STRING_VALUE", // required
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDefaultClusterParametersCommand(input);
  * const response = await client.send(command);
  * ```

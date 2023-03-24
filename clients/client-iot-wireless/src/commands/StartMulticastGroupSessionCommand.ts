@@ -42,6 +42,15 @@ export interface StartMulticastGroupSessionCommandOutput extends StartMulticastG
  * import { IoTWirelessClient, StartMulticastGroupSessionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, StartMulticastGroupSessionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   LoRaWAN: {
+ *     DlDr: Number("int"),
+ *     DlFreq: Number("int"),
+ *     SessionStartTime: new Date("TIMESTAMP"),
+ *     SessionTimeout: Number("int"),
+ *   },
+ * };
  * const command = new StartMulticastGroupSessionCommand(input);
  * const response = await client.send(command);
  * ```

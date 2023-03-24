@@ -44,6 +44,15 @@ export interface AddTagsCommandOutput extends __MetadataBearer {}
  * import { OpenSearchClient, AddTagsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, AddTagsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   ARN: "STRING_VALUE", // required
+ *   TagList: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
  * ```

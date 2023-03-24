@@ -45,6 +45,9 @@ export interface GetContinuousDeploymentPolicyCommandOutput
  * import { CloudFrontClient, GetContinuousDeploymentPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetContinuousDeploymentPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetContinuousDeploymentPolicyCommand(input);
  * const response = await client.send(command);
  * ```

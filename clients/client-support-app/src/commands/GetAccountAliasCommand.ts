@@ -43,6 +43,7 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  * import { SupportAppClient, GetAccountAliasCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, GetAccountAliasCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = {};
  * const command = new GetAccountAliasCommand(input);
  * const response = await client.send(command);
  * ```

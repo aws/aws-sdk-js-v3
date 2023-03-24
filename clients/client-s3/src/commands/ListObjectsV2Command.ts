@@ -79,6 +79,18 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListObjectsV2Command } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   Delimiter: "STRING_VALUE",
+ *   EncodingType: "url",
+ *   MaxKeys: Number("int"),
+ *   Prefix: "STRING_VALUE",
+ *   ContinuationToken: "STRING_VALUE",
+ *   FetchOwner: true || false,
+ *   StartAfter: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new ListObjectsV2Command(input);
  * const response = await client.send(command);
  * ```

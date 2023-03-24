@@ -42,6 +42,10 @@ export interface DescribeResourcePoliciesCommandOutput extends DescribeResourceP
  * import { CloudWatchLogsClient, DescribeResourcePoliciesCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeResourcePoliciesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new DescribeResourcePoliciesCommand(input);
  * const response = await client.send(command);
  * ```

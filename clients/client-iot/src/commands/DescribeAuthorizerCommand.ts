@@ -43,6 +43,9 @@ export interface DescribeAuthorizerCommandOutput extends DescribeAuthorizerRespo
  * import { IoTClient, DescribeAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   authorizerName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```

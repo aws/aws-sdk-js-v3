@@ -51,6 +51,10 @@ export interface AcceptQualificationRequestCommandOutput extends AcceptQualifica
  * import { MTurkClient, AcceptQualificationRequestCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, AcceptQualificationRequestCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   QualificationRequestId: "STRING_VALUE", // required
+ *   IntegerValue: Number("int"),
+ * };
  * const command = new AcceptQualificationRequestCommand(input);
  * const response = await client.send(command);
  * ```

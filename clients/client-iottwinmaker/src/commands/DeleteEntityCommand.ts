@@ -42,6 +42,11 @@ export interface DeleteEntityCommandOutput extends DeleteEntityResponse, __Metad
  * import { IoTTwinMakerClient, DeleteEntityCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, DeleteEntityCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   entityId: "STRING_VALUE", // required
+ *   isRecursive: true || false,
+ * };
  * const command = new DeleteEntityCommand(input);
  * const response = await client.send(command);
  * ```

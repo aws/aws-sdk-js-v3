@@ -46,6 +46,12 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
  * import { EBSClient, ListSnapshotBlocksCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, ListSnapshotBlocksCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
  * const client = new EBSClient(config);
+ * const input = {
+ *   SnapshotId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   StartingBlockIndex: Number("int"),
+ * };
  * const command = new ListSnapshotBlocksCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,9 @@ export interface DeleteServiceCommandOutput extends DeleteServiceOutput, __Metad
  * import { ProtonClient, DeleteServiceCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteServiceCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteServiceCommand(input);
  * const response = await client.send(command);
  * ```

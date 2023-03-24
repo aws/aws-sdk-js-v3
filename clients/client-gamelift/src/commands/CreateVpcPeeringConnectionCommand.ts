@@ -65,6 +65,11 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  * import { GameLiftClient, CreateVpcPeeringConnectionCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateVpcPeeringConnectionCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   FleetId: "STRING_VALUE", // required
+ *   PeerVpcAwsAccountId: "STRING_VALUE", // required
+ *   PeerVpcId: "STRING_VALUE", // required
+ * };
  * const command = new CreateVpcPeeringConnectionCommand(input);
  * const response = await client.send(command);
  * ```

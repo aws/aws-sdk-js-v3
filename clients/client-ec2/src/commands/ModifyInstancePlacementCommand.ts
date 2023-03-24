@@ -67,6 +67,16 @@ export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlac
  * import { EC2Client, ModifyInstancePlacementCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstancePlacementCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Affinity: "default" || "host",
+ *   GroupName: "STRING_VALUE",
+ *   HostId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE", // required
+ *   Tenancy: "dedicated" || "host",
+ *   PartitionNumber: Number("int"),
+ *   HostResourceGroupArn: "STRING_VALUE",
+ *   GroupId: "STRING_VALUE",
+ * };
  * const command = new ModifyInstancePlacementCommand(input);
  * const response = await client.send(command);
  * ```

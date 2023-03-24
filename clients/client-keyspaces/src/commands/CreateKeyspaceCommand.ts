@@ -48,6 +48,15 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  * import { KeyspacesClient, CreateKeyspaceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, CreateKeyspaceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
+ * const input = {
+ *   keyspaceName: "STRING_VALUE", // required
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateKeyspaceCommand(input);
  * const response = await client.send(command);
  * ```

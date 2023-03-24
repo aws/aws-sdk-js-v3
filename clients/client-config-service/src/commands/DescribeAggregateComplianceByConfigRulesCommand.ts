@@ -55,6 +55,17 @@ export interface DescribeAggregateComplianceByConfigRulesCommandOutput
  * import { ConfigServiceClient, DescribeAggregateComplianceByConfigRulesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeAggregateComplianceByConfigRulesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   Filters: {
+ *     ConfigRuleName: "STRING_VALUE",
+ *     ComplianceType: "COMPLIANT" || "NON_COMPLIANT" || "NOT_APPLICABLE" || "INSUFFICIENT_DATA",
+ *     AccountId: "STRING_VALUE",
+ *     AwsRegion: "STRING_VALUE",
+ *   },
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAggregateComplianceByConfigRulesCommand(input);
  * const response = await client.send(command);
  * ```

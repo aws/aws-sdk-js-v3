@@ -46,6 +46,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { ChimeSDKMediaPipelinesClient, UntagResourceCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, UntagResourceCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

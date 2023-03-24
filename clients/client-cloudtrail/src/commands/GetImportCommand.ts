@@ -39,6 +39,9 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * import { CloudTrailClient, GetImportCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetImportCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   ImportId: "STRING_VALUE", // required
+ * };
  * const command = new GetImportCommand(input);
  * const response = await client.send(command);
  * ```

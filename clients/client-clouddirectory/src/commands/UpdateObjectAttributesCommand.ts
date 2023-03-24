@@ -42,6 +42,31 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  * import { CloudDirectoryClient, UpdateObjectAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateObjectAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ObjectReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   AttributeUpdates: [ // required
+ *     {
+ *       ObjectAttributeKey: {
+ *         SchemaArn: "STRING_VALUE", // required
+ *         FacetName: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       ObjectAttributeAction: {
+ *         ObjectAttributeActionType: "CREATE_OR_UPDATE" || "DELETE",
+ *         ObjectAttributeUpdateValue: { // Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateObjectAttributesCommand(input);
  * const response = await client.send(command);
  * ```

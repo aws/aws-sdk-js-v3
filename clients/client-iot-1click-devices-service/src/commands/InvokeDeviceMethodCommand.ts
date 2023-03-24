@@ -47,6 +47,14 @@ export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodRespo
  * import { IoT1ClickDevicesServiceClient, InvokeDeviceMethodCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, InvokeDeviceMethodCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
+ * const input = {
+ *   DeviceId: "STRING_VALUE", // required
+ *   DeviceMethod: {
+ *     DeviceType: "STRING_VALUE",
+ *     MethodName: "STRING_VALUE",
+ *   },
+ *   DeviceMethodParameters: "STRING_VALUE",
+ * };
  * const command = new InvokeDeviceMethodCommand(input);
  * const response = await client.send(command);
  * ```

@@ -41,6 +41,13 @@ export interface PostUnionWithJsonNameCommandOutput extends PostUnionWithJsonNam
  * import { RestJsonProtocolClient, PostUnionWithJsonNameCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, PostUnionWithJsonNameCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   value: { // Union: only one key present
+ *     foo: "STRING_VALUE",
+ *     bar: "STRING_VALUE",
+ *     baz: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PostUnionWithJsonNameCommand(input);
  * const response = await client.send(command);
  * ```

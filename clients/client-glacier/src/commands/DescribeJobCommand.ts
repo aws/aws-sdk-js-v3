@@ -65,6 +65,11 @@ export interface DescribeJobCommandOutput extends GlacierJobDescription, __Metad
  * import { GlacierClient, DescribeJobCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, DescribeJobCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJobCommand(input);
  * const response = await client.send(command);
  * ```

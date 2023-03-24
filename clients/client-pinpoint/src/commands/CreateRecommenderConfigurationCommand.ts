@@ -44,6 +44,21 @@ export interface CreateRecommenderConfigurationCommandOutput
  * import { PinpointClient, CreateRecommenderConfigurationCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateRecommenderConfigurationCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   CreateRecommenderConfiguration: {
+ *     Attributes: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Description: "STRING_VALUE",
+ *     Name: "STRING_VALUE",
+ *     RecommendationProviderIdType: "STRING_VALUE",
+ *     RecommendationProviderRoleArn: "STRING_VALUE", // required
+ *     RecommendationProviderUri: "STRING_VALUE", // required
+ *     RecommendationTransformerUri: "STRING_VALUE",
+ *     RecommendationsDisplayName: "STRING_VALUE",
+ *     RecommendationsPerMessage: Number("int"),
+ *   },
+ * };
  * const command = new CreateRecommenderConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

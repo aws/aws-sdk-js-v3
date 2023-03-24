@@ -44,6 +44,11 @@ export interface ListRumMetricsDestinationsCommandOutput extends ListRumMetricsD
  * import { RUMClient, ListRumMetricsDestinationsCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, ListRumMetricsDestinationsCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
+ * const input = {
+ *   AppMonitorName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListRumMetricsDestinationsCommand(input);
  * const response = await client.send(command);
  * ```

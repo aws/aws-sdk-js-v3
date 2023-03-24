@@ -42,6 +42,9 @@ export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer 
  * import { NimbleClient, GetEulaCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetEulaCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   eulaId: "STRING_VALUE", // required
+ * };
  * const command = new GetEulaCommand(input);
  * const response = await client.send(command);
  * ```

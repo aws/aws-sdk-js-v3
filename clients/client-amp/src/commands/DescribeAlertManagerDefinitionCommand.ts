@@ -44,6 +44,9 @@ export interface DescribeAlertManagerDefinitionCommandOutput
  * import { AmpClient, DescribeAlertManagerDefinitionCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DescribeAlertManagerDefinitionCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAlertManagerDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

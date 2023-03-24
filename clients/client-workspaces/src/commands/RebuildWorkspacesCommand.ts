@@ -50,6 +50,13 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  * import { WorkSpacesClient, RebuildWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RebuildWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   RebuildWorkspaceRequests: [ // required
+ *     {
+ *       WorkspaceId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new RebuildWorkspacesCommand(input);
  * const response = await client.send(command);
  * ```

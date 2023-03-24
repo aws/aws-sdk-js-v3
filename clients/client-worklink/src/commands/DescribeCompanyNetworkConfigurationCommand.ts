@@ -50,6 +50,9 @@ export interface DescribeCompanyNetworkConfigurationCommandOutput
  * import { WorkLinkClient, DescribeCompanyNetworkConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DescribeCompanyNetworkConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCompanyNetworkConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

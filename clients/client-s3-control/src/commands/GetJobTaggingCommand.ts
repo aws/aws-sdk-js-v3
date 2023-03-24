@@ -67,6 +67,10 @@ export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __Metad
  * import { S3ControlClient, GetJobTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetJobTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new GetJobTaggingCommand(input);
  * const response = await client.send(command);
  * ```

@@ -69,6 +69,14 @@ export interface StopInstancesCommandOutput extends StopInstancesResult, __Metad
  * import { EC2Client, StopInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, StopInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   InstanceIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Hibernate: true || false,
+ *   DryRun: true || false,
+ *   Force: true || false,
+ * };
  * const command = new StopInstancesCommand(input);
  * const response = await client.send(command);
  * ```

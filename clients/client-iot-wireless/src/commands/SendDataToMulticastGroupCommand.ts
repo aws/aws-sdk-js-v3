@@ -42,6 +42,15 @@ export interface SendDataToMulticastGroupCommandOutput extends SendDataToMultica
  * import { IoTWirelessClient, SendDataToMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, SendDataToMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   PayloadData: "STRING_VALUE", // required
+ *   WirelessMetadata: {
+ *     LoRaWAN: {
+ *       FPort: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new SendDataToMulticastGroupCommand(input);
  * const response = await client.send(command);
  * ```

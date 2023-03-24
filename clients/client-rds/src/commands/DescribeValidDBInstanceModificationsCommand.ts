@@ -49,6 +49,9 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * import { RDSClient, DescribeValidDBInstanceModificationsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeValidDBInstanceModificationsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DescribeValidDBInstanceModificationsCommand(input);
  * const response = await client.send(command);
  * ```

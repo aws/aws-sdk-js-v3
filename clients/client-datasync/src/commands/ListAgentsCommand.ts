@@ -52,6 +52,10 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  * import { DataSyncClient, ListAgentsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, ListAgentsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAgentsCommand(input);
  * const response = await client.send(command);
  * ```

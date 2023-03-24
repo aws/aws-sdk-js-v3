@@ -58,6 +58,40 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  * import { TextractClient, StartDocumentAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, StartDocumentAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = {
+ *   DocumentLocation: {
+ *     S3Object: {
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   FeatureTypes: [ // required
+ *     "TABLES" || "FORMS" || "QUERIES" || "SIGNATURES",
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ *   JobTag: "STRING_VALUE",
+ *   NotificationChannel: {
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   OutputConfig: {
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Prefix: "STRING_VALUE",
+ *   },
+ *   KMSKeyId: "STRING_VALUE",
+ *   QueriesConfig: {
+ *     Queries: [ // required
+ *       {
+ *         Text: "STRING_VALUE", // required
+ *         Alias: "STRING_VALUE",
+ *         Pages: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new StartDocumentAnalysisCommand(input);
  * const response = await client.send(command);
  * ```

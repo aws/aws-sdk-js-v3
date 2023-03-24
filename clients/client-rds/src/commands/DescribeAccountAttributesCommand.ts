@@ -43,6 +43,7 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * import { RDSClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
  * ```

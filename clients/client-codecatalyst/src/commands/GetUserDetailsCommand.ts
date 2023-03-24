@@ -42,6 +42,10 @@ export interface GetUserDetailsCommandOutput extends GetUserDetailsResponse, __M
  * import { CodeCatalystClient, GetUserDetailsCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetUserDetailsCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = {
+ *   id: "STRING_VALUE",
+ *   userName: "STRING_VALUE",
+ * };
  * const command = new GetUserDetailsCommand(input);
  * const response = await client.send(command);
  * ```

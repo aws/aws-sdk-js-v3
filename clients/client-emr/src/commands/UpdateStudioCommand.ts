@@ -43,6 +43,15 @@ export interface UpdateStudioCommandOutput extends __MetadataBearer {}
  * import { EMRClient, UpdateStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, UpdateStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   StudioId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   SubnetIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DefaultS3Location: "STRING_VALUE",
+ * };
  * const command = new UpdateStudioCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,9 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * import { RedshiftServerlessClient, GetNamespaceCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
  * // const { RedshiftServerlessClient, GetNamespaceCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
+ * const input = {
+ *   namespaceName: "STRING_VALUE", // required
+ * };
  * const command = new GetNamespaceCommand(input);
  * const response = await client.send(command);
  * ```

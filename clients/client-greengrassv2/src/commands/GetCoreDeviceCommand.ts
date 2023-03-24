@@ -69,6 +69,9 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  * import { GreengrassV2Client, GetCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, GetCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = {
+ *   coreDeviceThingName: "STRING_VALUE", // required
+ * };
  * const command = new GetCoreDeviceCommand(input);
  * const response = await client.send(command);
  * ```

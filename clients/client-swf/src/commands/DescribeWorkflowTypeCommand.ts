@@ -80,6 +80,13 @@ export interface DescribeWorkflowTypeCommandOutput extends WorkflowTypeDetail, _
  * import { SWFClient, DescribeWorkflowTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, DescribeWorkflowTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   workflowType: {
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new DescribeWorkflowTypeCommand(input);
  * const response = await client.send(command);
  * ```

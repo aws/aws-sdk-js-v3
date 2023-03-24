@@ -44,6 +44,7 @@ export interface DescribeAcceleratorTypesCommandOutput extends DescribeAccelerat
  * import { ElasticInferenceClient, DescribeAcceleratorTypesCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
  * // const { ElasticInferenceClient, DescribeAcceleratorTypesCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
  * const client = new ElasticInferenceClient(config);
+ * const input = {};
  * const command = new DescribeAcceleratorTypesCommand(input);
  * const response = await client.send(command);
  * ```

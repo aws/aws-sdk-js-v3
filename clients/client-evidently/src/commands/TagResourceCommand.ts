@@ -54,6 +54,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { EvidentlyClient, TagResourceCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, TagResourceCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

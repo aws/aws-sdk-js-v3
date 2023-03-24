@@ -42,6 +42,12 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  * import { MgnClient, DisassociateApplicationsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DisassociateApplicationsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   waveID: "STRING_VALUE", // required
+ *   applicationIDs: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateApplicationsCommand(input);
  * const response = await client.send(command);
  * ```

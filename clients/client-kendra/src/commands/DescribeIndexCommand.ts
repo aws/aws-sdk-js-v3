@@ -46,6 +46,9 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * import { KendraClient, DescribeIndexCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DescribeIndexCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeIndexCommand(input);
  * const response = await client.send(command);
  * ```

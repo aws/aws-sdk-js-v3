@@ -42,6 +42,9 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  * import { OpenSearchClient, DeleteVpcEndpointCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DeleteVpcEndpointCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   VpcEndpointId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVpcEndpointCommand(input);
  * const response = await client.send(command);
  * ```

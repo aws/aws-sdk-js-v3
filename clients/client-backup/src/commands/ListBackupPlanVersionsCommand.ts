@@ -43,6 +43,11 @@ export interface ListBackupPlanVersionsCommandOutput extends ListBackupPlanVersi
  * import { BackupClient, ListBackupPlanVersionsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListBackupPlanVersionsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupPlanId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListBackupPlanVersionsCommand(input);
  * const response = await client.send(command);
  * ```

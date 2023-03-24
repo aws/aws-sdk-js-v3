@@ -42,6 +42,12 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { DrsClient, TagResourceCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, TagResourceCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

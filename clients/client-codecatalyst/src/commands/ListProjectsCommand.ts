@@ -42,6 +42,20 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * import { CodeCatalystClient, ListProjectsCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, ListProjectsCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = {
+ *   spaceName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       comparisonOperator: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new ListProjectsCommand(input);
  * const response = await client.send(command);
  * ```

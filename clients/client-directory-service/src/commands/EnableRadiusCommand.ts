@@ -43,6 +43,21 @@ export interface EnableRadiusCommandOutput extends EnableRadiusResult, __Metadat
  * import { DirectoryServiceClient, EnableRadiusCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, EnableRadiusCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = {
+ *   DirectoryId: "STRING_VALUE", // required
+ *   RadiusSettings: {
+ *     RadiusServers: [
+ *       "STRING_VALUE",
+ *     ],
+ *     RadiusPort: Number("int"),
+ *     RadiusTimeout: Number("int"),
+ *     RadiusRetries: Number("int"),
+ *     SharedSecret: "STRING_VALUE",
+ *     AuthenticationProtocol: "PAP" || "CHAP" || "MS-CHAPv1" || "MS-CHAPv2",
+ *     DisplayLabel: "STRING_VALUE",
+ *     UseSameUsername: true || false,
+ *   },
+ * };
  * const command = new EnableRadiusCommand(input);
  * const response = await client.send(command);
  * ```

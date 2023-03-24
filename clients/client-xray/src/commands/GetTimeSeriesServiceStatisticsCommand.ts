@@ -45,6 +45,16 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
  * import { XRayClient, GetTimeSeriesServiceStatisticsCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetTimeSeriesServiceStatisticsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = {
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   GroupName: "STRING_VALUE",
+ *   GroupARN: "STRING_VALUE",
+ *   EntitySelectorExpression: "STRING_VALUE",
+ *   Period: Number("int"),
+ *   ForecastStatistics: true || false,
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetTimeSeriesServiceStatisticsCommand(input);
  * const response = await client.send(command);
  * ```

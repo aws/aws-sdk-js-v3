@@ -49,6 +49,46 @@ export interface CreateStreamingDistributionWithTagsCommandOutput
  * import { CloudFrontClient, CreateStreamingDistributionWithTagsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateStreamingDistributionWithTagsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   StreamingDistributionConfigWithTags: {
+ *     StreamingDistributionConfig: {
+ *       CallerReference: "STRING_VALUE", // required
+ *       S3Origin: {
+ *         DomainName: "STRING_VALUE", // required
+ *         OriginAccessIdentity: "STRING_VALUE", // required
+ *       },
+ *       Aliases: {
+ *         Quantity: Number("int"), // required
+ *         Items: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Comment: "STRING_VALUE", // required
+ *       Logging: {
+ *         Enabled: true || false, // required
+ *         Bucket: "STRING_VALUE", // required
+ *         Prefix: "STRING_VALUE", // required
+ *       },
+ *       TrustedSigners: {
+ *         Enabled: true || false, // required
+ *         Quantity: Number("int"), // required
+ *         Items: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ *       Enabled: true || false, // required
+ *     },
+ *     Tags: {
+ *       Items: [
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateStreamingDistributionWithTagsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,15 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * import { NetworkManagerClient, GetConnectionsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetConnectionsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   ConnectionIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DeviceId: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetConnectionsCommand(input);
  * const response = await client.send(command);
  * ```

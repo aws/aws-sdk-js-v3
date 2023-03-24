@@ -42,6 +42,14 @@ export interface GetUsageCommandOutput extends Usage, __MetadataBearer {}
  * import { APIGatewayClient, GetUsageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetUsageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   usagePlanId: "STRING_VALUE", // required
+ *   keyId: "STRING_VALUE",
+ *   startDate: "STRING_VALUE", // required
+ *   endDate: "STRING_VALUE", // required
+ *   position: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new GetUsageCommand(input);
  * const response = await client.send(command);
  * ```

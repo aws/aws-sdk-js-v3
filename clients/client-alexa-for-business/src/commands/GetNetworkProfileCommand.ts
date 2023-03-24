@@ -46,6 +46,9 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
  * import { AlexaForBusinessClient, GetNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   NetworkProfileArn: "STRING_VALUE", // required
+ * };
  * const command = new GetNetworkProfileCommand(input);
  * const response = await client.send(command);
  * ```

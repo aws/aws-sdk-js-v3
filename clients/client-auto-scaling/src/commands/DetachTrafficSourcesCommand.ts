@@ -46,6 +46,14 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
  * import { AutoScalingClient, DetachTrafficSourcesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DetachTrafficSourcesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   TrafficSources: [ // required
+ *     {
+ *       Identifier: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DetachTrafficSourcesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,11 @@ export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsRes
  * import { ConnectClient, ListLambdaFunctionsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListLambdaFunctionsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListLambdaFunctionsCommand(input);
  * const response = await client.send(command);
  * ```

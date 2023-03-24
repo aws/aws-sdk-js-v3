@@ -84,6 +84,47 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  * import { SESClient, SendBulkTemplatedEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendBulkTemplatedEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   Source: "STRING_VALUE", // required
+ *   SourceArn: "STRING_VALUE",
+ *   ReplyToAddresses: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ReturnPath: "STRING_VALUE",
+ *   ReturnPathArn: "STRING_VALUE",
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   DefaultTags: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Template: "STRING_VALUE", // required
+ *   TemplateArn: "STRING_VALUE",
+ *   DefaultTemplateData: "STRING_VALUE",
+ *   Destinations: [ // required
+ *     {
+ *       Destination: {
+ *         ToAddresses: [
+ *           "STRING_VALUE",
+ *         ],
+ *         CcAddresses: [
+ *           "STRING_VALUE",
+ *         ],
+ *         BccAddresses: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ReplacementTags: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       ReplacementTemplateData: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new SendBulkTemplatedEmailCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShip
  * import { SnowballClient, CreateReturnShippingLabelCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CreateReturnShippingLabelCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ *   ShippingOption: "SECOND_DAY" || "NEXT_DAY" || "EXPRESS" || "STANDARD",
+ * };
  * const command = new CreateReturnShippingLabelCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,16 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * import { IdentitystoreClient, UpdateGroupCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, UpdateGroupCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
+ * const input = {
+ *   IdentityStoreId: "STRING_VALUE", // required
+ *   GroupId: "STRING_VALUE", // required
+ *   Operations: [ // required
+ *     {
+ *       AttributePath: "STRING_VALUE", // required
+ *       AttributeValue: "DOCUMENT_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);
  * ```

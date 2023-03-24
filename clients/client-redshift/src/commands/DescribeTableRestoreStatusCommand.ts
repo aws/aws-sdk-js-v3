@@ -47,6 +47,12 @@ export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreSta
  * import { RedshiftClient, DescribeTableRestoreStatusCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeTableRestoreStatusCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   TableRestoreRequestId: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeTableRestoreStatusCommand(input);
  * const response = await client.send(command);
  * ```

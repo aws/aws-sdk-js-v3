@@ -43,6 +43,7 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  * import { AutoScalingClient, DescribeScalingProcessTypesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeScalingProcessTypesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {};
  * const command = new DescribeScalingProcessTypesCommand(input);
  * const response = await client.send(command);
  * ```

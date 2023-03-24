@@ -44,6 +44,52 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * import { ElastiCacheClient, ModifyCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   CacheClusterId: "STRING_VALUE", // required
+ *   NumCacheNodes: Number("int"),
+ *   CacheNodeIdsToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AZMode: "single-az" || "cross-az",
+ *   NewAvailabilityZones: [
+ *     "STRING_VALUE",
+ *   ],
+ *   CacheSecurityGroupNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   NotificationTopicArn: "STRING_VALUE",
+ *   CacheParameterGroupName: "STRING_VALUE",
+ *   NotificationTopicStatus: "STRING_VALUE",
+ *   ApplyImmediately: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   SnapshotRetentionLimit: Number("int"),
+ *   SnapshotWindow: "STRING_VALUE",
+ *   CacheNodeType: "STRING_VALUE",
+ *   AuthToken: "STRING_VALUE",
+ *   AuthTokenUpdateStrategy: "SET" || "ROTATE" || "DELETE",
+ *   LogDeliveryConfigurations: [
+ *     {
+ *       LogType: "slow-log" || "engine-log",
+ *       DestinationType: "cloudwatch-logs" || "kinesis-firehose",
+ *       DestinationDetails: {
+ *         CloudWatchLogsDetails: {
+ *           LogGroup: "STRING_VALUE",
+ *         },
+ *         KinesisFirehoseDetails: {
+ *           DeliveryStream: "STRING_VALUE",
+ *         },
+ *       },
+ *       LogFormat: "text" || "json",
+ *       Enabled: true || false,
+ *     },
+ *   ],
+ *   IpDiscovery: "ipv4" || "ipv6",
+ * };
  * const command = new ModifyCacheClusterCommand(input);
  * const response = await client.send(command);
  * ```

@@ -100,6 +100,41 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  * import { SecurityHubClient, BatchUpdateFindingsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, BatchUpdateFindingsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   FindingIdentifiers: [ // required
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       ProductArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Note: {
+ *     Text: "STRING_VALUE", // required
+ *     UpdatedBy: "STRING_VALUE", // required
+ *   },
+ *   Severity: {
+ *     Normalized: Number("int"),
+ *     Product: Number("double"),
+ *     Label: "INFORMATIONAL" || "LOW" || "MEDIUM" || "HIGH" || "CRITICAL",
+ *   },
+ *   VerificationState: "UNKNOWN" || "TRUE_POSITIVE" || "FALSE_POSITIVE" || "BENIGN_POSITIVE",
+ *   Confidence: Number("int"),
+ *   Criticality: Number("int"),
+ *   Types: [
+ *     "STRING_VALUE",
+ *   ],
+ *   UserDefinedFields: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Workflow: {
+ *     Status: "NEW" || "NOTIFIED" || "RESOLVED" || "SUPPRESSED",
+ *   },
+ *   RelatedFindings: [
+ *     {
+ *       ProductArn: "STRING_VALUE", // required
+ *       Id: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new BatchUpdateFindingsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,19 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
  * import { RAMClient, ListPrincipalsCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListPrincipalsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = {
+ *   resourceOwner: "SELF" || "OTHER-ACCOUNTS", // required
+ *   resourceArn: "STRING_VALUE",
+ *   principals: [
+ *     "STRING_VALUE",
+ *   ],
+ *   resourceType: "STRING_VALUE",
+ *   resourceShareArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListPrincipalsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -57,6 +57,11 @@ export interface PutAccessPointPolicyForObjectLambdaCommandOutput extends __Meta
  * import { S3ControlClient, PutAccessPointPolicyForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutAccessPointPolicyForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutAccessPointPolicyForObjectLambdaCommand(input);
  * const response = await client.send(command);
  * ```

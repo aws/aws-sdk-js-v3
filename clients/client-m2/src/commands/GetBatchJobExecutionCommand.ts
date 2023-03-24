@@ -42,6 +42,10 @@ export interface GetBatchJobExecutionCommandOutput extends GetBatchJobExecutionR
  * import { M2Client, GetBatchJobExecutionCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, GetBatchJobExecutionCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ *   executionId: "STRING_VALUE", // required
+ * };
  * const command = new GetBatchJobExecutionCommand(input);
  * const response = await client.send(command);
  * ```

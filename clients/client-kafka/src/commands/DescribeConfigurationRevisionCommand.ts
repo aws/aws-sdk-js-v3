@@ -44,6 +44,10 @@ export interface DescribeConfigurationRevisionCommandOutput
  * import { KafkaClient, DescribeConfigurationRevisionCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DescribeConfigurationRevisionCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = {
+ *   Arn: "STRING_VALUE", // required
+ *   Revision: Number("long"), // required
+ * };
  * const command = new DescribeConfigurationRevisionCommand(input);
  * const response = await client.send(command);
  * ```

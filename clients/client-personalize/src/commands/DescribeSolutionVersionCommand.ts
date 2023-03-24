@@ -43,6 +43,9 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  * import { PersonalizeClient, DescribeSolutionVersionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeSolutionVersionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   solutionVersionArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSolutionVersionCommand(input);
  * const response = await client.send(command);
  * ```

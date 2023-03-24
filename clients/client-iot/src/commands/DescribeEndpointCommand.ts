@@ -43,6 +43,9 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * import { IoTClient, DescribeEndpointCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeEndpointCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   endpointType: "STRING_VALUE",
+ * };
  * const command = new DescribeEndpointCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,9 @@ export interface DeleteDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * import { RDSClient, DeleteDBClusterEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBClusterEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBClusterEndpointIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBClusterEndpointCommand(input);
  * const response = await client.send(command);
  * ```

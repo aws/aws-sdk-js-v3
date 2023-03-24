@@ -42,6 +42,9 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * import { RDSClient, PromoteReadReplicaDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, PromoteReadReplicaDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new PromoteReadReplicaDBClusterCommand(input);
  * const response = await client.send(command);
  * ```

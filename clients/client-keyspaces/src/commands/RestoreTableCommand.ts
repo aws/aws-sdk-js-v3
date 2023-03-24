@@ -88,6 +88,31 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  * import { KeyspacesClient, RestoreTableCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, RestoreTableCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
+ * const input = {
+ *   sourceKeyspaceName: "STRING_VALUE", // required
+ *   sourceTableName: "STRING_VALUE", // required
+ *   targetKeyspaceName: "STRING_VALUE", // required
+ *   targetTableName: "STRING_VALUE", // required
+ *   restoreTimestamp: new Date("TIMESTAMP"),
+ *   capacitySpecificationOverride: {
+ *     throughputMode: "STRING_VALUE", // required
+ *     readCapacityUnits: Number("long"),
+ *     writeCapacityUnits: Number("long"),
+ *   },
+ *   encryptionSpecificationOverride: {
+ *     type: "STRING_VALUE", // required
+ *     kmsKeyIdentifier: "STRING_VALUE",
+ *   },
+ *   pointInTimeRecoveryOverride: {
+ *     status: "STRING_VALUE", // required
+ *   },
+ *   tagsOverride: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new RestoreTableCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,9 @@ export interface StopPiiEntitiesDetectionJobCommandOutput
  * import { ComprehendClient, StopPiiEntitiesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopPiiEntitiesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopPiiEntitiesDetectionJobCommand(input);
  * const response = await client.send(command);
  * ```

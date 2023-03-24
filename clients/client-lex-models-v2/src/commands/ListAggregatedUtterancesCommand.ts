@@ -66,6 +66,33 @@ export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtt
  * import { LexModelsV2Client, ListAggregatedUtterancesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListAggregatedUtterancesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botId: "STRING_VALUE", // required
+ *   botAliasId: "STRING_VALUE",
+ *   botVersion: "STRING_VALUE",
+ *   localeId: "STRING_VALUE", // required
+ *   aggregationDuration: {
+ *     relativeAggregationDuration: {
+ *       timeDimension: "Hours" || "Days" || "Weeks", // required
+ *       timeValue: Number("int"), // required
+ *     },
+ *   },
+ *   sortBy: {
+ *     attribute: "HitCount" || "MissedCount", // required
+ *     order: "Ascending" || "Descending", // required
+ *   },
+ *   filters: [
+ *     {
+ *       name: "Utterance", // required
+ *       values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       operator: "CO" || "EQ", // required
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListAggregatedUtterancesCommand(input);
  * const response = await client.send(command);
  * ```

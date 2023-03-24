@@ -42,6 +42,11 @@ export interface RedactConversationMessageCommandOutput extends RedactConversati
  * import { ChimeClient, RedactConversationMessageCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, RedactConversationMessageCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   ConversationId: "STRING_VALUE", // required
+ *   MessageId: "STRING_VALUE", // required
+ * };
  * const command = new RedactConversationMessageCommand(input);
  * const response = await client.send(command);
  * ```

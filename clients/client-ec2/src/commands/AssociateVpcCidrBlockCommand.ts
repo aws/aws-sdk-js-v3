@@ -50,6 +50,18 @@ export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBloc
  * import { EC2Client, AssociateVpcCidrBlockCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateVpcCidrBlockCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   AmazonProvidedIpv6CidrBlock: true || false,
+ *   CidrBlock: "STRING_VALUE",
+ *   VpcId: "STRING_VALUE", // required
+ *   Ipv6CidrBlockNetworkBorderGroup: "STRING_VALUE",
+ *   Ipv6Pool: "STRING_VALUE",
+ *   Ipv6CidrBlock: "STRING_VALUE",
+ *   Ipv4IpamPoolId: "STRING_VALUE",
+ *   Ipv4NetmaskLength: Number("int"),
+ *   Ipv6IpamPoolId: "STRING_VALUE",
+ *   Ipv6NetmaskLength: Number("int"),
+ * };
  * const command = new AssociateVpcCidrBlockCommand(input);
  * const response = await client.send(command);
  * ```

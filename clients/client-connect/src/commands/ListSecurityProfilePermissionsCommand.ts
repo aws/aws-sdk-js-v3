@@ -45,6 +45,12 @@ export interface ListSecurityProfilePermissionsCommandOutput
  * import { ConnectClient, ListSecurityProfilePermissionsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListSecurityProfilePermissionsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   SecurityProfileId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListSecurityProfilePermissionsCommand(input);
  * const response = await client.send(command);
  * ```

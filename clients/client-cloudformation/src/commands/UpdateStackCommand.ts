@@ -44,6 +44,51 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * import { CloudFormationClient, UpdateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, UpdateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   StackName: "STRING_VALUE", // required
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateURL: "STRING_VALUE",
+ *   UsePreviousTemplate: true || false,
+ *   StackPolicyDuringUpdateBody: "STRING_VALUE",
+ *   StackPolicyDuringUpdateURL: "STRING_VALUE",
+ *   Parameters: [
+ *     {
+ *       ParameterKey: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       UsePreviousValue: true || false,
+ *       ResolvedValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Capabilities: [
+ *     "CAPABILITY_IAM" || "CAPABILITY_NAMED_IAM" || "CAPABILITY_AUTO_EXPAND",
+ *   ],
+ *   ResourceTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RoleARN: "STRING_VALUE",
+ *   RollbackConfiguration: {
+ *     RollbackTriggers: [
+ *       {
+ *         Arn: "STRING_VALUE", // required
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     MonitoringTimeInMinutes: Number("int"),
+ *   },
+ *   StackPolicyBody: "STRING_VALUE",
+ *   StackPolicyURL: "STRING_VALUE",
+ *   NotificationARNs: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   DisableRollback: true || false,
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new UpdateStackCommand(input);
  * const response = await client.send(command);
  * ```

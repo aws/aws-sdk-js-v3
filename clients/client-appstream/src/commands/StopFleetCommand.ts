@@ -39,6 +39,9 @@ export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBeare
  * import { AppStreamClient, StopFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, StopFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new StopFleetCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,13 @@ export interface ListChangedBlocksCommandOutput extends ListChangedBlocksRespons
  * import { EBSClient, ListChangedBlocksCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, ListChangedBlocksCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
  * const client = new EBSClient(config);
+ * const input = {
+ *   FirstSnapshotId: "STRING_VALUE",
+ *   SecondSnapshotId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   StartingBlockIndex: Number("int"),
+ * };
  * const command = new ListChangedBlocksCommand(input);
  * const response = await client.send(command);
  * ```

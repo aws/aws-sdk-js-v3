@@ -47,6 +47,22 @@ export interface UpdateInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   LayerIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   InstanceType: "STRING_VALUE",
+ *   AutoScalingType: "STRING_VALUE",
+ *   Hostname: "STRING_VALUE",
+ *   Os: "STRING_VALUE",
+ *   AmiId: "STRING_VALUE",
+ *   SshKeyName: "STRING_VALUE",
+ *   Architecture: "STRING_VALUE",
+ *   InstallUpdatesOnBoot: true || false,
+ *   EbsOptimized: true || false,
+ *   AgentVersion: "STRING_VALUE",
+ * };
  * const command = new UpdateInstanceCommand(input);
  * const response = await client.send(command);
  * ```

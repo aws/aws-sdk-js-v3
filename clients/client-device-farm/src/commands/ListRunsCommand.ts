@@ -39,6 +39,10 @@ export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer 
  * import { DeviceFarmClient, ListRunsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListRunsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListRunsCommand(input);
  * const response = await client.send(command);
  * ```

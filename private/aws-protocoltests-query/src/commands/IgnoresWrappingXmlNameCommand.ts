@@ -44,6 +44,7 @@ export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlN
  * import { QueryProtocolClient, IgnoresWrappingXmlNameCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, IgnoresWrappingXmlNameCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {};
  * const command = new IgnoresWrappingXmlNameCommand(input);
  * const response = await client.send(command);
  * ```

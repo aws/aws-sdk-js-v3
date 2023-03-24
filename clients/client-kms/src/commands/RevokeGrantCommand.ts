@@ -85,6 +85,10 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  * import { KMSClient, RevokeGrantCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, RevokeGrantCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   KeyId: "STRING_VALUE", // required
+ *   GrantId: "STRING_VALUE", // required
+ * };
  * const command = new RevokeGrantCommand(input);
  * const response = await client.send(command);
  * ```

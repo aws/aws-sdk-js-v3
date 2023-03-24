@@ -50,6 +50,15 @@ export interface CreateSubscriptionNotificationConfigurationCommandOutput
  * import { SecurityLakeClient, CreateSubscriptionNotificationConfigurationCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, CreateSubscriptionNotificationConfigurationCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   subscriptionId: "STRING_VALUE", // required
+ *   subscriptionEndpoint: "STRING_VALUE",
+ *   httpsApiKeyName: "STRING_VALUE",
+ *   httpsApiKeyValue: "STRING_VALUE",
+ *   httpsMethod: "STRING_VALUE",
+ *   createSqs: true || false,
+ *   roleArn: "STRING_VALUE",
+ * };
  * const command = new CreateSubscriptionNotificationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

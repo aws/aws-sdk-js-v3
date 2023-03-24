@@ -51,6 +51,15 @@ export interface AssociateResolverEndpointIpAddressCommandOutput
  * import { Route53ResolverClient, AssociateResolverEndpointIpAddressCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, AssociateResolverEndpointIpAddressCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   ResolverEndpointId: "STRING_VALUE", // required
+ *   IpAddress: {
+ *     IpId: "STRING_VALUE",
+ *     SubnetId: "STRING_VALUE",
+ *     Ip: "STRING_VALUE",
+ *     Ipv6: "STRING_VALUE",
+ *   },
+ * };
  * const command = new AssociateResolverEndpointIpAddressCommand(input);
  * const response = await client.send(command);
  * ```

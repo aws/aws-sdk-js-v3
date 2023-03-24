@@ -51,6 +51,18 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * import { WorkDocsClient, DescribeUsersCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeUsersCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   AuthenticationToken: "STRING_VALUE",
+ *   OrganizationId: "STRING_VALUE",
+ *   UserIds: "STRING_VALUE",
+ *   Query: "STRING_VALUE",
+ *   Include: "ALL" || "ACTIVE_PENDING",
+ *   Order: "ASCENDING" || "DESCENDING",
+ *   Sort: "USER_NAME" || "FULL_NAME" || "STORAGE_LIMIT" || "USER_STATUS" || "STORAGE_USED",
+ *   Marker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   Fields: "STRING_VALUE",
+ * };
  * const command = new DescribeUsersCommand(input);
  * const response = await client.send(command);
  * ```

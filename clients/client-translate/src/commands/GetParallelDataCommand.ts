@@ -42,6 +42,9 @@ export interface GetParallelDataCommandOutput extends GetParallelDataResponse, _
  * import { TranslateClient, GetParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, GetParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetParallelDataCommand(input);
  * const response = await client.send(command);
  * ```

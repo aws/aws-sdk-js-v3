@@ -45,6 +45,9 @@ export interface DescribeHyperParameterTuningJobCommandOutput
  * import { SageMakerClient, DescribeHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   HyperParameterTuningJobName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeHyperParameterTuningJobCommand(input);
  * const response = await client.send(command);
  * ```

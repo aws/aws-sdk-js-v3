@@ -56,6 +56,9 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * import { OrganizationsClient, CreateOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CreateOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   FeatureSet: "ALL" || "CONSOLIDATED_BILLING",
+ * };
  * const command = new CreateOrganizationCommand(input);
  * const response = await client.send(command);
  * ```

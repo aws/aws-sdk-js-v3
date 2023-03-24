@@ -46,6 +46,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { OpenSearchServerlessClient, ListTagsForResourceCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, ListTagsForResourceCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

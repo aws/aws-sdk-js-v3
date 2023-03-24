@@ -44,6 +44,7 @@ export interface CreateUsageReportSubscriptionCommandOutput
  * import { AppStreamClient, CreateUsageReportSubscriptionCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateUsageReportSubscriptionCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {};
  * const command = new CreateUsageReportSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

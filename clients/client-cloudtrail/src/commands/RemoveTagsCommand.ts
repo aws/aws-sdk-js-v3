@@ -42,6 +42,15 @@ export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataB
  * import { CloudTrailClient, RemoveTagsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, RemoveTagsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   TagsList: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);
  * ```

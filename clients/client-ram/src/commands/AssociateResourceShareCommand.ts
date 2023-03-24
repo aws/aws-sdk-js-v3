@@ -44,6 +44,16 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  * import { RAMClient, AssociateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, AssociateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = {
+ *   resourceShareArn: "STRING_VALUE", // required
+ *   resourceArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   principals: [
+ *     "STRING_VALUE",
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new AssociateResourceShareCommand(input);
  * const response = await client.send(command);
  * ```

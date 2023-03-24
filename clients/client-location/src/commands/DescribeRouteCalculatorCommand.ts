@@ -42,6 +42,9 @@ export interface DescribeRouteCalculatorCommandOutput extends DescribeRouteCalcu
  * import { LocationClient, DescribeRouteCalculatorCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DescribeRouteCalculatorCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   CalculatorName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRouteCalculatorCommand(input);
  * const response = await client.send(command);
  * ```

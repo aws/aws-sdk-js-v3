@@ -48,6 +48,11 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
  * import { Route53RecoveryReadinessClient, GetRecoveryGroupReadinessSummaryCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, GetRecoveryGroupReadinessSummaryCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   RecoveryGroupName: "STRING_VALUE", // required
+ * };
  * const command = new GetRecoveryGroupReadinessSummaryCommand(input);
  * const response = await client.send(command);
  * ```

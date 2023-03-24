@@ -67,6 +67,15 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * import { S3Client, DeleteObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, DeleteObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   MFA: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   BypassGovernanceRetention: true || false,
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
  * ```

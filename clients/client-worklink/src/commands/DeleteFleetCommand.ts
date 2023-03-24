@@ -44,6 +44,9 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  * import { WorkLinkClient, DeleteFleetCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DeleteFleetCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);
  * ```

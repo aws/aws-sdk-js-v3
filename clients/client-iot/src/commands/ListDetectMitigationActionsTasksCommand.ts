@@ -47,6 +47,12 @@ export interface ListDetectMitigationActionsTasksCommandOutput
  * import { IoTClient, ListDetectMitigationActionsTasksCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListDetectMitigationActionsTasksCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new ListDetectMitigationActionsTasksCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,78 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  * import { LakeFormationClient, BatchGrantPermissionsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, BatchGrantPermissionsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   Entries: [ // required
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       Principal: {
+ *         DataLakePrincipalIdentifier: "STRING_VALUE",
+ *       },
+ *       Resource: {
+ *         Catalog: {},
+ *         Database: {
+ *           CatalogId: "STRING_VALUE",
+ *           Name: "STRING_VALUE", // required
+ *         },
+ *         Table: {
+ *           CatalogId: "STRING_VALUE",
+ *           DatabaseName: "STRING_VALUE", // required
+ *           Name: "STRING_VALUE",
+ *           TableWildcard: {},
+ *         },
+ *         TableWithColumns: {
+ *           CatalogId: "STRING_VALUE",
+ *           DatabaseName: "STRING_VALUE", // required
+ *           Name: "STRING_VALUE", // required
+ *           ColumnNames: [
+ *             "STRING_VALUE",
+ *           ],
+ *           ColumnWildcard: {
+ *             ExcludedColumnNames: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *         DataLocation: {
+ *           CatalogId: "STRING_VALUE",
+ *           ResourceArn: "STRING_VALUE", // required
+ *         },
+ *         DataCellsFilter: {
+ *           TableCatalogId: "STRING_VALUE",
+ *           DatabaseName: "STRING_VALUE",
+ *           TableName: "STRING_VALUE",
+ *           Name: "STRING_VALUE",
+ *         },
+ *         LFTag: {
+ *           CatalogId: "STRING_VALUE",
+ *           TagKey: "STRING_VALUE", // required
+ *           TagValues: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         LFTagPolicy: {
+ *           CatalogId: "STRING_VALUE",
+ *           ResourceType: "DATABASE" || "TABLE", // required
+ *           Expression: [ // required
+ *             {
+ *               TagKey: "STRING_VALUE", // required
+ *               TagValues: [ // required
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       Permissions: [
+ *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *       ],
+ *       PermissionsWithGrantOption: [
+ *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_TAG" || "ASSOCIATE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new BatchGrantPermissionsCommand(input);
  * const response = await client.send(command);
  * ```

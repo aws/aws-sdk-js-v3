@@ -75,6 +75,10 @@ export interface DescribeMultiRegionAccessPointOperationCommandOutput
  * import { S3ControlClient, DescribeMultiRegionAccessPointOperationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DescribeMultiRegionAccessPointOperationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   RequestTokenARN: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMultiRegionAccessPointOperationCommand(input);
  * const response = await client.send(command);
  * ```

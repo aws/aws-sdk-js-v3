@@ -44,6 +44,22 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * import { IoTThingsGraphClient, SearchEntitiesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, SearchEntitiesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   entityTypes: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [
+ *     {
+ *       name: "STRING_VALUE",
+ *       value: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   namespaceVersion: Number("long"),
+ * };
  * const command = new SearchEntitiesCommand(input);
  * const response = await client.send(command);
  * ```

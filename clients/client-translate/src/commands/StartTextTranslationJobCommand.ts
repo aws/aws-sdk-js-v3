@@ -50,6 +50,36 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  * import { TranslateClient, StartTextTranslationJobCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, StartTextTranslationJobCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = {
+ *   JobName: "STRING_VALUE",
+ *   InputDataConfig: {
+ *     S3Uri: "STRING_VALUE", // required
+ *     ContentType: "STRING_VALUE", // required
+ *   },
+ *   OutputDataConfig: {
+ *     S3Uri: "STRING_VALUE", // required
+ *     EncryptionKey: {
+ *       Type: "KMS", // required
+ *       Id: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   SourceLanguageCode: "STRING_VALUE", // required
+ *   TargetLanguageCodes: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TerminologyNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ParallelDataNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientToken: "STRING_VALUE", // required
+ *   Settings: {
+ *     Formality: "FORMAL" || "INFORMAL",
+ *     Profanity: "MASK",
+ *   },
+ * };
  * const command = new StartTextTranslationJobCommand(input);
  * const response = await client.send(command);
  * ```

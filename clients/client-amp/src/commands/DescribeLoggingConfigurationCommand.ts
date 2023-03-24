@@ -44,6 +44,9 @@ export interface DescribeLoggingConfigurationCommandOutput
  * import { AmpClient, DescribeLoggingConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DescribeLoggingConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

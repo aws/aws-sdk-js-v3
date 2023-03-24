@@ -46,6 +46,9 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * import { DatabaseMigrationServiceClient, DeleteEventSubscriptionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteEventSubscriptionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   SubscriptionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

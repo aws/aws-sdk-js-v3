@@ -42,6 +42,10 @@ export interface DescribeSpaceCommandOutput extends DescribeSpaceResponse, __Met
  * import { SageMakerClient, DescribeSpaceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeSpaceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   DomainId: "STRING_VALUE", // required
+ *   SpaceName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSpaceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,12 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { BackupClient, UntagResourceCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UntagResourceCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagKeyList: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

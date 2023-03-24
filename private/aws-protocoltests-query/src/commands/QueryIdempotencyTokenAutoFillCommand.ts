@@ -41,6 +41,9 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
  * import { QueryProtocolClient, QueryIdempotencyTokenAutoFillCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, QueryIdempotencyTokenAutoFillCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {
+ *   token: "STRING_VALUE",
+ * };
  * const command = new QueryIdempotencyTokenAutoFillCommand(input);
  * const response = await client.send(command);
  * ```

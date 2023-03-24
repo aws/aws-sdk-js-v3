@@ -43,6 +43,21 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * import { ImagebuilderClient, ListImagesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListImagesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   filters: [
+ *     {
+ *       name: "STRING_VALUE",
+ *       values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   byName: true || false,
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   includeDeprecated: true || false,
+ * };
  * const command = new ListImagesCommand(input);
  * const response = await client.send(command);
  * ```

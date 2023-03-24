@@ -49,6 +49,22 @@ export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicatio
  * import { DatabaseMigrationServiceClient, ModifyReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ModifyReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   ReplicationInstanceArn: "STRING_VALUE", // required
+ *   AllocatedStorage: Number("int"),
+ *   ApplyImmediately: true || false,
+ *   ReplicationInstanceClass: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AllowMajorVersionUpgrade: true || false,
+ *   AutoMinorVersionUpgrade: true || false,
+ *   ReplicationInstanceIdentifier: "STRING_VALUE",
+ *   NetworkType: "STRING_VALUE",
+ * };
  * const command = new ModifyReplicationInstanceCommand(input);
  * const response = await client.send(command);
  * ```

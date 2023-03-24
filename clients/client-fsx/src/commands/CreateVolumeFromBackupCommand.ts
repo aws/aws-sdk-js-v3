@@ -43,6 +43,31 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * import { FSxClient, CreateVolumeFromBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateVolumeFromBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   BackupId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   OntapConfiguration: {
+ *     JunctionPath: "STRING_VALUE",
+ *     SecurityStyle: "UNIX" || "NTFS" || "MIXED",
+ *     SizeInMegabytes: Number("int"), // required
+ *     StorageEfficiencyEnabled: true || false,
+ *     StorageVirtualMachineId: "STRING_VALUE", // required
+ *     TieringPolicy: {
+ *       CoolingPeriod: Number("int"),
+ *       Name: "SNAPSHOT_ONLY" || "AUTO" || "ALL" || "NONE",
+ *     },
+ *     OntapVolumeType: "RW" || "DP",
+ *     SnapshotPolicy: "STRING_VALUE",
+ *     CopyTagsToBackups: true || false,
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateVolumeFromBackupCommand(input);
  * const response = await client.send(command);
  * ```

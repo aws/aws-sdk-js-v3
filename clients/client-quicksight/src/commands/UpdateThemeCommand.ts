@@ -42,6 +42,64 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  * import { QuickSightClient, UpdateThemeCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateThemeCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   ThemeId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   BaseThemeId: "STRING_VALUE", // required
+ *   VersionDescription: "STRING_VALUE",
+ *   Configuration: {
+ *     DataColorPalette: {
+ *       Colors: [
+ *         "STRING_VALUE",
+ *       ],
+ *       MinMaxGradient: [
+ *         "STRING_VALUE",
+ *       ],
+ *       EmptyFillColor: "STRING_VALUE",
+ *     },
+ *     UIColorPalette: {
+ *       PrimaryForeground: "STRING_VALUE",
+ *       PrimaryBackground: "STRING_VALUE",
+ *       SecondaryForeground: "STRING_VALUE",
+ *       SecondaryBackground: "STRING_VALUE",
+ *       Accent: "STRING_VALUE",
+ *       AccentForeground: "STRING_VALUE",
+ *       Danger: "STRING_VALUE",
+ *       DangerForeground: "STRING_VALUE",
+ *       Warning: "STRING_VALUE",
+ *       WarningForeground: "STRING_VALUE",
+ *       Success: "STRING_VALUE",
+ *       SuccessForeground: "STRING_VALUE",
+ *       Dimension: "STRING_VALUE",
+ *       DimensionForeground: "STRING_VALUE",
+ *       Measure: "STRING_VALUE",
+ *       MeasureForeground: "STRING_VALUE",
+ *     },
+ *     Sheet: {
+ *       Tile: {
+ *         Border: {
+ *           Show: true || false,
+ *         },
+ *       },
+ *       TileLayout: {
+ *         Gutter: {
+ *           Show: true || false,
+ *         },
+ *         Margin: {
+ *           Show: true || false,
+ *         },
+ *       },
+ *     },
+ *     Typography: {
+ *       FontFamilies: [
+ *         {
+ *           FontFamily: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new UpdateThemeCommand(input);
  * const response = await client.send(command);
  * ```

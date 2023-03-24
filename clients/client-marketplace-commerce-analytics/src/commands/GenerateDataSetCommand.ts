@@ -53,6 +53,17 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  * import { MarketplaceCommerceAnalyticsClient, GenerateDataSetCommand } from "@aws-sdk/client-marketplace-commerce-analytics"; // ES Modules import
  * // const { MarketplaceCommerceAnalyticsClient, GenerateDataSetCommand } = require("@aws-sdk/client-marketplace-commerce-analytics"); // CommonJS import
  * const client = new MarketplaceCommerceAnalyticsClient(config);
+ * const input = {
+ *   dataSetType: "STRING_VALUE", // required
+ *   dataSetPublicationDate: new Date("TIMESTAMP"), // required
+ *   roleNameArn: "STRING_VALUE", // required
+ *   destinationS3BucketName: "STRING_VALUE", // required
+ *   destinationS3Prefix: "STRING_VALUE",
+ *   snsTopicArn: "STRING_VALUE", // required
+ *   customerDefinedValues: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new GenerateDataSetCommand(input);
  * const response = await client.send(command);
  * ```

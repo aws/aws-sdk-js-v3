@@ -54,6 +54,10 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  * import { GlacierClient, DeleteVaultNotificationsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, DeleteVaultNotificationsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteVaultNotificationsCommand(input);
  * const response = await client.send(command);
  * ```

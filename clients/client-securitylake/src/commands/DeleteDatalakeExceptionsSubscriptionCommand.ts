@@ -48,6 +48,7 @@ export interface DeleteDatalakeExceptionsSubscriptionCommandOutput
  * import { SecurityLakeClient, DeleteDatalakeExceptionsSubscriptionCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteDatalakeExceptionsSubscriptionCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {};
  * const command = new DeleteDatalakeExceptionsSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -57,6 +57,12 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * import { CloudFrontClient, ListDistributionsByRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   RealtimeLogConfigName: "STRING_VALUE",
+ *   RealtimeLogConfigArn: "STRING_VALUE",
+ * };
  * const command = new ListDistributionsByRealtimeLogConfigCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface ListRouteCalculatorsCommandOutput extends ListRouteCalculatorsR
  * import { LocationClient, ListRouteCalculatorsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListRouteCalculatorsCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListRouteCalculatorsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,9 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  * import { DirectConnectClient, DeleteDirectConnectGatewayCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteDirectConnectGatewayCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   directConnectGatewayId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDirectConnectGatewayCommand(input);
  * const response = await client.send(command);
  * ```

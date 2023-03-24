@@ -42,6 +42,61 @@ export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyR
  * import { NetworkFirewallClient, UpdateFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = {
+ *   UpdateToken: "STRING_VALUE", // required
+ *   FirewallPolicyArn: "STRING_VALUE",
+ *   FirewallPolicyName: "STRING_VALUE",
+ *   FirewallPolicy: {
+ *     StatelessRuleGroupReferences: [
+ *       {
+ *         ResourceArn: "STRING_VALUE", // required
+ *         Priority: Number("int"), // required
+ *       },
+ *     ],
+ *     StatelessDefaultActions: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     StatelessFragmentDefaultActions: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     StatelessCustomActions: [
+ *       {
+ *         ActionName: "STRING_VALUE", // required
+ *         ActionDefinition: {
+ *           PublishMetricAction: {
+ *             Dimensions: [ // required
+ *               {
+ *                 Value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     StatefulRuleGroupReferences: [
+ *       {
+ *         ResourceArn: "STRING_VALUE", // required
+ *         Priority: Number("int"),
+ *         Override: {
+ *           Action: "DROP_TO_ALERT",
+ *         },
+ *       },
+ *     ],
+ *     StatefulDefaultActions: [
+ *       "STRING_VALUE",
+ *     ],
+ *     StatefulEngineOptions: {
+ *       RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
+ *       StreamExceptionPolicy: "DROP" || "CONTINUE",
+ *     },
+ *   },
+ *   Description: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   EncryptionConfiguration: {
+ *     KeyId: "STRING_VALUE",
+ *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ *   },
+ * };
  * const command = new UpdateFirewallPolicyCommand(input);
  * const response = await client.send(command);
  * ```

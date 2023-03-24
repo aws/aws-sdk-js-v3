@@ -85,6 +85,17 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketVersioningCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketVersioningCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   MFA: "STRING_VALUE",
+ *   VersioningConfiguration: {
+ *     MFADelete: "Enabled" || "Disabled",
+ *     Status: "Enabled" || "Suspended",
+ *   },
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketVersioningCommand(input);
  * const response = await client.send(command);
  * ```

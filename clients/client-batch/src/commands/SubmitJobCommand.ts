@@ -54,6 +54,125 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * import { BatchClient, SubmitJobCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, SubmitJobCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = {
+ *   jobName: "STRING_VALUE", // required
+ *   jobQueue: "STRING_VALUE", // required
+ *   shareIdentifier: "STRING_VALUE",
+ *   schedulingPriorityOverride: Number("int"),
+ *   arrayProperties: {
+ *     size: Number("int"),
+ *   },
+ *   dependsOn: [
+ *     {
+ *       jobId: "STRING_VALUE",
+ *       type: "N_TO_N" || "SEQUENTIAL",
+ *     },
+ *   ],
+ *   jobDefinition: "STRING_VALUE", // required
+ *   parameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   containerOverrides: {
+ *     vcpus: Number("int"),
+ *     memory: Number("int"),
+ *     command: [
+ *       "STRING_VALUE",
+ *     ],
+ *     instanceType: "STRING_VALUE",
+ *     environment: [
+ *       {
+ *         name: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     resourceRequirements: [
+ *       {
+ *         value: "STRING_VALUE", // required
+ *         type: "GPU" || "VCPU" || "MEMORY", // required
+ *       },
+ *     ],
+ *   },
+ *   nodeOverrides: {
+ *     numNodes: Number("int"),
+ *     nodePropertyOverrides: [
+ *       {
+ *         targetNodes: "STRING_VALUE", // required
+ *         containerOverrides: {
+ *           vcpus: Number("int"),
+ *           memory: Number("int"),
+ *           command: [
+ *             "STRING_VALUE",
+ *           ],
+ *           instanceType: "STRING_VALUE",
+ *           environment: [
+ *             {
+ *               name: "STRING_VALUE",
+ *               value: "STRING_VALUE",
+ *             },
+ *           ],
+ *           resourceRequirements: [
+ *             {
+ *               value: "STRING_VALUE", // required
+ *               type: "GPU" || "VCPU" || "MEMORY", // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   retryStrategy: {
+ *     attempts: Number("int"),
+ *     evaluateOnExit: [
+ *       {
+ *         onStatusReason: "STRING_VALUE",
+ *         onReason: "STRING_VALUE",
+ *         onExitCode: "STRING_VALUE",
+ *         action: "RETRY" || "EXIT", // required
+ *       },
+ *     ],
+ *   },
+ *   propagateTags: true || false,
+ *   timeout: {
+ *     attemptDurationSeconds: Number("int"),
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   eksPropertiesOverride: {
+ *     podProperties: {
+ *       containers: [
+ *         {
+ *           image: "STRING_VALUE",
+ *           command: [
+ *             "STRING_VALUE",
+ *           ],
+ *           args: [
+ *             "STRING_VALUE",
+ *           ],
+ *           env: [
+ *             {
+ *               name: "STRING_VALUE", // required
+ *               value: "STRING_VALUE",
+ *             },
+ *           ],
+ *           resources: {
+ *             limits: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             requests: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       metadata: {
+ *         labels: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new SubmitJobCommand(input);
  * const response = await client.send(command);
  * ```

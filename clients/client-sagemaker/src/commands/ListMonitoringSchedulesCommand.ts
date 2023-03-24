@@ -42,6 +42,21 @@ export interface ListMonitoringSchedulesCommandOutput extends ListMonitoringSche
  * import { SageMakerClient, ListMonitoringSchedulesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListMonitoringSchedulesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   EndpointName: "STRING_VALUE",
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NameContains: "STRING_VALUE",
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   StatusEquals: "Pending" || "Failed" || "Scheduled" || "Stopped",
+ *   MonitoringJobDefinitionName: "STRING_VALUE",
+ *   MonitoringTypeEquals: "DataQuality" || "ModelQuality" || "ModelBias" || "ModelExplainability",
+ * };
  * const command = new ListMonitoringSchedulesCommand(input);
  * const response = await client.send(command);
  * ```

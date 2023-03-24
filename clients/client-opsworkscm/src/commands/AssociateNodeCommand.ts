@@ -62,6 +62,16 @@ export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __Met
  * import { OpsWorksCMClient, AssociateNodeCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, AssociateNodeCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = {
+ *   ServerName: "STRING_VALUE", // required
+ *   NodeName: "STRING_VALUE", // required
+ *   EngineAttributes: [ // required
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AssociateNodeCommand(input);
  * const response = await client.send(command);
  * ```

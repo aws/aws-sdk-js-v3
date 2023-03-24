@@ -43,6 +43,7 @@ export interface DescribeLocationsCommandOutput extends Locations, __MetadataBea
  * import { DirectConnectClient, DescribeLocationsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeLocationsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {};
  * const command = new DescribeLocationsCommand(input);
  * const response = await client.send(command);
  * ```

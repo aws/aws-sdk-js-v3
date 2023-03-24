@@ -46,6 +46,16 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  * import { SESv2Client, PutAccountDetailsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutAccountDetailsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   MailType: "MARKETING" || "TRANSACTIONAL", // required
+ *   WebsiteURL: "STRING_VALUE", // required
+ *   ContactLanguage: "EN" || "JA",
+ *   UseCaseDescription: "STRING_VALUE", // required
+ *   AdditionalContactEmailAddresses: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ProductionAccessEnabled: true || false,
+ * };
  * const command = new PutAccountDetailsCommand(input);
  * const response = await client.send(command);
  * ```

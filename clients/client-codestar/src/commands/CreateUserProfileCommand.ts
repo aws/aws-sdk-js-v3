@@ -50,6 +50,12 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * import { CodeStarClient, CreateUserProfileCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, CreateUserProfileCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = {
+ *   userArn: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE", // required
+ *   emailAddress: "STRING_VALUE", // required
+ *   sshPublicKey: "STRING_VALUE",
+ * };
  * const command = new CreateUserProfileCommand(input);
  * const response = await client.send(command);
  * ```

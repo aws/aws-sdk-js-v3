@@ -44,6 +44,12 @@ export interface UpdateSubnetChangeProtectionCommandOutput
  * import { NetworkFirewallClient, UpdateSubnetChangeProtectionCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateSubnetChangeProtectionCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = {
+ *   UpdateToken: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ *   SubnetChangeProtection: true || false, // required
+ * };
  * const command = new UpdateSubnetChangeProtectionCommand(input);
  * const response = await client.send(command);
  * ```

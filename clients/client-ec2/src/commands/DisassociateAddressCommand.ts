@@ -49,6 +49,11 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DisassociateAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   AssociationId: "STRING_VALUE",
+ *   PublicIp: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DisassociateAddressCommand(input);
  * const response = await client.send(command);
  * ```

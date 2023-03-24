@@ -56,6 +56,18 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * import { ConfigServiceClient, PutDeliveryChannelCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutDeliveryChannelCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   DeliveryChannel: {
+ *     name: "STRING_VALUE",
+ *     s3BucketName: "STRING_VALUE",
+ *     s3KeyPrefix: "STRING_VALUE",
+ *     s3KmsKeyArn: "STRING_VALUE",
+ *     snsTopicARN: "STRING_VALUE",
+ *     configSnapshotDeliveryProperties: {
+ *       deliveryFrequency: "One_Hour" || "Three_Hours" || "Six_Hours" || "Twelve_Hours" || "TwentyFour_Hours",
+ *     },
+ *   },
+ * };
  * const command = new PutDeliveryChannelCommand(input);
  * const response = await client.send(command);
  * ```

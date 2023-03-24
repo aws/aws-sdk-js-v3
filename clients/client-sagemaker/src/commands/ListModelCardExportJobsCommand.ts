@@ -42,6 +42,18 @@ export interface ListModelCardExportJobsCommandOutput extends ListModelCardExpor
  * import { SageMakerClient, ListModelCardExportJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListModelCardExportJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ModelCardName: "STRING_VALUE", // required
+ *   ModelCardVersion: Number("int"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   ModelCardExportJobNameContains: "STRING_VALUE",
+ *   StatusEquals: "InProgress" || "Completed" || "Failed",
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListModelCardExportJobsCommand(input);
  * const response = await client.send(command);
  * ```

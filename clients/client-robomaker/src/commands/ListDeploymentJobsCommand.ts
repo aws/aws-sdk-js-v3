@@ -47,6 +47,18 @@ export interface ListDeploymentJobsCommandOutput extends ListDeploymentJobsRespo
  * import { RoboMakerClient, ListDeploymentJobsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListDeploymentJobsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = {
+ *   filters: [
+ *     {
+ *       name: "STRING_VALUE",
+ *       values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDeploymentJobsCommand(input);
  * const response = await client.send(command);
  * ```

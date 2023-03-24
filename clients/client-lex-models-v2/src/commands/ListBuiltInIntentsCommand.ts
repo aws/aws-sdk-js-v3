@@ -47,6 +47,15 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  * import { LexModelsV2Client, ListBuiltInIntentsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBuiltInIntentsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   localeId: "STRING_VALUE", // required
+ *   sortBy: {
+ *     attribute: "IntentSignature", // required
+ *     order: "Ascending" || "Descending", // required
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBuiltInIntentsCommand(input);
  * const response = await client.send(command);
  * ```

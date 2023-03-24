@@ -46,6 +46,16 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * import { ApplicationCostProfilerClient, PutReportDefinitionCommand } from "@aws-sdk/client-applicationcostprofiler"; // ES Modules import
  * // const { ApplicationCostProfilerClient, PutReportDefinitionCommand } = require("@aws-sdk/client-applicationcostprofiler"); // CommonJS import
  * const client = new ApplicationCostProfilerClient(config);
+ * const input = {
+ *   reportId: "STRING_VALUE", // required
+ *   reportDescription: "STRING_VALUE", // required
+ *   reportFrequency: "STRING_VALUE", // required
+ *   format: "STRING_VALUE", // required
+ *   destinationS3Location: {
+ *     bucket: "STRING_VALUE", // required
+ *     prefix: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new PutReportDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

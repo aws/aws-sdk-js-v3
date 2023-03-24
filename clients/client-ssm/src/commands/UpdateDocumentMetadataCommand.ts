@@ -43,6 +43,19 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
  * import { SSMClient, UpdateDocumentMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateDocumentMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   DocumentVersion: "STRING_VALUE",
+ *   DocumentReviews: {
+ *     Action: "SendForReview" || "UpdateReview" || "Approve" || "Reject", // required
+ *     Comment: [
+ *       {
+ *         Type: "Comment",
+ *         Content: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateDocumentMetadataCommand(input);
  * const response = await client.send(command);
  * ```

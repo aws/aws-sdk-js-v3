@@ -43,6 +43,11 @@ export interface ListThingTypesCommandOutput extends ListThingTypesResponse, __M
  * import { IoTClient, ListThingTypesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListThingTypesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   thingTypeName: "STRING_VALUE",
+ * };
  * const command = new ListThingTypesCommand(input);
  * const response = await client.send(command);
  * ```

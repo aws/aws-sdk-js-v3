@@ -42,6 +42,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { AppSyncClient, UntagResourceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UntagResourceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

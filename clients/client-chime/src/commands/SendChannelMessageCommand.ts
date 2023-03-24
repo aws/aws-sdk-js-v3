@@ -55,6 +55,15 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * import { ChimeClient, SendChannelMessageCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, SendChannelMessageCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE", // required
+ *   Type: "STRING_VALUE", // required
+ *   Persistence: "STRING_VALUE", // required
+ *   Metadata: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new SendChannelMessageCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,7 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  * import { ResourceExplorer2Client, GetIndexCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, GetIndexCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = {};
  * const command = new GetIndexCommand(input);
  * const response = await client.send(command);
  * ```

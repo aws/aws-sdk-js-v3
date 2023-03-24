@@ -42,6 +42,28 @@ export interface UpdateWorkerCommandOutput extends UpdateWorkerResponse, __Metad
  * import { IoTRoboRunnerClient, UpdateWorkerCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, UpdateWorkerCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   additionalTransientProperties: "STRING_VALUE",
+ *   additionalFixedProperties: "STRING_VALUE",
+ *   vendorProperties: {
+ *     vendorWorkerId: "STRING_VALUE", // required
+ *     vendorWorkerIpAddress: "STRING_VALUE",
+ *     vendorAdditionalTransientProperties: "STRING_VALUE",
+ *     vendorAdditionalFixedProperties: "STRING_VALUE",
+ *   },
+ *   position: { // Union: only one key present
+ *     cartesianCoordinates: {
+ *       x: Number("double"), // required
+ *       y: Number("double"), // required
+ *       z: Number("double"),
+ *     },
+ *   },
+ *   orientation: { // Union: only one key present
+ *     degrees: Number("double"),
+ *   },
+ * };
  * const command = new UpdateWorkerCommand(input);
  * const response = await client.send(command);
  * ```

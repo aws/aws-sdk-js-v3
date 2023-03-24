@@ -38,6 +38,13 @@ export interface XmlMapsCommandOutput extends XmlMapsInputOutput, __MetadataBear
  * import { RestXmlProtocolClient, XmlMapsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlMapsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = {
+ *   myMap: {
+ *     "<keys>": {
+ *       hi: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new XmlMapsCommand(input);
  * const response = await client.send(command);
  * ```

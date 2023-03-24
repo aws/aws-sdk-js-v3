@@ -43,6 +43,9 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   policyName: "STRING_VALUE",
+ * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```

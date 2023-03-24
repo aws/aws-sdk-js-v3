@@ -44,6 +44,19 @@ export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse,
  * import { LookoutEquipmentClient, CreateLabelGroupCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, CreateLabelGroupCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   LabelGroupName: "STRING_VALUE", // required
+ *   FaultCodes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientToken: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateLabelGroupCommand(input);
  * const response = await client.send(command);
  * ```

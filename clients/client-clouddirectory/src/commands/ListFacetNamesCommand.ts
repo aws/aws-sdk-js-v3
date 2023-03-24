@@ -42,6 +42,11 @@ export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __M
  * import { CloudDirectoryClient, ListFacetNamesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListFacetNamesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   SchemaArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFacetNamesCommand(input);
  * const response = await client.send(command);
  * ```

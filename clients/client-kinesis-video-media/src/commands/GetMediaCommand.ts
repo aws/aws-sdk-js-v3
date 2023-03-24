@@ -94,6 +94,16 @@ export interface GetMediaCommandOutput extends __WithSdkStreamMixin<GetMediaOutp
  * import { KinesisVideoMediaClient, GetMediaCommand } from "@aws-sdk/client-kinesis-video-media"; // ES Modules import
  * // const { KinesisVideoMediaClient, GetMediaCommand } = require("@aws-sdk/client-kinesis-video-media"); // CommonJS import
  * const client = new KinesisVideoMediaClient(config);
+ * const input = {
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   StartSelector: {
+ *     StartSelectorType: "STRING_VALUE", // required
+ *     AfterFragmentNumber: "STRING_VALUE",
+ *     StartTimestamp: new Date("TIMESTAMP"),
+ *     ContinuationToken: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetMediaCommand(input);
  * const response = await client.send(command);
  * ```

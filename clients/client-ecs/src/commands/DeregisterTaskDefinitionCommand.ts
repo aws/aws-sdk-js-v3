@@ -59,6 +59,9 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * import { ECSClient, DeregisterTaskDefinitionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeregisterTaskDefinitionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   taskDefinition: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterTaskDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -55,6 +55,12 @@ export interface ListAssessmentControlInsightsByControlDomainCommandOutput
  * import { AuditManagerClient, ListAssessmentControlInsightsByControlDomainCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListAssessmentControlInsightsByControlDomainCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   controlDomainId: "STRING_VALUE", // required
+ *   assessmentId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssessmentControlInsightsByControlDomainCommand(input);
  * const response = await client.send(command);
  * ```

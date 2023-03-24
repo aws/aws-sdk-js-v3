@@ -51,6 +51,16 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * import { DatabaseMigrationServiceClient, AddTagsToResourceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, AddTagsToResourceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
  * ```

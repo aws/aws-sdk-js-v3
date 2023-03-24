@@ -44,6 +44,11 @@ export interface DescribeFlowExecutionRecordsCommandOutput
  * import { AppflowClient, DescribeFlowExecutionRecordsCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, DescribeFlowExecutionRecordsCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = {
+ *   flowName: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeFlowExecutionRecordsCommand(input);
  * const response = await client.send(command);
  * ```

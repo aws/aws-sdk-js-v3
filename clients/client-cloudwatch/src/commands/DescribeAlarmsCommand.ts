@@ -46,6 +46,21 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * import { CloudWatchClient, DescribeAlarmsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAlarmsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = {
+ *   AlarmNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AlarmNamePrefix: "STRING_VALUE",
+ *   AlarmTypes: [
+ *     "CompositeAlarm" || "MetricAlarm",
+ *   ],
+ *   ChildrenOfAlarmName: "STRING_VALUE",
+ *   ParentsOfAlarmName: "STRING_VALUE",
+ *   StateValue: "OK" || "ALARM" || "INSUFFICIENT_DATA",
+ *   ActionPrefix: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAlarmsCommand(input);
  * const response = await client.send(command);
  * ```

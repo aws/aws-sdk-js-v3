@@ -46,6 +46,9 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * import { ElasticsearchServiceClient, DeletePackageCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, DeletePackageCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = {
+ *   PackageID: "STRING_VALUE", // required
+ * };
  * const command = new DeletePackageCommand(input);
  * const response = await client.send(command);
  * ```

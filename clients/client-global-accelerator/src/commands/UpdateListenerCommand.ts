@@ -46,6 +46,17 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * import { GlobalAcceleratorClient, UpdateListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   ListenerArn: "STRING_VALUE", // required
+ *   PortRanges: [
+ *     {
+ *       FromPort: Number("int"),
+ *       ToPort: Number("int"),
+ *     },
+ *   ],
+ *   Protocol: "TCP" || "UDP",
+ *   ClientAffinity: "NONE" || "SOURCE_IP",
+ * };
  * const command = new UpdateListenerCommand(input);
  * const response = await client.send(command);
  * ```

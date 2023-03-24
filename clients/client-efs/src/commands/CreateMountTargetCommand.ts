@@ -181,6 +181,14 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  * import { EFSClient, CreateMountTargetCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, CreateMountTargetCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   FileSystemId: "STRING_VALUE", // required
+ *   SubnetId: "STRING_VALUE", // required
+ *   IpAddress: "STRING_VALUE",
+ *   SecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateMountTargetCommand(input);
  * const response = await client.send(command);
  * ```

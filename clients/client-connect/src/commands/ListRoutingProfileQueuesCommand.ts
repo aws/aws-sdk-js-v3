@@ -42,6 +42,12 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  * import { ConnectClient, ListRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   RoutingProfileId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);
  * ```

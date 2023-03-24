@@ -42,6 +42,15 @@ export interface ListCandidatesForAutoMLJobCommandOutput extends ListCandidatesF
  * import { SageMakerClient, ListCandidatesForAutoMLJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListCandidatesForAutoMLJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   AutoMLJobName: "STRING_VALUE", // required
+ *   StatusEquals: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping",
+ *   CandidateNameEquals: "STRING_VALUE",
+ *   SortOrder: "Ascending" || "Descending",
+ *   SortBy: "CreationTime" || "Status" || "FinalObjectiveMetricValue",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListCandidatesForAutoMLJobCommand(input);
  * const response = await client.send(command);
  * ```

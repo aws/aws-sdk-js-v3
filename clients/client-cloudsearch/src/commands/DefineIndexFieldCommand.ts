@@ -42,6 +42,96 @@ export interface DefineIndexFieldCommandOutput extends DefineIndexFieldResponse,
  * import { CloudSearchClient, DefineIndexFieldCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DefineIndexFieldCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   IndexField: {
+ *     IndexFieldName: "STRING_VALUE", // required
+ *     IndexFieldType: "STRING_VALUE", // required
+ *     IntOptions: {
+ *       DefaultValue: Number("long"),
+ *       SourceField: "STRING_VALUE",
+ *       FacetEnabled: true || false,
+ *       SearchEnabled: true || false,
+ *       ReturnEnabled: true || false,
+ *       SortEnabled: true || false,
+ *     },
+ *     DoubleOptions: {
+ *       DefaultValue: Number("double"),
+ *       SourceField: "STRING_VALUE",
+ *       FacetEnabled: true || false,
+ *       SearchEnabled: true || false,
+ *       ReturnEnabled: true || false,
+ *       SortEnabled: true || false,
+ *     },
+ *     LiteralOptions: {
+ *       DefaultValue: "STRING_VALUE",
+ *       SourceField: "STRING_VALUE",
+ *       FacetEnabled: true || false,
+ *       SearchEnabled: true || false,
+ *       ReturnEnabled: true || false,
+ *       SortEnabled: true || false,
+ *     },
+ *     TextOptions: {
+ *       DefaultValue: "STRING_VALUE",
+ *       SourceField: "STRING_VALUE",
+ *       ReturnEnabled: true || false,
+ *       SortEnabled: true || false,
+ *       HighlightEnabled: true || false,
+ *       AnalysisScheme: "STRING_VALUE",
+ *     },
+ *     DateOptions: {
+ *       DefaultValue: "STRING_VALUE",
+ *       SourceField: "STRING_VALUE",
+ *       FacetEnabled: true || false,
+ *       SearchEnabled: true || false,
+ *       ReturnEnabled: true || false,
+ *       SortEnabled: true || false,
+ *     },
+ *     LatLonOptions: {
+ *       DefaultValue: "STRING_VALUE",
+ *       SourceField: "STRING_VALUE",
+ *       FacetEnabled: true || false,
+ *       SearchEnabled: true || false,
+ *       ReturnEnabled: true || false,
+ *       SortEnabled: true || false,
+ *     },
+ *     IntArrayOptions: {
+ *       DefaultValue: Number("long"),
+ *       SourceFields: "STRING_VALUE",
+ *       FacetEnabled: true || false,
+ *       SearchEnabled: true || false,
+ *       ReturnEnabled: true || false,
+ *     },
+ *     DoubleArrayOptions: {
+ *       DefaultValue: Number("double"),
+ *       SourceFields: "STRING_VALUE",
+ *       FacetEnabled: true || false,
+ *       SearchEnabled: true || false,
+ *       ReturnEnabled: true || false,
+ *     },
+ *     LiteralArrayOptions: {
+ *       DefaultValue: "STRING_VALUE",
+ *       SourceFields: "STRING_VALUE",
+ *       FacetEnabled: true || false,
+ *       SearchEnabled: true || false,
+ *       ReturnEnabled: true || false,
+ *     },
+ *     TextArrayOptions: {
+ *       DefaultValue: "STRING_VALUE",
+ *       SourceFields: "STRING_VALUE",
+ *       ReturnEnabled: true || false,
+ *       HighlightEnabled: true || false,
+ *       AnalysisScheme: "STRING_VALUE",
+ *     },
+ *     DateArrayOptions: {
+ *       DefaultValue: "STRING_VALUE",
+ *       SourceFields: "STRING_VALUE",
+ *       FacetEnabled: true || false,
+ *       SearchEnabled: true || false,
+ *       ReturnEnabled: true || false,
+ *     },
+ *   },
+ * };
  * const command = new DefineIndexFieldCommand(input);
  * const response = await client.send(command);
  * ```

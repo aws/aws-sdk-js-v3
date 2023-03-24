@@ -84,6 +84,88 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * import { WAFV2Client, PutLoggingConfigurationCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, PutLoggingConfigurationCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = {
+ *   LoggingConfiguration: {
+ *     ResourceArn: "STRING_VALUE", // required
+ *     LogDestinationConfigs: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     RedactedFields: [
+ *       {
+ *         SingleHeader: {
+ *           Name: "STRING_VALUE", // required
+ *         },
+ *         SingleQueryArgument: {
+ *           Name: "STRING_VALUE", // required
+ *         },
+ *         AllQueryArguments: {},
+ *         UriPath: {},
+ *         QueryString: {},
+ *         Body: {
+ *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH",
+ *         },
+ *         Method: {},
+ *         JsonBody: {
+ *           MatchPattern: {
+ *             All: {},
+ *             IncludedPaths: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           MatchScope: "ALL" || "KEY" || "VALUE", // required
+ *           InvalidFallbackBehavior: "MATCH" || "NO_MATCH" || "EVALUATE_AS_STRING",
+ *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH",
+ *         },
+ *         Headers: {
+ *           MatchPattern: {
+ *             All: {},
+ *             IncludedHeaders: [
+ *               "STRING_VALUE",
+ *             ],
+ *             ExcludedHeaders: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           MatchScope: "ALL" || "KEY" || "VALUE", // required
+ *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *         },
+ *         Cookies: {
+ *           MatchPattern: {
+ *             All: {},
+ *             IncludedCookies: [
+ *               "STRING_VALUE",
+ *             ],
+ *             ExcludedCookies: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           MatchScope: "ALL" || "KEY" || "VALUE", // required
+ *           OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *         },
+ *       },
+ *     ],
+ *     ManagedByFirewallManager: true || false,
+ *     LoggingFilter: {
+ *       Filters: [ // required
+ *         {
+ *           Behavior: "KEEP" || "DROP", // required
+ *           Requirement: "MEETS_ALL" || "MEETS_ANY", // required
+ *           Conditions: [ // required
+ *             {
+ *               ActionCondition: {
+ *                 Action: "ALLOW" || "BLOCK" || "COUNT" || "CAPTCHA" || "CHALLENGE" || "EXCLUDED_AS_COUNT", // required
+ *               },
+ *               LabelNameCondition: {
+ *                 LabelName: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       DefaultBehavior: "KEEP" || "DROP", // required
+ *     },
+ *   },
+ * };
  * const command = new PutLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface GetDeviceProfileCommandOutput extends GetDeviceProfileResponse,
  * import { IoTWirelessClient, GetDeviceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetDeviceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetDeviceProfileCommand(input);
  * const response = await client.send(command);
  * ```

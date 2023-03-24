@@ -42,6 +42,14 @@ export interface CreateModelCardExportJobCommandOutput extends CreateModelCardEx
  * import { SageMakerClient, CreateModelCardExportJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateModelCardExportJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ModelCardName: "STRING_VALUE", // required
+ *   ModelCardVersion: Number("int"),
+ *   ModelCardExportJobName: "STRING_VALUE", // required
+ *   OutputConfig: {
+ *     S3OutputPath: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateModelCardExportJobCommand(input);
  * const response = await client.send(command);
  * ```

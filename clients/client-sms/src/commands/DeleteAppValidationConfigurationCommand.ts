@@ -44,6 +44,9 @@ export interface DeleteAppValidationConfigurationCommandOutput
  * import { SMSClient, DeleteAppValidationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteAppValidationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAppValidationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -58,6 +58,9 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
  * import { ElasticsearchServiceClient, GetCompatibleElasticsearchVersionsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, GetCompatibleElasticsearchVersionsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE",
+ * };
  * const command = new GetCompatibleElasticsearchVersionsCommand(input);
  * const response = await client.send(command);
  * ```

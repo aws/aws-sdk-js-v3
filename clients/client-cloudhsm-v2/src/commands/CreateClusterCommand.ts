@@ -42,6 +42,23 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { CloudHSMV2Client, CreateClusterCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, CreateClusterCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = {
+ *   BackupRetentionPolicy: {
+ *     Type: "STRING_VALUE",
+ *     Value: "STRING_VALUE",
+ *   },
+ *   HsmType: "STRING_VALUE", // required
+ *   SourceBackupId: "STRING_VALUE",
+ *   SubnetIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TagList: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```

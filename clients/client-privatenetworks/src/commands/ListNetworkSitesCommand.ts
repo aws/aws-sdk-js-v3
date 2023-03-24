@@ -43,6 +43,16 @@ export interface ListNetworkSitesCommandOutput extends ListNetworkSitesResponse,
  * import { PrivateNetworksClient, ListNetworkSitesCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ListNetworkSitesCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = {
+ *   filters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   networkArn: "STRING_VALUE", // required
+ *   startToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListNetworkSitesCommand(input);
  * const response = await client.send(command);
  * ```

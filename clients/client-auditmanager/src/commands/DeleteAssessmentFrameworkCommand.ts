@@ -42,6 +42,9 @@ export interface DeleteAssessmentFrameworkCommandOutput extends DeleteAssessment
  * import { AuditManagerClient, DeleteAssessmentFrameworkCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, DeleteAssessmentFrameworkCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   frameworkId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAssessmentFrameworkCommand(input);
  * const response = await client.send(command);
  * ```

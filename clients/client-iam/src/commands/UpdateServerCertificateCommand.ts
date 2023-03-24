@@ -61,6 +61,11 @@ export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {
  * import { IAMClient, UpdateServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   ServerCertificateName: "STRING_VALUE", // required
+ *   NewPath: "STRING_VALUE",
+ *   NewServerCertificateName: "STRING_VALUE",
+ * };
  * const command = new UpdateServerCertificateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -54,6 +54,147 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  * import { IoTSiteWiseClient, UpdateAssetModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateAssetModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   assetModelId: "STRING_VALUE", // required
+ *   assetModelName: "STRING_VALUE", // required
+ *   assetModelDescription: "STRING_VALUE",
+ *   assetModelProperties: [
+ *     {
+ *       id: "STRING_VALUE",
+ *       name: "STRING_VALUE", // required
+ *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ *       dataTypeSpec: "STRING_VALUE",
+ *       unit: "STRING_VALUE",
+ *       type: {
+ *         attribute: {
+ *           defaultValue: "STRING_VALUE",
+ *         },
+ *         measurement: {
+ *           processingConfig: {
+ *             forwardingConfig: {
+ *               state: "DISABLED" || "ENABLED", // required
+ *             },
+ *           },
+ *         },
+ *         transform: {
+ *           expression: "STRING_VALUE", // required
+ *           variables: [ // required
+ *             {
+ *               name: "STRING_VALUE", // required
+ *               value: {
+ *                 propertyId: "STRING_VALUE", // required
+ *                 hierarchyId: "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *           processingConfig: {
+ *             computeLocation: "EDGE" || "CLOUD", // required
+ *             forwardingConfig: {
+ *               state: "DISABLED" || "ENABLED", // required
+ *             },
+ *           },
+ *         },
+ *         metric: {
+ *           expression: "STRING_VALUE", // required
+ *           variables: [ // required
+ *             {
+ *               name: "STRING_VALUE", // required
+ *               value: {
+ *                 propertyId: "STRING_VALUE", // required
+ *                 hierarchyId: "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *           window: {
+ *             tumbling: {
+ *               interval: "STRING_VALUE", // required
+ *               offset: "STRING_VALUE",
+ *             },
+ *           },
+ *           processingConfig: {
+ *             computeLocation: "EDGE" || "CLOUD", // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   assetModelHierarchies: [
+ *     {
+ *       id: "STRING_VALUE",
+ *       name: "STRING_VALUE", // required
+ *       childAssetModelId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   assetModelCompositeModels: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       type: "STRING_VALUE", // required
+ *       properties: [
+ *         {
+ *           id: "STRING_VALUE",
+ *           name: "STRING_VALUE", // required
+ *           dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ *           dataTypeSpec: "STRING_VALUE",
+ *           unit: "STRING_VALUE",
+ *           type: {
+ *             attribute: {
+ *               defaultValue: "STRING_VALUE",
+ *             },
+ *             measurement: {
+ *               processingConfig: {
+ *                 forwardingConfig: {
+ *                   state: "DISABLED" || "ENABLED", // required
+ *                 },
+ *               },
+ *             },
+ *             transform: {
+ *               expression: "STRING_VALUE", // required
+ *               variables: [ // required
+ *                 {
+ *                   name: "STRING_VALUE", // required
+ *                   value: {
+ *                     propertyId: "STRING_VALUE", // required
+ *                     hierarchyId: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               ],
+ *               processingConfig: {
+ *                 computeLocation: "EDGE" || "CLOUD", // required
+ *                 forwardingConfig: {
+ *                   state: "DISABLED" || "ENABLED", // required
+ *                 },
+ *               },
+ *             },
+ *             metric: {
+ *               expression: "STRING_VALUE", // required
+ *               variables: [ // required
+ *                 {
+ *                   name: "STRING_VALUE", // required
+ *                   value: {
+ *                     propertyId: "STRING_VALUE", // required
+ *                     hierarchyId: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               ],
+ *               window: {
+ *                 tumbling: {
+ *                   interval: "STRING_VALUE", // required
+ *                   offset: "STRING_VALUE",
+ *                 },
+ *               },
+ *               processingConfig: {
+ *                 computeLocation: "EDGE" || "CLOUD", // required
+ *               },
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       id: "STRING_VALUE",
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateAssetModelCommand(input);
  * const response = await client.send(command);
  * ```

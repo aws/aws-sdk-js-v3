@@ -44,6 +44,9 @@ export interface DescribeAlertCommandOutput extends DescribeAlertResponse, __Met
  * import { LookoutMetricsClient, DescribeAlertCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, DescribeAlertCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = {
+ *   AlertArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAlertCommand(input);
  * const response = await client.send(command);
  * ```

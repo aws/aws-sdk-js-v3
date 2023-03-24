@@ -44,6 +44,22 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * import { CloudTrailClient, CreateChannelCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, CreateChannelCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Source: "STRING_VALUE", // required
+ *   Destinations: [ // required
+ *     {
+ *       Type: "EVENT_DATA_STORE" || "AWS_SERVICE", // required
+ *       Location: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
  * ```

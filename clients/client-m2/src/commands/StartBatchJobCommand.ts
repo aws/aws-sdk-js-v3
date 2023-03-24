@@ -43,6 +43,21 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  * import { M2Client, StartBatchJobCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, StartBatchJobCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ *   batchJobIdentifier: { // Union: only one key present
+ *     fileBatchJobIdentifier: {
+ *       fileName: "STRING_VALUE", // required
+ *       folderPath: "STRING_VALUE",
+ *     },
+ *     scriptBatchJobIdentifier: {
+ *       scriptName: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   jobParams: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartBatchJobCommand(input);
  * const response = await client.send(command);
  * ```

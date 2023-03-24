@@ -43,6 +43,17 @@ export interface BatchSnoozeAlarmCommandOutput extends BatchSnoozeAlarmResponse,
  * import { IoTEventsDataClient, BatchSnoozeAlarmCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
  * // const { IoTEventsDataClient, BatchSnoozeAlarmCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
+ * const input = {
+ *   snoozeActionRequests: [ // required
+ *     {
+ *       requestId: "STRING_VALUE", // required
+ *       alarmModelName: "STRING_VALUE", // required
+ *       keyValue: "STRING_VALUE",
+ *       note: "STRING_VALUE",
+ *       snoozeDuration: Number("int"), // required
+ *     },
+ *   ],
+ * };
  * const command = new BatchSnoozeAlarmCommand(input);
  * const response = await client.send(command);
  * ```

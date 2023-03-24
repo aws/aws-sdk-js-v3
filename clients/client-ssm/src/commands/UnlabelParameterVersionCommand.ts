@@ -42,6 +42,13 @@ export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVe
  * import { SSMClient, UnlabelParameterVersionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UnlabelParameterVersionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   ParameterVersion: Number("long"), // required
+ *   Labels: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UnlabelParameterVersionCommand(input);
  * const response = await client.send(command);
  * ```

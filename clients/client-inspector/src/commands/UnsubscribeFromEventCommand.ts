@@ -43,6 +43,11 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * import { InspectorClient, UnsubscribeFromEventCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, UnsubscribeFromEventCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   event: "STRING_VALUE", // required
+ *   topicArn: "STRING_VALUE", // required
+ * };
  * const command = new UnsubscribeFromEventCommand(input);
  * const response = await client.send(command);
  * ```

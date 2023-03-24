@@ -46,6 +46,9 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  * import { RekognitionClient, DeleteCollectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteCollectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   CollectionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCollectionCommand(input);
  * const response = await client.send(command);
  * ```

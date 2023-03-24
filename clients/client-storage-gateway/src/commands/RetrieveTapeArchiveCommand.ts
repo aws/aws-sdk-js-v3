@@ -49,6 +49,10 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  * import { StorageGatewayClient, RetrieveTapeArchiveCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, RetrieveTapeArchiveCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   TapeARN: "STRING_VALUE", // required
+ *   GatewayARN: "STRING_VALUE", // required
+ * };
  * const command = new RetrieveTapeArchiveCommand(input);
  * const response = await client.send(command);
  * ```

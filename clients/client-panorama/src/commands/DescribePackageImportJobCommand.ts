@@ -42,6 +42,9 @@ export interface DescribePackageImportJobCommandOutput extends DescribePackageIm
  * import { PanoramaClient, DescribePackageImportJobCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, DescribePackageImportJobCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribePackageImportJobCommand(input);
  * const response = await client.send(command);
  * ```

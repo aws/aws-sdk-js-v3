@@ -42,6 +42,124 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
  * import { LookoutMetricsClient, CreateMetricSetCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, CreateMetricSetCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = {
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   MetricSetName: "STRING_VALUE", // required
+ *   MetricSetDescription: "STRING_VALUE",
+ *   MetricList: [ // required
+ *     {
+ *       MetricName: "STRING_VALUE", // required
+ *       AggregationFunction: "STRING_VALUE", // required
+ *       Namespace: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Offset: Number("int"),
+ *   TimestampColumn: {
+ *     ColumnName: "STRING_VALUE",
+ *     ColumnFormat: "STRING_VALUE",
+ *   },
+ *   DimensionList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MetricSetFrequency: "STRING_VALUE",
+ *   MetricSource: {
+ *     S3SourceConfig: {
+ *       RoleArn: "STRING_VALUE",
+ *       TemplatedPathList: [
+ *         "STRING_VALUE",
+ *       ],
+ *       HistoricalDataPathList: [
+ *         "STRING_VALUE",
+ *       ],
+ *       FileFormatDescriptor: {
+ *         CsvFormatDescriptor: {
+ *           FileCompression: "STRING_VALUE",
+ *           Charset: "STRING_VALUE",
+ *           ContainsHeader: true || false,
+ *           Delimiter: "STRING_VALUE",
+ *           HeaderList: [
+ *             "STRING_VALUE",
+ *           ],
+ *           QuoteSymbol: "STRING_VALUE",
+ *         },
+ *         JsonFormatDescriptor: {
+ *           FileCompression: "STRING_VALUE",
+ *           Charset: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     AppFlowConfig: {
+ *       RoleArn: "STRING_VALUE",
+ *       FlowName: "STRING_VALUE",
+ *     },
+ *     CloudWatchConfig: {
+ *       RoleArn: "STRING_VALUE",
+ *       BackTestConfiguration: {
+ *         RunBackTestMode: true || false, // required
+ *       },
+ *     },
+ *     RDSSourceConfig: {
+ *       DBInstanceIdentifier: "STRING_VALUE",
+ *       DatabaseHost: "STRING_VALUE",
+ *       DatabasePort: Number("int"),
+ *       SecretManagerArn: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       TableName: "STRING_VALUE",
+ *       RoleArn: "STRING_VALUE",
+ *       VpcConfiguration: {
+ *         SubnetIdList: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIdList: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     RedshiftSourceConfig: {
+ *       ClusterIdentifier: "STRING_VALUE",
+ *       DatabaseHost: "STRING_VALUE",
+ *       DatabasePort: Number("int"),
+ *       SecretManagerArn: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       TableName: "STRING_VALUE",
+ *       RoleArn: "STRING_VALUE",
+ *       VpcConfiguration: {
+ *         SubnetIdList: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIdList: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     AthenaSourceConfig: {
+ *       RoleArn: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *       DataCatalog: "STRING_VALUE",
+ *       TableName: "STRING_VALUE",
+ *       WorkGroupName: "STRING_VALUE",
+ *       S3ResultsPath: "STRING_VALUE",
+ *       BackTestConfiguration: {
+ *         RunBackTestMode: true || false, // required
+ *       },
+ *     },
+ *   },
+ *   Timezone: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   DimensionFilterList: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       FilterList: [
+ *         {
+ *           DimensionValue: "STRING_VALUE",
+ *           FilterOperation: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateMetricSetCommand(input);
  * const response = await client.send(command);
  * ```

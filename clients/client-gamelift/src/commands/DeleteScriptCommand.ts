@@ -60,6 +60,9 @@ export interface DeleteScriptCommandOutput extends __MetadataBearer {}
  * import { GameLiftClient, DeleteScriptCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DeleteScriptCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   ScriptId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteScriptCommand(input);
  * const response = await client.send(command);
  * ```

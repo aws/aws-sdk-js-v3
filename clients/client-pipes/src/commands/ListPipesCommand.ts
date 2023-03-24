@@ -47,6 +47,15 @@ export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBea
  * import { PipesClient, ListPipesCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, ListPipesCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
  * const client = new PipesClient(config);
+ * const input = {
+ *   NamePrefix: "STRING_VALUE",
+ *   DesiredState: "STRING_VALUE",
+ *   CurrentState: "STRING_VALUE",
+ *   SourcePrefix: "STRING_VALUE",
+ *   TargetPrefix: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListPipesCommand(input);
  * const response = await client.send(command);
  * ```

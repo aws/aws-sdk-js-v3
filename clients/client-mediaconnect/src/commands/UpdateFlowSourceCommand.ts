@@ -42,6 +42,50 @@ export interface UpdateFlowSourceCommandOutput extends UpdateFlowSourceResponse,
  * import { MediaConnectClient, UpdateFlowSourceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UpdateFlowSourceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = {
+ *   Decryption: {
+ *     Algorithm: "aes128" || "aes192" || "aes256",
+ *     ConstantInitializationVector: "STRING_VALUE",
+ *     DeviceId: "STRING_VALUE",
+ *     KeyType: "speke" || "static-key" || "srt-password",
+ *     Region: "STRING_VALUE",
+ *     ResourceId: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE",
+ *     SecretArn: "STRING_VALUE",
+ *     Url: "STRING_VALUE",
+ *   },
+ *   Description: "STRING_VALUE",
+ *   EntitlementArn: "STRING_VALUE",
+ *   FlowArn: "STRING_VALUE", // required
+ *   IngestPort: Number("int"),
+ *   MaxBitrate: Number("int"),
+ *   MaxLatency: Number("int"),
+ *   MaxSyncBuffer: Number("int"),
+ *   MediaStreamSourceConfigurations: [
+ *     {
+ *       EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
+ *       InputConfigurations: [
+ *         {
+ *           InputPort: Number("int"), // required
+ *           Interface: {
+ *             Name: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       ],
+ *       MediaStreamName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   MinLatency: Number("int"),
+ *   Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos",
+ *   SenderControlPort: Number("int"),
+ *   SenderIpAddress: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE", // required
+ *   SourceListenerAddress: "STRING_VALUE",
+ *   SourceListenerPort: Number("int"),
+ *   StreamId: "STRING_VALUE",
+ *   VpcInterfaceName: "STRING_VALUE",
+ *   WhitelistCidr: "STRING_VALUE",
+ * };
  * const command = new UpdateFlowSourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,10 @@ export interface ListSubscribersCommandOutput extends ListSubscribersResponse, _
  * import { SecurityLakeClient, ListSubscribersCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, ListSubscribersCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSubscribersCommand(input);
  * const response = await client.send(command);
  * ```

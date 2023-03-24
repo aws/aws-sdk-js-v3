@@ -51,6 +51,11 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
  * import { KinesisAnalyticsClient, DeleteApplicationInputProcessingConfigurationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, DeleteApplicationInputProcessingConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   InputId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApplicationInputProcessingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

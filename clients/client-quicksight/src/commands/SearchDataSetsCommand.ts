@@ -42,6 +42,18 @@ export interface SearchDataSetsCommandOutput extends SearchDataSetsResponse, __M
  * import { QuickSightClient, SearchDataSetsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchDataSetsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Filters: [ // required
+ *     {
+ *       Operator: "StringEquals" || "StringLike", // required
+ *       Name: "QUICKSIGHT_VIEWER_OR_OWNER" || "QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" || "DIRECT_QUICKSIGHT_OWNER" || "DIRECT_QUICKSIGHT_SOLE_OWNER" || "DATASET_NAME", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new SearchDataSetsCommand(input);
  * const response = await client.send(command);
  * ```

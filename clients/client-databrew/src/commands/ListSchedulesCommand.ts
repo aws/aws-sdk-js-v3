@@ -42,6 +42,11 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
  * import { DataBrewClient, ListSchedulesCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListSchedulesCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   JobName: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListSchedulesCommand(input);
  * const response = await client.send(command);
  * ```

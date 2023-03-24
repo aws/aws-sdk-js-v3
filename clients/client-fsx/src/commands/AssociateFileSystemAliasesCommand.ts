@@ -52,6 +52,13 @@ export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSy
  * import { FSxClient, AssociateFileSystemAliasesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, AssociateFileSystemAliasesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   ClientRequestToken: "STRING_VALUE",
+ *   FileSystemId: "STRING_VALUE", // required
+ *   Aliases: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AssociateFileSystemAliasesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,19 @@ export interface ListObjectAttributesCommandOutput extends ListObjectAttributesR
  * import { CloudDirectoryClient, ListObjectAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListObjectAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   ObjectReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ConsistencyLevel: "SERIALIZABLE" || "EVENTUAL",
+ *   FacetFilter: {
+ *     SchemaArn: "STRING_VALUE",
+ *     FacetName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListObjectAttributesCommand(input);
  * const response = await client.send(command);
  * ```

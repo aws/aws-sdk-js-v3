@@ -44,6 +44,18 @@ export interface CreateCoreDefinitionVersionCommandOutput
  * import { GreengrassClient, CreateCoreDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateCoreDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   AmznClientToken: "STRING_VALUE",
+ *   CoreDefinitionId: "STRING_VALUE", // required
+ *   Cores: [
+ *     {
+ *       CertificateArn: "STRING_VALUE", // required
+ *       Id: "STRING_VALUE", // required
+ *       SyncShadow: true || false,
+ *       ThingArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateCoreDefinitionVersionCommand(input);
  * const response = await client.send(command);
  * ```

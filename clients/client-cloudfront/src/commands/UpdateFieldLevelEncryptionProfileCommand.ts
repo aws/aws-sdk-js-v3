@@ -44,6 +44,30 @@ export interface UpdateFieldLevelEncryptionProfileCommandOutput
  * import { CloudFrontClient, UpdateFieldLevelEncryptionProfileCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateFieldLevelEncryptionProfileCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   FieldLevelEncryptionProfileConfig: {
+ *     Name: "STRING_VALUE", // required
+ *     CallerReference: "STRING_VALUE", // required
+ *     Comment: "STRING_VALUE",
+ *     EncryptionEntities: {
+ *       Quantity: Number("int"), // required
+ *       Items: [
+ *         {
+ *           PublicKeyId: "STRING_VALUE", // required
+ *           ProviderId: "STRING_VALUE", // required
+ *           FieldPatterns: {
+ *             Quantity: Number("int"), // required
+ *             Items: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new UpdateFieldLevelEncryptionProfileCommand(input);
  * const response = await client.send(command);
  * ```

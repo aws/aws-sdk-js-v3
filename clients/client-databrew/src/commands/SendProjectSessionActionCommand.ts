@@ -47,6 +47,37 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  * import { DataBrewClient, SendProjectSessionActionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, SendProjectSessionActionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   Preview: true || false,
+ *   Name: "STRING_VALUE", // required
+ *   RecipeStep: {
+ *     Action: {
+ *       Operation: "STRING_VALUE", // required
+ *       Parameters: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *     ConditionExpressions: [
+ *       {
+ *         Condition: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE",
+ *         TargetColumn: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   StepIndex: Number("int"),
+ *   ClientSessionId: "STRING_VALUE",
+ *   ViewFrame: {
+ *     StartColumnIndex: Number("int"), // required
+ *     ColumnRange: Number("int"),
+ *     HiddenColumns: [
+ *       "STRING_VALUE",
+ *     ],
+ *     StartRowIndex: Number("int"),
+ *     RowRange: Number("int"),
+ *     Analytics: "ENABLE" || "DISABLE",
+ *   },
+ * };
  * const command = new SendProjectSessionActionCommand(input);
  * const response = await client.send(command);
  * ```

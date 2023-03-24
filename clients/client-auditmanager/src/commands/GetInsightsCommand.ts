@@ -42,6 +42,7 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * import { AuditManagerClient, GetInsightsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, GetInsightsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {};
  * const command = new GetInsightsCommand(input);
  * const response = await client.send(command);
  * ```

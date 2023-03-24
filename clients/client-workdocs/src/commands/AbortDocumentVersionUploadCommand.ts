@@ -48,6 +48,11 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  * import { WorkDocsClient, AbortDocumentVersionUploadCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, AbortDocumentVersionUploadCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   AuthenticationToken: "STRING_VALUE",
+ *   DocumentId: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE", // required
+ * };
  * const command = new AbortDocumentVersionUploadCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,11 @@ export interface ListProvisionedConcurrencyConfigsCommandOutput
  * import { LambdaClient, ListProvisionedConcurrencyConfigsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListProvisionedConcurrencyConfigsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   FunctionName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListProvisionedConcurrencyConfigsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,10 @@ export interface ListVPCEConfigurationsCommandOutput extends ListVPCEConfigurati
  * import { DeviceFarmClient, ListVPCEConfigurationsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListVPCEConfigurationsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListVPCEConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -68,6 +68,11 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  * import { GlacierClient, DeleteArchiveCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, DeleteArchiveCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   archiveId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteArchiveCommand(input);
  * const response = await client.send(command);
  * ```

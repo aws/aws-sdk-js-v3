@@ -44,6 +44,9 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
  * import { ChimeSDKMeetingsClient, GetMeetingCommand } from "@aws-sdk/client-chime-sdk-meetings"; // ES Modules import
  * // const { ChimeSDKMeetingsClient, GetMeetingCommand } = require("@aws-sdk/client-chime-sdk-meetings"); // CommonJS import
  * const client = new ChimeSDKMeetingsClient(config);
+ * const input = {
+ *   MeetingId: "STRING_VALUE", // required
+ * };
  * const command = new GetMeetingCommand(input);
  * const response = await client.send(command);
  * ```

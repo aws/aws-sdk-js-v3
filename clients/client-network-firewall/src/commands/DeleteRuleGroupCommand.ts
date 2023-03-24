@@ -42,6 +42,11 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  * import { NetworkFirewallClient, DeleteRuleGroupCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DeleteRuleGroupCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = {
+ *   RuleGroupName: "STRING_VALUE",
+ *   RuleGroupArn: "STRING_VALUE",
+ *   Type: "STATELESS" || "STATEFUL",
+ * };
  * const command = new DeleteRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```

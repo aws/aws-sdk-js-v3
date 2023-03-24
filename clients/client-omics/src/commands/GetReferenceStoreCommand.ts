@@ -42,6 +42,9 @@ export interface GetReferenceStoreCommandOutput extends GetReferenceStoreRespons
  * import { OmicsClient, GetReferenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReferenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetReferenceStoreCommand(input);
  * const response = await client.send(command);
  * ```

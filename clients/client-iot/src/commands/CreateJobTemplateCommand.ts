@@ -43,6 +43,61 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * import { IoTClient, CreateJobTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateJobTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   jobTemplateId: "STRING_VALUE", // required
+ *   jobArn: "STRING_VALUE",
+ *   documentSource: "STRING_VALUE",
+ *   document: "STRING_VALUE",
+ *   description: "STRING_VALUE", // required
+ *   presignedUrlConfig: {
+ *     roleArn: "STRING_VALUE",
+ *     expiresInSec: Number("long"),
+ *   },
+ *   jobExecutionsRolloutConfig: {
+ *     maximumPerMinute: Number("int"),
+ *     exponentialRate: {
+ *       baseRatePerMinute: Number("int"), // required
+ *       incrementFactor: Number("double"), // required
+ *       rateIncreaseCriteria: {
+ *         numberOfNotifiedThings: Number("int"),
+ *         numberOfSucceededThings: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   abortConfig: {
+ *     criteriaList: [ // required
+ *       {
+ *         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
+ *         action: "CANCEL", // required
+ *         thresholdPercentage: Number("double"), // required
+ *         minNumberOfExecutedThings: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ *   timeoutConfig: {
+ *     inProgressTimeoutInMinutes: Number("long"),
+ *   },
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   jobExecutionsRetryConfig: {
+ *     criteriaList: [ // required
+ *       {
+ *         failureType: "FAILED" || "TIMED_OUT" || "ALL", // required
+ *         numberOfRetries: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ *   maintenanceWindows: [
+ *     {
+ *       startTime: "STRING_VALUE", // required
+ *       durationInMinutes: Number("int"), // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateJobTemplateCommand(input);
  * const response = await client.send(command);
  * ```

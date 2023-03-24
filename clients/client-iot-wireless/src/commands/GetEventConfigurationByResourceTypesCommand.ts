@@ -47,6 +47,7 @@ export interface GetEventConfigurationByResourceTypesCommandOutput
  * import { IoTWirelessClient, GetEventConfigurationByResourceTypesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetEventConfigurationByResourceTypesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {};
  * const command = new GetEventConfigurationByResourceTypesCommand(input);
  * const response = await client.send(command);
  * ```

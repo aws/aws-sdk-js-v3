@@ -47,6 +47,11 @@ export interface RebootReplicationInstanceCommandOutput extends RebootReplicatio
  * import { DatabaseMigrationServiceClient, RebootReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, RebootReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   ReplicationInstanceArn: "STRING_VALUE", // required
+ *   ForceFailover: true || false,
+ *   ForcePlannedFailover: true || false,
+ * };
  * const command = new RebootReplicationInstanceCommand(input);
  * const response = await client.send(command);
  * ```

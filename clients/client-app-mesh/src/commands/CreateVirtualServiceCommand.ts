@@ -48,6 +48,28 @@ export interface CreateVirtualServiceCommandOutput extends CreateVirtualServiceO
  * import { AppMeshClient, CreateVirtualServiceCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, CreateVirtualServiceCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = {
+ *   virtualServiceName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   spec: {
+ *     provider: { // Union: only one key present
+ *       virtualNode: {
+ *         virtualNodeName: "STRING_VALUE", // required
+ *       },
+ *       virtualRouter: {
+ *         virtualRouterName: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new CreateVirtualServiceCommand(input);
  * const response = await client.send(command);
  * ```

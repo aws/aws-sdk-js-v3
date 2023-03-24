@@ -42,6 +42,9 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
  * import { RedshiftClient, DeleteHsmConfigurationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteHsmConfigurationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   HsmConfigurationIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHsmConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

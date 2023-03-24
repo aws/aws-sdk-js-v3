@@ -51,6 +51,9 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * import { WAFClient, GetRuleGroupCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetRuleGroupCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   RuleGroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```

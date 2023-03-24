@@ -46,6 +46,19 @@ export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesR
  * import { MacieClient, AssociateS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, AssociateS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
+ * const input = {
+ *   memberAccountId: "STRING_VALUE",
+ *   s3Resources: [ // required
+ *     {
+ *       bucketName: "STRING_VALUE", // required
+ *       prefix: "STRING_VALUE",
+ *       classificationType: {
+ *         oneTime: "STRING_VALUE", // required
+ *         continuous: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new AssociateS3ResourcesCommand(input);
  * const response = await client.send(command);
  * ```

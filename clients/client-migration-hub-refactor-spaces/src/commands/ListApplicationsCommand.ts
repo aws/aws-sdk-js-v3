@@ -50,6 +50,11 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * import { MigrationHubRefactorSpacesClient, ListApplicationsCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, ListApplicationsCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = {
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
  * ```

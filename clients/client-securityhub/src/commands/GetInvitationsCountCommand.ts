@@ -43,6 +43,7 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * import { SecurityHubClient, GetInvitationsCountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetInvitationsCountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {};
  * const command = new GetInvitationsCountCommand(input);
  * const response = await client.send(command);
  * ```

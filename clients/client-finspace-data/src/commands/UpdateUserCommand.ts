@@ -42,6 +42,15 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * import { FinspaceDataClient, UpdateUserCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, UpdateUserCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = {
+ *   userId: "STRING_VALUE", // required
+ *   type: "STRING_VALUE",
+ *   firstName: "STRING_VALUE",
+ *   lastName: "STRING_VALUE",
+ *   apiAccess: "STRING_VALUE",
+ *   apiAccessPrincipalArn: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
  * ```

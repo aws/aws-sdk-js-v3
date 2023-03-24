@@ -42,6 +42,24 @@ export interface UpdateImageVersionCommandOutput extends UpdateImageVersionRespo
  * import { SageMakerClient, UpdateImageVersionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateImageVersionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ImageName: "STRING_VALUE", // required
+ *   Alias: "STRING_VALUE",
+ *   Version: Number("int"),
+ *   AliasesToAdd: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AliasesToDelete: [
+ *     "STRING_VALUE",
+ *   ],
+ *   VendorGuidance: "NOT_PROVIDED" || "STABLE" || "TO_BE_ARCHIVED" || "ARCHIVED",
+ *   JobType: "TRAINING" || "INFERENCE" || "NOTEBOOK_KERNEL",
+ *   MLFramework: "STRING_VALUE",
+ *   ProgrammingLang: "STRING_VALUE",
+ *   Processor: "CPU" || "GPU",
+ *   Horovod: true || false,
+ *   ReleaseNotes: "STRING_VALUE",
+ * };
  * const command = new UpdateImageVersionCommand(input);
  * const response = await client.send(command);
  * ```

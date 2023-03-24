@@ -42,6 +42,14 @@ export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewI
  * import { WellArchitectedClient, ListLensReviewImprovementsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListLensReviewImprovementsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = {
+ *   WorkloadId: "STRING_VALUE", // required
+ *   LensAlias: "STRING_VALUE", // required
+ *   PillarId: "STRING_VALUE",
+ *   MilestoneNumber: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListLensReviewImprovementsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface GetNamedQueryCommandOutput extends GetNamedQueryOutput, __Metad
  * import { AthenaClient, GetNamedQueryCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetNamedQueryCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   NamedQueryId: "STRING_VALUE", // required
+ * };
  * const command = new GetNamedQueryCommand(input);
  * const response = await client.send(command);
  * ```

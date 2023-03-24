@@ -43,6 +43,10 @@ export interface GetLayerVersionPolicyCommandOutput extends GetLayerVersionPolic
  * import { LambdaClient, GetLayerVersionPolicyCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetLayerVersionPolicyCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   LayerName: "STRING_VALUE", // required
+ *   VersionNumber: Number("long"), // required
+ * };
  * const command = new GetLayerVersionPolicyCommand(input);
  * const response = await client.send(command);
  * ```

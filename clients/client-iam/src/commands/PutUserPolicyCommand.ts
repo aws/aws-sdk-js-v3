@@ -56,6 +56,11 @@ export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
  * import { IAMClient, PutUserPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, PutUserPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   UserName: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   PolicyDocument: "STRING_VALUE", // required
+ * };
  * const command = new PutUserPolicyCommand(input);
  * const response = await client.send(command);
  * ```

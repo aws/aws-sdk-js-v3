@@ -45,6 +45,9 @@ export interface RegisterOrganizationAdminAccountCommandOutput
  * import { AuditManagerClient, RegisterOrganizationAdminAccountCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, RegisterOrganizationAdminAccountCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   adminAccountId: "STRING_VALUE", // required
+ * };
  * const command = new RegisterOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```

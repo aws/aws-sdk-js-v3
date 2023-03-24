@@ -43,6 +43,11 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  * import { InspectorClient, PreviewAgentsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, PreviewAgentsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   previewAgentsArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new PreviewAgentsCommand(input);
  * const response = await client.send(command);
  * ```

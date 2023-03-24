@@ -47,6 +47,9 @@ export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, DisassociateKmsKeyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DisassociateKmsKeyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   logGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateKmsKeyCommand(input);
  * const response = await client.send(command);
  * ```

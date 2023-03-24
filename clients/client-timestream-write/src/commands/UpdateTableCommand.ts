@@ -48,6 +48,25 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * import { TimestreamWriteClient, UpdateTableCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, UpdateTableCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
+ * const input = {
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   RetentionProperties: {
+ *     MemoryStoreRetentionPeriodInHours: Number("long"), // required
+ *     MagneticStoreRetentionPeriodInDays: Number("long"), // required
+ *   },
+ *   MagneticStoreWriteProperties: {
+ *     EnableMagneticStoreWrites: true || false, // required
+ *     MagneticStoreRejectedDataLocation: {
+ *       S3Configuration: {
+ *         BucketName: "STRING_VALUE",
+ *         ObjectKeyPrefix: "STRING_VALUE",
+ *         EncryptionOption: "SSE_S3" || "SSE_KMS",
+ *         KmsKeyId: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { RolesAnywhereClient, TagResourceCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, TagResourceCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: [ // required
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

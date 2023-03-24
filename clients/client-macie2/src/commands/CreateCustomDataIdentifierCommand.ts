@@ -42,6 +42,28 @@ export interface CreateCustomDataIdentifierCommandOutput extends CreateCustomDat
  * import { Macie2Client, CreateCustomDataIdentifierCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, CreateCustomDataIdentifierCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   ignoreWords: [
+ *     "STRING_VALUE",
+ *   ],
+ *   keywords: [
+ *     "STRING_VALUE",
+ *   ],
+ *   maximumMatchDistance: Number("int"),
+ *   name: "STRING_VALUE", // required
+ *   regex: "STRING_VALUE", // required
+ *   severityLevels: [
+ *     {
+ *       occurrencesThreshold: Number("long"), // required
+ *       severity: "LOW" || "MEDIUM" || "HIGH", // required
+ *     },
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateCustomDataIdentifierCommand(input);
  * const response = await client.send(command);
  * ```

@@ -62,6 +62,14 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  * import { GameLiftClient, RegisterComputeCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, RegisterComputeCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   FleetId: "STRING_VALUE", // required
+ *   ComputeName: "STRING_VALUE", // required
+ *   CertificatePath: "STRING_VALUE",
+ *   DnsName: "STRING_VALUE",
+ *   IpAddress: "STRING_VALUE",
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new RegisterComputeCommand(input);
  * const response = await client.send(command);
  * ```

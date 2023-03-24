@@ -47,6 +47,10 @@ export interface ListDataIntegrationsCommandOutput extends ListDataIntegrationsR
  * import { AppIntegrationsClient, ListDataIntegrationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, ListDataIntegrationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDataIntegrationsCommand(input);
  * const response = await client.send(command);
  * ```

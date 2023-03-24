@@ -45,6 +45,76 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  * import { SageMakerClient, CreateAutoMLJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateAutoMLJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   AutoMLJobName: "STRING_VALUE", // required
+ *   InputDataConfig: [ // required
+ *     {
+ *       DataSource: {
+ *         S3DataSource: {
+ *           S3DataType: "ManifestFile" || "S3Prefix" || "AugmentedManifestFile", // required
+ *           S3Uri: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       CompressionType: "None" || "Gzip",
+ *       TargetAttributeName: "STRING_VALUE", // required
+ *       ContentType: "STRING_VALUE",
+ *       ChannelType: "training" || "validation",
+ *     },
+ *   ],
+ *   OutputDataConfig: {
+ *     KmsKeyId: "STRING_VALUE",
+ *     S3OutputPath: "STRING_VALUE", // required
+ *   },
+ *   ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
+ *   AutoMLJobObjective: {
+ *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro", // required
+ *   },
+ *   AutoMLJobConfig: {
+ *     CompletionCriteria: {
+ *       MaxCandidates: Number("int"),
+ *       MaxRuntimePerTrainingJobInSeconds: Number("int"),
+ *       MaxAutoMLJobRuntimeInSeconds: Number("int"),
+ *     },
+ *     SecurityConfig: {
+ *       VolumeKmsKeyId: "STRING_VALUE",
+ *       EnableInterContainerTrafficEncryption: true || false,
+ *       VpcConfig: {
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Subnets: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     DataSplitConfig: {
+ *       ValidationFraction: Number("float"),
+ *     },
+ *     CandidateGenerationConfig: {
+ *       FeatureSpecificationS3Uri: "STRING_VALUE",
+ *       AlgorithmsConfig: [
+ *         {
+ *           AutoMLAlgorithms: [ // required
+ *             "xgboost" || "linear-learner" || "mlp" || "lightgbm" || "catboost" || "randomforest" || "extra-trees" || "nn-torch" || "fastai",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     Mode: "AUTO" || "ENSEMBLING" || "HYPERPARAMETER_TUNING",
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   GenerateCandidateDefinitionsOnly: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ModelDeployConfig: {
+ *     AutoGenerateEndpointName: true || false,
+ *     EndpointName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAutoMLJobCommand(input);
  * const response = await client.send(command);
  * ```

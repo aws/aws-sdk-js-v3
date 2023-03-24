@@ -42,6 +42,11 @@ export interface DescribeVirtualRouterCommandOutput extends DescribeVirtualRoute
  * import { AppMeshClient, DescribeVirtualRouterCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DescribeVirtualRouterCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = {
+ *   virtualRouterName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new DescribeVirtualRouterCommand(input);
  * const response = await client.send(command);
  * ```

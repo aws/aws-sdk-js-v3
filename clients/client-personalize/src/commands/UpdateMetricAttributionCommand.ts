@@ -42,6 +42,26 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  * import { PersonalizeClient, UpdateMetricAttributionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, UpdateMetricAttributionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   addMetrics: [
+ *     {
+ *       eventType: "STRING_VALUE", // required
+ *       metricName: "STRING_VALUE", // required
+ *       expression: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   removeMetrics: [
+ *     "STRING_VALUE",
+ *   ],
+ *   metricsOutputConfig: {
+ *     s3DataDestination: {
+ *       path: "STRING_VALUE", // required
+ *       kmsKeyArn: "STRING_VALUE",
+ *     },
+ *     roleArn: "STRING_VALUE", // required
+ *   },
+ *   metricAttributionArn: "STRING_VALUE",
+ * };
  * const command = new UpdateMetricAttributionCommand(input);
  * const response = await client.send(command);
  * ```

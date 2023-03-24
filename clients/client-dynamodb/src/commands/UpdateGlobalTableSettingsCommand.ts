@@ -54,6 +54,82 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  * import { DynamoDBClient, UpdateGlobalTableSettingsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateGlobalTableSettingsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   GlobalTableName: "STRING_VALUE", // required
+ *   GlobalTableBillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
+ *   GlobalTableProvisionedWriteCapacityUnits: Number("long"),
+ *   GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: {
+ *     MinimumUnits: Number("long"),
+ *     MaximumUnits: Number("long"),
+ *     AutoScalingDisabled: true || false,
+ *     AutoScalingRoleArn: "STRING_VALUE",
+ *     ScalingPolicyUpdate: {
+ *       PolicyName: "STRING_VALUE",
+ *       TargetTrackingScalingPolicyConfiguration: {
+ *         DisableScaleIn: true || false,
+ *         ScaleInCooldown: Number("int"),
+ *         ScaleOutCooldown: Number("int"),
+ *         TargetValue: Number("double"), // required
+ *       },
+ *     },
+ *   },
+ *   GlobalTableGlobalSecondaryIndexSettingsUpdate: [
+ *     {
+ *       IndexName: "STRING_VALUE", // required
+ *       ProvisionedWriteCapacityUnits: Number("long"),
+ *       ProvisionedWriteCapacityAutoScalingSettingsUpdate: {
+ *         MinimumUnits: Number("long"),
+ *         MaximumUnits: Number("long"),
+ *         AutoScalingDisabled: true || false,
+ *         AutoScalingRoleArn: "STRING_VALUE",
+ *         ScalingPolicyUpdate: {
+ *           PolicyName: "STRING_VALUE",
+ *           TargetTrackingScalingPolicyConfiguration: {
+ *             DisableScaleIn: true || false,
+ *             ScaleInCooldown: Number("int"),
+ *             ScaleOutCooldown: Number("int"),
+ *             TargetValue: Number("double"), // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   ReplicaSettingsUpdate: [
+ *     {
+ *       RegionName: "STRING_VALUE", // required
+ *       ReplicaProvisionedReadCapacityUnits: Number("long"),
+ *       ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate: {
+ *         MinimumUnits: Number("long"),
+ *         MaximumUnits: Number("long"),
+ *         AutoScalingDisabled: true || false,
+ *         AutoScalingRoleArn: "STRING_VALUE",
+ *         ScalingPolicyUpdate: {
+ *           PolicyName: "STRING_VALUE",
+ *           TargetTrackingScalingPolicyConfiguration: {
+ *             DisableScaleIn: true || false,
+ *             ScaleInCooldown: Number("int"),
+ *             ScaleOutCooldown: Number("int"),
+ *             TargetValue: Number("double"), // required
+ *           },
+ *         },
+ *       },
+ *       ReplicaGlobalSecondaryIndexSettingsUpdate: [
+ *         {
+ *           IndexName: "STRING_VALUE", // required
+ *           ProvisionedReadCapacityUnits: Number("long"),
+ *           ProvisionedReadCapacityAutoScalingSettingsUpdate: {
+ *             MinimumUnits: "<AutoScalingSettingsUpdate>",
+ *             MaximumUnits: "<AutoScalingSettingsUpdate>",
+ *             AutoScalingDisabled: "<AutoScalingSettingsUpdate>",
+ *             AutoScalingRoleArn: "<AutoScalingSettingsUpdate>",
+ *             ScalingPolicyUpdate: "<AutoScalingSettingsUpdate>",
+ *           },
+ *         },
+ *       ],
+ *       ReplicaTableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateGlobalTableSettingsCommand(input);
  * const response = await client.send(command);
  * ```

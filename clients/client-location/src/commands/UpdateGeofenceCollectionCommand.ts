@@ -42,6 +42,12 @@ export interface UpdateGeofenceCollectionCommandOutput extends UpdateGeofenceCol
  * import { LocationClient, UpdateGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, UpdateGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   CollectionName: "STRING_VALUE", // required
+ *   PricingPlan: "STRING_VALUE",
+ *   PricingPlanDataSource: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateGeofenceCollectionCommand(input);
  * const response = await client.send(command);
  * ```

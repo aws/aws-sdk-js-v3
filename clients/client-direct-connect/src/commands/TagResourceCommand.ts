@@ -43,6 +43,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { DirectConnectClient, TagResourceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, TagResourceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: [ // required
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

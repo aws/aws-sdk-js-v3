@@ -43,6 +43,10 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * import { ConnectClient, DescribeSecurityProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeSecurityProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   SecurityProfileId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeSecurityProfileCommand(input);
  * const response = await client.send(command);
  * ```

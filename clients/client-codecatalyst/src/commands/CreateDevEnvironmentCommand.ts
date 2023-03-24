@@ -47,6 +47,29 @@ export interface CreateDevEnvironmentCommandOutput extends CreateDevEnvironmentR
  * import { CodeCatalystClient, CreateDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, CreateDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = {
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   repositories: [
+ *     {
+ *       repositoryName: "STRING_VALUE", // required
+ *       branchName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ *   alias: "STRING_VALUE",
+ *   ides: [
+ *     {
+ *       runtime: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   instanceType: "STRING_VALUE", // required
+ *   inactivityTimeoutMinutes: Number("int"),
+ *   persistentStorage: {
+ *     sizeInGiB: Number("int"), // required
+ *   },
+ * };
  * const command = new CreateDevEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

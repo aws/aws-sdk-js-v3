@@ -46,6 +46,12 @@ export interface GetParametersCommandOutput extends GetParametersResult, __Metad
  * import { SSMClient, GetParametersCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetParametersCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Names: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   WithDecryption: true || false,
+ * };
  * const command = new GetParametersCommand(input);
  * const response = await client.send(command);
  * ```

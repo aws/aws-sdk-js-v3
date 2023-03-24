@@ -47,6 +47,10 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * import { GlueClient, GetResourcePoliciesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetResourcePoliciesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);
  * ```

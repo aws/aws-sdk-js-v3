@@ -46,6 +46,9 @@ export interface DeleteGraphCommandOutput extends __MetadataBearer {}
  * import { DetectiveClient, DeleteGraphCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, DeleteGraphCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = {
+ *   GraphArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGraphCommand(input);
  * const response = await client.send(command);
  * ```

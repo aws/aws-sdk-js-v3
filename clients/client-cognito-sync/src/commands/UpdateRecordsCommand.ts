@@ -44,6 +44,23 @@ export interface UpdateRecordsCommandOutput extends UpdateRecordsResponse, __Met
  * import { CognitoSyncClient, UpdateRecordsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
  * // const { CognitoSyncClient, UpdateRecordsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
+ * const input = {
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityId: "STRING_VALUE", // required
+ *   DatasetName: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE",
+ *   RecordPatches: [
+ *     {
+ *       Op: "STRING_VALUE", // required
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *       SyncCount: Number("long"), // required
+ *       DeviceLastModifiedDate: new Date("TIMESTAMP"),
+ *     },
+ *   ],
+ *   SyncSessionToken: "STRING_VALUE", // required
+ *   ClientContext: "STRING_VALUE",
+ * };
  * const command = new UpdateRecordsCommand(input);
  * const response = await client.send(command);
  * ```

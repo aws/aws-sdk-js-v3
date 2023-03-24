@@ -43,6 +43,43 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  * import { GuardDutyClient, CreateFilterCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateFilterCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   DetectorId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Action: "NOOP" || "ARCHIVE",
+ *   Rank: Number("int"),
+ *   FindingCriteria: {
+ *     Criterion: {
+ *       "<keys>": {
+ *         Eq: [
+ *           "STRING_VALUE",
+ *         ],
+ *         Neq: [
+ *           "STRING_VALUE",
+ *         ],
+ *         Gt: Number("int"),
+ *         Gte: Number("int"),
+ *         Lt: Number("int"),
+ *         Lte: Number("int"),
+ *         Equals: [
+ *           "STRING_VALUE",
+ *         ],
+ *         NotEquals: [
+ *           "STRING_VALUE",
+ *         ],
+ *         GreaterThan: Number("long"),
+ *         GreaterThanOrEqual: Number("long"),
+ *         LessThan: Number("long"),
+ *         LessThanOrEqual: Number("long"),
+ *       },
+ *     },
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateFilterCommand(input);
  * const response = await client.send(command);
  * ```

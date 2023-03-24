@@ -47,6 +47,30 @@ export interface AllocatePublicVirtualInterfaceCommandOutput extends VirtualInte
  * import { DirectConnectClient, AllocatePublicVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AllocatePublicVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   connectionId: "STRING_VALUE", // required
+ *   ownerAccount: "STRING_VALUE", // required
+ *   newPublicVirtualInterfaceAllocation: {
+ *     virtualInterfaceName: "STRING_VALUE", // required
+ *     vlan: Number("int"), // required
+ *     asn: Number("int"), // required
+ *     authKey: "STRING_VALUE",
+ *     amazonAddress: "STRING_VALUE",
+ *     customerAddress: "STRING_VALUE",
+ *     addressFamily: "ipv4" || "ipv6",
+ *     routeFilterPrefixes: [
+ *       {
+ *         cidr: "STRING_VALUE",
+ *       },
+ *     ],
+ *     tags: [
+ *       {
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new AllocatePublicVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```

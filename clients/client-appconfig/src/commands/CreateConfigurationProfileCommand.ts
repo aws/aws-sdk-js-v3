@@ -86,6 +86,23 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * import { AppConfigClient, CreateConfigurationProfileCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateConfigurationProfileCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   LocationUri: "STRING_VALUE", // required
+ *   RetrievalRoleArn: "STRING_VALUE",
+ *   Validators: [
+ *     {
+ *       Type: "JSON_SCHEMA" || "LAMBDA", // required
+ *       Content: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Type: "STRING_VALUE",
+ * };
  * const command = new CreateConfigurationProfileCommand(input);
  * const response = await client.send(command);
  * ```

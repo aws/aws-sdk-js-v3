@@ -42,6 +42,9 @@ export interface GetSmsChannelCommandOutput extends GetSmsChannelResponse, __Met
  * import { PinpointClient, GetSmsChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetSmsChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetSmsChannelCommand(input);
  * const response = await client.send(command);
  * ```

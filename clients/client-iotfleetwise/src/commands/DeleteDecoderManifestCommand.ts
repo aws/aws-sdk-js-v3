@@ -47,6 +47,9 @@ export interface DeleteDecoderManifestCommandOutput extends DeleteDecoderManifes
  * import { IoTFleetWiseClient, DeleteDecoderManifestCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, DeleteDecoderManifestCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDecoderManifestCommand(input);
  * const response = await client.send(command);
  * ```

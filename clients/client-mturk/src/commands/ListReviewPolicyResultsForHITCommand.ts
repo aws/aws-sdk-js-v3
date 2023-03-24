@@ -50,6 +50,16 @@ export interface ListReviewPolicyResultsForHITCommandOutput
  * import { MTurkClient, ListReviewPolicyResultsForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListReviewPolicyResultsForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   HITId: "STRING_VALUE", // required
+ *   PolicyLevels: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RetrieveActions: true || false,
+ *   RetrieveResults: true || false,
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListReviewPolicyResultsForHITCommand(input);
  * const response = await client.send(command);
  * ```

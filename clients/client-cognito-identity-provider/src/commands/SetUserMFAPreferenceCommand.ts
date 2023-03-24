@@ -59,6 +59,17 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  * import { CognitoIdentityProviderClient, SetUserMFAPreferenceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SetUserMFAPreferenceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   SMSMfaSettings: {
+ *     Enabled: true || false,
+ *     PreferredMfa: true || false,
+ *   },
+ *   SoftwareTokenMfaSettings: {
+ *     Enabled: true || false,
+ *     PreferredMfa: true || false,
+ *   },
+ *   AccessToken: "STRING_VALUE", // required
+ * };
  * const command = new SetUserMFAPreferenceCommand(input);
  * const response = await client.send(command);
  * ```

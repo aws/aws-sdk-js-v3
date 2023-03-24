@@ -50,6 +50,15 @@ export interface CreateKeyPairCommandOutput extends CreateKeyPairResult, __Metad
  * import { LightsailClient, CreateKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   keyPairName: "STRING_VALUE", // required
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateKeyPairCommand(input);
  * const response = await client.send(command);
  * ```

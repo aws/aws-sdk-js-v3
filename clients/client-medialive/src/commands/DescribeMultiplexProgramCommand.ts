@@ -42,6 +42,10 @@ export interface DescribeMultiplexProgramCommandOutput extends DescribeMultiplex
  * import { MediaLiveClient, DescribeMultiplexProgramCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeMultiplexProgramCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   MultiplexId: "STRING_VALUE", // required
+ *   ProgramName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMultiplexProgramCommand(input);
  * const response = await client.send(command);
  * ```

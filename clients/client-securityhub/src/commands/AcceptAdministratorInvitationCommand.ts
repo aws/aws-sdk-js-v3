@@ -49,6 +49,10 @@ export interface AcceptAdministratorInvitationCommandOutput
  * import { SecurityHubClient, AcceptAdministratorInvitationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, AcceptAdministratorInvitationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   AdministratorId: "STRING_VALUE", // required
+ *   InvitationId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptAdministratorInvitationCommand(input);
  * const response = await client.send(command);
  * ```

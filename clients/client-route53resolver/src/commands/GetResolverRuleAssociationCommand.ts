@@ -43,6 +43,9 @@ export interface GetResolverRuleAssociationCommandOutput extends GetResolverRule
  * import { Route53ResolverClient, GetResolverRuleAssociationCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetResolverRuleAssociationCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   ResolverRuleAssociationId: "STRING_VALUE", // required
+ * };
  * const command = new GetResolverRuleAssociationCommand(input);
  * const response = await client.send(command);
  * ```

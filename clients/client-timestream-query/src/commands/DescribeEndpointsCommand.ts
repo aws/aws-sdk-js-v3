@@ -62,6 +62,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * import { TimestreamQueryClient, DescribeEndpointsCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, DescribeEndpointsCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
+ * const input = {};
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
  * ```

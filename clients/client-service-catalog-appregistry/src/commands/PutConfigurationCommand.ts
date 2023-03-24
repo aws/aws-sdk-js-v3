@@ -49,6 +49,13 @@ export interface PutConfigurationCommandOutput extends __MetadataBearer {}
  * import { ServiceCatalogAppRegistryClient, PutConfigurationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, PutConfigurationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = {
+ *   configuration: {
+ *     tagQueryConfiguration: {
+ *       tagKey: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new PutConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

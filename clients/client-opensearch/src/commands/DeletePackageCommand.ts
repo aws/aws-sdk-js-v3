@@ -43,6 +43,9 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * import { OpenSearchClient, DeletePackageCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DeletePackageCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   PackageID: "STRING_VALUE", // required
+ * };
  * const command = new DeletePackageCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,9 @@ export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
  * import { DetectiveClient, AcceptInvitationCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, AcceptInvitationCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = {
+ *   GraphArn: "STRING_VALUE", // required
+ * };
  * const command = new AcceptInvitationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,10 @@ export interface UpdateSolFunctionPackageCommandOutput extends UpdateSolFunction
  * import { TnbClient, UpdateSolFunctionPackageCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, UpdateSolFunctionPackageCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = {
+ *   vnfPkgId: "STRING_VALUE", // required
+ *   operationalState: "ENABLED" || "DISABLED", // required
+ * };
  * const command = new UpdateSolFunctionPackageCommand(input);
  * const response = await client.send(command);
  * ```

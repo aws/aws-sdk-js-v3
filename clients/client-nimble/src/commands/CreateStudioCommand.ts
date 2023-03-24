@@ -66,6 +66,20 @@ export interface CreateStudioCommandOutput extends CreateStudioResponse, __Metad
  * import { NimbleClient, CreateStudioCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, CreateStudioCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   adminRoleArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   displayName: "STRING_VALUE", // required
+ *   studioEncryptionConfiguration: {
+ *     keyArn: "STRING_VALUE",
+ *     keyType: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KEY", // required
+ *   },
+ *   studioName: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   userRoleArn: "STRING_VALUE", // required
+ * };
  * const command = new CreateStudioCommand(input);
  * const response = await client.send(command);
  * ```

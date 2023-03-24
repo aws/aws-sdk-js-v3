@@ -45,6 +45,11 @@ export interface ListMobileSdkReleasesCommandOutput extends ListMobileSdkRelease
  * import { WAFV2Client, ListMobileSdkReleasesCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListMobileSdkReleasesCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = {
+ *   Platform: "IOS" || "ANDROID", // required
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListMobileSdkReleasesCommand(input);
  * const response = await client.send(command);
  * ```

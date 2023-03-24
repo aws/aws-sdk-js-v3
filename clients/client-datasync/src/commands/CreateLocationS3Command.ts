@@ -43,6 +43,23 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  * import { DataSyncClient, CreateLocationS3Command } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationS3Command } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   Subdirectory: "STRING_VALUE",
+ *   S3BucketArn: "STRING_VALUE", // required
+ *   S3StorageClass: "STANDARD" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_INSTANT_RETRIEVAL",
+ *   S3Config: {
+ *     BucketAccessRoleArn: "STRING_VALUE", // required
+ *   },
+ *   AgentArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationS3Command(input);
  * const response = await client.send(command);
  * ```

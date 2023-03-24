@@ -48,6 +48,12 @@ export interface ListApplicationDependenciesCommandOutput
  * import { ServerlessApplicationRepositoryClient, ListApplicationDependenciesCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, ListApplicationDependenciesCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   MaxItems: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SemanticVersion: "STRING_VALUE",
+ * };
  * const command = new ListApplicationDependenciesCommand(input);
  * const response = await client.send(command);
  * ```

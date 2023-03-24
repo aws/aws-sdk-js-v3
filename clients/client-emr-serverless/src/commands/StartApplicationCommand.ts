@@ -42,6 +42,9 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * import { EMRServerlessClient, StartApplicationCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, StartApplicationCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
  * ```

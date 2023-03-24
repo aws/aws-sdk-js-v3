@@ -44,6 +44,18 @@ export interface DescribeSnapshotSchedulesCommandOutput
  * import { RedshiftClient, DescribeSnapshotSchedulesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeSnapshotSchedulesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   ScheduleIdentifier: "STRING_VALUE",
+ *   TagKeys: [
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValues: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Marker: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ * };
  * const command = new DescribeSnapshotSchedulesCommand(input);
  * const response = await client.send(command);
  * ```

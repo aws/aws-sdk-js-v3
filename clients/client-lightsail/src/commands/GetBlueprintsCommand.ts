@@ -51,6 +51,11 @@ export interface GetBlueprintsCommandOutput extends GetBlueprintsResult, __Metad
  * import { LightsailClient, GetBlueprintsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetBlueprintsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   includeInactive: true || false,
+ *   pageToken: "STRING_VALUE",
+ *   appCategory: "LfR",
+ * };
  * const command = new GetBlueprintsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -61,6 +61,70 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  * import { SageMakerClient, CreateModelCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateModelCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ModelName: "STRING_VALUE", // required
+ *   PrimaryContainer: {
+ *     ContainerHostname: "STRING_VALUE",
+ *     Image: "STRING_VALUE",
+ *     ImageConfig: {
+ *       RepositoryAccessMode: "Platform" || "Vpc", // required
+ *       RepositoryAuthConfig: {
+ *         RepositoryCredentialsProviderArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     Mode: "SingleModel" || "MultiModel",
+ *     ModelDataUrl: "STRING_VALUE",
+ *     Environment: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     ModelPackageName: "STRING_VALUE",
+ *     InferenceSpecificationName: "STRING_VALUE",
+ *     MultiModelConfig: {
+ *       ModelCacheSetting: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   Containers: [
+ *     {
+ *       ContainerHostname: "STRING_VALUE",
+ *       Image: "STRING_VALUE",
+ *       ImageConfig: {
+ *         RepositoryAccessMode: "Platform" || "Vpc", // required
+ *         RepositoryAuthConfig: {
+ *           RepositoryCredentialsProviderArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       Mode: "SingleModel" || "MultiModel",
+ *       ModelDataUrl: "STRING_VALUE",
+ *       Environment: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       ModelPackageName: "STRING_VALUE",
+ *       InferenceSpecificationName: "STRING_VALUE",
+ *       MultiModelConfig: {
+ *         ModelCacheSetting: "Enabled" || "Disabled",
+ *       },
+ *     },
+ *   ],
+ *   InferenceExecutionConfig: {
+ *     Mode: "Serial" || "Direct", // required
+ *   },
+ *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   VpcConfig: {
+ *     SecurityGroupIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Subnets: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   EnableNetworkIsolation: true || false,
+ * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
  * ```

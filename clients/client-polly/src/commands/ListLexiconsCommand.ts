@@ -42,6 +42,9 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  * import { PollyClient, ListLexiconsCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, ListLexiconsCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListLexiconsCommand(input);
  * const response = await client.send(command);
  * ```

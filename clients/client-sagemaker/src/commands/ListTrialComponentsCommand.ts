@@ -61,6 +61,17 @@ export interface ListTrialComponentsCommandOutput extends ListTrialComponentsRes
  * import { SageMakerClient, ListTrialComponentsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTrialComponentsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ExperimentName: "STRING_VALUE",
+ *   TrialName: "STRING_VALUE",
+ *   SourceArn: "STRING_VALUE",
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   SortBy: "Name" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTrialComponentsCommand(input);
  * const response = await client.send(command);
  * ```

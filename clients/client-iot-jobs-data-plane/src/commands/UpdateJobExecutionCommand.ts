@@ -42,6 +42,19 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * import { IoTJobsDataPlaneClient, UpdateJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
  * // const { IoTJobsDataPlaneClient, UpdateJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE", // required
+ *   thingName: "STRING_VALUE", // required
+ *   status: "STRING_VALUE", // required
+ *   statusDetails: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   stepTimeoutInMinutes: Number("long"),
+ *   expectedVersion: Number("long"),
+ *   includeJobExecutionState: true || false,
+ *   includeJobDocument: true || false,
+ *   executionNumber: Number("long"),
+ * };
  * const command = new UpdateJobExecutionCommand(input);
  * const response = await client.send(command);
  * ```

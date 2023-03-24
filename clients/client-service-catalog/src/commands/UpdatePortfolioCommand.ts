@@ -43,6 +43,22 @@ export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __M
  * import { ServiceCatalogClient, UpdatePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdatePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ProviderName: "STRING_VALUE",
+ *   AddTags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   RemoveTags: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdatePortfolioCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,21 @@ export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageR
  * import { WorkSpacesClient, ImportWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ImportWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   Ec2ImageId: "STRING_VALUE", // required
+ *   IngestionProcess: "BYOL_REGULAR" || "BYOL_GRAPHICS" || "BYOL_GRAPHICSPRO" || "BYOL_GRAPHICS_G4DN" || "BYOL_REGULAR_WSP" || "BYOL_REGULAR_BYOP" || "BYOL_GRAPHICS_G4DN_BYOP", // required
+ *   ImageName: "STRING_VALUE", // required
+ *   ImageDescription: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Applications: [
+ *     "Microsoft_Office_2016" || "Microsoft_Office_2019",
+ *   ],
+ * };
  * const command = new ImportWorkspaceImageCommand(input);
  * const response = await client.send(command);
  * ```

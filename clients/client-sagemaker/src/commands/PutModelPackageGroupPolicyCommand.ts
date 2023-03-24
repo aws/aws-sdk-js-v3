@@ -44,6 +44,10 @@ export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackage
  * import { SageMakerClient, PutModelPackageGroupPolicyCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, PutModelPackageGroupPolicyCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ModelPackageGroupName: "STRING_VALUE", // required
+ *   ResourcePolicy: "STRING_VALUE", // required
+ * };
  * const command = new PutModelPackageGroupPolicyCommand(input);
  * const response = await client.send(command);
  * ```

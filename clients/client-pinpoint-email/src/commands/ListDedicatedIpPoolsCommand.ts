@@ -43,6 +43,10 @@ export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsR
  * import { PinpointEmailClient, ListDedicatedIpPoolsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, ListDedicatedIpPoolsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListDedicatedIpPoolsCommand(input);
  * const response = await client.send(command);
  * ```

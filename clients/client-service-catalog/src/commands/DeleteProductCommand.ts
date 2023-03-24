@@ -44,6 +44,10 @@ export interface DeleteProductCommandOutput extends DeleteProductOutput, __Metad
  * import { ServiceCatalogClient, DeleteProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeleteProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProductCommand(input);
  * const response = await client.send(command);
  * ```

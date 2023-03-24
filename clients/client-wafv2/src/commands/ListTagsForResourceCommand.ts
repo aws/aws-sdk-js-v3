@@ -49,6 +49,11 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { WAFV2Client, ListTagsForResourceCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListTagsForResourceCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = {
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   ResourceARN: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

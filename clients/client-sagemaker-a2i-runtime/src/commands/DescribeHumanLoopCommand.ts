@@ -47,6 +47,9 @@ export interface DescribeHumanLoopCommandOutput extends DescribeHumanLoopRespons
  * import { SageMakerA2IRuntimeClient, DescribeHumanLoopCommand } from "@aws-sdk/client-sagemaker-a2i-runtime"; // ES Modules import
  * // const { SageMakerA2IRuntimeClient, DescribeHumanLoopCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime"); // CommonJS import
  * const client = new SageMakerA2IRuntimeClient(config);
+ * const input = {
+ *   HumanLoopName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeHumanLoopCommand(input);
  * const response = await client.send(command);
  * ```

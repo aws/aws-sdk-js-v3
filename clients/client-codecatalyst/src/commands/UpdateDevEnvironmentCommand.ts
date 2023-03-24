@@ -42,6 +42,21 @@ export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentR
  * import { CodeCatalystClient, UpdateDevEnvironmentCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, UpdateDevEnvironmentCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = {
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   alias: "STRING_VALUE",
+ *   ides: [
+ *     {
+ *       runtime: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *     },
+ *   ],
+ *   instanceType: "STRING_VALUE",
+ *   inactivityTimeoutMinutes: Number("int"),
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateDevEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

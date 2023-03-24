@@ -44,6 +44,19 @@ export interface UpdateApnsVoipSandboxChannelCommandOutput
  * import { PinpointClient, UpdateApnsVoipSandboxChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateApnsVoipSandboxChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   APNSVoipSandboxChannelRequest: {
+ *     BundleId: "STRING_VALUE",
+ *     Certificate: "STRING_VALUE",
+ *     DefaultAuthenticationMethod: "STRING_VALUE",
+ *     Enabled: true || false,
+ *     PrivateKey: "STRING_VALUE",
+ *     TeamId: "STRING_VALUE",
+ *     TokenKey: "STRING_VALUE",
+ *     TokenKeyId: "STRING_VALUE",
+ *   },
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateApnsVoipSandboxChannelCommand(input);
  * const response = await client.send(command);
  * ```

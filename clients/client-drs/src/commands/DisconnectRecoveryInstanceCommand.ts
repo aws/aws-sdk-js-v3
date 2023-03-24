@@ -42,6 +42,9 @@ export interface DisconnectRecoveryInstanceCommandOutput extends __MetadataBeare
  * import { DrsClient, DisconnectRecoveryInstanceCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DisconnectRecoveryInstanceCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = {
+ *   recoveryInstanceID: "STRING_VALUE", // required
+ * };
  * const command = new DisconnectRecoveryInstanceCommand(input);
  * const response = await client.send(command);
  * ```

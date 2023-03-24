@@ -96,6 +96,18 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * import { PersonalizeClient, CreateDatasetCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateDatasetCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   schemaArn: "STRING_VALUE", // required
+ *   datasetGroupArn: "STRING_VALUE", // required
+ *   datasetType: "STRING_VALUE", // required
+ *   tags: [
+ *     {
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
  * ```

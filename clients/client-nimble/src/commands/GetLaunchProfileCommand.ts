@@ -46,6 +46,10 @@ export interface GetLaunchProfileCommandOutput extends GetLaunchProfileResponse,
  * import { NimbleClient, GetLaunchProfileCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetLaunchProfileCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   launchProfileId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new GetLaunchProfileCommand(input);
  * const response = await client.send(command);
  * ```

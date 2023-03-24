@@ -42,6 +42,9 @@ export interface GetSiteCommandOutput extends GetSiteResponse, __MetadataBearer 
  * import { IoTRoboRunnerClient, GetSiteCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, GetSiteCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetSiteCommand(input);
  * const response = await client.send(command);
  * ```

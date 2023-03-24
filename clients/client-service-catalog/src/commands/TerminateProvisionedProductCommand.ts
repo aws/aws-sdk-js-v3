@@ -44,6 +44,14 @@ export interface TerminateProvisionedProductCommandOutput extends TerminateProvi
  * import { ServiceCatalogClient, TerminateProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, TerminateProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   ProvisionedProductName: "STRING_VALUE",
+ *   ProvisionedProductId: "STRING_VALUE",
+ *   TerminateToken: "STRING_VALUE", // required
+ *   IgnoreErrors: true || false,
+ *   AcceptLanguage: "STRING_VALUE",
+ *   RetainPhysicalResources: true || false,
+ * };
  * const command = new TerminateProvisionedProductCommand(input);
  * const response = await client.send(command);
  * ```

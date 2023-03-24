@@ -60,6 +60,25 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  * import { GameLiftClient, UpdateFleetPortSettingsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateFleetPortSettingsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   FleetId: "STRING_VALUE", // required
+ *   InboundPermissionAuthorizations: [
+ *     {
+ *       FromPort: Number("int"), // required
+ *       ToPort: Number("int"), // required
+ *       IpRange: "STRING_VALUE", // required
+ *       Protocol: "TCP" || "UDP", // required
+ *     },
+ *   ],
+ *   InboundPermissionRevocations: [
+ *     {
+ *       FromPort: Number("int"), // required
+ *       ToPort: Number("int"), // required
+ *       IpRange: "STRING_VALUE", // required
+ *       Protocol: "TCP" || "UDP", // required
+ *     },
+ *   ],
+ * };
  * const command = new UpdateFleetPortSettingsCommand(input);
  * const response = await client.send(command);
  * ```

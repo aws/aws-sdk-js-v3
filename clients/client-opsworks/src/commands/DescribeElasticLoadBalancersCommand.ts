@@ -52,6 +52,12 @@ export interface DescribeElasticLoadBalancersCommandOutput
  * import { OpsWorksClient, DescribeElasticLoadBalancersCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeElasticLoadBalancersCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   StackId: "STRING_VALUE",
+ *   LayerIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeElasticLoadBalancersCommand(input);
  * const response = await client.send(command);
  * ```

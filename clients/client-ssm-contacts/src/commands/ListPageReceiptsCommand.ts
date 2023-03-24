@@ -42,6 +42,11 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
  * import { SSMContactsClient, ListPageReceiptsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ListPageReceiptsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = {
+ *   PageId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListPageReceiptsCommand(input);
  * const response = await client.send(command);
  * ```

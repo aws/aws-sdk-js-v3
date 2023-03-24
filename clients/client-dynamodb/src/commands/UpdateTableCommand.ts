@@ -68,6 +68,103 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * import { DynamoDBClient, UpdateTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   AttributeDefinitions: [
+ *     {
+ *       AttributeName: "STRING_VALUE", // required
+ *       AttributeType: "S" || "N" || "B", // required
+ *     },
+ *   ],
+ *   TableName: "STRING_VALUE", // required
+ *   BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
+ *   ProvisionedThroughput: {
+ *     ReadCapacityUnits: Number("long"), // required
+ *     WriteCapacityUnits: Number("long"), // required
+ *   },
+ *   GlobalSecondaryIndexUpdates: [
+ *     {
+ *       Update: {
+ *         IndexName: "STRING_VALUE", // required
+ *         ProvisionedThroughput: {
+ *           ReadCapacityUnits: Number("long"), // required
+ *           WriteCapacityUnits: Number("long"), // required
+ *         },
+ *       },
+ *       Create: {
+ *         IndexName: "STRING_VALUE", // required
+ *         KeySchema: [ // required
+ *           {
+ *             AttributeName: "STRING_VALUE", // required
+ *             KeyType: "HASH" || "RANGE", // required
+ *           },
+ *         ],
+ *         Projection: {
+ *           ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ *           NonKeyAttributes: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         ProvisionedThroughput: {
+ *           ReadCapacityUnits: Number("long"), // required
+ *           WriteCapacityUnits: Number("long"), // required
+ *         },
+ *       },
+ *       Delete: {
+ *         IndexName: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   StreamSpecification: {
+ *     StreamEnabled: true || false, // required
+ *     StreamViewType: "NEW_IMAGE" || "OLD_IMAGE" || "NEW_AND_OLD_IMAGES" || "KEYS_ONLY",
+ *   },
+ *   SSESpecification: {
+ *     Enabled: true || false,
+ *     SSEType: "AES256" || "KMS",
+ *     KMSMasterKeyId: "STRING_VALUE",
+ *   },
+ *   ReplicaUpdates: [
+ *     {
+ *       Create: {
+ *         RegionName: "STRING_VALUE", // required
+ *         KMSMasterKeyId: "STRING_VALUE",
+ *         ProvisionedThroughputOverride: {
+ *           ReadCapacityUnits: Number("long"),
+ *         },
+ *         GlobalSecondaryIndexes: [
+ *           {
+ *             IndexName: "STRING_VALUE", // required
+ *             ProvisionedThroughputOverride: {
+ *               ReadCapacityUnits: Number("long"),
+ *             },
+ *           },
+ *         ],
+ *         TableClassOverride: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ *       },
+ *       Update: {
+ *         RegionName: "STRING_VALUE", // required
+ *         KMSMasterKeyId: "STRING_VALUE",
+ *         ProvisionedThroughputOverride: {
+ *           ReadCapacityUnits: Number("long"),
+ *         },
+ *         GlobalSecondaryIndexes: [
+ *           {
+ *             IndexName: "STRING_VALUE", // required
+ *             ProvisionedThroughputOverride: {
+ *               ReadCapacityUnits: Number("long"),
+ *             },
+ *           },
+ *         ],
+ *         TableClassOverride: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ *       },
+ *       Delete: {
+ *         RegionName: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
+ *   DeletionProtectionEnabled: true || false,
+ * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
  * ```

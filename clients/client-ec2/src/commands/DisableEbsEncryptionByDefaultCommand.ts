@@ -50,6 +50,9 @@ export interface DisableEbsEncryptionByDefaultCommandOutput
  * import { EC2Client, DisableEbsEncryptionByDefaultCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableEbsEncryptionByDefaultCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ * };
  * const command = new DisableEbsEncryptionByDefaultCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,13 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * import { WorkSpacesClient, StartWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, StartWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   StartWorkspaceRequests: [ // required
+ *     {
+ *       WorkspaceId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new StartWorkspacesCommand(input);
  * const response = await client.send(command);
  * ```

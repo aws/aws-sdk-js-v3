@@ -64,6 +64,13 @@ export interface RegisterGameServerCommandOutput extends RegisterGameServerOutpu
  * import { GameLiftClient, RegisterGameServerCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, RegisterGameServerCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   GameServerGroupName: "STRING_VALUE", // required
+ *   GameServerId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   ConnectionInfo: "STRING_VALUE",
+ *   GameServerData: "STRING_VALUE",
+ * };
  * const command = new RegisterGameServerCommand(input);
  * const response = await client.send(command);
  * ```

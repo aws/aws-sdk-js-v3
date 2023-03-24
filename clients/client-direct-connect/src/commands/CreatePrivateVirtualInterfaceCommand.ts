@@ -52,6 +52,28 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  * import { DirectConnectClient, CreatePrivateVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreatePrivateVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   connectionId: "STRING_VALUE", // required
+ *   newPrivateVirtualInterface: {
+ *     virtualInterfaceName: "STRING_VALUE", // required
+ *     vlan: Number("int"), // required
+ *     asn: Number("int"), // required
+ *     mtu: Number("int"),
+ *     authKey: "STRING_VALUE",
+ *     amazonAddress: "STRING_VALUE",
+ *     customerAddress: "STRING_VALUE",
+ *     addressFamily: "ipv4" || "ipv6",
+ *     virtualGatewayId: "STRING_VALUE",
+ *     directConnectGatewayId: "STRING_VALUE",
+ *     tags: [
+ *       {
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     enableSiteLink: true || false,
+ *   },
+ * };
  * const command = new CreatePrivateVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface GetTrafficDistributionCommandOutput extends GetTrafficDistribut
  * import { ConnectClient, GetTrafficDistributionCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetTrafficDistributionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetTrafficDistributionCommand(input);
  * const response = await client.send(command);
  * ```

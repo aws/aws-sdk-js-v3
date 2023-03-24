@@ -42,6 +42,16 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * import { ECRClient, DescribeImageScanFindingsCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DescribeImageScanFindingsCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageId: {
+ *     imageDigest: "STRING_VALUE",
+ *     imageTag: "STRING_VALUE",
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeImageScanFindingsCommand(input);
  * const response = await client.send(command);
  * ```

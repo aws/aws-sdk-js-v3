@@ -45,6 +45,12 @@ export interface ListCACertificatesCommandOutput extends ListCACertificatesRespo
  * import { IoTClient, ListCACertificatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListCACertificatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   pageSize: Number("int"),
+ *   marker: "STRING_VALUE",
+ *   ascendingOrder: true || false,
+ *   templateName: "STRING_VALUE",
+ * };
  * const command = new ListCACertificatesCommand(input);
  * const response = await client.send(command);
  * ```

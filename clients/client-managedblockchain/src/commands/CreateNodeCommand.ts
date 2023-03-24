@@ -47,6 +47,33 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * import { ManagedBlockchainClient, CreateNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, CreateNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = {
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   NetworkId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE",
+ *   NodeConfiguration: {
+ *     InstanceType: "STRING_VALUE", // required
+ *     AvailabilityZone: "STRING_VALUE",
+ *     LogPublishingConfiguration: {
+ *       Fabric: {
+ *         ChaincodeLogs: {
+ *           Cloudwatch: {
+ *             Enabled: true || false,
+ *           },
+ *         },
+ *         PeerLogs: {
+ *           Cloudwatch: {
+ *             Enabled: true || false,
+ *           },
+ *         },
+ *       },
+ *     },
+ *     StateDB: "LevelDB" || "CouchDB",
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateNodeCommand(input);
  * const response = await client.send(command);
  * ```

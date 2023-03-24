@@ -42,6 +42,11 @@ export interface CreateAliasCommandOutput extends CreateAliasResponse, __Metadat
  * import { WorkMailClient, CreateAliasCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateAliasCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ *   Alias: "STRING_VALUE", // required
+ * };
  * const command = new CreateAliasCommand(input);
  * const response = await client.send(command);
  * ```

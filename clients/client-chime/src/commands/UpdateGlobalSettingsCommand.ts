@@ -42,6 +42,14 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, UpdateGlobalSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateGlobalSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   BusinessCalling: {
+ *     CdrBucket: "STRING_VALUE",
+ *   },
+ *   VoiceConnector: {
+ *     CdrBucket: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateGlobalSettingsCommand(input);
  * const response = await client.send(command);
  * ```

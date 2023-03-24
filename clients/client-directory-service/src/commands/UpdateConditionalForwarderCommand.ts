@@ -43,6 +43,13 @@ export interface UpdateConditionalForwarderCommandOutput extends UpdateCondition
  * import { DirectoryServiceClient, UpdateConditionalForwarderCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, UpdateConditionalForwarderCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = {
+ *   DirectoryId: "STRING_VALUE", // required
+ *   RemoteDomainName: "STRING_VALUE", // required
+ *   DnsIpAddrs: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateConditionalForwarderCommand(input);
  * const response = await client.send(command);
  * ```

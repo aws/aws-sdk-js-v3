@@ -43,6 +43,17 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * import { EMRContainersClient, ListJobRunsCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
  * // const { EMRContainersClient, ListJobRunsCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * const client = new EMRContainersClient(config);
+ * const input = {
+ *   virtualClusterId: "STRING_VALUE", // required
+ *   createdBefore: new Date("TIMESTAMP"),
+ *   createdAfter: new Date("TIMESTAMP"),
+ *   name: "STRING_VALUE",
+ *   states: [
+ *     "PENDING" || "SUBMITTED" || "RUNNING" || "FAILED" || "CANCELLED" || "CANCEL_PENDING" || "COMPLETED",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListJobRunsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,11 @@ export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPolic
  * import { ResiliencehubClient, ListResiliencyPoliciesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListResiliencyPoliciesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   policyName: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListResiliencyPoliciesCommand(input);
  * const response = await client.send(command);
  * ```

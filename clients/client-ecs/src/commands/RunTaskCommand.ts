@@ -66,6 +66,99 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * import { ECSClient, RunTaskCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, RunTaskCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   capacityProviderStrategy: [
+ *     {
+ *       capacityProvider: "STRING_VALUE", // required
+ *       weight: Number("int"),
+ *       base: Number("int"),
+ *     },
+ *   ],
+ *   cluster: "STRING_VALUE",
+ *   count: Number("int"),
+ *   enableECSManagedTags: true || false,
+ *   enableExecuteCommand: true || false,
+ *   group: "STRING_VALUE",
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ *   networkConfiguration: {
+ *     awsvpcConfiguration: {
+ *       subnets: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       securityGroups: [
+ *         "STRING_VALUE",
+ *       ],
+ *       assignPublicIp: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ *   overrides: {
+ *     containerOverrides: [
+ *       {
+ *         name: "STRING_VALUE",
+ *         command: [
+ *           "STRING_VALUE",
+ *         ],
+ *         environment: [
+ *           {
+ *             name: "STRING_VALUE",
+ *             value: "STRING_VALUE",
+ *           },
+ *         ],
+ *         environmentFiles: [
+ *           {
+ *             value: "STRING_VALUE", // required
+ *             type: "s3", // required
+ *           },
+ *         ],
+ *         cpu: Number("int"),
+ *         memory: Number("int"),
+ *         memoryReservation: Number("int"),
+ *         resourceRequirements: [
+ *           {
+ *             value: "STRING_VALUE", // required
+ *             type: "GPU" || "InferenceAccelerator", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     cpu: "STRING_VALUE",
+ *     inferenceAcceleratorOverrides: [
+ *       {
+ *         deviceName: "STRING_VALUE",
+ *         deviceType: "STRING_VALUE",
+ *       },
+ *     ],
+ *     executionRoleArn: "STRING_VALUE",
+ *     memory: "STRING_VALUE",
+ *     taskRoleArn: "STRING_VALUE",
+ *     ephemeralStorage: {
+ *       sizeInGiB: Number("int"), // required
+ *     },
+ *   },
+ *   placementConstraints: [
+ *     {
+ *       type: "distinctInstance" || "memberOf",
+ *       expression: "STRING_VALUE",
+ *     },
+ *   ],
+ *   placementStrategy: [
+ *     {
+ *       type: "random" || "spread" || "binpack",
+ *       field: "STRING_VALUE",
+ *     },
+ *   ],
+ *   platformVersion: "STRING_VALUE",
+ *   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *   referenceId: "STRING_VALUE",
+ *   startedBy: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   taskDefinition: "STRING_VALUE", // required
+ * };
  * const command = new RunTaskCommand(input);
  * const response = await client.send(command);
  * ```

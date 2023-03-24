@@ -42,6 +42,11 @@ export interface ListWebhooksCommandOutput extends ListWebhooksResult, __Metadat
  * import { AmplifyClient, ListWebhooksCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, ListWebhooksCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListWebhooksCommand(input);
  * const response = await client.send(command);
  * ```

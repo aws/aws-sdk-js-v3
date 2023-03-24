@@ -113,6 +113,14 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * import { CodeGuruProfilerClient, GetProfileCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, GetProfileCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
+ * const input = {
+ *   profilingGroupName: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"),
+ *   period: "STRING_VALUE",
+ *   endTime: new Date("TIMESTAMP"),
+ *   maxDepth: Number("int"),
+ *   accept: "STRING_VALUE",
+ * };
  * const command = new GetProfileCommand(input);
  * const response = await client.send(command);
  * ```

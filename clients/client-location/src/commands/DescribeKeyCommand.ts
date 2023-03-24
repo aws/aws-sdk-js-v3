@@ -47,6 +47,9 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * import { LocationClient, DescribeKeyCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DescribeKeyCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   KeyName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeKeyCommand(input);
  * const response = await client.send(command);
  * ```

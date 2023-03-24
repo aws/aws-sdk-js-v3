@@ -42,6 +42,11 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * import { MqClient, ListUsersCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, ListUsersCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = {
+ *   BrokerId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
  * ```

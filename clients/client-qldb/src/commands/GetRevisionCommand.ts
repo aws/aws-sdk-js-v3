@@ -49,6 +49,16 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * import { QLDBClient, GetRevisionCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, GetRevisionCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   BlockAddress: {
+ *     IonText: "STRING_VALUE",
+ *   },
+ *   DocumentId: "STRING_VALUE", // required
+ *   DigestTipAddress: {
+ *     IonText: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetRevisionCommand(input);
  * const response = await client.send(command);
  * ```

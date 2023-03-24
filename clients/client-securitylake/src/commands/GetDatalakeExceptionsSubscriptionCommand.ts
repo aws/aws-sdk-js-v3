@@ -47,6 +47,7 @@ export interface GetDatalakeExceptionsSubscriptionCommandOutput
  * import { SecurityLakeClient, GetDatalakeExceptionsSubscriptionCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, GetDatalakeExceptionsSubscriptionCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {};
  * const command = new GetDatalakeExceptionsSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -49,6 +49,12 @@ export interface AttachInstancesToLoadBalancerCommandOutput
  * import { LightsailClient, AttachInstancesToLoadBalancerCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, AttachInstancesToLoadBalancerCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   loadBalancerName: "STRING_VALUE", // required
+ *   instanceNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AttachInstancesToLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,18 @@ export interface CreateCustomPluginCommandOutput extends CreateCustomPluginRespo
  * import { KafkaConnectClient, CreateCustomPluginCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, CreateCustomPluginCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
+ * const input = {
+ *   contentType: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   location: {
+ *     s3Location: {
+ *       bucketArn: "STRING_VALUE", // required
+ *       fileKey: "STRING_VALUE", // required
+ *       objectVersion: "STRING_VALUE",
+ *     },
+ *   },
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new CreateCustomPluginCommand(input);
  * const response = await client.send(command);
  * ```

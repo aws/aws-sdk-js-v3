@@ -42,6 +42,10 @@ export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, DeleteQuickConnectCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteQuickConnectCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   QuickConnectId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteQuickConnectCommand(input);
  * const response = await client.send(command);
  * ```

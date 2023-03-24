@@ -42,6 +42,11 @@ export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsRes
  * import { AmplifyBackendClient, GetBackendAPIModelsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, GetBackendAPIModelsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = {
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   ResourceName: "STRING_VALUE", // required
+ * };
  * const command = new GetBackendAPIModelsCommand(input);
  * const response = await client.send(command);
  * ```

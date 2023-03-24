@@ -42,6 +42,16 @@ export interface UpdateStorageCommandOutput extends UpdateStorageResponse, __Met
  * import { KafkaClient, UpdateStorageCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateStorageCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = {
+ *   ClusterArn: "STRING_VALUE", // required
+ *   CurrentVersion: "STRING_VALUE", // required
+ *   ProvisionedThroughput: {
+ *     Enabled: true || false,
+ *     VolumeThroughput: Number("int"),
+ *   },
+ *   StorageMode: "LOCAL" || "TIERED",
+ *   VolumeSizeGB: Number("int"),
+ * };
  * const command = new UpdateStorageCommand(input);
  * const response = await client.send(command);
  * ```

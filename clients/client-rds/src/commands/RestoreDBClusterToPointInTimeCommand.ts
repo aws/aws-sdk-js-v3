@@ -63,6 +63,54 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * import { RDSClient, RestoreDBClusterToPointInTimeCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBClusterToPointInTimeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   RestoreType: "STRING_VALUE",
+ *   SourceDBClusterIdentifier: "STRING_VALUE", // required
+ *   RestoreToTime: new Date("TIMESTAMP"),
+ *   UseLatestRestorableTime: true || false,
+ *   Port: Number("int"),
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   BacktrackWindow: Number("long"),
+ *   EnableCloudwatchLogsExports: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   CopyTagsToSnapshot: true || false,
+ *   Domain: "STRING_VALUE",
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   ScalingConfiguration: {
+ *     MinCapacity: Number("int"),
+ *     MaxCapacity: Number("int"),
+ *     AutoPause: true || false,
+ *     SecondsUntilAutoPause: Number("int"),
+ *     TimeoutAction: "STRING_VALUE",
+ *     SecondsBeforeTimeout: Number("int"),
+ *   },
+ *   EngineMode: "STRING_VALUE",
+ *   DBClusterInstanceClass: "STRING_VALUE",
+ *   StorageType: "STRING_VALUE",
+ *   PubliclyAccessible: true || false,
+ *   Iops: Number("int"),
+ *   ServerlessV2ScalingConfiguration: {
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
+ *   NetworkType: "STRING_VALUE",
+ * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,12 @@ export interface AssociateIpGroupsCommandOutput extends AssociateIpGroupsResult,
  * import { WorkSpacesClient, AssociateIpGroupsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, AssociateIpGroupsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   DirectoryId: "STRING_VALUE", // required
+ *   GroupIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AssociateIpGroupsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculato
  * import { LocationClient, UpdateRouteCalculatorCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, UpdateRouteCalculatorCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   CalculatorName: "STRING_VALUE", // required
+ *   PricingPlan: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateRouteCalculatorCommand(input);
  * const response = await client.send(command);
  * ```

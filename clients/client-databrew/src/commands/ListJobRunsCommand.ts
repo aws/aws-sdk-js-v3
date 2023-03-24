@@ -42,6 +42,11 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * import { DataBrewClient, ListJobRunsCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListJobRunsCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListJobRunsCommand(input);
  * const response = await client.send(command);
  * ```

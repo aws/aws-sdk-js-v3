@@ -42,6 +42,11 @@ export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgram
  * import { MediaLiveClient, ListMultiplexProgramsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListMultiplexProgramsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   MultiplexId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListMultiplexProgramsCommand(input);
  * const response = await client.send(command);
  * ```

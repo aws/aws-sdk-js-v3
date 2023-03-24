@@ -42,6 +42,15 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResult, __M
  * import { SSMContactsClient, ListEngagementsCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, ListEngagementsCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   IncidentId: "STRING_VALUE",
+ *   TimeRangeValue: {
+ *     StartTime: new Date("TIMESTAMP"),
+ *     EndTime: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new ListEngagementsCommand(input);
  * const response = await client.send(command);
  * ```

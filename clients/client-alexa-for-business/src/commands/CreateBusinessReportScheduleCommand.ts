@@ -45,6 +45,25 @@ export interface CreateBusinessReportScheduleCommandOutput
  * import { AlexaForBusinessClient, CreateBusinessReportScheduleCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateBusinessReportScheduleCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   ScheduleName: "STRING_VALUE",
+ *   S3BucketName: "STRING_VALUE",
+ *   S3KeyPrefix: "STRING_VALUE",
+ *   Format: "STRING_VALUE", // required
+ *   ContentRange: {
+ *     Interval: "STRING_VALUE", // required
+ *   },
+ *   Recurrence: {
+ *     StartDate: "STRING_VALUE",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateBusinessReportScheduleCommand(input);
  * const response = await client.send(command);
  * ```

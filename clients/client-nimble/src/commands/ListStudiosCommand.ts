@@ -42,6 +42,9 @@ export interface ListStudiosCommandOutput extends ListStudiosResponse, __Metadat
  * import { NimbleClient, ListStudiosCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListStudiosCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListStudiosCommand(input);
  * const response = await client.send(command);
  * ```

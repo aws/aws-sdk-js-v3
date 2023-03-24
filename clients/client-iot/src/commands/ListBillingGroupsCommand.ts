@@ -43,6 +43,11 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsRespons
  * import { IoTClient, ListBillingGroupsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListBillingGroupsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   namePrefixFilter: "STRING_VALUE",
+ * };
  * const command = new ListBillingGroupsCommand(input);
  * const response = await client.send(command);
  * ```

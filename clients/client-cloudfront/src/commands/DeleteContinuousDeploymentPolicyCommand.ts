@@ -45,6 +45,10 @@ export interface DeleteContinuousDeploymentPolicyCommandOutput extends __Metadat
  * import { CloudFrontClient, DeleteContinuousDeploymentPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteContinuousDeploymentPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteContinuousDeploymentPolicyCommand(input);
  * const response = await client.send(command);
  * ```

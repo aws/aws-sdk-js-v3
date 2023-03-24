@@ -44,6 +44,11 @@ export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesR
  * import { IoTClient, GetEffectivePoliciesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetEffectivePoliciesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   principal: "STRING_VALUE",
+ *   cognitoIdentityPoolId: "STRING_VALUE",
+ *   thingName: "STRING_VALUE",
+ * };
  * const command = new GetEffectivePoliciesCommand(input);
  * const response = await client.send(command);
  * ```

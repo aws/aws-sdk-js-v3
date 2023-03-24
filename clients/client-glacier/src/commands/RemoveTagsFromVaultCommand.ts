@@ -45,6 +45,13 @@ export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
  * import { GlacierClient, RemoveTagsFromVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, RemoveTagsFromVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   TagKeys: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new RemoveTagsFromVaultCommand(input);
  * const response = await client.send(command);
  * ```

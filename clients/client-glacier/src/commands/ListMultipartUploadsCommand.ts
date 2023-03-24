@@ -67,6 +67,12 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * import { GlacierClient, ListMultipartUploadsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, ListMultipartUploadsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   limit: Number("int"),
+ *   marker: "STRING_VALUE",
+ * };
  * const command = new ListMultipartUploadsCommand(input);
  * const response = await client.send(command);
  * ```

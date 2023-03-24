@@ -48,6 +48,11 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * import { CognitoIdentityProviderClient, ListGroupsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListGroupsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
  * ```

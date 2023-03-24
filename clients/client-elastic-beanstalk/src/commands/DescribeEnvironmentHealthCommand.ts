@@ -44,6 +44,13 @@ export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironm
  * import { ElasticBeanstalkClient, DescribeEnvironmentHealthCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeEnvironmentHealthCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   EnvironmentName: "STRING_VALUE",
+ *   EnvironmentId: "STRING_VALUE",
+ *   AttributeNames: [
+ *     "Status" || "Color" || "Causes" || "ApplicationMetrics" || "InstancesHealth" || "All" || "HealthStatus" || "RefreshedAt",
+ *   ],
+ * };
  * const command = new DescribeEnvironmentHealthCommand(input);
  * const response = await client.send(command);
  * ```

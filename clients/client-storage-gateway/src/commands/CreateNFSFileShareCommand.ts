@@ -58,6 +58,43 @@ export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutpu
  * import { StorageGatewayClient, CreateNFSFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateNFSFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE", // required
+ *   NFSFileShareDefaults: {
+ *     FileMode: "STRING_VALUE",
+ *     DirectoryMode: "STRING_VALUE",
+ *     GroupId: Number("long"),
+ *     OwnerId: Number("long"),
+ *   },
+ *   GatewayARN: "STRING_VALUE", // required
+ *   KMSEncrypted: true || false,
+ *   KMSKey: "STRING_VALUE",
+ *   Role: "STRING_VALUE", // required
+ *   LocationARN: "STRING_VALUE", // required
+ *   DefaultStorageClass: "STRING_VALUE",
+ *   ObjectACL: "STRING_VALUE",
+ *   ClientList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Squash: "STRING_VALUE",
+ *   ReadOnly: true || false,
+ *   GuessMIMETypeEnabled: true || false,
+ *   RequesterPays: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   FileShareName: "STRING_VALUE",
+ *   CacheAttributes: {
+ *     CacheStaleTimeoutInSeconds: Number("int"),
+ *   },
+ *   NotificationPolicy: "STRING_VALUE",
+ *   VPCEndpointDNSName: "STRING_VALUE",
+ *   BucketRegion: "STRING_VALUE",
+ *   AuditDestinationARN: "STRING_VALUE",
+ * };
  * const command = new CreateNFSFileShareCommand(input);
  * const response = await client.send(command);
  * ```

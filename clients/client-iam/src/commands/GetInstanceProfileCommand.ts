@@ -45,6 +45,9 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileRespo
  * import { IAMClient, GetInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   InstanceProfileName: "STRING_VALUE", // required
+ * };
  * const command = new GetInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```

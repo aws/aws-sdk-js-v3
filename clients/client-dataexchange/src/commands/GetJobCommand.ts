@@ -39,6 +39,9 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * import { DataExchangeClient, GetJobCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, GetJobCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new GetJobCommand(input);
  * const response = await client.send(command);
  * ```

@@ -225,6 +225,23 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  * import { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
+ * const input = {
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   PlaybackMode: "STRING_VALUE",
+ *   HLSFragmentSelector: {
+ *     FragmentSelectorType: "STRING_VALUE",
+ *     TimestampRange: {
+ *       StartTimestamp: new Date("TIMESTAMP"),
+ *       EndTimestamp: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ *   ContainerFormat: "STRING_VALUE",
+ *   DiscontinuityMode: "STRING_VALUE",
+ *   DisplayFragmentTimestamp: "STRING_VALUE",
+ *   Expires: Number("int"),
+ *   MaxMediaPlaylistFragmentResults: Number("long"),
+ * };
  * const command = new GetHLSStreamingSessionURLCommand(input);
  * const response = await client.send(command);
  * ```

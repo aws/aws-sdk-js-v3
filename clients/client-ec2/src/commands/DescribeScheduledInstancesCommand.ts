@@ -42,6 +42,26 @@ export interface DescribeScheduledInstancesCommandOutput extends DescribeSchedul
  * import { EC2Client, DescribeScheduledInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeScheduledInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ScheduledInstanceIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SlotStartTimeRange: {
+ *     EarliestTime: new Date("TIMESTAMP"),
+ *     LatestTime: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new DescribeScheduledInstancesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -50,6 +50,10 @@ export interface AssociateElasticIpCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, AssociateElasticIpCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, AssociateElasticIpCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   ElasticIp: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE",
+ * };
  * const command = new AssociateElasticIpCommand(input);
  * const response = await client.send(command);
  * ```

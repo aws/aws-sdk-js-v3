@@ -42,6 +42,10 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * import { IoTEventsClient, ListInputsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, ListInputsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListInputsCommand(input);
  * const response = await client.send(command);
  * ```

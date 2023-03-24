@@ -51,6 +51,12 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  * import { CloudFormationClient, DeregisterTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeregisterTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   Arn: "STRING_VALUE",
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   TypeName: "STRING_VALUE",
+ *   VersionId: "STRING_VALUE",
+ * };
  * const command = new DeregisterTypeCommand(input);
  * const response = await client.send(command);
  * ```

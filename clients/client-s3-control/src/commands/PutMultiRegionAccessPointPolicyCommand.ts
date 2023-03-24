@@ -65,6 +65,14 @@ export interface PutMultiRegionAccessPointPolicyCommandOutput
  * import { S3ControlClient, PutMultiRegionAccessPointPolicyCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutMultiRegionAccessPointPolicyCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE", // required
+ *   Details: {
+ *     Name: "STRING_VALUE", // required
+ *     Policy: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new PutMultiRegionAccessPointPolicyCommand(input);
  * const response = await client.send(command);
  * ```

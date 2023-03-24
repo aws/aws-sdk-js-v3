@@ -43,6 +43,13 @@ export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityT
  * import { GlueClient, CreateCustomEntityTypeCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateCustomEntityTypeCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   RegexString: "STRING_VALUE", // required
+ *   ContextWords: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateCustomEntityTypeCommand(input);
  * const response = await client.send(command);
  * ```

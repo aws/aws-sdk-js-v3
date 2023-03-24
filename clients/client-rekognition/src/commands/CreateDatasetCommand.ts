@@ -60,6 +60,20 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * import { RekognitionClient, CreateDatasetCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateDatasetCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   DatasetSource: {
+ *     GroundTruthManifest: {
+ *       S3Object: {
+ *         Bucket: "STRING_VALUE",
+ *         Name: "STRING_VALUE",
+ *         Version: "STRING_VALUE",
+ *       },
+ *     },
+ *     DatasetArn: "STRING_VALUE",
+ *   },
+ *   DatasetType: "TRAIN" || "TEST", // required
+ *   ProjectArn: "STRING_VALUE", // required
+ * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
  * ```

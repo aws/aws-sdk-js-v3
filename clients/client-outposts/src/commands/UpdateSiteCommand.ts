@@ -42,6 +42,12 @@ export interface UpdateSiteCommandOutput extends UpdateSiteOutput, __MetadataBea
  * import { OutpostsClient, UpdateSiteCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, UpdateSiteCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = {
+ *   SiteId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Notes: "STRING_VALUE",
+ * };
  * const command = new UpdateSiteCommand(input);
  * const response = await client.send(command);
  * ```

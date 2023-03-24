@@ -44,6 +44,68 @@ export interface CreateResponsePlanCommandOutput extends CreateResponsePlanOutpu
  * import { SSMIncidentsClient, CreateResponsePlanCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, CreateResponsePlanCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   name: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   incidentTemplate: {
+ *     title: "STRING_VALUE", // required
+ *     impact: Number("int"), // required
+ *     summary: "STRING_VALUE",
+ *     dedupeString: "STRING_VALUE",
+ *     notificationTargets: [
+ *       { // Union: only one key present
+ *         snsTopicArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *     incidentTags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   chatChannel: { // Union: only one key present
+ *     empty: {},
+ *     chatbotSns: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   engagements: [
+ *     "STRING_VALUE",
+ *   ],
+ *   actions: [
+ *     { // Union: only one key present
+ *       ssmAutomation: {
+ *         roleArn: "STRING_VALUE", // required
+ *         documentName: "STRING_VALUE", // required
+ *         documentVersion: "STRING_VALUE",
+ *         targetAccount: "STRING_VALUE",
+ *         parameters: {
+ *           "<keys>": [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         dynamicParameters: {
+ *           "<keys>": { // Union: only one key present
+ *             variable: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   integrations: [
+ *     { // Union: only one key present
+ *       pagerDutyConfiguration: {
+ *         name: "STRING_VALUE", // required
+ *         secretId: "STRING_VALUE", // required
+ *         pagerDutyIncidentConfiguration: {
+ *           serviceId: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new CreateResponsePlanCommand(input);
  * const response = await client.send(command);
  * ```

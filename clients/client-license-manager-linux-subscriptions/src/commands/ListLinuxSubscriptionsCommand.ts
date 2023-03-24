@@ -48,6 +48,19 @@ export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscripti
  * import { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionsCommand } from "@aws-sdk/client-license-manager-linux-subscriptions"; // ES Modules import
  * // const { LicenseManagerLinuxSubscriptionsClient, ListLinuxSubscriptionsCommand } = require("@aws-sdk/client-license-manager-linux-subscriptions"); // CommonJS import
  * const client = new LicenseManagerLinuxSubscriptionsClient(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Operator: "STRING_VALUE",
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListLinuxSubscriptionsCommand(input);
  * const response = await client.send(command);
  * ```

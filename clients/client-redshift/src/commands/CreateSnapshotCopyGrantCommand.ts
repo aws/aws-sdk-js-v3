@@ -49,6 +49,16 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  * import { RedshiftClient, CreateSnapshotCopyGrantCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateSnapshotCopyGrantCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   SnapshotCopyGrantName: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateSnapshotCopyGrantCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,14 @@ export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCu
  * import { QuickSightClient, UpdateAccountCustomizationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateAccountCustomizationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE",
+ *   AccountCustomization: {
+ *     DefaultTheme: "STRING_VALUE",
+ *     DefaultEmailCustomizationTemplate: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateAccountCustomizationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,65 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * import { WorkDocsClient, SearchResourcesCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, SearchResourcesCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   AuthenticationToken: "STRING_VALUE",
+ *   QueryText: "STRING_VALUE",
+ *   QueryScopes: [
+ *     "NAME" || "CONTENT",
+ *   ],
+ *   OrganizationId: "STRING_VALUE",
+ *   AdditionalResponseFields: [
+ *     "WEBURL",
+ *   ],
+ *   Filters: {
+ *     TextLocales: [
+ *       "AR" || "BG" || "BN" || "DA" || "DE" || "CS" || "EL" || "EN" || "ES" || "FA" || "FI" || "FR" || "HI" || "HU" || "ID" || "IT" || "JA" || "KO" || "LT" || "LV" || "NL" || "NO" || "PT" || "RO" || "RU" || "SV" || "SW" || "TH" || "TR" || "ZH" || "DEFAULT",
+ *     ],
+ *     ContentCategories: [
+ *       "IMAGE" || "DOCUMENT" || "PDF" || "SPREADSHEET" || "PRESENTATION" || "AUDIO" || "VIDEO" || "SOURCE_CODE" || "OTHER",
+ *     ],
+ *     ResourceTypes: [
+ *       "FOLDER" || "DOCUMENT" || "COMMENT" || "DOCUMENT_VERSION",
+ *     ],
+ *     Labels: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Principals: [
+ *       {
+ *         Id: "STRING_VALUE", // required
+ *         Roles: [
+ *           "VIEWER" || "CONTRIBUTOR" || "OWNER" || "COOWNER",
+ *         ],
+ *       },
+ *     ],
+ *     AncestorIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SearchCollectionTypes: [
+ *       "OWNED" || "SHARED_WITH_ME",
+ *     ],
+ *     SizeRange: {
+ *       StartValue: Number("long"),
+ *       EndValue: Number("long"),
+ *     },
+ *     CreatedRange: {
+ *       StartValue: new Date("TIMESTAMP"),
+ *       EndValue: new Date("TIMESTAMP"),
+ *     },
+ *     ModifiedRange: {
+ *       StartValue: new Date("TIMESTAMP"),
+ *       EndValue: new Date("TIMESTAMP"),
+ *     },
+ *   },
+ *   OrderBy: [
+ *     {
+ *       Field: "RELEVANCE" || "NAME" || "SIZE" || "CREATED_TIMESTAMP" || "MODIFIED_TIMESTAMP",
+ *       Order: "ASC" || "DESC",
+ *     },
+ *   ],
+ *   Limit: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new SearchResourcesCommand(input);
  * const response = await client.send(command);
  * ```

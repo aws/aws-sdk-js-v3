@@ -54,6 +54,13 @@ export interface SetLoadBalancerPoliciesOfListenerCommandOutput
  * import { ElasticLoadBalancingClient, SetLoadBalancerPoliciesOfListenerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, SetLoadBalancerPoliciesOfListenerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = {
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerPort: Number("int"), // required
+ *   PolicyNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new SetLoadBalancerPoliciesOfListenerCommand(input);
  * const response = await client.send(command);
  * ```

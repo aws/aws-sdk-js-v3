@@ -43,6 +43,13 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * import { EventBridgeClient, ListReplaysCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListReplaysCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   NamePrefix: "STRING_VALUE",
+ *   State: "STARTING" || "RUNNING" || "CANCELLING" || "COMPLETED" || "CANCELLED" || "FAILED",
+ *   EventSourceArn: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListReplaysCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Respo
  * import { DataSyncClient, DescribeLocationS3Command } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationS3Command } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   LocationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLocationS3Command(input);
  * const response = await client.send(command);
  * ```

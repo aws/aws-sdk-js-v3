@@ -38,6 +38,7 @@ export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer 
  * import { EC2ProtocolClient, XmlBlobsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, XmlBlobsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
+ * const input = {};
  * const command = new XmlBlobsCommand(input);
  * const response = await client.send(command);
  * ```

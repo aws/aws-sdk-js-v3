@@ -45,6 +45,9 @@ export interface DescribeDomainConfigurationCommandOutput
  * import { IoTClient, DescribeDomainConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeDomainConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   domainConfigurationName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDomainConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

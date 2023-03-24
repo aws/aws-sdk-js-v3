@@ -42,6 +42,29 @@ export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, _
  * import { Macie2Client, DescribeBucketsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DescribeBucketsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   criteria: {
+ *     "<keys>": {
+ *       eq: [
+ *         "STRING_VALUE",
+ *       ],
+ *       gt: Number("long"),
+ *       gte: Number("long"),
+ *       lt: Number("long"),
+ *       lte: Number("long"),
+ *       neq: [
+ *         "STRING_VALUE",
+ *       ],
+ *       prefix: "STRING_VALUE",
+ *     },
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   sortCriteria: {
+ *     attributeName: "STRING_VALUE",
+ *     orderBy: "ASC" || "DESC",
+ *   },
+ * };
  * const command = new DescribeBucketsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -51,6 +51,34 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
  * import { EC2Client, DescribeScheduledInstanceAvailabilityCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeScheduledInstanceAvailabilityCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   FirstSlotStartTimeRange: {
+ *     EarliestTime: new Date("TIMESTAMP"), // required
+ *     LatestTime: new Date("TIMESTAMP"), // required
+ *   },
+ *   MaxResults: Number("int"),
+ *   MaxSlotDurationInHours: Number("int"),
+ *   MinSlotDurationInHours: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Recurrence: {
+ *     Frequency: "STRING_VALUE",
+ *     Interval: Number("int"),
+ *     OccurrenceDays: [
+ *       Number("int"),
+ *     ],
+ *     OccurrenceRelativeToEnd: true || false,
+ *     OccurrenceUnit: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DescribeScheduledInstanceAvailabilityCommand(input);
  * const response = await client.send(command);
  * ```

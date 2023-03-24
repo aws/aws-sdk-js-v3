@@ -45,6 +45,9 @@ export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvi
  * import { BatchClient, DeleteComputeEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DeleteComputeEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = {
+ *   computeEnvironment: "STRING_VALUE", // required
+ * };
  * const command = new DeleteComputeEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

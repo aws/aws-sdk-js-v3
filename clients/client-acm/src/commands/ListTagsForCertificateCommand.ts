@@ -44,6 +44,9 @@ export interface ListTagsForCertificateCommandOutput extends ListTagsForCertific
  * import { ACMClient, ListTagsForCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, ListTagsForCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = {
+ *   CertificateArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForCertificateCommand(input);
  * const response = await client.send(command);
  * ```

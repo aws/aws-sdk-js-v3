@@ -51,6 +51,10 @@ export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandb
  * import { SNSClient, VerifySMSSandboxPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, VerifySMSSandboxPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   PhoneNumber: "STRING_VALUE", // required
+ *   OneTimePassword: "STRING_VALUE", // required
+ * };
  * const command = new VerifySMSSandboxPhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```

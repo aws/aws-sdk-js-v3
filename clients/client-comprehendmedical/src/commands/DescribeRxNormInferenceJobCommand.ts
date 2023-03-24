@@ -47,6 +47,9 @@ export interface DescribeRxNormInferenceJobCommandOutput extends DescribeRxNormI
  * import { ComprehendMedicalClient, DescribeRxNormInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DescribeRxNormInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRxNormInferenceJobCommand(input);
  * const response = await client.send(command);
  * ```

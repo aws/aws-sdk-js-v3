@@ -39,6 +39,55 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * import { GlueClient, GetPlanCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetPlanCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Mapping: [ // required
+ *     {
+ *       SourceTable: "STRING_VALUE",
+ *       SourcePath: "STRING_VALUE",
+ *       SourceType: "STRING_VALUE",
+ *       TargetTable: "STRING_VALUE",
+ *       TargetPath: "STRING_VALUE",
+ *       TargetType: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Source: {
+ *     DatabaseName: "STRING_VALUE", // required
+ *     TableName: "STRING_VALUE", // required
+ *   },
+ *   Sinks: [
+ *     {
+ *       DatabaseName: "STRING_VALUE", // required
+ *       TableName: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Location: {
+ *     Jdbc: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *         Param: true || false,
+ *       },
+ *     ],
+ *     S3: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *         Param: true || false,
+ *       },
+ *     ],
+ *     DynamoDB: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *         Param: true || false,
+ *       },
+ *     ],
+ *   },
+ *   Language: "PYTHON" || "SCALA",
+ *   AdditionalPlanOptionsMap: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetPlanCommand(input);
  * const response = await client.send(command);
  * ```

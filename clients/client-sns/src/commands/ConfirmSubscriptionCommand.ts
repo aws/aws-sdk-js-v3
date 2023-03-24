@@ -46,6 +46,11 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  * import { SNSClient, ConfirmSubscriptionCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ConfirmSubscriptionCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   TopicArn: "STRING_VALUE", // required
+ *   Token: "STRING_VALUE", // required
+ *   AuthenticateOnUnsubscribe: "STRING_VALUE",
+ * };
  * const command = new ConfirmSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

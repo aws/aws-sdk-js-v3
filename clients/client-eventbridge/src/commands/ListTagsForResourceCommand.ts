@@ -43,6 +43,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { EventBridgeClient, ListTagsForResourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListTagsForResourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

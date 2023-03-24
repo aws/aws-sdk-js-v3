@@ -51,6 +51,10 @@ export interface EnableVpcClassicLinkCommandOutput extends EnableVpcClassicLinkR
  * import { EC2Client, EnableVpcClassicLinkCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableVpcClassicLinkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   VpcId: "STRING_VALUE", // required
+ * };
  * const command = new EnableVpcClassicLinkCommand(input);
  * const response = await client.send(command);
  * ```

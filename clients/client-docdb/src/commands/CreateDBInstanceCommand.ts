@@ -42,6 +42,25 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * import { DocDBClient, CreateDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   DBInstanceClass: "STRING_VALUE", // required
+ *   Engine: "STRING_VALUE", // required
+ *   AvailabilityZone: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   CopyTagsToSnapshot: true || false,
+ *   PromotionTier: Number("int"),
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ * };
  * const command = new CreateDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```

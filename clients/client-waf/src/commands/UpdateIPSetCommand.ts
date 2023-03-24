@@ -115,6 +115,19 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * import { WAFClient, UpdateIPSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateIPSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   IPSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // required
+ *     {
+ *       Action: "STRING_VALUE", // required
+ *       IPSetDescriptor: {
+ *         Type: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateIPSetCommand(input);
  * const response = await client.send(command);
  * ```

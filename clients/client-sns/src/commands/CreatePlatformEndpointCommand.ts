@@ -55,6 +55,14 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  * import { SNSClient, CreatePlatformEndpointCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, CreatePlatformEndpointCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   PlatformApplicationArn: "STRING_VALUE", // required
+ *   Token: "STRING_VALUE", // required
+ *   CustomUserData: "STRING_VALUE",
+ *   Attributes: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePlatformEndpointCommand(input);
  * const response = await client.send(command);
  * ```

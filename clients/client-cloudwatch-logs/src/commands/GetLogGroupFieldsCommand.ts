@@ -56,6 +56,11 @@ export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsRespons
  * import { CloudWatchLogsClient, GetLogGroupFieldsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetLogGroupFieldsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   logGroupName: "STRING_VALUE",
+ *   time: Number("long"),
+ *   logGroupIdentifier: "STRING_VALUE",
+ * };
  * const command = new GetLogGroupFieldsCommand(input);
  * const response = await client.send(command);
  * ```

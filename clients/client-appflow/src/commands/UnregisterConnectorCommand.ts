@@ -43,6 +43,10 @@ export interface UnregisterConnectorCommandOutput extends UnregisterConnectorRes
  * import { AppflowClient, UnregisterConnectorCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, UnregisterConnectorCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
+ * const input = {
+ *   connectorLabel: "STRING_VALUE", // required
+ *   forceDelete: true || false,
+ * };
  * const command = new UnregisterConnectorCommand(input);
  * const response = await client.send(command);
  * ```

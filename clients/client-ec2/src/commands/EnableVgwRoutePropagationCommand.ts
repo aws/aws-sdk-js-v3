@@ -43,6 +43,11 @@ export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer
  * import { EC2Client, EnableVgwRoutePropagationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableVgwRoutePropagationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   GatewayId: "STRING_VALUE", // required
+ *   RouteTableId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new EnableVgwRoutePropagationCommand(input);
  * const response = await client.send(command);
  * ```

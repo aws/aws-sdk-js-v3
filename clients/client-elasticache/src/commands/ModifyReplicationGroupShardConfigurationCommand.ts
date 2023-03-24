@@ -49,6 +49,25 @@ export interface ModifyReplicationGroupShardConfigurationCommandOutput
  * import { ElastiCacheClient, ModifyReplicationGroupShardConfigurationCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyReplicationGroupShardConfigurationCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   NodeGroupCount: Number("int"), // required
+ *   ApplyImmediately: true || false, // required
+ *   ReshardingConfiguration: [
+ *     {
+ *       NodeGroupId: "STRING_VALUE",
+ *       PreferredAvailabilityZones: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   NodeGroupsToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NodeGroupsToRetain: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyReplicationGroupShardConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

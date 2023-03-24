@@ -43,6 +43,15 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
  * import { TranslateClient, UpdateParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, UpdateParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ParallelDataConfig: {
+ *     S3Uri: "STRING_VALUE", // required
+ *     Format: "TSV" || "CSV" || "TMX", // required
+ *   },
+ *   ClientToken: "STRING_VALUE", // required
+ * };
  * const command = new UpdateParallelDataCommand(input);
  * const response = await client.send(command);
  * ```

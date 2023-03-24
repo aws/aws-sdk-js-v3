@@ -42,6 +42,9 @@ export interface DeleteIncidentRecordCommandOutput extends DeleteIncidentRecordO
  * import { SSMIncidentsClient, DeleteIncidentRecordCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, DeleteIncidentRecordCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIncidentRecordCommand(input);
  * const response = await client.send(command);
  * ```

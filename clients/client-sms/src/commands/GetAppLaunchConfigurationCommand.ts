@@ -42,6 +42,9 @@ export interface GetAppLaunchConfigurationCommandOutput extends GetAppLaunchConf
  * import { SMSClient, GetAppLaunchConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetAppLaunchConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE",
+ * };
  * const command = new GetAppLaunchConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

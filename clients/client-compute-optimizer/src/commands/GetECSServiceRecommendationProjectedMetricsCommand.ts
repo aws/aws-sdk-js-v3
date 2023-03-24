@@ -50,6 +50,13 @@ export interface GetECSServiceRecommendationProjectedMetricsCommandOutput
  * import { ComputeOptimizerClient, GetECSServiceRecommendationProjectedMetricsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetECSServiceRecommendationProjectedMetricsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = {
+ *   serviceArn: "STRING_VALUE", // required
+ *   stat: "Maximum" || "Average", // required
+ *   period: Number("int"), // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new GetECSServiceRecommendationProjectedMetricsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,11 @@ export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileShare
  * import { StorageGatewayClient, DescribeNFSFileSharesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeNFSFileSharesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   FileShareARNList: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeNFSFileSharesCommand(input);
  * const response = await client.send(command);
  * ```

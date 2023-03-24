@@ -42,6 +42,7 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * import { GreengrassClient, GetServiceRoleForAccountCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetServiceRoleForAccountCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {};
  * const command = new GetServiceRoleForAccountCommand(input);
  * const response = await client.send(command);
  * ```

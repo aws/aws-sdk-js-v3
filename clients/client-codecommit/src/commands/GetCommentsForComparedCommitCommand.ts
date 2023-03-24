@@ -48,6 +48,13 @@ export interface GetCommentsForComparedCommitCommandOutput
  * import { CodeCommitClient, GetCommentsForComparedCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetCommentsForComparedCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   repositoryName: "STRING_VALUE", // required
+ *   beforeCommitId: "STRING_VALUE",
+ *   afterCommitId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetCommentsForComparedCommitCommand(input);
  * const response = await client.send(command);
  * ```

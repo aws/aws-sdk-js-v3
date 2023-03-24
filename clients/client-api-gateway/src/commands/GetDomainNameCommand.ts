@@ -42,6 +42,9 @@ export interface GetDomainNameCommandOutput extends DomainName, __MetadataBearer
  * import { APIGatewayClient, GetDomainNameCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetDomainNameCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   domainName: "STRING_VALUE", // required
+ * };
  * const command = new GetDomainNameCommand(input);
  * const response = await client.send(command);
  * ```

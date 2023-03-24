@@ -48,6 +48,9 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  * import { ElasticLoadBalancingV2Client, DeleteListenerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DeleteListenerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = {
+ *   ListenerArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteListenerCommand(input);
  * const response = await client.send(command);
  * ```

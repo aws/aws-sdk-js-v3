@@ -143,6 +143,71 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * import { LambdaClient, CreateEventSourceMappingCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, CreateEventSourceMappingCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   EventSourceArn: "STRING_VALUE",
+ *   FunctionName: "STRING_VALUE", // required
+ *   Enabled: true || false,
+ *   BatchSize: Number("int"),
+ *   FilterCriteria: {
+ *     Filters: [
+ *       {
+ *         Pattern: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   MaximumBatchingWindowInSeconds: Number("int"),
+ *   ParallelizationFactor: Number("int"),
+ *   StartingPosition: "TRIM_HORIZON" || "LATEST" || "AT_TIMESTAMP",
+ *   StartingPositionTimestamp: new Date("TIMESTAMP"),
+ *   DestinationConfig: {
+ *     OnSuccess: {
+ *       Destination: "STRING_VALUE",
+ *     },
+ *     OnFailure: {
+ *       Destination: "STRING_VALUE",
+ *     },
+ *   },
+ *   MaximumRecordAgeInSeconds: Number("int"),
+ *   BisectBatchOnFunctionError: true || false,
+ *   MaximumRetryAttempts: Number("int"),
+ *   TumblingWindowInSeconds: Number("int"),
+ *   Topics: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Queues: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SourceAccessConfigurations: [
+ *     {
+ *       Type: "BASIC_AUTH" || "VPC_SUBNET" || "VPC_SECURITY_GROUP" || "SASL_SCRAM_512_AUTH" || "SASL_SCRAM_256_AUTH" || "VIRTUAL_HOST" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ *       URI: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SelfManagedEventSource: {
+ *     Endpoints: {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   FunctionResponseTypes: [
+ *     "ReportBatchItemFailures",
+ *   ],
+ *   AmazonManagedKafkaEventSourceConfig: {
+ *     ConsumerGroupId: "STRING_VALUE",
+ *   },
+ *   SelfManagedKafkaEventSourceConfig: {
+ *     ConsumerGroupId: "STRING_VALUE",
+ *   },
+ *   ScalingConfig: {
+ *     MaximumConcurrency: Number("int"),
+ *   },
+ *   DocumentDBEventSourceConfig: {
+ *     DatabaseName: "STRING_VALUE",
+ *     CollectionName: "STRING_VALUE",
+ *     FullDocument: "UpdateLookup" || "Default",
+ *   },
+ * };
  * const command = new CreateEventSourceMappingCommand(input);
  * const response = await client.send(command);
  * ```

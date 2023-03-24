@@ -45,6 +45,12 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  * import { SQSClient, GetQueueAttributesCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, GetQueueAttributesCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = {
+ *   QueueUrl: "STRING_VALUE", // required
+ *   AttributeNames: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetQueueAttributesCommand(input);
  * const response = await client.send(command);
  * ```

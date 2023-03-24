@@ -46,6 +46,14 @@ export interface ListHealthEventsCommandOutput extends ListHealthEventsOutput, _
  * import { InternetMonitorClient, ListHealthEventsCommand } from "@aws-sdk/client-internetmonitor"; // ES Modules import
  * // const { InternetMonitorClient, ListHealthEventsCommand } = require("@aws-sdk/client-internetmonitor"); // CommonJS import
  * const client = new InternetMonitorClient(config);
+ * const input = {
+ *   MonitorName: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   EventStatus: "STRING_VALUE",
+ * };
  * const command = new ListHealthEventsCommand(input);
  * const response = await client.send(command);
  * ```

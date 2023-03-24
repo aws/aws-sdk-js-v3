@@ -56,6 +56,10 @@ export interface AttachCertificateToDistributionCommandOutput
  * import { LightsailClient, AttachCertificateToDistributionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, AttachCertificateToDistributionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   distributionName: "STRING_VALUE", // required
+ *   certificateName: "STRING_VALUE", // required
+ * };
  * const command = new AttachCertificateToDistributionCommand(input);
  * const response = await client.send(command);
  * ```

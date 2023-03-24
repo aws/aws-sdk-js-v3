@@ -68,6 +68,14 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  * import { ACMPCAClient, CreatePermissionCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, CreatePermissionCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = {
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   Principal: "STRING_VALUE", // required
+ *   SourceAccount: "STRING_VALUE",
+ *   Actions: [ // required
+ *     "IssueCertificate" || "GetCertificate" || "ListPermissions",
+ *   ],
+ * };
  * const command = new CreatePermissionCommand(input);
  * const response = await client.send(command);
  * ```

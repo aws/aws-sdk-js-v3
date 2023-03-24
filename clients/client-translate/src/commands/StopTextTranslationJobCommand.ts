@@ -48,6 +48,9 @@ export interface StopTextTranslationJobCommandOutput extends StopTextTranslation
  * import { TranslateClient, StopTextTranslationJobCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, StopTextTranslationJobCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = {
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopTextTranslationJobCommand(input);
  * const response = await client.send(command);
  * ```

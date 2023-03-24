@@ -42,6 +42,18 @@ export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __Metad
  * import { OmicsClient, ListReadSetsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReadSetsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   sequenceStoreId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filter: {
+ *     name: "STRING_VALUE",
+ *     status: "STRING_VALUE",
+ *     referenceArn: "STRING_VALUE",
+ *     createdAfter: new Date("TIMESTAMP"),
+ *     createdBefore: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new ListReadSetsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,9 @@ export interface GetNetworkCommandOutput extends GetNetworkOutput, __MetadataBea
  * import { ManagedBlockchainClient, GetNetworkCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, GetNetworkCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = {
+ *   NetworkId: "STRING_VALUE", // required
+ * };
  * const command = new GetNetworkCommand(input);
  * const response = await client.send(command);
  * ```

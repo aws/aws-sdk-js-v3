@@ -45,6 +45,46 @@ export interface UpdateIndexingConfigurationCommandOutput
  * import { IoTClient, UpdateIndexingConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateIndexingConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   thingIndexingConfiguration: {
+ *     thingIndexingMode: "OFF" || "REGISTRY" || "REGISTRY_AND_SHADOW", // required
+ *     thingConnectivityIndexingMode: "OFF" || "STATUS",
+ *     deviceDefenderIndexingMode: "OFF" || "VIOLATIONS",
+ *     namedShadowIndexingMode: "OFF" || "ON",
+ *     managedFields: [
+ *       {
+ *         name: "STRING_VALUE",
+ *         type: "Number" || "String" || "Boolean",
+ *       },
+ *     ],
+ *     customFields: [
+ *       {
+ *         name: "STRING_VALUE",
+ *         type: "Number" || "String" || "Boolean",
+ *       },
+ *     ],
+ *     filter: {
+ *       namedShadowNames: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   thingGroupIndexingConfiguration: {
+ *     thingGroupIndexingMode: "OFF" || "ON", // required
+ *     managedFields: [
+ *       {
+ *         name: "STRING_VALUE",
+ *         type: "Number" || "String" || "Boolean",
+ *       },
+ *     ],
+ *     customFields: [
+ *       {
+ *         name: "STRING_VALUE",
+ *         type: "Number" || "String" || "Boolean",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateIndexingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

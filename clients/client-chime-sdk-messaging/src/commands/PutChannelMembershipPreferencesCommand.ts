@@ -62,6 +62,17 @@ export interface PutChannelMembershipPreferencesCommandOutput
  * import { ChimeSDKMessagingClient, PutChannelMembershipPreferencesCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, PutChannelMembershipPreferencesCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MemberArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ *   Preferences: {
+ *     PushNotifications: {
+ *       AllowNotifications: "ALL" || "NONE" || "FILTERED", // required
+ *       FilterRule: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new PutChannelMembershipPreferencesCommand(input);
  * const response = await client.send(command);
  * ```

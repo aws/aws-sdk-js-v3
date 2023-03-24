@@ -49,6 +49,13 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  * import { DirectConnectClient, AllocateConnectionOnInterconnectCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AllocateConnectionOnInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   bandwidth: "STRING_VALUE", // required
+ *   connectionName: "STRING_VALUE", // required
+ *   ownerAccount: "STRING_VALUE", // required
+ *   interconnectId: "STRING_VALUE", // required
+ *   vlan: Number("int"), // required
+ * };
  * const command = new AllocateConnectionOnInterconnectCommand(input);
  * const response = await client.send(command);
  * ```

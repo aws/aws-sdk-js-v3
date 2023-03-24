@@ -44,6 +44,38 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  * import { GlueClient, UpdateClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   GrokClassifier: {
+ *     Name: "STRING_VALUE", // required
+ *     Classification: "STRING_VALUE",
+ *     GrokPattern: "STRING_VALUE",
+ *     CustomPatterns: "STRING_VALUE",
+ *   },
+ *   XMLClassifier: {
+ *     Name: "STRING_VALUE", // required
+ *     Classification: "STRING_VALUE",
+ *     RowTag: "STRING_VALUE",
+ *   },
+ *   JsonClassifier: {
+ *     Name: "STRING_VALUE", // required
+ *     JsonPath: "STRING_VALUE",
+ *   },
+ *   CsvClassifier: {
+ *     Name: "STRING_VALUE", // required
+ *     Delimiter: "STRING_VALUE",
+ *     QuoteSymbol: "STRING_VALUE",
+ *     ContainsHeader: "UNKNOWN" || "PRESENT" || "ABSENT",
+ *     Header: [
+ *       "STRING_VALUE",
+ *     ],
+ *     DisableValueTrimming: true || false,
+ *     AllowSingleColumn: true || false,
+ *     CustomDatatypeConfigured: true || false,
+ *     CustomDatatypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new UpdateClassifierCommand(input);
  * const response = await client.send(command);
  * ```

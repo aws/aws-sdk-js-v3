@@ -42,6 +42,20 @@ export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageRes
  * import { KafkaClient, UpdateBrokerStorageCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateBrokerStorageCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = {
+ *   ClusterArn: "STRING_VALUE", // required
+ *   CurrentVersion: "STRING_VALUE", // required
+ *   TargetBrokerEBSVolumeInfo: [ // required
+ *     {
+ *       KafkaBrokerNodeId: "STRING_VALUE", // required
+ *       ProvisionedThroughput: {
+ *         Enabled: true || false,
+ *         VolumeThroughput: Number("int"),
+ *       },
+ *       VolumeSizeGB: Number("int"),
+ *     },
+ *   ],
+ * };
  * const command = new UpdateBrokerStorageCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,10 @@ export interface AssociateWirelessGatewayWithThingCommandOutput
  * import { IoTWirelessClient, AssociateWirelessGatewayWithThingCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, AssociateWirelessGatewayWithThingCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   ThingArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateWirelessGatewayWithThingCommand(input);
  * const response = await client.send(command);
  * ```

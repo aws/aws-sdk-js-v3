@@ -42,6 +42,9 @@ export interface GetMissionProfileCommandOutput extends GetMissionProfileRespons
  * import { GroundStationClient, GetMissionProfileCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, GetMissionProfileCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = {
+ *   missionProfileId: "STRING_VALUE", // required
+ * };
  * const command = new GetMissionProfileCommand(input);
  * const response = await client.send(command);
  * ```

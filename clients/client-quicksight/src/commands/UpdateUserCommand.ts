@@ -42,6 +42,18 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * import { QuickSightClient, UpdateUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   UserName: "STRING_VALUE", // required
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ *   Email: "STRING_VALUE", // required
+ *   Role: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER", // required
+ *   CustomPermissionsName: "STRING_VALUE",
+ *   UnapplyCustomPermissions: true || false,
+ *   ExternalLoginFederationProviderType: "STRING_VALUE",
+ *   CustomFederationProviderUrl: "STRING_VALUE",
+ *   ExternalLoginId: "STRING_VALUE",
+ * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
  * ```

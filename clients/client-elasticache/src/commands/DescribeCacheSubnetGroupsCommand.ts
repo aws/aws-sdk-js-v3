@@ -45,6 +45,11 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  * import { ElastiCacheClient, DescribeCacheSubnetGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeCacheSubnetGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   CacheSubnetGroupName: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeCacheSubnetGroupsCommand(input);
  * const response = await client.send(command);
  * ```

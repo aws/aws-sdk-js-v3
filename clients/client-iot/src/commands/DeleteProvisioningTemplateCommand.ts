@@ -43,6 +43,9 @@ export interface DeleteProvisioningTemplateCommandOutput extends DeleteProvision
  * import { IoTClient, DeleteProvisioningTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteProvisioningTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   templateName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProvisioningTemplateCommand(input);
  * const response = await client.send(command);
  * ```

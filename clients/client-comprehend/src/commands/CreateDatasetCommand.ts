@@ -44,6 +44,49 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * import { ComprehendClient, CreateDatasetCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateDatasetCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   FlywheelArn: "STRING_VALUE", // required
+ *   DatasetName: "STRING_VALUE", // required
+ *   DatasetType: "TRAIN" || "TEST",
+ *   Description: "STRING_VALUE",
+ *   InputDataConfig: {
+ *     AugmentedManifests: [
+ *       {
+ *         AttributeNames: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         S3Uri: "STRING_VALUE", // required
+ *         AnnotationDataS3Uri: "STRING_VALUE",
+ *         SourceDocumentsS3Uri: "STRING_VALUE",
+ *         DocumentType: "PLAIN_TEXT_DOCUMENT" || "SEMI_STRUCTURED_DOCUMENT",
+ *       },
+ *     ],
+ *     DataFormat: "COMPREHEND_CSV" || "AUGMENTED_MANIFEST",
+ *     DocumentClassifierInputDataConfig: {
+ *       S3Uri: "STRING_VALUE", // required
+ *       LabelDelimiter: "STRING_VALUE",
+ *     },
+ *     EntityRecognizerInputDataConfig: {
+ *       Annotations: {
+ *         S3Uri: "STRING_VALUE", // required
+ *       },
+ *       Documents: {
+ *         S3Uri: "STRING_VALUE", // required
+ *         InputFormat: "ONE_DOC_PER_FILE" || "ONE_DOC_PER_LINE",
+ *       },
+ *       EntityList: {
+ *         S3Uri: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
  * ```

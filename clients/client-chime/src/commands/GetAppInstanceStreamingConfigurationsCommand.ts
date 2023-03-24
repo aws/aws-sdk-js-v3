@@ -49,6 +49,9 @@ export interface GetAppInstanceStreamingConfigurationsCommandOutput
  * import { ChimeClient, GetAppInstanceStreamingConfigurationsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetAppInstanceStreamingConfigurationsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AppInstanceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetAppInstanceStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```

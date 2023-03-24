@@ -48,6 +48,14 @@ export interface ListAccountAssignmentDeletionStatusCommandOutput
  * import { SSOAdminClient, ListAccountAssignmentDeletionStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListAccountAssignmentDeletionStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = {
+ *   InstanceArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filter: {
+ *     Status: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ *   },
+ * };
  * const command = new ListAccountAssignmentDeletionStatusCommand(input);
  * const response = await client.send(command);
  * ```

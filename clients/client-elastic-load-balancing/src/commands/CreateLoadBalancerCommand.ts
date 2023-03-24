@@ -59,6 +59,34 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  * import { ElasticLoadBalancingClient, CreateLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, CreateLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = {
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   Listeners: [ // required
+ *     {
+ *       Protocol: "STRING_VALUE", // required
+ *       LoadBalancerPort: Number("int"), // required
+ *       InstanceProtocol: "STRING_VALUE",
+ *       InstancePort: Number("int"), // required
+ *       SSLCertificateId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   AvailabilityZones: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Subnets: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Scheme: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```

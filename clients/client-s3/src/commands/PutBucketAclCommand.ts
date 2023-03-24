@@ -231,6 +231,36 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * import { S3Client, PutBucketAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutBucketAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read",
+ *   AccessControlPolicy: {
+ *     Grants: [
+ *       {
+ *         Grantee: {
+ *           DisplayName: "STRING_VALUE",
+ *           EmailAddress: "STRING_VALUE",
+ *           ID: "STRING_VALUE",
+ *           URI: "STRING_VALUE",
+ *           Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ *         },
+ *         Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *       },
+ *     ],
+ *     Owner: {
+ *       DisplayName: "STRING_VALUE",
+ *       ID: "STRING_VALUE",
+ *     },
+ *   },
+ *   Bucket: "STRING_VALUE", // required
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   GrantFullControl: "STRING_VALUE",
+ *   GrantRead: "STRING_VALUE",
+ *   GrantReadACP: "STRING_VALUE",
+ *   GrantWrite: "STRING_VALUE",
+ *   GrantWriteACP: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutBucketAclCommand(input);
  * const response = await client.send(command);
  * ```

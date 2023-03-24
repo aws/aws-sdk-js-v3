@@ -73,6 +73,21 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
  * import { S3ControlClient, CreateAccessPointCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, CreateAccessPointCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Bucket: "STRING_VALUE", // required
+ *   VpcConfiguration: {
+ *     VpcId: "STRING_VALUE", // required
+ *   },
+ *   PublicAccessBlockConfiguration: {
+ *     BlockPublicAcls: true || false,
+ *     IgnorePublicAcls: true || false,
+ *     BlockPublicPolicy: true || false,
+ *     RestrictPublicBuckets: true || false,
+ *   },
+ *   BucketAccountId: "STRING_VALUE",
+ * };
  * const command = new CreateAccessPointCommand(input);
  * const response = await client.send(command);
  * ```

@@ -40,6 +40,10 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  * import { EC2Client, EnableVolumeIOCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableVolumeIOCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   VolumeId: "STRING_VALUE", // required
+ * };
  * const command = new EnableVolumeIOCommand(input);
  * const response = await client.send(command);
  * ```

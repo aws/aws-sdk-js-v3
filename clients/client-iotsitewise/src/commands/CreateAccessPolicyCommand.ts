@@ -43,6 +43,35 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  * import { IoTSiteWiseClient, CreateAccessPolicyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreateAccessPolicyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   accessPolicyIdentity: {
+ *     user: {
+ *       id: "STRING_VALUE", // required
+ *     },
+ *     group: {
+ *       id: "STRING_VALUE", // required
+ *     },
+ *     iamUser: {
+ *       arn: "STRING_VALUE", // required
+ *     },
+ *     iamRole: {
+ *       arn: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   accessPolicyResource: {
+ *     portal: {
+ *       id: "STRING_VALUE", // required
+ *     },
+ *     project: {
+ *       id: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   accessPolicyPermission: "ADMINISTRATOR" || "VIEWER", // required
+ *   clientToken: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```

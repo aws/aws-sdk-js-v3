@@ -39,6 +39,13 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * import { SMSClient, ListAppsCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, ListAppsCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   appIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);
  * ```

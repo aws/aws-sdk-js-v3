@@ -42,6 +42,29 @@ export interface StartReadSetImportJobCommandOutput extends StartReadSetImportJo
  * import { OmicsClient, StartReadSetImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, StartReadSetImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   sequenceStoreId: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   sources: [ // required
+ *     {
+ *       sourceFiles: {
+ *         source1: "STRING_VALUE", // required
+ *         source2: "STRING_VALUE",
+ *       },
+ *       sourceFileType: "STRING_VALUE", // required
+ *       subjectId: "STRING_VALUE", // required
+ *       sampleId: "STRING_VALUE", // required
+ *       generatedFrom: "STRING_VALUE",
+ *       referenceArn: "STRING_VALUE", // required
+ *       name: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       tags: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new StartReadSetImportJobCommand(input);
  * const response = await client.send(command);
  * ```

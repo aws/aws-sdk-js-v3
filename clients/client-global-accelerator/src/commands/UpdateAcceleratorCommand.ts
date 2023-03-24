@@ -52,6 +52,12 @@ export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorRespons
  * import { GlobalAcceleratorClient, UpdateAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   AcceleratorArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   IpAddressType: "IPV4" || "DUAL_STACK",
+ *   Enabled: true || false,
+ * };
  * const command = new UpdateAcceleratorCommand(input);
  * const response = await client.send(command);
  * ```

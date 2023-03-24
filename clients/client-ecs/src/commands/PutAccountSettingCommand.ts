@@ -65,6 +65,11 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * import { ECSClient, PutAccountSettingCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, PutAccountSettingCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights", // required
+ *   value: "STRING_VALUE", // required
+ *   principalArn: "STRING_VALUE",
+ * };
  * const command = new PutAccountSettingCommand(input);
  * const response = await client.send(command);
  * ```

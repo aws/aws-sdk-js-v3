@@ -49,6 +49,22 @@ export interface ListCustomLineItemsCommandOutput extends ListCustomLineItemsOut
  * import { BillingconductorClient, ListCustomLineItemsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListCustomLineItemsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = {
+ *   BillingPeriod: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Filters: {
+ *     Names: [
+ *       "STRING_VALUE",
+ *     ],
+ *     BillingGroups: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Arns: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListCustomLineItemsCommand(input);
  * const response = await client.send(command);
  * ```

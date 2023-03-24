@@ -42,6 +42,19 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  * import { LookoutMetricsClient, DetectMetricSetConfigCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, DetectMetricSetConfigCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = {
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   AutoDetectionMetricSource: {
+ *     S3SourceConfig: {
+ *       TemplatedPathList: [
+ *         "STRING_VALUE",
+ *       ],
+ *       HistoricalDataPathList: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new DetectMetricSetConfigCommand(input);
  * const response = await client.send(command);
  * ```

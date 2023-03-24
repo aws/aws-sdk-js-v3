@@ -42,6 +42,14 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * import { DirectoryServiceClient, RegisterCertificateCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RegisterCertificateCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = {
+ *   DirectoryId: "STRING_VALUE", // required
+ *   CertificateData: "STRING_VALUE", // required
+ *   Type: "ClientCertAuth" || "ClientLDAPS",
+ *   ClientCertAuthSettings: {
+ *     OCSPUrl: "STRING_VALUE",
+ *   },
+ * };
  * const command = new RegisterCertificateCommand(input);
  * const response = await client.send(command);
  * ```

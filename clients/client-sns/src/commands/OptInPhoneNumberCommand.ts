@@ -44,6 +44,9 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  * import { SNSClient, OptInPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, OptInPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   phoneNumber: "STRING_VALUE", // required
+ * };
  * const command = new OptInPhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```

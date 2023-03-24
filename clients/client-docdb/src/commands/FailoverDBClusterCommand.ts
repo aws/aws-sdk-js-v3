@@ -44,6 +44,10 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * import { DocDBClient, FailoverDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, FailoverDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   DBClusterIdentifier: "STRING_VALUE",
+ *   TargetDBInstanceIdentifier: "STRING_VALUE",
+ * };
  * const command = new FailoverDBClusterCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,10 @@ export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __Met
  * import { CloudTrailClient, DescribeQueryCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DescribeQueryCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   EventDataStore: "STRING_VALUE",
+ *   QueryId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeQueryCommand(input);
  * const response = await client.send(command);
  * ```

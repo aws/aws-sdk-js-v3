@@ -49,6 +49,11 @@ export interface GetMaintenanceWindowExecutionTaskInvocationCommandOutput
  * import { SSMClient, GetMaintenanceWindowExecutionTaskInvocationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetMaintenanceWindowExecutionTaskInvocationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   WindowExecutionId: "STRING_VALUE", // required
+ *   TaskId: "STRING_VALUE", // required
+ *   InvocationId: "STRING_VALUE", // required
+ * };
  * const command = new GetMaintenanceWindowExecutionTaskInvocationCommand(input);
  * const response = await client.send(command);
  * ```

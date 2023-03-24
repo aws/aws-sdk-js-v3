@@ -43,6 +43,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * import { BackupGatewayClient, ListTagsForResourceCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, ListTagsForResourceCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

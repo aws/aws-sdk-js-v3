@@ -43,6 +43,12 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  * import { InspectorClient, DescribeRulesPackagesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeRulesPackagesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   rulesPackageArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   locale: "STRING_VALUE",
+ * };
  * const command = new DescribeRulesPackagesCommand(input);
  * const response = await client.send(command);
  * ```

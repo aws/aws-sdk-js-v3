@@ -60,6 +60,9 @@ export interface RequestUploadCredentialsCommandOutput extends RequestUploadCred
  * import { GameLiftClient, RequestUploadCredentialsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, RequestUploadCredentialsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   BuildId: "STRING_VALUE", // required
+ * };
  * const command = new RequestUploadCredentialsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,26 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  * import { ImagebuilderClient, UpdateImagePipelineCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, UpdateImagePipelineCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   imagePipelineArn: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   imageRecipeArn: "STRING_VALUE",
+ *   containerRecipeArn: "STRING_VALUE",
+ *   infrastructureConfigurationArn: "STRING_VALUE", // required
+ *   distributionConfigurationArn: "STRING_VALUE",
+ *   imageTestsConfiguration: {
+ *     imageTestsEnabled: true || false,
+ *     timeoutMinutes: Number("int"),
+ *   },
+ *   enhancedImageMetadataEnabled: true || false,
+ *   schedule: {
+ *     scheduleExpression: "STRING_VALUE",
+ *     timezone: "STRING_VALUE",
+ *     pipelineExecutionStartCondition: "EXPRESSION_MATCH_ONLY" || "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
+ *   },
+ *   status: "DISABLED" || "ENABLED",
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new UpdateImagePipelineCommand(input);
  * const response = await client.send(command);
  * ```

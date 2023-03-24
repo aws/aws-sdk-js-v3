@@ -52,6 +52,16 @@ export interface DetectDocumentTextCommandOutput extends DetectDocumentTextRespo
  * import { TextractClient, DetectDocumentTextCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, DetectDocumentTextCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = {
+ *   Document: {
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: {
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new DetectDocumentTextCommand(input);
  * const response = await client.send(command);
  * ```

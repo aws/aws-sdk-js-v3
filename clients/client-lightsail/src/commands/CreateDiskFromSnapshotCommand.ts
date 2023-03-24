@@ -47,6 +47,33 @@ export interface CreateDiskFromSnapshotCommandOutput extends CreateDiskFromSnaps
  * import { LightsailClient, CreateDiskFromSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateDiskFromSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   diskName: "STRING_VALUE", // required
+ *   diskSnapshotName: "STRING_VALUE",
+ *   availabilityZone: "STRING_VALUE", // required
+ *   sizeInGb: Number("int"), // required
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   addOns: [
+ *     {
+ *       addOnType: "AutoSnapshot" || "StopInstanceOnIdle", // required
+ *       autoSnapshotAddOnRequest: {
+ *         snapshotTimeOfDay: "STRING_VALUE",
+ *       },
+ *       stopInstanceOnIdleRequest: {
+ *         threshold: "STRING_VALUE",
+ *         duration: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   sourceDiskName: "STRING_VALUE",
+ *   restoreDate: "STRING_VALUE",
+ *   useLatestRestorableAutoSnapshot: true || false,
+ * };
  * const command = new CreateDiskFromSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

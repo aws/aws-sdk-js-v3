@@ -48,6 +48,15 @@ export interface CreateHostedConfigurationVersionCommandOutput extends HostedCon
  * import { AppConfigClient, CreateHostedConfigurationVersionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateHostedConfigurationVersionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ConfigurationProfileId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Content: "BLOB_VALUE", // required
+ *   ContentType: "STRING_VALUE", // required
+ *   LatestVersionNumber: Number("int"),
+ *   VersionLabel: "STRING_VALUE",
+ * };
  * const command = new CreateHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);
  * ```

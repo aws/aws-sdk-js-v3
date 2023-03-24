@@ -70,6 +70,12 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * import { TimestreamQueryClient, QueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, QueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import
  * const client = new TimestreamQueryClient(config);
+ * const input = {
+ *   QueryString: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxRows: Number("int"),
+ * };
  * const command = new QueryCommand(input);
  * const response = await client.send(command);
  * ```

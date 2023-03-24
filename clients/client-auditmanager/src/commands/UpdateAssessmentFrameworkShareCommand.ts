@@ -44,6 +44,11 @@ export interface UpdateAssessmentFrameworkShareCommandOutput
  * import { AuditManagerClient, UpdateAssessmentFrameworkShareCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, UpdateAssessmentFrameworkShareCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   requestId: "STRING_VALUE", // required
+ *   requestType: "SENT" || "RECEIVED", // required
+ *   action: "ACCEPT" || "DECLINE" || "REVOKE", // required
+ * };
  * const command = new UpdateAssessmentFrameworkShareCommand(input);
  * const response = await client.send(command);
  * ```

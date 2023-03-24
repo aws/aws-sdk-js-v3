@@ -46,6 +46,11 @@ export interface DeleteLaunchProfileCommandOutput extends DeleteLaunchProfileRes
  * import { NimbleClient, DeleteLaunchProfileCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, DeleteLaunchProfileCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   launchProfileId: "STRING_VALUE", // required
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLaunchProfileCommand(input);
  * const response = await client.send(command);
  * ```

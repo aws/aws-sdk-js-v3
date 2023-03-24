@@ -52,6 +52,9 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * import { SecretsManagerClient, GetResourcePolicyCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, GetResourcePolicyCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = {
+ *   SecretId: "STRING_VALUE", // required
+ * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```

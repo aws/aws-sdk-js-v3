@@ -44,6 +44,20 @@ export interface BatchGetMetricDataCommandOutput extends BatchGetMetricDataRespo
  * import { SESv2Client, BatchGetMetricDataCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, BatchGetMetricDataCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   Queries: [ // required
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       Namespace: "VDM", // required
+ *       Metric: "SEND" || "COMPLAINT" || "PERMANENT_BOUNCE" || "TRANSIENT_BOUNCE" || "OPEN" || "CLICK" || "DELIVERY" || "DELIVERY_OPEN" || "DELIVERY_CLICK" || "DELIVERY_COMPLAINT", // required
+ *       Dimensions: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       StartDate: new Date("TIMESTAMP"), // required
+ *       EndDate: new Date("TIMESTAMP"), // required
+ *     },
+ *   ],
+ * };
  * const command = new BatchGetMetricDataCommand(input);
  * const response = await client.send(command);
  * ```

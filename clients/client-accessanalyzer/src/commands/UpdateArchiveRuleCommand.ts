@@ -42,6 +42,25 @@ export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
  * import { AccessAnalyzerClient, UpdateArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, UpdateArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = {
+ *   analyzerName: "STRING_VALUE", // required
+ *   ruleName: "STRING_VALUE", // required
+ *   filter: { // required
+ *     "<keys>": {
+ *       eq: [
+ *         "STRING_VALUE",
+ *       ],
+ *       neq: [
+ *         "STRING_VALUE",
+ *       ],
+ *       contains: [
+ *         "STRING_VALUE",
+ *       ],
+ *       exists: true || false,
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateArchiveRuleCommand(input);
  * const response = await client.send(command);
  * ```

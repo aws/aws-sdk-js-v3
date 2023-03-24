@@ -47,6 +47,28 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  * import { PersonalizeEventsClient, PutEventsCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
  * // const { PersonalizeEventsClient, PutEventsCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
  * const client = new PersonalizeEventsClient(config);
+ * const input = {
+ *   trackingId: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE",
+ *   sessionId: "STRING_VALUE", // required
+ *   eventList: [ // required
+ *     {
+ *       eventId: "STRING_VALUE",
+ *       eventType: "STRING_VALUE", // required
+ *       eventValue: Number("float"),
+ *       itemId: "STRING_VALUE",
+ *       properties: "STRING_VALUE",
+ *       sentAt: new Date("TIMESTAMP"), // required
+ *       recommendationId: "STRING_VALUE",
+ *       impression: [
+ *         "STRING_VALUE",
+ *       ],
+ *       metricAttribution: {
+ *         eventAttributionSource: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);
  * ```

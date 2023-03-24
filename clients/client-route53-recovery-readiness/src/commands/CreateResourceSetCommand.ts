@@ -46,6 +46,37 @@ export interface CreateResourceSetCommandOutput extends CreateResourceSetRespons
  * import { Route53RecoveryReadinessClient, CreateResourceSetCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, CreateResourceSetCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = {
+ *   ResourceSetName: "STRING_VALUE", // required
+ *   ResourceSetType: "STRING_VALUE", // required
+ *   Resources: [ // required
+ *     {
+ *       ComponentId: "STRING_VALUE",
+ *       DnsTargetResource: {
+ *         DomainName: "STRING_VALUE",
+ *         HostedZoneArn: "STRING_VALUE",
+ *         RecordSetId: "STRING_VALUE",
+ *         RecordType: "STRING_VALUE",
+ *         TargetResource: {
+ *           NLBResource: {
+ *             Arn: "STRING_VALUE",
+ *           },
+ *           R53Resource: {
+ *             DomainName: "STRING_VALUE",
+ *             RecordSetId: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *       ReadinessScopes: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateResourceSetCommand(input);
  * const response = await client.send(command);
  * ```

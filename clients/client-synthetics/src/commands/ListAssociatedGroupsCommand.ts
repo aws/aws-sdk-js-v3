@@ -43,6 +43,11 @@ export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsR
  * import { SyntheticsClient, ListAssociatedGroupsCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, ListAssociatedGroupsCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListAssociatedGroupsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsR
  * import { SSMClient, ListDocumentVersionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListDocumentVersionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDocumentVersionsCommand(input);
  * const response = await client.send(command);
  * ```

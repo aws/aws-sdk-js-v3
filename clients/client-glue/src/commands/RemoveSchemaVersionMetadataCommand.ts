@@ -44,6 +44,22 @@ export interface RemoveSchemaVersionMetadataCommandOutput
  * import { GlueClient, RemoveSchemaVersionMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, RemoveSchemaVersionMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   SchemaId: {
+ *     SchemaArn: "STRING_VALUE",
+ *     SchemaName: "STRING_VALUE",
+ *     RegistryName: "STRING_VALUE",
+ *   },
+ *   SchemaVersionNumber: {
+ *     LatestVersion: true || false,
+ *     VersionNumber: Number("long"),
+ *   },
+ *   SchemaVersionId: "STRING_VALUE",
+ *   MetadataKeyValue: {
+ *     MetadataKey: "STRING_VALUE",
+ *     MetadataValue: "STRING_VALUE",
+ *   },
+ * };
  * const command = new RemoveSchemaVersionMetadataCommand(input);
  * const response = await client.send(command);
  * ```

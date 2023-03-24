@@ -49,6 +49,12 @@ export interface DescribeMappedResourceConfigurationCommandOutput
  * import { KinesisVideoClient, DescribeMappedResourceConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DescribeMappedResourceConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = {
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeMappedResourceConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

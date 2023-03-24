@@ -46,6 +46,11 @@ export interface GetServerDetailsCommandOutput extends GetServerDetailsResponse,
  * import { MigrationHubStrategyClient, GetServerDetailsCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, GetServerDetailsCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {
+ *   serverId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetServerDetailsCommand(input);
  * const response = await client.send(command);
  * ```

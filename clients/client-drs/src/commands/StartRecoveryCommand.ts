@@ -47,6 +47,18 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * import { DrsClient, StartRecoveryCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, StartRecoveryCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = {
+ *   sourceServers: [ // required
+ *     {
+ *       sourceServerID: "STRING_VALUE", // required
+ *       recoverySnapshotID: "STRING_VALUE",
+ *     },
+ *   ],
+ *   isDrill: true || false,
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartRecoveryCommand(input);
  * const response = await client.send(command);
  * ```

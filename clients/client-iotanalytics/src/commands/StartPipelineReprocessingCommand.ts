@@ -42,6 +42,16 @@ export interface StartPipelineReprocessingCommandOutput extends StartPipelineRep
  * import { IoTAnalyticsClient, StartPipelineReprocessingCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, StartPipelineReprocessingCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = {
+ *   pipelineName: "STRING_VALUE", // required
+ *   startTime: new Date("TIMESTAMP"),
+ *   endTime: new Date("TIMESTAMP"),
+ *   channelMessages: {
+ *     s3Paths: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new StartPipelineReprocessingCommand(input);
  * const response = await client.send(command);
  * ```

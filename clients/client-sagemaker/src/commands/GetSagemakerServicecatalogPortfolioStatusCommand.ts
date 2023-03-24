@@ -49,6 +49,7 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
  * import { SageMakerClient, GetSagemakerServicecatalogPortfolioStatusCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, GetSagemakerServicecatalogPortfolioStatusCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {};
  * const command = new GetSagemakerServicecatalogPortfolioStatusCommand(input);
  * const response = await client.send(command);
  * ```

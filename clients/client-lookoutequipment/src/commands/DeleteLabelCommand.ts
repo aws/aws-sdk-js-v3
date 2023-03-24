@@ -44,6 +44,10 @@ export interface DeleteLabelCommandOutput extends __MetadataBearer {}
  * import { LookoutEquipmentClient, DeleteLabelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DeleteLabelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   LabelGroupName: "STRING_VALUE", // required
+ *   LabelId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLabelCommand(input);
  * const response = await client.send(command);
  * ```

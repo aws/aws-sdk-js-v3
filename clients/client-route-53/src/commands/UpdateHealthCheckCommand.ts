@@ -45,6 +45,34 @@ export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckRespons
  * import { Route53Client, UpdateHealthCheckCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, UpdateHealthCheckCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   HealthCheckId: "STRING_VALUE", // required
+ *   HealthCheckVersion: Number("long"),
+ *   IPAddress: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   ResourcePath: "STRING_VALUE",
+ *   FullyQualifiedDomainName: "STRING_VALUE",
+ *   SearchString: "STRING_VALUE",
+ *   FailureThreshold: Number("int"),
+ *   Inverted: true || false,
+ *   Disabled: true || false,
+ *   HealthThreshold: Number("int"),
+ *   ChildHealthChecks: [
+ *     "STRING_VALUE",
+ *   ],
+ *   EnableSNI: true || false,
+ *   Regions: [
+ *     "us-east-1" || "us-west-1" || "us-west-2" || "eu-west-1" || "ap-southeast-1" || "ap-southeast-2" || "ap-northeast-1" || "sa-east-1",
+ *   ],
+ *   AlarmIdentifier: {
+ *     Region: "us-east-1" || "us-east-2" || "us-west-1" || "us-west-2" || "ca-central-1" || "eu-central-1" || "eu-central-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "ap-east-1" || "me-south-1" || "me-central-1" || "ap-south-1" || "ap-south-2" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "eu-north-1" || "sa-east-1" || "cn-northwest-1" || "cn-north-1" || "af-south-1" || "eu-south-1" || "eu-south-2" || "us-gov-west-1" || "us-gov-east-1" || "us-iso-east-1" || "us-iso-west-1" || "us-isob-east-1" || "ap-southeast-4", // required
+ *     Name: "STRING_VALUE", // required
+ *   },
+ *   InsufficientDataHealthStatus: "Healthy" || "Unhealthy" || "LastKnownStatus",
+ *   ResetElements: [
+ *     "FullyQualifiedDomainName" || "Regions" || "ResourcePath" || "ChildHealthChecks",
+ *   ],
+ * };
  * const command = new UpdateHealthCheckCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * import { AppSyncClient, ListFunctionsCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListFunctionsCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   apiId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListFunctionsCommand(input);
  * const response = await client.send(command);
  * ```

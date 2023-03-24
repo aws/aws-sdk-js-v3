@@ -46,6 +46,58 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * import { MgnClient, UpdateLaunchConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, UpdateLaunchConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   launchConfigurationTemplateID: "STRING_VALUE", // required
+ *   postLaunchActions: {
+ *     deployment: "STRING_VALUE",
+ *     s3LogBucket: "STRING_VALUE",
+ *     s3OutputKeyPrefix: "STRING_VALUE",
+ *     cloudWatchLogGroupName: "STRING_VALUE",
+ *     ssmDocuments: [
+ *       {
+ *         actionName: "STRING_VALUE", // required
+ *         ssmDocumentName: "STRING_VALUE", // required
+ *         timeoutSeconds: Number("int"),
+ *         mustSucceedForCutover: true || false,
+ *         parameters: {
+ *           "<keys>": [
+ *             {
+ *               parameterType: "STRING_VALUE", // required
+ *               parameterName: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         externalParameters: {
+ *           "<keys>": { // Union: only one key present
+ *             dynamicPath: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   enableMapAutoTagging: true || false,
+ *   mapAutoTaggingMpeID: "STRING_VALUE",
+ *   launchDisposition: "STRING_VALUE",
+ *   targetInstanceTypeRightSizingMethod: "STRING_VALUE",
+ *   copyPrivateIp: true || false,
+ *   associatePublicIpAddress: true || false,
+ *   copyTags: true || false,
+ *   licensing: {
+ *     osByol: true || false,
+ *   },
+ *   bootMode: "STRING_VALUE",
+ *   smallVolumeMaxSize: Number("long"),
+ *   smallVolumeConf: {
+ *     volumeType: "STRING_VALUE",
+ *     iops: Number("long"),
+ *     throughput: Number("long"),
+ *   },
+ *   largeVolumeConf: {
+ *     volumeType: "STRING_VALUE",
+ *     iops: Number("long"),
+ *     throughput: Number("long"),
+ *   },
+ * };
  * const command = new UpdateLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
  * ```

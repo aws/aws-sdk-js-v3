@@ -42,6 +42,13 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * import { GreengrassClient, CreateDeploymentCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateDeploymentCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   AmznClientToken: "STRING_VALUE",
+ *   DeploymentId: "STRING_VALUE",
+ *   DeploymentType: "NewDeployment" || "Redeployment" || "ResetDeployment" || "ForceResetDeployment", // required
+ *   GroupId: "STRING_VALUE", // required
+ *   GroupVersionId: "STRING_VALUE",
+ * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

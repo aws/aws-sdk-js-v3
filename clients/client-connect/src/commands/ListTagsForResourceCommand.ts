@@ -45,6 +45,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { ConnectClient, ListTagsForResourceCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListTagsForResourceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

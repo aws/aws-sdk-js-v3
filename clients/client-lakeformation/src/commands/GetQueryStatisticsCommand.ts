@@ -42,6 +42,9 @@ export interface GetQueryStatisticsCommandOutput extends GetQueryStatisticsRespo
  * import { LakeFormationClient, GetQueryStatisticsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, GetQueryStatisticsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = {
+ *   QueryId: "STRING_VALUE", // required
+ * };
  * const command = new GetQueryStatisticsCommand(input);
  * const response = await client.send(command);
  * ```

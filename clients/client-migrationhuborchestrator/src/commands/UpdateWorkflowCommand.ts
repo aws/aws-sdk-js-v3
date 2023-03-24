@@ -51,6 +51,26 @@ export interface UpdateWorkflowCommandOutput extends UpdateMigrationWorkflowResp
  * import { MigrationHubOrchestratorClient, UpdateWorkflowCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, UpdateWorkflowCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   inputParameters: {
+ *     "<keys>": { // Union: only one key present
+ *       integerValue: Number("int"),
+ *       stringValue: "STRING_VALUE",
+ *       listOfStringsValue: [
+ *         "STRING_VALUE",
+ *       ],
+ *       mapOfStringValue: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   stepTargets: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateWorkflowCommand(input);
  * const response = await client.send(command);
  * ```

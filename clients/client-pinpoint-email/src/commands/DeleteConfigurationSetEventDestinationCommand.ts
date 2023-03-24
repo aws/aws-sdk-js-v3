@@ -53,6 +53,10 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * import { PinpointEmailClient, DeleteConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, DeleteConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   EventDestinationName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);
  * ```

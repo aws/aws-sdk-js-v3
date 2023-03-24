@@ -49,6 +49,13 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
  * import { ResiliencehubClient, ListUnsupportedAppVersionResourcesCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListUnsupportedAppVersionResourcesCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   appArn: "STRING_VALUE", // required
+ *   appVersion: "STRING_VALUE", // required
+ *   resolutionId: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListUnsupportedAppVersionResourcesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -50,6 +50,36 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * import { RUMClient, CreateAppMonitorCommand } from "@aws-sdk/client-rum"; // ES Modules import
  * // const { RUMClient, CreateAppMonitorCommand } = require("@aws-sdk/client-rum"); // CommonJS import
  * const client = new RUMClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Domain: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AppMonitorConfiguration: {
+ *     IdentityPoolId: "STRING_VALUE",
+ *     ExcludedPages: [
+ *       "STRING_VALUE",
+ *     ],
+ *     IncludedPages: [
+ *       "STRING_VALUE",
+ *     ],
+ *     FavoritePages: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SessionSampleRate: Number("double"),
+ *     GuestRoleArn: "STRING_VALUE",
+ *     AllowCookies: true || false,
+ *     Telemetries: [
+ *       "STRING_VALUE",
+ *     ],
+ *     EnableXRay: true || false,
+ *   },
+ *   CwLogEnabled: true || false,
+ *   CustomEvents: {
+ *     Status: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAppMonitorCommand(input);
  * const response = await client.send(command);
  * ```

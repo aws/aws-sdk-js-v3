@@ -89,6 +89,20 @@ export interface RegisterWorkflowTypeCommandOutput extends __MetadataBearer {}
  * import { SWFClient, RegisterWorkflowTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RegisterWorkflowTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   version: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   defaultTaskStartToCloseTimeout: "STRING_VALUE",
+ *   defaultExecutionStartToCloseTimeout: "STRING_VALUE",
+ *   defaultTaskList: {
+ *     name: "STRING_VALUE", // required
+ *   },
+ *   defaultTaskPriority: "STRING_VALUE",
+ *   defaultChildPolicy: "TERMINATE" || "REQUEST_CANCEL" || "ABANDON",
+ *   defaultLambdaRole: "STRING_VALUE",
+ * };
  * const command = new RegisterWorkflowTypeCommand(input);
  * const response = await client.send(command);
  * ```

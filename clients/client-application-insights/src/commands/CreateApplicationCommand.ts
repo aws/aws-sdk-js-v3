@@ -46,6 +46,21 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * import { ApplicationInsightsClient, CreateApplicationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, CreateApplicationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = {
+ *   ResourceGroupName: "STRING_VALUE",
+ *   OpsCenterEnabled: true || false,
+ *   CWEMonitorEnabled: true || false,
+ *   OpsItemSNSTopicArn: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   AutoConfigEnabled: true || false,
+ *   AutoCreate: true || false,
+ *   GroupingType: "STRING_VALUE",
+ * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * ```

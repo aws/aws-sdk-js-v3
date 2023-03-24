@@ -51,6 +51,16 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * import { CodeDeployClient, ListDeploymentInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListDeploymentInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = {
+ *   deploymentId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   instanceStatusFilter: [
+ *     "Pending" || "InProgress" || "Succeeded" || "Failed" || "Skipped" || "Unknown" || "Ready",
+ *   ],
+ *   instanceTypeFilter: [
+ *     "Blue" || "Green",
+ *   ],
+ * };
  * const command = new ListDeploymentInstancesCommand(input);
  * const response = await client.send(command);
  * ```

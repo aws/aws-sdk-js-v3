@@ -52,6 +52,19 @@ export interface CreateOutboundCrossClusterSearchConnectionCommandOutput
  * import { ElasticsearchServiceClient, CreateOutboundCrossClusterSearchConnectionCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, CreateOutboundCrossClusterSearchConnectionCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = {
+ *   SourceDomainInfo: {
+ *     OwnerId: "STRING_VALUE",
+ *     DomainName: "STRING_VALUE", // required
+ *     Region: "STRING_VALUE",
+ *   },
+ *   DestinationDomainInfo: {
+ *     OwnerId: "STRING_VALUE",
+ *     DomainName: "STRING_VALUE", // required
+ *     Region: "STRING_VALUE",
+ *   },
+ *   ConnectionAlias: "STRING_VALUE", // required
+ * };
  * const command = new CreateOutboundCrossClusterSearchConnectionCommand(input);
  * const response = await client.send(command);
  * ```

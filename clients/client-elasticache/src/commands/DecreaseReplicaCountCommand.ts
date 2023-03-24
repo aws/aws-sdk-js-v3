@@ -44,6 +44,26 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * import { ElastiCacheClient, DecreaseReplicaCountCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DecreaseReplicaCountCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   NewReplicaCount: Number("int"),
+ *   ReplicaConfiguration: [
+ *     {
+ *       NodeGroupId: "STRING_VALUE", // required
+ *       NewReplicaCount: Number("int"), // required
+ *       PreferredAvailabilityZones: [
+ *         "STRING_VALUE",
+ *       ],
+ *       PreferredOutpostArns: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ReplicasToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ApplyImmediately: true || false, // required
+ * };
  * const command = new DecreaseReplicaCountCommand(input);
  * const response = await client.send(command);
  * ```

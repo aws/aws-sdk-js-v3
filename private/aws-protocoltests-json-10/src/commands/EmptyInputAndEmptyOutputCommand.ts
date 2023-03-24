@@ -44,6 +44,7 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * import { JSONRPC10Client, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-protocoltests-json-10"; // ES Modules import
  * // const { JSONRPC10Client, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-protocoltests-json-10"); // CommonJS import
  * const client = new JSONRPC10Client(config);
+ * const input = {};
  * const command = new EmptyInputAndEmptyOutputCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,11 @@ export interface GetManagedRuleSetCommandOutput extends GetManagedRuleSetRespons
  * import { WAFV2Client, GetManagedRuleSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetManagedRuleSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetManagedRuleSetCommand(input);
  * const response = await client.send(command);
  * ```

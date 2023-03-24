@@ -42,6 +42,10 @@ export interface DisableAddOnCommandOutput extends DisableAddOnResult, __Metadat
  * import { LightsailClient, DisableAddOnCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DisableAddOnCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   addOnType: "AutoSnapshot" || "StopInstanceOnIdle", // required
+ *   resourceName: "STRING_VALUE", // required
+ * };
  * const command = new DisableAddOnCommand(input);
  * const response = await client.send(command);
  * ```

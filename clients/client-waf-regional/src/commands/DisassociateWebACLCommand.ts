@@ -50,6 +50,9 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
  * import { WAFRegionalClient, DisassociateWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DisassociateWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateWebACLCommand(input);
  * const response = await client.send(command);
  * ```

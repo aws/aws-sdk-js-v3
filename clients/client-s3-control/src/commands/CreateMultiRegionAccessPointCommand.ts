@@ -78,6 +78,25 @@ export interface CreateMultiRegionAccessPointCommandOutput
  * import { S3ControlClient, CreateMultiRegionAccessPointCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, CreateMultiRegionAccessPointCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE", // required
+ *   Details: {
+ *     Name: "STRING_VALUE", // required
+ *     PublicAccessBlock: {
+ *       BlockPublicAcls: true || false,
+ *       IgnorePublicAcls: true || false,
+ *       BlockPublicPolicy: true || false,
+ *       RestrictPublicBuckets: true || false,
+ *     },
+ *     Regions: [ // required
+ *       {
+ *         Bucket: "STRING_VALUE", // required
+ *         BucketAccountId: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateMultiRegionAccessPointCommand(input);
  * const response = await client.send(command);
  * ```

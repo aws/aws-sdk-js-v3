@@ -42,6 +42,16 @@ export interface ListVariantStoresCommandOutput extends ListVariantStoresRespons
  * import { OmicsClient, ListVariantStoresCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListVariantStoresCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   ids: [
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   filter: {
+ *     status: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListVariantStoresCommand(input);
  * const response = await client.send(command);
  * ```

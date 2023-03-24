@@ -43,6 +43,9 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * import { CloudHSMV2Client, DeleteClusterCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, DeleteClusterCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = {
+ *   ClusterId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
  * ```

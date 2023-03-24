@@ -43,6 +43,7 @@ export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfig
  * import { IoTClient, GetIndexingConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetIndexingConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {};
  * const command = new GetIndexingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

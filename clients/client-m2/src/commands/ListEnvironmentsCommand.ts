@@ -42,6 +42,14 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * import { M2Client, ListEnvironmentsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListEnvironmentsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   names: [
+ *     "STRING_VALUE",
+ *   ],
+ *   engineType: "STRING_VALUE",
+ * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
  * ```

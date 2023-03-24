@@ -42,6 +42,12 @@ export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHo
  * import { CloudFormationClient, DescribeChangeSetHooksCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeChangeSetHooksCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   ChangeSetName: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   LogicalResourceId: "STRING_VALUE",
+ * };
  * const command = new DescribeChangeSetHooksCommand(input);
  * const response = await client.send(command);
  * ```

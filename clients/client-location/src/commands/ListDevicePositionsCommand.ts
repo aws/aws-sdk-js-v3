@@ -46,6 +46,11 @@ export interface ListDevicePositionsCommandOutput extends ListDevicePositionsRes
  * import { LocationClient, ListDevicePositionsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListDevicePositionsCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   TrackerName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDevicePositionsCommand(input);
  * const response = await client.send(command);
  * ```

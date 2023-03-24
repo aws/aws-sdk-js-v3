@@ -47,6 +47,9 @@ export interface DeleteEmailMonitoringConfigurationCommandOutput
  * import { WorkMailClient, DeleteEmailMonitoringConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteEmailMonitoringConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEmailMonitoringConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

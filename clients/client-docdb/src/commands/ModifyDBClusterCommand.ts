@@ -44,6 +44,30 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * import { DocDBClient, ModifyDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   NewDBClusterIdentifier: "STRING_VALUE",
+ *   ApplyImmediately: true || false,
+ *   BackupRetentionPeriod: Number("int"),
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Port: Number("int"),
+ *   MasterUserPassword: "STRING_VALUE",
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   CloudwatchLogsExportConfiguration: {
+ *     EnableLogTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     DisableLogTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   EngineVersion: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
  * ```

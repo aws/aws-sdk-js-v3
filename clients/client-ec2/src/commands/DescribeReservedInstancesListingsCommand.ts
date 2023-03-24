@@ -49,6 +49,18 @@ export interface DescribeReservedInstancesListingsCommandOutput
  * import { EC2Client, DescribeReservedInstancesListingsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeReservedInstancesListingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ReservedInstancesId: "STRING_VALUE",
+ *   ReservedInstancesListingId: "STRING_VALUE",
+ * };
  * const command = new DescribeReservedInstancesListingsCommand(input);
  * const response = await client.send(command);
  * ```

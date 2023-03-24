@@ -78,6 +78,19 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  * import { SQSClient, ReceiveMessageCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, ReceiveMessageCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = {
+ *   QueueUrl: "STRING_VALUE", // required
+ *   AttributeNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MessageAttributeNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxNumberOfMessages: Number("int"),
+ *   VisibilityTimeout: Number("int"),
+ *   WaitTimeSeconds: Number("int"),
+ *   ReceiveRequestAttemptId: "STRING_VALUE",
+ * };
  * const command = new ReceiveMessageCommand(input);
  * const response = await client.send(command);
  * ```

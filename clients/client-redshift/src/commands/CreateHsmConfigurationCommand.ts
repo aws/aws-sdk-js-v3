@@ -48,6 +48,20 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  * import { RedshiftClient, CreateHsmConfigurationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateHsmConfigurationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   HsmConfigurationIdentifier: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   HsmIpAddress: "STRING_VALUE", // required
+ *   HsmPartitionName: "STRING_VALUE", // required
+ *   HsmPartitionPassword: "STRING_VALUE", // required
+ *   HsmServerPublicCertificate: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateHsmConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

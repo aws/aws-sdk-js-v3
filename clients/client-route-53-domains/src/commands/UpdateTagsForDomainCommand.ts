@@ -44,6 +44,15 @@ export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainRes
  * import { Route53DomainsClient, UpdateTagsForDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, UpdateTagsForDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   TagsToUpdate: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateTagsForDomainCommand(input);
  * const response = await client.send(command);
  * ```

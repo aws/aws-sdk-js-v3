@@ -47,6 +47,10 @@ export interface GetAccessPolicyCommandOutput extends GetAccessPolicyResponse, _
  * import { OpenSearchServerlessClient, GetAccessPolicyCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, GetAccessPolicyCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = {
+ *   type: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new GetAccessPolicyCommand(input);
  * const response = await client.send(command);
  * ```

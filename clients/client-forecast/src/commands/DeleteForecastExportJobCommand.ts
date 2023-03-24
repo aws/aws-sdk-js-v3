@@ -44,6 +44,9 @@ export interface DeleteForecastExportJobCommandOutput extends __MetadataBearer {
  * import { ForecastClient, DeleteForecastExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteForecastExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   ForecastExportJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteForecastExportJobCommand(input);
  * const response = await client.send(command);
  * ```

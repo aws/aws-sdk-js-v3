@@ -42,6 +42,12 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { GreengrassClient, TagResourceCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, TagResourceCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

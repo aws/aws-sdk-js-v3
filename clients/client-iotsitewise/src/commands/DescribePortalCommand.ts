@@ -42,6 +42,9 @@ export interface DescribePortalCommandOutput extends DescribePortalResponse, __M
  * import { IoTSiteWiseClient, DescribePortalCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribePortalCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   portalId: "STRING_VALUE", // required
+ * };
  * const command = new DescribePortalCommand(input);
  * const response = await client.send(command);
  * ```

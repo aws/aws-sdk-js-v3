@@ -116,6 +116,16 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * import { KMSClient, GenerateDataKeyPairCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateDataKeyPairCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   EncryptionContext: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KeyId: "STRING_VALUE", // required
+ *   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2", // required
+ *   GrantTokens: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GenerateDataKeyPairCommand(input);
  * const response = await client.send(command);
  * ```

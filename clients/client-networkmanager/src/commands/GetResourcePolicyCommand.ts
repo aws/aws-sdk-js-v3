@@ -42,6 +42,9 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * import { NetworkManagerClient, GetResourcePolicyCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetResourcePolicyCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```

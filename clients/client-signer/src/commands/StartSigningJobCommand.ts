@@ -69,6 +69,24 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * import { SignerClient, StartSigningJobCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, StartSigningJobCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = {
+ *   source: {
+ *     s3: {
+ *       bucketName: "STRING_VALUE", // required
+ *       key: "STRING_VALUE", // required
+ *       version: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   destination: {
+ *     s3: {
+ *       bucketName: "STRING_VALUE",
+ *       prefix: "STRING_VALUE",
+ *     },
+ *   },
+ *   profileName: "STRING_VALUE", // required
+ *   clientRequestToken: "STRING_VALUE", // required
+ *   profileOwner: "STRING_VALUE",
+ * };
  * const command = new StartSigningJobCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,12 @@ export interface UpdateDatasourcePackagesCommandOutput extends __MetadataBearer 
  * import { DetectiveClient, UpdateDatasourcePackagesCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, UpdateDatasourcePackagesCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = {
+ *   GraphArn: "STRING_VALUE", // required
+ *   DatasourcePackages: [ // required
+ *     "DETECTIVE_CORE" || "EKS_AUDIT",
+ *   ],
+ * };
  * const command = new UpdateDatasourcePackagesCommand(input);
  * const response = await client.send(command);
  * ```

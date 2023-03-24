@@ -42,6 +42,16 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * import { MemoryDBClient, UpdateUserCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, UpdateUserCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = {
+ *   UserName: "STRING_VALUE", // required
+ *   AuthenticationMode: {
+ *     Type: "password",
+ *     Passwords: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   AccessString: "STRING_VALUE",
+ * };
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);
  * ```

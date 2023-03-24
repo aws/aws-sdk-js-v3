@@ -106,6 +106,9 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
  * import { AuditManagerClient, DeregisterOrganizationAdminAccountCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, DeregisterOrganizationAdminAccountCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   adminAccountId: "STRING_VALUE",
+ * };
  * const command = new DeregisterOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```

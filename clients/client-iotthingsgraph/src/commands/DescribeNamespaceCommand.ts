@@ -44,6 +44,9 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * import { IoTThingsGraphClient, DescribeNamespaceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DescribeNamespaceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   namespaceName: "STRING_VALUE",
+ * };
  * const command = new DescribeNamespaceCommand(input);
  * const response = await client.send(command);
  * ```

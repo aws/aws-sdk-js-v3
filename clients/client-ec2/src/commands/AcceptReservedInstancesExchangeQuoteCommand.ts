@@ -47,6 +47,18 @@ export interface AcceptReservedInstancesExchangeQuoteCommandOutput
  * import { EC2Client, AcceptReservedInstancesExchangeQuoteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AcceptReservedInstancesExchangeQuoteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   ReservedInstanceIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TargetConfigurations: [
+ *     {
+ *       InstanceCount: Number("int"),
+ *       OfferingId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AcceptReservedInstancesExchangeQuoteCommand(input);
  * const response = await client.send(command);
  * ```

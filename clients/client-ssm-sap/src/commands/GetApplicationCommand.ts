@@ -43,6 +43,11 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * import { SsmSapClient, GetApplicationCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, GetApplicationCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE",
+ *   ApplicationArn: "STRING_VALUE",
+ *   AppRegistryArn: "STRING_VALUE",
+ * };
  * const command = new GetApplicationCommand(input);
  * const response = await client.send(command);
  * ```

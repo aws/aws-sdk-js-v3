@@ -46,6 +46,10 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * import { CloudFrontClient, ListDistributionsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListDistributionsCommand(input);
  * const response = await client.send(command);
  * ```

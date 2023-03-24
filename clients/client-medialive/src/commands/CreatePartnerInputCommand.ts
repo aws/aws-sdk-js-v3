@@ -42,6 +42,13 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  * import { MediaLiveClient, CreatePartnerInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreatePartnerInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   InputId: "STRING_VALUE", // required
+ *   RequestId: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreatePartnerInputCommand(input);
  * const response = await client.send(command);
  * ```

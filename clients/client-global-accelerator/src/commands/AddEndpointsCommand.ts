@@ -61,6 +61,16 @@ export interface AddEndpointsCommandOutput extends AddEndpointsResponse, __Metad
  * import { GlobalAcceleratorClient, AddEndpointsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, AddEndpointsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   EndpointConfigurations: [ // required
+ *     {
+ *       EndpointId: "STRING_VALUE",
+ *       Weight: Number("int"),
+ *       ClientIPPreservationEnabled: true || false,
+ *     },
+ *   ],
+ *   EndpointGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new AddEndpointsCommand(input);
  * const response = await client.send(command);
  * ```

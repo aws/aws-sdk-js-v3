@@ -44,6 +44,9 @@ export interface GetVoiceConnectorOriginationCommandOutput
  * import { ChimeClient, GetVoiceConnectorOriginationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetVoiceConnectorOriginationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ * };
  * const command = new GetVoiceConnectorOriginationCommand(input);
  * const response = await client.send(command);
  * ```

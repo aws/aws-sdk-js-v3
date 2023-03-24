@@ -51,6 +51,119 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * import { KinesisAnalyticsClient, UpdateApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, UpdateApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   ApplicationUpdate: {
+ *     InputUpdates: [
+ *       {
+ *         InputId: "STRING_VALUE", // required
+ *         NamePrefixUpdate: "STRING_VALUE",
+ *         InputProcessingConfigurationUpdate: {
+ *           InputLambdaProcessorUpdate: {
+ *             ResourceARNUpdate: "STRING_VALUE",
+ *             RoleARNUpdate: "STRING_VALUE",
+ *           },
+ *         },
+ *         KinesisStreamsInputUpdate: {
+ *           ResourceARNUpdate: "STRING_VALUE",
+ *           RoleARNUpdate: "STRING_VALUE",
+ *         },
+ *         KinesisFirehoseInputUpdate: {
+ *           ResourceARNUpdate: "STRING_VALUE",
+ *           RoleARNUpdate: "STRING_VALUE",
+ *         },
+ *         InputSchemaUpdate: {
+ *           RecordFormatUpdate: {
+ *             RecordFormatType: "STRING_VALUE", // required
+ *             MappingParameters: {
+ *               JSONMappingParameters: {
+ *                 RecordRowPath: "STRING_VALUE", // required
+ *               },
+ *               CSVMappingParameters: {
+ *                 RecordRowDelimiter: "STRING_VALUE", // required
+ *                 RecordColumnDelimiter: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           },
+ *           RecordEncodingUpdate: "STRING_VALUE",
+ *           RecordColumnUpdates: [
+ *             {
+ *               Name: "STRING_VALUE", // required
+ *               Mapping: "STRING_VALUE",
+ *               SqlType: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         InputParallelismUpdate: {
+ *           CountUpdate: Number("int"),
+ *         },
+ *       },
+ *     ],
+ *     ApplicationCodeUpdate: "STRING_VALUE",
+ *     OutputUpdates: [
+ *       {
+ *         OutputId: "STRING_VALUE", // required
+ *         NameUpdate: "STRING_VALUE",
+ *         KinesisStreamsOutputUpdate: {
+ *           ResourceARNUpdate: "STRING_VALUE",
+ *           RoleARNUpdate: "STRING_VALUE",
+ *         },
+ *         KinesisFirehoseOutputUpdate: {
+ *           ResourceARNUpdate: "STRING_VALUE",
+ *           RoleARNUpdate: "STRING_VALUE",
+ *         },
+ *         LambdaOutputUpdate: {
+ *           ResourceARNUpdate: "STRING_VALUE",
+ *           RoleARNUpdate: "STRING_VALUE",
+ *         },
+ *         DestinationSchemaUpdate: {
+ *           RecordFormatType: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     ],
+ *     ReferenceDataSourceUpdates: [
+ *       {
+ *         ReferenceId: "STRING_VALUE", // required
+ *         TableNameUpdate: "STRING_VALUE",
+ *         S3ReferenceDataSourceUpdate: {
+ *           BucketARNUpdate: "STRING_VALUE",
+ *           FileKeyUpdate: "STRING_VALUE",
+ *           ReferenceRoleARNUpdate: "STRING_VALUE",
+ *         },
+ *         ReferenceSchemaUpdate: {
+ *           RecordFormat: {
+ *             RecordFormatType: "STRING_VALUE", // required
+ *             MappingParameters: {
+ *               JSONMappingParameters: {
+ *                 RecordRowPath: "STRING_VALUE", // required
+ *               },
+ *               CSVMappingParameters: {
+ *                 RecordRowDelimiter: "STRING_VALUE", // required
+ *                 RecordColumnDelimiter: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           },
+ *           RecordEncoding: "STRING_VALUE",
+ *           RecordColumns: [ // required
+ *             {
+ *               Name: "STRING_VALUE", // required
+ *               Mapping: "STRING_VALUE",
+ *               SqlType: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     CloudWatchLoggingOptionUpdates: [
+ *       {
+ *         CloudWatchLoggingOptionId: "STRING_VALUE", // required
+ *         LogStreamARNUpdate: "STRING_VALUE",
+ *         RoleARNUpdate: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
  * ```

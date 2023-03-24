@@ -45,6 +45,10 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  * import { OrganizationsClient, UpdateOrganizationalUnitCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, UpdateOrganizationalUnitCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   OrganizationalUnitId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
  * ```

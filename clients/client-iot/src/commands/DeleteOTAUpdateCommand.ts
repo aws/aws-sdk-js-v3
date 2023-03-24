@@ -43,6 +43,11 @@ export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, _
  * import { IoTClient, DeleteOTAUpdateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteOTAUpdateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   otaUpdateId: "STRING_VALUE", // required
+ *   deleteStream: true || false,
+ *   forceDeleteAWSJob: true || false,
+ * };
  * const command = new DeleteOTAUpdateCommand(input);
  * const response = await client.send(command);
  * ```

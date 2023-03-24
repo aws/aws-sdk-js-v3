@@ -42,6 +42,9 @@ export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecip
  * import { ImagebuilderClient, DeleteContainerRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, DeleteContainerRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   containerRecipeArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteContainerRecipeCommand(input);
  * const response = await client.send(command);
  * ```

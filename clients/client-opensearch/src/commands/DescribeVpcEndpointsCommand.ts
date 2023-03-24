@@ -42,6 +42,11 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * import { OpenSearchClient, DescribeVpcEndpointsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeVpcEndpointsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   VpcEndpointIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeVpcEndpointsCommand(input);
  * const response = await client.send(command);
  * ```

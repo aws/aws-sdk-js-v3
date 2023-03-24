@@ -55,6 +55,11 @@ export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsRes
  * import { S3OutpostsClient, ListSharedEndpointsCommand } from "@aws-sdk/client-s3outposts"; // ES Modules import
  * // const { S3OutpostsClient, ListSharedEndpointsCommand } = require("@aws-sdk/client-s3outposts"); // CommonJS import
  * const client = new S3OutpostsClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   OutpostId: "STRING_VALUE", // required
+ * };
  * const command = new ListSharedEndpointsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface DeleteIntegrationCommandOutput extends DeleteIntegrationRespons
  * import { CustomerProfilesClient, DeleteIntegrationCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DeleteIntegrationCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   Uri: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIntegrationCommand(input);
  * const response = await client.send(command);
  * ```

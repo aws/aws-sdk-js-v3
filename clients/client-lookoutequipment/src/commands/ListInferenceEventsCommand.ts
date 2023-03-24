@@ -43,6 +43,13 @@ export interface ListInferenceEventsCommandOutput extends ListInferenceEventsRes
  * import { LookoutEquipmentClient, ListInferenceEventsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListInferenceEventsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   InferenceSchedulerName: "STRING_VALUE", // required
+ *   IntervalStartTime: new Date("TIMESTAMP"), // required
+ *   IntervalEndTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new ListInferenceEventsCommand(input);
  * const response = await client.send(command);
  * ```

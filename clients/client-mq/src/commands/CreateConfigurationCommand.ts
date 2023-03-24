@@ -42,6 +42,15 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * import { MqClient, CreateConfigurationCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, CreateConfigurationCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = {
+ *   AuthenticationStrategy: "STRING_VALUE",
+ *   EngineType: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

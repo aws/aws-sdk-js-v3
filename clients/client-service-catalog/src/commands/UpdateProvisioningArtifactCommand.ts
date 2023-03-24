@@ -43,6 +43,15 @@ export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvision
  * import { ServiceCatalogClient, UpdateProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE", // required
+ *   ProvisioningArtifactId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Active: true || false,
+ *   Guidance: "DEFAULT" || "DEPRECATED",
+ * };
  * const command = new UpdateProvisioningArtifactCommand(input);
  * const response = await client.send(command);
  * ```

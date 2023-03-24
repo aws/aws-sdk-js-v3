@@ -42,6 +42,10 @@ export interface GetWirelessDeviceCommandOutput extends GetWirelessDeviceRespons
  * import { IoTWirelessClient, GetWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Identifier: "STRING_VALUE", // required
+ *   IdentifierType: "WirelessDeviceId" || "DevEui" || "ThingName" || "SidewalkManufacturingSn", // required
+ * };
  * const command = new GetWirelessDeviceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -53,6 +53,11 @@ export interface AssociatePhoneNumberContactFlowCommandOutput extends __Metadata
  * import { ConnectClient, AssociatePhoneNumberContactFlowCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociatePhoneNumberContactFlowCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   PhoneNumberId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactFlowId: "STRING_VALUE", // required
+ * };
  * const command = new AssociatePhoneNumberContactFlowCommand(input);
  * const response = await client.send(command);
  * ```

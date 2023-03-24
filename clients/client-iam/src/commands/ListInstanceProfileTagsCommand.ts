@@ -44,6 +44,11 @@ export interface ListInstanceProfileTagsCommandOutput extends ListInstanceProfil
  * import { IAMClient, ListInstanceProfileTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListInstanceProfileTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   InstanceProfileName: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListInstanceProfileTagsCommand(input);
  * const response = await client.send(command);
  * ```

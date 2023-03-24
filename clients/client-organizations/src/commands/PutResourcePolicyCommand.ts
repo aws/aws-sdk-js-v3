@@ -43,6 +43,15 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * import { OrganizationsClient, PutResourcePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, PutResourcePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   Content: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```

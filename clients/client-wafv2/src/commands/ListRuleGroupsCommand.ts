@@ -43,6 +43,11 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * import { WAFV2Client, ListRuleGroupsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListRuleGroupsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = {
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListRuleGroupsCommand(input);
  * const response = await client.send(command);
  * ```

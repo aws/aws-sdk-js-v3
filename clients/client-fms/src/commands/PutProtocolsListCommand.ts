@@ -42,6 +42,29 @@ export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse,
  * import { FMSClient, PutProtocolsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, PutProtocolsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {
+ *   ProtocolsList: {
+ *     ListId: "STRING_VALUE",
+ *     ListName: "STRING_VALUE", // required
+ *     ListUpdateToken: "STRING_VALUE",
+ *     CreateTime: new Date("TIMESTAMP"),
+ *     LastUpdateTime: new Date("TIMESTAMP"),
+ *     ProtocolsList: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     PreviousProtocolsList: {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   TagList: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutProtocolsListCommand(input);
  * const response = await client.send(command);
  * ```

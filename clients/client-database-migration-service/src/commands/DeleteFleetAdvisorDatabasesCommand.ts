@@ -48,6 +48,11 @@ export interface DeleteFleetAdvisorDatabasesCommandOutput
  * import { DatabaseMigrationServiceClient, DeleteFleetAdvisorDatabasesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DeleteFleetAdvisorDatabasesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   DatabaseIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteFleetAdvisorDatabasesCommand(input);
  * const response = await client.send(command);
  * ```

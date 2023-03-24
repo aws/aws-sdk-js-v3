@@ -43,6 +43,12 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
  * import { CloudWatchEventsClient, ListRuleNamesByTargetCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListRuleNamesByTargetCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = {
+ *   TargetArn: "STRING_VALUE", // required
+ *   EventBusName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListRuleNamesByTargetCommand(input);
  * const response = await client.send(command);
  * ```

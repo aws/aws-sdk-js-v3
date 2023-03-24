@@ -42,6 +42,17 @@ export interface ListReferencesCommandOutput extends ListReferencesResponse, __M
  * import { OmicsClient, ListReferencesCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListReferencesCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   referenceStoreId: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filter: {
+ *     name: "STRING_VALUE",
+ *     md5: "STRING_VALUE",
+ *     createdAfter: new Date("TIMESTAMP"),
+ *     createdBefore: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new ListReferencesCommand(input);
  * const response = await client.send(command);
  * ```

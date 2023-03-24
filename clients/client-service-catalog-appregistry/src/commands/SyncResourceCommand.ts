@@ -47,6 +47,10 @@ export interface SyncResourceCommandOutput extends SyncResourceResponse, __Metad
  * import { ServiceCatalogAppRegistryClient, SyncResourceCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, SyncResourceCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = {
+ *   resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE", // required
+ *   resource: "STRING_VALUE", // required
+ * };
  * const command = new SyncResourceCommand(input);
  * const response = await client.send(command);
  * ```

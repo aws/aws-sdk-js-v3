@@ -70,6 +70,11 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  * import { ChimeClient, CreateChannelModeratorCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateChannelModeratorCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChannelModeratorArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new CreateChannelModeratorCommand(input);
  * const response = await client.send(command);
  * ```

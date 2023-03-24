@@ -46,6 +46,17 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  * import { AlexaForBusinessClient, UpdateNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   NetworkProfileArn: "STRING_VALUE", // required
+ *   NetworkProfileName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   CurrentPassword: "STRING_VALUE",
+ *   NextPassword: "STRING_VALUE",
+ *   CertificateAuthorityArn: "STRING_VALUE",
+ *   TrustAnchors: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateNetworkProfileCommand(input);
  * const response = await client.send(command);
  * ```

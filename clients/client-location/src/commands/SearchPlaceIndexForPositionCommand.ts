@@ -50,6 +50,14 @@ export interface SearchPlaceIndexForPositionCommandOutput
  * import { LocationClient, SearchPlaceIndexForPositionCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, SearchPlaceIndexForPositionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   IndexName: "STRING_VALUE", // required
+ *   Position: [ // required
+ *     Number("double"),
+ *   ],
+ *   MaxResults: Number("int"),
+ *   Language: "STRING_VALUE",
+ * };
  * const command = new SearchPlaceIndexForPositionCommand(input);
  * const response = await client.send(command);
  * ```

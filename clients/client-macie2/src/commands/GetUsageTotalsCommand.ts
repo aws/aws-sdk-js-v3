@@ -42,6 +42,9 @@ export interface GetUsageTotalsCommandOutput extends GetUsageTotalsResponse, __M
  * import { Macie2Client, GetUsageTotalsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetUsageTotalsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   timeRange: "STRING_VALUE",
+ * };
  * const command = new GetUsageTotalsCommand(input);
  * const response = await client.send(command);
  * ```

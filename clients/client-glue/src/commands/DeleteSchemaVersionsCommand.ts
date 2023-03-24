@@ -45,6 +45,14 @@ export interface DeleteSchemaVersionsCommandOutput extends DeleteSchemaVersionsR
  * import { GlueClient, DeleteSchemaVersionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteSchemaVersionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   SchemaId: {
+ *     SchemaArn: "STRING_VALUE",
+ *     SchemaName: "STRING_VALUE",
+ *     RegistryName: "STRING_VALUE",
+ *   },
+ *   Versions: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSchemaVersionsCommand(input);
  * const response = await client.send(command);
  * ```

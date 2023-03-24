@@ -44,6 +44,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * import { DynamoDBClient, DescribeEndpointsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeEndpointsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {};
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,28 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * import { FinspaceDataClient, UpdateDatasetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, UpdateDatasetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   datasetId: "STRING_VALUE", // required
+ *   datasetTitle: "STRING_VALUE", // required
+ *   kind: "STRING_VALUE", // required
+ *   datasetDescription: "STRING_VALUE",
+ *   alias: "STRING_VALUE",
+ *   schemaDefinition: {
+ *     tabularSchemaConfig: {
+ *       columns: [
+ *         {
+ *           dataType: "STRING_VALUE",
+ *           columnName: "STRING_VALUE",
+ *           columnDescription: "STRING_VALUE",
+ *         },
+ *       ],
+ *       primaryKeyColumns: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new UpdateDatasetCommand(input);
  * const response = await client.send(command);
  * ```

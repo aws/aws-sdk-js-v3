@@ -135,6 +135,19 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  * import { WAFClient, CreateRateBasedRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateRateBasedRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   MetricName: "STRING_VALUE", // required
+ *   RateKey: "STRING_VALUE", // required
+ *   RateLimit: Number("long"), // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateRateBasedRuleCommand(input);
  * const response = await client.send(command);
  * ```

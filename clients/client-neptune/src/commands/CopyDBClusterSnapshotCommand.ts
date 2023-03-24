@@ -46,6 +46,19 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * import { NeptuneClient, CopyDBClusterSnapshotCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CopyDBClusterSnapshotCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = {
+ *   SourceDBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   TargetDBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
+ *   PreSignedUrl: "STRING_VALUE",
+ *   CopyTags: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopyDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

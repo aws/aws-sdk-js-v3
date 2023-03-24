@@ -44,6 +44,16 @@ export interface UpdateSlackChannelConfigurationCommandOutput
  * import { SupportAppClient, UpdateSlackChannelConfigurationCommand } from "@aws-sdk/client-support-app"; // ES Modules import
  * // const { SupportAppClient, UpdateSlackChannelConfigurationCommand } = require("@aws-sdk/client-support-app"); // CommonJS import
  * const client = new SupportAppClient(config);
+ * const input = {
+ *   teamId: "STRING_VALUE", // required
+ *   channelId: "STRING_VALUE", // required
+ *   channelName: "STRING_VALUE",
+ *   notifyOnCreateOrReopenCase: true || false,
+ *   notifyOnAddCorrespondenceToCase: true || false,
+ *   notifyOnResolveCase: true || false,
+ *   notifyOnCaseSeverity: "STRING_VALUE",
+ *   channelRoleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateSlackChannelConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

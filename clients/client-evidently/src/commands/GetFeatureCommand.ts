@@ -43,6 +43,10 @@ export interface GetFeatureCommandOutput extends GetFeatureResponse, __MetadataB
  * import { EvidentlyClient, GetFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, GetFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   project: "STRING_VALUE", // required
+ *   feature: "STRING_VALUE", // required
+ * };
  * const command = new GetFeatureCommand(input);
  * const response = await client.send(command);
  * ```

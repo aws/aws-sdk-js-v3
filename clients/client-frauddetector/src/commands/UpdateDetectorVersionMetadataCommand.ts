@@ -45,6 +45,11 @@ export interface UpdateDetectorVersionMetadataCommandOutput
  * import { FraudDetectorClient, UpdateDetectorVersionMetadataCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateDetectorVersionMetadataCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   detectorId: "STRING_VALUE", // required
+ *   detectorVersionId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE", // required
+ * };
  * const command = new UpdateDetectorVersionMetadataCommand(input);
  * const response = await client.send(command);
  * ```

@@ -41,6 +41,9 @@ export interface MediaTypeHeaderCommandOutput extends MediaTypeHeaderOutput, __M
  * import { RestJsonProtocolClient, MediaTypeHeaderCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, MediaTypeHeaderCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   json: "STRING_VALUE",
+ * };
  * const command = new MediaTypeHeaderCommand(input);
  * const response = await client.send(command);
  * ```

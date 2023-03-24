@@ -51,6 +51,43 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * import { CustomerProfilesClient, CreateDomainCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, CreateDomainCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   DefaultExpirationDays: Number("int"), // required
+ *   DefaultEncryptionKey: "STRING_VALUE",
+ *   DeadLetterQueueUrl: "STRING_VALUE",
+ *   Matching: {
+ *     Enabled: true || false, // required
+ *     JobSchedule: {
+ *       DayOfTheWeek: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY", // required
+ *       Time: "STRING_VALUE", // required
+ *     },
+ *     AutoMerging: {
+ *       Enabled: true || false, // required
+ *       Consolidation: {
+ *         MatchingAttributesList: [ // required
+ *           [
+ *             "STRING_VALUE",
+ *           ],
+ *         ],
+ *       },
+ *       ConflictResolution: {
+ *         ConflictResolvingModel: "RECENCY" || "SOURCE", // required
+ *         SourceName: "STRING_VALUE",
+ *       },
+ *       MinAllowedConfidenceScoreForMerging: Number("double"),
+ *     },
+ *     ExportingConfig: {
+ *       S3Exporting: {
+ *         S3BucketName: "STRING_VALUE", // required
+ *         S3KeyName: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
  * ```

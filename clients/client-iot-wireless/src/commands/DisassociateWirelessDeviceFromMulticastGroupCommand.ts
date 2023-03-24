@@ -48,6 +48,10 @@ export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput
  * import { IoTWirelessClient, DisassociateWirelessDeviceFromMulticastGroupCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DisassociateWirelessDeviceFromMulticastGroupCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   WirelessDeviceId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateWirelessDeviceFromMulticastGroupCommand(input);
  * const response = await client.send(command);
  * ```

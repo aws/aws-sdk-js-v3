@@ -42,6 +42,11 @@ export interface ListLiveSourcesCommandOutput extends ListLiveSourcesResponse, _
  * import { MediaTailorClient, ListLiveSourcesCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ListLiveSourcesCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SourceLocationName: "STRING_VALUE", // required
+ * };
  * const command = new ListLiveSourcesCommand(input);
  * const response = await client.send(command);
  * ```

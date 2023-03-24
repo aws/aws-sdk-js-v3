@@ -48,6 +48,12 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, TagResourceCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, TagResourceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,7 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, DeleteOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DeleteOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {};
  * const command = new DeleteOrganizationCommand(input);
  * const response = await client.send(command);
  * ```

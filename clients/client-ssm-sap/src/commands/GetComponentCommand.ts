@@ -43,6 +43,10 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * import { SsmSapClient, GetComponentCommand } from "@aws-sdk/client-ssm-sap"; // ES Modules import
  * // const { SsmSapClient, GetComponentCommand } = require("@aws-sdk/client-ssm-sap"); // CommonJS import
  * const client = new SsmSapClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   ComponentId: "STRING_VALUE", // required
+ * };
  * const command = new GetComponentCommand(input);
  * const response = await client.send(command);
  * ```

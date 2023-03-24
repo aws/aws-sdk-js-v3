@@ -46,6 +46,9 @@ export interface GetDeviceIdentifierCommandOutput extends GetDeviceIdentifierRes
  * import { PrivateNetworksClient, GetDeviceIdentifierCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, GetDeviceIdentifierCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = {
+ *   deviceIdentifierArn: "STRING_VALUE", // required
+ * };
  * const command = new GetDeviceIdentifierCommand(input);
  * const response = await client.send(command);
  * ```

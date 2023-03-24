@@ -128,6 +128,15 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  * import { GameLiftClient, SearchGameSessionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, SearchGameSessionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   FleetId: "STRING_VALUE",
+ *   AliasId: "STRING_VALUE",
+ *   Location: "STRING_VALUE",
+ *   FilterExpression: "STRING_VALUE",
+ *   SortExpression: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new SearchGameSessionsCommand(input);
  * const response = await client.send(command);
  * ```

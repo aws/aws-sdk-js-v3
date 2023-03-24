@@ -48,6 +48,16 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
  * import { ServiceCatalogClient, BatchDisassociateServiceActionFromProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, BatchDisassociateServiceActionFromProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   ServiceActionAssociations: [ // required
+ *     {
+ *       ServiceActionId: "STRING_VALUE", // required
+ *       ProductId: "STRING_VALUE", // required
+ *       ProvisioningArtifactId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   AcceptLanguage: "STRING_VALUE",
+ * };
  * const command = new BatchDisassociateServiceActionFromProvisioningArtifactCommand(input);
  * const response = await client.send(command);
  * ```

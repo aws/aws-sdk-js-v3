@@ -42,6 +42,12 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * import { AthenaClient, UntagResourceCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UntagResourceCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

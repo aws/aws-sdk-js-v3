@@ -44,6 +44,43 @@ export interface PutAppReplicationConfigurationCommandOutput
  * import { SMSClient, PutAppReplicationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, PutAppReplicationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE",
+ *   serverGroupReplicationConfigurations: [
+ *     {
+ *       serverGroupId: "STRING_VALUE",
+ *       serverReplicationConfigurations: [
+ *         {
+ *           server: {
+ *             serverId: "STRING_VALUE",
+ *             serverType: "STRING_VALUE",
+ *             vmServer: {
+ *               vmServerAddress: {
+ *                 vmManagerId: "STRING_VALUE",
+ *                 vmId: "STRING_VALUE",
+ *               },
+ *               vmName: "STRING_VALUE",
+ *               vmManagerName: "STRING_VALUE",
+ *               vmManagerType: "STRING_VALUE",
+ *               vmPath: "STRING_VALUE",
+ *             },
+ *             replicationJobId: "STRING_VALUE",
+ *             replicationJobTerminated: true || false,
+ *           },
+ *           serverReplicationParameters: {
+ *             seedTime: new Date("TIMESTAMP"),
+ *             frequency: Number("int"),
+ *             runOnce: true || false,
+ *             licenseType: "STRING_VALUE",
+ *             numberOfRecentAmisToKeep: Number("int"),
+ *             encrypted: true || false,
+ *             kmsKeyId: "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutAppReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,7 @@ export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccoun
  * import { IoTFleetWiseClient, GetRegisterAccountStatusCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, GetRegisterAccountStatusCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {};
  * const command = new GetRegisterAccountStatusCommand(input);
  * const response = await client.send(command);
  * ```

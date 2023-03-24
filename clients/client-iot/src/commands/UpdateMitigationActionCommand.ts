@@ -43,6 +43,34 @@ export interface UpdateMitigationActionCommandOutput extends UpdateMitigationAct
  * import { IoTClient, UpdateMitigationActionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateMitigationActionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   actionName: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE",
+ *   actionParams: {
+ *     updateDeviceCertificateParams: {
+ *       action: "DEACTIVATE", // required
+ *     },
+ *     updateCACertificateParams: {
+ *       action: "DEACTIVATE", // required
+ *     },
+ *     addThingsToThingGroupParams: {
+ *       thingGroupNames: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       overrideDynamicGroups: true || false,
+ *     },
+ *     replaceDefaultPolicyVersionParams: {
+ *       templateName: "BLANK_POLICY", // required
+ *     },
+ *     enableIoTLoggingParams: {
+ *       roleArnForLogging: "STRING_VALUE", // required
+ *       logLevel: "DEBUG" || "INFO" || "ERROR" || "WARN" || "DISABLED", // required
+ *     },
+ *     publishFindingToSnsParams: {
+ *       topicArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateMitigationActionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -51,6 +51,10 @@ export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolR
  * import { PinpointEmailClient, PutDedicatedIpInPoolCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutDedicatedIpInPoolCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {
+ *   Ip: "STRING_VALUE", // required
+ *   DestinationPoolName: "STRING_VALUE", // required
+ * };
  * const command = new PutDedicatedIpInPoolCommand(input);
  * const response = await client.send(command);
  * ```

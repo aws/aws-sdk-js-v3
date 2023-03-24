@@ -46,6 +46,19 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  * import { MigrationHubStrategyClient, ListServersCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, ListServersCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {
+ *   serverCriteria: "STRING_VALUE",
+ *   filterValue: "STRING_VALUE",
+ *   sort: "STRING_VALUE",
+ *   groupIdFilter: [
+ *     {
+ *       name: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListServersCommand(input);
  * const response = await client.send(command);
  * ```

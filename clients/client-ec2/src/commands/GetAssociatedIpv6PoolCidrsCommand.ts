@@ -42,6 +42,12 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
  * import { EC2Client, GetAssociatedIpv6PoolCidrsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetAssociatedIpv6PoolCidrsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   PoolId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new GetAssociatedIpv6PoolCidrsCommand(input);
  * const response = await client.send(command);
  * ```

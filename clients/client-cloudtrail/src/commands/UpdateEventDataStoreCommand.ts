@@ -52,6 +52,43 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * import { CloudTrailClient, UpdateEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, UpdateEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   EventDataStore: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   AdvancedEventSelectors: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       FieldSelectors: [ // required
+ *         {
+ *           Field: "STRING_VALUE", // required
+ *           Equals: [
+ *             "STRING_VALUE",
+ *           ],
+ *           StartsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           EndsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotEquals: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotStartsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NotEndsWith: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   MultiRegionEnabled: true || false,
+ *   OrganizationEnabled: true || false,
+ *   RetentionPeriod: Number("int"),
+ *   TerminationProtectionEnabled: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ * };
  * const command = new UpdateEventDataStoreCommand(input);
  * const response = await client.send(command);
  * ```

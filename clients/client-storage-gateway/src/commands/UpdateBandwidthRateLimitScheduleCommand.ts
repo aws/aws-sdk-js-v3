@@ -48,6 +48,22 @@ export interface UpdateBandwidthRateLimitScheduleCommandOutput
  * import { StorageGatewayClient, UpdateBandwidthRateLimitScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateBandwidthRateLimitScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   GatewayARN: "STRING_VALUE", // required
+ *   BandwidthRateLimitIntervals: [ // required
+ *     {
+ *       StartHourOfDay: Number("int"), // required
+ *       StartMinuteOfHour: Number("int"), // required
+ *       EndHourOfDay: Number("int"), // required
+ *       EndMinuteOfHour: Number("int"), // required
+ *       DaysOfWeek: [ // required
+ *         Number("int"),
+ *       ],
+ *       AverageUploadRateLimitInBitsPerSec: Number("long"),
+ *       AverageDownloadRateLimitInBitsPerSec: Number("long"),
+ *     },
+ *   ],
+ * };
  * const command = new UpdateBandwidthRateLimitScheduleCommand(input);
  * const response = await client.send(command);
  * ```

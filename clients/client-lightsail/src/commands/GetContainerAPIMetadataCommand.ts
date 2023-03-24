@@ -43,6 +43,7 @@ export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMet
  * import { LightsailClient, GetContainerAPIMetadataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContainerAPIMetadataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {};
  * const command = new GetContainerAPIMetadataCommand(input);
  * const response = await client.send(command);
  * ```

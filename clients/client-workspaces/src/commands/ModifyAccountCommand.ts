@@ -43,6 +43,10 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
  * import { WorkSpacesClient, ModifyAccountCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyAccountCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   DedicatedTenancySupport: "ENABLED",
+ *   DedicatedTenancyManagementCidrRange: "STRING_VALUE",
+ * };
  * const command = new ModifyAccountCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,39 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * import { DocDBClient, CreateDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   AvailabilityZones: [
+ *     "STRING_VALUE",
+ *   ],
+ *   BackupRetentionPeriod: Number("int"),
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   MasterUsername: "STRING_VALUE",
+ *   MasterUserPassword: "STRING_VALUE",
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StorageEncrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   PreSignedUrl: "STRING_VALUE",
+ *   EnableCloudwatchLogsExports: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DeletionProtection: true || false,
+ *   GlobalClusterIdentifier: "STRING_VALUE",
+ * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
  * ```

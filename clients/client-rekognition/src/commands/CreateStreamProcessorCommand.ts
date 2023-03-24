@@ -62,6 +62,62 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  * import { RekognitionClient, CreateStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   Input: {
+ *     KinesisVideoStream: {
+ *       Arn: "STRING_VALUE",
+ *     },
+ *   },
+ *   Output: {
+ *     KinesisDataStream: {
+ *       Arn: "STRING_VALUE",
+ *     },
+ *     S3Destination: {
+ *       Bucket: "STRING_VALUE",
+ *       KeyPrefix: "STRING_VALUE",
+ *     },
+ *   },
+ *   Name: "STRING_VALUE", // required
+ *   Settings: {
+ *     FaceSearch: {
+ *       CollectionId: "STRING_VALUE",
+ *       FaceMatchThreshold: Number("float"),
+ *     },
+ *     ConnectedHome: {
+ *       Labels: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       MinConfidence: Number("float"),
+ *     },
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   NotificationChannel: {
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *   },
+ *   KmsKeyId: "STRING_VALUE",
+ *   RegionsOfInterest: [
+ *     {
+ *       BoundingBox: {
+ *         Width: Number("float"),
+ *         Height: Number("float"),
+ *         Left: Number("float"),
+ *         Top: Number("float"),
+ *       },
+ *       Polygon: [
+ *         {
+ *           X: Number("float"),
+ *           Y: Number("float"),
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   DataSharingPreference: {
+ *     OptIn: true || false, // required
+ *   },
+ * };
  * const command = new CreateStreamProcessorCommand(input);
  * const response = await client.send(command);
  * ```

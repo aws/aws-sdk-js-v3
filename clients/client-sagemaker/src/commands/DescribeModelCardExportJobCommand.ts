@@ -42,6 +42,9 @@ export interface DescribeModelCardExportJobCommandOutput extends DescribeModelCa
  * import { SageMakerClient, DescribeModelCardExportJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeModelCardExportJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ModelCardExportJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeModelCardExportJobCommand(input);
  * const response = await client.send(command);
  * ```

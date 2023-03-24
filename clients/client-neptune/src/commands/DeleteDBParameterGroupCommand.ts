@@ -43,6 +43,9 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * import { NeptuneClient, DeleteDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = {
+ *   DBParameterGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```

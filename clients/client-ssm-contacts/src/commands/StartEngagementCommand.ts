@@ -43,6 +43,16 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  * import { SSMContactsClient, StartEngagementCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, StartEngagementCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = {
+ *   ContactId: "STRING_VALUE", // required
+ *   Sender: "STRING_VALUE", // required
+ *   Subject: "STRING_VALUE", // required
+ *   Content: "STRING_VALUE", // required
+ *   PublicSubject: "STRING_VALUE",
+ *   PublicContent: "STRING_VALUE",
+ *   IncidentId: "STRING_VALUE",
+ *   IdempotencyToken: "STRING_VALUE",
+ * };
  * const command = new StartEngagementCommand(input);
  * const response = await client.send(command);
  * ```

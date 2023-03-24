@@ -60,6 +60,18 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  * import { RedshiftDataClient, DescribeTableCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, DescribeTableCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
  * const client = new RedshiftDataClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   SecretArn: "STRING_VALUE",
+ *   DbUser: "STRING_VALUE",
+ *   Database: "STRING_VALUE", // required
+ *   ConnectedDatabase: "STRING_VALUE",
+ *   Schema: "STRING_VALUE",
+ *   Table: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   WorkgroupName: "STRING_VALUE",
+ * };
  * const command = new DescribeTableCommand(input);
  * const response = await client.send(command);
  * ```

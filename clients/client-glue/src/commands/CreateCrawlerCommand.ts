@@ -44,6 +44,97 @@ export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __Met
  * import { GlueClient, CreateCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Role: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Targets: {
+ *     S3Targets: [
+ *       {
+ *         Path: "STRING_VALUE",
+ *         Exclusions: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ConnectionName: "STRING_VALUE",
+ *         SampleSize: Number("int"),
+ *         EventQueueArn: "STRING_VALUE",
+ *         DlqEventQueueArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *     JdbcTargets: [
+ *       {
+ *         ConnectionName: "STRING_VALUE",
+ *         Path: "STRING_VALUE",
+ *         Exclusions: [
+ *           "STRING_VALUE",
+ *         ],
+ *         EnableAdditionalMetadata: [
+ *           "COMMENTS" || "RAWTYPES",
+ *         ],
+ *       },
+ *     ],
+ *     MongoDBTargets: [
+ *       {
+ *         ConnectionName: "STRING_VALUE",
+ *         Path: "STRING_VALUE",
+ *         ScanAll: true || false,
+ *       },
+ *     ],
+ *     DynamoDBTargets: [
+ *       {
+ *         Path: "STRING_VALUE",
+ *         scanAll: true || false,
+ *         scanRate: Number("double"),
+ *       },
+ *     ],
+ *     CatalogTargets: [
+ *       {
+ *         DatabaseName: "STRING_VALUE", // required
+ *         Tables: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         ConnectionName: "STRING_VALUE",
+ *         EventQueueArn: "STRING_VALUE",
+ *         DlqEventQueueArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *     DeltaTargets: [
+ *       {
+ *         DeltaTables: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ConnectionName: "STRING_VALUE",
+ *         WriteManifest: true || false,
+ *         CreateNativeDeltaTable: true || false,
+ *       },
+ *     ],
+ *   },
+ *   Schedule: "STRING_VALUE",
+ *   Classifiers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   TablePrefix: "STRING_VALUE",
+ *   SchemaChangePolicy: {
+ *     UpdateBehavior: "LOG" || "UPDATE_IN_DATABASE",
+ *     DeleteBehavior: "LOG" || "DELETE_FROM_DATABASE" || "DEPRECATE_IN_DATABASE",
+ *   },
+ *   RecrawlPolicy: {
+ *     RecrawlBehavior: "CRAWL_EVERYTHING" || "CRAWL_NEW_FOLDERS_ONLY" || "CRAWL_EVENT_MODE",
+ *   },
+ *   LineageConfiguration: {
+ *     CrawlerLineageSettings: "ENABLE" || "DISABLE",
+ *   },
+ *   LakeFormationConfiguration: {
+ *     UseLakeFormationCredentials: true || false,
+ *     AccountId: "STRING_VALUE",
+ *   },
+ *   Configuration: "STRING_VALUE",
+ *   CrawlerSecurityConfiguration: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateCrawlerCommand(input);
  * const response = await client.send(command);
  * ```

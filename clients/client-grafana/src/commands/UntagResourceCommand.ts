@@ -43,6 +43,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { GrafanaClient, UntagResourceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, UntagResourceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

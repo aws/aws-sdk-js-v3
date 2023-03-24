@@ -46,6 +46,12 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResponse, __Metadat
  * import { MigrationHubRefactorSpacesClient, UpdateRouteCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, UpdateRouteCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = {
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   ApplicationIdentifier: "STRING_VALUE", // required
+ *   RouteIdentifier: "STRING_VALUE", // required
+ *   ActivationState: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRouteCommand(input);
  * const response = await client.send(command);
  * ```

@@ -93,6 +93,70 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * import { CloudWatchClient, PutMetricAlarmCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutMetricAlarmCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = {
+ *   AlarmName: "STRING_VALUE", // required
+ *   AlarmDescription: "STRING_VALUE",
+ *   ActionsEnabled: true || false,
+ *   OKActions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AlarmActions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   InsufficientDataActions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MetricName: "STRING_VALUE",
+ *   Namespace: "STRING_VALUE",
+ *   Statistic: "SampleCount" || "Average" || "Sum" || "Minimum" || "Maximum",
+ *   ExtendedStatistic: "STRING_VALUE",
+ *   Dimensions: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Period: Number("int"),
+ *   Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *   EvaluationPeriods: Number("int"), // required
+ *   DatapointsToAlarm: Number("int"),
+ *   Threshold: Number("double"),
+ *   ComparisonOperator: "GreaterThanOrEqualToThreshold" || "GreaterThanThreshold" || "LessThanThreshold" || "LessThanOrEqualToThreshold" || "LessThanLowerOrGreaterThanUpperThreshold" || "LessThanLowerThreshold" || "GreaterThanUpperThreshold", // required
+ *   TreatMissingData: "STRING_VALUE",
+ *   EvaluateLowSampleCountPercentile: "STRING_VALUE",
+ *   Metrics: [
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       MetricStat: {
+ *         Metric: {
+ *           Namespace: "STRING_VALUE",
+ *           MetricName: "STRING_VALUE",
+ *           Dimensions: [
+ *             {
+ *               Name: "STRING_VALUE", // required
+ *               Value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         Period: Number("int"), // required
+ *         Stat: "STRING_VALUE", // required
+ *         Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *       },
+ *       Expression: "STRING_VALUE",
+ *       Label: "STRING_VALUE",
+ *       ReturnData: true || false,
+ *       Period: Number("int"),
+ *       AccountId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ThresholdMetricId: "STRING_VALUE",
+ * };
  * const command = new PutMetricAlarmCommand(input);
  * const response = await client.send(command);
  * ```

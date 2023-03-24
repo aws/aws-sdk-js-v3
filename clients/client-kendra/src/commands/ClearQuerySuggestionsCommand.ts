@@ -51,6 +51,9 @@ export interface ClearQuerySuggestionsCommandOutput extends __MetadataBearer {}
  * import { KendraClient, ClearQuerySuggestionsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ClearQuerySuggestionsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   IndexId: "STRING_VALUE", // required
+ * };
  * const command = new ClearQuerySuggestionsCommand(input);
  * const response = await client.send(command);
  * ```

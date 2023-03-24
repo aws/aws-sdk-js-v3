@@ -53,6 +53,9 @@ export interface GetMediaInsightsPipelineConfigurationCommandOutput
  * import { ChimeSDKMediaPipelinesClient, GetMediaInsightsPipelineConfigurationCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, GetMediaInsightsPipelineConfigurationCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
+ * const input = {
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new GetMediaInsightsPipelineConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

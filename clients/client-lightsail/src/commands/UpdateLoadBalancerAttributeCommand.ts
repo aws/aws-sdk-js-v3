@@ -46,6 +46,11 @@ export interface UpdateLoadBalancerAttributeCommandOutput extends UpdateLoadBala
  * import { LightsailClient, UpdateLoadBalancerAttributeCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateLoadBalancerAttributeCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   loadBalancerName: "STRING_VALUE", // required
+ *   attributeName: "HealthCheckPath" || "SessionStickinessEnabled" || "SessionStickiness_LB_CookieDurationSeconds" || "HttpsRedirectionEnabled" || "TlsPolicyName", // required
+ *   attributeValue: "STRING_VALUE", // required
+ * };
  * const command = new UpdateLoadBalancerAttributeCommand(input);
  * const response = await client.send(command);
  * ```

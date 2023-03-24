@@ -44,6 +44,10 @@ export interface DescribeTemplatePermissionsCommandOutput
  * import { QuickSightClient, DescribeTemplatePermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeTemplatePermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   TemplateId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTemplatePermissionsCommand(input);
  * const response = await client.send(command);
  * ```

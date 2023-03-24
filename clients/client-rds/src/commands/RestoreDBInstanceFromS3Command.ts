@@ -50,6 +50,72 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * import { RDSClient, RestoreDBInstanceFromS3Command } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBInstanceFromS3Command } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBName: "STRING_VALUE",
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   AllocatedStorage: Number("int"),
+ *   DBInstanceClass: "STRING_VALUE", // required
+ *   Engine: "STRING_VALUE", // required
+ *   MasterUsername: "STRING_VALUE",
+ *   MasterUserPassword: "STRING_VALUE",
+ *   DBSecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AvailabilityZone: "STRING_VALUE",
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   BackupRetentionPeriod: Number("int"),
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   MultiAZ: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   LicenseModel: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   OptionGroupName: "STRING_VALUE",
+ *   PubliclyAccessible: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StorageType: "STRING_VALUE",
+ *   StorageEncrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   MonitoringInterval: Number("int"),
+ *   MonitoringRoleArn: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   SourceEngine: "STRING_VALUE", // required
+ *   SourceEngineVersion: "STRING_VALUE", // required
+ *   S3BucketName: "STRING_VALUE", // required
+ *   S3Prefix: "STRING_VALUE",
+ *   S3IngestionRoleArn: "STRING_VALUE", // required
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   PerformanceInsightsRetentionPeriod: Number("int"),
+ *   EnableCloudwatchLogsExports: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ProcessorFeatures: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UseDefaultProcessorFeatures: true || false,
+ *   DeletionProtection: true || false,
+ *   MaxAllocatedStorage: Number("int"),
+ *   NetworkType: "STRING_VALUE",
+ *   StorageThroughput: Number("int"),
+ *   ManageMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ * };
  * const command = new RestoreDBInstanceFromS3Command(input);
  * const response = await client.send(command);
  * ```

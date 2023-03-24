@@ -45,6 +45,10 @@ export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __Metad
  * import { CloudWatchLogsClient, GetLogRecordCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetLogRecordCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   logRecordPointer: "STRING_VALUE", // required
+ *   unmask: true || false,
+ * };
  * const command = new GetLogRecordCommand(input);
  * const response = await client.send(command);
  * ```

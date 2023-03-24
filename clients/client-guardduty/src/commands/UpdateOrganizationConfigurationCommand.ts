@@ -48,6 +48,34 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * import { GuardDutyClient, UpdateOrganizationConfigurationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateOrganizationConfigurationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   DetectorId: "STRING_VALUE", // required
+ *   AutoEnable: true || false,
+ *   DataSources: {
+ *     S3Logs: {
+ *       AutoEnable: true || false, // required
+ *     },
+ *     Kubernetes: {
+ *       AuditLogs: {
+ *         AutoEnable: true || false, // required
+ *       },
+ *     },
+ *     MalwareProtection: {
+ *       ScanEc2InstanceWithFindings: {
+ *         EbsVolumes: {
+ *           AutoEnable: true || false,
+ *         },
+ *       },
+ *     },
+ *   },
+ *   Features: [
+ *     {
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS",
+ *       AutoEnable: "NEW" || "NONE",
+ *     },
+ *   ],
+ *   AutoEnableOrganizationMembers: "NEW" || "ALL" || "NONE",
+ * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

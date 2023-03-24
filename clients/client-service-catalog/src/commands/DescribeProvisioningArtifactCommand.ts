@@ -44,6 +44,14 @@ export interface DescribeProvisioningArtifactCommandOutput
  * import { ServiceCatalogClient, DescribeProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProvisioningArtifactId: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE",
+ *   ProvisioningArtifactName: "STRING_VALUE",
+ *   ProductName: "STRING_VALUE",
+ *   Verbose: true || false,
+ * };
  * const command = new DescribeProvisioningArtifactCommand(input);
  * const response = await client.send(command);
  * ```

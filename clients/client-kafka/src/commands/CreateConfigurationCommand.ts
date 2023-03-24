@@ -42,6 +42,14 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  * import { KafkaClient, CreateConfigurationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, CreateConfigurationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = {
+ *   Description: "STRING_VALUE",
+ *   KafkaVersions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Name: "STRING_VALUE", // required
+ *   ServerProperties: "BLOB_VALUE", // required
+ * };
  * const command = new CreateConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

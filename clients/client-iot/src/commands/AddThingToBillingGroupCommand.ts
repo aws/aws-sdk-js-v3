@@ -43,6 +43,12 @@ export interface AddThingToBillingGroupCommandOutput extends AddThingToBillingGr
  * import { IoTClient, AddThingToBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AddThingToBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   billingGroupName: "STRING_VALUE",
+ *   billingGroupArn: "STRING_VALUE",
+ *   thingName: "STRING_VALUE",
+ *   thingArn: "STRING_VALUE",
+ * };
  * const command = new AddThingToBillingGroupCommand(input);
  * const response = await client.send(command);
  * ```

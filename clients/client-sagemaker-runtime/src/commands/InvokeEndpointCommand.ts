@@ -66,6 +66,18 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __Met
  * import { SageMakerRuntimeClient, InvokeEndpointCommand } from "@aws-sdk/client-sagemaker-runtime"; // ES Modules import
  * // const { SageMakerRuntimeClient, InvokeEndpointCommand } = require("@aws-sdk/client-sagemaker-runtime"); // CommonJS import
  * const client = new SageMakerRuntimeClient(config);
+ * const input = {
+ *   EndpointName: "STRING_VALUE", // required
+ *   Body: "BLOB_VALUE", // required
+ *   ContentType: "STRING_VALUE",
+ *   Accept: "STRING_VALUE",
+ *   CustomAttributes: "STRING_VALUE",
+ *   TargetModel: "STRING_VALUE",
+ *   TargetVariant: "STRING_VALUE",
+ *   TargetContainerHostname: "STRING_VALUE",
+ *   InferenceId: "STRING_VALUE",
+ *   EnableExplanations: "STRING_VALUE",
+ * };
  * const command = new InvokeEndpointCommand(input);
  * const response = await client.send(command);
  * ```

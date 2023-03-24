@@ -55,6 +55,45 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  * import { CloudFormationClient, UpdateStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, UpdateStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   StackSetName: "STRING_VALUE", // required
+ *   Accounts: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DeploymentTargets: {
+ *     Accounts: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AccountsUrl: "STRING_VALUE",
+ *     OrganizationalUnitIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AccountFilterType: "NONE" || "INTERSECTION" || "DIFFERENCE" || "UNION",
+ *   },
+ *   Regions: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ParameterOverrides: [
+ *     {
+ *       ParameterKey: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       UsePreviousValue: true || false,
+ *       ResolvedValue: "STRING_VALUE",
+ *     },
+ *   ],
+ *   OperationPreferences: {
+ *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ *     RegionOrder: [
+ *       "STRING_VALUE",
+ *     ],
+ *     FailureToleranceCount: Number("int"),
+ *     FailureTolerancePercentage: Number("int"),
+ *     MaxConcurrentCount: Number("int"),
+ *     MaxConcurrentPercentage: Number("int"),
+ *   },
+ *   OperationId: "STRING_VALUE",
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new UpdateStackInstancesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,19 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  * import { IoTFleetWiseClient, BatchUpdateVehicleCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, BatchUpdateVehicleCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   vehicles: [ // required
+ *     {
+ *       vehicleName: "STRING_VALUE", // required
+ *       modelManifestArn: "STRING_VALUE",
+ *       decoderManifestArn: "STRING_VALUE",
+ *       attributes: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       attributeUpdateMode: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchUpdateVehicleCommand(input);
  * const response = await client.send(command);
  * ```

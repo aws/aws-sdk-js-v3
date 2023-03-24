@@ -43,6 +43,75 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * import { CloudWatchEventsClient, CreateConnectionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, CreateConnectionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AuthorizationType: "STRING_VALUE", // required
+ *   AuthParameters: {
+ *     BasicAuthParameters: {
+ *       Username: "STRING_VALUE", // required
+ *       Password: "STRING_VALUE", // required
+ *     },
+ *     OAuthParameters: {
+ *       ClientParameters: {
+ *         ClientID: "STRING_VALUE", // required
+ *         ClientSecret: "STRING_VALUE", // required
+ *       },
+ *       AuthorizationEndpoint: "STRING_VALUE", // required
+ *       HttpMethod: "STRING_VALUE", // required
+ *       OAuthHttpParameters: {
+ *         HeaderParameters: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             IsValueSecret: true || false,
+ *           },
+ *         ],
+ *         QueryStringParameters: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             IsValueSecret: true || false,
+ *           },
+ *         ],
+ *         BodyParameters: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             IsValueSecret: true || false,
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     ApiKeyAuthParameters: {
+ *       ApiKeyName: "STRING_VALUE", // required
+ *       ApiKeyValue: "STRING_VALUE", // required
+ *     },
+ *     InvocationHttpParameters: {
+ *       HeaderParameters: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           IsValueSecret: true || false,
+ *         },
+ *       ],
+ *       QueryStringParameters: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           IsValueSecret: true || false,
+ *         },
+ *       ],
+ *       BodyParameters: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           IsValueSecret: true || false,
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
  * ```

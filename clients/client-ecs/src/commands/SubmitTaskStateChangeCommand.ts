@@ -45,6 +45,49 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  * import { ECSClient, SubmitTaskStateChangeCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, SubmitTaskStateChangeCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE",
+ *   task: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   reason: "STRING_VALUE",
+ *   containers: [
+ *     {
+ *       containerName: "STRING_VALUE",
+ *       imageDigest: "STRING_VALUE",
+ *       runtimeId: "STRING_VALUE",
+ *       exitCode: Number("int"),
+ *       networkBindings: [
+ *         {
+ *           bindIP: "STRING_VALUE",
+ *           containerPort: Number("int"),
+ *           hostPort: Number("int"),
+ *           protocol: "tcp" || "udp",
+ *           containerPortRange: "STRING_VALUE",
+ *           hostPortRange: "STRING_VALUE",
+ *         },
+ *       ],
+ *       reason: "STRING_VALUE",
+ *       status: "STRING_VALUE",
+ *     },
+ *   ],
+ *   attachments: [
+ *     {
+ *       attachmentArn: "STRING_VALUE", // required
+ *       status: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   managedAgents: [
+ *     {
+ *       containerName: "STRING_VALUE", // required
+ *       managedAgentName: "ExecuteCommandAgent", // required
+ *       status: "STRING_VALUE", // required
+ *       reason: "STRING_VALUE",
+ *     },
+ *   ],
+ *   pullStartedAt: new Date("TIMESTAMP"),
+ *   pullStoppedAt: new Date("TIMESTAMP"),
+ *   executionStoppedAt: new Date("TIMESTAMP"),
+ * };
  * const command = new SubmitTaskStateChangeCommand(input);
  * const response = await client.send(command);
  * ```

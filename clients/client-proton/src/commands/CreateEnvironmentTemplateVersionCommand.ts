@@ -51,6 +51,24 @@ export interface CreateEnvironmentTemplateVersionCommandOutput
  * import { ProtonClient, CreateEnvironmentTemplateVersionCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateEnvironmentTemplateVersionCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   templateName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   majorVersion: "STRING_VALUE",
+ *   source: { // Union: only one key present
+ *     s3: {
+ *       bucket: "STRING_VALUE", // required
+ *       key: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateEnvironmentTemplateVersionCommand(input);
  * const response = await client.send(command);
  * ```

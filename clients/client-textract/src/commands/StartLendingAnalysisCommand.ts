@@ -72,6 +72,26 @@ export interface StartLendingAnalysisCommandOutput extends StartLendingAnalysisR
  * import { TextractClient, StartLendingAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
  * // const { TextractClient, StartLendingAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
+ * const input = {
+ *   DocumentLocation: {
+ *     S3Object: {
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   JobTag: "STRING_VALUE",
+ *   NotificationChannel: {
+ *     SNSTopicArn: "STRING_VALUE", // required
+ *     RoleArn: "STRING_VALUE", // required
+ *   },
+ *   OutputConfig: {
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Prefix: "STRING_VALUE",
+ *   },
+ *   KMSKeyId: "STRING_VALUE",
+ * };
  * const command = new StartLendingAnalysisCommand(input);
  * const response = await client.send(command);
  * ```

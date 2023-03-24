@@ -46,6 +46,49 @@ export interface CreateWorkflowStepCommandOutput extends CreateWorkflowStepRespo
  * import { MigrationHubOrchestratorClient, CreateWorkflowStepCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, CreateWorkflowStepCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   stepGroupId: "STRING_VALUE", // required
+ *   workflowId: "STRING_VALUE", // required
+ *   stepActionType: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   workflowStepAutomationConfiguration: {
+ *     scriptLocationS3Bucket: "STRING_VALUE",
+ *     scriptLocationS3Key: {
+ *       linux: "STRING_VALUE",
+ *       windows: "STRING_VALUE",
+ *     },
+ *     command: {
+ *       linux: "STRING_VALUE",
+ *       windows: "STRING_VALUE",
+ *     },
+ *     runEnvironment: "STRING_VALUE",
+ *     targetType: "STRING_VALUE",
+ *   },
+ *   stepTarget: [
+ *     "STRING_VALUE",
+ *   ],
+ *   outputs: [
+ *     {
+ *       name: "STRING_VALUE",
+ *       dataType: "STRING_VALUE",
+ *       required: true || false,
+ *       value: { // Union: only one key present
+ *         integerValue: Number("int"),
+ *         stringValue: "STRING_VALUE",
+ *         listOfStringValue: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   previous: [
+ *     "STRING_VALUE",
+ *   ],
+ *   next: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateWorkflowStepCommand(input);
  * const response = await client.send(command);
  * ```

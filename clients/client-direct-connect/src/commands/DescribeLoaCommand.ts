@@ -45,6 +45,11 @@ export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
  * import { DirectConnectClient, DescribeLoaCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeLoaCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   connectionId: "STRING_VALUE", // required
+ *   providerName: "STRING_VALUE",
+ *   loaContentType: "application/pdf",
+ * };
  * const command = new DescribeLoaCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,51 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * import { CodeStarClient, CreateProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, CreateProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   clientRequestToken: "STRING_VALUE",
+ *   sourceCode: [
+ *     {
+ *       source: {
+ *         s3: {
+ *           bucketName: "STRING_VALUE",
+ *           bucketKey: "STRING_VALUE",
+ *         },
+ *       },
+ *       destination: {
+ *         codeCommit: {
+ *           name: "STRING_VALUE", // required
+ *         },
+ *         gitHub: {
+ *           name: "STRING_VALUE", // required
+ *           description: "STRING_VALUE",
+ *           type: "STRING_VALUE", // required
+ *           owner: "STRING_VALUE", // required
+ *           privateRepository: true || false, // required
+ *           issuesEnabled: true || false, // required
+ *           token: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   toolchain: {
+ *     source: {
+ *       s3: {
+ *         bucketName: "STRING_VALUE",
+ *         bucketKey: "STRING_VALUE",
+ *       },
+ *     },
+ *     roleArn: "STRING_VALUE",
+ *     stackParameters: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
  * ```

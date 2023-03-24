@@ -42,6 +42,11 @@ export interface GetStageDeploymentCommandOutput extends GetStageDeploymentResul
  * import { GameSparksClient, GetStageDeploymentCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetStageDeploymentCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   GameName: "STRING_VALUE", // required
+ *   StageName: "STRING_VALUE", // required
+ *   DeploymentId: "STRING_VALUE",
+ * };
  * const command = new GetStageDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

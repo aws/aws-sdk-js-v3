@@ -42,6 +42,10 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  * import { IotDeviceAdvisorClient, GetEndpointCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, GetEndpointCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
+ * const input = {
+ *   thingArn: "STRING_VALUE",
+ *   certificateArn: "STRING_VALUE",
+ * };
  * const command = new GetEndpointCommand(input);
  * const response = await client.send(command);
  * ```

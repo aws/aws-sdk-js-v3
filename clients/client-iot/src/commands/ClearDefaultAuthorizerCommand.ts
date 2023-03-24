@@ -43,6 +43,7 @@ export interface ClearDefaultAuthorizerCommandOutput extends ClearDefaultAuthori
  * import { IoTClient, ClearDefaultAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ClearDefaultAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {};
  * const command = new ClearDefaultAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```

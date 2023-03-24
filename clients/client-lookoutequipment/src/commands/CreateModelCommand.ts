@@ -50,6 +50,37 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * import { LookoutEquipmentClient, CreateModelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, CreateModelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   ModelName: "STRING_VALUE", // required
+ *   DatasetName: "STRING_VALUE", // required
+ *   DatasetSchema: {
+ *     InlineDataSchema: "STRING_VALUE",
+ *   },
+ *   LabelsInputConfiguration: {
+ *     S3InputConfiguration: {
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *     LabelGroupName: "STRING_VALUE",
+ *   },
+ *   ClientToken: "STRING_VALUE", // required
+ *   TrainingDataStartTime: new Date("TIMESTAMP"),
+ *   TrainingDataEndTime: new Date("TIMESTAMP"),
+ *   EvaluationDataStartTime: new Date("TIMESTAMP"),
+ *   EvaluationDataEndTime: new Date("TIMESTAMP"),
+ *   RoleArn: "STRING_VALUE",
+ *   DataPreProcessingConfiguration: {
+ *     TargetSamplingRate: "PT1S" || "PT5S" || "PT10S" || "PT15S" || "PT30S" || "PT1M" || "PT5M" || "PT10M" || "PT15M" || "PT30M" || "PT1H",
+ *   },
+ *   ServerSideKmsKeyId: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   OffCondition: "STRING_VALUE",
+ * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
  * ```

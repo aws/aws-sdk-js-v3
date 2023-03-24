@@ -43,6 +43,15 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * import { ECSClient, DescribeTasksCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DescribeTasksCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE",
+ *   tasks: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   include: [
+ *     "TAGS",
+ *   ],
+ * };
  * const command = new DescribeTasksCommand(input);
  * const response = await client.send(command);
  * ```

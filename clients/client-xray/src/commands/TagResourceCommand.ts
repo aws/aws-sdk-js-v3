@@ -42,6 +42,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { XRayClient, TagResourceCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, TagResourceCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = {
+ *   ResourceARN: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

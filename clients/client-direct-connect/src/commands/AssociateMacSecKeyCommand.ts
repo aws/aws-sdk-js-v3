@@ -44,6 +44,12 @@ export interface AssociateMacSecKeyCommandOutput extends AssociateMacSecKeyRespo
  * import { DirectConnectClient, AssociateMacSecKeyCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, AssociateMacSecKeyCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   connectionId: "STRING_VALUE", // required
+ *   secretARN: "STRING_VALUE",
+ *   ckn: "STRING_VALUE",
+ *   cak: "STRING_VALUE",
+ * };
  * const command = new AssociateMacSecKeyCommand(input);
  * const response = await client.send(command);
  * ```

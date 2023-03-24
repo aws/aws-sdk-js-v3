@@ -58,6 +58,10 @@ export interface StreamingTraitsCommandOutput
  * import { RestJsonProtocolClient, StreamingTraitsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, StreamingTraitsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   foo: "STRING_VALUE",
+ *   blob: "STREAMING_BLOB_VALUE",
+ * };
  * const command = new StreamingTraitsCommand(input);
  * const response = await client.send(command);
  * ```

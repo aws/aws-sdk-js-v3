@@ -43,6 +43,27 @@ export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlC
  * import { LambdaClient, CreateFunctionUrlConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, CreateFunctionUrlConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE",
+ *   AuthType: "NONE" || "AWS_IAM", // required
+ *   Cors: {
+ *     AllowCredentials: true || false,
+ *     AllowHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowMethods: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowOrigins: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ExposeHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     MaxAge: Number("int"),
+ *   },
+ * };
  * const command = new CreateFunctionUrlConfigCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,10 @@ export interface DescribeFraudsterCommandOutput extends DescribeFraudsterRespons
  * import { VoiceIDClient, DescribeFraudsterCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DescribeFraudsterCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
+ * const input = {
+ *   DomainId: "STRING_VALUE", // required
+ *   FraudsterId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFraudsterCommand(input);
  * const response = await client.send(command);
  * ```

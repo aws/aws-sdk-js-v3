@@ -92,6 +92,39 @@ export interface StartMedicalTranscriptionJobCommandOutput
  * import { TranscribeClient, StartMedicalTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, StartMedicalTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = {
+ *   MedicalTranscriptionJobName: "STRING_VALUE", // required
+ *   LanguageCode: "af-ZA" || "ar-AE" || "ar-SA" || "da-DK" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fa-IR" || "fr-CA" || "fr-FR" || "he-IL" || "hi-IN" || "id-ID" || "it-IT" || "ja-JP" || "ko-KR" || "ms-MY" || "nl-NL" || "pt-BR" || "pt-PT" || "ru-RU" || "ta-IN" || "te-IN" || "tr-TR" || "zh-CN" || "zh-TW" || "th-TH" || "en-ZA" || "en-NZ" || "vi-VN" || "sv-SE", // required
+ *   MediaSampleRateHertz: Number("int"),
+ *   MediaFormat: "mp3" || "mp4" || "wav" || "flac" || "ogg" || "amr" || "webm",
+ *   Media: {
+ *     MediaFileUri: "STRING_VALUE",
+ *     RedactedMediaFileUri: "STRING_VALUE",
+ *   },
+ *   OutputBucketName: "STRING_VALUE", // required
+ *   OutputKey: "STRING_VALUE",
+ *   OutputEncryptionKMSKeyId: "STRING_VALUE",
+ *   KMSEncryptionContext: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Settings: {
+ *     ShowSpeakerLabels: true || false,
+ *     MaxSpeakerLabels: Number("int"),
+ *     ChannelIdentification: true || false,
+ *     ShowAlternatives: true || false,
+ *     MaxAlternatives: Number("int"),
+ *     VocabularyName: "STRING_VALUE",
+ *   },
+ *   ContentIdentificationType: "PHI",
+ *   Specialty: "PRIMARYCARE", // required
+ *   Type: "CONVERSATION" || "DICTATION", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new StartMedicalTranscriptionJobCommand(input);
  * const response = await client.send(command);
  * ```

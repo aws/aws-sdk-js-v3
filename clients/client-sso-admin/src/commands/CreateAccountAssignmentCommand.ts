@@ -61,6 +61,14 @@ export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssig
  * import { SSOAdminClient, CreateAccountAssignmentCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, CreateAccountAssignmentCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = {
+ *   InstanceArn: "STRING_VALUE", // required
+ *   TargetId: "STRING_VALUE", // required
+ *   TargetType: "AWS_ACCOUNT", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   PrincipalType: "USER" || "GROUP", // required
+ *   PrincipalId: "STRING_VALUE", // required
+ * };
  * const command = new CreateAccountAssignmentCommand(input);
  * const response = await client.send(command);
  * ```

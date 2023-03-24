@@ -42,6 +42,19 @@ export interface ListProfileObjectsCommandOutput extends ListProfileObjectsRespo
  * import { CustomerProfilesClient, ListProfileObjectsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListProfileObjectsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DomainName: "STRING_VALUE", // required
+ *   ObjectTypeName: "STRING_VALUE", // required
+ *   ProfileId: "STRING_VALUE", // required
+ *   ObjectFilter: {
+ *     KeyName: "STRING_VALUE", // required
+ *     Values: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListProfileObjectsCommand(input);
  * const response = await client.send(command);
  * ```

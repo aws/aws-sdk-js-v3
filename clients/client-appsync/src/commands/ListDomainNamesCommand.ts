@@ -42,6 +42,10 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * import { AppSyncClient, ListDomainNamesCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListDomainNamesCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDomainNamesCommand(input);
  * const response = await client.send(command);
  * ```

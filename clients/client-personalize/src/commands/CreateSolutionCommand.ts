@@ -114,6 +114,74 @@ export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __M
  * import { PersonalizeClient, CreateSolutionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateSolutionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   performHPO: true || false,
+ *   performAutoML: true || false,
+ *   recipeArn: "STRING_VALUE",
+ *   datasetGroupArn: "STRING_VALUE", // required
+ *   eventType: "STRING_VALUE",
+ *   solutionConfig: {
+ *     eventValueThreshold: "STRING_VALUE",
+ *     hpoConfig: {
+ *       hpoObjective: {
+ *         type: "STRING_VALUE",
+ *         metricName: "STRING_VALUE",
+ *         metricRegex: "STRING_VALUE",
+ *       },
+ *       hpoResourceConfig: {
+ *         maxNumberOfTrainingJobs: "STRING_VALUE",
+ *         maxParallelTrainingJobs: "STRING_VALUE",
+ *       },
+ *       algorithmHyperParameterRanges: {
+ *         integerHyperParameterRanges: [
+ *           {
+ *             name: "STRING_VALUE",
+ *             minValue: Number("int"),
+ *             maxValue: Number("int"),
+ *           },
+ *         ],
+ *         continuousHyperParameterRanges: [
+ *           {
+ *             name: "STRING_VALUE",
+ *             minValue: Number("double"),
+ *             maxValue: Number("double"),
+ *           },
+ *         ],
+ *         categoricalHyperParameterRanges: [
+ *           {
+ *             name: "STRING_VALUE",
+ *             values: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     algorithmHyperParameters: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     featureTransformationParameters: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     autoMLConfig: {
+ *       metricName: "STRING_VALUE",
+ *       recipeList: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     optimizationObjective: {
+ *       itemAttribute: "STRING_VALUE",
+ *       objectiveSensitivity: "LOW" || "MEDIUM" || "HIGH" || "OFF",
+ *     },
+ *   },
+ *   tags: [
+ *     {
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSolutionCommand(input);
  * const response = await client.send(command);
  * ```

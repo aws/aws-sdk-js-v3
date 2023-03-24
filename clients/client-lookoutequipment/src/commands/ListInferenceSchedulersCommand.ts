@@ -43,6 +43,13 @@ export interface ListInferenceSchedulersCommandOutput extends ListInferenceSched
  * import { LookoutEquipmentClient, ListInferenceSchedulersCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListInferenceSchedulersCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   InferenceSchedulerNameBeginsWith: "STRING_VALUE",
+ *   ModelName: "STRING_VALUE",
+ *   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
+ * };
  * const command = new ListInferenceSchedulersCommand(input);
  * const response = await client.send(command);
  * ```

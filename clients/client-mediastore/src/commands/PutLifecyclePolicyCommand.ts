@@ -43,6 +43,10 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutpu
  * import { MediaStoreClient, PutLifecyclePolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, PutLifecyclePolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = {
+ *   ContainerName: "STRING_VALUE", // required
+ *   LifecyclePolicy: "STRING_VALUE", // required
+ * };
  * const command = new PutLifecyclePolicyCommand(input);
  * const response = await client.send(command);
  * ```

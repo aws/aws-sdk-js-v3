@@ -43,6 +43,74 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * import { IoTClient, CreateJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE", // required
+ *   targets: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   documentSource: "STRING_VALUE",
+ *   document: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   presignedUrlConfig: {
+ *     roleArn: "STRING_VALUE",
+ *     expiresInSec: Number("long"),
+ *   },
+ *   targetSelection: "CONTINUOUS" || "SNAPSHOT",
+ *   jobExecutionsRolloutConfig: {
+ *     maximumPerMinute: Number("int"),
+ *     exponentialRate: {
+ *       baseRatePerMinute: Number("int"), // required
+ *       incrementFactor: Number("double"), // required
+ *       rateIncreaseCriteria: {
+ *         numberOfNotifiedThings: Number("int"),
+ *         numberOfSucceededThings: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   abortConfig: {
+ *     criteriaList: [ // required
+ *       {
+ *         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
+ *         action: "CANCEL", // required
+ *         thresholdPercentage: Number("double"), // required
+ *         minNumberOfExecutedThings: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ *   timeoutConfig: {
+ *     inProgressTimeoutInMinutes: Number("long"),
+ *   },
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   namespaceId: "STRING_VALUE",
+ *   jobTemplateArn: "STRING_VALUE",
+ *   jobExecutionsRetryConfig: {
+ *     criteriaList: [ // required
+ *       {
+ *         failureType: "FAILED" || "TIMED_OUT" || "ALL", // required
+ *         numberOfRetries: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ *   documentParameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   schedulingConfig: {
+ *     startTime: "STRING_VALUE",
+ *     endTime: "STRING_VALUE",
+ *     endBehavior: "STOP_ROLLOUT" || "CANCEL" || "FORCE_CANCEL",
+ *     maintenanceWindows: [
+ *       {
+ *         startTime: "STRING_VALUE", // required
+ *         durationInMinutes: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
  * ```

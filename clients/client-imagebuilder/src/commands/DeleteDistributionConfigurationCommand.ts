@@ -44,6 +44,9 @@ export interface DeleteDistributionConfigurationCommandOutput
  * import { ImagebuilderClient, DeleteDistributionConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, DeleteDistributionConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   distributionConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDistributionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

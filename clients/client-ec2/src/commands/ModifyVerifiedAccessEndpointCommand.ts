@@ -44,6 +44,24 @@ export interface ModifyVerifiedAccessEndpointCommandOutput
  * import { EC2Client, ModifyVerifiedAccessEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVerifiedAccessEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   VerifiedAccessEndpointId: "STRING_VALUE", // required
+ *   VerifiedAccessGroupId: "STRING_VALUE",
+ *   LoadBalancerOptions: {
+ *     SubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Protocol: "http" || "https",
+ *     Port: Number("int"),
+ *   },
+ *   NetworkInterfaceOptions: {
+ *     Protocol: "http" || "https",
+ *     Port: Number("int"),
+ *   },
+ *   Description: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyVerifiedAccessEndpointCommand(input);
  * const response = await client.send(command);
  * ```

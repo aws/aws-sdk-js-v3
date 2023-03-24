@@ -42,6 +42,33 @@ export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsR
  * import { Macie2Client, GetFindingStatisticsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetFindingStatisticsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   findingCriteria: {
+ *     criterion: {
+ *       "<keys>": {
+ *         eq: [
+ *           "STRING_VALUE",
+ *         ],
+ *         eqExactMatch: [
+ *           "STRING_VALUE",
+ *         ],
+ *         gt: Number("long"),
+ *         gte: Number("long"),
+ *         lt: Number("long"),
+ *         lte: Number("long"),
+ *         neq: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   groupBy: "resourcesAffected.s3Bucket.name" || "type" || "classificationDetails.jobId" || "severity.description", // required
+ *   size: Number("int"),
+ *   sortCriteria: {
+ *     attributeName: "groupKey" || "count",
+ *     orderBy: "ASC" || "DESC",
+ *   },
+ * };
  * const command = new GetFindingStatisticsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface GetInstanceSnapshotsCommandOutput extends GetInstanceSnapshotsR
  * import { LightsailClient, GetInstanceSnapshotsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstanceSnapshotsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetInstanceSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```

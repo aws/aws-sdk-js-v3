@@ -52,6 +52,9 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  * import { CloudHSMClient, DescribeHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DescribeHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
+ * const input = {
+ *   HapgArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeHapgCommand(input);
  * const response = await client.send(command);
  * ```

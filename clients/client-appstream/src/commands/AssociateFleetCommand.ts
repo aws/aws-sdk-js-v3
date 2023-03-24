@@ -42,6 +42,10 @@ export interface AssociateFleetCommandOutput extends AssociateFleetResult, __Met
  * import { AppStreamClient, AssociateFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, AssociateFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   FleetName: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE", // required
+ * };
  * const command = new AssociateFleetCommand(input);
  * const response = await client.send(command);
  * ```

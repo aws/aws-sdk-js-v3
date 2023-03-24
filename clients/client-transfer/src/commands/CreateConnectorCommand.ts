@@ -44,6 +44,27 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * import { TransferClient, CreateConnectorCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateConnectorCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   Url: "STRING_VALUE", // required
+ *   As2Config: {
+ *     LocalProfileId: "STRING_VALUE",
+ *     PartnerProfileId: "STRING_VALUE",
+ *     MessageSubject: "STRING_VALUE",
+ *     Compression: "ZLIB" || "DISABLED",
+ *     EncryptionAlgorithm: "AES128_CBC" || "AES192_CBC" || "AES256_CBC" || "NONE",
+ *     SigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE",
+ *     MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
+ *     MdnResponse: "SYNC" || "NONE",
+ *   },
+ *   AccessRole: "STRING_VALUE", // required
+ *   LoggingRole: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateConnectorCommand(input);
  * const response = await client.send(command);
  * ```

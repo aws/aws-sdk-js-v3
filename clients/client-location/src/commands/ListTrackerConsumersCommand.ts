@@ -42,6 +42,11 @@ export interface ListTrackerConsumersCommandOutput extends ListTrackerConsumersR
  * import { LocationClient, ListTrackerConsumersCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListTrackerConsumersCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   TrackerName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTrackerConsumersCommand(input);
  * const response = await client.send(command);
  * ```

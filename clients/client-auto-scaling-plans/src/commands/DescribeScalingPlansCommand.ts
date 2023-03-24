@@ -42,6 +42,27 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  * import { AutoScalingPlansClient, DescribeScalingPlansCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, DescribeScalingPlansCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
  * const client = new AutoScalingPlansClient(config);
+ * const input = {
+ *   ScalingPlanNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ScalingPlanVersion: Number("long"),
+ *   ApplicationSources: [
+ *     {
+ *       CloudFormationStackARN: "STRING_VALUE",
+ *       TagFilters: [
+ *         {
+ *           Key: "STRING_VALUE",
+ *           Values: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeScalingPlansCommand(input);
  * const response = await client.send(command);
  * ```

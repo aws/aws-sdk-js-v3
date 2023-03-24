@@ -59,6 +59,17 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  * import { CloudFrontClient, UpdateKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   KeyGroupConfig: {
+ *     Name: "STRING_VALUE", // required
+ *     Items: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     Comment: "STRING_VALUE",
+ *   },
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new UpdateKeyGroupCommand(input);
  * const response = await client.send(command);
  * ```

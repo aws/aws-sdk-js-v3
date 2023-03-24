@@ -49,6 +49,34 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * import { WorkSpacesClient, CreateWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   Workspaces: [ // required
+ *     {
+ *       DirectoryId: "STRING_VALUE", // required
+ *       UserName: "STRING_VALUE", // required
+ *       BundleId: "STRING_VALUE", // required
+ *       VolumeEncryptionKey: "STRING_VALUE",
+ *       UserVolumeEncryptionEnabled: true || false,
+ *       RootVolumeEncryptionEnabled: true || false,
+ *       WorkspaceProperties: {
+ *         RunningMode: "AUTO_STOP" || "ALWAYS_ON" || "MANUAL",
+ *         RunningModeAutoStopTimeoutInMinutes: Number("int"),
+ *         RootVolumeSizeGib: Number("int"),
+ *         UserVolumeSizeGib: Number("int"),
+ *         ComputeTypeName: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ *         Protocols: [
+ *           "PCOIP" || "WSP",
+ *         ],
+ *       },
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new CreateWorkspacesCommand(input);
  * const response = await client.send(command);
  * ```

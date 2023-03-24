@@ -51,6 +51,19 @@ export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplat
  * import { ProtonClient, CreateServiceTemplateCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateServiceTemplateCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   encryptionKey: "STRING_VALUE",
+ *   pipelineProvisioning: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateServiceTemplateCommand(input);
  * const response = await client.send(command);
  * ```

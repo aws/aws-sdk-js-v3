@@ -45,6 +45,18 @@ export interface ListHubContentsCommandOutput extends ListHubContentsResponse, _
  * import { SageMakerClient, ListHubContentsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListHubContentsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   HubName: "STRING_VALUE", // required
+ *   HubContentType: "Model" || "Notebook", // required
+ *   NameContains: "STRING_VALUE",
+ *   MaxSchemaVersion: "STRING_VALUE",
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   SortBy: "HubContentName" || "CreationTime" || "HubContentStatus",
+ *   SortOrder: "Ascending" || "Descending",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListHubContentsCommand(input);
  * const response = await client.send(command);
  * ```

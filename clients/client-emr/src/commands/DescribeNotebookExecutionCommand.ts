@@ -42,6 +42,9 @@ export interface DescribeNotebookExecutionCommandOutput extends DescribeNotebook
  * import { EMRClient, DescribeNotebookExecutionCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DescribeNotebookExecutionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   NotebookExecutionId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeNotebookExecutionCommand(input);
  * const response = await client.send(command);
  * ```

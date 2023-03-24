@@ -46,6 +46,13 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  * import { AppConfigClient, CreateApplicationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateApplicationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * ```

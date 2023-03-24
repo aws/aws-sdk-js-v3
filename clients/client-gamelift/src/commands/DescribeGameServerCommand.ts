@@ -56,6 +56,10 @@ export interface DescribeGameServerCommandOutput extends DescribeGameServerOutpu
  * import { GameLiftClient, DescribeGameServerCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeGameServerCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   GameServerGroupName: "STRING_VALUE", // required
+ *   GameServerId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGameServerCommand(input);
  * const response = await client.send(command);
  * ```

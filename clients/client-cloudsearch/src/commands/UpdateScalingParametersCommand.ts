@@ -42,6 +42,14 @@ export interface UpdateScalingParametersCommandOutput extends UpdateScalingParam
  * import { CloudSearchClient, UpdateScalingParametersCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, UpdateScalingParametersCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   ScalingParameters: {
+ *     DesiredInstanceType: "STRING_VALUE",
+ *     DesiredReplicationCount: Number("int"),
+ *     DesiredPartitionCount: Number("int"),
+ *   },
+ * };
  * const command = new UpdateScalingParametersCommand(input);
  * const response = await client.send(command);
  * ```

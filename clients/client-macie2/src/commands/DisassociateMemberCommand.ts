@@ -42,6 +42,9 @@ export interface DisassociateMemberCommandOutput extends DisassociateMemberRespo
  * import { Macie2Client, DisassociateMemberCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DisassociateMemberCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateMemberCommand(input);
  * const response = await client.send(command);
  * ```

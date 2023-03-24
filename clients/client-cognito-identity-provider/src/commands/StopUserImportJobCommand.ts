@@ -47,6 +47,10 @@ export interface StopUserImportJobCommandOutput extends StopUserImportJobRespons
  * import { CognitoIdentityProviderClient, StopUserImportJobCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, StopUserImportJobCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new StopUserImportJobCommand(input);
  * const response = await client.send(command);
  * ```

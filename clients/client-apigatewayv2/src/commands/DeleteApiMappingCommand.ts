@@ -42,6 +42,10 @@ export interface DeleteApiMappingCommandOutput extends __MetadataBearer {}
  * import { ApiGatewayV2Client, DeleteApiMappingCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, DeleteApiMappingCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   ApiMappingId: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApiMappingCommand(input);
  * const response = await client.send(command);
  * ```

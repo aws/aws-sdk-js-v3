@@ -52,6 +52,27 @@ export interface UpdateApplicationComponentConfigCommandOutput
  * import { MigrationHubStrategyClient, UpdateApplicationComponentConfigCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, UpdateApplicationComponentConfigCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {
+ *   applicationComponentId: "STRING_VALUE", // required
+ *   inclusionStatus: "STRING_VALUE",
+ *   strategyOption: {
+ *     strategy: "STRING_VALUE",
+ *     toolName: "STRING_VALUE",
+ *     targetDestination: "STRING_VALUE",
+ *     isPreferred: true || false,
+ *   },
+ *   sourceCodeList: [
+ *     {
+ *       versionControl: "STRING_VALUE",
+ *       sourceVersion: "STRING_VALUE",
+ *       location: "STRING_VALUE",
+ *       projectName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   secretsManagerKey: "STRING_VALUE",
+ *   configureOnly: true || false,
+ *   appType: "STRING_VALUE",
+ * };
  * const command = new UpdateApplicationComponentConfigCommand(input);
  * const response = await client.send(command);
  * ```

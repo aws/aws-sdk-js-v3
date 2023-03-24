@@ -65,6 +65,49 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  * import { FSxClient, CreateFileCacheCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateFileCacheCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   ClientRequestToken: "STRING_VALUE",
+ *   FileCacheType: "LUSTRE", // required
+ *   FileCacheTypeVersion: "STRING_VALUE", // required
+ *   StorageCapacity: Number("int"), // required
+ *   SubnetIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   CopyTagsToDataRepositoryAssociations: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   LustreConfiguration: {
+ *     PerUnitStorageThroughput: Number("int"), // required
+ *     DeploymentType: "CACHE_1", // required
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *     MetadataConfiguration: {
+ *       StorageCapacity: Number("int"), // required
+ *     },
+ *   },
+ *   DataRepositoryAssociations: [
+ *     {
+ *       FileCachePath: "STRING_VALUE", // required
+ *       DataRepositoryPath: "STRING_VALUE", // required
+ *       DataRepositorySubdirectories: [
+ *         "STRING_VALUE",
+ *       ],
+ *       NFS: {
+ *         Version: "NFS3", // required
+ *         DnsIps: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new CreateFileCacheCommand(input);
  * const response = await client.send(command);
  * ```

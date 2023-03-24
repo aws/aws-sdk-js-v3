@@ -45,6 +45,11 @@ export interface GetSourceRepositoryCloneUrlsCommandOutput
  * import { CodeCatalystClient, GetSourceRepositoryCloneUrlsCommand } from "@aws-sdk/client-codecatalyst"; // ES Modules import
  * // const { CodeCatalystClient, GetSourceRepositoryCloneUrlsCommand } = require("@aws-sdk/client-codecatalyst"); // CommonJS import
  * const client = new CodeCatalystClient(config);
+ * const input = {
+ *   spaceName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ *   sourceRepositoryName: "STRING_VALUE", // required
+ * };
  * const command = new GetSourceRepositoryCloneUrlsCommand(input);
  * const response = await client.send(command);
  * ```

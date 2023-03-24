@@ -42,6 +42,16 @@ export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __Metadat
  * import { LakeFormationClient, UpdateLFTagCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, UpdateLFTagCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   TagKey: "STRING_VALUE", // required
+ *   TagValuesToDelete: [
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValuesToAdd: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateLFTagCommand(input);
  * const response = await client.send(command);
  * ```

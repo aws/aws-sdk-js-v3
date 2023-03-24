@@ -52,6 +52,9 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * import { RDSClient, RebootDBClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RebootDBClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new RebootDBClusterCommand(input);
  * const response = await client.send(command);
  * ```

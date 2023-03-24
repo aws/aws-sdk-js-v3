@@ -42,6 +42,13 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * import { EMRServerlessClient, ListApplicationsCommand } from "@aws-sdk/client-emr-serverless"; // ES Modules import
  * // const { EMRServerlessClient, ListApplicationsCommand } = require("@aws-sdk/client-emr-serverless"); // CommonJS import
  * const client = new EMRServerlessClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   states: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -70,6 +70,13 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * import { S3Client, GetObjectTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetObjectTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ * };
  * const command = new GetObjectTaggingCommand(input);
  * const response = await client.send(command);
  * ```

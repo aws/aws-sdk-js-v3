@@ -42,6 +42,9 @@ export interface GetClientCertificateCommandOutput extends ClientCertificate, __
  * import { APIGatewayClient, GetClientCertificateCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetClientCertificateCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   clientCertificateId: "STRING_VALUE", // required
+ * };
  * const command = new GetClientCertificateCommand(input);
  * const response = await client.send(command);
  * ```

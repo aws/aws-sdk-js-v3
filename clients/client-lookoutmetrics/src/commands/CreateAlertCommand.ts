@@ -42,6 +42,39 @@ export interface CreateAlertCommandOutput extends CreateAlertResponse, __Metadat
  * import { LookoutMetricsClient, CreateAlertCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, CreateAlertCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = {
+ *   AlertName: "STRING_VALUE", // required
+ *   AlertSensitivityThreshold: Number("int"),
+ *   AlertDescription: "STRING_VALUE",
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   Action: {
+ *     SNSConfiguration: {
+ *       RoleArn: "STRING_VALUE", // required
+ *       SnsTopicArn: "STRING_VALUE", // required
+ *       SnsFormat: "STRING_VALUE",
+ *     },
+ *     LambdaConfiguration: {
+ *       RoleArn: "STRING_VALUE", // required
+ *       LambdaArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   AlertFilters: {
+ *     MetricList: [
+ *       "STRING_VALUE",
+ *     ],
+ *     DimensionFilterList: [
+ *       {
+ *         DimensionName: "STRING_VALUE",
+ *         DimensionValueList: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateAlertCommand(input);
  * const response = await client.send(command);
  * ```

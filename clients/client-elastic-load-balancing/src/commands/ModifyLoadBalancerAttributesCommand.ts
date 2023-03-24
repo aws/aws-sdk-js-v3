@@ -74,6 +74,33 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * import { ElasticLoadBalancingClient, ModifyLoadBalancerAttributesCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, ModifyLoadBalancerAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = {
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerAttributes: {
+ *     CrossZoneLoadBalancing: {
+ *       Enabled: true || false, // required
+ *     },
+ *     AccessLog: {
+ *       Enabled: true || false, // required
+ *       S3BucketName: "STRING_VALUE",
+ *       EmitInterval: Number("int"),
+ *       S3BucketPrefix: "STRING_VALUE",
+ *     },
+ *     ConnectionDraining: {
+ *       Enabled: true || false, // required
+ *       Timeout: Number("int"),
+ *     },
+ *     ConnectionSettings: {
+ *       IdleTimeout: Number("int"), // required
+ *     },
+ *     AdditionalAttributes: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new ModifyLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
  * ```

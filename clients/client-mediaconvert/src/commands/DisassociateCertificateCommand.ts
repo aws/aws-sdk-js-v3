@@ -42,6 +42,9 @@ export interface DisassociateCertificateCommandOutput extends DisassociateCertif
  * import { MediaConvertClient, DisassociateCertificateCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, DisassociateCertificateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = {
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateCertificateCommand(input);
  * const response = await client.send(command);
  * ```

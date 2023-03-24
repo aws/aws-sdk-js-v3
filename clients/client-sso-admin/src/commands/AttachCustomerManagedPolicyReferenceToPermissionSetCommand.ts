@@ -48,6 +48,14 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
  * import { SSOAdminClient, AttachCustomerManagedPolicyReferenceToPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, AttachCustomerManagedPolicyReferenceToPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
+ * const input = {
+ *   InstanceArn: "STRING_VALUE", // required
+ *   PermissionSetArn: "STRING_VALUE", // required
+ *   CustomerManagedPolicyReference: {
+ *     Name: "STRING_VALUE", // required
+ *     Path: "STRING_VALUE",
+ *   },
+ * };
  * const command = new AttachCustomerManagedPolicyReferenceToPermissionSetCommand(input);
  * const response = await client.send(command);
  * ```

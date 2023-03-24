@@ -42,6 +42,9 @@ export interface GetManagedScalingPolicyCommandOutput extends GetManagedScalingP
  * import { EMRClient, GetManagedScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, GetManagedScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   ClusterId: "STRING_VALUE", // required
+ * };
  * const command = new GetManagedScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```

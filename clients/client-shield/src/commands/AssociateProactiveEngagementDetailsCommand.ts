@@ -52,6 +52,15 @@ export interface AssociateProactiveEngagementDetailsCommandOutput
  * import { ShieldClient, AssociateProactiveEngagementDetailsCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, AssociateProactiveEngagementDetailsCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {
+ *   EmergencyContactList: [ // required
+ *     {
+ *       EmailAddress: "STRING_VALUE", // required
+ *       PhoneNumber: "STRING_VALUE",
+ *       ContactNotes: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AssociateProactiveEngagementDetailsCommand(input);
  * const response = await client.send(command);
  * ```

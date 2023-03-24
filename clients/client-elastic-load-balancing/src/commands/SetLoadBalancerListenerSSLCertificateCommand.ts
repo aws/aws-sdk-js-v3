@@ -55,6 +55,11 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  * import { ElasticLoadBalancingClient, SetLoadBalancerListenerSSLCertificateCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, SetLoadBalancerListenerSSLCertificateCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = {
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   LoadBalancerPort: Number("int"), // required
+ *   SSLCertificateId: "STRING_VALUE", // required
+ * };
  * const command = new SetLoadBalancerListenerSSLCertificateCommand(input);
  * const response = await client.send(command);
  * ```

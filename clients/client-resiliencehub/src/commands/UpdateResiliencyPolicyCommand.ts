@@ -46,6 +46,19 @@ export interface UpdateResiliencyPolicyCommandOutput extends UpdateResiliencyPol
  * import { ResiliencehubClient, UpdateResiliencyPolicyCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, UpdateResiliencyPolicyCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   policyArn: "STRING_VALUE", // required
+ *   policyName: "STRING_VALUE",
+ *   policyDescription: "STRING_VALUE",
+ *   dataLocationConstraint: "STRING_VALUE",
+ *   tier: "STRING_VALUE",
+ *   policy: {
+ *     "<keys>": {
+ *       rtoInSecs: Number("int"), // required
+ *       rpoInSecs: Number("int"), // required
+ *     },
+ *   },
+ * };
  * const command = new UpdateResiliencyPolicyCommand(input);
  * const response = await client.send(command);
  * ```

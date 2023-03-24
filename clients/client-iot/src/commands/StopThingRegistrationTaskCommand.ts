@@ -43,6 +43,9 @@ export interface StopThingRegistrationTaskCommandOutput extends StopThingRegistr
  * import { IoTClient, StopThingRegistrationTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, StopThingRegistrationTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new StopThingRegistrationTaskCommand(input);
  * const response = await client.send(command);
  * ```

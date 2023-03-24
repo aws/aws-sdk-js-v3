@@ -48,6 +48,7 @@ export interface DescribeReportCreationCommandOutput extends DescribeReportCreat
  * import { ResourceGroupsTaggingAPIClient, DescribeReportCreationCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, DescribeReportCreationCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const input = {};
  * const command = new DescribeReportCreationCommand(input);
  * const response = await client.send(command);
  * ```

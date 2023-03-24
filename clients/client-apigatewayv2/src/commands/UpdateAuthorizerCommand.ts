@@ -42,6 +42,27 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  * import { ApiGatewayV2Client, UpdateAuthorizerCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, UpdateAuthorizerCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   ApiId: "STRING_VALUE", // required
+ *   AuthorizerCredentialsArn: "STRING_VALUE",
+ *   AuthorizerId: "STRING_VALUE", // required
+ *   AuthorizerPayloadFormatVersion: "STRING_VALUE",
+ *   AuthorizerResultTtlInSeconds: Number("int"),
+ *   AuthorizerType: "STRING_VALUE",
+ *   AuthorizerUri: "STRING_VALUE",
+ *   EnableSimpleResponses: true || false,
+ *   IdentitySource: [
+ *     "STRING_VALUE",
+ *   ],
+ *   IdentityValidationExpression: "STRING_VALUE",
+ *   JwtConfiguration: {
+ *     Audience: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Issuer: "STRING_VALUE",
+ *   },
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```

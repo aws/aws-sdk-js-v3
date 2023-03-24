@@ -47,6 +47,10 @@ export interface GetNetworkInsightsAccessScopeContentCommandOutput
  * import { EC2Client, GetNetworkInsightsAccessScopeContentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetNetworkInsightsAccessScopeContentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   NetworkInsightsAccessScopeId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new GetNetworkInsightsAccessScopeContentCommand(input);
  * const response = await client.send(command);
  * ```

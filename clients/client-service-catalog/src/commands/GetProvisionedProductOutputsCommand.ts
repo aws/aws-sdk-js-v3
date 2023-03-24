@@ -44,6 +44,16 @@ export interface GetProvisionedProductOutputsCommandOutput
  * import { ServiceCatalogClient, GetProvisionedProductOutputsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, GetProvisionedProductOutputsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProvisionedProductId: "STRING_VALUE",
+ *   ProvisionedProductName: "STRING_VALUE",
+ *   OutputKeys: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PageSize: Number("int"),
+ *   PageToken: "STRING_VALUE",
+ * };
  * const command = new GetProvisionedProductOutputsCommand(input);
  * const response = await client.send(command);
  * ```

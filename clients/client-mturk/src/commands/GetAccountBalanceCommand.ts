@@ -44,6 +44,7 @@ export interface GetAccountBalanceCommandOutput extends GetAccountBalanceRespons
  * import { MTurkClient, GetAccountBalanceCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, GetAccountBalanceCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {};
  * const command = new GetAccountBalanceCommand(input);
  * const response = await client.send(command);
  * ```

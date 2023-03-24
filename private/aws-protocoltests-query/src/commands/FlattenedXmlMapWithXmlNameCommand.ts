@@ -41,6 +41,7 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput extends FlattenedXmlMap
  * import { QueryProtocolClient, FlattenedXmlMapWithXmlNameCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, FlattenedXmlMapWithXmlNameCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {};
  * const command = new FlattenedXmlMapWithXmlNameCommand(input);
  * const response = await client.send(command);
  * ```

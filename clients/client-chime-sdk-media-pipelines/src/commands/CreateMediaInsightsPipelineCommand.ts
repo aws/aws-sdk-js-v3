@@ -53,6 +53,56 @@ export interface CreateMediaInsightsPipelineCommandOutput
  * import { ChimeSDKMediaPipelinesClient, CreateMediaInsightsPipelineCommand } from "@aws-sdk/client-chime-sdk-media-pipelines"; // ES Modules import
  * // const { ChimeSDKMediaPipelinesClient, CreateMediaInsightsPipelineCommand } = require("@aws-sdk/client-chime-sdk-media-pipelines"); // CommonJS import
  * const client = new ChimeSDKMediaPipelinesClient(config);
+ * const input = {
+ *   MediaInsightsPipelineConfigurationArn: "STRING_VALUE", // required
+ *   KinesisVideoStreamSourceRuntimeConfiguration: {
+ *     Streams: [ // required
+ *       {
+ *         StreamArn: "STRING_VALUE", // required
+ *         FragmentNumber: "STRING_VALUE",
+ *         StreamChannelDefinition: {
+ *           NumberOfChannels: Number("int"), // required
+ *           ChannelDefinitions: [
+ *             {
+ *               ChannelId: Number("int"), // required
+ *               ParticipantRole: "AGENT" || "CUSTOMER",
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     MediaEncoding: "pcm", // required
+ *     MediaSampleRate: Number("int"), // required
+ *   },
+ *   MediaInsightsRuntimeMetadata: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KinesisVideoStreamRecordingSourceRuntimeConfiguration: {
+ *     Streams: [ // required
+ *       {
+ *         StreamArn: "STRING_VALUE",
+ *       },
+ *     ],
+ *     FragmentSelector: {
+ *       FragmentSelectorType: "ProducerTimestamp" || "ServerTimestamp", // required
+ *       TimestampRange: {
+ *         StartTimestamp: new Date("TIMESTAMP"), // required
+ *         EndTimestamp: new Date("TIMESTAMP"), // required
+ *       },
+ *     },
+ *   },
+ *   S3RecordingSinkRuntimeConfiguration: {
+ *     Destination: "STRING_VALUE", // required
+ *     RecordingFileFormat: "Wav" || "Opus", // required
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new CreateMediaInsightsPipelineCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,15 @@ export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGrou
  * import { ShieldClient, UpdateProtectionGroupCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, UpdateProtectionGroupCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {
+ *   ProtectionGroupId: "STRING_VALUE", // required
+ *   Aggregation: "STRING_VALUE", // required
+ *   Pattern: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE",
+ *   Members: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateProtectionGroupCommand(input);
  * const response = await client.send(command);
  * ```

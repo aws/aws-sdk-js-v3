@@ -47,6 +47,30 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  * import { AmplifyClient, CreateBranchCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, CreateBranchCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ *   branchName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   stage: "PRODUCTION" || "BETA" || "DEVELOPMENT" || "EXPERIMENTAL" || "PULL_REQUEST",
+ *   framework: "STRING_VALUE",
+ *   enableNotification: true || false,
+ *   enableAutoBuild: true || false,
+ *   environmentVariables: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   basicAuthCredentials: "STRING_VALUE",
+ *   enableBasicAuth: true || false,
+ *   enablePerformanceMode: true || false,
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   buildSpec: "STRING_VALUE",
+ *   ttl: "STRING_VALUE",
+ *   displayName: "STRING_VALUE",
+ *   enablePullRequestPreview: true || false,
+ *   pullRequestEnvironmentName: "STRING_VALUE",
+ *   backendEnvironmentArn: "STRING_VALUE",
+ * };
  * const command = new CreateBranchCommand(input);
  * const response = await client.send(command);
  * ```

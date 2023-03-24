@@ -46,6 +46,14 @@ export interface CreateControlPanelCommandOutput extends CreateControlPanelRespo
  * import { Route53RecoveryControlConfigClient, CreateControlPanelCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, CreateControlPanelCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE",
+ *   ClusterArn: "STRING_VALUE", // required
+ *   ControlPanelName: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateControlPanelCommand(input);
  * const response = await client.send(command);
  * ```

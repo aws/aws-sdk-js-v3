@@ -44,6 +44,12 @@ export interface DescribeDataSharesForProducerCommandOutput
  * import { RedshiftClient, DescribeDataSharesForProducerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeDataSharesForProducerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ProducerArn: "STRING_VALUE",
+ *   Status: "ACTIVE" || "AUTHORIZED" || "PENDING_AUTHORIZATION" || "DEAUTHORIZED" || "REJECTED",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeDataSharesForProducerCommand(input);
  * const response = await client.send(command);
  * ```

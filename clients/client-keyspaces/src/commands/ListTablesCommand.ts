@@ -42,6 +42,11 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * import { KeyspacesClient, ListTablesCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
  * // const { KeyspacesClient, ListTablesCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   keyspaceName: "STRING_VALUE", // required
+ * };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
  * ```

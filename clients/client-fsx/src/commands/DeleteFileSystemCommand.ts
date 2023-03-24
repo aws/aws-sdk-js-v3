@@ -64,6 +64,40 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  * import { FSxClient, DeleteFileSystemCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DeleteFileSystemCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   FileSystemId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   WindowsConfiguration: {
+ *     SkipFinalBackup: true || false,
+ *     FinalBackupTags: [
+ *       {
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   LustreConfiguration: {
+ *     SkipFinalBackup: true || false,
+ *     FinalBackupTags: [
+ *       {
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   OpenZFSConfiguration: {
+ *     SkipFinalBackup: true || false,
+ *     FinalBackupTags: [
+ *       {
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     Options: [
+ *       "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
+ *     ],
+ *   },
+ * };
  * const command = new DeleteFileSystemCommand(input);
  * const response = await client.send(command);
  * ```

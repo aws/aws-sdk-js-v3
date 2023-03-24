@@ -42,6 +42,9 @@ export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, _
  * import { IoTSiteWiseClient, DescribeGatewayCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeGatewayCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   gatewayId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeGatewayCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __M
  * import { IvsClient, ListStreamKeysCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, ListStreamKeysCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = {
+ *   channelArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListStreamKeysCommand(input);
  * const response = await client.send(command);
  * ```

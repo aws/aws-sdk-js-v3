@@ -42,6 +42,10 @@ export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __M
  * import { DataBrewClient, DescribeJobRunCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeJobRunCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   RunId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJobRunCommand(input);
  * const response = await client.send(command);
  * ```

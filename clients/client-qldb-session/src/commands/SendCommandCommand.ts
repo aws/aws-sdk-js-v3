@@ -62,6 +62,33 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * import { QLDBSessionClient, SendCommandCommand } from "@aws-sdk/client-qldb-session"; // ES Modules import
  * // const { QLDBSessionClient, SendCommandCommand } = require("@aws-sdk/client-qldb-session"); // CommonJS import
  * const client = new QLDBSessionClient(config);
+ * const input = {
+ *   SessionToken: "STRING_VALUE",
+ *   StartSession: {
+ *     LedgerName: "STRING_VALUE", // required
+ *   },
+ *   StartTransaction: {},
+ *   EndSession: {},
+ *   CommitTransaction: {
+ *     TransactionId: "STRING_VALUE", // required
+ *     CommitDigest: "BLOB_VALUE", // required
+ *   },
+ *   AbortTransaction: {},
+ *   ExecuteStatement: {
+ *     TransactionId: "STRING_VALUE", // required
+ *     Statement: "STRING_VALUE", // required
+ *     Parameters: [
+ *       {
+ *         IonBinary: "BLOB_VALUE",
+ *         IonText: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   FetchPage: {
+ *     TransactionId: "STRING_VALUE", // required
+ *     NextPageToken: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new SendCommandCommand(input);
  * const response = await client.send(command);
  * ```

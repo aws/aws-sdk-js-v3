@@ -43,6 +43,12 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * import { IoTClient, CancelJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CancelJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE", // required
+ *   reasonCode: "STRING_VALUE",
+ *   comment: "STRING_VALUE",
+ *   force: true || false,
+ * };
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);
  * ```

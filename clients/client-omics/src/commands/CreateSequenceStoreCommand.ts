@@ -42,6 +42,18 @@ export interface CreateSequenceStoreCommandOutput extends CreateSequenceStoreRes
  * import { OmicsClient, CreateSequenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, CreateSequenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   sseConfig: {
+ *     type: "STRING_VALUE", // required
+ *     keyArn: "STRING_VALUE",
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateSequenceStoreCommand(input);
  * const response = await client.send(command);
  * ```

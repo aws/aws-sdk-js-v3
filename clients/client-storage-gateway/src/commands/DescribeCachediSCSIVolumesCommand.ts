@@ -47,6 +47,11 @@ export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachedi
  * import { StorageGatewayClient, DescribeCachediSCSIVolumesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeCachediSCSIVolumesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   VolumeARNs: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeCachediSCSIVolumesCommand(input);
  * const response = await client.send(command);
  * ```

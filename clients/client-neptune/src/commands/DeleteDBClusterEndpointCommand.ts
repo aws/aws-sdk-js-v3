@@ -42,6 +42,9 @@ export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEnd
  * import { NeptuneClient, DeleteDBClusterEndpointCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBClusterEndpointCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
+ * const input = {
+ *   DBClusterEndpointIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDBClusterEndpointCommand(input);
  * const response = await client.send(command);
  * ```

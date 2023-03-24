@@ -49,6 +49,12 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
  * import { ChimeClient, DisassociatePhoneNumbersFromVoiceConnectorGroupCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DisassociatePhoneNumbersFromVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   VoiceConnectorGroupId: "STRING_VALUE", // required
+ *   E164PhoneNumbers: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
  * ```

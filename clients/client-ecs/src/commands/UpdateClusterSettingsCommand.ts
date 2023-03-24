@@ -42,6 +42,15 @@ export interface UpdateClusterSettingsCommandOutput extends UpdateClusterSetting
  * import { ECSClient, UpdateClusterSettingsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateClusterSettingsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE", // required
+ *   settings: [ // required
+ *     {
+ *       name: "containerInsights",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateClusterSettingsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -51,6 +51,48 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * import { GrafanaClient, CreateWorkspaceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, CreateWorkspaceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = {
+ *   accountAccessType: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   organizationRoleName: "STRING_VALUE",
+ *   permissionType: "STRING_VALUE", // required
+ *   stackSetName: "STRING_VALUE",
+ *   workspaceDataSources: [
+ *     "STRING_VALUE",
+ *   ],
+ *   workspaceDescription: "STRING_VALUE",
+ *   workspaceName: "STRING_VALUE",
+ *   workspaceNotificationDestinations: [
+ *     "STRING_VALUE",
+ *   ],
+ *   workspaceOrganizationalUnits: [
+ *     "STRING_VALUE",
+ *   ],
+ *   workspaceRoleArn: "STRING_VALUE",
+ *   authenticationProviders: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   vpcConfiguration: {
+ *     securityGroupIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   configuration: "STRING_VALUE",
+ *   networkAccessControl: {
+ *     prefixListIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     vpceIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new CreateWorkspaceCommand(input);
  * const response = await client.send(command);
  * ```

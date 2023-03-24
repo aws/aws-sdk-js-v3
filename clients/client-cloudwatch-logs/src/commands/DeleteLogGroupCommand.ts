@@ -43,6 +43,9 @@ export interface DeleteLogGroupCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, DeleteLogGroupCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteLogGroupCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   logGroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLogGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface ListAccountPermissionsCommandOutput extends ListAccountPermissi
  * import { Inspector2Client, ListAccountPermissionsCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, ListAccountPermissionsCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = {
+ *   service: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListAccountPermissionsCommand(input);
  * const response = await client.send(command);
  * ```

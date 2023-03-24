@@ -47,6 +47,15 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * import { SFNClient, TagResourceCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, TagResourceCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: [ // required
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

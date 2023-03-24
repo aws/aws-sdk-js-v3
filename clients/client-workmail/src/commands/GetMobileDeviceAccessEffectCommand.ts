@@ -45,6 +45,13 @@ export interface GetMobileDeviceAccessEffectCommandOutput
  * import { WorkMailClient, GetMobileDeviceAccessEffectCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, GetMobileDeviceAccessEffectCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ *   DeviceType: "STRING_VALUE",
+ *   DeviceModel: "STRING_VALUE",
+ *   DeviceOperatingSystem: "STRING_VALUE",
+ *   DeviceUserAgent: "STRING_VALUE",
+ * };
  * const command = new GetMobileDeviceAccessEffectCommand(input);
  * const response = await client.send(command);
  * ```

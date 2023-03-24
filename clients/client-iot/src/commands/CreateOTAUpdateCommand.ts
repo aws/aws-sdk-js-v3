@@ -43,6 +43,103 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  * import { IoTClient, CreateOTAUpdateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateOTAUpdateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   otaUpdateId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   targets: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   protocols: [
+ *     "MQTT" || "HTTP",
+ *   ],
+ *   targetSelection: "CONTINUOUS" || "SNAPSHOT",
+ *   awsJobExecutionsRolloutConfig: {
+ *     maximumPerMinute: Number("int"),
+ *     exponentialRate: {
+ *       baseRatePerMinute: Number("int"), // required
+ *       incrementFactor: Number("double"), // required
+ *       rateIncreaseCriteria: {
+ *         numberOfNotifiedThings: Number("int"),
+ *         numberOfSucceededThings: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   awsJobPresignedUrlConfig: {
+ *     expiresInSec: Number("long"),
+ *   },
+ *   awsJobAbortConfig: {
+ *     abortCriteriaList: [ // required
+ *       {
+ *         failureType: "FAILED" || "REJECTED" || "TIMED_OUT" || "ALL", // required
+ *         action: "CANCEL", // required
+ *         thresholdPercentage: Number("double"), // required
+ *         minNumberOfExecutedThings: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ *   awsJobTimeoutConfig: {
+ *     inProgressTimeoutInMinutes: Number("long"),
+ *   },
+ *   files: [ // required
+ *     {
+ *       fileName: "STRING_VALUE",
+ *       fileType: Number("int"),
+ *       fileVersion: "STRING_VALUE",
+ *       fileLocation: {
+ *         stream: {
+ *           streamId: "STRING_VALUE",
+ *           fileId: Number("int"),
+ *         },
+ *         s3Location: {
+ *           bucket: "STRING_VALUE",
+ *           key: "STRING_VALUE",
+ *           version: "STRING_VALUE",
+ *         },
+ *       },
+ *       codeSigning: {
+ *         awsSignerJobId: "STRING_VALUE",
+ *         startSigningJobParameter: {
+ *           signingProfileParameter: {
+ *             certificateArn: "STRING_VALUE",
+ *             platform: "STRING_VALUE",
+ *             certificatePathOnDevice: "STRING_VALUE",
+ *           },
+ *           signingProfileName: "STRING_VALUE",
+ *           destination: {
+ *             s3Destination: {
+ *               bucket: "STRING_VALUE",
+ *               prefix: "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *         customCodeSigning: {
+ *           signature: {
+ *             inlineDocument: "BLOB_VALUE",
+ *           },
+ *           certificateChain: {
+ *             certificateName: "STRING_VALUE",
+ *             inlineDocument: "STRING_VALUE",
+ *           },
+ *           hashAlgorithm: "STRING_VALUE",
+ *           signatureAlgorithm: "STRING_VALUE",
+ *         },
+ *       },
+ *       attributes: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   roleArn: "STRING_VALUE", // required
+ *   additionalParameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateOTAUpdateCommand(input);
  * const response = await client.send(command);
  * ```

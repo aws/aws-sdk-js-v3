@@ -88,6 +88,30 @@ export interface CountClosedWorkflowExecutionsCommandOutput extends WorkflowExec
  * import { SWFClient, CountClosedWorkflowExecutionsCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, CountClosedWorkflowExecutionsCommand } = require("@aws-sdk/client-swf"); // CommonJS import
  * const client = new SWFClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   startTimeFilter: {
+ *     oldestDate: new Date("TIMESTAMP"), // required
+ *     latestDate: new Date("TIMESTAMP"),
+ *   },
+ *   closeTimeFilter: {
+ *     oldestDate: new Date("TIMESTAMP"), // required
+ *     latestDate: new Date("TIMESTAMP"),
+ *   },
+ *   executionFilter: {
+ *     workflowId: "STRING_VALUE", // required
+ *   },
+ *   typeFilter: {
+ *     name: "STRING_VALUE", // required
+ *     version: "STRING_VALUE",
+ *   },
+ *   tagFilter: {
+ *     tag: "STRING_VALUE", // required
+ *   },
+ *   closeStatusFilter: {
+ *     status: "COMPLETED" || "FAILED" || "CANCELED" || "TERMINATED" || "CONTINUED_AS_NEW" || "TIMED_OUT", // required
+ *   },
+ * };
  * const command = new CountClosedWorkflowExecutionsCommand(input);
  * const response = await client.send(command);
  * ```

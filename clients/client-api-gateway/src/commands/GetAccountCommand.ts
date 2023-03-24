@@ -42,6 +42,7 @@ export interface GetAccountCommandOutput extends Account, __MetadataBearer {}
  * import { APIGatewayClient, GetAccountCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetAccountCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {};
  * const command = new GetAccountCommand(input);
  * const response = await client.send(command);
  * ```

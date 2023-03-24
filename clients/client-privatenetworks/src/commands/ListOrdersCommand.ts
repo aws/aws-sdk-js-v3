@@ -46,6 +46,16 @@ export interface ListOrdersCommandOutput extends ListOrdersResponse, __MetadataB
  * import { PrivateNetworksClient, ListOrdersCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ListOrdersCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = {
+ *   networkArn: "STRING_VALUE", // required
+ *   startToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ListOrdersCommand(input);
  * const response = await client.send(command);
  * ```

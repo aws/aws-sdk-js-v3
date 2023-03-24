@@ -42,6 +42,7 @@ export interface DisableProactiveEngagementCommandOutput extends DisableProactiv
  * import { ShieldClient, DisableProactiveEngagementCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DisableProactiveEngagementCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {};
  * const command = new DisableProactiveEngagementCommand(input);
  * const response = await client.send(command);
  * ```

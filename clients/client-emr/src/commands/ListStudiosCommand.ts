@@ -43,6 +43,9 @@ export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataB
  * import { EMRClient, ListStudiosCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListStudiosCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new ListStudiosCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,11 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  * import { ElasticsearchServiceClient, UpgradeElasticsearchDomainCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, UpgradeElasticsearchDomainCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   TargetVersion: "STRING_VALUE", // required
+ *   PerformCheckOnly: true || false,
+ * };
  * const command = new UpgradeElasticsearchDomainCommand(input);
  * const response = await client.send(command);
  * ```

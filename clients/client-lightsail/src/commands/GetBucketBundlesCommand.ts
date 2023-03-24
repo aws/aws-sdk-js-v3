@@ -46,6 +46,9 @@ export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, _
  * import { LightsailClient, GetBucketBundlesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetBucketBundlesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   includeInactive: true || false,
+ * };
  * const command = new GetBucketBundlesCommand(input);
  * const response = await client.send(command);
  * ```

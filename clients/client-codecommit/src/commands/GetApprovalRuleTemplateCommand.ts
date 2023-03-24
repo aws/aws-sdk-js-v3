@@ -42,6 +42,9 @@ export interface GetApprovalRuleTemplateCommandOutput extends GetApprovalRuleTem
  * import { CodeCommitClient, GetApprovalRuleTemplateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetApprovalRuleTemplateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   approvalRuleTemplateName: "STRING_VALUE", // required
+ * };
  * const command = new GetApprovalRuleTemplateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,16 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * import { ConnectCasesClient, GetCaseCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, GetCaseCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = {
+ *   caseId: "STRING_VALUE", // required
+ *   domainId: "STRING_VALUE", // required
+ *   fields: [ // required
+ *     {
+ *       id: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new GetCaseCommand(input);
  * const response = await client.send(command);
  * ```

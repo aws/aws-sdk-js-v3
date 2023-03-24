@@ -48,6 +48,12 @@ export interface UpdatePullRequestApprovalRuleContentCommandOutput
  * import { CodeCommitClient, UpdatePullRequestApprovalRuleContentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdatePullRequestApprovalRuleContentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   pullRequestId: "STRING_VALUE", // required
+ *   approvalRuleName: "STRING_VALUE", // required
+ *   existingRuleContentSha256: "STRING_VALUE",
+ *   newRuleContent: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePullRequestApprovalRuleContentCommand(input);
  * const response = await client.send(command);
  * ```

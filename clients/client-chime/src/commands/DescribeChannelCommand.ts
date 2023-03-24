@@ -54,6 +54,10 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * import { ChimeClient, DescribeChannelCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DescribeChannelCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new DescribeChannelCommand(input);
  * const response = await client.send(command);
  * ```

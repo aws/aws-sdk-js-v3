@@ -42,6 +42,9 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * import { MediaStoreClient, DeleteLifecyclePolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DeleteLifecyclePolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
+ * const input = {
+ *   ContainerName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteLifecyclePolicyCommand(input);
  * const response = await client.send(command);
  * ```

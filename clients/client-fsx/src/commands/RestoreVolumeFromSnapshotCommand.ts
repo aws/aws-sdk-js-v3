@@ -43,6 +43,14 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * import { FSxClient, RestoreVolumeFromSnapshotCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, RestoreVolumeFromSnapshotCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   ClientRequestToken: "STRING_VALUE",
+ *   VolumeId: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   Options: [
+ *     "DELETE_INTERMEDIATE_SNAPSHOTS" || "DELETE_CLONED_VOLUMES",
+ *   ],
+ * };
  * const command = new RestoreVolumeFromSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

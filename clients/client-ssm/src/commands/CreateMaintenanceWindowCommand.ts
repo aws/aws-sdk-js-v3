@@ -54,6 +54,25 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  * import { SSMClient, CreateMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   StartDate: "STRING_VALUE",
+ *   EndDate: "STRING_VALUE",
+ *   Schedule: "STRING_VALUE", // required
+ *   ScheduleTimezone: "STRING_VALUE",
+ *   ScheduleOffset: Number("int"),
+ *   Duration: Number("int"), // required
+ *   Cutoff: Number("int"), // required
+ *   AllowUnassociatedTargets: true || false, // required
+ *   ClientToken: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMaintenanceWindowCommand(input);
  * const response = await client.send(command);
  * ```

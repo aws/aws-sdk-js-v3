@@ -46,6 +46,11 @@ export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __M
  * import { MacieClient, ListS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
  * // const { MacieClient, ListS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
+ * const input = {
+ *   memberAccountId: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListS3ResourcesCommand(input);
  * const response = await client.send(command);
  * ```

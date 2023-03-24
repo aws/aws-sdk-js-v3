@@ -47,6 +47,12 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * import { OpenSearchServerlessClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = {
+ *   capacityLimits: {
+ *     maxIndexingCapacityInOCU: Number("int"),
+ *     maxSearchCapacityInOCU: Number("int"),
+ *   },
+ * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -68,6 +68,10 @@ export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBeare
  * import { S3ControlClient, GetBucketCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetBucketCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   Bucket: "STRING_VALUE", // required
+ * };
  * const command = new GetBucketCommand(input);
  * const response = await client.send(command);
  * ```

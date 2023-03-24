@@ -43,6 +43,10 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  * import { ServiceCatalogClient, DeleteConstraintCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeleteConstraintCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConstraintCommand(input);
  * const response = await client.send(command);
  * ```

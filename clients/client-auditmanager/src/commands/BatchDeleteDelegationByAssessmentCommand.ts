@@ -47,6 +47,12 @@ export interface BatchDeleteDelegationByAssessmentCommandOutput
  * import { AuditManagerClient, BatchDeleteDelegationByAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, BatchDeleteDelegationByAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   delegationIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   assessmentId: "STRING_VALUE", // required
+ * };
  * const command = new BatchDeleteDelegationByAssessmentCommand(input);
  * const response = await client.send(command);
  * ```

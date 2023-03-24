@@ -42,6 +42,9 @@ export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBeare
  * import { RedshiftClient, DeleteHsmClientCertificateCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteHsmClientCertificateCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   HsmClientCertificateIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteHsmClientCertificateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,81 @@ export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, _
  * import { EMRClient, AddInstanceFleetCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, AddInstanceFleetCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   ClusterId: "STRING_VALUE", // required
+ *   InstanceFleet: {
+ *     Name: "STRING_VALUE",
+ *     InstanceFleetType: "MASTER" || "CORE" || "TASK", // required
+ *     TargetOnDemandCapacity: Number("int"),
+ *     TargetSpotCapacity: Number("int"),
+ *     InstanceTypeConfigs: [
+ *       {
+ *         InstanceType: "STRING_VALUE", // required
+ *         WeightedCapacity: Number("int"),
+ *         BidPrice: "STRING_VALUE",
+ *         BidPriceAsPercentageOfOnDemandPrice: Number("double"),
+ *         EbsConfiguration: {
+ *           EbsBlockDeviceConfigs: [
+ *             {
+ *               VolumeSpecification: {
+ *                 VolumeType: "STRING_VALUE", // required
+ *                 Iops: Number("int"),
+ *                 SizeInGB: Number("int"), // required
+ *                 Throughput: Number("int"),
+ *               },
+ *               VolumesPerInstance: Number("int"),
+ *             },
+ *           ],
+ *           EbsOptimized: true || false,
+ *         },
+ *         Configurations: [
+ *           {
+ *             Classification: "STRING_VALUE",
+ *             Configurations: [
+ *               {
+ *                 Classification: "STRING_VALUE",
+ *                 Configurations: [
+ *                   "<ConfigurationList>",
+ *                 ],
+ *                 Properties: {
+ *                   "<keys>": "STRING_VALUE",
+ *                 },
+ *               },
+ *             ],
+ *             Properties: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         CustomAmiId: "STRING_VALUE",
+ *       },
+ *     ],
+ *     LaunchSpecifications: {
+ *       SpotSpecification: {
+ *         TimeoutDurationMinutes: Number("int"), // required
+ *         TimeoutAction: "SWITCH_TO_ON_DEMAND" || "TERMINATE_CLUSTER", // required
+ *         BlockDurationMinutes: Number("int"),
+ *         AllocationStrategy: "capacity-optimized",
+ *       },
+ *       OnDemandSpecification: {
+ *         AllocationStrategy: "lowest-price", // required
+ *         CapacityReservationOptions: {
+ *           UsageStrategy: "use-capacity-reservations-first",
+ *           CapacityReservationPreference: "open" || "none",
+ *           CapacityReservationResourceGroupArn: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     ResizeSpecifications: {
+ *       SpotResizeSpecification: {
+ *         TimeoutDurationMinutes: Number("int"), // required
+ *       },
+ *       OnDemandResizeSpecification: {
+ *         TimeoutDurationMinutes: Number("int"), // required
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new AddInstanceFleetCommand(input);
  * const response = await client.send(command);
  * ```

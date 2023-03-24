@@ -43,6 +43,11 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
  * import { SecurityHubClient, UpdateStandardsControlCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateStandardsControlCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   StandardsControlArn: "STRING_VALUE", // required
+ *   ControlStatus: "ENABLED" || "DISABLED",
+ *   DisabledReason: "STRING_VALUE",
+ * };
  * const command = new UpdateStandardsControlCommand(input);
  * const response = await client.send(command);
  * ```

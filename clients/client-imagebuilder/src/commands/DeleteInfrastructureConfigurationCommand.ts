@@ -47,6 +47,9 @@ export interface DeleteInfrastructureConfigurationCommandOutput
  * import { ImagebuilderClient, DeleteInfrastructureConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, DeleteInfrastructureConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   infrastructureConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

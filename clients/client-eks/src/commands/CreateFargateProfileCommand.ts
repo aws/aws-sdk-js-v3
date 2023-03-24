@@ -69,6 +69,26 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  * import { EKSClient, CreateFargateProfileCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateFargateProfileCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   fargateProfileName: "STRING_VALUE", // required
+ *   clusterName: "STRING_VALUE", // required
+ *   podExecutionRoleArn: "STRING_VALUE", // required
+ *   subnets: [
+ *     "STRING_VALUE",
+ *   ],
+ *   selectors: [
+ *     {
+ *       namespace: "STRING_VALUE",
+ *       labels: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   clientRequestToken: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateFargateProfileCommand(input);
  * const response = await client.send(command);
  * ```

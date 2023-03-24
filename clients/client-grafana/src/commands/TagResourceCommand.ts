@@ -47,6 +47,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { GrafanaClient, TagResourceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, TagResourceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

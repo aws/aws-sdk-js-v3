@@ -47,6 +47,9 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  * import { IAMClient, DeleteOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   OpenIDConnectProviderArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
  * ```

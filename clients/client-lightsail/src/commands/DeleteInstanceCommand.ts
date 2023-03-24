@@ -45,6 +45,10 @@ export interface DeleteInstanceCommandOutput extends DeleteInstanceResult, __Met
  * import { LightsailClient, DeleteInstanceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteInstanceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   instanceName: "STRING_VALUE", // required
+ *   forceDeleteAddOns: true || false,
+ * };
  * const command = new DeleteInstanceCommand(input);
  * const response = await client.send(command);
  * ```

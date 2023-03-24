@@ -42,6 +42,17 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { CloudFrontClient, TagResourceCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, TagResourceCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Resource: "STRING_VALUE", // required
+ *   Tags: {
+ *     Items: [
+ *       {
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

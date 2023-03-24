@@ -44,6 +44,10 @@ export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigni
  * import { Route53Client, DeactivateKeySigningKeyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeactivateKeySigningKeyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeactivateKeySigningKeyCommand(input);
  * const response = await client.send(command);
  * ```

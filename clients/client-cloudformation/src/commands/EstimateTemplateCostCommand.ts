@@ -43,6 +43,18 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  * import { CloudFormationClient, EstimateTemplateCostCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, EstimateTemplateCostCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateURL: "STRING_VALUE",
+ *   Parameters: [
+ *     {
+ *       ParameterKey: "STRING_VALUE",
+ *       ParameterValue: "STRING_VALUE",
+ *       UsePreviousValue: true || false,
+ *       ResolvedValue: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new EstimateTemplateCostCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
  * import { EKSClient, DescribeFargateProfileCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeFargateProfileCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
+ * const input = {
+ *   clusterName: "STRING_VALUE", // required
+ *   fargateProfileName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFargateProfileCommand(input);
  * const response = await client.send(command);
  * ```

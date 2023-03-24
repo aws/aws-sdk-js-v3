@@ -42,6 +42,11 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
  * import { QuickSightClient, ListDashboardsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListDashboardsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDashboardsCommand(input);
  * const response = await client.send(command);
  * ```

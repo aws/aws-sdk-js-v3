@@ -43,6 +43,12 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  * import { StorageGatewayClient, AddCacheCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, AddCacheCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   GatewayARN: "STRING_VALUE", // required
+ *   DiskIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AddCacheCommand(input);
  * const response = await client.send(command);
  * ```

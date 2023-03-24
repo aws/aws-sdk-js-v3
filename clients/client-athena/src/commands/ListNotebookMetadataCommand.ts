@@ -42,6 +42,14 @@ export interface ListNotebookMetadataCommandOutput extends ListNotebookMetadataO
  * import { AthenaClient, ListNotebookMetadataCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListNotebookMetadataCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   Filters: {
+ *     Name: "STRING_VALUE",
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   WorkGroup: "STRING_VALUE", // required
+ * };
  * const command = new ListNotebookMetadataCommand(input);
  * const response = await client.send(command);
  * ```

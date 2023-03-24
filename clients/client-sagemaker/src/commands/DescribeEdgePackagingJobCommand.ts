@@ -42,6 +42,9 @@ export interface DescribeEdgePackagingJobCommandOutput extends DescribeEdgePacka
  * import { SageMakerClient, DescribeEdgePackagingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeEdgePackagingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   EdgePackagingJobName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeEdgePackagingJobCommand(input);
  * const response = await client.send(command);
  * ```

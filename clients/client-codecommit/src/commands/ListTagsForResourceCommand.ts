@@ -44,6 +44,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * import { CodeCommitClient, ListTagsForResourceCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, ListTagsForResourceCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

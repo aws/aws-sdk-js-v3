@@ -62,6 +62,11 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, GetSecretValueCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
+ * const input = {
+ *   SecretId: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   VersionStage: "STRING_VALUE",
+ * };
  * const command = new GetSecretValueCommand(input);
  * const response = await client.send(command);
  * ```

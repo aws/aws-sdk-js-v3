@@ -51,6 +51,22 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * import { CloudSearchDomainClient, SearchCommand } from "@aws-sdk/client-cloudsearch-domain"; // ES Modules import
  * // const { CloudSearchDomainClient, SearchCommand } = require("@aws-sdk/client-cloudsearch-domain"); // CommonJS import
  * const client = new CloudSearchDomainClient(config);
+ * const input = {
+ *   cursor: "STRING_VALUE",
+ *   expr: "STRING_VALUE",
+ *   facet: "STRING_VALUE",
+ *   filterQuery: "STRING_VALUE",
+ *   highlight: "STRING_VALUE",
+ *   partial: true || false,
+ *   query: "STRING_VALUE", // required
+ *   queryOptions: "STRING_VALUE",
+ *   queryParser: "STRING_VALUE",
+ *   return: "STRING_VALUE",
+ *   size: Number("long"),
+ *   sort: "STRING_VALUE",
+ *   start: Number("long"),
+ *   stats: "STRING_VALUE",
+ * };
  * const command = new SearchCommand(input);
  * const response = await client.send(command);
  * ```

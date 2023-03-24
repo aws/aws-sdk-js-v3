@@ -50,6 +50,11 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
  * import { WorkLinkClient, AssociateWebsiteCertificateAuthorityCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, AssociateWebsiteCertificateAuthorityCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ *   Certificate: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ * };
  * const command = new AssociateWebsiteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```

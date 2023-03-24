@@ -46,6 +46,10 @@ export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamR
  * import { RDSClient, ModifyActivityStreamCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyActivityStreamCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE",
+ *   AuditPolicyState: "locked" || "unlocked",
+ * };
  * const command = new ModifyActivityStreamCommand(input);
  * const response = await client.send(command);
  * ```

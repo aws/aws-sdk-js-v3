@@ -43,6 +43,10 @@ export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorR
  * import { CostExplorerClient, UpdateAnomalyMonitorCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, UpdateAnomalyMonitorCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = {
+ *   MonitorArn: "STRING_VALUE", // required
+ *   MonitorName: "STRING_VALUE",
+ * };
  * const command = new UpdateAnomalyMonitorCommand(input);
  * const response = await client.send(command);
  * ```

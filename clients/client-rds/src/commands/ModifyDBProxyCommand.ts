@@ -42,6 +42,27 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
  * import { RDSClient, ModifyDBProxyCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBProxyCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBProxyName: "STRING_VALUE", // required
+ *   NewDBProxyName: "STRING_VALUE",
+ *   Auth: [
+ *     {
+ *       Description: "STRING_VALUE",
+ *       UserName: "STRING_VALUE",
+ *       AuthScheme: "SECRETS",
+ *       SecretArn: "STRING_VALUE",
+ *       IAMAuth: "DISABLED" || "REQUIRED" || "ENABLED",
+ *       ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
+ *     },
+ *   ],
+ *   RequireTLS: true || false,
+ *   IdleClientTimeout: Number("int"),
+ *   DebugLogging: true || false,
+ *   RoleArn: "STRING_VALUE",
+ *   SecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyDBProxyCommand(input);
  * const response = await client.send(command);
  * ```

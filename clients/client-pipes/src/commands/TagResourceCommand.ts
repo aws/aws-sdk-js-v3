@@ -52,6 +52,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { PipesClient, TagResourceCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, TagResourceCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
  * const client = new PipesClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

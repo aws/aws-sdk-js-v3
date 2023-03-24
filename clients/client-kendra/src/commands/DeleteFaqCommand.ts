@@ -39,6 +39,10 @@ export interface DeleteFaqCommandOutput extends __MetadataBearer {}
  * import { KendraClient, DeleteFaqCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeleteFaqCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   IndexId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFaqCommand(input);
  * const response = await client.send(command);
  * ```

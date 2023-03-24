@@ -46,6 +46,14 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  * import { ElasticLoadBalancingClient, DescribeInstanceHealthCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DescribeInstanceHealthCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = {
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   Instances: [
+ *     {
+ *       InstanceId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DescribeInstanceHealthCommand(input);
  * const response = await client.send(command);
  * ```

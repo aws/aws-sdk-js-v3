@@ -44,6 +44,15 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * import { DirectoryServiceClient, AddTagsToResourceCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, AddTagsToResourceCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);
  * ```

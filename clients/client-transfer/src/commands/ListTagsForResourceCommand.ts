@@ -43,6 +43,11 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { TransferClient, ListTagsForResourceCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListTagsForResourceCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   Arn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

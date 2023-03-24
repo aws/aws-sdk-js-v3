@@ -44,6 +44,11 @@ export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataR
  * import { WorkLinkClient, UpdateDomainMetadataCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, UpdateDomainMetadataCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ * };
  * const command = new UpdateDomainMetadataCommand(input);
  * const response = await client.send(command);
  * ```

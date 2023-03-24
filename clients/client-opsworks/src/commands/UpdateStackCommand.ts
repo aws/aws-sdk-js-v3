@@ -47,6 +47,41 @@ export interface UpdateStackCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   StackId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Attributes: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ServiceRoleArn: "STRING_VALUE",
+ *   DefaultInstanceProfileArn: "STRING_VALUE",
+ *   DefaultOs: "STRING_VALUE",
+ *   HostnameTheme: "STRING_VALUE",
+ *   DefaultAvailabilityZone: "STRING_VALUE",
+ *   DefaultSubnetId: "STRING_VALUE",
+ *   CustomJson: "STRING_VALUE",
+ *   ConfigurationManager: {
+ *     Name: "STRING_VALUE",
+ *     Version: "STRING_VALUE",
+ *   },
+ *   ChefConfiguration: {
+ *     ManageBerkshelf: true || false,
+ *     BerkshelfVersion: "STRING_VALUE",
+ *   },
+ *   UseCustomCookbooks: true || false,
+ *   CustomCookbooksSource: {
+ *     Type: "STRING_VALUE",
+ *     Url: "STRING_VALUE",
+ *     Username: "STRING_VALUE",
+ *     Password: "STRING_VALUE",
+ *     SshKey: "STRING_VALUE",
+ *     Revision: "STRING_VALUE",
+ *   },
+ *   DefaultSshKeyName: "STRING_VALUE",
+ *   DefaultRootDeviceType: "STRING_VALUE",
+ *   UseOpsworksSecurityGroups: true || false,
+ *   AgentVersion: "STRING_VALUE",
+ * };
  * const command = new UpdateStackCommand(input);
  * const response = await client.send(command);
  * ```

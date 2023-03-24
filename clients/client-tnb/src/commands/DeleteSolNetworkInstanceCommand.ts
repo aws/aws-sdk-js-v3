@@ -44,6 +44,9 @@ export interface DeleteSolNetworkInstanceCommandOutput extends __MetadataBearer 
  * import { TnbClient, DeleteSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, DeleteSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = {
+ *   nsInstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
  * ```

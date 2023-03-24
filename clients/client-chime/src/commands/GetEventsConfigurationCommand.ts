@@ -46,6 +46,10 @@ export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurat
  * import { ChimeClient, GetEventsConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetEventsConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   BotId: "STRING_VALUE", // required
+ * };
  * const command = new GetEventsConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

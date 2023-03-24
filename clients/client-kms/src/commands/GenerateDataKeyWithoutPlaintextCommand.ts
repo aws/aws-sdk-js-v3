@@ -115,6 +115,17 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  * import { KMSClient, GenerateDataKeyWithoutPlaintextCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GenerateDataKeyWithoutPlaintextCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   KeyId: "STRING_VALUE", // required
+ *   EncryptionContext: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KeySpec: "AES_256" || "AES_128",
+ *   NumberOfBytes: Number("int"),
+ *   GrantTokens: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GenerateDataKeyWithoutPlaintextCommand(input);
  * const response = await client.send(command);
  * ```

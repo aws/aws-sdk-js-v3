@@ -47,6 +47,12 @@ export interface ListRoomMembershipsCommandOutput extends ListRoomMembershipsRes
  * import { ChimeClient, ListRoomMembershipsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListRoomMembershipsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   RoomId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListRoomMembershipsCommand(input);
  * const response = await client.send(command);
  * ```

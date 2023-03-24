@@ -69,6 +69,11 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
  * import { MTurkClient, CreateAdditionalAssignmentsForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateAdditionalAssignmentsForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   HITId: "STRING_VALUE", // required
+ *   NumberOfAdditionalAssignments: Number("int"), // required
+ *   UniqueRequestToken: "STRING_VALUE",
+ * };
  * const command = new CreateAdditionalAssignmentsForHITCommand(input);
  * const response = await client.send(command);
  * ```

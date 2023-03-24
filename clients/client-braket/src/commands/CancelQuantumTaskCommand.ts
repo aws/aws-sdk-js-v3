@@ -42,6 +42,10 @@ export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskRespons
  * import { BraketClient, CancelQuantumTaskCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, CancelQuantumTaskCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
+ * const input = {
+ *   quantumTaskArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new CancelQuantumTaskCommand(input);
  * const response = await client.send(command);
  * ```

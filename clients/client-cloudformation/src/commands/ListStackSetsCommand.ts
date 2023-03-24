@@ -60,6 +60,12 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  * import { CloudFormationClient, ListStackSetsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStackSetsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Status: "ACTIVE" || "DELETED",
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new ListStackSetsCommand(input);
  * const response = await client.send(command);
  * ```

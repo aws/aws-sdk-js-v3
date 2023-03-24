@@ -42,6 +42,14 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  * import { EventBridgeClient, UpdateApiDestinationCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, UpdateApiDestinationCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ConnectionArn: "STRING_VALUE",
+ *   InvocationEndpoint: "STRING_VALUE",
+ *   HttpMethod: "POST" || "GET" || "HEAD" || "OPTIONS" || "PUT" || "PATCH" || "DELETE",
+ *   InvocationRateLimitPerSecond: Number("int"),
+ * };
  * const command = new UpdateApiDestinationCommand(input);
  * const response = await client.send(command);
  * ```

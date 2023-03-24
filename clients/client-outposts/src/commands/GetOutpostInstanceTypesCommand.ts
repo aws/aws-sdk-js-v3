@@ -42,6 +42,11 @@ export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstance
  * import { OutpostsClient, GetOutpostInstanceTypesCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetOutpostInstanceTypesCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = {
+ *   OutpostId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetOutpostInstanceTypesCommand(input);
  * const response = await client.send(command);
  * ```

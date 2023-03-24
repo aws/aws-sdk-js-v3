@@ -44,6 +44,13 @@ export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, AssociateLexBotCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateLexBotCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   LexBot: {
+ *     Name: "STRING_VALUE", // required
+ *     LexRegion: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new AssociateLexBotCommand(input);
  * const response = await client.send(command);
  * ```

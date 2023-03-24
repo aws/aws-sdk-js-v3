@@ -105,6 +105,91 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  * import { ForecastClient, CreatePredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreatePredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   PredictorName: "STRING_VALUE", // required
+ *   AlgorithmArn: "STRING_VALUE",
+ *   ForecastHorizon: Number("int"), // required
+ *   ForecastTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PerformAutoML: true || false,
+ *   AutoMLOverrideStrategy: "LatencyOptimized" || "AccuracyOptimized",
+ *   PerformHPO: true || false,
+ *   TrainingParameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   EvaluationParameters: {
+ *     NumberOfBacktestWindows: Number("int"),
+ *     BackTestWindowOffset: Number("int"),
+ *   },
+ *   HPOConfig: {
+ *     ParameterRanges: {
+ *       CategoricalParameterRanges: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Values: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       ContinuousParameterRanges: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           MaxValue: Number("double"), // required
+ *           MinValue: Number("double"), // required
+ *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *         },
+ *       ],
+ *       IntegerParameterRanges: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           MaxValue: Number("int"), // required
+ *           MinValue: Number("int"), // required
+ *           ScalingType: "Auto" || "Linear" || "Logarithmic" || "ReverseLogarithmic",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   InputDataConfig: {
+ *     DatasetGroupArn: "STRING_VALUE", // required
+ *     SupplementaryFeatures: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ *   FeaturizationConfig: {
+ *     ForecastFrequency: "STRING_VALUE", // required
+ *     ForecastDimensions: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Featurizations: [
+ *       {
+ *         AttributeName: "STRING_VALUE", // required
+ *         FeaturizationPipeline: [
+ *           {
+ *             FeaturizationMethodName: "filling", // required
+ *             FeaturizationMethodParameters: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   EncryptionConfig: {
+ *     RoleArn: "STRING_VALUE", // required
+ *     KMSKeyArn: "STRING_VALUE", // required
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   OptimizationMetric: "WAPE" || "RMSE" || "AverageWeightedQuantileLoss" || "MASE" || "MAPE",
+ * };
  * const command = new CreatePredictorCommand(input);
  * const response = await client.send(command);
  * ```

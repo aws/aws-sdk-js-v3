@@ -47,6 +47,21 @@ export interface DescribeRecommendationExportJobsCommandOutput
  * import { ComputeOptimizerClient, DescribeRecommendationExportJobsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, DescribeRecommendationExportJobsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = {
+ *   jobIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [
+ *     {
+ *       name: "ResourceType" || "JobStatus",
+ *       values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeRecommendationExportJobsCommand(input);
  * const response = await client.send(command);
  * ```

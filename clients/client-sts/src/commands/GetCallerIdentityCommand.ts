@@ -52,6 +52,7 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  * import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, GetCallerIdentityCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = {};
  * const command = new GetCallerIdentityCommand(input);
  * const response = await client.send(command);
  * ```

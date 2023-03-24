@@ -42,6 +42,11 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * import { AuditManagerClient, ListControlsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListControlsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   controlType: "Standard" || "Custom", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListControlsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -51,6 +51,13 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * import { SFNClient, GetExecutionHistoryCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, GetExecutionHistoryCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   executionArn: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   reverseOrder: true || false,
+ *   nextToken: "STRING_VALUE",
+ *   includeExecutionData: true || false,
+ * };
  * const command = new GetExecutionHistoryCommand(input);
  * const response = await client.send(command);
  * ```

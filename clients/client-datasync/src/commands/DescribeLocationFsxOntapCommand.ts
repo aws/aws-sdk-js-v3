@@ -50,6 +50,9 @@ export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationF
  * import { DataSyncClient, DescribeLocationFsxOntapCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationFsxOntapCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   LocationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLocationFsxOntapCommand(input);
  * const response = await client.send(command);
  * ```

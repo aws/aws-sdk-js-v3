@@ -43,6 +43,31 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
  * import { ElasticBeanstalkClient, CreateApplicationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CreateApplicationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ResourceLifecycleConfig: {
+ *     ServiceRole: "STRING_VALUE",
+ *     VersionLifecycleConfig: {
+ *       MaxCountRule: {
+ *         Enabled: true || false, // required
+ *         MaxCount: Number("int"),
+ *         DeleteSourceFromS3: true || false,
+ *       },
+ *       MaxAgeRule: {
+ *         Enabled: true || false, // required
+ *         MaxAgeInDays: Number("int"),
+ *         DeleteSourceFromS3: true || false,
+ *       },
+ *     },
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * ```

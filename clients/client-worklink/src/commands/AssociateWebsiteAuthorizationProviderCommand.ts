@@ -50,6 +50,11 @@ export interface AssociateWebsiteAuthorizationProviderCommandOutput
  * import { WorkLinkClient, AssociateWebsiteAuthorizationProviderCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, AssociateWebsiteAuthorizationProviderCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ *   AuthorizationProviderType: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE",
+ * };
  * const command = new AssociateWebsiteAuthorizationProviderCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __Metad
  * import { CodeCommitClient, UpdateCommentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdateCommentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   commentId: "STRING_VALUE", // required
+ *   content: "STRING_VALUE", // required
+ * };
  * const command = new UpdateCommentCommand(input);
  * const response = await client.send(command);
  * ```

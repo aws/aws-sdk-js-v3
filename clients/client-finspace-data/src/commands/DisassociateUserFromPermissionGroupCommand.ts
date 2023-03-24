@@ -47,6 +47,11 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
  * import { FinspaceDataClient, DisassociateUserFromPermissionGroupCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, DisassociateUserFromPermissionGroupCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = {
+ *   permissionGroupId: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DisassociateUserFromPermissionGroupCommand(input);
  * const response = await client.send(command);
  * ```

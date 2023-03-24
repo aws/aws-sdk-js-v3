@@ -45,6 +45,10 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * import { IoTFleetWiseClient, ListFleetsCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListFleetsCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListFleetsCommand(input);
  * const response = await client.send(command);
  * ```

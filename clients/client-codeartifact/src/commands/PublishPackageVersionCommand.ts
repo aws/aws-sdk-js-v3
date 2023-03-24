@@ -64,6 +64,19 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  * import { CodeartifactClient, PublishPackageVersionCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, PublishPackageVersionCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   packageVersion: "STRING_VALUE", // required
+ *   assetContent: "STREAMING_BLOB_VALUE", // required
+ *   assetName: "STRING_VALUE", // required
+ *   assetSHA256: "STRING_VALUE", // required
+ *   unfinished: true || false,
+ * };
  * const command = new PublishPackageVersionCommand(input);
  * const response = await client.send(command);
  * ```

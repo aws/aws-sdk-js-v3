@@ -44,6 +44,17 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  * import { BackupClient, ListRecoveryPointsByBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRecoveryPointsByBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupVaultName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ByResourceArn: "STRING_VALUE",
+ *   ByResourceType: "STRING_VALUE",
+ *   ByBackupPlanId: "STRING_VALUE",
+ *   ByCreatedBefore: new Date("TIMESTAMP"),
+ *   ByCreatedAfter: new Date("TIMESTAMP"),
+ *   ByParentRecoveryPointArn: "STRING_VALUE",
+ * };
  * const command = new ListRecoveryPointsByBackupVaultCommand(input);
  * const response = await client.send(command);
  * ```

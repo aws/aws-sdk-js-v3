@@ -42,6 +42,20 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * import { QuickSightClient, RegisterUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, RegisterUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   IdentityType: "IAM" || "QUICKSIGHT", // required
+ *   Email: "STRING_VALUE", // required
+ *   UserRole: "ADMIN" || "AUTHOR" || "READER" || "RESTRICTED_AUTHOR" || "RESTRICTED_READER", // required
+ *   IamArn: "STRING_VALUE",
+ *   SessionName: "STRING_VALUE",
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE",
+ *   CustomPermissionsName: "STRING_VALUE",
+ *   ExternalLoginFederationProviderType: "STRING_VALUE",
+ *   CustomFederationProviderUrl: "STRING_VALUE",
+ *   ExternalLoginId: "STRING_VALUE",
+ * };
  * const command = new RegisterUserCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,463 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  * import { PinpointClient, CreateJourneyCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateJourneyCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   WriteJourneyRequest: {
+ *     Activities: {
+ *       "<keys>": {
+ *         CUSTOM: {
+ *           DeliveryUri: "STRING_VALUE",
+ *           EndpointTypes: [
+ *             "STRING_VALUE",
+ *           ],
+ *           MessageConfig: {
+ *             Data: "STRING_VALUE",
+ *           },
+ *           NextActivity: "STRING_VALUE",
+ *           TemplateName: "STRING_VALUE",
+ *           TemplateVersion: "STRING_VALUE",
+ *         },
+ *         ConditionalSplit: {
+ *           Condition: {
+ *             Conditions: [
+ *               {
+ *                 EventCondition: {
+ *                   Dimensions: {
+ *                     Attributes: {
+ *                       "<keys>": {
+ *                         AttributeType: "STRING_VALUE",
+ *                         Values: [ // required
+ *                           "STRING_VALUE",
+ *                         ],
+ *                       },
+ *                     },
+ *                     EventType: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     Metrics: {
+ *                       "<keys>": {
+ *                         ComparisonOperator: "STRING_VALUE", // required
+ *                         Value: Number("double"), // required
+ *                       },
+ *                     },
+ *                   },
+ *                   MessageActivity: "STRING_VALUE",
+ *                 },
+ *                 SegmentCondition: {
+ *                   SegmentId: "STRING_VALUE", // required
+ *                 },
+ *                 SegmentDimensions: {
+ *                   Attributes: {
+ *                     "<keys>": {
+ *                       AttributeType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                   },
+ *                   Behavior: {
+ *                     Recency: {
+ *                       Duration: "STRING_VALUE", // required
+ *                       RecencyType: "STRING_VALUE", // required
+ *                     },
+ *                   },
+ *                   Demographic: {
+ *                     AppVersion: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     Channel: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     DeviceType: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     Make: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     Model: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     Platform: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                   },
+ *                   Location: {
+ *                     Country: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     GPSPoint: {
+ *                       Coordinates: {
+ *                         Latitude: Number("double"), // required
+ *                         Longitude: Number("double"), // required
+ *                       },
+ *                       RangeInKilometers: Number("double"),
+ *                     },
+ *                   },
+ *                   Metrics: {
+ *                     "<keys>": {
+ *                       ComparisonOperator: "STRING_VALUE", // required
+ *                       Value: Number("double"), // required
+ *                     },
+ *                   },
+ *                   UserAttributes: {
+ *                     "<keys>": {
+ *                       AttributeType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                   },
+ *                 },
+ *               },
+ *             ],
+ *             Operator: "STRING_VALUE",
+ *           },
+ *           EvaluationWaitTime: {
+ *             WaitFor: "STRING_VALUE",
+ *             WaitUntil: "STRING_VALUE",
+ *           },
+ *           FalseActivity: "STRING_VALUE",
+ *           TrueActivity: "STRING_VALUE",
+ *         },
+ *         Description: "STRING_VALUE",
+ *         EMAIL: {
+ *           MessageConfig: {
+ *             FromAddress: "STRING_VALUE",
+ *           },
+ *           NextActivity: "STRING_VALUE",
+ *           TemplateName: "STRING_VALUE",
+ *           TemplateVersion: "STRING_VALUE",
+ *         },
+ *         Holdout: {
+ *           NextActivity: "STRING_VALUE",
+ *           Percentage: Number("int"), // required
+ *         },
+ *         MultiCondition: {
+ *           Branches: [
+ *             {
+ *               Condition: {
+ *                 EventCondition: {
+ *                   Dimensions: {
+ *                     Attributes: {
+ *                       "<keys>": {
+ *                         AttributeType: "STRING_VALUE",
+ *                         Values: [ // required
+ *                           "STRING_VALUE",
+ *                         ],
+ *                       },
+ *                     },
+ *                     EventType: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     Metrics: {
+ *                       "<keys>": {
+ *                         ComparisonOperator: "STRING_VALUE", // required
+ *                         Value: Number("double"), // required
+ *                       },
+ *                     },
+ *                   },
+ *                   MessageActivity: "STRING_VALUE",
+ *                 },
+ *                 SegmentCondition: {
+ *                   SegmentId: "STRING_VALUE", // required
+ *                 },
+ *                 SegmentDimensions: {
+ *                   Attributes: {
+ *                     "<keys>": {
+ *                       AttributeType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                   },
+ *                   Behavior: {
+ *                     Recency: {
+ *                       Duration: "STRING_VALUE", // required
+ *                       RecencyType: "STRING_VALUE", // required
+ *                     },
+ *                   },
+ *                   Demographic: {
+ *                     AppVersion: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     Channel: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     DeviceType: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     Make: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     Model: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     Platform: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                   },
+ *                   Location: {
+ *                     Country: {
+ *                       DimensionType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     GPSPoint: {
+ *                       Coordinates: {
+ *                         Latitude: Number("double"), // required
+ *                         Longitude: Number("double"), // required
+ *                       },
+ *                       RangeInKilometers: Number("double"),
+ *                     },
+ *                   },
+ *                   Metrics: {
+ *                     "<keys>": {
+ *                       ComparisonOperator: "STRING_VALUE", // required
+ *                       Value: Number("double"), // required
+ *                     },
+ *                   },
+ *                   UserAttributes: {
+ *                     "<keys>": {
+ *                       AttributeType: "STRING_VALUE",
+ *                       Values: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                   },
+ *                 },
+ *               },
+ *               NextActivity: "STRING_VALUE",
+ *             },
+ *           ],
+ *           DefaultActivity: "STRING_VALUE",
+ *           EvaluationWaitTime: {
+ *             WaitFor: "STRING_VALUE",
+ *             WaitUntil: "STRING_VALUE",
+ *           },
+ *         },
+ *         PUSH: {
+ *           MessageConfig: {
+ *             TimeToLive: "STRING_VALUE",
+ *           },
+ *           NextActivity: "STRING_VALUE",
+ *           TemplateName: "STRING_VALUE",
+ *           TemplateVersion: "STRING_VALUE",
+ *         },
+ *         RandomSplit: {
+ *           Branches: [
+ *             {
+ *               NextActivity: "STRING_VALUE",
+ *               Percentage: Number("int"),
+ *             },
+ *           ],
+ *         },
+ *         SMS: {
+ *           MessageConfig: {
+ *             MessageType: "STRING_VALUE",
+ *             OriginationNumber: "STRING_VALUE",
+ *             SenderId: "STRING_VALUE",
+ *             EntityId: "STRING_VALUE",
+ *             TemplateId: "STRING_VALUE",
+ *           },
+ *           NextActivity: "STRING_VALUE",
+ *           TemplateName: "STRING_VALUE",
+ *           TemplateVersion: "STRING_VALUE",
+ *         },
+ *         Wait: {
+ *           NextActivity: "STRING_VALUE",
+ *           WaitTime: {
+ *             WaitFor: "STRING_VALUE",
+ *             WaitUntil: "STRING_VALUE",
+ *           },
+ *         },
+ *         ContactCenter: {
+ *           NextActivity: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     CreationDate: "STRING_VALUE",
+ *     LastModifiedDate: "STRING_VALUE",
+ *     Limits: {
+ *       DailyCap: Number("int"),
+ *       EndpointReentryCap: Number("int"),
+ *       MessagesPerSecond: Number("int"),
+ *       EndpointReentryInterval: "STRING_VALUE",
+ *     },
+ *     LocalTime: true || false,
+ *     Name: "STRING_VALUE", // required
+ *     QuietTime: {
+ *       End: "STRING_VALUE",
+ *       Start: "STRING_VALUE",
+ *     },
+ *     RefreshFrequency: "STRING_VALUE",
+ *     Schedule: {
+ *       EndTime: new Date("TIMESTAMP"),
+ *       StartTime: new Date("TIMESTAMP"),
+ *       Timezone: "STRING_VALUE",
+ *     },
+ *     StartActivity: "STRING_VALUE",
+ *     StartCondition: {
+ *       Description: "STRING_VALUE",
+ *       EventStartCondition: {
+ *         EventFilter: {
+ *           Dimensions: {
+ *             Attributes: {
+ *               "<keys>": "<AttributeDimension>",
+ *             },
+ *             EventType: {
+ *               DimensionType: "STRING_VALUE",
+ *               Values: [ // required
+ *                 "<ListOf__string>",
+ *               ],
+ *             },
+ *             Metrics: {
+ *               "<keys>": "<MetricDimension>",
+ *             },
+ *           },
+ *           FilterType: "STRING_VALUE", // required
+ *         },
+ *         SegmentId: "STRING_VALUE",
+ *       },
+ *       SegmentStartCondition: {
+ *         SegmentId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     State: "STRING_VALUE",
+ *     WaitForQuietTime: true || false,
+ *     RefreshOnSegmentUpdate: true || false,
+ *     JourneyChannelSettings: {
+ *       ConnectCampaignArn: "STRING_VALUE",
+ *       ConnectCampaignExecutionRoleArn: "STRING_VALUE",
+ *     },
+ *     SendingSchedule: true || false,
+ *     OpenHours: {
+ *       EMAIL: {
+ *         "<keys>": [
+ *           {
+ *             StartTime: "STRING_VALUE",
+ *             EndTime: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       SMS: {
+ *         "<keys>": [
+ *           {
+ *             StartTime: "STRING_VALUE",
+ *             EndTime: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       PUSH: {
+ *         "<keys>": [
+ *           {
+ *             StartTime: "STRING_VALUE",
+ *             EndTime: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       VOICE: {
+ *         "<keys>": [
+ *           {
+ *             StartTime: "STRING_VALUE",
+ *             EndTime: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       CUSTOM: {
+ *         "<keys>": [
+ *           {
+ *             StartTime: "STRING_VALUE",
+ *             EndTime: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     ClosedDays: {
+ *       EMAIL: [
+ *         {
+ *           Name: "STRING_VALUE",
+ *           StartDateTime: "STRING_VALUE",
+ *           EndDateTime: "STRING_VALUE",
+ *         },
+ *       ],
+ *       SMS: [
+ *         {
+ *           Name: "STRING_VALUE",
+ *           StartDateTime: "STRING_VALUE",
+ *           EndDateTime: "STRING_VALUE",
+ *         },
+ *       ],
+ *       PUSH: [
+ *         {
+ *           Name: "STRING_VALUE",
+ *           StartDateTime: "STRING_VALUE",
+ *           EndDateTime: "STRING_VALUE",
+ *         },
+ *       ],
+ *       VOICE: [
+ *         {
+ *           Name: "STRING_VALUE",
+ *           StartDateTime: "STRING_VALUE",
+ *           EndDateTime: "STRING_VALUE",
+ *         },
+ *       ],
+ *       CUSTOM: [
+ *         {
+ *           Name: "STRING_VALUE",
+ *           StartDateTime: "STRING_VALUE",
+ *           EndDateTime: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateJourneyCommand(input);
  * const response = await client.send(command);
  * ```

@@ -49,6 +49,11 @@ export interface DeleteSecurityGroupCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteSecurityGroupCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteSecurityGroupCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   GroupId: "STRING_VALUE",
+ *   GroupName: "STRING_VALUE",
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteSecurityGroupCommand(input);
  * const response = await client.send(command);
  * ```

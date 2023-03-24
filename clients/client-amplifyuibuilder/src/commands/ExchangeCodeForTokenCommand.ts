@@ -47,6 +47,13 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  * import { AmplifyUIBuilderClient, ExchangeCodeForTokenCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, ExchangeCodeForTokenCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = {
+ *   provider: "STRING_VALUE", // required
+ *   request: {
+ *     code: "STRING_VALUE", // required
+ *     redirectUri: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new ExchangeCodeForTokenCommand(input);
  * const response = await client.send(command);
  * ```

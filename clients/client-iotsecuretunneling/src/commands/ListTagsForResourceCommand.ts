@@ -46,6 +46,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { IoTSecureTunnelingClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
  * const client = new IoTSecureTunnelingClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

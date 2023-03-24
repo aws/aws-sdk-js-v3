@@ -57,6 +57,18 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  * import { EC2Client, CopyImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CopyImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Encrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   SourceImageId: "STRING_VALUE", // required
+ *   SourceRegion: "STRING_VALUE", // required
+ *   DestinationOutpostArn: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   CopyImageTags: true || false,
+ * };
  * const command = new CopyImageCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,10 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetRespons
  * import { MarketplaceCatalogClient, DescribeChangeSetCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, DescribeChangeSetCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
+ * const input = {
+ *   Catalog: "STRING_VALUE", // required
+ *   ChangeSetId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeChangeSetCommand(input);
  * const response = await client.send(command);
  * ```

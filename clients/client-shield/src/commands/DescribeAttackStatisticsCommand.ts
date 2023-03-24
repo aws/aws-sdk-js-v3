@@ -44,6 +44,7 @@ export interface DescribeAttackStatisticsCommandOutput extends DescribeAttackSta
  * import { ShieldClient, DescribeAttackStatisticsCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DescribeAttackStatisticsCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {};
  * const command = new DescribeAttackStatisticsCommand(input);
  * const response = await client.send(command);
  * ```

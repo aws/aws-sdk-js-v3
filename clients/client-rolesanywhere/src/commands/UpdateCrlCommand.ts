@@ -46,6 +46,11 @@ export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * import { RolesAnywhereClient, UpdateCrlCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, UpdateCrlCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = {
+ *   crlId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   crlData: "BLOB_VALUE",
+ * };
  * const command = new UpdateCrlCommand(input);
  * const response = await client.send(command);
  * ```

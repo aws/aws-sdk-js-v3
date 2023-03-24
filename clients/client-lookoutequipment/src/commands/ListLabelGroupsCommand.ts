@@ -44,6 +44,11 @@ export interface ListLabelGroupsCommandOutput extends ListLabelGroupsResponse, _
  * import { LookoutEquipmentClient, ListLabelGroupsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListLabelGroupsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   LabelGroupNameBeginsWith: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListLabelGroupsCommand(input);
  * const response = await client.send(command);
  * ```

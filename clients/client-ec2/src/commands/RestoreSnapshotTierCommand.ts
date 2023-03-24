@@ -46,6 +46,12 @@ export interface RestoreSnapshotTierCommandOutput extends RestoreSnapshotTierRes
  * import { EC2Client, RestoreSnapshotTierCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RestoreSnapshotTierCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   SnapshotId: "STRING_VALUE", // required
+ *   TemporaryRestoreDays: Number("int"),
+ *   PermanentRestore: true || false,
+ *   DryRun: true || false,
+ * };
  * const command = new RestoreSnapshotTierCommand(input);
  * const response = await client.send(command);
  * ```

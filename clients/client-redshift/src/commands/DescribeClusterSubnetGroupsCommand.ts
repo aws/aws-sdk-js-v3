@@ -52,6 +52,17 @@ export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetG
  * import { RedshiftClient, DescribeClusterSubnetGroupsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterSubnetGroupsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterSubnetGroupName: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ *   TagKeys: [
+ *     "STRING_VALUE",
+ *   ],
+ *   TagValues: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeClusterSubnetGroupsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * import { WorkSpacesWebClient, GetPortalCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetPortalCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   portalArn: "STRING_VALUE", // required
+ * };
  * const command = new GetPortalCommand(input);
  * const response = await client.send(command);
  * ```

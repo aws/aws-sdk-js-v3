@@ -42,6 +42,19 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * import { TransferClient, CreateProfileCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateProfileCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   As2Id: "STRING_VALUE", // required
+ *   ProfileType: "LOCAL" || "PARTNER", // required
+ *   CertificateIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);
  * ```

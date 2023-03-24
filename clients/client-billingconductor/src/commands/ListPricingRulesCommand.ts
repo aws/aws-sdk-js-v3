@@ -48,6 +48,16 @@ export interface ListPricingRulesCommandOutput extends ListPricingRulesOutput, _
  * import { BillingconductorClient, ListPricingRulesCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, ListPricingRulesCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = {
+ *   BillingPeriod: "STRING_VALUE",
+ *   Filters: {
+ *     Arns: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListPricingRulesCommand(input);
  * const response = await client.send(command);
  * ```

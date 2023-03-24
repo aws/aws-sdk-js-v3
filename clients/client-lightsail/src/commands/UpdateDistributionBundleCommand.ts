@@ -50,6 +50,10 @@ export interface UpdateDistributionBundleCommandOutput extends UpdateDistributio
  * import { LightsailClient, UpdateDistributionBundleCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateDistributionBundleCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   distributionName: "STRING_VALUE",
+ *   bundleId: "STRING_VALUE",
+ * };
  * const command = new UpdateDistributionBundleCommand(input);
  * const response = await client.send(command);
  * ```

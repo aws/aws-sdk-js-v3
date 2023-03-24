@@ -42,6 +42,10 @@ export interface ListCustomDataIdentifiersCommandOutput extends ListCustomDataId
  * import { Macie2Client, ListCustomDataIdentifiersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListCustomDataIdentifiersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListCustomDataIdentifiersCommand(input);
  * const response = await client.send(command);
  * ```

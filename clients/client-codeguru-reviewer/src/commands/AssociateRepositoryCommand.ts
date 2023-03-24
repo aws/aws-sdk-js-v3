@@ -64,6 +64,35 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  * import { CodeGuruReviewerClient, AssociateRepositoryCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, AssociateRepositoryCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = {
+ *   Repository: {
+ *     CodeCommit: {
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *     Bitbucket: {
+ *       Name: "STRING_VALUE", // required
+ *       ConnectionArn: "STRING_VALUE", // required
+ *       Owner: "STRING_VALUE", // required
+ *     },
+ *     GitHubEnterpriseServer: {
+ *       Name: "STRING_VALUE", // required
+ *       ConnectionArn: "STRING_VALUE", // required
+ *       Owner: "STRING_VALUE", // required
+ *     },
+ *     S3Bucket: {
+ *       Name: "STRING_VALUE", // required
+ *       BucketName: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KMSKeyDetails: {
+ *     KMSKeyId: "STRING_VALUE",
+ *     EncryptionOption: "AWS_OWNED_CMK" || "CUSTOMER_MANAGED_CMK",
+ *   },
+ * };
  * const command = new AssociateRepositoryCommand(input);
  * const response = await client.send(command);
  * ```

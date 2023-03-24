@@ -42,6 +42,10 @@ export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityG
  * import { MediaLiveClient, ListInputSecurityGroupsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListInputSecurityGroupsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListInputSecurityGroupsCommand(input);
  * const response = await client.send(command);
  * ```

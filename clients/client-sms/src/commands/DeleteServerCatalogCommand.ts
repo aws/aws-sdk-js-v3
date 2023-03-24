@@ -42,6 +42,7 @@ export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogRes
  * import { SMSClient, DeleteServerCatalogCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteServerCatalogCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {};
  * const command = new DeleteServerCatalogCommand(input);
  * const response = await client.send(command);
  * ```

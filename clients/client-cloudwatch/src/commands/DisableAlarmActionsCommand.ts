@@ -43,6 +43,11 @@ export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
  * import { CloudWatchClient, DisableAlarmActionsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DisableAlarmActionsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = {
+ *   AlarmNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisableAlarmActionsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,11 @@ export interface UpdateUserAccessLoggingSettingsCommandOutput
  * import { WorkSpacesWebClient, UpdateUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdateUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   userAccessLoggingSettingsArn: "STRING_VALUE", // required
+ *   kinesisStreamArn: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
  * ```

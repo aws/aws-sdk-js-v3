@@ -45,6 +45,47 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  * import { OpsWorksClient, CreateAppCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, CreateAppCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   StackId: "STRING_VALUE", // required
+ *   Shortname: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   DataSources: [
+ *     {
+ *       Type: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Type: "STRING_VALUE", // required
+ *   AppSource: {
+ *     Type: "STRING_VALUE",
+ *     Url: "STRING_VALUE",
+ *     Username: "STRING_VALUE",
+ *     Password: "STRING_VALUE",
+ *     SshKey: "STRING_VALUE",
+ *     Revision: "STRING_VALUE",
+ *   },
+ *   Domains: [
+ *     "STRING_VALUE",
+ *   ],
+ *   EnableSsl: true || false,
+ *   SslConfiguration: {
+ *     Certificate: "STRING_VALUE", // required
+ *     PrivateKey: "STRING_VALUE", // required
+ *     Chain: "STRING_VALUE",
+ *   },
+ *   Attributes: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Environment: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *       Secure: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new CreateAppCommand(input);
  * const response = await client.send(command);
  * ```

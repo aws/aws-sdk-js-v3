@@ -42,6 +42,20 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  * import { MediaLiveClient, UpdateInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   HdDeviceSettings: {
+ *     ConfiguredInput: "AUTO" || "HDMI" || "SDI",
+ *     MaxBitrate: Number("int"),
+ *     LatencyMs: Number("int"),
+ *   },
+ *   InputDeviceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   UhdDeviceSettings: {
+ *     ConfiguredInput: "AUTO" || "HDMI" || "SDI",
+ *     MaxBitrate: Number("int"),
+ *     LatencyMs: Number("int"),
+ *   },
+ * };
  * const command = new UpdateInputDeviceCommand(input);
  * const response = await client.send(command);
  * ```

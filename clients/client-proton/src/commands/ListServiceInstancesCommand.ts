@@ -47,6 +47,19 @@ export interface ListServiceInstancesCommandOutput extends ListServiceInstancesO
  * import { ProtonClient, ListServiceInstancesCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, ListServiceInstancesCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   serviceName: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   sortBy: "STRING_VALUE",
+ *   sortOrder: "STRING_VALUE",
+ * };
  * const command = new ListServiceInstancesCommand(input);
  * const response = await client.send(command);
  * ```

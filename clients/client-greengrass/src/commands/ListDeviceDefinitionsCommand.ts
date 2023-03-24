@@ -42,6 +42,10 @@ export interface ListDeviceDefinitionsCommandOutput extends ListDeviceDefinition
  * import { GreengrassClient, ListDeviceDefinitionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListDeviceDefinitionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDeviceDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```

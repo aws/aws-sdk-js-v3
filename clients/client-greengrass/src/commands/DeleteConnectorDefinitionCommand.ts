@@ -42,6 +42,9 @@ export interface DeleteConnectorDefinitionCommandOutput extends DeleteConnectorD
  * import { GreengrassClient, DeleteConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, DeleteConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   ConnectorDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConnectorDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

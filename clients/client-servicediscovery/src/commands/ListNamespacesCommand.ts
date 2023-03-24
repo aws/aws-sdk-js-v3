@@ -42,6 +42,19 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * import { ServiceDiscoveryClient, ListNamespacesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, ListNamespacesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Filters: [
+ *     {
+ *       Name: "TYPE" || "NAME" || "HTTP_NAME", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Condition: "EQ" || "IN" || "BETWEEN" || "BEGINS_WITH",
+ *     },
+ *   ],
+ * };
  * const command = new ListNamespacesCommand(input);
  * const response = await client.send(command);
  * ```

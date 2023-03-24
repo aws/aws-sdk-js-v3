@@ -50,6 +50,16 @@ export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGrou
  * import { RDSClient, CreateDBSecurityGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBSecurityGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBSecurityGroupName: "STRING_VALUE", // required
+ *   DBSecurityGroupDescription: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBSecurityGroupCommand(input);
  * const response = await client.send(command);
  * ```

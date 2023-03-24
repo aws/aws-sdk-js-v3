@@ -42,6 +42,39 @@ export interface UpdateTypedLinkFacetCommandOutput extends UpdateTypedLinkFacetR
  * import { CloudDirectoryClient, UpdateTypedLinkFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateTypedLinkFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   SchemaArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   AttributeUpdates: [ // required
+ *     {
+ *       Attribute: {
+ *         Name: "STRING_VALUE", // required
+ *         Type: "STRING" || "BINARY" || "BOOLEAN" || "NUMBER" || "DATETIME" || "VARIANT", // required
+ *         DefaultValue: { // Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *         IsImmutable: true || false,
+ *         Rules: {
+ *           "<keys>": {
+ *             Type: "BINARY_LENGTH" || "NUMBER_COMPARISON" || "STRING_FROM_SET" || "STRING_LENGTH",
+ *             Parameters: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *         RequiredBehavior: "REQUIRED_ALWAYS" || "NOT_REQUIRED", // required
+ *       },
+ *       Action: "CREATE_OR_UPDATE" || "DELETE", // required
+ *     },
+ *   ],
+ *   IdentityAttributeOrder: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateTypedLinkFacetCommand(input);
  * const response = await client.send(command);
  * ```

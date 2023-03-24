@@ -43,6 +43,14 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * import { RAMClient, GetResourcePoliciesCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, GetResourcePoliciesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = {
+ *   resourceArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   principal: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);
  * ```

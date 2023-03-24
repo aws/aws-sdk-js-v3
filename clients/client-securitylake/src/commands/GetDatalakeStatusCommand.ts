@@ -43,6 +43,13 @@ export interface GetDatalakeStatusCommandOutput extends GetDatalakeStatusRespons
  * import { SecurityLakeClient, GetDatalakeStatusCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, GetDatalakeStatusCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   accountSet: [
+ *     "STRING_VALUE",
+ *   ],
+ *   maxAccountResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new GetDatalakeStatusCommand(input);
  * const response = await client.send(command);
  * ```

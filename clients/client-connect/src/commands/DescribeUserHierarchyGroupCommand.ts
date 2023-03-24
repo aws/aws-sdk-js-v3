@@ -42,6 +42,10 @@ export interface DescribeUserHierarchyGroupCommandOutput extends DescribeUserHie
  * import { ConnectClient, DescribeUserHierarchyGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeUserHierarchyGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   HierarchyGroupId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeUserHierarchyGroupCommand(input);
  * const response = await client.send(command);
  * ```

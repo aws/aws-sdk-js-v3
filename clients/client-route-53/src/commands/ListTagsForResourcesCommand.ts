@@ -44,6 +44,12 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  * import { Route53Client, ListTagsForResourcesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListTagsForResourcesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   ResourceType: "healthcheck" || "hostedzone", // required
+ *   ResourceIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListTagsForResourcesCommand(input);
  * const response = await client.send(command);
  * ```

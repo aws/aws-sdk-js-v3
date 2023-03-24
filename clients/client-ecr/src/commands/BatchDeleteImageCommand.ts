@@ -47,6 +47,16 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * import { ECRClient, BatchDeleteImageCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, BatchDeleteImageCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
+ * const input = {
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ *   imageIds: [ // required
+ *     {
+ *       imageDigest: "STRING_VALUE",
+ *       imageTag: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new BatchDeleteImageCommand(input);
  * const response = await client.send(command);
  * ```

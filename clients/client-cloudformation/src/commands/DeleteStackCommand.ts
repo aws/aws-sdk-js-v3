@@ -41,6 +41,14 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  * import { CloudFormationClient, DeleteStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeleteStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   StackName: "STRING_VALUE", // required
+ *   RetainResources: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RoleARN: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new DeleteStackCommand(input);
  * const response = await client.send(command);
  * ```

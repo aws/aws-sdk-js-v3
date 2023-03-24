@@ -51,6 +51,16 @@ export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataB
  * import { GameLiftClient, UpdateAliasCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateAliasCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   AliasId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RoutingStrategy: {
+ *     Type: "SIMPLE" || "TERMINAL",
+ *     FleetId: "STRING_VALUE",
+ *     Message: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateAliasCommand(input);
  * const response = await client.send(command);
  * ```

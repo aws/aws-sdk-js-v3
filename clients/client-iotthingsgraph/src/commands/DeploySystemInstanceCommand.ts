@@ -55,6 +55,9 @@ export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceR
  * import { IoTThingsGraphClient, DeploySystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeploySystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   id: "STRING_VALUE",
+ * };
  * const command = new DeploySystemInstanceCommand(input);
  * const response = await client.send(command);
  * ```

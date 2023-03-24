@@ -42,6 +42,18 @@ export interface CreateInvalidationCommandOutput extends CreateInvalidationResul
  * import { CloudFrontClient, CreateInvalidationCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateInvalidationCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   DistributionId: "STRING_VALUE", // required
+ *   InvalidationBatch: {
+ *     Paths: {
+ *       Quantity: Number("int"), // required
+ *       Items: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     CallerReference: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateInvalidationCommand(input);
  * const response = await client.send(command);
  * ```

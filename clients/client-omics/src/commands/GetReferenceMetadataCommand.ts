@@ -42,6 +42,10 @@ export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataR
  * import { OmicsClient, GetReferenceMetadataCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReferenceMetadataCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   referenceStoreId: "STRING_VALUE", // required
+ * };
  * const command = new GetReferenceMetadataCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,12 @@ export interface ModifyInstanceEventStartTimeCommandOutput
  * import { EC2Client, ModifyInstanceEventStartTimeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyInstanceEventStartTimeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   InstanceId: "STRING_VALUE", // required
+ *   InstanceEventId: "STRING_VALUE", // required
+ *   NotBefore: new Date("TIMESTAMP"), // required
+ * };
  * const command = new ModifyInstanceEventStartTimeCommand(input);
  * const response = await client.send(command);
  * ```

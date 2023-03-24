@@ -48,6 +48,9 @@ export interface DetectDominantLanguageCommandOutput extends DetectDominantLangu
  * import { ComprehendClient, DetectDominantLanguageCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectDominantLanguageCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   Text: "STRING_VALUE", // required
+ * };
  * const command = new DetectDominantLanguageCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,13 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput
  * import { WAFV2Client, ListAvailableManagedRuleGroupVersionsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListAvailableManagedRuleGroupVersionsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = {
+ *   VendorName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Scope: "CLOUDFRONT" || "REGIONAL", // required
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListAvailableManagedRuleGroupVersionsCommand(input);
  * const response = await client.send(command);
  * ```

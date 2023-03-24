@@ -45,6 +45,7 @@ export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSetti
  * import { BackupClient, DescribeGlobalSettingsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeGlobalSettingsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {};
  * const command = new DescribeGlobalSettingsCommand(input);
  * const response = await client.send(command);
  * ```

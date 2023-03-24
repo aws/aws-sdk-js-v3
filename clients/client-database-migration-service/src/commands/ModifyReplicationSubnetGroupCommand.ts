@@ -48,6 +48,13 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * import { DatabaseMigrationServiceClient, ModifyReplicationSubnetGroupCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ModifyReplicationSubnetGroupCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   ReplicationSubnetGroupIdentifier: "STRING_VALUE", // required
+ *   ReplicationSubnetGroupDescription: "STRING_VALUE",
+ *   SubnetIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyReplicationSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```

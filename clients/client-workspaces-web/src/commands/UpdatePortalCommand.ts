@@ -47,6 +47,11 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * import { WorkSpacesWebClient, UpdatePortalCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, UpdatePortalCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   portalArn: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   authenticationType: "STRING_VALUE",
+ * };
  * const command = new UpdatePortalCommand(input);
  * const response = await client.send(command);
  * ```

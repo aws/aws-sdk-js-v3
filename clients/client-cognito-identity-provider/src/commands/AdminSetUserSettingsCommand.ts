@@ -54,6 +54,16 @@ export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsR
  * import { CognitoIdentityProviderClient, AdminSetUserSettingsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminSetUserSettingsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   MFAOptions: [ // required
+ *     {
+ *       DeliveryMedium: "SMS" || "EMAIL",
+ *       AttributeName: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AdminSetUserSettingsCommand(input);
  * const response = await client.send(command);
  * ```

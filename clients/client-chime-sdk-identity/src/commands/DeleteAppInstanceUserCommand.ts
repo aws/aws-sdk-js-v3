@@ -42,6 +42,9 @@ export interface DeleteAppInstanceUserCommandOutput extends __MetadataBearer {}
  * import { ChimeSDKIdentityClient, DeleteAppInstanceUserCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, DeleteAppInstanceUserCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = {
+ *   AppInstanceUserArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAppInstanceUserCommand(input);
  * const response = await client.send(command);
  * ```

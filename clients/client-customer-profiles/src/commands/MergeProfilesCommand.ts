@@ -84,6 +84,38 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  * import { CustomerProfilesClient, MergeProfilesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, MergeProfilesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   MainProfileId: "STRING_VALUE", // required
+ *   ProfileIdsToBeMerged: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   FieldSourceProfileIds: {
+ *     AccountNumber: "STRING_VALUE",
+ *     AdditionalInformation: "STRING_VALUE",
+ *     PartyType: "STRING_VALUE",
+ *     BusinessName: "STRING_VALUE",
+ *     FirstName: "STRING_VALUE",
+ *     MiddleName: "STRING_VALUE",
+ *     LastName: "STRING_VALUE",
+ *     BirthDate: "STRING_VALUE",
+ *     Gender: "STRING_VALUE",
+ *     PhoneNumber: "STRING_VALUE",
+ *     MobilePhoneNumber: "STRING_VALUE",
+ *     HomePhoneNumber: "STRING_VALUE",
+ *     BusinessPhoneNumber: "STRING_VALUE",
+ *     EmailAddress: "STRING_VALUE",
+ *     PersonalEmailAddress: "STRING_VALUE",
+ *     BusinessEmailAddress: "STRING_VALUE",
+ *     Address: "STRING_VALUE",
+ *     ShippingAddress: "STRING_VALUE",
+ *     MailingAddress: "STRING_VALUE",
+ *     BillingAddress: "STRING_VALUE",
+ *     Attributes: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new MergeProfilesCommand(input);
  * const response = await client.send(command);
  * ```

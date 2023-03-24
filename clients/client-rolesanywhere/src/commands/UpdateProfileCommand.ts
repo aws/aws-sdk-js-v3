@@ -46,6 +46,18 @@ export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __Met
  * import { RolesAnywhereClient, UpdateProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, UpdateProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = {
+ *   profileId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   sessionPolicy: "STRING_VALUE",
+ *   roleArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   managedPolicyArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   durationSeconds: Number("int"),
+ * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
  * ```

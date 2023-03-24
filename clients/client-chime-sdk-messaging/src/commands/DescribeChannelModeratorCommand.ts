@@ -55,6 +55,11 @@ export interface DescribeChannelModeratorCommandOutput extends DescribeChannelMo
  * import { ChimeSDKMessagingClient, DescribeChannelModeratorCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, DescribeChannelModeratorCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   ChannelModeratorArn: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new DescribeChannelModeratorCommand(input);
  * const response = await client.send(command);
  * ```

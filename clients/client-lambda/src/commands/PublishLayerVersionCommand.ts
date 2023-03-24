@@ -49,6 +49,23 @@ export interface PublishLayerVersionCommandOutput extends PublishLayerVersionRes
  * import { LambdaClient, PublishLayerVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, PublishLayerVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   LayerName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Content: {
+ *     S3Bucket: "STRING_VALUE",
+ *     S3Key: "STRING_VALUE",
+ *     S3ObjectVersion: "STRING_VALUE",
+ *     ZipFile: "BLOB_VALUE",
+ *   },
+ *   CompatibleRuntimes: [
+ *     "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x",
+ *   ],
+ *   LicenseInfo: "STRING_VALUE",
+ *   CompatibleArchitectures: [
+ *     "x86_64" || "arm64",
+ *   ],
+ * };
  * const command = new PublishLayerVersionCommand(input);
  * const response = await client.send(command);
  * ```

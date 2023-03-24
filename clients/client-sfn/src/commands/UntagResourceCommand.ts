@@ -42,6 +42,12 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * import { SFNClient, UntagResourceCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, UntagResourceCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

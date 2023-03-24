@@ -45,6 +45,17 @@ export interface GetBucketMetricDataCommandOutput extends GetBucketMetricDataRes
  * import { LightsailClient, GetBucketMetricDataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetBucketMetricDataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   bucketName: "STRING_VALUE", // required
+ *   metricName: "BucketSizeBytes" || "NumberOfObjects", // required
+ *   startTime: new Date("TIMESTAMP"), // required
+ *   endTime: new Date("TIMESTAMP"), // required
+ *   period: Number("int"), // required
+ *   statistics: [ // required
+ *     "Minimum" || "Maximum" || "Sum" || "Average" || "SampleCount",
+ *   ],
+ *   unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None", // required
+ * };
  * const command = new GetBucketMetricDataCommand(input);
  * const response = await client.send(command);
  * ```

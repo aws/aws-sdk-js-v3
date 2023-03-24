@@ -43,6 +43,11 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
  * import { AuditManagerClient, ListAssessmentFrameworksCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListAssessmentFrameworksCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   frameworkType: "Standard" || "Custom", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssessmentFrameworksCommand(input);
  * const response = await client.send(command);
  * ```

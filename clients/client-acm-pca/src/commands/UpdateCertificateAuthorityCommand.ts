@@ -52,6 +52,23 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  * import { ACMPCAClient, UpdateCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, UpdateCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = {
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ *   RevocationConfiguration: {
+ *     CrlConfiguration: {
+ *       Enabled: true || false, // required
+ *       ExpirationInDays: Number("int"),
+ *       CustomCname: "STRING_VALUE",
+ *       S3BucketName: "STRING_VALUE",
+ *       S3ObjectAcl: "PUBLIC_READ" || "BUCKET_OWNER_FULL_CONTROL",
+ *     },
+ *     OcspConfiguration: {
+ *       Enabled: true || false, // required
+ *       OcspCustomCname: "STRING_VALUE",
+ *     },
+ *   },
+ *   Status: "CREATING" || "PENDING_CERTIFICATE" || "ACTIVE" || "DELETED" || "DISABLED" || "EXPIRED" || "FAILED",
+ * };
  * const command = new UpdateCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```

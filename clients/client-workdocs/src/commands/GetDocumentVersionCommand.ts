@@ -47,6 +47,13 @@ export interface GetDocumentVersionCommandOutput extends GetDocumentVersionRespo
  * import { WorkDocsClient, GetDocumentVersionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetDocumentVersionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   AuthenticationToken: "STRING_VALUE",
+ *   DocumentId: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE", // required
+ *   Fields: "STRING_VALUE",
+ *   IncludeCustomMetadata: true || false,
+ * };
  * const command = new GetDocumentVersionCommand(input);
  * const response = await client.send(command);
  * ```

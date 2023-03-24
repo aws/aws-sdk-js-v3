@@ -42,6 +42,70 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  * import { SSMClient, StartAutomationExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, StartAutomationExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   DocumentName: "STRING_VALUE", // required
+ *   DocumentVersion: "STRING_VALUE",
+ *   Parameters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ *   Mode: "Auto" || "Interactive",
+ *   TargetParameterName: "STRING_VALUE",
+ *   Targets: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   TargetMaps: [
+ *     {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxConcurrency: "STRING_VALUE",
+ *   MaxErrors: "STRING_VALUE",
+ *   TargetLocations: [
+ *     {
+ *       Accounts: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Regions: [
+ *         "STRING_VALUE",
+ *       ],
+ *       TargetLocationMaxConcurrency: "STRING_VALUE",
+ *       TargetLocationMaxErrors: "STRING_VALUE",
+ *       ExecutionRoleName: "STRING_VALUE",
+ *       TargetLocationAlarmConfiguration: {
+ *         IgnorePollAlarmFailure: true || false,
+ *         Alarms: [ // required
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   AlarmConfiguration: {
+ *     IgnorePollAlarmFailure: true || false,
+ *     Alarms: [ // required
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new StartAutomationExecutionCommand(input);
  * const response = await client.send(command);
  * ```

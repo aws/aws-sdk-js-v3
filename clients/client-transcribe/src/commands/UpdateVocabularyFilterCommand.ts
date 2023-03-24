@@ -44,6 +44,14 @@ export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFil
  * import { TranscribeClient, UpdateVocabularyFilterCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, UpdateVocabularyFilterCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = {
+ *   VocabularyFilterName: "STRING_VALUE", // required
+ *   Words: [
+ *     "STRING_VALUE",
+ *   ],
+ *   VocabularyFilterFileUri: "STRING_VALUE",
+ *   DataAccessRoleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateVocabularyFilterCommand(input);
  * const response = await client.send(command);
  * ```

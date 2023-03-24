@@ -57,6 +57,13 @@ export interface DescribeUserStackAssociationsCommandOutput
  * import { AppStreamClient, DescribeUserStackAssociationsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeUserStackAssociationsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   StackName: "STRING_VALUE",
+ *   UserName: "STRING_VALUE",
+ *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeUserStackAssociationsCommand(input);
  * const response = await client.send(command);
  * ```

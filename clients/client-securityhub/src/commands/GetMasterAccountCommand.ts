@@ -48,6 +48,7 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * import { SecurityHubClient, GetMasterAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetMasterAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {};
  * const command = new GetMasterAccountCommand(input);
  * const response = await client.send(command);
  * ```

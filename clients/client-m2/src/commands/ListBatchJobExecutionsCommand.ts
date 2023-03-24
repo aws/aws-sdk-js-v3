@@ -43,6 +43,18 @@ export interface ListBatchJobExecutionsCommandOutput extends ListBatchJobExecuti
  * import { M2Client, ListBatchJobExecutionsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListBatchJobExecutionsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   applicationId: "STRING_VALUE", // required
+ *   executionIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   jobName: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   startedAfter: new Date("TIMESTAMP"),
+ *   startedBefore: new Date("TIMESTAMP"),
+ * };
  * const command = new ListBatchJobExecutionsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,11 @@ export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicatio
  * import { KinesisAnalyticsV2Client, DeleteApplicationSnapshotCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, DeleteApplicationSnapshotCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   SnapshotName: "STRING_VALUE", // required
+ *   SnapshotCreationTimestamp: new Date("TIMESTAMP"), // required
+ * };
  * const command = new DeleteApplicationSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

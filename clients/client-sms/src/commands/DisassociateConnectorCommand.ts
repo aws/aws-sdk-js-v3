@@ -44,6 +44,9 @@ export interface DisassociateConnectorCommandOutput extends DisassociateConnecto
  * import { SMSClient, DisassociateConnectorCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DisassociateConnectorCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   connectorId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateConnectorCommand(input);
  * const response = await client.send(command);
  * ```

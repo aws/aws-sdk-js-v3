@@ -43,6 +43,9 @@ export interface DescribeThingTypeCommandOutput extends DescribeThingTypeRespons
  * import { IoTClient, DescribeThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   thingTypeName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeThingTypeCommand(input);
  * const response = await client.send(command);
  * ```

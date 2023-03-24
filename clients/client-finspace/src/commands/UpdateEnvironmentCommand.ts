@@ -42,6 +42,22 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  * import { FinspaceClient, UpdateEnvironmentCommand } from "@aws-sdk/client-finspace"; // ES Modules import
  * // const { FinspaceClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-finspace"); // CommonJS import
  * const client = new FinspaceClient(config);
+ * const input = {
+ *   environmentId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   federationMode: "STRING_VALUE",
+ *   federationParameters: {
+ *     samlMetadataDocument: "STRING_VALUE",
+ *     samlMetadataURL: "STRING_VALUE",
+ *     applicationCallBackURL: "STRING_VALUE",
+ *     federationURN: "STRING_VALUE",
+ *     federationProviderName: "STRING_VALUE",
+ *     attributeMap: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

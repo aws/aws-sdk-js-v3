@@ -47,6 +47,18 @@ export interface DescribeRecommendationsCommandOutput extends DescribeRecommenda
  * import { DatabaseMigrationServiceClient, DescribeRecommendationsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeRecommendationsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```

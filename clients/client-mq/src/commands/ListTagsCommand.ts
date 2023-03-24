@@ -42,6 +42,9 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * import { MqClient, ListTagsCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, ListTagsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
  * ```

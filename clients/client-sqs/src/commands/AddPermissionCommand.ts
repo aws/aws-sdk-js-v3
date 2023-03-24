@@ -81,6 +81,16 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  * import { SQSClient, AddPermissionCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, AddPermissionCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = {
+ *   QueueUrl: "STRING_VALUE", // required
+ *   Label: "STRING_VALUE", // required
+ *   AWSAccountIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Actions: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -54,6 +54,10 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  * import { GlueClient, DeleteDatabaseCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteDatabaseCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDatabaseCommand(input);
  * const response = await client.send(command);
  * ```

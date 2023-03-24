@@ -48,6 +48,25 @@ export interface ListDataQualityRuleRecommendationRunsCommandOutput
  * import { GlueClient, ListDataQualityRuleRecommendationRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListDataQualityRuleRecommendationRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Filter: {
+ *     DataSource: {
+ *       GlueTable: {
+ *         DatabaseName: "STRING_VALUE", // required
+ *         TableName: "STRING_VALUE", // required
+ *         CatalogId: "STRING_VALUE",
+ *         ConnectionName: "STRING_VALUE",
+ *         AdditionalOptions: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     StartedBefore: new Date("TIMESTAMP"),
+ *     StartedAfter: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListDataQualityRuleRecommendationRunsCommand(input);
  * const response = await client.send(command);
  * ```

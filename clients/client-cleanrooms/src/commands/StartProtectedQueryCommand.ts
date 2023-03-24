@@ -47,6 +47,22 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * import { CleanRoomsClient, StartProtectedQueryCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, StartProtectedQueryCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = {
+ *   type: "STRING_VALUE", // required
+ *   membershipIdentifier: "STRING_VALUE", // required
+ *   sqlParameters: {
+ *     queryString: "STRING_VALUE", // required
+ *   },
+ *   resultConfiguration: {
+ *     outputConfiguration: { // Union: only one key present
+ *       s3: {
+ *         resultFormat: "STRING_VALUE", // required
+ *         bucket: "STRING_VALUE", // required
+ *         keyPrefix: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new StartProtectedQueryCommand(input);
  * const response = await client.send(command);
  * ```

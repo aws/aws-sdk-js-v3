@@ -53,6 +53,120 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  * import { KendraClient, BatchPutDocumentCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, BatchPutDocumentCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   IndexId: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE",
+ *   Documents: [ // required
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       Title: "STRING_VALUE",
+ *       Blob: "BLOB_VALUE",
+ *       S3Path: {
+ *         Bucket: "STRING_VALUE", // required
+ *         Key: "STRING_VALUE", // required
+ *       },
+ *       Attributes: [
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Value: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *       ],
+ *       AccessControlList: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Type: "USER" || "GROUP", // required
+ *           Access: "ALLOW" || "DENY", // required
+ *           DataSourceId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       HierarchicalAccessControlList: [
+ *         {
+ *           PrincipalList: [ // required
+ *             {
+ *               Name: "STRING_VALUE", // required
+ *               Type: "USER" || "GROUP", // required
+ *               Access: "ALLOW" || "DENY", // required
+ *               DataSourceId: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       ContentType: "PDF" || "HTML" || "MS_WORD" || "PLAIN_TEXT" || "PPT" || "RTF" || "XML" || "XSLT" || "MS_EXCEL" || "CSV" || "JSON" || "MD",
+ *       AccessControlConfigurationId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   CustomDocumentEnrichmentConfiguration: {
+ *     InlineConfigurations: [
+ *       {
+ *         Condition: {
+ *           ConditionDocumentAttributeKey: "STRING_VALUE", // required
+ *           Operator: "GreaterThan" || "GreaterThanOrEquals" || "LessThan" || "LessThanOrEquals" || "Equals" || "NotEquals" || "Contains" || "NotContains" || "Exists" || "NotExists" || "BeginsWith", // required
+ *           ConditionOnValue: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         Target: {
+ *           TargetDocumentAttributeKey: "STRING_VALUE",
+ *           TargetDocumentAttributeValueDeletion: true || false,
+ *           TargetDocumentAttributeValue: {
+ *             StringValue: "STRING_VALUE",
+ *             StringListValue: [
+ *               "STRING_VALUE",
+ *             ],
+ *             LongValue: Number("long"),
+ *             DateValue: new Date("TIMESTAMP"),
+ *           },
+ *         },
+ *         DocumentContentDeletion: true || false,
+ *       },
+ *     ],
+ *     PreExtractionHookConfiguration: {
+ *       InvocationCondition: {
+ *         ConditionDocumentAttributeKey: "STRING_VALUE", // required
+ *         Operator: "GreaterThan" || "GreaterThanOrEquals" || "LessThan" || "LessThanOrEquals" || "Equals" || "NotEquals" || "Contains" || "NotContains" || "Exists" || "NotExists" || "BeginsWith", // required
+ *         ConditionOnValue: {
+ *           StringValue: "STRING_VALUE",
+ *           StringListValue: [
+ *             "STRING_VALUE",
+ *           ],
+ *           LongValue: Number("long"),
+ *           DateValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *       LambdaArn: "STRING_VALUE", // required
+ *       S3Bucket: "STRING_VALUE", // required
+ *     },
+ *     PostExtractionHookConfiguration: {
+ *       InvocationCondition: {
+ *         ConditionDocumentAttributeKey: "STRING_VALUE", // required
+ *         Operator: "GreaterThan" || "GreaterThanOrEquals" || "LessThan" || "LessThanOrEquals" || "Equals" || "NotEquals" || "Contains" || "NotContains" || "Exists" || "NotExists" || "BeginsWith", // required
+ *         ConditionOnValue: {
+ *           StringValue: "STRING_VALUE",
+ *           StringListValue: [
+ *             "STRING_VALUE",
+ *           ],
+ *           LongValue: Number("long"),
+ *           DateValue: new Date("TIMESTAMP"),
+ *         },
+ *       },
+ *       LambdaArn: "STRING_VALUE", // required
+ *       S3Bucket: "STRING_VALUE", // required
+ *     },
+ *     RoleArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new BatchPutDocumentCommand(input);
  * const response = await client.send(command);
  * ```

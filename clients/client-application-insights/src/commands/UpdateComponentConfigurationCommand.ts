@@ -50,6 +50,14 @@ export interface UpdateComponentConfigurationCommandOutput
  * import { ApplicationInsightsClient, UpdateComponentConfigurationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, UpdateComponentConfigurationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = {
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   ComponentName: "STRING_VALUE", // required
+ *   Monitor: true || false,
+ *   Tier: "STRING_VALUE",
+ *   ComponentConfiguration: "STRING_VALUE",
+ *   AutoConfigEnabled: true || false,
+ * };
  * const command = new UpdateComponentConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

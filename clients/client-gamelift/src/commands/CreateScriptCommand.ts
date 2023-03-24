@@ -81,6 +81,23 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  * import { GameLiftClient, CreateScriptCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateScriptCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ *   StorageLocation: {
+ *     Bucket: "STRING_VALUE",
+ *     Key: "STRING_VALUE",
+ *     RoleArn: "STRING_VALUE",
+ *     ObjectVersion: "STRING_VALUE",
+ *   },
+ *   ZipFile: "BLOB_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateScriptCommand(input);
  * const response = await client.send(command);
  * ```

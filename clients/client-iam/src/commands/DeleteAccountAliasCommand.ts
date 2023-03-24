@@ -44,6 +44,9 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  * import { IAMClient, DeleteAccountAliasCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteAccountAliasCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   AccountAlias: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAccountAliasCommand(input);
  * const response = await client.send(command);
  * ```

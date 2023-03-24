@@ -42,6 +42,25 @@ export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer
  * import { SageMakerClient, CreateEdgeDeploymentStageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateEdgeDeploymentStageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   EdgeDeploymentPlanName: "STRING_VALUE", // required
+ *   Stages: [ // required
+ *     {
+ *       StageName: "STRING_VALUE", // required
+ *       DeviceSelectionConfig: {
+ *         DeviceSubsetType: "PERCENTAGE" || "SELECTION" || "NAMECONTAINS", // required
+ *         Percentage: Number("int"),
+ *         DeviceNames: [
+ *           "STRING_VALUE",
+ *         ],
+ *         DeviceNameContains: "STRING_VALUE",
+ *       },
+ *       DeploymentConfig: {
+ *         FailureHandlingPolicy: "ROLLBACK_ON_FAILURE" || "DO_NOTHING", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new CreateEdgeDeploymentStageCommand(input);
  * const response = await client.send(command);
  * ```

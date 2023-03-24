@@ -105,6 +105,7 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, LeaveOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, LeaveOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {};
  * const command = new LeaveOrganizationCommand(input);
  * const response = await client.send(command);
  * ```

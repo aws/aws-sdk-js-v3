@@ -43,6 +43,42 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * import { LexModelsV2Client, StartImportCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, StartImportCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   importId: "STRING_VALUE", // required
+ *   resourceSpecification: {
+ *     botImportSpecification: {
+ *       botName: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *       dataPrivacy: {
+ *         childDirected: true || false, // required
+ *       },
+ *       idleSessionTTLInSeconds: Number("int"),
+ *       botTags: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       testBotAliasTags: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *     botLocaleImportSpecification: {
+ *       botId: "STRING_VALUE", // required
+ *       botVersion: "STRING_VALUE", // required
+ *       localeId: "STRING_VALUE", // required
+ *       nluIntentConfidenceThreshold: Number("double"),
+ *       voiceSettings: {
+ *         voiceId: "STRING_VALUE", // required
+ *         engine: "standard" || "neural",
+ *       },
+ *     },
+ *     customVocabularyImportSpecification: {
+ *       botId: "STRING_VALUE", // required
+ *       botVersion: "STRING_VALUE", // required
+ *       localeId: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   mergeStrategy: "Overwrite" || "FailOnConflict" || "Append", // required
+ *   filePassword: "STRING_VALUE",
+ * };
  * const command = new StartImportCommand(input);
  * const response = await client.send(command);
  * ```

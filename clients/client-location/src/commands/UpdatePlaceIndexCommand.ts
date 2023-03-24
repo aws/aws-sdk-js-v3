@@ -42,6 +42,14 @@ export interface UpdatePlaceIndexCommandOutput extends UpdatePlaceIndexResponse,
  * import { LocationClient, UpdatePlaceIndexCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, UpdatePlaceIndexCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   IndexName: "STRING_VALUE", // required
+ *   PricingPlan: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DataSourceConfiguration: {
+ *     IntendedUse: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdatePlaceIndexCommand(input);
  * const response = await client.send(command);
  * ```

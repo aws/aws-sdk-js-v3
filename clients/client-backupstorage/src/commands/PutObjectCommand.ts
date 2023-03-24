@@ -51,6 +51,18 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * import { BackupStorageClient, PutObjectCommand } from "@aws-sdk/client-backupstorage"; // ES Modules import
  * // const { BackupStorageClient, PutObjectCommand } = require("@aws-sdk/client-backupstorage"); // CommonJS import
  * const client = new BackupStorageClient(config);
+ * const input = {
+ *   BackupJobId: "STRING_VALUE", // required
+ *   ObjectName: "STRING_VALUE", // required
+ *   MetadataString: "STRING_VALUE",
+ *   InlineChunk: "STREAMING_BLOB_VALUE",
+ *   InlineChunkLength: Number("long"),
+ *   InlineChunkChecksum: "STRING_VALUE",
+ *   InlineChunkChecksumAlgorithm: "STRING_VALUE",
+ *   ObjectChecksum: "STRING_VALUE",
+ *   ObjectChecksumAlgorithm: "STRING_VALUE",
+ *   ThrowOnDuplicate: true || false,
+ * };
  * const command = new PutObjectCommand(input);
  * const response = await client.send(command);
  * ```

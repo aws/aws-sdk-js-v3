@@ -42,6 +42,11 @@ export interface ExportFormsCommandOutput extends ExportFormsResponse, __Metadat
  * import { AmplifyUIBuilderClient, ExportFormsCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, ExportFormsCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ExportFormsCommand(input);
  * const response = await client.send(command);
  * ```

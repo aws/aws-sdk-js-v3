@@ -59,6 +59,18 @@ export interface CreateReservedInstancesListingCommandOutput
  * import { EC2Client, CreateReservedInstancesListingCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateReservedInstancesListingCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE", // required
+ *   InstanceCount: Number("int"), // required
+ *   PriceSchedules: [ // required
+ *     {
+ *       CurrencyCode: "USD",
+ *       Price: Number("double"),
+ *       Term: Number("long"),
+ *     },
+ *   ],
+ *   ReservedInstancesId: "STRING_VALUE", // required
+ * };
  * const command = new CreateReservedInstancesListingCommand(input);
  * const response = await client.send(command);
  * ```

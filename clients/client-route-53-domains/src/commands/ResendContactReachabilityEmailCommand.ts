@@ -46,6 +46,9 @@ export interface ResendContactReachabilityEmailCommandOutput
  * import { Route53DomainsClient, ResendContactReachabilityEmailCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ResendContactReachabilityEmailCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   domainName: "STRING_VALUE",
+ * };
  * const command = new ResendContactReachabilityEmailCommand(input);
  * const response = await client.send(command);
  * ```

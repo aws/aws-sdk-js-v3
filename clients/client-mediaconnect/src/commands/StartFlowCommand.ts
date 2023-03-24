@@ -42,6 +42,9 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  * import { MediaConnectClient, StartFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, StartFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = {
+ *   FlowArn: "STRING_VALUE", // required
+ * };
  * const command = new StartFlowCommand(input);
  * const response = await client.send(command);
  * ```

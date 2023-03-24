@@ -66,6 +66,89 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * import { ElastiCacheClient, CreateReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   ReplicationGroupId: "STRING_VALUE", // required
+ *   ReplicationGroupDescription: "STRING_VALUE", // required
+ *   GlobalReplicationGroupId: "STRING_VALUE",
+ *   PrimaryClusterId: "STRING_VALUE",
+ *   AutomaticFailoverEnabled: true || false,
+ *   MultiAZEnabled: true || false,
+ *   NumCacheClusters: Number("int"),
+ *   PreferredCacheClusterAZs: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NumNodeGroups: Number("int"),
+ *   ReplicasPerNodeGroup: Number("int"),
+ *   NodeGroupConfiguration: [
+ *     {
+ *       NodeGroupId: "STRING_VALUE",
+ *       Slots: "STRING_VALUE",
+ *       ReplicaCount: Number("int"),
+ *       PrimaryAvailabilityZone: "STRING_VALUE",
+ *       ReplicaAvailabilityZones: [
+ *         "STRING_VALUE",
+ *       ],
+ *       PrimaryOutpostArn: "STRING_VALUE",
+ *       ReplicaOutpostArns: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   CacheNodeType: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   CacheParameterGroupName: "STRING_VALUE",
+ *   CacheSubnetGroupName: "STRING_VALUE",
+ *   CacheSecurityGroupNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SnapshotArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SnapshotName: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   NotificationTopicArn: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   SnapshotRetentionLimit: Number("int"),
+ *   SnapshotWindow: "STRING_VALUE",
+ *   AuthToken: "STRING_VALUE",
+ *   TransitEncryptionEnabled: true || false,
+ *   AtRestEncryptionEnabled: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   UserGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   LogDeliveryConfigurations: [
+ *     {
+ *       LogType: "slow-log" || "engine-log",
+ *       DestinationType: "cloudwatch-logs" || "kinesis-firehose",
+ *       DestinationDetails: {
+ *         CloudWatchLogsDetails: {
+ *           LogGroup: "STRING_VALUE",
+ *         },
+ *         KinesisFirehoseDetails: {
+ *           DeliveryStream: "STRING_VALUE",
+ *         },
+ *       },
+ *       LogFormat: "text" || "json",
+ *       Enabled: true || false,
+ *     },
+ *   ],
+ *   DataTieringEnabled: true || false,
+ *   NetworkType: "ipv4" || "ipv6" || "dual_stack",
+ *   IpDiscovery: "ipv4" || "ipv6",
+ *   TransitEncryptionMode: "preferred" || "required",
+ * };
  * const command = new CreateReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,13 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  * import { WorkSpacesClient, ModifyClientPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyClientPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   ClientProperties: {
+ *     ReconnectEnabled: "ENABLED" || "DISABLED",
+ *     LogUploadEnabled: "ENABLED" || "DISABLED",
+ *   },
+ * };
  * const command = new ModifyClientPropertiesCommand(input);
  * const response = await client.send(command);
  * ```

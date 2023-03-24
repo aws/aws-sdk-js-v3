@@ -48,6 +48,12 @@ export interface RemoveThingFromBillingGroupCommandOutput
  * import { IoTClient, RemoveThingFromBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RemoveThingFromBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   billingGroupName: "STRING_VALUE",
+ *   billingGroupArn: "STRING_VALUE",
+ *   thingName: "STRING_VALUE",
+ *   thingArn: "STRING_VALUE",
+ * };
  * const command = new RemoveThingFromBillingGroupCommand(input);
  * const response = await client.send(command);
  * ```

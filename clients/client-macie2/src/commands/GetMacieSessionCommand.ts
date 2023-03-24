@@ -42,6 +42,7 @@ export interface GetMacieSessionCommandOutput extends GetMacieSessionResponse, _
  * import { Macie2Client, GetMacieSessionCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetMacieSessionCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {};
  * const command = new GetMacieSessionCommand(input);
  * const response = await client.send(command);
  * ```

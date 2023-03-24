@@ -45,6 +45,9 @@ export interface DeleteSolFunctionPackageCommandOutput extends __MetadataBearer 
  * import { TnbClient, DeleteSolFunctionPackageCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, DeleteSolFunctionPackageCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = {
+ *   vnfPkgId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSolFunctionPackageCommand(input);
  * const response = await client.send(command);
  * ```

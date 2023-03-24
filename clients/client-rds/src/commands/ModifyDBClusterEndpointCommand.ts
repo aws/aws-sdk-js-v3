@@ -46,6 +46,16 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * import { RDSClient, ModifyDBClusterEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBClusterEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBClusterEndpointIdentifier: "STRING_VALUE", // required
+ *   EndpointType: "STRING_VALUE",
+ *   StaticMembers: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ExcludedMembers: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyDBClusterEndpointCommand(input);
  * const response = await client.send(command);
  * ```

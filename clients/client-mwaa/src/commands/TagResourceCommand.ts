@@ -42,6 +42,12 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * import { MWAAClient, TagResourceCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, TagResourceCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

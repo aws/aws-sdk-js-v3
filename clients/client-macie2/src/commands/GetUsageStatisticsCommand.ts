@@ -42,6 +42,24 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * import { Macie2Client, GetUsageStatisticsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetUsageStatisticsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   filterBy: [
+ *     {
+ *       comparator: "GT" || "GTE" || "LT" || "LTE" || "EQ" || "NE" || "CONTAINS",
+ *       key: "accountId" || "serviceLimit" || "freeTrialStartDate" || "total",
+ *       values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   sortBy: {
+ *     key: "accountId" || "total" || "serviceLimitValue" || "freeTrialStartDate",
+ *     orderBy: "ASC" || "DESC",
+ *   },
+ *   timeRange: "MONTH_TO_DATE" || "PAST_30_DAYS",
+ * };
  * const command = new GetUsageStatisticsCommand(input);
  * const response = await client.send(command);
  * ```

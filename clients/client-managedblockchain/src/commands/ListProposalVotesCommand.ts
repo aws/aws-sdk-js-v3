@@ -47,6 +47,12 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
  * import { ManagedBlockchainClient, ListProposalVotesCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListProposalVotesCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = {
+ *   NetworkId: "STRING_VALUE", // required
+ *   ProposalId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListProposalVotesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,43 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * import { GrafanaClient, UpdateWorkspaceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, UpdateWorkspaceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = {
+ *   accountAccessType: "STRING_VALUE",
+ *   organizationRoleName: "STRING_VALUE",
+ *   permissionType: "STRING_VALUE",
+ *   stackSetName: "STRING_VALUE",
+ *   workspaceDataSources: [
+ *     "STRING_VALUE",
+ *   ],
+ *   workspaceDescription: "STRING_VALUE",
+ *   workspaceId: "STRING_VALUE", // required
+ *   workspaceName: "STRING_VALUE",
+ *   workspaceNotificationDestinations: [
+ *     "STRING_VALUE",
+ *   ],
+ *   workspaceOrganizationalUnits: [
+ *     "STRING_VALUE",
+ *   ],
+ *   workspaceRoleArn: "STRING_VALUE",
+ *   vpcConfiguration: {
+ *     securityGroupIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   removeVpcConfiguration: true || false,
+ *   networkAccessControl: {
+ *     prefixListIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     vpceIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   removeNetworkAccessConfiguration: true || false,
+ * };
  * const command = new UpdateWorkspaceCommand(input);
  * const response = await client.send(command);
  * ```

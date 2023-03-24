@@ -48,6 +48,15 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput
  * import { LicenseManagerClient, CreateLicenseConversionTaskForResourceCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateLicenseConversionTaskForResourceCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   SourceLicenseContext: {
+ *     UsageOperation: "STRING_VALUE",
+ *   },
+ *   DestinationLicenseContext: {
+ *     UsageOperation: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateLicenseConversionTaskForResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,11 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * import { GuardDutyClient, AcceptInvitationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, AcceptInvitationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   DetectorId: "STRING_VALUE", // required
+ *   MasterId: "STRING_VALUE", // required
+ *   InvitationId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptInvitationCommand(input);
  * const response = await client.send(command);
  * ```

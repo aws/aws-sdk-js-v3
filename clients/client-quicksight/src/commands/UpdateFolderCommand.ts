@@ -42,6 +42,11 @@ export interface UpdateFolderCommandOutput extends UpdateFolderResponse, __Metad
  * import { QuickSightClient, UpdateFolderCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateFolderCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   FolderId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new UpdateFolderCommand(input);
  * const response = await client.send(command);
  * ```

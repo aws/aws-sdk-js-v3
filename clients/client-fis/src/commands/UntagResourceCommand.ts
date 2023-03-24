@@ -42,6 +42,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * import { FisClient, UntagResourceCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, UntagResourceCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tagKeys: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

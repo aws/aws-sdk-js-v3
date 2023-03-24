@@ -42,6 +42,16 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
  * import { TranslateClient, ListTextTranslationJobsCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, ListTextTranslationJobsCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = {
+ *   Filter: {
+ *     JobName: "STRING_VALUE",
+ *     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED" || "COMPLETED_WITH_ERROR" || "FAILED" || "STOP_REQUESTED" || "STOPPED",
+ *     SubmittedBeforeTime: new Date("TIMESTAMP"),
+ *     SubmittedAfterTime: new Date("TIMESTAMP"),
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTextTranslationJobsCommand(input);
  * const response = await client.send(command);
  * ```

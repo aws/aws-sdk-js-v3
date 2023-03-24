@@ -69,6 +69,15 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  * import { KinesisClient, SubscribeToShardCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, SubscribeToShardCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = {
+ *   ConsumerARN: "STRING_VALUE", // required
+ *   ShardId: "STRING_VALUE", // required
+ *   StartingPosition: {
+ *     Type: "AT_SEQUENCE_NUMBER" || "AFTER_SEQUENCE_NUMBER" || "TRIM_HORIZON" || "LATEST" || "AT_TIMESTAMP", // required
+ *     SequenceNumber: "STRING_VALUE",
+ *     Timestamp: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new SubscribeToShardCommand(input);
  * const response = await client.send(command);
  * ```

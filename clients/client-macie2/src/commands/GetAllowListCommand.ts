@@ -42,6 +42,9 @@ export interface GetAllowListCommandOutput extends GetAllowListResponse, __Metad
  * import { Macie2Client, GetAllowListCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetAllowListCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetAllowListCommand(input);
  * const response = await client.send(command);
  * ```

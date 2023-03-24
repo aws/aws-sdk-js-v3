@@ -63,6 +63,13 @@ export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, _
  * import { AlexaForBusinessClient, StartDeviceSyncCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, StartDeviceSyncCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   RoomArn: "STRING_VALUE",
+ *   DeviceArn: "STRING_VALUE",
+ *   Features: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartDeviceSyncCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,12 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceR
  * import { SchemasClient, GetCodeBindingSourceCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, GetCodeBindingSourceCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = {
+ *   Language: "STRING_VALUE", // required
+ *   RegistryName: "STRING_VALUE", // required
+ *   SchemaName: "STRING_VALUE", // required
+ *   SchemaVersion: "STRING_VALUE",
+ * };
  * const command = new GetCodeBindingSourceCommand(input);
  * const response = await client.send(command);
  * ```

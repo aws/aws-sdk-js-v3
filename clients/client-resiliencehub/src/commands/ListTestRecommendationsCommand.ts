@@ -42,6 +42,11 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * import { ResiliencehubClient, ListTestRecommendationsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListTestRecommendationsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   assessmentArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTestRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```

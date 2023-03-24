@@ -44,6 +44,11 @@ export interface PutEmailMonitoringConfigurationCommandOutput
  * import { WorkMailClient, PutEmailMonitoringConfigurationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, PutEmailMonitoringConfigurationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   LogGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new PutEmailMonitoringConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

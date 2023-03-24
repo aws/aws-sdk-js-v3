@@ -42,6 +42,13 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  * import { GlueClient, GetCrawlerMetricsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetCrawlerMetricsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CrawlerNameList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetCrawlerMetricsCommand(input);
  * const response = await client.send(command);
  * ```

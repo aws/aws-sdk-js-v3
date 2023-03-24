@@ -42,6 +42,25 @@ export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse,
  * import { APIGatewayClient, TestInvokeMethodCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, TestInvokeMethodCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ *   pathWithQueryString: "STRING_VALUE",
+ *   body: "STRING_VALUE",
+ *   headers: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   multiValueHeaders: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   clientCertificateId: "STRING_VALUE",
+ *   stageVariables: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TestInvokeMethodCommand(input);
  * const response = await client.send(command);
  * ```

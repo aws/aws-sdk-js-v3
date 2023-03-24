@@ -43,6 +43,20 @@ export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * import { RedshiftClient, CreateUsageLimitCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateUsageLimitCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   FeatureType: "spectrum" || "concurrency-scaling" || "cross-region-datasharing", // required
+ *   LimitType: "time" || "data-scanned", // required
+ *   Amount: Number("long"), // required
+ *   Period: "daily" || "weekly" || "monthly",
+ *   BreachAction: "log" || "emit-metric" || "disable",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateUsageLimitCommand(input);
  * const response = await client.send(command);
  * ```

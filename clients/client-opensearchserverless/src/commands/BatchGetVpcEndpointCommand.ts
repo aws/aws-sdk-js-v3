@@ -48,6 +48,11 @@ export interface BatchGetVpcEndpointCommandOutput extends BatchGetVpcEndpointRes
  * import { OpenSearchServerlessClient, BatchGetVpcEndpointCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, BatchGetVpcEndpointCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = {
+ *   ids: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetVpcEndpointCommand(input);
  * const response = await client.send(command);
  * ```

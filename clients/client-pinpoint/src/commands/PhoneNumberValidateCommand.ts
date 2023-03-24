@@ -42,6 +42,12 @@ export interface PhoneNumberValidateCommandOutput extends PhoneNumberValidateRes
  * import { PinpointClient, PhoneNumberValidateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, PhoneNumberValidateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   NumberValidateRequest: {
+ *     IsoCountryCode: "STRING_VALUE",
+ *     PhoneNumber: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PhoneNumberValidateCommand(input);
  * const response = await client.send(command);
  * ```

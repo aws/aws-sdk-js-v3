@@ -42,6 +42,9 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * import { IvschatClient, GetRoomCommand } from "@aws-sdk/client-ivschat"; // ES Modules import
  * // const { IvschatClient, GetRoomCommand } = require("@aws-sdk/client-ivschat"); // CommonJS import
  * const client = new IvschatClient(config);
+ * const input = {
+ *   identifier: "STRING_VALUE", // required
+ * };
  * const command = new GetRoomCommand(input);
  * const response = await client.send(command);
  * ```

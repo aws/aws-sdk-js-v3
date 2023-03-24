@@ -45,6 +45,14 @@ export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateRespo
  * import { IoTThingsGraphClient, UpdateFlowTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, UpdateFlowTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   definition: {
+ *     language: "STRING_VALUE", // required
+ *     text: "STRING_VALUE", // required
+ *   },
+ *   compatibleNamespaceVersion: Number("long"),
+ * };
  * const command = new UpdateFlowTemplateCommand(input);
  * const response = await client.send(command);
  * ```

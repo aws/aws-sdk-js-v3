@@ -46,6 +46,19 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * import { MgnClient, ListApplicationsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListApplicationsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   filters: {
+ *     applicationIDs: [
+ *       "STRING_VALUE",
+ *     ],
+ *     isArchived: true || false,
+ *     waveIDs: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
  * ```

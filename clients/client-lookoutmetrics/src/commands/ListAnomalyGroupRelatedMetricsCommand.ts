@@ -45,6 +45,13 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  * import { LookoutMetricsClient, ListAnomalyGroupRelatedMetricsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, ListAnomalyGroupRelatedMetricsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = {
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   AnomalyGroupId: "STRING_VALUE", // required
+ *   RelationshipTypeFilter: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAnomalyGroupRelatedMetricsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,131 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  * import { AmplifyUIBuilderClient, CreateFormCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, CreateFormCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ *   environmentName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   formToCreate: {
+ *     name: "STRING_VALUE", // required
+ *     dataType: {
+ *       dataSourceType: "STRING_VALUE", // required
+ *       dataTypeName: "STRING_VALUE", // required
+ *     },
+ *     formActionType: "STRING_VALUE", // required
+ *     fields: { // required
+ *       "<keys>": {
+ *         label: "STRING_VALUE",
+ *         position: { // Union: only one key present
+ *           fixed: "STRING_VALUE",
+ *           rightOf: "STRING_VALUE",
+ *           below: "STRING_VALUE",
+ *         },
+ *         excluded: true || false,
+ *         inputType: {
+ *           type: "STRING_VALUE", // required
+ *           required: true || false,
+ *           readOnly: true || false,
+ *           placeholder: "STRING_VALUE",
+ *           defaultValue: "STRING_VALUE",
+ *           descriptiveText: "STRING_VALUE",
+ *           defaultChecked: true || false,
+ *           defaultCountryCode: "STRING_VALUE",
+ *           valueMappings: {
+ *             values: [ // required
+ *               {
+ *                 displayValue: {
+ *                   value: "STRING_VALUE",
+ *                 },
+ *                 value: {
+ *                   value: "STRING_VALUE",
+ *                 },
+ *               },
+ *             ],
+ *           },
+ *           name: "STRING_VALUE",
+ *           minValue: Number("float"),
+ *           maxValue: Number("float"),
+ *           step: Number("float"),
+ *           value: "STRING_VALUE",
+ *           isArray: true || false,
+ *         },
+ *         validations: [
+ *           {
+ *             type: "STRING_VALUE", // required
+ *             strValues: [
+ *               "STRING_VALUE",
+ *             ],
+ *             numValues: [
+ *               Number("int"),
+ *             ],
+ *             validationMessage: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     style: {
+ *       horizontalGap: { // Union: only one key present
+ *         tokenReference: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *       },
+ *       verticalGap: { // Union: only one key present
+ *         tokenReference: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *       },
+ *       outerPadding: { // Union: only one key present
+ *         tokenReference: "STRING_VALUE",
+ *         value: "STRING_VALUE",
+ *       },
+ *     },
+ *     sectionalElements: { // required
+ *       "<keys>": {
+ *         type: "STRING_VALUE", // required
+ *         position: { // Union: only one key present
+ *           fixed: "STRING_VALUE",
+ *           rightOf: "STRING_VALUE",
+ *           below: "STRING_VALUE",
+ *         },
+ *         text: "STRING_VALUE",
+ *         level: Number("int"),
+ *         orientation: "STRING_VALUE",
+ *       },
+ *     },
+ *     schemaVersion: "STRING_VALUE", // required
+ *     cta: {
+ *       position: "STRING_VALUE",
+ *       clear: {
+ *         excluded: true || false,
+ *         children: "STRING_VALUE",
+ *         position: { // Union: only one key present
+ *           fixed: "STRING_VALUE",
+ *           rightOf: "STRING_VALUE",
+ *           below: "STRING_VALUE",
+ *         },
+ *       },
+ *       cancel: {
+ *         excluded: true || false,
+ *         children: "STRING_VALUE",
+ *         position: { // Union: only one key present
+ *           fixed: "STRING_VALUE",
+ *           rightOf: "STRING_VALUE",
+ *           below: "STRING_VALUE",
+ *         },
+ *       },
+ *       submit: {
+ *         excluded: true || false,
+ *         children: "STRING_VALUE",
+ *         position: { // Union: only one key present
+ *           fixed: "STRING_VALUE",
+ *           rightOf: "STRING_VALUE",
+ *           below: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     tags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateFormCommand(input);
  * const response = await client.send(command);
  * ```

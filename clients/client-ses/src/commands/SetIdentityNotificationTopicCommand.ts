@@ -52,6 +52,11 @@ export interface SetIdentityNotificationTopicCommandOutput
  * import { SESClient, SetIdentityNotificationTopicCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SetIdentityNotificationTopicCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   Identity: "STRING_VALUE", // required
+ *   NotificationType: "STRING_VALUE", // required
+ *   SnsTopic: "STRING_VALUE",
+ * };
  * const command = new SetIdentityNotificationTopicCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,9 @@ export interface DeleteObservabilityConfigurationCommandOutput
  * import { AppRunnerClient, DeleteObservabilityConfigurationCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DeleteObservabilityConfigurationCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   ObservabilityConfigurationArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteObservabilityConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

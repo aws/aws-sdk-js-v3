@@ -47,6 +47,7 @@ export interface GetClassificationExportConfigurationCommandOutput
  * import { Macie2Client, GetClassificationExportConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetClassificationExportConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {};
  * const command = new GetClassificationExportConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

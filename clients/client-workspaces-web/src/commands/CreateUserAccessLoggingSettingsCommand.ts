@@ -48,6 +48,16 @@ export interface CreateUserAccessLoggingSettingsCommandOutput
  * import { WorkSpacesWebClient, CreateUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, CreateUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   kinesisStreamArn: "STRING_VALUE", // required
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
  * ```

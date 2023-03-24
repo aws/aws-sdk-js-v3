@@ -42,6 +42,10 @@ export interface GetComponentTypeCommandOutput extends GetComponentTypeResponse,
  * import { IoTTwinMakerClient, GetComponentTypeCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetComponentTypeCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   componentTypeId: "STRING_VALUE", // required
+ * };
  * const command = new GetComponentTypeCommand(input);
  * const response = await client.send(command);
  * ```

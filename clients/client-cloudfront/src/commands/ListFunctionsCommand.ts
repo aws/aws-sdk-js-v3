@@ -49,6 +49,11 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResult, __Metad
  * import { CloudFrontClient, ListFunctionsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListFunctionsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   Stage: "DEVELOPMENT" || "LIVE",
+ * };
  * const command = new ListFunctionsCommand(input);
  * const response = await client.send(command);
  * ```

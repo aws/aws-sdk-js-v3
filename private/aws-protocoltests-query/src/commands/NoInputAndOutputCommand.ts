@@ -44,6 +44,7 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * import { QueryProtocolClient, NoInputAndOutputCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, NoInputAndOutputCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {};
  * const command = new NoInputAndOutputCommand(input);
  * const response = await client.send(command);
  * ```

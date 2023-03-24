@@ -46,6 +46,10 @@ export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
  * import { FMSClient, PutNotificationChannelCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, PutNotificationChannelCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
+ * const input = {
+ *   SnsTopicArn: "STRING_VALUE", // required
+ *   SnsRoleName: "STRING_VALUE", // required
+ * };
  * const command = new PutNotificationChannelCommand(input);
  * const response = await client.send(command);
  * ```

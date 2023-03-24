@@ -44,6 +44,11 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  * import { OpenSearchClient, GetPackageVersionHistoryCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, GetPackageVersionHistoryCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   PackageID: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetPackageVersionHistoryCommand(input);
  * const response = await client.send(command);
  * ```

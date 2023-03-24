@@ -44,6 +44,11 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  * import { EC2Client, DescribeNetworkInterfaceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeNetworkInterfaceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Attribute: "description" || "groupSet" || "sourceDestCheck" || "attachment",
+ *   DryRun: true || false,
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,18 @@ export interface CreateJobForDevicesCommandOutput extends CreateJobForDevicesRes
  * import { PanoramaClient, CreateJobForDevicesCommand } from "@aws-sdk/client-panorama"; // ES Modules import
  * // const { PanoramaClient, CreateJobForDevicesCommand } = require("@aws-sdk/client-panorama"); // CommonJS import
  * const client = new PanoramaClient(config);
+ * const input = {
+ *   DeviceIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DeviceJobConfig: {
+ *     OTAJobConfig: {
+ *       ImageVersion: "STRING_VALUE", // required
+ *       AllowMajorVersionUpdate: true || false,
+ *     },
+ *   },
+ *   JobType: "STRING_VALUE", // required
+ * };
  * const command = new CreateJobForDevicesCommand(input);
  * const response = await client.send(command);
  * ```

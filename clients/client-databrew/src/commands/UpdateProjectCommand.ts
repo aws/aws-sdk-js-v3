@@ -42,6 +42,14 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  * import { DataBrewClient, UpdateProjectCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateProjectCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   Sample: {
+ *     Size: Number("int"),
+ *     Type: "FIRST_N" || "LAST_N" || "RANDOM", // required
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
  * ```

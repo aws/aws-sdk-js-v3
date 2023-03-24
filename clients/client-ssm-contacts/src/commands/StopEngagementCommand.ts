@@ -43,6 +43,10 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  * import { SSMContactsClient, StopEngagementCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, StopEngagementCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = {
+ *   EngagementId: "STRING_VALUE", // required
+ *   Reason: "STRING_VALUE",
+ * };
  * const command = new StopEngagementCommand(input);
  * const response = await client.send(command);
  * ```

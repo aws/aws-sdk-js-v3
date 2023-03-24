@@ -44,6 +44,10 @@ export interface ListEmailTemplatesCommandOutput extends ListEmailTemplatesRespo
  * import { SESv2Client, ListEmailTemplatesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListEmailTemplatesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListEmailTemplatesCommand(input);
  * const response = await client.send(command);
  * ```

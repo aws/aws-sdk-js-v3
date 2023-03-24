@@ -42,6 +42,9 @@ export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroup
  * import { SSMClient, DescribePatchGroupStateCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribePatchGroupStateCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   PatchGroup: "STRING_VALUE", // required
+ * };
  * const command = new DescribePatchGroupStateCommand(input);
  * const response = await client.send(command);
  * ```

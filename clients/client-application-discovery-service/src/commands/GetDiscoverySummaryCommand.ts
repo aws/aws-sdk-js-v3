@@ -48,6 +48,7 @@ export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryRes
  * import { ApplicationDiscoveryServiceClient, GetDiscoverySummaryCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, GetDiscoverySummaryCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = {};
  * const command = new GetDiscoverySummaryCommand(input);
  * const response = await client.send(command);
  * ```

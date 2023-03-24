@@ -44,6 +44,51 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * import { ConnectClient, CreateRuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateRuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   TriggerEventSource: {
+ *     EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate", // required
+ *     IntegrationAssociationId: "STRING_VALUE",
+ *   },
+ *   Function: "STRING_VALUE", // required
+ *   Actions: [ // required
+ *     {
+ *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION", // required
+ *       TaskAction: {
+ *         Name: "STRING_VALUE", // required
+ *         Description: "STRING_VALUE",
+ *         ContactFlowId: "STRING_VALUE", // required
+ *         References: {
+ *           "<keys>": {
+ *             Value: "STRING_VALUE", // required
+ *             Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *           },
+ *         },
+ *       },
+ *       EventBridgeAction: {
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       AssignContactCategoryAction: {},
+ *       SendNotificationAction: {
+ *         DeliveryMethod: "EMAIL", // required
+ *         Subject: "STRING_VALUE",
+ *         Content: "STRING_VALUE", // required
+ *         ContentType: "PLAIN_TEXT", // required
+ *         Recipient: {
+ *           UserTags: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           UserIds: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   PublishStatus: "DRAFT" || "PUBLISHED", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
  * ```

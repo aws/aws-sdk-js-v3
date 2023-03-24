@@ -42,6 +42,9 @@ export interface DeleteFlowDefinitionCommandOutput extends DeleteFlowDefinitionR
  * import { SageMakerClient, DeleteFlowDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteFlowDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   FlowDefinitionName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFlowDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,11 @@ export interface MergePullRequestByFastForwardCommandOutput
  * import { CodeCommitClient, MergePullRequestByFastForwardCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, MergePullRequestByFastForwardCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   pullRequestId: "STRING_VALUE", // required
+ *   repositoryName: "STRING_VALUE", // required
+ *   sourceCommitId: "STRING_VALUE",
+ * };
  * const command = new MergePullRequestByFastForwardCommand(input);
  * const response = await client.send(command);
  * ```

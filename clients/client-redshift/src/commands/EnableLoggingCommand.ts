@@ -43,6 +43,15 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
  * import { RedshiftClient, EnableLoggingCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, EnableLoggingCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   BucketName: "STRING_VALUE",
+ *   S3KeyPrefix: "STRING_VALUE",
+ *   LogDestinationType: "s3" || "cloudwatch",
+ *   LogExports: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new EnableLoggingCommand(input);
  * const response = await client.send(command);
  * ```

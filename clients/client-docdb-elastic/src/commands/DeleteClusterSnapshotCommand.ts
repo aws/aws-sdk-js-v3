@@ -42,6 +42,9 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  * import { DocDBElasticClient, DeleteClusterSnapshotCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, DeleteClusterSnapshotCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
+ * const input = {
+ *   snapshotArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

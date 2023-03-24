@@ -54,6 +54,11 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
  * import { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   OriginRequestPolicyId: "STRING_VALUE", // required
+ * };
  * const command = new ListDistributionsByOriginRequestPolicyIdCommand(input);
  * const response = await client.send(command);
  * ```

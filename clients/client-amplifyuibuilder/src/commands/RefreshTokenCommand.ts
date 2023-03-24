@@ -47,6 +47,12 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  * import { AmplifyUIBuilderClient, RefreshTokenCommand } from "@aws-sdk/client-amplifyuibuilder"; // ES Modules import
  * // const { AmplifyUIBuilderClient, RefreshTokenCommand } = require("@aws-sdk/client-amplifyuibuilder"); // CommonJS import
  * const client = new AmplifyUIBuilderClient(config);
+ * const input = {
+ *   provider: "STRING_VALUE", // required
+ *   refreshTokenBody: {
+ *     token: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new RefreshTokenCommand(input);
  * const response = await client.send(command);
  * ```

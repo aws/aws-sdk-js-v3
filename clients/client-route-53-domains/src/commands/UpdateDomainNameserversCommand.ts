@@ -51,6 +51,18 @@ export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNamese
  * import { Route53DomainsClient, UpdateDomainNameserversCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, UpdateDomainNameserversCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   FIAuthKey: "STRING_VALUE",
+ *   Nameservers: [ // required
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       GlueIps: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateDomainNameserversCommand(input);
  * const response = await client.send(command);
  * ```

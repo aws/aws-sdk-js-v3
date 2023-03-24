@@ -42,6 +42,37 @@ export interface UpdateProductCommandOutput extends UpdateProductOutput, __Metad
  * import { ServiceCatalogClient, UpdateProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Owner: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Distributor: "STRING_VALUE",
+ *   SupportDescription: "STRING_VALUE",
+ *   SupportEmail: "STRING_VALUE",
+ *   SupportUrl: "STRING_VALUE",
+ *   AddTags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   RemoveTags: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SourceConnection: {
+ *     Type: "CODESTAR",
+ *     ConnectionParameters: {
+ *       CodeStar: {
+ *         ConnectionArn: "STRING_VALUE", // required
+ *         Repository: "STRING_VALUE", // required
+ *         Branch: "STRING_VALUE", // required
+ *         ArtifactPath: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateProductCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,9 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
  * import { PinpointEmailClient, GetDomainDeliverabilityCampaignCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetDomainDeliverabilityCampaignCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {
+ *   CampaignId: "STRING_VALUE", // required
+ * };
  * const command = new GetDomainDeliverabilityCampaignCommand(input);
  * const response = await client.send(command);
  * ```

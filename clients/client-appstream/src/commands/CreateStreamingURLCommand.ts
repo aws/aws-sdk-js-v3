@@ -42,6 +42,14 @@ export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResul
  * import { AppStreamClient, CreateStreamingURLCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateStreamingURLCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   StackName: "STRING_VALUE", // required
+ *   FleetName: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE", // required
+ *   ApplicationId: "STRING_VALUE",
+ *   Validity: Number("long"),
+ *   SessionContext: "STRING_VALUE",
+ * };
  * const command = new CreateStreamingURLCommand(input);
  * const response = await client.send(command);
  * ```

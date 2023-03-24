@@ -48,6 +48,11 @@ export interface StartDataCollectionByAgentIdsCommandOutput
  * import { ApplicationDiscoveryServiceClient, StartDataCollectionByAgentIdsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, StartDataCollectionByAgentIdsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = {
+ *   agentIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartDataCollectionByAgentIdsCommand(input);
  * const response = await client.send(command);
  * ```

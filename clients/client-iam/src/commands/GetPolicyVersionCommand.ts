@@ -57,6 +57,10 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  * import { IAMClient, GetPolicyVersionCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetPolicyVersionCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   PolicyArn: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE", // required
+ * };
  * const command = new GetPolicyVersionCommand(input);
  * const response = await client.send(command);
  * ```

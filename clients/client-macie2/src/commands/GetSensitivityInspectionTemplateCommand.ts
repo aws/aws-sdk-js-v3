@@ -44,6 +44,9 @@ export interface GetSensitivityInspectionTemplateCommandOutput
  * import { Macie2Client, GetSensitivityInspectionTemplateCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetSensitivityInspectionTemplateCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetSensitivityInspectionTemplateCommand(input);
  * const response = await client.send(command);
  * ```

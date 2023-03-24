@@ -46,6 +46,76 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * import { RDSClient, ModifyDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBInstanceIdentifier: "STRING_VALUE", // required
+ *   AllocatedStorage: Number("int"),
+ *   DBInstanceClass: "STRING_VALUE",
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   DBSecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ApplyImmediately: true || false,
+ *   MasterUserPassword: "STRING_VALUE",
+ *   DBParameterGroupName: "STRING_VALUE",
+ *   BackupRetentionPeriod: Number("int"),
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AllowMajorVersionUpgrade: true || false,
+ *   AutoMinorVersionUpgrade: true || false,
+ *   LicenseModel: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   OptionGroupName: "STRING_VALUE",
+ *   NewDBInstanceIdentifier: "STRING_VALUE",
+ *   StorageType: "STRING_VALUE",
+ *   TdeCredentialArn: "STRING_VALUE",
+ *   TdeCredentialPassword: "STRING_VALUE",
+ *   CACertificateIdentifier: "STRING_VALUE",
+ *   Domain: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
+ *   MonitoringInterval: Number("int"),
+ *   DBPortNumber: Number("int"),
+ *   PubliclyAccessible: true || false,
+ *   MonitoringRoleArn: "STRING_VALUE",
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   PromotionTier: Number("int"),
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   PerformanceInsightsRetentionPeriod: Number("int"),
+ *   CloudwatchLogsExportConfiguration: {
+ *     EnableLogTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     DisableLogTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ProcessorFeatures: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   UseDefaultProcessorFeatures: true || false,
+ *   DeletionProtection: true || false,
+ *   MaxAllocatedStorage: Number("int"),
+ *   CertificateRotationRestart: true || false,
+ *   ReplicaMode: "open-read-only" || "mounted",
+ *   EnableCustomerOwnedIp: true || false,
+ *   AwsBackupRecoveryPointArn: "STRING_VALUE",
+ *   AutomationMode: "full" || "all-paused",
+ *   ResumeFullAutomationModeMinutes: Number("int"),
+ *   NetworkType: "STRING_VALUE",
+ *   StorageThroughput: Number("int"),
+ *   ManageMasterUserPassword: true || false,
+ *   RotateMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
+ * };
  * const command = new ModifyDBInstanceCommand(input);
  * const response = await client.send(command);
  * ```

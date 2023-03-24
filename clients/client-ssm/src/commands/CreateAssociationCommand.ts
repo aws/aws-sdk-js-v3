@@ -56,6 +56,85 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  * import { SSMClient, CreateAssociationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateAssociationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   DocumentVersion: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   Parameters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Targets: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   ScheduleExpression: "STRING_VALUE",
+ *   OutputLocation: {
+ *     S3Location: {
+ *       OutputS3Region: "STRING_VALUE",
+ *       OutputS3BucketName: "STRING_VALUE",
+ *       OutputS3KeyPrefix: "STRING_VALUE",
+ *     },
+ *   },
+ *   AssociationName: "STRING_VALUE",
+ *   AutomationTargetParameterName: "STRING_VALUE",
+ *   MaxErrors: "STRING_VALUE",
+ *   MaxConcurrency: "STRING_VALUE",
+ *   ComplianceSeverity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "UNSPECIFIED",
+ *   SyncCompliance: "AUTO" || "MANUAL",
+ *   ApplyOnlyAtCronInterval: true || false,
+ *   CalendarNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   TargetLocations: [
+ *     {
+ *       Accounts: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Regions: [
+ *         "STRING_VALUE",
+ *       ],
+ *       TargetLocationMaxConcurrency: "STRING_VALUE",
+ *       TargetLocationMaxErrors: "STRING_VALUE",
+ *       ExecutionRoleName: "STRING_VALUE",
+ *       TargetLocationAlarmConfiguration: {
+ *         IgnorePollAlarmFailure: true || false,
+ *         Alarms: [ // required
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   ScheduleOffset: Number("int"),
+ *   TargetMaps: [
+ *     {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   AlarmConfiguration: {
+ *     IgnorePollAlarmFailure: true || false,
+ *     Alarms: [ // required
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateAssociationCommand(input);
  * const response = await client.send(command);
  * ```

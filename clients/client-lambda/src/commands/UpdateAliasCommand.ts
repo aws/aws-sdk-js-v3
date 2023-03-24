@@ -42,6 +42,18 @@ export interface UpdateAliasCommandOutput extends AliasConfiguration, __Metadata
  * import { LambdaClient, UpdateAliasCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateAliasCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   FunctionName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   FunctionVersion: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   RoutingConfig: {
+ *     AdditionalVersionWeights: {
+ *       "<keys>": Number("double"),
+ *     },
+ *   },
+ *   RevisionId: "STRING_VALUE",
+ * };
  * const command = new UpdateAliasCommand(input);
  * const response = await client.send(command);
  * ```

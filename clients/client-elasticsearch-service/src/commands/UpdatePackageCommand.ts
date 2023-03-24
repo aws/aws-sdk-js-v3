@@ -46,6 +46,15 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * import { ElasticsearchServiceClient, UpdatePackageCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, UpdatePackageCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
+ * const input = {
+ *   PackageID: "STRING_VALUE", // required
+ *   PackageSource: {
+ *     S3BucketName: "STRING_VALUE",
+ *     S3Key: "STRING_VALUE",
+ *   },
+ *   PackageDescription: "STRING_VALUE",
+ *   CommitMessage: "STRING_VALUE",
+ * };
  * const command = new UpdatePackageCommand(input);
  * const response = await client.send(command);
  * ```

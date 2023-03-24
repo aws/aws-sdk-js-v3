@@ -42,6 +42,216 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * import { MediaConnectClient, CreateFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, CreateFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = {
+ *   AvailabilityZone: "STRING_VALUE",
+ *   Entitlements: [
+ *     {
+ *       DataTransferSubscriberFeePercent: Number("int"),
+ *       Description: "STRING_VALUE",
+ *       Encryption: {
+ *         Algorithm: "aes128" || "aes192" || "aes256",
+ *         ConstantInitializationVector: "STRING_VALUE",
+ *         DeviceId: "STRING_VALUE",
+ *         KeyType: "speke" || "static-key" || "srt-password",
+ *         Region: "STRING_VALUE",
+ *         ResourceId: "STRING_VALUE",
+ *         RoleArn: "STRING_VALUE", // required
+ *         SecretArn: "STRING_VALUE",
+ *         Url: "STRING_VALUE",
+ *       },
+ *       EntitlementStatus: "ENABLED" || "DISABLED",
+ *       Name: "STRING_VALUE",
+ *       Subscribers: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MediaStreams: [
+ *     {
+ *       Attributes: {
+ *         Fmtp: {
+ *           ChannelOrder: "STRING_VALUE",
+ *           Colorimetry: "BT601" || "BT709" || "BT2020" || "BT2100" || "ST2065-1" || "ST2065-3" || "XYZ",
+ *           ExactFramerate: "STRING_VALUE",
+ *           Par: "STRING_VALUE",
+ *           Range: "NARROW" || "FULL" || "FULLPROTECT",
+ *           ScanMode: "progressive" || "interlace" || "progressive-segmented-frame",
+ *           Tcs: "SDR" || "PQ" || "HLG" || "LINEAR" || "BT2100LINPQ" || "BT2100LINHLG" || "ST2065-1" || "ST428-1" || "DENSITY",
+ *         },
+ *         Lang: "STRING_VALUE",
+ *       },
+ *       ClockRate: Number("int"),
+ *       Description: "STRING_VALUE",
+ *       MediaStreamId: Number("int"), // required
+ *       MediaStreamName: "STRING_VALUE", // required
+ *       MediaStreamType: "video" || "audio" || "ancillary-data", // required
+ *       VideoFormat: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Name: "STRING_VALUE", // required
+ *   Outputs: [
+ *     {
+ *       CidrAllowList: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Description: "STRING_VALUE",
+ *       Destination: "STRING_VALUE",
+ *       Encryption: {
+ *         Algorithm: "aes128" || "aes192" || "aes256",
+ *         ConstantInitializationVector: "STRING_VALUE",
+ *         DeviceId: "STRING_VALUE",
+ *         KeyType: "speke" || "static-key" || "srt-password",
+ *         Region: "STRING_VALUE",
+ *         ResourceId: "STRING_VALUE",
+ *         RoleArn: "STRING_VALUE", // required
+ *         SecretArn: "STRING_VALUE",
+ *         Url: "STRING_VALUE",
+ *       },
+ *       MaxLatency: Number("int"),
+ *       MediaStreamOutputConfigurations: [
+ *         {
+ *           DestinationConfigurations: [
+ *             {
+ *               DestinationIp: "STRING_VALUE", // required
+ *               DestinationPort: Number("int"), // required
+ *               Interface: {
+ *                 Name: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           ],
+ *           EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
+ *           EncodingParameters: {
+ *             CompressionFactor: Number("double"), // required
+ *             EncoderProfile: "main" || "high", // required
+ *           },
+ *           MediaStreamName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       MinLatency: Number("int"),
+ *       Name: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos", // required
+ *       RemoteId: "STRING_VALUE",
+ *       SenderControlPort: Number("int"),
+ *       SmoothingLatency: Number("int"),
+ *       StreamId: "STRING_VALUE",
+ *       VpcInterfaceAttachment: {
+ *         VpcInterfaceName: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   Source: {
+ *     Decryption: {
+ *       Algorithm: "aes128" || "aes192" || "aes256",
+ *       ConstantInitializationVector: "STRING_VALUE",
+ *       DeviceId: "STRING_VALUE",
+ *       KeyType: "speke" || "static-key" || "srt-password",
+ *       Region: "STRING_VALUE",
+ *       ResourceId: "STRING_VALUE",
+ *       RoleArn: "STRING_VALUE", // required
+ *       SecretArn: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *     },
+ *     Description: "STRING_VALUE",
+ *     EntitlementArn: "STRING_VALUE",
+ *     IngestPort: Number("int"),
+ *     MaxBitrate: Number("int"),
+ *     MaxLatency: Number("int"),
+ *     MaxSyncBuffer: Number("int"),
+ *     MediaStreamSourceConfigurations: [
+ *       {
+ *         EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
+ *         InputConfigurations: [
+ *           {
+ *             InputPort: Number("int"), // required
+ *             Interface: {
+ *               Name: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         ],
+ *         MediaStreamName: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     MinLatency: Number("int"),
+ *     Name: "STRING_VALUE",
+ *     Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos",
+ *     SenderControlPort: Number("int"),
+ *     SenderIpAddress: "STRING_VALUE",
+ *     SourceListenerAddress: "STRING_VALUE",
+ *     SourceListenerPort: Number("int"),
+ *     StreamId: "STRING_VALUE",
+ *     VpcInterfaceName: "STRING_VALUE",
+ *     WhitelistCidr: "STRING_VALUE",
+ *   },
+ *   SourceFailoverConfig: {
+ *     FailoverMode: "MERGE" || "FAILOVER",
+ *     RecoveryWindow: Number("int"),
+ *     SourcePriority: {
+ *       PrimarySource: "STRING_VALUE",
+ *     },
+ *     State: "ENABLED" || "DISABLED",
+ *   },
+ *   Sources: [
+ *     {
+ *       Decryption: {
+ *         Algorithm: "aes128" || "aes192" || "aes256",
+ *         ConstantInitializationVector: "STRING_VALUE",
+ *         DeviceId: "STRING_VALUE",
+ *         KeyType: "speke" || "static-key" || "srt-password",
+ *         Region: "STRING_VALUE",
+ *         ResourceId: "STRING_VALUE",
+ *         RoleArn: "STRING_VALUE", // required
+ *         SecretArn: "STRING_VALUE",
+ *         Url: "STRING_VALUE",
+ *       },
+ *       Description: "STRING_VALUE",
+ *       EntitlementArn: "STRING_VALUE",
+ *       IngestPort: Number("int"),
+ *       MaxBitrate: Number("int"),
+ *       MaxLatency: Number("int"),
+ *       MaxSyncBuffer: Number("int"),
+ *       MediaStreamSourceConfigurations: [
+ *         {
+ *           EncodingName: "jxsv" || "raw" || "smpte291" || "pcm", // required
+ *           InputConfigurations: [
+ *             {
+ *               InputPort: Number("int"), // required
+ *               Interface: {
+ *                 Name: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           ],
+ *           MediaStreamName: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       MinLatency: Number("int"),
+ *       Name: "STRING_VALUE",
+ *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos",
+ *       SenderControlPort: Number("int"),
+ *       SenderIpAddress: "STRING_VALUE",
+ *       SourceListenerAddress: "STRING_VALUE",
+ *       SourceListenerPort: Number("int"),
+ *       StreamId: "STRING_VALUE",
+ *       VpcInterfaceName: "STRING_VALUE",
+ *       WhitelistCidr: "STRING_VALUE",
+ *     },
+ *   ],
+ *   VpcInterfaces: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       NetworkInterfaceType: "ena" || "efa",
+ *       RoleArn: "STRING_VALUE", // required
+ *       SecurityGroupIds: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       SubnetId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Maintenance: {
+ *     MaintenanceDay: "Monday" || "Tuesday" || "Wednesday" || "Thursday" || "Friday" || "Saturday" || "Sunday", // required
+ *     MaintenanceStartHour: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateFlowCommand(input);
  * const response = await client.send(command);
  * ```

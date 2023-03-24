@@ -42,6 +42,39 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { MemoryDBClient, CreateClusterCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, CreateClusterCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = {
+ *   ClusterName: "STRING_VALUE", // required
+ *   NodeType: "STRING_VALUE", // required
+ *   ParameterGroupName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   NumShards: Number("int"),
+ *   NumReplicasPerShard: Number("int"),
+ *   SubnetGroupName: "STRING_VALUE",
+ *   SecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MaintenanceWindow: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   SnsTopicArn: "STRING_VALUE",
+ *   TLSEnabled: true || false,
+ *   KmsKeyId: "STRING_VALUE",
+ *   SnapshotArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SnapshotName: "STRING_VALUE",
+ *   SnapshotRetentionLimit: Number("int"),
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SnapshotWindow: "STRING_VALUE",
+ *   ACLName: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   AutoMinorVersionUpgrade: true || false,
+ *   DataTiering: true || false,
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```

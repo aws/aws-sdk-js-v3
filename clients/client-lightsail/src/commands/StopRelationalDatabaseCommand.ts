@@ -45,6 +45,10 @@ export interface StopRelationalDatabaseCommandOutput extends StopRelationalDatab
  * import { LightsailClient, StopRelationalDatabaseCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, StopRelationalDatabaseCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ *   relationalDatabaseSnapshotName: "STRING_VALUE",
+ * };
  * const command = new StopRelationalDatabaseCommand(input);
  * const response = await client.send(command);
  * ```

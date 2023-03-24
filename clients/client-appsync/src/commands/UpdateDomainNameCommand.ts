@@ -42,6 +42,10 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * import { AppSyncClient, UpdateDomainNameCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateDomainNameCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   domainName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ * };
  * const command = new UpdateDomainNameCommand(input);
  * const response = await client.send(command);
  * ```

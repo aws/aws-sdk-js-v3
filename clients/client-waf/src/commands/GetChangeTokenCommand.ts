@@ -56,6 +56,7 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  * import { WAFClient, GetChangeTokenCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetChangeTokenCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {};
  * const command = new GetChangeTokenCommand(input);
  * const response = await client.send(command);
  * ```

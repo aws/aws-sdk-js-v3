@@ -46,6 +46,10 @@ export interface GetProxySessionCommandOutput extends GetProxySessionResponse, _
  * import { ChimeClient, GetProxySessionCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetProxySessionCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   ProxySessionId: "STRING_VALUE", // required
+ * };
  * const command = new GetProxySessionCommand(input);
  * const response = await client.send(command);
  * ```

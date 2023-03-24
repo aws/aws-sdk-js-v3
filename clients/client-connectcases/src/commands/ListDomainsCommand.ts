@@ -43,6 +43,10 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * import { ConnectCasesClient, ListDomainsCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, ListDomainsCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);
  * ```

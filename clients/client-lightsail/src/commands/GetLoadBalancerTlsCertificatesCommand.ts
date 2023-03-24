@@ -48,6 +48,9 @@ export interface GetLoadBalancerTlsCertificatesCommandOutput
  * import { LightsailClient, GetLoadBalancerTlsCertificatesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetLoadBalancerTlsCertificatesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   loadBalancerName: "STRING_VALUE", // required
+ * };
  * const command = new GetLoadBalancerTlsCertificatesCommand(input);
  * const response = await client.send(command);
  * ```

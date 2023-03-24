@@ -42,6 +42,9 @@ export interface GetBackupVaultNotificationsCommandOutput extends GetBackupVault
  * import { BackupClient, GetBackupVaultNotificationsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetBackupVaultNotificationsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
+ * const input = {
+ *   BackupVaultName: "STRING_VALUE", // required
+ * };
  * const command = new GetBackupVaultNotificationsCommand(input);
  * const response = await client.send(command);
  * ```

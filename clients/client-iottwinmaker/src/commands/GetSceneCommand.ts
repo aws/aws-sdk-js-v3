@@ -42,6 +42,10 @@ export interface GetSceneCommandOutput extends GetSceneResponse, __MetadataBeare
  * import { IoTTwinMakerClient, GetSceneCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, GetSceneCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   sceneId: "STRING_VALUE", // required
+ * };
  * const command = new GetSceneCommand(input);
  * const response = await client.send(command);
  * ```

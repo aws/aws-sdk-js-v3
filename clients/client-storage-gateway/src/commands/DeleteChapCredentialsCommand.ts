@@ -44,6 +44,10 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  * import { StorageGatewayClient, DeleteChapCredentialsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteChapCredentialsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   TargetARN: "STRING_VALUE", // required
+ *   InitiatorName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteChapCredentialsCommand(input);
  * const response = await client.send(command);
  * ```

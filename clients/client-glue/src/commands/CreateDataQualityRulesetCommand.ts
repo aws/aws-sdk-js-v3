@@ -43,6 +43,19 @@ export interface CreateDataQualityRulesetCommandOutput extends CreateDataQuality
  * import { GlueClient, CreateDataQualityRulesetCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateDataQualityRulesetCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Ruleset: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TargetTable: {
+ *     TableName: "STRING_VALUE", // required
+ *     DatabaseName: "STRING_VALUE", // required
+ *   },
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateDataQualityRulesetCommand(input);
  * const response = await client.send(command);
  * ```

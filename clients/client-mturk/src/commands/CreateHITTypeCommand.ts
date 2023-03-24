@@ -47,6 +47,31 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * import { MTurkClient, CreateHITTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateHITTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   AutoApprovalDelayInSeconds: Number("long"),
+ *   AssignmentDurationInSeconds: Number("long"), // required
+ *   Reward: "STRING_VALUE", // required
+ *   Title: "STRING_VALUE", // required
+ *   Keywords: "STRING_VALUE",
+ *   Description: "STRING_VALUE", // required
+ *   QualificationRequirements: [
+ *     {
+ *       QualificationTypeId: "STRING_VALUE", // required
+ *       Comparator: "STRING_VALUE", // required
+ *       IntegerValues: [
+ *         Number("int"),
+ *       ],
+ *       LocaleValues: [
+ *         {
+ *           Country: "STRING_VALUE", // required
+ *           Subdivision: "STRING_VALUE",
+ *         },
+ *       ],
+ *       RequiredToPreview: true || false,
+ *       ActionsGuarded: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateHITTypeCommand(input);
  * const response = await client.send(command);
  * ```

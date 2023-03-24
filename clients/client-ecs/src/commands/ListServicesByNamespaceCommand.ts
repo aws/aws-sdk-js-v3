@@ -46,6 +46,11 @@ export interface ListServicesByNamespaceCommandOutput extends ListServicesByName
  * import { ECSClient, ListServicesByNamespaceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListServicesByNamespaceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   namespace: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListServicesByNamespaceCommand(input);
  * const response = await client.send(command);
  * ```

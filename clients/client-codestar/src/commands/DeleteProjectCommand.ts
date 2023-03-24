@@ -43,6 +43,11 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * import { CodeStarClient, DeleteProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, DeleteProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   clientRequestToken: "STRING_VALUE",
+ *   deleteStack: true || false,
+ * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
  * ```

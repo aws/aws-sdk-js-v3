@@ -42,6 +42,28 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  * import { EMRClient, CreateStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, CreateStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   AuthMode: "SSO" || "IAM", // required
+ *   VpcId: "STRING_VALUE", // required
+ *   SubnetIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ServiceRole: "STRING_VALUE", // required
+ *   UserRole: "STRING_VALUE",
+ *   WorkspaceSecurityGroupId: "STRING_VALUE", // required
+ *   EngineSecurityGroupId: "STRING_VALUE", // required
+ *   DefaultS3Location: "STRING_VALUE", // required
+ *   IdpAuthUrl: "STRING_VALUE",
+ *   IdpRelayStateParameterName: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateStudioCommand(input);
  * const response = await client.send(command);
  * ```

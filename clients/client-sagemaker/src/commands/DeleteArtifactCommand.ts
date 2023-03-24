@@ -43,6 +43,18 @@ export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __M
  * import { SageMakerClient, DeleteArtifactCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteArtifactCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ArtifactArn: "STRING_VALUE",
+ *   Source: {
+ *     SourceUri: "STRING_VALUE", // required
+ *     SourceTypes: [
+ *       {
+ *         SourceIdType: "MD5Hash" || "S3ETag" || "S3Version" || "Custom", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new DeleteArtifactCommand(input);
  * const response = await client.send(command);
  * ```

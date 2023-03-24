@@ -50,6 +50,9 @@ export interface DescribeCreateAccountStatusCommandOutput
  * import { OrganizationsClient, DescribeCreateAccountStatusCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DescribeCreateAccountStatusCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   CreateAccountRequestId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeCreateAccountStatusCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,25 @@ export interface ListComplianceItemsCommandOutput extends ListComplianceItemsRes
  * import { SSMClient, ListComplianceItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListComplianceItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Type: "EQUAL" || "NOT_EQUAL" || "BEGIN_WITH" || "LESS_THAN" || "GREATER_THAN",
+ *     },
+ *   ],
+ *   ResourceIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourceTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListComplianceItemsCommand(input);
  * const response = await client.send(command);
  * ```

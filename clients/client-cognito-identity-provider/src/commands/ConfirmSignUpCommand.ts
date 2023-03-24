@@ -50,6 +50,23 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  * import { CognitoIdentityProviderClient, ConfirmSignUpCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ConfirmSignUpCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   ClientId: "STRING_VALUE", // required
+ *   SecretHash: "STRING_VALUE",
+ *   Username: "STRING_VALUE", // required
+ *   ConfirmationCode: "STRING_VALUE", // required
+ *   ForceAliasCreation: true || false,
+ *   AnalyticsMetadata: {
+ *     AnalyticsEndpointId: "STRING_VALUE",
+ *   },
+ *   UserContextData: {
+ *     IpAddress: "STRING_VALUE",
+ *     EncodedData: "STRING_VALUE",
+ *   },
+ *   ClientMetadata: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ConfirmSignUpCommand(input);
  * const response = await client.send(command);
  * ```

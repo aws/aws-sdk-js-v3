@@ -50,6 +50,13 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  * import { CloudFormationClient, GetTemplateSummaryCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, GetTemplateSummaryCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateURL: "STRING_VALUE",
+ *   StackName: "STRING_VALUE",
+ *   StackSetName: "STRING_VALUE",
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new GetTemplateSummaryCommand(input);
  * const response = await client.send(command);
  * ```

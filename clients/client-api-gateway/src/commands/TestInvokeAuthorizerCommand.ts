@@ -42,6 +42,26 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * import { APIGatewayClient, TestInvokeAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, TestInvokeAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   authorizerId: "STRING_VALUE", // required
+ *   headers: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   multiValueHeaders: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   pathWithQueryString: "STRING_VALUE",
+ *   body: "STRING_VALUE",
+ *   stageVariables: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   additionalContext: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TestInvokeAuthorizerCommand(input);
  * const response = await client.send(command);
  * ```

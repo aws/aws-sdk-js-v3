@@ -44,6 +44,9 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  * import { DevOpsGuruClient, RemoveNotificationChannelCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, RemoveNotificationChannelCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new RemoveNotificationChannelCommand(input);
  * const response = await client.send(command);
  * ```

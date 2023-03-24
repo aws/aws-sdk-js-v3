@@ -47,6 +47,9 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * import { SESClient, ListReceiptRuleSetsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListReceiptRuleSetsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListReceiptRuleSetsCommand(input);
  * const response = await client.send(command);
  * ```

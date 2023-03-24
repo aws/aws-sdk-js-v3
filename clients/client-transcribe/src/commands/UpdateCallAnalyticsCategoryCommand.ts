@@ -48,6 +48,86 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
  * import { TranscribeClient, UpdateCallAnalyticsCategoryCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, UpdateCallAnalyticsCategoryCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
+ * const input = {
+ *   CategoryName: "STRING_VALUE", // required
+ *   Rules: [ // required
+ *     { // Union: only one key present
+ *       NonTalkTimeFilter: {
+ *         Threshold: Number("long"),
+ *         AbsoluteTimeRange: {
+ *           StartTime: Number("long"),
+ *           EndTime: Number("long"),
+ *           First: Number("long"),
+ *           Last: Number("long"),
+ *         },
+ *         RelativeTimeRange: {
+ *           StartPercentage: Number("int"),
+ *           EndPercentage: Number("int"),
+ *           First: Number("int"),
+ *           Last: Number("int"),
+ *         },
+ *         Negate: true || false,
+ *       },
+ *       InterruptionFilter: {
+ *         Threshold: Number("long"),
+ *         ParticipantRole: "AGENT" || "CUSTOMER",
+ *         AbsoluteTimeRange: {
+ *           StartTime: Number("long"),
+ *           EndTime: Number("long"),
+ *           First: Number("long"),
+ *           Last: Number("long"),
+ *         },
+ *         RelativeTimeRange: {
+ *           StartPercentage: Number("int"),
+ *           EndPercentage: Number("int"),
+ *           First: Number("int"),
+ *           Last: Number("int"),
+ *         },
+ *         Negate: true || false,
+ *       },
+ *       TranscriptFilter: {
+ *         TranscriptFilterType: "EXACT", // required
+ *         AbsoluteTimeRange: {
+ *           StartTime: Number("long"),
+ *           EndTime: Number("long"),
+ *           First: Number("long"),
+ *           Last: Number("long"),
+ *         },
+ *         RelativeTimeRange: {
+ *           StartPercentage: Number("int"),
+ *           EndPercentage: Number("int"),
+ *           First: Number("int"),
+ *           Last: Number("int"),
+ *         },
+ *         ParticipantRole: "AGENT" || "CUSTOMER",
+ *         Negate: true || false,
+ *         Targets: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       SentimentFilter: {
+ *         Sentiments: [ // required
+ *           "POSITIVE" || "NEGATIVE" || "NEUTRAL" || "MIXED",
+ *         ],
+ *         AbsoluteTimeRange: {
+ *           StartTime: Number("long"),
+ *           EndTime: Number("long"),
+ *           First: Number("long"),
+ *           Last: Number("long"),
+ *         },
+ *         RelativeTimeRange: {
+ *           StartPercentage: Number("int"),
+ *           EndPercentage: Number("int"),
+ *           First: Number("int"),
+ *           Last: Number("int"),
+ *         },
+ *         ParticipantRole: "AGENT" || "CUSTOMER",
+ *         Negate: true || false,
+ *       },
+ *     },
+ *   ],
+ *   InputType: "REAL_TIME" || "POST_CALL",
+ * };
  * const command = new UpdateCallAnalyticsCategoryCommand(input);
  * const response = await client.send(command);
  * ```

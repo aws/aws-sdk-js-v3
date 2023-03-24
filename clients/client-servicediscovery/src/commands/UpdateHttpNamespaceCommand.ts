@@ -43,6 +43,13 @@ export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceRes
  * import { ServiceDiscoveryClient, UpdateHttpNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, UpdateHttpNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   UpdaterRequestId: "STRING_VALUE",
+ *   Namespace: {
+ *     Description: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateHttpNamespaceCommand(input);
  * const response = await client.send(command);
  * ```

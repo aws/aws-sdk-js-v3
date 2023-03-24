@@ -42,6 +42,10 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * import { MediaLiveClient, ListInputsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListInputsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListInputsCommand(input);
  * const response = await client.send(command);
  * ```

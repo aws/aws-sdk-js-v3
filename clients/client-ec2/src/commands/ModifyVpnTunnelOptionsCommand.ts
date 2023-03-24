@@ -45,6 +45,66 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  * import { EC2Client, ModifyVpnTunnelOptionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpnTunnelOptionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   VpnConnectionId: "STRING_VALUE", // required
+ *   VpnTunnelOutsideIpAddress: "STRING_VALUE", // required
+ *   TunnelOptions: {
+ *     TunnelInsideCidr: "STRING_VALUE",
+ *     TunnelInsideIpv6Cidr: "STRING_VALUE",
+ *     PreSharedKey: "STRING_VALUE",
+ *     Phase1LifetimeSeconds: Number("int"),
+ *     Phase2LifetimeSeconds: Number("int"),
+ *     RekeyMarginTimeSeconds: Number("int"),
+ *     RekeyFuzzPercentage: Number("int"),
+ *     ReplayWindowSize: Number("int"),
+ *     DPDTimeoutSeconds: Number("int"),
+ *     DPDTimeoutAction: "STRING_VALUE",
+ *     Phase1EncryptionAlgorithms: [
+ *       {
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Phase2EncryptionAlgorithms: [
+ *       {
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Phase1IntegrityAlgorithms: [
+ *       {
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Phase2IntegrityAlgorithms: [
+ *       {
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     Phase1DHGroupNumbers: [
+ *       {
+ *         Value: Number("int"),
+ *       },
+ *     ],
+ *     Phase2DHGroupNumbers: [
+ *       {
+ *         Value: Number("int"),
+ *       },
+ *     ],
+ *     IKEVersions: [
+ *       {
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     StartupAction: "STRING_VALUE",
+ *     LogOptions: {
+ *       CloudWatchLogOptions: {
+ *         LogEnabled: true || false,
+ *         LogGroupArn: "STRING_VALUE",
+ *         LogOutputFormat: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyVpnTunnelOptionsCommand(input);
  * const response = await client.send(command);
  * ```

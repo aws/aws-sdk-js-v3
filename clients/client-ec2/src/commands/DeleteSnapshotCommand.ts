@@ -48,6 +48,10 @@ export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeleteSnapshotCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteSnapshotCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   SnapshotId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,10 @@ export interface ExportClientVpnClientCertificateRevocationListCommandOutput
  * import { EC2Client, ExportClientVpnClientCertificateRevocationListCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ExportClientVpnClientCertificateRevocationListCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   ClientVpnEndpointId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ExportClientVpnClientCertificateRevocationListCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,11 @@ export interface DisassociateEnclaveCertificateIamRoleCommandOutput
  * import { EC2Client, DisassociateEnclaveCertificateIamRoleCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateEnclaveCertificateIamRoleCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   CertificateArn: "STRING_VALUE", // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DisassociateEnclaveCertificateIamRoleCommand(input);
  * const response = await client.send(command);
  * ```

@@ -71,6 +71,21 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * import { SESv2Client, CreateEmailIdentityCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateEmailIdentityCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   EmailIdentity: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   DkimSigningAttributes: {
+ *     DomainSigningSelector: "STRING_VALUE",
+ *     DomainSigningPrivateKey: "STRING_VALUE",
+ *     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
+ *   },
+ *   ConfigurationSetName: "STRING_VALUE",
+ * };
  * const command = new CreateEmailIdentityCommand(input);
  * const response = await client.send(command);
  * ```

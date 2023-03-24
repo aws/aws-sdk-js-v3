@@ -64,6 +64,12 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * import { SupportClient, DescribeServicesCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeServicesCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = {
+ *   serviceCodeList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   language: "STRING_VALUE",
+ * };
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);
  * ```

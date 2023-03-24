@@ -42,6 +42,9 @@ export interface TerminateAppCommandOutput extends TerminateAppResponse, __Metad
  * import { SMSClient, TerminateAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, TerminateAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE",
+ * };
  * const command = new TerminateAppCommand(input);
  * const response = await client.send(command);
  * ```

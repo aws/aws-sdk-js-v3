@@ -42,6 +42,94 @@ export interface UpdateDatasetCommandOutput extends __MetadataBearer {}
  * import { IoTAnalyticsClient, UpdateDatasetCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, UpdateDatasetCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = {
+ *   datasetName: "STRING_VALUE", // required
+ *   actions: [ // required
+ *     {
+ *       actionName: "STRING_VALUE",
+ *       queryAction: {
+ *         sqlQuery: "STRING_VALUE", // required
+ *         filters: [
+ *           {
+ *             deltaTime: {
+ *               offsetSeconds: Number("int"), // required
+ *               timeExpression: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       containerAction: {
+ *         image: "STRING_VALUE", // required
+ *         executionRoleArn: "STRING_VALUE", // required
+ *         resourceConfiguration: {
+ *           computeType: "STRING_VALUE", // required
+ *           volumeSizeInGB: Number("int"), // required
+ *         },
+ *         variables: [
+ *           {
+ *             name: "STRING_VALUE", // required
+ *             stringValue: "STRING_VALUE",
+ *             doubleValue: Number("double"),
+ *             datasetContentVersionValue: {
+ *               datasetName: "STRING_VALUE", // required
+ *             },
+ *             outputFileUriValue: {
+ *               fileName: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   triggers: [
+ *     {
+ *       schedule: {
+ *         expression: "STRING_VALUE",
+ *       },
+ *       dataset: {
+ *         name: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ *   contentDeliveryRules: [
+ *     {
+ *       entryName: "STRING_VALUE",
+ *       destination: {
+ *         iotEventsDestinationConfiguration: {
+ *           inputName: "STRING_VALUE", // required
+ *           roleArn: "STRING_VALUE", // required
+ *         },
+ *         s3DestinationConfiguration: {
+ *           bucket: "STRING_VALUE", // required
+ *           key: "STRING_VALUE", // required
+ *           glueConfiguration: {
+ *             tableName: "STRING_VALUE", // required
+ *             databaseName: "STRING_VALUE", // required
+ *           },
+ *           roleArn: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   retentionPeriod: {
+ *     unlimited: true || false,
+ *     numberOfDays: Number("int"),
+ *   },
+ *   versioningConfiguration: {
+ *     unlimited: true || false,
+ *     maxVersions: Number("int"),
+ *   },
+ *   lateDataRules: [
+ *     {
+ *       ruleName: "STRING_VALUE",
+ *       ruleConfiguration: {
+ *         deltaTimeSessionWindowConfiguration: {
+ *           timeoutInMinutes: Number("int"), // required
+ *         },
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateDatasetCommand(input);
  * const response = await client.send(command);
  * ```

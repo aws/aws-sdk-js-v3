@@ -52,6 +52,36 @@ export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQu
  * import { GameLiftClient, UpdateGameSessionQueueCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateGameSessionQueueCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   TimeoutInSeconds: Number("int"),
+ *   PlayerLatencyPolicies: [
+ *     {
+ *       MaximumIndividualPlayerLatencyMilliseconds: Number("int"),
+ *       PolicyDurationSeconds: Number("int"),
+ *     },
+ *   ],
+ *   Destinations: [
+ *     {
+ *       DestinationArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   FilterConfiguration: {
+ *     AllowedLocations: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   PriorityConfiguration: {
+ *     PriorityOrder: [
+ *       "LATENCY" || "COST" || "DESTINATION" || "LOCATION",
+ *     ],
+ *     LocationOrder: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   CustomEventData: "STRING_VALUE",
+ *   NotificationTarget: "STRING_VALUE",
+ * };
  * const command = new UpdateGameSessionQueueCommand(input);
  * const response = await client.send(command);
  * ```

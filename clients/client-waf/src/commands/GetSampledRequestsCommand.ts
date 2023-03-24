@@ -54,6 +54,15 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * import { WAFClient, GetSampledRequestsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetSampledRequestsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   WebAclId: "STRING_VALUE", // required
+ *   RuleId: "STRING_VALUE", // required
+ *   TimeWindow: {
+ *     StartTime: new Date("TIMESTAMP"), // required
+ *     EndTime: new Date("TIMESTAMP"), // required
+ *   },
+ *   MaxItems: Number("long"), // required
+ * };
  * const command = new GetSampledRequestsCommand(input);
  * const response = await client.send(command);
  * ```

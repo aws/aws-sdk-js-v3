@@ -44,6 +44,11 @@ export interface ListAppComponentRecommendationsCommandOutput
  * import { ResiliencehubClient, ListAppComponentRecommendationsCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, ListAppComponentRecommendationsCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   assessmentArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAppComponentRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```

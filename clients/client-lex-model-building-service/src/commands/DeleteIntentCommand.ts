@@ -63,6 +63,9 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  * import { LexModelBuildingServiceClient, DeleteIntentCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, DeleteIntentCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteIntentCommand(input);
  * const response = await client.send(command);
  * ```

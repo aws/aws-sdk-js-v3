@@ -43,6 +43,21 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * import { FSxClient, DescribeVolumesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeVolumesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   VolumeIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Filters: [
+ *     {
+ *       Name: "file-system-id" || "storage-virtual-machine-id",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeVolumesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,11 @@ export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, PutDestinationPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutDestinationPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   destinationName: "STRING_VALUE", // required
+ *   accessPolicy: "STRING_VALUE", // required
+ *   forceUpdate: true || false,
+ * };
  * const command = new PutDestinationPolicyCommand(input);
  * const response = await client.send(command);
  * ```

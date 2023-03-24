@@ -48,6 +48,29 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * import { ComputeOptimizerClient, GetEC2InstanceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEC2InstanceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = {
+ *   instanceArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   filters: [
+ *     {
+ *       name: "Finding" || "FindingReasonCodes" || "RecommendationSourceType",
+ *       values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   accountIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   recommendationPreferences: {
+ *     cpuVendorArchitectures: [
+ *       "AWS_ARM64" || "CURRENT",
+ *     ],
+ *   },
+ * };
  * const command = new GetEC2InstanceRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,12 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * import { LexRuntimeServiceClient, GetSessionCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, GetSessionCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
  * const client = new LexRuntimeServiceClient(config);
+ * const input = {
+ *   botName: "STRING_VALUE", // required
+ *   botAlias: "STRING_VALUE", // required
+ *   userId: "STRING_VALUE", // required
+ *   checkpointLabelFilter: "STRING_VALUE",
+ * };
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);
  * ```

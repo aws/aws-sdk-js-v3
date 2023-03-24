@@ -42,6 +42,16 @@ export interface GetIpamAddressHistoryCommandOutput extends GetIpamAddressHistor
  * import { EC2Client, GetIpamAddressHistoryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetIpamAddressHistoryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   Cidr: "STRING_VALUE", // required
+ *   IpamScopeId: "STRING_VALUE", // required
+ *   VpcId: "STRING_VALUE",
+ *   StartTime: new Date("TIMESTAMP"),
+ *   EndTime: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetIpamAddressHistoryCommand(input);
  * const response = await client.send(command);
  * ```

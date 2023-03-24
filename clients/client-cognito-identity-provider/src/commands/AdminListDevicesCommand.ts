@@ -53,6 +53,12 @@ export interface AdminListDevicesCommandOutput extends AdminListDevicesResponse,
  * import { CognitoIdentityProviderClient, AdminListDevicesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminListDevicesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   Limit: Number("int"),
+ *   PaginationToken: "STRING_VALUE",
+ * };
  * const command = new AdminListDevicesCommand(input);
  * const response = await client.send(command);
  * ```

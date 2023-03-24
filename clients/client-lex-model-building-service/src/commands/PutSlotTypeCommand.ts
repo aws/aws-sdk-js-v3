@@ -61,6 +61,29 @@ export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __Metadat
  * import { LexModelBuildingServiceClient, PutSlotTypeCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, PutSlotTypeCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   enumerationValues: [
+ *     {
+ *       value: "STRING_VALUE", // required
+ *       synonyms: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   checksum: "STRING_VALUE",
+ *   valueSelectionStrategy: "STRING_VALUE",
+ *   createVersion: true || false,
+ *   parentSlotTypeSignature: "STRING_VALUE",
+ *   slotTypeConfigurations: [
+ *     {
+ *       regexConfiguration: {
+ *         pattern: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new PutSlotTypeCommand(input);
  * const response = await client.send(command);
  * ```

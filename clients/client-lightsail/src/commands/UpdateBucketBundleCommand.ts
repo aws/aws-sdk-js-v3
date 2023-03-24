@@ -54,6 +54,10 @@ export interface UpdateBucketBundleCommandOutput extends UpdateBucketBundleResul
  * import { LightsailClient, UpdateBucketBundleCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateBucketBundleCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   bucketName: "STRING_VALUE", // required
+ *   bundleId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateBucketBundleCommand(input);
  * const response = await client.send(command);
  * ```

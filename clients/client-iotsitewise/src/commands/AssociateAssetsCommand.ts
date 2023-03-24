@@ -44,6 +44,12 @@ export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
  * import { IoTSiteWiseClient, AssociateAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, AssociateAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   assetId: "STRING_VALUE", // required
+ *   hierarchyId: "STRING_VALUE", // required
+ *   childAssetId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new AssociateAssetsCommand(input);
  * const response = await client.send(command);
  * ```

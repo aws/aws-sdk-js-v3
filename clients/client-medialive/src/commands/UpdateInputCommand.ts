@@ -42,6 +42,36 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  * import { MediaLiveClient, UpdateInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, UpdateInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   Destinations: [
+ *     {
+ *       StreamName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   InputDevices: [
+ *     {
+ *       Id: "STRING_VALUE",
+ *     },
+ *   ],
+ *   InputId: "STRING_VALUE", // required
+ *   InputSecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ *   MediaConnectFlows: [
+ *     {
+ *       FlowArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Name: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   Sources: [
+ *     {
+ *       PasswordParam: "STRING_VALUE",
+ *       Url: "STRING_VALUE",
+ *       Username: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateInputCommand(input);
  * const response = await client.send(command);
  * ```

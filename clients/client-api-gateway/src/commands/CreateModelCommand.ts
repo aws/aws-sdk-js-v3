@@ -42,6 +42,13 @@ export interface CreateModelCommandOutput extends Model, __MetadataBearer {}
  * import { APIGatewayClient, CreateModelCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateModelCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   schema: "STRING_VALUE",
+ *   contentType: "STRING_VALUE", // required
+ * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);
  * ```

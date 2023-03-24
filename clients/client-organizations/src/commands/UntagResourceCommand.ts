@@ -58,6 +58,12 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, UntagResourceCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, UntagResourceCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

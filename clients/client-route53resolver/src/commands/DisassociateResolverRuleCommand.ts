@@ -46,6 +46,10 @@ export interface DisassociateResolverRuleCommandOutput extends DisassociateResol
  * import { Route53ResolverClient, DisassociateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DisassociateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   VPCId: "STRING_VALUE", // required
+ *   ResolverRuleId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateResolverRuleCommand(input);
  * const response = await client.send(command);
  * ```

@@ -74,6 +74,43 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * import { OpsWorksCMClient, CreateServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, CreateServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = {
+ *   AssociatePublicIpAddress: true || false,
+ *   CustomDomain: "STRING_VALUE",
+ *   CustomCertificate: "STRING_VALUE",
+ *   CustomPrivateKey: "STRING_VALUE",
+ *   DisableAutomatedBackup: true || false,
+ *   Engine: "STRING_VALUE", // required
+ *   EngineModel: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   EngineAttributes: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   BackupRetentionCount: Number("int"),
+ *   ServerName: "STRING_VALUE", // required
+ *   InstanceProfileArn: "STRING_VALUE", // required
+ *   InstanceType: "STRING_VALUE", // required
+ *   KeyPair: "STRING_VALUE",
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   PreferredBackupWindow: "STRING_VALUE",
+ *   SecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ServiceRoleArn: "STRING_VALUE", // required
+ *   SubnetIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   BackupId: "STRING_VALUE",
+ * };
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);
  * ```

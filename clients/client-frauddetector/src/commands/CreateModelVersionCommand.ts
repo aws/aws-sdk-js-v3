@@ -43,6 +43,40 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  * import { FraudDetectorClient, CreateModelVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateModelVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   modelId: "STRING_VALUE", // required
+ *   modelType: "ONLINE_FRAUD_INSIGHTS" || "TRANSACTION_FRAUD_INSIGHTS" || "ACCOUNT_TAKEOVER_INSIGHTS", // required
+ *   trainingDataSource: "EXTERNAL_EVENTS" || "INGESTED_EVENTS", // required
+ *   trainingDataSchema: {
+ *     modelVariables: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     labelSchema: {
+ *       labelMapper: {
+ *         "<keys>": [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       unlabeledEventsTreatment: "IGNORE" || "FRAUD" || "LEGIT" || "AUTO",
+ *     },
+ *   },
+ *   externalEventsDetail: {
+ *     dataLocation: "STRING_VALUE", // required
+ *     dataAccessRoleArn: "STRING_VALUE", // required
+ *   },
+ *   ingestedEventsDetail: {
+ *     ingestedEventsTimeWindow: {
+ *       startTime: "STRING_VALUE", // required
+ *       endTime: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateModelVersionCommand(input);
  * const response = await client.send(command);
  * ```

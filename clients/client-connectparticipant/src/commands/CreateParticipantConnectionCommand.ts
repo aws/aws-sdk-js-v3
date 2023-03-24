@@ -82,6 +82,13 @@ export interface CreateParticipantConnectionCommandOutput
  * import { ConnectParticipantClient, CreateParticipantConnectionCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, CreateParticipantConnectionCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
  * const client = new ConnectParticipantClient(config);
+ * const input = {
+ *   Type: [
+ *     "WEBSOCKET" || "CONNECTION_CREDENTIALS",
+ *   ],
+ *   ParticipantToken: "STRING_VALUE", // required
+ *   ConnectParticipant: true || false,
+ * };
  * const command = new CreateParticipantConnectionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParamete
  * import { AlexaForBusinessClient, GetRoomSkillParameterCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetRoomSkillParameterCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   RoomArn: "STRING_VALUE",
+ *   SkillId: "STRING_VALUE", // required
+ *   ParameterKey: "STRING_VALUE", // required
+ * };
  * const command = new GetRoomSkillParameterCommand(input);
  * const response = await client.send(command);
  * ```

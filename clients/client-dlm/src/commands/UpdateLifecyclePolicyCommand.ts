@@ -44,6 +44,145 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * import { DLMClient, UpdateLifecyclePolicyCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, UpdateLifecyclePolicyCommand } = require("@aws-sdk/client-dlm"); // CommonJS import
  * const client = new DLMClient(config);
+ * const input = {
+ *   PolicyId: "STRING_VALUE", // required
+ *   ExecutionRoleArn: "STRING_VALUE",
+ *   State: "ENABLED" || "DISABLED",
+ *   Description: "STRING_VALUE",
+ *   PolicyDetails: {
+ *     PolicyType: "EBS_SNAPSHOT_MANAGEMENT" || "IMAGE_MANAGEMENT" || "EVENT_BASED_POLICY",
+ *     ResourceTypes: [
+ *       "VOLUME" || "INSTANCE",
+ *     ],
+ *     ResourceLocations: [
+ *       "CLOUD" || "OUTPOST",
+ *     ],
+ *     TargetTags: [
+ *       {
+ *         Key: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     Schedules: [
+ *       {
+ *         Name: "STRING_VALUE",
+ *         CopyTags: true || false,
+ *         TagsToAdd: [
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         VariableTags: [
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         CreateRule: {
+ *           Location: "CLOUD" || "OUTPOST_LOCAL",
+ *           Interval: Number("int"),
+ *           IntervalUnit: "HOURS",
+ *           Times: [
+ *             "STRING_VALUE",
+ *           ],
+ *           CronExpression: "STRING_VALUE",
+ *         },
+ *         RetainRule: {
+ *           Count: Number("int"),
+ *           Interval: Number("int"),
+ *           IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *         },
+ *         FastRestoreRule: {
+ *           Count: Number("int"),
+ *           Interval: Number("int"),
+ *           IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *           AvailabilityZones: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         CrossRegionCopyRules: [
+ *           {
+ *             TargetRegion: "STRING_VALUE",
+ *             Target: "STRING_VALUE",
+ *             Encrypted: true || false, // required
+ *             CmkArn: "STRING_VALUE",
+ *             CopyTags: true || false,
+ *             RetainRule: {
+ *               Interval: Number("int"),
+ *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *             },
+ *             DeprecateRule: {
+ *               Interval: Number("int"),
+ *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *             },
+ *           },
+ *         ],
+ *         ShareRules: [
+ *           {
+ *             TargetAccounts: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *             UnshareInterval: Number("int"),
+ *             UnshareIntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *           },
+ *         ],
+ *         DeprecateRule: {
+ *           Count: Number("int"),
+ *           Interval: Number("int"),
+ *           IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *         },
+ *         ArchiveRule: {
+ *           RetainRule: {
+ *             RetentionArchiveTier: {
+ *               Count: Number("int"),
+ *               Interval: Number("int"),
+ *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *             },
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     Parameters: {
+ *       ExcludeBootVolume: true || false,
+ *       NoReboot: true || false,
+ *       ExcludeDataVolumeTags: [
+ *         {
+ *           Key: "<Tag>",
+ *           Value: "<Tag>",
+ *         },
+ *       ],
+ *     },
+ *     EventSource: {
+ *       Type: "MANAGED_CWE", // required
+ *       Parameters: {
+ *         EventType: "shareSnapshot", // required
+ *         SnapshotOwner: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         DescriptionRegex: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     Actions: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         CrossRegionCopy: [ // required
+ *           {
+ *             Target: "STRING_VALUE", // required
+ *             EncryptionConfiguration: {
+ *               Encrypted: true || false, // required
+ *               CmkArn: "STRING_VALUE",
+ *             },
+ *             RetainRule: {
+ *               Interval: Number("int"),
+ *               IntervalUnit: "DAYS" || "WEEKS" || "MONTHS" || "YEARS",
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateLifecyclePolicyCommand(input);
  * const response = await client.send(command);
  * ```

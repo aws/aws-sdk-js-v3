@@ -47,6 +47,12 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * import { RoboMakerClient, CreateFleetCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CreateFleetCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
  * ```

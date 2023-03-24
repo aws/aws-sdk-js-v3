@@ -42,6 +42,20 @@ export interface PutIntegrationResponseCommandOutput extends IntegrationResponse
  * import { APIGatewayClient, PutIntegrationResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, PutIntegrationResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   httpMethod: "STRING_VALUE", // required
+ *   statusCode: "STRING_VALUE", // required
+ *   selectionPattern: "STRING_VALUE",
+ *   responseParameters: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   responseTemplates: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   contentHandling: "CONVERT_TO_BINARY" || "CONVERT_TO_TEXT",
+ * };
  * const command = new PutIntegrationResponseCommand(input);
  * const response = await client.send(command);
  * ```

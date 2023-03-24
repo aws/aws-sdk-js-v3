@@ -51,6 +51,9 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  * import { SESClient, GetCustomVerificationEmailTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetCustomVerificationEmailTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   TemplateName: "STRING_VALUE", // required
+ * };
  * const command = new GetCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,13 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * import { AlexaForBusinessClient, UpdateRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, UpdateRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   RoomArn: "STRING_VALUE",
+ *   RoomName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ProviderCalendarId: "STRING_VALUE",
+ *   ProfileArn: "STRING_VALUE",
+ * };
  * const command = new UpdateRoomCommand(input);
  * const response = await client.send(command);
  * ```

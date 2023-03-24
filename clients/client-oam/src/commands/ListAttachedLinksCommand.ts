@@ -44,6 +44,11 @@ export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput,
  * import { OAMClient, ListAttachedLinksCommand } from "@aws-sdk/client-oam"; // ES Modules import
  * // const { OAMClient, ListAttachedLinksCommand } = require("@aws-sdk/client-oam"); // CommonJS import
  * const client = new OAMClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   SinkIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new ListAttachedLinksCommand(input);
  * const response = await client.send(command);
  * ```

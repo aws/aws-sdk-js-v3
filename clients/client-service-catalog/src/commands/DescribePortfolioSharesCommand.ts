@@ -46,6 +46,12 @@ export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioS
  * import { ServiceCatalogClient, DescribePortfolioSharesCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribePortfolioSharesCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   PortfolioId: "STRING_VALUE", // required
+ *   Type: "ACCOUNT" || "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ORGANIZATION_MEMBER_ACCOUNT", // required
+ *   PageToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new DescribePortfolioSharesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,9 @@ export interface EnableProfileCommandOutput extends ProfileDetailResponse, __Met
  * import { RolesAnywhereClient, EnableProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, EnableProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = {
+ *   profileId: "STRING_VALUE", // required
+ * };
  * const command = new EnableProfileCommand(input);
  * const response = await client.send(command);
  * ```

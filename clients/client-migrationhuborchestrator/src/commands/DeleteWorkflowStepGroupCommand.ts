@@ -46,6 +46,10 @@ export interface DeleteWorkflowStepGroupCommandOutput extends DeleteWorkflowStep
  * import { MigrationHubOrchestratorClient, DeleteWorkflowStepGroupCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, DeleteWorkflowStepGroupCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = {
+ *   workflowId: "STRING_VALUE", // required
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteWorkflowStepGroupCommand(input);
  * const response = await client.send(command);
  * ```

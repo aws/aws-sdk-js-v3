@@ -47,6 +47,7 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  * import { ShieldClient, CreateSubscriptionCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, CreateSubscriptionCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {};
  * const command = new CreateSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

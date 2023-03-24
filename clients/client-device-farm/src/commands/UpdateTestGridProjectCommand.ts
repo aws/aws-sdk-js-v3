@@ -42,6 +42,20 @@ export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjec
  * import { DeviceFarmClient, UpdateTestGridProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateTestGridProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   projectArn: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   vpcConfig: {
+ *     securityGroupIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     subnetIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     vpcId: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateTestGridProjectCommand(input);
  * const response = await client.send(command);
  * ```

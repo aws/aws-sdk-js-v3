@@ -53,6 +53,10 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  * import { ACMClient, ExportCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, ExportCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = {
+ *   CertificateArn: "STRING_VALUE", // required
+ *   Passphrase: "BLOB_VALUE", // required
+ * };
  * const command = new ExportCertificateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,11 @@ export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, _
  * import { IoTClient, UpdateRoleAliasCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateRoleAliasCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   roleAlias: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE",
+ *   credentialDurationSeconds: Number("int"),
+ * };
  * const command = new UpdateRoleAliasCommand(input);
  * const response = await client.send(command);
  * ```

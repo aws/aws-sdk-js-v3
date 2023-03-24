@@ -48,6 +48,11 @@ export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __Met
  * import { LocationClient, GetMapSpritesCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetMapSpritesCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   MapName: "STRING_VALUE", // required
+ *   FileName: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE",
+ * };
  * const command = new GetMapSpritesCommand(input);
  * const response = await client.send(command);
  * ```

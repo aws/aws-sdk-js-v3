@@ -42,6 +42,17 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * import { RDSClient, CopyDBParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CopyDBParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   SourceDBParameterGroupIdentifier: "STRING_VALUE", // required
+ *   TargetDBParameterGroupIdentifier: "STRING_VALUE", // required
+ *   TargetDBParameterGroupDescription: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CopyDBParameterGroupCommand(input);
  * const response = await client.send(command);
  * ```

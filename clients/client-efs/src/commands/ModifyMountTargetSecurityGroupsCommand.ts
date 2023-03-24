@@ -61,6 +61,12 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  * import { EFSClient, ModifyMountTargetSecurityGroupsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, ModifyMountTargetSecurityGroupsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   MountTargetId: "STRING_VALUE", // required
+ *   SecurityGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ModifyMountTargetSecurityGroupsCommand(input);
  * const response = await client.send(command);
  * ```

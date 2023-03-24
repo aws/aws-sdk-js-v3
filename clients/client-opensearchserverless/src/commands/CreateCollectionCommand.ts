@@ -47,6 +47,18 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * import { OpenSearchServerlessClient, CreateCollectionCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, CreateCollectionCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   type: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateCollectionCommand(input);
  * const response = await client.send(command);
  * ```

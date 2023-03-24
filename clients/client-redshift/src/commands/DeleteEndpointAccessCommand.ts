@@ -42,6 +42,9 @@ export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __Met
  * import { RedshiftClient, DeleteEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   EndpointName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```

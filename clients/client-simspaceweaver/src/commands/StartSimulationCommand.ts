@@ -46,6 +46,20 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
  * import { SimSpaceWeaverClient, StartSimulationCommand } from "@aws-sdk/client-simspaceweaver"; // ES Modules import
  * // const { SimSpaceWeaverClient, StartSimulationCommand } = require("@aws-sdk/client-simspaceweaver"); // CommonJS import
  * const client = new SimSpaceWeaverClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE", // required
+ *   SchemaS3Location: {
+ *     BucketName: "STRING_VALUE",
+ *     ObjectKey: "STRING_VALUE",
+ *   },
+ *   MaximumDuration: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new StartSimulationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -49,6 +49,17 @@ export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTas
  * import { DatabaseMigrationServiceClient, ModifyReplicationTaskCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ModifyReplicationTaskCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   ReplicationTaskArn: "STRING_VALUE", // required
+ *   ReplicationTaskIdentifier: "STRING_VALUE",
+ *   MigrationType: "full-load" || "cdc" || "full-load-and-cdc",
+ *   TableMappings: "STRING_VALUE",
+ *   ReplicationTaskSettings: "STRING_VALUE",
+ *   CdcStartTime: new Date("TIMESTAMP"),
+ *   CdcStartPosition: "STRING_VALUE",
+ *   CdcStopPosition: "STRING_VALUE",
+ *   TaskData: "STRING_VALUE",
+ * };
  * const command = new ModifyReplicationTaskCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,7 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * import { SecurityHubClient, GetAdministratorAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetAdministratorAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {};
  * const command = new GetAdministratorAccountCommand(input);
  * const response = await client.send(command);
  * ```

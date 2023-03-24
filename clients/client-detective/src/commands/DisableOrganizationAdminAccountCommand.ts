@@ -46,6 +46,7 @@ export interface DisableOrganizationAdminAccountCommandOutput extends __Metadata
  * import { DetectiveClient, DisableOrganizationAdminAccountCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, DisableOrganizationAdminAccountCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = {};
  * const command = new DisableOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);
  * ```

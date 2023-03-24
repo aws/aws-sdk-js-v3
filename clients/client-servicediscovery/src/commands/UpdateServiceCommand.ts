@@ -68,6 +68,25 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * import { ServiceDiscoveryClient, UpdateServiceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, UpdateServiceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   Service: {
+ *     Description: "STRING_VALUE",
+ *     DnsConfig: {
+ *       DnsRecords: [ // required
+ *         {
+ *           Type: "SRV" || "A" || "AAAA" || "CNAME", // required
+ *           TTL: Number("long"), // required
+ *         },
+ *       ],
+ *     },
+ *     HealthCheckConfig: {
+ *       Type: "HTTP" || "HTTPS" || "TCP", // required
+ *       ResourcePath: "STRING_VALUE",
+ *       FailureThreshold: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
  * ```

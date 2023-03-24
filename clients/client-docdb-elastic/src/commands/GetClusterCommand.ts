@@ -42,6 +42,9 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  * import { DocDBElasticClient, GetClusterCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
  * // const { DocDBElasticClient, GetClusterCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
+ * const input = {
+ *   clusterArn: "STRING_VALUE", // required
+ * };
  * const command = new GetClusterCommand(input);
  * const response = await client.send(command);
  * ```

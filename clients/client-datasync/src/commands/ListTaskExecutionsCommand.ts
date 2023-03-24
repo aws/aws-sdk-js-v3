@@ -42,6 +42,11 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  * import { DataSyncClient, ListTaskExecutionsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, ListTaskExecutionsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   TaskArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTaskExecutionsCommand(input);
  * const response = await client.send(command);
  * ```

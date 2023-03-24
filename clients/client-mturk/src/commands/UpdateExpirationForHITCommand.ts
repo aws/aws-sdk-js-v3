@@ -45,6 +45,10 @@ export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationFor
  * import { MTurkClient, UpdateExpirationForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, UpdateExpirationForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   HITId: "STRING_VALUE", // required
+ *   ExpireAt: new Date("TIMESTAMP"), // required
+ * };
  * const command = new UpdateExpirationForHITCommand(input);
  * const response = await client.send(command);
  * ```

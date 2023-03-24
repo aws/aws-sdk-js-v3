@@ -49,6 +49,28 @@ export interface AssociateFileSystemCommandOutput extends AssociateFileSystemOut
  * import { StorageGatewayClient, AssociateFileSystemCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, AssociateFileSystemCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   UserName: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE", // required
+ *   GatewayARN: "STRING_VALUE", // required
+ *   LocationARN: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   AuditDestinationARN: "STRING_VALUE",
+ *   CacheAttributes: {
+ *     CacheStaleTimeoutInSeconds: Number("int"),
+ *   },
+ *   EndpointNetworkConfiguration: {
+ *     IpAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new AssociateFileSystemCommand(input);
  * const response = await client.send(command);
  * ```

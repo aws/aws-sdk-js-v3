@@ -48,6 +48,10 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  * import { PinpointEmailClient, PutConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   CustomRedirectDomain: "STRING_VALUE",
+ * };
  * const command = new PutConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);
  * ```

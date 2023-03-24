@@ -42,6 +42,9 @@ export interface ArchiveApplicationCommandOutput extends Application, __Metadata
  * import { MgnClient, ArchiveApplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ArchiveApplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   applicationID: "STRING_VALUE", // required
+ * };
  * const command = new ArchiveApplicationCommand(input);
  * const response = await client.send(command);
  * ```

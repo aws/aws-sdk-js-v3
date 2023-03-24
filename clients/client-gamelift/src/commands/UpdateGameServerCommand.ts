@@ -78,6 +78,13 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  * import { GameLiftClient, UpdateGameServerCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateGameServerCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   GameServerGroupName: "STRING_VALUE", // required
+ *   GameServerId: "STRING_VALUE", // required
+ *   GameServerData: "STRING_VALUE",
+ *   UtilizationStatus: "AVAILABLE" || "UTILIZED",
+ *   HealthCheck: "HEALTHY",
+ * };
  * const command = new UpdateGameServerCommand(input);
  * const response = await client.send(command);
  * ```

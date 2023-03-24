@@ -44,6 +44,11 @@ export interface CreateConnectClientAddInCommandOutput extends CreateConnectClie
  * import { WorkSpacesClient, CreateConnectClientAddInCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateConnectClientAddInCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   URL: "STRING_VALUE", // required
+ * };
  * const command = new CreateConnectClientAddInCommand(input);
  * const response = await client.send(command);
  * ```

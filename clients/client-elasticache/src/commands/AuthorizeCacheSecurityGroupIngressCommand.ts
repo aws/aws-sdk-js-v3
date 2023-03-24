@@ -53,6 +53,11 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
  * import { ElastiCacheClient, AuthorizeCacheSecurityGroupIngressCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, AuthorizeCacheSecurityGroupIngressCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   CacheSecurityGroupName: "STRING_VALUE", // required
+ *   EC2SecurityGroupName: "STRING_VALUE", // required
+ *   EC2SecurityGroupOwnerId: "STRING_VALUE", // required
+ * };
  * const command = new AuthorizeCacheSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
  * ```

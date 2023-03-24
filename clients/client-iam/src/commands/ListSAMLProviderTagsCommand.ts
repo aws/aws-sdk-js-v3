@@ -46,6 +46,11 @@ export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsR
  * import { IAMClient, ListSAMLProviderTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListSAMLProviderTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   SAMLProviderArn: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListSAMLProviderTagsCommand(input);
  * const response = await client.send(command);
  * ```

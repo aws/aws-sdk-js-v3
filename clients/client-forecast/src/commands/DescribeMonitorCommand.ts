@@ -79,6 +79,9 @@ export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, _
  * import { ForecastClient, DescribeMonitorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribeMonitorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   MonitorArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMonitorCommand(input);
  * const response = await client.send(command);
  * ```

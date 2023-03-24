@@ -42,6 +42,27 @@ export interface CreateMultiplexProgramCommandOutput extends CreateMultiplexProg
  * import { MediaLiveClient, CreateMultiplexProgramCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateMultiplexProgramCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   MultiplexId: "STRING_VALUE", // required
+ *   MultiplexProgramSettings: {
+ *     PreferredChannelPipeline: "CURRENTLY_ACTIVE" || "PIPELINE_0" || "PIPELINE_1",
+ *     ProgramNumber: Number("int"), // required
+ *     ServiceDescriptor: {
+ *       ProviderName: "STRING_VALUE", // required
+ *       ServiceName: "STRING_VALUE", // required
+ *     },
+ *     VideoSettings: {
+ *       ConstantBitrate: Number("int"),
+ *       StatmuxSettings: {
+ *         MaximumBitrate: Number("int"),
+ *         MinimumBitrate: Number("int"),
+ *         Priority: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   ProgramName: "STRING_VALUE", // required
+ *   RequestId: "STRING_VALUE", // required
+ * };
  * const command = new CreateMultiplexProgramCommand(input);
  * const response = await client.send(command);
  * ```

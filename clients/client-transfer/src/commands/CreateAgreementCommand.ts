@@ -47,6 +47,21 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  * import { TransferClient, CreateAgreementCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateAgreementCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   Description: "STRING_VALUE",
+ *   ServerId: "STRING_VALUE", // required
+ *   LocalProfileId: "STRING_VALUE", // required
+ *   PartnerProfileId: "STRING_VALUE", // required
+ *   BaseDirectory: "STRING_VALUE", // required
+ *   AccessRole: "STRING_VALUE", // required
+ *   Status: "ACTIVE" || "INACTIVE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateAgreementCommand(input);
  * const response = await client.send(command);
  * ```

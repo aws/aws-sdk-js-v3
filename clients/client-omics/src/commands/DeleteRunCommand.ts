@@ -42,6 +42,9 @@ export interface DeleteRunCommandOutput extends __MetadataBearer {}
  * import { OmicsClient, DeleteRunCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, DeleteRunCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRunCommand(input);
  * const response = await client.send(command);
  * ```

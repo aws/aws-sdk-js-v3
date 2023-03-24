@@ -44,6 +44,9 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutpu
  * import { BillingconductorClient, DeleteBillingGroupCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
  * // const { BillingconductorClient, DeleteBillingGroupCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
+ * const input = {
+ *   Arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBillingGroupCommand(input);
  * const response = await client.send(command);
  * ```

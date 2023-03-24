@@ -52,6 +52,15 @@ export interface PutMessagingStreamingConfigurationsCommandOutput
  * import { ChimeSDKMessagingClient, PutMessagingStreamingConfigurationsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, PutMessagingStreamingConfigurationsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   StreamingConfigurations: [ // required
+ *     {
+ *       DataType: "Channel" || "ChannelMessage", // required
+ *       ResourceArn: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutMessagingStreamingConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```

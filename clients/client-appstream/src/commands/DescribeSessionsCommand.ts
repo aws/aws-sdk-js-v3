@@ -44,6 +44,14 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  * import { AppStreamClient, DescribeSessionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DescribeSessionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   StackName: "STRING_VALUE", // required
+ *   FleetName: "STRING_VALUE", // required
+ *   UserId: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Limit: Number("int"),
+ *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD",
+ * };
  * const command = new DescribeSessionsCommand(input);
  * const response = await client.send(command);
  * ```

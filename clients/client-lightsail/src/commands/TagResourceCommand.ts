@@ -47,6 +47,16 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * import { LightsailClient, TagResourceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, TagResourceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   resourceName: "STRING_VALUE", // required
+ *   resourceArn: "STRING_VALUE",
+ *   tags: [ // required
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,17 @@ export interface UpdateQuerySuggestionsBlockListCommandOutput extends __Metadata
  * import { KendraClient, UpdateQuerySuggestionsBlockListCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, UpdateQuerySuggestionsBlockListCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   IndexId: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   SourceS3Path: {
+ *     Bucket: "STRING_VALUE", // required
+ *     Key: "STRING_VALUE", // required
+ *   },
+ *   RoleArn: "STRING_VALUE",
+ * };
  * const command = new UpdateQuerySuggestionsBlockListCommand(input);
  * const response = await client.send(command);
  * ```

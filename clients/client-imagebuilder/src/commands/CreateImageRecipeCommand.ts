@@ -43,6 +43,53 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  * import { ImagebuilderClient, CreateImageRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CreateImageRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   semanticVersion: "STRING_VALUE", // required
+ *   components: [ // required
+ *     {
+ *       componentArn: "STRING_VALUE", // required
+ *       parameters: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           value: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   parentImage: "STRING_VALUE", // required
+ *   blockDeviceMappings: [
+ *     {
+ *       deviceName: "STRING_VALUE",
+ *       ebs: {
+ *         encrypted: true || false,
+ *         deleteOnTermination: true || false,
+ *         iops: Number("int"),
+ *         kmsKeyId: "STRING_VALUE",
+ *         snapshotId: "STRING_VALUE",
+ *         volumeSize: Number("int"),
+ *         volumeType: "standard" || "io1" || "io2" || "gp2" || "gp3" || "sc1" || "st1",
+ *         throughput: Number("int"),
+ *       },
+ *       virtualName: "STRING_VALUE",
+ *       noDevice: "STRING_VALUE",
+ *     },
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   workingDirectory: "STRING_VALUE",
+ *   additionalInstanceConfiguration: {
+ *     systemsManagerAgent: {
+ *       uninstallAfterBuild: true || false,
+ *     },
+ *     userDataOverride: "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateImageRecipeCommand(input);
  * const response = await client.send(command);
  * ```

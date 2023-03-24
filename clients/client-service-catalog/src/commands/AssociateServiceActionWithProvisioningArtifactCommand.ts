@@ -48,6 +48,12 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
  * import { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   ProductId: "STRING_VALUE", // required
+ *   ProvisioningArtifactId: "STRING_VALUE", // required
+ *   ServiceActionId: "STRING_VALUE", // required
+ *   AcceptLanguage: "STRING_VALUE",
+ * };
  * const command = new AssociateServiceActionWithProvisioningArtifactCommand(input);
  * const response = await client.send(command);
  * ```

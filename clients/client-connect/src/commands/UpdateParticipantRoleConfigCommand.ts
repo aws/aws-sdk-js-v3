@@ -61,6 +61,24 @@ export interface UpdateParticipantRoleConfigCommandOutput
  * import { ConnectClient, UpdateParticipantRoleConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateParticipantRoleConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   ChannelConfiguration: { // Union: only one key present
+ *     Chat: {
+ *       ParticipantTimerConfigList: [ // required
+ *         {
+ *           ParticipantRole: "CUSTOMER" || "AGENT", // required
+ *           TimerType: "IDLE" || "DISCONNECT_NONCUSTOMER", // required
+ *           TimerValue: { // Union: only one key present
+ *             ParticipantTimerAction: "Unset",
+ *             ParticipantTimerDurationInMinutes: Number("int"),
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new UpdateParticipantRoleConfigCommand(input);
  * const response = await client.send(command);
  * ```

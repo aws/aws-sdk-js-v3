@@ -45,6 +45,9 @@ export interface DescribeThingRegistrationTaskCommandOutput
  * import { IoTClient, DescribeThingRegistrationTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeThingRegistrationTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeThingRegistrationTaskCommand(input);
  * const response = await client.send(command);
  * ```

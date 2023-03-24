@@ -42,6 +42,11 @@ export interface GetModelCommandOutput extends Model, __MetadataBearer {}
  * import { APIGatewayClient, GetModelCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetModelCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   modelName: "STRING_VALUE", // required
+ *   flatten: true || false,
+ * };
  * const command = new GetModelCommand(input);
  * const response = await client.send(command);
  * ```

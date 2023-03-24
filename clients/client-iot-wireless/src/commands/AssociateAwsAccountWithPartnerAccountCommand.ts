@@ -50,6 +50,19 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
  * import { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Sidewalk: {
+ *     AmazonId: "STRING_VALUE",
+ *     AppServerPrivateKey: "STRING_VALUE",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new AssociateAwsAccountWithPartnerAccountCommand(input);
  * const response = await client.send(command);
  * ```

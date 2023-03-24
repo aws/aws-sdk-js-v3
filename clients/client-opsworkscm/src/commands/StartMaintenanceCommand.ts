@@ -54,6 +54,15 @@ export interface StartMaintenanceCommandOutput extends StartMaintenanceResponse,
  * import { OpsWorksCMClient, StartMaintenanceCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, StartMaintenanceCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
+ * const input = {
+ *   ServerName: "STRING_VALUE", // required
+ *   EngineAttributes: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new StartMaintenanceCommand(input);
  * const response = await client.send(command);
  * ```

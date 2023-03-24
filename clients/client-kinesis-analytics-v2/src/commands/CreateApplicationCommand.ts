@@ -48,6 +48,202 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * import { KinesisAnalyticsV2Client, CreateApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, CreateApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   ApplicationDescription: "STRING_VALUE",
+ *   RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15", // required
+ *   ServiceExecutionRole: "STRING_VALUE", // required
+ *   ApplicationConfiguration: {
+ *     SqlApplicationConfiguration: {
+ *       Inputs: [
+ *         {
+ *           NamePrefix: "STRING_VALUE", // required
+ *           InputProcessingConfiguration: {
+ *             InputLambdaProcessor: {
+ *               ResourceARN: "STRING_VALUE", // required
+ *             },
+ *           },
+ *           KinesisStreamsInput: {
+ *             ResourceARN: "STRING_VALUE", // required
+ *           },
+ *           KinesisFirehoseInput: {
+ *             ResourceARN: "STRING_VALUE", // required
+ *           },
+ *           InputParallelism: {
+ *             Count: Number("int"),
+ *           },
+ *           InputSchema: {
+ *             RecordFormat: {
+ *               RecordFormatType: "JSON" || "CSV", // required
+ *               MappingParameters: {
+ *                 JSONMappingParameters: {
+ *                   RecordRowPath: "STRING_VALUE", // required
+ *                 },
+ *                 CSVMappingParameters: {
+ *                   RecordRowDelimiter: "STRING_VALUE", // required
+ *                   RecordColumnDelimiter: "STRING_VALUE", // required
+ *                 },
+ *               },
+ *             },
+ *             RecordEncoding: "STRING_VALUE",
+ *             RecordColumns: [ // required
+ *               {
+ *                 Name: "STRING_VALUE", // required
+ *                 Mapping: "STRING_VALUE",
+ *                 SqlType: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *       Outputs: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           KinesisStreamsOutput: {
+ *             ResourceARN: "STRING_VALUE", // required
+ *           },
+ *           KinesisFirehoseOutput: {
+ *             ResourceARN: "STRING_VALUE", // required
+ *           },
+ *           LambdaOutput: {
+ *             ResourceARN: "STRING_VALUE", // required
+ *           },
+ *           DestinationSchema: {
+ *             RecordFormatType: "JSON" || "CSV", // required
+ *           },
+ *         },
+ *       ],
+ *       ReferenceDataSources: [
+ *         {
+ *           TableName: "STRING_VALUE", // required
+ *           S3ReferenceDataSource: {
+ *             BucketARN: "STRING_VALUE",
+ *             FileKey: "STRING_VALUE",
+ *           },
+ *           ReferenceSchema: {
+ *             RecordFormat: {
+ *               RecordFormatType: "JSON" || "CSV", // required
+ *               MappingParameters: {
+ *                 JSONMappingParameters: {
+ *                   RecordRowPath: "STRING_VALUE", // required
+ *                 },
+ *                 CSVMappingParameters: {
+ *                   RecordRowDelimiter: "STRING_VALUE", // required
+ *                   RecordColumnDelimiter: "STRING_VALUE", // required
+ *                 },
+ *               },
+ *             },
+ *             RecordEncoding: "STRING_VALUE",
+ *             RecordColumns: [ // required
+ *               {
+ *                 Name: "STRING_VALUE", // required
+ *                 Mapping: "STRING_VALUE",
+ *                 SqlType: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     FlinkApplicationConfiguration: {
+ *       CheckpointConfiguration: {
+ *         ConfigurationType: "DEFAULT" || "CUSTOM", // required
+ *         CheckpointingEnabled: true || false,
+ *         CheckpointInterval: Number("long"),
+ *         MinPauseBetweenCheckpoints: Number("long"),
+ *       },
+ *       MonitoringConfiguration: {
+ *         ConfigurationType: "DEFAULT" || "CUSTOM", // required
+ *         MetricsLevel: "APPLICATION" || "TASK" || "OPERATOR" || "PARALLELISM",
+ *         LogLevel: "INFO" || "WARN" || "ERROR" || "DEBUG",
+ *       },
+ *       ParallelismConfiguration: {
+ *         ConfigurationType: "DEFAULT" || "CUSTOM", // required
+ *         Parallelism: Number("int"),
+ *         ParallelismPerKPU: Number("int"),
+ *         AutoScalingEnabled: true || false,
+ *       },
+ *     },
+ *     EnvironmentProperties: {
+ *       PropertyGroups: [ // required
+ *         {
+ *           PropertyGroupId: "STRING_VALUE", // required
+ *           PropertyMap: { // required
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *     },
+ *     ApplicationCodeConfiguration: {
+ *       CodeContent: {
+ *         TextContent: "STRING_VALUE",
+ *         ZipFileContent: "BLOB_VALUE",
+ *         S3ContentLocation: {
+ *           BucketARN: "STRING_VALUE", // required
+ *           FileKey: "STRING_VALUE", // required
+ *           ObjectVersion: "STRING_VALUE",
+ *         },
+ *       },
+ *       CodeContentType: "PLAINTEXT" || "ZIPFILE", // required
+ *     },
+ *     ApplicationSnapshotConfiguration: {
+ *       SnapshotsEnabled: true || false, // required
+ *     },
+ *     VpcConfigurations: [
+ *       {
+ *         SubnetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *     ZeppelinApplicationConfiguration: {
+ *       MonitoringConfiguration: {
+ *         LogLevel: "INFO" || "WARN" || "ERROR" || "DEBUG", // required
+ *       },
+ *       CatalogConfiguration: {
+ *         GlueDataCatalogConfiguration: {
+ *           DatabaseARN: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       DeployAsApplicationConfiguration: {
+ *         S3ContentLocation: {
+ *           BucketARN: "STRING_VALUE", // required
+ *           BasePath: "STRING_VALUE",
+ *         },
+ *       },
+ *       CustomArtifactsConfiguration: [
+ *         {
+ *           ArtifactType: "UDF" || "DEPENDENCY_JAR", // required
+ *           S3ContentLocation: {
+ *             BucketARN: "STRING_VALUE", // required
+ *             FileKey: "STRING_VALUE", // required
+ *             ObjectVersion: "STRING_VALUE",
+ *           },
+ *           MavenReference: {
+ *             GroupId: "STRING_VALUE", // required
+ *             ArtifactId: "STRING_VALUE", // required
+ *             Version: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   CloudWatchLoggingOptions: [
+ *     {
+ *       LogStreamARN: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ApplicationMode: "STREAMING" || "INTERACTIVE",
+ * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * ```

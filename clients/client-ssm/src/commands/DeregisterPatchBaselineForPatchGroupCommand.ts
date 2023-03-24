@@ -47,6 +47,10 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
  * import { SSMClient, DeregisterPatchBaselineForPatchGroupCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeregisterPatchBaselineForPatchGroupCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   BaselineId: "STRING_VALUE", // required
+ *   PatchGroup: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterPatchBaselineForPatchGroupCommand(input);
  * const response = await client.send(command);
  * ```

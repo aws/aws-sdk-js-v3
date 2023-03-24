@@ -49,6 +49,10 @@ export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __Met
  * import { OpsWorksClient, RegisterVolumeCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, RegisterVolumeCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   Ec2VolumeId: "STRING_VALUE",
+ *   StackId: "STRING_VALUE", // required
+ * };
  * const command = new RegisterVolumeCommand(input);
  * const response = await client.send(command);
  * ```

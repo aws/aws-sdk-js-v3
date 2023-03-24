@@ -49,6 +49,12 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult,
  * import { CodeStarClient, UpdateUserProfileCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, UpdateUserProfileCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = {
+ *   userArn: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
+ *   emailAddress: "STRING_VALUE",
+ *   sshPublicKey: "STRING_VALUE",
+ * };
  * const command = new UpdateUserProfileCommand(input);
  * const response = await client.send(command);
  * ```

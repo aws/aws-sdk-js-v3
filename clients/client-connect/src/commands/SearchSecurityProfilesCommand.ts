@@ -44,6 +44,62 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  * import { ConnectClient, SearchSecurityProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, SearchSecurityProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SearchCriteria: {
+ *     OrConditions: [
+ *       {
+ *         OrConditions: [
+ *           {
+ *             OrConditions: "<SecurityProfileSearchCriteria>",
+ *             AndConditions: [
+ *               "<SecurityProfileSearchConditionList>",
+ *             ],
+ *             StringCondition: {
+ *               FieldName: "STRING_VALUE",
+ *               Value: "STRING_VALUE",
+ *               ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *             },
+ *           },
+ *         ],
+ *         AndConditions: [
+ *           "<SecurityProfileSearchConditionList>",
+ *         ],
+ *         StringCondition: {
+ *           FieldName: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
+ *         },
+ *       },
+ *     ],
+ *     AndConditions: "<SecurityProfileSearchCriteria>",
+ *     StringCondition: "<SecurityProfileSearchCriteria>",
+ *   },
+ *   SearchFilter: {
+ *     TagFilter: {
+ *       OrConditions: [
+ *         [
+ *           {
+ *             TagKey: "STRING_VALUE",
+ *             TagValue: "STRING_VALUE",
+ *           },
+ *         ],
+ *       ],
+ *       AndConditions: [
+ *         {
+ *           TagKey: "STRING_VALUE",
+ *           TagValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *       TagCondition: {
+ *         TagKey: "<TagCondition>",
+ *         TagValue: "<TagCondition>",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new SearchSecurityProfilesCommand(input);
  * const response = await client.send(command);
  * ```

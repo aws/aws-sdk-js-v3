@@ -42,6 +42,11 @@ export interface UpdateBrokerCountCommandOutput extends UpdateBrokerCountRespons
  * import { KafkaClient, UpdateBrokerCountCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UpdateBrokerCountCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = {
+ *   ClusterArn: "STRING_VALUE", // required
+ *   CurrentVersion: "STRING_VALUE", // required
+ *   TargetNumberOfBrokerNodes: Number("int"), // required
+ * };
  * const command = new UpdateBrokerCountCommand(input);
  * const response = await client.send(command);
  * ```

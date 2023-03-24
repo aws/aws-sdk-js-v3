@@ -42,6 +42,11 @@ export interface ListResourcesCommandOutput extends ListResourcesResult, __Metad
  * import { CodeStarClient, ListResourcesCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, ListResourcesCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
+ * const input = {
+ *   projectId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListResourcesCommand(input);
  * const response = await client.send(command);
  * ```

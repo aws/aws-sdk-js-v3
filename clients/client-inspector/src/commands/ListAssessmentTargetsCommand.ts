@@ -44,6 +44,13 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  * import { InspectorClient, ListAssessmentTargetsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, ListAssessmentTargetsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   filter: {
+ *     assessmentTargetNamePattern: "STRING_VALUE",
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssessmentTargetsCommand(input);
  * const response = await client.send(command);
  * ```

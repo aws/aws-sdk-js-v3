@@ -42,6 +42,10 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * import { SESv2Client, GetContactCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetContactCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   ContactListName: "STRING_VALUE", // required
+ *   EmailAddress: "STRING_VALUE", // required
+ * };
  * const command = new GetContactCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,12 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * import { TransferClient, UpdateProfileCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateProfileCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   ProfileId: "STRING_VALUE", // required
+ *   CertificateIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
  * ```

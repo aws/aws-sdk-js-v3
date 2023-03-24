@@ -103,6 +103,26 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * import { KMSClient, CreateGrantCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, CreateGrantCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   KeyId: "STRING_VALUE", // required
+ *   GranteePrincipal: "STRING_VALUE", // required
+ *   RetiringPrincipal: "STRING_VALUE",
+ *   Operations: [ // required
+ *     "Decrypt" || "Encrypt" || "GenerateDataKey" || "GenerateDataKeyWithoutPlaintext" || "ReEncryptFrom" || "ReEncryptTo" || "Sign" || "Verify" || "GetPublicKey" || "CreateGrant" || "RetireGrant" || "DescribeKey" || "GenerateDataKeyPair" || "GenerateDataKeyPairWithoutPlaintext" || "GenerateMac" || "VerifyMac",
+ *   ],
+ *   Constraints: {
+ *     EncryptionContextSubset: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     EncryptionContextEquals: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   GrantTokens: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new CreateGrantCommand(input);
  * const response = await client.send(command);
  * ```

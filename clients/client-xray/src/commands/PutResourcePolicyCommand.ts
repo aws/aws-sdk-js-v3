@@ -47,6 +47,12 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult,
  * import { XRayClient, PutResourcePolicyCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, PutResourcePolicyCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = {
+ *   PolicyName: "STRING_VALUE", // required
+ *   PolicyDocument: "STRING_VALUE", // required
+ *   PolicyRevisionId: "STRING_VALUE",
+ *   BypassPolicyLockoutCheck: true || false,
+ * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```

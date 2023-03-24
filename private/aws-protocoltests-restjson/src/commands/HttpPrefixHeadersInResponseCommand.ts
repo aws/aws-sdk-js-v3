@@ -41,6 +41,7 @@ export interface HttpPrefixHeadersInResponseCommandOutput extends HttpPrefixHead
  * import { RestJsonProtocolClient, HttpPrefixHeadersInResponseCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpPrefixHeadersInResponseCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {};
  * const command = new HttpPrefixHeadersInResponseCommand(input);
  * const response = await client.send(command);
  * ```

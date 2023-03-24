@@ -42,6 +42,28 @@ export interface CreateQuickConnectCommandOutput extends CreateQuickConnectRespo
  * import { ConnectClient, CreateQuickConnectCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateQuickConnectCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   QuickConnectConfig: {
+ *     QuickConnectType: "USER" || "QUEUE" || "PHONE_NUMBER", // required
+ *     UserConfig: {
+ *       UserId: "STRING_VALUE", // required
+ *       ContactFlowId: "STRING_VALUE", // required
+ *     },
+ *     QueueConfig: {
+ *       QueueId: "STRING_VALUE", // required
+ *       ContactFlowId: "STRING_VALUE", // required
+ *     },
+ *     PhoneConfig: {
+ *       PhoneNumber: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateQuickConnectCommand(input);
  * const response = await client.send(command);
  * ```

@@ -49,6 +49,13 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  * import { AutoScalingClient, SetInstanceProtectionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, SetInstanceProtectionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   InstanceIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ProtectedFromScaleIn: true || false, // required
+ * };
  * const command = new SetInstanceProtectionCommand(input);
  * const response = await client.send(command);
  * ```

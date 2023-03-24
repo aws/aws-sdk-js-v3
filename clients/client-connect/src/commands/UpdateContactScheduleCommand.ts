@@ -42,6 +42,11 @@ export interface UpdateContactScheduleCommandOutput extends UpdateContactSchedul
  * import { ConnectClient, UpdateContactScheduleCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateContactScheduleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ *   ScheduledTime: new Date("TIMESTAMP"), // required
+ * };
  * const command = new UpdateContactScheduleCommand(input);
  * const response = await client.send(command);
  * ```

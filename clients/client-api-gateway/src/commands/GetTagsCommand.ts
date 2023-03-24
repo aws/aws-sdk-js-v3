@@ -42,6 +42,11 @@ export interface GetTagsCommandOutput extends Tags, __MetadataBearer {}
  * import { APIGatewayClient, GetTagsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetTagsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   position: "STRING_VALUE",
+ *   limit: Number("int"),
+ * };
  * const command = new GetTagsCommand(input);
  * const response = await client.send(command);
  * ```

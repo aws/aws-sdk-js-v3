@@ -50,6 +50,9 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  * import { ElasticLoadBalancingV2Client, DeleteTargetGroupCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DeleteTargetGroupCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = {
+ *   TargetGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTargetGroupCommand(input);
  * const response = await client.send(command);
  * ```

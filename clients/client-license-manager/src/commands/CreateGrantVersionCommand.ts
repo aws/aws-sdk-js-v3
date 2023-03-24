@@ -42,6 +42,17 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  * import { LicenseManagerClient, CreateGrantVersionCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateGrantVersionCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE", // required
+ *   GrantArn: "STRING_VALUE", // required
+ *   GrantName: "STRING_VALUE",
+ *   AllowedOperations: [
+ *     "CreateGrant" || "CheckoutLicense" || "CheckoutBorrowLicense" || "CheckInLicense" || "ExtendConsumptionLicense" || "ListPurchasedLicenses" || "CreateToken",
+ *   ],
+ *   Status: "PENDING_WORKFLOW" || "PENDING_ACCEPT" || "REJECTED" || "ACTIVE" || "FAILED_WORKFLOW" || "DELETED" || "PENDING_DELETE" || "DISABLED" || "WORKFLOW_COMPLETED",
+ *   StatusReason: "STRING_VALUE",
+ *   SourceVersion: "STRING_VALUE",
+ * };
  * const command = new CreateGrantVersionCommand(input);
  * const response = await client.send(command);
  * ```

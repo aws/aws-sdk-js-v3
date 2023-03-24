@@ -42,6 +42,15 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
  * import { CloudDirectoryClient, DetachFromIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DetachFromIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   IndexReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   TargetReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ * };
  * const command = new DetachFromIndexCommand(input);
  * const response = await client.send(command);
  * ```

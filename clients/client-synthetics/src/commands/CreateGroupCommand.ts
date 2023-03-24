@@ -54,6 +54,12 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * import { SyntheticsClient, CreateGroupCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, CreateGroupCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
  * ```

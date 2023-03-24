@@ -81,6 +81,12 @@ export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageS
  * import { ChimeSDKMessagingClient, GetChannelMessageStatusCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, GetChannelMessageStatusCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MessageId: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ *   SubChannelId: "STRING_VALUE",
+ * };
  * const command = new GetChannelMessageStatusCommand(input);
  * const response = await client.send(command);
  * ```

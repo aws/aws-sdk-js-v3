@@ -45,6 +45,9 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  * import { DocDBClient, DeleteGlobalClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DeleteGlobalClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   GlobalClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```

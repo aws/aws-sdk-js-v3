@@ -43,6 +43,11 @@ export interface ListFirewallDomainsCommandOutput extends ListFirewallDomainsRes
  * import { Route53ResolverClient, ListFirewallDomainsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListFirewallDomainsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   FirewallDomainListId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFirewallDomainsCommand(input);
  * const response = await client.send(command);
  * ```

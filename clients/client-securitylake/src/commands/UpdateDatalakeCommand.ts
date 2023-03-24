@@ -43,6 +43,26 @@ export interface UpdateDatalakeCommandOutput extends UpdateDatalakeResponse, __M
  * import { SecurityLakeClient, UpdateDatalakeCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, UpdateDatalakeCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   configurations: { // required
+ *     "<keys>": {
+ *       encryptionKey: "STRING_VALUE",
+ *       retentionSettings: [
+ *         {
+ *           storageClass: "STRING_VALUE",
+ *           retentionPeriod: Number("int"),
+ *         },
+ *       ],
+ *       tagsMap: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       replicationDestinationRegions: [
+ *         "STRING_VALUE",
+ *       ],
+ *       replicationRoleArn: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new UpdateDatalakeCommand(input);
  * const response = await client.send(command);
  * ```

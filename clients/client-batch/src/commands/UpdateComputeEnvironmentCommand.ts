@@ -42,6 +42,53 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  * import { BatchClient, UpdateComputeEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, UpdateComputeEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = {
+ *   computeEnvironment: "STRING_VALUE", // required
+ *   state: "ENABLED" || "DISABLED",
+ *   unmanagedvCpus: Number("int"),
+ *   computeResources: {
+ *     minvCpus: Number("int"),
+ *     maxvCpus: Number("int"),
+ *     desiredvCpus: Number("int"),
+ *     subnets: [
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     allocationStrategy: "BEST_FIT_PROGRESSIVE" || "SPOT_CAPACITY_OPTIMIZED",
+ *     instanceTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ec2KeyPair: "STRING_VALUE",
+ *     instanceRole: "STRING_VALUE",
+ *     tags: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     placementGroup: "STRING_VALUE",
+ *     bidPercentage: Number("int"),
+ *     launchTemplate: {
+ *       launchTemplateId: "STRING_VALUE",
+ *       launchTemplateName: "STRING_VALUE",
+ *       version: "STRING_VALUE",
+ *     },
+ *     ec2Configuration: [
+ *       {
+ *         imageType: "STRING_VALUE", // required
+ *         imageIdOverride: "STRING_VALUE",
+ *         imageKubernetesVersion: "STRING_VALUE",
+ *       },
+ *     ],
+ *     updateToLatestImageVersion: true || false,
+ *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT",
+ *     imageId: "STRING_VALUE",
+ *   },
+ *   serviceRole: "STRING_VALUE",
+ *   updatePolicy: {
+ *     terminateJobsOnUpdate: true || false,
+ *     jobExecutionTimeoutMinutes: Number("long"),
+ *   },
+ * };
  * const command = new UpdateComputeEnvironmentCommand(input);
  * const response = await client.send(command);
  * ```

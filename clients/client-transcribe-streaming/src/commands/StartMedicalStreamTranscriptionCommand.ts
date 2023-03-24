@@ -78,6 +78,38 @@ export interface StartMedicalStreamTranscriptionCommandOutput
  * import { TranscribeStreamingClient, StartMedicalStreamTranscriptionCommand } from "@aws-sdk/client-transcribe-streaming"; // ES Modules import
  * // const { TranscribeStreamingClient, StartMedicalStreamTranscriptionCommand } = require("@aws-sdk/client-transcribe-streaming"); // CommonJS import
  * const client = new TranscribeStreamingClient(config);
+ * const input = {
+ *   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH", // required
+ *   MediaSampleRateHertz: Number("int"), // required
+ *   MediaEncoding: "pcm" || "ogg-opus" || "flac", // required
+ *   VocabularyName: "STRING_VALUE",
+ *   Specialty: "PRIMARYCARE" || "CARDIOLOGY" || "NEUROLOGY" || "ONCOLOGY" || "RADIOLOGY" || "UROLOGY", // required
+ *   Type: "CONVERSATION" || "DICTATION", // required
+ *   ShowSpeakerLabel: true || false,
+ *   SessionId: "STRING_VALUE",
+ *   AudioStream: { // Union: only one key present
+ *     AudioEvent: {
+ *       AudioChunk: "BLOB_VALUE",
+ *     },
+ *     ConfigurationEvent: {
+ *       ChannelDefinitions: [
+ *         {
+ *           ChannelId: Number("int"), // required
+ *           ParticipantRole: "AGENT" || "CUSTOMER", // required
+ *         },
+ *       ],
+ *       PostCallAnalyticsSettings: {
+ *         OutputLocation: "STRING_VALUE", // required
+ *         DataAccessRoleArn: "STRING_VALUE", // required
+ *         ContentRedactionOutput: "redacted" || "redacted_and_unredacted",
+ *         OutputEncryptionKMSKeyId: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   EnableChannelIdentification: true || false,
+ *   NumberOfChannels: Number("int"),
+ *   ContentIdentificationType: "PHI",
+ * };
  * const command = new StartMedicalStreamTranscriptionCommand(input);
  * const response = await client.send(command);
  * ```

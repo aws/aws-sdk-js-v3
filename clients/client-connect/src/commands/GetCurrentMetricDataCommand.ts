@@ -44,6 +44,37 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  * import { ConnectClient, GetCurrentMetricDataCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetCurrentMetricDataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   Filters: {
+ *     Queues: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Channels: [
+ *       "VOICE" || "CHAT" || "TASK",
+ *     ],
+ *     RoutingProfiles: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Groupings: [
+ *     "QUEUE" || "CHANNEL" || "ROUTING_PROFILE",
+ *   ],
+ *   CurrentMetrics: [ // required
+ *     {
+ *       Name: "AGENTS_ONLINE" || "AGENTS_AVAILABLE" || "AGENTS_ON_CALL" || "AGENTS_NON_PRODUCTIVE" || "AGENTS_AFTER_CONTACT_WORK" || "AGENTS_ERROR" || "AGENTS_STAFFED" || "CONTACTS_IN_QUEUE" || "OLDEST_CONTACT_AGE" || "CONTACTS_SCHEDULED" || "AGENTS_ON_CONTACT" || "SLOTS_ACTIVE" || "SLOTS_AVAILABLE",
+ *       Unit: "SECONDS" || "COUNT" || "PERCENT",
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   SortCriteria: [
+ *     {
+ *       SortByMetric: "AGENTS_ONLINE" || "AGENTS_AVAILABLE" || "AGENTS_ON_CALL" || "AGENTS_NON_PRODUCTIVE" || "AGENTS_AFTER_CONTACT_WORK" || "AGENTS_ERROR" || "AGENTS_STAFFED" || "CONTACTS_IN_QUEUE" || "OLDEST_CONTACT_AGE" || "CONTACTS_SCHEDULED" || "AGENTS_ON_CONTACT" || "SLOTS_ACTIVE" || "SLOTS_AVAILABLE",
+ *       SortOrder: "ASCENDING" || "DESCENDING",
+ *     },
+ *   ],
+ * };
  * const command = new GetCurrentMetricDataCommand(input);
  * const response = await client.send(command);
  * ```

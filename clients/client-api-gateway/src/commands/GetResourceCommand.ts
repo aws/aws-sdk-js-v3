@@ -42,6 +42,13 @@ export interface GetResourceCommandOutput extends Resource, __MetadataBearer {}
  * import { APIGatewayClient, GetResourceCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetResourceCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   resourceId: "STRING_VALUE", // required
+ *   embed: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetResourceCommand(input);
  * const response = await client.send(command);
  * ```

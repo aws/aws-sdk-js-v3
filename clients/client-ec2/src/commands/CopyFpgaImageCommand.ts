@@ -39,6 +39,14 @@ export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __Metad
  * import { EC2Client, CopyFpgaImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CopyFpgaImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   SourceFpgaImageId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Name: "STRING_VALUE",
+ *   SourceRegion: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CopyFpgaImageCommand(input);
  * const response = await client.send(command);
  * ```

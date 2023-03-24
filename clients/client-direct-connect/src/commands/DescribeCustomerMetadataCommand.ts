@@ -42,6 +42,7 @@ export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerM
  * import { DirectConnectClient, DescribeCustomerMetadataCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeCustomerMetadataCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {};
  * const command = new DescribeCustomerMetadataCommand(input);
  * const response = await client.send(command);
  * ```

@@ -53,6 +53,12 @@ export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotRes
  * import { RedshiftClient, CopyClusterSnapshotCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CopyClusterSnapshotCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   SourceSnapshotIdentifier: "STRING_VALUE", // required
+ *   SourceSnapshotClusterIdentifier: "STRING_VALUE",
+ *   TargetSnapshotIdentifier: "STRING_VALUE", // required
+ *   ManualSnapshotRetentionPeriod: Number("int"),
+ * };
  * const command = new CopyClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

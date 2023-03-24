@@ -44,6 +44,10 @@ export interface DisableImageDeprecationCommandOutput extends DisableImageDeprec
  * import { EC2Client, DisableImageDeprecationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableImageDeprecationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   ImageId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DisableImageDeprecationCommand(input);
  * const response = await client.send(command);
  * ```

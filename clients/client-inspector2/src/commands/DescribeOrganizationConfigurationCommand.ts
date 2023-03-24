@@ -47,6 +47,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * import { Inspector2Client, DescribeOrganizationConfigurationCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, DescribeOrganizationConfigurationCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = {};
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

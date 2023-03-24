@@ -62,6 +62,57 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * import { RDSClient, RestoreDBClusterFromSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBClusterFromSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   AvailabilityZones: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   SnapshotIdentifier: "STRING_VALUE", // required
+ *   Engine: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
+ *   Port: Number("int"),
+ *   DBSubnetGroupName: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ *   VpcSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   KmsKeyId: "STRING_VALUE",
+ *   EnableIAMDatabaseAuthentication: true || false,
+ *   BacktrackWindow: Number("long"),
+ *   EnableCloudwatchLogsExports: [
+ *     "STRING_VALUE",
+ *   ],
+ *   EngineMode: "STRING_VALUE",
+ *   ScalingConfiguration: {
+ *     MinCapacity: Number("int"),
+ *     MaxCapacity: Number("int"),
+ *     AutoPause: true || false,
+ *     SecondsUntilAutoPause: Number("int"),
+ *     TimeoutAction: "STRING_VALUE",
+ *     SecondsBeforeTimeout: Number("int"),
+ *   },
+ *   DBClusterParameterGroupName: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   CopyTagsToSnapshot: true || false,
+ *   Domain: "STRING_VALUE",
+ *   DomainIAMRoleName: "STRING_VALUE",
+ *   DBClusterInstanceClass: "STRING_VALUE",
+ *   StorageType: "STRING_VALUE",
+ *   Iops: Number("int"),
+ *   PubliclyAccessible: true || false,
+ *   ServerlessV2ScalingConfiguration: {
+ *     MinCapacity: Number("double"),
+ *     MaxCapacity: Number("double"),
+ *   },
+ *   NetworkType: "STRING_VALUE",
+ * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

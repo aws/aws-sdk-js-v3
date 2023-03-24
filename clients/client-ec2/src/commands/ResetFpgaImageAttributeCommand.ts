@@ -43,6 +43,11 @@ export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttr
  * import { EC2Client, ResetFpgaImageAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ResetFpgaImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   FpgaImageId: "STRING_VALUE", // required
+ *   Attribute: "loadPermission",
+ * };
  * const command = new ResetFpgaImageAttributeCommand(input);
  * const response = await client.send(command);
  * ```

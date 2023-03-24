@@ -43,6 +43,29 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  * import { ImagebuilderClient, CreateImagePipelineCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CreateImagePipelineCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   imageRecipeArn: "STRING_VALUE",
+ *   containerRecipeArn: "STRING_VALUE",
+ *   infrastructureConfigurationArn: "STRING_VALUE", // required
+ *   distributionConfigurationArn: "STRING_VALUE",
+ *   imageTestsConfiguration: {
+ *     imageTestsEnabled: true || false,
+ *     timeoutMinutes: Number("int"),
+ *   },
+ *   enhancedImageMetadataEnabled: true || false,
+ *   schedule: {
+ *     scheduleExpression: "STRING_VALUE",
+ *     timezone: "STRING_VALUE",
+ *     pipelineExecutionStartCondition: "EXPRESSION_MATCH_ONLY" || "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
+ *   },
+ *   status: "DISABLED" || "ENABLED",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateImagePipelineCommand(input);
  * const response = await client.send(command);
  * ```

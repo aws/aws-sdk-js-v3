@@ -78,6 +78,44 @@ export interface ProvisionProductCommandOutput extends ProvisionProductOutput, _
  * import { ServiceCatalogClient, ProvisionProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ProvisionProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE",
+ *   ProductName: "STRING_VALUE",
+ *   ProvisioningArtifactId: "STRING_VALUE",
+ *   ProvisioningArtifactName: "STRING_VALUE",
+ *   PathId: "STRING_VALUE",
+ *   PathName: "STRING_VALUE",
+ *   ProvisionedProductName: "STRING_VALUE", // required
+ *   ProvisioningParameters: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ProvisioningPreferences: {
+ *     StackSetAccounts: [
+ *       "STRING_VALUE",
+ *     ],
+ *     StackSetRegions: [
+ *       "STRING_VALUE",
+ *     ],
+ *     StackSetFailureToleranceCount: Number("int"),
+ *     StackSetFailureTolerancePercentage: Number("int"),
+ *     StackSetMaxConcurrencyCount: Number("int"),
+ *     StackSetMaxConcurrencyPercentage: Number("int"),
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NotificationArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ProvisionToken: "STRING_VALUE", // required
+ * };
  * const command = new ProvisionProductCommand(input);
  * const response = await client.send(command);
  * ```

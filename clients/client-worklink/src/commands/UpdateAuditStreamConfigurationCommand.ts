@@ -46,6 +46,10 @@ export interface UpdateAuditStreamConfigurationCommandOutput
  * import { WorkLinkClient, UpdateAuditStreamConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, UpdateAuditStreamConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ *   AuditStreamArn: "STRING_VALUE",
+ * };
  * const command = new UpdateAuditStreamConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface DeleteAnalysisSchemeCommandOutput extends DeleteAnalysisSchemeR
  * import { CloudSearchClient, DeleteAnalysisSchemeCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, DeleteAnalysisSchemeCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   AnalysisSchemeName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAnalysisSchemeCommand(input);
  * const response = await client.send(command);
  * ```

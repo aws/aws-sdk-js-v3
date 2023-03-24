@@ -46,6 +46,9 @@ export interface GetRecoveryGroupCommandOutput extends GetRecoveryGroupResponse,
  * import { Route53RecoveryReadinessClient, GetRecoveryGroupCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, GetRecoveryGroupCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = {
+ *   RecoveryGroupName: "STRING_VALUE", // required
+ * };
  * const command = new GetRecoveryGroupCommand(input);
  * const response = await client.send(command);
  * ```

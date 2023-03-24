@@ -44,6 +44,11 @@ export interface DeleteProvisionedProductPlanCommandOutput
  * import { ServiceCatalogClient, DeleteProvisionedProductPlanCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeleteProvisionedProductPlanCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PlanId: "STRING_VALUE", // required
+ *   IgnoreErrors: true || false,
+ * };
  * const command = new DeleteProvisionedProductPlanCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,9 @@ export interface DeleteConnectionCommandOutput extends Connection, __MetadataBea
  * import { DirectConnectClient, DeleteConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   connectionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
  * ```

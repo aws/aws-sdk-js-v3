@@ -45,6 +45,10 @@ export interface GetComponentVersionArtifactCommandOutput
  * import { GreengrassV2Client, GetComponentVersionArtifactCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, GetComponentVersionArtifactCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ *   artifactName: "STRING_VALUE", // required
+ * };
  * const command = new GetComponentVersionArtifactCommand(input);
  * const response = await client.send(command);
  * ```

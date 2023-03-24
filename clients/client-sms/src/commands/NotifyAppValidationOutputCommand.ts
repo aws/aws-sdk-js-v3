@@ -42,6 +42,14 @@ export interface NotifyAppValidationOutputCommandOutput extends NotifyAppValidat
  * import { SMSClient, NotifyAppValidationOutputCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, NotifyAppValidationOutputCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE", // required
+ *   notificationContext: {
+ *     validationId: "STRING_VALUE",
+ *     status: "STRING_VALUE",
+ *     statusMessage: "STRING_VALUE",
+ *   },
+ * };
  * const command = new NotifyAppValidationOutputCommand(input);
  * const response = await client.send(command);
  * ```

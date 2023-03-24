@@ -44,6 +44,11 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * import { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   queryDefinitionNamePrefix: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeQueryDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```

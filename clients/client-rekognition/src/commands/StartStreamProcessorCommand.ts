@@ -45,6 +45,18 @@ export interface StartStreamProcessorCommandOutput extends StartStreamProcessorR
  * import { RekognitionClient, StartStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   StartSelector: {
+ *     KVSStreamStartSelector: {
+ *       ProducerTimestamp: Number("long"),
+ *       FragmentNumber: "STRING_VALUE",
+ *     },
+ *   },
+ *   StopSelector: {
+ *     MaxDurationInSeconds: Number("long"),
+ *   },
+ * };
  * const command = new StartStreamProcessorCommand(input);
  * const response = await client.send(command);
  * ```

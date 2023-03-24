@@ -63,6 +63,16 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  * import { RedshiftClient, GetClusterCredentialsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, GetClusterCredentialsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   DbUser: "STRING_VALUE", // required
+ *   DbName: "STRING_VALUE",
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   DurationSeconds: Number("int"),
+ *   AutoCreate: true || false,
+ *   DbGroups: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetClusterCredentialsCommand(input);
  * const response = await client.send(command);
  * ```

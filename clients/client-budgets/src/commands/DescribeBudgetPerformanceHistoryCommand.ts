@@ -44,6 +44,16 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  * import { BudgetsClient, DescribeBudgetPerformanceHistoryCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeBudgetPerformanceHistoryCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   TimePeriod: {
+ *     Start: new Date("TIMESTAMP"),
+ *     End: new Date("TIMESTAMP"),
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeBudgetPerformanceHistoryCommand(input);
  * const response = await client.send(command);
  * ```

@@ -65,6 +65,13 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  * import { SupportClient, DescribeCommunicationsCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, DescribeCommunicationsCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = {
+ *   caseId: "STRING_VALUE", // required
+ *   beforeTime: "STRING_VALUE",
+ *   afterTime: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeCommunicationsCommand(input);
  * const response = await client.send(command);
  * ```

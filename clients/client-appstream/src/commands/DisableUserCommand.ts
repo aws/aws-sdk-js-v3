@@ -42,6 +42,10 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
  * import { AppStreamClient, DisableUserCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DisableUserCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   UserName: "STRING_VALUE", // required
+ *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ * };
  * const command = new DisableUserCommand(input);
  * const response = await client.send(command);
  * ```

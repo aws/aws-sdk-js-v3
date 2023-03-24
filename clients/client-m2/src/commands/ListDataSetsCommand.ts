@@ -44,6 +44,12 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * import { M2Client, ListDataSetsCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, ListDataSetsCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   prefix: "STRING_VALUE",
+ * };
  * const command = new ListDataSetsCommand(input);
  * const response = await client.send(command);
  * ```

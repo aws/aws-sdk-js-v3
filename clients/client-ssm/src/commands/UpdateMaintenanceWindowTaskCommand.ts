@@ -102,6 +102,92 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  * import { SSMClient, UpdateMaintenanceWindowTaskCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateMaintenanceWindowTaskCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   WindowId: "STRING_VALUE", // required
+ *   WindowTaskId: "STRING_VALUE", // required
+ *   Targets: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   TaskArn: "STRING_VALUE",
+ *   ServiceRoleArn: "STRING_VALUE",
+ *   TaskParameters: {
+ *     "<keys>": {
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   TaskInvocationParameters: {
+ *     RunCommand: {
+ *       Comment: "STRING_VALUE",
+ *       CloudWatchOutputConfig: {
+ *         CloudWatchLogGroupName: "STRING_VALUE",
+ *         CloudWatchOutputEnabled: true || false,
+ *       },
+ *       DocumentHash: "STRING_VALUE",
+ *       DocumentHashType: "Sha256" || "Sha1",
+ *       DocumentVersion: "STRING_VALUE",
+ *       NotificationConfig: {
+ *         NotificationArn: "STRING_VALUE",
+ *         NotificationEvents: [
+ *           "All" || "InProgress" || "Success" || "TimedOut" || "Cancelled" || "Failed",
+ *         ],
+ *         NotificationType: "Command" || "Invocation",
+ *       },
+ *       OutputS3BucketName: "STRING_VALUE",
+ *       OutputS3KeyPrefix: "STRING_VALUE",
+ *       Parameters: {
+ *         "<keys>": [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       ServiceRoleArn: "STRING_VALUE",
+ *       TimeoutSeconds: Number("int"),
+ *     },
+ *     Automation: {
+ *       DocumentVersion: "STRING_VALUE",
+ *       Parameters: {
+ *         "<keys>": [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     StepFunctions: {
+ *       Input: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *     },
+ *     Lambda: {
+ *       ClientContext: "STRING_VALUE",
+ *       Qualifier: "STRING_VALUE",
+ *       Payload: "BLOB_VALUE",
+ *     },
+ *   },
+ *   Priority: Number("int"),
+ *   MaxConcurrency: "STRING_VALUE",
+ *   MaxErrors: "STRING_VALUE",
+ *   LoggingInfo: {
+ *     S3BucketName: "STRING_VALUE", // required
+ *     S3KeyPrefix: "STRING_VALUE",
+ *     S3Region: "STRING_VALUE", // required
+ *   },
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Replace: true || false,
+ *   CutoffBehavior: "CONTINUE_TASK" || "CANCEL_TASK",
+ *   AlarmConfiguration: {
+ *     IgnorePollAlarmFailure: true || false,
+ *     Alarms: [ // required
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateMaintenanceWindowTaskCommand(input);
  * const response = await client.send(command);
  * ```

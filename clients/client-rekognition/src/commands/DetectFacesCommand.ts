@@ -60,6 +60,19 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  * import { RekognitionClient, DetectFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   Image: {
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: {
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   Attributes: [
+ *     "DEFAULT" || "ALL",
+ *   ],
+ * };
  * const command = new DetectFacesCommand(input);
  * const response = await client.send(command);
  * ```

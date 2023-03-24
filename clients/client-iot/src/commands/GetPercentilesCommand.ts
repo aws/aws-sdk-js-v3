@@ -51,6 +51,15 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  * import { IoTClient, GetPercentilesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetPercentilesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   indexName: "STRING_VALUE",
+ *   queryString: "STRING_VALUE", // required
+ *   aggregationField: "STRING_VALUE",
+ *   queryVersion: "STRING_VALUE",
+ *   percents: [
+ *     Number("double"),
+ *   ],
+ * };
  * const command = new GetPercentilesCommand(input);
  * const response = await client.send(command);
  * ```

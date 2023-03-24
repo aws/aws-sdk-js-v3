@@ -53,6 +53,26 @@ export interface ListEventPredictionsCommandOutput extends ListEventPredictionsR
  * import { FraudDetectorClient, ListEventPredictionsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, ListEventPredictionsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   eventId: {
+ *     value: "STRING_VALUE",
+ *   },
+ *   eventType: {
+ *     value: "STRING_VALUE",
+ *   },
+ *   detectorId: {
+ *     value: "STRING_VALUE",
+ *   },
+ *   detectorVersionId: {
+ *     value: "STRING_VALUE",
+ *   },
+ *   predictionTimeRange: {
+ *     startTime: "STRING_VALUE", // required
+ *     endTime: "STRING_VALUE", // required
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListEventPredictionsCommand(input);
  * const response = await client.send(command);
  * ```

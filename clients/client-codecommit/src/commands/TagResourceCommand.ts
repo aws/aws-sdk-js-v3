@@ -44,6 +44,12 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { CodeCommitClient, TagResourceCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, TagResourceCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

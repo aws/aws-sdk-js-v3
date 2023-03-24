@@ -42,6 +42,35 @@ export interface ListOrganizationInsightsCommandOutput extends ListOrganizationI
  * import { DevOpsGuruClient, ListOrganizationInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListOrganizationInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
+ * const input = {
+ *   StatusFilter: {
+ *     Ongoing: {
+ *       Type: "REACTIVE" || "PROACTIVE", // required
+ *     },
+ *     Closed: {
+ *       Type: "REACTIVE" || "PROACTIVE", // required
+ *       EndTimeRange: {
+ *         FromTime: new Date("TIMESTAMP"),
+ *         ToTime: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *     Any: {
+ *       Type: "REACTIVE" || "PROACTIVE", // required
+ *       StartTimeRange: {
+ *         FromTime: new Date("TIMESTAMP"),
+ *         ToTime: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *   },
+ *   MaxResults: Number("int"),
+ *   AccountIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   OrganizationalUnitIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListOrganizationInsightsCommand(input);
  * const response = await client.send(command);
  * ```

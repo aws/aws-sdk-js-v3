@@ -48,6 +48,24 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  * import { ComputeOptimizerClient, GetLambdaFunctionRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetLambdaFunctionRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
+ * const input = {
+ *   functionArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   accountIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [
+ *     {
+ *       name: "Finding" || "FindingReasonCode",
+ *       values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetLambdaFunctionRecommendationsCommand(input);
  * const response = await client.send(command);
  * ```

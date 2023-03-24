@@ -51,6 +51,13 @@ export interface DescribeVpcClassicLinkDnsSupportCommandOutput
  * import { EC2Client, DescribeVpcClassicLinkDnsSupportCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcClassicLinkDnsSupportCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   VpcIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeVpcClassicLinkDnsSupportCommand(input);
  * const response = await client.send(command);
  * ```

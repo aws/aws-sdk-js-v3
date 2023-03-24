@@ -43,6 +43,16 @@ export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __M
  * import { DataBrewClient, CreateScheduleCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateScheduleCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   JobNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   CronExpression: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new CreateScheduleCommand(input);
  * const response = await client.send(command);
  * ```

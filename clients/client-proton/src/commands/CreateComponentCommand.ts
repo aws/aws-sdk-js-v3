@@ -50,6 +50,22 @@ export interface CreateComponentCommandOutput extends CreateComponentOutput, __M
  * import { ProtonClient, CreateComponentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateComponentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   serviceName: "STRING_VALUE",
+ *   serviceInstanceName: "STRING_VALUE",
+ *   environmentName: "STRING_VALUE",
+ *   templateFile: "STRING_VALUE", // required
+ *   manifest: "STRING_VALUE", // required
+ *   serviceSpec: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateComponentCommand(input);
  * const response = await client.send(command);
  * ```

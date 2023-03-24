@@ -48,6 +48,17 @@ export interface ExecuteProvisionedProductServiceActionCommandOutput
  * import { ServiceCatalogClient, ExecuteProvisionedProductServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ExecuteProvisionedProductServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   ProvisionedProductId: "STRING_VALUE", // required
+ *   ServiceActionId: "STRING_VALUE", // required
+ *   ExecuteToken: "STRING_VALUE", // required
+ *   AcceptLanguage: "STRING_VALUE",
+ *   Parameters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ExecuteProvisionedProductServiceActionCommand(input);
  * const response = await client.send(command);
  * ```

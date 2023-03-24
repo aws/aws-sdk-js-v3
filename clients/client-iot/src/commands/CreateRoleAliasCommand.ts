@@ -43,6 +43,17 @@ export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, _
  * import { IoTClient, CreateRoleAliasCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateRoleAliasCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   roleAlias: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE", // required
+ *   credentialDurationSeconds: Number("int"),
+ *   tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateRoleAliasCommand(input);
  * const response = await client.send(command);
  * ```

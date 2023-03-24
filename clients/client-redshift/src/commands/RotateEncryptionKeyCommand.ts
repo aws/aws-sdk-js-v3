@@ -42,6 +42,9 @@ export interface RotateEncryptionKeyCommandOutput extends RotateEncryptionKeyRes
  * import { RedshiftClient, RotateEncryptionKeyCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, RotateEncryptionKeyCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new RotateEncryptionKeyCommand(input);
  * const response = await client.send(command);
  * ```

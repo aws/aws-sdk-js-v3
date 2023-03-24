@@ -42,6 +42,17 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * import { DrsClient, DescribeJobsCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, DescribeJobsCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = {
+ *   filters: {
+ *     jobIDs: [
+ *       "STRING_VALUE",
+ *     ],
+ *     fromDate: "STRING_VALUE",
+ *     toDate: "STRING_VALUE",
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeJobsCommand(input);
  * const response = await client.send(command);
  * ```

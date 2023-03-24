@@ -47,6 +47,49 @@ export interface CreateWhatIfForecastCommandOutput extends CreateWhatIfForecastR
  * import { ForecastClient, CreateWhatIfForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateWhatIfForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   WhatIfForecastName: "STRING_VALUE", // required
+ *   WhatIfAnalysisArn: "STRING_VALUE", // required
+ *   TimeSeriesTransformations: [
+ *     {
+ *       Action: {
+ *         AttributeName: "STRING_VALUE", // required
+ *         Operation: "ADD" || "SUBTRACT" || "MULTIPLY" || "DIVIDE", // required
+ *         Value: Number("double"), // required
+ *       },
+ *       TimeSeriesConditions: [
+ *         {
+ *           AttributeName: "STRING_VALUE", // required
+ *           AttributeValue: "STRING_VALUE", // required
+ *           Condition: "EQUALS" || "NOT_EQUALS" || "LESS_THAN" || "GREATER_THAN", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   TimeSeriesReplacementsDataSource: {
+ *     S3Config: {
+ *       Path: "STRING_VALUE", // required
+ *       RoleArn: "STRING_VALUE", // required
+ *       KMSKeyArn: "STRING_VALUE",
+ *     },
+ *     Schema: {
+ *       Attributes: [
+ *         {
+ *           AttributeName: "STRING_VALUE",
+ *           AttributeType: "string" || "integer" || "float" || "timestamp" || "geolocation",
+ *         },
+ *       ],
+ *     },
+ *     Format: "STRING_VALUE",
+ *     TimestampFormat: "STRING_VALUE",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateWhatIfForecastCommand(input);
  * const response = await client.send(command);
  * ```

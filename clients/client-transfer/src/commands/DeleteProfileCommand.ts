@@ -42,6 +42,9 @@ export interface DeleteProfileCommandOutput extends __MetadataBearer {}
  * import { TransferClient, DeleteProfileCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, DeleteProfileCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   ProfileId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProfileCommand(input);
  * const response = await client.send(command);
  * ```

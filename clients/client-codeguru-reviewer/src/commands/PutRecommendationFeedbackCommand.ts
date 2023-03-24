@@ -43,6 +43,13 @@ export interface PutRecommendationFeedbackCommandOutput extends PutRecommendatio
  * import { CodeGuruReviewerClient, PutRecommendationFeedbackCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, PutRecommendationFeedbackCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = {
+ *   CodeReviewArn: "STRING_VALUE", // required
+ *   RecommendationId: "STRING_VALUE", // required
+ *   Reactions: [ // required
+ *     "ThumbsUp" || "ThumbsDown",
+ *   ],
+ * };
  * const command = new PutRecommendationFeedbackCommand(input);
  * const response = await client.send(command);
  * ```

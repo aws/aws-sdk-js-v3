@@ -39,6 +39,11 @@ export interface ListTagsCommandOutput extends ListTagsResult, __MetadataBearer 
  * import { OpsWorksClient, ListTagsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, ListTagsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,17 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  * import { DynamoDBClient, ExportTableToPointInTimeCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ExportTableToPointInTimeCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   TableArn: "STRING_VALUE", // required
+ *   ExportTime: new Date("TIMESTAMP"),
+ *   ClientToken: "STRING_VALUE",
+ *   S3Bucket: "STRING_VALUE", // required
+ *   S3BucketOwner: "STRING_VALUE",
+ *   S3Prefix: "STRING_VALUE",
+ *   S3SseAlgorithm: "AES256" || "KMS",
+ *   S3SseKmsKeyId: "STRING_VALUE",
+ *   ExportFormat: "DYNAMODB_JSON" || "ION",
+ * };
  * const command = new ExportTableToPointInTimeCommand(input);
  * const response = await client.send(command);
  * ```

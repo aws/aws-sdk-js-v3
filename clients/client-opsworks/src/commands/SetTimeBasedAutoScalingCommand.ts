@@ -49,6 +49,32 @@ export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {
  * import { OpsWorksClient, SetTimeBasedAutoScalingCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, SetTimeBasedAutoScalingCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   AutoScalingSchedule: {
+ *     Monday: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Tuesday: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Wednesday: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Thursday: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Friday: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Saturday: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Sunday: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new SetTimeBasedAutoScalingCommand(input);
  * const response = await client.send(command);
  * ```

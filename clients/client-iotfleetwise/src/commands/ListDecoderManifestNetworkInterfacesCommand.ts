@@ -50,6 +50,11 @@ export interface ListDecoderManifestNetworkInterfacesCommandOutput
  * import { IoTFleetWiseClient, ListDecoderManifestNetworkInterfacesCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListDecoderManifestNetworkInterfacesCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDecoderManifestNetworkInterfacesCommand(input);
  * const response = await client.send(command);
  * ```

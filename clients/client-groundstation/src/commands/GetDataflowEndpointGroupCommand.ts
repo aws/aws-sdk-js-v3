@@ -42,6 +42,9 @@ export interface GetDataflowEndpointGroupCommandOutput extends GetDataflowEndpoi
  * import { GroundStationClient, GetDataflowEndpointGroupCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, GetDataflowEndpointGroupCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = {
+ *   dataflowEndpointGroupId: "STRING_VALUE", // required
+ * };
  * const command = new GetDataflowEndpointGroupCommand(input);
  * const response = await client.send(command);
  * ```

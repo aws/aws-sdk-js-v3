@@ -57,6 +57,10 @@ export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBea
  * import { RestJsonProtocolClient, StreamingTraitsRequireLengthCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, StreamingTraitsRequireLengthCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   foo: "STRING_VALUE",
+ *   blob: "STREAMING_BLOB_VALUE",
+ * };
  * const command = new StreamingTraitsRequireLengthCommand(input);
  * const response = await client.send(command);
  * ```

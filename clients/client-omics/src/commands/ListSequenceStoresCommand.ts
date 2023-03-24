@@ -42,6 +42,15 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  * import { OmicsClient, ListSequenceStoresCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListSequenceStoresCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filter: {
+ *     name: "STRING_VALUE",
+ *     createdAfter: new Date("TIMESTAMP"),
+ *     createdBefore: new Date("TIMESTAMP"),
+ *   },
+ * };
  * const command = new ListSequenceStoresCommand(input);
  * const response = await client.send(command);
  * ```

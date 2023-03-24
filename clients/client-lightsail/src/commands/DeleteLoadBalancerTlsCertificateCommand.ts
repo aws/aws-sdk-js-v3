@@ -47,6 +47,11 @@ export interface DeleteLoadBalancerTlsCertificateCommandOutput
  * import { LightsailClient, DeleteLoadBalancerTlsCertificateCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteLoadBalancerTlsCertificateCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   loadBalancerName: "STRING_VALUE", // required
+ *   certificateName: "STRING_VALUE", // required
+ *   force: true || false,
+ * };
  * const command = new DeleteLoadBalancerTlsCertificateCommand(input);
  * const response = await client.send(command);
  * ```

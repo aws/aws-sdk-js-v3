@@ -60,6 +60,10 @@ export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __M
  * import { GlueClient, GetJobBookmarkCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetJobBookmarkCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   JobName: "STRING_VALUE", // required
+ *   RunId: "STRING_VALUE",
+ * };
  * const command = new GetJobBookmarkCommand(input);
  * const response = await client.send(command);
  * ```

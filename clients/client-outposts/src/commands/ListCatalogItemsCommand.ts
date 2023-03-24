@@ -45,6 +45,19 @@ export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, _
  * import { OutpostsClient, ListCatalogItemsCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, ListCatalogItemsCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ItemClassFilter: [
+ *     "RACK" || "SERVER",
+ *   ],
+ *   SupportedStorageFilter: [
+ *     "EBS" || "S3",
+ *   ],
+ *   EC2FamilyFilter: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new ListCatalogItemsCommand(input);
  * const response = await client.send(command);
  * ```

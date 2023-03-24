@@ -42,6 +42,9 @@ export interface GetFindingsReportStatusCommandOutput extends GetFindingsReportS
  * import { Inspector2Client, GetFindingsReportStatusCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, GetFindingsReportStatusCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = {
+ *   reportId: "STRING_VALUE",
+ * };
  * const command = new GetFindingsReportStatusCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface DeleteSpeakerCommandOutput extends __MetadataBearer {}
  * import { VoiceIDClient, DeleteSpeakerCommand } from "@aws-sdk/client-voice-id"; // ES Modules import
  * // const { VoiceIDClient, DeleteSpeakerCommand } = require("@aws-sdk/client-voice-id"); // CommonJS import
  * const client = new VoiceIDClient(config);
+ * const input = {
+ *   DomainId: "STRING_VALUE", // required
+ *   SpeakerId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSpeakerCommand(input);
  * const response = await client.send(command);
  * ```

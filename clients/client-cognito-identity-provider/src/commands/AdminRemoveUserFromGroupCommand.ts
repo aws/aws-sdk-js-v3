@@ -48,6 +48,11 @@ export interface AdminRemoveUserFromGroupCommandOutput extends __MetadataBearer 
  * import { CognitoIdentityProviderClient, AdminRemoveUserFromGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminRemoveUserFromGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   GroupName: "STRING_VALUE", // required
+ * };
  * const command = new AdminRemoveUserFromGroupCommand(input);
  * const response = await client.send(command);
  * ```

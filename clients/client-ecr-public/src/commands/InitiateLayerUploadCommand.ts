@@ -48,6 +48,10 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * import { ECRPUBLICClient, InitiateLayerUploadCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, InitiateLayerUploadCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
+ * const input = {
+ *   registryId: "STRING_VALUE",
+ *   repositoryName: "STRING_VALUE", // required
+ * };
  * const command = new InitiateLayerUploadCommand(input);
  * const response = await client.send(command);
  * ```

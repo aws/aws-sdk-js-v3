@@ -42,6 +42,24 @@ export interface CreateAssessmentFrameworkCommandOutput extends CreateAssessment
  * import { AuditManagerClient, CreateAssessmentFrameworkCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, CreateAssessmentFrameworkCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   complianceType: "STRING_VALUE",
+ *   controlSets: [ // required
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       controls: [
+ *         {
+ *           id: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAssessmentFrameworkCommand(input);
  * const response = await client.send(command);
  * ```

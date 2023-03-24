@@ -44,6 +44,11 @@ export interface GetResourceEventConfigurationCommandOutput
  * import { IoTWirelessClient, GetResourceEventConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, GetResourceEventConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Identifier: "STRING_VALUE", // required
+ *   IdentifierType: "PartnerAccountId" || "DevEui" || "GatewayEui" || "WirelessDeviceId" || "WirelessGatewayId", // required
+ *   PartnerType: "Sidewalk",
+ * };
  * const command = new GetResourceEventConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

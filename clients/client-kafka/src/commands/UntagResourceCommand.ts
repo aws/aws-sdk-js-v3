@@ -42,6 +42,12 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * import { KafkaClient, UntagResourceCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, UntagResourceCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

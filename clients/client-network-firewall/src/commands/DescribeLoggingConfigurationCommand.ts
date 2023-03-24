@@ -44,6 +44,10 @@ export interface DescribeLoggingConfigurationCommandOutput
  * import { NetworkFirewallClient, DescribeLoggingConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DescribeLoggingConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = {
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ * };
  * const command = new DescribeLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

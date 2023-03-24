@@ -326,6 +326,94 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * import { S3Client, RestoreObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, RestoreObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   RestoreRequest: {
+ *     Days: Number("int"),
+ *     GlacierJobParameters: {
+ *       Tier: "Standard" || "Bulk" || "Expedited", // required
+ *     },
+ *     Type: "SELECT",
+ *     Tier: "Standard" || "Bulk" || "Expedited",
+ *     Description: "STRING_VALUE",
+ *     SelectParameters: {
+ *       InputSerialization: {
+ *         CSV: {
+ *           FileHeaderInfo: "USE" || "IGNORE" || "NONE",
+ *           Comments: "STRING_VALUE",
+ *           QuoteEscapeCharacter: "STRING_VALUE",
+ *           RecordDelimiter: "STRING_VALUE",
+ *           FieldDelimiter: "STRING_VALUE",
+ *           QuoteCharacter: "STRING_VALUE",
+ *           AllowQuotedRecordDelimiter: true || false,
+ *         },
+ *         CompressionType: "NONE" || "GZIP" || "BZIP2",
+ *         JSON: {
+ *           Type: "DOCUMENT" || "LINES",
+ *         },
+ *         Parquet: {},
+ *       },
+ *       ExpressionType: "SQL", // required
+ *       Expression: "STRING_VALUE", // required
+ *       OutputSerialization: {
+ *         CSV: {
+ *           QuoteFields: "ALWAYS" || "ASNEEDED",
+ *           QuoteEscapeCharacter: "STRING_VALUE",
+ *           RecordDelimiter: "STRING_VALUE",
+ *           FieldDelimiter: "STRING_VALUE",
+ *           QuoteCharacter: "STRING_VALUE",
+ *         },
+ *         JSON: {
+ *           RecordDelimiter: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     OutputLocation: {
+ *       S3: {
+ *         BucketName: "STRING_VALUE", // required
+ *         Prefix: "STRING_VALUE", // required
+ *         Encryption: {
+ *           EncryptionType: "AES256" || "aws:kms", // required
+ *           KMSKeyId: "STRING_VALUE",
+ *           KMSContext: "STRING_VALUE",
+ *         },
+ *         CannedACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *         AccessControlList: [
+ *           {
+ *             Grantee: {
+ *               DisplayName: "STRING_VALUE",
+ *               EmailAddress: "STRING_VALUE",
+ *               ID: "STRING_VALUE",
+ *               URI: "STRING_VALUE",
+ *               Type: "CanonicalUser" || "AmazonCustomerByEmail" || "Group", // required
+ *             },
+ *             Permission: "FULL_CONTROL" || "WRITE" || "WRITE_ACP" || "READ" || "READ_ACP",
+ *           },
+ *         ],
+ *         Tagging: {
+ *           TagSet: [ // required
+ *             {
+ *               Key: "STRING_VALUE", // required
+ *               Value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         UserMetadata: [
+ *           {
+ *             Name: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *         StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR",
+ *       },
+ *     },
+ *   },
+ *   RequestPayer: "requester",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new RestoreObjectCommand(input);
  * const response = await client.send(command);
  * ```

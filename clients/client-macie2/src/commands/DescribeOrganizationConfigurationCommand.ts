@@ -47,6 +47,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * import { Macie2Client, DescribeOrganizationConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DescribeOrganizationConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {};
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,10 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * import { EventBridgeClient, DescribeRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribeRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   EventBusName: "STRING_VALUE",
+ * };
  * const command = new DescribeRuleCommand(input);
  * const response = await client.send(command);
  * ```

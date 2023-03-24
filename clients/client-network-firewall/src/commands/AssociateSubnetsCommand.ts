@@ -47,6 +47,17 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  * import { NetworkFirewallClient, AssociateSubnetsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, AssociateSubnetsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = {
+ *   UpdateToken: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ *   SubnetMappings: [ // required
+ *     {
+ *       SubnetId: "STRING_VALUE", // required
+ *       IPAddressType: "DUALSTACK" || "IPV4",
+ *     },
+ *   ],
+ * };
  * const command = new AssociateSubnetsCommand(input);
  * const response = await client.send(command);
  * ```

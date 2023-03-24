@@ -48,6 +48,27 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  * import { AppStreamClient, CreateAppBlockCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateAppBlockCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   DisplayName: "STRING_VALUE",
+ *   SourceS3Location: {
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE", // required
+ *   },
+ *   SetupScriptDetails: {
+ *     ScriptS3Location: {
+ *       S3Bucket: "STRING_VALUE", // required
+ *       S3Key: "STRING_VALUE", // required
+ *     },
+ *     ExecutablePath: "STRING_VALUE", // required
+ *     ExecutableParameters: "STRING_VALUE",
+ *     TimeoutInSeconds: Number("int"), // required
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAppBlockCommand(input);
  * const response = await client.send(command);
  * ```

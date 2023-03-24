@@ -60,6 +60,53 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  * import { LexModelBuildingServiceClient, PutBotCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, PutBotCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   intents: [
+ *     {
+ *       intentName: "STRING_VALUE", // required
+ *       intentVersion: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   enableModelImprovements: true || false,
+ *   nluIntentConfidenceThreshold: Number("double"),
+ *   clarificationPrompt: {
+ *     messages: [ // required
+ *       {
+ *         contentType: "STRING_VALUE", // required
+ *         content: "STRING_VALUE", // required
+ *         groupNumber: Number("int"),
+ *       },
+ *     ],
+ *     maxAttempts: Number("int"), // required
+ *     responseCard: "STRING_VALUE",
+ *   },
+ *   abortStatement: {
+ *     messages: [ // required
+ *       {
+ *         contentType: "STRING_VALUE", // required
+ *         content: "STRING_VALUE", // required
+ *         groupNumber: Number("int"),
+ *       },
+ *     ],
+ *     responseCard: "STRING_VALUE",
+ *   },
+ *   idleSessionTTLInSeconds: Number("int"),
+ *   voiceId: "STRING_VALUE",
+ *   checksum: "STRING_VALUE",
+ *   processBehavior: "STRING_VALUE",
+ *   locale: "STRING_VALUE", // required
+ *   childDirected: true || false, // required
+ *   detectSentiment: true || false,
+ *   createVersion: true || false,
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new PutBotCommand(input);
  * const response = await client.send(command);
  * ```

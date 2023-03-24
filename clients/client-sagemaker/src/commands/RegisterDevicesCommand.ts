@@ -42,6 +42,22 @@ export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, RegisterDevicesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, RegisterDevicesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   DeviceFleetName: "STRING_VALUE", // required
+ *   Devices: [ // required
+ *     {
+ *       DeviceName: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE",
+ *       IotThingName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new RegisterDevicesCommand(input);
  * const response = await client.send(command);
  * ```

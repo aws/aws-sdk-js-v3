@@ -42,6 +42,27 @@ export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayR
  * import { EC2Client, ModifyTransitGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyTransitGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   TransitGatewayId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Options: {
+ *     AddTransitGatewayCidrBlocks: [
+ *       "STRING_VALUE",
+ *     ],
+ *     RemoveTransitGatewayCidrBlocks: [
+ *       "STRING_VALUE",
+ *     ],
+ *     VpnEcmpSupport: "enable" || "disable",
+ *     DnsSupport: "enable" || "disable",
+ *     AutoAcceptSharedAttachments: "enable" || "disable",
+ *     DefaultRouteTableAssociation: "enable" || "disable",
+ *     AssociationDefaultRouteTableId: "STRING_VALUE",
+ *     DefaultRouteTablePropagation: "enable" || "disable",
+ *     PropagationDefaultRouteTableId: "STRING_VALUE",
+ *     AmazonSideAsn: Number("long"),
+ *   },
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyTransitGatewayCommand(input);
  * const response = await client.send(command);
  * ```

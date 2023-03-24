@@ -46,6 +46,12 @@ export interface ListPendingInvitationResourcesCommandOutput
  * import { RAMClient, ListPendingInvitationResourcesCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListPendingInvitationResourcesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = {
+ *   resourceShareInvitationArn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   resourceRegionScope: "ALL" || "REGIONAL" || "GLOBAL",
+ * };
  * const command = new ListPendingInvitationResourcesCommand(input);
  * const response = await client.send(command);
  * ```

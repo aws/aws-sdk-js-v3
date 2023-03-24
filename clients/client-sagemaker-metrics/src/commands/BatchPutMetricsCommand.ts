@@ -44,6 +44,17 @@ export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, _
  * import { SageMakerMetricsClient, BatchPutMetricsCommand } from "@aws-sdk/client-sagemaker-metrics"; // ES Modules import
  * // const { SageMakerMetricsClient, BatchPutMetricsCommand } = require("@aws-sdk/client-sagemaker-metrics"); // CommonJS import
  * const client = new SageMakerMetricsClient(config);
+ * const input = {
+ *   TrialComponentName: "STRING_VALUE", // required
+ *   MetricData: [ // required
+ *     {
+ *       MetricName: "STRING_VALUE", // required
+ *       Timestamp: new Date("TIMESTAMP"), // required
+ *       Step: Number("int"),
+ *       Value: Number("double"), // required
+ *     },
+ *   ],
+ * };
  * const command = new BatchPutMetricsCommand(input);
  * const response = await client.send(command);
  * ```

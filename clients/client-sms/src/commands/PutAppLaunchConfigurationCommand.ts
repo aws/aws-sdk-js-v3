@@ -42,6 +42,56 @@ export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConf
  * import { SMSClient, PutAppLaunchConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, PutAppLaunchConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   appId: "STRING_VALUE",
+ *   roleName: "STRING_VALUE",
+ *   autoLaunch: true || false,
+ *   serverGroupLaunchConfigurations: [
+ *     {
+ *       serverGroupId: "STRING_VALUE",
+ *       launchOrder: Number("int"),
+ *       serverLaunchConfigurations: [
+ *         {
+ *           server: {
+ *             serverId: "STRING_VALUE",
+ *             serverType: "STRING_VALUE",
+ *             vmServer: {
+ *               vmServerAddress: {
+ *                 vmManagerId: "STRING_VALUE",
+ *                 vmId: "STRING_VALUE",
+ *               },
+ *               vmName: "STRING_VALUE",
+ *               vmManagerName: "STRING_VALUE",
+ *               vmManagerType: "STRING_VALUE",
+ *               vmPath: "STRING_VALUE",
+ *             },
+ *             replicationJobId: "STRING_VALUE",
+ *             replicationJobTerminated: true || false,
+ *           },
+ *           logicalId: "STRING_VALUE",
+ *           vpc: "STRING_VALUE",
+ *           subnet: "STRING_VALUE",
+ *           securityGroup: "STRING_VALUE",
+ *           ec2KeyName: "STRING_VALUE",
+ *           userData: {
+ *             s3Location: {
+ *               bucket: "STRING_VALUE",
+ *               key: "STRING_VALUE",
+ *             },
+ *           },
+ *           instanceType: "STRING_VALUE",
+ *           associatePublicIpAddress: true || false,
+ *           iamInstanceProfileName: "STRING_VALUE",
+ *           configureScript: {
+ *             bucket: "STRING_VALUE",
+ *             key: "STRING_VALUE",
+ *           },
+ *           configureScriptType: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new PutAppLaunchConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

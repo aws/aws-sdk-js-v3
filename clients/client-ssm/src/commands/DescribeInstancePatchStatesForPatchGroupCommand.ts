@@ -50,6 +50,20 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
  * import { SSMClient, DescribeInstancePatchStatesForPatchGroupCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstancePatchStatesForPatchGroupCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   PatchGroup: "STRING_VALUE", // required
+ *   Filters: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Type: "Equal" || "NotEqual" || "LessThan" || "GreaterThan", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeInstancePatchStatesForPatchGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,11 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
  * import { ChimeClient, UpdateBotCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateBotCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   BotId: "STRING_VALUE", // required
+ *   Disabled: true || false,
+ * };
  * const command = new UpdateBotCommand(input);
  * const response = await client.send(command);
  * ```

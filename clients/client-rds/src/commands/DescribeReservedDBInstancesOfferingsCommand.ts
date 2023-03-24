@@ -44,6 +44,24 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  * import { RDSClient, DescribeReservedDBInstancesOfferingsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeReservedDBInstancesOfferingsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   ReservedDBInstancesOfferingId: "STRING_VALUE",
+ *   DBInstanceClass: "STRING_VALUE",
+ *   Duration: "STRING_VALUE",
+ *   ProductDescription: "STRING_VALUE",
+ *   OfferingType: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeReservedDBInstancesOfferingsCommand(input);
  * const response = await client.send(command);
  * ```

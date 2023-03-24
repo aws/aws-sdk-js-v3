@@ -42,6 +42,19 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResponse,
  * import { SageMakerClient, ListAssociationsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListAssociationsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   SourceArn: "STRING_VALUE",
+ *   DestinationArn: "STRING_VALUE",
+ *   SourceType: "STRING_VALUE",
+ *   DestinationType: "STRING_VALUE",
+ *   AssociationType: "ContributedTo" || "AssociatedWith" || "DerivedFrom" || "Produced",
+ *   CreatedAfter: new Date("TIMESTAMP"),
+ *   CreatedBefore: new Date("TIMESTAMP"),
+ *   SortBy: "SourceArn" || "DestinationArn" || "SourceType" || "DestinationType" || "CreationTime",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAssociationsCommand(input);
  * const response = await client.send(command);
  * ```

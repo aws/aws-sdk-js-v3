@@ -59,6 +59,15 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  * import { SupportClient, AddAttachmentsToSetCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, AddAttachmentsToSetCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = {
+ *   attachmentSetId: "STRING_VALUE",
+ *   attachments: [ // required
+ *     {
+ *       fileName: "STRING_VALUE",
+ *       data: "BLOB_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new AddAttachmentsToSetCommand(input);
  * const response = await client.send(command);
  * ```

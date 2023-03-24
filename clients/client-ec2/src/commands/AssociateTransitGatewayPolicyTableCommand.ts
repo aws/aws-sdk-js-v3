@@ -47,6 +47,11 @@ export interface AssociateTransitGatewayPolicyTableCommandOutput
  * import { EC2Client, AssociateTransitGatewayPolicyTableCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AssociateTransitGatewayPolicyTableCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   TransitGatewayPolicyTableId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new AssociateTransitGatewayPolicyTableCommand(input);
  * const response = await client.send(command);
  * ```

@@ -68,6 +68,10 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  * import { CognitoIdentityProviderClient, AssociateSoftwareTokenCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AssociateSoftwareTokenCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   AccessToken: "STRING_VALUE",
+ *   Session: "STRING_VALUE",
+ * };
  * const command = new AssociateSoftwareTokenCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,11 @@ export interface DeleteResourcePolicyStatementCommandOutput
  * import { LexModelsV2Client, DeleteResourcePolicyStatementCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteResourcePolicyStatementCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   statementId: "STRING_VALUE", // required
+ *   expectedRevisionId: "STRING_VALUE",
+ * };
  * const command = new DeleteResourcePolicyStatementCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,152 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * import { NetworkFirewallClient, CreateRuleGroupCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, CreateRuleGroupCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = {
+ *   RuleGroupName: "STRING_VALUE", // required
+ *   RuleGroup: {
+ *     RuleVariables: {
+ *       IPSets: {
+ *         "<keys>": {
+ *           Definition: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       PortSets: {
+ *         "<keys>": {
+ *           Definition: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     },
+ *     ReferenceSets: {
+ *       IPSetReferences: {
+ *         "<keys>": {
+ *           ReferenceArn: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     RulesSource: {
+ *       RulesString: "STRING_VALUE",
+ *       RulesSourceList: {
+ *         Targets: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         TargetTypes: [ // required
+ *           "TLS_SNI" || "HTTP_HOST",
+ *         ],
+ *         GeneratedRulesType: "ALLOWLIST" || "DENYLIST", // required
+ *       },
+ *       StatefulRules: [
+ *         {
+ *           Action: "PASS" || "DROP" || "ALERT" || "REJECT", // required
+ *           Header: {
+ *             Protocol: "IP" || "TCP" || "UDP" || "ICMP" || "HTTP" || "FTP" || "TLS" || "SMB" || "DNS" || "DCERPC" || "SSH" || "SMTP" || "IMAP" || "MSN" || "KRB5" || "IKEV2" || "TFTP" || "NTP" || "DHCP", // required
+ *             Source: "STRING_VALUE", // required
+ *             SourcePort: "STRING_VALUE", // required
+ *             Direction: "FORWARD" || "ANY", // required
+ *             Destination: "STRING_VALUE", // required
+ *             DestinationPort: "STRING_VALUE", // required
+ *           },
+ *           RuleOptions: [ // required
+ *             {
+ *               Keyword: "STRING_VALUE", // required
+ *               Settings: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *       StatelessRulesAndCustomActions: {
+ *         StatelessRules: [ // required
+ *           {
+ *             RuleDefinition: {
+ *               MatchAttributes: {
+ *                 Sources: [
+ *                   {
+ *                     AddressDefinition: "STRING_VALUE", // required
+ *                   },
+ *                 ],
+ *                 Destinations: [
+ *                   {
+ *                     AddressDefinition: "STRING_VALUE", // required
+ *                   },
+ *                 ],
+ *                 SourcePorts: [
+ *                   {
+ *                     FromPort: Number("int"), // required
+ *                     ToPort: Number("int"), // required
+ *                   },
+ *                 ],
+ *                 DestinationPorts: [
+ *                   {
+ *                     FromPort: Number("int"), // required
+ *                     ToPort: Number("int"), // required
+ *                   },
+ *                 ],
+ *                 Protocols: [
+ *                   Number("int"),
+ *                 ],
+ *                 TCPFlags: [
+ *                   {
+ *                     Flags: [ // required
+ *                       "FIN" || "SYN" || "RST" || "PSH" || "ACK" || "URG" || "ECE" || "CWR",
+ *                     ],
+ *                     Masks: [
+ *                       "FIN" || "SYN" || "RST" || "PSH" || "ACK" || "URG" || "ECE" || "CWR",
+ *                     ],
+ *                   },
+ *                 ],
+ *               },
+ *               Actions: [ // required
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             Priority: Number("int"), // required
+ *           },
+ *         ],
+ *         CustomActions: [
+ *           {
+ *             ActionName: "STRING_VALUE", // required
+ *             ActionDefinition: {
+ *               PublishMetricAction: {
+ *                 Dimensions: [ // required
+ *                   {
+ *                     Value: "STRING_VALUE", // required
+ *                   },
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     StatefulRuleOptions: {
+ *       RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
+ *     },
+ *   },
+ *   Rules: "STRING_VALUE",
+ *   Type: "STATELESS" || "STATEFUL", // required
+ *   Description: "STRING_VALUE",
+ *   Capacity: Number("int"), // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   DryRun: true || false,
+ *   EncryptionConfiguration: {
+ *     KeyId: "STRING_VALUE",
+ *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ *   },
+ *   SourceMetadata: {
+ *     SourceArn: "STRING_VALUE",
+ *     SourceUpdateToken: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```

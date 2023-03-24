@@ -42,6 +42,17 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
  * import { AlexaForBusinessClient, CreateSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   SkillGroupName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSkillGroupCommand(input);
  * const response = await client.send(command);
  * ```

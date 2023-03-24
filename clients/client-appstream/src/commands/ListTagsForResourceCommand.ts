@@ -43,6 +43,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { AppStreamClient, ListTagsForResourceCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, ListTagsForResourceCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

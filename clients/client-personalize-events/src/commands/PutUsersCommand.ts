@@ -47,6 +47,15 @@ export interface PutUsersCommandOutput extends __MetadataBearer {}
  * import { PersonalizeEventsClient, PutUsersCommand } from "@aws-sdk/client-personalize-events"; // ES Modules import
  * // const { PersonalizeEventsClient, PutUsersCommand } = require("@aws-sdk/client-personalize-events"); // CommonJS import
  * const client = new PersonalizeEventsClient(config);
+ * const input = {
+ *   datasetArn: "STRING_VALUE", // required
+ *   users: [ // required
+ *     {
+ *       userId: "STRING_VALUE", // required
+ *       properties: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PutUsersCommand(input);
  * const response = await client.send(command);
  * ```

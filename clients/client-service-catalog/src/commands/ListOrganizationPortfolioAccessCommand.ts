@@ -47,6 +47,13 @@ export interface ListOrganizationPortfolioAccessCommandOutput
  * import { ServiceCatalogClient, ListOrganizationPortfolioAccessCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListOrganizationPortfolioAccessCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   OrganizationNodeType: "ORGANIZATION" || "ORGANIZATIONAL_UNIT" || "ACCOUNT", // required
+ *   PageToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListOrganizationPortfolioAccessCommand(input);
  * const response = await client.send(command);
  * ```

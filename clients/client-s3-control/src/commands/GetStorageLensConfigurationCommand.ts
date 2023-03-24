@@ -50,6 +50,10 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  * import { S3ControlClient, GetStorageLensConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, GetStorageLensConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   ConfigId: "STRING_VALUE", // required
+ *   AccountId: "STRING_VALUE",
+ * };
  * const command = new GetStorageLensConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

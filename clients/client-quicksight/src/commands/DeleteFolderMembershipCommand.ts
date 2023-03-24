@@ -42,6 +42,12 @@ export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembers
  * import { QuickSightClient, DeleteFolderMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteFolderMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   FolderId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE", // required
+ *   MemberType: "DASHBOARD" || "ANALYSIS" || "DATASET", // required
+ * };
  * const command = new DeleteFolderMembershipCommand(input);
  * const response = await client.send(command);
  * ```

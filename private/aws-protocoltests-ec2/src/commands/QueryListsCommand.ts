@@ -38,6 +38,27 @@ export interface QueryListsCommandOutput extends __MetadataBearer {}
  * import { EC2ProtocolClient, QueryListsCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, QueryListsCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
+ * const input = {
+ *   ListArg: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ComplexListArg: [
+ *     {
+ *       hi: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ListArgWithXmlNameMember: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ListArgWithXmlName: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NestedWithList: {
+ *     ListArg: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new QueryListsCommand(input);
  * const response = await client.send(command);
  * ```

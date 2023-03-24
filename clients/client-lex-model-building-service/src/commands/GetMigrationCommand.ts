@@ -48,6 +48,9 @@ export interface GetMigrationCommandOutput extends GetMigrationResponse, __Metad
  * import { LexModelBuildingServiceClient, GetMigrationCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetMigrationCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = {
+ *   migrationId: "STRING_VALUE", // required
+ * };
  * const command = new GetMigrationCommand(input);
  * const response = await client.send(command);
  * ```

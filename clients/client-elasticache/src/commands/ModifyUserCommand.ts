@@ -39,6 +39,21 @@ export interface ModifyUserCommandOutput extends User, __MetadataBearer {}
  * import { ElastiCacheClient, ModifyUserCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyUserCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   UserId: "STRING_VALUE", // required
+ *   AccessString: "STRING_VALUE",
+ *   AppendAccessString: "STRING_VALUE",
+ *   Passwords: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NoPasswordRequired: true || false,
+ *   AuthenticationMode: {
+ *     Type: "password" || "no-password-required" || "iam",
+ *     Passwords: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new ModifyUserCommand(input);
  * const response = await client.send(command);
  * ```

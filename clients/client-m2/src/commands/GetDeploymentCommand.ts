@@ -42,6 +42,10 @@ export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __Met
  * import { M2Client, GetDeploymentCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, GetDeploymentCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   deploymentId: "STRING_VALUE", // required
+ *   applicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

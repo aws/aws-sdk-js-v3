@@ -48,6 +48,10 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * import { SESv2Client, ListConfigurationSetsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListConfigurationSetsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListConfigurationSetsCommand(input);
  * const response = await client.send(command);
  * ```

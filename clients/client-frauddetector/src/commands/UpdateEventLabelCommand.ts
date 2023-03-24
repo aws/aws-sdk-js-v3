@@ -42,6 +42,12 @@ export interface UpdateEventLabelCommandOutput extends UpdateEventLabelResult, _
  * import { FraudDetectorClient, UpdateEventLabelCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateEventLabelCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   eventId: "STRING_VALUE", // required
+ *   eventTypeName: "STRING_VALUE", // required
+ *   assignedLabel: "STRING_VALUE", // required
+ *   labelTimestamp: "STRING_VALUE", // required
+ * };
  * const command = new UpdateEventLabelCommand(input);
  * const response = await client.send(command);
  * ```

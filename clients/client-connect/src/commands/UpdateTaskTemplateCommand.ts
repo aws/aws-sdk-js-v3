@@ -44,6 +44,59 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  * import { ConnectClient, UpdateTaskTemplateCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateTaskTemplateCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   TaskTemplateId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ContactFlowId: "STRING_VALUE",
+ *   Constraints: {
+ *     RequiredFields: [
+ *       {
+ *         Id: {
+ *           Name: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     ReadOnlyFields: [
+ *       {
+ *         Id: {
+ *           Name: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     InvisibleFields: [
+ *       {
+ *         Id: {
+ *           Name: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   Defaults: {
+ *     DefaultFieldValues: [
+ *       {
+ *         Id: {
+ *           Name: "STRING_VALUE",
+ *         },
+ *         DefaultValue: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   Status: "ACTIVE" || "INACTIVE",
+ *   Fields: [
+ *     {
+ *       Id: {
+ *         Name: "STRING_VALUE",
+ *       },
+ *       Description: "STRING_VALUE",
+ *       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL",
+ *       SingleSelectOptions: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateTaskTemplateCommand(input);
  * const response = await client.send(command);
  * ```

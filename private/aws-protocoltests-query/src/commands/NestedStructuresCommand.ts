@@ -41,6 +41,21 @@ export interface NestedStructuresCommandOutput extends __MetadataBearer {}
  * import { QueryProtocolClient, NestedStructuresCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, NestedStructuresCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {
+ *   Nested: {
+ *     StringArg: "STRING_VALUE",
+ *     OtherArg: true || false,
+ *     RecursiveArg: {
+ *       StringArg: "STRING_VALUE",
+ *       OtherArg: true || false,
+ *       RecursiveArg: {
+ *         StringArg: "<StructArg>",
+ *         OtherArg: "<StructArg>",
+ *         RecursiveArg: "<StructArg>",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new NestedStructuresCommand(input);
  * const response = await client.send(command);
  * ```

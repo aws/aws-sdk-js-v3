@@ -42,6 +42,51 @@ export interface CreateSiteCommandOutput extends CreateSiteOutput, __MetadataBea
  * import { OutpostsClient, CreateSiteCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CreateSiteCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Notes: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   OperatingAddress: {
+ *     ContactName: "STRING_VALUE",
+ *     ContactPhoneNumber: "STRING_VALUE",
+ *     AddressLine1: "STRING_VALUE", // required
+ *     AddressLine2: "STRING_VALUE",
+ *     AddressLine3: "STRING_VALUE",
+ *     City: "STRING_VALUE", // required
+ *     StateOrRegion: "STRING_VALUE", // required
+ *     DistrictOrCounty: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE", // required
+ *     CountryCode: "STRING_VALUE", // required
+ *     Municipality: "STRING_VALUE",
+ *   },
+ *   ShippingAddress: {
+ *     ContactName: "STRING_VALUE",
+ *     ContactPhoneNumber: "STRING_VALUE",
+ *     AddressLine1: "STRING_VALUE", // required
+ *     AddressLine2: "STRING_VALUE",
+ *     AddressLine3: "STRING_VALUE",
+ *     City: "STRING_VALUE", // required
+ *     StateOrRegion: "STRING_VALUE", // required
+ *     DistrictOrCounty: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE", // required
+ *     CountryCode: "STRING_VALUE", // required
+ *     Municipality: "STRING_VALUE",
+ *   },
+ *   RackPhysicalProperties: {
+ *     PowerDrawKva: "POWER_5_KVA" || "POWER_10_KVA" || "POWER_15_KVA" || "POWER_30_KVA",
+ *     PowerPhase: "SINGLE_PHASE" || "THREE_PHASE",
+ *     PowerConnector: "L6_30P" || "IEC309" || "AH530P7W" || "AH532P6W",
+ *     PowerFeedDrop: "ABOVE_RACK" || "BELOW_RACK",
+ *     UplinkGbps: "UPLINK_1G" || "UPLINK_10G" || "UPLINK_40G" || "UPLINK_100G",
+ *     UplinkCount: "UPLINK_COUNT_1" || "UPLINK_COUNT_2" || "UPLINK_COUNT_3" || "UPLINK_COUNT_4" || "UPLINK_COUNT_5" || "UPLINK_COUNT_6" || "UPLINK_COUNT_7" || "UPLINK_COUNT_8" || "UPLINK_COUNT_12" || "UPLINK_COUNT_16",
+ *     FiberOpticCableType: "SINGLE_MODE" || "MULTI_MODE",
+ *     OpticalStandard: "OPTIC_10GBASE_SR" || "OPTIC_10GBASE_IR" || "OPTIC_10GBASE_LR" || "OPTIC_40GBASE_SR" || "OPTIC_40GBASE_ESR" || "OPTIC_40GBASE_IR4_LR4L" || "OPTIC_40GBASE_LR4" || "OPTIC_100GBASE_SR4" || "OPTIC_100GBASE_CWDM4" || "OPTIC_100GBASE_LR4" || "OPTIC_100G_PSM4_MSA" || "OPTIC_1000BASE_LX" || "OPTIC_1000BASE_SX",
+ *     MaximumSupportedWeightLbs: "NO_LIMIT" || "MAX_1400_LBS" || "MAX_1600_LBS" || "MAX_1800_LBS" || "MAX_2000_LBS",
+ *   },
+ * };
  * const command = new CreateSiteCommand(input);
  * const response = await client.send(command);
  * ```

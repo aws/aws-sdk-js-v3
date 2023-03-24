@@ -42,6 +42,11 @@ export interface ListStagesCommandOutput extends ListStagesResult, __MetadataBea
  * import { GameSparksClient, ListStagesCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, ListStagesCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   GameName: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListStagesCommand(input);
  * const response = await client.send(command);
  * ```

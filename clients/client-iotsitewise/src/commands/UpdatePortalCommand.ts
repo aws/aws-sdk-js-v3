@@ -42,6 +42,26 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * import { IoTSiteWiseClient, UpdatePortalCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdatePortalCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   portalId: "STRING_VALUE", // required
+ *   portalName: "STRING_VALUE", // required
+ *   portalDescription: "STRING_VALUE",
+ *   portalContactEmail: "STRING_VALUE", // required
+ *   portalLogoImage: {
+ *     id: "STRING_VALUE",
+ *     file: {
+ *       data: "BLOB_VALUE", // required
+ *       type: "PNG", // required
+ *     },
+ *   },
+ *   roleArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   notificationSenderEmail: "STRING_VALUE",
+ *   alarms: {
+ *     alarmRoleArn: "STRING_VALUE", // required
+ *     notificationLambdaArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdatePortalCommand(input);
  * const response = await client.send(command);
  * ```

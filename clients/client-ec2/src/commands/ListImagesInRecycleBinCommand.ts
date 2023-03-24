@@ -44,6 +44,14 @@ export interface ListImagesInRecycleBinCommandOutput extends ListImagesInRecycle
  * import { EC2Client, ListImagesInRecycleBinCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ListImagesInRecycleBinCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   ImageIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ * };
  * const command = new ListImagesInRecycleBinCommand(input);
  * const response = await client.send(command);
  * ```

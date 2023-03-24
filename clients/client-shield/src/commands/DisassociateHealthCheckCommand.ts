@@ -43,6 +43,10 @@ export interface DisassociateHealthCheckCommandOutput extends DisassociateHealth
  * import { ShieldClient, DisassociateHealthCheckCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DisassociateHealthCheckCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {
+ *   ProtectionId: "STRING_VALUE", // required
+ *   HealthCheckArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateHealthCheckCommand(input);
  * const response = await client.send(command);
  * ```

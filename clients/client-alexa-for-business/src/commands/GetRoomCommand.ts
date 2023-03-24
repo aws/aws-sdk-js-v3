@@ -39,6 +39,9 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * import { AlexaForBusinessClient, GetRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, GetRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   RoomArn: "STRING_VALUE",
+ * };
  * const command = new GetRoomCommand(input);
  * const response = await client.send(command);
  * ```

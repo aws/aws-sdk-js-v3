@@ -47,6 +47,12 @@ export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOut
  * import { WellArchitectedClient, CreateWorkloadShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, CreateWorkloadShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = {
+ *   WorkloadId: "STRING_VALUE", // required
+ *   SharedWith: "STRING_VALUE", // required
+ *   PermissionType: "READONLY" || "CONTRIBUTOR", // required
+ *   ClientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateWorkloadShareCommand(input);
  * const response = await client.send(command);
  * ```

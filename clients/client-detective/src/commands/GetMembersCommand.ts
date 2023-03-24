@@ -43,6 +43,12 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * import { DetectiveClient, GetMembersCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, GetMembersCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = {
+ *   GraphArn: "STRING_VALUE", // required
+ *   AccountIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetMembersCommand(input);
  * const response = await client.send(command);
  * ```

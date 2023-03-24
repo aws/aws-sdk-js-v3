@@ -45,6 +45,52 @@ export interface CreateSlotTypeCommandOutput extends CreateSlotTypeResponse, __M
  * import { LexModelsV2Client, CreateSlotTypeCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateSlotTypeCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   slotTypeName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   slotTypeValues: [
+ *     {
+ *       sampleValue: {
+ *         value: "STRING_VALUE", // required
+ *       },
+ *       synonyms: [
+ *         {
+ *           value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   valueSelectionSetting: {
+ *     resolutionStrategy: "OriginalValue" || "TopResolution" || "Concatenation", // required
+ *     regexFilter: {
+ *       pattern: "STRING_VALUE", // required
+ *     },
+ *     advancedRecognitionSetting: {
+ *       audioRecognitionStrategy: "UseSlotValuesAsCustomVocabulary",
+ *     },
+ *   },
+ *   parentSlotTypeSignature: "STRING_VALUE",
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   externalSourceSetting: {
+ *     grammarSlotTypeSetting: {
+ *       source: {
+ *         s3BucketName: "STRING_VALUE", // required
+ *         s3ObjectKey: "STRING_VALUE", // required
+ *         kmsKeyArn: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   compositeSlotTypeSetting: {
+ *     subSlots: [
+ *       {
+ *         name: "STRING_VALUE", // required
+ *         slotTypeId: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateSlotTypeCommand(input);
  * const response = await client.send(command);
  * ```

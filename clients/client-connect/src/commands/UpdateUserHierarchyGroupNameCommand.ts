@@ -42,6 +42,11 @@ export interface UpdateUserHierarchyGroupNameCommandOutput extends __MetadataBea
  * import { ConnectClient, UpdateUserHierarchyGroupNameCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserHierarchyGroupNameCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   HierarchyGroupId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateUserHierarchyGroupNameCommand(input);
  * const response = await client.send(command);
  * ```

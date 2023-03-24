@@ -42,6 +42,9 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * import { GreengrassClient, DeleteGroupCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, DeleteGroupCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   GroupId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
  * ```

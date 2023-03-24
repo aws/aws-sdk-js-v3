@@ -44,6 +44,10 @@ export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheel
  * import { ComprehendClient, DescribeFlywheelIterationCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeFlywheelIterationCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   FlywheelArn: "STRING_VALUE", // required
+ *   FlywheelIterationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFlywheelIterationCommand(input);
  * const response = await client.send(command);
  * ```

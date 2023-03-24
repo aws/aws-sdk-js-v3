@@ -52,6 +52,9 @@ export interface RestoreCertificateAuthorityCommandOutput extends __MetadataBear
  * import { ACMPCAClient, RestoreCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, RestoreCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
+ * const input = {
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
+ * };
  * const command = new RestoreCertificateAuthorityCommand(input);
  * const response = await client.send(command);
  * ```

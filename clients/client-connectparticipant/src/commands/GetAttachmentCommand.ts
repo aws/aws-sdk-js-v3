@@ -54,6 +54,10 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
  * import { ConnectParticipantClient, GetAttachmentCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, GetAttachmentCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
  * const client = new ConnectParticipantClient(config);
+ * const input = {
+ *   AttachmentId: "STRING_VALUE", // required
+ *   ConnectionToken: "STRING_VALUE", // required
+ * };
  * const command = new GetAttachmentCommand(input);
  * const response = await client.send(command);
  * ```

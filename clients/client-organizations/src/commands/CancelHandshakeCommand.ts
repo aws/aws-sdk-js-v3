@@ -51,6 +51,9 @@ export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, _
  * import { OrganizationsClient, CancelHandshakeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CancelHandshakeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   HandshakeId: "STRING_VALUE", // required
+ * };
  * const command = new CancelHandshakeCommand(input);
  * const response = await client.send(command);
  * ```

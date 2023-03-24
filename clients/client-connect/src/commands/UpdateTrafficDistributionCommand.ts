@@ -45,6 +45,17 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  * import { ConnectClient, UpdateTrafficDistributionCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateTrafficDistributionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   TelephonyConfig: {
+ *     Distributions: [ // required
+ *       {
+ *         Region: "STRING_VALUE", // required
+ *         Percentage: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateTrafficDistributionCommand(input);
  * const response = await client.send(command);
  * ```

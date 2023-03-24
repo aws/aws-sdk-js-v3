@@ -47,6 +47,9 @@ export interface DisassociateWirelessDeviceFromThingCommandOutput
  * import { IoTWirelessClient, DisassociateWirelessDeviceFromThingCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DisassociateWirelessDeviceFromThingCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateWirelessDeviceFromThingCommand(input);
  * const response = await client.send(command);
  * ```

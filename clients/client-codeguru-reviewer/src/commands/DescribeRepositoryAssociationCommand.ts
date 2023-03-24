@@ -45,6 +45,9 @@ export interface DescribeRepositoryAssociationCommandOutput
  * import { CodeGuruReviewerClient, DescribeRepositoryAssociationCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, DescribeRepositoryAssociationCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
+ * const input = {
+ *   AssociationArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRepositoryAssociationCommand(input);
  * const response = await client.send(command);
  * ```

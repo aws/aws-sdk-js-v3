@@ -42,6 +42,9 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  * import { HealthLakeClient, DeleteFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, DeleteFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
+ * const input = {
+ *   DatastoreId: "STRING_VALUE",
+ * };
  * const command = new DeleteFHIRDatastoreCommand(input);
  * const response = await client.send(command);
  * ```

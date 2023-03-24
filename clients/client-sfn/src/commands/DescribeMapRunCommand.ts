@@ -42,6 +42,9 @@ export interface DescribeMapRunCommandOutput extends DescribeMapRunOutput, __Met
  * import { SFNClient, DescribeMapRunCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, DescribeMapRunCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
+ * const input = {
+ *   mapRunArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMapRunCommand(input);
  * const response = await client.send(command);
  * ```

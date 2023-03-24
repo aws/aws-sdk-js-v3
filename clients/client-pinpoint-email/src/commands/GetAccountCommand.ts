@@ -43,6 +43,7 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * import { PinpointEmailClient, GetAccountCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetAccountCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {};
  * const command = new GetAccountCommand(input);
  * const response = await client.send(command);
  * ```

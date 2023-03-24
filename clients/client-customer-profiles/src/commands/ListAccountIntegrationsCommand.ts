@@ -42,6 +42,12 @@ export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegra
  * import { CustomerProfilesClient, ListAccountIntegrationsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListAccountIntegrationsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   Uri: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   IncludeHidden: true || false,
+ * };
  * const command = new ListAccountIntegrationsCommand(input);
  * const response = await client.send(command);
  * ```

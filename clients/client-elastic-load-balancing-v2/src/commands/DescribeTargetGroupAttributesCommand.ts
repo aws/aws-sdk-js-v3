@@ -69,6 +69,9 @@ export interface DescribeTargetGroupAttributesCommandOutput
  * import { ElasticLoadBalancingV2Client, DescribeTargetGroupAttributesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DescribeTargetGroupAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
+ * const input = {
+ *   TargetGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTargetGroupAttributesCommand(input);
  * const response = await client.send(command);
  * ```

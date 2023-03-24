@@ -42,6 +42,30 @@ export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataRespo
  * import { ConnectClient, GetCurrentUserDataCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetCurrentUserDataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   Filters: {
+ *     Queues: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ContactFilter: {
+ *       ContactStates: [
+ *         "INCOMING" || "PENDING" || "CONNECTING" || "CONNECTED" || "CONNECTED_ONHOLD" || "MISSED" || "ERROR" || "ENDED" || "REJECTED",
+ *       ],
+ *     },
+ *     RoutingProfiles: [
+ *       "STRING_VALUE",
+ *     ],
+ *     Agents: [
+ *       "STRING_VALUE",
+ *     ],
+ *     UserHierarchyGroups: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetCurrentUserDataCommand(input);
  * const response = await client.send(command);
  * ```

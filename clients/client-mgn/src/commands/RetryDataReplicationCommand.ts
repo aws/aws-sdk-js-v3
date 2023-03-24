@@ -42,6 +42,9 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * import { MgnClient, RetryDataReplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, RetryDataReplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   sourceServerID: "STRING_VALUE", // required
+ * };
  * const command = new RetryDataReplicationCommand(input);
  * const response = await client.send(command);
  * ```

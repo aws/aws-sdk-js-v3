@@ -42,6 +42,9 @@ export interface DeleteApnsSandboxChannelCommandOutput extends DeleteApnsSandbox
  * import { PinpointClient, DeleteApnsSandboxChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteApnsSandboxChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApnsSandboxChannelCommand(input);
  * const response = await client.send(command);
  * ```

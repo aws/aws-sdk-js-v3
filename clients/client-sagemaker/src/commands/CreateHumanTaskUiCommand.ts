@@ -42,6 +42,18 @@ export interface CreateHumanTaskUiCommandOutput extends CreateHumanTaskUiRespons
  * import { SageMakerClient, CreateHumanTaskUiCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateHumanTaskUiCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   HumanTaskUiName: "STRING_VALUE", // required
+ *   UiTemplate: {
+ *     Content: "STRING_VALUE", // required
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHumanTaskUiCommand(input);
  * const response = await client.send(command);
  * ```

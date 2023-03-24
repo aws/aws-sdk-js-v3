@@ -50,6 +50,7 @@ export interface DisassociateDefaultViewCommandOutput extends __MetadataBearer {
  * import { ResourceExplorer2Client, DisassociateDefaultViewCommand } from "@aws-sdk/client-resource-explorer-2"; // ES Modules import
  * // const { ResourceExplorer2Client, DisassociateDefaultViewCommand } = require("@aws-sdk/client-resource-explorer-2"); // CommonJS import
  * const client = new ResourceExplorer2Client(config);
+ * const input = {};
  * const command = new DisassociateDefaultViewCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,9 @@ export interface DisableProfileCommandOutput extends ProfileDetailResponse, __Me
  * import { RolesAnywhereClient, DisableProfileCommand } from "@aws-sdk/client-rolesanywhere"; // ES Modules import
  * // const { RolesAnywhereClient, DisableProfileCommand } = require("@aws-sdk/client-rolesanywhere"); // CommonJS import
  * const client = new RolesAnywhereClient(config);
+ * const input = {
+ *   profileId: "STRING_VALUE", // required
+ * };
  * const command = new DisableProfileCommand(input);
  * const response = await client.send(command);
  * ```

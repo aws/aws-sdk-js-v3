@@ -63,6 +63,32 @@ export interface UpdateAccessControlConfigurationCommandOutput
  * import { KendraClient, UpdateAccessControlConfigurationCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, UpdateAccessControlConfigurationCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   IndexId: "STRING_VALUE", // required
+ *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   AccessControlList: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Type: "USER" || "GROUP", // required
+ *       Access: "ALLOW" || "DENY", // required
+ *       DataSourceId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   HierarchicalAccessControlList: [
+ *     {
+ *       PrincipalList: [ // required
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Type: "USER" || "GROUP", // required
+ *           Access: "ALLOW" || "DENY", // required
+ *           DataSourceId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateAccessControlConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -72,6 +72,17 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * import { DataPipelineClient, CreatePipelineCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, CreatePipelineCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   uniqueId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);
  * ```

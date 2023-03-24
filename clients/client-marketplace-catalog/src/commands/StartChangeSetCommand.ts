@@ -56,6 +56,34 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  * import { MarketplaceCatalogClient, StartChangeSetCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, StartChangeSetCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
+ * const input = {
+ *   Catalog: "STRING_VALUE", // required
+ *   ChangeSet: [ // required
+ *     {
+ *       ChangeType: "STRING_VALUE", // required
+ *       Entity: {
+ *         Type: "STRING_VALUE", // required
+ *         Identifier: "STRING_VALUE",
+ *       },
+ *       EntityTags: [
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       Details: "STRING_VALUE", // required
+ *       ChangeName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ChangeSetName: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ *   ChangeSetTags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new StartChangeSetCommand(input);
  * const response = await client.send(command);
  * ```

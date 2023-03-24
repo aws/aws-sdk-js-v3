@@ -47,6 +47,10 @@ export interface DisassociateContactFromAddressBookCommandOutput
  * import { AlexaForBusinessClient, DisassociateContactFromAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DisassociateContactFromAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   ContactArn: "STRING_VALUE", // required
+ *   AddressBookArn: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateContactFromAddressBookCommand(input);
  * const response = await client.send(command);
  * ```

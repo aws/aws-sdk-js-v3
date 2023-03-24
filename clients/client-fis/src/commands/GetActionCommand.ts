@@ -42,6 +42,9 @@ export interface GetActionCommandOutput extends GetActionResponse, __MetadataBea
  * import { FisClient, GetActionCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, GetActionCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetActionCommand(input);
  * const response = await client.send(command);
  * ```

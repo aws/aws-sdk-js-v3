@@ -42,6 +42,10 @@ export interface ListMissionProfilesCommandOutput extends ListMissionProfilesRes
  * import { GroundStationClient, ListMissionProfilesCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ListMissionProfilesCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListMissionProfilesCommand(input);
  * const response = await client.send(command);
  * ```

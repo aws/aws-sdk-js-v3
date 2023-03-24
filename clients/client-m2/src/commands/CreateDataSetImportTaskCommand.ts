@@ -42,6 +42,53 @@ export interface CreateDataSetImportTaskCommandOutput extends CreateDataSetImpor
  * import { M2Client, CreateDataSetImportTaskCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, CreateDataSetImportTaskCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ *   importConfig: { // Union: only one key present
+ *     s3Location: "STRING_VALUE",
+ *     dataSets: [
+ *       {
+ *         dataSet: {
+ *           storageType: "STRING_VALUE",
+ *           datasetName: "STRING_VALUE", // required
+ *           datasetOrg: { // Union: only one key present
+ *             vsam: {
+ *               format: "STRING_VALUE", // required
+ *               encoding: "STRING_VALUE",
+ *               compressed: true || false,
+ *               primaryKey: {
+ *                 name: "STRING_VALUE",
+ *                 offset: Number("int"), // required
+ *                 length: Number("int"), // required
+ *               },
+ *               alternateKeys: [
+ *                 {
+ *                   name: "STRING_VALUE",
+ *                   offset: Number("int"), // required
+ *                   length: Number("int"), // required
+ *                   allowDuplicates: true || false,
+ *                 },
+ *               ],
+ *             },
+ *             gdg: {
+ *               limit: Number("int"),
+ *               rollDisposition: "STRING_VALUE",
+ *             },
+ *           },
+ *           relativePath: "STRING_VALUE",
+ *           recordLength: {
+ *             min: Number("int"), // required
+ *             max: Number("int"), // required
+ *           },
+ *         },
+ *         externalLocation: { // Union: only one key present
+ *           s3Location: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateDataSetImportTaskCommand(input);
  * const response = await client.send(command);
  * ```

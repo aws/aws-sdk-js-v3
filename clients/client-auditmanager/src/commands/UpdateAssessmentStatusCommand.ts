@@ -42,6 +42,10 @@ export interface UpdateAssessmentStatusCommandOutput extends UpdateAssessmentSta
  * import { AuditManagerClient, UpdateAssessmentStatusCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, UpdateAssessmentStatusCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   assessmentId: "STRING_VALUE", // required
+ *   status: "ACTIVE" || "INACTIVE", // required
+ * };
  * const command = new UpdateAssessmentStatusCommand(input);
  * const response = await client.send(command);
  * ```

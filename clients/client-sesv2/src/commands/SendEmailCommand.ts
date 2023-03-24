@@ -65,6 +65,63 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, SendEmailCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   FromEmailAddress: "STRING_VALUE",
+ *   FromEmailAddressIdentityArn: "STRING_VALUE",
+ *   Destination: {
+ *     ToAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *     CcAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *     BccAddresses: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ReplyToAddresses: [
+ *     "STRING_VALUE",
+ *   ],
+ *   FeedbackForwardingEmailAddress: "STRING_VALUE",
+ *   FeedbackForwardingEmailAddressIdentityArn: "STRING_VALUE",
+ *   Content: {
+ *     Simple: {
+ *       Subject: {
+ *         Data: "STRING_VALUE", // required
+ *         Charset: "STRING_VALUE",
+ *       },
+ *       Body: {
+ *         Text: {
+ *           Data: "STRING_VALUE", // required
+ *           Charset: "STRING_VALUE",
+ *         },
+ *         Html: {
+ *           Data: "STRING_VALUE", // required
+ *           Charset: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *     Raw: {
+ *       Data: "BLOB_VALUE", // required
+ *     },
+ *     Template: {
+ *       TemplateName: "STRING_VALUE",
+ *       TemplateArn: "STRING_VALUE",
+ *       TemplateData: "STRING_VALUE",
+ *     },
+ *   },
+ *   EmailTags: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ConfigurationSetName: "STRING_VALUE",
+ *   ListManagementOptions: {
+ *     ContactListName: "STRING_VALUE", // required
+ *     TopicName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new SendEmailCommand(input);
  * const response = await client.send(command);
  * ```

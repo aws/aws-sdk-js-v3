@@ -48,6 +48,12 @@ export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
  * import { ChimeClient, PutSipMediaApplicationLoggingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutSipMediaApplicationLoggingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ *   SipMediaApplicationLoggingConfiguration: {
+ *     EnableSipMediaApplicationMessageLogs: true || false,
+ *   },
+ * };
  * const command = new PutSipMediaApplicationLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

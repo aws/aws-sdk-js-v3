@@ -45,6 +45,9 @@ export interface RestoreEventDataStoreCommandOutput extends RestoreEventDataStor
  * import { CloudTrailClient, RestoreEventDataStoreCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, RestoreEventDataStoreCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   EventDataStore: "STRING_VALUE", // required
+ * };
  * const command = new RestoreEventDataStoreCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface ListFindingsFiltersCommandOutput extends ListFindingsFiltersRes
  * import { Macie2Client, ListFindingsFiltersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListFindingsFiltersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListFindingsFiltersCommand(input);
  * const response = await client.send(command);
  * ```

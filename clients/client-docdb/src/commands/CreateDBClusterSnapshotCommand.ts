@@ -42,6 +42,16 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * import { DocDBClient, CreateDBClusterSnapshotCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBClusterSnapshotCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   DBClusterSnapshotIdentifier: "STRING_VALUE", // required
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

@@ -64,6 +64,11 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  * import { SESClient, GetIdentityDkimAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityDkimAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   Identities: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetIdentityDkimAttributesCommand(input);
  * const response = await client.send(command);
  * ```

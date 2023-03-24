@@ -49,6 +49,9 @@ export interface DeregisterInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, DeregisterInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DeregisterInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterInstanceCommand(input);
  * const response = await client.send(command);
  * ```

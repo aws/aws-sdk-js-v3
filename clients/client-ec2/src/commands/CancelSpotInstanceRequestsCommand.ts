@@ -46,6 +46,12 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
  * import { EC2Client, CancelSpotInstanceRequestsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CancelSpotInstanceRequestsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   SpotInstanceRequestIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CancelSpotInstanceRequestsCommand(input);
  * const response = await client.send(command);
  * ```

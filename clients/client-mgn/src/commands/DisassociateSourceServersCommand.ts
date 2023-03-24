@@ -42,6 +42,12 @@ export interface DisassociateSourceServersCommandOutput extends DisassociateSour
  * import { MgnClient, DisassociateSourceServersCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DisassociateSourceServersCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   applicationID: "STRING_VALUE", // required
+ *   sourceServerIDs: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DisassociateSourceServersCommand(input);
  * const response = await client.send(command);
  * ```

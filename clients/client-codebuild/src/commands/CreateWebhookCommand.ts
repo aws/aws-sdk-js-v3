@@ -52,6 +52,20 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * import { CodeBuildClient, CreateWebhookCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, CreateWebhookCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {
+ *   projectName: "STRING_VALUE", // required
+ *   branchFilter: "STRING_VALUE",
+ *   filterGroups: [
+ *     [
+ *       {
+ *         type: "STRING_VALUE", // required
+ *         pattern: "STRING_VALUE", // required
+ *         excludeMatchedPattern: true || false,
+ *       },
+ *     ],
+ *   ],
+ *   buildType: "STRING_VALUE",
+ * };
  * const command = new CreateWebhookCommand(input);
  * const response = await client.send(command);
  * ```

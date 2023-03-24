@@ -42,6 +42,19 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * import { RDSClient, CreateDBSubnetGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBSubnetGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBSubnetGroupName: "STRING_VALUE", // required
+ *   DBSubnetGroupDescription: "STRING_VALUE", // required
+ *   SubnetIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDBSubnetGroupCommand(input);
  * const response = await client.send(command);
  * ```

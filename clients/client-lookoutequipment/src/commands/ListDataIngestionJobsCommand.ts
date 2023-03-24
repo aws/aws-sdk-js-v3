@@ -43,6 +43,12 @@ export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJob
  * import { LookoutEquipmentClient, ListDataIngestionJobsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListDataIngestionJobsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   DatasetName: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ * };
  * const command = new ListDataIngestionJobsCommand(input);
  * const response = await client.send(command);
  * ```

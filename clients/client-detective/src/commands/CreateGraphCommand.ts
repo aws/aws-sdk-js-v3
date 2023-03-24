@@ -57,6 +57,11 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  * import { DetectiveClient, CreateGraphCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, CreateGraphCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = {
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateGraphCommand(input);
  * const response = await client.send(command);
  * ```

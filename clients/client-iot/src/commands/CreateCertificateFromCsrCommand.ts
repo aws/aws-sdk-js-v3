@@ -91,6 +91,10 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  * import { IoTClient, CreateCertificateFromCsrCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateCertificateFromCsrCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   certificateSigningRequest: "STRING_VALUE", // required
+ *   setAsActive: true || false,
+ * };
  * const command = new CreateCertificateFromCsrCommand(input);
  * const response = await client.send(command);
  * ```

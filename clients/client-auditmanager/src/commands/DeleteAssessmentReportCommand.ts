@@ -63,6 +63,10 @@ export interface DeleteAssessmentReportCommandOutput extends DeleteAssessmentRep
  * import { AuditManagerClient, DeleteAssessmentReportCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, DeleteAssessmentReportCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   assessmentId: "STRING_VALUE", // required
+ *   assessmentReportId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAssessmentReportCommand(input);
  * const response = await client.send(command);
  * ```

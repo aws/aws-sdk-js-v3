@@ -42,6 +42,22 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
  * import { ImagebuilderClient, ImportComponentCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ImportComponentCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   semanticVersion: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   changeDescription: "STRING_VALUE",
+ *   type: "BUILD" || "TEST", // required
+ *   format: "SHELL", // required
+ *   platform: "Windows" || "Linux", // required
+ *   data: "STRING_VALUE",
+ *   uri: "STRING_VALUE",
+ *   kmsKeyId: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new ImportComponentCommand(input);
  * const response = await client.send(command);
  * ```

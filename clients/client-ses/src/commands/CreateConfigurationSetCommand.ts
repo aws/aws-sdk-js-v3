@@ -46,6 +46,11 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * import { SESClient, CreateConfigurationSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, CreateConfigurationSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   ConfigurationSet: {
+ *     Name: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,32 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  * import { LicenseManagerClient, UpdateLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, UpdateLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = {
+ *   LicenseConfigurationArn: "STRING_VALUE", // required
+ *   LicenseConfigurationStatus: "AVAILABLE" || "DISABLED",
+ *   LicenseRules: [
+ *     "STRING_VALUE",
+ *   ],
+ *   LicenseCount: Number("long"),
+ *   LicenseCountHardLimit: true || false,
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   ProductInformationList: [
+ *     {
+ *       ResourceType: "STRING_VALUE", // required
+ *       ProductInformationFilterList: [ // required
+ *         {
+ *           ProductInformationFilterName: "STRING_VALUE", // required
+ *           ProductInformationFilterValue: [
+ *             "STRING_VALUE",
+ *           ],
+ *           ProductInformationFilterComparator: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   DisassociateWhenNotFound: true || false,
+ * };
  * const command = new UpdateLicenseConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

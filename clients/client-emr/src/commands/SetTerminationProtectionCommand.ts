@@ -56,6 +56,12 @@ export interface SetTerminationProtectionCommandOutput extends __MetadataBearer 
  * import { EMRClient, SetTerminationProtectionCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, SetTerminationProtectionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   JobFlowIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   TerminationProtected: true || false, // required
+ * };
  * const command = new SetTerminationProtectionCommand(input);
  * const response = await client.send(command);
  * ```

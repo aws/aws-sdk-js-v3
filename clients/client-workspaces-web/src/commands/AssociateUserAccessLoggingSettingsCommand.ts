@@ -47,6 +47,10 @@ export interface AssociateUserAccessLoggingSettingsCommandOutput
  * import { WorkSpacesWebClient, AssociateUserAccessLoggingSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, AssociateUserAccessLoggingSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   portalArn: "STRING_VALUE", // required
+ *   userAccessLoggingSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new AssociateUserAccessLoggingSettingsCommand(input);
  * const response = await client.send(command);
  * ```

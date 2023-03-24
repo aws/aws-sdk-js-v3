@@ -42,6 +42,29 @@ export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersio
  * import { ElasticBeanstalkClient, CreatePlatformVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, CreatePlatformVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   PlatformName: "STRING_VALUE", // required
+ *   PlatformVersion: "STRING_VALUE", // required
+ *   PlatformDefinitionBundle: {
+ *     S3Bucket: "STRING_VALUE",
+ *     S3Key: "STRING_VALUE",
+ *   },
+ *   EnvironmentName: "STRING_VALUE",
+ *   OptionSettings: [
+ *     {
+ *       ResourceName: "STRING_VALUE",
+ *       Namespace: "STRING_VALUE",
+ *       OptionName: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreatePlatformVersionCommand(input);
  * const response = await client.send(command);
  * ```

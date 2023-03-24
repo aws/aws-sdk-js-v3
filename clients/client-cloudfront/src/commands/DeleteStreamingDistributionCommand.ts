@@ -90,6 +90,10 @@ export interface DeleteStreamingDistributionCommandOutput extends __MetadataBear
  * import { CloudFrontClient, DeleteStreamingDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteStreamingDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new DeleteStreamingDistributionCommand(input);
  * const response = await client.send(command);
  * ```

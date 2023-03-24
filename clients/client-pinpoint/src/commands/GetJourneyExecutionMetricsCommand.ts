@@ -42,6 +42,12 @@ export interface GetJourneyExecutionMetricsCommandOutput extends GetJourneyExecu
  * import { PinpointClient, GetJourneyExecutionMetricsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetJourneyExecutionMetricsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   JourneyId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: "STRING_VALUE",
+ * };
  * const command = new GetJourneyExecutionMetricsCommand(input);
  * const response = await client.send(command);
  * ```

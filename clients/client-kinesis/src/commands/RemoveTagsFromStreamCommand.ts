@@ -51,6 +51,13 @@ export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
  * import { KinesisClient, RemoveTagsFromStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, RemoveTagsFromStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
+ * const input = {
+ *   StreamName: "STRING_VALUE",
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   StreamARN: "STRING_VALUE",
+ * };
  * const command = new RemoveTagsFromStreamCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,7 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  * import { SESClient, ListReceiptFiltersCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListReceiptFiltersCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {};
  * const command = new ListReceiptFiltersCommand(input);
  * const response = await client.send(command);
  * ```

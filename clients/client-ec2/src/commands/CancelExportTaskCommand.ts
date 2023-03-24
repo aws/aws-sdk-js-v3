@@ -44,6 +44,9 @@ export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
  * import { EC2Client, CancelExportTaskCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CancelExportTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   ExportTaskId: "STRING_VALUE", // required
+ * };
  * const command = new CancelExportTaskCommand(input);
  * const response = await client.send(command);
  * ```

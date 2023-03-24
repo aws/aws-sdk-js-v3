@@ -89,6 +89,41 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  * import { CloudWatchClient, GetMetricDataCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetMetricDataCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
+ * const input = {
+ *   MetricDataQueries: [ // required
+ *     {
+ *       Id: "STRING_VALUE", // required
+ *       MetricStat: {
+ *         Metric: {
+ *           Namespace: "STRING_VALUE",
+ *           MetricName: "STRING_VALUE",
+ *           Dimensions: [
+ *             {
+ *               Name: "STRING_VALUE", // required
+ *               Value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         Period: Number("int"), // required
+ *         Stat: "STRING_VALUE", // required
+ *         Unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
+ *       },
+ *       Expression: "STRING_VALUE",
+ *       Label: "STRING_VALUE",
+ *       ReturnData: true || false,
+ *       Period: Number("int"),
+ *       AccountId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   NextToken: "STRING_VALUE",
+ *   ScanBy: "TimestampDescending" || "TimestampAscending",
+ *   MaxDatapoints: Number("int"),
+ *   LabelOptions: {
+ *     Timezone: "STRING_VALUE",
+ *   },
+ * };
  * const command = new GetMetricDataCommand(input);
  * const response = await client.send(command);
  * ```

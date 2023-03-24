@@ -46,6 +46,20 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  * import { CodeStarConnectionsClient, UpdateHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, UpdateHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = {
+ *   HostArn: "STRING_VALUE", // required
+ *   ProviderEndpoint: "STRING_VALUE",
+ *   VpcConfiguration: {
+ *     VpcId: "STRING_VALUE", // required
+ *     SubnetIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     TlsCertificate: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateHostCommand(input);
  * const response = await client.send(command);
  * ```

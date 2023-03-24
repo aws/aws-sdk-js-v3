@@ -44,6 +44,20 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * import { IoTSiteWiseClient, CreateGatewayCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreateGatewayCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   gatewayName: "STRING_VALUE", // required
+ *   gatewayPlatform: {
+ *     greengrass: {
+ *       groupArn: "STRING_VALUE", // required
+ *     },
+ *     greengrassV2: {
+ *       coreDeviceThingName: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateGatewayCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,16 @@ export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinit
  * import { ApplicationCostProfilerClient, UpdateReportDefinitionCommand } from "@aws-sdk/client-applicationcostprofiler"; // ES Modules import
  * // const { ApplicationCostProfilerClient, UpdateReportDefinitionCommand } = require("@aws-sdk/client-applicationcostprofiler"); // CommonJS import
  * const client = new ApplicationCostProfilerClient(config);
+ * const input = {
+ *   reportId: "STRING_VALUE", // required
+ *   reportDescription: "STRING_VALUE", // required
+ *   reportFrequency: "STRING_VALUE", // required
+ *   format: "STRING_VALUE", // required
+ *   destinationS3Location: {
+ *     bucket: "STRING_VALUE", // required
+ *     prefix: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateReportDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

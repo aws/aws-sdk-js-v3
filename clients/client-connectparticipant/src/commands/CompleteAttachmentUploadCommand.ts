@@ -54,6 +54,13 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  * import { ConnectParticipantClient, CompleteAttachmentUploadCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
  * // const { ConnectParticipantClient, CompleteAttachmentUploadCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
  * const client = new ConnectParticipantClient(config);
+ * const input = {
+ *   AttachmentIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientToken: "STRING_VALUE", // required
+ *   ConnectionToken: "STRING_VALUE", // required
+ * };
  * const command = new CompleteAttachmentUploadCommand(input);
  * const response = await client.send(command);
  * ```

@@ -55,6 +55,10 @@ export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
  * import { CloudWatchLogsClient, AssociateKmsKeyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, AssociateKmsKeyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
+ * const input = {
+ *   logGroupName: "STRING_VALUE", // required
+ *   kmsKeyId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateKmsKeyCommand(input);
  * const response = await client.send(command);
  * ```

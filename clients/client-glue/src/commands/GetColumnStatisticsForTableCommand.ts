@@ -45,6 +45,14 @@ export interface GetColumnStatisticsForTableCommandOutput
  * import { GlueClient, GetColumnStatisticsForTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetColumnStatisticsForTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   ColumnNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetColumnStatisticsForTableCommand(input);
  * const response = await client.send(command);
  * ```

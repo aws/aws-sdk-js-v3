@@ -57,6 +57,61 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  * import { SSMClient, GetDeployablePatchSnapshotForInstanceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetDeployablePatchSnapshotForInstanceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE", // required
+ *   BaselineOverride: {
+ *     OperatingSystem: "WINDOWS" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "AMAZON_LINUX_2022" || "UBUNTU" || "REDHAT_ENTERPRISE_LINUX" || "SUSE" || "CENTOS" || "ORACLE_LINUX" || "DEBIAN" || "MACOS" || "RASPBIAN" || "ROCKY_LINUX" || "ALMA_LINUX" || "AMAZON_LINUX_2023",
+ *     GlobalFilters: {
+ *       PatchFilters: [ // required
+ *         {
+ *           Key: "ARCH" || "ADVISORY_ID" || "BUGZILLA_ID" || "PATCH_SET" || "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "CVE_ID" || "EPOCH" || "MSRC_SEVERITY" || "NAME" || "PATCH_ID" || "SECTION" || "PRIORITY" || "REPOSITORY" || "RELEASE" || "SEVERITY" || "SECURITY" || "VERSION", // required
+ *           Values: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *     ApprovalRules: {
+ *       PatchRules: [ // required
+ *         {
+ *           PatchFilterGroup: {
+ *             PatchFilters: [ // required
+ *               {
+ *                 Key: "ARCH" || "ADVISORY_ID" || "BUGZILLA_ID" || "PATCH_SET" || "PRODUCT" || "PRODUCT_FAMILY" || "CLASSIFICATION" || "CVE_ID" || "EPOCH" || "MSRC_SEVERITY" || "NAME" || "PATCH_ID" || "SECTION" || "PRIORITY" || "REPOSITORY" || "RELEASE" || "SEVERITY" || "SECURITY" || "VERSION", // required
+ *                 Values: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             ],
+ *           },
+ *           ComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
+ *           ApproveAfterDays: Number("int"),
+ *           ApproveUntilDate: "STRING_VALUE",
+ *           EnableNonSecurity: true || false,
+ *         },
+ *       ],
+ *     },
+ *     ApprovedPatches: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ApprovedPatchesComplianceLevel: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED",
+ *     RejectedPatches: [
+ *       "STRING_VALUE",
+ *     ],
+ *     RejectedPatchesAction: "ALLOW_AS_DEPENDENCY" || "BLOCK",
+ *     ApprovedPatchesEnableNonSecurity: true || false,
+ *     Sources: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Products: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Configuration: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new GetDeployablePatchSnapshotForInstanceCommand(input);
  * const response = await client.send(command);
  * ```

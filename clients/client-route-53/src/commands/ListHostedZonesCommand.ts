@@ -48,6 +48,11 @@ export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, _
  * import { Route53Client, ListHostedZonesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListHostedZonesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   DelegationSetId: "STRING_VALUE",
+ * };
  * const command = new ListHostedZonesCommand(input);
  * const response = await client.send(command);
  * ```

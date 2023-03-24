@@ -46,6 +46,19 @@ export interface StartImportFileTaskCommandOutput extends StartImportFileTaskRes
  * import { MigrationHubStrategyClient, StartImportFileTaskCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, StartImportFileTaskCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   S3Bucket: "STRING_VALUE", // required
+ *   s3key: "STRING_VALUE", // required
+ *   dataSourceType: "STRING_VALUE",
+ *   groupId: [
+ *     {
+ *       name: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   s3bucketForReportData: "STRING_VALUE",
+ * };
  * const command = new StartImportFileTaskCommand(input);
  * const response = await client.send(command);
  * ```

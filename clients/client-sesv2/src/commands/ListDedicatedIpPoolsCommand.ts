@@ -43,6 +43,10 @@ export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsR
  * import { SESv2Client, ListDedicatedIpPoolsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListDedicatedIpPoolsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   PageSize: Number("int"),
+ * };
  * const command = new ListDedicatedIpPoolsCommand(input);
  * const response = await client.send(command);
  * ```

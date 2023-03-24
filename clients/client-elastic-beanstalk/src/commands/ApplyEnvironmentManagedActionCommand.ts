@@ -46,6 +46,11 @@ export interface ApplyEnvironmentManagedActionCommandOutput
  * import { ElasticBeanstalkClient, ApplyEnvironmentManagedActionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ApplyEnvironmentManagedActionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   EnvironmentName: "STRING_VALUE",
+ *   EnvironmentId: "STRING_VALUE",
+ *   ActionId: "STRING_VALUE", // required
+ * };
  * const command = new ApplyEnvironmentManagedActionCommand(input);
  * const response = await client.send(command);
  * ```

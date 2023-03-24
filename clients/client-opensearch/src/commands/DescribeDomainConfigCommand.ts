@@ -42,6 +42,9 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * import { OpenSearchClient, DescribeDomainConfigCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeDomainConfigCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDomainConfigCommand(input);
  * const response = await client.send(command);
  * ```

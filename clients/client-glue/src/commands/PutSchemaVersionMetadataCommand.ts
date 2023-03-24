@@ -42,6 +42,22 @@ export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionM
  * import { GlueClient, PutSchemaVersionMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, PutSchemaVersionMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   SchemaId: {
+ *     SchemaArn: "STRING_VALUE",
+ *     SchemaName: "STRING_VALUE",
+ *     RegistryName: "STRING_VALUE",
+ *   },
+ *   SchemaVersionNumber: {
+ *     LatestVersion: true || false,
+ *     VersionNumber: Number("long"),
+ *   },
+ *   SchemaVersionId: "STRING_VALUE",
+ *   MetadataKeyValue: {
+ *     MetadataKey: "STRING_VALUE",
+ *     MetadataValue: "STRING_VALUE",
+ *   },
+ * };
  * const command = new PutSchemaVersionMetadataCommand(input);
  * const response = await client.send(command);
  * ```

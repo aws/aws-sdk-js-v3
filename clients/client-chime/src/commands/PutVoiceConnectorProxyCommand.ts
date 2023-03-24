@@ -47,6 +47,15 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
  * import { ChimeClient, PutVoiceConnectorProxyCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorProxyCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   DefaultSessionExpiryMinutes: Number("int"), // required
+ *   PhoneNumberPoolCountries: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   FallBackPhoneNumber: "STRING_VALUE",
+ *   Disabled: true || false,
+ * };
  * const command = new PutVoiceConnectorProxyCommand(input);
  * const response = await client.send(command);
  * ```

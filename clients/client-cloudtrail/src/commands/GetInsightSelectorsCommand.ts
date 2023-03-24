@@ -48,6 +48,9 @@ export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsRes
  * import { CloudTrailClient, GetInsightSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetInsightSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   TrailName: "STRING_VALUE", // required
+ * };
  * const command = new GetInsightSelectorsCommand(input);
  * const response = await client.send(command);
  * ```

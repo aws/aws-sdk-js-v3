@@ -42,6 +42,11 @@ export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __M
  * import { ServiceCatalogClient, UpdateTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   Value: "STRING_VALUE",
+ *   Active: true || false,
+ * };
  * const command = new UpdateTagOptionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -51,6 +51,38 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
  * import { GrafanaClient, UpdateWorkspaceAuthenticationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, UpdateWorkspaceAuthenticationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   authenticationProviders: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   samlConfiguration: {
+ *     idpMetadata: { // Union: only one key present
+ *       url: "STRING_VALUE",
+ *       xml: "STRING_VALUE",
+ *     },
+ *     assertionAttributes: {
+ *       name: "STRING_VALUE",
+ *       login: "STRING_VALUE",
+ *       email: "STRING_VALUE",
+ *       groups: "STRING_VALUE",
+ *       role: "STRING_VALUE",
+ *       org: "STRING_VALUE",
+ *     },
+ *     roleValues: {
+ *       editor: [
+ *         "STRING_VALUE",
+ *       ],
+ *       admin: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     allowedOrganizations: [
+ *       "STRING_VALUE",
+ *     ],
+ *     loginValidityDuration: Number("int"),
+ *   },
+ * };
  * const command = new UpdateWorkspaceAuthenticationCommand(input);
  * const response = await client.send(command);
  * ```

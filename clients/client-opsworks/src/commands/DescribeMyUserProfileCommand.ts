@@ -47,6 +47,7 @@ export interface DescribeMyUserProfileCommandOutput extends DescribeMyUserProfil
  * import { OpsWorksClient, DescribeMyUserProfileCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeMyUserProfileCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {};
  * const command = new DescribeMyUserProfileCommand(input);
  * const response = await client.send(command);
  * ```

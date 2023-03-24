@@ -43,6 +43,7 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
  * import { DirectConnectClient, DescribeVirtualGatewaysCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeVirtualGatewaysCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {};
  * const command = new DescribeVirtualGatewaysCommand(input);
  * const response = await client.send(command);
  * ```

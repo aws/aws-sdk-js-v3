@@ -48,6 +48,9 @@ export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
  * import { ChimeClient, GetSipMediaApplicationLoggingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetSipMediaApplicationLoggingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetSipMediaApplicationLoggingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

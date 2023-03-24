@@ -42,6 +42,23 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * import { LexModelsV2Client, ListBotsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBotsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   sortBy: {
+ *     attribute: "BotName", // required
+ *     order: "Ascending" || "Descending", // required
+ *   },
+ *   filters: [
+ *     {
+ *       name: "BotName" || "BotType", // required
+ *       values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       operator: "CO" || "EQ" || "NE", // required
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListBotsCommand(input);
  * const response = await client.send(command);
  * ```

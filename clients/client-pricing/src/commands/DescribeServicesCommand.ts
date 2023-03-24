@@ -48,6 +48,12 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * import { PricingClient, DescribeServicesCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, DescribeServicesCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
  * const client = new PricingClient(config);
+ * const input = {
+ *   ServiceCode: "STRING_VALUE",
+ *   FormatVersion: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);
  * ```

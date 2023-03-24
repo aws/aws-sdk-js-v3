@@ -62,6 +62,9 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * import { ImagebuilderClient, DeleteImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, DeleteImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   imageBuildVersionArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteImageCommand(input);
  * const response = await client.send(command);
  * ```

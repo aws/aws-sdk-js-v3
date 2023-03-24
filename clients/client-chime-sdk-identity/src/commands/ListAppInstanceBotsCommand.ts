@@ -47,6 +47,11 @@ export interface ListAppInstanceBotsCommandOutput extends ListAppInstanceBotsRes
  * import { ChimeSDKIdentityClient, ListAppInstanceBotsCommand } from "@aws-sdk/client-chime-sdk-identity"; // ES Modules import
  * // const { ChimeSDKIdentityClient, ListAppInstanceBotsCommand } = require("@aws-sdk/client-chime-sdk-identity"); // CommonJS import
  * const client = new ChimeSDKIdentityClient(config);
+ * const input = {
+ *   AppInstanceArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListAppInstanceBotsCommand(input);
  * const response = await client.send(command);
  * ```

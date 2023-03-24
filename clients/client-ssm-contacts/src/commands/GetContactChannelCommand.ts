@@ -42,6 +42,9 @@ export interface GetContactChannelCommandOutput extends GetContactChannelResult,
  * import { SSMContactsClient, GetContactChannelCommand } from "@aws-sdk/client-ssm-contacts"; // ES Modules import
  * // const { SSMContactsClient, GetContactChannelCommand } = require("@aws-sdk/client-ssm-contacts"); // CommonJS import
  * const client = new SSMContactsClient(config);
+ * const input = {
+ *   ContactChannelId: "STRING_VALUE", // required
+ * };
  * const command = new GetContactChannelCommand(input);
  * const response = await client.send(command);
  * ```

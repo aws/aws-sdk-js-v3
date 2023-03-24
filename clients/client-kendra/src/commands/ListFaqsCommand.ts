@@ -39,6 +39,11 @@ export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBeare
  * import { KendraClient, ListFaqsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListFaqsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
+ * const input = {
+ *   IndexId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListFaqsCommand(input);
  * const response = await client.send(command);
  * ```

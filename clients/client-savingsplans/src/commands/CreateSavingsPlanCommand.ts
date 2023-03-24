@@ -42,6 +42,16 @@ export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanRespons
  * import { SavingsplansClient, CreateSavingsPlanCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
  * // const { SavingsplansClient, CreateSavingsPlanCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
  * const client = new SavingsplansClient(config);
+ * const input = {
+ *   savingsPlanOfferingId: "STRING_VALUE", // required
+ *   commitment: "STRING_VALUE", // required
+ *   upfrontPaymentAmount: "STRING_VALUE",
+ *   purchaseTime: new Date("TIMESTAMP"),
+ *   clientToken: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateSavingsPlanCommand(input);
  * const response = await client.send(command);
  * ```

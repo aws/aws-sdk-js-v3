@@ -42,6 +42,15 @@ export interface TagMeetingCommandOutput extends __MetadataBearer {}
  * import { ChimeClient, TagMeetingCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, TagMeetingCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   MeetingId: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagMeetingCommand(input);
  * const response = await client.send(command);
  * ```

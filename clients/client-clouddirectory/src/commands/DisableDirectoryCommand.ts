@@ -43,6 +43,9 @@ export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse,
  * import { CloudDirectoryClient, DisableDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DisableDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ * };
  * const command = new DisableDirectoryCommand(input);
  * const response = await client.send(command);
  * ```

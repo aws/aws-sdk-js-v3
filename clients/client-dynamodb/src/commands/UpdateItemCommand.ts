@@ -48,6 +48,137 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  * import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   TableName: "STRING_VALUE", // required
+ *   Key: { // required
+ *     "<keys>": { // Union: only one key present
+ *       S: "STRING_VALUE",
+ *       N: "STRING_VALUE",
+ *       B: "BLOB_VALUE",
+ *       SS: [
+ *         "STRING_VALUE",
+ *       ],
+ *       NS: [
+ *         "STRING_VALUE",
+ *       ],
+ *       BS: [
+ *         "BLOB_VALUE",
+ *       ],
+ *       M: {
+ *         "<keys>": { // Union: only one key present
+ *           S: "STRING_VALUE",
+ *           N: "STRING_VALUE",
+ *           B: "BLOB_VALUE",
+ *           SS: [
+ *             "STRING_VALUE",
+ *           ],
+ *           NS: [
+ *             "STRING_VALUE",
+ *           ],
+ *           BS: [
+ *             "BLOB_VALUE",
+ *           ],
+ *           M: {
+ *             "<keys>": "<AttributeValue>",
+ *           },
+ *           L: [
+ *             { // Union: only one key present
+ *               S: "<AttributeValue>",
+ *               N: "<AttributeValue>",
+ *               B: "<AttributeValue>",
+ *               SS: "<AttributeValue>",
+ *               NS: "<AttributeValue>",
+ *               BS: "<AttributeValue>",
+ *               M: "<AttributeValue>",
+ *               L: [
+ *                 { // Union: only one key present
+ *                   S: "<AttributeValue>",
+ *                   N: "<AttributeValue>",
+ *                   B: "<AttributeValue>",
+ *                   SS: "<AttributeValue>",
+ *                   NS: "<AttributeValue>",
+ *                   BS: "<AttributeValue>",
+ *                   M: "<AttributeValue>",
+ *                   L: "<AttributeValue>",
+ *                   NULL: true || false,
+ *                   BOOL: true || false,
+ *                 },
+ *               ],
+ *               NULL: true || false,
+ *               BOOL: true || false,
+ *             },
+ *           ],
+ *           NULL: "<AttributeValue>",
+ *           BOOL: "<AttributeValue>",
+ *         },
+ *       },
+ *       L: "<AttributeValue>",
+ *       NULL: "<AttributeValue>",
+ *       BOOL: "<AttributeValue>",
+ *     },
+ *   },
+ *   AttributeUpdates: {
+ *     "<keys>": {
+ *       Value: { // Union: only one key present
+ *         S: "<AttributeValue>",
+ *         N: "<AttributeValue>",
+ *         B: "<AttributeValue>",
+ *         SS: "<AttributeValue>",
+ *         NS: "<AttributeValue>",
+ *         BS: "<AttributeValue>",
+ *         M: "<AttributeValue>",
+ *         L: "<AttributeValue>",
+ *         NULL: "<AttributeValue>",
+ *         BOOL: "<AttributeValue>",
+ *       },
+ *       Action: "ADD" || "PUT" || "DELETE",
+ *     },
+ *   },
+ *   Expected: {
+ *     "<keys>": {
+ *       Value: { // Union: only one key present
+ *         S: "<AttributeValue>",
+ *         N: "<AttributeValue>",
+ *         B: "<AttributeValue>",
+ *         SS: "<AttributeValue>",
+ *         NS: "<AttributeValue>",
+ *         BS: "<AttributeValue>",
+ *         M: "<AttributeValue>",
+ *         L: "<AttributeValue>",
+ *         NULL: "<AttributeValue>",
+ *         BOOL: "<AttributeValue>",
+ *       },
+ *       Exists: true || false,
+ *       ComparisonOperator: "EQ" || "NE" || "IN" || "LE" || "LT" || "GE" || "GT" || "BETWEEN" || "NOT_NULL" || "NULL" || "CONTAINS" || "NOT_CONTAINS" || "BEGINS_WITH",
+ *       AttributeValueList: [
+ *         { // Union: only one key present
+ *           S: "<AttributeValue>",
+ *           N: "<AttributeValue>",
+ *           B: "<AttributeValue>",
+ *           SS: "<AttributeValue>",
+ *           NS: "<AttributeValue>",
+ *           BS: "<AttributeValue>",
+ *           M: "<AttributeValue>",
+ *           L: "<AttributeValue>",
+ *           NULL: "<AttributeValue>",
+ *           BOOL: "<AttributeValue>",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   ConditionalOperator: "AND" || "OR",
+ *   ReturnValues: "NONE" || "ALL_OLD" || "UPDATED_OLD" || "ALL_NEW" || "UPDATED_NEW",
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ *   ReturnItemCollectionMetrics: "SIZE" || "NONE",
+ *   UpdateExpression: "STRING_VALUE",
+ *   ConditionExpression: "STRING_VALUE",
+ *   ExpressionAttributeNames: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ExpressionAttributeValues: {
+ *     "<keys>": "<AttributeValue>",
+ *   },
+ * };
  * const command = new UpdateItemCommand(input);
  * const response = await client.send(command);
  * ```

@@ -72,6 +72,16 @@ export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmaking
  * import { GameLiftClient, CreateMatchmakingRuleSetCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateMatchmakingRuleSetCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   RuleSetBody: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMatchmakingRuleSetCommand(input);
  * const response = await client.send(command);
  * ```

@@ -51,6 +51,11 @@ export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKe
  * import { IAMClient, GetContextKeysForCustomPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetContextKeysForCustomPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   PolicyInputList: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetContextKeysForCustomPolicyCommand(input);
  * const response = await client.send(command);
  * ```

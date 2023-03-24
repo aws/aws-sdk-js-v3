@@ -48,6 +48,13 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * import { RDSClient, ModifyGlobalClusterCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyGlobalClusterCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   GlobalClusterIdentifier: "STRING_VALUE",
+ *   NewGlobalClusterIdentifier: "STRING_VALUE",
+ *   DeletionProtection: true || false,
+ *   EngineVersion: "STRING_VALUE",
+ *   AllowMajorVersionUpgrade: true || false,
+ * };
  * const command = new ModifyGlobalClusterCommand(input);
  * const response = await client.send(command);
  * ```

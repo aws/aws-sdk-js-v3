@@ -42,6 +42,9 @@ export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWith
  * import { AlexaForBusinessClient, AssociateSkillWithUsersCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, AssociateSkillWithUsersCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   SkillId: "STRING_VALUE", // required
+ * };
  * const command = new AssociateSkillWithUsersCommand(input);
  * const response = await client.send(command);
  * ```

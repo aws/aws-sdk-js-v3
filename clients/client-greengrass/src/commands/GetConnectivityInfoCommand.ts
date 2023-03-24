@@ -42,6 +42,9 @@ export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoRes
  * import { GreengrassClient, GetConnectivityInfoCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetConnectivityInfoCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   ThingName: "STRING_VALUE", // required
+ * };
  * const command = new GetConnectivityInfoCommand(input);
  * const response = await client.send(command);
  * ```

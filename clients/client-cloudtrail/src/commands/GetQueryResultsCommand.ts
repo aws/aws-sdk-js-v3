@@ -44,6 +44,12 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * import { CloudTrailClient, GetQueryResultsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, GetQueryResultsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   EventDataStore: "STRING_VALUE",
+ *   QueryId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxQueryResults: Number("int"),
+ * };
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
  * ```

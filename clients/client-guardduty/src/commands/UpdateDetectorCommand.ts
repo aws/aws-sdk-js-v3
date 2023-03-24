@@ -45,6 +45,32 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  * import { GuardDutyClient, UpdateDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   DetectorId: "STRING_VALUE", // required
+ *   Enable: true || false,
+ *   FindingPublishingFrequency: "FIFTEEN_MINUTES" || "ONE_HOUR" || "SIX_HOURS",
+ *   DataSources: {
+ *     S3Logs: {
+ *       Enable: true || false, // required
+ *     },
+ *     Kubernetes: {
+ *       AuditLogs: {
+ *         Enable: true || false, // required
+ *       },
+ *     },
+ *     MalwareProtection: {
+ *       ScanEc2InstanceWithFindings: {
+ *         EbsVolumes: true || false,
+ *       },
+ *     },
+ *   },
+ *   Features: [
+ *     {
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS",
+ *       Status: "ENABLED" || "DISABLED",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateDetectorCommand(input);
  * const response = await client.send(command);
  * ```

@@ -59,6 +59,10 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  * import { GlacierClient, DescribeVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, DescribeVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeVaultCommand(input);
  * const response = await client.send(command);
  * ```

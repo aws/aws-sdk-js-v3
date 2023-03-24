@@ -43,6 +43,11 @@ export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __
  * import { EFSClient, UpdateFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, UpdateFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   FileSystemId: "STRING_VALUE", // required
+ *   ThroughputMode: "bursting" || "provisioned" || "elastic",
+ *   ProvisionedThroughputInMibps: Number("double"),
+ * };
  * const command = new UpdateFileSystemCommand(input);
  * const response = await client.send(command);
  * ```

@@ -177,6 +177,10 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  * import { IAMClient, GenerateOrganizationsAccessReportCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GenerateOrganizationsAccessReportCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   EntityPath: "STRING_VALUE", // required
+ *   OrganizationsPolicyId: "STRING_VALUE",
+ * };
  * const command = new GenerateOrganizationsAccessReportCommand(input);
  * const response = await client.send(command);
  * ```

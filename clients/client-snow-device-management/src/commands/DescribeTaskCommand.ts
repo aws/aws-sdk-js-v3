@@ -46,6 +46,9 @@ export interface DescribeTaskCommandOutput extends DescribeTaskOutput, __Metadat
  * import { SnowDeviceManagementClient, DescribeTaskCommand } from "@aws-sdk/client-snow-device-management"; // ES Modules import
  * // const { SnowDeviceManagementClient, DescribeTaskCommand } = require("@aws-sdk/client-snow-device-management"); // CommonJS import
  * const client = new SnowDeviceManagementClient(config);
+ * const input = {
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTaskCommand(input);
  * const response = await client.send(command);
  * ```

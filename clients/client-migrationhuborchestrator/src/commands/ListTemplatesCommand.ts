@@ -46,6 +46,11 @@ export interface ListTemplatesCommandOutput extends ListMigrationWorkflowTemplat
  * import { MigrationHubOrchestratorClient, ListTemplatesCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
  * // const { MigrationHubOrchestratorClient, ListTemplatesCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ * };
  * const command = new ListTemplatesCommand(input);
  * const response = await client.send(command);
  * ```

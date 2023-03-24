@@ -42,6 +42,88 @@ export interface UpdateBackendAuthCommandOutput extends UpdateBackendAuthRespons
  * import { AmplifyBackendClient, UpdateBackendAuthCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, UpdateBackendAuthCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
+ * const input = {
+ *   AppId: "STRING_VALUE", // required
+ *   BackendEnvironmentName: "STRING_VALUE", // required
+ *   ResourceConfig: {
+ *     AuthResources: "USER_POOL_ONLY" || "IDENTITY_POOL_AND_USER_POOL", // required
+ *     IdentityPoolConfigs: {
+ *       UnauthenticatedLogin: true || false,
+ *     },
+ *     Service: "COGNITO", // required
+ *     UserPoolConfigs: {
+ *       ForgotPassword: {
+ *         DeliveryMethod: "EMAIL" || "SMS",
+ *         EmailSettings: {
+ *           EmailMessage: "STRING_VALUE",
+ *           EmailSubject: "STRING_VALUE",
+ *         },
+ *         SmsSettings: {
+ *           SmsMessage: "STRING_VALUE",
+ *         },
+ *       },
+ *       Mfa: {
+ *         MFAMode: "ON" || "OFF" || "OPTIONAL",
+ *         Settings: {
+ *           MfaTypes: [
+ *             "SMS" || "TOTP",
+ *           ],
+ *           SmsMessage: "STRING_VALUE",
+ *         },
+ *       },
+ *       OAuth: {
+ *         DomainPrefix: "STRING_VALUE",
+ *         OAuthGrantType: "CODE" || "IMPLICIT",
+ *         OAuthScopes: [
+ *           "PHONE" || "EMAIL" || "OPENID" || "PROFILE" || "AWS_COGNITO_SIGNIN_USER_ADMIN",
+ *         ],
+ *         RedirectSignInURIs: [
+ *           "STRING_VALUE",
+ *         ],
+ *         RedirectSignOutURIs: [
+ *           "STRING_VALUE",
+ *         ],
+ *         SocialProviderSettings: {
+ *           Facebook: {
+ *             ClientId: "STRING_VALUE",
+ *             ClientSecret: "STRING_VALUE",
+ *           },
+ *           Google: {
+ *             ClientId: "STRING_VALUE",
+ *             ClientSecret: "STRING_VALUE",
+ *           },
+ *           LoginWithAmazon: {
+ *             ClientId: "STRING_VALUE",
+ *             ClientSecret: "STRING_VALUE",
+ *           },
+ *           SignInWithApple: {
+ *             ClientId: "STRING_VALUE",
+ *             KeyId: "STRING_VALUE",
+ *             PrivateKey: "STRING_VALUE",
+ *             TeamId: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *       PasswordPolicy: {
+ *         AdditionalConstraints: [
+ *           "REQUIRE_DIGIT" || "REQUIRE_LOWERCASE" || "REQUIRE_SYMBOL" || "REQUIRE_UPPERCASE",
+ *         ],
+ *         MinimumLength: Number("double"),
+ *       },
+ *       VerificationMessage: {
+ *         DeliveryMethod: "EMAIL" || "SMS", // required
+ *         EmailSettings: {
+ *           EmailMessage: "STRING_VALUE",
+ *           EmailSubject: "STRING_VALUE",
+ *         },
+ *         SmsSettings: {
+ *           SmsMessage: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   },
+ *   ResourceName: "STRING_VALUE", // required
+ * };
  * const command = new UpdateBackendAuthCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,12 @@ export interface CreateAssessmentReportCommandOutput extends CreateAssessmentRep
  * import { AuditManagerClient, CreateAssessmentReportCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, CreateAssessmentReportCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   assessmentId: "STRING_VALUE", // required
+ *   queryStatement: "STRING_VALUE",
+ * };
  * const command = new CreateAssessmentReportCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,19 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  * import { CloudTrailClient, UpdateTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, UpdateTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   S3BucketName: "STRING_VALUE",
+ *   S3KeyPrefix: "STRING_VALUE",
+ *   SnsTopicName: "STRING_VALUE",
+ *   IncludeGlobalServiceEvents: true || false,
+ *   IsMultiRegionTrail: true || false,
+ *   EnableLogFileValidation: true || false,
+ *   CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *   CloudWatchLogsRoleArn: "STRING_VALUE",
+ *   KmsKeyId: "STRING_VALUE",
+ *   IsOrganizationTrail: true || false,
+ * };
  * const command = new UpdateTrailCommand(input);
  * const response = await client.send(command);
  * ```

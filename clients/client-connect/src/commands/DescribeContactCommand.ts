@@ -49,6 +49,10 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * import { ConnectClient, DescribeContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   ContactId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeContactCommand(input);
  * const response = await client.send(command);
  * ```

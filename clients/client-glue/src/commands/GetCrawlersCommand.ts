@@ -43,6 +43,10 @@ export interface GetCrawlersCommandOutput extends GetCrawlersResponse, __Metadat
  * import { GlueClient, GetCrawlersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetCrawlersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetCrawlersCommand(input);
  * const response = await client.send(command);
  * ```

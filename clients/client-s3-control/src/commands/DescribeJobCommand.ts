@@ -68,6 +68,10 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * import { S3ControlClient, DescribeJobCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, DescribeJobCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   JobId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeJobCommand(input);
  * const response = await client.send(command);
  * ```

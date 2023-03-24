@@ -42,6 +42,17 @@ export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAcce
  * import { CloudFrontClient, UpdateOriginAccessControlCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, UpdateOriginAccessControlCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   OriginAccessControlConfig: {
+ *     Name: "STRING_VALUE", // required
+ *     Description: "STRING_VALUE",
+ *     SigningProtocol: "sigv4", // required
+ *     SigningBehavior: "never" || "always" || "no-override", // required
+ *     OriginAccessControlOriginType: "s3" || "mediastore", // required
+ *   },
+ *   Id: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE",
+ * };
  * const command = new UpdateOriginAccessControlCommand(input);
  * const response = await client.send(command);
  * ```

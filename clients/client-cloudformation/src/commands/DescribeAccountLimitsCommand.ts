@@ -44,6 +44,9 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * import { CloudFormationClient, DescribeAccountLimitsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeAccountLimitsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -51,6 +51,16 @@ export interface CreateDomainCommandOutput extends CreateDomainResult, __Metadat
  * import { CodeartifactClient, CreateDomainCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, CreateDomainCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   encryptionKey: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
  * ```

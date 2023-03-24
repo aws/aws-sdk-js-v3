@@ -45,6 +45,9 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
  * import { TnbClient, GetSolNetworkPackageDescriptorCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, GetSolNetworkPackageDescriptorCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = {
+ *   nsdInfoId: "STRING_VALUE", // required
+ * };
  * const command = new GetSolNetworkPackageDescriptorCommand(input);
  * const response = await client.send(command);
  * ```

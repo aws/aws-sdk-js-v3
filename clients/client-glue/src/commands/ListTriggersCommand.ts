@@ -45,6 +45,14 @@ export interface ListTriggersCommandOutput extends ListTriggersResponse, __Metad
  * import { GlueClient, ListTriggersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListTriggersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   DependentJobName: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListTriggersCommand(input);
  * const response = await client.send(command);
  * ```

@@ -81,6 +81,12 @@ export interface GetJobOutputCommandOutput extends __WithSdkStreamMixin<GetJobOu
  * import { GlacierClient, GetJobOutputCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, GetJobOutputCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
+ * const input = {
+ *   accountId: "STRING_VALUE", // required
+ *   vaultName: "STRING_VALUE", // required
+ *   jobId: "STRING_VALUE", // required
+ *   range: "STRING_VALUE",
+ * };
  * const command = new GetJobOutputCommand(input);
  * const response = await client.send(command);
  * ```

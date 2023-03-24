@@ -44,6 +44,18 @@ export interface DescribeInboundConnectionsCommandOutput extends DescribeInbound
  * import { OpenSearchClient, DescribeInboundConnectionsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
  * // const { OpenSearchClient, DescribeInboundConnectionsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeInboundConnectionsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,12 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * import { OmicsClient, ListWorkflowsCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListWorkflowsCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   type: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   startingToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListWorkflowsCommand(input);
  * const response = await client.send(command);
  * ```

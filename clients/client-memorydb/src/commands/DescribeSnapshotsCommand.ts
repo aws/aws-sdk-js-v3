@@ -43,6 +43,14 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * import { MemoryDBClient, DescribeSnapshotsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeSnapshotsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = {
+ *   ClusterName: "STRING_VALUE",
+ *   SnapshotName: "STRING_VALUE",
+ *   Source: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   ShowDetail: true || false,
+ * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```

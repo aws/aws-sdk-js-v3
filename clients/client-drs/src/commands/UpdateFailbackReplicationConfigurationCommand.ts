@@ -43,6 +43,12 @@ export interface UpdateFailbackReplicationConfigurationCommandOutput extends __M
  * import { DrsClient, UpdateFailbackReplicationConfigurationCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, UpdateFailbackReplicationConfigurationCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = {
+ *   recoveryInstanceID: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   bandwidthThrottling: Number("long"),
+ *   usePrivateIP: true || false,
+ * };
  * const command = new UpdateFailbackReplicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

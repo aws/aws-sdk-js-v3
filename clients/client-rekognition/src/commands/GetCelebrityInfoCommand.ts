@@ -48,6 +48,9 @@ export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse,
  * import { RekognitionClient, GetCelebrityInfoCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetCelebrityInfoCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new GetCelebrityInfoCommand(input);
  * const response = await client.send(command);
  * ```

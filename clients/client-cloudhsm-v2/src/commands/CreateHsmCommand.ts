@@ -40,6 +40,11 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * import { CloudHSMV2Client, CreateHsmCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, CreateHsmCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
+ * const input = {
+ *   ClusterId: "STRING_VALUE", // required
+ *   AvailabilityZone: "STRING_VALUE", // required
+ *   IpAddress: "STRING_VALUE",
+ * };
  * const command = new CreateHsmCommand(input);
  * const response = await client.send(command);
  * ```

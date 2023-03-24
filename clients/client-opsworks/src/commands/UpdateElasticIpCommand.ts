@@ -47,6 +47,10 @@ export interface UpdateElasticIpCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateElasticIpCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateElasticIpCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   ElasticIp: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ * };
  * const command = new UpdateElasticIpCommand(input);
  * const response = await client.send(command);
  * ```

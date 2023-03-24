@@ -42,6 +42,11 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * import { KafkaClient, ListNodesCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListNodesCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = {
+ *   ClusterArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListNodesCommand(input);
  * const response = await client.send(command);
  * ```

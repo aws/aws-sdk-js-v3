@@ -44,6 +44,7 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * import { JSONRPC10Client, NoInputAndOutputCommand } from "@aws-sdk/aws-protocoltests-json-10"; // ES Modules import
  * // const { JSONRPC10Client, NoInputAndOutputCommand } = require("@aws-sdk/aws-protocoltests-json-10"); // CommonJS import
  * const client = new JSONRPC10Client(config);
+ * const input = {};
  * const command = new NoInputAndOutputCommand(input);
  * const response = await client.send(command);
  * ```

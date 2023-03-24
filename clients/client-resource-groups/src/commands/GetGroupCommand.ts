@@ -53,6 +53,10 @@ export interface GetGroupCommandOutput extends GetGroupOutput, __MetadataBearer 
  * import { ResourceGroupsClient, GetGroupCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GetGroupCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = {
+ *   GroupName: "STRING_VALUE",
+ *   Group: "STRING_VALUE",
+ * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
  * ```

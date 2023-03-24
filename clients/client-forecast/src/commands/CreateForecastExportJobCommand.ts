@@ -59,6 +59,24 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  * import { ForecastClient, CreateForecastExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreateForecastExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   ForecastExportJobName: "STRING_VALUE", // required
+ *   ForecastArn: "STRING_VALUE", // required
+ *   Destination: {
+ *     S3Config: {
+ *       Path: "STRING_VALUE", // required
+ *       RoleArn: "STRING_VALUE", // required
+ *       KMSKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   Format: "STRING_VALUE",
+ * };
  * const command = new CreateForecastExportJobCommand(input);
  * const response = await client.send(command);
  * ```

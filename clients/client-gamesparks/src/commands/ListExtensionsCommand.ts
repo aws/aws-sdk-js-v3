@@ -45,6 +45,10 @@ export interface ListExtensionsCommandOutput extends ListExtensionsResult, __Met
  * import { GameSparksClient, ListExtensionsCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, ListExtensionsCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListExtensionsCommand(input);
  * const response = await client.send(command);
  * ```

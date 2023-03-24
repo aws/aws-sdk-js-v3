@@ -50,6 +50,17 @@ export interface DescribeBudgetActionHistoriesCommandOutput
  * import { BudgetsClient, DescribeBudgetActionHistoriesCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DescribeBudgetActionHistoriesCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   BudgetName: "STRING_VALUE", // required
+ *   ActionId: "STRING_VALUE", // required
+ *   TimePeriod: {
+ *     Start: new Date("TIMESTAMP"),
+ *     End: new Date("TIMESTAMP"),
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeBudgetActionHistoriesCommand(input);
  * const response = await client.send(command);
  * ```

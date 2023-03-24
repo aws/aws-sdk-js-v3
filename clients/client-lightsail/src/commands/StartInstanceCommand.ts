@@ -51,6 +51,9 @@ export interface StartInstanceCommandOutput extends StartInstanceResult, __Metad
  * import { LightsailClient, StartInstanceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, StartInstanceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   instanceName: "STRING_VALUE", // required
+ * };
  * const command = new StartInstanceCommand(input);
  * const response = await client.send(command);
  * ```

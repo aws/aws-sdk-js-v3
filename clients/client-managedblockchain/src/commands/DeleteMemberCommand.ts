@@ -47,6 +47,10 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * import { ManagedBlockchainClient, DeleteMemberCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, DeleteMemberCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = {
+ *   NetworkId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMemberCommand(input);
  * const response = await client.send(command);
  * ```

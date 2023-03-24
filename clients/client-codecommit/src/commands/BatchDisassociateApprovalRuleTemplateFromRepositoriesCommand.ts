@@ -48,6 +48,12 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOut
  * import { CodeCommitClient, BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   approvalRuleTemplateName: "STRING_VALUE", // required
+ *   repositoryNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(input);
  * const response = await client.send(command);
  * ```

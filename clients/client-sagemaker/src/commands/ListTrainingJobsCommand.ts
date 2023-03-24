@@ -63,6 +63,19 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  * import { SageMakerClient, ListTrainingJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTrainingJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   CreationTimeAfter: new Date("TIMESTAMP"),
+ *   CreationTimeBefore: new Date("TIMESTAMP"),
+ *   LastModifiedTimeAfter: new Date("TIMESTAMP"),
+ *   LastModifiedTimeBefore: new Date("TIMESTAMP"),
+ *   NameContains: "STRING_VALUE",
+ *   StatusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *   SortBy: "Name" || "CreationTime" || "Status",
+ *   SortOrder: "Ascending" || "Descending",
+ *   WarmPoolStatusEquals: "Available" || "Terminated" || "Reused" || "InUse",
+ * };
  * const command = new ListTrainingJobsCommand(input);
  * const response = await client.send(command);
  * ```

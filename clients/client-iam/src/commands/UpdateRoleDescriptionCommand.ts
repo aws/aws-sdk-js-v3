@@ -44,6 +44,10 @@ export interface UpdateRoleDescriptionCommandOutput extends UpdateRoleDescriptio
  * import { IAMClient, UpdateRoleDescriptionCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateRoleDescriptionCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   RoleName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ * };
  * const command = new UpdateRoleDescriptionCommand(input);
  * const response = await client.send(command);
  * ```

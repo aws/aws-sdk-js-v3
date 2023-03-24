@@ -45,6 +45,10 @@ export interface GetPrincipalTagAttributeMapCommandOutput
  * import { CognitoIdentityClient, GetPrincipalTagAttributeMapCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, GetPrincipalTagAttributeMapCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
+ * const input = {
+ *   IdentityPoolId: "STRING_VALUE", // required
+ *   IdentityProviderName: "STRING_VALUE", // required
+ * };
  * const command = new GetPrincipalTagAttributeMapCommand(input);
  * const response = await client.send(command);
  * ```

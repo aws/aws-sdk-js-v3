@@ -42,6 +42,10 @@ export interface ListTestGridProjectsCommandOutput extends ListTestGridProjectsR
  * import { DeviceFarmClient, ListTestGridProjectsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListTestGridProjectsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   maxResult: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListTestGridProjectsCommand(input);
  * const response = await client.send(command);
  * ```

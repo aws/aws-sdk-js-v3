@@ -42,6 +42,15 @@ export interface CreateRuleGroupsNamespaceCommandOutput extends CreateRuleGroups
  * import { AmpClient, CreateRuleGroupsNamespaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, CreateRuleGroupsNamespaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   data: "BLOB_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateRuleGroupsNamespaceCommand(input);
  * const response = await client.send(command);
  * ```

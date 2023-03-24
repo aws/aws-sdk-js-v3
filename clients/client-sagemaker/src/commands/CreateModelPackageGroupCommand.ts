@@ -42,6 +42,16 @@ export interface CreateModelPackageGroupCommandOutput extends CreateModelPackage
  * import { SageMakerClient, CreateModelPackageGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateModelPackageGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   ModelPackageGroupName: "STRING_VALUE", // required
+ *   ModelPackageGroupDescription: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateModelPackageGroupCommand(input);
  * const response = await client.send(command);
  * ```

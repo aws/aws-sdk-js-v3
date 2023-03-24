@@ -56,6 +56,11 @@ export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeRes
  * import { CognitoIdentityProviderClient, VerifyUserAttributeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, VerifyUserAttributeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   AccessToken: "STRING_VALUE", // required
+ *   AttributeName: "STRING_VALUE", // required
+ *   Code: "STRING_VALUE", // required
+ * };
  * const command = new VerifyUserAttributeCommand(input);
  * const response = await client.send(command);
  * ```

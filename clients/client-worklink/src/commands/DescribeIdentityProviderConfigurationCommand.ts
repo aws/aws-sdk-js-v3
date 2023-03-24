@@ -50,6 +50,9 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
  * import { WorkLinkClient, DescribeIdentityProviderConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DescribeIdentityProviderConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribeIdentityProviderConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

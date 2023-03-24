@@ -42,6 +42,22 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * import { GreengrassClient, CreateGroupCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateGroupCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   AmznClientToken: "STRING_VALUE",
+ *   InitialVersion: {
+ *     ConnectorDefinitionVersionArn: "STRING_VALUE",
+ *     CoreDefinitionVersionArn: "STRING_VALUE",
+ *     DeviceDefinitionVersionArn: "STRING_VALUE",
+ *     FunctionDefinitionVersionArn: "STRING_VALUE",
+ *     LoggerDefinitionVersionArn: "STRING_VALUE",
+ *     ResourceDefinitionVersionArn: "STRING_VALUE",
+ *     SubscriptionDefinitionVersionArn: "STRING_VALUE",
+ *   },
+ *   Name: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
  * ```

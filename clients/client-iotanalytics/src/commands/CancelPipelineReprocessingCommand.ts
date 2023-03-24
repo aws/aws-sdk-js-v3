@@ -42,6 +42,10 @@ export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineR
  * import { IoTAnalyticsClient, CancelPipelineReprocessingCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, CancelPipelineReprocessingCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
+ * const input = {
+ *   pipelineName: "STRING_VALUE", // required
+ *   reprocessingId: "STRING_VALUE", // required
+ * };
  * const command = new CancelPipelineReprocessingCommand(input);
  * const response = await client.send(command);
  * ```

@@ -59,6 +59,13 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
  * import { RDSClient, AuthorizeDBSecurityGroupIngressCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, AuthorizeDBSecurityGroupIngressCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   DBSecurityGroupName: "STRING_VALUE", // required
+ *   CIDRIP: "STRING_VALUE",
+ *   EC2SecurityGroupName: "STRING_VALUE",
+ *   EC2SecurityGroupId: "STRING_VALUE",
+ *   EC2SecurityGroupOwnerId: "STRING_VALUE",
+ * };
  * const command = new AuthorizeDBSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
  * ```

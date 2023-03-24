@@ -42,6 +42,63 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * import { FSxClient, CreateVolumeCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateVolumeCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   ClientRequestToken: "STRING_VALUE",
+ *   VolumeType: "ONTAP" || "OPENZFS", // required
+ *   Name: "STRING_VALUE", // required
+ *   OntapConfiguration: {
+ *     JunctionPath: "STRING_VALUE",
+ *     SecurityStyle: "UNIX" || "NTFS" || "MIXED",
+ *     SizeInMegabytes: Number("int"), // required
+ *     StorageEfficiencyEnabled: true || false,
+ *     StorageVirtualMachineId: "STRING_VALUE", // required
+ *     TieringPolicy: {
+ *       CoolingPeriod: Number("int"),
+ *       Name: "SNAPSHOT_ONLY" || "AUTO" || "ALL" || "NONE",
+ *     },
+ *     OntapVolumeType: "RW" || "DP",
+ *     SnapshotPolicy: "STRING_VALUE",
+ *     CopyTagsToBackups: true || false,
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   OpenZFSConfiguration: {
+ *     ParentVolumeId: "STRING_VALUE", // required
+ *     StorageCapacityReservationGiB: Number("int"),
+ *     StorageCapacityQuotaGiB: Number("int"),
+ *     RecordSizeKiB: Number("int"),
+ *     DataCompressionType: "NONE" || "ZSTD" || "LZ4",
+ *     CopyTagsToSnapshots: true || false,
+ *     OriginSnapshot: {
+ *       SnapshotARN: "STRING_VALUE", // required
+ *       CopyStrategy: "CLONE" || "FULL_COPY", // required
+ *     },
+ *     ReadOnly: true || false,
+ *     NfsExports: [
+ *       {
+ *         ClientConfigurations: [ // required
+ *           {
+ *             Clients: "STRING_VALUE", // required
+ *             Options: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     UserAndGroupQuotas: [
+ *       {
+ *         Type: "USER" || "GROUP", // required
+ *         Id: Number("int"), // required
+ *         StorageCapacityQuotaGiB: Number("int"), // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateVolumeCommand(input);
  * const response = await client.send(command);
  * ```

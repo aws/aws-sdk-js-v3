@@ -42,6 +42,13 @@ export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorizat
  * import { RedshiftClient, AuthorizeEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, AuthorizeEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   Account: "STRING_VALUE", // required
+ *   VpcIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new AuthorizeEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```

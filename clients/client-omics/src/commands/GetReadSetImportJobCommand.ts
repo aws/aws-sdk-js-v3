@@ -42,6 +42,10 @@ export interface GetReadSetImportJobCommandOutput extends GetReadSetImportJobRes
  * import { OmicsClient, GetReadSetImportJobCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, GetReadSetImportJobCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   sequenceStoreId: "STRING_VALUE", // required
+ * };
  * const command = new GetReadSetImportJobCommand(input);
  * const response = await client.send(command);
  * ```

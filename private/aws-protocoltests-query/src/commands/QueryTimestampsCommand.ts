@@ -45,6 +45,11 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * import { QueryProtocolClient, QueryTimestampsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
  * // const { QueryProtocolClient, QueryTimestampsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
+ * const input = {
+ *   normalFormat: new Date("TIMESTAMP"),
+ *   epochMember: new Date("TIMESTAMP"),
+ *   epochTarget: new Date("TIMESTAMP"),
+ * };
  * const command = new QueryTimestampsCommand(input);
  * const response = await client.send(command);
  * ```

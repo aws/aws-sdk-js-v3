@@ -57,6 +57,10 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  * import { PinpointEmailClient, PutEmailIdentityFeedbackAttributesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutEmailIdentityFeedbackAttributesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
+ * const input = {
+ *   EmailIdentity: "STRING_VALUE", // required
+ *   EmailForwardingEnabled: true || false,
+ * };
  * const command = new PutEmailIdentityFeedbackAttributesCommand(input);
  * const response = await client.send(command);
  * ```

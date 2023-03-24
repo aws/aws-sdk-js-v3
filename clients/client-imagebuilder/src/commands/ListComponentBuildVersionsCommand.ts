@@ -51,6 +51,11 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  * import { ImagebuilderClient, ListComponentBuildVersionsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListComponentBuildVersionsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   componentVersionArn: "STRING_VALUE", // required
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListComponentBuildVersionsCommand(input);
  * const response = await client.send(command);
  * ```

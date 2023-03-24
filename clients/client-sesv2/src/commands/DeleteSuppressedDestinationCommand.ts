@@ -44,6 +44,9 @@ export interface DeleteSuppressedDestinationCommandOutput
  * import { SESv2Client, DeleteSuppressedDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, DeleteSuppressedDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   EmailAddress: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSuppressedDestinationCommand(input);
  * const response = await client.send(command);
  * ```

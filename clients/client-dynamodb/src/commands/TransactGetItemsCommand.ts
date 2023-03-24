@@ -68,6 +68,87 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  * import { DynamoDBClient, TransactGetItemsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, TransactGetItemsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   TransactItems: [ // required
+ *     {
+ *       Get: {
+ *         Key: { // required
+ *           "<keys>": { // Union: only one key present
+ *             S: "STRING_VALUE",
+ *             N: "STRING_VALUE",
+ *             B: "BLOB_VALUE",
+ *             SS: [
+ *               "STRING_VALUE",
+ *             ],
+ *             NS: [
+ *               "STRING_VALUE",
+ *             ],
+ *             BS: [
+ *               "BLOB_VALUE",
+ *             ],
+ *             M: {
+ *               "<keys>": { // Union: only one key present
+ *                 S: "STRING_VALUE",
+ *                 N: "STRING_VALUE",
+ *                 B: "BLOB_VALUE",
+ *                 SS: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 NS: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 BS: [
+ *                   "BLOB_VALUE",
+ *                 ],
+ *                 M: {
+ *                   "<keys>": "<AttributeValue>",
+ *                 },
+ *                 L: [
+ *                   { // Union: only one key present
+ *                     S: "<AttributeValue>",
+ *                     N: "<AttributeValue>",
+ *                     B: "<AttributeValue>",
+ *                     SS: "<AttributeValue>",
+ *                     NS: "<AttributeValue>",
+ *                     BS: "<AttributeValue>",
+ *                     M: "<AttributeValue>",
+ *                     L: [
+ *                       { // Union: only one key present
+ *                         S: "<AttributeValue>",
+ *                         N: "<AttributeValue>",
+ *                         B: "<AttributeValue>",
+ *                         SS: "<AttributeValue>",
+ *                         NS: "<AttributeValue>",
+ *                         BS: "<AttributeValue>",
+ *                         M: "<AttributeValue>",
+ *                         L: "<AttributeValue>",
+ *                         NULL: true || false,
+ *                         BOOL: true || false,
+ *                       },
+ *                     ],
+ *                     NULL: true || false,
+ *                     BOOL: true || false,
+ *                   },
+ *                 ],
+ *                 NULL: "<AttributeValue>",
+ *                 BOOL: "<AttributeValue>",
+ *               },
+ *             },
+ *             L: "<AttributeValue>",
+ *             NULL: "<AttributeValue>",
+ *             BOOL: "<AttributeValue>",
+ *           },
+ *         },
+ *         TableName: "STRING_VALUE", // required
+ *         ProjectionExpression: "STRING_VALUE",
+ *         ExpressionAttributeNames: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   ReturnConsumedCapacity: "INDEXES" || "TOTAL" || "NONE",
+ * };
  * const command = new TransactGetItemsCommand(input);
  * const response = await client.send(command);
  * ```

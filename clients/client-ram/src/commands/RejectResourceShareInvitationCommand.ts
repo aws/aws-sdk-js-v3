@@ -44,6 +44,10 @@ export interface RejectResourceShareInvitationCommandOutput
  * import { RAMClient, RejectResourceShareInvitationCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, RejectResourceShareInvitationCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
+ * const input = {
+ *   resourceShareInvitationArn: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new RejectResourceShareInvitationCommand(input);
  * const response = await client.send(command);
  * ```

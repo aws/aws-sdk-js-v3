@@ -49,6 +49,10 @@ export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTar
  * import { InspectorClient, CreateAssessmentTargetCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, CreateAssessmentTargetCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   assessmentTargetName: "STRING_VALUE", // required
+ *   resourceGroupArn: "STRING_VALUE",
+ * };
  * const command = new CreateAssessmentTargetCommand(input);
  * const response = await client.send(command);
  * ```

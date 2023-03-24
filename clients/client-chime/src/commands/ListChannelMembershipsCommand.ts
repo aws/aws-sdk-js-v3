@@ -54,6 +54,13 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
  * import { ChimeClient, ListChannelMembershipsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListChannelMembershipsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   Type: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE",
+ * };
  * const command = new ListChannelMembershipsCommand(input);
  * const response = await client.send(command);
  * ```

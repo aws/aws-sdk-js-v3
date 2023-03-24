@@ -42,6 +42,12 @@ export interface GetGameConfigurationCommandOutput extends GetGameConfigurationR
  * import { GameSparksClient, GetGameConfigurationCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
  * // const { GameSparksClient, GetGameConfigurationCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
  * const client = new GameSparksClient(config);
+ * const input = {
+ *   GameName: "STRING_VALUE", // required
+ *   Sections: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetGameConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -55,6 +55,15 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  * import { KinesisVideoClient, GetSignalingChannelEndpointCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, GetSignalingChannelEndpointCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
+ * const input = {
+ *   ChannelARN: "STRING_VALUE", // required
+ *   SingleMasterChannelEndpointConfiguration: {
+ *     Protocols: [
+ *       "WSS" || "HTTPS" || "WEBRTC",
+ *     ],
+ *     Role: "MASTER" || "VIEWER",
+ *   },
+ * };
  * const command = new GetSignalingChannelEndpointCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * import { GroundStationClient, DescribeContactCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, DescribeContactCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = {
+ *   contactId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeContactCommand(input);
  * const response = await client.send(command);
  * ```

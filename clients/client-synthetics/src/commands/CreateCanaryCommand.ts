@@ -55,6 +55,50 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * import { SyntheticsClient, CreateCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, CreateCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Code: {
+ *     S3Bucket: "STRING_VALUE",
+ *     S3Key: "STRING_VALUE",
+ *     S3Version: "STRING_VALUE",
+ *     ZipFile: "BLOB_VALUE",
+ *     Handler: "STRING_VALUE", // required
+ *   },
+ *   ArtifactS3Location: "STRING_VALUE", // required
+ *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   Schedule: {
+ *     Expression: "STRING_VALUE", // required
+ *     DurationInSeconds: Number("long"),
+ *   },
+ *   RunConfig: {
+ *     TimeoutInSeconds: Number("int"),
+ *     MemoryInMB: Number("int"),
+ *     ActiveTracing: true || false,
+ *     EnvironmentVariables: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
+ *   SuccessRetentionPeriodInDays: Number("int"),
+ *   FailureRetentionPeriodInDays: Number("int"),
+ *   RuntimeVersion: "STRING_VALUE", // required
+ *   VpcConfig: {
+ *     SubnetIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   ArtifactConfig: {
+ *     S3Encryption: {
+ *       EncryptionMode: "STRING_VALUE",
+ *       KmsKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new CreateCanaryCommand(input);
  * const response = await client.send(command);
  * ```

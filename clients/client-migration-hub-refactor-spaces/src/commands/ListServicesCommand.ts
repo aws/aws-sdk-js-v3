@@ -46,6 +46,12 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * import { MigrationHubRefactorSpacesClient, ListServicesCommand } from "@aws-sdk/client-migration-hub-refactor-spaces"; // ES Modules import
  * // const { MigrationHubRefactorSpacesClient, ListServicesCommand } = require("@aws-sdk/client-migration-hub-refactor-spaces"); // CommonJS import
  * const client = new MigrationHubRefactorSpacesClient(config);
+ * const input = {
+ *   EnvironmentIdentifier: "STRING_VALUE", // required
+ *   ApplicationIdentifier: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListServicesCommand(input);
  * const response = await client.send(command);
  * ```

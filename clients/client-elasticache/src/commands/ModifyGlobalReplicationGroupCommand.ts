@@ -44,6 +44,15 @@ export interface ModifyGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, ModifyGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   GlobalReplicationGroupId: "STRING_VALUE", // required
+ *   ApplyImmediately: true || false, // required
+ *   CacheNodeType: "STRING_VALUE",
+ *   EngineVersion: "STRING_VALUE",
+ *   CacheParameterGroupName: "STRING_VALUE",
+ *   GlobalReplicationGroupDescription: "STRING_VALUE",
+ *   AutomaticFailoverEnabled: true || false,
+ * };
  * const command = new ModifyGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```

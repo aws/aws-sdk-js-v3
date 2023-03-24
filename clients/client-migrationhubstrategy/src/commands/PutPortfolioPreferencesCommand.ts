@@ -46,6 +46,56 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  * import { MigrationHubStrategyClient, PutPortfolioPreferencesCommand } from "@aws-sdk/client-migrationhubstrategy"; // ES Modules import
  * // const { MigrationHubStrategyClient, PutPortfolioPreferencesCommand } = require("@aws-sdk/client-migrationhubstrategy"); // CommonJS import
  * const client = new MigrationHubStrategyClient(config);
+ * const input = {
+ *   prioritizeBusinessGoals: {
+ *     businessGoals: {
+ *       speedOfMigration: Number("int"),
+ *       reduceOperationalOverheadWithManagedServices: Number("int"),
+ *       modernizeInfrastructureWithCloudNativeTechnologies: Number("int"),
+ *       licenseCostReduction: Number("int"),
+ *     },
+ *   },
+ *   applicationPreferences: {
+ *     managementPreference: { // Union: only one key present
+ *       awsManagedResources: {
+ *         targetDestination: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       selfManageResources: {
+ *         targetDestination: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       noPreference: {
+ *         targetDestination: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   databasePreferences: {
+ *     databaseManagementPreference: "STRING_VALUE",
+ *     databaseMigrationPreference: { // Union: only one key present
+ *       heterogeneous: {
+ *         targetDatabaseEngine: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       homogeneous: {
+ *         targetDatabaseEngine: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       noPreference: {
+ *         targetDatabaseEngine: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   applicationMode: "STRING_VALUE",
+ * };
  * const command = new PutPortfolioPreferencesCommand(input);
  * const response = await client.send(command);
  * ```

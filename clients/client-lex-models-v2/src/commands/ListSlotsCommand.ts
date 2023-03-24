@@ -42,6 +42,27 @@ export interface ListSlotsCommandOutput extends ListSlotsResponse, __MetadataBea
  * import { LexModelsV2Client, ListSlotsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListSlotsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   intentId: "STRING_VALUE", // required
+ *   sortBy: {
+ *     attribute: "SlotName" || "LastUpdatedDateTime", // required
+ *     order: "Ascending" || "Descending", // required
+ *   },
+ *   filters: [
+ *     {
+ *       name: "SlotName", // required
+ *       values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       operator: "CO" || "EQ", // required
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSlotsCommand(input);
  * const response = await client.send(command);
  * ```

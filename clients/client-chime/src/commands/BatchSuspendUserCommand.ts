@@ -58,6 +58,12 @@ export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse,
  * import { ChimeClient, BatchSuspendUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, BatchSuspendUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ *   UserIdList: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchSuspendUserCommand(input);
  * const response = await client.send(command);
  * ```

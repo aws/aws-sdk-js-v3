@@ -42,6 +42,11 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
  * import { ChimeClient, UpdateVoiceConnectorCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateVoiceConnectorCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   RequireEncryption: true || false, // required
+ * };
  * const command = new UpdateVoiceConnectorCommand(input);
  * const response = await client.send(command);
  * ```

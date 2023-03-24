@@ -43,6 +43,12 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * import { ConnectClient, ListBotsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListBotsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   LexVersion: "V1" || "V2", // required
+ * };
  * const command = new ListBotsCommand(input);
  * const response = await client.send(command);
  * ```

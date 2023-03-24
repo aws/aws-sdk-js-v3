@@ -42,6 +42,10 @@ export interface DeleteFeatureCommandOutput extends DeleteFeatureResponse, __Met
  * import { EvidentlyClient, DeleteFeatureCommand } from "@aws-sdk/client-evidently"; // ES Modules import
  * // const { EvidentlyClient, DeleteFeatureCommand } = require("@aws-sdk/client-evidently"); // CommonJS import
  * const client = new EvidentlyClient(config);
+ * const input = {
+ *   project: "STRING_VALUE", // required
+ *   feature: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFeatureCommand(input);
  * const response = await client.send(command);
  * ```

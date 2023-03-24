@@ -46,6 +46,9 @@ export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionRespo
  * import { ShieldClient, UpdateSubscriptionCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, UpdateSubscriptionCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {
+ *   AutoRenew: "STRING_VALUE",
+ * };
  * const command = new UpdateSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

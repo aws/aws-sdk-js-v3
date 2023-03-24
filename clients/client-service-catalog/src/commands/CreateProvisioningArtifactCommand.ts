@@ -46,6 +46,20 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  * import { ServiceCatalogClient, CreateProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   ProductId: "STRING_VALUE", // required
+ *   Parameters: {
+ *     Name: "STRING_VALUE",
+ *     Description: "STRING_VALUE",
+ *     Info: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE_AMI" || "MARKETPLACE_CAR",
+ *     DisableTemplateValidation: true || false,
+ *   },
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateProvisioningArtifactCommand(input);
  * const response = await client.send(command);
  * ```

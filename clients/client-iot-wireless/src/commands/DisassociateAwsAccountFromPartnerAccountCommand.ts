@@ -48,6 +48,10 @@ export interface DisassociateAwsAccountFromPartnerAccountCommandOutput
  * import { IoTWirelessClient, DisassociateAwsAccountFromPartnerAccountCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, DisassociateAwsAccountFromPartnerAccountCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   PartnerAccountId: "STRING_VALUE", // required
+ *   PartnerType: "Sidewalk", // required
+ * };
  * const command = new DisassociateAwsAccountFromPartnerAccountCommand(input);
  * const response = await client.send(command);
  * ```

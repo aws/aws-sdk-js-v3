@@ -44,6 +44,10 @@ export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
  * import { EC2Client, DeletePlacementGroupCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeletePlacementGroupCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   GroupName: "STRING_VALUE", // required
+ * };
  * const command = new DeletePlacementGroupCommand(input);
  * const response = await client.send(command);
  * ```

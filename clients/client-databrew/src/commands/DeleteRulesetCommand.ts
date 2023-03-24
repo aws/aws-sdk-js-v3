@@ -42,6 +42,9 @@ export interface DeleteRulesetCommandOutput extends DeleteRulesetResponse, __Met
  * import { DataBrewClient, DeleteRulesetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DeleteRulesetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRulesetCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,10 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * import { ServerlessApplicationRepositoryClient, ListApplicationsCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, ListApplicationsCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = {
+ *   MaxItems: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
  * ```

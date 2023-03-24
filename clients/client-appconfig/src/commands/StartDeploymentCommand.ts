@@ -42,6 +42,18 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  * import { AppConfigClient, StartDeploymentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, StartDeploymentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EnvironmentId: "STRING_VALUE", // required
+ *   DeploymentStrategyId: "STRING_VALUE", // required
+ *   ConfigurationProfileId: "STRING_VALUE", // required
+ *   ConfigurationVersion: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   KmsKeyIdentifier: "STRING_VALUE",
+ * };
  * const command = new StartDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

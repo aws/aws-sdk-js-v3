@@ -48,6 +48,9 @@ export interface CreateCrossAccountAuthorizationCommandOutput
  * import { Route53RecoveryReadinessClient, CreateCrossAccountAuthorizationCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, CreateCrossAccountAuthorizationCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = {
+ *   CrossAccountAuthorization: "STRING_VALUE", // required
+ * };
  * const command = new CreateCrossAccountAuthorizationCommand(input);
  * const response = await client.send(command);
  * ```

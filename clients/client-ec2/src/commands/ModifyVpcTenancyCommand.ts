@@ -49,6 +49,11 @@ export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, _
  * import { EC2Client, ModifyVpcTenancyCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcTenancyCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   VpcId: "STRING_VALUE", // required
+ *   InstanceTenancy: "default", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ModifyVpcTenancyCommand(input);
  * const response = await client.send(command);
  * ```

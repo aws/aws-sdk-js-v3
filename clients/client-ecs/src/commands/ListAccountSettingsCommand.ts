@@ -42,6 +42,14 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * import { ECSClient, ListAccountSettingsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListAccountSettingsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights",
+ *   value: "STRING_VALUE",
+ *   principalArn: "STRING_VALUE",
+ *   effectiveSettings: true || false,
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```

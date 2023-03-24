@@ -44,6 +44,9 @@ export interface DeleteReportCommandOutput extends DeleteReportOutput, __Metadat
  * import { CodeBuildClient, DeleteReportCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteReportCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReportCommand(input);
  * const response = await client.send(command);
  * ```

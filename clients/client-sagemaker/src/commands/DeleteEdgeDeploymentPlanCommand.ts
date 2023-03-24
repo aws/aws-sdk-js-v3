@@ -42,6 +42,9 @@ export interface DeleteEdgeDeploymentPlanCommandOutput extends __MetadataBearer 
  * import { SageMakerClient, DeleteEdgeDeploymentPlanCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteEdgeDeploymentPlanCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   EdgeDeploymentPlanName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEdgeDeploymentPlanCommand(input);
  * const response = await client.send(command);
  * ```

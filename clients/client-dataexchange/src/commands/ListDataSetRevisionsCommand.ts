@@ -42,6 +42,11 @@ export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsR
  * import { DataExchangeClient, ListDataSetRevisionsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, ListDataSetRevisionsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = {
+ *   DataSetId: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListDataSetRevisionsCommand(input);
  * const response = await client.send(command);
  * ```

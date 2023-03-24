@@ -45,6 +45,7 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * import { IoTClient, GetLoggingOptionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetLoggingOptionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {};
  * const command = new GetLoggingOptionsCommand(input);
  * const response = await client.send(command);
  * ```

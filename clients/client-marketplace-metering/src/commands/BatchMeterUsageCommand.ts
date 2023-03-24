@@ -72,6 +72,28 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * import { MarketplaceMeteringClient, BatchMeterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, BatchMeterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
  * const client = new MarketplaceMeteringClient(config);
+ * const input = {
+ *   UsageRecords: [ // required
+ *     {
+ *       Timestamp: new Date("TIMESTAMP"), // required
+ *       CustomerIdentifier: "STRING_VALUE", // required
+ *       Dimension: "STRING_VALUE", // required
+ *       Quantity: Number("int"),
+ *       UsageAllocations: [
+ *         {
+ *           AllocatedUsageQuantity: Number("int"), // required
+ *           Tags: [
+ *             {
+ *               Key: "STRING_VALUE", // required
+ *               Value: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   ProductCode: "STRING_VALUE", // required
+ * };
  * const command = new BatchMeterUsageCommand(input);
  * const response = await client.send(command);
  * ```

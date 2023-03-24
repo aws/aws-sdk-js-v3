@@ -72,6 +72,167 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * import { S3ControlClient, CreateJobCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, CreateJobCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   ConfirmationRequired: true || false,
+ *   Operation: {
+ *     LambdaInvoke: {
+ *       FunctionArn: "STRING_VALUE",
+ *     },
+ *     S3PutObjectCopy: {
+ *       TargetResource: "STRING_VALUE",
+ *       CannedAccessControlList: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *       AccessControlGrants: [
+ *         {
+ *           Grantee: {
+ *             TypeIdentifier: "id" || "emailAddress" || "uri",
+ *             Identifier: "STRING_VALUE",
+ *             DisplayName: "STRING_VALUE",
+ *           },
+ *           Permission: "FULL_CONTROL" || "READ" || "WRITE" || "READ_ACP" || "WRITE_ACP",
+ *         },
+ *       ],
+ *       MetadataDirective: "COPY" || "REPLACE",
+ *       ModifiedSinceConstraint: new Date("TIMESTAMP"),
+ *       NewObjectMetadata: {
+ *         CacheControl: "STRING_VALUE",
+ *         ContentDisposition: "STRING_VALUE",
+ *         ContentEncoding: "STRING_VALUE",
+ *         ContentLanguage: "STRING_VALUE",
+ *         UserMetadata: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         ContentLength: Number("long"),
+ *         ContentMD5: "STRING_VALUE",
+ *         ContentType: "STRING_VALUE",
+ *         HttpExpiresDate: new Date("TIMESTAMP"),
+ *         RequesterCharged: true || false,
+ *         SSEAlgorithm: "AES256" || "KMS",
+ *       },
+ *       NewObjectTagging: [
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       RedirectLocation: "STRING_VALUE",
+ *       RequesterPays: true || false,
+ *       StorageClass: "STANDARD" || "STANDARD_IA" || "ONEZONE_IA" || "GLACIER" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "GLACIER_IR",
+ *       UnModifiedSinceConstraint: new Date("TIMESTAMP"),
+ *       SSEAwsKmsKeyId: "STRING_VALUE",
+ *       TargetKeyPrefix: "STRING_VALUE",
+ *       ObjectLockLegalHoldStatus: "OFF" || "ON",
+ *       ObjectLockMode: "COMPLIANCE" || "GOVERNANCE",
+ *       ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
+ *       BucketKeyEnabled: true || false,
+ *       ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *     },
+ *     S3PutObjectAcl: {
+ *       AccessControlPolicy: {
+ *         AccessControlList: {
+ *           Owner: {
+ *             ID: "STRING_VALUE",
+ *             DisplayName: "STRING_VALUE",
+ *           },
+ *           Grants: [
+ *             {
+ *               Grantee: {
+ *                 TypeIdentifier: "id" || "emailAddress" || "uri",
+ *                 Identifier: "STRING_VALUE",
+ *                 DisplayName: "STRING_VALUE",
+ *               },
+ *               Permission: "FULL_CONTROL" || "READ" || "WRITE" || "READ_ACP" || "WRITE_ACP",
+ *             },
+ *           ],
+ *         },
+ *         CannedAccessControlList: "private" || "public-read" || "public-read-write" || "aws-exec-read" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control",
+ *       },
+ *     },
+ *     S3PutObjectTagging: {
+ *       TagSet: [
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     S3DeleteObjectTagging: {},
+ *     S3InitiateRestoreObject: {
+ *       ExpirationInDays: Number("int"),
+ *       GlacierJobTier: "BULK" || "STANDARD",
+ *     },
+ *     S3PutObjectLegalHold: {
+ *       LegalHold: {
+ *         Status: "OFF" || "ON", // required
+ *       },
+ *     },
+ *     S3PutObjectRetention: {
+ *       BypassGovernanceRetention: true || false,
+ *       Retention: {
+ *         RetainUntilDate: new Date("TIMESTAMP"),
+ *         Mode: "COMPLIANCE" || "GOVERNANCE",
+ *       },
+ *     },
+ *     S3ReplicateObject: {},
+ *   },
+ *   Report: {
+ *     Bucket: "STRING_VALUE",
+ *     Format: "Report_CSV_20180820",
+ *     Enabled: true || false, // required
+ *     Prefix: "STRING_VALUE",
+ *     ReportScope: "AllTasks" || "FailedTasksOnly",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Manifest: {
+ *     Spec: {
+ *       Format: "S3BatchOperations_CSV_20180820" || "S3InventoryReport_CSV_20161130", // required
+ *       Fields: [
+ *         "Ignore" || "Bucket" || "Key" || "VersionId",
+ *       ],
+ *     },
+ *     Location: {
+ *       ObjectArn: "STRING_VALUE", // required
+ *       ObjectVersionId: "STRING_VALUE",
+ *       ETag: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Description: "STRING_VALUE",
+ *   Priority: Number("int"), // required
+ *   RoleArn: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ManifestGenerator: { // Union: only one key present
+ *     S3JobManifestGenerator: {
+ *       ExpectedBucketOwner: "STRING_VALUE",
+ *       SourceBucket: "STRING_VALUE", // required
+ *       ManifestOutputLocation: {
+ *         ExpectedManifestBucketOwner: "STRING_VALUE",
+ *         Bucket: "STRING_VALUE", // required
+ *         ManifestPrefix: "STRING_VALUE",
+ *         ManifestEncryption: {
+ *           SSES3: {},
+ *           SSEKMS: {
+ *             KeyId: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         ManifestFormat: "S3InventoryReport_CSV_20211130", // required
+ *       },
+ *       Filter: {
+ *         EligibleForReplication: true || false,
+ *         CreatedAfter: new Date("TIMESTAMP"),
+ *         CreatedBefore: new Date("TIMESTAMP"),
+ *         ObjectReplicationStatuses: [
+ *           "COMPLETED" || "FAILED" || "REPLICA" || "NONE",
+ *         ],
+ *       },
+ *       EnableManifestOutput: true || false, // required
+ *     },
+ *   },
+ * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
  * ```

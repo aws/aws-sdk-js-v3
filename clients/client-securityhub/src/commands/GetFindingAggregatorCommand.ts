@@ -42,6 +42,9 @@ export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorR
  * import { SecurityHubClient, GetFindingAggregatorCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetFindingAggregatorCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   FindingAggregatorArn: "STRING_VALUE", // required
+ * };
  * const command = new GetFindingAggregatorCommand(input);
  * const response = await client.send(command);
  * ```

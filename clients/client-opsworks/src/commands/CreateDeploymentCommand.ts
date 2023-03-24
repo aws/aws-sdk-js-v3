@@ -48,6 +48,26 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * import { OpsWorksClient, CreateDeploymentCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, CreateDeploymentCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   StackId: "STRING_VALUE", // required
+ *   AppId: "STRING_VALUE",
+ *   InstanceIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   LayerIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Command: {
+ *     Name: "STRING_VALUE", // required
+ *     Args: {
+ *       "<keys>": [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   Comment: "STRING_VALUE",
+ *   CustomJson: "STRING_VALUE",
+ * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,15 @@ export interface DeleteRemediationExceptionsCommandOutput
  * import { ConfigServiceClient, DeleteRemediationExceptionsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteRemediationExceptionsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ConfigRuleName: "STRING_VALUE", // required
+ *   ResourceKeys: [ // required
+ *     {
+ *       ResourceType: "STRING_VALUE",
+ *       ResourceId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new DeleteRemediationExceptionsCommand(input);
  * const response = await client.send(command);
  * ```

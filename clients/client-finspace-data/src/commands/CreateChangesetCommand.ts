@@ -42,6 +42,17 @@ export interface CreateChangesetCommandOutput extends CreateChangesetResponse, _
  * import { FinspaceDataClient, CreateChangesetCommand } from "@aws-sdk/client-finspace-data"; // ES Modules import
  * // const { FinspaceDataClient, CreateChangesetCommand } = require("@aws-sdk/client-finspace-data"); // CommonJS import
  * const client = new FinspaceDataClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   datasetId: "STRING_VALUE", // required
+ *   changeType: "STRING_VALUE", // required
+ *   sourceParams: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   formatParams: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateChangesetCommand(input);
  * const response = await client.send(command);
  * ```

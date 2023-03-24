@@ -58,6 +58,47 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  * import { StorageGatewayClient, CreateSMBFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateSMBFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE", // required
+ *   GatewayARN: "STRING_VALUE", // required
+ *   KMSEncrypted: true || false,
+ *   KMSKey: "STRING_VALUE",
+ *   Role: "STRING_VALUE", // required
+ *   LocationARN: "STRING_VALUE", // required
+ *   DefaultStorageClass: "STRING_VALUE",
+ *   ObjectACL: "STRING_VALUE",
+ *   ReadOnly: true || false,
+ *   GuessMIMETypeEnabled: true || false,
+ *   RequesterPays: true || false,
+ *   SMBACLEnabled: true || false,
+ *   AccessBasedEnumeration: true || false,
+ *   AdminUserList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ValidUserList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   InvalidUserList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AuditDestinationARN: "STRING_VALUE",
+ *   Authentication: "STRING_VALUE",
+ *   CaseSensitivity: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   FileShareName: "STRING_VALUE",
+ *   CacheAttributes: {
+ *     CacheStaleTimeoutInSeconds: Number("int"),
+ *   },
+ *   NotificationPolicy: "STRING_VALUE",
+ *   VPCEndpointDNSName: "STRING_VALUE",
+ *   BucketRegion: "STRING_VALUE",
+ *   OplocksEnabled: true || false,
+ * };
  * const command = new CreateSMBFileShareCommand(input);
  * const response = await client.send(command);
  * ```

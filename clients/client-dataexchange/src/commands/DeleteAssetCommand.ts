@@ -42,6 +42,11 @@ export interface DeleteAssetCommandOutput extends __MetadataBearer {}
  * import { DataExchangeClient, DeleteAssetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, DeleteAssetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = {
+ *   AssetId: "STRING_VALUE", // required
+ *   DataSetId: "STRING_VALUE", // required
+ *   RevisionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAssetCommand(input);
  * const response = await client.send(command);
  * ```

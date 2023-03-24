@@ -42,6 +42,9 @@ export interface ResumeCampaignCommandOutput extends __MetadataBearer {}
  * import { ConnectCampaignsClient, ResumeCampaignCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, ResumeCampaignCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new ResumeCampaignCommand(input);
  * const response = await client.send(command);
  * ```

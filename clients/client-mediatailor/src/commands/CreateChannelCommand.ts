@@ -42,6 +42,33 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * import { MediaTailorClient, CreateChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, CreateChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
+ * const input = {
+ *   ChannelName: "STRING_VALUE", // required
+ *   FillerSlate: {
+ *     SourceLocationName: "STRING_VALUE",
+ *     VodSourceName: "STRING_VALUE",
+ *   },
+ *   Outputs: [ // required
+ *     {
+ *       DashPlaylistSettings: {
+ *         ManifestWindowSeconds: Number("int"),
+ *         MinBufferTimeSeconds: Number("int"),
+ *         MinUpdatePeriodSeconds: Number("int"),
+ *         SuggestedPresentationDelaySeconds: Number("int"),
+ *       },
+ *       HlsPlaylistSettings: {
+ *         ManifestWindowSeconds: Number("int"),
+ *       },
+ *       ManifestName: "STRING_VALUE", // required
+ *       SourceGroup: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   PlaybackMode: "LOOP" || "LINEAR", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Tier: "BASIC" || "STANDARD",
+ * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
  * ```

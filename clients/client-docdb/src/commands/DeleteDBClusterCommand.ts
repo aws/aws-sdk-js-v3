@@ -43,6 +43,11 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * import { DocDBClient, DeleteDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DeleteDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
+ * const input = {
+ *   DBClusterIdentifier: "STRING_VALUE", // required
+ *   SkipFinalSnapshot: true || false,
+ *   FinalDBSnapshotIdentifier: "STRING_VALUE",
+ * };
  * const command = new DeleteDBClusterCommand(input);
  * const response = await client.send(command);
  * ```

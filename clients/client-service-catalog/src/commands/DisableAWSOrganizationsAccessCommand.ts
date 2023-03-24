@@ -56,6 +56,7 @@ export interface DisableAWSOrganizationsAccessCommandOutput
  * import { ServiceCatalogClient, DisableAWSOrganizationsAccessCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DisableAWSOrganizationsAccessCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {};
  * const command = new DisableAWSOrganizationsAccessCommand(input);
  * const response = await client.send(command);
  * ```

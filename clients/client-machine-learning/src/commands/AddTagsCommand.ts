@@ -41,6 +41,16 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * import { MachineLearningClient, AddTagsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, AddTagsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
+ * const input = {
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ResourceId: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE", // required
+ * };
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -101,6 +101,11 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  * import { STSClient, GetSessionTokenCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, GetSessionTokenCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
+ * const input = {
+ *   DurationSeconds: Number("int"),
+ *   SerialNumber: "STRING_VALUE",
+ *   TokenCode: "STRING_VALUE",
+ * };
  * const command = new GetSessionTokenCommand(input);
  * const response = await client.send(command);
  * ```

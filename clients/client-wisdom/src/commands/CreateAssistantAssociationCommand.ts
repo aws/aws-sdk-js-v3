@@ -44,6 +44,17 @@ export interface CreateAssistantAssociationCommandOutput extends CreateAssistant
  * import { WisdomClient, CreateAssistantAssociationCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, CreateAssistantAssociationCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = {
+ *   assistantId: "STRING_VALUE", // required
+ *   associationType: "STRING_VALUE", // required
+ *   association: { // Union: only one key present
+ *     knowledgeBaseId: "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateAssistantAssociationCommand(input);
  * const response = await client.send(command);
  * ```

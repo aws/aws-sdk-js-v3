@@ -42,6 +42,13 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * import { SageMakerClient, ListDevicesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListDevicesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   LatestHeartbeatAfter: new Date("TIMESTAMP"),
+ *   ModelName: "STRING_VALUE",
+ *   DeviceFleetName: "STRING_VALUE",
+ * };
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);
  * ```

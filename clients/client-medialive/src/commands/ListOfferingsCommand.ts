@@ -42,6 +42,20 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __Met
  * import { MediaLiveClient, ListOfferingsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListOfferingsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   ChannelClass: "STRING_VALUE",
+ *   ChannelConfiguration: "STRING_VALUE",
+ *   Codec: "STRING_VALUE",
+ *   Duration: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   MaximumBitrate: "STRING_VALUE",
+ *   MaximumFramerate: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   Resolution: "STRING_VALUE",
+ *   ResourceType: "STRING_VALUE",
+ *   SpecialFeature: "STRING_VALUE",
+ *   VideoQuality: "STRING_VALUE",
+ * };
  * const command = new ListOfferingsCommand(input);
  * const response = await client.send(command);
  * ```

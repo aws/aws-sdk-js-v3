@@ -42,6 +42,19 @@ export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxL
  * import { DataSyncClient, CreateLocationFsxLustreCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationFsxLustreCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   FsxFilesystemArn: "STRING_VALUE", // required
+ *   SecurityGroupArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Subdirectory: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationFsxLustreCommand(input);
  * const response = await client.send(command);
  * ```

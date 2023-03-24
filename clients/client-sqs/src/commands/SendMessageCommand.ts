@@ -47,6 +47,39 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  * import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, SendMessageCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
+ * const input = {
+ *   QueueUrl: "STRING_VALUE", // required
+ *   MessageBody: "STRING_VALUE", // required
+ *   DelaySeconds: Number("int"),
+ *   MessageAttributes: {
+ *     "<keys>": {
+ *       StringValue: "STRING_VALUE",
+ *       BinaryValue: "BLOB_VALUE",
+ *       StringListValues: [
+ *         "STRING_VALUE",
+ *       ],
+ *       BinaryListValues: [
+ *         "BLOB_VALUE",
+ *       ],
+ *       DataType: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   MessageSystemAttributes: {
+ *     "<keys>": {
+ *       StringValue: "STRING_VALUE",
+ *       BinaryValue: "BLOB_VALUE",
+ *       StringListValues: [
+ *         "STRING_VALUE",
+ *       ],
+ *       BinaryListValues: [
+ *         "BLOB_VALUE",
+ *       ],
+ *       DataType: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   MessageDeduplicationId: "STRING_VALUE",
+ *   MessageGroupId: "STRING_VALUE",
+ * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);
  * ```

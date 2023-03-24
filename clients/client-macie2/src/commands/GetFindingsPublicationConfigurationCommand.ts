@@ -47,6 +47,7 @@ export interface GetFindingsPublicationConfigurationCommandOutput
  * import { Macie2Client, GetFindingsPublicationConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetFindingsPublicationConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
+ * const input = {};
  * const command = new GetFindingsPublicationConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

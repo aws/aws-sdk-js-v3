@@ -43,6 +43,18 @@ export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJo
  * import { LookoutEquipmentClient, StartDataIngestionJobCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, StartDataIngestionJobCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   DatasetName: "STRING_VALUE", // required
+ *   IngestionInputConfiguration: {
+ *     S3InputConfiguration: {
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *       KeyPattern: "STRING_VALUE",
+ *     },
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE", // required
+ * };
  * const command = new StartDataIngestionJobCommand(input);
  * const response = await client.send(command);
  * ```

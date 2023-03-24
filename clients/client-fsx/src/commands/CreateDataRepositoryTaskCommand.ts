@@ -51,6 +51,27 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
  * import { FSxClient, CreateDataRepositoryTaskCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateDataRepositoryTaskCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   Type: "EXPORT_TO_REPOSITORY" || "IMPORT_METADATA_FROM_REPOSITORY" || "RELEASE_DATA_FROM_FILESYSTEM" || "AUTO_RELEASE_DATA", // required
+ *   Paths: [
+ *     "STRING_VALUE",
+ *   ],
+ *   FileSystemId: "STRING_VALUE", // required
+ *   Report: {
+ *     Enabled: true || false, // required
+ *     Path: "STRING_VALUE",
+ *     Format: "REPORT_CSV_20191124",
+ *     Scope: "FAILED_FILES_ONLY",
+ *   },
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   CapacityToRelease: Number("long"),
+ * };
  * const command = new CreateDataRepositoryTaskCommand(input);
  * const response = await client.send(command);
  * ```

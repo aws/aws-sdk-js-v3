@@ -49,6 +49,9 @@ export interface DisableApplicationLayerAutomaticResponseCommandOutput
  * import { ShieldClient, DisableApplicationLayerAutomaticResponseCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DisableApplicationLayerAutomaticResponseCommand } = require("@aws-sdk/client-shield"); // CommonJS import
  * const client = new ShieldClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new DisableApplicationLayerAutomaticResponseCommand(input);
  * const response = await client.send(command);
  * ```

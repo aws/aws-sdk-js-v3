@@ -43,6 +43,17 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * import { ECSClient, ListTasksCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListTasksCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE",
+ *   containerInstance: "STRING_VALUE",
+ *   family: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   startedBy: "STRING_VALUE",
+ *   serviceName: "STRING_VALUE",
+ *   desiredStatus: "RUNNING" || "PENDING" || "STOPPED",
+ *   launchType: "EC2" || "FARGATE" || "EXTERNAL",
+ * };
  * const command = new ListTasksCommand(input);
  * const response = await client.send(command);
  * ```

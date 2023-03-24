@@ -46,6 +46,11 @@ export interface DescribeLogPatternCommandOutput extends DescribeLogPatternRespo
  * import { ApplicationInsightsClient, DescribeLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DescribeLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
+ * const input = {
+ *   ResourceGroupName: "STRING_VALUE", // required
+ *   PatternSetName: "STRING_VALUE", // required
+ *   PatternName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeLogPatternCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,10 @@ export interface UpdateServiceAccessPoliciesCommandOutput
  * import { CloudSearchClient, UpdateServiceAccessPoliciesCommand } from "@aws-sdk/client-cloudsearch"; // ES Modules import
  * // const { CloudSearchClient, UpdateServiceAccessPoliciesCommand } = require("@aws-sdk/client-cloudsearch"); // CommonJS import
  * const client = new CloudSearchClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ *   AccessPolicies: "STRING_VALUE", // required
+ * };
  * const command = new UpdateServiceAccessPoliciesCommand(input);
  * const response = await client.send(command);
  * ```

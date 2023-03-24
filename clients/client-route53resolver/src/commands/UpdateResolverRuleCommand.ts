@@ -43,6 +43,20 @@ export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleRespo
  * import { Route53ResolverClient, UpdateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   ResolverRuleId: "STRING_VALUE", // required
+ *   Config: {
+ *     Name: "STRING_VALUE",
+ *     TargetIps: [
+ *       {
+ *         Ip: "STRING_VALUE",
+ *         Port: Number("int"),
+ *         Ipv6: "STRING_VALUE",
+ *       },
+ *     ],
+ *     ResolverEndpointId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateResolverRuleCommand(input);
  * const response = await client.send(command);
  * ```

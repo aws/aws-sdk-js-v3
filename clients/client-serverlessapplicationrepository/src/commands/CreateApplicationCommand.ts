@@ -46,6 +46,25 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * import { ServerlessApplicationRepositoryClient, CreateApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
  * // const { ServerlessApplicationRepositoryClient, CreateApplicationCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
+ * const input = {
+ *   Author: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   HomePageUrl: "STRING_VALUE",
+ *   Labels: [
+ *     "STRING_VALUE",
+ *   ],
+ *   LicenseBody: "STRING_VALUE",
+ *   LicenseUrl: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   ReadmeBody: "STRING_VALUE",
+ *   ReadmeUrl: "STRING_VALUE",
+ *   SemanticVersion: "STRING_VALUE",
+ *   SourceCodeArchiveUrl: "STRING_VALUE",
+ *   SourceCodeUrl: "STRING_VALUE",
+ *   SpdxLicenseId: "STRING_VALUE",
+ *   TemplateBody: "STRING_VALUE",
+ *   TemplateUrl: "STRING_VALUE",
+ * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * ```

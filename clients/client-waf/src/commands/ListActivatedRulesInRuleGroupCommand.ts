@@ -52,6 +52,11 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
  * import { WAFClient, ListActivatedRulesInRuleGroupCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListActivatedRulesInRuleGroupCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   RuleGroupId: "STRING_VALUE",
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListActivatedRulesInRuleGroupCommand(input);
  * const response = await client.send(command);
  * ```

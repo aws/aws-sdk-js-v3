@@ -42,6 +42,11 @@ export interface AcceptPortfolioShareCommandOutput extends AcceptPortfolioShareO
  * import { ServiceCatalogClient, AcceptPortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, AcceptPortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   AcceptLanguage: "STRING_VALUE",
+ *   PortfolioId: "STRING_VALUE", // required
+ *   PortfolioShareType: "IMPORTED" || "AWS_SERVICECATALOG" || "AWS_ORGANIZATIONS",
+ * };
  * const command = new AcceptPortfolioShareCommand(input);
  * const response = await client.send(command);
  * ```

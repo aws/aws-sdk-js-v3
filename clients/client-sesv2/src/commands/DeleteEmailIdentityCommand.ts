@@ -43,6 +43,9 @@ export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityRes
  * import { SESv2Client, DeleteEmailIdentityCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, DeleteEmailIdentityCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   EmailIdentity: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEmailIdentityCommand(input);
  * const response = await client.send(command);
  * ```

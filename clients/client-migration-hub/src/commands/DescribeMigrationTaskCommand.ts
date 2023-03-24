@@ -42,6 +42,10 @@ export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTas
  * import { MigrationHubClient, DescribeMigrationTaskCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, DescribeMigrationTaskCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
+ * const input = {
+ *   ProgressUpdateStream: "STRING_VALUE", // required
+ *   MigrationTaskName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeMigrationTaskCommand(input);
  * const response = await client.send(command);
  * ```

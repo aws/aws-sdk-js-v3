@@ -42,6 +42,13 @@ export interface BatchGetBlueprintsCommandOutput extends BatchGetBlueprintsRespo
  * import { GlueClient, BatchGetBlueprintsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchGetBlueprintsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Names: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   IncludeBlueprint: true || false,
+ *   IncludeParameterSpec: true || false,
+ * };
  * const command = new BatchGetBlueprintsCommand(input);
  * const response = await client.send(command);
  * ```

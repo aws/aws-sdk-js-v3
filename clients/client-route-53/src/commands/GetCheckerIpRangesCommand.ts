@@ -51,6 +51,7 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  * import { Route53Client, GetCheckerIpRangesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetCheckerIpRangesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {};
  * const command = new GetCheckerIpRangesCommand(input);
  * const response = await client.send(command);
  * ```

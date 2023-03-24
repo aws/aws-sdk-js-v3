@@ -42,6 +42,75 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * import { CodeDeployClient, CreateDeploymentCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, CreateDeploymentCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = {
+ *   applicationName: "STRING_VALUE", // required
+ *   deploymentGroupName: "STRING_VALUE",
+ *   revision: {
+ *     revisionType: "S3" || "GitHub" || "String" || "AppSpecContent",
+ *     s3Location: {
+ *       bucket: "STRING_VALUE",
+ *       key: "STRING_VALUE",
+ *       bundleType: "tar" || "tgz" || "zip" || "YAML" || "JSON",
+ *       version: "STRING_VALUE",
+ *       eTag: "STRING_VALUE",
+ *     },
+ *     gitHubLocation: {
+ *       repository: "STRING_VALUE",
+ *       commitId: "STRING_VALUE",
+ *     },
+ *     string: {
+ *       content: "STRING_VALUE",
+ *       sha256: "STRING_VALUE",
+ *     },
+ *     appSpecContent: {
+ *       content: "STRING_VALUE",
+ *       sha256: "STRING_VALUE",
+ *     },
+ *   },
+ *   deploymentConfigName: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   ignoreApplicationStopFailures: true || false,
+ *   targetInstances: {
+ *     tagFilters: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Value: "STRING_VALUE",
+ *         Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *       },
+ *     ],
+ *     autoScalingGroups: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ec2TagSet: {
+ *       ec2TagSetList: [
+ *         [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             Type: "KEY_ONLY" || "VALUE_ONLY" || "KEY_AND_VALUE",
+ *           },
+ *         ],
+ *       ],
+ *     },
+ *   },
+ *   autoRollbackConfiguration: {
+ *     enabled: true || false,
+ *     events: [
+ *       "DEPLOYMENT_FAILURE" || "DEPLOYMENT_STOP_ON_ALARM" || "DEPLOYMENT_STOP_ON_REQUEST",
+ *     ],
+ *   },
+ *   updateOutdatedInstancesOnly: true || false,
+ *   fileExistsBehavior: "DISALLOW" || "OVERWRITE" || "RETAIN",
+ *   overrideAlarmConfiguration: {
+ *     enabled: true || false,
+ *     ignorePollAlarmFailure: true || false,
+ *     alarms: [
+ *       {
+ *         name: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

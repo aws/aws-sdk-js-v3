@@ -42,6 +42,11 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * import { CleanRoomsClient, ListMembersCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
  * // const { CleanRoomsClient, ListMembersCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
+ * const input = {
+ *   collaborationIdentifier: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListMembersCommand(input);
  * const response = await client.send(command);
  * ```

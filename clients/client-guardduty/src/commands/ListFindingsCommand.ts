@@ -42,6 +42,41 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * import { GuardDutyClient, ListFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   DetectorId: "STRING_VALUE", // required
+ *   FindingCriteria: {
+ *     Criterion: {
+ *       "<keys>": {
+ *         Eq: [
+ *           "STRING_VALUE",
+ *         ],
+ *         Neq: [
+ *           "STRING_VALUE",
+ *         ],
+ *         Gt: Number("int"),
+ *         Gte: Number("int"),
+ *         Lt: Number("int"),
+ *         Lte: Number("int"),
+ *         Equals: [
+ *           "STRING_VALUE",
+ *         ],
+ *         NotEquals: [
+ *           "STRING_VALUE",
+ *         ],
+ *         GreaterThan: Number("long"),
+ *         GreaterThanOrEqual: Number("long"),
+ *         LessThan: Number("long"),
+ *         LessThanOrEqual: Number("long"),
+ *       },
+ *     },
+ *   },
+ *   SortCriteria: {
+ *     AttributeName: "STRING_VALUE",
+ *     OrderBy: "ASC" || "DESC",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListFindingsCommand(input);
  * const response = await client.send(command);
  * ```

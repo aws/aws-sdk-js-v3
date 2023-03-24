@@ -42,6 +42,13 @@ export interface CreateUserCommandOutput extends CreateUserResult, __MetadataBea
  * import { AppStreamClient, CreateUserCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateUserCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   UserName: "STRING_VALUE", // required
+ *   MessageAction: "SUPPRESS" || "RESEND",
+ *   FirstName: "STRING_VALUE",
+ *   LastName: "STRING_VALUE",
+ *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,28 @@ export interface GetEventPredictionCommandOutput extends GetEventPredictionResul
  * import { FraudDetectorClient, GetEventPredictionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetEventPredictionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
+ * const input = {
+ *   detectorId: "STRING_VALUE", // required
+ *   detectorVersionId: "STRING_VALUE",
+ *   eventId: "STRING_VALUE", // required
+ *   eventTypeName: "STRING_VALUE", // required
+ *   entities: [ // required
+ *     {
+ *       entityType: "STRING_VALUE", // required
+ *       entityId: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   eventTimestamp: "STRING_VALUE", // required
+ *   eventVariables: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   externalModelEndpointDataBlobs: {
+ *     "<keys>": {
+ *       byteBuffer: "BLOB_VALUE",
+ *       contentType: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new GetEventPredictionCommand(input);
  * const response = await client.send(command);
  * ```

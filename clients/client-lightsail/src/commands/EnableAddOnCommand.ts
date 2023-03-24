@@ -43,6 +43,19 @@ export interface EnableAddOnCommandOutput extends EnableAddOnResult, __MetadataB
  * import { LightsailClient, EnableAddOnCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, EnableAddOnCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   resourceName: "STRING_VALUE", // required
+ *   addOnRequest: {
+ *     addOnType: "AutoSnapshot" || "StopInstanceOnIdle", // required
+ *     autoSnapshotAddOnRequest: {
+ *       snapshotTimeOfDay: "STRING_VALUE",
+ *     },
+ *     stopInstanceOnIdleRequest: {
+ *       threshold: "STRING_VALUE",
+ *       duration: "STRING_VALUE",
+ *     },
+ *   },
+ * };
  * const command = new EnableAddOnCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,21 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * import { BatchClient, CreateJobQueueCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, CreateJobQueueCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
+ * const input = {
+ *   jobQueueName: "STRING_VALUE", // required
+ *   state: "ENABLED" || "DISABLED",
+ *   schedulingPolicyArn: "STRING_VALUE",
+ *   priority: Number("int"), // required
+ *   computeEnvironmentOrder: [ // required
+ *     {
+ *       order: Number("int"), // required
+ *       computeEnvironment: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateJobQueueCommand(input);
  * const response = await client.send(command);
  * ```

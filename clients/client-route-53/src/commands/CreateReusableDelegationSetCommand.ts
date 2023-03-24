@@ -102,6 +102,10 @@ export interface CreateReusableDelegationSetCommandOutput
  * import { Route53Client, CreateReusableDelegationSetCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateReusableDelegationSetCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   CallerReference: "STRING_VALUE", // required
+ *   HostedZoneId: "STRING_VALUE",
+ * };
  * const command = new CreateReusableDelegationSetCommand(input);
  * const response = await client.send(command);
  * ```

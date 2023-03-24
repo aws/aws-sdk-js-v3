@@ -42,6 +42,10 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * import { TransferClient, ListConnectorsCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListConnectorsCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListConnectorsCommand(input);
  * const response = await client.send(command);
  * ```

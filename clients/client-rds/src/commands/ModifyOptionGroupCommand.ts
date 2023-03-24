@@ -42,6 +42,39 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  * import { RDSClient, ModifyOptionGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyOptionGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   OptionGroupName: "STRING_VALUE", // required
+ *   OptionsToInclude: [
+ *     {
+ *       OptionName: "STRING_VALUE", // required
+ *       Port: Number("int"),
+ *       OptionVersion: "STRING_VALUE",
+ *       DBSecurityGroupMemberships: [
+ *         "STRING_VALUE",
+ *       ],
+ *       VpcSecurityGroupMemberships: [
+ *         "STRING_VALUE",
+ *       ],
+ *       OptionSettings: [
+ *         {
+ *           Name: "STRING_VALUE",
+ *           Value: "STRING_VALUE",
+ *           DefaultValue: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *           ApplyType: "STRING_VALUE",
+ *           DataType: "STRING_VALUE",
+ *           AllowedValues: "STRING_VALUE",
+ *           IsModifiable: true || false,
+ *           IsCollection: true || false,
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   OptionsToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ApplyImmediately: true || false,
+ * };
  * const command = new ModifyOptionGroupCommand(input);
  * const response = await client.send(command);
  * ```

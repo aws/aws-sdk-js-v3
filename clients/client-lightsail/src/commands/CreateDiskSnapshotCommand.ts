@@ -60,6 +60,17 @@ export interface CreateDiskSnapshotCommandOutput extends CreateDiskSnapshotResul
  * import { LightsailClient, CreateDiskSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateDiskSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   diskName: "STRING_VALUE",
+ *   diskSnapshotName: "STRING_VALUE", // required
+ *   instanceName: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateDiskSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

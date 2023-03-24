@@ -44,6 +44,10 @@ export interface StartFlywheelIterationCommandOutput extends StartFlywheelIterat
  * import { ComprehendClient, StartFlywheelIterationCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StartFlywheelIterationCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   FlywheelArn: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new StartFlywheelIterationCommand(input);
  * const response = await client.send(command);
  * ```

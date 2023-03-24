@@ -42,6 +42,475 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * import { PinpointClient, UpdateCampaignCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateCampaignCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   CampaignId: "STRING_VALUE", // required
+ *   WriteCampaignRequest: {
+ *     AdditionalTreatments: [
+ *       {
+ *         CustomDeliveryConfiguration: {
+ *           DeliveryUri: "STRING_VALUE", // required
+ *           EndpointTypes: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         MessageConfiguration: {
+ *           ADMMessage: {
+ *             Action: "STRING_VALUE",
+ *             Body: "STRING_VALUE",
+ *             ImageIconUrl: "STRING_VALUE",
+ *             ImageSmallIconUrl: "STRING_VALUE",
+ *             ImageUrl: "STRING_VALUE",
+ *             JsonBody: "STRING_VALUE",
+ *             MediaUrl: "STRING_VALUE",
+ *             RawContent: "STRING_VALUE",
+ *             SilentPush: true || false,
+ *             TimeToLive: Number("int"),
+ *             Title: "STRING_VALUE",
+ *             Url: "STRING_VALUE",
+ *           },
+ *           APNSMessage: {
+ *             Action: "STRING_VALUE",
+ *             Body: "STRING_VALUE",
+ *             ImageIconUrl: "STRING_VALUE",
+ *             ImageSmallIconUrl: "STRING_VALUE",
+ *             ImageUrl: "STRING_VALUE",
+ *             JsonBody: "STRING_VALUE",
+ *             MediaUrl: "STRING_VALUE",
+ *             RawContent: "STRING_VALUE",
+ *             SilentPush: true || false,
+ *             TimeToLive: Number("int"),
+ *             Title: "STRING_VALUE",
+ *             Url: "STRING_VALUE",
+ *           },
+ *           BaiduMessage: {
+ *             Action: "STRING_VALUE",
+ *             Body: "STRING_VALUE",
+ *             ImageIconUrl: "STRING_VALUE",
+ *             ImageSmallIconUrl: "STRING_VALUE",
+ *             ImageUrl: "STRING_VALUE",
+ *             JsonBody: "STRING_VALUE",
+ *             MediaUrl: "STRING_VALUE",
+ *             RawContent: "STRING_VALUE",
+ *             SilentPush: true || false,
+ *             TimeToLive: Number("int"),
+ *             Title: "STRING_VALUE",
+ *             Url: "STRING_VALUE",
+ *           },
+ *           CustomMessage: {
+ *             Data: "STRING_VALUE",
+ *           },
+ *           DefaultMessage: {
+ *             Action: "STRING_VALUE",
+ *             Body: "STRING_VALUE",
+ *             ImageIconUrl: "STRING_VALUE",
+ *             ImageSmallIconUrl: "STRING_VALUE",
+ *             ImageUrl: "STRING_VALUE",
+ *             JsonBody: "STRING_VALUE",
+ *             MediaUrl: "STRING_VALUE",
+ *             RawContent: "STRING_VALUE",
+ *             SilentPush: true || false,
+ *             TimeToLive: Number("int"),
+ *             Title: "STRING_VALUE",
+ *             Url: "STRING_VALUE",
+ *           },
+ *           EmailMessage: {
+ *             Body: "STRING_VALUE",
+ *             FromAddress: "STRING_VALUE",
+ *             HtmlBody: "STRING_VALUE",
+ *             Title: "STRING_VALUE",
+ *           },
+ *           GCMMessage: {
+ *             Action: "STRING_VALUE",
+ *             Body: "STRING_VALUE",
+ *             ImageIconUrl: "STRING_VALUE",
+ *             ImageSmallIconUrl: "STRING_VALUE",
+ *             ImageUrl: "STRING_VALUE",
+ *             JsonBody: "STRING_VALUE",
+ *             MediaUrl: "STRING_VALUE",
+ *             RawContent: "STRING_VALUE",
+ *             SilentPush: true || false,
+ *             TimeToLive: Number("int"),
+ *             Title: "STRING_VALUE",
+ *             Url: "STRING_VALUE",
+ *           },
+ *           SMSMessage: {
+ *             Body: "STRING_VALUE",
+ *             MessageType: "STRING_VALUE",
+ *             OriginationNumber: "STRING_VALUE",
+ *             SenderId: "STRING_VALUE",
+ *             EntityId: "STRING_VALUE",
+ *             TemplateId: "STRING_VALUE",
+ *           },
+ *           InAppMessage: {
+ *             Body: "STRING_VALUE",
+ *             Content: [
+ *               {
+ *                 BackgroundColor: "STRING_VALUE",
+ *                 BodyConfig: {
+ *                   Alignment: "STRING_VALUE", // required
+ *                   Body: "STRING_VALUE", // required
+ *                   TextColor: "STRING_VALUE", // required
+ *                 },
+ *                 HeaderConfig: {
+ *                   Alignment: "STRING_VALUE", // required
+ *                   Header: "STRING_VALUE", // required
+ *                   TextColor: "STRING_VALUE", // required
+ *                 },
+ *                 ImageUrl: "STRING_VALUE",
+ *                 PrimaryBtn: {
+ *                   Android: {
+ *                     ButtonAction: "STRING_VALUE", // required
+ *                     Link: "STRING_VALUE",
+ *                   },
+ *                   DefaultConfig: {
+ *                     BackgroundColor: "STRING_VALUE",
+ *                     BorderRadius: Number("int"),
+ *                     ButtonAction: "STRING_VALUE", // required
+ *                     Link: "STRING_VALUE",
+ *                     Text: "STRING_VALUE", // required
+ *                     TextColor: "STRING_VALUE",
+ *                   },
+ *                   IOS: {
+ *                     ButtonAction: "STRING_VALUE", // required
+ *                     Link: "STRING_VALUE",
+ *                   },
+ *                   Web: {
+ *                     ButtonAction: "STRING_VALUE", // required
+ *                     Link: "STRING_VALUE",
+ *                   },
+ *                 },
+ *                 SecondaryBtn: {
+ *                   Android: {
+ *                     ButtonAction: "STRING_VALUE", // required
+ *                     Link: "STRING_VALUE",
+ *                   },
+ *                   DefaultConfig: {
+ *                     BackgroundColor: "STRING_VALUE",
+ *                     BorderRadius: Number("int"),
+ *                     ButtonAction: "STRING_VALUE", // required
+ *                     Link: "STRING_VALUE",
+ *                     Text: "STRING_VALUE", // required
+ *                     TextColor: "STRING_VALUE",
+ *                   },
+ *                   IOS: {
+ *                     ButtonAction: "STRING_VALUE", // required
+ *                     Link: "STRING_VALUE",
+ *                   },
+ *                   Web: {
+ *                     ButtonAction: "STRING_VALUE", // required
+ *                     Link: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               },
+ *             ],
+ *             CustomConfig: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             Layout: "STRING_VALUE",
+ *           },
+ *         },
+ *         Schedule: {
+ *           EndTime: "STRING_VALUE",
+ *           EventFilter: {
+ *             Dimensions: {
+ *               Attributes: {
+ *                 "<keys>": {
+ *                   AttributeType: "STRING_VALUE",
+ *                   Values: [ // required
+ *                     "STRING_VALUE",
+ *                   ],
+ *                 },
+ *               },
+ *               EventType: {
+ *                 DimensionType: "STRING_VALUE",
+ *                 Values: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               Metrics: {
+ *                 "<keys>": {
+ *                   ComparisonOperator: "STRING_VALUE", // required
+ *                   Value: Number("double"), // required
+ *                 },
+ *               },
+ *             },
+ *             FilterType: "STRING_VALUE", // required
+ *           },
+ *           Frequency: "STRING_VALUE",
+ *           IsLocalTime: true || false,
+ *           QuietTime: {
+ *             End: "STRING_VALUE",
+ *             Start: "STRING_VALUE",
+ *           },
+ *           StartTime: "STRING_VALUE", // required
+ *           Timezone: "STRING_VALUE",
+ *         },
+ *         SizePercent: Number("int"), // required
+ *         TemplateConfiguration: {
+ *           EmailTemplate: {
+ *             Name: "STRING_VALUE",
+ *             Version: "STRING_VALUE",
+ *           },
+ *           PushTemplate: {
+ *             Name: "STRING_VALUE",
+ *             Version: "STRING_VALUE",
+ *           },
+ *           SMSTemplate: {
+ *             Name: "STRING_VALUE",
+ *             Version: "STRING_VALUE",
+ *           },
+ *           VoiceTemplate: {
+ *             Name: "STRING_VALUE",
+ *             Version: "STRING_VALUE",
+ *           },
+ *         },
+ *         TreatmentDescription: "STRING_VALUE",
+ *         TreatmentName: "STRING_VALUE",
+ *       },
+ *     ],
+ *     CustomDeliveryConfiguration: {
+ *       DeliveryUri: "STRING_VALUE", // required
+ *       EndpointTypes: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     Description: "STRING_VALUE",
+ *     HoldoutPercent: Number("int"),
+ *     Hook: {
+ *       LambdaFunctionName: "STRING_VALUE",
+ *       Mode: "STRING_VALUE",
+ *       WebUrl: "STRING_VALUE",
+ *     },
+ *     IsPaused: true || false,
+ *     Limits: {
+ *       Daily: Number("int"),
+ *       MaximumDuration: Number("int"),
+ *       MessagesPerSecond: Number("int"),
+ *       Total: Number("int"),
+ *       Session: Number("int"),
+ *     },
+ *     MessageConfiguration: {
+ *       ADMMessage: {
+ *         Action: "STRING_VALUE",
+ *         Body: "STRING_VALUE",
+ *         ImageIconUrl: "STRING_VALUE",
+ *         ImageSmallIconUrl: "STRING_VALUE",
+ *         ImageUrl: "STRING_VALUE",
+ *         JsonBody: "STRING_VALUE",
+ *         MediaUrl: "STRING_VALUE",
+ *         RawContent: "STRING_VALUE",
+ *         SilentPush: true || false,
+ *         TimeToLive: Number("int"),
+ *         Title: "STRING_VALUE",
+ *         Url: "STRING_VALUE",
+ *       },
+ *       APNSMessage: {
+ *         Action: "STRING_VALUE",
+ *         Body: "STRING_VALUE",
+ *         ImageIconUrl: "STRING_VALUE",
+ *         ImageSmallIconUrl: "STRING_VALUE",
+ *         ImageUrl: "STRING_VALUE",
+ *         JsonBody: "STRING_VALUE",
+ *         MediaUrl: "STRING_VALUE",
+ *         RawContent: "STRING_VALUE",
+ *         SilentPush: true || false,
+ *         TimeToLive: Number("int"),
+ *         Title: "STRING_VALUE",
+ *         Url: "STRING_VALUE",
+ *       },
+ *       BaiduMessage: {
+ *         Action: "STRING_VALUE",
+ *         Body: "STRING_VALUE",
+ *         ImageIconUrl: "STRING_VALUE",
+ *         ImageSmallIconUrl: "STRING_VALUE",
+ *         ImageUrl: "STRING_VALUE",
+ *         JsonBody: "STRING_VALUE",
+ *         MediaUrl: "STRING_VALUE",
+ *         RawContent: "STRING_VALUE",
+ *         SilentPush: true || false,
+ *         TimeToLive: Number("int"),
+ *         Title: "STRING_VALUE",
+ *         Url: "STRING_VALUE",
+ *       },
+ *       CustomMessage: {
+ *         Data: "STRING_VALUE",
+ *       },
+ *       DefaultMessage: {
+ *         Action: "STRING_VALUE",
+ *         Body: "STRING_VALUE",
+ *         ImageIconUrl: "STRING_VALUE",
+ *         ImageSmallIconUrl: "STRING_VALUE",
+ *         ImageUrl: "STRING_VALUE",
+ *         JsonBody: "STRING_VALUE",
+ *         MediaUrl: "STRING_VALUE",
+ *         RawContent: "STRING_VALUE",
+ *         SilentPush: true || false,
+ *         TimeToLive: Number("int"),
+ *         Title: "STRING_VALUE",
+ *         Url: "STRING_VALUE",
+ *       },
+ *       EmailMessage: {
+ *         Body: "STRING_VALUE",
+ *         FromAddress: "STRING_VALUE",
+ *         HtmlBody: "STRING_VALUE",
+ *         Title: "STRING_VALUE",
+ *       },
+ *       GCMMessage: {
+ *         Action: "STRING_VALUE",
+ *         Body: "STRING_VALUE",
+ *         ImageIconUrl: "STRING_VALUE",
+ *         ImageSmallIconUrl: "STRING_VALUE",
+ *         ImageUrl: "STRING_VALUE",
+ *         JsonBody: "STRING_VALUE",
+ *         MediaUrl: "STRING_VALUE",
+ *         RawContent: "STRING_VALUE",
+ *         SilentPush: true || false,
+ *         TimeToLive: Number("int"),
+ *         Title: "STRING_VALUE",
+ *         Url: "STRING_VALUE",
+ *       },
+ *       SMSMessage: {
+ *         Body: "STRING_VALUE",
+ *         MessageType: "STRING_VALUE",
+ *         OriginationNumber: "STRING_VALUE",
+ *         SenderId: "STRING_VALUE",
+ *         EntityId: "STRING_VALUE",
+ *         TemplateId: "STRING_VALUE",
+ *       },
+ *       InAppMessage: {
+ *         Body: "STRING_VALUE",
+ *         Content: [
+ *           {
+ *             BackgroundColor: "STRING_VALUE",
+ *             BodyConfig: {
+ *               Alignment: "STRING_VALUE", // required
+ *               Body: "STRING_VALUE", // required
+ *               TextColor: "STRING_VALUE", // required
+ *             },
+ *             HeaderConfig: {
+ *               Alignment: "STRING_VALUE", // required
+ *               Header: "STRING_VALUE", // required
+ *               TextColor: "STRING_VALUE", // required
+ *             },
+ *             ImageUrl: "STRING_VALUE",
+ *             PrimaryBtn: {
+ *               Android: {
+ *                 ButtonAction: "STRING_VALUE", // required
+ *                 Link: "STRING_VALUE",
+ *               },
+ *               DefaultConfig: {
+ *                 BackgroundColor: "STRING_VALUE",
+ *                 BorderRadius: Number("int"),
+ *                 ButtonAction: "STRING_VALUE", // required
+ *                 Link: "STRING_VALUE",
+ *                 Text: "STRING_VALUE", // required
+ *                 TextColor: "STRING_VALUE",
+ *               },
+ *               IOS: {
+ *                 ButtonAction: "STRING_VALUE", // required
+ *                 Link: "STRING_VALUE",
+ *               },
+ *               Web: {
+ *                 ButtonAction: "STRING_VALUE", // required
+ *                 Link: "STRING_VALUE",
+ *               },
+ *             },
+ *             SecondaryBtn: {
+ *               Android: {
+ *                 ButtonAction: "STRING_VALUE", // required
+ *                 Link: "STRING_VALUE",
+ *               },
+ *               DefaultConfig: {
+ *                 BackgroundColor: "STRING_VALUE",
+ *                 BorderRadius: Number("int"),
+ *                 ButtonAction: "STRING_VALUE", // required
+ *                 Link: "STRING_VALUE",
+ *                 Text: "STRING_VALUE", // required
+ *                 TextColor: "STRING_VALUE",
+ *               },
+ *               IOS: {
+ *                 ButtonAction: "STRING_VALUE", // required
+ *                 Link: "STRING_VALUE",
+ *               },
+ *               Web: {
+ *                 ButtonAction: "STRING_VALUE", // required
+ *                 Link: "STRING_VALUE",
+ *               },
+ *             },
+ *           },
+ *         ],
+ *         CustomConfig: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         Layout: "STRING_VALUE",
+ *       },
+ *     },
+ *     Name: "STRING_VALUE",
+ *     Schedule: {
+ *       EndTime: "STRING_VALUE",
+ *       EventFilter: {
+ *         Dimensions: {
+ *           Attributes: {
+ *             "<keys>": {
+ *               AttributeType: "STRING_VALUE",
+ *               Values: [ // required
+ *                 "<ListOf__string>",
+ *               ],
+ *             },
+ *           },
+ *           EventType: {
+ *             DimensionType: "STRING_VALUE",
+ *             Values: [ // required
+ *               "<ListOf__string>",
+ *             ],
+ *           },
+ *           Metrics: {
+ *             "<keys>": {
+ *               ComparisonOperator: "STRING_VALUE", // required
+ *               Value: Number("double"), // required
+ *             },
+ *           },
+ *         },
+ *         FilterType: "STRING_VALUE", // required
+ *       },
+ *       Frequency: "STRING_VALUE",
+ *       IsLocalTime: true || false,
+ *       QuietTime: {
+ *         End: "STRING_VALUE",
+ *         Start: "STRING_VALUE",
+ *       },
+ *       StartTime: "STRING_VALUE", // required
+ *       Timezone: "STRING_VALUE",
+ *     },
+ *     SegmentId: "STRING_VALUE",
+ *     SegmentVersion: Number("int"),
+ *     tags: {
+ *       "<keys>": "<__string>",
+ *     },
+ *     TemplateConfiguration: {
+ *       EmailTemplate: {
+ *         Name: "STRING_VALUE",
+ *         Version: "STRING_VALUE",
+ *       },
+ *       PushTemplate: {
+ *         Name: "STRING_VALUE",
+ *         Version: "STRING_VALUE",
+ *       },
+ *       SMSTemplate: {
+ *         Name: "STRING_VALUE",
+ *         Version: "STRING_VALUE",
+ *       },
+ *       VoiceTemplate: {
+ *         Name: "STRING_VALUE",
+ *         Version: "STRING_VALUE",
+ *       },
+ *     },
+ *     TreatmentDescription: "STRING_VALUE",
+ *     TreatmentName: "STRING_VALUE",
+ *     Priority: Number("int"),
+ *   },
+ * };
  * const command = new UpdateCampaignCommand(input);
  * const response = await client.send(command);
  * ```

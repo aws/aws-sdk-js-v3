@@ -45,6 +45,16 @@ export interface DecreaseReplicationFactorCommandOutput extends DecreaseReplicat
  * import { DAXClient, DecreaseReplicationFactorCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DecreaseReplicationFactorCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = {
+ *   ClusterName: "STRING_VALUE", // required
+ *   NewReplicationFactor: Number("int"), // required
+ *   AvailabilityZones: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NodeIdsToRemove: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DecreaseReplicationFactorCommand(input);
  * const response = await client.send(command);
  * ```

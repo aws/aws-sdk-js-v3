@@ -42,6 +42,24 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * import { IVSRealTimeClient, CreateStageCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, CreateStageCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
  * const client = new IVSRealTimeClient(config);
+ * const input = {
+ *   name: "STRING_VALUE",
+ *   participantTokenConfigurations: [
+ *     {
+ *       duration: Number("int"),
+ *       userId: "STRING_VALUE",
+ *       attributes: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       capabilities: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateStageCommand(input);
  * const response = await client.send(command);
  * ```

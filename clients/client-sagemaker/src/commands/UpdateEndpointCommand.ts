@@ -58,6 +58,42 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  * import { SageMakerClient, UpdateEndpointCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateEndpointCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   EndpointName: "STRING_VALUE", // required
+ *   EndpointConfigName: "STRING_VALUE", // required
+ *   RetainAllVariantProperties: true || false,
+ *   ExcludeRetainedVariantProperties: [
+ *     {
+ *       VariantPropertyType: "DesiredInstanceCount" || "DesiredWeight" || "DataCaptureConfig", // required
+ *     },
+ *   ],
+ *   DeploymentConfig: {
+ *     BlueGreenUpdatePolicy: {
+ *       TrafficRoutingConfiguration: {
+ *         Type: "ALL_AT_ONCE" || "CANARY" || "LINEAR", // required
+ *         WaitIntervalInSeconds: Number("int"), // required
+ *         CanarySize: {
+ *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ *           Value: Number("int"), // required
+ *         },
+ *         LinearStepSize: {
+ *           Type: "INSTANCE_COUNT" || "CAPACITY_PERCENT", // required
+ *           Value: Number("int"), // required
+ *         },
+ *       },
+ *       TerminationWaitInSeconds: Number("int"),
+ *       MaximumExecutionTimeoutInSeconds: Number("int"),
+ *     },
+ *     AutoRollbackConfiguration: {
+ *       Alarms: [
+ *         {
+ *           AlarmName: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   RetainDeploymentConfig: true || false,
+ * };
  * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);
  * ```

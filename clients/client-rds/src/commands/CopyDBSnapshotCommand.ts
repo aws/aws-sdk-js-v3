@@ -49,6 +49,22 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * import { RDSClient, CopyDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CopyDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
+ * const input = {
+ *   SourceDBSnapshotIdentifier: "STRING_VALUE", // required
+ *   TargetDBSnapshotIdentifier: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   CopyTags: true || false,
+ *   PreSignedUrl: "STRING_VALUE",
+ *   OptionGroupName: "STRING_VALUE",
+ *   TargetCustomAvailabilityZone: "STRING_VALUE",
+ *   CopyOptionGroup: true || false,
+ * };
  * const command = new CopyDBSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

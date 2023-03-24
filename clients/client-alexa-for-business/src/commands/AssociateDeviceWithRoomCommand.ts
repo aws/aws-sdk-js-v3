@@ -44,6 +44,10 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  * import { AlexaForBusinessClient, AssociateDeviceWithRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, AssociateDeviceWithRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   DeviceArn: "STRING_VALUE",
+ *   RoomArn: "STRING_VALUE",
+ * };
  * const command = new AssociateDeviceWithRoomCommand(input);
  * const response = await client.send(command);
  * ```

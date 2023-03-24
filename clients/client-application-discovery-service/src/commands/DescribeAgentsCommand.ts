@@ -48,6 +48,22 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  * import { ApplicationDiscoveryServiceClient, DescribeAgentsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DescribeAgentsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
+ * const input = {
+ *   agentIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   filters: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       condition: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeAgentsCommand(input);
  * const response = await client.send(command);
  * ```

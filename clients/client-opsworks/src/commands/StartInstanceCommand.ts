@@ -48,6 +48,9 @@ export interface StartInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, StartInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, StartInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new StartInstanceCommand(input);
  * const response = await client.send(command);
  * ```

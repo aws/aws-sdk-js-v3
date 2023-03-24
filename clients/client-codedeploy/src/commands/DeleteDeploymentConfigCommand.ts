@@ -46,6 +46,9 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  * import { CodeDeployClient, DeleteDeploymentConfigCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, DeleteDeploymentConfigCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
+ * const input = {
+ *   deploymentConfigName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDeploymentConfigCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface StopGUISessionCommandOutput extends StopGUISessionResult, __Met
  * import { LightsailClient, StopGUISessionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, StopGUISessionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   resourceName: "STRING_VALUE", // required
+ * };
  * const command = new StopGUISessionCommand(input);
  * const response = await client.send(command);
  * ```

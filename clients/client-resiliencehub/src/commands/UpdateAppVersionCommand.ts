@@ -47,6 +47,14 @@ export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse,
  * import { ResiliencehubClient, UpdateAppVersionCommand } from "@aws-sdk/client-resiliencehub"; // ES Modules import
  * // const { ResiliencehubClient, UpdateAppVersionCommand } = require("@aws-sdk/client-resiliencehub"); // CommonJS import
  * const client = new ResiliencehubClient(config);
+ * const input = {
+ *   appArn: "STRING_VALUE", // required
+ *   additionalInfo: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new UpdateAppVersionCommand(input);
  * const response = await client.send(command);
  * ```

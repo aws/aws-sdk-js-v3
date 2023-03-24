@@ -50,6 +50,10 @@ export interface ListRateBasedRulesCommandOutput extends ListRateBasedRulesRespo
  * import { WAFRegionalClient, ListRateBasedRulesCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListRateBasedRulesCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListRateBasedRulesCommand(input);
  * const response = await client.send(command);
  * ```

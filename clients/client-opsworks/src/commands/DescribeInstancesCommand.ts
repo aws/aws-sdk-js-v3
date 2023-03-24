@@ -50,6 +50,13 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * import { OpsWorksClient, DescribeInstancesCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeInstancesCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   StackId: "STRING_VALUE",
+ *   LayerId: "STRING_VALUE",
+ *   InstanceIds: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeInstancesCommand(input);
  * const response = await client.send(command);
  * ```

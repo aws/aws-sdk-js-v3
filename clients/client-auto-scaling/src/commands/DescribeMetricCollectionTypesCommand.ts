@@ -44,6 +44,7 @@ export interface DescribeMetricCollectionTypesCommandOutput
  * import { AutoScalingClient, DescribeMetricCollectionTypesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeMetricCollectionTypesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {};
  * const command = new DescribeMetricCollectionTypesCommand(input);
  * const response = await client.send(command);
  * ```

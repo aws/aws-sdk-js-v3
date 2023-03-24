@@ -48,6 +48,35 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  * import { ImagebuilderClient, UpdateInfrastructureConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, UpdateInfrastructureConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   infrastructureConfigurationArn: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   instanceTypes: [
+ *     "STRING_VALUE",
+ *   ],
+ *   instanceProfileName: "STRING_VALUE", // required
+ *   securityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   subnetId: "STRING_VALUE",
+ *   logging: {
+ *     s3Logs: {
+ *       s3BucketName: "STRING_VALUE",
+ *       s3KeyPrefix: "STRING_VALUE",
+ *     },
+ *   },
+ *   keyPair: "STRING_VALUE",
+ *   terminateInstanceOnFailure: true || false,
+ *   snsTopicArn: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE", // required
+ *   resourceTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   instanceMetadataOptions: {
+ *     httpTokens: "STRING_VALUE",
+ *     httpPutResponseHopLimit: Number("int"),
+ *   },
+ * };
  * const command = new UpdateInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

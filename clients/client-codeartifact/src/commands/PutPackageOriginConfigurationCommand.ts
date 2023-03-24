@@ -52,6 +52,18 @@ export interface PutPackageOriginConfigurationCommandOutput
  * import { CodeartifactClient, PutPackageOriginConfigurationCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, PutPackageOriginConfigurationCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
+ * const input = {
+ *   domain: "STRING_VALUE", // required
+ *   domainOwner: "STRING_VALUE",
+ *   repository: "STRING_VALUE", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   namespace: "STRING_VALUE",
+ *   package: "STRING_VALUE", // required
+ *   restrictions: {
+ *     publish: "ALLOW" || "BLOCK", // required
+ *     upstream: "ALLOW" || "BLOCK", // required
+ *   },
+ * };
  * const command = new PutPackageOriginConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

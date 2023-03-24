@@ -42,6 +42,10 @@ export interface PutEncryptionConfigCommandOutput extends PutEncryptionConfigRes
  * import { XRayClient, PutEncryptionConfigCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, PutEncryptionConfigCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = {
+ *   KeyId: "STRING_VALUE",
+ *   Type: "NONE" || "KMS", // required
+ * };
  * const command = new PutEncryptionConfigCommand(input);
  * const response = await client.send(command);
  * ```

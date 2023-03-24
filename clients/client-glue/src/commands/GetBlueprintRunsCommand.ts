@@ -42,6 +42,11 @@ export interface GetBlueprintRunsCommandOutput extends GetBlueprintRunsResponse,
  * import { GlueClient, GetBlueprintRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetBlueprintRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   BlueprintName: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetBlueprintRunsCommand(input);
  * const response = await client.send(command);
  * ```

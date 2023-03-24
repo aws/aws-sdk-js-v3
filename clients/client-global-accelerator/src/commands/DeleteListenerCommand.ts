@@ -46,6 +46,9 @@ export interface DeleteListenerCommandOutput extends __MetadataBearer {}
  * import { GlobalAcceleratorClient, DeleteListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, DeleteListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
+ * const input = {
+ *   ListenerArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteListenerCommand(input);
  * const response = await client.send(command);
  * ```

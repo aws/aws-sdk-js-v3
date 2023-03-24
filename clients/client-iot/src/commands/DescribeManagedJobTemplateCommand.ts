@@ -42,6 +42,10 @@ export interface DescribeManagedJobTemplateCommandOutput extends DescribeManaged
  * import { IoTClient, DescribeManagedJobTemplateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeManagedJobTemplateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   templateName: "STRING_VALUE", // required
+ *   templateVersion: "STRING_VALUE",
+ * };
  * const command = new DescribeManagedJobTemplateCommand(input);
  * const response = await client.send(command);
  * ```

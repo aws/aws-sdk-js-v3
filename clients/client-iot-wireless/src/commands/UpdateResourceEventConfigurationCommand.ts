@@ -44,6 +44,41 @@ export interface UpdateResourceEventConfigurationCommandOutput
  * import { IoTWirelessClient, UpdateResourceEventConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateResourceEventConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Identifier: "STRING_VALUE", // required
+ *   IdentifierType: "PartnerAccountId" || "DevEui" || "GatewayEui" || "WirelessDeviceId" || "WirelessGatewayId", // required
+ *   PartnerType: "Sidewalk",
+ *   DeviceRegistrationState: {
+ *     Sidewalk: {
+ *       AmazonIdEventTopic: "Enabled" || "Disabled",
+ *     },
+ *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ *   },
+ *   Proximity: {
+ *     Sidewalk: {
+ *       AmazonIdEventTopic: "Enabled" || "Disabled",
+ *     },
+ *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ *   },
+ *   Join: {
+ *     LoRaWAN: {
+ *       DevEuiEventTopic: "Enabled" || "Disabled",
+ *     },
+ *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ *   },
+ *   ConnectionStatus: {
+ *     LoRaWAN: {
+ *       GatewayEuiEventTopic: "Enabled" || "Disabled",
+ *     },
+ *     WirelessGatewayIdEventTopic: "Enabled" || "Disabled",
+ *   },
+ *   MessageDeliveryStatus: {
+ *     Sidewalk: {
+ *       AmazonIdEventTopic: "Enabled" || "Disabled",
+ *     },
+ *     WirelessDeviceIdEventTopic: "Enabled" || "Disabled",
+ *   },
+ * };
  * const command = new UpdateResourceEventConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

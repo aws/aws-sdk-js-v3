@@ -54,6 +54,11 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
  * import { ConfigServiceClient, DescribeConfigurationRecorderStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DescribeConfigurationRecorderStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ConfigurationRecorderNames: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeConfigurationRecorderStatusCommand(input);
  * const response = await client.send(command);
  * ```

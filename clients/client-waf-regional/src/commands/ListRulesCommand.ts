@@ -47,6 +47,10 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * import { WAFRegionalClient, ListRulesCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListRulesCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
  * ```

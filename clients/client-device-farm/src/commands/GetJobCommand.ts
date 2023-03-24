@@ -39,6 +39,9 @@ export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
  * import { DeviceFarmClient, GetJobCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetJobCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetJobCommand(input);
  * const response = await client.send(command);
  * ```

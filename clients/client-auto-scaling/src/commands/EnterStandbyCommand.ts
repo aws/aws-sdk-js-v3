@@ -48,6 +48,13 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  * import { AutoScalingClient, EnterStandbyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, EnterStandbyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {
+ *   InstanceIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AutoScalingGroupName: "STRING_VALUE", // required
+ *   ShouldDecrementDesiredCapacity: true || false, // required
+ * };
  * const command = new EnterStandbyCommand(input);
  * const response = await client.send(command);
  * ```

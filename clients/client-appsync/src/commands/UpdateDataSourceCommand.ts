@@ -42,6 +42,58 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * import { AppSyncClient, UpdateDataSourceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateDataSourceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   apiId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   type: "AWS_LAMBDA" || "AMAZON_DYNAMODB" || "AMAZON_ELASTICSEARCH" || "NONE" || "HTTP" || "RELATIONAL_DATABASE" || "AMAZON_OPENSEARCH_SERVICE" || "AMAZON_EVENTBRIDGE", // required
+ *   serviceRoleArn: "STRING_VALUE",
+ *   dynamodbConfig: {
+ *     tableName: "STRING_VALUE", // required
+ *     awsRegion: "STRING_VALUE", // required
+ *     useCallerCredentials: true || false,
+ *     deltaSyncConfig: {
+ *       baseTableTTL: Number("long"),
+ *       deltaSyncTableName: "STRING_VALUE",
+ *       deltaSyncTableTTL: Number("long"),
+ *     },
+ *     versioned: true || false,
+ *   },
+ *   lambdaConfig: {
+ *     lambdaFunctionArn: "STRING_VALUE", // required
+ *   },
+ *   elasticsearchConfig: {
+ *     endpoint: "STRING_VALUE", // required
+ *     awsRegion: "STRING_VALUE", // required
+ *   },
+ *   openSearchServiceConfig: {
+ *     endpoint: "STRING_VALUE", // required
+ *     awsRegion: "STRING_VALUE", // required
+ *   },
+ *   httpConfig: {
+ *     endpoint: "STRING_VALUE",
+ *     authorizationConfig: {
+ *       authorizationType: "AWS_IAM", // required
+ *       awsIamConfig: {
+ *         signingRegion: "STRING_VALUE",
+ *         signingServiceName: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   relationalDatabaseConfig: {
+ *     relationalDatabaseSourceType: "RDS_HTTP_ENDPOINT",
+ *     rdsHttpEndpointConfig: {
+ *       awsRegion: "STRING_VALUE",
+ *       dbClusterIdentifier: "STRING_VALUE",
+ *       databaseName: "STRING_VALUE",
+ *       schema: "STRING_VALUE",
+ *       awsSecretStoreArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   eventBridgeConfig: {
+ *     eventBusArn: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new UpdateDataSourceCommand(input);
  * const response = await client.send(command);
  * ```

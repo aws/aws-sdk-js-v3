@@ -43,6 +43,11 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  * import { CodePipelineClient, AcknowledgeThirdPartyJobCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, AcknowledgeThirdPartyJobCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE", // required
+ *   nonce: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new AcknowledgeThirdPartyJobCommand(input);
  * const response = await client.send(command);
  * ```

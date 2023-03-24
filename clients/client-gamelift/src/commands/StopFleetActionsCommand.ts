@@ -68,6 +68,13 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  * import { GameLiftClient, StopFleetActionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StopFleetActionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   FleetId: "STRING_VALUE", // required
+ *   Actions: [ // required
+ *     "AUTO_SCALING",
+ *   ],
+ *   Location: "STRING_VALUE",
+ * };
  * const command = new StopFleetActionsCommand(input);
  * const response = await client.send(command);
  * ```

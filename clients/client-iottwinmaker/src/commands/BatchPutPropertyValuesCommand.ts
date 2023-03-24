@@ -42,6 +42,92 @@ export interface BatchPutPropertyValuesCommandOutput extends BatchPutPropertyVal
  * import { IoTTwinMakerClient, BatchPutPropertyValuesCommand } from "@aws-sdk/client-iottwinmaker"; // ES Modules import
  * // const { IoTTwinMakerClient, BatchPutPropertyValuesCommand } = require("@aws-sdk/client-iottwinmaker"); // CommonJS import
  * const client = new IoTTwinMakerClient(config);
+ * const input = {
+ *   workspaceId: "STRING_VALUE", // required
+ *   entries: [ // required
+ *     {
+ *       entityPropertyReference: {
+ *         componentName: "STRING_VALUE",
+ *         externalIdProperty: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         entityId: "STRING_VALUE",
+ *         propertyName: "STRING_VALUE", // required
+ *       },
+ *       propertyValues: [
+ *         {
+ *           timestamp: new Date("TIMESTAMP"),
+ *           value: {
+ *             booleanValue: true || false,
+ *             doubleValue: Number("double"),
+ *             integerValue: Number("int"),
+ *             longValue: Number("long"),
+ *             stringValue: "STRING_VALUE",
+ *             listValue: [
+ *               {
+ *                 booleanValue: true || false,
+ *                 doubleValue: Number("double"),
+ *                 integerValue: Number("int"),
+ *                 longValue: Number("long"),
+ *                 stringValue: "STRING_VALUE",
+ *                 listValue: [
+ *                   {
+ *                     booleanValue: "<DataValue>",
+ *                     doubleValue: "<DataValue>",
+ *                     integerValue: "<DataValue>",
+ *                     longValue: "<DataValue>",
+ *                     stringValue: "<DataValue>",
+ *                     listValue: "<DataValue>",
+ *                     mapValue: {
+ *                       "<keys>": {
+ *                         booleanValue: "<DataValue>",
+ *                         doubleValue: "<DataValue>",
+ *                         integerValue: "<DataValue>",
+ *                         longValue: "<DataValue>",
+ *                         stringValue: "<DataValue>",
+ *                         listValue: "<DataValue>",
+ *                         mapValue: {
+ *                           "<keys>": {
+ *                             booleanValue: "<DataValue>",
+ *                             doubleValue: "<DataValue>",
+ *                             integerValue: "<DataValue>",
+ *                             longValue: "<DataValue>",
+ *                             stringValue: "<DataValue>",
+ *                             listValue: "<DataValue>",
+ *                             mapValue: "<DataValue>",
+ *                             relationshipValue: {
+ *                               targetEntityId: "STRING_VALUE",
+ *                               targetComponentName: "STRING_VALUE",
+ *                             },
+ *                             expression: "STRING_VALUE",
+ *                           },
+ *                         },
+ *                         relationshipValue: {
+ *                           targetEntityId: "STRING_VALUE",
+ *                           targetComponentName: "STRING_VALUE",
+ *                         },
+ *                         expression: "STRING_VALUE",
+ *                       },
+ *                     },
+ *                     relationshipValue: "<DataValue>",
+ *                     expression: "<DataValue>",
+ *                   },
+ *                 ],
+ *                 mapValue: "<DataValue>",
+ *                 relationshipValue: "<DataValue>",
+ *                 expression: "<DataValue>",
+ *               },
+ *             ],
+ *             mapValue: "<DataValue>",
+ *             relationshipValue: "<DataValue>",
+ *             expression: "<DataValue>",
+ *           },
+ *           time: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new BatchPutPropertyValuesCommand(input);
  * const response = await client.send(command);
  * ```

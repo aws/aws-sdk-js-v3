@@ -42,6 +42,12 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * import { MWAAClient, UntagResourceCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, UntagResourceCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
  * const client = new MWAAClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   tagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

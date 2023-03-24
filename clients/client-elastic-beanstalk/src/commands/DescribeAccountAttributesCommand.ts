@@ -44,6 +44,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * import { ElasticBeanstalkClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {};
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
  * ```

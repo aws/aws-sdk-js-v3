@@ -42,6 +42,10 @@ export interface ListConnectorDefinitionsCommandOutput extends ListConnectorDefi
  * import { GreengrassClient, ListConnectorDefinitionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, ListConnectorDefinitionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   MaxResults: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListConnectorDefinitionsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -48,6 +48,9 @@ export interface ResumeServiceCommandOutput extends ResumeServiceResponse, __Met
  * import { AppRunnerClient, ResumeServiceCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ResumeServiceCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   ServiceArn: "STRING_VALUE", // required
+ * };
  * const command = new ResumeServiceCommand(input);
  * const response = await client.send(command);
  * ```

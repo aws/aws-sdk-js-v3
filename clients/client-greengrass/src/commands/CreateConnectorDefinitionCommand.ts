@@ -42,6 +42,24 @@ export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorD
  * import { GreengrassClient, CreateConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   AmznClientToken: "STRING_VALUE",
+ *   InitialVersion: {
+ *     Connectors: [
+ *       {
+ *         ConnectorArn: "STRING_VALUE", // required
+ *         Id: "STRING_VALUE", // required
+ *         Parameters: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   Name: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateConnectorDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

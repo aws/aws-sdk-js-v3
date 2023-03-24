@@ -46,6 +46,9 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput
  * import { DirectConnectClient, ConfirmPublicVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, ConfirmPublicVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   virtualInterfaceId: "STRING_VALUE", // required
+ * };
  * const command = new ConfirmPublicVirtualInterfaceCommand(input);
  * const response = await client.send(command);
  * ```

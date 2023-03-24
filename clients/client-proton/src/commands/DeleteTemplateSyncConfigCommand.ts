@@ -42,6 +42,10 @@ export interface DeleteTemplateSyncConfigCommandOutput extends DeleteTemplateSyn
  * import { ProtonClient, DeleteTemplateSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, DeleteTemplateSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   templateName: "STRING_VALUE", // required
+ *   templateType: "STRING_VALUE", // required
+ * };
  * const command = new DeleteTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
  * ```

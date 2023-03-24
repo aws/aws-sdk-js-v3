@@ -50,6 +50,18 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput
  * import { ChimeClient, PutVoiceConnectorStreamingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorStreamingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   VoiceConnectorId: "STRING_VALUE", // required
+ *   StreamingConfiguration: {
+ *     DataRetentionInHours: Number("int"), // required
+ *     Disabled: true || false,
+ *     StreamingNotificationTargets: [
+ *       {
+ *         NotificationTarget: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new PutVoiceConnectorStreamingConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

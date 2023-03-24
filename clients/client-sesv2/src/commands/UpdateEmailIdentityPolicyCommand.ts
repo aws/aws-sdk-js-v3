@@ -53,6 +53,11 @@ export interface UpdateEmailIdentityPolicyCommandOutput extends UpdateEmailIdent
  * import { SESv2Client, UpdateEmailIdentityPolicyCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, UpdateEmailIdentityPolicyCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   EmailIdentity: "STRING_VALUE", // required
+ *   PolicyName: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new UpdateEmailIdentityPolicyCommand(input);
  * const response = await client.send(command);
  * ```

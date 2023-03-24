@@ -46,6 +46,9 @@ export interface DeleteReadinessCheckCommandOutput extends __MetadataBearer {}
  * import { Route53RecoveryReadinessClient, DeleteReadinessCheckCommand } from "@aws-sdk/client-route53-recovery-readiness"; // ES Modules import
  * // const { Route53RecoveryReadinessClient, DeleteReadinessCheckCommand } = require("@aws-sdk/client-route53-recovery-readiness"); // CommonJS import
  * const client = new Route53RecoveryReadinessClient(config);
+ * const input = {
+ *   ReadinessCheckName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReadinessCheckCommand(input);
  * const response = await client.send(command);
  * ```

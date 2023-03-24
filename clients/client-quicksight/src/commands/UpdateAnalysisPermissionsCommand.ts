@@ -42,6 +42,26 @@ export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPe
  * import { QuickSightClient, UpdateAnalysisPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateAnalysisPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   AnalysisId: "STRING_VALUE", // required
+ *   GrantPermissions: [
+ *     {
+ *       Principal: "STRING_VALUE", // required
+ *       Actions: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   RevokePermissions: [
+ *     {
+ *       Principal: "STRING_VALUE", // required
+ *       Actions: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ * };
  * const command = new UpdateAnalysisPermissionsCommand(input);
  * const response = await client.send(command);
  * ```

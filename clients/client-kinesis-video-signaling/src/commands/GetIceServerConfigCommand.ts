@@ -59,6 +59,12 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  * import { KinesisVideoSignalingClient, GetIceServerConfigCommand } from "@aws-sdk/client-kinesis-video-signaling"; // ES Modules import
  * // const { KinesisVideoSignalingClient, GetIceServerConfigCommand } = require("@aws-sdk/client-kinesis-video-signaling"); // CommonJS import
  * const client = new KinesisVideoSignalingClient(config);
+ * const input = {
+ *   ChannelARN: "STRING_VALUE", // required
+ *   ClientId: "STRING_VALUE",
+ *   Service: "STRING_VALUE",
+ *   Username: "STRING_VALUE",
+ * };
  * const command = new GetIceServerConfigCommand(input);
  * const response = await client.send(command);
  * ```

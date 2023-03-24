@@ -46,6 +46,19 @@ export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGa
  * import { EC2Client, ExportTransitGatewayRoutesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ExportTransitGatewayRoutesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   S3Bucket: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new ExportTransitGatewayRoutesCommand(input);
  * const response = await client.send(command);
  * ```

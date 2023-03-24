@@ -44,6 +44,21 @@ export interface GetUnfilteredTableMetadataCommandOutput extends GetUnfilteredTa
  * import { GlueClient, GetUnfilteredTableMetadataCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetUnfilteredTableMetadataCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE", // required
+ *   DatabaseName: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   AuditContext: {
+ *     AdditionalAuditContext: "STRING_VALUE",
+ *     RequestedColumns: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AllColumnsRequested: true || false,
+ *   },
+ *   SupportedPermissionTypes: [ // required
+ *     "COLUMN_PERMISSION" || "CELL_FILTER_PERMISSION",
+ *   ],
+ * };
  * const command = new GetUnfilteredTableMetadataCommand(input);
  * const response = await client.send(command);
  * ```

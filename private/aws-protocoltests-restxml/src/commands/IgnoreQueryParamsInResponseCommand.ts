@@ -43,6 +43,7 @@ export interface IgnoreQueryParamsInResponseCommandOutput extends IgnoreQueryPar
  * import { RestXmlProtocolClient, IgnoreQueryParamsInResponseCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, IgnoreQueryParamsInResponseCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
+ * const input = {};
  * const command = new IgnoreQueryParamsInResponseCommand(input);
  * const response = await client.send(command);
  * ```

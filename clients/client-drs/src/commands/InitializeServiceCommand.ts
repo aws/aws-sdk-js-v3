@@ -42,6 +42,7 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * import { DrsClient, InitializeServiceCommand } from "@aws-sdk/client-drs"; // ES Modules import
  * // const { DrsClient, InitializeServiceCommand } = require("@aws-sdk/client-drs"); // CommonJS import
  * const client = new DrsClient(config);
+ * const input = {};
  * const command = new InitializeServiceCommand(input);
  * const response = await client.send(command);
  * ```

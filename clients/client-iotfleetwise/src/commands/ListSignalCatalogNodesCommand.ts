@@ -45,6 +45,11 @@ export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNo
  * import { IoTFleetWiseClient, ListSignalCatalogNodesCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, ListSignalCatalogNodesCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSignalCatalogNodesCommand(input);
  * const response = await client.send(command);
  * ```

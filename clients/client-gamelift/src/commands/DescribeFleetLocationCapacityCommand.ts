@@ -61,6 +61,10 @@ export interface DescribeFleetLocationCapacityCommandOutput
  * import { GameLiftClient, DescribeFleetLocationCapacityCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, DescribeFleetLocationCapacityCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   FleetId: "STRING_VALUE", // required
+ *   Location: "STRING_VALUE", // required
+ * };
  * const command = new DescribeFleetLocationCapacityCommand(input);
  * const response = await client.send(command);
  * ```

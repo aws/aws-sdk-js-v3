@@ -48,6 +48,9 @@ export interface GetResourceRequestStatusCommandOutput extends GetResourceReques
  * import { CloudControlClient, GetResourceRequestStatusCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, GetResourceRequestStatusCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
  * const client = new CloudControlClient(config);
+ * const input = {
+ *   RequestToken: "STRING_VALUE", // required
+ * };
  * const command = new GetResourceRequestStatusCommand(input);
  * const response = await client.send(command);
  * ```

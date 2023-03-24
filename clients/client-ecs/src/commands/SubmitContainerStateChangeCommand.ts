@@ -45,6 +45,25 @@ export interface SubmitContainerStateChangeCommandOutput extends SubmitContainer
  * import { ECSClient, SubmitContainerStateChangeCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, SubmitContainerStateChangeCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
+ * const input = {
+ *   cluster: "STRING_VALUE",
+ *   task: "STRING_VALUE",
+ *   containerName: "STRING_VALUE",
+ *   runtimeId: "STRING_VALUE",
+ *   status: "STRING_VALUE",
+ *   exitCode: Number("int"),
+ *   reason: "STRING_VALUE",
+ *   networkBindings: [
+ *     {
+ *       bindIP: "STRING_VALUE",
+ *       containerPort: Number("int"),
+ *       hostPort: Number("int"),
+ *       protocol: "tcp" || "udp",
+ *       containerPortRange: "STRING_VALUE",
+ *       hostPortRange: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new SubmitContainerStateChangeCommand(input);
  * const response = await client.send(command);
  * ```

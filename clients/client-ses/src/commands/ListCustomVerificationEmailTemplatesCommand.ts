@@ -51,6 +51,10 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  * import { SESClient, ListCustomVerificationEmailTemplatesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListCustomVerificationEmailTemplatesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListCustomVerificationEmailTemplatesCommand(input);
  * const response = await client.send(command);
  * ```

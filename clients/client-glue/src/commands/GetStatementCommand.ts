@@ -42,6 +42,11 @@ export interface GetStatementCommandOutput extends GetStatementResponse, __Metad
  * import { GlueClient, GetStatementCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetStatementCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   SessionId: "STRING_VALUE", // required
+ *   Id: Number("int"), // required
+ *   RequestOrigin: "STRING_VALUE",
+ * };
  * const command = new GetStatementCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,9 @@ export interface DisassociateIamInstanceProfileCommandOutput
  * import { EC2Client, DisassociateIamInstanceProfileCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisassociateIamInstanceProfileCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   AssociationId: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateIamInstanceProfileCommand(input);
  * const response = await client.send(command);
  * ```

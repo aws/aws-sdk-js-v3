@@ -43,6 +43,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { CustomerProfilesClient, ListTagsForResourceCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListTagsForResourceCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

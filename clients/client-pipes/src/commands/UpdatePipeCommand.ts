@@ -47,6 +47,290 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
  * import { PipesClient, UpdatePipeCommand } from "@aws-sdk/client-pipes"; // ES Modules import
  * // const { PipesClient, UpdatePipeCommand } = require("@aws-sdk/client-pipes"); // CommonJS import
  * const client = new PipesClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   DesiredState: "STRING_VALUE",
+ *   SourceParameters: {
+ *     FilterCriteria: {
+ *       Filters: [
+ *         {
+ *           Pattern: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *     KinesisStreamParameters: {
+ *       BatchSize: Number("int"),
+ *       DeadLetterConfig: {
+ *         Arn: "STRING_VALUE",
+ *       },
+ *       OnPartialBatchItemFailure: "STRING_VALUE",
+ *       MaximumBatchingWindowInSeconds: Number("int"),
+ *       MaximumRecordAgeInSeconds: Number("int"),
+ *       MaximumRetryAttempts: Number("int"),
+ *       ParallelizationFactor: Number("int"),
+ *     },
+ *     DynamoDBStreamParameters: {
+ *       BatchSize: Number("int"),
+ *       DeadLetterConfig: {
+ *         Arn: "STRING_VALUE",
+ *       },
+ *       OnPartialBatchItemFailure: "STRING_VALUE",
+ *       MaximumBatchingWindowInSeconds: Number("int"),
+ *       MaximumRecordAgeInSeconds: Number("int"),
+ *       MaximumRetryAttempts: Number("int"),
+ *       ParallelizationFactor: Number("int"),
+ *     },
+ *     SqsQueueParameters: {
+ *       BatchSize: Number("int"),
+ *       MaximumBatchingWindowInSeconds: Number("int"),
+ *     },
+ *     ActiveMQBrokerParameters: {
+ *       Credentials: { // Union: only one key present
+ *         BasicAuth: "STRING_VALUE",
+ *       },
+ *       BatchSize: Number("int"),
+ *       MaximumBatchingWindowInSeconds: Number("int"),
+ *     },
+ *     RabbitMQBrokerParameters: {
+ *       Credentials: { // Union: only one key present
+ *         BasicAuth: "STRING_VALUE",
+ *       },
+ *       BatchSize: Number("int"),
+ *       MaximumBatchingWindowInSeconds: Number("int"),
+ *     },
+ *     ManagedStreamingKafkaParameters: {
+ *       BatchSize: Number("int"),
+ *       Credentials: { // Union: only one key present
+ *         SaslScram512Auth: "STRING_VALUE",
+ *         ClientCertificateTlsAuth: "STRING_VALUE",
+ *       },
+ *       MaximumBatchingWindowInSeconds: Number("int"),
+ *     },
+ *     SelfManagedKafkaParameters: {
+ *       BatchSize: Number("int"),
+ *       MaximumBatchingWindowInSeconds: Number("int"),
+ *       Credentials: { // Union: only one key present
+ *         BasicAuth: "STRING_VALUE",
+ *         SaslScram512Auth: "STRING_VALUE",
+ *         SaslScram256Auth: "STRING_VALUE",
+ *         ClientCertificateTlsAuth: "STRING_VALUE",
+ *       },
+ *       ServerRootCaCertificate: "STRING_VALUE",
+ *       Vpc: {
+ *         Subnets: [
+ *           "STRING_VALUE",
+ *         ],
+ *         SecurityGroup: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   Enrichment: "STRING_VALUE",
+ *   EnrichmentParameters: {
+ *     InputTemplate: "STRING_VALUE",
+ *     HttpParameters: {
+ *       PathParameterValues: [
+ *         "STRING_VALUE",
+ *       ],
+ *       HeaderParameters: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       QueryStringParameters: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   Target: "STRING_VALUE",
+ *   TargetParameters: {
+ *     InputTemplate: "STRING_VALUE",
+ *     LambdaFunctionParameters: {
+ *       InvocationType: "STRING_VALUE",
+ *     },
+ *     StepFunctionStateMachineParameters: {
+ *       InvocationType: "STRING_VALUE",
+ *     },
+ *     KinesisStreamParameters: {
+ *       PartitionKey: "STRING_VALUE", // required
+ *     },
+ *     EcsTaskParameters: {
+ *       TaskDefinitionArn: "STRING_VALUE", // required
+ *       TaskCount: Number("int"),
+ *       LaunchType: "STRING_VALUE",
+ *       NetworkConfiguration: {
+ *         awsvpcConfiguration: {
+ *           Subnets: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           SecurityGroups: [
+ *             "STRING_VALUE",
+ *           ],
+ *           AssignPublicIp: "STRING_VALUE",
+ *         },
+ *       },
+ *       PlatformVersion: "STRING_VALUE",
+ *       Group: "STRING_VALUE",
+ *       CapacityProviderStrategy: [
+ *         {
+ *           capacityProvider: "STRING_VALUE", // required
+ *           weight: Number("int"),
+ *           base: Number("int"),
+ *         },
+ *       ],
+ *       EnableECSManagedTags: true || false,
+ *       EnableExecuteCommand: true || false,
+ *       PlacementConstraints: [
+ *         {
+ *           type: "STRING_VALUE",
+ *           expression: "STRING_VALUE",
+ *         },
+ *       ],
+ *       PlacementStrategy: [
+ *         {
+ *           type: "STRING_VALUE",
+ *           field: "STRING_VALUE",
+ *         },
+ *       ],
+ *       PropagateTags: "STRING_VALUE",
+ *       ReferenceId: "STRING_VALUE",
+ *       Overrides: {
+ *         ContainerOverrides: [
+ *           {
+ *             Command: [
+ *               "STRING_VALUE",
+ *             ],
+ *             Cpu: Number("int"),
+ *             Environment: [
+ *               {
+ *                 name: "STRING_VALUE",
+ *                 value: "STRING_VALUE",
+ *               },
+ *             ],
+ *             EnvironmentFiles: [
+ *               {
+ *                 type: "STRING_VALUE", // required
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *             Memory: Number("int"),
+ *             MemoryReservation: Number("int"),
+ *             Name: "STRING_VALUE",
+ *             ResourceRequirements: [
+ *               {
+ *                 type: "STRING_VALUE", // required
+ *                 value: "STRING_VALUE", // required
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *         Cpu: "STRING_VALUE",
+ *         EphemeralStorage: {
+ *           sizeInGiB: Number("int"), // required
+ *         },
+ *         ExecutionRoleArn: "STRING_VALUE",
+ *         InferenceAcceleratorOverrides: [
+ *           {
+ *             deviceName: "STRING_VALUE",
+ *             deviceType: "STRING_VALUE",
+ *           },
+ *         ],
+ *         Memory: "STRING_VALUE",
+ *         TaskRoleArn: "STRING_VALUE",
+ *       },
+ *       Tags: [
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     BatchJobParameters: {
+ *       JobDefinition: "STRING_VALUE", // required
+ *       JobName: "STRING_VALUE", // required
+ *       ArrayProperties: {
+ *         Size: Number("int"),
+ *       },
+ *       RetryStrategy: {
+ *         Attempts: Number("int"),
+ *       },
+ *       ContainerOverrides: {
+ *         Command: [
+ *           "STRING_VALUE",
+ *         ],
+ *         Environment: [
+ *           {
+ *             Name: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *         InstanceType: "STRING_VALUE",
+ *         ResourceRequirements: [
+ *           {
+ *             Type: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       DependsOn: [
+ *         {
+ *           JobId: "STRING_VALUE",
+ *           Type: "STRING_VALUE",
+ *         },
+ *       ],
+ *       Parameters: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *     SqsQueueParameters: {
+ *       MessageGroupId: "STRING_VALUE",
+ *       MessageDeduplicationId: "STRING_VALUE",
+ *     },
+ *     HttpParameters: {
+ *       PathParameterValues: [
+ *         "STRING_VALUE",
+ *       ],
+ *       HeaderParameters: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       QueryStringParameters: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *     RedshiftDataParameters: {
+ *       SecretManagerArn: "STRING_VALUE",
+ *       Database: "STRING_VALUE", // required
+ *       DbUser: "STRING_VALUE",
+ *       StatementName: "STRING_VALUE",
+ *       WithEvent: true || false,
+ *       Sqls: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     SageMakerPipelineParameters: {
+ *       PipelineParameterList: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *     EventBridgeEventBusParameters: {
+ *       EndpointId: "STRING_VALUE",
+ *       DetailType: "STRING_VALUE",
+ *       Source: "STRING_VALUE",
+ *       Resources: [
+ *         "STRING_VALUE",
+ *       ],
+ *       Time: "STRING_VALUE",
+ *     },
+ *     CloudWatchLogsParameters: {
+ *       LogStreamName: "STRING_VALUE",
+ *       Timestamp: "STRING_VALUE",
+ *     },
+ *   },
+ *   RoleArn: "STRING_VALUE", // required
+ * };
  * const command = new UpdatePipeCommand(input);
  * const response = await client.send(command);
  * ```

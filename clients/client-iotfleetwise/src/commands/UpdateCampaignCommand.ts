@@ -42,6 +42,14 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * import { IoTFleetWiseClient, UpdateCampaignCommand } from "@aws-sdk/client-iotfleetwise"; // ES Modules import
  * // const { IoTFleetWiseClient, UpdateCampaignCommand } = require("@aws-sdk/client-iotfleetwise"); // CommonJS import
  * const client = new IoTFleetWiseClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   dataExtraDimensions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   action: "STRING_VALUE", // required
+ * };
  * const command = new UpdateCampaignCommand(input);
  * const response = await client.send(command);
  * ```

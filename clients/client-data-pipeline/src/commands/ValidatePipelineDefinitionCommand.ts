@@ -193,6 +193,39 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  * import { DataPipelineClient, ValidatePipelineDefinitionCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, ValidatePipelineDefinitionCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
+ * const input = {
+ *   pipelineId: "STRING_VALUE", // required
+ *   pipelineObjects: [ // required
+ *     {
+ *       id: "STRING_VALUE", // required
+ *       name: "STRING_VALUE", // required
+ *       fields: [ // required
+ *         {
+ *           key: "STRING_VALUE", // required
+ *           stringValue: "STRING_VALUE",
+ *           refValue: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   parameterObjects: [
+ *     {
+ *       id: "STRING_VALUE", // required
+ *       attributes: [ // required
+ *         {
+ *           key: "STRING_VALUE", // required
+ *           stringValue: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   parameterValues: [
+ *     {
+ *       id: "STRING_VALUE", // required
+ *       stringValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ValidatePipelineDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

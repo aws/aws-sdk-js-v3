@@ -43,6 +43,10 @@ export interface DeregisterTransitGatewayCommandOutput extends DeregisterTransit
  * import { NetworkManagerClient, DeregisterTransitGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeregisterTransitGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   TransitGatewayArn: "STRING_VALUE", // required
+ * };
  * const command = new DeregisterTransitGatewayCommand(input);
  * const response = await client.send(command);
  * ```

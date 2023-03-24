@@ -42,6 +42,20 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  * import { IoTSiteWiseClient, PutStorageConfigurationCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, PutStorageConfigurationCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   storageType: "SITEWISE_DEFAULT_STORAGE" || "MULTI_LAYER_STORAGE", // required
+ *   multiLayerStorage: {
+ *     customerManagedS3Storage: {
+ *       s3ResourceArn: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   disassociatedDataStorage: "ENABLED" || "DISABLED",
+ *   retentionPeriod: {
+ *     numberOfDays: Number("int"),
+ *     unlimited: true || false,
+ *   },
+ * };
  * const command = new PutStorageConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

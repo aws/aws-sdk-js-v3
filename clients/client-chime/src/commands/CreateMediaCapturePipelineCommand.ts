@@ -47,6 +47,38 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * import { ChimeClient, CreateMediaCapturePipelineCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateMediaCapturePipelineCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   SourceType: "STRING_VALUE", // required
+ *   SourceArn: "STRING_VALUE", // required
+ *   SinkType: "STRING_VALUE", // required
+ *   SinkArn: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   ChimeSdkMeetingConfiguration: {
+ *     SourceConfiguration: {
+ *       SelectedVideoStreams: {
+ *         AttendeeIds: [
+ *           "STRING_VALUE",
+ *         ],
+ *         ExternalUserIds: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *     ArtifactsConfiguration: {
+ *       Audio: {
+ *         MuxType: "STRING_VALUE", // required
+ *       },
+ *       Video: {
+ *         State: "STRING_VALUE", // required
+ *         MuxType: "STRING_VALUE",
+ *       },
+ *       Content: {
+ *         State: "STRING_VALUE", // required
+ *         MuxType: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new CreateMediaCapturePipelineCommand(input);
  * const response = await client.send(command);
  * ```

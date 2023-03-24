@@ -45,6 +45,9 @@ export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateRespo
  * import { IoTThingsGraphClient, DeleteFlowTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeleteFlowTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFlowTemplateCommand(input);
  * const response = await client.send(command);
  * ```

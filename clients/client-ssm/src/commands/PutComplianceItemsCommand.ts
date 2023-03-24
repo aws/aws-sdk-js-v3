@@ -97,6 +97,29 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * import { SSMClient, PutComplianceItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, PutComplianceItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   ResourceType: "STRING_VALUE", // required
+ *   ComplianceType: "STRING_VALUE", // required
+ *   ExecutionSummary: {
+ *     ExecutionTime: new Date("TIMESTAMP"), // required
+ *     ExecutionId: "STRING_VALUE",
+ *     ExecutionType: "STRING_VALUE",
+ *   },
+ *   Items: [ // required
+ *     {
+ *       Id: "STRING_VALUE",
+ *       Title: "STRING_VALUE",
+ *       Severity: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "INFORMATIONAL" || "UNSPECIFIED", // required
+ *       Status: "COMPLIANT" || "NON_COMPLIANT", // required
+ *       Details: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   ItemContentHash: "STRING_VALUE",
+ *   UploadType: "COMPLETE" || "PARTIAL",
+ * };
  * const command = new PutComplianceItemsCommand(input);
  * const response = await client.send(command);
  * ```

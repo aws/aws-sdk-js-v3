@@ -42,6 +42,21 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
  * import { HealthLakeClient, StartFHIRImportJobCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, StartFHIRImportJobCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * const client = new HealthLakeClient(config);
+ * const input = {
+ *   JobName: "STRING_VALUE",
+ *   InputDataConfig: { // Union: only one key present
+ *     S3Uri: "STRING_VALUE",
+ *   },
+ *   JobOutputDataConfig: { // Union: only one key present
+ *     S3Configuration: {
+ *       S3Uri: "STRING_VALUE", // required
+ *       KmsKeyId: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   DatastoreId: "STRING_VALUE", // required
+ *   DataAccessRoleArn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE", // required
+ * };
  * const command = new StartFHIRImportJobCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKa
  * import { KafkaClient, GetCompatibleKafkaVersionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, GetCompatibleKafkaVersionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
+ * const input = {
+ *   ClusterArn: "STRING_VALUE",
+ * };
  * const command = new GetCompatibleKafkaVersionsCommand(input);
  * const response = await client.send(command);
  * ```

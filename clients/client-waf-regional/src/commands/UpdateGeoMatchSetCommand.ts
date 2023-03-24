@@ -80,6 +80,19 @@ export interface UpdateGeoMatchSetCommandOutput extends UpdateGeoMatchSetRespons
  * import { WAFRegionalClient, UpdateGeoMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateGeoMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
+ * const input = {
+ *   GeoMatchSetId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // required
+ *     {
+ *       Action: "STRING_VALUE", // required
+ *       GeoMatchConstraint: {
+ *         Type: "STRING_VALUE", // required
+ *         Value: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateGeoMatchSetCommand(input);
  * const response = await client.send(command);
  * ```

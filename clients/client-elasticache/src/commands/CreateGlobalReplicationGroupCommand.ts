@@ -58,6 +58,11 @@ export interface CreateGlobalReplicationGroupCommandOutput
  * import { ElastiCacheClient, CreateGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   GlobalReplicationGroupIdSuffix: "STRING_VALUE", // required
+ *   GlobalReplicationGroupDescription: "STRING_VALUE",
+ *   PrimaryReplicationGroupId: "STRING_VALUE", // required
+ * };
  * const command = new CreateGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);
  * ```

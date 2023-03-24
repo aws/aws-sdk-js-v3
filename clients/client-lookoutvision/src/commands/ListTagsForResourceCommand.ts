@@ -44,6 +44,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { LookoutVisionClient, ListTagsForResourceCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, ListTagsForResourceCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -103,6 +103,117 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  * import { LexModelBuildingServiceClient, PutIntentCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, PutIntentCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   slots: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       slotConstraint: "STRING_VALUE", // required
+ *       slotType: "STRING_VALUE",
+ *       slotTypeVersion: "STRING_VALUE",
+ *       valueElicitationPrompt: {
+ *         messages: [ // required
+ *           {
+ *             contentType: "STRING_VALUE", // required
+ *             content: "STRING_VALUE", // required
+ *             groupNumber: Number("int"),
+ *           },
+ *         ],
+ *         maxAttempts: Number("int"), // required
+ *         responseCard: "STRING_VALUE",
+ *       },
+ *       priority: Number("int"),
+ *       sampleUtterances: [
+ *         "STRING_VALUE",
+ *       ],
+ *       responseCard: "STRING_VALUE",
+ *       obfuscationSetting: "STRING_VALUE",
+ *       defaultValueSpec: {
+ *         defaultValueList: [ // required
+ *           {
+ *             defaultValue: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   sampleUtterances: [
+ *     "STRING_VALUE",
+ *   ],
+ *   confirmationPrompt: {
+ *     messages: [ // required
+ *       {
+ *         contentType: "STRING_VALUE", // required
+ *         content: "STRING_VALUE", // required
+ *         groupNumber: Number("int"),
+ *       },
+ *     ],
+ *     maxAttempts: Number("int"), // required
+ *     responseCard: "STRING_VALUE",
+ *   },
+ *   rejectionStatement: {
+ *     messages: [ // required
+ *       {
+ *         contentType: "STRING_VALUE", // required
+ *         content: "STRING_VALUE", // required
+ *         groupNumber: Number("int"),
+ *       },
+ *     ],
+ *     responseCard: "STRING_VALUE",
+ *   },
+ *   followUpPrompt: {
+ *     prompt: {
+ *       messages: "<Prompt>",
+ *       maxAttempts: "<Prompt>",
+ *       responseCard: "<Prompt>",
+ *     },
+ *     rejectionStatement: {
+ *       messages: [ // required
+ *         "<MessageList>",
+ *       ],
+ *       responseCard: "STRING_VALUE",
+ *     },
+ *   },
+ *   conclusionStatement: {
+ *     messages: [ // required
+ *       "<MessageList>",
+ *     ],
+ *     responseCard: "STRING_VALUE",
+ *   },
+ *   dialogCodeHook: {
+ *     uri: "STRING_VALUE", // required
+ *     messageVersion: "STRING_VALUE", // required
+ *   },
+ *   fulfillmentActivity: {
+ *     type: "STRING_VALUE", // required
+ *     codeHook: {
+ *       uri: "STRING_VALUE", // required
+ *       messageVersion: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   parentIntentSignature: "STRING_VALUE",
+ *   checksum: "STRING_VALUE",
+ *   createVersion: true || false,
+ *   kendraConfiguration: {
+ *     kendraIndex: "STRING_VALUE", // required
+ *     queryFilterString: "STRING_VALUE",
+ *     role: "STRING_VALUE", // required
+ *   },
+ *   inputContexts: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   outputContexts: [
+ *     {
+ *       name: "STRING_VALUE", // required
+ *       timeToLiveInSeconds: Number("int"), // required
+ *       turnsToLive: Number("int"), // required
+ *     },
+ *   ],
+ * };
  * const command = new PutIntentCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,16 @@ export interface CreateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  * import { APIGatewayClient, CreateVpcLinkCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateVpcLinkCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   targetArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateVpcLinkCommand(input);
  * const response = await client.send(command);
  * ```

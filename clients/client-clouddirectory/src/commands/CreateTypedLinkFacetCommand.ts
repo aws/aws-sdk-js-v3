@@ -42,6 +42,38 @@ export interface CreateTypedLinkFacetCommandOutput extends CreateTypedLinkFacetR
  * import { CloudDirectoryClient, CreateTypedLinkFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateTypedLinkFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   SchemaArn: "STRING_VALUE", // required
+ *   Facet: {
+ *     Name: "STRING_VALUE", // required
+ *     Attributes: [ // required
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Type: "STRING" || "BINARY" || "BOOLEAN" || "NUMBER" || "DATETIME" || "VARIANT", // required
+ *         DefaultValue: { // Union: only one key present
+ *           StringValue: "STRING_VALUE",
+ *           BinaryValue: "BLOB_VALUE",
+ *           BooleanValue: true || false,
+ *           NumberValue: "STRING_VALUE",
+ *           DatetimeValue: new Date("TIMESTAMP"),
+ *         },
+ *         IsImmutable: true || false,
+ *         Rules: {
+ *           "<keys>": {
+ *             Type: "BINARY_LENGTH" || "NUMBER_COMPARISON" || "STRING_FROM_SET" || "STRING_LENGTH",
+ *             Parameters: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *         RequiredBehavior: "REQUIRED_ALWAYS" || "NOT_REQUIRED", // required
+ *       },
+ *     ],
+ *     IdentityAttributeOrder: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ * };
  * const command = new CreateTypedLinkFacetCommand(input);
  * const response = await client.send(command);
  * ```

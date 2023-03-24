@@ -42,6 +42,9 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
  * import { AthenaClient, DeleteDataCatalogCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, DeleteDataCatalogCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDataCatalogCommand(input);
  * const response = await client.send(command);
  * ```

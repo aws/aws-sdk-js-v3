@@ -39,6 +39,19 @@ export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBeare
  * import { CloudFormationClient, ListTypesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListTypesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   Visibility: "PUBLIC" || "PRIVATE",
+ *   ProvisioningType: "NON_PROVISIONABLE" || "IMMUTABLE" || "FULLY_MUTABLE",
+ *   DeprecatedStatus: "LIVE" || "DEPRECATED",
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   Filters: {
+ *     Category: "REGISTERED" || "ACTIVATED" || "THIRD_PARTY" || "AWS_TYPES",
+ *     PublisherId: "STRING_VALUE",
+ *     TypeNamePrefix: "STRING_VALUE",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTypesCommand(input);
  * const response = await client.send(command);
  * ```

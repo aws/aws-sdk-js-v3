@@ -50,6 +50,7 @@ export interface DisableSecurityHubCommandOutput extends DisableSecurityHubRespo
  * import { SecurityHubClient, DisableSecurityHubCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisableSecurityHubCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {};
  * const command = new DisableSecurityHubCommand(input);
  * const response = await client.send(command);
  * ```

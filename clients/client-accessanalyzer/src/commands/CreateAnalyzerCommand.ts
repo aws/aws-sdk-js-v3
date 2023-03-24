@@ -42,6 +42,33 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * import { AccessAnalyzerClient, CreateAnalyzerCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, CreateAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = {
+ *   analyzerName: "STRING_VALUE", // required
+ *   type: "STRING_VALUE", // required
+ *   archiveRules: [
+ *     {
+ *       ruleName: "STRING_VALUE", // required
+ *       filter: { // required
+ *         "<keys>": {
+ *           eq: [
+ *             "STRING_VALUE",
+ *           ],
+ *           neq: [
+ *             "STRING_VALUE",
+ *           ],
+ *           contains: [
+ *             "STRING_VALUE",
+ *           ],
+ *           exists: true || false,
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new CreateAnalyzerCommand(input);
  * const response = await client.send(command);
  * ```

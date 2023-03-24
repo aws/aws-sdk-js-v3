@@ -42,6 +42,10 @@ export interface RevokeFlowEntitlementCommandOutput extends RevokeFlowEntitlemen
  * import { MediaConnectClient, RevokeFlowEntitlementCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, RevokeFlowEntitlementCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
+ * const input = {
+ *   EntitlementArn: "STRING_VALUE", // required
+ *   FlowArn: "STRING_VALUE", // required
+ * };
  * const command = new RevokeFlowEntitlementCommand(input);
  * const response = await client.send(command);
  * ```

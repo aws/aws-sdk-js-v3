@@ -45,6 +45,18 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  * import { EMRClient, PutManagedScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, PutManagedScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
+ * const input = {
+ *   ClusterId: "STRING_VALUE", // required
+ *   ManagedScalingPolicy: {
+ *     ComputeLimits: {
+ *       UnitType: "InstanceFleetUnits" || "Instances" || "VCPU", // required
+ *       MinimumCapacityUnits: Number("int"), // required
+ *       MaximumCapacityUnits: Number("int"), // required
+ *       MaximumOnDemandCapacityUnits: Number("int"),
+ *       MaximumCoreCapacityUnits: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new PutManagedScalingPolicyCommand(input);
  * const response = await client.send(command);
  * ```

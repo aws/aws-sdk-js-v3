@@ -44,6 +44,21 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  * import { CloudFormationClient, ActivateTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ActivateTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   Type: "RESOURCE" || "MODULE" || "HOOK",
+ *   PublicTypeArn: "STRING_VALUE",
+ *   PublisherId: "STRING_VALUE",
+ *   TypeName: "STRING_VALUE",
+ *   TypeNameAlias: "STRING_VALUE",
+ *   AutoUpdate: true || false,
+ *   LoggingConfig: {
+ *     LogRoleArn: "STRING_VALUE", // required
+ *     LogGroupName: "STRING_VALUE", // required
+ *   },
+ *   ExecutionRoleArn: "STRING_VALUE",
+ *   VersionBump: "MAJOR" || "MINOR",
+ *   MajorVersion: Number("long"),
+ * };
  * const command = new ActivateTypeCommand(input);
  * const response = await client.send(command);
  * ```

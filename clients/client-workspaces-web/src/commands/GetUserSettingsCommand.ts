@@ -42,6 +42,9 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * import { WorkSpacesWebClient, GetUserSettingsCommand } from "@aws-sdk/client-workspaces-web"; // ES Modules import
  * // const { WorkSpacesWebClient, GetUserSettingsCommand } = require("@aws-sdk/client-workspaces-web"); // CommonJS import
  * const client = new WorkSpacesWebClient(config);
+ * const input = {
+ *   userSettingsArn: "STRING_VALUE", // required
+ * };
  * const command = new GetUserSettingsCommand(input);
  * const response = await client.send(command);
  * ```

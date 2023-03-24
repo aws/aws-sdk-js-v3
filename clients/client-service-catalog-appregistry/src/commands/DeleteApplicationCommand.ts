@@ -46,6 +46,9 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * import { ServiceCatalogAppRegistryClient, DeleteApplicationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, DeleteApplicationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
+ * const input = {
+ *   application: "STRING_VALUE", // required
+ * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
  * ```

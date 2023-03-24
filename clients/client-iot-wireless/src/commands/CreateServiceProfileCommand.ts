@@ -42,6 +42,21 @@ export interface CreateServiceProfileCommandOutput extends CreateServiceProfileR
  * import { IoTWirelessClient, CreateServiceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateServiceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE",
+ *   LoRaWAN: {
+ *     AddGwMetadata: true || false,
+ *     DrMin: Number("int"),
+ *     DrMax: Number("int"),
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new CreateServiceProfileCommand(input);
  * const response = await client.send(command);
  * ```

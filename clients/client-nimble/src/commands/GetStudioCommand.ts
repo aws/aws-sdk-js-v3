@@ -42,6 +42,9 @@ export interface GetStudioCommandOutput extends GetStudioResponse, __MetadataBea
  * import { NimbleClient, GetStudioCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetStudioCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new GetStudioCommand(input);
  * const response = await client.send(command);
  * ```

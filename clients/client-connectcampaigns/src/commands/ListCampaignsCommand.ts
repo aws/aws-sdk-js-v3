@@ -42,6 +42,16 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * import { ConnectCampaignsClient, ListCampaignsCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, ListCampaignsCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filters: {
+ *     instanceIdFilter: {
+ *       value: "STRING_VALUE", // required
+ *       operator: "STRING_VALUE", // required
+ *     },
+ *   },
+ * };
  * const command = new ListCampaignsCommand(input);
  * const response = await client.send(command);
  * ```

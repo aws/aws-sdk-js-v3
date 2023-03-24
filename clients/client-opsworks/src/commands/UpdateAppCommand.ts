@@ -44,6 +44,46 @@ export interface UpdateAppCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, UpdateAppCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, UpdateAppCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   AppId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   DataSources: [
+ *     {
+ *       Type: "STRING_VALUE",
+ *       Arn: "STRING_VALUE",
+ *       DatabaseName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   Type: "STRING_VALUE",
+ *   AppSource: {
+ *     Type: "STRING_VALUE",
+ *     Url: "STRING_VALUE",
+ *     Username: "STRING_VALUE",
+ *     Password: "STRING_VALUE",
+ *     SshKey: "STRING_VALUE",
+ *     Revision: "STRING_VALUE",
+ *   },
+ *   Domains: [
+ *     "STRING_VALUE",
+ *   ],
+ *   EnableSsl: true || false,
+ *   SslConfiguration: {
+ *     Certificate: "STRING_VALUE", // required
+ *     PrivateKey: "STRING_VALUE", // required
+ *     Chain: "STRING_VALUE",
+ *   },
+ *   Attributes: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Environment: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *       Secure: true || false,
+ *     },
+ *   ],
+ * };
  * const command = new UpdateAppCommand(input);
  * const response = await client.send(command);
  * ```

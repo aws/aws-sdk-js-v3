@@ -42,6 +42,166 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * import { CodeBuildClient, UpdateProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, UpdateProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   source: {
+ *     type: "STRING_VALUE", // required
+ *     location: "STRING_VALUE",
+ *     gitCloneDepth: Number("int"),
+ *     gitSubmodulesConfig: {
+ *       fetchSubmodules: true || false, // required
+ *     },
+ *     buildspec: "STRING_VALUE",
+ *     auth: {
+ *       type: "STRING_VALUE", // required
+ *       resource: "STRING_VALUE",
+ *     },
+ *     reportBuildStatus: true || false,
+ *     buildStatusConfig: {
+ *       context: "STRING_VALUE",
+ *       targetUrl: "STRING_VALUE",
+ *     },
+ *     insecureSsl: true || false,
+ *     sourceIdentifier: "STRING_VALUE",
+ *   },
+ *   secondarySources: [
+ *     {
+ *       type: "STRING_VALUE", // required
+ *       location: "STRING_VALUE",
+ *       gitCloneDepth: Number("int"),
+ *       gitSubmodulesConfig: {
+ *         fetchSubmodules: true || false, // required
+ *       },
+ *       buildspec: "STRING_VALUE",
+ *       auth: {
+ *         type: "STRING_VALUE", // required
+ *         resource: "STRING_VALUE",
+ *       },
+ *       reportBuildStatus: true || false,
+ *       buildStatusConfig: {
+ *         context: "STRING_VALUE",
+ *         targetUrl: "STRING_VALUE",
+ *       },
+ *       insecureSsl: true || false,
+ *       sourceIdentifier: "STRING_VALUE",
+ *     },
+ *   ],
+ *   sourceVersion: "STRING_VALUE",
+ *   secondarySourceVersions: [
+ *     {
+ *       sourceIdentifier: "STRING_VALUE", // required
+ *       sourceVersion: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   artifacts: {
+ *     type: "STRING_VALUE", // required
+ *     location: "STRING_VALUE",
+ *     path: "STRING_VALUE",
+ *     namespaceType: "STRING_VALUE",
+ *     name: "STRING_VALUE",
+ *     packaging: "STRING_VALUE",
+ *     overrideArtifactName: true || false,
+ *     encryptionDisabled: true || false,
+ *     artifactIdentifier: "STRING_VALUE",
+ *     bucketOwnerAccess: "STRING_VALUE",
+ *   },
+ *   secondaryArtifacts: [
+ *     {
+ *       type: "STRING_VALUE", // required
+ *       location: "STRING_VALUE",
+ *       path: "STRING_VALUE",
+ *       namespaceType: "STRING_VALUE",
+ *       name: "STRING_VALUE",
+ *       packaging: "STRING_VALUE",
+ *       overrideArtifactName: true || false,
+ *       encryptionDisabled: true || false,
+ *       artifactIdentifier: "STRING_VALUE",
+ *       bucketOwnerAccess: "STRING_VALUE",
+ *     },
+ *   ],
+ *   cache: {
+ *     type: "STRING_VALUE", // required
+ *     location: "STRING_VALUE",
+ *     modes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   environment: {
+ *     type: "STRING_VALUE", // required
+ *     image: "STRING_VALUE", // required
+ *     computeType: "STRING_VALUE", // required
+ *     environmentVariables: [
+ *       {
+ *         name: "STRING_VALUE", // required
+ *         value: "STRING_VALUE", // required
+ *         type: "STRING_VALUE",
+ *       },
+ *     ],
+ *     privilegedMode: true || false,
+ *     certificate: "STRING_VALUE",
+ *     registryCredential: {
+ *       credential: "STRING_VALUE", // required
+ *       credentialProvider: "STRING_VALUE", // required
+ *     },
+ *     imagePullCredentialsType: "STRING_VALUE",
+ *   },
+ *   serviceRole: "STRING_VALUE",
+ *   timeoutInMinutes: Number("int"),
+ *   queuedTimeoutInMinutes: Number("int"),
+ *   encryptionKey: "STRING_VALUE",
+ *   tags: [
+ *     {
+ *       key: "STRING_VALUE",
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   vpcConfig: {
+ *     vpcId: "STRING_VALUE",
+ *     subnets: [
+ *       "STRING_VALUE",
+ *     ],
+ *     securityGroupIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   badgeEnabled: true || false,
+ *   logsConfig: {
+ *     cloudWatchLogs: {
+ *       status: "STRING_VALUE", // required
+ *       groupName: "STRING_VALUE",
+ *       streamName: "STRING_VALUE",
+ *     },
+ *     s3Logs: {
+ *       status: "STRING_VALUE", // required
+ *       location: "STRING_VALUE",
+ *       encryptionDisabled: true || false,
+ *       bucketOwnerAccess: "STRING_VALUE",
+ *     },
+ *   },
+ *   fileSystemLocations: [
+ *     {
+ *       type: "STRING_VALUE",
+ *       location: "STRING_VALUE",
+ *       mountPoint: "STRING_VALUE",
+ *       identifier: "STRING_VALUE",
+ *       mountOptions: "STRING_VALUE",
+ *     },
+ *   ],
+ *   buildBatchConfig: {
+ *     serviceRole: "STRING_VALUE",
+ *     combineArtifacts: true || false,
+ *     restrictions: {
+ *       maximumBuildsAllowed: Number("int"),
+ *       computeTypesAllowed: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     timeoutInMins: Number("int"),
+ *     batchReportMode: "STRING_VALUE",
+ *   },
+ *   concurrentBuildLimit: Number("int"),
+ * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,11 @@ export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __M
  * import { IAMClient, ListPolicyTagsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListPolicyTagsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   PolicyArn: "STRING_VALUE", // required
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListPolicyTagsCommand(input);
  * const response = await client.send(command);
  * ```

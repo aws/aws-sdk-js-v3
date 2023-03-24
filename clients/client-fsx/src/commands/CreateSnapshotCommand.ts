@@ -69,6 +69,17 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * import { FSxClient, CreateSnapshotCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CreateSnapshotCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   ClientRequestToken: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   VolumeId: "STRING_VALUE", // required
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

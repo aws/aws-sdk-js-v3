@@ -42,6 +42,9 @@ export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirector
  * import { DirectoryServiceClient, RejectSharedDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RejectSharedDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
+ * const input = {
+ *   SharedDirectoryId: "STRING_VALUE", // required
+ * };
  * const command = new RejectSharedDirectoryCommand(input);
  * const response = await client.send(command);
  * ```

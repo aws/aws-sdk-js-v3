@@ -42,6 +42,9 @@ export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
  * import { DirectConnectClient, DescribeLagsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeLagsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   lagId: "STRING_VALUE",
+ * };
  * const command = new DescribeLagsCommand(input);
  * const response = await client.send(command);
  * ```

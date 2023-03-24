@@ -43,6 +43,11 @@ export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyRespo
  * import { AccessAnalyzerClient, GetGeneratedPolicyCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, GetGeneratedPolicyCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = {
+ *   jobId: "STRING_VALUE", // required
+ *   includeResourcePlaceholders: true || false,
+ *   includeServiceLevelTemplate: true || false,
+ * };
  * const command = new GetGeneratedPolicyCommand(input);
  * const response = await client.send(command);
  * ```

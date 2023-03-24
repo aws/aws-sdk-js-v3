@@ -57,6 +57,21 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  * import { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentRunCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentRunCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   ReplicationTaskArn: "STRING_VALUE", // required
+ *   ServiceAccessRoleArn: "STRING_VALUE", // required
+ *   ResultLocationBucket: "STRING_VALUE", // required
+ *   ResultLocationFolder: "STRING_VALUE",
+ *   ResultEncryptionMode: "STRING_VALUE",
+ *   ResultKmsKeyArn: "STRING_VALUE",
+ *   AssessmentRunName: "STRING_VALUE", // required
+ *   IncludeOnly: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Exclude: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new StartReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);
  * ```

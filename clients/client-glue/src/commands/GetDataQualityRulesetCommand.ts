@@ -42,6 +42,9 @@ export interface GetDataQualityRulesetCommandOutput extends GetDataQualityRulese
  * import { GlueClient, GetDataQualityRulesetCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDataQualityRulesetCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ * };
  * const command = new GetDataQualityRulesetCommand(input);
  * const response = await client.send(command);
  * ```

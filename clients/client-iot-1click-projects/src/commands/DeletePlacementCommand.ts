@@ -50,6 +50,10 @@ export interface DeletePlacementCommandOutput extends DeletePlacementResponse, _
  * import { IoT1ClickProjectsClient, DeletePlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, DeletePlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
+ * const input = {
+ *   placementName: "STRING_VALUE", // required
+ *   projectName: "STRING_VALUE", // required
+ * };
  * const command = new DeletePlacementCommand(input);
  * const response = await client.send(command);
  * ```

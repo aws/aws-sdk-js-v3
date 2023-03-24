@@ -42,6 +42,18 @@ export interface UpdateContactListCommandOutput extends UpdateContactListRespons
  * import { SESv2Client, UpdateContactListCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, UpdateContactListCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   ContactListName: "STRING_VALUE", // required
+ *   Topics: [
+ *     {
+ *       TopicName: "STRING_VALUE", // required
+ *       DisplayName: "STRING_VALUE", // required
+ *       Description: "STRING_VALUE",
+ *       DefaultSubscriptionStatus: "OPT_IN" || "OPT_OUT", // required
+ *     },
+ *   ],
+ *   Description: "STRING_VALUE",
+ * };
  * const command = new UpdateContactListCommand(input);
  * const response = await client.send(command);
  * ```

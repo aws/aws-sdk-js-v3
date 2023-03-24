@@ -71,6 +71,31 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  * import { GameLiftClient, StartMatchmakingCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, StartMatchmakingCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   TicketId: "STRING_VALUE",
+ *   ConfigurationName: "STRING_VALUE", // required
+ *   Players: [ // required
+ *     {
+ *       PlayerId: "STRING_VALUE",
+ *       PlayerAttributes: {
+ *         "<keys>": {
+ *           S: "STRING_VALUE",
+ *           N: Number("double"),
+ *           SL: [
+ *             "STRING_VALUE",
+ *           ],
+ *           SDM: {
+ *             "<keys>": Number("double"),
+ *           },
+ *         },
+ *       },
+ *       Team: "STRING_VALUE",
+ *       LatencyInMs: {
+ *         "<keys>": Number("int"),
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new StartMatchmakingCommand(input);
  * const response = await client.send(command);
  * ```

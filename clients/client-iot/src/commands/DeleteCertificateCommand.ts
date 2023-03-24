@@ -46,6 +46,10 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * import { IoTClient, DeleteCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   certificateId: "STRING_VALUE", // required
+ *   forceDelete: true || false,
+ * };
  * const command = new DeleteCertificateCommand(input);
  * const response = await client.send(command);
  * ```

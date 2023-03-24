@@ -42,6 +42,13 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * import { MediaConvertClient, ListPresetsCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, ListPresetsCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
+ * const input = {
+ *   Category: "STRING_VALUE",
+ *   ListBy: "NAME" || "CREATION_DATE" || "SYSTEM",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Order: "ASCENDING" || "DESCENDING",
+ * };
  * const command = new ListPresetsCommand(input);
  * const response = await client.send(command);
  * ```

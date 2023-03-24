@@ -52,6 +52,9 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * import { AppRunnerClient, DeleteServiceCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, DeleteServiceCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   ServiceArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteServiceCommand(input);
  * const response = await client.send(command);
  * ```

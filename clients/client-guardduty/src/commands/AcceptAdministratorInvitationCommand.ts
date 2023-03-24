@@ -44,6 +44,11 @@ export interface AcceptAdministratorInvitationCommandOutput
  * import { GuardDutyClient, AcceptAdministratorInvitationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, AcceptAdministratorInvitationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   DetectorId: "STRING_VALUE", // required
+ *   AdministratorId: "STRING_VALUE", // required
+ *   InvitationId: "STRING_VALUE", // required
+ * };
  * const command = new AcceptAdministratorInvitationCommand(input);
  * const response = await client.send(command);
  * ```

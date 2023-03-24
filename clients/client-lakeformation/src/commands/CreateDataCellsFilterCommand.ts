@@ -42,6 +42,27 @@ export interface CreateDataCellsFilterCommandOutput extends CreateDataCellsFilte
  * import { LakeFormationClient, CreateDataCellsFilterCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, CreateDataCellsFilterCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
+ * const input = {
+ *   TableData: {
+ *     TableCatalogId: "STRING_VALUE", // required
+ *     DatabaseName: "STRING_VALUE", // required
+ *     TableName: "STRING_VALUE", // required
+ *     Name: "STRING_VALUE", // required
+ *     RowFilter: {
+ *       FilterExpression: "STRING_VALUE",
+ *       AllRowsWildcard: {},
+ *     },
+ *     ColumnNames: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ColumnWildcard: {
+ *       ExcludedColumnNames: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     VersionId: "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateDataCellsFilterCommand(input);
  * const response = await client.send(command);
  * ```

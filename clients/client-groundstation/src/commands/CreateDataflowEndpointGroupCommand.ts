@@ -46,6 +46,57 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  * import { GroundStationClient, CreateDataflowEndpointGroupCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, CreateDataflowEndpointGroupCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
+ * const input = {
+ *   endpointDetails: [ // required
+ *     {
+ *       securityDetails: {
+ *         subnetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         securityGroupIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         roleArn: "STRING_VALUE", // required
+ *       },
+ *       endpoint: {
+ *         name: "STRING_VALUE",
+ *         address: {
+ *           name: "STRING_VALUE", // required
+ *           port: Number("int"), // required
+ *         },
+ *         status: "STRING_VALUE",
+ *         mtu: Number("int"),
+ *       },
+ *       awsGroundStationAgentEndpoint: {
+ *         name: "STRING_VALUE", // required
+ *         egressAddress: {
+ *           socketAddress: {
+ *             name: "STRING_VALUE", // required
+ *             port: Number("int"), // required
+ *           },
+ *           mtu: Number("int"),
+ *         },
+ *         ingressAddress: {
+ *           socketAddress: {
+ *             name: "STRING_VALUE", // required
+ *             portRange: {
+ *               minimum: Number("int"), // required
+ *               maximum: Number("int"), // required
+ *             },
+ *           },
+ *           mtu: Number("int"),
+ *         },
+ *         agentStatus: "STRING_VALUE",
+ *         auditResults: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   contactPrePassDurationSeconds: Number("int"),
+ *   contactPostPassDurationSeconds: Number("int"),
+ * };
  * const command = new CreateDataflowEndpointGroupCommand(input);
  * const response = await client.send(command);
  * ```

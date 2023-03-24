@@ -45,6 +45,21 @@ export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocati
  * import { EC2Client, GetIpamPoolAllocationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetIpamPoolAllocationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   IpamPoolId: "STRING_VALUE", // required
+ *   IpamPoolAllocationId: "STRING_VALUE",
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetIpamPoolAllocationsCommand(input);
  * const response = await client.send(command);
  * ```

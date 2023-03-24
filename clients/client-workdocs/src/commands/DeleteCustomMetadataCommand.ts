@@ -46,6 +46,15 @@ export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataR
  * import { WorkDocsClient, DeleteCustomMetadataCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteCustomMetadataCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   AuthenticationToken: "STRING_VALUE",
+ *   ResourceId: "STRING_VALUE", // required
+ *   VersionId: "STRING_VALUE",
+ *   Keys: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DeleteAll: true || false,
+ * };
  * const command = new DeleteCustomMetadataCommand(input);
  * const response = await client.send(command);
  * ```

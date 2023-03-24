@@ -50,6 +50,17 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  * import { ElastiCacheClient, PurchaseReservedCacheNodesOfferingCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, PurchaseReservedCacheNodesOfferingCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
+ * const input = {
+ *   ReservedCacheNodesOfferingId: "STRING_VALUE", // required
+ *   ReservedCacheNodeId: "STRING_VALUE",
+ *   CacheNodeCount: Number("int"),
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new PurchaseReservedCacheNodesOfferingCommand(input);
  * const response = await client.send(command);
  * ```

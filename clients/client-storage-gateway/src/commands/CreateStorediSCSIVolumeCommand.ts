@@ -53,6 +53,22 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  * import { StorageGatewayClient, CreateStorediSCSIVolumeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateStorediSCSIVolumeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
+ * const input = {
+ *   GatewayARN: "STRING_VALUE", // required
+ *   DiskId: "STRING_VALUE", // required
+ *   SnapshotId: "STRING_VALUE",
+ *   PreserveExistingData: true || false, // required
+ *   TargetName: "STRING_VALUE", // required
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   KMSEncrypted: true || false,
+ *   KMSKey: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateStorediSCSIVolumeCommand(input);
  * const response = await client.send(command);
  * ```

@@ -54,6 +54,16 @@ export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
  * import { ConfigServiceClient, GetAggregateConfigRuleComplianceSummaryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetAggregateConfigRuleComplianceSummaryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ConfigurationAggregatorName: "STRING_VALUE", // required
+ *   Filters: {
+ *     AccountId: "STRING_VALUE",
+ *     AwsRegion: "STRING_VALUE",
+ *   },
+ *   GroupByKey: "ACCOUNT_ID" || "AWS_REGION",
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetAggregateConfigRuleComplianceSummaryCommand(input);
  * const response = await client.send(command);
  * ```

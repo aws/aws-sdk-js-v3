@@ -50,6 +50,11 @@ export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutpu
  * import { AthenaClient, BatchGetNamedQueryCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, BatchGetNamedQueryCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   NamedQueryIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new BatchGetNamedQueryCommand(input);
  * const response = await client.send(command);
  * ```

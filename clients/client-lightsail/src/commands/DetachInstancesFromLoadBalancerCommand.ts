@@ -49,6 +49,12 @@ export interface DetachInstancesFromLoadBalancerCommandOutput
  * import { LightsailClient, DetachInstancesFromLoadBalancerCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DetachInstancesFromLoadBalancerCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   loadBalancerName: "STRING_VALUE", // required
+ *   instanceNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DetachInstancesFromLoadBalancerCommand(input);
  * const response = await client.send(command);
  * ```

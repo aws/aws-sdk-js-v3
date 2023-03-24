@@ -42,6 +42,26 @@ export interface ListIntentsCommandOutput extends ListIntentsResponse, __Metadat
  * import { LexModelsV2Client, ListIntentsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListIntentsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   sortBy: {
+ *     attribute: "IntentName" || "LastUpdatedDateTime", // required
+ *     order: "Ascending" || "Descending", // required
+ *   },
+ *   filters: [
+ *     {
+ *       name: "IntentName", // required
+ *       values: [ // required
+ *         "STRING_VALUE",
+ *       ],
+ *       operator: "CO" || "EQ", // required
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListIntentsCommand(input);
  * const response = await client.send(command);
  * ```

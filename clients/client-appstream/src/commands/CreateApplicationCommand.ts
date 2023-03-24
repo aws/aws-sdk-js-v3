@@ -48,6 +48,28 @@ export interface CreateApplicationCommandOutput extends CreateApplicationResult,
  * import { AppStreamClient, CreateApplicationCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateApplicationCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   DisplayName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   IconS3Location: {
+ *     S3Bucket: "STRING_VALUE", // required
+ *     S3Key: "STRING_VALUE", // required
+ *   },
+ *   LaunchPath: "STRING_VALUE", // required
+ *   WorkingDirectory: "STRING_VALUE",
+ *   LaunchParameters: "STRING_VALUE",
+ *   Platforms: [ // required
+ *     "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "AMAZON_LINUX2",
+ *   ],
+ *   InstanceFamilies: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AppBlockArn: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
  * ```

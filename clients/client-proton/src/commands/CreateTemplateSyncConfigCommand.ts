@@ -47,6 +47,14 @@ export interface CreateTemplateSyncConfigCommandOutput extends CreateTemplateSyn
  * import { ProtonClient, CreateTemplateSyncConfigCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, CreateTemplateSyncConfigCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * const client = new ProtonClient(config);
+ * const input = {
+ *   templateName: "STRING_VALUE", // required
+ *   templateType: "STRING_VALUE", // required
+ *   repositoryProvider: "STRING_VALUE", // required
+ *   repositoryName: "STRING_VALUE", // required
+ *   branch: "STRING_VALUE", // required
+ *   subdirectory: "STRING_VALUE",
+ * };
  * const command = new CreateTemplateSyncConfigCommand(input);
  * const response = await client.send(command);
  * ```

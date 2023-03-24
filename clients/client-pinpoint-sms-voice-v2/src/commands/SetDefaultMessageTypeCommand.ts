@@ -51,6 +51,10 @@ export interface SetDefaultMessageTypeCommandOutput extends SetDefaultMessageTyp
  * import { PinpointSMSVoiceV2Client, SetDefaultMessageTypeCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, SetDefaultMessageTypeCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = {
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   MessageType: "STRING_VALUE", // required
+ * };
  * const command = new SetDefaultMessageTypeCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,12 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * import { WorkMailClient, ListAliasesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListAliasesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
+ * const input = {
+ *   OrganizationId: "STRING_VALUE", // required
+ *   EntityId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
  * ```

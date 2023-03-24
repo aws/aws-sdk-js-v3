@@ -42,6 +42,38 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
  * import { CloudFormationClient, DeleteStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeleteStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   StackSetName: "STRING_VALUE", // required
+ *   Accounts: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DeploymentTargets: {
+ *     Accounts: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AccountsUrl: "STRING_VALUE",
+ *     OrganizationalUnitIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AccountFilterType: "NONE" || "INTERSECTION" || "DIFFERENCE" || "UNION",
+ *   },
+ *   Regions: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   OperationPreferences: {
+ *     RegionConcurrencyType: "SEQUENTIAL" || "PARALLEL",
+ *     RegionOrder: [
+ *       "STRING_VALUE",
+ *     ],
+ *     FailureToleranceCount: Number("int"),
+ *     FailureTolerancePercentage: Number("int"),
+ *     MaxConcurrentCount: Number("int"),
+ *     MaxConcurrentPercentage: Number("int"),
+ *   },
+ *   RetainStacks: true || false, // required
+ *   OperationId: "STRING_VALUE",
+ *   CallAs: "SELF" || "DELEGATED_ADMIN",
+ * };
  * const command = new DeleteStackInstancesCommand(input);
  * const response = await client.send(command);
  * ```

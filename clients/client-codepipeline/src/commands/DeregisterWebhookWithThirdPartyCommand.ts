@@ -46,6 +46,9 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput
  * import { CodePipelineClient, DeregisterWebhookWithThirdPartyCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, DeregisterWebhookWithThirdPartyCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   webhookName: "STRING_VALUE",
+ * };
  * const command = new DeregisterWebhookWithThirdPartyCommand(input);
  * const response = await client.send(command);
  * ```

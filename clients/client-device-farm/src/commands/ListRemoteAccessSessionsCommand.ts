@@ -42,6 +42,10 @@ export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessS
  * import { DeviceFarmClient, ListRemoteAccessSessionsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListRemoteAccessSessionsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListRemoteAccessSessionsCommand(input);
  * const response = await client.send(command);
  * ```

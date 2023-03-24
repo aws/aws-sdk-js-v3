@@ -42,6 +42,9 @@ export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySub
  * import { CostExplorerClient, DeleteAnomalySubscriptionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, DeleteAnomalySubscriptionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
+ * const input = {
+ *   SubscriptionArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAnomalySubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

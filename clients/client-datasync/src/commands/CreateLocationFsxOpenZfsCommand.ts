@@ -51,6 +51,34 @@ export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsx
  * import { DataSyncClient, CreateLocationFsxOpenZfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationFsxOpenZfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   FsxFilesystemArn: "STRING_VALUE", // required
+ *   Protocol: {
+ *     NFS: {
+ *       MountOptions: {
+ *         Version: "AUTOMATIC" || "NFS3" || "NFS4_0" || "NFS4_1",
+ *       },
+ *     },
+ *     SMB: {
+ *       Domain: "STRING_VALUE",
+ *       MountOptions: {
+ *         Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
+ *       },
+ *       Password: "STRING_VALUE", // required
+ *       User: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   SecurityGroupArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Subdirectory: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationFsxOpenZfsCommand(input);
  * const response = await client.send(command);
  * ```

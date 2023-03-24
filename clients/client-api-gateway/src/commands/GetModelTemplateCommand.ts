@@ -42,6 +42,10 @@ export interface GetModelTemplateCommandOutput extends Template, __MetadataBeare
  * import { APIGatewayClient, GetModelTemplateCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetModelTemplateCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   modelName: "STRING_VALUE", // required
+ * };
  * const command = new GetModelTemplateCommand(input);
  * const response = await client.send(command);
  * ```

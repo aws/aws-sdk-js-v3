@@ -43,6 +43,11 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
  * import { InspectorClient, DescribeResourceGroupsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeResourceGroupsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
+ * const input = {
+ *   resourceGroupArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DescribeResourceGroupsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,29 @@ export interface CreateLicenseManagerReportGeneratorCommandOutput
  * import { LicenseManagerClient, CreateLicenseManagerReportGeneratorCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateLicenseManagerReportGeneratorCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
+ * const input = {
+ *   ReportGeneratorName: "STRING_VALUE", // required
+ *   Type: [ // required
+ *     "LicenseConfigurationSummaryReport" || "LicenseConfigurationUsageReport",
+ *   ],
+ *   ReportContext: {
+ *     licenseConfigurationArns: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   ReportFrequency: {
+ *     value: Number("int"),
+ *     period: "DAY" || "WEEK" || "MONTH",
+ *   },
+ *   ClientToken: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLicenseManagerReportGeneratorCommand(input);
  * const response = await client.send(command);
  * ```

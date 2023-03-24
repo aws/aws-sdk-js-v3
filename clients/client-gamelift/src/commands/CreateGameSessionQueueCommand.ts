@@ -87,6 +87,42 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  * import { GameLiftClient, CreateGameSessionQueueCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, CreateGameSessionQueueCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   TimeoutInSeconds: Number("int"),
+ *   PlayerLatencyPolicies: [
+ *     {
+ *       MaximumIndividualPlayerLatencyMilliseconds: Number("int"),
+ *       PolicyDurationSeconds: Number("int"),
+ *     },
+ *   ],
+ *   Destinations: [
+ *     {
+ *       DestinationArn: "STRING_VALUE",
+ *     },
+ *   ],
+ *   FilterConfiguration: {
+ *     AllowedLocations: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   PriorityConfiguration: {
+ *     PriorityOrder: [
+ *       "LATENCY" || "COST" || "DESTINATION" || "LOCATION",
+ *     ],
+ *     LocationOrder: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   CustomEventData: "STRING_VALUE",
+ *   NotificationTarget: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateGameSessionQueueCommand(input);
  * const response = await client.send(command);
  * ```

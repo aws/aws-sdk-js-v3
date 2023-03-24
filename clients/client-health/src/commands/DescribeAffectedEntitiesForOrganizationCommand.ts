@@ -67,6 +67,17 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * import { HealthClient, DescribeAffectedEntitiesForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeAffectedEntitiesForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = {
+ *   organizationEntityFilters: [ // required
+ *     {
+ *       eventArn: "STRING_VALUE", // required
+ *       awsAccountId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   locale: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new DescribeAffectedEntitiesForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```

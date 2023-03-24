@@ -74,6 +74,19 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * import { SupportClient, CreateCaseCommand } from "@aws-sdk/client-support"; // ES Modules import
  * // const { SupportClient, CreateCaseCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
+ * const input = {
+ *   subject: "STRING_VALUE", // required
+ *   serviceCode: "STRING_VALUE",
+ *   severityCode: "STRING_VALUE",
+ *   categoryCode: "STRING_VALUE",
+ *   communicationBody: "STRING_VALUE", // required
+ *   ccEmailAddresses: [
+ *     "STRING_VALUE",
+ *   ],
+ *   language: "STRING_VALUE",
+ *   issueType: "STRING_VALUE",
+ *   attachmentSetId: "STRING_VALUE",
+ * };
  * const command = new CreateCaseCommand(input);
  * const response = await client.send(command);
  * ```

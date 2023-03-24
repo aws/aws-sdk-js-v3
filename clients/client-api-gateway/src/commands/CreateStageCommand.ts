@@ -42,6 +42,30 @@ export interface CreateStageCommandOutput extends Stage, __MetadataBearer {}
  * import { APIGatewayClient, CreateStageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateStageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   stageName: "STRING_VALUE", // required
+ *   deploymentId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   cacheClusterEnabled: true || false,
+ *   cacheClusterSize: "0.5" || "1.6" || "6.1" || "13.5" || "28.4" || "58.2" || "118" || "237",
+ *   variables: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   documentationVersion: "STRING_VALUE",
+ *   canarySettings: {
+ *     percentTraffic: Number("double"),
+ *     deploymentId: "STRING_VALUE",
+ *     stageVariableOverrides: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     useStageCache: true || false,
+ *   },
+ *   tracingEnabled: true || false,
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateStageCommand(input);
  * const response = await client.send(command);
  * ```

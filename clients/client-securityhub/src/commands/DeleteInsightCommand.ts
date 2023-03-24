@@ -42,6 +42,9 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  * import { SecurityHubClient, DeleteInsightCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeleteInsightCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
+ * const input = {
+ *   InsightArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteInsightCommand(input);
  * const response = await client.send(command);
  * ```

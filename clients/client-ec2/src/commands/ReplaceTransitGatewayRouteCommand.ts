@@ -42,6 +42,13 @@ export interface ReplaceTransitGatewayRouteCommandOutput extends ReplaceTransitG
  * import { EC2Client, ReplaceTransitGatewayRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReplaceTransitGatewayRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DestinationCidrBlock: "STRING_VALUE", // required
+ *   TransitGatewayRouteTableId: "STRING_VALUE", // required
+ *   TransitGatewayAttachmentId: "STRING_VALUE",
+ *   Blackhole: true || false,
+ *   DryRun: true || false,
+ * };
  * const command = new ReplaceTransitGatewayRouteCommand(input);
  * const response = await client.send(command);
  * ```

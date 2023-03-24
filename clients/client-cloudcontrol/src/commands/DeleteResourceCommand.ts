@@ -46,6 +46,13 @@ export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __Met
  * import { CloudControlClient, DeleteResourceCommand } from "@aws-sdk/client-cloudcontrol"; // ES Modules import
  * // const { CloudControlClient, DeleteResourceCommand } = require("@aws-sdk/client-cloudcontrol"); // CommonJS import
  * const client = new CloudControlClient(config);
+ * const input = {
+ *   TypeName: "STRING_VALUE", // required
+ *   TypeVersionId: "STRING_VALUE",
+ *   RoleArn: "STRING_VALUE",
+ *   ClientToken: "STRING_VALUE",
+ *   Identifier: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResourceCommand(input);
  * const response = await client.send(command);
  * ```

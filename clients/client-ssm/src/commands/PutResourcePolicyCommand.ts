@@ -46,6 +46,12 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * import { SSMClient, PutResourcePolicyCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, PutResourcePolicyCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ *   PolicyId: "STRING_VALUE",
+ *   PolicyHash: "STRING_VALUE",
+ * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```

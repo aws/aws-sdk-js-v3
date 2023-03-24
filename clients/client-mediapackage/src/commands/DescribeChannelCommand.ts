@@ -42,6 +42,9 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * import { MediaPackageClient, DescribeChannelCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, DescribeChannelCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeChannelCommand(input);
  * const response = await client.send(command);
  * ```

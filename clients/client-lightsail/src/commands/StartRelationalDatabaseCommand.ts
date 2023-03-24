@@ -46,6 +46,9 @@ export interface StartRelationalDatabaseCommandOutput extends StartRelationalDat
  * import { LightsailClient, StartRelationalDatabaseCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, StartRelationalDatabaseCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   relationalDatabaseName: "STRING_VALUE", // required
+ * };
  * const command = new StartRelationalDatabaseCommand(input);
  * const response = await client.send(command);
  * ```

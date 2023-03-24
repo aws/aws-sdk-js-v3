@@ -43,6 +43,9 @@ export interface StartGUISessionCommandOutput extends StartGUISessionResult, __M
  * import { LightsailClient, StartGUISessionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, StartGUISessionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   resourceName: "STRING_VALUE", // required
+ * };
  * const command = new StartGUISessionCommand(input);
  * const response = await client.send(command);
  * ```

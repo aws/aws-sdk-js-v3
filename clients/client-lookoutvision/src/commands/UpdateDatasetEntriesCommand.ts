@@ -60,6 +60,12 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * import { LookoutVisionClient, UpdateDatasetEntriesCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, UpdateDatasetEntriesCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = {
+ *   ProjectName: "STRING_VALUE", // required
+ *   DatasetType: "STRING_VALUE", // required
+ *   Changes: "BLOB_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new UpdateDatasetEntriesCommand(input);
  * const response = await client.send(command);
  * ```

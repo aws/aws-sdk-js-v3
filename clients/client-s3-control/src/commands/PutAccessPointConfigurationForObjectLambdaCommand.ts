@@ -53,6 +53,30 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  * import { S3ControlClient, PutAccessPointConfigurationForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutAccessPointConfigurationForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   Configuration: {
+ *     SupportingAccessPoint: "STRING_VALUE", // required
+ *     CloudWatchMetricsEnabled: true || false,
+ *     AllowedFeatures: [
+ *       "GetObject-Range" || "GetObject-PartNumber" || "HeadObject-Range" || "HeadObject-PartNumber",
+ *     ],
+ *     TransformationConfigurations: [ // required
+ *       {
+ *         Actions: [ // required
+ *           "GetObject" || "HeadObject" || "ListObjects" || "ListObjectsV2",
+ *         ],
+ *         ContentTransformation: { // Union: only one key present
+ *           AwsLambda: {
+ *             FunctionArn: "STRING_VALUE", // required
+ *             FunctionPayload: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new PutAccessPointConfigurationForObjectLambdaCommand(input);
  * const response = await client.send(command);
  * ```

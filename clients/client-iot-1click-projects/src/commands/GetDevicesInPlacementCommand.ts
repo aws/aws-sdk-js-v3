@@ -46,6 +46,10 @@ export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacemen
  * import { IoT1ClickProjectsClient, GetDevicesInPlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, GetDevicesInPlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
+ * const input = {
+ *   projectName: "STRING_VALUE", // required
+ *   placementName: "STRING_VALUE", // required
+ * };
  * const command = new GetDevicesInPlacementCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,11 @@ export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOut
  * import { AppMeshClient, DeleteVirtualRouterCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DeleteVirtualRouterCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
+ * const input = {
+ *   virtualRouterName: "STRING_VALUE", // required
+ *   meshName: "STRING_VALUE", // required
+ *   meshOwner: "STRING_VALUE",
+ * };
  * const command = new DeleteVirtualRouterCommand(input);
  * const response = await client.send(command);
  * ```

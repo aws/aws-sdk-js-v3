@@ -49,6 +49,10 @@ export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescripto
  * import { LocationClient, GetMapStyleDescriptorCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetMapStyleDescriptorCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   MapName: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE",
+ * };
  * const command = new GetMapStyleDescriptorCommand(input);
  * const response = await client.send(command);
  * ```

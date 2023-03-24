@@ -43,6 +43,9 @@ export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSet
  * import { QuickSightClient, DescribeAccountSettingsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeAccountSettingsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```

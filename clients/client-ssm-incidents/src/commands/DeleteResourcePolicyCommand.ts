@@ -43,6 +43,10 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  * import { SSMIncidentsClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ *   policyId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```

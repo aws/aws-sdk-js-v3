@@ -62,6 +62,10 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  * import { CloudSearchDomainClient, UploadDocumentsCommand } from "@aws-sdk/client-cloudsearch-domain"; // ES Modules import
  * // const { CloudSearchDomainClient, UploadDocumentsCommand } = require("@aws-sdk/client-cloudsearch-domain"); // CommonJS import
  * const client = new CloudSearchDomainClient(config);
+ * const input = {
+ *   documents: "STREAMING_BLOB_VALUE", // required
+ *   contentType: "STRING_VALUE", // required
+ * };
  * const command = new UploadDocumentsCommand(input);
  * const response = await client.send(command);
  * ```

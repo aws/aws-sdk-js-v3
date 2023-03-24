@@ -46,6 +46,10 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  * import { AutoScalingPlansClient, DeleteScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, DeleteScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
  * const client = new AutoScalingPlansClient(config);
+ * const input = {
+ *   ScalingPlanName: "STRING_VALUE", // required
+ *   ScalingPlanVersion: Number("long"), // required
+ * };
  * const command = new DeleteScalingPlanCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,19 @@ export interface ListServiceVersionsCommandOutput extends ListServiceVersionsRes
  * import { SnowballClient, ListServiceVersionsCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListServiceVersionsCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = {
+ *   ServiceName: "KUBERNETES" || "EKS_ANYWHERE", // required
+ *   DependentServices: [
+ *     {
+ *       ServiceName: "KUBERNETES" || "EKS_ANYWHERE",
+ *       ServiceVersion: {
+ *         Version: "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListServiceVersionsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,41 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  * import { WellArchitectedClient, CreateWorkloadCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, CreateWorkloadCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
+ * const input = {
+ *   WorkloadName: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE", // required
+ *   Environment: "PRODUCTION" || "PREPRODUCTION", // required
+ *   AccountIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AwsRegions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   NonAwsRegions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PillarPriorities: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ArchitecturalDesign: "STRING_VALUE",
+ *   ReviewOwner: "STRING_VALUE",
+ *   IndustryType: "STRING_VALUE",
+ *   Industry: "STRING_VALUE",
+ *   Lenses: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Notes: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   DiscoveryConfig: {
+ *     TrustedAdvisorIntegrationStatus: "ENABLED" || "DISABLED",
+ *   },
+ *   Applications: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new CreateWorkloadCommand(input);
  * const response = await client.send(command);
  * ```

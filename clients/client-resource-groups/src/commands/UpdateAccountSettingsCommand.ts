@@ -46,6 +46,9 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * import { ResourceGroupsClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = {
+ *   GroupLifecycleEventsDesiredStatus: "ACTIVE" || "INACTIVE",
+ * };
  * const command = new UpdateAccountSettingsCommand(input);
  * const response = await client.send(command);
  * ```

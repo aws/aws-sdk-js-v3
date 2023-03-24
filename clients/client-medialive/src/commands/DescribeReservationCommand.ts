@@ -42,6 +42,9 @@ export interface DescribeReservationCommandOutput extends DescribeReservationRes
  * import { MediaLiveClient, DescribeReservationCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DescribeReservationCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   ReservationId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeReservationCommand(input);
  * const response = await client.send(command);
  * ```

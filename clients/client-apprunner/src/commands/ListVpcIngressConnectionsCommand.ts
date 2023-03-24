@@ -42,6 +42,14 @@ export interface ListVpcIngressConnectionsCommandOutput extends ListVpcIngressCo
  * import { AppRunnerClient, ListVpcIngressConnectionsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListVpcIngressConnectionsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   Filter: {
+ *     ServiceArn: "STRING_VALUE",
+ *     VpcEndpointId: "STRING_VALUE",
+ *   },
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListVpcIngressConnectionsCommand(input);
  * const response = await client.send(command);
  * ```

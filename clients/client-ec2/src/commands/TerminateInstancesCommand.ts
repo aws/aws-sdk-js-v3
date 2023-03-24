@@ -101,6 +101,12 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  * import { EC2Client, TerminateInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, TerminateInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   InstanceIds: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ * };
  * const command = new TerminateInstancesCommand(input);
  * const response = await client.send(command);
  * ```

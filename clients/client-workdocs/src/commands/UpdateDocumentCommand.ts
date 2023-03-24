@@ -43,6 +43,13 @@ export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
  * import { WorkDocsClient, UpdateDocumentCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, UpdateDocumentCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
+ * const input = {
+ *   AuthenticationToken: "STRING_VALUE",
+ *   DocumentId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   ParentFolderId: "STRING_VALUE",
+ *   ResourceState: "ACTIVE" || "RESTORING" || "RECYCLING" || "RECYCLED",
+ * };
  * const command = new UpdateDocumentCommand(input);
  * const response = await client.send(command);
  * ```

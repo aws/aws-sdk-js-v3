@@ -42,6 +42,11 @@ export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __M
  * import { DeviceFarmClient, ListDevicePoolsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListDevicePoolsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ *   type: "CURATED" || "PRIVATE",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListDevicePoolsCommand(input);
  * const response = await client.send(command);
  * ```

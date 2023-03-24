@@ -53,6 +53,26 @@ export interface ImportTerminologyCommandOutput extends ImportTerminologyRespons
  * import { TranslateClient, ImportTerminologyCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, ImportTerminologyCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   MergeStrategy: "OVERWRITE", // required
+ *   Description: "STRING_VALUE",
+ *   TerminologyData: {
+ *     File: "BLOB_VALUE", // required
+ *     Format: "CSV" || "TMX" || "TSV", // required
+ *     Directionality: "UNI" || "MULTI",
+ *   },
+ *   EncryptionKey: {
+ *     Type: "KMS", // required
+ *     Id: "STRING_VALUE", // required
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new ImportTerminologyCommand(input);
  * const response = await client.send(command);
  * ```

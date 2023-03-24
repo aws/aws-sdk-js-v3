@@ -43,6 +43,37 @@ export interface StartIncidentCommandOutput extends StartIncidentOutput, __Metad
  * import { SSMIncidentsClient, StartIncidentCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, StartIncidentCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   responsePlanArn: "STRING_VALUE", // required
+ *   title: "STRING_VALUE",
+ *   impact: Number("int"),
+ *   triggerDetails: {
+ *     source: "STRING_VALUE", // required
+ *     triggerArn: "STRING_VALUE",
+ *     timestamp: new Date("TIMESTAMP"), // required
+ *     rawData: "STRING_VALUE",
+ *   },
+ *   relatedItems: [
+ *     {
+ *       identifier: {
+ *         value: { // Union: only one key present
+ *           arn: "STRING_VALUE",
+ *           url: "STRING_VALUE",
+ *           metricDefinition: "STRING_VALUE",
+ *           pagerDutyIncidentDetail: {
+ *             id: "STRING_VALUE", // required
+ *             autoResolve: true || false,
+ *             secretId: "STRING_VALUE",
+ *           },
+ *         },
+ *         type: "STRING_VALUE", // required
+ *       },
+ *       title: "STRING_VALUE",
+ *       generatedId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new StartIncidentCommand(input);
  * const response = await client.send(command);
  * ```

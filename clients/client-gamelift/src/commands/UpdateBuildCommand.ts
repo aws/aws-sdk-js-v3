@@ -54,6 +54,11 @@ export interface UpdateBuildCommandOutput extends UpdateBuildOutput, __MetadataB
  * import { GameLiftClient, UpdateBuildCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
  * // const { GameLiftClient, UpdateBuildCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
+ * const input = {
+ *   BuildId: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Version: "STRING_VALUE",
+ * };
  * const command = new UpdateBuildCommand(input);
  * const response = await client.send(command);
  * ```

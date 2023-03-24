@@ -113,6 +113,13 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  * import { Route53Client, ListResourceRecordSetsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListResourceRecordSetsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   HostedZoneId: "STRING_VALUE", // required
+ *   StartRecordName: "STRING_VALUE",
+ *   StartRecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",
+ *   StartRecordIdentifier: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListResourceRecordSetsCommand(input);
  * const response = await client.send(command);
  * ```

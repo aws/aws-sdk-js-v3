@@ -43,6 +43,9 @@ export interface DeleteGatewayCommandOutput extends __MetadataBearer {}
  * import { IoTSiteWiseClient, DeleteGatewayCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeleteGatewayCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   gatewayId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteGatewayCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,9 @@ export interface DeleteResolverRuleCommandOutput extends DeleteResolverRuleRespo
  * import { Route53ResolverClient, DeleteResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, DeleteResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
+ * const input = {
+ *   ResolverRuleId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteResolverRuleCommand(input);
  * const response = await client.send(command);
  * ```

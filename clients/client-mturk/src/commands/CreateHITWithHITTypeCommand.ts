@@ -59,6 +59,59 @@ export interface CreateHITWithHITTypeCommandOutput extends CreateHITWithHITTypeR
  * import { MTurkClient, CreateHITWithHITTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateHITWithHITTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   HITTypeId: "STRING_VALUE", // required
+ *   MaxAssignments: Number("int"),
+ *   LifetimeInSeconds: Number("long"), // required
+ *   Question: "STRING_VALUE",
+ *   RequesterAnnotation: "STRING_VALUE",
+ *   UniqueRequestToken: "STRING_VALUE",
+ *   AssignmentReviewPolicy: {
+ *     PolicyName: "STRING_VALUE", // required
+ *     Parameters: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *         MapEntries: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   HITReviewPolicy: {
+ *     PolicyName: "STRING_VALUE", // required
+ *     Parameters: [
+ *       {
+ *         Key: "STRING_VALUE",
+ *         Values: [
+ *           "STRING_VALUE",
+ *         ],
+ *         MapEntries: [
+ *           {
+ *             Key: "STRING_VALUE",
+ *             Values: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
+ *   HITLayoutId: "STRING_VALUE",
+ *   HITLayoutParameters: [
+ *     {
+ *       Name: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHITWithHITTypeCommand(input);
  * const response = await client.send(command);
  * ```

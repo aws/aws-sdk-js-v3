@@ -52,6 +52,12 @@ export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesRes
  * import { LexModelBuildingServiceClient, GetBuiltinSlotTypesCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBuiltinSlotTypesCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = {
+ *   locale: "STRING_VALUE",
+ *   signatureContains: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new GetBuiltinSlotTypesCommand(input);
  * const response = await client.send(command);
  * ```

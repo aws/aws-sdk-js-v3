@@ -42,6 +42,17 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  * import { LexModelsV2Client, UpdateBotLocaleCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, UpdateBotLocaleCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   nluIntentConfidenceThreshold: Number("double"), // required
+ *   voiceSettings: {
+ *     voiceId: "STRING_VALUE", // required
+ *     engine: "standard" || "neural",
+ *   },
+ * };
  * const command = new UpdateBotLocaleCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface DeleteAutoSnapshotCommandOutput extends DeleteAutoSnapshotResul
  * import { LightsailClient, DeleteAutoSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteAutoSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   resourceName: "STRING_VALUE", // required
+ *   date: "STRING_VALUE", // required
+ * };
  * const command = new DeleteAutoSnapshotCommand(input);
  * const response = await client.send(command);
  * ```

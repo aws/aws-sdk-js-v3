@@ -42,6 +42,60 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  * import { ImagebuilderClient, CreateContainerRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CreateContainerRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
+ * const input = {
+ *   containerType: "DOCKER", // required
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   semanticVersion: "STRING_VALUE", // required
+ *   components: [ // required
+ *     {
+ *       componentArn: "STRING_VALUE", // required
+ *       parameters: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           value: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   instanceConfiguration: {
+ *     image: "STRING_VALUE",
+ *     blockDeviceMappings: [
+ *       {
+ *         deviceName: "STRING_VALUE",
+ *         ebs: {
+ *           encrypted: true || false,
+ *           deleteOnTermination: true || false,
+ *           iops: Number("int"),
+ *           kmsKeyId: "STRING_VALUE",
+ *           snapshotId: "STRING_VALUE",
+ *           volumeSize: Number("int"),
+ *           volumeType: "standard" || "io1" || "io2" || "gp2" || "gp3" || "sc1" || "st1",
+ *           throughput: Number("int"),
+ *         },
+ *         virtualName: "STRING_VALUE",
+ *         noDevice: "STRING_VALUE",
+ *       },
+ *     ],
+ *   },
+ *   dockerfileTemplateData: "STRING_VALUE",
+ *   dockerfileTemplateUri: "STRING_VALUE",
+ *   platformOverride: "Windows" || "Linux",
+ *   imageOsVersionOverride: "STRING_VALUE",
+ *   parentImage: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   workingDirectory: "STRING_VALUE",
+ *   targetRepository: {
+ *     service: "ECR", // required
+ *     repositoryName: "STRING_VALUE", // required
+ *   },
+ *   kmsKeyId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateContainerRecipeCommand(input);
  * const response = await client.send(command);
  * ```

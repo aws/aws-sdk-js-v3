@@ -49,6 +49,11 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * import { EC2Client, DescribeInstanceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeInstanceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Attribute: "instanceType" || "kernel" || "ramdisk" || "userData" || "disableApiTermination" || "instanceInitiatedShutdownBehavior" || "rootDeviceName" || "blockDeviceMapping" || "productCodes" || "sourceDestCheck" || "groupSet" || "ebsOptimized" || "sriovNetSupport" || "enaSupport" || "enclaveOptions" || "disableApiStop", // required
+ *   DryRun: true || false,
+ *   InstanceId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeInstanceAttributeCommand(input);
  * const response = await client.send(command);
  * ```

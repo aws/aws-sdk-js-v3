@@ -45,6 +45,12 @@ export interface DeleteColumnStatisticsForTableCommandOutput
  * import { GlueClient, DeleteColumnStatisticsForTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteColumnStatisticsForTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   CatalogId: "STRING_VALUE",
+ *   DatabaseName: "STRING_VALUE", // required
+ *   TableName: "STRING_VALUE", // required
+ *   ColumnName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteColumnStatisticsForTableCommand(input);
  * const response = await client.send(command);
  * ```

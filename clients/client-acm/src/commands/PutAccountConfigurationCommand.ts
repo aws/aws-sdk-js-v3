@@ -47,6 +47,12 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  * import { ACMClient, PutAccountConfigurationCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, PutAccountConfigurationCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
+ * const input = {
+ *   ExpiryEvents: {
+ *     DaysBeforeExpiry: Number("int"),
+ *   },
+ *   IdempotencyToken: "STRING_VALUE", // required
+ * };
  * const command = new PutAccountConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

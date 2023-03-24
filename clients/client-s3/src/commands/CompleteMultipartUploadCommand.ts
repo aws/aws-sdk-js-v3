@@ -159,6 +159,32 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * import { S3Client, CompleteMultipartUploadCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, CompleteMultipartUploadCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   MultipartUpload: {
+ *     Parts: [
+ *       {
+ *         ETag: "STRING_VALUE",
+ *         ChecksumCRC32: "STRING_VALUE",
+ *         ChecksumCRC32C: "STRING_VALUE",
+ *         ChecksumSHA1: "STRING_VALUE",
+ *         ChecksumSHA256: "STRING_VALUE",
+ *         PartNumber: Number("int"),
+ *       },
+ *     ],
+ *   },
+ *   UploadId: "STRING_VALUE", // required
+ *   ChecksumCRC32: "STRING_VALUE",
+ *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumSHA1: "STRING_VALUE",
+ *   ChecksumSHA256: "STRING_VALUE",
+ *   RequestPayer: "requester",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ *   SSECustomerAlgorithm: "STRING_VALUE",
+ *   SSECustomerKey: "STRING_VALUE",
+ *   SSECustomerKeyMD5: "STRING_VALUE",
+ * };
  * const command = new CompleteMultipartUploadCommand(input);
  * const response = await client.send(command);
  * ```

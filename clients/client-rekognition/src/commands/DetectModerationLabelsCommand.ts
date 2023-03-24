@@ -54,6 +54,26 @@ export interface DetectModerationLabelsCommandOutput extends DetectModerationLab
  * import { RekognitionClient, DetectModerationLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectModerationLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
+ * const input = {
+ *   Image: {
+ *     Bytes: "BLOB_VALUE",
+ *     S3Object: {
+ *       Bucket: "STRING_VALUE",
+ *       Name: "STRING_VALUE",
+ *       Version: "STRING_VALUE",
+ *     },
+ *   },
+ *   MinConfidence: Number("float"),
+ *   HumanLoopConfig: {
+ *     HumanLoopName: "STRING_VALUE", // required
+ *     FlowDefinitionArn: "STRING_VALUE", // required
+ *     DataAttributes: {
+ *       ContentClassifiers: [
+ *         "FreeOfPersonallyIdentifiableInformation" || "FreeOfAdultContent",
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new DetectModerationLabelsCommand(input);
  * const response = await client.send(command);
  * ```

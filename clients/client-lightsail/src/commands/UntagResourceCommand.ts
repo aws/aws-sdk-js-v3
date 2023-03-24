@@ -46,6 +46,13 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * import { LightsailClient, UntagResourceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UntagResourceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   resourceName: "STRING_VALUE", // required
+ *   resourceArn: "STRING_VALUE",
+ *   tagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```

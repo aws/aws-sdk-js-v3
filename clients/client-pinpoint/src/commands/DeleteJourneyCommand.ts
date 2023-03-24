@@ -42,6 +42,10 @@ export interface DeleteJourneyCommandOutput extends DeleteJourneyResponse, __Met
  * import { PinpointClient, DeleteJourneyCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteJourneyCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   JourneyId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteJourneyCommand(input);
  * const response = await client.send(command);
  * ```

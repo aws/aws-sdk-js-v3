@@ -44,6 +44,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { WorkLinkClient, TagResourceCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, TagResourceCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Tags: { // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

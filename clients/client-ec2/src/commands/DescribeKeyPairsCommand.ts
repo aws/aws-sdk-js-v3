@@ -44,6 +44,24 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * import { EC2Client, DescribeKeyPairsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeKeyPairsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Values: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   KeyNames: [
+ *     "STRING_VALUE",
+ *   ],
+ *   KeyPairIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
+ *   IncludePublicKey: true || false,
+ * };
  * const command = new DescribeKeyPairsCommand(input);
  * const response = await client.send(command);
  * ```

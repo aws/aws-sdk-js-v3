@@ -48,6 +48,33 @@ export interface UpdateEventConfigurationByResourceTypesCommandOutput
  * import { IoTWirelessClient, UpdateEventConfigurationByResourceTypesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, UpdateEventConfigurationByResourceTypesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   DeviceRegistrationState: {
+ *     Sidewalk: {
+ *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   Proximity: {
+ *     Sidewalk: {
+ *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   Join: {
+ *     LoRaWAN: {
+ *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   ConnectionStatus: {
+ *     LoRaWAN: {
+ *       WirelessGatewayEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ *   MessageDeliveryStatus: {
+ *     Sidewalk: {
+ *       WirelessDeviceEventTopic: "Enabled" || "Disabled",
+ *     },
+ *   },
+ * };
  * const command = new UpdateEventConfigurationByResourceTypesCommand(input);
  * const response = await client.send(command);
  * ```

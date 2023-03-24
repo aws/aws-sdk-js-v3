@@ -43,6 +43,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * import { DAXClient, TagResourceCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, TagResourceCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = {
+ *   ResourceName: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

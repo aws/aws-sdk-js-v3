@@ -53,6 +53,11 @@ export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __M
  * import { CognitoIdentityProviderClient, AdminGetDeviceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminGetDeviceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   DeviceKey: "STRING_VALUE", // required
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ * };
  * const command = new AdminGetDeviceCommand(input);
  * const response = await client.send(command);
  * ```

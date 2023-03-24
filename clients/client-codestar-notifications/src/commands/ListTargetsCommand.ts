@@ -46,6 +46,16 @@ export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataB
  * import { CodestarNotificationsClient, ListTargetsCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, ListTargetsCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "TARGET_TYPE" || "TARGET_ADDRESS" || "TARGET_STATUS", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListTargetsCommand(input);
  * const response = await client.send(command);
  * ```

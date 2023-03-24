@@ -75,6 +75,49 @@ export interface DescribeEventsForOrganizationCommandOutput
  * import { HealthClient, DescribeEventsForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventsForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = {
+ *   filter: {
+ *     eventTypeCodes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     awsAccountIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     services: [
+ *       "STRING_VALUE",
+ *     ],
+ *     regions: [
+ *       "STRING_VALUE",
+ *     ],
+ *     startTime: {
+ *       from: new Date("TIMESTAMP"),
+ *       to: new Date("TIMESTAMP"),
+ *     },
+ *     endTime: {
+ *       from: new Date("TIMESTAMP"),
+ *       to: new Date("TIMESTAMP"),
+ *     },
+ *     lastUpdatedTime: {
+ *       from: new Date("TIMESTAMP"),
+ *       to: new Date("TIMESTAMP"),
+ *     },
+ *     entityArns: [
+ *       "STRING_VALUE",
+ *     ],
+ *     entityValues: [
+ *       "STRING_VALUE",
+ *     ],
+ *     eventTypeCategories: [
+ *       "STRING_VALUE",
+ *     ],
+ *     eventStatusCodes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   locale: "STRING_VALUE",
+ * };
  * const command = new DescribeEventsForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```

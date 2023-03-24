@@ -50,6 +50,16 @@ export interface ListNetworkResourcesCommandOutput extends ListNetworkResourcesR
  * import { PrivateNetworksClient, ListNetworkResourcesCommand } from "@aws-sdk/client-privatenetworks"; // ES Modules import
  * // const { PrivateNetworksClient, ListNetworkResourcesCommand } = require("@aws-sdk/client-privatenetworks"); // CommonJS import
  * const client = new PrivateNetworksClient(config);
+ * const input = {
+ *   filters: {
+ *     "<keys>": [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   networkArn: "STRING_VALUE", // required
+ *   startToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListNetworkResourcesCommand(input);
  * const response = await client.send(command);
  * ```

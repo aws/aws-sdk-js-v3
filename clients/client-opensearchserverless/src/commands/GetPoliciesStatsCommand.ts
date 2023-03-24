@@ -47,6 +47,7 @@ export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse,
  * import { OpenSearchServerlessClient, GetPoliciesStatsCommand } from "@aws-sdk/client-opensearchserverless"; // ES Modules import
  * // const { OpenSearchServerlessClient, GetPoliciesStatsCommand } = require("@aws-sdk/client-opensearchserverless"); // CommonJS import
  * const client = new OpenSearchServerlessClient(config);
+ * const input = {};
  * const command = new GetPoliciesStatsCommand(input);
  * const response = await client.send(command);
  * ```

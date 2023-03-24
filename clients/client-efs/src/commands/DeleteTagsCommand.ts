@@ -53,6 +53,12 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * import { EFSClient, DeleteTagsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DeleteTagsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   FileSystemId: "STRING_VALUE", // required
+ *   TagKeys: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);
  * ```

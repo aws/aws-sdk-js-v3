@@ -44,6 +44,17 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  * import { CodeCommitClient, DescribeMergeConflictsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DescribeMergeConflictsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
+ * const input = {
+ *   repositoryName: "STRING_VALUE", // required
+ *   destinationCommitSpecifier: "STRING_VALUE", // required
+ *   sourceCommitSpecifier: "STRING_VALUE", // required
+ *   mergeOption: "STRING_VALUE", // required
+ *   maxMergeHunks: Number("int"),
+ *   filePath: "STRING_VALUE", // required
+ *   conflictDetailLevel: "STRING_VALUE",
+ *   conflictResolutionStrategy: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeMergeConflictsCommand(input);
  * const response = await client.send(command);
  * ```

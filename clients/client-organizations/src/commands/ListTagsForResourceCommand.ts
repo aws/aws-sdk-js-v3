@@ -59,6 +59,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { OrganizationsClient, ListTagsForResourceCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DescribeTagOptionCommandOutput extends DescribeTagOptionOutput,
  * import { ServiceCatalogClient, DescribeTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DescribeTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DescribeTagOptionCommand(input);
  * const response = await client.send(command);
  * ```

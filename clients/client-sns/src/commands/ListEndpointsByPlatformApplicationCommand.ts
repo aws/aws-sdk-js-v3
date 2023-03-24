@@ -56,6 +56,10 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
  * import { SNSClient, ListEndpointsByPlatformApplicationCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListEndpointsByPlatformApplicationCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
+ * const input = {
+ *   PlatformApplicationArn: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListEndpointsByPlatformApplicationCommand(input);
  * const response = await client.send(command);
  * ```

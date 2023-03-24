@@ -43,6 +43,13 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * import { LookoutEquipmentClient, ListModelsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListModelsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Status: "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ *   ModelNameBeginsWith: "STRING_VALUE",
+ *   DatasetNameBeginsWith: "STRING_VALUE",
+ * };
  * const command = new ListModelsCommand(input);
  * const response = await client.send(command);
  * ```

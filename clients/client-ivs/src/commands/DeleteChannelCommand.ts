@@ -46,6 +46,9 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  * import { IvsClient, DeleteChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, DeleteChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);
  * ```

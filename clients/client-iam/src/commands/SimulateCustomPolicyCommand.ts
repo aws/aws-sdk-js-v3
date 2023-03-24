@@ -65,6 +65,35 @@ export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyRespons
  * import { IAMClient, SimulateCustomPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, SimulateCustomPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
+ * const input = {
+ *   PolicyInputList: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   PermissionsBoundaryPolicyInputList: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ActionNames: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourceArns: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ResourcePolicy: "STRING_VALUE",
+ *   ResourceOwner: "STRING_VALUE",
+ *   CallerArn: "STRING_VALUE",
+ *   ContextEntries: [
+ *     {
+ *       ContextKeyName: "STRING_VALUE",
+ *       ContextKeyValues: [
+ *         "STRING_VALUE",
+ *       ],
+ *       ContextKeyType: "string" || "stringList" || "numeric" || "numericList" || "boolean" || "booleanList" || "ip" || "ipList" || "binary" || "binaryList" || "date" || "dateList",
+ *     },
+ *   ],
+ *   ResourceHandlingOption: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new SimulateCustomPolicyCommand(input);
  * const response = await client.send(command);
  * ```

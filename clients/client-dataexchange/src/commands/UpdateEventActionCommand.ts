@@ -42,6 +42,21 @@ export interface UpdateEventActionCommandOutput extends UpdateEventActionRespons
  * import { DataExchangeClient, UpdateEventActionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, UpdateEventActionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
+ * const input = {
+ *   Action: {
+ *     ExportRevisionToS3: {
+ *       Encryption: {
+ *         KmsKeyArn: "STRING_VALUE",
+ *         Type: "STRING_VALUE", // required
+ *       },
+ *       RevisionDestination: {
+ *         Bucket: "STRING_VALUE", // required
+ *         KeyPattern: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   EventActionId: "STRING_VALUE", // required
+ * };
  * const command = new UpdateEventActionCommand(input);
  * const response = await client.send(command);
  * ```

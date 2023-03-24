@@ -42,6 +42,10 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * import { BackupGatewayClient, ListGatewaysCommand } from "@aws-sdk/client-backup-gateway"; // ES Modules import
  * // const { BackupGatewayClient, ListGatewaysCommand } = require("@aws-sdk/client-backup-gateway"); // CommonJS import
  * const client = new BackupGatewayClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListGatewaysCommand(input);
  * const response = await client.send(command);
  * ```

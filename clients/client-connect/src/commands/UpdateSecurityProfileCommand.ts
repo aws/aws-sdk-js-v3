@@ -43,6 +43,20 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
  * import { ConnectClient, UpdateSecurityProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateSecurityProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   Description: "STRING_VALUE",
+ *   Permissions: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SecurityProfileId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   AllowedAccessControlTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   TagRestrictedResources: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new UpdateSecurityProfileCommand(input);
  * const response = await client.send(command);
  * ```

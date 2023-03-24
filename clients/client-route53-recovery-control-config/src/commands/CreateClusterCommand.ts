@@ -46,6 +46,13 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { Route53RecoveryControlConfigClient, CreateClusterCommand } from "@aws-sdk/client-route53-recovery-control-config"; // ES Modules import
  * // const { Route53RecoveryControlConfigClient, CreateClusterCommand } = require("@aws-sdk/client-route53-recovery-control-config"); // CommonJS import
  * const client = new Route53RecoveryControlConfigClient(config);
+ * const input = {
+ *   ClientToken: "STRING_VALUE",
+ *   ClusterName: "STRING_VALUE", // required
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```

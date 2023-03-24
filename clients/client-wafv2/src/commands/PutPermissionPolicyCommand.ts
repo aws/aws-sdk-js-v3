@@ -58,6 +58,10 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  * import { WAFV2Client, PutPermissionPolicyCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, PutPermissionPolicyCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   Policy: "STRING_VALUE", // required
+ * };
  * const command = new PutPermissionPolicyCommand(input);
  * const response = await client.send(command);
  * ```

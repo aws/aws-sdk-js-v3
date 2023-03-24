@@ -44,6 +44,11 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * import { KafkaConnectClient, ListConnectorsCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
  * // const { KafkaConnectClient, ListConnectorsCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
+ * const input = {
+ *   connectorNamePrefix: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListConnectorsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,13 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * import { NetworkFirewallClient, ListRuleGroupsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, ListRuleGroupsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = {
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   Scope: "MANAGED" || "ACCOUNT",
+ *   ManagedType: "AWS_MANAGED_THREAT_SIGNATURES" || "AWS_MANAGED_DOMAIN_LISTS",
+ *   Type: "STATELESS" || "STATEFUL",
+ * };
  * const command = new ListRuleGroupsCommand(input);
  * const response = await client.send(command);
  * ```

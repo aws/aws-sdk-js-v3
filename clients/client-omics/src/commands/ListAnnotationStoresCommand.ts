@@ -42,6 +42,16 @@ export interface ListAnnotationStoresCommandOutput extends ListAnnotationStoresR
  * import { OmicsClient, ListAnnotationStoresCommand } from "@aws-sdk/client-omics"; // ES Modules import
  * // const { OmicsClient, ListAnnotationStoresCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
+ * const input = {
+ *   ids: [
+ *     "STRING_VALUE",
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ *   filter: {
+ *     status: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListAnnotationStoresCommand(input);
  * const response = await client.send(command);
  * ```

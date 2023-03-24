@@ -45,6 +45,11 @@ export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyG
  * import { ConnectClient, ListUserHierarchyGroupsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListUserHierarchyGroupsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListUserHierarchyGroupsCommand(input);
  * const response = await client.send(command);
  * ```

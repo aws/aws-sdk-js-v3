@@ -91,6 +91,13 @@ export interface GetMediaForFragmentListCommandOutput
  * import { KinesisVideoArchivedMediaClient, GetMediaForFragmentListCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetMediaForFragmentListCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
  * const client = new KinesisVideoArchivedMediaClient(config);
+ * const input = {
+ *   StreamName: "STRING_VALUE",
+ *   StreamARN: "STRING_VALUE",
+ *   Fragments: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetMediaForFragmentListCommand(input);
  * const response = await client.send(command);
  * ```

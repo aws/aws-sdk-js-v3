@@ -50,6 +50,11 @@ export interface GetBehaviorModelTrainingSummariesCommandOutput
  * import { IoTClient, GetBehaviorModelTrainingSummariesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetBehaviorModelTrainingSummariesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   securityProfileName: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new GetBehaviorModelTrainingSummariesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -50,6 +50,10 @@ export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabels
  * import { GlueClient, StartExportLabelsTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartExportLabelsTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   TransformId: "STRING_VALUE", // required
+ *   OutputS3Path: "STRING_VALUE", // required
+ * };
  * const command = new StartExportLabelsTaskRunCommand(input);
  * const response = await client.send(command);
  * ```

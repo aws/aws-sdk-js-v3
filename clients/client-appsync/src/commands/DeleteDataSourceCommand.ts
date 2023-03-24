@@ -42,6 +42,10 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  * import { AppSyncClient, DeleteDataSourceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DeleteDataSourceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
+ * const input = {
+ *   apiId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDataSourceCommand(input);
  * const response = await client.send(command);
  * ```

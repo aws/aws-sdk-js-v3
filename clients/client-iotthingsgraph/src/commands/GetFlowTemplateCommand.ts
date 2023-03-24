@@ -44,6 +44,10 @@ export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, _
  * import { IoTThingsGraphClient, GetFlowTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, GetFlowTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   revisionNumber: Number("long"),
+ * };
  * const command = new GetFlowTemplateCommand(input);
  * const response = await client.send(command);
  * ```

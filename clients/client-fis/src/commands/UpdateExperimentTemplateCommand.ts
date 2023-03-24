@@ -42,6 +42,65 @@ export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentT
  * import { FisClient, UpdateExperimentTemplateCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, UpdateExperimentTemplateCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   stopConditions: [
+ *     {
+ *       source: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   targets: {
+ *     "<keys>": {
+ *       resourceType: "STRING_VALUE", // required
+ *       resourceArns: [
+ *         "STRING_VALUE",
+ *       ],
+ *       resourceTags: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       filters: [
+ *         {
+ *           path: "STRING_VALUE", // required
+ *           values: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       selectionMode: "STRING_VALUE", // required
+ *       parameters: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   },
+ *   actions: {
+ *     "<keys>": {
+ *       actionId: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       parameters: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       targets: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       startAfter: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
+ *   roleArn: "STRING_VALUE",
+ *   logConfiguration: {
+ *     cloudWatchLogsConfiguration: {
+ *       logGroupArn: "STRING_VALUE", // required
+ *     },
+ *     s3Configuration: {
+ *       bucketName: "STRING_VALUE", // required
+ *       prefix: "STRING_VALUE",
+ *     },
+ *     logSchemaVersion: Number("int"),
+ *   },
+ * };
  * const command = new UpdateExperimentTemplateCommand(input);
  * const response = await client.send(command);
  * ```

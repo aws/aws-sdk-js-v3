@@ -47,6 +47,12 @@ export interface RegisterRdsDbInstanceCommandOutput extends __MetadataBearer {}
  * import { OpsWorksClient, RegisterRdsDbInstanceCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, RegisterRdsDbInstanceCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
+ * const input = {
+ *   StackId: "STRING_VALUE", // required
+ *   RdsDbInstanceArn: "STRING_VALUE", // required
+ *   DbUser: "STRING_VALUE", // required
+ *   DbPassword: "STRING_VALUE", // required
+ * };
  * const command = new RegisterRdsDbInstanceCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface GetGroupCommandOutput extends GetGroupResult, __MetadataBearer 
  * import { XRayClient, GetGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = {
+ *   GroupName: "STRING_VALUE",
+ *   GroupARN: "STRING_VALUE",
+ * };
  * const command = new GetGroupCommand(input);
  * const response = await client.send(command);
  * ```

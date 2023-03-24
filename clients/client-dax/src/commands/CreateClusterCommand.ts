@@ -42,6 +42,33 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * import { DAXClient, CreateClusterCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, CreateClusterCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
+ * const input = {
+ *   ClusterName: "STRING_VALUE", // required
+ *   NodeType: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   ReplicationFactor: Number("int"), // required
+ *   AvailabilityZones: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SubnetGroupName: "STRING_VALUE",
+ *   SecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   PreferredMaintenanceWindow: "STRING_VALUE",
+ *   NotificationTopicArn: "STRING_VALUE",
+ *   IamRoleArn: "STRING_VALUE", // required
+ *   ParameterGroupName: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ *   SSESpecification: {
+ *     Enabled: true || false, // required
+ *   },
+ *   ClusterEndpointEncryptionType: "STRING_VALUE",
+ * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
  * ```

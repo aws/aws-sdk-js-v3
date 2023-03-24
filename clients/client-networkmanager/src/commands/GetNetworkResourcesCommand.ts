@@ -43,6 +43,17 @@ export interface GetNetworkResourcesCommandOutput extends GetNetworkResourcesRes
  * import { NetworkManagerClient, GetNetworkResourcesCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetNetworkResourcesCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
+ * const input = {
+ *   GlobalNetworkId: "STRING_VALUE", // required
+ *   CoreNetworkId: "STRING_VALUE",
+ *   RegisteredGatewayArn: "STRING_VALUE",
+ *   AwsRegion: "STRING_VALUE",
+ *   AccountId: "STRING_VALUE",
+ *   ResourceType: "STRING_VALUE",
+ *   ResourceArn: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new GetNetworkResourcesCommand(input);
  * const response = await client.send(command);
  * ```

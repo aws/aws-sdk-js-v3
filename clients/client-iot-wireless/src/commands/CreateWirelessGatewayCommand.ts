@@ -42,6 +42,38 @@ export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewa
  * import { IoTWirelessClient, CreateWirelessGatewayCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, CreateWirelessGatewayCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   LoRaWAN: {
+ *     GatewayEui: "STRING_VALUE",
+ *     RfRegion: "STRING_VALUE",
+ *     JoinEuiFilters: [
+ *       [
+ *         "STRING_VALUE",
+ *       ],
+ *     ],
+ *     NetIdFilters: [
+ *       "STRING_VALUE",
+ *     ],
+ *     SubBands: [
+ *       Number("int"),
+ *     ],
+ *     Beaconing: {
+ *       DataRate: Number("int"),
+ *       Frequencies: [
+ *         Number("int"),
+ *       ],
+ *     },
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new CreateWirelessGatewayCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,13 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  * import { EC2Client, CreateNetworkInterfacePermissionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateNetworkInterfacePermissionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   AwsAccountId: "STRING_VALUE",
+ *   AwsService: "STRING_VALUE",
+ *   Permission: "INSTANCE-ATTACH" || "EIP-ASSOCIATE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new CreateNetworkInterfacePermissionCommand(input);
  * const response = await client.send(command);
  * ```

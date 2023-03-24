@@ -50,6 +50,43 @@ export interface UpdateLayoutCommandOutput extends UpdateLayoutResponse, __Metad
  * import { ConnectCasesClient, UpdateLayoutCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, UpdateLayoutCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = {
+ *   domainId: "STRING_VALUE", // required
+ *   layoutId: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   content: { // Union: only one key present
+ *     basic: {
+ *       topPanel: {
+ *         sections: [
+ *           { // Union: only one key present
+ *             fieldGroup: {
+ *               name: "STRING_VALUE",
+ *               fields: [ // required
+ *                 {
+ *                   id: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       moreInfo: {
+ *         sections: [
+ *           { // Union: only one key present
+ *             fieldGroup: {
+ *               name: "STRING_VALUE",
+ *               fields: [ // required
+ *                 {
+ *                   id: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateLayoutCommand(input);
  * const response = await client.send(command);
  * ```

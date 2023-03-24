@@ -52,6 +52,9 @@ export interface DeleteCustomVerificationEmailTemplateCommandOutput
  * import { SESv2Client, DeleteCustomVerificationEmailTemplateCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, DeleteCustomVerificationEmailTemplateCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   TemplateName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteCustomVerificationEmailTemplateCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCi
  * import { EC2Client, DeleteSubnetCidrReservationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteSubnetCidrReservationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   SubnetCidrReservationId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteSubnetCidrReservationCommand(input);
  * const response = await client.send(command);
  * ```

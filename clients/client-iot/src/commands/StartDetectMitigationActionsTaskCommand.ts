@@ -47,6 +47,26 @@ export interface StartDetectMitigationActionsTaskCommandOutput
  * import { IoTClient, StartDetectMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, StartDetectMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   taskId: "STRING_VALUE", // required
+ *   target: {
+ *     violationIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     securityProfileName: "STRING_VALUE",
+ *     behaviorName: "STRING_VALUE",
+ *   },
+ *   actions: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   violationEventOccurrenceRange: {
+ *     startTime: new Date("TIMESTAMP"), // required
+ *     endTime: new Date("TIMESTAMP"), // required
+ *   },
+ *   includeOnlyActiveViolations: true || false,
+ *   includeSuppressedAlerts: true || false,
+ *   clientRequestToken: "STRING_VALUE", // required
+ * };
  * const command = new StartDetectMitigationActionsTaskCommand(input);
  * const response = await client.send(command);
  * ```

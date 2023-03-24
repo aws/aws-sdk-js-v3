@@ -43,6 +43,16 @@ export interface GetServersCommandOutput extends GetServersResponse, __MetadataB
  * import { SMSClient, GetServersCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetServersCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   vmServerAddressList: [
+ *     {
+ *       vmManagerId: "STRING_VALUE",
+ *       vmId: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new GetServersCommand(input);
  * const response = await client.send(command);
  * ```

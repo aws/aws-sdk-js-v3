@@ -44,6 +44,9 @@ export interface DeleteSubscriptionDefinitionCommandOutput
  * import { GreengrassClient, DeleteSubscriptionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, DeleteSubscriptionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   SubscriptionDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

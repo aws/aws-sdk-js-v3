@@ -42,6 +42,10 @@ export interface DeleteStudioCommandOutput extends DeleteStudioResponse, __Metad
  * import { NimbleClient, DeleteStudioCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, DeleteStudioCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   studioId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStudioCommand(input);
  * const response = await client.send(command);
  * ```

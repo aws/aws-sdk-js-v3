@@ -46,6 +46,20 @@ export interface RegisterIdentityProviderCommandOutput extends RegisterIdentityP
  * import { LicenseManagerUserSubscriptionsClient, RegisterIdentityProviderCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
  * // const { LicenseManagerUserSubscriptionsClient, RegisterIdentityProviderCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
+ * const input = {
+ *   IdentityProvider: { // Union: only one key present
+ *     ActiveDirectoryIdentityProvider: {
+ *       DirectoryId: "STRING_VALUE",
+ *     },
+ *   },
+ *   Product: "STRING_VALUE", // required
+ *   Settings: {
+ *     Subnets: [ // required
+ *       "STRING_VALUE",
+ *     ],
+ *     SecurityGroupId: "STRING_VALUE", // required
+ *   },
+ * };
  * const command = new RegisterIdentityProviderCommand(input);
  * const response = await client.send(command);
  * ```

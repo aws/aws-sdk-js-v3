@@ -49,6 +49,14 @@ export interface CreateSolNetworkInstanceCommandOutput extends CreateSolNetworkI
  * import { TnbClient, CreateSolNetworkInstanceCommand } from "@aws-sdk/client-tnb"; // ES Modules import
  * // const { TnbClient, CreateSolNetworkInstanceCommand } = require("@aws-sdk/client-tnb"); // CommonJS import
  * const client = new TnbClient(config);
+ * const input = {
+ *   nsdInfoId: "STRING_VALUE", // required
+ *   nsName: "STRING_VALUE", // required
+ *   nsDescription: "STRING_VALUE",
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateSolNetworkInstanceCommand(input);
  * const response = await client.send(command);
  * ```

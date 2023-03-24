@@ -42,6 +42,15 @@ export interface UpdateServiceActionCommandOutput extends UpdateServiceActionOut
  * import { ServiceCatalogClient, UpdateServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Definition: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   Description: "STRING_VALUE",
+ *   AcceptLanguage: "STRING_VALUE",
+ * };
  * const command = new UpdateServiceActionCommand(input);
  * const response = await client.send(command);
  * ```

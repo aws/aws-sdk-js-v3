@@ -51,6 +51,13 @@ export interface ListEarthObservationJobsCommandOutput extends ListEarthObservat
  * import { SageMakerGeospatialClient, ListEarthObservationJobsCommand } from "@aws-sdk/client-sagemaker-geospatial"; // ES Modules import
  * // const { SageMakerGeospatialClient, ListEarthObservationJobsCommand } = require("@aws-sdk/client-sagemaker-geospatial"); // CommonJS import
  * const client = new SageMakerGeospatialClient(config);
+ * const input = {
+ *   StatusEquals: "STRING_VALUE",
+ *   SortOrder: "STRING_VALUE",
+ *   SortBy: "STRING_VALUE",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new ListEarthObservationJobsCommand(input);
  * const response = await client.send(command);
  * ```

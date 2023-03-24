@@ -42,6 +42,9 @@ export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBea
  * import { IoTRoboRunnerClient, GetWorkerCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, GetWorkerCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetWorkerCommand(input);
  * const response = await client.send(command);
  * ```

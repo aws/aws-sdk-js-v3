@@ -46,6 +46,9 @@ export interface DescribeHostedConnectionsCommandOutput extends Connections, __M
  * import { DirectConnectClient, DescribeHostedConnectionsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeHostedConnectionsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
+ * const input = {
+ *   connectionId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeHostedConnectionsCommand(input);
  * const response = await client.send(command);
  * ```

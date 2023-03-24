@@ -42,6 +42,56 @@ export interface UpdateEndpointsBatchCommandOutput extends UpdateEndpointsBatchR
  * import { PinpointClient, UpdateEndpointsBatchCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateEndpointsBatchCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ *   EndpointBatchRequest: {
+ *     Item: [ // required
+ *       {
+ *         Address: "STRING_VALUE",
+ *         Attributes: {
+ *           "<keys>": [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         ChannelType: "STRING_VALUE",
+ *         Demographic: {
+ *           AppVersion: "STRING_VALUE",
+ *           Locale: "STRING_VALUE",
+ *           Make: "STRING_VALUE",
+ *           Model: "STRING_VALUE",
+ *           ModelVersion: "STRING_VALUE",
+ *           Platform: "STRING_VALUE",
+ *           PlatformVersion: "STRING_VALUE",
+ *           Timezone: "STRING_VALUE",
+ *         },
+ *         EffectiveDate: "STRING_VALUE",
+ *         EndpointStatus: "STRING_VALUE",
+ *         Id: "STRING_VALUE",
+ *         Location: {
+ *           City: "STRING_VALUE",
+ *           Country: "STRING_VALUE",
+ *           Latitude: Number("double"),
+ *           Longitude: Number("double"),
+ *           PostalCode: "STRING_VALUE",
+ *           Region: "STRING_VALUE",
+ *         },
+ *         Metrics: {
+ *           "<keys>": Number("double"),
+ *         },
+ *         OptOut: "STRING_VALUE",
+ *         RequestId: "STRING_VALUE",
+ *         User: {
+ *           UserAttributes: {
+ *             "<keys>": [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           UserId: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *   },
+ * };
  * const command = new UpdateEndpointsBatchCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,29 @@ export interface CreateWorkerCommandOutput extends CreateWorkerResponse, __Metad
  * import { IoTRoboRunnerClient, CreateWorkerCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, CreateWorkerCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE",
+ *   name: "STRING_VALUE", // required
+ *   fleet: "STRING_VALUE", // required
+ *   additionalTransientProperties: "STRING_VALUE",
+ *   additionalFixedProperties: "STRING_VALUE",
+ *   vendorProperties: {
+ *     vendorWorkerId: "STRING_VALUE", // required
+ *     vendorWorkerIpAddress: "STRING_VALUE",
+ *     vendorAdditionalTransientProperties: "STRING_VALUE",
+ *     vendorAdditionalFixedProperties: "STRING_VALUE",
+ *   },
+ *   position: { // Union: only one key present
+ *     cartesianCoordinates: {
+ *       x: Number("double"), // required
+ *       y: Number("double"), // required
+ *       z: Number("double"),
+ *     },
+ *   },
+ *   orientation: { // Union: only one key present
+ *     degrees: Number("double"),
+ *   },
+ * };
  * const command = new CreateWorkerCommand(input);
  * const response = await client.send(command);
  * ```

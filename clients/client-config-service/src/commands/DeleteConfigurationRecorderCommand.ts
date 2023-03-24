@@ -51,6 +51,9 @@ export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBear
  * import { ConfigServiceClient, DeleteConfigurationRecorderCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteConfigurationRecorderCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
+ * const input = {
+ *   ConfigurationRecorderName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConfigurationRecorderCommand(input);
  * const response = await client.send(command);
  * ```

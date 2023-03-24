@@ -54,6 +54,10 @@ export interface DeleteGroupCommandOutput extends DeleteGroupOutput, __MetadataB
  * import { ResourceGroupsClient, DeleteGroupCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, DeleteGroupCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
  * const client = new ResourceGroupsClient(config);
+ * const input = {
+ *   GroupName: "STRING_VALUE",
+ *   Group: "STRING_VALUE",
+ * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
  * ```

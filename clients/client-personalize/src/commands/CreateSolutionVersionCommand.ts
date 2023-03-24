@@ -108,6 +108,17 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  * import { PersonalizeClient, CreateSolutionVersionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateSolutionVersionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   name: "STRING_VALUE",
+ *   solutionArn: "STRING_VALUE", // required
+ *   trainingMode: "FULL" || "UPDATE",
+ *   tags: [
+ *     {
+ *       tagKey: "STRING_VALUE", // required
+ *       tagValue: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateSolutionVersionCommand(input);
  * const response = await client.send(command);
  * ```

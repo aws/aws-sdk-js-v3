@@ -42,6 +42,11 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
  * import { IoTSiteWiseClient, ListDashboardsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListDashboardsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
+ * const input = {
+ *   projectId: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListDashboardsCommand(input);
  * const response = await client.send(command);
  * ```

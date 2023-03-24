@@ -63,6 +63,24 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  * import { S3Client, PutObjectLockConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectLockConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   ObjectLockConfiguration: {
+ *     ObjectLockEnabled: "Enabled",
+ *     Rule: {
+ *       DefaultRetention: {
+ *         Mode: "GOVERNANCE" || "COMPLIANCE",
+ *         Days: Number("int"),
+ *         Years: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   RequestPayer: "requester",
+ *   Token: "STRING_VALUE",
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutObjectLockConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

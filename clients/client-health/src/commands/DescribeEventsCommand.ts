@@ -64,6 +64,63 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * import { HealthClient, DescribeEventsCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeEventsCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
+ * const input = {
+ *   filter: {
+ *     eventArns: [
+ *       "STRING_VALUE",
+ *     ],
+ *     eventTypeCodes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     services: [
+ *       "STRING_VALUE",
+ *     ],
+ *     regions: [
+ *       "STRING_VALUE",
+ *     ],
+ *     availabilityZones: [
+ *       "STRING_VALUE",
+ *     ],
+ *     startTimes: [
+ *       {
+ *         from: new Date("TIMESTAMP"),
+ *         to: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     endTimes: [
+ *       {
+ *         from: new Date("TIMESTAMP"),
+ *         to: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     lastUpdatedTimes: [
+ *       {
+ *         from: new Date("TIMESTAMP"),
+ *         to: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     entityArns: [
+ *       "STRING_VALUE",
+ *     ],
+ *     entityValues: [
+ *       "STRING_VALUE",
+ *     ],
+ *     eventTypeCategories: [
+ *       "STRING_VALUE",
+ *     ],
+ *     tags: [
+ *       {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     ],
+ *     eventStatusCodes: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   locale: "STRING_VALUE",
+ * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
  * ```

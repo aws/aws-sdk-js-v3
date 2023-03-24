@@ -42,6 +42,15 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  * import { MediaPackageClient, ConfigureLogsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, ConfigureLogsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
+ * const input = {
+ *   EgressAccessLogs: {
+ *     LogGroupName: "STRING_VALUE",
+ *   },
+ *   Id: "STRING_VALUE", // required
+ *   IngressAccessLogs: {
+ *     LogGroupName: "STRING_VALUE",
+ *   },
+ * };
  * const command = new ConfigureLogsCommand(input);
  * const response = await client.send(command);
  * ```

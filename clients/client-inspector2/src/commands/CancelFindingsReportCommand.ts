@@ -42,6 +42,9 @@ export interface CancelFindingsReportCommandOutput extends CancelFindingsReportR
  * import { Inspector2Client, CancelFindingsReportCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, CancelFindingsReportCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = {
+ *   reportId: "STRING_VALUE", // required
+ * };
  * const command = new CancelFindingsReportCommand(input);
  * const response = await client.send(command);
  * ```

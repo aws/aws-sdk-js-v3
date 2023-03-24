@@ -42,6 +42,16 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  * import { CloudDirectoryClient, RemoveFacetFromObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, RemoveFacetFromObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   SchemaFacet: {
+ *     SchemaArn: "STRING_VALUE",
+ *     FacetName: "STRING_VALUE",
+ *   },
+ *   ObjectReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ * };
  * const command = new RemoveFacetFromObjectCommand(input);
  * const response = await client.send(command);
  * ```

@@ -44,6 +44,11 @@ export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricin
  * import { SnowballClient, CreateLongTermPricingCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CreateLongTermPricingCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
+ * const input = {
+ *   LongTermPricingType: "OneYear" || "ThreeYear", // required
+ *   IsLongTermPricingAutoRenew: true || false,
+ *   SnowballType: "STANDARD" || "EDGE" || "EDGE_C" || "EDGE_CG" || "EDGE_S" || "SNC1_HDD" || "SNC1_SSD" || "V3_5C",
+ * };
  * const command = new CreateLongTermPricingCommand(input);
  * const response = await client.send(command);
  * ```

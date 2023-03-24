@@ -43,6 +43,14 @@ export interface ListQuickConnectsCommandOutput extends ListQuickConnectsRespons
  * import { ConnectClient, ListQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   QuickConnectTypes: [
+ *     "USER" || "QUEUE" || "PHONE_NUMBER",
+ *   ],
+ * };
  * const command = new ListQuickConnectsCommand(input);
  * const response = await client.send(command);
  * ```

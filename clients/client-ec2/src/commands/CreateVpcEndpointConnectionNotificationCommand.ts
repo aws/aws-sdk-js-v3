@@ -52,6 +52,16 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
  * import { EC2Client, CreateVpcEndpointConnectionNotificationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateVpcEndpointConnectionNotificationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   ServiceId: "STRING_VALUE",
+ *   VpcEndpointId: "STRING_VALUE",
+ *   ConnectionNotificationArn: "STRING_VALUE", // required
+ *   ConnectionEvents: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   ClientToken: "STRING_VALUE",
+ * };
  * const command = new CreateVpcEndpointConnectionNotificationCommand(input);
  * const response = await client.send(command);
  * ```

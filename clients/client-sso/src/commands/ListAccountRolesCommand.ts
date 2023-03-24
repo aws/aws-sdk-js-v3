@@ -46,6 +46,12 @@ export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse,
  * import { SSOClient, ListAccountRolesCommand } from "@aws-sdk/client-sso"; // ES Modules import
  * // const { SSOClient, ListAccountRolesCommand } = require("@aws-sdk/client-sso"); // CommonJS import
  * const client = new SSOClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   accessToken: "STRING_VALUE", // required
+ *   accountId: "STRING_VALUE", // required
+ * };
  * const command = new ListAccountRolesCommand(input);
  * const response = await client.send(command);
  * ```

@@ -46,6 +46,9 @@ export interface TestNoPayloadCommandOutput extends TestNoPayloadInputOutput, __
  * import { RestJsonProtocolClient, TestNoPayloadCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, TestNoPayloadCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   testId: "STRING_VALUE",
+ * };
  * const command = new TestNoPayloadCommand(input);
  * const response = await client.send(command);
  * ```

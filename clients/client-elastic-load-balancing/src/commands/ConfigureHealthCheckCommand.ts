@@ -48,6 +48,16 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  * import { ElasticLoadBalancingClient, ConfigureHealthCheckCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, ConfigureHealthCheckCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
+ * const input = {
+ *   LoadBalancerName: "STRING_VALUE", // required
+ *   HealthCheck: {
+ *     Target: "STRING_VALUE", // required
+ *     Interval: Number("int"), // required
+ *     Timeout: Number("int"), // required
+ *     UnhealthyThreshold: Number("int"), // required
+ *     HealthyThreshold: Number("int"), // required
+ *   },
+ * };
  * const command = new ConfigureHealthCheckCommand(input);
  * const response = await client.send(command);
  * ```

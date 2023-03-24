@@ -42,6 +42,10 @@ export interface ListSitesCommandOutput extends ListSitesResponse, __MetadataBea
  * import { IoTRoboRunnerClient, ListSitesCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, ListSitesCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = {
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListSitesCommand(input);
  * const response = await client.send(command);
  * ```

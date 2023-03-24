@@ -50,6 +50,10 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
  * import { EC2Client, DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   LocalGatewayRouteTableVirtualInterfaceGroupAssociationId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand(input);
  * const response = await client.send(command);
  * ```

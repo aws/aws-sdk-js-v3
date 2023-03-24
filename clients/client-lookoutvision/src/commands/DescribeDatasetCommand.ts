@@ -44,6 +44,10 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * import { LookoutVisionClient, DescribeDatasetCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, DescribeDatasetCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
+ * const input = {
+ *   ProjectName: "STRING_VALUE", // required
+ *   DatasetType: "STRING_VALUE", // required
+ * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
  * ```

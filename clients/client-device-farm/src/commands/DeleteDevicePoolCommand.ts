@@ -43,6 +43,9 @@ export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, _
  * import { DeviceFarmClient, DeleteDevicePoolCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteDevicePoolCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDevicePoolCommand(input);
  * const response = await client.send(command);
  * ```

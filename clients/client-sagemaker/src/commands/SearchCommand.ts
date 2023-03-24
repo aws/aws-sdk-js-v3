@@ -49,6 +49,63 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * import { SageMakerClient, SearchCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, SearchCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "Project" || "FeatureMetadata" || "HyperParameterTuningJob" || "ModelCard" || "Model", // required
+ *   SearchExpression: {
+ *     Filters: [
+ *       {
+ *         Name: "STRING_VALUE", // required
+ *         Operator: "Equals" || "NotEquals" || "GreaterThan" || "GreaterThanOrEqualTo" || "LessThan" || "LessThanOrEqualTo" || "Contains" || "Exists" || "NotExists" || "In",
+ *         Value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     NestedFilters: [
+ *       {
+ *         NestedPropertyName: "STRING_VALUE", // required
+ *         Filters: [ // required
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Operator: "Equals" || "NotEquals" || "GreaterThan" || "GreaterThanOrEqualTo" || "LessThan" || "LessThanOrEqualTo" || "Contains" || "Exists" || "NotExists" || "In",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     SubExpressions: [
+ *       {
+ *         Filters: [
+ *           {
+ *             Name: "STRING_VALUE", // required
+ *             Operator: "Equals" || "NotEquals" || "GreaterThan" || "GreaterThanOrEqualTo" || "LessThan" || "LessThanOrEqualTo" || "Contains" || "Exists" || "NotExists" || "In",
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *         NestedFilters: [
+ *           {
+ *             NestedPropertyName: "STRING_VALUE", // required
+ *             Filters: [ // required
+ *               "<FilterList>",
+ *             ],
+ *           },
+ *         ],
+ *         SubExpressions: [
+ *           {
+ *             Filters: "<SearchExpression>",
+ *             NestedFilters: "<SearchExpression>",
+ *             SubExpressions: "<SearchExpression>",
+ *             Operator: "And" || "Or",
+ *           },
+ *         ],
+ *         Operator: "And" || "Or",
+ *       },
+ *     ],
+ *     Operator: "<SearchExpression>",
+ *   },
+ *   SortBy: "STRING_VALUE",
+ *   SortOrder: "Ascending" || "Descending",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new SearchCommand(input);
  * const response = await client.send(command);
  * ```

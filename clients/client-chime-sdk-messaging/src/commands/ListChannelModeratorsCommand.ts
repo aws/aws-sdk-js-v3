@@ -56,6 +56,12 @@ export interface ListChannelModeratorsCommandOutput extends ListChannelModerator
  * import { ChimeSDKMessagingClient, ListChannelModeratorsCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, ListChannelModeratorsCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   ChimeBearer: "STRING_VALUE", // required
+ * };
  * const command = new ListChannelModeratorsCommand(input);
  * const response = await client.send(command);
  * ```

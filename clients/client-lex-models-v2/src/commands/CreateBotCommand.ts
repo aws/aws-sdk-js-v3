@@ -42,6 +42,31 @@ export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBea
  * import { LexModelsV2Client, CreateBotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateBotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botName: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   roleArn: "STRING_VALUE", // required
+ *   dataPrivacy: {
+ *     childDirected: true || false, // required
+ *   },
+ *   idleSessionTTLInSeconds: Number("int"), // required
+ *   botTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   testBotAliasTags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   botType: "Bot" || "BotNetwork",
+ *   botMembers: [
+ *     {
+ *       botMemberId: "STRING_VALUE", // required
+ *       botMemberName: "STRING_VALUE", // required
+ *       botMemberAliasId: "STRING_VALUE", // required
+ *       botMemberAliasName: "STRING_VALUE", // required
+ *       botMemberVersion: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateBotCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,10 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResult, __MetadataB
  * import { XRayClient, DeleteGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, DeleteGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
+ * const input = {
+ *   GroupName: "STRING_VALUE",
+ *   GroupARN: "STRING_VALUE",
+ * };
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);
  * ```

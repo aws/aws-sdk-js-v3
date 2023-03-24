@@ -42,6 +42,14 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  * import { CodePipelineClient, ListActionExecutionsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, ListActionExecutionsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
+ * const input = {
+ *   pipelineName: "STRING_VALUE", // required
+ *   filter: {
+ *     pipelineExecutionId: "STRING_VALUE",
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListActionExecutionsCommand(input);
  * const response = await client.send(command);
  * ```

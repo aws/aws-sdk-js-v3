@@ -42,6 +42,10 @@ export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBeare
  * import { LocationClient, ListMapsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListMapsCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListMapsCommand(input);
  * const response = await client.send(command);
  * ```

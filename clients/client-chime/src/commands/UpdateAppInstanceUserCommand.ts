@@ -46,6 +46,11 @@ export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUse
  * import { ChimeClient, UpdateAppInstanceUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateAppInstanceUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   AppInstanceUserArn: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE", // required
+ *   Metadata: "STRING_VALUE",
+ * };
  * const command = new UpdateAppInstanceUserCommand(input);
  * const response = await client.send(command);
  * ```

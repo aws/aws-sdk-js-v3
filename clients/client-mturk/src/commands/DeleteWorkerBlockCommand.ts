@@ -42,6 +42,10 @@ export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockRespons
  * import { MTurkClient, DeleteWorkerBlockCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, DeleteWorkerBlockCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
+ * const input = {
+ *   WorkerId: "STRING_VALUE", // required
+ *   Reason: "STRING_VALUE",
+ * };
  * const command = new DeleteWorkerBlockCommand(input);
  * const response = await client.send(command);
  * ```

@@ -54,6 +54,9 @@ export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
  * import { PersonalizeClient, DeleteDatasetGroupCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteDatasetGroupCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
+ * const input = {
+ *   datasetGroupArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDatasetGroupCommand(input);
  * const response = await client.send(command);
  * ```

@@ -71,6 +71,9 @@ export interface DescribePredictorBacktestExportJobCommandOutput
  * import { ForecastClient, DescribePredictorBacktestExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DescribePredictorBacktestExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   PredictorBacktestExportJobArn: "STRING_VALUE", // required
+ * };
  * const command = new DescribePredictorBacktestExportJobCommand(input);
  * const response = await client.send(command);
  * ```

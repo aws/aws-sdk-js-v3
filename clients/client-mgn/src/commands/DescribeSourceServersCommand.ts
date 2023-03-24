@@ -46,6 +46,25 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  * import { MgnClient, DescribeSourceServersCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DescribeSourceServersCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   filters: {
+ *     sourceServerIDs: [
+ *       "STRING_VALUE",
+ *     ],
+ *     isArchived: true || false,
+ *     replicationTypes: [
+ *       "STRING_VALUE",
+ *     ],
+ *     lifeCycleStates: [
+ *       "STRING_VALUE",
+ *     ],
+ *     applicationIDs: [
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeSourceServersCommand(input);
  * const response = await client.send(command);
  * ```

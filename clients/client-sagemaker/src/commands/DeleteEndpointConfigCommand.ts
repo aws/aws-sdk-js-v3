@@ -50,6 +50,9 @@ export interface DeleteEndpointConfigCommandOutput extends __MetadataBearer {}
  * import { SageMakerClient, DeleteEndpointConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteEndpointConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   EndpointConfigName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEndpointConfigCommand(input);
  * const response = await client.send(command);
  * ```

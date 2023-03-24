@@ -50,6 +50,14 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * import { LocationClient, GetDevicePositionHistoryCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetDevicePositionHistoryCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
+ * const input = {
+ *   TrackerName: "STRING_VALUE", // required
+ *   DeviceId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   StartTimeInclusive: new Date("TIMESTAMP"),
+ *   EndTimeExclusive: new Date("TIMESTAMP"),
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetDevicePositionHistoryCommand(input);
  * const response = await client.send(command);
  * ```

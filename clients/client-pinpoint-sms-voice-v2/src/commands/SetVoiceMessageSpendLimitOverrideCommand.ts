@@ -50,6 +50,9 @@ export interface SetVoiceMessageSpendLimitOverrideCommandOutput
  * import { PinpointSMSVoiceV2Client, SetVoiceMessageSpendLimitOverrideCommand } from "@aws-sdk/client-pinpoint-sms-voice-v2"; // ES Modules import
  * // const { PinpointSMSVoiceV2Client, SetVoiceMessageSpendLimitOverrideCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
+ * const input = {
+ *   MonthlyLimit: Number("long"), // required
+ * };
  * const command = new SetVoiceMessageSpendLimitOverrideCommand(input);
  * const response = await client.send(command);
  * ```

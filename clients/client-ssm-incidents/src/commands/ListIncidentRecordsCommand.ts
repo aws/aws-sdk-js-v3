@@ -43,6 +43,27 @@ export interface ListIncidentRecordsCommandOutput extends ListIncidentRecordsOut
  * import { SSMIncidentsClient, ListIncidentRecordsCommand } from "@aws-sdk/client-ssm-incidents"; // ES Modules import
  * // const { SSMIncidentsClient, ListIncidentRecordsCommand } = require("@aws-sdk/client-ssm-incidents"); // CommonJS import
  * const client = new SSMIncidentsClient(config);
+ * const input = {
+ *   filters: [
+ *     {
+ *       key: "STRING_VALUE", // required
+ *       condition: { // Union: only one key present
+ *         before: new Date("TIMESTAMP"),
+ *         after: new Date("TIMESTAMP"),
+ *         equals: { // Union: only one key present
+ *           stringValues: [
+ *             "STRING_VALUE",
+ *           ],
+ *           integerValues: [
+ *             Number("int"),
+ *           ],
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListIncidentRecordsCommand(input);
  * const response = await client.send(command);
  * ```

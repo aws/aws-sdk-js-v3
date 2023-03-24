@@ -42,6 +42,19 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * import { BraketClient, CreateQuantumTaskCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, CreateQuantumTaskCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
+ * const input = {
+ *   clientToken: "STRING_VALUE", // required
+ *   deviceArn: "STRING_VALUE", // required
+ *   deviceParameters: "STRING_VALUE",
+ *   shots: Number("long"), // required
+ *   outputS3Bucket: "STRING_VALUE", // required
+ *   outputS3KeyPrefix: "STRING_VALUE", // required
+ *   action: "STRING_VALUE", // required
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   jobToken: "STRING_VALUE",
+ * };
  * const command = new CreateQuantumTaskCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,12 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * import { IvsClient, ListChannelsCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, ListChannelsCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
+ * const input = {
+ *   filterByName: "STRING_VALUE",
+ *   filterByRecordingConfigurationArn: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);
  * ```

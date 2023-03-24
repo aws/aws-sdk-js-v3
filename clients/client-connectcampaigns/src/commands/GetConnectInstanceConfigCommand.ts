@@ -42,6 +42,9 @@ export interface GetConnectInstanceConfigCommandOutput extends GetConnectInstanc
  * import { ConnectCampaignsClient, GetConnectInstanceConfigCommand } from "@aws-sdk/client-connectcampaigns"; // ES Modules import
  * // const { ConnectCampaignsClient, GetConnectInstanceConfigCommand } = require("@aws-sdk/client-connectcampaigns"); // CommonJS import
  * const client = new ConnectCampaignsClient(config);
+ * const input = {
+ *   connectInstanceId: "STRING_VALUE", // required
+ * };
  * const command = new GetConnectInstanceConfigCommand(input);
  * const response = await client.send(command);
  * ```

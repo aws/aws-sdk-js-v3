@@ -48,6 +48,11 @@ export interface DisassociateApplicationFromEntitlementCommandOutput
  * import { AppStreamClient, DisassociateApplicationFromEntitlementCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DisassociateApplicationFromEntitlementCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   StackName: "STRING_VALUE", // required
+ *   EntitlementName: "STRING_VALUE", // required
+ *   ApplicationIdentifier: "STRING_VALUE", // required
+ * };
  * const command = new DisassociateApplicationFromEntitlementCommand(input);
  * const response = await client.send(command);
  * ```

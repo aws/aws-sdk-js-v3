@@ -46,6 +46,9 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionOutput, _
  * import { CodeStarConnectionsClient, DeleteConnectionCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, DeleteConnectionCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
+ * const input = {
+ *   ConnectionArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
  * ```

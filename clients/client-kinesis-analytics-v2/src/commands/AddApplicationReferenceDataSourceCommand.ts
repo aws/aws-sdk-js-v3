@@ -56,6 +56,39 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * import { KinesisAnalyticsV2Client, AddApplicationReferenceDataSourceCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, AddApplicationReferenceDataSourceCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   CurrentApplicationVersionId: Number("long"), // required
+ *   ReferenceDataSource: {
+ *     TableName: "STRING_VALUE", // required
+ *     S3ReferenceDataSource: {
+ *       BucketARN: "STRING_VALUE",
+ *       FileKey: "STRING_VALUE",
+ *     },
+ *     ReferenceSchema: {
+ *       RecordFormat: {
+ *         RecordFormatType: "JSON" || "CSV", // required
+ *         MappingParameters: {
+ *           JSONMappingParameters: {
+ *             RecordRowPath: "STRING_VALUE", // required
+ *           },
+ *           CSVMappingParameters: {
+ *             RecordRowDelimiter: "STRING_VALUE", // required
+ *             RecordColumnDelimiter: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *       RecordEncoding: "STRING_VALUE",
+ *       RecordColumns: [ // required
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Mapping: "STRING_VALUE",
+ *           SqlType: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new AddApplicationReferenceDataSourceCommand(input);
  * const response = await client.send(command);
  * ```

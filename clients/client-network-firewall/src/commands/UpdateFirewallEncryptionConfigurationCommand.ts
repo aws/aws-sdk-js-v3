@@ -48,6 +48,15 @@ export interface UpdateFirewallEncryptionConfigurationCommandOutput
  * import { NetworkFirewallClient, UpdateFirewallEncryptionConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UpdateFirewallEncryptionConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
+ * const input = {
+ *   UpdateToken: "STRING_VALUE",
+ *   FirewallArn: "STRING_VALUE",
+ *   FirewallName: "STRING_VALUE",
+ *   EncryptionConfiguration: {
+ *     KeyId: "STRING_VALUE",
+ *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
+ *   },
+ * };
  * const command = new UpdateFirewallEncryptionConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

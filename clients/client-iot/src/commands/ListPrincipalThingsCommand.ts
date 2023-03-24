@@ -45,6 +45,11 @@ export interface ListPrincipalThingsCommandOutput extends ListPrincipalThingsRes
  * import { IoTClient, ListPrincipalThingsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListPrincipalThingsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
+ * const input = {
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ *   principal: "STRING_VALUE", // required
+ * };
  * const command = new ListPrincipalThingsCommand(input);
  * const response = await client.send(command);
  * ```

@@ -42,6 +42,9 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
  * import { AlexaForBusinessClient, DeleteProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
+ * const input = {
+ *   ProfileArn: "STRING_VALUE",
+ * };
  * const command = new DeleteProfileCommand(input);
  * const response = await client.send(command);
  * ```

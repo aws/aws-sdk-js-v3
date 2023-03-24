@@ -42,6 +42,10 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * import { ConnectClient, DescribeRoutingProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeRoutingProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   InstanceId: "STRING_VALUE", // required
+ *   RoutingProfileId: "STRING_VALUE", // required
+ * };
  * const command = new DescribeRoutingProfileCommand(input);
  * const response = await client.send(command);
  * ```

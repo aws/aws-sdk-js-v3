@@ -42,6 +42,10 @@ export interface GetDataSetImportTaskCommandOutput extends GetDataSetImportTaskR
  * import { M2Client, GetDataSetImportTaskCommand } from "@aws-sdk/client-m2"; // ES Modules import
  * // const { M2Client, GetDataSetImportTaskCommand } = require("@aws-sdk/client-m2"); // CommonJS import
  * const client = new M2Client(config);
+ * const input = {
+ *   applicationId: "STRING_VALUE", // required
+ *   taskId: "STRING_VALUE", // required
+ * };
  * const command = new GetDataSetImportTaskCommand(input);
  * const response = await client.send(command);
  * ```

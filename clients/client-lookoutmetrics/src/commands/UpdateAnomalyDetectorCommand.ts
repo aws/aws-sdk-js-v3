@@ -42,6 +42,14 @@ export interface UpdateAnomalyDetectorCommandOutput extends UpdateAnomalyDetecto
  * import { LookoutMetricsClient, UpdateAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, UpdateAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
+ * const input = {
+ *   AnomalyDetectorArn: "STRING_VALUE", // required
+ *   KmsKeyArn: "STRING_VALUE",
+ *   AnomalyDetectorDescription: "STRING_VALUE",
+ *   AnomalyDetectorConfig: {
+ *     AnomalyDetectorFrequency: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateAnomalyDetectorCommand(input);
  * const response = await client.send(command);
  * ```

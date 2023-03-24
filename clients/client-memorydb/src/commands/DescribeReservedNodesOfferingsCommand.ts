@@ -44,6 +44,14 @@ export interface DescribeReservedNodesOfferingsCommandOutput
  * import { MemoryDBClient, DescribeReservedNodesOfferingsCommand } from "@aws-sdk/client-memorydb"; // ES Modules import
  * // const { MemoryDBClient, DescribeReservedNodesOfferingsCommand } = require("@aws-sdk/client-memorydb"); // CommonJS import
  * const client = new MemoryDBClient(config);
+ * const input = {
+ *   ReservedNodesOfferingId: "STRING_VALUE",
+ *   NodeType: "STRING_VALUE",
+ *   Duration: "STRING_VALUE",
+ *   OfferingType: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new DescribeReservedNodesOfferingsCommand(input);
  * const response = await client.send(command);
  * ```

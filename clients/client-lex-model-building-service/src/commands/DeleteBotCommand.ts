@@ -62,6 +62,9 @@ export interface DeleteBotCommandOutput extends __MetadataBearer {}
  * import { LexModelBuildingServiceClient, DeleteBotCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, DeleteBotCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ * };
  * const command = new DeleteBotCommand(input);
  * const response = await client.send(command);
  * ```

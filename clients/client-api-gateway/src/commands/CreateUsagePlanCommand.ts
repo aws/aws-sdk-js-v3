@@ -42,6 +42,34 @@ export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  * import { APIGatewayClient, CreateUsagePlanCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateUsagePlanCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   name: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   apiStages: [
+ *     {
+ *       apiId: "STRING_VALUE",
+ *       stage: "STRING_VALUE",
+ *       throttle: {
+ *         "<keys>": {
+ *           burstLimit: Number("int"),
+ *           rateLimit: Number("double"),
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   throttle: {
+ *     burstLimit: Number("int"),
+ *     rateLimit: Number("double"),
+ *   },
+ *   quota: {
+ *     limit: Number("int"),
+ *     offset: Number("int"),
+ *     period: "DAY" || "WEEK" || "MONTH",
+ *   },
+ *   tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new CreateUsagePlanCommand(input);
  * const response = await client.send(command);
  * ```

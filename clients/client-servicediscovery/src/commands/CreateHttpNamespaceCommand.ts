@@ -46,6 +46,17 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  * import { ServiceDiscoveryClient, CreateHttpNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, CreateHttpNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   CreatorRequestId: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateHttpNamespaceCommand(input);
  * const response = await client.send(command);
  * ```

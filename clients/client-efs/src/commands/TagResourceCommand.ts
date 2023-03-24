@@ -43,6 +43,15 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * import { EFSClient, TagResourceCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, TagResourceCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
+ * const input = {
+ *   ResourceId: "STRING_VALUE", // required
+ *   Tags: [ // required
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```

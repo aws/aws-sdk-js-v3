@@ -42,6 +42,11 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
  * import { AccessAnalyzerClient, DeleteArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, DeleteArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
+ * const input = {
+ *   analyzerName: "STRING_VALUE", // required
+ *   ruleName: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
  * const command = new DeleteArchiveRuleCommand(input);
  * const response = await client.send(command);
  * ```

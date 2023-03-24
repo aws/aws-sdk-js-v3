@@ -42,6 +42,11 @@ export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermi
  * import { SignerClient, RemoveProfilePermissionCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, RemoveProfilePermissionCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
+ * const input = {
+ *   profileName: "STRING_VALUE", // required
+ *   revisionId: "STRING_VALUE", // required
+ *   statementId: "STRING_VALUE", // required
+ * };
  * const command = new RemoveProfilePermissionCommand(input);
  * const response = await client.send(command);
  * ```

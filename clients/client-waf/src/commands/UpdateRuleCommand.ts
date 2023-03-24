@@ -91,6 +91,20 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * import { WAFClient, UpdateRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, UpdateRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   RuleId: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ *   Updates: [ // required
+ *     {
+ *       Action: "STRING_VALUE", // required
+ *       Predicate: {
+ *         Negated: true || false, // required
+ *         Type: "STRING_VALUE", // required
+ *         DataId: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);
  * ```

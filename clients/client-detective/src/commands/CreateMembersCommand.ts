@@ -73,6 +73,17 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * import { DetectiveClient, CreateMembersCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, CreateMembersCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
+ * const input = {
+ *   GraphArn: "STRING_VALUE", // required
+ *   Message: "STRING_VALUE",
+ *   DisableEmailNotification: true || false,
+ *   Accounts: [ // required
+ *     {
+ *       AccountId: "STRING_VALUE", // required
+ *       EmailAddress: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);
  * ```

@@ -52,6 +52,9 @@ export interface DeleteReusableDelegationSetCommandOutput
  * import { Route53Client, DeleteReusableDelegationSetCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeleteReusableDelegationSetCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
+ * const input = {
+ *   Id: "STRING_VALUE", // required
+ * };
  * const command = new DeleteReusableDelegationSetCommand(input);
  * const response = await client.send(command);
  * ```

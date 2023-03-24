@@ -42,6 +42,14 @@ export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList,
  * import { RedshiftClient, DescribeEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   ResourceOwner: "STRING_VALUE",
+ *   EndpointName: "STRING_VALUE",
+ *   VpcId: "STRING_VALUE",
+ *   MaxRecords: Number("int"),
+ *   Marker: "STRING_VALUE",
+ * };
  * const command = new DescribeEndpointAccessCommand(input);
  * const response = await client.send(command);
  * ```

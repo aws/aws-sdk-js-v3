@@ -51,6 +51,53 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
  * import { EC2Client, UpdateSecurityGroupRuleDescriptionsEgressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, UpdateSecurityGroupRuleDescriptionsEgressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   GroupId: "STRING_VALUE",
+ *   GroupName: "STRING_VALUE",
+ *   IpPermissions: [
+ *     {
+ *       FromPort: Number("int"),
+ *       IpProtocol: "STRING_VALUE",
+ *       IpRanges: [
+ *         {
+ *           CidrIp: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *         },
+ *       ],
+ *       Ipv6Ranges: [
+ *         {
+ *           CidrIpv6: "STRING_VALUE",
+ *           Description: "STRING_VALUE",
+ *         },
+ *       ],
+ *       PrefixListIds: [
+ *         {
+ *           Description: "STRING_VALUE",
+ *           PrefixListId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       ToPort: Number("int"),
+ *       UserIdGroupPairs: [
+ *         {
+ *           Description: "STRING_VALUE",
+ *           GroupId: "STRING_VALUE",
+ *           GroupName: "STRING_VALUE",
+ *           PeeringStatus: "STRING_VALUE",
+ *           UserId: "STRING_VALUE",
+ *           VpcId: "STRING_VALUE",
+ *           VpcPeeringConnectionId: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   SecurityGroupRuleDescriptions: [
+ *     {
+ *       SecurityGroupRuleId: "STRING_VALUE",
+ *       Description: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new UpdateSecurityGroupRuleDescriptionsEgressCommand(input);
  * const response = await client.send(command);
  * ```

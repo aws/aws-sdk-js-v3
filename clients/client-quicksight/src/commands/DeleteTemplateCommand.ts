@@ -42,6 +42,11 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * import { QuickSightClient, DeleteTemplateCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteTemplateCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
+ * const input = {
+ *   AwsAccountId: "STRING_VALUE", // required
+ *   TemplateId: "STRING_VALUE", // required
+ *   VersionNumber: Number("long"),
+ * };
  * const command = new DeleteTemplateCommand(input);
  * const response = await client.send(command);
  * ```

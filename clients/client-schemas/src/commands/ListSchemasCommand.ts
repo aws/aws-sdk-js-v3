@@ -42,6 +42,12 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * import { SchemasClient, ListSchemasCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, ListSchemasCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = {
+ *   Limit: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   RegistryName: "STRING_VALUE", // required
+ *   SchemaNamePrefix: "STRING_VALUE",
+ * };
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);
  * ```

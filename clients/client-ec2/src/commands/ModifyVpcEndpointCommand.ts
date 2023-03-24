@@ -45,6 +45,36 @@ export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult,
  * import { EC2Client, ModifyVpcEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   DryRun: true || false,
+ *   VpcEndpointId: "STRING_VALUE", // required
+ *   ResetPolicy: true || false,
+ *   PolicyDocument: "STRING_VALUE",
+ *   AddRouteTableIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RemoveRouteTableIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AddSubnetIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RemoveSubnetIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   AddSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   RemoveSecurityGroupIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   IpAddressType: "ipv4" || "dualstack" || "ipv6",
+ *   DnsOptions: {
+ *     DnsRecordIpType: "ipv4" || "dualstack" || "ipv6" || "service-defined",
+ *     PrivateDnsOnlyForInboundResolverEndpoint: true || false,
+ *   },
+ *   PrivateDnsEnabled: true || false,
+ * };
  * const command = new ModifyVpcEndpointCommand(input);
  * const response = await client.send(command);
  * ```

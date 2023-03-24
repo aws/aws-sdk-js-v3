@@ -46,6 +46,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { IoT1ClickProjectsClient, ListTagsForResourceCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

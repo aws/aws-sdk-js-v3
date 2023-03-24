@@ -47,6 +47,35 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  * import { AthenaClient, StartQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, StartQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
+ * const input = {
+ *   QueryString: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   QueryExecutionContext: {
+ *     Database: "STRING_VALUE",
+ *     Catalog: "STRING_VALUE",
+ *   },
+ *   ResultConfiguration: {
+ *     OutputLocation: "STRING_VALUE",
+ *     EncryptionConfiguration: {
+ *       EncryptionOption: "SSE_S3" || "SSE_KMS" || "CSE_KMS", // required
+ *       KmsKey: "STRING_VALUE",
+ *     },
+ *     ExpectedBucketOwner: "STRING_VALUE",
+ *     AclConfiguration: {
+ *       S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
+ *     },
+ *   },
+ *   WorkGroup: "STRING_VALUE",
+ *   ExecutionParameters: [
+ *     "STRING_VALUE",
+ *   ],
+ *   ResultReuseConfiguration: {
+ *     ResultReuseByAgeConfiguration: {
+ *       Enabled: true || false, // required
+ *       MaxAgeInMinutes: Number("int"),
+ *     },
+ *   },
+ * };
  * const command = new StartQueryExecutionCommand(input);
  * const response = await client.send(command);
  * ```

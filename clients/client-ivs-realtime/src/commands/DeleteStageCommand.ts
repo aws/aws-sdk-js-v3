@@ -42,6 +42,9 @@ export interface DeleteStageCommandOutput extends DeleteStageResponse, __Metadat
  * import { IVSRealTimeClient, DeleteStageCommand } from "@aws-sdk/client-ivs-realtime"; // ES Modules import
  * // const { IVSRealTimeClient, DeleteStageCommand } = require("@aws-sdk/client-ivs-realtime"); // CommonJS import
  * const client = new IVSRealTimeClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteStageCommand(input);
  * const response = await client.send(command);
  * ```

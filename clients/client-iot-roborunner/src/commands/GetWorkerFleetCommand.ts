@@ -42,6 +42,9 @@ export interface GetWorkerFleetCommandOutput extends GetWorkerFleetResponse, __M
  * import { IoTRoboRunnerClient, GetWorkerFleetCommand } from "@aws-sdk/client-iot-roborunner"; // ES Modules import
  * // const { IoTRoboRunnerClient, GetWorkerFleetCommand } = require("@aws-sdk/client-iot-roborunner"); // CommonJS import
  * const client = new IoTRoboRunnerClient(config);
+ * const input = {
+ *   id: "STRING_VALUE", // required
+ * };
  * const command = new GetWorkerFleetCommand(input);
  * const response = await client.send(command);
  * ```

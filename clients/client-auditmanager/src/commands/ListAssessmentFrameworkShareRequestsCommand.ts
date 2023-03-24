@@ -47,6 +47,11 @@ export interface ListAssessmentFrameworkShareRequestsCommandOutput
  * import { AuditManagerClient, ListAssessmentFrameworkShareRequestsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListAssessmentFrameworkShareRequestsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
+ * const input = {
+ *   requestType: "SENT" || "RECEIVED", // required
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListAssessmentFrameworkShareRequestsCommand(input);
  * const response = await client.send(command);
  * ```

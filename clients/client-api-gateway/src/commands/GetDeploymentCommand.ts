@@ -42,6 +42,13 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * import { APIGatewayClient, GetDeploymentCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetDeploymentCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   deploymentId: "STRING_VALUE", // required
+ *   embed: [
+ *     "STRING_VALUE",
+ *   ],
+ * };
  * const command = new GetDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

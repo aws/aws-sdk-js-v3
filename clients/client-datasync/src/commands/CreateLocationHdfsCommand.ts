@@ -42,6 +42,36 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  * import { DataSyncClient, CreateLocationHdfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationHdfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
+ * const input = {
+ *   Subdirectory: "STRING_VALUE",
+ *   NameNodes: [ // required
+ *     {
+ *       Hostname: "STRING_VALUE", // required
+ *       Port: Number("int"), // required
+ *     },
+ *   ],
+ *   BlockSize: Number("int"),
+ *   ReplicationFactor: Number("int"),
+ *   KmsKeyProviderUri: "STRING_VALUE",
+ *   QopConfiguration: {
+ *     RpcProtection: "DISABLED" || "AUTHENTICATION" || "INTEGRITY" || "PRIVACY",
+ *     DataTransferProtection: "DISABLED" || "AUTHENTICATION" || "INTEGRITY" || "PRIVACY",
+ *   },
+ *   AuthenticationType: "SIMPLE" || "KERBEROS", // required
+ *   SimpleUser: "STRING_VALUE",
+ *   KerberosPrincipal: "STRING_VALUE",
+ *   KerberosKeytab: "BLOB_VALUE",
+ *   KerberosKrb5Conf: "BLOB_VALUE",
+ *   AgentArns: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateLocationHdfsCommand(input);
  * const response = await client.send(command);
  * ```

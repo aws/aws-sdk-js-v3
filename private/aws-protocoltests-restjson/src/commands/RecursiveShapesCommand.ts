@@ -41,6 +41,24 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput
  * import { RestJsonProtocolClient, RecursiveShapesCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, RecursiveShapesCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
+ * const input = {
+ *   nested: {
+ *     foo: "STRING_VALUE",
+ *     nested: {
+ *       bar: "STRING_VALUE",
+ *       recursiveMember: {
+ *         foo: "STRING_VALUE",
+ *         nested: {
+ *           bar: "STRING_VALUE",
+ *           recursiveMember: {
+ *             foo: "<RecursiveShapesInputOutputNested1>",
+ *             nested: "<RecursiveShapesInputOutputNested1>",
+ *           },
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new RecursiveShapesCommand(input);
  * const response = await client.send(command);
  * ```

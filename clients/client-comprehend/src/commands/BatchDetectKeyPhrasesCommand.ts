@@ -47,6 +47,12 @@ export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrase
  * import { ComprehendClient, BatchDetectKeyPhrasesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, BatchDetectKeyPhrasesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   TextList: [ // required
+ *     "STRING_VALUE",
+ *   ],
+ *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW", // required
+ * };
  * const command = new BatchDetectKeyPhrasesCommand(input);
  * const response = await client.send(command);
  * ```

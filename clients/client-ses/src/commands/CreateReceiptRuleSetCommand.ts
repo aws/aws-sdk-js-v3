@@ -45,6 +45,9 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  * import { SESClient, CreateReceiptRuleSetCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, CreateReceiptRuleSetCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
+ * const input = {
+ *   RuleSetName: "STRING_VALUE", // required
+ * };
  * const command = new CreateReceiptRuleSetCommand(input);
  * const response = await client.send(command);
  * ```

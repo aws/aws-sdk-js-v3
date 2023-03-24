@@ -46,6 +46,23 @@ export interface UpdateSiteAddressCommandOutput extends UpdateSiteAddressOutput,
  * import { OutpostsClient, UpdateSiteAddressCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, UpdateSiteAddressCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
+ * const input = {
+ *   SiteId: "STRING_VALUE", // required
+ *   AddressType: "SHIPPING_ADDRESS" || "OPERATING_ADDRESS", // required
+ *   Address: {
+ *     ContactName: "STRING_VALUE",
+ *     ContactPhoneNumber: "STRING_VALUE",
+ *     AddressLine1: "STRING_VALUE", // required
+ *     AddressLine2: "STRING_VALUE",
+ *     AddressLine3: "STRING_VALUE",
+ *     City: "STRING_VALUE", // required
+ *     StateOrRegion: "STRING_VALUE", // required
+ *     DistrictOrCounty: "STRING_VALUE",
+ *     PostalCode: "STRING_VALUE", // required
+ *     CountryCode: "STRING_VALUE", // required
+ *     Municipality: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateSiteAddressCommand(input);
  * const response = await client.send(command);
  * ```

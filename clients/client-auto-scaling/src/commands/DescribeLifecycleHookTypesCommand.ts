@@ -55,6 +55,7 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
  * import { AutoScalingClient, DescribeLifecycleHookTypesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeLifecycleHookTypesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
+ * const input = {};
  * const command = new DescribeLifecycleHookTypesCommand(input);
  * const response = await client.send(command);
  * ```

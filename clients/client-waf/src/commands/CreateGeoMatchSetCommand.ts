@@ -70,6 +70,10 @@ export interface CreateGeoMatchSetCommandOutput extends CreateGeoMatchSetRespons
  * import { WAFClient, CreateGeoMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateGeoMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   ChangeToken: "STRING_VALUE", // required
+ * };
  * const command = new CreateGeoMatchSetCommand(input);
  * const response = await client.send(command);
  * ```

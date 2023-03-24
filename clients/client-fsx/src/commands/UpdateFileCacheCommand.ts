@@ -43,6 +43,13 @@ export interface UpdateFileCacheCommandOutput extends UpdateFileCacheResponse, _
  * import { FSxClient, UpdateFileCacheCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UpdateFileCacheCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
+ * const input = {
+ *   FileCacheId: "STRING_VALUE", // required
+ *   ClientRequestToken: "STRING_VALUE",
+ *   LustreConfiguration: {
+ *     WeeklyMaintenanceStartTime: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdateFileCacheCommand(input);
  * const response = await client.send(command);
  * ```

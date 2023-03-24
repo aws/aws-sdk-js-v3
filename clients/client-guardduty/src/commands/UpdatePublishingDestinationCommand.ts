@@ -45,6 +45,14 @@ export interface UpdatePublishingDestinationCommandOutput
  * import { GuardDutyClient, UpdatePublishingDestinationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdatePublishingDestinationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
+ * const input = {
+ *   DetectorId: "STRING_VALUE", // required
+ *   DestinationId: "STRING_VALUE", // required
+ *   DestinationProperties: {
+ *     DestinationArn: "STRING_VALUE",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ * };
  * const command = new UpdatePublishingDestinationCommand(input);
  * const response = await client.send(command);
  * ```

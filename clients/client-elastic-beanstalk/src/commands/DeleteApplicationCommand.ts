@@ -47,6 +47,10 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * import { ElasticBeanstalkClient, DeleteApplicationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DeleteApplicationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
+ * const input = {
+ *   ApplicationName: "STRING_VALUE", // required
+ *   TerminateEnvByForce: true || false,
+ * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);
  * ```

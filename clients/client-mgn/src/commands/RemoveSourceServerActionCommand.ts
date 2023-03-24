@@ -42,6 +42,10 @@ export interface RemoveSourceServerActionCommandOutput extends RemoveSourceServe
  * import { MgnClient, RemoveSourceServerActionCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, RemoveSourceServerActionCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
+ * const input = {
+ *   sourceServerID: "STRING_VALUE", // required
+ *   actionID: "STRING_VALUE", // required
+ * };
  * const command = new RemoveSourceServerActionCommand(input);
  * const response = await client.send(command);
  * ```

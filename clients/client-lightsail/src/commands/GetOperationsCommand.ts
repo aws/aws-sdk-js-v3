@@ -45,6 +45,9 @@ export interface GetOperationsCommandOutput extends GetOperationsResult, __Metad
  * import { LightsailClient, GetOperationsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetOperationsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetOperationsCommand(input);
  * const response = await client.send(command);
  * ```

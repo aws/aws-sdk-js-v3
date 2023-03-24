@@ -42,6 +42,10 @@ export interface GetAssistantAssociationCommandOutput extends GetAssistantAssoci
  * import { WisdomClient, GetAssistantAssociationCommand } from "@aws-sdk/client-wisdom"; // ES Modules import
  * // const { WisdomClient, GetAssistantAssociationCommand } = require("@aws-sdk/client-wisdom"); // CommonJS import
  * const client = new WisdomClient(config);
+ * const input = {
+ *   assistantAssociationId: "STRING_VALUE", // required
+ *   assistantId: "STRING_VALUE", // required
+ * };
  * const command = new GetAssistantAssociationCommand(input);
  * const response = await client.send(command);
  * ```

@@ -50,6 +50,9 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  * import { EventBridgeClient, DescribeReplayCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribeReplayCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
+ * const input = {
+ *   ReplayName: "STRING_VALUE", // required
+ * };
  * const command = new DescribeReplayCommand(input);
  * const response = await client.send(command);
  * ```

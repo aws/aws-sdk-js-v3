@@ -53,6 +53,43 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  * import { ConnectClient, GetMetricDataV2Command } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, GetMetricDataV2Command } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
+ * const input = {
+ *   ResourceArn: "STRING_VALUE", // required
+ *   StartTime: new Date("TIMESTAMP"), // required
+ *   EndTime: new Date("TIMESTAMP"), // required
+ *   Filters: [ // required
+ *     {
+ *       FilterKey: "STRING_VALUE",
+ *       FilterValues: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   Groupings: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Metrics: [ // required
+ *     {
+ *       Name: "STRING_VALUE",
+ *       Threshold: [
+ *         {
+ *           Comparison: "STRING_VALUE",
+ *           ThresholdValue: Number("double"),
+ *         },
+ *       ],
+ *       MetricFilters: [
+ *         {
+ *           MetricFilterKey: "STRING_VALUE",
+ *           MetricFilterValues: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
  * const command = new GetMetricDataV2Command(input);
  * const response = await client.send(command);
  * ```

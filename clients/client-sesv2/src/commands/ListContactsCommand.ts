@@ -42,6 +42,18 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * import { SESv2Client, ListContactsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListContactsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   ContactListName: "STRING_VALUE", // required
+ *   Filter: {
+ *     FilteredStatus: "OPT_IN" || "OPT_OUT",
+ *     TopicFilter: {
+ *       TopicName: "STRING_VALUE",
+ *       UseDefaultIfPreferenceUnavailable: true || false,
+ *     },
+ *   },
+ *   PageSize: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListContactsCommand(input);
  * const response = await client.send(command);
  * ```

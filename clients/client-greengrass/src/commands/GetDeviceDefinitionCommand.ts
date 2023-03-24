@@ -42,6 +42,9 @@ export interface GetDeviceDefinitionCommandOutput extends GetDeviceDefinitionRes
  * import { GreengrassClient, GetDeviceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetDeviceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   DeviceDefinitionId: "STRING_VALUE", // required
+ * };
  * const command = new GetDeviceDefinitionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,17 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  * import { LexModelsV2Client, CreateBotLocaleCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateBotLocaleCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
+ * const input = {
+ *   botId: "STRING_VALUE", // required
+ *   botVersion: "STRING_VALUE", // required
+ *   localeId: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   nluIntentConfidenceThreshold: Number("double"), // required
+ *   voiceSettings: {
+ *     voiceId: "STRING_VALUE", // required
+ *     engine: "standard" || "neural",
+ *   },
+ * };
  * const command = new CreateBotLocaleCommand(input);
  * const response = await client.send(command);
  * ```

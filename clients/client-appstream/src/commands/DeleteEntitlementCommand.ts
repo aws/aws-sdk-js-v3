@@ -42,6 +42,10 @@ export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResult,
  * import { AppStreamClient, DeleteEntitlementCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteEntitlementCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   StackName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEntitlementCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,10 @@ export interface ModifyClusterDbRevisionCommandOutput extends ModifyClusterDbRev
  * import { RedshiftClient, ModifyClusterDbRevisionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyClusterDbRevisionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
+ * const input = {
+ *   ClusterIdentifier: "STRING_VALUE", // required
+ *   RevisionTarget: "STRING_VALUE", // required
+ * };
  * const command = new ModifyClusterDbRevisionCommand(input);
  * const response = await client.send(command);
  * ```

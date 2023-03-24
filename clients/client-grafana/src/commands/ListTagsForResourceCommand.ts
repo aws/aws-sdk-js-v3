@@ -45,6 +45,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * import { GrafanaClient, ListTagsForResourceCommand } from "@aws-sdk/client-grafana"; // ES Modules import
  * // const { GrafanaClient, ListTagsForResourceCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
+ * const input = {
+ *   resourceArn: "STRING_VALUE", // required
+ * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```

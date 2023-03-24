@@ -50,6 +50,10 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  * import { WAFClient, ListRegexPatternSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListRegexPatternSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
+ * const input = {
+ *   NextMarker: "STRING_VALUE",
+ *   Limit: Number("int"),
+ * };
  * const command = new ListRegexPatternSetsCommand(input);
  * const response = await client.send(command);
  * ```

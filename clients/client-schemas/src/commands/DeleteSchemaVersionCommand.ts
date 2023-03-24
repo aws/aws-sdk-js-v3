@@ -42,6 +42,11 @@ export interface DeleteSchemaVersionCommandOutput extends __MetadataBearer {}
  * import { SchemasClient, DeleteSchemaVersionCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, DeleteSchemaVersionCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
+ * const input = {
+ *   RegistryName: "STRING_VALUE", // required
+ *   SchemaName: "STRING_VALUE", // required
+ *   SchemaVersion: "STRING_VALUE", // required
+ * };
  * const command = new DeleteSchemaVersionCommand(input);
  * const response = await client.send(command);
  * ```

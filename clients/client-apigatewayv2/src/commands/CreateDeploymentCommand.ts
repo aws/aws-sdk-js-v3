@@ -42,6 +42,11 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * import { ApiGatewayV2Client, CreateDeploymentCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateDeploymentCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
+ * const input = {
+ *   ApiId: "STRING_VALUE", // required
+ *   Description: "STRING_VALUE",
+ *   StageName: "STRING_VALUE",
+ * };
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);
  * ```

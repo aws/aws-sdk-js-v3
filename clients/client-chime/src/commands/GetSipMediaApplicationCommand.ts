@@ -46,6 +46,9 @@ export interface GetSipMediaApplicationCommandOutput extends GetSipMediaApplicat
  * import { ChimeClient, GetSipMediaApplicationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetSipMediaApplicationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
+ * const input = {
+ *   SipMediaApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetSipMediaApplicationCommand(input);
  * const response = await client.send(command);
  * ```

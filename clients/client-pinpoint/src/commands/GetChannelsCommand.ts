@@ -42,6 +42,9 @@ export interface GetChannelsCommandOutput extends GetChannelsResponse, __Metadat
  * import { PinpointClient, GetChannelsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetChannelsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
+ * const input = {
+ *   ApplicationId: "STRING_VALUE", // required
+ * };
  * const command = new GetChannelsCommand(input);
  * const response = await client.send(command);
  * ```

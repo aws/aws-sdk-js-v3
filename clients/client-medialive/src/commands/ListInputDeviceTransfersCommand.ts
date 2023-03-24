@@ -42,6 +42,11 @@ export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTr
  * import { MediaLiveClient, ListInputDeviceTransfersCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListInputDeviceTransfersCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   TransferType: "STRING_VALUE", // required
+ * };
  * const command = new ListInputDeviceTransfersCommand(input);
  * const response = await client.send(command);
  * ```

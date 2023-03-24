@@ -42,6 +42,10 @@ export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, _
  * import { GreengrassClient, GetGroupVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetGroupVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
+ * const input = {
+ *   GroupId: "STRING_VALUE", // required
+ *   GroupVersionId: "STRING_VALUE", // required
+ * };
  * const command = new GetGroupVersionCommand(input);
  * const response = await client.send(command);
  * ```

@@ -45,6 +45,35 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  * import { CloudDirectoryClient, CreateObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, CreateObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
+ * const input = {
+ *   DirectoryArn: "STRING_VALUE", // required
+ *   SchemaFacets: [ // required
+ *     {
+ *       SchemaArn: "STRING_VALUE",
+ *       FacetName: "STRING_VALUE",
+ *     },
+ *   ],
+ *   ObjectAttributeList: [
+ *     {
+ *       Key: {
+ *         SchemaArn: "STRING_VALUE", // required
+ *         FacetName: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE", // required
+ *       },
+ *       Value: { // Union: only one key present
+ *         StringValue: "STRING_VALUE",
+ *         BinaryValue: "BLOB_VALUE",
+ *         BooleanValue: true || false,
+ *         NumberValue: "STRING_VALUE",
+ *         DatetimeValue: new Date("TIMESTAMP"),
+ *       },
+ *     },
+ *   ],
+ *   ParentReference: {
+ *     Selector: "STRING_VALUE",
+ *   },
+ *   LinkName: "STRING_VALUE",
+ * };
  * const command = new CreateObjectCommand(input);
  * const response = await client.send(command);
  * ```

@@ -47,6 +47,309 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
  * import { CloudFrontClient, CreateDistributionWithTagsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CreateDistributionWithTagsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   DistributionConfigWithTags: {
+ *     DistributionConfig: {
+ *       CallerReference: "STRING_VALUE", // required
+ *       Aliases: {
+ *         Quantity: Number("int"), // required
+ *         Items: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       DefaultRootObject: "STRING_VALUE",
+ *       Origins: {
+ *         Quantity: Number("int"), // required
+ *         Items: [ // required
+ *           {
+ *             Id: "STRING_VALUE", // required
+ *             DomainName: "STRING_VALUE", // required
+ *             OriginPath: "STRING_VALUE",
+ *             CustomHeaders: {
+ *               Quantity: Number("int"), // required
+ *               Items: [
+ *                 {
+ *                   HeaderName: "STRING_VALUE", // required
+ *                   HeaderValue: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *             S3OriginConfig: {
+ *               OriginAccessIdentity: "STRING_VALUE", // required
+ *             },
+ *             CustomOriginConfig: {
+ *               HTTPPort: Number("int"), // required
+ *               HTTPSPort: Number("int"), // required
+ *               OriginProtocolPolicy: "http-only" || "match-viewer" || "https-only", // required
+ *               OriginSslProtocols: {
+ *                 Quantity: Number("int"), // required
+ *                 Items: [ // required
+ *                   "SSLv3" || "TLSv1" || "TLSv1.1" || "TLSv1.2",
+ *                 ],
+ *               },
+ *               OriginReadTimeout: Number("int"),
+ *               OriginKeepaliveTimeout: Number("int"),
+ *             },
+ *             ConnectionAttempts: Number("int"),
+ *             ConnectionTimeout: Number("int"),
+ *             OriginShield: {
+ *               Enabled: true || false, // required
+ *               OriginShieldRegion: "STRING_VALUE",
+ *             },
+ *             OriginAccessControlId: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *       OriginGroups: {
+ *         Quantity: Number("int"), // required
+ *         Items: [
+ *           {
+ *             Id: "STRING_VALUE", // required
+ *             FailoverCriteria: {
+ *               StatusCodes: {
+ *                 Quantity: Number("int"), // required
+ *                 Items: [ // required
+ *                   Number("int"),
+ *                 ],
+ *               },
+ *             },
+ *             Members: {
+ *               Quantity: Number("int"), // required
+ *               Items: [ // required
+ *                 {
+ *                   OriginId: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *       },
+ *       DefaultCacheBehavior: {
+ *         TargetOriginId: "STRING_VALUE", // required
+ *         TrustedSigners: {
+ *           Enabled: true || false, // required
+ *           Quantity: Number("int"), // required
+ *           Items: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         TrustedKeyGroups: {
+ *           Enabled: true || false, // required
+ *           Quantity: Number("int"), // required
+ *           Items: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         ViewerProtocolPolicy: "allow-all" || "https-only" || "redirect-to-https", // required
+ *         AllowedMethods: {
+ *           Quantity: Number("int"), // required
+ *           Items: [ // required
+ *             "GET" || "HEAD" || "POST" || "PUT" || "PATCH" || "OPTIONS" || "DELETE",
+ *           ],
+ *           CachedMethods: {
+ *             Quantity: Number("int"), // required
+ *             Items: [ // required
+ *               "GET" || "HEAD" || "POST" || "PUT" || "PATCH" || "OPTIONS" || "DELETE",
+ *             ],
+ *           },
+ *         },
+ *         SmoothStreaming: true || false,
+ *         Compress: true || false,
+ *         LambdaFunctionAssociations: {
+ *           Quantity: Number("int"), // required
+ *           Items: [
+ *             {
+ *               LambdaFunctionARN: "STRING_VALUE", // required
+ *               EventType: "viewer-request" || "viewer-response" || "origin-request" || "origin-response", // required
+ *               IncludeBody: true || false,
+ *             },
+ *           ],
+ *         },
+ *         FunctionAssociations: {
+ *           Quantity: Number("int"), // required
+ *           Items: [
+ *             {
+ *               FunctionARN: "STRING_VALUE", // required
+ *               EventType: "viewer-request" || "viewer-response" || "origin-request" || "origin-response", // required
+ *             },
+ *           ],
+ *         },
+ *         FieldLevelEncryptionId: "STRING_VALUE",
+ *         RealtimeLogConfigArn: "STRING_VALUE",
+ *         CachePolicyId: "STRING_VALUE",
+ *         OriginRequestPolicyId: "STRING_VALUE",
+ *         ResponseHeadersPolicyId: "STRING_VALUE",
+ *         ForwardedValues: {
+ *           QueryString: true || false, // required
+ *           Cookies: {
+ *             Forward: "none" || "whitelist" || "all", // required
+ *             WhitelistedNames: {
+ *               Quantity: Number("int"), // required
+ *               Items: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           },
+ *           Headers: {
+ *             Quantity: Number("int"), // required
+ *             Items: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           QueryStringCacheKeys: {
+ *             Quantity: Number("int"), // required
+ *             Items: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *         MinTTL: Number("long"),
+ *         DefaultTTL: Number("long"),
+ *         MaxTTL: Number("long"),
+ *       },
+ *       CacheBehaviors: {
+ *         Quantity: Number("int"), // required
+ *         Items: [
+ *           {
+ *             PathPattern: "STRING_VALUE", // required
+ *             TargetOriginId: "STRING_VALUE", // required
+ *             TrustedSigners: {
+ *               Enabled: true || false, // required
+ *               Quantity: Number("int"), // required
+ *               Items: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             TrustedKeyGroups: {
+ *               Enabled: true || false, // required
+ *               Quantity: Number("int"), // required
+ *               Items: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             ViewerProtocolPolicy: "allow-all" || "https-only" || "redirect-to-https", // required
+ *             AllowedMethods: {
+ *               Quantity: Number("int"), // required
+ *               Items: [ // required
+ *                 "<MethodsList>",
+ *               ],
+ *               CachedMethods: {
+ *                 Quantity: Number("int"), // required
+ *                 Items: [ // required
+ *                   "<MethodsList>",
+ *                 ],
+ *               },
+ *             },
+ *             SmoothStreaming: true || false,
+ *             Compress: true || false,
+ *             LambdaFunctionAssociations: {
+ *               Quantity: Number("int"), // required
+ *               Items: [
+ *                 {
+ *                   LambdaFunctionARN: "STRING_VALUE", // required
+ *                   EventType: "viewer-request" || "viewer-response" || "origin-request" || "origin-response", // required
+ *                   IncludeBody: true || false,
+ *                 },
+ *               ],
+ *             },
+ *             FunctionAssociations: {
+ *               Quantity: Number("int"), // required
+ *               Items: [
+ *                 {
+ *                   FunctionARN: "STRING_VALUE", // required
+ *                   EventType: "viewer-request" || "viewer-response" || "origin-request" || "origin-response", // required
+ *                 },
+ *               ],
+ *             },
+ *             FieldLevelEncryptionId: "STRING_VALUE",
+ *             RealtimeLogConfigArn: "STRING_VALUE",
+ *             CachePolicyId: "STRING_VALUE",
+ *             OriginRequestPolicyId: "STRING_VALUE",
+ *             ResponseHeadersPolicyId: "STRING_VALUE",
+ *             ForwardedValues: {
+ *               QueryString: true || false, // required
+ *               Cookies: {
+ *                 Forward: "none" || "whitelist" || "all", // required
+ *                 WhitelistedNames: {
+ *                   Quantity: Number("int"), // required
+ *                   Items: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                 },
+ *               },
+ *               Headers: {
+ *                 Quantity: Number("int"), // required
+ *                 Items: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               QueryStringCacheKeys: {
+ *                 Quantity: Number("int"), // required
+ *                 Items: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *             MinTTL: Number("long"),
+ *             DefaultTTL: Number("long"),
+ *             MaxTTL: Number("long"),
+ *           },
+ *         ],
+ *       },
+ *       CustomErrorResponses: {
+ *         Quantity: Number("int"), // required
+ *         Items: [
+ *           {
+ *             ErrorCode: Number("int"), // required
+ *             ResponsePagePath: "STRING_VALUE",
+ *             ResponseCode: "STRING_VALUE",
+ *             ErrorCachingMinTTL: Number("long"),
+ *           },
+ *         ],
+ *       },
+ *       Comment: "STRING_VALUE", // required
+ *       Logging: {
+ *         Enabled: true || false, // required
+ *         IncludeCookies: true || false, // required
+ *         Bucket: "STRING_VALUE", // required
+ *         Prefix: "STRING_VALUE", // required
+ *       },
+ *       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ *       Enabled: true || false, // required
+ *       ViewerCertificate: {
+ *         CloudFrontDefaultCertificate: true || false,
+ *         IAMCertificateId: "STRING_VALUE",
+ *         ACMCertificateArn: "STRING_VALUE",
+ *         SSLSupportMethod: "sni-only" || "vip" || "static-ip",
+ *         MinimumProtocolVersion: "SSLv3" || "TLSv1" || "TLSv1_2016" || "TLSv1.1_2016" || "TLSv1.2_2018" || "TLSv1.2_2019" || "TLSv1.2_2021",
+ *         Certificate: "STRING_VALUE",
+ *         CertificateSource: "cloudfront" || "iam" || "acm",
+ *       },
+ *       Restrictions: {
+ *         GeoRestriction: {
+ *           RestrictionType: "blacklist" || "whitelist" || "none", // required
+ *           Quantity: Number("int"), // required
+ *           Items: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       WebACLId: "STRING_VALUE",
+ *       HttpVersion: "http1.1" || "http2" || "http3" || "http2and3",
+ *       IsIPV6Enabled: true || false,
+ *       ContinuousDeploymentPolicyId: "STRING_VALUE",
+ *       Staging: true || false,
+ *     },
+ *     Tags: {
+ *       Items: [
+ *         {
+ *           Key: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
+ * };
  * const command = new CreateDistributionWithTagsCommand(input);
  * const response = await client.send(command);
  * ```

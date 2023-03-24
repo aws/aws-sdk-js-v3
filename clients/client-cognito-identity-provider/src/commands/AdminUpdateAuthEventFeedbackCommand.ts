@@ -55,6 +55,12 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
  * import { CognitoIdentityProviderClient, AdminUpdateAuthEventFeedbackCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminUpdateAuthEventFeedbackCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
+ * const input = {
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
+ *   EventId: "STRING_VALUE", // required
+ *   FeedbackValue: "Valid" || "Invalid", // required
+ * };
  * const command = new AdminUpdateAuthEventFeedbackCommand(input);
  * const response = await client.send(command);
  * ```

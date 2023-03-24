@@ -63,6 +63,9 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * import { Route53DomainsClient, DeleteDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, DeleteDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
+ * const input = {
+ *   DomainName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDomainCommand(input);
  * const response = await client.send(command);
  * ```

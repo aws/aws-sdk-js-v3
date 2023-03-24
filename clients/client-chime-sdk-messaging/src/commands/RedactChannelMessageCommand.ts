@@ -52,6 +52,12 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
  * import { ChimeSDKMessagingClient, RedactChannelMessageCommand } from "@aws-sdk/client-chime-sdk-messaging"; // ES Modules import
  * // const { ChimeSDKMessagingClient, RedactChannelMessageCommand } = require("@aws-sdk/client-chime-sdk-messaging"); // CommonJS import
  * const client = new ChimeSDKMessagingClient(config);
+ * const input = {
+ *   ChannelArn: "STRING_VALUE", // required
+ *   MessageId: "STRING_VALUE", // required
+ *   ChimeBearer: "STRING_VALUE", // required
+ *   SubChannelId: "STRING_VALUE",
+ * };
  * const command = new RedactChannelMessageCommand(input);
  * const response = await client.send(command);
  * ```

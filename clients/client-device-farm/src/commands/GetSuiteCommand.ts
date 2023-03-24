@@ -39,6 +39,9 @@ export interface GetSuiteCommandOutput extends GetSuiteResult, __MetadataBearer 
  * import { DeviceFarmClient, GetSuiteCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, GetSuiteCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new GetSuiteCommand(input);
  * const response = await client.send(command);
  * ```

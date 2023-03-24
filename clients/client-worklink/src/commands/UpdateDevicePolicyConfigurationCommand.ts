@@ -46,6 +46,10 @@ export interface UpdateDevicePolicyConfigurationCommandOutput
  * import { WorkLinkClient, UpdateDevicePolicyConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, UpdateDevicePolicyConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
+ * const input = {
+ *   FleetArn: "STRING_VALUE", // required
+ *   DeviceCaCertificate: "STRING_VALUE",
+ * };
  * const command = new UpdateDevicePolicyConfigurationCommand(input);
  * const response = await client.send(command);
  * ```

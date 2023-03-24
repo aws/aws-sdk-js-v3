@@ -47,6 +47,25 @@ export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBea
  * import { ManagedBlockchainClient, UpdateNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, UpdateNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
+ * const input = {
+ *   NetworkId: "STRING_VALUE", // required
+ *   MemberId: "STRING_VALUE",
+ *   NodeId: "STRING_VALUE", // required
+ *   LogPublishingConfiguration: {
+ *     Fabric: {
+ *       ChaincodeLogs: {
+ *         Cloudwatch: {
+ *           Enabled: true || false,
+ *         },
+ *       },
+ *       PeerLogs: {
+ *         Cloudwatch: {
+ *           Enabled: true || false,
+ *         },
+ *       },
+ *     },
+ *   },
+ * };
  * const command = new UpdateNodeCommand(input);
  * const response = await client.send(command);
  * ```

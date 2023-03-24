@@ -42,6 +42,10 @@ export interface DeleteRequestValidatorCommandOutput extends __MetadataBearer {}
  * import { APIGatewayClient, DeleteRequestValidatorCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteRequestValidatorCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
+ * const input = {
+ *   restApiId: "STRING_VALUE", // required
+ *   requestValidatorId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteRequestValidatorCommand(input);
  * const response = await client.send(command);
  * ```

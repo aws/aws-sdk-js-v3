@@ -49,6 +49,68 @@ export interface UpdateTableReplicaAutoScalingCommandOutput
  * import { DynamoDBClient, UpdateTableReplicaAutoScalingCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateTableReplicaAutoScalingCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
+ * const input = {
+ *   GlobalSecondaryIndexUpdates: [
+ *     {
+ *       IndexName: "STRING_VALUE",
+ *       ProvisionedWriteCapacityAutoScalingUpdate: {
+ *         MinimumUnits: Number("long"),
+ *         MaximumUnits: Number("long"),
+ *         AutoScalingDisabled: true || false,
+ *         AutoScalingRoleArn: "STRING_VALUE",
+ *         ScalingPolicyUpdate: {
+ *           PolicyName: "STRING_VALUE",
+ *           TargetTrackingScalingPolicyConfiguration: {
+ *             DisableScaleIn: true || false,
+ *             ScaleInCooldown: Number("int"),
+ *             ScaleOutCooldown: Number("int"),
+ *             TargetValue: Number("double"), // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
+ *   TableName: "STRING_VALUE", // required
+ *   ProvisionedWriteCapacityAutoScalingUpdate: {
+ *     MinimumUnits: Number("long"),
+ *     MaximumUnits: Number("long"),
+ *     AutoScalingDisabled: true || false,
+ *     AutoScalingRoleArn: "STRING_VALUE",
+ *     ScalingPolicyUpdate: {
+ *       PolicyName: "STRING_VALUE",
+ *       TargetTrackingScalingPolicyConfiguration: {
+ *         DisableScaleIn: true || false,
+ *         ScaleInCooldown: Number("int"),
+ *         ScaleOutCooldown: Number("int"),
+ *         TargetValue: Number("double"), // required
+ *       },
+ *     },
+ *   },
+ *   ReplicaUpdates: [
+ *     {
+ *       RegionName: "STRING_VALUE", // required
+ *       ReplicaGlobalSecondaryIndexUpdates: [
+ *         {
+ *           IndexName: "STRING_VALUE",
+ *           ProvisionedReadCapacityAutoScalingUpdate: {
+ *             MinimumUnits: "<AutoScalingSettingsUpdate>",
+ *             MaximumUnits: "<AutoScalingSettingsUpdate>",
+ *             AutoScalingDisabled: "<AutoScalingSettingsUpdate>",
+ *             AutoScalingRoleArn: "<AutoScalingSettingsUpdate>",
+ *             ScalingPolicyUpdate: "<AutoScalingSettingsUpdate>",
+ *           },
+ *         },
+ *       ],
+ *       ReplicaProvisionedReadCapacityAutoScalingUpdate: {
+ *         MinimumUnits: "<AutoScalingSettingsUpdate>",
+ *         MaximumUnits: "<AutoScalingSettingsUpdate>",
+ *         AutoScalingDisabled: "<AutoScalingSettingsUpdate>",
+ *         AutoScalingRoleArn: "<AutoScalingSettingsUpdate>",
+ *         ScalingPolicyUpdate: "<AutoScalingSettingsUpdate>",
+ *       },
+ *     },
+ *   ],
+ * };
  * const command = new UpdateTableReplicaAutoScalingCommand(input);
  * const response = await client.send(command);
  * ```

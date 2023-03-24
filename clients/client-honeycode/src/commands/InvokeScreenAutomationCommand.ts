@@ -50,6 +50,19 @@ export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomat
  * import { HoneycodeClient, InvokeScreenAutomationCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, InvokeScreenAutomationCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
+ * const input = {
+ *   workbookId: "STRING_VALUE", // required
+ *   appId: "STRING_VALUE", // required
+ *   screenId: "STRING_VALUE", // required
+ *   screenAutomationId: "STRING_VALUE", // required
+ *   variables: {
+ *     "<keys>": {
+ *       rawValue: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   rowId: "STRING_VALUE",
+ *   clientRequestToken: "STRING_VALUE",
+ * };
  * const command = new InvokeScreenAutomationCommand(input);
  * const response = await client.send(command);
  * ```

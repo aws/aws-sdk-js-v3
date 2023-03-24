@@ -46,6 +46,42 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * import { SESv2Client, CreateConfigurationSetCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateConfigurationSetCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
+ * const input = {
+ *   ConfigurationSetName: "STRING_VALUE", // required
+ *   TrackingOptions: {
+ *     CustomRedirectDomain: "STRING_VALUE", // required
+ *   },
+ *   DeliveryOptions: {
+ *     TlsPolicy: "REQUIRE" || "OPTIONAL",
+ *     SendingPoolName: "STRING_VALUE",
+ *   },
+ *   ReputationOptions: {
+ *     ReputationMetricsEnabled: true || false,
+ *     LastFreshStart: new Date("TIMESTAMP"),
+ *   },
+ *   SendingOptions: {
+ *     SendingEnabled: true || false,
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   SuppressionOptions: {
+ *     SuppressedReasons: [
+ *       "BOUNCE" || "COMPLAINT",
+ *     ],
+ *   },
+ *   VdmOptions: {
+ *     DashboardOptions: {
+ *       EngagementMetrics: "ENABLED" || "DISABLED",
+ *     },
+ *     GuardianOptions: {
+ *       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
+ *     },
+ *   },
+ * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);
  * ```

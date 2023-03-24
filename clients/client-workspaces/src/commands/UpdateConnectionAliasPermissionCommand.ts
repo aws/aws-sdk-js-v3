@@ -65,6 +65,13 @@ export interface UpdateConnectionAliasPermissionCommandOutput
  * import { WorkSpacesClient, UpdateConnectionAliasPermissionCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, UpdateConnectionAliasPermissionCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
+ * const input = {
+ *   AliasId: "STRING_VALUE", // required
+ *   ConnectionAliasPermission: {
+ *     SharedAccountId: "STRING_VALUE", // required
+ *     AllowAssociation: true || false, // required
+ *   },
+ * };
  * const command = new UpdateConnectionAliasPermissionCommand(input);
  * const response = await client.send(command);
  * ```

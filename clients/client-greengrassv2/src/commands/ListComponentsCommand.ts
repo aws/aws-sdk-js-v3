@@ -43,6 +43,11 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * import { GreengrassV2Client, ListComponentsCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, ListComponentsCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
+ * const input = {
+ *   scope: "PRIVATE" || "PUBLIC",
+ *   maxResults: Number("int"),
+ *   nextToken: "STRING_VALUE",
+ * };
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);
  * ```

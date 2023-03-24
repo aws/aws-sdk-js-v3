@@ -42,6 +42,9 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * import { ConnectCasesClient, DeleteDomainCommand } from "@aws-sdk/client-connectcases"; // ES Modules import
  * // const { ConnectCasesClient, DeleteDomainCommand } = require("@aws-sdk/client-connectcases"); // CommonJS import
  * const client = new ConnectCasesClient(config);
+ * const input = {
+ *   domainId: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDomainCommand(input);
  * const response = await client.send(command);
  * ```

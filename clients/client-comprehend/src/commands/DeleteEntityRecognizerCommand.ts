@@ -48,6 +48,9 @@ export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecogni
  * import { ComprehendClient, DeleteEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DeleteEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
+ * const input = {
+ *   EntityRecognizerArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteEntityRecognizerCommand(input);
  * const response = await client.send(command);
  * ```

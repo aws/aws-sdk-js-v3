@@ -43,6 +43,12 @@ export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGro
  * import { CodeBuildClient, ListSharedReportGroupsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListSharedReportGroupsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
+ * const input = {
+ *   sortOrder: "STRING_VALUE",
+ *   sortBy: "STRING_VALUE",
+ *   nextToken: "STRING_VALUE",
+ *   maxResults: Number("int"),
+ * };
  * const command = new ListSharedReportGroupsCommand(input);
  * const response = await client.send(command);
  * ```

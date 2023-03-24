@@ -45,6 +45,34 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  * import { SageMakerClient, CreateWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
+ * const input = {
+ *   WorkteamName: "STRING_VALUE", // required
+ *   WorkforceName: "STRING_VALUE",
+ *   MemberDefinitions: [ // required
+ *     {
+ *       CognitoMemberDefinition: {
+ *         UserPool: "STRING_VALUE", // required
+ *         UserGroup: "STRING_VALUE", // required
+ *         ClientId: "STRING_VALUE", // required
+ *       },
+ *       OidcMemberDefinition: {
+ *         Groups: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   Description: "STRING_VALUE", // required
+ *   NotificationConfiguration: {
+ *     NotificationTopicArn: "STRING_VALUE",
+ *   },
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ * };
  * const command = new CreateWorkteamCommand(input);
  * const response = await client.send(command);
  * ```

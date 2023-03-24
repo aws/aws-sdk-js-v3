@@ -42,6 +42,9 @@ export interface DeleteMonitorCommandOutput extends __MetadataBearer {}
  * import { ForecastClient, DeleteMonitorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteMonitorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
+ * const input = {
+ *   MonitorArn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteMonitorCommand(input);
  * const response = await client.send(command);
  * ```

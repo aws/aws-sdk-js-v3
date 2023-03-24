@@ -43,6 +43,15 @@ export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgres
  * import { CloudFormationClient, RecordHandlerProgressCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, RecordHandlerProgressCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
+ * const input = {
+ *   BearerToken: "STRING_VALUE", // required
+ *   OperationStatus: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED", // required
+ *   CurrentOperationStatus: "PENDING" || "IN_PROGRESS" || "SUCCESS" || "FAILED",
+ *   StatusMessage: "STRING_VALUE",
+ *   ErrorCode: "NotUpdatable" || "InvalidRequest" || "AccessDenied" || "InvalidCredentials" || "AlreadyExists" || "NotFound" || "ResourceConflict" || "Throttling" || "ServiceLimitExceeded" || "NotStabilized" || "GeneralServiceException" || "ServiceInternalError" || "NetworkFailure" || "InternalFailure" || "InvalidTypeConfiguration" || "HandlerInternalFailure" || "NonCompliant" || "Unknown" || "UnsupportedTarget",
+ *   ResourceModel: "STRING_VALUE",
+ *   ClientRequestToken: "STRING_VALUE",
+ * };
  * const command = new RecordHandlerProgressCommand(input);
  * const response = await client.send(command);
  * ```

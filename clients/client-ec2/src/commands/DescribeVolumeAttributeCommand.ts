@@ -44,6 +44,11 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  * import { EC2Client, DescribeVolumeAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVolumeAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
+ * const input = {
+ *   Attribute: "autoEnableIO" || "productCodes", // required
+ *   VolumeId: "STRING_VALUE", // required
+ *   DryRun: true || false,
+ * };
  * const command = new DescribeVolumeAttributeCommand(input);
  * const response = await client.send(command);
  * ```

@@ -92,6 +92,9 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  * import { OrganizationsClient, CloseAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CloseAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
+ * const input = {
+ *   AccountId: "STRING_VALUE", // required
+ * };
  * const command = new CloseAccountCommand(input);
  * const response = await client.send(command);
  * ```

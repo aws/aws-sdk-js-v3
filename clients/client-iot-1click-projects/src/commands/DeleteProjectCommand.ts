@@ -50,6 +50,9 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * import { IoT1ClickProjectsClient, DeleteProjectCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, DeleteProjectCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
+ * const input = {
+ *   projectName: "STRING_VALUE", // required
+ * };
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);
  * ```

@@ -49,6 +49,10 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  * import { IoTSecureTunnelingClient, CloseTunnelCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, CloseTunnelCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import
  * const client = new IoTSecureTunnelingClient(config);
+ * const input = {
+ *   tunnelId: "STRING_VALUE", // required
+ *   delete: true || false,
+ * };
  * const command = new CloseTunnelCommand(input);
  * const response = await client.send(command);
  * ```

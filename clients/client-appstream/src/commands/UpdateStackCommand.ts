@@ -42,6 +42,48 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  * import { AppStreamClient, UpdateStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, UpdateStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   DisplayName: "STRING_VALUE",
+ *   Description: "STRING_VALUE",
+ *   Name: "STRING_VALUE", // required
+ *   StorageConnectors: [
+ *     {
+ *       ConnectorType: "HOMEFOLDERS" || "GOOGLE_DRIVE" || "ONE_DRIVE", // required
+ *       ResourceIdentifier: "STRING_VALUE",
+ *       Domains: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   DeleteStorageConnectors: true || false,
+ *   RedirectURL: "STRING_VALUE",
+ *   FeedbackURL: "STRING_VALUE",
+ *   AttributesToDelete: [
+ *     "STORAGE_CONNECTORS" || "STORAGE_CONNECTOR_HOMEFOLDERS" || "STORAGE_CONNECTOR_GOOGLE_DRIVE" || "STORAGE_CONNECTOR_ONE_DRIVE" || "REDIRECT_URL" || "FEEDBACK_URL" || "THEME_NAME" || "USER_SETTINGS" || "EMBED_HOST_DOMAINS" || "IAM_ROLE_ARN" || "ACCESS_ENDPOINTS" || "STREAMING_EXPERIENCE_SETTINGS",
+ *   ],
+ *   UserSettings: [
+ *     {
+ *       Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "FILE_UPLOAD" || "FILE_DOWNLOAD" || "PRINTING_TO_LOCAL_DEVICE" || "DOMAIN_PASSWORD_SIGNIN" || "DOMAIN_SMART_CARD_SIGNIN", // required
+ *       Permission: "ENABLED" || "DISABLED", // required
+ *     },
+ *   ],
+ *   ApplicationSettings: {
+ *     Enabled: true || false, // required
+ *     SettingsGroup: "STRING_VALUE",
+ *   },
+ *   AccessEndpoints: [
+ *     {
+ *       EndpointType: "STREAMING", // required
+ *       VpceId: "STRING_VALUE",
+ *     },
+ *   ],
+ *   EmbedHostDomains: [
+ *     "STRING_VALUE",
+ *   ],
+ *   StreamingExperienceSettings: {
+ *     PreferredProtocol: "TCP" || "UDP",
+ *   },
+ * };
  * const command = new UpdateStackCommand(input);
  * const response = await client.send(command);
  * ```

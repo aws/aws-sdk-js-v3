@@ -42,6 +42,27 @@ export interface UpdateFunctionUrlConfigCommandOutput extends UpdateFunctionUrlC
  * import { LambdaClient, UpdateFunctionUrlConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateFunctionUrlConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   FunctionName: "STRING_VALUE", // required
+ *   Qualifier: "STRING_VALUE",
+ *   AuthType: "NONE" || "AWS_IAM",
+ *   Cors: {
+ *     AllowCredentials: true || false,
+ *     AllowHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowMethods: [
+ *       "STRING_VALUE",
+ *     ],
+ *     AllowOrigins: [
+ *       "STRING_VALUE",
+ *     ],
+ *     ExposeHeaders: [
+ *       "STRING_VALUE",
+ *     ],
+ *     MaxAge: Number("int"),
+ *   },
+ * };
  * const command = new UpdateFunctionUrlConfigCommand(input);
  * const response = await client.send(command);
  * ```

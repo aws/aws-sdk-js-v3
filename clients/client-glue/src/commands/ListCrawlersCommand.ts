@@ -47,6 +47,13 @@ export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __Metad
  * import { GlueClient, ListCrawlersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListCrawlersCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
+ * const input = {
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   Tags: {
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ * };
  * const command = new ListCrawlersCommand(input);
  * const response = await client.send(command);
  * ```

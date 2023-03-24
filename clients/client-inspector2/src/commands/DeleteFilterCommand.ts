@@ -42,6 +42,9 @@ export interface DeleteFilterCommandOutput extends DeleteFilterResponse, __Metad
  * import { Inspector2Client, DeleteFilterCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
  * // const { Inspector2Client, DeleteFilterCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * const client = new Inspector2Client(config);
+ * const input = {
+ *   arn: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFilterCommand(input);
  * const response = await client.send(command);
  * ```

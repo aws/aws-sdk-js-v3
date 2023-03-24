@@ -46,6 +46,18 @@ export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutpu
  * import { S3Client, PutObjectLegalHoldCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectLegalHoldCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
+ * const input = {
+ *   Bucket: "STRING_VALUE", // required
+ *   Key: "STRING_VALUE", // required
+ *   LegalHold: {
+ *     Status: "ON" || "OFF",
+ *   },
+ *   RequestPayer: "requester",
+ *   VersionId: "STRING_VALUE",
+ *   ContentMD5: "STRING_VALUE",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ExpectedBucketOwner: "STRING_VALUE",
+ * };
  * const command = new PutObjectLegalHoldCommand(input);
  * const response = await client.send(command);
  * ```

@@ -43,6 +43,9 @@ export interface GetDiskSnapshotsCommandOutput extends GetDiskSnapshotsResult, _
  * import { LightsailClient, GetDiskSnapshotsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDiskSnapshotsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
+ * const input = {
+ *   pageToken: "STRING_VALUE",
+ * };
  * const command = new GetDiskSnapshotsCommand(input);
  * const response = await client.send(command);
  * ```

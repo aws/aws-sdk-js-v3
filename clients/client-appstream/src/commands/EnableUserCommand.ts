@@ -42,6 +42,10 @@ export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBea
  * import { AppStreamClient, EnableUserCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, EnableUserCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
+ * const input = {
+ *   UserName: "STRING_VALUE", // required
+ *   AuthenticationType: "API" || "SAML" || "USERPOOL" || "AWS_AD", // required
+ * };
  * const command = new EnableUserCommand(input);
  * const response = await client.send(command);
  * ```

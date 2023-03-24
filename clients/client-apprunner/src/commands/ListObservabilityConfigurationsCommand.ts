@@ -48,6 +48,12 @@ export interface ListObservabilityConfigurationsCommandOutput
  * import { AppRunnerClient, ListObservabilityConfigurationsCommand } from "@aws-sdk/client-apprunner"; // ES Modules import
  * // const { AppRunnerClient, ListObservabilityConfigurationsCommand } = require("@aws-sdk/client-apprunner"); // CommonJS import
  * const client = new AppRunnerClient(config);
+ * const input = {
+ *   ObservabilityConfigurationName: "STRING_VALUE",
+ *   LatestOnly: true || false,
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
  * const command = new ListObservabilityConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```

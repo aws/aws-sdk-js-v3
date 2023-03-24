@@ -44,6 +44,10 @@ export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConf
  * import { LambdaClient, ListCodeSigningConfigsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, ListCodeSigningConfigsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
+ * const input = {
+ *   Marker: "STRING_VALUE",
+ *   MaxItems: Number("int"),
+ * };
  * const command = new ListCodeSigningConfigsCommand(input);
  * const response = await client.send(command);
  * ```

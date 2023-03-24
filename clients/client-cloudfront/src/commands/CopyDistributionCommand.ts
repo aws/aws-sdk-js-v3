@@ -52,6 +52,12 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  * import { CloudFrontClient, CopyDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, CopyDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   PrimaryDistributionId: "STRING_VALUE", // required
+ *   Staging: true || false,
+ *   IfMatch: "STRING_VALUE",
+ *   CallerReference: "STRING_VALUE", // required
+ * };
  * const command = new CopyDistributionCommand(input);
  * const response = await client.send(command);
  * ```

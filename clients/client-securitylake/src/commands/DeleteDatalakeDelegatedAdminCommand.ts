@@ -46,6 +46,9 @@ export interface DeleteDatalakeDelegatedAdminCommandOutput
  * import { SecurityLakeClient, DeleteDatalakeDelegatedAdminCommand } from "@aws-sdk/client-securitylake"; // ES Modules import
  * // const { SecurityLakeClient, DeleteDatalakeDelegatedAdminCommand } = require("@aws-sdk/client-securitylake"); // CommonJS import
  * const client = new SecurityLakeClient(config);
+ * const input = {
+ *   account: "STRING_VALUE", // required
+ * };
  * const command = new DeleteDatalakeDelegatedAdminCommand(input);
  * const response = await client.send(command);
  * ```

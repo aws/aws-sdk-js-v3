@@ -82,6 +82,9 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  * import { KMSClient, EnableKeyRotationCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, EnableKeyRotationCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
+ * const input = {
+ *   KeyId: "STRING_VALUE", // required
+ * };
  * const command = new EnableKeyRotationCommand(input);
  * const response = await client.send(command);
  * ```

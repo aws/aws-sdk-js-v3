@@ -61,6 +61,25 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * import { DatabaseMigrationServiceClient, CreateEventSubscriptionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, CreateEventSubscriptionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
+ * const input = {
+ *   SubscriptionName: "STRING_VALUE", // required
+ *   SnsTopicArn: "STRING_VALUE", // required
+ *   SourceType: "STRING_VALUE",
+ *   EventCategories: [
+ *     "STRING_VALUE",
+ *   ],
+ *   SourceIds: [
+ *     "STRING_VALUE",
+ *   ],
+ *   Enabled: true || false,
+ *   Tags: [
+ *     {
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *       ResourceArn: "STRING_VALUE",
+ *     },
+ *   ],
+ * };
  * const command = new CreateEventSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```

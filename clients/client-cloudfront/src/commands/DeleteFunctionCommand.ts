@@ -48,6 +48,10 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * import { CloudFrontClient, DeleteFunctionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteFunctionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
+ * const input = {
+ *   Name: "STRING_VALUE", // required
+ *   IfMatch: "STRING_VALUE", // required
+ * };
  * const command = new DeleteFunctionCommand(input);
  * const response = await client.send(command);
  * ```
