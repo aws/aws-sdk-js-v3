@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.299.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.298.0...v3.299.0) (2023-03-24)
+
+
+### Features
+
+* **client-comprehend:** This release adds a new field (FlywheelArn) to the EntitiesDetectionJobProperties object. The FlywheelArn field is returned in the DescribeEntitiesDetectionJob and ListEntitiesDetectionJobs responses when the EntitiesDetection job is started with a FlywheelArn instead of an EntityRecognizerArn . ([e1535f9](https://github.com/aws/aws-sdk-js-v3/commit/e1535f9547765545f6f57af8b690fd34a8332331))
+* **client-rds:** Added error code CreateCustomDBEngineVersionFault for when the create custom engine version for Custom engines fails. ([688beb7](https://github.com/aws/aws-sdk-js-v3/commit/688beb7b28dde78999f73f1d467288028daeceba))
+* **clients:** update client endpoints as of 2023-03-24 ([2a443ef](https://github.com/aws/aws-sdk-js-v3/commit/2a443ef1bf32bab62feb68a8a75c79e918549774))
+
+
+
+
+
 # [3.298.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.297.0...v3.298.0) (2023-03-23)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.299.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.298.0...v3.299.0) (2023-03-24)
+
+
+### Features
+
+* **client-rds:** Added error code CreateCustomDBEngineVersionFault for when the create custom engine version for Custom engines fails. ([688beb7](https://github.com/aws/aws-sdk-js-v3/commit/688beb7b28dde78999f73f1d467288028daeceba))
+
+
+
+
+
 # [3.298.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.297.0...v3.298.0) (2023-03-23)
 
 

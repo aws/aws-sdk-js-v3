@@ -38,10 +38,10 @@
 |@aws-sdk/credential-provider-cognito-identity|3.112.0|39.5 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/credential-provider-env|3.295.0|17.2 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-imds|3.295.0|49.8 KB|N/A|N/A|N/A|
-|@aws-sdk/credential-provider-ini|3.297.0|36.6 KB|N/A|N/A|N/A|
-|@aws-sdk/credential-provider-node|3.297.0|26.6 KB|N/A|N/A|N/A|
+|@aws-sdk/credential-provider-ini|3.298.0|36.6 KB|N/A|N/A|N/A|
+|@aws-sdk/credential-provider-node|3.298.0|26.6 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-process|3.295.0|21.8 KB|N/A|N/A|N/A|
-|@aws-sdk/credential-provider-sso|3.297.0|30.8 KB|N/A|N/A|N/A|
+|@aws-sdk/credential-provider-sso|3.298.0|30.8 KB|N/A|N/A|N/A|
 |@aws-sdk/credential-provider-web-identity|3.109.0|37 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/credential-providers|3.112.0|79.7 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/fetch-http-handler|3.109.0|75.6 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
@@ -52,6 +52,6 @@
 |@aws-sdk/s3-presigned-post|3.117.0|27 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/s3-request-presigner|3.117.0|30.1 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/signature-v4|3.109.0|180.8 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/signature-v4-crt|3.295.0|69.4 KB|N/A|N/A|N/A|
+|@aws-sdk/signature-v4-crt|3.296.0|69.2 KB|N/A|N/A|N/A|
 |@aws-sdk/smithy-client|3.109.0|128.9 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/types|3.109.0|141.2 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
