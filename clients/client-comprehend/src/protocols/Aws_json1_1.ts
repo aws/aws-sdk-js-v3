@@ -8768,6 +8768,7 @@ const deserializeAws_json1_1EntitiesDetectionJobProperties = (
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
     EntityRecognizerArn: __expectString(output.EntityRecognizerArn),
+    FlywheelArn: __expectString(output.FlywheelArn),
     InputDataConfig:
       output.InputDataConfig != null
         ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)

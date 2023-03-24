@@ -36,11 +36,11 @@ export interface ImportModelCommandOutput extends ImportModelResponse, __Metadat
 /**
  * @public
  * <p>Creates a new custom model that replicates a source custom model that you import. The
- *       source model can be in your AWS account or another one.</p>
- *          <p>If the source model is in another AWS account, then it must have a resource-based policy
+ *       source model can be in your Amazon Web Services account or another one.</p>
+ *          <p>If the source model is in another Amazon Web Services account, then it must have a resource-based policy
  *       that authorizes you to import it.</p>
- *          <p>The source model must be in the same AWS region that you're using when you import. You
- *       can't import a model that's in a different region.</p>
+ *          <p>The source model must be in the same Amazon Web Services Region that you're using when you import. You
+ *       can't import a model that's in a different Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

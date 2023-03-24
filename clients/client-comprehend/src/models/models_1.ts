@@ -203,7 +203,7 @@ export interface UpdateEndpointResponse {
  */
 export interface UpdateDataSecurityConfig {
   /**
-   * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+   * <p>ID for the KMS key that Amazon Comprehend uses to encrypt
    *       trained custom models. The ModelKmsKeyId can be either of the following formats:</p>
    *          <ul>
    *             <li>
@@ -247,7 +247,7 @@ export interface UpdateFlywheelRequest {
   ActiveModelArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+   * <p>The Amazon Resource Name (ARN) of the IAM role that
    *       grants Amazon Comprehend permission to access the flywheel data.</p>
    */
   DataAccessRoleArn?: string;

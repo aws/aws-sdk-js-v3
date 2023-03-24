@@ -35,7 +35,7 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
 
 /**
  * @public
- * <p>A flywheel is an AWS resource that orchestrates the ongoing training of a model for custom classification
+ * <p>A flywheel is an Amazon Web Services resource that orchestrates the ongoing training of a model for custom classification
  *       or custom entity recognition. You can create a flywheel to start with an existing trained model, or
  *       Comprehend can create and train a new model.</p>
  *          <p>When you create the flywheel, Comprehend creates a data lake in your account. The data lake holds the training

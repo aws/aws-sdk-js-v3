@@ -36,7 +36,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
 /**
  * @public
  * <p>Attaches a resource-based policy to a custom model. You can use this policy to authorize
- *       an entity in another AWS account to import the custom model, which replicates it in Amazon
+ *       an entity in another Amazon Web Services account to import the custom model, which replicates it in Amazon
  *       Comprehend in their account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
