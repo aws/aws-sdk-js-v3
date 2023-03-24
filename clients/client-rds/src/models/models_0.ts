@@ -2913,11 +2913,11 @@ export interface CreateBlueGreenDeploymentRequest {
 /**
  * @public
  * <p>Contains the details about a blue/green deployment.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
- *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
- *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
- *             User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS
+ *                 Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
+ *                 Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">Using Amazon RDS
+ *                 Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+ *                 User Guide</i>.</p>
  */
 export interface SwitchoverDetail {
   /**
@@ -2936,24 +2936,35 @@ export interface SwitchoverDetail {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>preparing-for-switchover</code> - The resource is being prepared to switch over.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ready-for-switchover</code> - The resource is ready to switch
+   *                   <code>PROVISIONING</code> - The resource is being prepared to switch
    *                     over.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>switchover-in-progress</code> - The resource is being switched over.</p>
+   *                   <code>AVAILABLE</code> - The resource is ready to switch over.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>switchover-completed</code> - The resource has been switched over.</p>
+   *                   <code>SWITCHOVER_IN_PROGRESS</code> - The resource is being switched
+   *                     over.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>switchover-failed</code> - The resource attempted to switch over but failed.</p>
+   *                   <code>SWITCHOVER_COMPLETED</code> - The resource has been switched
+   *                     over.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SWITCHOVER_FAILED</code> - The resource attempted to switch over but
+   *                     failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MISSING_SOURCE</code> - The source resource has been deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MISSING_TARGET</code> - The target resource has been deleted.</p>
    *             </li>
    *          </ul>
    */
@@ -3218,6 +3229,26 @@ export class SourceDatabaseNotSupportedFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, SourceDatabaseNotSupportedFault.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>An error occurred while trying to create the CEV.</p>
+ */
+export class CreateCustomDBEngineVersionFault extends __BaseException {
+  readonly name: "CreateCustomDBEngineVersionFault" = "CreateCustomDBEngineVersionFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CreateCustomDBEngineVersionFault, __BaseException>) {
+    super({
+      name: "CreateCustomDBEngineVersionFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CreateCustomDBEngineVersionFault.prototype);
   }
 }
 
@@ -3846,11 +3877,8 @@ export interface CreateDBClusterMessage {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>aurora</code> (for MySQL 5.6-compatible Aurora)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
@@ -3874,14 +3902,13 @@ export interface CreateDBClusterMessage {
 
   /**
    * <p>The version number of the database engine to use.</p>
-   *          <p>To list all of the available engine versions for MySQL 5.6-compatible Aurora, use the following command:</p>
-   *          <p>
-   *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
-   *          </p>
-   *          <p>To list all of the available engine versions for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora, use the following command:</p>
+   *          <p>To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (MySQL 8.0-compatible),
+   *             use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
+   *          <p>You can supply either <code>5.7</code> or <code>8.0</code> to use the default engine version for Aurora MySQL version 2 or
+   *             version 3, respectively.</p>
    *          <p>To list all of the available engine versions for Aurora PostgreSQL, use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code>
@@ -3897,7 +3924,7 @@ export interface CreateDBClusterMessage {
    *          <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html">MySQL on Amazon RDS Versions</a> in the
+   *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html">Database engine updates for Amazon Aurora MySQL</a> in the
    *           <i>Amazon Aurora User Guide</i>.</p>
    *          <p>
    *             <b>Aurora PostgreSQL</b>
@@ -3907,13 +3934,11 @@ export interface CreateDBClusterMessage {
    *          <p>
    *             <b>MySQL</b>
    *          </p>
-   *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL on Amazon RDS Versions</a> in the
-   *           <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">Amazon RDS for MySQL</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>
    *             <b>PostgreSQL</b>
    *          </p>
-   *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon RDS for PostgreSQL versions and extensions</a> in the
-   *           <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon RDS for PostgreSQL</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   EngineVersion?: string;
@@ -4164,16 +4189,8 @@ export interface CreateDBClusterMessage {
   EnableCloudwatchLogsExports?: string[];
 
   /**
-   * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-   *             <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</p>
-   *          <p>The <code>parallelquery</code> engine mode isn't required for Aurora MySQL version 1.23 and higher 1.x versions,
-   *             and version 2.09 and higher 2.x versions.</p>
-   *          <p>The <code>global</code> engine mode isn't required for Aurora MySQL version 1.22 and higher 1.x versions,
-   *             and <code>global</code> engine mode isn't required for any 2.x versions.</p>
-   *          <p>The <code>multimaster</code> engine mode only applies for DB clusters created with Aurora MySQL version 5.6.10a.</p>
+   * <p>The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.</p>
    *          <p>The <code>serverless</code> engine mode only applies for Aurora Serverless v1 DB clusters.</p>
-   *          <p>For Aurora PostgreSQL, the <code>global</code> engine mode isn't required, and both the <code>parallelquery</code>
-   *             and the <code>multimaster</code> engine modes currently aren't supported.</p>
    *          <p>Limitations and requirements apply to some DB engine modes. For more information, see the
    *             following sections in the <i>Amazon Aurora User Guide</i>:</p>
    *          <ul>
@@ -4191,19 +4208,13 @@ export interface CreateDBClusterMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">Limitations of Parallel Query</a>
+   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">Limitations of parallel query</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">Limitations of
-   *                         Aurora Global Databases</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">Limitations of
-   *                         Multi-Master Clusters</a>
+   *                         Aurora global databases</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -4309,9 +4320,8 @@ export interface CreateDBClusterMessage {
   /**
    * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially allocated
    *             for each DB instance in the Multi-AZ DB cluster.</p>
-   *          <p>For information about valid IOPS values, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon RDS Provisioned IOPS storage</a>
-   *             in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>For information about valid IOPS values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Provisioned IOPS storage</a> in the <i>Amazon RDS
+   *                 User Guide</i>.</p>
    *          <p>This setting is required to create a Multi-AZ DB cluster.</p>
    *          <p>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB cluster.</p>
    *          <p>Valid for: Multi-AZ DB clusters only</p>
@@ -10244,8 +10254,7 @@ export interface GlobalCluster {
   DeletionProtection?: boolean;
 
   /**
-   * <p>The list of cluster IDs for secondary clusters within the global database cluster. Currently limited to
-   *         1 item.</p>
+   * <p>The list of primary and secondary clusters within the global database cluster.</p>
    */
   GlobalClusterMembers?: GlobalClusterMember[];
 
@@ -12422,10 +12431,6 @@ export interface DescribeDBEngineVersionsMessage {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>aurora</code> (for MySQL 5.6-compatible Aurora)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    *             </li>
    *             <li>
@@ -12963,25 +12968,6 @@ export interface DescribeDBParameterGroupsMessage {
    *             If this parameter is specified, the response includes
    *         only records beyond the marker,
    *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- * <p>Contains the result of a successful invocation of the <code>DescribeDBParameters</code> action.</p>
- */
-export interface DBParameterGroupDetails {
-  /**
-   * <p>A list of <code>Parameter</code> values.</p>
-   */
-  Parameters?: Parameter[];
-
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
 }

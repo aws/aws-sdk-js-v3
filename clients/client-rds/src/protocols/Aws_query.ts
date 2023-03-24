@@ -520,6 +520,7 @@ import {
   CopyOptionGroupResult,
   CreateBlueGreenDeploymentRequest,
   CreateBlueGreenDeploymentResponse,
+  CreateCustomDBEngineVersionFault,
   CreateCustomDBEngineVersionMessage,
   CreateDBClusterEndpointMessage,
   CreateDBClusterMessage,
@@ -600,7 +601,6 @@ import {
   DBInstanceStatusInfo,
   DBParameterGroup,
   DBParameterGroupAlreadyExistsFault,
-  DBParameterGroupDetails,
   DBParameterGroupNotFoundFault,
   DBParameterGroupQuotaExceededFault,
   DBParameterGroupsMessage,
@@ -775,6 +775,7 @@ import {
   DBClusterRoleNotFoundFault,
   DBInstanceRoleNotFoundFault,
   DBLogFileNotFoundFault,
+  DBParameterGroupDetails,
   DBParameterGroupNameMessage,
   DBProxyTarget,
   DBProxyTargetAlreadyRegisteredFault,
@@ -3953,6 +3954,9 @@ const deserializeAws_queryCreateCustomDBEngineVersionCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CreateCustomDBEngineVersionFault":
+    case "com.amazonaws.rds#CreateCustomDBEngineVersionFault":
+      throw await deserializeAws_queryCreateCustomDBEngineVersionFaultResponse(parsedOutput, context);
     case "CustomDBEngineVersionAlreadyExistsFault":
     case "com.amazonaws.rds#CustomDBEngineVersionAlreadyExistsFault":
       throw await deserializeAws_queryCustomDBEngineVersionAlreadyExistsFaultResponse(parsedOutput, context);
@@ -10358,6 +10362,19 @@ const deserializeAws_queryCertificateNotFoundFaultResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCertificateNotFoundFault(body.Error, context);
   const exception = new CertificateNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_queryCreateCustomDBEngineVersionFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CreateCustomDBEngineVersionFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryCreateCustomDBEngineVersionFault(body.Error, context);
+  const exception = new CreateCustomDBEngineVersionFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -17780,6 +17797,17 @@ const deserializeAws_queryCreateBlueGreenDeploymentResponse = (
   const contents: any = {};
   if (output["BlueGreenDeployment"] !== undefined) {
     contents.BlueGreenDeployment = deserializeAws_queryBlueGreenDeployment(output["BlueGreenDeployment"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateCustomDBEngineVersionFault = (
+  output: any,
+  context: __SerdeContext
+): CreateCustomDBEngineVersionFault => {
+  const contents: any = {};
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };

@@ -38,6 +38,25 @@ import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
 /**
  * @public
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBParameters</code> action.</p>
+ */
+export interface DBParameterGroupDetails {
+  /**
+   * <p>A list of <code>Parameter</code> values.</p>
+   */
+  Parameters?: Parameter[];
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
  */
 export interface DescribeDBParametersMessage {
   /**
@@ -2061,10 +2080,6 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>aurora</code> (for MySQL 5.6-compatible Aurora)</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    *             </li>
    *             <li>
@@ -3798,11 +3813,8 @@ export interface ModifyDBClusterMessage {
    * <p>The version number of the database engine to which you want to upgrade.
    *             Changing this parameter results in an outage. The change is applied during
    *             the next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
-   *          <p>To list all of the available engine versions for MySQL 5.6-compatible Aurora, use the following command:</p>
-   *          <p>
-   *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
-   *          </p>
-   *          <p>To list all of the available engine versions for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora, use the following command:</p>
+   *          <p>To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible) and version 3 (MySQL 8.0-compatible),
+   *             use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
@@ -6488,26 +6500,21 @@ export interface RestoreDBClusterFromS3Message {
 
   /**
    * <p>The name of the database engine to be used for this DB cluster.</p>
-   *          <p>Valid Values: <code>aurora</code> (for MySQL 5.6-compatible Aurora) and <code>aurora-mysql</code>
-   *             (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
+   *          <p>Valid Values: <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    */
   Engine: string | undefined;
 
   /**
    * <p>The version number of the database engine to use.</p>
-   *          <p>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible Aurora), use the following command:</p>
-   *          <p>
-   *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
-   *          </p>
-   *          <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora), use the following command:</p>
+   *          <p>To list all of the available engine versions for <code>aurora-mysql</code> (MySQL 5.7-compatible and MySQL 8.0-compatible
+   *             Aurora), use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
    *          <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *          <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.mysql_aurora.2.07.1</code>,
-   *                 <code>8.0.mysql_aurora.3.02.0</code>
+   *          <p>Examples: <code>5.7.mysql_aurora.2.07.1</code>, <code>8.0.mysql_aurora.3.02.0</code>
    *          </p>
    */
   EngineVersion?: string;
@@ -6689,10 +6696,6 @@ export interface RestoreDBClusterFromS3Message {
    *             <b>Aurora MySQL</b>
    *          </p>
    *          <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
-   *          <p>
-   *             <b>Aurora PostgreSQL</b>
-   *          </p>
-   *          <p>Possible value is <code>postgresql</code>.</p>
    *          <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    */
   EnableCloudwatchLogsExports?: string[];
@@ -6911,11 +6914,8 @@ export interface RestoreDBClusterFromSnapshotMessage {
   Engine: string | undefined;
 
   /**
-   * <p>The version of the database engine to use for the new DB cluster.</p>
-   *          <p>To list all of the available engine versions for MySQL 5.6-compatible Aurora, use the following command:</p>
-   *          <p>
-   *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
-   *          </p>
+   * <p>The version of the database engine to use for the new DB cluster. If you don't specify an engine version, the default version
+   *             for the database engine in the Amazon Web Services Region is used.</p>
    *          <p>To list all of the available engine versions for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora, use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
@@ -6935,24 +6935,24 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html">MySQL on Amazon RDS Versions</a> in the
-   *           <i>Amazon Aurora User Guide</i>.</p>
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html">Database
+   *             engine updates for Amazon Aurora MySQL</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *          <p>
    *             <b>Aurora PostgreSQL</b>
    *          </p>
-   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html">Amazon Aurora PostgreSQL releases and engine versions</a> in the
-   *           <i>Amazon Aurora User Guide</i>.</p>
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html">Amazon
+   *             Aurora PostgreSQL releases and engine versions</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *          <p>
    *             <b>MySQL</b>
    *          </p>
-   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL on Amazon RDS Versions</a> in the
-   *           <i>Amazon RDS User Guide.</i>
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">Amazon
+   *             RDS for MySQL</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
    *          <p>
    *             <b>PostgreSQL</b>
    *          </p>
-   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon RDS for PostgreSQL versions and extensions</a> in the
-   *           <i>Amazon RDS User Guide.</i>
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon
+   *             RDS for PostgreSQL versions and extensions</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
@@ -9514,6 +9514,40 @@ export interface StartExportTaskMessage {
   /**
    * <p>The name of the IAM role to use for writing to the Amazon S3 bucket
    *             when exporting a snapshot or cluster.</p>
+   *          <p>In the IAM policy attached to your IAM role, include the following required actions to allow the transfer of files from Amazon
+   *             RDS or Amazon Aurora to an S3 bucket:</p>
+   *          <ul>
+   *             <li>
+   *                <p>s3:PutObject*</p>
+   *             </li>
+   *             <li>
+   *                <p>s3:GetObject*</p>
+   *             </li>
+   *             <li>
+   *                <p>s3:ListBucket</p>
+   *             </li>
+   *             <li>
+   *                <p>s3:DeleteObject*</p>
+   *             </li>
+   *             <li>
+   *                <p>s3:GetBucketLocation </p>
+   *             </li>
+   *          </ul>
+   *          <p>In the policy, include the resources to identify the S3 bucket and objects in the bucket. The following list of resources shows
+   *             the Amazon Resource Name (ARN) format for accessing S3:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:s3:::<i>your-s3-bucket</i>
+   *                   </code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:s3:::<i>your-s3-bucket</i>/*</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   IamRoleArn: string | undefined;
 

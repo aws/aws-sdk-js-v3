@@ -51,8 +51,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
  *          <note>
- *             <p>This action only applies to Aurora DB clusters. The source DB engine must be
- *                 MySQL.</p>
+ *             <p>This action only applies to Aurora DB clusters. The source DB engine must be MySQL.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -52,6 +52,9 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * @see {@link CreateCustomDBEngineVersionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link CreateCustomDBEngineVersionFault} (client fault)
+ *  <p>An error occurred while trying to create the CEV.</p>
+ *
  * @throws {@link CustomDBEngineVersionAlreadyExistsFault} (client fault)
  *  <p>A CEV with the specified name already exists.</p>
  *

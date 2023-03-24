@@ -37,6 +37,10 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
 /**
  * @public
  * <p>Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
+ *          <p>If you create an Aurora DB cluster, the request creates an empty cluster. You must
+ *             explicitly create the writer instance for your DB cluster using the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html">CreateDBInstance</a> operation. If you create a Multi-AZ DB cluster, the
+ *             request creates a writer and two reader DB instances for you, each in a different
+ *             Availability Zone.</p>
  *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
  *             Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or
  *             PostgreSQL DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What is Amazon Aurora?</a> in the <i>Amazon Aurora User

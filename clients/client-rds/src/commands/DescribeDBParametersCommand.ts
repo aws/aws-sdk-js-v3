@@ -13,8 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBParameterGroupDetails } from "../models/models_0";
-import { DescribeDBParametersMessage } from "../models/models_1";
+import { DBParameterGroupDetails, DescribeDBParametersMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeDBParametersCommand,
   serializeAws_queryDescribeDBParametersCommand,
