@@ -990,8 +990,8 @@ export interface DescribeAutoMLJobV2Response {
   PartialFailureReasons?: AutoMLPartialFailureReason[];
 
   /**
-   * <p>Information about the candidate produced by an AutoML training job V2,
-   *       including its status, steps, and other properties.</p>
+   * <p>Information about the candidate produced by an AutoML training job V2, including its
+   *          status, steps, and other properties.</p>
    */
   BestCandidate?: AutoMLCandidate;
 
@@ -1017,7 +1017,8 @@ export interface DescribeAutoMLJobV2Response {
   ModelDeployResult?: ModelDeployResult;
 
   /**
-   * <p>Returns the configuration settings of how the data are split into train and validation datasets.</p>
+   * <p>Returns the configuration settings of how the data are split into train and validation
+   *          datasets.</p>
    */
   DataSplitConfig?: AutoMLDataSplitConfig;
 

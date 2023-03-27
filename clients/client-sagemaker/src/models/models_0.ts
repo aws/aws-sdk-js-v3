@@ -592,15 +592,13 @@ export enum AlgorithmSortBy {
 
 /**
  * @public
- * <p>Specifies a metric that the training algorithm
- *             writes
- *             to <code>stderr</code> or <code>stdout</code>. SageMakerhyperparameter
- *             tuning captures
- *             all
- *             defined metrics.
- *             You
- *             specify one metric that a hyperparameter tuning job uses as its
- *             objective metric to choose the best training job.</p>
+ * <p>Specifies a metric that the training algorithm writes to <code>stderr</code> or
+ *                 <code>stdout</code>. You can view these logs to understand how your training job
+ *             performs and check for any errors encountered during training. SageMaker hyperparameter
+ *             tuning captures all defined metrics. Specify one of the defined metrics to use as an
+ *             objective metric using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-TuningObjective">TuningObjective</a> parameter in the
+ *                 <code>HyperParameterTrainingJobDefinition</code> API to evaluate job performance
+ *             during hyperparameter tuning.</p>
  */
 export interface MetricDefinition {
   /**
@@ -611,8 +609,8 @@ export interface MetricDefinition {
   /**
    * <p>A regular expression that searches the output of a training job and gets the value of
    *             the metric. For more information about using regular expressions to define metrics, see
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html">Defining
-   *                 Objective Metrics</a>.</p>
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Defining
+   *                 metrics and environment variables</a>.</p>
    */
   Regex: string | undefined;
 }
@@ -4341,7 +4339,9 @@ export interface FinalAutoMLJobObjectiveMetric {
 
   /**
    * <p>The name of the metric with the best result. For a description of the possible objective
-   *          metrics, see <a>AutoMLJobObjective$MetricName</a>.</p>
+   *          metrics, see <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective$MetricName</a>
+   *             </code>.</p>
    */
   MetricName: AutoMLMetricEnum | string | undefined;
 
@@ -4368,22 +4368,34 @@ export enum AutoMLProcessingUnit {
 /**
  * @public
  * <p>A list of container definitions that describe the different containers that make up an
- *          AutoML candidate. For more information, see .</p>
+ *          AutoML candidate. For more information, see <code>
+ *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
+ *                ContainerDefinition</a>
+ *             </code>.</p>
  */
 export interface AutoMLContainerDefinition {
   /**
    * <p>The Amazon Elastic Container Registry (Amazon ECR) path of the container. For more
-   *          information, see .</p>
+   *          information, see <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
+   *                ContainerDefinition</a>
+   *             </code>.</p>
    */
   Image: string | undefined;
 
   /**
-   * <p>The location of the model artifacts. For more information, see .</p>
+   * <p>The location of the model artifacts. For more information, see <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html"> ContainerDefinition</a>
+   *             </code>.</p>
    */
   ModelDataUrl: string | undefined;
 
   /**
-   * <p>The environment variables to set in the container. For more information, see .</p>
+   * <p>The environment variables to set in the container. For more information, see
+   *                <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html">
+   *                ContainerDefinition</a>
+   *             </code>.</p>
    */
   Environment?: Record<string, string>;
 }
@@ -4527,7 +4539,10 @@ export interface AutoMLCandidateGenerationConfig {
    *                the given training mode.</p>
    *             </li>
    *          </ul>
-   *          <p>For the list of all algorithms per training mode, see .</p>
+   *          <p>For the list of all algorithms per training mode, see <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+   *                AutoMLAlgorithmConfig</a>
+   *             </code>.</p>
    *          <p>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm support</a> section in Autopilot developer guide.</p>
    */
   AlgorithmsConfig?: AutoMLAlgorithmConfig[];
@@ -4629,7 +4644,9 @@ export interface AutoMLDataSource {
  * @public
  * <p>A channel is a named input source that training algorithms can consume. The validation
  *          dataset size is limited to less than 2 GB. The training dataset size must be less than 100
- *          GB. For more information, see .</p>
+ *          GB. For more information, see <code>
+ *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html"> Channel</a>
+ *             </code>.</p>
  *          <note>
  *             <p>A validation dataset must contain the same headers as the training dataset.</p>
  *          </note>
@@ -4710,8 +4727,13 @@ export interface AutoMLJobArtifacts {
  * @public
  * <p>A channel is a named input source that training algorithms can consume. This channel is
  *          used for the non tabular training data of an AutoML job using the V2 API. For tabular
- *          training data, see .
- *          For more information, see .</p>
+ *          training data, see <code>
+ *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLChannel.html">
+ *             AutoMLChannel</a>
+ *             </code>. For more information, see <code>
+ *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html">
+ *                Channel</a>
+ *             </code>.</p>
  */
 export interface AutoMLJobChannel {
   /**
@@ -4769,9 +4791,13 @@ export interface AutoMLJobCompletionCriteria {
   /**
    * <p>The maximum time, in seconds, that each training job executed inside hyperparameter
    *          tuning is allowed to run as part of a hyperparameter tuning job. For more information, see
-   *          the  used by the  action.</p>
-   *          <p>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>),
-   *          this field controls the runtime of the job candidate.</p>
+   *          the <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
+   *             </code> used by the <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
+   *             </code> action.</p>
+   *          <p>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field
+   *          controls the runtime of the job candidate.</p>
    */
   MaxRuntimePerTrainingJobInSeconds?: number;
 
@@ -5193,7 +5219,8 @@ export interface AutoMLOutputDataConfig {
  */
 export interface ImageClassificationJobConfig {
   /**
-   * <p>How long a job is allowed to run, or how many candidates a job is allowed to generate.</p>
+   * <p>How long a job is allowed to run, or how many candidates a job is allowed to
+   *          generate.</p>
    */
   CompletionCriteria?: AutoMLJobCompletionCriteria;
 }
@@ -5205,7 +5232,8 @@ export interface ImageClassificationJobConfig {
  */
 export interface TextClassificationJobConfig {
   /**
-   * <p>How long a job is allowed to run, or how many candidates a job is allowed to generate.</p>
+   * <p>How long a job is allowed to run, or how many candidates a job is allowed to
+   *          generate.</p>
    */
   CompletionCriteria?: AutoMLJobCompletionCriteria;
 
@@ -7780,9 +7808,11 @@ export interface CreateAutoMLJobRequest {
 
   /**
    * <p>An array of channel objects that describes the input data and its location. Each channel
-   *          is a named input source. Similar to <code>InputDataConfig</code> supported by . Format(s) supported: CSV, Parquet.
-   *          A minimum of 500 rows is required for the training dataset. There is not a minimum number
-   *          of rows required for the validation dataset.</p>
+   *          is a named input source. Similar to <code>InputDataConfig</code> supported by <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a>
+   *             </code>. Format(s) supported: CSV,
+   *          Parquet. A minimum of 500 rows is required for the training dataset. There is not a minimum
+   *          number of rows required for the validation dataset.</p>
    */
   InputDataConfig: AutoMLChannel[] | undefined;
 
@@ -7794,16 +7824,19 @@ export interface CreateAutoMLJobRequest {
 
   /**
    * <p>Defines the type of supervised learning problem available for the candidates. For more
-   *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
-   *             Amazon SageMaker Autopilot problem types and algorithm support</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types">
+   *             Amazon SageMaker Autopilot problem types</a>.</p>
    */
   ProblemType?: ProblemType | string;
 
   /**
    * <p>Defines the objective metric used to measure the predictive quality of an AutoML job. You
-   *          provide an <a>AutoMLJobObjective$MetricName</a> and Autopilot infers whether to
-   *          minimize or maximize it. For , only
-   *             <code>Accuracy</code> is supported.</p>
+   *          provide an <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html">AutoMLJobObjective$MetricName</a>
+   *             </code> and Autopilot infers whether to minimize or
+   *          maximize it. For <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>
+   *             </code>, only <code>Accuracy</code> is supported.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
@@ -7860,8 +7893,10 @@ export interface CreateAutoMLJobV2Request {
 
   /**
    * <p>An array of channel objects describing the input data and their location. Each channel
-   *          is a named input source. Similar to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a> supported by <code>CreateAutoMLJob</code>. The supported
-   *          formats depend on the problem type:</p>
+   *          is a named input source. Similar to <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a>
+   *             </code> supported by <code>CreateAutoMLJob</code>. The
+   *          supported formats depend on the problem type:</p>
    *          <ul>
    *             <li>
    *                <p>ImageClassification: S3Prefix, <code>ManifestFile</code>,
@@ -7905,8 +7940,9 @@ export interface CreateAutoMLJobV2Request {
   SecurityConfig?: AutoMLSecurityConfig;
 
   /**
-   * <p>Specifies a metric to minimize or maximize as the objective of a job.
-   *        For , only <code>Accuracy</code> is supported.</p>
+   * <p>Specifies a metric to minimize or maximize as the objective of a job. For <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>
+   *             </code>, only <code>Accuracy</code> is supported.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 

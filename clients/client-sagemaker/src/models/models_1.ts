@@ -1922,7 +1922,9 @@ export interface HyperbandStrategyConfig {
    *          value, it is stopped. If a value for <code>MaxResource</code> is not provided, and
    *             <code>Hyperband</code> is selected as the hyperparameter tuning strategy,
    *             <code>HyperbandTrainingJ</code> attempts to infer <code>MaxResource</code> from the
-   *          following keys (if present) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters">StaticsHyperParameters</a>:</p>
+   *          following keys (if present) in <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters">StaticsHyperParameters</a>
+   *             </code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2459,7 +2461,7 @@ export interface HyperParameterTrainingJobDefinition {
 
   /**
    * <p>An environment variable that you can pass into the SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API. You can use an existing <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html#sagemaker-CreateTrainingJob-request-Environment">environment variable from the training container</a> or use your own. See
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html">Define metrics
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Define metrics
    *                 and variables</a> for more information.</p>
    *          <note>
    *             <p>The maximum number of items specified for <code>Map Entries</code> refers to the
