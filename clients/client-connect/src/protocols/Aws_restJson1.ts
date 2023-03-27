@@ -4253,6 +4253,7 @@ export const serializeAws_restJson1StartChatContactCommand = async (
     ...(input.PersistentChat != null && {
       PersistentChat: serializeAws_restJson1PersistentChat(input.PersistentChat, context),
     }),
+    ...(input.RelatedContactId != null && { RelatedContactId: input.RelatedContactId }),
     ...(input.SupportedMessagingContentTypes != null && {
       SupportedMessagingContentTypes: serializeAws_restJson1SupportedMessagingContentTypes(
         input.SupportedMessagingContentTypes,

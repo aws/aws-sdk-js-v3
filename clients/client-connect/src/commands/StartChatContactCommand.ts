@@ -84,6 +84,7 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *     RehydrationType: "ENTIRE_PAST_SESSION" || "FROM_SEGMENT",
  *     SourceContactId: "STRING_VALUE",
  *   },
+ *   RelatedContactId: "STRING_VALUE",
  * };
  * const command = new StartChatContactCommand(input);
  * const response = await client.send(command);
