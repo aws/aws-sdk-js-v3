@@ -4688,6 +4688,9 @@ const serializeAws_json1_1WorkGroupConfiguration = (input: WorkGroupConfiguratio
         context
       ),
     }),
+    ...(input.EnableMinimumEncryptionConfiguration != null && {
+      EnableMinimumEncryptionConfiguration: input.EnableMinimumEncryptionConfiguration,
+    }),
     ...(input.EnforceWorkGroupConfiguration != null && {
       EnforceWorkGroupConfiguration: input.EnforceWorkGroupConfiguration,
     }),
@@ -4717,6 +4720,9 @@ const serializeAws_json1_1WorkGroupConfigurationUpdates = (
         input.CustomerContentEncryptionConfiguration,
         context
       ),
+    }),
+    ...(input.EnableMinimumEncryptionConfiguration != null && {
+      EnableMinimumEncryptionConfiguration: input.EnableMinimumEncryptionConfiguration,
     }),
     ...(input.EnforceWorkGroupConfiguration != null && {
       EnforceWorkGroupConfiguration: input.EnforceWorkGroupConfiguration,
@@ -6280,6 +6286,7 @@ const deserializeAws_json1_1WorkGroupConfiguration = (output: any, context: __Se
             context
           )
         : undefined,
+    EnableMinimumEncryptionConfiguration: __expectBoolean(output.EnableMinimumEncryptionConfiguration),
     EnforceWorkGroupConfiguration: __expectBoolean(output.EnforceWorkGroupConfiguration),
     EngineVersion:
       output.EngineVersion != null ? deserializeAws_json1_1EngineVersion(output.EngineVersion, context) : undefined,

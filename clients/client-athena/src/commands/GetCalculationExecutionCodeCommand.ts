@@ -37,8 +37,7 @@ export interface GetCalculationExecutionCodeCommandOutput
 
 /**
  * @public
- * <p>Retrieves a pre-signed URL to a copy of the code that was executed for the
- *             calculation.</p>
+ * <p>Retrieves the unencrypted code that was executed for the calculation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

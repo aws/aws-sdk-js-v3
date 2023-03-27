@@ -36,10 +36,7 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
 /**
  * @public
  * <p>Updates the workgroup with the specified name. The workgroup's name cannot be changed.
- *             Only one of <code>ConfigurationsUpdates</code> or <code>ConfigurationUpdates</code> can
- *             be specified; <code>ConfigurationsUpdates</code> for a workgroup with multi engine
- *             support (for example, an Apache Spark enabled workgroup) or
- *                 <code>ConfigurationUpdates</code> for an Athena SQL workgroup.</p>
+ *             Only <code>ConfigurationUpdates</code> can be specified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,6 +77,7 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  *     CustomerContentEncryptionConfiguration: {
  *       KmsKey: "STRING_VALUE", // required
  *     },
+ *     EnableMinimumEncryptionConfiguration: true || false,
  *   },
  *   State: "ENABLED" || "DISABLED",
  * };

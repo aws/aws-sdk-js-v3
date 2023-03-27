@@ -35,10 +35,8 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
 
 /**
  * @public
- * <p>Creates a workgroup with the specified name. Only one of <code>Configurations</code>
- *             or <code>Configuration</code> can be specified; <code>Configurations</code> for a
- *             workgroup with multi engine support (for example, an Apache Spark enabled workgroup) or
- *                 <code>Configuration</code> for an Athena SQL workgroup.</p>
+ * <p>Creates a workgroup with the specified name. A workgroup can be an Apache Spark
+ *             enabled workgroup or an Athena SQL workgroup.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +70,7 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
  *     CustomerContentEncryptionConfiguration: {
  *       KmsKey: "STRING_VALUE", // required
  *     },
+ *     EnableMinimumEncryptionConfiguration: true || false,
  *   },
  *   Description: "STRING_VALUE",
  *   Tags: [

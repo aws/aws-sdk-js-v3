@@ -332,7 +332,7 @@ export enum EncryptionOption {
 
 /**
  * @public
- * <p>If query results are encrypted in Amazon S3, indicates the encryption option
+ * <p>If query and calculation results are encrypted in Amazon S3, indicates the encryption option
  *             used (for example, <code>SSE_KMS</code> or <code>CSE_KMS</code>) and key
  *             information.</p>
  */
@@ -356,25 +356,26 @@ export interface EncryptionConfiguration {
 
 /**
  * @public
- * <p>The location in Amazon S3 where query results are stored and the encryption
- *             option, if any, used for query results. These are known as "client-side settings". If
+ * <p>The location in Amazon S3 where query and calculation results are stored and the encryption
+ *             option, if any, used for query and calculation results. These are known as "client-side settings". If
  *             workgroup settings override client-side settings, then the query uses the workgroup
  *             settings.</p>
  */
 export interface ResultConfiguration {
   /**
-   * <p>The location in Amazon S3 where your query results are stored, such as
+   * <p>The location in Amazon S3 where your query and calculation results are stored, such as
    *                 <code>s3://path/to/query/bucket/</code>. To run the query, you must specify the
    *             query results location using one of the ways: either for individual queries using either
    *             this setting (client-side), or in the workgroup, using <a>WorkGroupConfiguration</a>. If none of them is set, Athena
-   *             issues an error that no output location is provided. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a>. If
-   *             workgroup settings override client-side settings, then the query uses the settings
-   *             specified for the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
+   *             issues an error that no output location is provided. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with query
+   *                 results, recent queries, and output files</a>. If workgroup settings override
+   *             client-side settings, then the query uses the settings specified for the workgroup. See
+   *                 <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
    */
   OutputLocation?: string;
 
   /**
-   * <p>If query results are encrypted in Amazon S3, indicates the encryption option
+   * <p>If query and calculation results are encrypted in Amazon S3, indicates the encryption option
    *             used (for example, <code>SSE_KMS</code> or <code>CSE_KMS</code>) and key information.
    *             This is a client-side setting. If workgroup settings override client-side settings, then
    *             the query uses the encryption configuration that is specified for the workgroup, and
@@ -410,11 +411,13 @@ export interface ResultConfiguration {
 
 /**
  * @public
- * <p>Specifies whether previous query results are reused, and if so, their maximum age.</p>
+ * <p>Specifies whether previous query results are reused, and if so, their maximum
+ *             age.</p>
  */
 export interface ResultReuseByAgeConfiguration {
   /**
-   * <p>True if previous query results can be reused when the query is run; otherwise, false. The default is false.</p>
+   * <p>True if previous query results can be reused when the query is run; otherwise, false.
+   *             The default is false.</p>
    */
   Enabled: boolean | undefined;
 
@@ -430,7 +433,8 @@ export interface ResultReuseByAgeConfiguration {
  */
 export interface ResultReuseConfiguration {
   /**
-   * <p>Specifies whether previous query results are reused, and if so, their maximum age.</p>
+   * <p>Specifies whether previous query results are reused, and if so, their maximum
+   *             age.</p>
    */
   ResultReuseByAgeConfiguration?: ResultReuseByAgeConfiguration;
 }
@@ -450,7 +454,8 @@ export enum StatementType {
  */
 export interface ResultReuseInformation {
   /**
-   * <p>True if a previous query result was reused; false if the result was generated from a new run of the query.</p>
+   * <p>True if a previous query result was reused; false if the result was generated from a
+   *             new run of the query.</p>
    */
   ReusedPreviousResult: boolean | undefined;
 }
@@ -509,7 +514,8 @@ export interface QueryExecutionStatistics {
   ServiceProcessingTimeInMillis?: number;
 
   /**
-   * <p>Contains information about whether previous query results were reused for the query.</p>
+   * <p>Contains information about whether previous query results were reused for the
+   *             query.</p>
    */
   ResultReuseInformation?: ResultReuseInformation;
 }
@@ -633,7 +639,7 @@ export interface QueryExecution {
   StatementType?: StatementType | string;
 
   /**
-   * <p>The location in Amazon S3 where query results were stored and the encryption
+   * <p>The location in Amazon S3 where query and calculation results are stored and the encryption
    *             option, if any, used for query results. These are known as "client-side settings". If
    *             workgroup settings override client-side settings, then the query uses the location for
    *             the query results and the encryption configuration that are specified for the
@@ -730,7 +736,7 @@ export interface BatchGetQueryExecutionOutput {
  *             which you define. For example, you can use tags to categorize Athena
  *             workgroups or data catalogs by purpose, owner, or environment. Use a consistent set of
  *             tag keys to make it easier to search and filter workgroups or data catalogs in your
- *             account. For best practices, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode
+ *             account. For best practices, see <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode
  *             characters, and tag values can be from 0 to 256 UTF-8 Unicode characters. Tags can use
  *             letters and numbers representable in UTF-8, and the following characters: + - = . _ : /
  *             @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you
@@ -1097,7 +1103,7 @@ export interface CustomerContentEncryptionConfiguration {
 /**
  * @public
  * <p>The configuration of the workgroup, which includes the location in Amazon S3
- *             where query results are stored, the encryption option, if any, used for query results,
+ *             where query and calculation results are stored, the encryption option, if any, used for query and calculation results,
  *             whether the Amazon CloudWatch Metrics are enabled for the workgroup and whether
  *             workgroup settings override query settings, and the data usage limits for the amount of
  *             data scanned per query or per workgroup. The workgroup settings override is specified in
@@ -1107,12 +1113,11 @@ export interface CustomerContentEncryptionConfiguration {
 export interface WorkGroupConfiguration {
   /**
    * <p>The configuration for the workgroup, which includes the location in Amazon S3
-   *             where query results are stored and the encryption option, if any, used for query
-   *             results. To run the query, you must specify the query results location using one of the
+   *             where query and calculation results are stored and the encryption option, if any, used for query and calculation results. To run the query, you must specify the query results location using one of the
    *             ways: either in the workgroup using this setting, or for individual queries
    *             (client-side), using <a>ResultConfiguration$OutputLocation</a>. If none of
    *             them is set, Athena issues an error that no output location is provided. For
-   *             more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a>.</p>
+   *             more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with query results, recent queries, and output files</a>.</p>
    */
   ResultConfiguration?: ResultConfiguration;
 
@@ -1157,7 +1162,7 @@ export interface WorkGroupConfiguration {
   AdditionalConfiguration?: string;
 
   /**
-   * <p>Role used in a notebook session for accessing the user's resources.</p>
+   * <p>Role used in a session for accessing the user's resources.</p>
    */
   ExecutionRole?: string;
 
@@ -1165,6 +1170,14 @@ export interface WorkGroupConfiguration {
    * <p>Specifies the KMS key that is used to encrypt the user's data stores in Athena.</p>
    */
   CustomerContentEncryptionConfiguration?: CustomerContentEncryptionConfiguration;
+
+  /**
+   * <p>Enforces a minimal level of encryption for the workgroup for query and calculation
+   *             results that are written to Amazon S3. When enabled, workgroup users can set
+   *             encryption only to the minimum level set by the administrator or higher when they submit queries.</p>
+   *          <p>The <code>EnforceWorkGroupConfiguration</code> setting takes precedence over the <code>EnableMinimumEncryptionConfiguration</code> flag. This means that if <code>EnforceWorkGroupConfiguration</code> is true, the <code>EnableMinimumEncryptionConfiguration</code> flag is ignored, and the workgroup configuration for encryption is used.</p>
+   */
+  EnableMinimumEncryptionConfiguration?: boolean;
 }
 
 /**
@@ -1177,11 +1190,13 @@ export interface CreateWorkGroupInput {
   Name: string | undefined;
 
   /**
-   * <p>Contains configuration information for creating an Athena SQL workgroup,
-   *             which includes the location in Amazon S3 where query results are stored, the
-   *             encryption configuration, if any, used for encrypting query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, the limit for the amount of
-   *             bytes scanned (cutoff) per query, if it is specified, and whether workgroup's settings
-   *             (specified with <code>EnforceWorkGroupConfiguration</code>) in the
+   * <p>Contains configuration information for creating an Athena SQL workgroup or
+   *             Spark enabled Athena workgroup. Athena SQL workgroup
+   *             configuration includes the location in Amazon S3 where query and calculation results are stored,
+   *             the encryption configuration, if any, used for encrypting query results, whether the
+   *                 Amazon CloudWatch Metrics are enabled for the workgroup, the limit for the
+   *             amount of bytes scanned (cutoff) per query, if it is specified, and whether workgroup's
+   *             settings (specified with <code>EnforceWorkGroupConfiguration</code>) in the
    *                 <code>WorkGroupConfiguration</code> override client-side settings. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
    */
   Configuration?: WorkGroupConfiguration;
@@ -1278,7 +1293,7 @@ export interface DeleteWorkGroupInput {
 
   /**
    * <p>The option to delete the workgroup and its contents even if the workgroup contains any
-   *             named queries or query executions.</p>
+   *             named queries, query executions, or notebooks.</p>
    */
   RecursiveDeleteOption?: boolean;
 }
@@ -1527,7 +1542,7 @@ export interface GetCalculationExecutionCodeRequest {
  */
 export interface GetCalculationExecutionCodeResponse {
   /**
-   * <p>A pre-signed URL to the code that executed the calculation.</p>
+   * <p>The unencrypted code that was executed for the calculation.</p>
    */
   CodeBlock?: string;
 }
@@ -1644,7 +1659,8 @@ export interface GetDataCatalogInput {
  * @public
  * <p>Contains information about a data catalog in an Amazon Web Services account.</p>
  *          <note>
- *             <p>In the Athena console, data catalogs are listed as "data sources" on the <b>Data sources</b> page under the <b>Data source name</b> column.</p>
+ *             <p>In the Athena console, data catalogs are listed as "data sources" on
+ *                 the <b>Data sources</b> page under the <b>Data source name</b> column.</p>
  *          </note>
  */
 export interface DataCatalog {
@@ -2106,10 +2122,10 @@ export interface EngineConfiguration {
 
   /**
    * <p>Contains additional notebook engine <code>MAP<string, string></code> parameter
-   *             mappings in the form of key-value pairs. To specify an Amazon S3 URI that the
-   *             Jupyter server will download and serve, specify a value for the <a>StartSessionRequest$NotebookVersion</a> field, and then add a key named
-   *                 <code>NotebookFileURI</code> to <code>AdditionalConfigs</code> that has value of the
-   *                 Amazon S3 URI.</p>
+   *             mappings in the form of key-value pairs. To specify an Athena notebook that
+   *             the Jupyter server will download and serve, specify a value for the <a>StartSessionRequest$NotebookVersion</a> field, and then add a key named
+   *                 <code>NotebookId</code> to <code>AdditionalConfigs</code> that has the value of the
+   *                 Athena notebook ID.</p>
    */
   AdditionalConfigs?: Record<string, string>;
 }
@@ -2135,7 +2151,7 @@ export interface SessionConfiguration {
   IdleTimeoutSeconds?: number;
 
   /**
-   * <p>If query results are encrypted in Amazon S3, indicates the encryption option
+   * <p>If query and calculation results are encrypted in Amazon S3, indicates the encryption option
    *             used (for example, <code>SSE_KMS</code> or <code>CSE_KMS</code>) and key
    *             information.</p>
    */
@@ -2144,7 +2160,7 @@ export interface SessionConfiguration {
 
 /**
  * @public
- * <p>Contains statistics for a notebook session.</p>
+ * <p>Contains statistics for a session.</p>
  */
 export interface SessionStatistics {
   /**
@@ -2169,7 +2185,7 @@ export enum SessionState {
 
 /**
  * @public
- * <p>Contains information about the status of a notebook session.</p>
+ * <p>Contains information about the status of a session.</p>
  */
 export interface SessionStatus {
   /**
@@ -2436,8 +2452,7 @@ export interface WorkGroup {
 
   /**
    * <p>The configuration of the workgroup, which includes the location in Amazon S3
-   *             where query results are stored, the encryption configuration, if any, used for query
-   *             results; whether the Amazon CloudWatch Metrics are enabled for the workgroup;
+   *             where query and calculation results are stored, the encryption configuration, if any, used for query and calculation results; whether the Amazon CloudWatch Metrics are enabled for the workgroup;
    *             whether workgroup settings override client-side settings; and the data usage limits for
    *             the amount of data scanned per query or per workgroup. The workgroup settings override
    *             is specified in <code>EnforceWorkGroupConfiguration</code> (true/false) in the
@@ -2509,7 +2524,7 @@ export interface ImportNotebookInput {
  */
 export interface ImportNotebookOutput {
   /**
-   * <p>The ID of the notebook to import.</p>
+   * <p>The ID assigned to the imported notebook.</p>
    */
   NotebookId?: string;
 }
@@ -2536,8 +2551,8 @@ export interface ListApplicationDPUSizesInput {
  */
 export interface ApplicationDPUSizes {
   /**
-   * <p>The name of the supported application runtime (for example, <code>Jupyter
-   *             1.0</code>).</p>
+   * <p>The name of the supported application runtime (for example, <code>Athena notebook
+   *                 version 1</code>).</p>
    */
   ApplicationRuntimeId?: string;
 
@@ -3200,7 +3215,7 @@ export interface ListSessionsRequest {
 
 /**
  * @public
- * <p>Contains summary information about a notebook session.</p>
+ * <p>Contains summary information about a session.</p>
  */
 export interface SessionSummary {
   /**
@@ -3595,9 +3610,7 @@ export interface StartSessionRequest {
   EngineConfiguration: EngineConfiguration | undefined;
 
   /**
-   * <p>The notebook version. This value is required only when requesting that a notebook
-   *             server be started for the session. The only valid notebook version is
-   *                 <code>Jupyter1.0</code>.</p>
+   * <p>The notebook version. This value is supplied automatically for notebook sessions in the Athena console and is not required for programmatic session access. The only valid notebook version is <code>Athena notebook version 1</code>. If you specify a value for <code>NotebookVersion</code>, you must also specify a value for <code>NotebookId</code>. See <a>EngineConfiguration$AdditionalConfigs</a>.</p>
    */
   NotebookVersion?: string;
 
@@ -3912,7 +3925,7 @@ export interface UpdateNotebookInput {
   Type: NotebookType | string | undefined;
 
   /**
-   * <p>The ID of the session in which the notebook will be updated.</p>
+   * <p>The active notebook session ID. Required if the notebook has an active session.</p>
    */
   SessionId?: string;
 
@@ -4003,12 +4016,12 @@ export interface UpdatePreparedStatementOutput {}
  */
 export interface ResultConfigurationUpdates {
   /**
-   * <p>The location in Amazon S3 where your query results are stored, such as
-   *                 <code>s3://path/to/query/bucket/</code>. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> If
-   *             workgroup settings override client-side settings, then the query uses the location for
-   *             the query results and the encryption configuration that are specified for the workgroup.
-   *             The "workgroup settings override" is specified in
-   *                 <code>EnforceWorkGroupConfiguration</code> (true/false) in the
+   * <p>The location in Amazon S3 where your query and calculation results are stored, such as
+   *                 <code>s3://path/to/query/bucket/</code>. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with query
+   *                 results, recent queries, and output files</a>. If workgroup settings override
+   *             client-side settings, then the query uses the location for the query results and the
+   *             encryption configuration that are specified for the workgroup. The "workgroup settings
+   *             override" is specified in <code>EnforceWorkGroupConfiguration</code> (true/false) in the
    *                 <code>WorkGroupConfiguration</code>. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
    */
   OutputLocation?: string;
@@ -4026,7 +4039,7 @@ export interface ResultConfigurationUpdates {
   RemoveOutputLocation?: boolean;
 
   /**
-   * <p>The encryption configuration for the query results.</p>
+   * <p>The encryption configuration for query and calculation results.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
 
@@ -4086,7 +4099,7 @@ export interface ResultConfigurationUpdates {
 /**
  * @public
  * <p>The configuration information that will be updated for this workgroup, which includes
- *             the location in Amazon S3 where query results are stored, the encryption option,
+ *             the location in Amazon S3 where query and calculation results are stored, the encryption option,
  *             if any, used for query results, whether the Amazon CloudWatch Metrics are enabled
  *             for the workgroup, whether the workgroup settings override the client-side settings, and
  *             the data usage limit for the amount of bytes scanned per query, if it is
@@ -4159,6 +4172,14 @@ export interface WorkGroupConfigurationUpdates {
    * <p>Specifies the KMS key that is used to encrypt the user's data stores in Athena.</p>
    */
   CustomerContentEncryptionConfiguration?: CustomerContentEncryptionConfiguration;
+
+  /**
+   * <p>Enforces a minimal level of encryption for the workgroup for query and calculation
+   *             results that are written to Amazon S3. When enabled, workgroup users can set
+   *             encryption only to the minimum level set by the administrator or higher when they submit queries. This setting does not apply to Spark-enabled workgroups.</p>
+   *          <p>The <code>EnforceWorkGroupConfiguration</code> setting takes precedence over the <code>EnableMinimumEncryptionConfiguration</code> flag. This means that if <code>EnforceWorkGroupConfiguration</code> is true, the <code>EnableMinimumEncryptionConfiguration</code> flag is ignored, and the workgroup configuration for encryption is used.</p>
+   */
+  EnableMinimumEncryptionConfiguration?: boolean;
 }
 
 /**

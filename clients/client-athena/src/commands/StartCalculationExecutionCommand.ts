@@ -36,7 +36,7 @@ export interface StartCalculationExecutionCommandOutput extends StartCalculation
 /**
  * @public
  * <p>Submits calculations for execution within a session. You can supply the code to run as
- *             an inline code block within the request or as an Amazon S3 URL.</p>
+ *             an inline code block within the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

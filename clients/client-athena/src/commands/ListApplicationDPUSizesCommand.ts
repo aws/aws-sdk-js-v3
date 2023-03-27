@@ -36,7 +36,7 @@ export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPU
 /**
  * @public
  * <p>Returns the supported DPU sizes for the supported application runtimes (for example,
- *                 <code>Jupyter 1.0</code>). </p>
+ *                 <code>Athena notebook version 1</code>). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -37,8 +37,9 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  * @public
  * <p>Streams the results of a single query execution specified by
  *                 <code>QueryExecutionId</code> from the Athena query results location in
- *                 Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> in the <i>Amazon Athena User Guide</i>. This request does not execute the query
- *             but returns results. Use <a>StartQueryExecution</a> to run a query.</p>
+ *                 Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with query results, recent queries, and
+ *                 output files</a> in the <i>Amazon Athena User Guide</i>.
+ *             This request does not execute the query but returns results. Use <a>StartQueryExecution</a> to run a query.</p>
  *          <p>To stream query results successfully, the IAM principal with permission to call
  *                 <code>GetQueryResults</code> also must have permissions to the Amazon S3
  *             <code>GetObject</code> action for the Athena query results location.</p>
