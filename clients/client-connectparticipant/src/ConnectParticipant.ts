@@ -37,10 +37,15 @@ import { ConnectParticipantClient } from "./ConnectParticipantClient";
 
 /**
  * @public
- * <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage
- *             a customer contact center. Amazon Connect enables customer contacts through voice or chat. Use
- *             the Amazon Connect Participant Service to manage chat participants, such as agents and
- *             customers.</p>
+ * <p>Amazon Connect is an easy-to-use omnichannel cloud contact center service that
+ *             enables companies of any size to deliver superior customer service at a lower cost.
+ *                 Amazon Connect communications capabilities make it easy for companies to deliver
+ *             personalized interactions across communication channels, including chat. </p>
+ *          <p>Use the Amazon Connect Participant Service to manage participants (for example,
+ *             agents, customers, and managers listening in), and to send messages and events within a
+ *             chat contact. The APIs in the service enable the following: sending chat messages,
+ *             attachment sharing, managing a participant's connection state and message events, and
+ *             retrieving chat transcripts.</p>
  */
 export class ConnectParticipant extends ConnectParticipantClient {
   /**
@@ -236,8 +241,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
    * @public
    * <p>Retrieves a transcript of the session, including details about any attachments. For
    *             information about accessing past chat contact transcripts for a persistent chat, see
-   *             <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.
-   *         </p>
+   *                 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>. </p>
    *          <note>
    *             <p>
    *                <code>ConnectionToken</code> is used for invoking this API instead of
