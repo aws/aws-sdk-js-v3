@@ -97,6 +97,7 @@ import {
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   TagQueryConfiguration,
+  ThrottlingException,
   ValidationException,
 } from "../models/models_0";
 import { ServiceCatalogAppRegistryServiceException as __BaseException } from "../models/ServiceCatalogAppRegistryServiceException";
@@ -844,6 +845,9 @@ const deserializeAws_restJson1AssociateResourceCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.servicecatalogappregistry#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.servicecatalogappregistry#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.servicecatalogappregistry#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -894,6 +898,9 @@ const deserializeAws_restJson1CreateApplicationCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.servicecatalogappregistry#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.servicecatalogappregistry#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.servicecatalogappregistry#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -1138,6 +1145,9 @@ const deserializeAws_restJson1DisassociateResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalogappregistry#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.servicecatalogappregistry#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.servicecatalogappregistry#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -1289,6 +1299,9 @@ export const deserializeAws_restJson1GetAttributeGroupCommand = async (
   }
   if (data.attributes != null) {
     contents.attributes = __expectString(data.attributes);
+  }
+  if (data.createdBy != null) {
+    contents.createdBy = __expectString(data.createdBy);
   }
   if (data.creationTime != null) {
     contents.creationTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.creationTime));
@@ -1765,6 +1778,12 @@ const deserializeAws_restJson1SyncResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalogappregistry#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.servicecatalogappregistry#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.servicecatalogappregistry#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1900,6 +1919,9 @@ const deserializeAws_restJson1UpdateApplicationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalogappregistry#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.servicecatalogappregistry#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.servicecatalogappregistry#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -2029,6 +2051,25 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1ThrottlingExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ThrottlingException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.message != null) {
+    contents.message = __expectString(data.message);
+  }
+  if (data.serviceCode != null) {
+    contents.serviceCode = __expectString(data.serviceCode);
+  }
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1ValidationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2146,6 +2187,7 @@ const deserializeAws_restJson1AttributeGroup = (output: any, context: __SerdeCon
 const deserializeAws_restJson1AttributeGroupDetails = (output: any, context: __SerdeContext): AttributeGroupDetails => {
   return {
     arn: __expectString(output.arn),
+    createdBy: __expectString(output.createdBy),
     id: __expectString(output.id),
     name: __expectString(output.name),
   } as any;
@@ -2196,6 +2238,7 @@ const deserializeAws_restJson1AttributeGroupSummaries = (
 const deserializeAws_restJson1AttributeGroupSummary = (output: any, context: __SerdeContext): AttributeGroupSummary => {
   return {
     arn: __expectString(output.arn),
+    createdBy: __expectString(output.createdBy),
     creationTime:
       output.creationTime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.creationTime)) : undefined,
     description: __expectString(output.description),

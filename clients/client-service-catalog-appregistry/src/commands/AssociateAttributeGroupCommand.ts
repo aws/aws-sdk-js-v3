@@ -73,7 +73,10 @@ export interface AssociateAttributeGroupCommandOutput extends AssociateAttribute
  *  <p>The specified resource does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The maximum number of resources per account has been reached.</p>
+ *  <p>
+ *       The maximum number
+ *       of resources per account
+ *       has been reached.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>

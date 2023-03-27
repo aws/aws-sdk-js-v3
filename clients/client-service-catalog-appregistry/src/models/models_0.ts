@@ -107,7 +107,7 @@ export interface TagQueryConfiguration {
  * @public
  * <p>
  *       Includes all
- *       of the Service Catalog AppRegistry settings.
+ *       of the AppRegistry settings.
  *     </p>
  */
 export interface AppRegistryConfiguration {
@@ -125,12 +125,20 @@ export interface AppRegistryConfiguration {
  */
 export interface AssociateAttributeGroupRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 
   /**
-   * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
+   * <p>
+   *        The name, ID, or ARN
+   *        of the attribute group
+   *        that holds the attributes
+   *        to describe the application.
+   *      </p>
    */
   attributeGroup: string | undefined;
 }
@@ -213,7 +221,10 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
- * <p>The maximum number of resources per account has been reached.</p>
+ * <p>
+ *       The maximum number
+ *       of resources per account
+ *       has been reached.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -264,7 +275,10 @@ export enum ResourceType {
  */
 export interface AssociateResourceRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 
@@ -292,6 +306,36 @@ export interface AssociateResourceResponse {
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *       The maximum number
+ *       of API requests
+ *       has been exceeded.
+ *     </p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The originating service code.</p>
+   */
+  serviceCode?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.serviceCode = opts.serviceCode;
+  }
 }
 
 /**
@@ -367,6 +411,11 @@ export interface AttributeGroupDetails {
    *     </p>
    */
   name?: string;
+
+  /**
+   * <p>The service principal that created the attribute group.</p>
+   */
+  createdBy?: string;
 }
 
 /**
@@ -403,6 +452,11 @@ export interface AttributeGroupSummary {
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was last updated. This time is the same as the creationTime for a newly created attribute group.</p>
    */
   lastUpdateTime?: Date;
+
+  /**
+   * <p>The service principal that created the attribute group.</p>
+   */
+  createdBy?: string;
 }
 
 /**
@@ -491,7 +545,10 @@ export interface CreateAttributeGroupResponse {
  */
 export interface DeleteApplicationRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 }
@@ -511,7 +568,12 @@ export interface DeleteApplicationResponse {
  */
 export interface DeleteAttributeGroupRequest {
   /**
-   * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
+   * <p>
+   *        The name, ID, or ARN
+   *        of the attribute group
+   *        that holds the attributes
+   *        to describe the application.
+   *      </p>
    */
   attributeGroup: string | undefined;
 }
@@ -531,12 +593,20 @@ export interface DeleteAttributeGroupResponse {
  */
 export interface DisassociateAttributeGroupRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 
   /**
-   * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
+   * <p>
+   *        The name, ID, or ARN
+   *        of the attribute group
+   *        that holds the attributes
+   *        to describe the application.
+   *      </p>
    */
   attributeGroup: string | undefined;
 }
@@ -596,7 +666,10 @@ export interface DisassociateResourceResponse {
  */
 export interface GetApplicationRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 }
@@ -719,7 +792,10 @@ export interface GetApplicationResponse {
  */
 export interface GetAssociatedResourceRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 
@@ -787,7 +863,12 @@ export interface GetAssociatedResourceResponse {
  */
 export interface GetAttributeGroupRequest {
   /**
-   * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
+   * <p>
+   *        The name, ID, or ARN
+   *        of the attribute group
+   *        that holds the attributes
+   *        to describe the application.
+   *      </p>
    */
   attributeGroup: string | undefined;
 }
@@ -835,6 +916,11 @@ export interface GetAttributeGroupResponse {
    * <p>Key-value pairs associated with the attribute group.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The service principal that created the attribute group.</p>
+   */
+  createdBy?: string;
 }
 
 /**
@@ -920,7 +1006,10 @@ export interface ListAssociatedAttributeGroupsResponse {
  */
 export interface ListAssociatedResourcesRequest {
   /**
-   * <p>The name or ID of the application.</p>
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application.
+   *      </p>
    */
   application: string | undefined;
 
@@ -1185,7 +1274,11 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateApplicationRequest {
   /**
-   * <p>The name or ID of the application that will be updated.</p>
+   * <p>
+   *        The name, ID, or ARN
+   *        of the application
+   *        that will be updated.
+   *      </p>
    */
   application: string | undefined;
 
@@ -1218,7 +1311,12 @@ export interface UpdateApplicationResponse {
  */
 export interface UpdateAttributeGroupRequest {
   /**
-   * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
+   * <p>
+   *        The name, ID, or ARN
+   *        of the attribute group
+   *        that holds the attributes
+   *        to describe the application.
+   *      </p>
    */
   attributeGroup: string | undefined;
 

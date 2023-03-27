@@ -39,7 +39,14 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
 
 /**
  * @public
- * <p>Associates a resource with an application. Both the resource and the application can be specified either by ID or name.</p>
+ * <p>
+ *        Associates a resource
+ *        with an application.
+ *        The resource can be specified
+ *        by its ARN or name.
+ *        The application can be specified
+ *        by ARN, ID, or name.
+ *      </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,7 +79,17 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  *  <p>The specified resource does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The maximum number of resources per account has been reached.</p>
+ *  <p>
+ *       The maximum number
+ *       of resources per account
+ *       has been reached.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The maximum number
+ *       of API requests
+ *       has been exceeded.
+ *     </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request has invalid or missing parameters.</p>

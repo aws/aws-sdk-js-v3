@@ -39,7 +39,7 @@ export interface DeleteAttributeGroupCommandOutput extends DeleteAttributeGroupR
 
 /**
  * @public
- * <p>Deletes an attribute group, specified either by its attribute group ID or name.</p>
+ * <p>Deletes an attribute group, specified either by its attribute group ID, name, or ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

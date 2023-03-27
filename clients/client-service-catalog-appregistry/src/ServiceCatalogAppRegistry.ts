@@ -161,7 +161,14 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
 
   /**
    * @public
-   * <p>Associates a resource with an application. Both the resource and the application can be specified either by ID or name.</p>
+   * <p>
+   *        Associates a resource
+   *        with an application.
+   *        The resource can be specified
+   *        by its ARN or name.
+   *        The application can be specified
+   *        by ARN, ID, or name.
+   *      </p>
    */
   public associateResource(
     args: AssociateResourceCommandInput,
@@ -263,7 +270,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
 
   /**
    * @public
-   * <p>Deletes an application that is specified either by its application ID or name. All associated attribute groups and resources must be disassociated from it before deleting an application.</p>
+   * <p>Deletes an application that is specified either by its application ID, name, or ARN. All associated attribute groups and resources must be disassociated from it before deleting an application.</p>
    */
   public deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -296,7 +303,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
 
   /**
    * @public
-   * <p>Deletes an attribute group, specified either by its attribute group ID or name.</p>
+   * <p>Deletes an attribute group, specified either by its attribute group ID, name, or ARN.</p>
    */
   public deleteAttributeGroup(
     args: DeleteAttributeGroupCommandInput,
@@ -395,7 +402,25 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
 
   /**
    * @public
-   * <p>Retrieves metadata information about one of your applications. The application can be specified either by its unique ID or by its name (which is unique within one account in one region at a given point in time). Specify by ID in automated workflows if you want to make sure that the exact same application is returned or a <code>ResourceNotFoundException</code> is thrown, avoiding the ABA addressing problem.</p>
+   * <p>
+   *        Retrieves metadata information
+   *        about one
+   *        of your applications.
+   *        The application can be specified
+   *        by its ARN, ID, or name
+   *        (which is unique
+   *        within one account
+   *        in one region
+   *        at a given point
+   *        in time).
+   *        Specify
+   *        by ARN or ID
+   *        in automated workflows
+   *        if you want
+   *        to make sure
+   *        that the exact same application is returned or a <code>ResourceNotFoundException</code> is thrown,
+   *        avoiding the ABA addressing problem.
+   *      </p>
    */
   public getApplication(
     args: GetApplicationCommandInput,
@@ -461,7 +486,12 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
 
   /**
    * @public
-   * <p>Retrieves an attribute group, either by its name or its ID. The attribute group can be specified either by its unique ID or by its name.</p>
+   * <p>
+   *        Retrieves an attribute group
+   *        by its ARN, ID, or name.
+   *        The attribute group can be specified
+   *        by its ARN, ID, or name.
+   *      </p>
    */
   public getAttributeGroup(
     args: GetAttributeGroupCommandInput,

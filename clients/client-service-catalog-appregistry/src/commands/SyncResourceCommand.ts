@@ -71,6 +71,16 @@ export interface SyncResourceCommandOutput extends SyncResourceResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *       The maximum number
+ *       of API requests
+ *       has been exceeded.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request has invalid or missing parameters.</p>
+ *
  *
  */
 export class SyncResourceCommand extends $Command<

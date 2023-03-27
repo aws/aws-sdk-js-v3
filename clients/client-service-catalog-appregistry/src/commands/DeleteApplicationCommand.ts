@@ -39,7 +39,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
 
 /**
  * @public
- * <p>Deletes an application that is specified either by its application ID or name. All associated attribute groups and resources must be disassociated from it before deleting an application.</p>
+ * <p>Deletes an application that is specified either by its application ID, name, or ARN. All associated attribute groups and resources must be disassociated from it before deleting an application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

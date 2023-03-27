@@ -39,7 +39,12 @@ export interface GetAttributeGroupCommandOutput extends GetAttributeGroupRespons
 
 /**
  * @public
- * <p>Retrieves an attribute group, either by its name or its ID. The attribute group can be specified either by its unique ID or by its name.</p>
+ * <p>
+ *        Retrieves an attribute group
+ *        by its ARN, ID, or name.
+ *        The attribute group can be specified
+ *        by its ARN, ID, or name.
+ *      </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
